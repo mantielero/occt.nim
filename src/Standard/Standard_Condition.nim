@@ -1,33 +1,102 @@
-{.push header: "Standard_Condition.hxx".}
+##  Created by: Kirill Gavrilov
+##  Copyright (c) 2018 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+# when not defined windows:
+#   discard
+## ! This is boolean flag intended for communication between threads.
+## ! One thread sets this flag to TRUE to indicate some event happened
+## ! and another thread either waits this event or checks periodically its state to perform job.
+## !
+## ! This class provides interface similar to WinAPI Event objects.
+
+type
+  StandardCondition* {.importcpp: "Standard_Condition",
+                      header: "Standard_Condition.hxx", bycopy.} = object ## ! Default
+                                                                     ## constructor.
+                                                                     ## ! @param theIsSet Initial flag state
+#     when defined windows:
+#       discard
+#     when not defined windows:
+#       discard
+#     when not defined windows:
+#       discard
+#     when not defined windows:
+#       discard
 
 
-# Constructors and methods
-proc constructor_Standard_Condition*(theIsSet: bool): Standard_Condition {.constructor,importcpp: "Standard_Condition(@)".}
-  ## Default constructor.
+proc constructStandardCondition*(theIsSet: bool): StandardCondition {.constructor,
+    importcpp: "Standard_Condition(@)", header: "Standard_Condition.hxx".}
+proc destroyStandardCondition*(this: var StandardCondition) {.
+    importcpp: "#.~Standard_Condition()", header: "Standard_Condition.hxx".}
+proc set*(this: var StandardCondition) {.importcpp: "Set",
+                                     header: "Standard_Condition.hxx".}
+proc reset*(this: var StandardCondition) {.importcpp: "Reset",
+                                       header: "Standard_Condition.hxx".}
+proc wait*(this: var StandardCondition) {.importcpp: "Wait",
+                                      header: "Standard_Condition.hxx".}
+proc wait*(this: var StandardCondition; theTimeMilliseconds: cint): bool {.
+    importcpp: "Wait", header: "Standard_Condition.hxx".}
+proc check*(this: var StandardCondition): bool {.importcpp: "Check",
+    header: "Standard_Condition.hxx".}
+proc checkReset*(this: var StandardCondition): bool {.importcpp: "CheckReset",
+    header: "Standard_Condition.hxx".}
+## !!!Ignored construct:  # _WIN32 [NewLine] ! Access native HANDLE to Event object. void * getHandle ( ) const { return myEvent ; } # [NewLine] private : ! This method should not be called (prohibited). Standard_Condition ( const Standard_Condition & theCopy ) ;
+## Error: identifier expected, but got: ! Access native HANDLE to Event object.!!!
 
-proc constructor_Standard_Condition*(theCopy: Standard_Condition): Standard_Condition {.constructor,importcpp: "Standard_Condition(@)".}
-  ## This method should not be called (prohibited).
 
-proc Set*(this: var Standard_Condition)  {.importcpp: "Set".}
-  ## Set event into signaling state.
 
-proc Reset*(this: var Standard_Condition)  {.importcpp: "Reset".}
-  ## Reset event (unset signaling state)
 
-proc Wait*(this: var Standard_Condition)  {.importcpp: "Wait".}
-  ## Wait for Event (infinity).
 
-proc Wait*(this: var Standard_Condition, theTimeMilliseconds: cint): bool  {.importcpp: "Wait".}
-  ## Wait for signal requested time.
 
-proc Check*(this: var Standard_Condition): bool  {.importcpp: "Check".}
-  ## Do not wait for signal - just test it state.
 
-proc CheckReset*(this: var Standard_Condition): bool  {.importcpp: "CheckReset".}
-  ## Method perform two steps at-once - reset the event object and returns
-  ## true if it was in signaling state.
 
-proc `=`*(this: var Standard_Condition, theCopy: Standard_Condition): Standard_Condition  {.importcpp: "`=`".}
-  ## This method should not be called (prohibited).
 
-{.pop.} # header: "Standard_Condition.hxx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

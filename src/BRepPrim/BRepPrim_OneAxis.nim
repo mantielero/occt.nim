@@ -1,184 +1,148 @@
-{.push header: "BRepPrim_OneAxis.hxx".}
+##  Created on: 1991-07-23
+##  Created by: Christophe MARION
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_DomainError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of BRepPrim_Builder"
+discard "forward decl of gp_Ax2"
+discard "forward decl of TopoDS_Face"
+discard "forward decl of TopoDS_Edge"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of TopoDS_Shell"
+discard "forward decl of TopoDS_Wire"
+discard "forward decl of TopoDS_Vertex"
+type
+  BRepPrimOneAxis* {.importcpp: "BRepPrim_OneAxis", header: "BRepPrim_OneAxis.hxx",
+                    bycopy.} = object of RootObj ## ! Creates a OneAxis algorithm.  <B> is used to build
+                                   ## ! the Topology. The angle defaults to 2*PI.
 
 
-# Constructors and methods
-proc constructor_BRepPrim_OneAxis*(B: BRepPrim_Builder, A: gp_Ax2, VMin: cdouble, VMax: cdouble): BRepPrim_OneAxis {.constructor,importcpp: "BRepPrim_OneAxis(@)".}
-  ## Creates a OneAxis algorithm. <B> is used to build the Topology. The
-  ## angle defaults to 2*PI.
-#[
-proc ` new`*(this: var BRepPrim_OneAxis, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_OneAxis, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepPrim_OneAxis, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepPrim_OneAxis, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepPrim_OneAxis, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_OneAxis, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
-proc setMeridianOffset*(this: var BRepPrim_OneAxis, MeridianOffset: cdouble)  {.importcpp: "SetMeridianOffset".}
-  ## The MeridianOffset is added to the parameters on the meridian curve
-  ## and to the V values of the pcurves. This is used for the sphere for
-  ## example, to give a range on the meridian edge which is not VMin, VMax.
-
-proc axes*(this: BRepPrim_OneAxis): gp_Ax2  {.importcpp: "Axes".}
-  ## Returns the Ax2 from <me>.
-
-proc axes*(this: var BRepPrim_OneAxis, A: gp_Ax2)  {.importcpp: "Axes".}
-
-proc angle*(this: BRepPrim_OneAxis): cdouble  {.importcpp: "Angle".}
-
-proc angle*(this: var BRepPrim_OneAxis, A: cdouble)  {.importcpp: "Angle".}
-
-proc vMin*(this: BRepPrim_OneAxis): cdouble  {.importcpp: "VMin".}
-
-proc vMin*(this: var BRepPrim_OneAxis, V: cdouble)  {.importcpp: "VMin".}
-
-proc vMax*(this: BRepPrim_OneAxis): cdouble  {.importcpp: "VMax".}
-
-proc vMax*(this: var BRepPrim_OneAxis, V: cdouble)  {.importcpp: "VMax".}
-
-proc makeEmptyLateralFace*(this: BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "MakeEmptyLateralFace".}
-  ## Returns a face with no edges. The surface is the lateral surface with
-  ## normals pointing outward. The U parameter is the angle with the origin
-  ## on the X axis. The V parameter is the parameter of the meridian.
-
-proc makeEmptyMeridianEdge*(this: BRepPrim_OneAxis, Ang: cdouble): TopoDS_Edge  {.importcpp: "MakeEmptyMeridianEdge".}
-  ## Returns an edge with a 3D curve made from the meridian in the XZ plane
-  ## rotated by <Ang> around the Z-axis. Ang may be 0 or myAngle.
-
-proc setMeridianPCurve*(this: BRepPrim_OneAxis, E: var TopoDS_Edge, F: TopoDS_Face)  {.importcpp: "SetMeridianPCurve".}
-  ## Sets the parametric curve of the edge <E> in the face <F> to be the 2d
-  ## representation of the meridian.
-
-proc meridianValue*(this: BRepPrim_OneAxis, V: cdouble): gp_Pnt2d  {.importcpp: "MeridianValue".}
-  ## Returns the meridian point at parameter <V> in the plane XZ.
-
-proc meridianOnAxis*(this: BRepPrim_OneAxis, V: cdouble): bool  {.importcpp: "MeridianOnAxis".}
-  ## Returns True if the point of parameter <V> on the meridian is on the
-  ## Axis. Default implementation is Abs(MeridianValue(V).X()) <
-  ## Precision::Confusion()
-
-proc meridianClosed*(this: BRepPrim_OneAxis): bool  {.importcpp: "MeridianClosed".}
-  ## Returns True if the meridian is closed. Default implementation is
-  ## MeridianValue(VMin).IsEqual(MeridianValue(VMax),
-  ## Precision::Confusion())
-
-proc vMaxInfinite*(this: BRepPrim_OneAxis): bool  {.importcpp: "VMaxInfinite".}
-  ## Returns True if VMax is infinite. Default
-  ## Precision::IsPositiveInfinite(VMax);
-
-proc vMinInfinite*(this: BRepPrim_OneAxis): bool  {.importcpp: "VMinInfinite".}
-  ## Returns True if VMin is infinite. Default
-  ## Precision::IsNegativeInfinite(VMax);
-
-proc hasTop*(this: BRepPrim_OneAxis): bool  {.importcpp: "HasTop".}
-  ## Returns True if there is a top face.
-
-proc hasBottom*(this: BRepPrim_OneAxis): bool  {.importcpp: "HasBottom".}
-  ## Returns True if there is a bottom face.
-
-proc hasSides*(this: BRepPrim_OneAxis): bool  {.importcpp: "HasSides".}
-  ## Returns True if there are Start and End faces.
-
-proc shell*(this: var BRepPrim_OneAxis): TopoDS_Shell  {.importcpp: "Shell".}
-  ## Returns the Shell containing all the Faces of the primitive.
-
-proc lateralFace*(this: var BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "LateralFace".}
-  ## Returns the lateral Face. It is oriented toward the outside of the
-  ## primitive.
-
-proc topFace*(this: var BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "TopFace".}
-  ## Returns the top planar Face. It is Oriented toward the +Z axis
-  ## (outside).
-
-proc bottomFace*(this: var BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "BottomFace".}
-  ## Returns the Bottom planar Face. It is Oriented toward the -Z axis
-  ## (outside).
-
-proc startFace*(this: var BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "StartFace".}
-  ## Returns the Face starting the slice, it is oriented toward the
-  ## exterior of the primitive.
-
-proc endFace*(this: var BRepPrim_OneAxis): TopoDS_Face  {.importcpp: "EndFace".}
-  ## Returns the Face ending the slice, it is oriented toward the exterior
-  ## of the primitive.
-
-proc lateralWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "LateralWire".}
-  ## Returns the wire in the lateral face.
-
-proc lateralStartWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "LateralStartWire".}
-  ## Returns the wire in the lateral face with the start edge.
-
-proc lateralEndWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "LateralEndWire".}
-  ## Returns the wire with in lateral face with the end edge.
-
-proc topWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "TopWire".}
-  ## Returns the wire in the top face.
-
-proc bottomWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "BottomWire".}
-  ## Returns the wire in the bottom face.
-
-proc startWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "StartWire".}
-  ## Returns the wire in the start face.
-
-proc axisStartWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "AxisStartWire".}
-  ## Returns the wire in the start face with the AxisEdge.
-
-proc endWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "EndWire".}
-  ## Returns the Wire in the end face.
-
-proc axisEndWire*(this: var BRepPrim_OneAxis): TopoDS_Wire  {.importcpp: "AxisEndWire".}
-  ## Returns the Wire in the end face with the AxisEdge.
-
-proc axisEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "AxisEdge".}
-  ## Returns the Edge built along the Axis and oriented on +Z of the Axis.
-
-proc startEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "StartEdge".}
-  ## Returns the Edge at angle 0.
-
-proc endEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "EndEdge".}
-  ## Returns the Edge at angle Angle. If !HasSides() the StartEdge and the
-  ## EndEdge are the same edge.
-
-proc startTopEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "StartTopEdge".}
-  ## Returns the linear Edge between start Face and top Face.
-
-proc startBottomEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "StartBottomEdge".}
-  ## Returns the linear Edge between start Face and bottom Face.
-
-proc endTopEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "EndTopEdge".}
-  ## Returns the linear Edge between end Face and top Face.
-
-proc endBottomEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "EndBottomEdge".}
-  ## Returns the linear Edge between end Face and bottom Face.
-
-proc topEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "TopEdge".}
-  ## Returns the edge at VMax. If MeridianClosed() the TopEdge and the
-  ## BottomEdge are the same edge.
-
-proc bottomEdge*(this: var BRepPrim_OneAxis): TopoDS_Edge  {.importcpp: "BottomEdge".}
-  ## Returns the edge at VMin. If MeridianClosed() the TopEdge and the
-  ## BottomEdge are the same edge.
-
-proc axisTopVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "AxisTopVertex".}
-  ## Returns the Vertex at the Top altitude on the axis.
-
-proc axisBottomVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "AxisBottomVertex".}
-  ## Returns the Vertex at the Bottom altitude on the axis.
-
-proc topStartVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "TopStartVertex".}
-  ## Returns the vertex (0,VMax)
-
-proc topEndVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "TopEndVertex".}
-  ## Returns the vertex (angle,VMax)
-
-proc bottomStartVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "BottomStartVertex".}
-  ## Returns the vertex (0,VMin)
-
-proc bottomEndVertex*(this: var BRepPrim_OneAxis): TopoDS_Vertex  {.importcpp: "BottomEndVertex".}
-  ## Returns the vertex (angle,VMax)
-
-{.pop.} # header: "BRepPrim_OneAxis.hxx
+proc `new`*(this: var BRepPrimOneAxis; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_OneAxis::operator new", header: "BRepPrim_OneAxis.hxx".}
+proc `delete`*(this: var BRepPrimOneAxis; theAddress: pointer) {.
+    importcpp: "BRepPrim_OneAxis::operator delete", header: "BRepPrim_OneAxis.hxx".}
+proc `new[]`*(this: var BRepPrimOneAxis; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_OneAxis::operator new[]", header: "BRepPrim_OneAxis.hxx".}
+proc `delete[]`*(this: var BRepPrimOneAxis; theAddress: pointer) {.
+    importcpp: "BRepPrim_OneAxis::operator delete[]",
+    header: "BRepPrim_OneAxis.hxx".}
+proc `new`*(this: var BRepPrimOneAxis; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_OneAxis::operator new", header: "BRepPrim_OneAxis.hxx".}
+proc `delete`*(this: var BRepPrimOneAxis; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_OneAxis::operator delete", header: "BRepPrim_OneAxis.hxx".}
+proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: StandardReal = 0) {.
+    importcpp: "SetMeridianOffset", header: "BRepPrim_OneAxis.hxx".}
+proc axes*(this: BRepPrimOneAxis): Ax2 {.noSideEffect, importcpp: "Axes",
+                                     header: "BRepPrim_OneAxis.hxx".}
+proc axes*(this: var BRepPrimOneAxis; a: Ax2) {.importcpp: "Axes",
+    header: "BRepPrim_OneAxis.hxx".}
+proc angle*(this: BRepPrimOneAxis): StandardReal {.noSideEffect, importcpp: "Angle",
+    header: "BRepPrim_OneAxis.hxx".}
+proc angle*(this: var BRepPrimOneAxis; a: StandardReal) {.importcpp: "Angle",
+    header: "BRepPrim_OneAxis.hxx".}
+proc vMin*(this: BRepPrimOneAxis): StandardReal {.noSideEffect, importcpp: "VMin",
+    header: "BRepPrim_OneAxis.hxx".}
+proc vMin*(this: var BRepPrimOneAxis; v: StandardReal) {.importcpp: "VMin",
+    header: "BRepPrim_OneAxis.hxx".}
+proc vMax*(this: BRepPrimOneAxis): StandardReal {.noSideEffect, importcpp: "VMax",
+    header: "BRepPrim_OneAxis.hxx".}
+proc vMax*(this: var BRepPrimOneAxis; v: StandardReal) {.importcpp: "VMax",
+    header: "BRepPrim_OneAxis.hxx".}
+proc makeEmptyLateralFace*(this: BRepPrimOneAxis): TopoDS_Face {.noSideEffect,
+    importcpp: "MakeEmptyLateralFace", header: "BRepPrim_OneAxis.hxx".}
+proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: StandardReal): TopoDS_Edge {.
+    noSideEffect, importcpp: "MakeEmptyMeridianEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc setMeridianPCurve*(this: BRepPrimOneAxis; e: var TopoDS_Edge; f: TopoDS_Face) {.
+    noSideEffect, importcpp: "SetMeridianPCurve", header: "BRepPrim_OneAxis.hxx".}
+proc meridianValue*(this: BRepPrimOneAxis; v: StandardReal): Pnt2d {.noSideEffect,
+    importcpp: "MeridianValue", header: "BRepPrim_OneAxis.hxx".}
+proc meridianOnAxis*(this: BRepPrimOneAxis; v: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "MeridianOnAxis", header: "BRepPrim_OneAxis.hxx".}
+proc meridianClosed*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "MeridianClosed", header: "BRepPrim_OneAxis.hxx".}
+proc vMaxInfinite*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "VMaxInfinite", header: "BRepPrim_OneAxis.hxx".}
+proc vMinInfinite*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "VMinInfinite", header: "BRepPrim_OneAxis.hxx".}
+proc hasTop*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "HasTop", header: "BRepPrim_OneAxis.hxx".}
+proc hasBottom*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "HasBottom", header: "BRepPrim_OneAxis.hxx".}
+proc hasSides*(this: BRepPrimOneAxis): StandardBoolean {.noSideEffect,
+    importcpp: "HasSides", header: "BRepPrim_OneAxis.hxx".}
+proc shell*(this: var BRepPrimOneAxis): TopoDS_Shell {.importcpp: "Shell",
+    header: "BRepPrim_OneAxis.hxx".}
+proc lateralFace*(this: var BRepPrimOneAxis): TopoDS_Face {.importcpp: "LateralFace",
+    header: "BRepPrim_OneAxis.hxx".}
+proc topFace*(this: var BRepPrimOneAxis): TopoDS_Face {.importcpp: "TopFace",
+    header: "BRepPrim_OneAxis.hxx".}
+proc bottomFace*(this: var BRepPrimOneAxis): TopoDS_Face {.importcpp: "BottomFace",
+    header: "BRepPrim_OneAxis.hxx".}
+proc startFace*(this: var BRepPrimOneAxis): TopoDS_Face {.importcpp: "StartFace",
+    header: "BRepPrim_OneAxis.hxx".}
+proc endFace*(this: var BRepPrimOneAxis): TopoDS_Face {.importcpp: "EndFace",
+    header: "BRepPrim_OneAxis.hxx".}
+proc lateralWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "LateralWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc lateralStartWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.
+    importcpp: "LateralStartWire", header: "BRepPrim_OneAxis.hxx".}
+proc lateralEndWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.
+    importcpp: "LateralEndWire", header: "BRepPrim_OneAxis.hxx".}
+proc topWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "TopWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc bottomWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "BottomWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc startWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "StartWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc axisStartWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.
+    importcpp: "AxisStartWire", header: "BRepPrim_OneAxis.hxx".}
+proc endWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "EndWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc axisEndWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.importcpp: "AxisEndWire",
+    header: "BRepPrim_OneAxis.hxx".}
+proc axisEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "AxisEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc startEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "StartEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc endEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "EndEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc startTopEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.
+    importcpp: "StartTopEdge", header: "BRepPrim_OneAxis.hxx".}
+proc startBottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.
+    importcpp: "StartBottomEdge", header: "BRepPrim_OneAxis.hxx".}
+proc endTopEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "EndTopEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc endBottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.
+    importcpp: "EndBottomEdge", header: "BRepPrim_OneAxis.hxx".}
+proc topEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "TopEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc bottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.importcpp: "BottomEdge",
+    header: "BRepPrim_OneAxis.hxx".}
+proc axisTopVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "AxisTopVertex", header: "BRepPrim_OneAxis.hxx".}
+proc axisBottomVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "AxisBottomVertex", header: "BRepPrim_OneAxis.hxx".}
+proc topStartVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "TopStartVertex", header: "BRepPrim_OneAxis.hxx".}
+proc topEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "TopEndVertex", header: "BRepPrim_OneAxis.hxx".}
+proc bottomStartVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "BottomStartVertex", header: "BRepPrim_OneAxis.hxx".}
+proc bottomEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.
+    importcpp: "BottomEndVertex", header: "BRepPrim_OneAxis.hxx".}
+proc destroyBRepPrimOneAxis*(this: var BRepPrimOneAxis) {.
+    importcpp: "#.~BRepPrim_OneAxis()", header: "BRepPrim_OneAxis.hxx".}

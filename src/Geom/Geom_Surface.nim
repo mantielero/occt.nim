@@ -1,143 +1,146 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Surface"
+discard "forward decl of Geom_Surface"
+
+type
+  GeomSurface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                                ## !
+                                                                                                ## Reverses
+                                                                                                ## the
+                                                                                                ## U
+                                                                                                ## direction
+                                                                                                ## of
+                                                                                                ## parametrization
+                                                                                                ## of
+                                                                                                ## <me>.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## The
+                                                                                                ## bounds
+                                                                                                ## of
+                                                                                                ## the
+                                                                                                ## surface
+                                                                                                ## are
+                                                                                                ## not
+                                                                                                ## modified.
 
 
 type
-  Handle_Geom_Surface* {.header: "Geom_Surface.hxx", importcpp: "Handle_Geom_Surface".} = handle[Geom_Surface]
-  Base_type* {.header: "Geom_Surface.hxx", importcpp: "Geom_Surface::base_type".} = Geom_Geometry
+  HandleGeomSurface* = Handle[GeomSurface]
+
+## ! Describes the common behavior of surfaces in 3D
+## ! space. The Geom package provides many
+## ! implementations of concrete derived surfaces, such as
+## ! planes, cylinders, cones, spheres and tori, surfaces of
+## ! linear extrusion, surfaces of revolution, Bezier and
+## ! BSpline surfaces, and so on.
+## ! The key characteristic of these surfaces is that they
+## ! are parameterized. Geom_Surface demonstrates:
+## ! - how to work with the parametric equation of a
+## ! surface to compute the point of parameters (u,
+## ! v), and, at this point, the 1st, 2nd ... Nth derivative,
+## ! - how to find global information about a surface in
+## ! each parametric direction (for example, level of
+## ! continuity, whether the surface is closed, its
+## ! periodicity, the bounds of the parameters and so on), and
+## ! - how the parameters change when geometric
+## ! transformations are applied to the surface, or the
+## ! orientation is modified.
+## ! Note that all surfaces must have a geometric
+## ! continuity, and any surface is at least "C0". Generally,
+## ! continuity is checked at construction time or when the
+## ! curve is edited. Where this is not the case, the
+## ! documentation makes this explicit.
+## ! Warning
+## ! The Geom package does not prevent the construction of
+## ! surfaces with null areas, or surfaces which self-intersect.
+
+type
+  GeomSurfacebaseType* = GeomGeometry
+
+proc uReverse*(this: var GeomSurface) {.importcpp: "UReverse",
+                                    header: "Geom_Surface.hxx".}
+proc uReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "UReversed", header: "Geom_Surface.hxx".}
+proc uReversedParameter*(this: GeomSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "Geom_Surface.hxx".}
+proc vReverse*(this: var GeomSurface) {.importcpp: "VReverse",
+                                    header: "Geom_Surface.hxx".}
+proc vReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "VReversed", header: "Geom_Surface.hxx".}
+proc vReversedParameter*(this: GeomSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "Geom_Surface.hxx".}
+proc transformParameters*(this: GeomSurface; u: var StandardReal; v: var StandardReal;
+                         t: Trsf) {.noSideEffect, importcpp: "TransformParameters",
+                                  header: "Geom_Surface.hxx".}
+proc parametricTransformation*(this: GeomSurface; t: Trsf): GTrsf2d {.noSideEffect,
+    importcpp: "ParametricTransformation", header: "Geom_Surface.hxx".}
+proc bounds*(this: GeomSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_Surface.hxx".}
+proc isUClosed*(this: GeomSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_Surface.hxx".}
+proc isVClosed*(this: GeomSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_Surface.hxx".}
+proc isUPeriodic*(this: GeomSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_Surface.hxx".}
+proc uPeriod*(this: GeomSurface): StandardReal {.noSideEffect, importcpp: "UPeriod",
+    header: "Geom_Surface.hxx".}
+proc isVPeriodic*(this: GeomSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_Surface.hxx".}
+proc vPeriod*(this: GeomSurface): StandardReal {.noSideEffect, importcpp: "VPeriod",
+    header: "Geom_Surface.hxx".}
+proc uIso*(this: GeomSurface; u: StandardReal): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_Surface.hxx".}
+proc vIso*(this: GeomSurface; v: StandardReal): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_Surface.hxx".}
+#[ proc continuity*(this: GeomSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Surface.hxx".} ]#
+proc isCNu*(this: GeomSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_Surface.hxx".}
+proc isCNv*(this: GeomSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_Surface.hxx".}
+proc d0*(this: GeomSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Surface.hxx".}
+proc d1*(this: GeomSurface; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1", header: "Geom_Surface.hxx".}
+proc d2*(this: GeomSurface; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_Surface.hxx".}
+proc d3*(this: GeomSurface; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_Surface.hxx".}
+proc dn*(this: GeomSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_Surface.hxx".}
+proc value*(this: GeomSurface; u: StandardReal; v: StandardReal): Pnt {.noSideEffect,
+    importcpp: "Value", header: "Geom_Surface.hxx".}
+proc dumpJson*(this: GeomSurface; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Surface.hxx".}
 
 
-{.push header: "Geom_Surface.hxx".}
-
-proc uReverse*(this: var Geom_Surface)  {.importcpp: "UReverse".}
-    ## Reverses the U direction of parametrization of <me>. The bounds of the
-    ## surface are not modified.
-
-proc uReversed*(this: Geom_Surface): handle[Geom_Surface]  {.importcpp: "UReversed".}
-    ## Reverses the U direction of parametrization of <me>. The bounds of the
-    ## surface are not modified. A copy of <me> is returned.
-
-proc uReversedParameter*(this: Geom_Surface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## Returns the parameter on the Ureversed surface for the point of
-    ## parameter U on <me>.
-
-proc vReverse*(this: var Geom_Surface)  {.importcpp: "VReverse".}
-    ## Reverses the V direction of parametrization of <me>. The bounds of the
-    ## surface are not modified.
-
-proc vReversed*(this: Geom_Surface): handle[Geom_Surface]  {.importcpp: "VReversed".}
-    ## Reverses the V direction of parametrization of <me>. The bounds of the
-    ## surface are not modified. A copy of <me> is returned.
-
-proc vReversedParameter*(this: Geom_Surface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Returns the parameter on the Vreversed surface for the point of
-    ## parameter V on <me>.
-
-proc transformParameters*(this: Geom_Surface, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-
-proc parametricTransformation*(this: Geom_Surface, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface.
-
-proc bounds*(this: Geom_Surface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## Returns the parametric bounds U1, U2, V1 and V2 of this surface. If
-    ## the surface is infinite, this function can return a value equal to
-    ## Precision::Infinite: instead of cdouble::LastReal.
-
-proc isUClosed*(this: Geom_Surface): bool  {.importcpp: "IsUClosed".}
-    ## Checks whether this surface is closed in the u parametric direction.
-    ## Returns true if, in the u parametric direction: taking uFirst and
-    ## uLast as the parametric bounds in the u parametric direction, for each
-    ## parameter v, the distance between the points P(uFirst, v) and P(uLast,
-    ## v) is less than or equal to gp::Resolution().
-
-proc isVClosed*(this: Geom_Surface): bool  {.importcpp: "IsVClosed".}
-    ## Checks whether this surface is closed in the u parametric direction.
-    ## Returns true if, in the v parametric direction: taking vFirst and
-    ## vLast as the parametric bounds in the v parametric direction, for each
-    ## parameter u, the distance between the points P(u, vFirst) and P(u,
-    ## vLast) is less than or equal to gp::Resolution().
-
-proc isUPeriodic*(this: Geom_Surface): bool  {.importcpp: "IsUPeriodic".}
-    ## Checks if this surface is periodic in the u parametric direction.
-    ## Returns true if: - this surface is closed in the u parametric
-    ## direction, and - there is a constant T such that the distance between
-    ## the points P (u, v) and P (u + T, v) (or the points P (u, v) and P (u,
-    ## v + T)) is less than or equal to gp::Resolution(). Note: T is the
-    ## parametric period in the u parametric direction.
-
-proc uPeriod*(this: Geom_Surface): cdouble  {.importcpp: "UPeriod".}
-    ## Returns the period of this surface in the u parametric direction.
-    ## raises if the surface is not uperiodic.
-
-proc isVPeriodic*(this: Geom_Surface): bool  {.importcpp: "IsVPeriodic".}
-    ## Checks if this surface is periodic in the v parametric direction.
-    ## Returns true if: - this surface is closed in the v parametric
-    ## direction, and - there is a constant T such that the distance between
-    ## the points P (u, v) and P (u + T, v) (or the points P (u, v) and P (u,
-    ## v + T)) is less than or equal to gp::Resolution(). Note: T is the
-    ## parametric period in the v parametric direction.
-
-proc vPeriod*(this: Geom_Surface): cdouble  {.importcpp: "VPeriod".}
-    ## Returns the period of this surface in the v parametric direction.
-    ## raises if the surface is not vperiodic.
-
-proc uIso*(this: Geom_Surface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Computes the U isoparametric curve.
-
-proc vIso*(this: Geom_Surface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Computes the V isoparametric curve.
-
-proc continuity*(this: Geom_Surface): GeomAbs_Shape  {.importcpp: "Continuity".}
-    ## Returns the Global Continuity of the surface in direction U and V : C0
-    ## : only geometric continuity, C1 : continuity of the first derivative
-    ## all along the surface, C2 : continuity of the second derivative all
-    ## along the surface, C3 : continuity of the third derivative all along
-    ## the surface, G1 : tangency continuity all along the surface, G2 :
-    ## curvature continuity all along the surface, CN : the order of
-    ## continuity is infinite. Example : If the surface is C1 in the V
-    ## parametric direction and C2 in the U parametric direction Shape = C1.
-
-proc isCNu*(this: Geom_Surface, N: cint): bool  {.importcpp: "IsCNu".}
-    ## Returns the order of continuity of the surface in the U parametric
-    ## direction. Raised if N < 0.
-
-proc isCNv*(this: Geom_Surface, N: cint): bool  {.importcpp: "IsCNv".}
-    ## Returns the order of continuity of the surface in the V parametric
-    ## direction. Raised if N < 0.
-
-proc d0*(this: Geom_Surface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Computes the point of parameter U,V on the surface.
-
-proc d1*(this: Geom_Surface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Computes the point P and the first derivatives in the directions U and
-    ## V at this point. Raised if the continuity of the surface is not C1.
-
-proc d2*(this: Geom_Surface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## Computes the point P, the first and the second derivatives in the
-    ## directions U and V at this point. Raised if the continuity of the
-    ## surface is not C2.
-
-proc d3*(this: Geom_Surface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Computes the point P, the first,the second and the third derivatives
-    ## in the directions U and V at this point. Raised if the continuity of
-    ## the surface is not C2.
-
-proc dN*(this: Geom_Surface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## ---Purpose ; Computes the derivative of order Nu in the direction U
-    ## and Nv in the direction V at the point P(U, V).
-
-proc value*(this: Geom_Surface, U: cdouble, V: cdouble): gp_Pnt  {.importcpp: "Value".}
-    ## Computes the point of parameter U on the surface.
-
-proc dumpJson*(this: Geom_Surface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_Surface): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Surface): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Surface): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Surface.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Surface::get_type_name(@)",
+                            header: "Geom_Surface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Surface::get_type_descriptor(@)", header: "Geom_Surface.hxx".}
+proc dynamicType*(this: GeomSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Surface.hxx".} ]#

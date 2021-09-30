@@ -1,198 +1,113 @@
-import gp_types
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "gp_Dir.hxx".}
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_DomainError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of gp_Vec"
+discard "forward decl of gp_XYZ"
+discard "forward decl of gp_Ax1"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Trsf"
+type
+  Dir* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc Dir*(): gp_Dir {.constructor,importcpp: "gp_Dir".}
-  ## Creates a direction corresponding to X axis.
-
-proc Dir*(V: gp_Vec): gp_Dir {.constructor,importcpp: "gp_Dir(@)".}
-  ## Normalizes the vector V and creates a direction. Raises
-  ## ConstructionError if V.Magnitude() <= Resolution.
-
-proc Dir*(Coord: gp_XYZ): gp_Dir {.constructor,importcpp: "gp_Dir(@)".}
-  ## Creates a direction from a triplet of coordinates. Raises
-  ## ConstructionError if Coord.Modulus() <= Resolution from gp.
-
-proc Dir*(Xv: cdouble, Yv: cdouble, Zv: cdouble): gp_Dir {.constructor,importcpp: "gp_Dir(@)".}
-  ## Creates a direction with its 3 cartesian coordinates. Raises
-  ## ConstructionError if Sqrt(Xv*Xv + Yv*Yv + Zv*Zv) <= Resolution
-  ## Modification of the direction's coordinates If Sqrt (X*X + Y*Y + Z*Z)
-  ## <= Resolution from gp where X, Y ,Z are the new coordinates it is not
-  ## possible to construct the direction and the method raises the
-  ## exception ConstructionError.
-#[
-proc ` new`*(this: var gp_Dir, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Dir, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Dir, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Dir, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Dir, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Dir, pointer, pointer)  {.importcpp: "` delete`".}
-]#
-
-proc setCoord*(this: var gp_Dir, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
-  ## For this unit vector, assigns the value Xi to: - the X coordinate if
-  ## Index is 1, or - the Y coordinate if Index is 2, or - the Z coordinate
-  ## if Index is 3, and then normalizes it. Warning Remember that all the
-  ## coordinates of a unit vector are implicitly modified when any single
-  ## one is changed directly. Exceptions Standard_OutOfRange if Index is
-  ## not 1, 2, or 3. Standard_ConstructionError if either of the following
-  ## is less than or equal to gp::Resolution(): - Sqrt(Xv*Xv + Yv*Yv +
-  ## Zv*Zv), or - the modulus of the number triple formed by the new value
-  ## Xi and the two other coordinates of this vector that were not directly
-  ## modified.
-
-proc setCoord*(this: var gp_Dir, Xv: cdouble, Yv: cdouble, Zv: cdouble)  {.importcpp: "SetCoord".}
-  ## For this unit vector, assigns the values Xv, Yv and Zv to its three
-  ## coordinates. Remember that all the coordinates of a unit vector are
-  ## implicitly modified when any single one is changed directly.
-
-proc setX*(this: var gp_Dir, X: cdouble)  {.importcpp: "SetX".}
-  ## Assigns the given value to the X coordinate of this unit vector.
-
-proc setY*(this: var gp_Dir, Y: cdouble)  {.importcpp: "SetY".}
-  ## Assigns the given value to the Y coordinate of this unit vector.
-
-proc setZ*(this: var gp_Dir, Z: cdouble)  {.importcpp: "SetZ".}
-  ## Assigns the given value to the Z coordinate of this unit vector.
-
-proc setXYZ*(this: var gp_Dir, Coord: gp_XYZ)  {.importcpp: "SetXYZ".}
-  ## Assigns the three coordinates of Coord to this unit vector.
-
-proc coord*(this: gp_Dir, Index: cint): cdouble  {.importcpp: "Coord".}
-  ## Returns the coordinate of range Index : Index = 1 => X is returned
-  ## Index = 2 => Y is returned Index = 3 => Z is returned Exceptions
-  ## Standard_OutOfRange if Index is not 1, 2, or 3.
-
-proc coord*(this: gp_Dir, Xv: var cdouble, Yv: var cdouble, Zv: var cdouble)  {.importcpp: "Coord".}
-  ## Returns for the unit vector its three coordinates Xv, Yv, and Zv.
-
-proc x*(this: gp_Dir): cdouble  {.importcpp: "X".}
-  ## Returns the X coordinate for a unit vector.
-
-proc y*(this: gp_Dir): cdouble  {.importcpp: "Y".}
-  ## Returns the Y coordinate for a unit vector.
-
-proc z*(this: gp_Dir): cdouble  {.importcpp: "Z".}
-  ## Returns the Z coordinate for a unit vector.
-
-proc xyz*(this: gp_Dir): gp_XYZ  {.importcpp: "XYZ".}
-  ## for this unit vector, returns its three coordinates as a number
-  ## triplea.
-
-proc isEqual*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsEqual".}
-  ## Returns True if the angle between the two directions is lower or equal
-  ## to AngularTolerance.
-
-proc isNormal*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
-  ## Returns True if the angle between this unit vector and the unit vector
-  ## Other is equal to Pi/2 (normal).
-
-proc isOpposite*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
-  ## Returns True if the angle between this unit vector and the unit vector
-  ## Other is equal to Pi (opposite).
-
-proc isParallel*(this: gp_Dir, Other: gp_Dir, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
-  ## Returns true if the angle between this unit vector and the unit vector
-  ## Other is equal to 0 or to Pi. Note: the tolerance criterion is given
-  ## by AngularTolerance.
-
-proc angle*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "Angle".}
-  ## Computes the angular value in radians between <me> and <Other>. This
-  ## value is always positive in 3D space. Returns the angle in the range
-  ## [0, PI]
-
-proc angleWithRef*(this: gp_Dir, Other: gp_Dir, VRef: gp_Dir): cdouble  {.importcpp: "AngleWithRef".}
-  ## Computes the angular value between <me> and <Other>. <VRef> is the
-  ## direction of reference normal to <me> and <Other> and its orientation
-  ## gives the positive sense of rotation. If the cross product <me> ^
-  ## <Other> has the same orientation as <VRef> the angular value is
-  ## positive else negative. Returns the angular value in the range -PI and
-  ## PI (in radians). Raises DomainError if <me> and <Other> are not
-  ## parallel this exception is raised when <VRef> is in the same plane as
-  ## <me> and <Other> The tolerance criterion is Resolution from package
-  ## gp.
-
-proc cross*(this: var gp_Dir, Right: gp_Dir)  {.importcpp: "Cross".}
-  ## Computes the cross product between two directions Raises the exception
-  ## ConstructionError if the two directions are parallel because the
-  ## computed vector cannot be normalized to create a direction.
-
-proc `^=`*(this: var gp_Dir, Right: gp_Dir)  {.importcpp: "# ^= #".}
-
-proc crossed*(this: gp_Dir, Right: gp_Dir): gp_Dir  {.importcpp: "Crossed".}
-  ## Computes the triple vector product. <me> ^ (V1 ^ V2) Raises the
-  ## exception ConstructionError if V1 and V2 are parallel or <me> and
-  ## (V1^V2) are parallel because the computed vector can't be normalized
-  ## to create a direction.
-
-proc `^`*(this: gp_Dir, Right: gp_Dir): gp_Dir  {.importcpp: "# ^ #".}
-
-proc crossCross*(this: var gp_Dir, V1: gp_Dir, V2: gp_Dir)  {.importcpp: "CrossCross".}
-
-proc crossCrossed*(this: gp_Dir, V1: gp_Dir, V2: gp_Dir): gp_Dir  {.importcpp: "CrossCrossed".}
-  ## Computes the double vector product this ^ (V1 ^ V2). - CrossCrossed
-  ## creates a new unit vector. Exceptions Standard_ConstructionError if: -
-  ## V1 and V2 are parallel, or - this unit vector and (V1 ^ V2) are
-  ## parallel. This is because, in these conditions, the computed vector is
-  ## null and cannot be normalized.
-
-proc dot*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "Dot".}
-  ## Computes the scalar product
-
-proc `*`*(this: gp_Dir, Other: gp_Dir): cdouble  {.importcpp: "# * #".}
-
-proc dotCross*(this: gp_Dir, V1: gp_Dir, V2: gp_Dir): cdouble  {.importcpp: "DotCross".}
-  ## Computes the triple scalar product <me> * (V1 ^ V2). Warnings : The
-  ## computed vector V1' = V1 ^ V2 is not normalized to create a unitary
-  ## vector. So this method never raises an exception even if V1 and V2 are
-  ## parallel.
-
-proc reverse*(this: var gp_Dir)  {.importcpp: "Reverse".}
-
-proc reversed*(this: gp_Dir): gp_Dir  {.importcpp: "Reversed".}
-  ## Reverses the orientation of a direction geometric transformations
-  ## Performs the symmetrical transformation of a direction with respect to
-  ## the direction V which is the center of the symmetry.]
-
-proc `-`*(this: gp_Dir): gp_Dir  {.importcpp: "# - #".}
-
-proc mirror*(this: var gp_Dir, V: gp_Dir)  {.importcpp: "Mirror".}
-
-proc mirrored*(this: gp_Dir, V: gp_Dir): gp_Dir  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a direction with respect to
-  ## the direction V which is the center of the symmetry.
-
-proc mirror*(this: var gp_Dir, A1: gp_Ax1)  {.importcpp: "Mirror".}
-
-proc mirrored*(this: gp_Dir, A1: gp_Ax1): gp_Dir  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a direction with respect to
-  ## an axis placement which is the axis of the symmetry.
-
-proc mirror*(this: var gp_Dir, A2: gp_Ax2)  {.importcpp: "Mirror".}
-
-proc mirrored*(this: gp_Dir, A2: gp_Ax2): gp_Dir  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a direction with respect to
-  ## a plane. The axis placement A2 locates the plane of the symmetry :
-  ## (Location, XDirection, YDirection).
-
-proc rotate*(this: var gp_Dir, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc rotated*(this: gp_Dir, A1: gp_Ax1, Ang: cdouble): gp_Dir  {.importcpp: "Rotated".}
-  ## Rotates a direction. A1 is the axis of the rotation. Ang is the
-  ## angular value of the rotation in radians.
-
-proc transform*(this: var gp_Dir, T: gp_Trsf)  {.importcpp: "Transform".}
-
-proc transformed*(this: gp_Dir, T: gp_Trsf): gp_Dir  {.importcpp: "Transformed".}
-  ## Transforms a direction with a "Trsf" from gp. Warnings : If the scale
-  ## factor of the "Trsf" T is negative then the direction <me> is
-  ## reversed.
-
-{.pop.} # header: "gp_Dir.hxx
+proc `new`*(this: var Dir; theSize: csize_t): pointer {.
+    importcpp: "gp_Dir::operator new", header: "gp_Dir.hxx".}
+proc `delete`*(this: var Dir; theAddress: pointer) {.
+    importcpp: "gp_Dir::operator delete", header: "gp_Dir.hxx".}
+proc `new[]`*(this: var Dir; theSize: csize_t): pointer {.
+    importcpp: "gp_Dir::operator new[]", header: "gp_Dir.hxx".}
+proc `delete[]`*(this: var Dir; theAddress: pointer) {.
+    importcpp: "gp_Dir::operator delete[]", header: "gp_Dir.hxx".}
+proc `new`*(this: var Dir; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Dir::operator new", header: "gp_Dir.hxx".}
+proc `delete`*(this: var Dir; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Dir::operator delete", header: "gp_Dir.hxx".}
+proc newDir*(): Dir {.constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc newDir*(v: Vec): Dir {.constructor, importcpp: "gp_Dir(@)",
+                              header: "gp_Dir.hxx".}
+proc newDir*(coord: Xyz): Dir {.constructor, importcpp: "gp_Dir(@)",
+                                  header: "gp_Dir.hxx".}
+proc newDir*(xv: StandardReal; yv: StandardReal; zv: StandardReal): Dir {.
+    constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc setCoord*(this: var Dir; index: int; xi: StandardReal) {.importcpp: "SetCoord",
+    header: "gp_Dir.hxx".}
+proc setCoord*(this: var Dir; xv: StandardReal; yv: StandardReal; zv: StandardReal) {.
+    importcpp: "SetCoord", header: "gp_Dir.hxx".}
+proc setX*(this: var Dir; x: StandardReal) {.importcpp: "SetX", header: "gp_Dir.hxx".}
+proc setY*(this: var Dir; y: StandardReal) {.importcpp: "SetY", header: "gp_Dir.hxx".}
+proc setZ*(this: var Dir; z: StandardReal) {.importcpp: "SetZ", header: "gp_Dir.hxx".}
+proc setXYZ*(this: var Dir; coord: Xyz) {.importcpp: "SetXYZ", header: "gp_Dir.hxx".}
+proc coord*(this: Dir; index: int): StandardReal {.noSideEffect, importcpp: "Coord",
+    header: "gp_Dir.hxx".}
+proc coord*(this: Dir; xv: var StandardReal; yv: var StandardReal; zv: var StandardReal) {.
+    noSideEffect, importcpp: "Coord", header: "gp_Dir.hxx".}
+proc x*(this: Dir): StandardReal {.noSideEffect, importcpp: "X", header: "gp_Dir.hxx".}
+proc y*(this: Dir): StandardReal {.noSideEffect, importcpp: "Y", header: "gp_Dir.hxx".}
+proc z*(this: Dir): StandardReal {.noSideEffect, importcpp: "Z", header: "gp_Dir.hxx".}
+proc xyz*(this: Dir): Xyz {.noSideEffect, importcpp: "XYZ", header: "gp_Dir.hxx".}
+proc isEqual*(this: Dir; other: Dir; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsEqual", header: "gp_Dir.hxx".}
+proc isNormal*(this: Dir; other: Dir; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsNormal", header: "gp_Dir.hxx".}
+proc isOpposite*(this: Dir; other: Dir; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsOpposite", header: "gp_Dir.hxx".}
+proc isParallel*(this: Dir; other: Dir; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsParallel", header: "gp_Dir.hxx".}
+proc angle*(this: Dir; other: Dir): StandardReal {.noSideEffect, importcpp: "Angle",
+    header: "gp_Dir.hxx".}
+proc angleWithRef*(this: Dir; other: Dir; vRef: Dir): StandardReal {.noSideEffect,
+    importcpp: "AngleWithRef", header: "gp_Dir.hxx".}
+proc cross*(this: var Dir; right: Dir) {.importcpp: "Cross", header: "gp_Dir.hxx".}
+proc `^=`*(this: var Dir; right: Dir) {.importcpp: "(# ^= #)", header: "gp_Dir.hxx".}
+proc crossed*(this: Dir; right: Dir): Dir {.noSideEffect, importcpp: "Crossed",
+                                      header: "gp_Dir.hxx".}
+proc `^`*(this: Dir; right: Dir): Dir {.noSideEffect, importcpp: "(# ^ #)",
+                                  header: "gp_Dir.hxx".}
+proc crossCross*(this: var Dir; v1: Dir; v2: Dir) {.importcpp: "CrossCross",
+    header: "gp_Dir.hxx".}
+proc crossCrossed*(this: Dir; v1: Dir; v2: Dir): Dir {.noSideEffect,
+    importcpp: "CrossCrossed", header: "gp_Dir.hxx".}
+proc dot*(this: Dir; other: Dir): StandardReal {.noSideEffect, importcpp: "Dot",
+    header: "gp_Dir.hxx".}
+proc `*`*(this: Dir; other: Dir): StandardReal {.noSideEffect, importcpp: "(# * #)",
+    header: "gp_Dir.hxx".}
+proc dotCross*(this: Dir; v1: Dir; v2: Dir): StandardReal {.noSideEffect,
+    importcpp: "DotCross", header: "gp_Dir.hxx".}
+proc reverse*(this: var Dir) {.importcpp: "Reverse", header: "gp_Dir.hxx".}
+proc reversed*(this: Dir): Dir {.noSideEffect, importcpp: "Reversed",
+                             header: "gp_Dir.hxx".}
+proc `-`*(this: Dir): Dir {.noSideEffect, importcpp: "(- #)", header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; v: Dir) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; v: Dir): Dir {.noSideEffect, importcpp: "Mirrored",
+                                   header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; a1: Ax1) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; a1: Ax1): Dir {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; a2: Ax2) {.importcpp: "Mirror", header: "gp_Dir.hxx".}
+proc mirrored*(this: Dir; a2: Ax2): Dir {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Dir.hxx".}
+proc rotate*(this: var Dir; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Dir.hxx".}
+proc rotated*(this: Dir; a1: Ax1; ang: StandardReal): Dir {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Dir.hxx".}
+proc transform*(this: var Dir; t: Trsf) {.importcpp: "Transform", header: "gp_Dir.hxx".}
+proc transformed*(this: Dir; t: Trsf): Dir {.noSideEffect, importcpp: "Transformed",
+                                       header: "gp_Dir.hxx".}
+proc dumpJson*(this: Dir; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Dir.hxx".}
+proc initFromJson*(this: var Dir; theSStream: StandardSStream; theStreamPos: var int): StandardBoolean {.
+    importcpp: "InitFromJson", header: "gp_Dir.hxx".}

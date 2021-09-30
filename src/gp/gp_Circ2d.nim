@@ -1,147 +1,110 @@
-{.push header: "gp_Circ2d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Ax22d"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Circ2d* {.importcpp: "gp_Circ2d", header: "gp_Circ2d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Circ2d*(): gp_Circ2d {.constructor,importcpp: "gp_Circ2d".}
-  ## creates an indefinite circle.
-
-proc constructor_gp_Circ2d*(XAxis: gp_Ax2d, Radius: cdouble, Sense: bool): gp_Circ2d {.constructor,importcpp: "gp_Circ2d(@)".}
-  ## The location point of XAxis is the center of the circle. Warnings : It
-  ## is not forbidden to create a circle with Radius = 0.0 Raises
-  ## ConstructionError if Radius < 0.0. Raised if Radius < 0.0.
-
-proc constructor_gp_Circ2d*(Axis: gp_Ax22d, Radius: cdouble): gp_Circ2d {.constructor,importcpp: "gp_Circ2d(@)".}
-  ## Axis defines the Xaxis and Yaxis of the circle which defines the
-  ## origin and the sense of parametrization. The location point of Axis is
-  ## the center of the circle. Warnings : It is not forbidden to create a
-  ## circle with Radius = 0.0 Raises ConstructionError if Radius < 0.0.
-  ## Raised if Radius < 0.0.
-
-#[
-proc ` new`*(this: var gp_Circ2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Circ2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Circ2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Circ2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Circ2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Circ2d, pointer, pointer)  {.importcpp: "` delete`".}
-]#
-
-proc SetLocation*(this: var gp_Circ2d, P: gp_Pnt2d)  {.importcpp: "SetLocation".}
-  ## Changes the location point (center) of the circle.
-
-proc SetXAxis*(this: var gp_Circ2d, A: gp_Ax2d)  {.importcpp: "SetXAxis".}
-  ## Changes the X axis of the circle.
-
-proc SetAxis*(this: var gp_Circ2d, A: gp_Ax22d)  {.importcpp: "SetAxis".}
-  ## Changes the X axis of the circle.
-
-proc SetYAxis*(this: var gp_Circ2d, A: gp_Ax2d)  {.importcpp: "SetYAxis".}
-  ## Changes the Y axis of the circle.
-
-proc SetRadius*(this: var gp_Circ2d, Radius: cdouble)  {.importcpp: "SetRadius".}
-  ## Modifies the radius of this circle. This class does not prevent the
-  ## creation of a circle where Radius is null. Exceptions
-  ## Standard_ConstructionError if Radius is negative.
-
-proc Area*(this: gp_Circ2d): cdouble  {.importcpp: "Area".}
-  ## Computes the area of the circle.
-
-proc Coefficients*(this: gp_Circ2d, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble, E: var cdouble, F: var cdouble)  {.importcpp: "Coefficients".}
-  ## Returns the normalized coefficients from the implicit equation of the
-  ## circle : A * (X**2) + B * (Y**2) + 2*C*(X*Y) + 2*D*X + 2*E*Y + F = 0.0
-
-proc Contains*(this: gp_Circ2d, P: gp_Pnt2d, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
-  ## Does <me> contain P ? Returns True if the distance between P and any
-  ## point on the circumference of the circle is lower of equal to
-  ## <LinearTolerance>.
-
-proc Distance*(this: gp_Circ2d, P: gp_Pnt2d): cdouble  {.importcpp: "Distance".}
-  ## Computes the minimum of distance between the point P and any point on
-  ## the circumference of the circle.
-
-proc SquareDistance*(this: gp_Circ2d, P: gp_Pnt2d): cdouble  {.importcpp: "SquareDistance".}
-  ## Computes the square distance between <me> and the point P.
-
-proc Length*(this: gp_Circ2d): cdouble  {.importcpp: "Length".}
-  ## computes the circumference of the circle.
-
-proc Location*(this: gp_Circ2d): gp_Pnt2d  {.importcpp: "Location".}
-  ## Returns the location point (center) of the circle.
-
-proc Radius*(this: gp_Circ2d): cdouble  {.importcpp: "Radius".}
-  ## Returns the radius value of the circle.
-
-proc Axis*(this: gp_Circ2d): gp_Ax22d  {.importcpp: "Axis".}
-  ## returns the position of the circle.
-
-proc Position*(this: gp_Circ2d): gp_Ax22d  {.importcpp: "Position".}
-  ## returns the position of the circle. Idem Axis(me).
-
-proc XAxis*(this: gp_Circ2d): gp_Ax2d  {.importcpp: "XAxis".}
-  ## returns the X axis of the circle.
-
-proc YAxis*(this: gp_Circ2d): gp_Ax2d  {.importcpp: "YAxis".}
-  ## Returns the Y axis of the circle. Reverses the direction of the
-  ## circle.
-
-proc Reverse*(this: var gp_Circ2d)  {.importcpp: "Reverse".}
-  ## Reverses the orientation of the local coordinate system of this circle
-  ## (the "Y Direction" is reversed) and therefore changes the implicit
-  ## orientation of this circle. Reverse assigns the result to this circle,
-
-proc Reversed*(this: gp_Circ2d): gp_Circ2d  {.importcpp: "Reversed".}
-  ## Reverses the orientation of the local coordinate system of this circle
-  ## (the "Y Direction" is reversed) and therefore changes the implicit
-  ## orientation of this circle. Reversed creates a new circle.
-
-proc IsDirect*(this: gp_Circ2d): bool  {.importcpp: "IsDirect".}
-  ## Returns true if the local coordinate system is direct and false in the
-  ## other case.
-
-proc Mirror*(this: var gp_Circ2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Circ2d, P: gp_Pnt2d): gp_Circ2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a circle with respect to
-  ## the point P which is the center of the symmetry
-
-proc Mirror*(this: var gp_Circ2d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Circ2d, A: gp_Ax2d): gp_Circ2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a circle with respect to an
-  ## axis placement which is the axis of the symmetry.
-
-proc Rotate*(this: var gp_Circ2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Circ2d, P: gp_Pnt2d, Ang: cdouble): gp_Circ2d  {.importcpp: "Rotated".}
-  ## Rotates a circle. P is the center of the rotation. Ang is the angular
-  ## value of the rotation in radians.
-
-proc Scale*(this: var gp_Circ2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Circ2d, P: gp_Pnt2d, S: cdouble): gp_Circ2d  {.importcpp: "Scaled".}
-  ## Scales a circle. S is the scaling value. Warnings : If S is negative
-  ## the radius stay positive but the "XAxis" and the "YAxis" are reversed
-  ## as for an ellipse.
-
-proc Transform*(this: var gp_Circ2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Circ2d, T: gp_Trsf2d): gp_Circ2d  {.importcpp: "Transformed".}
-  ## Transforms a circle with the transformation T from class Trsf2d.
-
-proc Translate*(this: var gp_Circ2d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Circ2d, V: gp_Vec2d): gp_Circ2d  {.importcpp: "Translated".}
-  ## Translates a circle in the direction of the vector V. The magnitude of
-  ## the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Circ2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Circ2d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Circ2d  {.importcpp: "Translated".}
-  ## Translates a circle from the point P1 to the point P2.
-
-{.pop.} # header: "gp_Circ2d.hxx
+proc `new`*(this: var Circ2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Circ2d::operator new", header: "gp_Circ2d.hxx".}
+proc `delete`*(this: var Circ2d; theAddress: pointer) {.
+    importcpp: "gp_Circ2d::operator delete", header: "gp_Circ2d.hxx".}
+proc `new[]`*(this: var Circ2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Circ2d::operator new[]", header: "gp_Circ2d.hxx".}
+proc `delete[]`*(this: var Circ2d; theAddress: pointer) {.
+    importcpp: "gp_Circ2d::operator delete[]", header: "gp_Circ2d.hxx".}
+proc `new`*(this: var Circ2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Circ2d::operator new", header: "gp_Circ2d.hxx".}
+proc `delete`*(this: var Circ2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Circ2d::operator delete", header: "gp_Circ2d.hxx".}
+proc constructCirc2d*(): Circ2d {.constructor, importcpp: "gp_Circ2d(@)",
+                               header: "gp_Circ2d.hxx".}
+proc constructCirc2d*(xAxis: Ax2d; radius: StandardReal;
+                     sense: StandardBoolean = true): Circ2d {.constructor,
+    importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
+proc constructCirc2d*(axis: Ax22d; radius: StandardReal): Circ2d {.constructor,
+    importcpp: "gp_Circ2d(@)", header: "gp_Circ2d.hxx".}
+proc setLocation*(this: var Circ2d; p: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Circ2d.hxx".}
+proc setXAxis*(this: var Circ2d; a: Ax2d) {.importcpp: "SetXAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setAxis*(this: var Circ2d; a: Ax22d) {.importcpp: "SetAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setYAxis*(this: var Circ2d; a: Ax2d) {.importcpp: "SetYAxis",
+                                      header: "gp_Circ2d.hxx".}
+proc setRadius*(this: var Circ2d; radius: StandardReal) {.importcpp: "SetRadius",
+    header: "gp_Circ2d.hxx".}
+proc area*(this: Circ2d): StandardReal {.noSideEffect, importcpp: "Area",
+                                     header: "gp_Circ2d.hxx".}
+proc coefficients*(this: Circ2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal; e: var StandardReal;
+                  f: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Circ2d.hxx".}
+proc contains*(this: Circ2d; p: Pnt2d; linearTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "Contains", header: "gp_Circ2d.hxx".}
+proc distance*(this: Circ2d; p: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Circ2d.hxx".}
+proc squareDistance*(this: Circ2d; p: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "SquareDistance", header: "gp_Circ2d.hxx".}
+proc length*(this: Circ2d): StandardReal {.noSideEffect, importcpp: "Length",
+                                       header: "gp_Circ2d.hxx".}
+proc location*(this: Circ2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                  header: "gp_Circ2d.hxx".}
+proc radius*(this: Circ2d): StandardReal {.noSideEffect, importcpp: "Radius",
+                                       header: "gp_Circ2d.hxx".}
+proc axis*(this: Circ2d): Ax22d {.noSideEffect, importcpp: "Axis",
+                              header: "gp_Circ2d.hxx".}
+proc position*(this: Circ2d): Ax22d {.noSideEffect, importcpp: "Position",
+                                  header: "gp_Circ2d.hxx".}
+proc xAxis*(this: Circ2d): Ax2d {.noSideEffect, importcpp: "XAxis",
+                              header: "gp_Circ2d.hxx".}
+proc yAxis*(this: Circ2d): Ax2d {.noSideEffect, importcpp: "YAxis",
+                              header: "gp_Circ2d.hxx".}
+proc reverse*(this: var Circ2d) {.importcpp: "Reverse", header: "gp_Circ2d.hxx".}
+proc reversed*(this: Circ2d): Circ2d {.noSideEffect, importcpp: "Reversed",
+                                   header: "gp_Circ2d.hxx".}
+proc isDirect*(this: Circ2d): StandardBoolean {.noSideEffect, importcpp: "IsDirect",
+    header: "gp_Circ2d.hxx".}
+proc mirror*(this: var Circ2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Circ2d.hxx".}
+proc mirrored*(this: Circ2d; p: Pnt2d): Circ2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Circ2d.hxx".}
+proc mirror*(this: var Circ2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Circ2d.hxx".}
+proc mirrored*(this: Circ2d; a: Ax2d): Circ2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Circ2d.hxx".}
+proc rotate*(this: var Circ2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Circ2d.hxx".}
+proc rotated*(this: Circ2d; p: Pnt2d; ang: StandardReal): Circ2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Circ2d.hxx".}
+proc scale*(this: var Circ2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Circ2d.hxx".}
+proc scaled*(this: Circ2d; p: Pnt2d; s: StandardReal): Circ2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Circ2d.hxx".}
+proc transform*(this: var Circ2d; t: Trsf2d) {.importcpp: "Transform",
+    header: "gp_Circ2d.hxx".}
+proc transformed*(this: Circ2d; t: Trsf2d): Circ2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Circ2d.hxx".}
+proc translate*(this: var Circ2d; v: Vec2d) {.importcpp: "Translate",
+                                        header: "gp_Circ2d.hxx".}
+proc translated*(this: Circ2d; v: Vec2d): Circ2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Circ2d.hxx".}
+proc translate*(this: var Circ2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Circ2d.hxx".}
+proc translated*(this: Circ2d; p1: Pnt2d; p2: Pnt2d): Circ2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Circ2d.hxx".}

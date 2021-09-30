@@ -1,138 +1,93 @@
-{.push header: "gp_Ax22d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Dir2d"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Ax22d* {.importcpp: "gp_Ax22d", header: "gp_Ax22d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Ax22d*(): gp_Ax22d {.constructor,importcpp: "gp_Ax22d".}
-  ## Creates an object representing the reference co-ordinate system (OXY).
-
-proc constructor_gp_Ax22d*(P: gp_Pnt2d, Vx: gp_Dir2d, Vy: gp_Dir2d): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
-  ## Creates a coordinate system with origin P and where: - Vx is the "X
-  ## Direction", and - the "Y Direction" is orthogonal to Vx and oriented
-  ## so that the cross products Vx^"Y Direction" and Vx^Vy have the same
-  ## sign. Raises ConstructionError if Vx and Vy are parallel (same or
-  ## opposite orientation).
-
-proc constructor_gp_Ax22d*(P: gp_Pnt2d, V: gp_Dir2d, Sense: bool): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
-  ## Creates - a coordinate system with origin P and "X Direction" V, which
-  ## is: - right-handed if Sense is true (default value), or - left-handed
-  ## if Sense is false
-
-proc constructor_gp_Ax22d*(A: gp_Ax2d, Sense: bool): gp_Ax22d {.constructor,importcpp: "gp_Ax22d(@)".}
-  ## Creates - a coordinate system where its origin is the origin of A and
-  ## its "X Direction" is the unit vector of A, which is: - right-handed if
-  ## Sense is true (default value), or - left-handed if Sense is false.
-
-proc ` new`*(this: var gp_Ax22d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax22d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Ax22d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Ax22d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Ax22d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax22d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetAxis*(this: var gp_Ax22d, A1: gp_Ax22d)  {.importcpp: "SetAxis".}
-  ## Assigns the origin and the two unit vectors of the coordinate system
-  ## A1 to this coordinate system.
-
-proc SetXAxis*(this: var gp_Ax22d, A1: gp_Ax2d)  {.importcpp: "SetXAxis".}
-  ## Changes the XAxis and YAxis ("Location" point and "Direction") of
-  ## <me>. The "YDirection" is recomputed in the same sense as before.
-
-proc SetYAxis*(this: var gp_Ax22d, A1: gp_Ax2d)  {.importcpp: "SetYAxis".}
-  ## Changes the XAxis and YAxis ("Location" point and "Direction") of
-  ## <me>. The "XDirection" is recomputed in the same sense as before.
-
-proc SetLocation*(this: var gp_Ax22d, P: gp_Pnt2d)  {.importcpp: "SetLocation".}
-  ## Changes the "Location" point (origin) of <me>.
-
-proc SetXDirection*(this: var gp_Ax22d, Vx: gp_Dir2d)  {.importcpp: "SetXDirection".}
-  ## Assigns Vx to the "X Direction" of this coordinate system. The other
-  ## unit vector of this coordinate system is recomputed, normal to Vx ,
-  ## without modifying the orientation (right-handed or left-handed) of
-  ## this coordinate system.
-
-proc SetYDirection*(this: var gp_Ax22d, Vy: gp_Dir2d)  {.importcpp: "SetYDirection".}
-  ## Assignsr Vy to the "Y Direction" of this coordinate system. The other
-  ## unit vector of this coordinate system is recomputed, normal to Vy,
-  ## without modifying the orientation (right-handed or left-handed) of
-  ## this coordinate system.
-
-proc XAxis*(this: gp_Ax22d): gp_Ax2d  {.importcpp: "XAxis".}
-  ## Returns an axis, for which - the origin is that of this coordinate
-  ## system, and - the unit vector is either the "X Direction" of this
-  ## coordinate system. Note: the result is the "X Axis" of this coordinate
-  ## system.
-
-proc YAxis*(this: gp_Ax22d): gp_Ax2d  {.importcpp: "YAxis".}
-  ## Returns an axis, for which - the origin is that of this coordinate
-  ## system, and - the unit vector is either the "Y Direction" of this
-  ## coordinate system. Note: the result is the "Y Axis" of this coordinate
-  ## system.
-
-proc Location*(this: gp_Ax22d): gp_Pnt2d  {.importcpp: "Location".}
-  ## Returns the "Location" point (origin) of <me>.
-
-proc XDirection*(this: gp_Ax22d): gp_Dir2d  {.importcpp: "XDirection".}
-  ## Returns the "XDirection" of <me>.
-
-proc YDirection*(this: gp_Ax22d): gp_Dir2d  {.importcpp: "YDirection".}
-  ## Returns the "YDirection" of <me>.
-
-proc Mirror*(this: var gp_Ax22d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax22d, P: gp_Pnt2d): gp_Ax22d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to the point P which is the center of the symmetry. Warnings :
-  ## The main direction of the axis placement is not changed. The
-  ## "XDirection" and the "YDirection" are reversed. So the axis placement
-  ## stay right handed.
-
-proc Mirror*(this: var gp_Ax22d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax22d, A: gp_Ax2d): gp_Ax22d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to an axis placement which is the axis of the symmetry. The
-  ## transformation is performed on the "Location" point, on the
-  ## "XDirection" and "YDirection". The resulting main "Direction" is the
-  ## cross product between the "XDirection" and the "YDirection" after
-  ## transformation.
-
-proc Rotate*(this: var gp_Ax22d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Ax22d, P: gp_Pnt2d, Ang: cdouble): gp_Ax22d  {.importcpp: "Rotated".}
-  ## Rotates an axis placement. <A1> is the axis of the rotation . Ang is
-  ## the angular value of the rotation in radians.
-
-proc Scale*(this: var gp_Ax22d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Ax22d, P: gp_Pnt2d, S: cdouble): gp_Ax22d  {.importcpp: "Scaled".}
-  ## Applies a scaling transformation on the axis placement. The "Location"
-  ## point of the axisplacement is modified. Warnings : If the scale <S> is
-  ## negative : . the main direction of the axis placement is not changed.
-  ## . The "XDirection" and the "YDirection" are reversed. So the axis
-  ## placement stay right handed.
-
-proc Transform*(this: var gp_Ax22d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Ax22d, T: gp_Trsf2d): gp_Ax22d  {.importcpp: "Transformed".}
-  ## Transforms an axis placement with a Trsf. The "Location" point, the
-  ## "XDirection" and the "YDirection" are transformed with T. The
-  ## resulting main "Direction" of <me> is the cross product between the
-  ## "XDirection" and the "YDirection" after transformation.
-
-proc Translate*(this: var gp_Ax22d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax22d, V: gp_Vec2d): gp_Ax22d  {.importcpp: "Translated".}
-  ## Translates an axis plaxement in the direction of the vector <V>. The
-  ## magnitude of the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Ax22d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax22d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Ax22d  {.importcpp: "Translated".}
-  ## Translates an axis placement from the point <P1> to the point <P2>.
-
-{.pop.} # header: "gp_Ax22d.hxx
+proc `new`*(this: var Ax22d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax22d::operator new", header: "gp_Ax22d.hxx".}
+proc `delete`*(this: var Ax22d; theAddress: pointer) {.
+    importcpp: "gp_Ax22d::operator delete", header: "gp_Ax22d.hxx".}
+proc `new[]`*(this: var Ax22d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax22d::operator new[]", header: "gp_Ax22d.hxx".}
+proc `delete[]`*(this: var Ax22d; theAddress: pointer) {.
+    importcpp: "gp_Ax22d::operator delete[]", header: "gp_Ax22d.hxx".}
+proc `new`*(this: var Ax22d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Ax22d::operator new", header: "gp_Ax22d.hxx".}
+proc `delete`*(this: var Ax22d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Ax22d::operator delete", header: "gp_Ax22d.hxx".}
+proc newAx22d*(): Ax22d {.constructor, importcpp: "gp_Ax22d(@)",
+                             header: "gp_Ax22d.hxx".}
+proc newAx22d*(p: Pnt2d; vx: Dir2d; vy: Dir2d): Ax22d {.constructor,
+    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
+proc newAx22d*(p: Pnt2d; v: Dir2d; sense: StandardBoolean = true): Ax22d {.
+    constructor, importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
+proc newAx22d*(a: Ax2d; sense: StandardBoolean = true): Ax22d {.constructor,
+    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
+proc setAxis*(this: var Ax22d; a1: Ax22d) {.importcpp: "SetAxis", header: "gp_Ax22d.hxx".}
+proc setXAxis*(this: var Ax22d; a1: Ax2d) {.importcpp: "SetXAxis",
+                                      header: "gp_Ax22d.hxx".}
+proc setYAxis*(this: var Ax22d; a1: Ax2d) {.importcpp: "SetYAxis",
+                                      header: "gp_Ax22d.hxx".}
+proc setLocation*(this: var Ax22d; p: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Ax22d.hxx".}
+proc setXDirection*(this: var Ax22d; vx: Dir2d) {.importcpp: "SetXDirection",
+    header: "gp_Ax22d.hxx".}
+proc setYDirection*(this: var Ax22d; vy: Dir2d) {.importcpp: "SetYDirection",
+    header: "gp_Ax22d.hxx".}
+proc xAxis*(this: Ax22d): Ax2d {.noSideEffect, importcpp: "XAxis",
+                             header: "gp_Ax22d.hxx".}
+proc yAxis*(this: Ax22d): Ax2d {.noSideEffect, importcpp: "YAxis",
+                             header: "gp_Ax22d.hxx".}
+proc location*(this: Ax22d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                 header: "gp_Ax22d.hxx".}
+proc xDirection*(this: Ax22d): Dir2d {.noSideEffect, importcpp: "XDirection",
+                                   header: "gp_Ax22d.hxx".}
+proc yDirection*(this: Ax22d): Dir2d {.noSideEffect, importcpp: "YDirection",
+                                   header: "gp_Ax22d.hxx".}
+proc mirror*(this: var Ax22d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Ax22d.hxx".}
+proc mirrored*(this: Ax22d; p: Pnt2d): Ax22d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Ax22d.hxx".}
+proc mirror*(this: var Ax22d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Ax22d.hxx".}
+proc mirrored*(this: Ax22d; a: Ax2d): Ax22d {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Ax22d.hxx".}
+proc rotate*(this: var Ax22d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Ax22d.hxx".}
+proc rotated*(this: Ax22d; p: Pnt2d; ang: StandardReal): Ax22d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Ax22d.hxx".}
+proc scale*(this: var Ax22d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Ax22d.hxx".}
+proc scaled*(this: Ax22d; p: Pnt2d; s: StandardReal): Ax22d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Ax22d.hxx".}
+proc transform*(this: var Ax22d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Ax22d.hxx".}
+proc transformed*(this: Ax22d; t: Trsf2d): Ax22d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Ax22d.hxx".}
+proc translate*(this: var Ax22d; v: Vec2d) {.importcpp: "Translate",
+                                       header: "gp_Ax22d.hxx".}
+proc translated*(this: Ax22d; v: Vec2d): Ax22d {.noSideEffect, importcpp: "Translated",
+    header: "gp_Ax22d.hxx".}
+proc translate*(this: var Ax22d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Ax22d.hxx".}
+proc translated*(this: Ax22d; p1: Pnt2d; p2: Pnt2d): Ax22d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Ax22d.hxx".}
+proc dumpJson*(this: Ax22d; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Ax22d.hxx".}

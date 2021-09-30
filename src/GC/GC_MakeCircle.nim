@@ -1,56 +1,81 @@
-{.push header: "GC_MakeCircle.hxx".}
+##  Created on: 1992-09-28
+##  Created by: Remi GILET
+##  Copyright (c) 1992-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of StdFail_NotDone"
+discard "forward decl of gp_Circ"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Ax1"
+type
+  GC_MakeCircle* {.importcpp: "GC_MakeCircle", header: "GC_MakeCircle.hxx", bycopy.} = object of GC_Root ##
+                                                                                               ## !
+                                                                                               ## creates
+                                                                                               ## a
+                                                                                               ## circle
+                                                                                               ## from
+                                                                                               ## a
+                                                                                               ## non
+                                                                                               ## persistent
+                                                                                               ## circle
+                                                                                               ## C
+                                                                                               ## by
+                                                                                               ## its
+                                                                                               ## conversion.
 
 
-# Constructors and methods
-proc constructor_GC_MakeCircle*(C: gp_Circ): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## creates a circle from a non persistent circle C by its conversion.
+proc makeCircle*(c: Circ): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(a2: Ax2; radius: cfloat): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(circ: Circ; dist: cfloat): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(circ: Circ; point: Pnt): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(center: Pnt; norm: Dir; radius: cfloat): GC_MakeCircle {.
+    constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(center: Pnt; ptAxis: Pnt; radius: cfloat): GC_MakeCircle {.
+    constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc makeCircle*(axis: Ax1; radius: cfloat): GC_MakeCircle {.constructor,
+    importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
+proc value*(this: GC_MakeCircle): Handle[GeomCircle] {.noSideEffect,
+    importcpp: "Value", header: "GC_MakeCircle.hxx".}
+converter `constopencascade`*(this: GC_MakeCircle): Handle[GeomCircle] {.
+    noSideEffect, importcpp: "GC_MakeCircle::operator constopencascade",
+    header: "GC_MakeCircle.hxx".}
 
-proc constructor_GC_MakeCircle*(A2: gp_Ax2, Radius: cdouble): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## A2 is the local coordinates system of the circle. It is not forbidden
-  ## to create a circle with Radius = 0.0 Status is "NegativeRadius" if
-  ## Radius < 0.
 
-proc constructor_GC_MakeCircle*(Circ: gp_Circ, Dist: cdouble): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circle from Geom <TheCirc> parallel to another Circ <Circ> with
-  ## a distance <Dist>. If Dist is greater than zero the result is
-  ## enclosing the circle <Circ>, else the result is enclosed by the circle
-  ## <Circ>.
 
-proc constructor_GC_MakeCircle*(Circ: gp_Circ, Point: gp_Pnt): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circle from Geom <TheCirc> parallel to another Circ <Circ> and
-  ## passing through a Pnt <Point>.
 
-proc constructor_GC_MakeCircle*(P1: gp_Pnt, P2: gp_Pnt, P3: gp_Pnt): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circ from gp <TheCirc> passing through 3 Pnt2d <P1>,<P2>,<P3>.
 
-proc constructor_GC_MakeCircle*(Center: gp_Pnt, Norm: gp_Dir, Radius: cdouble): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circle from Geom <TheCirc> with its center <Center> and the
-  ## normal of its plane <Norm> and its radius <Radius>.
 
-proc constructor_GC_MakeCircle*(Center: gp_Pnt, PtAxis: gp_Pnt, Radius: cdouble): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circle from Geom <TheCirc> with its center <Center> and the
-  ## normal of its plane defined by the two points <Center> and <PtAxis>
-  ## and its radius <Radius>.
 
-proc constructor_GC_MakeCircle*(Axis: gp_Ax1, Radius: cdouble): GC_MakeCircle {.constructor,importcpp: "GC_MakeCircle(@)".}
-  ## Make a Circle from Geom <TheCirc> with its center <Center> and its
-  ## radius <Radius>.
 
-#[
-proc ` new`*(this: var GC_MakeCircle, theSize: cint)  {.importcpp: "` new`".}
 
-proc ` delete`*(this: var GC_MakeCircle, theAddress: pointer)  {.importcpp: "` delete`".}
 
-proc ` new[]`*(this: var GC_MakeCircle, theSize: cint)  {.importcpp: "` new[]`".}
 
-proc ` delete[]`*(this: var GC_MakeCircle, theAddress: pointer)  {.importcpp: "` delete[]`".}
 
-proc ` new`*(this: var GC_MakeCircle, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
-proc ` delete`*(this: var GC_MakeCircle, pointer, pointer)  {.importcpp: "` delete`".}
-]#
-proc Value*(this: GC_MakeCircle): Handle[Geom_Circle]  {.importcpp: "Value".}
-  ## Returns the constructed circle. Exceptions StdFail_NotDone if no
-  ## circle is constructed.
 
-{.pop.} # header: "GC_MakeCircle.hxx
+
+
+
+
+
+
+

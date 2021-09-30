@@ -1,65 +1,83 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Trsf"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_CartesianPoint"
+discard "forward decl of Geom_CartesianPoint"
+type
+  GeomCartesianPoint* {.importcpp: "Geom_CartesianPoint",
+                       header: "Geom_CartesianPoint.hxx", bycopy.} = object of GeomPoint ##
+                                                                                  ## !
+                                                                                  ## Returns
+                                                                                  ## a
+                                                                                  ## transient
+                                                                                  ## copy
+                                                                                  ## of
+                                                                                  ## P.
+                                                                                  
+type
+  HandleGeomCartesianPoint* = Handle[GeomCartesianPoint]
+
+## ! Describes a point in 3D space. A
+## ! Geom_CartesianPoint is defined by a gp_Pnt point,
+## ! with its three Cartesian coordinates X, Y and Z.
 
 type
-  Geom_CartesianPoint* {.header: "Geom_CartesianPoint.hxx", importcpp: "Geom_CartesianPoint", byref.} = object #of class Geom_Point
-    ## Describes a point in 3D space. A Geom_CartesianPoint is defined by a
-    ## gp_Pnt point, with its three Cartesian coordinates X, Y and Z.
-
-  Handle_Geom_CartesianPoint* {.header: "Geom_CartesianPoint.hxx", importcpp: "Handle_Geom_CartesianPoint".} = handle[Geom_CartesianPoint]
-  Base_type* {.header: "Geom_CartesianPoint.hxx", importcpp: "Geom_CartesianPoint::base_type".} = Geom_Point
+  GeomCartesianPointbaseType* = GeomPoint
 
 
-{.push header: "Geom_CartesianPoint.hxx".}
+proc constructGeomCartesianPoint*(p: Pnt): GeomCartesianPoint {.constructor,
+    importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
+proc constructGeomCartesianPoint*(x: StandardReal; y: StandardReal; z: StandardReal): GeomCartesianPoint {.
+    constructor, importcpp: "Geom_CartesianPoint(@)",
+    header: "Geom_CartesianPoint.hxx".}
+proc setCoord*(this: var GeomCartesianPoint; x: StandardReal; y: StandardReal;
+              z: StandardReal) {.importcpp: "SetCoord",
+                               header: "Geom_CartesianPoint.hxx".}
+proc setPnt*(this: var GeomCartesianPoint; p: Pnt) {.importcpp: "SetPnt",
+    header: "Geom_CartesianPoint.hxx".}
+proc setX*(this: var GeomCartesianPoint; x: StandardReal) {.importcpp: "SetX",
+    header: "Geom_CartesianPoint.hxx".}
+proc setY*(this: var GeomCartesianPoint; y: StandardReal) {.importcpp: "SetY",
+    header: "Geom_CartesianPoint.hxx".}
+proc setZ*(this: var GeomCartesianPoint; z: StandardReal) {.importcpp: "SetZ",
+    header: "Geom_CartesianPoint.hxx".}
+proc coord*(this: GeomCartesianPoint; x: var StandardReal; y: var StandardReal;
+           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
+                               header: "Geom_CartesianPoint.hxx".}
+proc pnt*(this: GeomCartesianPoint): Pnt {.noSideEffect, importcpp: "Pnt",
+                                       header: "Geom_CartesianPoint.hxx".}
+proc x*(this: GeomCartesianPoint): StandardReal {.noSideEffect, importcpp: "X",
+    header: "Geom_CartesianPoint.hxx".}
+proc y*(this: GeomCartesianPoint): StandardReal {.noSideEffect, importcpp: "Y",
+    header: "Geom_CartesianPoint.hxx".}
+proc z*(this: GeomCartesianPoint): StandardReal {.noSideEffect, importcpp: "Z",
+    header: "Geom_CartesianPoint.hxx".}
+proc transform*(this: var GeomCartesianPoint; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_CartesianPoint.hxx".}
+proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}
 
-proc constructGeom_CartesianPoint*(P: gp_Pnt): Geom_CartesianPoint {.constructor,importcpp: "Geom_CartesianPoint::Geom_CartesianPoint(@)".}
-    ## Returns a transient copy of P.
 
-proc constructGeom_CartesianPoint*(X: cdouble, Y: cdouble, Z: cdouble): Geom_CartesianPoint {.constructor,importcpp: "Geom_CartesianPoint::Geom_CartesianPoint(@)".}
-    ## Constructs a point defined by its three Cartesian coordinates X, Y and
-    ## Z.
-
-proc setCoord*(this: var Geom_CartesianPoint, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
-    ## Assigns the coordinates X, Y and Z to this point.
-
-proc setPnt*(this: var Geom_CartesianPoint, P: gp_Pnt)  {.importcpp: "SetPnt".}
-    ## Set <me> to P.X(), P.Y(), P.Z() coordinates.
-
-proc setX*(this: var Geom_CartesianPoint, X: cdouble)  {.importcpp: "SetX".}
-    ## Changes the X coordinate of me.
-
-proc setY*(this: var Geom_CartesianPoint, Y: cdouble)  {.importcpp: "SetY".}
-    ## Changes the Y coordinate of me.
-
-proc setZ*(this: var Geom_CartesianPoint, Z: cdouble)  {.importcpp: "SetZ".}
-    ## Changes the Z coordinate of me.
-
-proc coord*(this: Geom_CartesianPoint, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
-    ## Returns the coordinates of <me>.
-
-proc pnt*(this: Geom_CartesianPoint): gp_Pnt  {.importcpp: "Pnt".}
-    ## Returns a non transient cartesian point with the same coordinates as
-    ## <me>.
-
-proc x*(this: Geom_CartesianPoint): cdouble  {.importcpp: "X".}
-    ## Returns the X coordinate of <me>.
-
-proc y*(this: Geom_CartesianPoint): cdouble  {.importcpp: "Y".}
-    ## Returns the Y coordinate of <me>.
-
-proc z*(this: Geom_CartesianPoint): cdouble  {.importcpp: "Z".}
-    ## Returns the Z coordinate of <me>.
-
-proc transform*(this: var Geom_CartesianPoint, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this point.
-
-proc copy*(this: Geom_CartesianPoint): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this point.
-
-proc get_type_name*(this: var Geom_CartesianPoint): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_CartesianPoint): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_CartesianPoint): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_CartesianPoint.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_CartesianPoint::get_type_name(@)",
+                            header: "Geom_CartesianPoint.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_CartesianPoint::get_type_descriptor(@)",
+    header: "Geom_CartesianPoint.hxx".}
+proc dynamicType*(this: GeomCartesianPoint): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_CartesianPoint.hxx".} ]#

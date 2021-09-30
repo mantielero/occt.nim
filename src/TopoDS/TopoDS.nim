@@ -1,82 +1,111 @@
-import topods_types
+##  Created on: 1990-12-11
+##  Created by: Remi Lequette
+##  Copyright (c) 1990-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "TopoDS.hxx".}
+discard "forward decl of TopoDS_Vertex"
+discard "forward decl of TopoDS_Shape"
+discard "forward decl of TopoDS_Edge"
+discard "forward decl of TopoDS_Wire"
+discard "forward decl of TopoDS_Face"
+discard "forward decl of TopoDS_Shell"
+discard "forward decl of TopoDS_Solid"
+discard "forward decl of TopoDS_CompSolid"
+discard "forward decl of TopoDS_Compound"
+discard "forward decl of TopoDS_Shape"
+discard "forward decl of TopoDS_HShape"
+discard "forward decl of TopoDS_TShape"
+discard "forward decl of TopoDS_TVertex"
+discard "forward decl of TopoDS_Vertex"
+discard "forward decl of TopoDS_TEdge"
+discard "forward decl of TopoDS_Edge"
+discard "forward decl of TopoDS_TWire"
+discard "forward decl of TopoDS_Wire"
+discard "forward decl of TopoDS_TFace"
+discard "forward decl of TopoDS_Face"
+discard "forward decl of TopoDS_TShell"
+discard "forward decl of TopoDS_Shell"
+discard "forward decl of TopoDS_TSolid"
+discard "forward decl of TopoDS_Solid"
+discard "forward decl of TopoDS_TCompSolid"
+discard "forward decl of TopoDS_CompSolid"
+discard "forward decl of TopoDS_TCompound"
+discard "forward decl of TopoDS_Compound"
+discard "forward decl of TopoDS_Builder"
+discard "forward decl of TopoDS_Iterator"
+type
+  TopoDS* {.importcpp: "TopoDS", header: "TopoDS.hxx", bycopy.} = object ## ! Basic tool to access the data structure.
+                                                                 ## ! Casts shape S to the more specialized return type, Vertex.
+                                                                 ## ! Exceptions
+                                                                 ## !
+                                                                 ## Standard_TypeMismatch if S cannot be cast to this return type.
 
 
-# Constructors and methods
-#[
-proc ` new`*(this: var TopoDS, theSize: cint)  {.importcpp: "#  new #".}
+proc vertex*(s: TopoDS_Shape): TopoDS_Vertex {.importcpp: "TopoDS::Vertex(@)",
+    header: "TopoDS.hxx".}
+proc vertex*(a1: var TopoDS_Shape): var TopoDS_Vertex {.
+    importcpp: "TopoDS::Vertex(@)", header: "TopoDS.hxx".}
+proc edge*(s: TopoDS_Shape): TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
+                                       header: "TopoDS.hxx".}
+proc edge*(a1: var TopoDS_Shape): var TopoDS_Edge {.importcpp: "TopoDS::Edge(@)",
+    header: "TopoDS.hxx".}
+proc wire*(s: TopoDS_Shape): TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
+                                       header: "TopoDS.hxx".}
+proc wire*(a1: var TopoDS_Shape): var TopoDS_Wire {.importcpp: "TopoDS::Wire(@)",
+    header: "TopoDS.hxx".}
+proc face*(s: TopoDS_Shape): TopoDS_Face {.importcpp: "TopoDS::Face(@)",
+                                       header: "TopoDS.hxx".}
+proc face*(a1: var TopoDS_Shape): var TopoDS_Face {.importcpp: "TopoDS::Face(@)",
+    header: "TopoDS.hxx".}
+proc shell*(s: TopoDS_Shape): TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
+    header: "TopoDS.hxx".}
+proc shell*(a1: var TopoDS_Shape): var TopoDS_Shell {.importcpp: "TopoDS::Shell(@)",
+    header: "TopoDS.hxx".}
+proc solid*(s: TopoDS_Shape): TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
+    header: "TopoDS.hxx".}
+proc solid*(a1: var TopoDS_Shape): var TopoDS_Solid {.importcpp: "TopoDS::Solid(@)",
+    header: "TopoDS.hxx".}
+proc compSolid*(s: TopoDS_Shape): TopoDS_CompSolid {.
+    importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
+proc compSolid*(a1: var TopoDS_Shape): var TopoDS_CompSolid {.
+    importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
+proc compound*(s: TopoDS_Shape): TopoDS_Compound {.importcpp: "TopoDS::Compound(@)",
+    header: "TopoDS.hxx".}
+proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.
+    importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
 
-proc ` delete`*(this: var TopoDS, theAddress: pointer)  {.importcpp: "#  delete #".}
 
-proc ` new[]`*(this: var TopoDS, theSize: cint)  {.importcpp: "#  new[] #".}
 
-proc ` delete[]`*(this: var TopoDS, theAddress: pointer)  {.importcpp: "#  delete[] #".}
 
-proc ` new`*(this: var TopoDS, cint, theAddress: pointer)  {.importcpp: "#  new #".}
 
-proc ` delete`*(this: var TopoDS, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
 
-#this: var TopoDS,
-proc vertex*( S: TopoDS_Shape): TopoDS_Vertex  {.importcpp: "TopoDS::Vertex(@)".}
-  ## Basic tool to access the data structure. Casts shape S to the more
-  ## specialized return type, Vertex. Exceptions Standard_TypeMismatch if S
-  ## cannot be cast to this return type.
 
-#proc vertex*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Vertex  {.importcpp: "Vertex".}
 
-#this: var TopoDS,
-proc edge*( S: TopoDS_Shape): TopoDS_Edge  {.importcpp: "TopoDS::Edge(@)".}
-  ## Casts shape S to the more specialized return type, Edge Exceptions
-  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
-# this: var TopoDS,
-#proc edge*( a:TopoDS_Shape): TopoDS_Edge  {.importcpp: "TopoDS::Edge(@)".}
 
-#this: var TopoDS,
-proc wire*(S: TopoDS_Shape): TopoDS_Wire  {.importcpp: "TopoDS::Wire(@)".}
-  ## Casts shape S to the more specialized return type, Wire. Exceptions
-  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
-#proc wire*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Wire  {.importcpp: "Wire".}
 
-#this: var TopoDS, 
-proc face*(S: TopoDS_Shape): TopoDS_Face  {.importcpp: "TopoDS::Face(@)".}
-  ## Casts shape S to the more specialized return type, Face. Exceptions
-  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
-#proc face*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Face  {.importcpp: "Face".}
 
-#this: var TopoDS, 
-proc shell*(S: TopoDS_Shape): TopoDS_Shell  {.importcpp: "TopoDS::Shell(@)".}
-  ## Casts shape S to the more specialized return type, Shell. Exceptions
-  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
-#proc shell*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Shell  {.importcpp: "Shell".}
 
-#this: var TopoDS,
-proc solid*( S: TopoDS_Shape): TopoDS_Solid  {.importcpp: "TopoDS::Solid(@)".}
-  ## Casts shape S to the more specialized return type, Solid. Exceptions
-  ## Standard_TypeMismatch if S cannot be cast to this return type.
 
-#proc solid*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Solid  {.importcpp: "Solid".}
 
-#this: var TopoDS,
-proc compSolid*( S: TopoDS_Shape): TopoDS_CompSolid  {.importcpp: "TopoDS::CompSolid(@)".}
-  ## Casts shape S to the more specialized return type, CompSolid.
-  ## Exceptions Standard_TypeMismatch if S cannot be cast to this return
-  ## type.
 
-#this: var TopoDS, 
-#proc compSolid*(a:var TopoDS_Shape): TopoDS_CompSolid  {.importcpp: "TopoDS::CompSolid(@)".}
 
-#this: var TopoDS, 
-proc compound*(S: TopoDS_Shape): TopoDS_Compound  {.importcpp: "TopoDS::Compound(@)".}
-  ## Casts shape S to the more specialized return type, Compound.
-  ## Exceptions Standard_TypeMismatch if S cannot be cast to this return
-  ## type.
 
-#proc compound*(this: var TopoDS, a:var TopoDS_Shape): TopoDS_Compound  {.importcpp: "Compound".}
 
-{.pop.} # header: "TopoDS.hxx
+
+
+

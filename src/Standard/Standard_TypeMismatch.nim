@@ -1,23 +1,36 @@
-{.push header: "Standard_TypeMismatch.hxx".}
+##  Created on: 1991-09-05
+##  Created by: J.P. TIRAUlt
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_TypeMismatch"
+discard "forward decl of Standard_TypeMismatch"
+type
+  StandardTypeMismatch* {.importcpp: "Standard_TypeMismatch",
+                         header: "Standard_TypeMismatch.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardTypeMismatch* = Handle[StandardTypeMismatch]
+
+when not defined(noException) and not defined(noStandardTypeMismatch):
+  template standardTypeMismatchRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardTypeMismatch*(a1: Message): Throw {.
+          importcpp: "Standard_TypeMismatch(@)",
+          header: "Standard_TypeMismatch.hxx".}
+
+else:
+  discard
 
 
-# Constructors and methods
-proc constructor_Standard_TypeMismatch*(): Standard_TypeMismatch {.constructor,importcpp: "Standard_TypeMismatch".}
 
-proc constructor_Standard_TypeMismatch*(theMessage: Standard_CString): Standard_TypeMismatch {.constructor,importcpp: "Standard_TypeMismatch(@)".}
-
-proc Throw*(this: Standard_TypeMismatch)  {.importcpp: "Throw".}
-
-proc Raise*(this: var Standard_TypeMismatch, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc Raise*(this: var Standard_TypeMismatch, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc NewInstance*(this: var Standard_TypeMismatch, theMessage: Standard_CString): Handle[Standard_TypeMismatch]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var Standard_TypeMismatch): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_TypeMismatch): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_TypeMismatch): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "Standard_TypeMismatch.hxx

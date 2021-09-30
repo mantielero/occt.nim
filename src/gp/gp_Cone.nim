@@ -1,138 +1,98 @@
-{.push header: "gp_Cone.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Ax3"
+discard "forward decl of gp_Ax1"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_Vec"
+type
+  Cone* {.importcpp: "gp_Cone", header: "gp_Cone.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Cone*(): gp_Cone {.constructor,importcpp: "gp_Cone".}
-  ## Creates an indefinite Cone.
-
-proc constructor_gp_Cone*(A3: gp_Ax3, Ang: cdouble, Radius: cdouble): gp_Cone {.constructor,importcpp: "gp_Cone(@)".}
-  ## Creates an infinite conical surface. A3 locates the cone in the space
-  ## and defines the reference plane of the surface. Ang is the conical
-  ## surface semi-angle. Its absolute value is in range ]0, PI/2[. Radius
-  ## is the radius of the circle in the reference plane of the cone. Raises
-  ## ConstructionError * if Radius is lower than 0.0 * Abs(Ang) <
-  ## Resolution from gp or Abs(Ang) >= (PI/2) - Resolution.
-
-proc ` new`*(this: var gp_Cone, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Cone, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Cone, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Cone, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Cone, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Cone, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetAxis*(this: var gp_Cone, A1: gp_Ax1)  {.importcpp: "SetAxis".}
-  ## Changes the symmetry axis of the cone. Raises ConstructionError the
-  ## direction of A1 is parallel to the "XDirection" of the coordinate
-  ## system of the cone.
-
-proc SetLocation*(this: var gp_Cone, Loc: gp_Pnt)  {.importcpp: "SetLocation".}
-  ## Changes the location of the cone.
-
-proc SetPosition*(this: var gp_Cone, A3: gp_Ax3)  {.importcpp: "SetPosition".}
-  ## Changes the local coordinate system of the cone. This coordinate
-  ## system defines the reference plane of the cone.
-
-proc SetRadius*(this: var gp_Cone, R: cdouble)  {.importcpp: "SetRadius".}
-  ## Changes the radius of the cone in the reference plane of the cone.
-  ## Raised if R < 0.0
-
-proc SetSemiAngle*(this: var gp_Cone, Ang: cdouble)  {.importcpp: "SetSemiAngle".}
-  ## Changes the semi-angle of the cone. Semi-angle can be negative. Its
-  ## absolute value Abs(Ang) is in range ]0,PI/2[. Raises ConstructionError
-  ## if Abs(Ang) < Resolution from gp or Abs(Ang) >= PI/2 - Resolution
-
-proc Apex*(this: gp_Cone): gp_Pnt  {.importcpp: "Apex".}
-  ## Computes the cone's top. The Apex of the cone is on the negative side
-  ## of the symmetry axis of the cone.
-
-proc UReverse*(this: var gp_Cone)  {.importcpp: "UReverse".}
-  ## Reverses the U parametrization of the cone reversing the YAxis.
-
-proc VReverse*(this: var gp_Cone)  {.importcpp: "VReverse".}
-  ## Reverses the V parametrization of the cone reversing the ZAxis.
-
-proc Direct*(this: gp_Cone): bool  {.importcpp: "Direct".}
-  ## Returns true if the local coordinate system of this cone is right-
-  ## handed.
-
-proc Axis*(this: gp_Cone): gp_Ax1  {.importcpp: "Axis".}
-  ## returns the symmetry axis of the cone.
-
-proc Coefficients*(this: gp_Cone, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
-  ## Computes the coefficients of the implicit equation of the quadric in
-  ## the absolute cartesian coordinates system : A1.X**2 + A2.Y**2 +
-  ## A3.Z**2 + 2.(B1.X.Y + B2.X.Z + B3.Y.Z) + 2.(C1.X + C2.Y + C3.Z) + D =
-  ## 0.0
-
-proc Location*(this: gp_Cone): gp_Pnt  {.importcpp: "Location".}
-  ## returns the "Location" point of the cone.
-
-proc Position*(this: gp_Cone): gp_Ax3  {.importcpp: "Position".}
-  ## Returns the local coordinates system of the cone.
-
-proc RefRadius*(this: gp_Cone): cdouble  {.importcpp: "RefRadius".}
-  ## Returns the radius of the cone in the reference plane.
-
-proc SemiAngle*(this: gp_Cone): cdouble  {.importcpp: "SemiAngle".}
-  ## Returns the half-angle at the apex of this cone. Attention! Semi-angle
-  ## can be negative.
-
-proc XAxis*(this: gp_Cone): gp_Ax1  {.importcpp: "XAxis".}
-  ## Returns the XAxis of the reference plane.
-
-proc YAxis*(this: gp_Cone): gp_Ax1  {.importcpp: "YAxis".}
-  ## Returns the YAxis of the reference plane.
-
-proc Mirror*(this: var gp_Cone, P: gp_Pnt)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Cone, P: gp_Pnt): gp_Cone  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a cone with respect to the
-  ## point P which is the center of the symmetry.
-
-proc Mirror*(this: var gp_Cone, A1: gp_Ax1)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Cone, A1: gp_Ax1): gp_Cone  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a cone with respect to an
-  ## axis placement which is the axis of the symmetry.
-
-proc Mirror*(this: var gp_Cone, A2: gp_Ax2)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Cone, A2: gp_Ax2): gp_Cone  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a cone with respect to a
-  ## plane. The axis placement A2 locates the plane of the of the symmetry
-  ## : (Location, XDirection, YDirection).
-
-proc Rotate*(this: var gp_Cone, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Cone, A1: gp_Ax1, Ang: cdouble): gp_Cone  {.importcpp: "Rotated".}
-  ## Rotates a cone. A1 is the axis of the rotation. Ang is the angular
-  ## value of the rotation in radians.
-
-proc Scale*(this: var gp_Cone, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Cone, P: gp_Pnt, S: cdouble): gp_Cone  {.importcpp: "Scaled".}
-  ## Scales a cone. S is the scaling value. The absolute value of S is used
-  ## to scale the cone
-
-proc Transform*(this: var gp_Cone, T: gp_Trsf)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Cone, T: gp_Trsf): gp_Cone  {.importcpp: "Transformed".}
-  ## Transforms a cone with the transformation T from class Trsf.
-
-proc Translate*(this: var gp_Cone, V: gp_Vec)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Cone, V: gp_Vec): gp_Cone  {.importcpp: "Translated".}
-  ## Translates a cone in the direction of the vector V. The magnitude of
-  ## the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Cone, P1: gp_Pnt, P2: gp_Pnt)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Cone, P1: gp_Pnt, P2: gp_Pnt): gp_Cone  {.importcpp: "Translated".}
-  ## Translates a cone from the point P1 to the point P2.
-
-{.pop.} # header: "gp_Cone.hxx
+proc `new`*(this: var Cone; theSize: csize_t): pointer {.
+    importcpp: "gp_Cone::operator new", header: "gp_Cone.hxx".}
+proc `delete`*(this: var Cone; theAddress: pointer) {.
+    importcpp: "gp_Cone::operator delete", header: "gp_Cone.hxx".}
+proc `new[]`*(this: var Cone; theSize: csize_t): pointer {.
+    importcpp: "gp_Cone::operator new[]", header: "gp_Cone.hxx".}
+proc `delete[]`*(this: var Cone; theAddress: pointer) {.
+    importcpp: "gp_Cone::operator delete[]", header: "gp_Cone.hxx".}
+proc `new`*(this: var Cone; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Cone::operator new", header: "gp_Cone.hxx".}
+proc `delete`*(this: var Cone; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Cone::operator delete", header: "gp_Cone.hxx".}
+proc constructCone*(): Cone {.constructor, importcpp: "gp_Cone(@)",
+                           header: "gp_Cone.hxx".}
+proc constructCone*(a3: Ax3; ang: StandardReal; radius: StandardReal): Cone {.
+    constructor, importcpp: "gp_Cone(@)", header: "gp_Cone.hxx".}
+proc setAxis*(this: var Cone; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Cone.hxx".}
+proc setLocation*(this: var Cone; loc: Pnt) {.importcpp: "SetLocation",
+                                        header: "gp_Cone.hxx".}
+proc setPosition*(this: var Cone; a3: Ax3) {.importcpp: "SetPosition",
+                                       header: "gp_Cone.hxx".}
+proc setRadius*(this: var Cone; r: StandardReal) {.importcpp: "SetRadius",
+    header: "gp_Cone.hxx".}
+proc setSemiAngle*(this: var Cone; ang: StandardReal) {.importcpp: "SetSemiAngle",
+    header: "gp_Cone.hxx".}
+proc apex*(this: Cone): Pnt {.noSideEffect, importcpp: "Apex", header: "gp_Cone.hxx".}
+proc uReverse*(this: var Cone) {.importcpp: "UReverse", header: "gp_Cone.hxx".}
+proc vReverse*(this: var Cone) {.importcpp: "VReverse", header: "gp_Cone.hxx".}
+proc direct*(this: Cone): StandardBoolean {.noSideEffect, importcpp: "Direct",
+                                        header: "gp_Cone.hxx".}
+proc axis*(this: Cone): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Cone.hxx".}
+proc coefficients*(this: Cone; a1: var StandardReal; a2: var StandardReal;
+                  a3: var StandardReal; b1: var StandardReal; b2: var StandardReal;
+                  b3: var StandardReal; c1: var StandardReal; c2: var StandardReal;
+                  c3: var StandardReal; d: var StandardReal) {.noSideEffect,
+    importcpp: "Coefficients", header: "gp_Cone.hxx".}
+proc location*(this: Cone): Pnt {.noSideEffect, importcpp: "Location",
+                              header: "gp_Cone.hxx".}
+proc position*(this: Cone): Ax3 {.noSideEffect, importcpp: "Position",
+                              header: "gp_Cone.hxx".}
+proc refRadius*(this: Cone): StandardReal {.noSideEffect, importcpp: "RefRadius",
+                                        header: "gp_Cone.hxx".}
+proc semiAngle*(this: Cone): StandardReal {.noSideEffect, importcpp: "SemiAngle",
+                                        header: "gp_Cone.hxx".}
+proc xAxis*(this: Cone): Ax1 {.noSideEffect, importcpp: "XAxis", header: "gp_Cone.hxx".}
+proc yAxis*(this: Cone): Ax1 {.noSideEffect, importcpp: "YAxis", header: "gp_Cone.hxx".}
+proc mirror*(this: var Cone; p: Pnt) {.importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: Cone; p: Pnt): Cone {.noSideEffect, importcpp: "Mirrored",
+                                     header: "gp_Cone.hxx".}
+proc mirror*(this: var Cone; a1: Ax1) {.importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: Cone; a1: Ax1): Cone {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Cone.hxx".}
+proc mirror*(this: var Cone; a2: Ax2) {.importcpp: "Mirror", header: "gp_Cone.hxx".}
+proc mirrored*(this: Cone; a2: Ax2): Cone {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Cone.hxx".}
+proc rotate*(this: var Cone; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Cone.hxx".}
+proc rotated*(this: Cone; a1: Ax1; ang: StandardReal): Cone {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Cone.hxx".}
+proc scale*(this: var Cone; p: Pnt; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Cone.hxx".}
+proc scaled*(this: Cone; p: Pnt; s: StandardReal): Cone {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Cone.hxx".}
+proc transform*(this: var Cone; t: Trsf) {.importcpp: "Transform", header: "gp_Cone.hxx".}
+proc transformed*(this: Cone; t: Trsf): Cone {.noSideEffect, importcpp: "Transformed",
+    header: "gp_Cone.hxx".}
+proc translate*(this: var Cone; v: Vec) {.importcpp: "Translate", header: "gp_Cone.hxx".}
+proc translated*(this: Cone; v: Vec): Cone {.noSideEffect, importcpp: "Translated",
+                                       header: "gp_Cone.hxx".}
+proc translate*(this: var Cone; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
+    header: "gp_Cone.hxx".}
+proc translated*(this: Cone; p1: Pnt; p2: Pnt): Cone {.noSideEffect,
+    importcpp: "Translated", header: "gp_Cone.hxx".}

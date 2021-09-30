@@ -1,172 +1,166 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Geom_Curve"
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_RangeError"
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of Geom_UndefinedDerivative"
+discard "forward decl of Geom_UndefinedValue"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Vec"
+discard "forward decl of gp_Trsf"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_OffsetCurve"
+discard "forward decl of Geom_OffsetCurve"
+
+type
+  GeomOffsetCurve* {.importcpp: "Geom_OffsetCurve", header: "Geom_OffsetCurve.hxx",
+                    bycopy.} = object of GeomCurve ## ! C is the basis curve, Offset is the distance between <me> and
+                                              ## ! the basis curve at any point. V defines the fixed reference
+                                              ## ! direction (offset direction). If P is a point on the basis
+                                              ## ! curve and T the first derivative with non zero length
+                                              ## ! at this point, the corresponding point on the offset curve is
+                                              ## ! in the direction of the vector-product N = V ^ T   where
+                                              ## ! N is a unitary vector.
+                                              ## ! If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
+                                              ## ! is not made.
+                                              ## ! Warnings :
+                                              ## ! In this package the entities are not shared. The OffsetCurve is
+                                              ## ! built with a copy of the curve C. So when C is modified the
+                                              ## ! OffsetCurve is not modified
+                                              ## !
+                                              ## ! Raised if the basis curve C is not at least C1.
+                                              ## ! Warnings :
+                                              ## ! No check is done to know if ||V^T|| != 0.0 at any point.
 
 
 type
-  Geom_OffsetCurve* {.header: "Geom_OffsetCurve.hxx", importcpp: "Geom_OffsetCurve", byref.} = object #of class Geom_Curve
-    ## This class implements the basis services for an offset curve in 3D
-    ## space. The Offset curve in this package can be a self intersecting
-    ## curve even if the basis curve does not self-intersect. The self
-    ## intersecting portions are not deleted at the construction time. An
-    ## offset curve is a curve at constant distance (Offset) from a basis
-    ## curve in a reference direction V. The offset curve takes its
-    ## parametrization from the basis curve. The Offset curve is in the
-    ## direction of the normal N defined with the cross product T^V, where
-    ## the vector T is given by the first derivative on the basis curve with
-    ## non zero length. The distance offset may be positive or negative to
-    ## indicate the preferred side of the curve : . distance offset >0 => the
-    ## curve is in the direction of N . distance offset <0 => the curve is in
-    ## the direction of - N
+  HandleGeomOffsetCurve* = Handle[GeomOffsetCurve]
 
-  Handle_Geom_OffsetCurve* {.header: "Geom_OffsetCurve.hxx", importcpp: "Handle_Geom_OffsetCurve".} = handle[Geom_OffsetCurve]
-  Base_type* {.header: "Geom_OffsetCurve.hxx", importcpp: "Geom_OffsetCurve::base_type".} = Geom_Curve
+## ! This class implements the basis services for an offset curve
+## ! in 3D space. The Offset curve in this package can be a self
+## ! intersecting curve even if the basis curve does not
+## ! self-intersect. The self intersecting portions are not deleted
+## ! at the construction time.
+## ! An offset curve is a curve at constant distance (Offset) from
+## ! a basis curve in a reference direction V. The offset curve
+## ! takes its parametrization from the basis curve.
+## ! The Offset curve is in the direction of the normal N
+## ! defined with the cross product  T^V, where the vector T
+## ! is given by the first derivative on the basis curve with
+## ! non zero length.
+## ! The distance offset may be positive or negative to indicate the
+## ! preferred side of the curve :
+## ! . distance offset >0 => the curve is in the direction of N
+## ! . distance offset <0 => the curve is in the direction of - N
+## !
+## ! On the Offset curve :
+## ! Value (U) = BasisCurve.Value(U) + (Offset * (T ^ V)) / ||T ^ V||
+## !
+## ! At any point the Offset direction V must not be parallel to the
+## ! vector T and the vector T must not have null length else the
+## ! offset curve is not defined. So the offset curve has not the
+## ! same continuity as the basis curve.
+## !
+## ! Warnings :
+## !
+## ! In this package we suppose that the continuity of the offset
+## ! curve is one degree less than the continuity of the basis
+## ! curve and we don't check that at any point ||T^V|| != 0.0
+## !
+## ! So to evaluate the curve it is better to check that the offset
+## ! curve is well defined at any point because an exception could
+## ! be raised. The check is not done in this package at the creation
+## ! of the offset curve because the control needs the use of an
+## ! algorithm which cannot be implemented in this package.
+## !
+## ! The OffsetCurve is closed if the first point and the last point
+## ! are the same (The distance between these two points is lower or
+## ! equal to the Resolution sea package gp) . The OffsetCurve can be
+## ! closed even if the basis curve is not closed.
+
+type
+  GeomOffsetCurvebaseType* = GeomCurve
+
+proc constructGeomOffsetCurve*(c: Handle[GeomCurve]; offset: StandardReal; v: Dir;
+                              isNotCheckC0: StandardBoolean = false): GeomOffsetCurve {.
+    constructor, importcpp: "Geom_OffsetCurve(@)", header: "Geom_OffsetCurve.hxx".}
+proc reverse*(this: var GeomOffsetCurve) {.importcpp: "Reverse",
+                                       header: "Geom_OffsetCurve.hxx".}
+proc reversedParameter*(this: GeomOffsetCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_OffsetCurve.hxx".}
+proc setBasisCurve*(this: var GeomOffsetCurve; c: Handle[GeomCurve];
+                   isNotCheckC0: StandardBoolean = false) {.
+    importcpp: "SetBasisCurve", header: "Geom_OffsetCurve.hxx".}
+proc setDirection*(this: var GeomOffsetCurve; v: Dir) {.importcpp: "SetDirection",
+    header: "Geom_OffsetCurve.hxx".}
+proc setOffsetValue*(this: var GeomOffsetCurve; d: StandardReal) {.
+    importcpp: "SetOffsetValue", header: "Geom_OffsetCurve.hxx".}
+proc basisCurve*(this: GeomOffsetCurve): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "BasisCurve", header: "Geom_OffsetCurve.hxx".}
+#[ proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_OffsetCurve.hxx".} ]#
+proc direction*(this: GeomOffsetCurve): Dir {.noSideEffect, importcpp: "Direction",
+    header: "Geom_OffsetCurve.hxx".}
+proc d0*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_OffsetCurve.hxx".}
+proc d1*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_OffsetCurve.hxx".}
+proc d2*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_OffsetCurve.hxx".}
+proc d3*(this: GeomOffsetCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec;
+        v3: var Vec) {.noSideEffect, importcpp: "D3", header: "Geom_OffsetCurve.hxx".}
+proc dn*(this: GeomOffsetCurve; u: StandardReal; n: int): Vec {.noSideEffect,
+    importcpp: "DN", header: "Geom_OffsetCurve.hxx".}
+proc firstParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "FirstParameter", header: "Geom_OffsetCurve.hxx".}
+proc lastParameter*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "LastParameter", header: "Geom_OffsetCurve.hxx".}
+proc offset*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Offset", header: "Geom_OffsetCurve.hxx".}
+proc isClosed*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_OffsetCurve.hxx".}
+proc isCN*(this: GeomOffsetCurve; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCN", header: "Geom_OffsetCurve.hxx".}
+proc isPeriodic*(this: GeomOffsetCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_OffsetCurve.hxx".}
+proc period*(this: GeomOffsetCurve): StandardReal {.noSideEffect,
+    importcpp: "Period", header: "Geom_OffsetCurve.hxx".}
+proc transform*(this: var GeomOffsetCurve; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_OffsetCurve.hxx".}
+proc transformedParameter*(this: GeomOffsetCurve; u: StandardReal; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "TransformedParameter", header: "Geom_OffsetCurve.hxx".}
+proc parametricTransformation*(this: GeomOffsetCurve; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_OffsetCurve.hxx".}
+proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_OffsetCurve.hxx".}
+#[ proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisCurveContinuity", header: "Geom_OffsetCurve.hxx".} ]#
+proc dumpJson*(this: GeomOffsetCurve; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_OffsetCurve.hxx".}
 
 
-{.push header: "Geom_OffsetCurve.hxx".}
-
-proc constructGeom_OffsetCurve*(C: handle[Geom_Curve], Offset: cdouble, V: gp_Dir, isNotCheckC0: bool): Geom_OffsetCurve {.constructor,importcpp: "Geom_OffsetCurve::Geom_OffsetCurve(@)".}
-    ## C is the basis curve, Offset is the distance between <me> and the
-    ## basis curve at any point. V defines the fixed reference direction
-    ## (offset direction). If P is a point on the basis curve and T the first
-    ## derivative with non zero length at this point, the corresponding point
-    ## on the offset curve is in the direction of the vector-product N = V ^
-    ## T where N is a unitary vector. If isNotCheckC0 = TRUE checking if
-    ## basis curve has C0-continuity is not made. Warnings : In this package
-    ## the entities are not shared. The OffsetCurve is built with a copy of
-    ## the curve C. So when C is modified the OffsetCurve is not modified
-
-proc reverse*(this: var Geom_OffsetCurve)  {.importcpp: "Reverse".}
-    ## Changes the orientation of this offset curve. As a result: - the basis
-    ## curve is reversed, - the start point of the initial curve becomes the
-    ## end point of the reversed curve, - the end point of the initial curve
-    ## becomes the start point of the reversed curve, and - the first and
-    ## last parameters are recomputed.
-
-proc reversedParameter*(this: Geom_OffsetCurve, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
-    ## Computes the parameter on the reversed curve for the point of
-    ## parameter U on this offset curve.
-
-proc setBasisCurve*(this: var Geom_OffsetCurve, C: handle[Geom_Curve], isNotCheckC0: bool)  {.importcpp: "SetBasisCurve".}
-    ## Changes this offset curve by assigning C as the basis curve from which
-    ## it is built. If isNotCheckC0 = TRUE checking if basis curve has
-    ## C0-continuity is not made. Exceptions Standard_ConstructionError if
-    ## the curve C is not at least "C1" continuous.
-
-proc setDirection*(this: var Geom_OffsetCurve, V: gp_Dir)  {.importcpp: "SetDirection".}
-    ## Changes this offset curve by assigning V as the reference vector used
-    ## to compute the offset direction.
-
-proc setOffsetValue*(this: var Geom_OffsetCurve, D: cdouble)  {.importcpp: "SetOffsetValue".}
-    ## Changes this offset curve by assigning D as the offset value.
-
-proc basisCurve*(this: Geom_OffsetCurve): handle[Geom_Curve]  {.importcpp: "BasisCurve".}
-    ## Returns the basis curve of this offset curve. Note: The basis curve
-    ## can be an offset curve.
-
-proc continuity*(this: Geom_OffsetCurve): GeomAbs_Shape  {.importcpp: "Continuity".}
-    ## Returns the global continuity of this offset curve as a value of the
-    ## GeomAbs_Shape enumeration. The degree of continuity of this offset
-    ## curve is equal to the degree of continuity of the basis curve minus 1.
-    ## Continuity of the Offset curve : C0 : only geometric continuity, C1 :
-    ## continuity of the first derivative all along the Curve, C2 :
-    ## continuity of the second derivative all along the Curve, C3 :
-    ## continuity of the third derivative all along the Curve, G1 : tangency
-    ## continuity all along the Curve, G2 : curvature continuity all along
-    ## the Curve, CN : the order of continuity is infinite. Warnings :
-    ## Returns the continuity of the basis curve - 1. The offset curve must
-    ## have a unique offset direction defined at any point.
-
-proc direction*(this: Geom_OffsetCurve): gp_Dir  {.importcpp: "Direction".}
-    ## Returns the reference vector of this offset curve. Value and
-    ## derivatives Warnings : The exception UndefinedValue or
-    ## UndefinedDerivative is raised if it is not possible to compute a
-    ## unique offset direction. If T is the first derivative with not null
-    ## length and V the offset direction the relation ||T(U) ^ V|| != 0 must
-    ## be satisfied to evaluate the offset curve. No check is done at the
-    ## creation time and we suppose in this package that the offset curve is
-    ## well defined.
-
-proc d0*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Warning! this should not be called if the basis curve is not at least
-    ## C1. Nevertheless if used on portion where the curve is C1, it is OK
-
-proc d1*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
-    ## Warning! this should not be called if the continuity of the basis
-    ## curve is not C2. Nevertheless, it's OK to use it on portion where the
-    ## curve is C2
-
-proc d2*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
-    ## Warning! this should not be called if the continuity of the basis
-    ## curve is not C3. Nevertheless, it's OK to use it on portion where the
-    ## curve is C3
-
-proc d3*(this: Geom_OffsetCurve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
-
-proc dN*(this: Geom_OffsetCurve, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
-    ## The returned vector gives the value of the derivative for the order of
-    ## derivation N.
-
-proc firstParameter*(this: Geom_OffsetCurve): cdouble  {.importcpp: "FirstParameter".}
-    ## Returns the value of the first parameter of this offset curve. The
-    ## first parameter corresponds to the start point of the curve. Note: the
-    ## first and last parameters of this offset curve are also the ones of
-    ## its basis curve.
-
-proc lastParameter*(this: Geom_OffsetCurve): cdouble  {.importcpp: "LastParameter".}
-    ## Returns the value of the last parameter of this offset curve. The last
-    ## parameter corresponds to the end point. Note: the first and last
-    ## parameters of this offset curve are also the ones of its basis curve.
-
-proc offset*(this: Geom_OffsetCurve): cdouble  {.importcpp: "Offset".}
-    ## Returns the offset value of this offset curve.
-
-proc isClosed*(this: Geom_OffsetCurve): bool  {.importcpp: "IsClosed".}
-    ## Returns True if the distance between the start point and the end point
-    ## of the curve is lower or equal to Resolution from package gp.
-
-proc isCN*(this: Geom_OffsetCurve, N: cint): bool  {.importcpp: "IsCN".}
-    ## Returns true if the degree of continuity of the basis curve of this
-    ## offset curve is at least N + 1. This method answer True if the
-    ## continuity of the basis curve is N + 1. We suppose in this class that
-    ## a normal direction to the basis curve (used to compute the offset
-    ## curve) is defined at any point on the basis curve. Raised if N < 0.
-
-proc isPeriodic*(this: Geom_OffsetCurve): bool  {.importcpp: "IsPeriodic".}
-    ## Returns true if this offset curve is periodic, i.e. if the basis curve
-    ## of this offset curve is periodic.
-
-proc period*(this: Geom_OffsetCurve): cdouble  {.importcpp: "Period".}
-    ## Returns the period of this offset curve, i.e. the period of the basis
-    ## curve of this offset curve. Exceptions Standard_NoSuchObject if the
-    ## basis curve is not periodic.
-
-proc transform*(this: var Geom_OffsetCurve, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this offset curve. Note: the basis
-    ## curve is also modified.
-
-proc transformedParameter*(this: Geom_OffsetCurve, U: cdouble, T: gp_Trsf): cdouble  {.importcpp: "TransformedParameter".}
-    ## Returns the parameter on the transformed curve for the transform of
-    ## the point of parameter U on <me>.
-    ## me->Transformed(T)->Value(me->TransformedParameter(U,T)) is the same
-    ## point as me->Value(U).Transformed(T) This methods calls the basis
-    ## curve method.
-
-proc parametricTransformation*(this: Geom_OffsetCurve, T: gp_Trsf): cdouble  {.importcpp: "ParametricTransformation".}
-    ## Returns a coefficient to compute the parameter on the transformed
-    ## curve for the transform of the point on <me>.
-
-proc copy*(this: Geom_OffsetCurve): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this offset curve.
-
-proc getBasisCurveContinuity*(this: Geom_OffsetCurve): GeomAbs_Shape  {.importcpp: "GetBasisCurveContinuity".}
-    ## Returns continuity of the basis curve.
-
-proc dumpJson*(this: Geom_OffsetCurve, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_OffsetCurve): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_OffsetCurve): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_OffsetCurve): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_OffsetCurve.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_OffsetCurve::get_type_name(@)",
+                            header: "Geom_OffsetCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_OffsetCurve::get_type_descriptor(@)",
+    header: "Geom_OffsetCurve.hxx".}
+proc dynamicType*(this: GeomOffsetCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_OffsetCurve.hxx".} ]#

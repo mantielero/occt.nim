@@ -1,82 +1,85 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_DomainError"
+discard "forward decl of gp_VectorWithNullMagnitude"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Vector"
+discard "forward decl of Geom_Vector"
+
+type
+  GeomVector* {.importcpp: "Geom_Vector", header: "Geom_Vector.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                             ## !
+                                                                                             ## Reverses
+                                                                                             ## the
+                                                                                             ## vector
+                                                                                             ## <me>.
 
 
 type
-  Handle_Geom_Vector* {.header: "Geom_Vector.hxx", importcpp: "Handle_Geom_Vector".} = handle[Geom_Vector]
-  Base_type* {.header: "Geom_Vector.hxx", importcpp: "Geom_Vector::base_type".} = Geom_Geometry
+  HandleGeomVector* = Handle[GeomVector]
+
+## ! The abstract class Vector describes the common
+## ! behavior of vectors in 3D space.
+## ! The Geom package provides two concrete classes of
+## ! vectors: Geom_Direction (unit vector) and Geom_VectorWithMagnitude.
+type
+  GeomVectorbaseType* = GeomGeometry
+
+proc reverse*(this: var GeomVector) {.importcpp: "Reverse", header: "Geom_Vector.hxx".}
+proc reversed*(this: GeomVector): Handle[GeomVector] {.noSideEffect,
+    importcpp: "Reversed", header: "Geom_Vector.hxx".}
+proc angle*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
+    importcpp: "Angle", header: "Geom_Vector.hxx".}
+proc angleWithRef*(this: GeomVector; other: Handle[GeomVector];
+                  vRef: Handle[GeomVector]): StandardReal {.noSideEffect,
+    importcpp: "AngleWithRef", header: "Geom_Vector.hxx".}
+proc coord*(this: GeomVector; x: var StandardReal; y: var StandardReal;
+           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
+                               header: "Geom_Vector.hxx".}
+proc magnitude*(this: GeomVector): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom_Vector.hxx".}
+proc squareMagnitude*(this: GeomVector): StandardReal {.noSideEffect,
+    importcpp: "SquareMagnitude", header: "Geom_Vector.hxx".}
+proc x*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "X",
+                                      header: "Geom_Vector.hxx".}
+proc y*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Y",
+                                      header: "Geom_Vector.hxx".}
+proc z*(this: GeomVector): StandardReal {.noSideEffect, importcpp: "Z",
+                                      header: "Geom_Vector.hxx".}
+proc cross*(this: var GeomVector; other: Handle[GeomVector]) {.importcpp: "Cross",
+    header: "Geom_Vector.hxx".}
+proc crossed*(this: GeomVector; other: Handle[GeomVector]): Handle[GeomVector] {.
+    noSideEffect, importcpp: "Crossed", header: "Geom_Vector.hxx".}
+proc crossCross*(this: var GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]) {.
+    importcpp: "CrossCross", header: "Geom_Vector.hxx".}
+proc crossCrossed*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): Handle[
+    GeomVector] {.noSideEffect, importcpp: "CrossCrossed", header: "Geom_Vector.hxx".}
+proc dot*(this: GeomVector; other: Handle[GeomVector]): StandardReal {.noSideEffect,
+    importcpp: "Dot", header: "Geom_Vector.hxx".}
+proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): StandardReal {.
+    noSideEffect, importcpp: "DotCross", header: "Geom_Vector.hxx".}
+proc vec*(this: GeomVector): Vec {.noSideEffect, importcpp: "Vec",
+                               header: "Geom_Vector.hxx".}
 
 
-{.push header: "Geom_Vector.hxx".}
-
-proc reverse*(this: var Geom_Vector)  {.importcpp: "Reverse".}
-    ## Reverses the vector <me>.
-
-proc reversed*(this: Geom_Vector): handle[Geom_Vector]  {.importcpp: "Reversed".}
-    ## Returns a copy of <me> reversed.
-
-proc angle*(this: Geom_Vector, Other: handle[Geom_Vector]): cdouble  {.importcpp: "Angle".}
-    ## Computes the angular value, in radians, between this vector and vector
-    ## Other. The result is a value between 0 and Pi. Exceptions
-    ## gp_VectorWithNullMagnitude if: - the magnitude of this vector is less
-    ## than or equal to gp::Resolution(), or - the magnitude of vector Other
-    ## is less than or equal to gp::Resolution().
-
-proc angleWithRef*(this: Geom_Vector, Other: handle[Geom_Vector], VRef: handle[Geom_Vector]): cdouble  {.importcpp: "AngleWithRef".}
-    ## Computes the angular value, in radians, between this vector and vector
-    ## Other. The result is a value between -Pi and Pi. The vector VRef
-    ## defines the positive sense of rotation: the angular value is positive
-    ## if the cross product this ^ Other has the same orientation as VRef (in
-    ## relation to the plane defined by this vector and vector Other).
-    ## Otherwise, it is negative. Exceptions Standard_DomainError if this
-    ## vector, vector Other and vector VRef are coplanar, except if this
-    ## vector and vector Other are parallel. gp_VectorWithNullMagnitude if
-    ## the magnitude of this vector, vector Other or vector VRef is less than
-    ## or equal to gp::Resolution().
-
-proc coord*(this: Geom_Vector, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
-    ## Returns the coordinates X, Y and Z of this vector.
-
-proc magnitude*(this: Geom_Vector): cdouble  {.importcpp: "Magnitude".}
-    ## Returns the Magnitude of <me>.
-
-proc squareMagnitude*(this: Geom_Vector): cdouble  {.importcpp: "SquareMagnitude".}
-    ## Returns the square magnitude of <me>.
-
-proc x*(this: Geom_Vector): cdouble  {.importcpp: "X".}
-    ## Returns the X coordinate of <me>.
-
-proc y*(this: Geom_Vector): cdouble  {.importcpp: "Y".}
-    ## Returns the Y coordinate of <me>.
-
-proc z*(this: Geom_Vector): cdouble  {.importcpp: "Z".}
-    ## Returns the Z coordinate of <me>.
-
-proc cross*(this: var Geom_Vector, Other: handle[Geom_Vector])  {.importcpp: "Cross".}
-    ## Computes the cross product between <me> and <Other>.
-
-proc crossed*(this: Geom_Vector, Other: handle[Geom_Vector]): handle[Geom_Vector]  {.importcpp: "Crossed".}
-    ## Computes the cross product between <me> and <Other>. A new direction
-    ## is returned.
-
-proc crossCross*(this: var Geom_Vector, V1: handle[Geom_Vector], V2: handle[Geom_Vector])  {.importcpp: "CrossCross".}
-    ## Computes the triple vector product <me> ^(V1 ^ V2).
-
-proc crossCrossed*(this: Geom_Vector, V1: handle[Geom_Vector], V2: handle[Geom_Vector]): handle[Geom_Vector]  {.importcpp: "CrossCrossed".}
-    ## Computes the triple vector product <me> ^(V1 ^ V2).
-
-proc dot*(this: Geom_Vector, Other: handle[Geom_Vector]): cdouble  {.importcpp: "Dot".}
-    ## Computes the scalar product of this vector and vector Other.
-
-proc dotCross*(this: Geom_Vector, V1: handle[Geom_Vector], V2: handle[Geom_Vector]): cdouble  {.importcpp: "DotCross".}
-    ## Computes the triple scalar product. Returns me . (V1 ^ V2)
-
-proc vec*(this: Geom_Vector): gp_Vec  {.importcpp: "Vec".}
-    ## Converts this vector into a gp_Vec vector.
-
-proc get_type_name*(this: var Geom_Vector): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Vector): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Vector): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Vector.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Vector::get_type_name(@)",
+                            header: "Geom_Vector.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Vector::get_type_descriptor(@)", header: "Geom_Vector.hxx".}
+proc dynamicType*(this: GeomVector): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Vector.hxx".} ]#

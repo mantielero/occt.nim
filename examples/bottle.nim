@@ -1,82 +1,102 @@
 import occt
 
-let
-  myWidth = 50.0
-  myThickness = 20.0
-  myHeight = 70.0
-  aPnt1 = Pnt(-myWidth / 2.0, 0, 0)
-  aPnt2 = Pnt(-myWidth / 2.0, -myThickness / 4.0, 0)
-  aPnt3 = Pnt(0, -myThickness / 2.0, 0)
-  aPnt4 = Pnt(myWidth / 2.0, -myThickness / 4.0, 0)
-  aPnt5 = Pnt(myWidth / 2.0, 0, 0)
+proc main() =
+  let
+    myWidth = 50.0
+    myThickness = 20.0
+    myHeight = 70.0
+    aPnt1 = newPnt(-myWidth / 2.0, 0, 0)
+    aPnt2 = newPnt(-myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt3 = newPnt(0, -myThickness / 2.0, 0)
+    aPnt4 = newPnt(myWidth / 2.0, -myThickness / 4.0, 0)
+    aPnt5 = newPnt(myWidth / 2.0, 0, 0)
 
-echo aPnt2
-echo aPnt3
-echo aPnt4
+#[   echo aPnt2.x
+  echo aPnt3.y
+  echo aPnt4.z ]#
 
-let 
-  aArcOfCircle:Handle_Geom_TrimmedCurve = MakeArcOfCircle(aPnt2,aPnt3,aPnt4)
-  aSegment1:Handle_Geom_TrimmedCurve = MakeSegment(aPnt1, aPnt2)
-  aSegment2:Handle_Geom_TrimmedCurve = MakeSegment(aPnt4, aPnt5)
-
-
-# Profile: Defining the Topology
-# Converting suporting geometry
-let
-  aEdge1:TopoDS_Edge = MakeEdge(aSegment1) # BRepBuilderAPI_
-  aEdge2:TopoDS_Edge = MakeEdge(aArcOfCircle)
-  aEdge3:TopoDS_Edge = MakeEdge(aSegment2)
-
-  #aEdge1 = MakeEdge(aPnt1, aPnt3)
-  #aEdge2 = MakeEdge(aPnt4, aPnt5)
-
-  aWire:TopoDS_Wire = MakeWire(aEdge1, aEdge2, aEdge3)
-
-  # Profile: Completing the Profile
-  aOrigin = Pnt(0, 0, 0)
-  xDir    = Dir(1, 0, 0)
-  xAxis   = Ax1(aOrigin, xDir)
-
-  # gp_Ax1 xAxis = gp::OX();
-
-var aTrsf:gp_Trsf
-aTrsf.setMirror(xAxis)
-
-# apply the transformation 
-var aBRepTrsf = BRepBuilderAPI_Transform(aWire, aTrsf)
-var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape()
-
-# Get the wire from the shape
-let aMirroredWire:TopoDS_Wire = wire(aMirroredShape)
-
-# Join the wires into a shape
-var mkWire:BRepBuilderAPI_MakeWire
-mkWire.add(aWire)
-mkWire.add(aMirroredWire)
-let myWireProfile:TopoDS_Wire = mkWire.wire 
-
-# Building the body
-#let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
-let myFaceProfile:TopoDS_Face = MakeFace(myWireProfile)
-let aPrismVec = Vec(0.0, 0.0, myHeight)
-let myBody:TopoDS_Shape = MakePrism(myFaceProfile, aPrismVec)
-
-# - Applying fillets
-let mkFillet = BRepFilletAPI_MakeFillet(myBody)  # <--- Error: type mismatch: got <TopoDS_Shape> but expected 'BRepFilletAPI_MakeFillet = object'
-#let anEdgeExplorer = TopExp_Explorer(myBody, TopAbs_EDGE)
-mkFillet.add(myThickness / 12.0, anEdge)
-myBody = mkFillet.shape()
+  let 
+    aArcOfCircle = makeArcOfCircle(aPnt2,aPnt3,aPnt4) # Handle_Geom_TrimmedCurve
+    aSegment1    = makeSegment(aPnt1, aPnt2)
+    aSegment2    = makeSegment(aPnt4, aPnt5)
 
 
-let neckLocation = gp_Pnt(0, 0, myHeight)
-#let neckAxis = gp_Dir  = gp::DZ();
-let neckAx2 = gp_Ax2(neckLocation, neckAxis)
+  # Profile: Defining the Topology
+  # Converting suporting geometry
+  var
+    #aEdge1:TopoDS_Edge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    #aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
+    #aEdge3:TopoDS_Edge = makeEdge(aSegment2)
+    aEdge1:BRepBuilderAPI_MakeEdge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    aEdge2:BRepBuilderAPI_MakeEdge = makeEdge(aArcOfCircle)
+    aEdge3:BRepBuilderAPI_MakeEdge = makeEdge(aSegment2)
 
-let myNeckRadius:Standard_Real = myThickness / 4.0
-let myNeckHeight:Standard_Real = myHeight / 10.0
-let mkCylinder = BRepPrimAPI_MakeCylinder(neckAx2, myNeckRadius, myNeckHeight)
-let myNeck:TopoDS_Shape = mkCylinder.shape()
+    #aEdge1 = makeEdge(aPnt1, aPnt3)
+    #aEdge3 = makeEdge(aPnt4, aPnt5)
+    aWire:BRepBuilderAPI_MakeWire = makeWire(aEdge1, aEdge2, aEdge3)
 
-myBody = BRepAlgoAPI_Fuse(myBody, myNeck)
 
-# Creating a Hollowed Solid
+    # Profile: Completing the Profile
+    aOrigin = newPnt(0, 0, 0)
+    xDir    = newDir(1, 0, 0)
+    xAxis   = newAx1(aOrigin, xDir)
+    # gp_Ax1 xAxis = gp::OX();
+
+
+  var aTrsf:Trsf
+  aTrsf.setMirror(xAxis)
+
+  # apply the transformation 
+  var aBRepTrsf:BRepBuilderAPI_Transform = transform(aWire, aTrsf)
+  
+  var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape  #cexpr[TopoDS_Shape]^aBRepTrsf.Shape()
+
+
+  # Get the wire from the shape
+  let aMirroredWire:TopoDS_Wire = aMirroredShape.wire  # newTopoDS_WBRepAlgo_BooleanOperationire(aMirroredShape) #
+
+
+  # Join the wires into a shape
+  var mkWire = makeWire() #:BRepBuilderAPI_MakeWire
+  mkWire.add(aWire)
+  mkWire.add(aMirroredWire)
+  let myWireProfile:TopoDS_Wire = mkWire.wire 
+
+
+  # Building the body
+  #   let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
+  let myFaceProfile:TopoDS_Face = makeFace(myWireProfile)
+  let aPrismVec = newVec(0.0, 0.0, myHeight)
+  var myBody:BRepPrimAPI_MakePrism = makePrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
+
+
+  # - Applying fillets
+  var mkFillet = makeFillet(myBody)
+
+  var anEdgeExplorer = explorer(myBody, TopAbsEDGE)
+  while anEdgeExplorer.more():
+    var anEdge = anEdgeExplorer.current.edge
+    # Add edge to fillet algorithm
+    mkFillet.add(myThickness / 12.0, anEdge)
+    anEdgeExplorer.next()
+
+  let myFilletedBody = mkFillet.shape()
+
+  # Adding the Neck
+  let neckLocation = newPnt(0, 0, myHeight)
+  let neckAxis:Dir = dz()
+  let neckAx2 = newAx2(neckLocation, neckAxis)
+
+  let myNeckRadius = myThickness / 4.0
+  let myNeckHeight = myHeight / 10.0
+
+  var mkCylinder:BRepBuilderAPI_MakeShape = makeCylinder(neckAx2, myNeckRadius, myNeckHeight)
+  var myNeck:TopoDS_Shape = mkCylinder.shape()
+   
+
+  var myBodyFused = fuse(myFilletedBody, myNeck)
+  
+  # Creating a Hollowed Solid
+
+
+main()

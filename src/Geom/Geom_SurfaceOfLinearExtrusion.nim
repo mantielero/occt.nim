@@ -1,168 +1,158 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_RangeError"
+discard "forward decl of Geom_UndefinedDerivative"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Vec"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_SurfaceOfLinearExtrusion"
+discard "forward decl of Geom_SurfaceOfLinearExtrusion"
+
+type
+  GeomSurfaceOfLinearExtrusion* {.importcpp: "Geom_SurfaceOfLinearExtrusion",
+                                 header: "Geom_SurfaceOfLinearExtrusion.hxx",
+                                 bycopy.} = object of GeomSweptSurface ## ! V is the direction of extrusion.
+                                                                  ## ! C is the extruded curve.
+                                                                  ## ! The form of a
+                                                                  ## SurfaceOfLinearExtrusion can be :
+                                                                  ## ! . ruled surface (RuledForm),
+                                                                  ## ! . a cylindrical surface if the extruded curve is a circle or
+                                                                  ## ! a trimmed circle
+                                                                  ## (CylindricalForm),
+                                                                  ## ! . a plane surface if the extruded curve is a Line (PlanarForm).
+                                                                  ## ! Warnings :
+                                                                  ## ! Degenerated surface cases are not detected. For example if the
+                                                                  ## ! curve C is a line and V is parallel to the direction of this
+                                                                  ## ! line.
 
 
 type
-  Geom_SurfaceOfLinearExtrusion* {.header: "Geom_SurfaceOfLinearExtrusion.hxx", importcpp: "Geom_SurfaceOfLinearExtrusion", byref.} = object #of class Geom_SweptSurface
-    ## Describes a surface of linear extrusion ("extruded surface"), e.g. a
-    ## generalized cylinder. Such a surface is obtained by sweeping a curve
-    ## (called the "extruded curve" or "basis") in a given direction
-    ## (referred to as the "direction of extrusion" and defined by a unit
-    ## vector). The u parameter is along the extruded curve. The v parameter
-    ## is along the direction of extrusion. The parameter range for the u
-    ## parameter is defined by the reference curve. The parameter range for
-    ## the v parameter is ] - infinity, + infinity [. The position of the
-    ## curve gives the origin of the v parameter. The surface is "CN" in the
-    ## v parametric direction. The form of a surface of linear extrusion is
-    ## generally a ruled surface (GeomAbs_RuledForm). It can be: - a
-    ## cylindrical surface, if the extruded curve is a circle, or a trimmed
-    ## circle, with an axis parallel to the direction of extrusion
-    ## (GeomAbs_CylindricalForm), or - a planar surface, if the extruded
-    ## curve is a line (GeomAbs_PlanarForm). Note: The surface of extrusion
-    ## is built from a copy of the original basis curve, so the original
-    ## curve is not modified when the surface is modified. Warning Degenerate
-    ## surfaces are not detected. A degenerate surface is obtained, for
-    ## example, when the extruded curve is a line and the direction of
-    ## extrusion is parallel to that line.
+  HandleGeomSurfaceOfLinearExtrusion* = Handle[GeomSurfaceOfLinearExtrusion]
 
-  Handle_Geom_SurfaceOfLinearExtrusion* {.header: "Geom_SurfaceOfLinearExtrusion.hxx", importcpp: "Handle_Geom_SurfaceOfLinearExtrusion".} = handle[Geom_SurfaceOfLinearExtrusion]
-  Base_type* {.header: "Geom_SurfaceOfLinearExtrusion.hxx", importcpp: "Geom_SurfaceOfLinearExtrusion::base_type".} = Geom_SweptSurface
+## ! Describes a surface of linear extrusion ("extruded
+## ! surface"), e.g. a generalized cylinder. Such a surface
+## ! is obtained by sweeping a curve (called the "extruded
+## ! curve" or "basis") in a given direction (referred to as
+## ! the "direction of extrusion" and defined by a unit vector).
+## ! The u parameter is along the extruded curve. The v
+## ! parameter is along the direction of extrusion.
+## ! The parameter range for the u parameter is defined
+## ! by the reference curve.
+## ! The parameter range for the v parameter is ] -
+## ! infinity, + infinity [.
+## ! The position of the curve gives the origin of the v parameter.
+## ! The surface is "CN" in the v parametric direction.
+## ! The form of a surface of linear extrusion is generally a
+## ! ruled surface (GeomAbs_RuledForm). It can be:
+## ! - a cylindrical surface, if the extruded curve is a circle,
+## ! or a trimmed circle, with an axis parallel to the
+## ! direction of extrusion (GeomAbs_CylindricalForm), or
+## ! - a planar surface, if the extruded curve is a line
+## ! (GeomAbs_PlanarForm).
+## ! Note: The surface of extrusion is built from a copy of
+## ! the original basis curve, so the original curve is not
+## ! modified when the surface is modified.
+## ! Warning
+## ! Degenerate surfaces are not detected. A degenerate
+## ! surface is obtained, for example, when the extruded
+## ! curve is a line and the direction of extrusion is parallel
+## ! to that line.
+
+type
+  GeomSurfaceOfLinearExtrusionbaseType* = GeomSweptSurface
+
+proc constructGeomSurfaceOfLinearExtrusion*(c: Handle[GeomCurve]; v: Dir): GeomSurfaceOfLinearExtrusion {.
+    constructor, importcpp: "Geom_SurfaceOfLinearExtrusion(@)",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc setDirection*(this: var GeomSurfaceOfLinearExtrusion; v: Dir) {.
+    importcpp: "SetDirection", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc setBasisCurve*(this: var GeomSurfaceOfLinearExtrusion; c: Handle[GeomCurve]) {.
+    importcpp: "SetBasisCurve", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc uReverse*(this: var GeomSurfaceOfLinearExtrusion) {.importcpp: "UReverse",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc uReversedParameter*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc vReverse*(this: var GeomSurfaceOfLinearExtrusion) {.importcpp: "VReverse",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc vReversedParameter*(this: GeomSurfaceOfLinearExtrusion; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc bounds*(this: GeomSurfaceOfLinearExtrusion; u1: var StandardReal;
+            u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Bounds", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isUClosed*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isVClosed*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isCNu*(this: GeomSurfaceOfLinearExtrusion; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNu", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isCNv*(this: GeomSurfaceOfLinearExtrusion; n: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsCNv", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isUPeriodic*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsUPeriodic",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc isVPeriodic*(this: GeomSurfaceOfLinearExtrusion): StandardBoolean {.
+    noSideEffect, importcpp: "IsVPeriodic",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc uIso*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc vIso*(this: GeomSurfaceOfLinearExtrusion; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d0*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt) {.noSideEffect, importcpp: "D0",
+                   header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d1*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d2*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc d3*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal;
+        p: var Pnt; d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec;
+        d3u: var Vec; d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect,
+    importcpp: "D3", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc dn*(this: GeomSurfaceOfLinearExtrusion; u: StandardReal; v: StandardReal; nu: int;
+        nv: int): Vec {.noSideEffect, importcpp: "DN",
+                     header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: Trsf) {.
+    importcpp: "Transform", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: Trsf): GTrsf2d {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc copy*(this: GeomSurfaceOfLinearExtrusion): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc dumpJson*(this: GeomSurfaceOfLinearExtrusion; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_SurfaceOfLinearExtrusion.hxx".}
 
 
-{.push header: "Geom_SurfaceOfLinearExtrusion.hxx".}
-
-proc constructGeom_SurfaceOfLinearExtrusion*(C: handle[Geom_Curve], V: gp_Dir): Geom_SurfaceOfLinearExtrusion {.constructor,importcpp: "Geom_SurfaceOfLinearExtrusion::Geom_SurfaceOfLinearExtrusion(@)".}
-    ## V is the direction of extrusion. C is the extruded curve. The form of
-    ## a SurfaceOfLinearExtrusion can be : . ruled surface (RuledForm), . a
-    ## cylindrical surface if the extruded curve is a circle or a trimmed
-    ## circle (CylindricalForm), . a plane surface if the extruded curve is a
-    ## Line (PlanarForm). Warnings : Degenerated surface cases are not
-    ## detected. For example if the curve C is a line and V is parallel to
-    ## the direction of this line.
-
-proc setDirection*(this: var Geom_SurfaceOfLinearExtrusion, V: gp_Dir)  {.importcpp: "SetDirection".}
-    ## Assigns V as the "direction of extrusion" for this surface of linear
-    ## extrusion.
-
-proc setBasisCurve*(this: var Geom_SurfaceOfLinearExtrusion, C: handle[Geom_Curve])  {.importcpp: "SetBasisCurve".}
-    ## Modifies this surface of linear extrusion by redefining its "basis
-    ## curve" (the "extruded curve").
-
-proc uReverse*(this: var Geom_SurfaceOfLinearExtrusion)  {.importcpp: "UReverse".}
-    ## Changes the orientation of this surface of linear extrusion in the u
-    ## parametric direction. The bounds of the surface are not changed, but
-    ## the given parametric direction is reversed. Hence the orientation of
-    ## the surface is reversed. In the case of a surface of linear extrusion:
-    ## - UReverse reverses the basis curve, and - VReverse reverses the
-    ## direction of linear extrusion.
-
-proc uReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## Computes the u parameter on the modified surface, produced by
-    ## reversing its u parametric direction, for any point of u parameter U
-    ## on this surface of linear extrusion. In the case of an extruded
-    ## surface: - UReverseParameter returns the reversed parameter given by
-    ## the function ReversedParameter called with U on the basis curve,
-
-proc vReverse*(this: var Geom_SurfaceOfLinearExtrusion)  {.importcpp: "VReverse".}
-    ## Changes the orientation of this surface of linear extrusion in the v
-    ## parametric direction. The bounds of the surface are not changed, but
-    ## the given parametric direction is reversed. Hence the orientation of
-    ## the surface is reversed. In the case of a surface of linear extrusion:
-    ## - UReverse reverses the basis curve, and - VReverse reverses the
-    ## direction of linear extrusion.
-
-proc vReversedParameter*(this: Geom_SurfaceOfLinearExtrusion, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Computes the v parameter on the modified surface, produced by
-    ## reversing its u v parametric direction, for any point of v parameter V
-    ## on this surface of linear extrusion. In the case of an extruded
-    ## surface VReverse returns -V.
-
-proc bounds*(this: Geom_SurfaceOfLinearExtrusion, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## Returns the parametric bounds U1, U2, V1 and V2 of this surface of
-    ## linear extrusion. A surface of linear extrusion is infinite in the v
-    ## parametric direction, so: - V1 = cdouble::RealFirst() - V2 =
-    ## cdouble::RealLast().
-
-proc isUClosed*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsUClosed".}
-    ## IsUClosed returns true if the "basis curve" of this surface of linear
-    ## extrusion is closed.
-
-proc isVClosed*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsVClosed".}
-    ## IsVClosed always returns false.
-
-proc isCNu*(this: Geom_SurfaceOfLinearExtrusion, N: cint): bool  {.importcpp: "IsCNu".}
-    ## IsCNu returns true if the degree of continuity for the "basis curve"
-    ## of this surface of linear extrusion is at least N. Raises RangeError
-    ## if N < 0.
-
-proc isCNv*(this: Geom_SurfaceOfLinearExtrusion, N: cint): bool  {.importcpp: "IsCNv".}
-    ## IsCNv always returns true.
-
-proc isUPeriodic*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsUPeriodic".}
-    ## IsUPeriodic returns true if the "basis curve" of this surface of
-    ## linear extrusion is periodic.
-
-proc isVPeriodic*(this: Geom_SurfaceOfLinearExtrusion): bool  {.importcpp: "IsVPeriodic".}
-    ## IsVPeriodic always returns false.
-
-proc uIso*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Computes the U isoparametric curve of this surface of linear
-    ## extrusion. This is the line parallel to the direction of extrusion,
-    ## passing through the point of parameter U of the basis curve.
-
-proc vIso*(this: Geom_SurfaceOfLinearExtrusion, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Computes the V isoparametric curve of this surface of linear
-    ## extrusion. This curve is obtained by translating the extruded curve in
-    ## the direction of extrusion, with the magnitude V.
-
-proc d0*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Computes the point P (U, V) on the surface. The parameter U is the
-    ## parameter on the extruded curve. The parametrization V is a linear
-    ## parametrization, and the direction of parametrization is the direction
-    ## of extrusion. If the point is on the extruded curve, V = 0.0
-
-proc d1*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Computes the current point and the first derivatives in the directions
-    ## U and V. Raises UndefinedDerivative if the continuity of the surface
-    ## is not C1.
-
-proc d2*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## --- Purpose ; Computes the current point, the first and the second
-    ## derivatives in the directions U and V. Raises UndefinedDerivative if
-    ## the continuity of the surface is not C2.
-
-proc d3*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Computes the current point, the first,the second and the third
-    ## derivatives in the directions U and V. Raises UndefinedDerivative if
-    ## the continuity of the surface is not C3.
-
-proc dN*(this: Geom_SurfaceOfLinearExtrusion, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## Computes the derivative of order Nu in the direction u and Nv in the
-    ## direction v. Raises UndefinedDerivative if the continuity of the
-    ## surface is not CNu in the u direction and CNv in the v direction.
-    ## Raises RangeError if Nu + Nv < 1 or Nu < 0 or Nv < 0.
-
-proc transform*(this: var Geom_SurfaceOfLinearExtrusion, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this surface of linear extrusion.
-
-proc transformParameters*(this: Geom_SurfaceOfLinearExtrusion, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-
-proc parametricTransformation*(this: Geom_SurfaceOfLinearExtrusion, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface.
-
-proc copy*(this: Geom_SurfaceOfLinearExtrusion): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this surface of linear
-    ## extrusion.
-
-proc dumpJson*(this: Geom_SurfaceOfLinearExtrusion, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_SurfaceOfLinearExtrusion): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_SurfaceOfLinearExtrusion): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_SurfaceOfLinearExtrusion): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_SurfaceOfLinearExtrusion.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfLinearExtrusion::get_type_name(@)",
+                            header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_SurfaceOfLinearExtrusion::get_type_descriptor(@)",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+proc dynamicType*(this: GeomSurfaceOfLinearExtrusion): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "Geom_SurfaceOfLinearExtrusion.hxx".} ]#

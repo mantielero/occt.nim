@@ -1,113 +1,88 @@
-{.push header: "gp_Ax2d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Dir2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Ax2d* {.importcpp: "gp_Ax2d", header: "gp_Ax2d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Ax2d*(): gp_Ax2d {.constructor,importcpp: "gp_Ax2d".}
-  ## Creates an axis object representing X axis of the reference co-
-  ## ordinate system.
-
-proc constructor_gp_Ax2d*(P: gp_Pnt2d, V: gp_Dir2d): gp_Ax2d {.constructor,importcpp: "gp_Ax2d(@)".}
-  ## Creates an Ax2d. <P> is the "Location" point of the axis placement and
-  ## V is the "Direction" of the axis placement.
-
-proc ` new`*(this: var gp_Ax2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Ax2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Ax2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Ax2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax2d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetLocation*(this: var gp_Ax2d, Locat: gp_Pnt2d)  {.importcpp: "SetLocation".}
-  ## Changes the "Location" point (origin) of <me>.
-
-proc SetDirection*(this: var gp_Ax2d, V: gp_Dir2d)  {.importcpp: "SetDirection".}
-  ## Changes the direction of <me>.
-
-proc Location*(this: gp_Ax2d): gp_Pnt2d  {.importcpp: "Location".}
-  ## Returns the origin of <me>.
-
-proc Direction*(this: gp_Ax2d): gp_Dir2d  {.importcpp: "Direction".}
-  ## Returns the direction of <me>.
-
-proc IsCoaxial*(this: gp_Ax2d, Other: gp_Ax2d, AngularTolerance: cdouble, LinearTolerance: cdouble): bool  {.importcpp: "IsCoaxial".}
-  ## Returns True if : . the angle between <me> and <Other> is lower or
-  ## equal to <AngularTolerance> and . the distance between <me>.Location()
-  ## and <Other> is lower or equal to <LinearTolerance> and . the distance
-  ## between <Other>.Location() and <me> is lower or equal to
-  ## LinearTolerance.
-
-proc IsNormal*(this: gp_Ax2d, Other: gp_Ax2d, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
-  ## Returns true if this axis and the axis Other are normal to each other.
-  ## That is, if the angle between the two axes is equal to Pi/2 or -Pi/2.
-  ## Note: the tolerance criterion is given by AngularTolerance.
-
-proc IsOpposite*(this: gp_Ax2d, Other: gp_Ax2d, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
-  ## Returns true if this axis and the axis Other are parallel, and have
-  ## opposite orientations. That is, if the angle between the two axes is
-  ## equal to Pi or -Pi. Note: the tolerance criterion is given by
-  ## AngularTolerance.
-
-proc IsParallel*(this: gp_Ax2d, Other: gp_Ax2d, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
-  ## Returns true if this axis and the axis Other are parallel, and have
-  ## either the same or opposite orientations. That is, if the angle
-  ## between the two axes is equal to 0, Pi or -Pi. Note: the tolerance
-  ## criterion is given by AngularTolerance.
-
-proc Angle*(this: gp_Ax2d, Other: gp_Ax2d): cdouble  {.importcpp: "Angle".}
-  ## Computes the angle, in radians, between this axis and the axis Other.
-  ## The value of the angle is between -Pi and Pi.
-
-proc Reverse*(this: var gp_Ax2d)  {.importcpp: "Reverse".}
-  ## Reverses the direction of <me> and assigns the result to this axis.
-
-proc Reversed*(this: gp_Ax2d): gp_Ax2d  {.importcpp: "Reversed".}
-  ## Computes a new axis placement with a direction opposite to the
-  ## direction of <me>.
-
-proc Mirror*(this: var gp_Ax2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax2d, P: gp_Pnt2d): gp_Ax2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to the point P which is the center of the symmetry.
-
-proc Mirror*(this: var gp_Ax2d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax2d, A: gp_Ax2d): gp_Ax2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to an axis placement which is the axis of the symmetry.
-
-proc Rotate*(this: var gp_Ax2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Ax2d, P: gp_Pnt2d, Ang: cdouble): gp_Ax2d  {.importcpp: "Rotated".}
-  ## Rotates an axis placement. <P> is the center of the rotation . Ang is
-  ## the angular value of the rotation in radians.
-
-proc Scale*(this: var gp_Ax2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Ax2d, P: gp_Pnt2d, S: cdouble): gp_Ax2d  {.importcpp: "Scaled".}
-  ## Applies a scaling transformation on the axis placement. The "Location"
-  ## point of the axisplacement is modified. The "Direction" is reversed if
-  ## the scale is negative.
-
-proc Transform*(this: var gp_Ax2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Ax2d, T: gp_Trsf2d): gp_Ax2d  {.importcpp: "Transformed".}
-  ## Transforms an axis placement with a Trsf.
-
-proc Translate*(this: var gp_Ax2d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax2d, V: gp_Vec2d): gp_Ax2d  {.importcpp: "Translated".}
-  ## Translates an axis placement in the direction of the vector <V>. The
-  ## magnitude of the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Ax2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax2d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Ax2d  {.importcpp: "Translated".}
-  ## Translates an axis placement from the point <P1> to the point <P2>.
-
-{.pop.} # header: "gp_Ax2d.hxx
+proc `new`*(this: var Ax2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax2d::operator new", header: "gp_Ax2d.hxx".}
+proc `delete`*(this: var Ax2d; theAddress: pointer) {.
+    importcpp: "gp_Ax2d::operator delete", header: "gp_Ax2d.hxx".}
+proc `new[]`*(this: var Ax2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax2d::operator new[]", header: "gp_Ax2d.hxx".}
+proc `delete[]`*(this: var Ax2d; theAddress: pointer) {.
+    importcpp: "gp_Ax2d::operator delete[]", header: "gp_Ax2d.hxx".}
+proc `new`*(this: var Ax2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Ax2d::operator new", header: "gp_Ax2d.hxx".}
+proc `delete`*(this: var Ax2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Ax2d::operator delete", header: "gp_Ax2d.hxx".}
+proc newAx2d*(): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+                           header: "gp_Ax2d.hxx".}
+proc newAx2d*(p: Pnt2d; v: Dir2d): Ax2d {.constructor, importcpp: "gp_Ax2d(@)",
+    header: "gp_Ax2d.hxx".}
+proc setLocation*(this: var Ax2d; locat: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Ax2d.hxx".}
+proc setDirection*(this: var Ax2d; v: Dir2d) {.importcpp: "SetDirection",
+    header: "gp_Ax2d.hxx".}
+proc location*(this: Ax2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                header: "gp_Ax2d.hxx".}
+proc direction*(this: Ax2d): Dir2d {.noSideEffect, importcpp: "Direction",
+                                 header: "gp_Ax2d.hxx".}
+proc isCoaxial*(this: Ax2d; other: Ax2d; angularTolerance: StandardReal;
+               linearTolerance: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsCoaxial", header: "gp_Ax2d.hxx".}
+proc isNormal*(this: Ax2d; other: Ax2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsNormal", header: "gp_Ax2d.hxx".}
+proc isOpposite*(this: Ax2d; other: Ax2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsOpposite", header: "gp_Ax2d.hxx".}
+proc isParallel*(this: Ax2d; other: Ax2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsParallel", header: "gp_Ax2d.hxx".}
+proc angle*(this: Ax2d; other: Ax2d): StandardReal {.noSideEffect, importcpp: "Angle",
+    header: "gp_Ax2d.hxx".}
+proc reverse*(this: var Ax2d) {.importcpp: "Reverse", header: "gp_Ax2d.hxx".}
+proc reversed*(this: Ax2d): Ax2d {.noSideEffect, importcpp: "Reversed",
+                               header: "gp_Ax2d.hxx".}
+proc mirror*(this: var Ax2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Ax2d.hxx".}
+proc mirrored*(this: Ax2d; p: Pnt2d): Ax2d {.noSideEffect, importcpp: "Mirrored",
+                                       header: "gp_Ax2d.hxx".}
+proc mirror*(this: var Ax2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Ax2d.hxx".}
+proc mirrored*(this: Ax2d; a: Ax2d): Ax2d {.noSideEffect, importcpp: "Mirrored",
+                                      header: "gp_Ax2d.hxx".}
+proc rotate*(this: var Ax2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Ax2d.hxx".}
+proc rotated*(this: Ax2d; p: Pnt2d; ang: StandardReal): Ax2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Ax2d.hxx".}
+proc scale*(this: var Ax2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Ax2d.hxx".}
+proc scaled*(this: Ax2d; p: Pnt2d; s: StandardReal): Ax2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Ax2d.hxx".}
+proc transform*(this: var Ax2d; t: Trsf2d) {.importcpp: "Transform",
+                                       header: "gp_Ax2d.hxx".}
+proc transformed*(this: Ax2d; t: Trsf2d): Ax2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Ax2d.hxx".}
+proc translate*(this: var Ax2d; v: Vec2d) {.importcpp: "Translate",
+                                      header: "gp_Ax2d.hxx".}
+proc translated*(this: Ax2d; v: Vec2d): Ax2d {.noSideEffect, importcpp: "Translated",
+    header: "gp_Ax2d.hxx".}
+proc translate*(this: var Ax2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Ax2d.hxx".}
+proc translated*(this: Ax2d; p1: Pnt2d; p2: Pnt2d): Ax2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Ax2d.hxx".}
+proc dumpJson*(this: Ax2d; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Ax2d.hxx".}

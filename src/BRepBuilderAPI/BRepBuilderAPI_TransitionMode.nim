@@ -1,13 +1,25 @@
-import brepbuilderapi_types
+##  Created on: 1993-07-06
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+## ! Option to manage  discontinuities in  Sweep
 
 type
-  BRepBuilderAPI_TransitionMode* {.size:sizeof(cuint),header: "BRepBuilderAPI_TransitionMode.hxx", importcpp: "BRepBuilderAPI_TransitionMode", pure.} = enum
-    ## Option to manage discontinuities in Sweep
-
-    BRepBuilderAPI_Transformed = 0,
-    BRepBuilderAPI_RightCorner = 1,
-    BRepBuilderAPI_RoundCorner = 2
-
-
+  BRepBuilderAPI_TransitionMode* {.size: sizeof(cint),
+                                  importcpp: "BRepBuilderAPI_TransitionMode",
+                                  header: "BRepBuilderAPI_TransitionMode.hxx".} = enum
+    BRepBuilderAPI_Transformed, BRepBuilderAPI_RightCorner,
+    BRepBuilderAPI_RoundCorner
 

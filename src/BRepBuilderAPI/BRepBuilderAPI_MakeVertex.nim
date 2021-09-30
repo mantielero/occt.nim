@@ -1,38 +1,49 @@
-import brepbuilderapi_types
+##  Created on: 1993-07-06
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-
+discard "forward decl of gp_Pnt"
+discard "forward decl of TopoDS_Vertex"
 type
-  BRepBuilderAPI_MakeVertex* {.header: "BRepBuilderAPI_MakeVertex.hxx", importcpp: "BRepBuilderAPI_MakeVertex", byref.} = object #of class BRepBuilderAPI_MakeShape
-    ## Describes functions to build BRepBuilder vertices directly from 3D
-    ## geometric points. A vertex built using a MakeVertex object is only
-    ## composed of a 3D point and a default precision value
-    ## (Precision::Confusion()). Later on, 2D representations can be added,
-    ## for example, when inserting a vertex in an edge. A MakeVertex object
-    ## provides a framework for: - defining and implementing the construction
-    ## of a vertex, and - consulting the result.
+  BRepBuilderAPI_MakeVertex* {.importcpp: "BRepBuilderAPI_MakeVertex",
+                              header: "BRepBuilderAPI_MakeVertex.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
-
-{.push header: "BRepBuilderAPI_MakeVertex.hxx".}
-
-proc constructBRepBuilderAPI_MakeVertex*(P: gp_Pnt): BRepBuilderAPI_MakeVertex {.constructor,importcpp: "BRepBuilderAPI_MakeVertex::BRepBuilderAPI_MakeVertex(@)".}
-    ## Constructs a vertex from point P. Example create a vertex from a 3D
-    ## point. gp_Pnt P(0,0,10); TopoDS_Vertex V =
-    ## BRepBuilderAPI_MakeVertex(P);
-
-proc ` new`*(this: var BRepBuilderAPI_MakeVertex, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepBuilderAPI_MakeVertex, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepBuilderAPI_MakeVertex, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepBuilderAPI_MakeVertex, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepBuilderAPI_MakeVertex, a00: cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepBuilderAPI_MakeVertex, a00: pointer, a01: pointer)  {.importcpp: "#  delete #".}
-
-proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex  {.importcpp: "Vertex".}
-    ## Returns the constructed vertex.
-
-{.pop.}  # header: "BRepBuilderAPI_MakeVertex.hxx"
+proc `new`*(this: var BRepBuilderAPI_MakeVertex; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator new",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeVertex; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator delete",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_MakeVertex; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator new[]",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_MakeVertex; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator delete[]",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc `new`*(this: var BRepBuilderAPI_MakeVertex; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator new",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_MakeVertex; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator delete",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc constructBRepBuilderAPI_MakeVertex*(p: Pnt): BRepBuilderAPI_MakeVertex {.
+    constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}
+proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
+    importcpp: "Vertex", header: "BRepBuilderAPI_MakeVertex.hxx".}
+converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
+    importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
+    header: "BRepBuilderAPI_MakeVertex.hxx".}

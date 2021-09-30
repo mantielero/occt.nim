@@ -1,114 +1,117 @@
-import gp/gp_types
-import ../TopoDS/topods_types
+##  Created on: 1991-09-18
+##  Created by: Christophe MARION
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_DomainError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of BRepPrim_Builder"
+discard "forward decl of gp_Ax2"
+discard "forward decl of TopoDS_Shell"
+discard "forward decl of TopoDS_Face"
+discard "forward decl of gp_Pln"
+discard "forward decl of TopoDS_Wire"
+discard "forward decl of TopoDS_Edge"
+discard "forward decl of gp_Lin"
+discard "forward decl of TopoDS_Vertex"
+discard "forward decl of gp_Pnt"
+type
+  BRepPrimGWedge* {.importcpp: "BRepPrim_GWedge", header: "BRepPrim_GWedge.hxx",
+                   bycopy.} = object of RootObj
 
 
-{.push header: "BRepPrim_GWedge.hxx".}
-
-
-# Constructors and methods
-proc constructor_BRepPrim_GWedge*(B: BRepPrim_Builder, Axes: gp_Ax2, dx: cdouble, dy: cdouble, dz: cdouble): BRepPrim_GWedge {.constructor,importcpp: "BRepPrim_GWedge(@)".}
-  ## Creates a GWedge algorithm. <Axes> is the axis system for the
-  ## primitive.
-
-proc constructor_BRepPrim_GWedge*(B: BRepPrim_Builder, Axes: gp_Ax2, dx: cdouble, dy: cdouble, dz: cdouble, ltx: cdouble): BRepPrim_GWedge {.constructor,importcpp: "BRepPrim_GWedge(@)".}
-  ## Creates a GWedge primitive. <Axes> is the axis system for the
-  ## primitive.
-
-proc constructor_BRepPrim_GWedge*(B: BRepPrim_Builder, Axes: gp_Ax2, xmin: cdouble, ymin: cdouble, zmin: cdouble, z2min: cdouble, x2min: cdouble, xmax: cdouble, ymax: cdouble, zmax: cdouble, z2max: cdouble, x2max: cdouble): BRepPrim_GWedge {.constructor,importcpp: "BRepPrim_GWedge(@)".}
-  ## Create a GWedge primitive. <Axes> is the axis system for the
-  ## primitive.
-#[
-proc ` new`*(this: var BRepPrim_GWedge, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_GWedge, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepPrim_GWedge, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepPrim_GWedge, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepPrim_GWedge, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_GWedge, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
-proc axes*(this: BRepPrim_GWedge): gp_Ax2  {.importcpp: "Axes".}
-  ## Returns the coordinates system from <me>.
-
-proc getXMin*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetXMin".}
-  ## Returns Xmin value from <me>.
-
-proc getYMin*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetYMin".}
-  ## Returns YMin value from <me>.
-
-proc getZMin*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetZMin".}
-  ## Returns ZMin value from <me>.
-
-proc getZ2Min*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetZ2Min".}
-  ## Returns Z2Min value from <me>.
-
-proc getX2Min*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetX2Min".}
-  ## Returns X2Min value from <me>.
-
-proc getXMax*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetXMax".}
-  ## Returns XMax value from <me>.
-
-proc getYMax*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetYMax".}
-  ## Returns YMax value from <me>.
-
-proc getZMax*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetZMax".}
-  ## Returns ZMax value from <me>.
-
-proc getZ2Max*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetZ2Max".}
-  ## Returns Z2Max value from <me>.
-
-proc getX2Max*(this: BRepPrim_GWedge): cdouble  {.importcpp: "GetX2Max".}
-  ## Returns X2Max value from <me>.
-
-proc open*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction)  {.importcpp: "Open".}
-  ## Opens <me> in <d1> direction. A face and its edges or vertices are
-  ## said nonexistant.
-
-proc close*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction)  {.importcpp: "Close".}
-  ## Closes <me> in <d1> direction. A face and its edges or vertices are
-  ## said existant.
-
-proc isInfinite*(this: BRepPrim_GWedge, d1: BRepPrim_Direction): bool  {.importcpp: "IsInfinite".}
-  ## Returns True if <me> is open in <d1> direction.
-
-proc shell*(this: var BRepPrim_GWedge): TopoDS_Shell  {.importcpp: "Shell".}
-  ## Returns the Shell containing the Faces of <me>.
-
-proc hasFace*(this: BRepPrim_GWedge, d1: BRepPrim_Direction): bool  {.importcpp: "HasFace".}
-  ## Returns True if <me> has a Face in <d1> direction.
-
-proc face*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction): TopoDS_Face  {.importcpp: "Face".}
-  ## Returns the Face of <me> located in <d1> direction.
-
-proc plane*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction): gp_Pln  {.importcpp: "Plane".}
-  ## Returns the plane of the Face of <me> located in <d1> direction.
-
-proc hasWire*(this: BRepPrim_GWedge, d1: BRepPrim_Direction): bool  {.importcpp: "HasWire".}
-  ## Returns True if <me> has a Wire in <d1> direction.
-
-proc wire*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction): TopoDS_Wire  {.importcpp: "Wire".}
-  ## Returns the Wire of <me> located in <d1> direction.
-
-proc hasEdge*(this: BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction): bool  {.importcpp: "HasEdge".}
-  ## Returns True if <me> has an Edge in <d1><d2> direction.
-
-proc edge*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction): TopoDS_Edge  {.importcpp: "Edge".}
-  ## Returns the Edge of <me> located in <d1><d2> direction.
-
-proc line*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction): gp_Lin  {.importcpp: "Line".}
-  ## Returns the line of the Edge of <me> located in <d1><d2> direction.
-
-proc hasVertex*(this: BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction, d3: BRepPrim_Direction): bool  {.importcpp: "HasVertex".}
-  ## Returns True if <me> has a Vertex in <d1><d2><d3> direction.
-
-proc vertex*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction, d3: BRepPrim_Direction): TopoDS_Vertex  {.importcpp: "Vertex".}
-  ## Returns the Vertex of <me> located in <d1><d2><d3> direction.
-
-proc point*(this: var BRepPrim_GWedge, d1: BRepPrim_Direction, d2: BRepPrim_Direction, d3: BRepPrim_Direction): gp_Pnt  {.importcpp: "Point".}
-  ## Returns the point of the Vertex of <me> located in <d1><d2><d3>
-  ## direction.
-
-{.pop.} # header: "BRepPrim_GWedge.hxx
+proc `new`*(this: var BRepPrimGWedge; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_GWedge::operator new", header: "BRepPrim_GWedge.hxx".}
+proc `delete`*(this: var BRepPrimGWedge; theAddress: pointer) {.
+    importcpp: "BRepPrim_GWedge::operator delete", header: "BRepPrim_GWedge.hxx".}
+proc `new[]`*(this: var BRepPrimGWedge; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_GWedge::operator new[]", header: "BRepPrim_GWedge.hxx".}
+proc `delete[]`*(this: var BRepPrimGWedge; theAddress: pointer) {.
+    importcpp: "BRepPrim_GWedge::operator delete[]", header: "BRepPrim_GWedge.hxx".}
+proc `new`*(this: var BRepPrimGWedge; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_GWedge::operator new", header: "BRepPrim_GWedge.hxx".}
+proc `delete`*(this: var BRepPrimGWedge; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_GWedge::operator delete", header: "BRepPrim_GWedge.hxx".}
+proc constructBRepPrimGWedge*(): BRepPrimGWedge {.constructor,
+    importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: StandardReal;
+                             dy: StandardReal; dz: StandardReal): BRepPrimGWedge {.
+    constructor, importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: StandardReal;
+                             dy: StandardReal; dz: StandardReal; ltx: StandardReal): BRepPrimGWedge {.
+    constructor, importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
+proc constructBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; xmin: StandardReal;
+                             ymin: StandardReal; zmin: StandardReal;
+                             z2min: StandardReal; x2min: StandardReal;
+                             xmax: StandardReal; ymax: StandardReal;
+                             zmax: StandardReal; z2max: StandardReal;
+                             x2max: StandardReal): BRepPrimGWedge {.constructor,
+    importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
+proc axes*(this: BRepPrimGWedge): Ax2 {.noSideEffect, importcpp: "Axes",
+                                    header: "BRepPrim_GWedge.hxx".}
+proc getXMin*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetXMin", header: "BRepPrim_GWedge.hxx".}
+proc getYMin*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetYMin", header: "BRepPrim_GWedge.hxx".}
+proc getZMin*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetZMin", header: "BRepPrim_GWedge.hxx".}
+proc getZ2Min*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetZ2Min", header: "BRepPrim_GWedge.hxx".}
+proc getX2Min*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetX2Min", header: "BRepPrim_GWedge.hxx".}
+proc getXMax*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetXMax", header: "BRepPrim_GWedge.hxx".}
+proc getYMax*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetYMax", header: "BRepPrim_GWedge.hxx".}
+proc getZMax*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetZMax", header: "BRepPrim_GWedge.hxx".}
+proc getZ2Max*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetZ2Max", header: "BRepPrim_GWedge.hxx".}
+proc getX2Max*(this: BRepPrimGWedge): StandardReal {.noSideEffect,
+    importcpp: "GetX2Max", header: "BRepPrim_GWedge.hxx".}
+proc open*(this: var BRepPrimGWedge; d1: BRepPrimDirection) {.importcpp: "Open",
+    header: "BRepPrim_GWedge.hxx".}
+proc close*(this: var BRepPrimGWedge; d1: BRepPrimDirection) {.importcpp: "Close",
+    header: "BRepPrim_GWedge.hxx".}
+proc isInfinite*(this: BRepPrimGWedge; d1: BRepPrimDirection): StandardBoolean {.
+    noSideEffect, importcpp: "IsInfinite", header: "BRepPrim_GWedge.hxx".}
+proc shell*(this: var BRepPrimGWedge): TopoDS_Shell {.importcpp: "Shell",
+    header: "BRepPrim_GWedge.hxx".}
+proc hasFace*(this: BRepPrimGWedge; d1: BRepPrimDirection): StandardBoolean {.
+    noSideEffect, importcpp: "HasFace", header: "BRepPrim_GWedge.hxx".}
+proc face*(this: var BRepPrimGWedge; d1: BRepPrimDirection): TopoDS_Face {.
+    importcpp: "Face", header: "BRepPrim_GWedge.hxx".}
+proc plane*(this: var BRepPrimGWedge; d1: BRepPrimDirection): Pln {.importcpp: "Plane",
+    header: "BRepPrim_GWedge.hxx".}
+proc hasWire*(this: BRepPrimGWedge; d1: BRepPrimDirection): StandardBoolean {.
+    noSideEffect, importcpp: "HasWire", header: "BRepPrim_GWedge.hxx".}
+proc wire*(this: var BRepPrimGWedge; d1: BRepPrimDirection): TopoDS_Wire {.
+    importcpp: "Wire", header: "BRepPrim_GWedge.hxx".}
+proc hasEdge*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): StandardBoolean {.
+    noSideEffect, importcpp: "HasEdge", header: "BRepPrim_GWedge.hxx".}
+proc edge*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): TopoDS_Edge {.
+    importcpp: "Edge", header: "BRepPrim_GWedge.hxx".}
+proc line*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): Lin {.
+    importcpp: "Line", header: "BRepPrim_GWedge.hxx".}
+proc hasVertex*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
+               d3: BRepPrimDirection): StandardBoolean {.noSideEffect,
+    importcpp: "HasVertex", header: "BRepPrim_GWedge.hxx".}
+proc vertex*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
+            d3: BRepPrimDirection): TopoDS_Vertex {.importcpp: "Vertex",
+    header: "BRepPrim_GWedge.hxx".}
+proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
+           d3: BRepPrimDirection): Pnt {.importcpp: "Point",
+                                      header: "BRepPrim_GWedge.hxx".}
+proc isDegeneratedShape*(this: var BRepPrimGWedge): StandardBoolean {.
+    importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}

@@ -1,140 +1,127 @@
-{.push header: "gp_GTrsf.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_Mat"
+discard "forward decl of gp_XYZ"
+discard "forward decl of gp_Ax1"
+discard "forward decl of gp_Ax2"
+when defined(SetForm):
+  discard
+## ! Defines a non-persistent transformation in 3D space.
+## ! This transformation is a general transformation.
+## ! It can be a Trsf from gp, an affinity, or you can define
+## ! your own transformation giving the matrix of transformation.
+## !
+## ! With a Gtrsf you can transform only a triplet of coordinates
+## ! XYZ. It is not possible to transform other geometric objects
+## ! because these transformations can change the nature of non-
+## ! elementary geometric objects.
+## ! The transformation GTrsf can be represented as follow :
+## !
+## ! V1   V2   V3    T       XYZ        XYZ
+## ! | a11  a12  a13   a14 |   | x |      | x'|
+## ! | a21  a22  a23   a24 |   | y |      | y'|
+## ! | a31  a32  a33   a34 |   | z |   =  | z'|
+## ! |  0    0    0     1  |   | 1 |      | 1 |
+## !
+## ! where {V1, V2, V3} define the vectorial part of the
+## ! transformation and T defines the translation part of the
+## ! transformation.
+## ! Warning
+## ! A GTrsf transformation is only applicable to
+## ! coordinates. Be careful if you apply such a
+## ! transformation to all points of a geometric object, as
+## ! this can change the nature of the object and thus
+## ! render it incoherent!
+## ! Typically, a circle is transformed into an ellipse by an
+## ! affinity transformation. To avoid modifying the nature of
+## ! an object, use a gp_Trsf transformation instead, as
+## ! objects of this class respect the nature of geometric objects.
+
+type
+  GTrsf* {.importcpp: "gp_GTrsf", header: "gp_GTrsf.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_GTrsf*(): gp_GTrsf {.constructor,importcpp: "gp_GTrsf".}
-  ## Returns the Identity transformation.
-
-proc constructor_gp_GTrsf*(T: gp_Trsf): gp_GTrsf {.constructor,importcpp: "gp_GTrsf(@)".}
-  ## Converts the gp_Trsf transformation T into a general transformation,
-  ## i.e. Returns a GTrsf with the same matrix of coefficients as the Trsf
-  ## T.
-
-proc constructor_gp_GTrsf*(M: gp_Mat, V: gp_XYZ): gp_GTrsf {.constructor,importcpp: "gp_GTrsf(@)".}
-  ## Creates a transformation based on the matrix M and the vector V where
-  ## M defines the vectorial part of the transformation, and V the
-  ## translation part, or
-
-proc ` new`*(this: var gp_GTrsf, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_GTrsf, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_GTrsf, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_GTrsf, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_GTrsf, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_GTrsf, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetAffinity*(this: var gp_GTrsf, A1: gp_Ax1, Ratio: cdouble)  {.importcpp: "SetAffinity".}
-  ## Changes this transformation into an affinity of ratio Ratio with
-  ## respect to the axis A1. Note: an affinity is a point-by-point
-  ## transformation that transforms any point P into a point P' such that
-  ## if H is the orthogonal projection of P on the axis A1 or the plane A2,
-  ## the vectors HP and HP' satisfy: HP' = Ratio * HP.
-
-proc SetAffinity*(this: var gp_GTrsf, A2: gp_Ax2, Ratio: cdouble)  {.importcpp: "SetAffinity".}
-  ## Changes this transformation into an affinity of ratio Ratio with
-  ## respect to the plane defined by the origin, the "X Direction" and the
-  ## "Y Direction" of coordinate system A2. Note: an affinity is a point-
-  ## by-point transformation that transforms any point P into a point P'
-  ## such that if H is the orthogonal projection of P on the axis A1 or the
-  ## plane A2, the vectors HP and HP' satisfy: HP' = Ratio * HP.
-
-proc SetValue*(this: var gp_GTrsf, Row: cint, Col: cint, Value: cdouble)  {.importcpp: "SetValue".}
-  ## Replaces the coefficient (Row, Col) of the matrix representing this
-  ## transformation by Value. Raises OutOfRange if Row < 1 or Row > 3 or
-  ## Col < 1 or Col > 4
-
-proc SetVectorialPart*(this: var gp_GTrsf, Matrix: gp_Mat)  {.importcpp: "SetVectorialPart".}
-  ## Replaces the vectorial part of this transformation by Matrix.
-
-proc SetTranslationPart*(this: var gp_GTrsf, Coord: gp_XYZ)  {.importcpp: "SetTranslationPart".}
-  ## Replaces the translation part of this transformation by the
-  ## coordinates of the number triple Coord.
-
-proc SetTrsf*(this: var gp_GTrsf, T: gp_Trsf)  {.importcpp: "SetTrsf".}
-  ## Assigns the vectorial and translation parts of T to this
-  ## transformation.
-
-proc IsNegative*(this: gp_GTrsf): bool  {.importcpp: "IsNegative".}
-  ## Returns true if the determinant of the vectorial part of this
-  ## transformation is negative.
-
-proc IsSingular*(this: gp_GTrsf): bool  {.importcpp: "IsSingular".}
-  ## Returns true if this transformation is singular (and therefore, cannot
-  ## be inverted). Note: The Gauss LU decomposition is used to invert the
-  ## transformation matrix. Consequently, the transformation is considered
-  ## as singular if the largest pivot found is less than or equal to
-  ## gp::Resolution(). Warning If this transformation is singular, it
-  ## cannot be inverted.
-
-proc Form*(this: gp_GTrsf): gp_TrsfForm  {.importcpp: "Form".}
-  ## Returns the nature of the transformation. It can be an identity
-  ## transformation, a rotation, a translation, a mirror transformation
-  ## (relative to a point, an axis or a plane), a scaling transformation, a
-  ## compound transformation or some other type of transformation.
-
-proc SetForm*(this: var gp_GTrsf)  {.importcpp: "SetForm".}
-  ## verify and set the shape of the GTrsf Other or CompoundTrsf Ex :
-  ## myGTrsf.SetValue(row1,col1,val1); myGTrsf.SetValue(row2,col2,val2);
-  ## ... myGTrsf.SetForm();
-
-proc TranslationPart*(this: gp_GTrsf): gp_XYZ  {.importcpp: "TranslationPart".}
-  ## Returns the translation part of the GTrsf.
-
-proc VectorialPart*(this: gp_GTrsf): gp_Mat  {.importcpp: "VectorialPart".}
-  ## Computes the vectorial part of the GTrsf. The returned Matrix is a 3*3
-  ## matrix.
-
-proc Value*(this: gp_GTrsf, Row: cint, Col: cint): cdouble  {.importcpp: "Value".}
-  ## Returns the coefficients of the global matrix of transformation.
-  ## Raises OutOfRange if Row < 1 or Row > 3 or Col < 1 or Col > 4
-
-proc `()`*(this: gp_GTrsf, Row: cint, Col: cint): cdouble  {.importcpp: "`()`".}
-
-proc Invert*(this: var gp_GTrsf)  {.importcpp: "Invert".}
-
-proc Inverted*(this: gp_GTrsf): gp_GTrsf  {.importcpp: "Inverted".}
-  ## Computes the reverse transformation. Raises an exception if the matrix
-  ## of the transformation is not inversible.
-
-proc Multiplied*(this: gp_GTrsf, T: gp_GTrsf): gp_GTrsf  {.importcpp: "Multiplied".}
-  ## Computes the transformation composed from T and <me>. In a C++
-  ## implementation you can also write Tcomposed = <me> * T. Example :
-  ## GTrsf T1, T2, Tcomp; ............... //composition : Tcomp =
-  ## T2.Multiplied(T1); // or (Tcomp = T2 * T1) // transformation of a
-  ## point XYZ P(10.,3.,4.); XYZ P1(P); Tcomp.Transforms(P1); //using Tcomp
-  ## XYZ P2(P); T1.Transforms(P2); //using T1 then T2 T2.Transforms(P2); //
-  ## P1 = P2 !!!
-
-proc `*`*(this: gp_GTrsf, T: gp_GTrsf): gp_GTrsf  {.importcpp: "`*`".}
-
-proc Multiply*(this: var gp_GTrsf, T: gp_GTrsf)  {.importcpp: "Multiply".}
-  ## Computes the transformation composed with <me> and T. <me> = <me> * T
-
-proc `*=`*(this: var gp_GTrsf, T: gp_GTrsf)  {.importcpp: "`*=`".}
-
-proc PreMultiply*(this: var gp_GTrsf, T: gp_GTrsf)  {.importcpp: "PreMultiply".}
-  ## Computes the product of the transformation T and this transformation
-  ## and assigns the result to this transformation. this = T * this
-
-proc Power*(this: var gp_GTrsf, N: cint)  {.importcpp: "Power".}
-
-proc Powered*(this: gp_GTrsf, N: cint): gp_GTrsf  {.importcpp: "Powered".}
-  ## Computes: - the product of this transformation multiplied by itself N
-  ## times, if N is positive, or - the product of the inverse of this
-  ## transformation multiplied by itself |N| times, if N is negative. If N
-  ## equals zero, the result is equal to the Identity transformation. I.e.:
-  ## <me> * <me> * .......* <me>, N time. if N =0 <me> = Identity if N < 0
-  ## <me> = <me>.Inverse() *...........* <me>.Inverse().
-
-proc Transforms*(this: gp_GTrsf, Coord: var gp_XYZ)  {.importcpp: "Transforms".}
-
-proc Transforms*(this: gp_GTrsf, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Transforms".}
-  ## Transforms a triplet XYZ with a GTrsf.
-
-proc Trsf*(this: gp_GTrsf): gp_Trsf  {.importcpp: "Trsf".}
-
-{.pop.} # header: "gp_GTrsf.hxx
+proc `new`*(this: var GTrsf; theSize: csize_t): pointer {.
+    importcpp: "gp_GTrsf::operator new", header: "gp_GTrsf.hxx".}
+proc `delete`*(this: var GTrsf; theAddress: pointer) {.
+    importcpp: "gp_GTrsf::operator delete", header: "gp_GTrsf.hxx".}
+proc `new[]`*(this: var GTrsf; theSize: csize_t): pointer {.
+    importcpp: "gp_GTrsf::operator new[]", header: "gp_GTrsf.hxx".}
+proc `delete[]`*(this: var GTrsf; theAddress: pointer) {.
+    importcpp: "gp_GTrsf::operator delete[]", header: "gp_GTrsf.hxx".}
+proc `new`*(this: var GTrsf; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_GTrsf::operator new", header: "gp_GTrsf.hxx".}
+proc `delete`*(this: var GTrsf; a2: pointer; a3: pointer) {.
+    importcpp: "gp_GTrsf::operator delete", header: "gp_GTrsf.hxx".}
+proc constructGTrsf*(): GTrsf {.constructor, importcpp: "gp_GTrsf(@)",
+                             header: "gp_GTrsf.hxx".}
+proc constructGTrsf*(t: Trsf): GTrsf {.constructor, importcpp: "gp_GTrsf(@)",
+                                   header: "gp_GTrsf.hxx".}
+proc constructGTrsf*(m: Mat; v: Xyz): GTrsf {.constructor, importcpp: "gp_GTrsf(@)",
+                                        header: "gp_GTrsf.hxx".}
+proc setAffinity*(this: var GTrsf; a1: Ax1; ratio: StandardReal) {.
+    importcpp: "SetAffinity", header: "gp_GTrsf.hxx".}
+proc setAffinity*(this: var GTrsf; a2: Ax2; ratio: StandardReal) {.
+    importcpp: "SetAffinity", header: "gp_GTrsf.hxx".}
+proc setValue*(this: var GTrsf; row: int; col: int; value: StandardReal) {.
+    importcpp: "SetValue", header: "gp_GTrsf.hxx".}
+proc setVectorialPart*(this: var GTrsf; matrix: Mat) {.importcpp: "SetVectorialPart",
+    header: "gp_GTrsf.hxx".}
+proc setTranslationPart*(this: var GTrsf; coord: Xyz) {.
+    importcpp: "SetTranslationPart", header: "gp_GTrsf.hxx".}
+proc setTrsf*(this: var GTrsf; t: Trsf) {.importcpp: "SetTrsf", header: "gp_GTrsf.hxx".}
+proc isNegative*(this: GTrsf): StandardBoolean {.noSideEffect,
+    importcpp: "IsNegative", header: "gp_GTrsf.hxx".}
+proc isSingular*(this: GTrsf): StandardBoolean {.noSideEffect,
+    importcpp: "IsSingular", header: "gp_GTrsf.hxx".}
+proc form*(this: GTrsf): TrsfForm {.noSideEffect, importcpp: "Form",
+                                header: "gp_GTrsf.hxx".}
+proc setForm*(this: var GTrsf) {.importcpp: "SetForm", header: "gp_GTrsf.hxx".}
+proc translationPart*(this: GTrsf): Xyz {.noSideEffect, importcpp: "TranslationPart",
+                                      header: "gp_GTrsf.hxx".}
+proc vectorialPart*(this: GTrsf): Mat {.noSideEffect, importcpp: "VectorialPart",
+                                    header: "gp_GTrsf.hxx".}
+proc value*(this: GTrsf; row: int; col: int): StandardReal {.noSideEffect,
+    importcpp: "Value", header: "gp_GTrsf.hxx".}
+proc `()`*(this: GTrsf; row: int; col: int): StandardReal {.noSideEffect,
+    importcpp: "#(@)", header: "gp_GTrsf.hxx".}
+proc invert*(this: var GTrsf) {.importcpp: "Invert", header: "gp_GTrsf.hxx".}
+proc inverted*(this: GTrsf): GTrsf {.noSideEffect, importcpp: "Inverted",
+                                 header: "gp_GTrsf.hxx".}
+proc multiplied*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, importcpp: "Multiplied",
+    header: "gp_GTrsf.hxx".}
+proc `*`*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, importcpp: "(# * #)",
+                                    header: "gp_GTrsf.hxx".}
+proc multiply*(this: var GTrsf; t: GTrsf) {.importcpp: "Multiply",
+                                      header: "gp_GTrsf.hxx".}
+proc `*=`*(this: var GTrsf; t: GTrsf) {.importcpp: "(# *= #)", header: "gp_GTrsf.hxx".}
+proc preMultiply*(this: var GTrsf; t: GTrsf) {.importcpp: "PreMultiply",
+    header: "gp_GTrsf.hxx".}
+proc power*(this: var GTrsf; n: int) {.importcpp: "Power", header: "gp_GTrsf.hxx".}
+proc powered*(this: GTrsf; n: int): GTrsf {.noSideEffect, importcpp: "Powered",
+                                      header: "gp_GTrsf.hxx".}
+proc transforms*(this: GTrsf; coord: var Xyz) {.noSideEffect, importcpp: "Transforms",
+    header: "gp_GTrsf.hxx".}
+proc transforms*(this: GTrsf; x: var StandardReal; y: var StandardReal;
+                z: var StandardReal) {.noSideEffect, importcpp: "Transforms",
+                                    header: "gp_GTrsf.hxx".}
+proc trsf*(this: GTrsf): Trsf {.noSideEffect, importcpp: "Trsf", header: "gp_GTrsf.hxx".}
+proc getMat4*[T](this: GTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect,
+    importcpp: "GetMat4", header: "gp_GTrsf.hxx".}
+proc dumpJson*(this: GTrsf; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_GTrsf.hxx".}

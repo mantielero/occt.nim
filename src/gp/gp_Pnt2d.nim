@@ -1,115 +1,94 @@
-{.push header: "gp_Pnt2d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of gp_XY"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Pnt2d* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Pnt2d*(): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d".}
-  ## Creates a point with zero coordinates.
-
-proc constructor_gp_Pnt2d*(Coord: gp_XY): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d(@)".}
-  ## Creates a point with a doublet of coordinates.
-
-proc constructor_gp_Pnt2d*(Xp: cdouble, Yp: cdouble): gp_Pnt2d {.constructor,importcpp: "gp_Pnt2d(@)".}
-  ## Creates a point with its 2 cartesian's coordinates : Xp, Yp.
-
-proc ` new`*(this: var gp_Pnt2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Pnt2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Pnt2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Pnt2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Pnt2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Pnt2d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetCoord*(this: var gp_Pnt2d, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
-  ## Assigns the value Xi to the coordinate that corresponds to Index:
-  ## Index = 1 => X is modified Index = 2 => Y is modified Raises
-  ## OutOfRange if Index != {1, 2}.
-
-proc SetCoord*(this: var gp_Pnt2d, Xp: cdouble, Yp: cdouble)  {.importcpp: "SetCoord".}
-  ## For this point, assigns the values Xp and Yp to its two coordinates
-
-proc SetX*(this: var gp_Pnt2d, X: cdouble)  {.importcpp: "SetX".}
-  ## Assigns the given value to the X coordinate of this point.
-
-proc SetY*(this: var gp_Pnt2d, Y: cdouble)  {.importcpp: "SetY".}
-  ## Assigns the given value to the Y coordinate of this point.
-
-proc SetXY*(this: var gp_Pnt2d, Coord: gp_XY)  {.importcpp: "SetXY".}
-  ## Assigns the two coordinates of Coord to this point.
-
-proc Coord*(this: gp_Pnt2d, Index: cint): cdouble  {.importcpp: "Coord".}
-  ## Returns the coordinate of range Index : Index = 1 => X is returned
-  ## Index = 2 => Y is returned Raises OutOfRange if Index != {1, 2}.
-
-proc Coord*(this: gp_Pnt2d, Xp: var cdouble, Yp: var cdouble)  {.importcpp: "Coord".}
-  ## For this point returns its two coordinates as a number pair.
-
-proc X*(this: gp_Pnt2d): cdouble  {.importcpp: "X".}
-  ## For this point, returns its X coordinate.
-
-proc Y*(this: gp_Pnt2d): cdouble  {.importcpp: "Y".}
-  ## For this point, returns its Y coordinate.
-
-proc XY*(this: gp_Pnt2d): gp_XY  {.importcpp: "XY".}
-  ## For this point, returns its two coordinates as a number pair.
-
-proc Coord*(this: gp_Pnt2d): gp_XY  {.importcpp: "Coord".}
-  ## For this point, returns its two coordinates as a number pair.
-
-proc ChangeCoord*(this: var gp_Pnt2d): gp_XY  {.importcpp: "ChangeCoord".}
-  ## Returns the coordinates of this point. Note: This syntax allows direct
-  ## modification of the returned value.
-
-proc IsEqual*(this: gp_Pnt2d, Other: gp_Pnt2d, LinearTolerance: cdouble): bool  {.importcpp: "IsEqual".}
-  ## Comparison Returns True if the distance between the two points is
-  ## lower or equal to LinearTolerance.
-
-proc Distance*(this: gp_Pnt2d, Other: gp_Pnt2d): cdouble  {.importcpp: "Distance".}
-  ## Computes the distance between two points.
-
-proc SquareDistance*(this: gp_Pnt2d, Other: gp_Pnt2d): cdouble  {.importcpp: "SquareDistance".}
-  ## Computes the square distance between two points.
-
-proc Mirror*(this: var gp_Pnt2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-  ## Performs the symmetrical transformation of a point with respect to the
-  ## point P which is the center of the symmetry.
-
-proc Mirrored*(this: gp_Pnt2d, P: gp_Pnt2d): gp_Pnt2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a point with respect to an
-  ## axis placement which is the axis
-
-proc Mirror*(this: var gp_Pnt2d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Pnt2d, A: gp_Ax2d): gp_Pnt2d  {.importcpp: "Mirrored".}
-  ## Rotates a point. A1 is the axis of the rotation. Ang is the angular
-  ## value of the rotation in radians.
-
-proc Rotate*(this: var gp_Pnt2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Pnt2d, P: gp_Pnt2d, Ang: cdouble): gp_Pnt2d  {.importcpp: "Rotated".}
-  ## Scales a point. S is the scaling value.
-
-proc Scale*(this: var gp_Pnt2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Pnt2d, P: gp_Pnt2d, S: cdouble): gp_Pnt2d  {.importcpp: "Scaled".}
-  ## Transforms a point with the transformation T.
-
-proc Transform*(this: var gp_Pnt2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Pnt2d, T: gp_Trsf2d): gp_Pnt2d  {.importcpp: "Transformed".}
-  ## Translates a point in the direction of the vector V. The magnitude of
-  ## the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Pnt2d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Pnt2d, V: gp_Vec2d): gp_Pnt2d  {.importcpp: "Translated".}
-  ## Translates a point from the point P1 to the point P2.
-
-proc Translate*(this: var gp_Pnt2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Pnt2d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Pnt2d  {.importcpp: "Translated".}
-
-{.pop.} # header: "gp_Pnt2d.hxx
+proc `new`*(this: var Pnt2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Pnt2d::operator new", header: "gp_Pnt2d.hxx".}
+proc `delete`*(this: var Pnt2d; theAddress: pointer) {.
+    importcpp: "gp_Pnt2d::operator delete", header: "gp_Pnt2d.hxx".}
+proc `new[]`*(this: var Pnt2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Pnt2d::operator new[]", header: "gp_Pnt2d.hxx".}
+proc `delete[]`*(this: var Pnt2d; theAddress: pointer) {.
+    importcpp: "gp_Pnt2d::operator delete[]", header: "gp_Pnt2d.hxx".}
+proc `new`*(this: var Pnt2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Pnt2d::operator new", header: "gp_Pnt2d.hxx".}
+proc `delete`*(this: var Pnt2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Pnt2d::operator delete", header: "gp_Pnt2d.hxx".}
+proc constructPnt2d*(): Pnt2d {.constructor, importcpp: "gp_Pnt2d(@)",
+                             header: "gp_Pnt2d.hxx".}
+proc constructPnt2d*(coord: Xy): Pnt2d {.constructor, importcpp: "gp_Pnt2d(@)",
+                                     header: "gp_Pnt2d.hxx".}
+proc constructPnt2d*(xp: StandardReal; yp: StandardReal): Pnt2d {.constructor,
+    importcpp: "gp_Pnt2d(@)", header: "gp_Pnt2d.hxx".}
+proc setCoord*(this: var Pnt2d; index: int; xi: StandardReal) {.importcpp: "SetCoord",
+    header: "gp_Pnt2d.hxx".}
+proc setCoord*(this: var Pnt2d; xp: StandardReal; yp: StandardReal) {.
+    importcpp: "SetCoord", header: "gp_Pnt2d.hxx".}
+proc setX*(this: var Pnt2d; x: StandardReal) {.importcpp: "SetX", header: "gp_Pnt2d.hxx".}
+proc setY*(this: var Pnt2d; y: StandardReal) {.importcpp: "SetY", header: "gp_Pnt2d.hxx".}
+proc setXY*(this: var Pnt2d; coord: Xy) {.importcpp: "SetXY", header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d; index: int): StandardReal {.noSideEffect, importcpp: "Coord",
+    header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d; xp: var StandardReal; yp: var StandardReal) {.noSideEffect,
+    importcpp: "Coord", header: "gp_Pnt2d.hxx".}
+proc x*(this: Pnt2d): StandardReal {.noSideEffect, importcpp: "X",
+                                 header: "gp_Pnt2d.hxx".}
+proc y*(this: Pnt2d): StandardReal {.noSideEffect, importcpp: "Y",
+                                 header: "gp_Pnt2d.hxx".}
+proc xy*(this: Pnt2d): Xy {.noSideEffect, importcpp: "XY", header: "gp_Pnt2d.hxx".}
+proc coord*(this: Pnt2d): Xy {.noSideEffect, importcpp: "Coord", header: "gp_Pnt2d.hxx".}
+proc changeCoord*(this: var Pnt2d): var Xy {.importcpp: "ChangeCoord",
+                                       header: "gp_Pnt2d.hxx".}
+proc isEqual*(this: Pnt2d; other: Pnt2d; linearTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsEqual", header: "gp_Pnt2d.hxx".}
+proc distance*(this: Pnt2d; other: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Pnt2d.hxx".}
+proc squareDistance*(this: Pnt2d; other: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "SquareDistance", header: "gp_Pnt2d.hxx".}
+proc mirror*(this: var Pnt2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Pnt2d.hxx".}
+proc mirrored*(this: Pnt2d; p: Pnt2d): Pnt2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Pnt2d.hxx".}
+proc mirror*(this: var Pnt2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Pnt2d.hxx".}
+proc mirrored*(this: Pnt2d; a: Ax2d): Pnt2d {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Pnt2d.hxx".}
+proc rotate*(this: var Pnt2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Pnt2d.hxx".}
+proc rotated*(this: Pnt2d; p: Pnt2d; ang: StandardReal): Pnt2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Pnt2d.hxx".}
+proc scale*(this: var Pnt2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Pnt2d.hxx".}
+proc scaled*(this: Pnt2d; p: Pnt2d; s: StandardReal): Pnt2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Pnt2d.hxx".}
+proc transform*(this: var Pnt2d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Pnt2d.hxx".}
+proc transformed*(this: Pnt2d; t: Trsf2d): Pnt2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Pnt2d.hxx".}
+proc translate*(this: var Pnt2d; v: Vec2d) {.importcpp: "Translate",
+                                       header: "gp_Pnt2d.hxx".}
+proc translated*(this: Pnt2d; v: Vec2d): Pnt2d {.noSideEffect, importcpp: "Translated",
+    header: "gp_Pnt2d.hxx".}
+proc translate*(this: var Pnt2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Pnt2d.hxx".}
+proc translated*(this: Pnt2d; p1: Pnt2d; p2: Pnt2d): Pnt2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Pnt2d.hxx".}
+proc dumpJson*(this: Pnt2d; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Pnt2d.hxx".}

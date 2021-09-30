@@ -1,29 +1,71 @@
-{.push header: "BRep_PolygonOnTriangulation.hxx".}
+##  Created on: 1995-03-15
+##  Created by: Laurent PAINNOT
+##  Copyright (c) 1995-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Poly_PolygonOnTriangulation"
+discard "forward decl of Poly_Triangulation"
+discard "forward decl of TopLoc_Location"
+discard "forward decl of BRep_CurveRepresentation"
+discard "forward decl of BRep_PolygonOnTriangulation"
+discard "forward decl of BRep_PolygonOnTriangulation"
+type
+  BRepPolygonOnTriangulation* {.importcpp: "BRep_PolygonOnTriangulation",
+                               header: "BRep_PolygonOnTriangulation.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
-# Constructors and methods
-proc constructor_BRep_PolygonOnTriangulation*(P: Handle[Poly_PolygonOnTriangulation], T: Handle[Poly_Triangulation], L: TopLoc_Location): BRep_PolygonOnTriangulation {.constructor,importcpp: "BRep_PolygonOnTriangulation(@)".}
+type
+  HandleBRepPolygonOnTriangulation* = Handle[BRepPolygonOnTriangulation]
 
-proc isPolygonOnTriangulation*(this: BRep_PolygonOnTriangulation): Standard_Boolean  {.importcpp: "IsPolygonOnTriangulation".}
-  ## returns True.
+## ! A representation by an array of nodes on a
+## ! triangulation.
+type
+  BRepPolygonOnTriangulationbaseType* = BRepCurveRepresentation
 
-proc isPolygonOnTriangulation*(this: BRep_PolygonOnTriangulation, T: Handle[Poly_Triangulation], L: TopLoc_Location): Standard_Boolean  {.importcpp: "IsPolygonOnTriangulation".}
-  ## Is it a polygon in the definition of <T> with location <L>.
+#[ 
+proc constructBRepPolygonOnTriangulation*(p: Handle[PolyPolygonOnTriangulation];
+    t: Handle[PolyTriangulation]; L: TopLocLocation): BRepPolygonOnTriangulation {.
+    constructor, importcpp: "BRep_PolygonOnTriangulation(@)",
+    header: "BRep_PolygonOnTriangulation.hxx".}
+proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation): StandardBoolean {.
+    noSideEffect, importcpp: "IsPolygonOnTriangulation",
+    header: "BRep_PolygonOnTriangulation.hxx".}
+proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation;
+                              t: Handle[PolyTriangulation]; L: TopLocLocation): StandardBoolean {.
+    noSideEffect, importcpp: "IsPolygonOnTriangulation",
+    header: "BRep_PolygonOnTriangulation.hxx".}
+proc polygonOnTriangulation*(this: var BRepPolygonOnTriangulation;
+                            p: Handle[PolyPolygonOnTriangulation]) {.
+    importcpp: "PolygonOnTriangulation", header: "BRep_PolygonOnTriangulation.hxx".}
+proc triangulation*(this: BRepPolygonOnTriangulation): Handle[PolyTriangulation] {.
+    noSideEffect, importcpp: "Triangulation",
+    header: "BRep_PolygonOnTriangulation.hxx".}
+proc polygonOnTriangulation*(this: BRepPolygonOnTriangulation): Handle[
+    PolyPolygonOnTriangulation] {.noSideEffect,
+                                 importcpp: "PolygonOnTriangulation",
+                                 header: "BRep_PolygonOnTriangulation.hxx".}
+proc copy*(this: BRepPolygonOnTriangulation): Handle[BRepCurveRepresentation] {.
+    noSideEffect, importcpp: "Copy", header: "BRep_PolygonOnTriangulation.hxx".}
+proc dumpJson*(this: BRepPolygonOnTriangulation; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PolygonOnTriangulation.hxx".}
 
-proc polygonOnTriangulation*(this: var BRep_PolygonOnTriangulation, P: Handle[Poly_PolygonOnTriangulation])  {.importcpp: "PolygonOnTriangulation".}
-  ## returns True.
-
-proc triangulation*(this: BRep_PolygonOnTriangulation): Handle[Poly_Triangulation]  {.importcpp: "Triangulation".}
-
-proc polygonOnTriangulation*(this: BRep_PolygonOnTriangulation): Handle[Poly_PolygonOnTriangulation]  {.importcpp: "PolygonOnTriangulation".}
-
-proc copy*(this: BRep_PolygonOnTriangulation): Handle[BRep_CurveRepresentation]  {.importcpp: "Copy".}
-  ## Return a copy of this representation.
-
-proc get_type_name*(this: var BRep_PolygonOnTriangulation): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var BRep_PolygonOnTriangulation): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: BRep_PolygonOnTriangulation): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "BRep_PolygonOnTriangulation.hxx
+proc getTypeName*(): cstring {.importcpp: "BRep_PolygonOnTriangulation::get_type_name(@)",
+                            header: "BRep_PolygonOnTriangulation.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "BRep_PolygonOnTriangulation::get_type_descriptor(@)",
+    header: "BRep_PolygonOnTriangulation.hxx".}
+proc dynamicType*(this: BRepPolygonOnTriangulation): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType",
+    header: "BRep_PolygonOnTriangulation.hxx".} ]#

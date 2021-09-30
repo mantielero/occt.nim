@@ -1,17 +1,49 @@
-{.push header: "BRep_PointsOnSurface.hxx".}
+##  Created on: 1993-08-10
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Geom_Surface"
+discard "forward decl of TopLoc_Location"
+discard "forward decl of BRep_PointsOnSurface"
+discard "forward decl of BRep_PointsOnSurface"
+
+type
+  BRepPointsOnSurface* {.importcpp: "BRep_PointsOnSurface",
+                        header: "BRep_PointsOnSurface.hxx", bycopy.} = object of BRepPointRepresentation
 
 
-# Constructors and methods
-proc constructor_BRep_PointsOnSurface*(P: Standard_Real, S: Handle[Geom_Surface], L: TopLoc_Location): BRep_PointsOnSurface {.constructor,importcpp: "BRep_PointsOnSurface(@)".}
+type
+  HandleBRepPointsOnSurface* = Handle[BRepPointsOnSurface]
 
-proc surface*(this: BRep_PointsOnSurface): Handle[Geom_Surface]  {.importcpp: "Surface".}
+## ! Root for points on surface.
+type
+  BRepPointsOnSurfacebaseType* = BRepPointRepresentation
 
-proc surface*(this: var BRep_PointsOnSurface, S: Handle[Geom_Surface])  {.importcpp: "Surface".}
 
-proc get_type_name*(this: var BRep_PointsOnSurface): cstring  {.importcpp: "get_type_name".}
+proc surface*(this: BRepPointsOnSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
+proc surface*(this: var BRepPointsOnSurface; s: Handle[GeomSurface]) {.
+    importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
+proc dumpJson*(this: BRepPointsOnSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "BRep_PointsOnSurface.hxx".}
 
-proc get_type_descriptor*(this: var BRep_PointsOnSurface): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: BRep_PointsOnSurface): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "BRep_PointsOnSurface.hxx
+#[ proc getTypeName*(): cstring {.importcpp: "BRep_PointsOnSurface::get_type_name(@)",
+                            header: "BRep_PointsOnSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "BRep_PointsOnSurface::get_type_descriptor(@)",
+    header: "BRep_PointsOnSurface.hxx".}
+proc dynamicType*(this: BRepPointsOnSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRep_PointsOnSurface.hxx".} ]#

@@ -1,39 +1,52 @@
-{.push header: "Standard.hxx".}
+##  Created on: 1991-09-05
+##  Created by: J.P. TIRAUlt
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ErrorHandler"
+discard "forward decl of Standard_Persistent"
+discard "forward decl of Standard_Transient"
+discard "forward decl of Standard_Failure"
+type
+  Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc ` new`*(this: var Standard, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var Standard, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var Standard, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var Standard, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var Standard, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var Standard, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc Allocate*(this: var Standard, aSize: Standard_Size): Standard_Address  {.importcpp: "Allocate".}
-  ## Allocates memory blocks aSize - bytes to allocate
-
-proc Free*(this: var Standard, thePtr: Standard_Address)  {.importcpp: "Free".}
-  ## Deallocates memory blocks
-
-proc Reallocate*(this: var Standard, aStorage: Standard_Address, aNewSize: Standard_Size): Standard_Address  {.importcpp: "Reallocate".}
-  ## Reallocates memory blocks aStorage - previously allocated memory block
-  ## aNewSize - new size in bytes
-
-proc AllocateAligned*(this: var Standard, theSize: Standard_Size, theAlign: Standard_Size): Standard_Address  {.importcpp: "AllocateAligned".}
-  ## Allocates aligned memory blocks. Should be used with CPU instructions
-  ## which require specific alignment. For example: SSE requires 16 bytes,
-  ## AVX requires 32 bytes.
-
-proc FreeAligned*(this: var Standard, thePtrAligned: Standard_Address)  {.importcpp: "FreeAligned".}
-  ## Deallocates memory blocks
-
-proc Purge*(this: var Standard): Standard_Integer  {.importcpp: "Purge".}
-  ## Deallocates the storage retained on the free list and clears the list.
-  ## Returns non-zero if some memory has been actually freed.
-
-{.pop.} # header: "Standard.hxx
+proc `new`*(this: var Standard; theSize: csize_t): pointer {.
+    importcpp: "Standard::operator new", header: "Standard.hxx".}
+proc `delete`*(this: var Standard; theAddress: pointer) {.
+    importcpp: "Standard::operator delete", header: "Standard.hxx".}
+proc `new[]`*(this: var Standard; theSize: csize_t): pointer {.
+    importcpp: "Standard::operator new[]", header: "Standard.hxx".}
+proc `delete[]`*(this: var Standard; theAddress: pointer) {.
+    importcpp: "Standard::operator delete[]", header: "Standard.hxx".}
+proc `new`*(this: var Standard; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Standard::operator new", header: "Standard.hxx".}
+proc `delete`*(this: var Standard; a2: pointer; a3: pointer) {.
+    importcpp: "Standard::operator delete", header: "Standard.hxx".}
+proc allocate*(aSize: StandardSize): StandardAddress {.
+    importcpp: "Standard::Allocate(@)", header: "Standard.hxx".}
+proc free*(thePtr: StandardAddress) {.importcpp: "Standard::Free(@)",
+                                   header: "Standard.hxx".}
+proc free*[T](thePtr: ptr T) {.importcpp: "Standard::Free(@)", header: "Standard.hxx".}
+proc reallocate*(aStorage: StandardAddress; aNewSize: StandardSize): StandardAddress {.
+    importcpp: "Standard::Reallocate(@)", header: "Standard.hxx".}
+proc allocateAligned*(theSize: StandardSize; theAlign: StandardSize): StandardAddress {.
+    importcpp: "Standard::AllocateAligned(@)", header: "Standard.hxx".}
+proc freeAligned*(thePtrAligned: StandardAddress) {.
+    importcpp: "Standard::FreeAligned(@)", header: "Standard.hxx".}
+proc freeAligned*[T](thePtrAligned: ptr T) {.importcpp: "Standard::FreeAligned(@)",
+    header: "Standard.hxx".}
+proc purge*(): int {.importcpp: "Standard::Purge(@)", header: "Standard.hxx".}
+##  include definition of handle to make it always visible
+##  (put at the and of the file due to cyclic dependency between headers)

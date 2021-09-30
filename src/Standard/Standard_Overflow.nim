@@ -1,23 +1,34 @@
-{.push header: "Standard_Overflow.hxx".}
+##  Created on: 1991-09-05
+##  Created by: J.P. TIRAUlt
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_Overflow"
+discard "forward decl of Standard_Overflow"
+type
+  StandardOverflow* {.importcpp: "Standard_Overflow",
+                     header: "Standard_Overflow.hxx", bycopy.} = object of StandardNumericError
+type
+  HandleStandardOverflow* = Handle[StandardOverflow]
+
+when not defined(noException) and not defined(noStandardOverflow):
+  template standardOverflowRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardOverflow*(a1: Message): Throw {.
+          importcpp: "Standard_Overflow(@)", header: "Standard_Overflow.hxx".}
+
+else:
+  discard
 
 
-# Constructors and methods
-proc constructor_Standard_Overflow*(): Standard_Overflow {.constructor,importcpp: "Standard_Overflow".}
-
-proc constructor_Standard_Overflow*(theMessage: Standard_CString): Standard_Overflow {.constructor,importcpp: "Standard_Overflow(@)".}
-
-proc Throw*(this: Standard_Overflow)  {.importcpp: "Throw".}
-
-proc Raise*(this: var Standard_Overflow, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc Raise*(this: var Standard_Overflow, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc NewInstance*(this: var Standard_Overflow, theMessage: Standard_CString): Handle[Standard_Overflow]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var Standard_Overflow): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_Overflow): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_Overflow): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "Standard_Overflow.hxx

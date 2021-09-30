@@ -1,32 +1,59 @@
-{.push header: "BRep_GCurve.hxx".}
+##  Created on: 1995-03-09
+##  Created by: Laurent PAINNOT
+##  Copyright (c) 1995-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of TopLoc_Location"
+discard "forward decl of gp_Pnt"
+discard "forward decl of BRep_GCurve"
+discard "forward decl of BRep_GCurve"
+type
+  BRepGCurve* {.importcpp: "BRep_GCurve", header: "BRep_GCurve.hxx", bycopy.} = object of BRepCurveRepresentation
+
+type
+  HandleBRepGCurve* = Handle[BRepGCurve]
+
+## ! Root   class    for    the    geometric     curves
+## ! representation. Contains a range.
+## ! Contains a first and a last parameter.
+
+type
+  BRepGCurvebaseType* = BRepCurveRepresentation
 
 
-# Constructors and methods
-proc constructor_BRep_GCurve*(L: TopLoc_Location, First: Standard_Real, Last: Standard_Real): BRep_GCurve {.constructor,importcpp: "BRep_GCurve(@)".}
+proc setRange*(this: var BRepGCurve; first: StandardReal; last: StandardReal) {.
+    importcpp: "SetRange", header: "BRep_GCurve.hxx".}
+proc range*(this: BRepGCurve; first: var StandardReal; last: var StandardReal) {.
+    noSideEffect, importcpp: "Range", header: "BRep_GCurve.hxx".}
+proc first*(this: BRepGCurve): StandardReal {.noSideEffect, importcpp: "First",
+    header: "BRep_GCurve.hxx".}
+proc last*(this: BRepGCurve): StandardReal {.noSideEffect, importcpp: "Last",
+    header: "BRep_GCurve.hxx".}
+proc first*(this: var BRepGCurve; f: StandardReal) {.importcpp: "First",
+    header: "BRep_GCurve.hxx".}
+proc last*(this: var BRepGCurve; L: StandardReal) {.importcpp: "Last",
+    header: "BRep_GCurve.hxx".}
+proc d0*(this: BRepGCurve; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "BRep_GCurve.hxx".}
+proc update*(this: var BRepGCurve) {.importcpp: "Update", header: "BRep_GCurve.hxx".}
+proc dumpJson*(this: BRepGCurve; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "BRep_GCurve.hxx".}
 
-proc setRange*(this: var BRep_GCurve, First: Standard_Real, Last: Standard_Real)  {.importcpp: "SetRange".}
-
-proc range*(this: BRep_GCurve, First: var Standard_Real, Last: var Standard_Real)  {.importcpp: "Range".}
-
-proc first*(this: BRep_GCurve): Standard_Real  {.importcpp: "First".}
-
-proc last*(this: BRep_GCurve): Standard_Real  {.importcpp: "Last".}
-
-proc first*(this: var BRep_GCurve, F: Standard_Real)  {.importcpp: "First".}
-
-proc last*(this: var BRep_GCurve, L: Standard_Real)  {.importcpp: "Last".}
-
-proc d0*(this: BRep_GCurve, U: Standard_Real, P: var gp_Pnt)  {.importcpp: "D0".}
-  ## Computes the point at parameter U.
-
-proc update*(this: var BRep_GCurve)  {.importcpp: "Update".}
-  ## Recomputes any derived data after a modification. This is called when
-  ## the range is modified.
-
-proc get_type_name*(this: var BRep_GCurve): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var BRep_GCurve): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: BRep_GCurve): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "BRep_GCurve.hxx
+#[ 
+proc getTypeName*(): cstring {.importcpp: "BRep_GCurve::get_type_name(@)",
+                            header: "BRep_GCurve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "BRep_GCurve::get_type_descriptor(@)", header: "BRep_GCurve.hxx".}
+proc dynamicType*(this: BRepGCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRep_GCurve.hxx".} ]#

@@ -1,187 +1,305 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_RangeError"
+discard "forward decl of gp_Ax3"
+discard "forward decl of gp_Cone"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of gp_Pnt"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_ConicalSurface"
+discard "forward decl of Geom_ConicalSurface"
 
 type
-  Geom_ConicalSurface* {.header: "Geom_ConicalSurface.hxx", importcpp: "Geom_ConicalSurface", byref.} = object #of class Geom_ElementarySurface
-    ## Describes a cone. A cone is defined by the half-angle (can be
-    ## negative) at its apex, and is positioned in space by a coordinate
-    ## system (a gp_Ax3 object) and a reference radius as follows: - The
-    ## "main Axis" of the coordinate system is the axis of revolution of the
-    ## cone. - The plane defined by the origin, the "X Direction" and the "Y
-    ## Direction" of the coordinate system is the reference plane of the
-    ## cone. The intersection of the cone with this reference plane is a
-    ## circle of radius equal to the reference radius. - The apex of the cone
-    ## is on the negative side of the "main Axis" of the coordinate system if
-    ## the half-angle is positive, and on the positive side if the half-angle
-    ## is negative. This coordinate system is the "local coordinate system"
-    ## of the cone. The following apply: - Rotation around its "main Axis",
-    ## in the trigonometric sense given by the "X Direction" and the "Y
-    ## Direction", defines the u parametric direction. - Its "X Axis" gives
-    ## the origin for the u parameter. - Its "main Direction" is the v
-    ## parametric direction of the cone. - Its origin is the origin of the v
-    ## parameter. The parametric range of the two parameters is: - [ 0, 2.*Pi
-    ## ] for u, and - ] -infinity, +infinity [ for v The parametric equation
-    ## of the cone is: P(u, v) = O + (R + v*sin(Ang)) * (cos(u)*XDir +
-    ## sin(u)*YDir) + v*cos(Ang)*ZDir where: - O, XDir, YDir and ZDir are
-    ## respectively the origin, the "X Direction", the "Y Direction" and the
-    ## "Z Direction" of the cone's local coordinate system, - Ang is the
-    ## half-angle at the apex of the cone, and - R is the reference radius.
+  GeomConicalSurface* {.importcpp: "Geom_ConicalSurface",
+                       header: "Geom_ConicalSurface.hxx", bycopy.} = object of GeomElementarySurface ##
+                                                                                              ## !
+                                                                                              ## A3
+                                                                                              ## defines
+                                                                                              ## the
+                                                                                              ## local
+                                                                                              ## coordinate
+                                                                                              ## system
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## conical
+                                                                                              ## surface.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Ang
+                                                                                              ## is
+                                                                                              ## the
+                                                                                              ## conical
+                                                                                              ## surface
+                                                                                              ## semi-angle.
+                                                                                              ## Its
+                                                                                              ## absolute
+                                                                                              ## value
+                                                                                              ## is
+                                                                                              ## in
+                                                                                              ## range
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## ]0,
+                                                                                              ## PI/2[.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Radius
+                                                                                              ## is
+                                                                                              ## the
+                                                                                              ## radius
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## circle
+                                                                                              ## Viso
+                                                                                              ## in
+                                                                                              ## the
+                                                                                              ## placement
+                                                                                              ## plane
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## conical
+                                                                                              ## surface
+                                                                                              ## defined
+                                                                                              ## with
+                                                                                              ## "XAxis"
+                                                                                              ## and
+                                                                                              ## "YAxis".
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## The
+                                                                                              ## "ZDirection"
+                                                                                              ## of
+                                                                                              ## A3
+                                                                                              ## defines
+                                                                                              ## the
+                                                                                              ## direction
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## surface's
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## axis
+                                                                                              ## of
+                                                                                              ## symmetry.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## If
+                                                                                              ## the
+                                                                                              ## location
+                                                                                              ## point
+                                                                                              ## of
+                                                                                              ## A3
+                                                                                              ## is
+                                                                                              ## the
+                                                                                              ## apex
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## surface
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Radius
+                                                                                              ## =
+                                                                                              ## 0
+                                                                                              ## .
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## At
+                                                                                              ## the
+                                                                                              ## creation
+                                                                                              ## the
+                                                                                              ## parametrization
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## surface
+                                                                                              ## is
+                                                                                              ## defined
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## such
+                                                                                              ## that
+                                                                                              ## the
+                                                                                              ## normal
+                                                                                              ## Vector
+                                                                                              ## (N
+                                                                                              ## =
+                                                                                              ## D1U
+                                                                                              ## ^
+                                                                                              ## D1V)
+                                                                                              ## is
+                                                                                              ## oriented
+                                                                                              ## towards
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## the
+                                                                                              ## "outside
+                                                                                              ## region"
+                                                                                              ## of
+                                                                                              ## the
+                                                                                              ## surface.
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Raised
+                                                                                              ## if
+                                                                                              ## Radius
+                                                                                              ## <
+                                                                                              ## 0.0
+                                                                                              ## or
+                                                                                              ## Abs(Ang)
+                                                                                              ## <
+                                                                                              ## Resolution
+                                                                                              ## from
+                                                                                              ## gp
+                                                                                              ## or
+                                                                                              ##
+                                                                                              ## !
+                                                                                              ## Abs(Ang)
+                                                                                              ## >=
+                                                                                              ## PI/2
+                                                                                              ## -
+                                                                                              ## Resolution
 
-  Handle_Geom_ConicalSurface* {.header: "Geom_ConicalSurface.hxx", importcpp: "Handle_Geom_ConicalSurface".} = handle[Geom_ConicalSurface]
-  Base_type* {.header: "Geom_ConicalSurface.hxx", importcpp: "Geom_ConicalSurface::base_type".} = Geom_ElementarySurface
+type
+  HandleGeomConicalSurface* = Handle[GeomConicalSurface]
+
+## ! Describes a cone.
+## ! A cone is defined by the half-angle (can be negative) at its apex, and
+## ! is positioned in space by a coordinate system (a
+## ! gp_Ax3 object) and a reference radius as follows:
+## ! - The "main Axis" of the coordinate system is the
+## ! axis of revolution of the cone.
+## ! - The plane defined by the origin, the "X Direction"
+## ! and the "Y Direction" of the coordinate system is
+## ! the reference plane of the cone. The intersection
+## ! of the cone with this reference plane is a circle of
+## ! radius equal to the reference radius.
+## ! - The apex of the cone is on the negative side of
+## ! the "main Axis" of the coordinate system if the
+## ! half-angle is positive, and on the positive side if
+## ! the half-angle is negative.
+## ! This coordinate system is the "local coordinate
+## ! system" of the cone. The following apply:
+## ! - Rotation around its "main Axis", in the
+## ! trigonometric sense given by the "X Direction"
+## ! and the "Y Direction", defines the u parametric direction.
+## ! - Its "X Axis" gives the origin for the u parameter.
+## ! - Its "main Direction" is the v parametric direction of the cone.
+## ! - Its origin is the origin of the v parameter.
+## ! The parametric range of the two parameters is:
+## ! - [ 0, 2.*Pi ] for u, and - ] -infinity, +infinity [ for v
+## ! The parametric equation of the cone is:  P(u, v) =
+## ! O + (R + v*sin(Ang)) * (cos(u)*XDir + sin(u)*YDir) + v*cos(Ang)*ZDir where:
+## ! - O, XDir, YDir and ZDir are respectively
+## ! the origin, the "X Direction", the "Y Direction" and
+## ! the "Z Direction" of the cone's local coordinate system,
+## ! - Ang is the half-angle at the apex of the cone,   and
+## ! - R is the reference radius.
+
+type
+  GeomConicalSurfacebaseType* = GeomElementarySurface
 
 
-{.push header: "Geom_ConicalSurface.hxx".}
+proc constructGeomConicalSurface*(a3: Ax3; ang: StandardReal; radius: StandardReal): GeomConicalSurface {.
+    constructor, importcpp: "Geom_ConicalSurface(@)",
+    header: "Geom_ConicalSurface.hxx".}
+proc constructGeomConicalSurface*(c: Cone): GeomConicalSurface {.constructor,
+    importcpp: "Geom_ConicalSurface(@)", header: "Geom_ConicalSurface.hxx".}
+proc setCone*(this: var GeomConicalSurface; c: Cone) {.importcpp: "SetCone",
+    header: "Geom_ConicalSurface.hxx".}
+proc setRadius*(this: var GeomConicalSurface; r: StandardReal) {.
+    importcpp: "SetRadius", header: "Geom_ConicalSurface.hxx".}
+proc setSemiAngle*(this: var GeomConicalSurface; ang: StandardReal) {.
+    importcpp: "SetSemiAngle", header: "Geom_ConicalSurface.hxx".}
+proc cone*(this: GeomConicalSurface): Cone {.noSideEffect, importcpp: "Cone",
+    header: "Geom_ConicalSurface.hxx".}
+proc uReversedParameter*(this: GeomConicalSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
+    header: "Geom_ConicalSurface.hxx".}
+proc vReversedParameter*(this: GeomConicalSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_ConicalSurface.hxx".}
+proc vReverse*(this: var GeomConicalSurface) {.importcpp: "VReverse",
+    header: "Geom_ConicalSurface.hxx".}
+proc transformParameters*(this: GeomConicalSurface; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "Geom_ConicalSurface.hxx".}
+proc parametricTransformation*(this: GeomConicalSurface; t: Trsf): GTrsf2d {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_ConicalSurface.hxx".}
+proc apex*(this: GeomConicalSurface): Pnt {.noSideEffect, importcpp: "Apex",
+                                        header: "Geom_ConicalSurface.hxx".}
+proc bounds*(this: GeomConicalSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_ConicalSurface.hxx".}
+proc coefficients*(this: GeomConicalSurface; a1: var StandardReal;
+                  a2: var StandardReal; a3: var StandardReal; b1: var StandardReal;
+                  b2: var StandardReal; b3: var StandardReal; c1: var StandardReal;
+                  c2: var StandardReal; c3: var StandardReal; d: var StandardReal) {.
+    noSideEffect, importcpp: "Coefficients", header: "Geom_ConicalSurface.hxx".}
+proc refRadius*(this: GeomConicalSurface): StandardReal {.noSideEffect,
+    importcpp: "RefRadius", header: "Geom_ConicalSurface.hxx".}
+proc semiAngle*(this: GeomConicalSurface): StandardReal {.noSideEffect,
+    importcpp: "SemiAngle", header: "Geom_ConicalSurface.hxx".}
+proc isUClosed*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_ConicalSurface.hxx".}
+proc isVClosed*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_ConicalSurface.hxx".}
+proc isUPeriodic*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_ConicalSurface.hxx".}
+proc isVPeriodic*(this: GeomConicalSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_ConicalSurface.hxx".}
+proc uIso*(this: GeomConicalSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_ConicalSurface.hxx".}
+proc vIso*(this: GeomConicalSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_ConicalSurface.hxx".}
+proc d0*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_ConicalSurface.hxx".}
+proc d1*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_ConicalSurface.hxx".}
+proc d2*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_ConicalSurface.hxx".}
+proc d3*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "Geom_ConicalSurface.hxx".}
+proc dn*(this: GeomConicalSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_ConicalSurface.hxx".}
+proc transform*(this: var GeomConicalSurface; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_ConicalSurface.hxx".}
+proc copy*(this: GeomConicalSurface): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_ConicalSurface.hxx".}
+proc dumpJson*(this: GeomConicalSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_ConicalSurface.hxx".}
 
-proc constructGeom_ConicalSurface*(A3: gp_Ax3, Ang: cdouble, Radius: cdouble): Geom_ConicalSurface {.constructor,importcpp: "Geom_ConicalSurface::Geom_ConicalSurface(@)".}
-    ## A3 defines the local coordinate system of the conical surface. Ang is
-    ## the conical surface semi-angle. Its absolute value is in range ]0,
-    ## PI/2[. Radius is the radius of the circle Viso in the placement plane
-    ## of the conical surface defined with "XAxis" and "YAxis". The
-    ## "ZDirection" of A3 defines the direction of the surface's axis of
-    ## symmetry. If the location point of A3 is the apex of the surface
-    ## Radius = 0 . At the creation the parametrization of the surface is
-    ## defined such that the normal Vector (N = D1U ^ D1V) is oriented
-    ## towards the "outside region" of the surface.
 
-proc constructGeom_ConicalSurface*(C: gp_Cone): Geom_ConicalSurface {.constructor,importcpp: "Geom_ConicalSurface::Geom_ConicalSurface(@)".}
-    ## Creates a ConicalSurface from a non transient Cone from package gp.
-
-proc setCone*(this: var Geom_ConicalSurface, C: gp_Cone)  {.importcpp: "SetCone".}
-    ## Set <me> so that <me> has the same geometric properties as C.
-
-proc setRadius*(this: var Geom_ConicalSurface, R: cdouble)  {.importcpp: "SetRadius".}
-    ## Changes the radius of the conical surface in the placement plane (Z =
-    ## 0, V = 0). The local coordinate system is not modified. Raised if R <
-    ## 0.0
-
-proc setSemiAngle*(this: var Geom_ConicalSurface, Ang: cdouble)  {.importcpp: "SetSemiAngle".}
-    ## Changes the semi angle of the conical surface. Semi-angle can be
-    ## negative. Its absolute value Abs(Ang) is in range ]0,PI/2[. Raises
-    ## ConstructionError if Abs(Ang) < Resolution from gp or Abs(Ang) >= PI/2
-    ## - Resolution
-
-proc cone*(this: Geom_ConicalSurface): gp_Cone  {.importcpp: "Cone".}
-    ## returns a non transient cone with the same geometric properties as
-    ## <me>.
-
-proc uReversedParameter*(this: Geom_ConicalSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## return 2.PI - U.
-
-proc vReversedParameter*(this: Geom_ConicalSurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Computes the u (or v) parameter on the modified surface, when
-    ## reversing its u (or v) parametric direction, for any point of u
-    ## parameter U (or of v parameter V) on this cone. In the case of a cone,
-    ## these functions return respectively: - 2.*Pi - U, -V.
-
-proc vReverse*(this: var Geom_ConicalSurface)  {.importcpp: "VReverse".}
-    ## Changes the orientation of this cone in the v parametric direction.
-    ## The bounds of the surface are not changed but the v parametric
-    ## direction is reversed. As a consequence, for a cone: - the "main
-    ## Direction" of the local coordinate system is reversed, and - the half-
-    ## angle at the apex is inverted.
-
-proc transformParameters*(this: Geom_ConicalSurface, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-
-proc parametricTransformation*(this: Geom_ConicalSurface, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface.
-
-proc apex*(this: Geom_ConicalSurface): gp_Pnt  {.importcpp: "Apex".}
-    ## Computes the apex of this cone. It is on the negative side of the axis
-    ## of revolution of this cone if the half-angle at the apex is positive,
-    ## and on the positive side of the "main Axis" if the half-angle is
-    ## negative.
-
-proc bounds*(this: Geom_ConicalSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## The conical surface is infinite in the V direction so V1 = Realfirst
-    ## from Standard and V2 = RealLast. U1 = 0 and U2 = 2*PI.
-
-proc coefficients*(this: Geom_ConicalSurface, A1: var cdouble, A2: var cdouble, A3: var cdouble, B1: var cdouble, B2: var cdouble, B3: var cdouble, C1: var cdouble, C2: var cdouble, C3: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
-    ## Returns the coefficients of the implicit equation of the quadric in
-    ## the absolute cartesian coordinate system : These coefficients are
-    ## normalized. A1.X**2 + A2.Y**2 + A3.Z**2 + 2.(B1.X.Y + B2.X.Z + B3.Y.Z)
-    ## + 2.(C1.X + C2.Y + C3.Z) + D = 0.0
-
-proc refRadius*(this: Geom_ConicalSurface): cdouble  {.importcpp: "RefRadius".}
-    ## Returns the reference radius of this cone. The reference radius is the
-    ## radius of the circle formed by the intersection of this cone and its
-    ## reference plane (i.e. the plane defined by the origin, "X Direction"
-    ## and "Y Direction" of the local coordinate system of this cone). If the
-    ## apex of this cone is on the origin of the local coordinate system of
-    ## this cone, the returned value is 0.
-
-proc semiAngle*(this: Geom_ConicalSurface): cdouble  {.importcpp: "SemiAngle".}
-    ## Returns the semi-angle at the apex of this cone. Attention! Semi-angle
-    ## can be negative.
-
-proc isUClosed*(this: Geom_ConicalSurface): bool  {.importcpp: "IsUClosed".}
-    ## returns True.
-
-proc isVClosed*(this: Geom_ConicalSurface): bool  {.importcpp: "IsVClosed".}
-    ## returns False.
-
-proc isUPeriodic*(this: Geom_ConicalSurface): bool  {.importcpp: "IsUPeriodic".}
-    ## Returns True.
-
-proc isVPeriodic*(this: Geom_ConicalSurface): bool  {.importcpp: "IsVPeriodic".}
-    ## Returns False.
-
-proc uIso*(this: Geom_ConicalSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Builds the U isoparametric line of this cone. The origin of this line
-    ## is on the reference plane of this cone (i.e. the plane defined by the
-    ## origin, "X Direction" and "Y Direction" of the local coordinate system
-    ## of this cone).
-
-proc vIso*(this: Geom_ConicalSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Builds the V isoparametric circle of this cone. It is the circle on
-    ## this cone, located in the plane of Z coordinate V*cos(Semi-Angle) in
-    ## the local coordinate system of this cone. The "Axis" of this circle is
-    ## the axis of revolution of this cone. Its starting point is defined by
-    ## the "X Direction" of this cone. Warning If the V isoparametric circle
-    ## is close to the apex of this cone, the radius of the circle becomes
-    ## very small. It is possible to have a circle with radius equal to 0.0.
-
-proc d0*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Computes the point P (U, V) on the surface. P (U, V) = Loc +
-    ## (RefRadius + V * sin (Semi-Angle)) * (cos (U) * XDir + sin (U) * YDir)
-    ## + V * cos (Semi-Angle) * ZDir where Loc is the origin of the placement
-    ## plane (XAxis, YAxis) XDir is the direction of the XAxis and YDir the
-    ## direction of the YAxis.
-
-proc d1*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Computes the current point and the first derivatives in the directions
-    ## U and V.
-
-proc d2*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## Computes the current point, the first and the second derivatives in
-    ## the directions U and V.
-
-proc d3*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Computes the current point, the first,the second and the third
-    ## derivatives in the directions U and V.
-
-proc dN*(this: Geom_ConicalSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## Computes the derivative of order Nu in the u parametric direction, and
-    ## Nv in the v parametric direction at the point of parameters (U, V) of
-    ## this cone. Exceptions Standard_RangeError if: - Nu + Nv is less than
-    ## 1, - Nu or Nv is negative.
-
-proc transform*(this: var Geom_ConicalSurface, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this cone.
-
-proc copy*(this: Geom_ConicalSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this cone.
-
-proc dumpJson*(this: Geom_ConicalSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_ConicalSurface): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_ConicalSurface): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_ConicalSurface): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_ConicalSurface.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_ConicalSurface::get_type_name(@)",
+                            header: "Geom_ConicalSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_ConicalSurface::get_type_descriptor(@)",
+    header: "Geom_ConicalSurface.hxx".}
+proc dynamicType*(this: GeomConicalSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_ConicalSurface.hxx".} ]#

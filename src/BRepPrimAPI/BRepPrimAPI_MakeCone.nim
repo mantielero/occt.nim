@@ -1,62 +1,62 @@
-import brepprimapi_types
-import ../gp/gp_types
-import ../BRepPrim/brepprim_types
+##  Created on: 1993-07-21
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "BRepPrimAPI_MakeCone.hxx".}
+discard "forward decl of Standard_DomainError"
+discard "forward decl of gp_Ax2"
+discard "forward decl of BRepPrim_Cone"
+type
+  BRepPrimAPI_MakeCone* {.importcpp: "BRepPrimAPI_MakeCone",
+                         header: "BRepPrimAPI_MakeCone.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis
 
 
-# Constructors and methods
-proc MakeCone*(R1: cdouble, R2: cdouble, H: cdouble): BRepPrimAPI_MakeCone {.constructor,importcpp: "BRepPrimAPI_MakeCone(@)".}
-  ## Make a cone of height H radius R1 in the plane z = 0, R2 in the plane
-  ## Z = H. R1 and R2 may be null.
-
-proc MakeCone*(R1: cdouble, R2: cdouble, H: cdouble, angle: cdouble): BRepPrimAPI_MakeCone {.constructor,importcpp: "BRepPrimAPI_MakeCone(@)".}
-  ## Make a cone of height H radius R1 in the plane z = 0, R2 in the plane
-  ## Z = H. R1 and R2 may be null. Take a section of <angle>
-
-proc MakeCone*(Axes: gp_Ax2, R1: cdouble, R2: cdouble, H: cdouble): BRepPrimAPI_MakeCone {.constructor,importcpp: "BRepPrimAPI_MakeCone(@)".}
-  ## Make a cone of height H radius R1 in the plane z = 0, R2 in the plane
-  ## Z = H. R1 and R2 may be null.
-
-proc MakeCone*(Axes: gp_Ax2, R1: cdouble, R2: cdouble, H: cdouble, angle: cdouble): BRepPrimAPI_MakeCone {.constructor,importcpp: "BRepPrimAPI_MakeCone(@)".}
-  ## Make a cone of height H radius R1 in the plane z = 0, R2 in the plane
-  ## Z = H. R1 and R2 may be null. Take a section of <angle> Constructs a
-  ## cone, or a portion of a cone, of height H, and radius R1 in the plane
-  ## z = 0 and R2 in the plane z = H. The result is a sharp cone if R1 or
-  ## R2 is equal to 0. The cone is constructed about the "Z Axis" of
-  ## either: - the global coordinate system, or - the local coordinate
-  ## system Axes. It is limited in these coordinate systems as follows: -
-  ## in the v parametric direction (the Z coordinate), by the two parameter
-  ## values 0 and H, - and in the u parametric direction (defined by the
-  ## angle of rotation around the Z axis), in the case of a portion of a
-  ## cone, by the two parameter values 0 and angle. Angle is given in
-  ## radians. The resulting shape is composed of: - a lateral conical face
-  ## - two planar faces in the planes z = 0 and z = H, or only one planar
-  ## face in one of these two planes if a radius value is null (in the case
-  ## of a complete cone, these faces are circles), and - and in the case of
-  ## a portion of a cone, two planar faces to close the shape. (either two
-  ## parallelograms or two triangles, in the planes u = 0 and u = angle).
-  ## Exceptions Standard_DomainError if: - H is less than or equal to
-  ## Precision::Confusion(), or - the half-angle at the apex of the cone,
-  ## defined by R1, R2 and H, is less than Precision::Confusion()/H, or
-  ## greater than (Pi/2)-Precision::Confusion()/H.f
-#[
-proc ` new`*(this: var BRepPrimAPI_MakeCone, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrimAPI_MakeCone, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepPrimAPI_MakeCone, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepPrimAPI_MakeCone, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepPrimAPI_MakeCone, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrimAPI_MakeCone, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
-proc oneAxis*(this: var BRepPrimAPI_MakeCone): pointer  {.importcpp: "OneAxis".} #pointer
-  ## Returns the algorithm.
-
-proc cone*(this: var BRepPrimAPI_MakeCone): BRepPrim_Cone  {.importcpp: "Cone".} # BRepPrimAPI_MakeCone
-  ## Returns the algorithm.
-
-{.pop.} # header: "BRepPrimAPI_MakeCone.hxx
+proc `new`*(this: var BRepPrimAPI_MakeCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCone; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeCone; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new[]",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeCone; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete[]",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeCone; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeCone::operator new",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeCone; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeCone::operator delete",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal): BRepPrimAPI_MakeCone {.
+    constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc constructBRepPrimAPI_MakeCone*(r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
+    constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal): BRepPrimAPI_MakeCone {.
+    constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc constructBRepPrimAPI_MakeCone*(axes: Ax2; r1: StandardReal; r2: StandardReal;
+                                   h: StandardReal; angle: StandardReal): BRepPrimAPI_MakeCone {.
+    constructor, importcpp: "BRepPrimAPI_MakeCone(@)",
+    header: "BRepPrimAPI_MakeCone.hxx".}
+proc oneAxis*(this: var BRepPrimAPI_MakeCone): StandardAddress {.
+    importcpp: "OneAxis", header: "BRepPrimAPI_MakeCone.hxx".}
+proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.importcpp: "Cone",
+    header: "BRepPrimAPI_MakeCone.hxx".}

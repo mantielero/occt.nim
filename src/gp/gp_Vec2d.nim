@@ -1,216 +1,159 @@
-{.push header: "gp_Vec2d.hxx".}
-
-
-# Constructors and methods
-proc constructor_gp_Vec2d*(): gp_Vec2d {.constructor,importcpp: "gp_Vec2d".}
-  ## Creates a zero vector.
-
-proc constructor_gp_Vec2d*(V: gp_Dir2d): gp_Vec2d {.constructor,importcpp: "gp_Vec2d(@)".}
-  ## Creates a unitary vector from a direction V.
-
-proc constructor_gp_Vec2d*(Coord: gp_XY): gp_Vec2d {.constructor,importcpp: "gp_Vec2d(@)".}
-  ## Creates a vector with a doublet of coordinates.
-
-proc constructor_gp_Vec2d*(Xv: cdouble, Yv: cdouble): gp_Vec2d {.constructor,importcpp: "gp_Vec2d(@)".}
-  ## Creates a point with its two Cartesian coordinates.
-
-proc constructor_gp_Vec2d*(P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Vec2d {.constructor,importcpp: "gp_Vec2d(@)".}
-  ## Creates a vector from two points. The length of the vector is the
-  ## distance between P1 and P2
-
-proc ` new`*(this: var gp_Vec2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Vec2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Vec2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Vec2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Vec2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Vec2d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetCoord*(this: var gp_Vec2d, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
-  ## Changes the coordinate of range Index Index = 1 => X is modified Index
-  ## = 2 => Y is modified Raises OutOfRange if Index != {1, 2}.
-
-proc SetCoord*(this: var gp_Vec2d, Xv: cdouble, Yv: cdouble)  {.importcpp: "SetCoord".}
-  ## For this vector, assigns the values Xv and Yv to its two coordinates
-
-proc SetX*(this: var gp_Vec2d, X: cdouble)  {.importcpp: "SetX".}
-  ## Assigns the given value to the X coordinate of this vector.
-
-proc SetY*(this: var gp_Vec2d, Y: cdouble)  {.importcpp: "SetY".}
-  ## Assigns the given value to the Y coordinate of this vector.
-
-proc SetXY*(this: var gp_Vec2d, Coord: gp_XY)  {.importcpp: "SetXY".}
-  ## Assigns the two coordinates of Coord to this vector.
-
-proc Coord*(this: gp_Vec2d, Index: cint): cdouble  {.importcpp: "Coord".}
-  ## Returns the coordinate of range Index : Index = 1 => X is returned
-  ## Index = 2 => Y is returned Raised if Index != {1, 2}.
-
-proc Coord*(this: gp_Vec2d, Xv: var cdouble, Yv: var cdouble)  {.importcpp: "Coord".}
-  ## For this vector, returns its two coordinates Xv and Yv
-
-proc X*(this: gp_Vec2d): cdouble  {.importcpp: "X".}
-  ## For this vector, returns its X coordinate.
-
-proc Y*(this: gp_Vec2d): cdouble  {.importcpp: "Y".}
-  ## For this vector, returns its Y coordinate.
-
-proc XY*(this: gp_Vec2d): gp_XY  {.importcpp: "XY".}
-  ## For this vector, returns its two coordinates as a number pair
-
-proc IsEqual*(this: gp_Vec2d, Other: gp_Vec2d, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsEqual".}
-  ## Returns True if the two vectors have the same magnitude value and the
-  ## same direction. The precision values are LinearTolerance for the
-  ## magnitude and AngularTolerance for the direction.
-
-proc IsNormal*(this: gp_Vec2d, Other: gp_Vec2d, AngularTolerance: cdouble): bool  {.importcpp: "IsNormal".}
-  ## Returns True if abs(Abs(<me>.Angle(Other)) - PI/2.) <=
-  ## AngularTolerance Raises VectorWithNullMagnitude if <me>.Magnitude() <=
-  ## Resolution or Other.Magnitude() <= Resolution from gp.
-
-proc IsOpposite*(this: gp_Vec2d, Other: gp_Vec2d, AngularTolerance: cdouble): bool  {.importcpp: "IsOpposite".}
-  ## Returns True if PI - Abs(<me>.Angle(Other)) <= AngularTolerance Raises
-  ## VectorWithNullMagnitude if <me>.Magnitude() <= Resolution or
-  ## Other.Magnitude() <= Resolution from gp.
-
-proc IsParallel*(this: gp_Vec2d, Other: gp_Vec2d, AngularTolerance: cdouble): bool  {.importcpp: "IsParallel".}
-  ## Returns true if Abs(Angle(<me>, Other)) <= AngularTolerance or PI -
-  ## Abs(Angle(<me>, Other)) <= AngularTolerance Two vectors with opposite
-  ## directions are considered as parallel. Raises VectorWithNullMagnitude
-  ## if <me>.Magnitude() <= Resolution or Other.Magnitude() <= Resolution
-  ## from gp
-
-proc Angle*(this: gp_Vec2d, Other: gp_Vec2d): cdouble  {.importcpp: "Angle".}
-  ## Computes the angular value between <me> and <Other> returns the angle
-  ## value between -PI and PI in radian. The orientation is from <me> to
-  ## Other. The positive sense is the trigonometric sense. Raises
-  ## VectorWithNullMagnitude if <me>.Magnitude() <= Resolution from gp or
-  ## Other.Magnitude() <= Resolution because the angular value is
-  ## indefinite if one of the vectors has a null magnitude.
-
-proc Magnitude*(this: gp_Vec2d): cdouble  {.importcpp: "Magnitude".}
-  ## Computes the magnitude of this vector.
-
-proc SquareMagnitude*(this: gp_Vec2d): cdouble  {.importcpp: "SquareMagnitude".}
-  ## Computes the square magnitude of this vector.
-
-proc Add*(this: var gp_Vec2d, Other: gp_Vec2d)  {.importcpp: "Add".}
-
-proc `+=`*(this: var gp_Vec2d, Other: gp_Vec2d)  {.importcpp: "`+=`".}
-
-proc Added*(this: gp_Vec2d, Other: gp_Vec2d): gp_Vec2d  {.importcpp: "Added".}
-  ## Adds two vectors
-
-proc `+`*(this: gp_Vec2d, Other: gp_Vec2d): gp_Vec2d  {.importcpp: "`+`".}
-
-proc Crossed*(this: gp_Vec2d, Right: gp_Vec2d): cdouble  {.importcpp: "Crossed".}
-  ## Computes the crossing product between two vectors
-
-proc `^`*(this: gp_Vec2d, Right: gp_Vec2d): cdouble  {.importcpp: "`^`".}
-
-proc CrossMagnitude*(this: gp_Vec2d, Right: gp_Vec2d): cdouble  {.importcpp: "CrossMagnitude".}
-  ## Computes the magnitude of the cross product between <me> and Right.
-  ## Returns || <me> ^ Right ||
-
-proc CrossSquareMagnitude*(this: gp_Vec2d, Right: gp_Vec2d): cdouble  {.importcpp: "CrossSquareMagnitude".}
-  ## Computes the square magnitude of the cross product between <me> and
-  ## Right. Returns || <me> ^ Right ||**2
-
-proc Divide*(this: var gp_Vec2d, Scalar: cdouble)  {.importcpp: "Divide".}
-
-proc `/=`*(this: var gp_Vec2d, Scalar: cdouble)  {.importcpp: "`/=`".}
-
-proc Divided*(this: gp_Vec2d, Scalar: cdouble): gp_Vec2d  {.importcpp: "Divided".}
-  ## divides a vector by a scalar
-
-proc `/`*(this: gp_Vec2d, Scalar: cdouble): gp_Vec2d  {.importcpp: "`/`".}
-
-proc Dot*(this: gp_Vec2d, Other: gp_Vec2d): cdouble  {.importcpp: "Dot".}
-  ## Computes the scalar product
-
-proc `*`*(this: gp_Vec2d, Other: gp_Vec2d): cdouble  {.importcpp: "`*`".}
-
-proc GetNormal*(this: gp_Vec2d): gp_Vec2d  {.importcpp: "GetNormal".}
-
-proc Multiply*(this: var gp_Vec2d, Scalar: cdouble)  {.importcpp: "Multiply".}
-
-proc `*=`*(this: var gp_Vec2d, Scalar: cdouble)  {.importcpp: "`*=`".}
-
-proc Multiplied*(this: gp_Vec2d, Scalar: cdouble): gp_Vec2d  {.importcpp: "Multiplied".}
-  ## Normalizes a vector Raises an exception if the magnitude of the vector
-  ## is lower or equal to Resolution from package gp.
-
-proc `*`*(this: gp_Vec2d, Scalar: cdouble): gp_Vec2d  {.importcpp: "`*`".}
-
-proc Normalize*(this: var gp_Vec2d)  {.importcpp: "Normalize".}
-
-proc Normalized*(this: gp_Vec2d): gp_Vec2d  {.importcpp: "Normalized".}
-  ## Normalizes a vector Raises an exception if the magnitude of the vector
-  ## is lower or equal to Resolution from package gp. Reverses the
-  ## direction of a vector
-
-proc Reverse*(this: var gp_Vec2d)  {.importcpp: "Reverse".}
-
-proc Reversed*(this: gp_Vec2d): gp_Vec2d  {.importcpp: "Reversed".}
-  ## Reverses the direction of a vector
-
-proc `-`*(this: gp_Vec2d): gp_Vec2d  {.importcpp: "`-`".}
-
-proc Subtract*(this: var gp_Vec2d, Right: gp_Vec2d)  {.importcpp: "Subtract".}
-  ## Subtracts two vectors
-
-proc `-=`*(this: var gp_Vec2d, Right: gp_Vec2d)  {.importcpp: "`-=`".}
-
-proc Subtracted*(this: gp_Vec2d, Right: gp_Vec2d): gp_Vec2d  {.importcpp: "Subtracted".}
-  ## Subtracts two vectors
-
-proc `-`*(this: gp_Vec2d, Right: gp_Vec2d): gp_Vec2d  {.importcpp: "`-`".}
-
-proc SetLinearForm*(this: var gp_Vec2d, A1: cdouble, V1: gp_Vec2d, A2: cdouble, V2: gp_Vec2d, V3: gp_Vec2d)  {.importcpp: "SetLinearForm".}
-  ## <me> is set to the following linear form : A1 * V1 + A2 * V2 + V3
-
-proc SetLinearForm*(this: var gp_Vec2d, A1: cdouble, V1: gp_Vec2d, A2: cdouble, V2: gp_Vec2d)  {.importcpp: "SetLinearForm".}
-  ## <me> is set to the following linear form : A1 * V1 + A2 * V2
-
-proc SetLinearForm*(this: var gp_Vec2d, A1: cdouble, V1: gp_Vec2d, V2: gp_Vec2d)  {.importcpp: "SetLinearForm".}
-  ## <me> is set to the following linear form : A1 * V1 + V2
-
-proc SetLinearForm*(this: var gp_Vec2d, Left: gp_Vec2d, Right: gp_Vec2d)  {.importcpp: "SetLinearForm".}
-  ## <me> is set to the following linear form : Left + Right
-
-proc Mirror*(this: var gp_Vec2d, V: gp_Vec2d)  {.importcpp: "Mirror".}
-  ## Performs the symmetrical transformation of a vector with respect to
-  ## the vector V which is the center of the symmetry.
-
-proc Mirrored*(this: gp_Vec2d, V: gp_Vec2d): gp_Vec2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a vector with respect to
-  ## the vector V which is the center of the symmetry.
-
-proc Mirror*(this: var gp_Vec2d, A1: gp_Ax2d)  {.importcpp: "Mirror".}
-  ## Performs the symmetrical transformation of a vector with respect to an
-  ## axis placement which is the axis of the symmetry.
-
-proc Mirrored*(this: gp_Vec2d, A1: gp_Ax2d): gp_Vec2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a vector with respect to an
-  ## axis placement which is the axis of the symmetry.
-
-proc Rotate*(this: var gp_Vec2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Vec2d, Ang: cdouble): gp_Vec2d  {.importcpp: "Rotated".}
-  ## Rotates a vector. Ang is the angular value of the rotation in radians.
-
-proc Scale*(this: var gp_Vec2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Vec2d, S: cdouble): gp_Vec2d  {.importcpp: "Scaled".}
-  ## Scales a vector. S is the scaling value.
-
-proc Transform*(this: var gp_Vec2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Vec2d, T: gp_Trsf2d): gp_Vec2d  {.importcpp: "Transformed".}
-  ## Transforms a vector with a Trsf from gp.
-
-{.pop.} # header: "gp_Vec2d.hxx
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of gp_VectorWithNullMagnitude"
+discard "forward decl of gp_Dir2d"
+discard "forward decl of gp_XY"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Trsf2d"
+type
+  Vec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object
+
+
+proc `new`*(this: var Vec2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Vec2d::operator new", header: "gp_Vec2d.hxx".}
+proc `delete`*(this: var Vec2d; theAddress: pointer) {.
+    importcpp: "gp_Vec2d::operator delete", header: "gp_Vec2d.hxx".}
+proc `new[]`*(this: var Vec2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Vec2d::operator new[]", header: "gp_Vec2d.hxx".}
+proc `delete[]`*(this: var Vec2d; theAddress: pointer) {.
+    importcpp: "gp_Vec2d::operator delete[]", header: "gp_Vec2d.hxx".}
+proc `new`*(this: var Vec2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Vec2d::operator new", header: "gp_Vec2d.hxx".}
+proc `delete`*(this: var Vec2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Vec2d::operator delete", header: "gp_Vec2d.hxx".}
+proc constructVec2d*(): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
+                             header: "gp_Vec2d.hxx".}
+proc constructVec2d*(v: Dir2d): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
+                                    header: "gp_Vec2d.hxx".}
+proc constructVec2d*(coord: Xy): Vec2d {.constructor, importcpp: "gp_Vec2d(@)",
+                                     header: "gp_Vec2d.hxx".}
+proc constructVec2d*(xv: StandardReal; yv: StandardReal): Vec2d {.constructor,
+    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
+proc constructVec2d*(p1: Pnt2d; p2: Pnt2d): Vec2d {.constructor,
+    importcpp: "gp_Vec2d(@)", header: "gp_Vec2d.hxx".}
+proc setCoord*(this: var Vec2d; index: int; xi: StandardReal) {.importcpp: "SetCoord",
+    header: "gp_Vec2d.hxx".}
+proc setCoord*(this: var Vec2d; xv: StandardReal; yv: StandardReal) {.
+    importcpp: "SetCoord", header: "gp_Vec2d.hxx".}
+proc setX*(this: var Vec2d; x: StandardReal) {.importcpp: "SetX", header: "gp_Vec2d.hxx".}
+proc setY*(this: var Vec2d; y: StandardReal) {.importcpp: "SetY", header: "gp_Vec2d.hxx".}
+proc setXY*(this: var Vec2d; coord: Xy) {.importcpp: "SetXY", header: "gp_Vec2d.hxx".}
+proc coord*(this: Vec2d; index: int): StandardReal {.noSideEffect, importcpp: "Coord",
+    header: "gp_Vec2d.hxx".}
+proc coord*(this: Vec2d; xv: var StandardReal; yv: var StandardReal) {.noSideEffect,
+    importcpp: "Coord", header: "gp_Vec2d.hxx".}
+proc x*(this: Vec2d): StandardReal {.noSideEffect, importcpp: "X",
+                                 header: "gp_Vec2d.hxx".}
+proc y*(this: Vec2d): StandardReal {.noSideEffect, importcpp: "Y",
+                                 header: "gp_Vec2d.hxx".}
+proc xy*(this: Vec2d): Xy {.noSideEffect, importcpp: "XY", header: "gp_Vec2d.hxx".}
+proc isEqual*(this: Vec2d; other: Vec2d; linearTolerance: StandardReal;
+             angularTolerance: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsEqual", header: "gp_Vec2d.hxx".}
+proc isNormal*(this: Vec2d; other: Vec2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsNormal", header: "gp_Vec2d.hxx".}
+proc isOpposite*(this: Vec2d; other: Vec2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsOpposite", header: "gp_Vec2d.hxx".}
+proc isParallel*(this: Vec2d; other: Vec2d; angularTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsParallel", header: "gp_Vec2d.hxx".}
+proc angle*(this: Vec2d; other: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "Angle", header: "gp_Vec2d.hxx".}
+proc magnitude*(this: Vec2d): StandardReal {.noSideEffect, importcpp: "Magnitude",
+    header: "gp_Vec2d.hxx".}
+proc squareMagnitude*(this: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "SquareMagnitude", header: "gp_Vec2d.hxx".}
+proc add*(this: var Vec2d; other: Vec2d) {.importcpp: "Add", header: "gp_Vec2d.hxx".}
+proc `+=`*(this: var Vec2d; other: Vec2d) {.importcpp: "(# += #)",
+                                      header: "gp_Vec2d.hxx".}
+proc added*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, importcpp: "Added",
+    header: "gp_Vec2d.hxx".}
+proc `+`*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, importcpp: "(# + #)",
+                                        header: "gp_Vec2d.hxx".}
+proc crossed*(this: Vec2d; right: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "Crossed", header: "gp_Vec2d.hxx".}
+proc `^`*(this: Vec2d; right: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "(# ^ #)", header: "gp_Vec2d.hxx".}
+proc crossMagnitude*(this: Vec2d; right: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "CrossMagnitude", header: "gp_Vec2d.hxx".}
+proc crossSquareMagnitude*(this: Vec2d; right: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "CrossSquareMagnitude", header: "gp_Vec2d.hxx".}
+proc divide*(this: var Vec2d; scalar: StandardReal) {.importcpp: "Divide",
+    header: "gp_Vec2d.hxx".}
+proc `/=`*(this: var Vec2d; scalar: StandardReal) {.importcpp: "(# /= #)",
+    header: "gp_Vec2d.hxx".}
+proc divided*(this: Vec2d; scalar: StandardReal): Vec2d {.noSideEffect,
+    importcpp: "Divided", header: "gp_Vec2d.hxx".}
+proc `/`*(this: Vec2d; scalar: StandardReal): Vec2d {.noSideEffect,
+    importcpp: "(# / #)", header: "gp_Vec2d.hxx".}
+proc dot*(this: Vec2d; other: Vec2d): StandardReal {.noSideEffect, importcpp: "Dot",
+    header: "gp_Vec2d.hxx".}
+proc `*`*(this: Vec2d; other: Vec2d): StandardReal {.noSideEffect,
+    importcpp: "(# * #)", header: "gp_Vec2d.hxx".}
+proc getNormal*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "GetNormal",
+                                  header: "gp_Vec2d.hxx".}
+proc multiply*(this: var Vec2d; scalar: StandardReal) {.importcpp: "Multiply",
+    header: "gp_Vec2d.hxx".}
+proc `*=`*(this: var Vec2d; scalar: StandardReal) {.importcpp: "(# *= #)",
+    header: "gp_Vec2d.hxx".}
+proc multiplied*(this: Vec2d; scalar: StandardReal): Vec2d {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_Vec2d.hxx".}
+proc `*`*(this: Vec2d; scalar: StandardReal): Vec2d {.noSideEffect,
+    importcpp: "(# * #)", header: "gp_Vec2d.hxx".}
+proc normalize*(this: var Vec2d) {.importcpp: "Normalize", header: "gp_Vec2d.hxx".}
+proc normalized*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "Normalized",
+                                   header: "gp_Vec2d.hxx".}
+proc reverse*(this: var Vec2d) {.importcpp: "Reverse", header: "gp_Vec2d.hxx".}
+proc reversed*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "Reversed",
+                                 header: "gp_Vec2d.hxx".}
+proc `-`*(this: Vec2d): Vec2d {.noSideEffect, importcpp: "(- #)",
+                            header: "gp_Vec2d.hxx".}
+proc subtract*(this: var Vec2d; right: Vec2d) {.importcpp: "Subtract",
+    header: "gp_Vec2d.hxx".}
+proc `-=`*(this: var Vec2d; right: Vec2d) {.importcpp: "(# -= #)",
+                                      header: "gp_Vec2d.hxx".}
+proc subtracted*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect,
+    importcpp: "Subtracted", header: "gp_Vec2d.hxx".}
+proc `-`*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect, importcpp: "(# - #)",
+                                        header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; a1: StandardReal; v1: Vec2d; a2: StandardReal;
+                   v2: Vec2d; v3: Vec2d) {.importcpp: "SetLinearForm",
+                                       header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; a1: StandardReal; v1: Vec2d; a2: StandardReal;
+                   v2: Vec2d) {.importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; a1: StandardReal; v1: Vec2d; v2: Vec2d) {.
+    importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
+proc setLinearForm*(this: var Vec2d; left: Vec2d; right: Vec2d) {.
+    importcpp: "SetLinearForm", header: "gp_Vec2d.hxx".}
+proc mirror*(this: var Vec2d; v: Vec2d) {.importcpp: "Mirror", header: "gp_Vec2d.hxx".}
+proc mirrored*(this: Vec2d; v: Vec2d): Vec2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Vec2d.hxx".}
+proc mirror*(this: var Vec2d; a1: Ax2d) {.importcpp: "Mirror", header: "gp_Vec2d.hxx".}
+proc mirrored*(this: Vec2d; a1: Ax2d): Vec2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Vec2d.hxx".}
+proc rotate*(this: var Vec2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Vec2d.hxx".}
+proc rotated*(this: Vec2d; ang: StandardReal): Vec2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Vec2d.hxx".}
+proc scale*(this: var Vec2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Vec2d.hxx".}
+proc scaled*(this: Vec2d; s: StandardReal): Vec2d {.noSideEffect, importcpp: "Scaled",
+    header: "gp_Vec2d.hxx".}
+proc transform*(this: var Vec2d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Vec2d.hxx".}
+proc transformed*(this: Vec2d; t: Trsf2d): Vec2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Vec2d.hxx".}

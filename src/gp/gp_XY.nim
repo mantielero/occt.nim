@@ -1,176 +1,120 @@
-{.push header: "gp_XY.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_OutOfRange"
+discard "forward decl of gp_Mat2d"
+type
+  Xy* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_XY*(): gp_XY {.constructor,importcpp: "gp_XY".}
-  ## Creates XY object with zero coordinates (0,0).
-
-proc constructor_gp_XY*(X: cdouble, Y: cdouble): gp_XY {.constructor,importcpp: "gp_XY(@)".}
-  ## a number pair defined by the XY coordinates
-
-proc ` new`*(this: var gp_XY, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_XY, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_XY, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_XY, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_XY, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_XY, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetCoord*(this: var gp_XY, Index: cint, Xi: cdouble)  {.importcpp: "SetCoord".}
-  ## modifies the coordinate of range Index Index = 1 => X is modified
-  ## Index = 2 => Y is modified Raises OutOfRange if Index != {1, 2}.
-
-proc SetCoord*(this: var gp_XY, X: cdouble, Y: cdouble)  {.importcpp: "SetCoord".}
-  ## For this number pair, assigns the values X and Y to its coordinates
-
-proc SetX*(this: var gp_XY, X: cdouble)  {.importcpp: "SetX".}
-  ## Assigns the given value to the X coordinate of this number pair.
-
-proc SetY*(this: var gp_XY, Y: cdouble)  {.importcpp: "SetY".}
-  ## Assigns the given value to the Y coordinate of this number pair.
-
-proc Coord*(this: gp_XY, Index: cint): cdouble  {.importcpp: "Coord".}
-  ## returns the coordinate of range Index : Index = 1 => X is returned
-  ## Index = 2 => Y is returned Raises OutOfRange if Index != {1, 2}.
-
-proc ChangeCoord*(this: var gp_XY, theIndex: cint): cdouble  {.importcpp: "ChangeCoord".}
-
-proc Coord*(this: gp_XY, X: var cdouble, Y: var cdouble)  {.importcpp: "Coord".}
-  ## For this number pair, returns its coordinates X and Y.
-
-proc X*(this: gp_XY): cdouble  {.importcpp: "X".}
-  ## Returns the X coordinate of this number pair.
-
-proc Y*(this: gp_XY): cdouble  {.importcpp: "Y".}
-  ## Returns the Y coordinate of this number pair.
-
-proc Modulus*(this: gp_XY): cdouble  {.importcpp: "Modulus".}
-  ## Computes Sqrt (X*X + Y*Y) where X and Y are the two coordinates of
-  ## this number pair.
-
-proc SquareModulus*(this: gp_XY): cdouble  {.importcpp: "SquareModulus".}
-  ## Computes X*X + Y*Y where X and Y are the two coordinates of this
-  ## number pair.
-
-proc IsEqual*(this: gp_XY, Other: gp_XY, Tolerance: cdouble): bool  {.importcpp: "IsEqual".}
-  ## Returns true if the coordinates of this number pair are equal to the
-  ## respective coordinates of the number pair Other, within the specified
-  ## tolerance Tolerance. I.e.: abs(<me>.X() - Other.X()) <= Tolerance and
-  ## abs(<me>.Y() - Other.Y()) <= Tolerance and computations
-
-proc Add*(this: var gp_XY, Other: gp_XY)  {.importcpp: "Add".}
-  ## Computes the sum of this number pair and number pair Other <me>.X() =
-  ## <me>.X() + Other.X() <me>.Y() = <me>.Y() + Other.Y()
-
-proc `+=`*(this: var gp_XY, Other: gp_XY)  {.importcpp: "`+=`".}
-
-proc Added*(this: gp_XY, Other: gp_XY): gp_XY  {.importcpp: "Added".}
-  ## Computes the sum of this number pair and number pair Other new.X() =
-  ## <me>.X() + Other.X() new.Y() = <me>.Y() + Other.Y()
-
-proc `+`*(this: gp_XY, Other: gp_XY): gp_XY  {.importcpp: "`+`".}
-
-proc Crossed*(this: gp_XY, Right: gp_XY): cdouble  {.importcpp: "Crossed".}
-  ## Real D = <me>.X() * Other.Y() - <me>.Y() * Other.X()
-
-proc `^`*(this: gp_XY, Right: gp_XY): cdouble  {.importcpp: "`^`".}
-
-proc CrossMagnitude*(this: gp_XY, Right: gp_XY): cdouble  {.importcpp: "CrossMagnitude".}
-  ## computes the magnitude of the cross product between <me> and Right.
-  ## Returns || <me> ^ Right ||
-
-proc CrossSquareMagnitude*(this: gp_XY, Right: gp_XY): cdouble  {.importcpp: "CrossSquareMagnitude".}
-  ## computes the square magnitude of the cross product between <me> and
-  ## Right. Returns || <me> ^ Right ||**2
-
-proc Divide*(this: var gp_XY, Scalar: cdouble)  {.importcpp: "Divide".}
-  ## divides <me> by a real.
-
-proc `/=`*(this: var gp_XY, Scalar: cdouble)  {.importcpp: "`/=`".}
-
-proc Divided*(this: gp_XY, Scalar: cdouble): gp_XY  {.importcpp: "Divided".}
-  ## Divides <me> by a real.
-
-proc `/`*(this: gp_XY, Scalar: cdouble): gp_XY  {.importcpp: "`/`".}
-
-proc Dot*(this: gp_XY, Other: gp_XY): cdouble  {.importcpp: "Dot".}
-  ## Computes the scalar product between <me> and Other
-
-proc `*`*(this: gp_XY, Other: gp_XY): cdouble  {.importcpp: "`*`".}
-
-proc Multiply*(this: var gp_XY, Scalar: cdouble)  {.importcpp: "Multiply".}
-  ## <me>.X() = <me>.X() * Scalar; <me>.Y() = <me>.Y() * Scalar;
-
-proc `*=`*(this: var gp_XY, Scalar: cdouble)  {.importcpp: "`*=`".}
-
-proc Multiply*(this: var gp_XY, Other: gp_XY)  {.importcpp: "Multiply".}
-  ## <me>.X() = <me>.X() * Other.X(); <me>.Y() = <me>.Y() * Other.Y();
-
-proc `*=`*(this: var gp_XY, Other: gp_XY)  {.importcpp: "`*=`".}
-
-proc Multiply*(this: var gp_XY, Matrix: gp_Mat2d)  {.importcpp: "Multiply".}
-  ## <me> = Matrix * <me>
-
-proc `*=`*(this: var gp_XY, Matrix: gp_Mat2d)  {.importcpp: "`*=`".}
-
-proc Multiplied*(this: gp_XY, Scalar: cdouble): gp_XY  {.importcpp: "Multiplied".}
-  ## New.X() = <me>.X() * Scalar; New.Y() = <me>.Y() * Scalar;
-
-proc `*`*(this: gp_XY, Scalar: cdouble): gp_XY  {.importcpp: "`*`".}
-
-proc Multiplied*(this: gp_XY, Other: gp_XY): gp_XY  {.importcpp: "Multiplied".}
-  ## new.X() = <me>.X() * Other.X(); new.Y() = <me>.Y() * Other.Y();
-
-proc Multiplied*(this: gp_XY, Matrix: gp_Mat2d): gp_XY  {.importcpp: "Multiplied".}
-  ## New = Matrix * <me>
-
-proc `*`*(this: gp_XY, Matrix: gp_Mat2d): gp_XY  {.importcpp: "`*`".}
-
-proc Normalize*(this: var gp_XY)  {.importcpp: "Normalize".}
-  ## <me>.X() = <me>.X()/ <me>.Modulus() <me>.Y() = <me>.Y()/
-  ## <me>.Modulus() Raises ConstructionError if <me>.Modulus() <=
-  ## Resolution from gp
-
-proc Normalized*(this: gp_XY): gp_XY  {.importcpp: "Normalized".}
-  ## New.X() = <me>.X()/ <me>.Modulus() New.Y() = <me>.Y()/ <me>.Modulus()
-  ## Raises ConstructionError if <me>.Modulus() <= Resolution from gp
-
-proc Reverse*(this: var gp_XY)  {.importcpp: "Reverse".}
-  ## <me>.X() = -<me>.X() <me>.Y() = -<me>.Y()
-
-proc Reversed*(this: gp_XY): gp_XY  {.importcpp: "Reversed".}
-  ## New.X() = -<me>.X() New.Y() = -<me>.Y()
-
-proc `-`*(this: gp_XY): gp_XY  {.importcpp: "`-`".}
-
-proc SetLinearForm*(this: var gp_XY, A1: cdouble, XY1: gp_XY, A2: cdouble, XY2: gp_XY)  {.importcpp: "SetLinearForm".}
-  ## Computes the following linear combination and assigns the result to
-  ## this number pair: A1 * XY1 + A2 * XY2
-
-proc SetLinearForm*(this: var gp_XY, A1: cdouble, XY1: gp_XY, A2: cdouble, XY2: gp_XY, XY3: gp_XY)  {.importcpp: "SetLinearForm".}
-  ## -- Computes the following linear combination and assigns the result to
-  ## this number pair: A1 * XY1 + A2 * XY2 + XY3
-
-proc SetLinearForm*(this: var gp_XY, A1: cdouble, XY1: gp_XY, XY2: gp_XY)  {.importcpp: "SetLinearForm".}
-  ## Computes the following linear combination and assigns the result to
-  ## this number pair: A1 * XY1 + XY2
-
-proc SetLinearForm*(this: var gp_XY, XY1: gp_XY, XY2: gp_XY)  {.importcpp: "SetLinearForm".}
-  ## Computes the following linear combination and assigns the result to
-  ## this number pair: XY1 + XY2
-
-proc Subtract*(this: var gp_XY, Right: gp_XY)  {.importcpp: "Subtract".}
-  ## <me>.X() = <me>.X() - Other.X() <me>.Y() = <me>.Y() - Other.Y()
-
-proc `-=`*(this: var gp_XY, Right: gp_XY)  {.importcpp: "`-=`".}
-
-proc Subtracted*(this: gp_XY, Right: gp_XY): gp_XY  {.importcpp: "Subtracted".}
-  ## new.X() = <me>.X() - Other.X() new.Y() = <me>.Y() - Other.Y()
-
-proc `-`*(this: gp_XY, Right: gp_XY): gp_XY  {.importcpp: "`-`".}
-
-{.pop.} # header: "gp_XY.hxx
+proc `new`*(this: var Xy; theSize: csize_t): pointer {.
+    importcpp: "gp_XY::operator new", header: "gp_XY.hxx".}
+proc `delete`*(this: var Xy; theAddress: pointer) {.
+    importcpp: "gp_XY::operator delete", header: "gp_XY.hxx".}
+proc `new[]`*(this: var Xy; theSize: csize_t): pointer {.
+    importcpp: "gp_XY::operator new[]", header: "gp_XY.hxx".}
+proc `delete[]`*(this: var Xy; theAddress: pointer) {.
+    importcpp: "gp_XY::operator delete[]", header: "gp_XY.hxx".}
+proc `new`*(this: var Xy; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_XY::operator new", header: "gp_XY.hxx".}
+proc `delete`*(this: var Xy; a2: pointer; a3: pointer) {.
+    importcpp: "gp_XY::operator delete", header: "gp_XY.hxx".}
+proc constructXy*(): Xy {.constructor, importcpp: "gp_XY(@)", header: "gp_XY.hxx".}
+proc constructXy*(x: StandardReal; y: StandardReal): Xy {.constructor,
+    importcpp: "gp_XY(@)", header: "gp_XY.hxx".}
+proc setCoord*(this: var Xy; index: int; xi: StandardReal) {.importcpp: "SetCoord",
+    header: "gp_XY.hxx".}
+proc setCoord*(this: var Xy; x: StandardReal; y: StandardReal) {.importcpp: "SetCoord",
+    header: "gp_XY.hxx".}
+proc setX*(this: var Xy; x: StandardReal) {.importcpp: "SetX", header: "gp_XY.hxx".}
+proc setY*(this: var Xy; y: StandardReal) {.importcpp: "SetY", header: "gp_XY.hxx".}
+proc coord*(this: Xy; index: int): StandardReal {.noSideEffect, importcpp: "Coord",
+    header: "gp_XY.hxx".}
+proc changeCoord*(this: var Xy; theIndex: int): var StandardReal {.
+    importcpp: "ChangeCoord", header: "gp_XY.hxx".}
+proc coord*(this: Xy; x: var StandardReal; y: var StandardReal) {.noSideEffect,
+    importcpp: "Coord", header: "gp_XY.hxx".}
+proc x*(this: Xy): StandardReal {.noSideEffect, importcpp: "X", header: "gp_XY.hxx".}
+proc y*(this: Xy): StandardReal {.noSideEffect, importcpp: "Y", header: "gp_XY.hxx".}
+proc modulus*(this: Xy): StandardReal {.noSideEffect, importcpp: "Modulus",
+                                    header: "gp_XY.hxx".}
+proc squareModulus*(this: Xy): StandardReal {.noSideEffect,
+    importcpp: "SquareModulus", header: "gp_XY.hxx".}
+proc isEqual*(this: Xy; other: Xy; tolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "IsEqual", header: "gp_XY.hxx".}
+proc add*(this: var Xy; other: Xy) {.importcpp: "Add", header: "gp_XY.hxx".}
+proc `+=`*(this: var Xy; other: Xy) {.importcpp: "(# += #)", header: "gp_XY.hxx".}
+proc added*(this: Xy; other: Xy): Xy {.noSideEffect, importcpp: "Added",
+                                 header: "gp_XY.hxx".}
+proc `+`*(this: Xy; other: Xy): Xy {.noSideEffect, importcpp: "(# + #)",
+                               header: "gp_XY.hxx".}
+proc crossed*(this: Xy; right: Xy): StandardReal {.noSideEffect, importcpp: "Crossed",
+    header: "gp_XY.hxx".}
+proc `^`*(this: Xy; right: Xy): StandardReal {.noSideEffect, importcpp: "(# ^ #)",
+    header: "gp_XY.hxx".}
+proc crossMagnitude*(this: Xy; right: Xy): StandardReal {.noSideEffect,
+    importcpp: "CrossMagnitude", header: "gp_XY.hxx".}
+proc crossSquareMagnitude*(this: Xy; right: Xy): StandardReal {.noSideEffect,
+    importcpp: "CrossSquareMagnitude", header: "gp_XY.hxx".}
+proc divide*(this: var Xy; scalar: StandardReal) {.importcpp: "Divide",
+    header: "gp_XY.hxx".}
+proc `/=`*(this: var Xy; scalar: StandardReal) {.importcpp: "(# /= #)",
+    header: "gp_XY.hxx".}
+proc divided*(this: Xy; scalar: StandardReal): Xy {.noSideEffect, importcpp: "Divided",
+    header: "gp_XY.hxx".}
+proc `/`*(this: Xy; scalar: StandardReal): Xy {.noSideEffect, importcpp: "(# / #)",
+    header: "gp_XY.hxx".}
+proc dot*(this: Xy; other: Xy): StandardReal {.noSideEffect, importcpp: "Dot",
+    header: "gp_XY.hxx".}
+proc `*`*(this: Xy; other: Xy): StandardReal {.noSideEffect, importcpp: "(# * #)",
+    header: "gp_XY.hxx".}
+proc multiply*(this: var Xy; scalar: StandardReal) {.importcpp: "Multiply",
+    header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; scalar: StandardReal) {.importcpp: "(# *= #)",
+    header: "gp_XY.hxx".}
+proc multiply*(this: var Xy; other: Xy) {.importcpp: "Multiply", header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; other: Xy) {.importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiply*(this: var Xy; matrix: Mat2d) {.importcpp: "Multiply", header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; matrix: Mat2d) {.importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiplied*(this: Xy; scalar: StandardReal): Xy {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_XY.hxx".}
+proc `*`*(this: Xy; scalar: StandardReal): Xy {.noSideEffect, importcpp: "(# * #)",
+    header: "gp_XY.hxx".}
+proc multiplied*(this: Xy; other: Xy): Xy {.noSideEffect, importcpp: "Multiplied",
+                                      header: "gp_XY.hxx".}
+proc multiplied*(this: Xy; matrix: Mat2d): Xy {.noSideEffect, importcpp: "Multiplied",
+    header: "gp_XY.hxx".}
+proc `*`*(this: Xy; matrix: Mat2d): Xy {.noSideEffect, importcpp: "(# * #)",
+                                   header: "gp_XY.hxx".}
+proc normalize*(this: var Xy) {.importcpp: "Normalize", header: "gp_XY.hxx".}
+proc normalized*(this: Xy): Xy {.noSideEffect, importcpp: "Normalized",
+                             header: "gp_XY.hxx".}
+proc reverse*(this: var Xy) {.importcpp: "Reverse", header: "gp_XY.hxx".}
+proc reversed*(this: Xy): Xy {.noSideEffect, importcpp: "Reversed", header: "gp_XY.hxx".}
+proc `-`*(this: Xy): Xy {.noSideEffect, importcpp: "(- #)", header: "gp_XY.hxx".}
+proc setLinearForm*(this: var Xy; a1: StandardReal; xy1: Xy; a2: StandardReal; xy2: Xy) {.
+    importcpp: "SetLinearForm", header: "gp_XY.hxx".}
+proc setLinearForm*(this: var Xy; a1: StandardReal; xy1: Xy; a2: StandardReal; xy2: Xy;
+                   xy3: Xy) {.importcpp: "SetLinearForm", header: "gp_XY.hxx".}
+proc setLinearForm*(this: var Xy; a1: StandardReal; xy1: Xy; xy2: Xy) {.
+    importcpp: "SetLinearForm", header: "gp_XY.hxx".}
+proc setLinearForm*(this: var Xy; xy1: Xy; xy2: Xy) {.importcpp: "SetLinearForm",
+    header: "gp_XY.hxx".}
+proc subtract*(this: var Xy; right: Xy) {.importcpp: "Subtract", header: "gp_XY.hxx".}
+proc `-=`*(this: var Xy; right: Xy) {.importcpp: "(# -= #)", header: "gp_XY.hxx".}
+proc subtracted*(this: Xy; right: Xy): Xy {.noSideEffect, importcpp: "Subtracted",
+                                      header: "gp_XY.hxx".}
+proc `-`*(this: Xy; right: Xy): Xy {.noSideEffect, importcpp: "(# - #)",
+                               header: "gp_XY.hxx".}

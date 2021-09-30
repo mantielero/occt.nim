@@ -1,43 +1,62 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of gp_Pnt"
+discard "forward decl of Geom_Point"
+discard "forward decl of Geom_Point"
+type
+  GeomPoint* {.importcpp: "Geom_Point", header: "Geom_Point.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                          ## !
+                                                                                          ## returns
+                                                                                          ## the
+                                                                                          ## Coordinates
+                                                                                          ## of
+                                                                                          ## <me>.
 
 type
-  Geom_Point* {.header: "Geom_Point.hxx", importcpp: "Geom_Point", byref.} = object #of class Geom_Geometry
-    ## The abstract class Point describes the common behavior of geometric
-    ## points in 3D space. The Geom package also provides the concrete class
-    ## Geom_CartesianPoint.
+  HandleGeomPoint* = Handle[GeomPoint]
 
-  Handle_Geom_Point* {.header: "Geom_Point.hxx", importcpp: "Handle_Geom_Point".} = handle[Geom_Point]
-  Base_type* {.header: "Geom_Point.hxx", importcpp: "Geom_Point::base_type".} = Geom_Geometry
+## ! The abstract class Point describes the common
+## ! behavior of geometric points in 3D space.
+## ! The Geom package also provides the concrete class
+## ! Geom_CartesianPoint.
+type
+  GeomPointbaseType* = GeomGeometry
 
 
-{.push header: "Geom_Point.hxx".}
+proc coord*(this: GeomPoint; x: var StandardReal; y: var StandardReal;
+           z: var StandardReal) {.noSideEffect, importcpp: "Coord",
+                               header: "Geom_Point.hxx".}
+proc pnt*(this: GeomPoint): Pnt {.noSideEffect, importcpp: "Pnt",
+                              header: "Geom_Point.hxx".}
+proc x*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "X",
+                                     header: "Geom_Point.hxx".}
+proc y*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "Y",
+                                     header: "Geom_Point.hxx".}
+proc z*(this: GeomPoint): StandardReal {.noSideEffect, importcpp: "Z",
+                                     header: "Geom_Point.hxx".}
+proc distance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
+    noSideEffect, importcpp: "Distance", header: "Geom_Point.hxx".}
+proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): StandardReal {.
+    noSideEffect, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
 
-proc coord*(this: Geom_Point, X: var cdouble, Y: var cdouble, Z: var cdouble)  {.importcpp: "Coord".}
-    ## returns the Coordinates of <me>.
 
-proc pnt*(this: Geom_Point): gp_Pnt  {.importcpp: "Pnt".}
-    ## returns a non transient copy of <me>
-
-proc x*(this: Geom_Point): cdouble  {.importcpp: "X".}
-    ## returns the X coordinate of <me>.
-
-proc y*(this: Geom_Point): cdouble  {.importcpp: "Y".}
-    ## returns the Y coordinate of <me>.
-
-proc z*(this: Geom_Point): cdouble  {.importcpp: "Z".}
-    ## returns the Z coordinate of <me>.
-
-proc distance*(this: Geom_Point, Other: handle[Geom_Point]): cdouble  {.importcpp: "Distance".}
-    ## Computes the distance between <me> and <Other>.
-
-proc squareDistance*(this: Geom_Point, Other: handle[Geom_Point]): cdouble  {.importcpp: "SquareDistance".}
-    ## Computes the square distance between <me> and <Other>.
-
-proc get_type_name*(this: var Geom_Point): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Point): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Point): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Point.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Point::get_type_name(@)",
+                            header: "Geom_Point.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Point::get_type_descriptor(@)", header: "Geom_Point.hxx".}
+proc dynamicType*(this: GeomPoint): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Point.hxx".} ]#

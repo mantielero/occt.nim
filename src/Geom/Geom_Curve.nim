@@ -1,119 +1,174 @@
-import geom_types
-import ../Standard/standard
-import ../gp/gp_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_RangeError"
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of Geom_UndefinedDerivative"
+discard "forward decl of Geom_UndefinedValue"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Curve"
+discard "forward decl of Geom_Curve"
+
+
 type
-  Handle_Geom_Curve* {.header: "Geom_Curve.hxx", importcpp: "Handle_Geom_Curve".} = Handle[Geom_Curve]
-  Base_type* {.header: "Geom_Curve.hxx", importcpp: "Geom_Curve::base_type".} = Geom_Geometry
+  GeomCurve* {.importcpp: "Geom_Curve", header: "Geom_Curve.hxx", bycopy.} = object of GeomGeometry ##
+                                                                                          ## !
+                                                                                          ## Changes
+                                                                                          ## the
+                                                                                          ## direction
+                                                                                          ## of
+                                                                                          ## parametrization
+                                                                                          ## of
+                                                                                          ## <me>.
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## The
+                                                                                          ## "FirstParameter"
+                                                                                          ## and
+                                                                                          ## the
+                                                                                          ## "LastParameter"
+                                                                                          ## are
+                                                                                          ## not
+                                                                                          ## changed
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## but
+                                                                                          ## the
+                                                                                          ## orientation
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## curve
+                                                                                          ## is
+                                                                                          ## modified.
+                                                                                          ## If
+                                                                                          ## the
+                                                                                          ## curve
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## is
+                                                                                          ## bounded
+                                                                                          ## the
+                                                                                          ## StartPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## initial
+                                                                                          ## curve
+                                                                                          ## becomes
+                                                                                          ## the
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## EndPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## reversed
+                                                                                          ## curve
+                                                                                          ## and
+                                                                                          ## the
+                                                                                          ## EndPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## initial
+                                                                                          ##
+                                                                                          ## !
+                                                                                          ## curve
+                                                                                          ## becomes
+                                                                                          ## the
+                                                                                          ## StartPoint
+                                                                                          ## of
+                                                                                          ## the
+                                                                                          ## reversed
+                                                                                          ## curve.
 
 
-{.push header: "Geom_Curve.hxx".}
+type
+  HandleGeomCurve* = Handle[GeomCurve]
 
-proc reverse*(this: var Geom_Curve)  {.importcpp: "Reverse".}
-    ## Changes the direction of parametrization of <me>. The "FirstParameter"
-    ## and the "LastParameter" are not changed but the orientation of the
-    ## curve is modified. If the curve is bounded the StartPoint of the
-    ## initial curve becomes the EndPoint of the reversed curve and the
-    ## EndPoint of the initial curve becomes the StartPoint of the reversed
-    ## curve.
+## ! The abstract class Curve describes the common
+## ! behavior of curves in 3D space. The Geom package
+## ! provides numerous concrete classes of derived
+## ! curves, including lines, circles, conics, Bezier or
+## ! BSpline curves, etc.
+## ! The main characteristic of these curves is that they
+## ! are parameterized. The Geom_Curve class shows:
+## ! - how to work with the parametric equation of a curve
+## ! in order to calculate the point of parameter u,
+## ! together with the vector tangent and the derivative
+## ! vectors of order 2, 3,..., N at this point;
+## ! - how to obtain general information about the curve
+## ! (for example, level of continuity, closed
+## ! characteristics, periodicity, bounds of the parameter field);
+## ! - how the parameter changes when a geometric
+## ! transformation is applied to the curve or when the
+## ! orientation of the curve is inverted.
+## ! All curves must have a geometric continuity: a curve is
+## ! at least "C0". Generally, this property is checked at
+## ! the time of construction or when the curve is edited.
+## ! Where this is not the case, the documentation states so explicitly.
+## ! Warning
+## ! The Geom package does not prevent the
+## ! construction of curves with null length or curves which
+## ! self-intersect.
 
-proc reversedParameter*(this: Geom_Curve, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
-    ## Returns the parameter on the reversed curve for the point of parameter
-    ## U on <me>.
+type
+  GeomCurvebaseType* = GeomGeometry
 
-proc transformedParameter*(this: Geom_Curve, U: cdouble, T: gp_Trsf): cdouble  {.importcpp: "TransformedParameter".}
-    ## Returns the parameter on the transformed curve for the transform of
-    ## the point of parameter U on <me>.
+proc reverse*(this: var GeomCurve) {.importcpp: "Reverse", header: "Geom_Curve.hxx".}
+proc reversedParameter*(this: GeomCurve; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Curve.hxx".}
+proc transformedParameter*(this: GeomCurve; u: StandardReal; t: Trsf): StandardReal {.
+    noSideEffect, importcpp: "TransformedParameter", header: "Geom_Curve.hxx".}
+proc parametricTransformation*(this: GeomCurve; t: Trsf): StandardReal {.noSideEffect,
+    importcpp: "ParametricTransformation", header: "Geom_Curve.hxx".}
+proc reversed*(this: GeomCurve): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "Reversed", header: "Geom_Curve.hxx".}
+proc firstParameter*(this: GeomCurve): StandardReal {.noSideEffect,
+    importcpp: "FirstParameter", header: "Geom_Curve.hxx".}
+proc lastParameter*(this: GeomCurve): StandardReal {.noSideEffect,
+    importcpp: "LastParameter", header: "Geom_Curve.hxx".}
+proc isClosed*(this: GeomCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsClosed", header: "Geom_Curve.hxx".}
+proc isPeriodic*(this: GeomCurve): StandardBoolean {.noSideEffect,
+    importcpp: "IsPeriodic", header: "Geom_Curve.hxx".}
+proc period*(this: GeomCurve): StandardReal {.noSideEffect, importcpp: "Period",
+    header: "Geom_Curve.hxx".}
+#[ proc continuity*(this: GeomCurve): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Curve.hxx".} ]#
+proc isCN*(this: GeomCurve; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
+    header: "Geom_Curve.hxx".}
+proc d0*(this: GeomCurve; u: StandardReal; p: var Pnt) {.noSideEffect, importcpp: "D0",
+    header: "Geom_Curve.hxx".}
+proc d1*(this: GeomCurve; u: StandardReal; p: var Pnt; v1: var Vec) {.noSideEffect,
+    importcpp: "D1", header: "Geom_Curve.hxx".}
+proc d2*(this: GeomCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec) {.
+    noSideEffect, importcpp: "D2", header: "Geom_Curve.hxx".}
+proc d3*(this: GeomCurve; u: StandardReal; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+    noSideEffect, importcpp: "D3", header: "Geom_Curve.hxx".}
+proc dn*(this: GeomCurve; u: StandardReal; n: int): Vec {.noSideEffect, importcpp: "DN",
+    header: "Geom_Curve.hxx".}
+proc value*(this: GeomCurve; u: StandardReal): Pnt {.noSideEffect, importcpp: "Value",
+    header: "Geom_Curve.hxx".}
+proc dumpJson*(this: GeomCurve; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Curve.hxx".}
 
-proc parametricTransformation*(this: Geom_Curve, T: gp_Trsf): cdouble  {.importcpp: "ParametricTransformation".}
-    ## Returns a coefficient to compute the parameter on the transformed
-    ## curve for the transform of the point on <me>.
 
-proc reversed*(this: Geom_Curve): Handle[Geom_Curve]  {.importcpp: "Reversed".}
-    ## Returns a copy of <me> reversed.
-
-proc firstParameter*(this: Geom_Curve): cdouble  {.importcpp: "FirstParameter".}
-    ## Returns the value of the first parameter. Warnings : It can be
-    ## RealFirst from package Standard if the curve is infinite
-
-proc lastParameter*(this: Geom_Curve): cdouble  {.importcpp: "LastParameter".}
-    ## Returns the value of the last parameter. Warnings : It can be RealLast
-    ## from package Standard if the curve is infinite
-
-proc isClosed*(this: Geom_Curve): bool  {.importcpp: "IsClosed".}
-    ## Returns true if the curve is closed. Some curves such as circle are
-    ## always closed, others such as line are never closed (by definition).
-    ## Some Curves such as OffsetCurve can be closed or not. These curves are
-    ## considered as closed if the distance between the first point and the
-    ## last point of the curve is lower or equal to the Resolution from
-    ## package gp wich is a fixed criterion independant of the application.
-
-proc isPeriodic*(this: Geom_Curve): bool  {.importcpp: "IsPeriodic".}
-    ## Is the parametrization of the curve periodic ? It is possible only if
-    ## the curve is closed and if the following relation is satisfied : for
-    ## each parametric value U the distance between the point P(u) and the
-    ## point P (u + T) is lower or equal to Resolution from package gp, T is
-    ## the period and must be a constant. There are three possibilities : .
-    ## the curve is never periodic by definition (SegmentLine) . the curve is
-    ## always periodic by definition (Circle) . the curve can be defined as
-    ## periodic (BSpline). In this case a function SetPeriodic allows you to
-    ## give the shape of the curve. The general rule for this case is : if a
-    ## curve can be periodic or not the default periodicity set is non
-    ## periodic and you have to turn (explicitly) the curve into a periodic
-    ## curve if you want the curve to be periodic.
-
-proc period*(this: Geom_Curve): cdouble  {.importcpp: "Period".}
-    ## Returns the period of this curve. Exceptions Standard_NoSuchObject if
-    ## this curve is not periodic.
-
-# FIXME
-#[
-proc continuity*(this: Geom_Curve): GeomAbs_Shape  {.importcpp: "Continuity".}
-    ## It is the global continuity of the curve C0 : only geometric
-    ## continuity, C1 : continuity of the first derivative all along the
-    ## Curve, C2 : continuity of the second derivative all along the Curve,
-    ## C3 : continuity of the third derivative all along the Curve, G1 :
-    ## tangency continuity all along the Curve, G2 : curvature continuity all
-    ## along the Curve, CN : the order of continuity is infinite.
-]#
-proc isCN*(this: Geom_Curve, N: cint): bool  {.importcpp: "IsCN".}
-    ## Returns true if the degree of continuity of this curve is at least N.
-    ## Exceptions - Standard_RangeError if N is less than 0.
-
-proc d0*(this: Geom_Curve, U: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Returns in P the point of parameter U. If the curve is periodic then
-    ## the returned point is P(U) with U = Ustart + (U - Uend) where Ustart
-    ## and Uend are the parametric bounds of the curve.
-
-proc d1*(this: Geom_Curve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec)  {.importcpp: "D1".}
-    ## Returns the point P of parameter U and the first derivative V1. Raised
-    ## if the continuity of the curve is not C1.
-
-proc d2*(this: Geom_Curve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec)  {.importcpp: "D2".}
-    ## Returns the point P of parameter U, the first and second derivatives
-    ## V1 and V2. Raised if the continuity of the curve is not C2.
-
-proc d3*(this: Geom_Curve, U: cdouble, P: var gp_Pnt, V1: var gp_Vec, V2: var gp_Vec, V3: var gp_Vec)  {.importcpp: "D3".}
-    ## Returns the point P of parameter U, the first, the second and the
-    ## third derivative. Raised if the continuity of the curve is not C3.
-
-proc dN*(this: Geom_Curve, U: cdouble, N: cint): gp_Vec  {.importcpp: "DN".}
-    ## The returned vector gives the value of the derivative for the order of
-    ## derivation N. Raised if the continuity of the curve is not CN.
-
-proc value*(this: Geom_Curve, U: cdouble): gp_Pnt  {.importcpp: "Value".}
-    ## Computes the point of parameter U on <me>. If the curve is periodic
-    ## then the returned point is P(U) with U = Ustart + (U - Uend) where
-    ## Ustart and Uend are the parametric bounds of the curve. it is
-    ## implemented with D0.
-
-#[
-proc dumpJson*(this: Geom_Curve, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-]#
-proc get_type_name*(this: var Geom_Curve): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Curve): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Curve): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Curve.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Curve::get_type_name(@)",
+                            header: "Geom_Curve.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Curve::get_type_descriptor(@)", header: "Geom_Curve.hxx".}
+proc dynamicType*(this: GeomCurve): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Curve.hxx".} ]#

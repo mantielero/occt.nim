@@ -1,23 +1,35 @@
-{.push header: "Standard_NoSuchObject.hxx".}
+##  Created on: 1991-09-05
+##  Created by: J.P. TIRAUlt
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of Standard_NoSuchObject"
+type
+  StandardNoSuchObject* {.importcpp: "Standard_NoSuchObject",
+                         header: "Standard_NoSuchObject.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleStandardNoSuchObject* = Handle[StandardNoSuchObject]
+
+when not defined(noException) and not defined(noStandardNoSuchObject):
+  template standardNoSuchObjectRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNoSuchObject*(a1: Message): Throw {.
+          importcpp: "Standard_NoSuchObject(@)",
+          header: "Standard_NoSuchObject.hxx".}
+
+else:
+  discard
 
 
-# Constructors and methods
-proc constructor_Standard_NoSuchObject*(): Standard_NoSuchObject {.constructor,importcpp: "Standard_NoSuchObject".}
-
-proc constructor_Standard_NoSuchObject*(theMessage: Standard_CString): Standard_NoSuchObject {.constructor,importcpp: "Standard_NoSuchObject(@)".}
-
-proc Throw*(this: Standard_NoSuchObject)  {.importcpp: "Throw".}
-
-proc Raise*(this: var Standard_NoSuchObject, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc Raise*(this: var Standard_NoSuchObject, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc NewInstance*(this: var Standard_NoSuchObject, theMessage: Standard_CString): Handle[Standard_NoSuchObject]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var Standard_NoSuchObject): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_NoSuchObject): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_NoSuchObject): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "Standard_NoSuchObject.hxx

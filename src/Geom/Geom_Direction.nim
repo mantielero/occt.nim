@@ -1,70 +1,105 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Dir"
+discard "forward decl of Geom_Vector"
+discard "forward decl of gp_Trsf"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_Direction"
+discard "forward decl of Geom_Direction"
+
+type
+  GeomDirection* {.importcpp: "Geom_Direction", header: "Geom_Direction.hxx", bycopy.} = object of GeomVector ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## unit
+                                                                                                    ## vector
+                                                                                                    ## with
+                                                                                                    ## it
+                                                                                                    ## 3
+                                                                                                    ## cartesian
+                                                                                                    ## coordinates.
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ##
+                                                                                                    ## !
+                                                                                                    ## Raised
+                                                                                                    ## if
+                                                                                                    ## Sqrt(
+                                                                                                    ## X*X
+                                                                                                    ## +
+                                                                                                    ## Y*Y
+                                                                                                    ## +
+                                                                                                    ## Z*Z)
+                                                                                                    ## <=
+                                                                                                    ## Resolution
+                                                                                                    ## from
+                                                                                                    ## gp.
 
 
 type
-  Geom_Direction* {.header: "Geom_Direction.hxx", importcpp: "Geom_Direction", byref.} = object #of class Geom_Vector
-    ## The class Direction specifies a vector that is never null. It is a
-    ## unit vector.
+  HandleGeomDirection* = Handle[GeomDirection]
 
-  Handle_Geom_Direction* {.header: "Geom_Direction.hxx", importcpp: "Handle_Geom_Direction".} = handle[Geom_Direction]
-  Base_type* {.header: "Geom_Direction.hxx", importcpp: "Geom_Direction::base_type".} = Geom_Vector
+## ! The class Direction specifies a vector that is never null.
+## ! It is a unit vector.
+type
+  GeomDirectionbaseType* = GeomVector
+
+proc constructGeomDirection*(x: StandardReal; y: StandardReal; z: StandardReal): GeomDirection {.
+    constructor, importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
+proc constructGeomDirection*(v: Dir): GeomDirection {.constructor,
+    importcpp: "Geom_Direction(@)", header: "Geom_Direction.hxx".}
+proc setCoord*(this: var GeomDirection; x: StandardReal; y: StandardReal;
+              z: StandardReal) {.importcpp: "SetCoord", header: "Geom_Direction.hxx".}
+proc setDir*(this: var GeomDirection; v: Dir) {.importcpp: "SetDir",
+    header: "Geom_Direction.hxx".}
+proc setX*(this: var GeomDirection; x: StandardReal) {.importcpp: "SetX",
+    header: "Geom_Direction.hxx".}
+proc setY*(this: var GeomDirection; y: StandardReal) {.importcpp: "SetY",
+    header: "Geom_Direction.hxx".}
+proc setZ*(this: var GeomDirection; z: StandardReal) {.importcpp: "SetZ",
+    header: "Geom_Direction.hxx".}
+proc dir*(this: GeomDirection): Dir {.noSideEffect, importcpp: "Dir",
+                                  header: "Geom_Direction.hxx".}
+proc magnitude*(this: GeomDirection): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom_Direction.hxx".}
+proc squareMagnitude*(this: GeomDirection): StandardReal {.noSideEffect,
+    importcpp: "SquareMagnitude", header: "Geom_Direction.hxx".}
+proc cross*(this: var GeomDirection; other: Handle[GeomVector]) {.importcpp: "Cross",
+    header: "Geom_Direction.hxx".}
+proc crossCross*(this: var GeomDirection; v1: Handle[GeomVector];
+                v2: Handle[GeomVector]) {.importcpp: "CrossCross",
+                                        header: "Geom_Direction.hxx".}
+proc crossed*(this: GeomDirection; other: Handle[GeomVector]): Handle[GeomVector] {.
+    noSideEffect, importcpp: "Crossed", header: "Geom_Direction.hxx".}
+proc crossCrossed*(this: GeomDirection; v1: Handle[GeomVector];
+                  v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect,
+    importcpp: "CrossCrossed", header: "Geom_Direction.hxx".}
+proc transform*(this: var GeomDirection; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_Direction.hxx".}
+proc copy*(this: GeomDirection): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_Direction.hxx".}
 
 
-{.push header: "Geom_Direction.hxx".}
-
-proc constructGeom_Direction*(X: cdouble, Y: cdouble, Z: cdouble): Geom_Direction {.constructor,importcpp: "Geom_Direction::Geom_Direction(@)".}
-    ## Creates a unit vector with it 3 cartesian coordinates.
-
-proc constructGeom_Direction*(V: gp_Dir): Geom_Direction {.constructor,importcpp: "Geom_Direction::Geom_Direction(@)".}
-    ## Creates a transient copy of <me>.
-
-proc setCoord*(this: var Geom_Direction, X: cdouble, Y: cdouble, Z: cdouble)  {.importcpp: "SetCoord".}
-    ## Sets <me> to X,Y,Z coordinates.
-
-proc setDir*(this: var Geom_Direction, V: gp_Dir)  {.importcpp: "SetDir".}
-    ## Converts the gp_Dir unit vector V into this unit vector.
-
-proc setX*(this: var Geom_Direction, X: cdouble)  {.importcpp: "SetX".}
-    ## Changes the X coordinate of <me>.
-
-proc setY*(this: var Geom_Direction, Y: cdouble)  {.importcpp: "SetY".}
-    ## Changes the Y coordinate of <me>.
-
-proc setZ*(this: var Geom_Direction, Z: cdouble)  {.importcpp: "SetZ".}
-    ## Changes the Z coordinate of <me>.
-
-proc dir*(this: Geom_Direction): gp_Dir  {.importcpp: "Dir".}
-    ## Returns the non transient direction with the same coordinates as <me>.
-
-proc magnitude*(this: Geom_Direction): cdouble  {.importcpp: "Magnitude".}
-    ## returns 1.0 which is the magnitude of any unit vector.
-
-proc squareMagnitude*(this: Geom_Direction): cdouble  {.importcpp: "SquareMagnitude".}
-    ## returns 1.0 which is the square magnitude of any unit vector.
-
-proc cross*(this: var Geom_Direction, Other: handle[Geom_Vector])  {.importcpp: "Cross".}
-    ## Computes the cross product between <me> and <Other>.
-
-proc crossCross*(this: var Geom_Direction, V1: handle[Geom_Vector], V2: handle[Geom_Vector])  {.importcpp: "CrossCross".}
-    ## Computes the triple vector product <me> ^(V1 ^ V2).
-
-proc crossed*(this: Geom_Direction, Other: handle[Geom_Vector]): handle[Geom_Vector]  {.importcpp: "Crossed".}
-    ## Computes the cross product between <me> and <Other>. A new direction
-    ## is returned.
-
-proc crossCrossed*(this: Geom_Direction, V1: handle[Geom_Vector], V2: handle[Geom_Vector]): handle[Geom_Vector]  {.importcpp: "CrossCrossed".}
-    ## Computes the triple vector product <me> ^(V1 ^ V2).
-
-proc transform*(this: var Geom_Direction, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this unit vector, then normalizes it.
-
-proc copy*(this: Geom_Direction): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this unit vector.
-
-proc get_type_name*(this: var Geom_Direction): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Direction): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Direction): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Direction.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Direction::get_type_name(@)",
+                            header: "Geom_Direction.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Direction::get_type_descriptor(@)",
+    header: "Geom_Direction.hxx".}
+proc dynamicType*(this: GeomDirection): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Direction.hxx".} ]#

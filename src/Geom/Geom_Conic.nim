@@ -1,93 +1,129 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of Geom_Conic"
+discard "forward decl of Geom_Conic"
 
 type
-  Geom_Conic* {.header: "Geom_Conic.hxx", importcpp: "Geom_Conic", byref.} = object #of class Geom_Curve
-    ## The abstract class Conic describes the common behavior of conic curves
-    ## in 3D space and, in particular, their general characteristics. The
-    ## Geom package provides four concrete classes of conics: Geom_Circle,
-    ## Geom_Ellipse, Geom_Hyperbola and Geom_Parabola. A conic is positioned
-    ## in space with a right-handed coordinate system (gp_Ax2 object), where:
-    ## - the origin is the center of the conic (or the apex in the case of a
-    ## parabola), - the origin, "X Direction" and "Y Direction" define the
-    ## plane of the conic. This coordinate system is the local coordinate
-    ## system of the conic. The "main Direction" of this coordinate system is
-    ## the vector normal to the plane of the conic. The axis, of which the
-    ## origin and unit vector are respectively the origin and "main
-    ## Direction" of the local coordinate system, is termed the "Axis" or
-    ## "main Axis" of the conic. The "main Direction" of the local coordinate
-    ## system gives an explicit orientation to the conic, determining the
-    ## direction in which the parameter increases along the conic. The "X
-    ## Axis" of the local coordinate system also defines the origin of the
-    ## parameter of the conic.
+  GeomConic* {.importcpp: "Geom_Conic", header: "Geom_Conic.hxx", bycopy.} = object of GeomCurve ##
+                                                                                       ## !
+                                                                                       ## Changes
+                                                                                       ## the
+                                                                                       ## orientation
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## conic's
+                                                                                       ## plane.
+                                                                                       ## The
+                                                                                       ## normal
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## axis
+                                                                                       ## to
+                                                                                       ## the
+                                                                                       ## plane
+                                                                                       ## is
+                                                                                       ## A1.
+                                                                                       ## The
+                                                                                       ## XAxis
+                                                                                       ## and
+                                                                                       ## the
+                                                                                       ## YAxis
+                                                                                       ## are
+                                                                                       ## recomputed.
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## raised
+                                                                                       ## if
+                                                                                       ## the
+                                                                                       ## A1
+                                                                                       ## is
+                                                                                       ## parallel
+                                                                                       ## to
+                                                                                       ## the
+                                                                                       ## XAxis
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## conic.
+type
+  HandleGeomConic* = Handle[GeomConic]
 
-  Handle_Geom_Conic* {.header: "Geom_Conic.hxx", importcpp: "Handle_Geom_Conic".} = handle[Geom_Conic]
-  Base_type* {.header: "Geom_Conic.hxx", importcpp: "Geom_Conic::base_type".} = Geom_Curve
+## ! The abstract class Conic describes the common
+## ! behavior of conic curves in 3D space and, in
+## ! particular, their general characteristics. The Geom
+## ! package provides four concrete classes of conics:
+## ! Geom_Circle, Geom_Ellipse, Geom_Hyperbola and Geom_Parabola.
+## ! A conic is positioned in space with a right-handed
+## ! coordinate system (gp_Ax2 object), where:
+## ! - the origin is the center of the conic (or the apex in
+## ! the case of a parabola),
+## ! - the origin, "X Direction" and "Y Direction" define the
+## ! plane of the conic.
+## ! This coordinate system is the local coordinate
+## ! system of the conic.
+## ! The "main Direction" of this coordinate system is the
+## ! vector normal to the plane of the conic. The axis, of
+## ! which the origin and unit vector are respectively the
+## ! origin and "main Direction" of the local coordinate
+## ! system, is termed the "Axis" or "main Axis" of the conic.
+## ! The "main Direction" of the local coordinate system
+## ! gives an explicit orientation to the conic, determining
+## ! the direction in which the parameter increases along
+## ! the conic. The "X Axis" of the local coordinate system
+## ! also defines the origin of the parameter of the conic.
+
+type
+  GeomConicbaseType* = GeomCurve
 
 
-{.push header: "Geom_Conic.hxx".}
 
-proc setAxis*(this: var Geom_Conic, theA1: gp_Ax1)  {.importcpp: "SetAxis".}
-    ## Changes the orientation of the conic's plane. The normal axis to the
-    ## plane is A1. The XAxis and the YAxis are recomputed.
+proc setAxis*(this: var GeomConic; theA1: Ax1) {.importcpp: "SetAxis",
+    header: "Geom_Conic.hxx".}
+proc setLocation*(this: var GeomConic; theP: Pnt) {.importcpp: "SetLocation",
+    header: "Geom_Conic.hxx".}
+proc setPosition*(this: var GeomConic; theA2: Ax2) {.importcpp: "SetPosition",
+    header: "Geom_Conic.hxx".}
+proc axis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "Axis",
+                               header: "Geom_Conic.hxx".}
+proc location*(this: GeomConic): Pnt {.noSideEffect, importcpp: "Location",
+                                   header: "Geom_Conic.hxx".}
+proc position*(this: GeomConic): Ax2 {.noSideEffect, importcpp: "Position",
+                                   header: "Geom_Conic.hxx".}
+proc eccentricity*(this: GeomConic): StandardReal {.noSideEffect,
+    importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
+proc xAxis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "XAxis",
+                                header: "Geom_Conic.hxx".}
+proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, importcpp: "YAxis",
+                                header: "Geom_Conic.hxx".}
+proc reverse*(this: var GeomConic) {.importcpp: "Reverse", header: "Geom_Conic.hxx".}
+proc reversedParameter*(this: GeomConic; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
+#[ proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_Conic.hxx".} ]#
+proc isCN*(this: GeomConic; n: int): StandardBoolean {.noSideEffect, importcpp: "IsCN",
+    header: "Geom_Conic.hxx".}
+proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Conic.hxx".}
 
-proc setLocation*(this: var Geom_Conic, theP: gp_Pnt)  {.importcpp: "SetLocation".}
-    ## changes the location point of the conic.
 
-proc setPosition*(this: var Geom_Conic, theA2: gp_Ax2)  {.importcpp: "SetPosition".}
-    ## changes the local coordinate system of the conic.
-
-proc axis*(this: Geom_Conic): gp_Ax1  {.importcpp: "Axis".}
-    ## Returns the "main Axis" of this conic. This axis is normal to the
-    ## plane of the conic.
-
-proc location*(this: Geom_Conic): gp_Pnt  {.importcpp: "Location".}
-    ## Returns the location point of the conic. For the circle, the ellipse
-    ## and the hyperbola it is the center of the conic. For the parabola it
-    ## is the Apex of the parabola.
-
-proc position*(this: Geom_Conic): gp_Ax2  {.importcpp: "Position".}
-    ## Returns the local coordinates system of the conic. The main direction
-    ## of the Axis2Placement is normal to the plane of the conic. The X
-    ## direction of the Axis2placement is in the plane of the conic and
-    ## corresponds to the origin for the conic's parametric value u.
-
-proc eccentricity*(this: Geom_Conic): cdouble  {.importcpp: "Eccentricity".}
-    ## Returns the eccentricity value of the conic e. e = 0 for a circle 0 <
-    ## e < 1 for an ellipse (e = 0 if MajorRadius = MinorRadius) e > 1 for a
-    ## hyperbola e = 1 for a parabola Exceptions Standard_DomainError in the
-    ## case of a hyperbola if its major radius is null.
-
-proc xAxis*(this: Geom_Conic): gp_Ax1  {.importcpp: "XAxis".}
-    ## Returns the XAxis of the conic. This axis defines the origin of
-    ## parametrization of the conic. This axis is perpendicular to the Axis
-    ## of the conic. This axis and the Yaxis define the plane of the conic.
-
-proc yAxis*(this: Geom_Conic): gp_Ax1  {.importcpp: "YAxis".}
-    ## Returns the YAxis of the conic. The YAxis is perpendicular to the
-    ## Xaxis. This axis and the Xaxis define the plane of the conic.
-
-proc reverse*(this: var Geom_Conic)  {.importcpp: "Reverse".}
-    ## Reverses the direction of parameterization of <me>. The local
-    ## coordinate system of the conic is modified.
-
-proc reversedParameter*(this: Geom_Conic, U: cdouble): cdouble  {.importcpp: "ReversedParameter".}
-    ## Returns the parameter on the reversed curve for the point of parameter
-    ## U on <me>.
-
-proc continuity*(this: Geom_Conic): GeomAbs_Shape  {.importcpp: "Continuity".}
-    ## The continuity of the conic is Cn.
-
-proc isCN*(this: Geom_Conic, N: cint): bool  {.importcpp: "IsCN".}
-    ## Returns True. Raised if N < 0.
-
-proc dumpJson*(this: Geom_Conic, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_Conic): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Conic): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Conic): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Conic.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Conic::get_type_name(@)",
+                            header: "Geom_Conic.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Conic::get_type_descriptor(@)", header: "Geom_Conic.hxx".}
+proc dynamicType*(this: GeomConic): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Conic.hxx".} ]#

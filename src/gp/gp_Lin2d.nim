@@ -1,128 +1,102 @@
-{.push header: "gp_Lin2d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Dir2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Lin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Lin2d*(): gp_Lin2d {.constructor,importcpp: "gp_Lin2d".}
-  ## Creates a Line corresponding to X axis of the reference coordinate
-  ## system.
-
-proc constructor_gp_Lin2d*(A: gp_Ax2d): gp_Lin2d {.constructor,importcpp: "gp_Lin2d(@)".}
-  ## Creates a line located with A.
-
-proc constructor_gp_Lin2d*(P: gp_Pnt2d, V: gp_Dir2d): gp_Lin2d {.constructor,importcpp: "gp_Lin2d(@)".}
-  ## <P> is the location point (origin) of the line and <V> is the
-  ## direction of the line.
-
-proc constructor_gp_Lin2d*(A: cdouble, B: cdouble, C: cdouble): gp_Lin2d {.constructor,importcpp: "gp_Lin2d(@)".}
-  ## Creates the line from the equation A*X + B*Y + C = 0.0 Raises
-  ## ConstructionError if Sqrt(A*A + B*B) <= Resolution from gp. Raised if
-  ## Sqrt(A*A + B*B) <= Resolution from gp.
-
-proc ` new`*(this: var gp_Lin2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Lin2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Lin2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Lin2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Lin2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Lin2d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc Reverse*(this: var gp_Lin2d)  {.importcpp: "Reverse".}
-
-proc Reversed*(this: gp_Lin2d): gp_Lin2d  {.importcpp: "Reversed".}
-  ## Reverses the positioning axis of this line. Note: - Reverse assigns
-  ## the result to this line, while - Reversed creates a new one.
-
-proc SetDirection*(this: var gp_Lin2d, V: gp_Dir2d)  {.importcpp: "SetDirection".}
-  ## Changes the direction of the line.
-
-proc SetLocation*(this: var gp_Lin2d, P: gp_Pnt2d)  {.importcpp: "SetLocation".}
-  ## Changes the origin of the line.
-
-proc SetPosition*(this: var gp_Lin2d, A: gp_Ax2d)  {.importcpp: "SetPosition".}
-  ## Complete redefinition of the line. The "Location" point of <A> is the
-  ## origin of the line. The "Direction" of <A> is the direction of the
-  ## line.
-
-proc Coefficients*(this: gp_Lin2d, A: var cdouble, B: var cdouble, C: var cdouble)  {.importcpp: "Coefficients".}
-  ## Returns the normalized coefficients of the line : A * X + B * Y + C =
-  ## 0.
-
-proc Direction*(this: gp_Lin2d): gp_Dir2d  {.importcpp: "Direction".}
-  ## Returns the direction of the line.
-
-proc Location*(this: gp_Lin2d): gp_Pnt2d  {.importcpp: "Location".}
-  ## Returns the location point (origin) of the line.
-
-proc Position*(this: gp_Lin2d): gp_Ax2d  {.importcpp: "Position".}
-  ## Returns the axis placement one axis whith the same location and
-  ## direction as <me>.
-
-proc Angle*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "Angle".}
-  ## Computes the angle between two lines in radians.
-
-proc Contains*(this: gp_Lin2d, P: gp_Pnt2d, LinearTolerance: cdouble): bool  {.importcpp: "Contains".}
-  ## Returns true if this line contains the point P, that is, if the
-  ## distance between point P and this line is less than or equal to
-  ## LinearTolerance.
-
-proc Distance*(this: gp_Lin2d, P: gp_Pnt2d): cdouble  {.importcpp: "Distance".}
-  ## Computes the distance between <me> and the point <P>.
-
-proc Distance*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "Distance".}
-  ## Computes the distance between two lines.
-
-proc SquareDistance*(this: gp_Lin2d, P: gp_Pnt2d): cdouble  {.importcpp: "SquareDistance".}
-  ## Computes the square distance between <me> and the point <P>.
-
-proc SquareDistance*(this: gp_Lin2d, Other: gp_Lin2d): cdouble  {.importcpp: "SquareDistance".}
-  ## Computes the square distance between two lines.
-
-proc Normal*(this: gp_Lin2d, P: gp_Pnt2d): gp_Lin2d  {.importcpp: "Normal".}
-  ## Computes the line normal to the direction of <me>, passing through the
-  ## point <P>.
-
-proc Mirror*(this: var gp_Lin2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Lin2d, P: gp_Pnt2d): gp_Lin2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a line with respect to the
-  ## point <P> which is the center of the symmetry
-
-proc Mirror*(this: var gp_Lin2d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Lin2d, A: gp_Ax2d): gp_Lin2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a line with respect to an
-  ## axis placement which is the axis of the symmetry.
-
-proc Rotate*(this: var gp_Lin2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Lin2d, P: gp_Pnt2d, Ang: cdouble): gp_Lin2d  {.importcpp: "Rotated".}
-  ## Rotates a line. P is the center of the rotation. Ang is the angular
-  ## value of the rotation in radians.
-
-proc Scale*(this: var gp_Lin2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Lin2d, P: gp_Pnt2d, S: cdouble): gp_Lin2d  {.importcpp: "Scaled".}
-  ## Scales a line. S is the scaling value. Only the origin of the line is
-  ## modified.
-
-proc Transform*(this: var gp_Lin2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Lin2d, T: gp_Trsf2d): gp_Lin2d  {.importcpp: "Transformed".}
-  ## Transforms a line with the transformation T from class Trsf2d.
-
-proc Translate*(this: var gp_Lin2d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Lin2d, V: gp_Vec2d): gp_Lin2d  {.importcpp: "Translated".}
-  ## Translates a line in the direction of the vector V. The magnitude of
-  ## the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Lin2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Lin2d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Lin2d  {.importcpp: "Translated".}
-  ## Translates a line from the point P1 to the point P2.
-
-{.pop.} # header: "gp_Lin2d.hxx
+proc `new`*(this: var Lin2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin2d::operator new", header: "gp_Lin2d.hxx".}
+proc `delete`*(this: var Lin2d; theAddress: pointer) {.
+    importcpp: "gp_Lin2d::operator delete", header: "gp_Lin2d.hxx".}
+proc `new[]`*(this: var Lin2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Lin2d::operator new[]", header: "gp_Lin2d.hxx".}
+proc `delete[]`*(this: var Lin2d; theAddress: pointer) {.
+    importcpp: "gp_Lin2d::operator delete[]", header: "gp_Lin2d.hxx".}
+proc `new`*(this: var Lin2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Lin2d::operator new", header: "gp_Lin2d.hxx".}
+proc `delete`*(this: var Lin2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Lin2d::operator delete", header: "gp_Lin2d.hxx".}
+proc constructLin2d*(): Lin2d {.constructor, importcpp: "gp_Lin2d(@)",
+                             header: "gp_Lin2d.hxx".}
+proc constructLin2d*(a: Ax2d): Lin2d {.constructor, importcpp: "gp_Lin2d(@)",
+                                   header: "gp_Lin2d.hxx".}
+proc constructLin2d*(p: Pnt2d; v: Dir2d): Lin2d {.constructor,
+    importcpp: "gp_Lin2d(@)", header: "gp_Lin2d.hxx".}
+proc constructLin2d*(a: StandardReal; b: StandardReal; c: StandardReal): Lin2d {.
+    constructor, importcpp: "gp_Lin2d(@)", header: "gp_Lin2d.hxx".}
+proc reverse*(this: var Lin2d) {.importcpp: "Reverse", header: "gp_Lin2d.hxx".}
+proc reversed*(this: Lin2d): Lin2d {.noSideEffect, importcpp: "Reversed",
+                                 header: "gp_Lin2d.hxx".}
+proc setDirection*(this: var Lin2d; v: Dir2d) {.importcpp: "SetDirection",
+    header: "gp_Lin2d.hxx".}
+proc setLocation*(this: var Lin2d; p: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Lin2d.hxx".}
+proc setPosition*(this: var Lin2d; a: Ax2d) {.importcpp: "SetPosition",
+                                        header: "gp_Lin2d.hxx".}
+proc coefficients*(this: Lin2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Lin2d.hxx".}
+proc direction*(this: Lin2d): Dir2d {.noSideEffect, importcpp: "Direction",
+                                  header: "gp_Lin2d.hxx".}
+proc location*(this: Lin2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                 header: "gp_Lin2d.hxx".}
+proc position*(this: Lin2d): Ax2d {.noSideEffect, importcpp: "Position",
+                                header: "gp_Lin2d.hxx".}
+proc angle*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
+    importcpp: "Angle", header: "gp_Lin2d.hxx".}
+proc contains*(this: Lin2d; p: Pnt2d; linearTolerance: StandardReal): StandardBoolean {.
+    noSideEffect, importcpp: "Contains", header: "gp_Lin2d.hxx".}
+proc distance*(this: Lin2d; p: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Lin2d.hxx".}
+proc distance*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
+    importcpp: "Distance", header: "gp_Lin2d.hxx".}
+proc squareDistance*(this: Lin2d; p: Pnt2d): StandardReal {.noSideEffect,
+    importcpp: "SquareDistance", header: "gp_Lin2d.hxx".}
+proc squareDistance*(this: Lin2d; other: Lin2d): StandardReal {.noSideEffect,
+    importcpp: "SquareDistance", header: "gp_Lin2d.hxx".}
+proc normal*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, importcpp: "Normal",
+                                       header: "gp_Lin2d.hxx".}
+proc mirror*(this: var Lin2d; p: Pnt2d) {.importcpp: "Mirror", header: "gp_Lin2d.hxx".}
+proc mirrored*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Lin2d.hxx".}
+proc mirror*(this: var Lin2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Lin2d.hxx".}
+proc mirrored*(this: Lin2d; a: Ax2d): Lin2d {.noSideEffect, importcpp: "Mirrored",
+                                        header: "gp_Lin2d.hxx".}
+proc rotate*(this: var Lin2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Lin2d.hxx".}
+proc rotated*(this: Lin2d; p: Pnt2d; ang: StandardReal): Lin2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Lin2d.hxx".}
+proc scale*(this: var Lin2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Lin2d.hxx".}
+proc scaled*(this: Lin2d; p: Pnt2d; s: StandardReal): Lin2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Lin2d.hxx".}
+proc transform*(this: var Lin2d; t: Trsf2d) {.importcpp: "Transform",
+                                        header: "gp_Lin2d.hxx".}
+proc transformed*(this: Lin2d; t: Trsf2d): Lin2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Lin2d.hxx".}
+proc translate*(this: var Lin2d; v: Vec2d) {.importcpp: "Translate",
+                                       header: "gp_Lin2d.hxx".}
+proc translated*(this: Lin2d; v: Vec2d): Lin2d {.noSideEffect, importcpp: "Translated",
+    header: "gp_Lin2d.hxx".}
+proc translate*(this: var Lin2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Lin2d.hxx".}
+proc translated*(this: Lin2d; p1: Pnt2d; p2: Pnt2d): Lin2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Lin2d.hxx".}

@@ -1,23 +1,37 @@
-{.push header: "TopoDS_LockedShape.hxx".}
+##  Created on: 1990-12-11
+##  Created by: Remi Lequette
+##  Copyright (c) 1990-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+## ! An attempt was made to modify a geometry of Shape already
+## ! shared or protected.
+
+discard "forward decl of TopoDS_LockedShape"
+discard "forward decl of TopoDS_LockedShape"
+type
+  TopoDS_LockedShape* {.importcpp: "TopoDS_LockedShape",
+                       header: "TopoDS_LockedShape.hxx", bycopy.} = object of StandardDomainError
 
 
-# Constructors and methods
-proc constructor_TopoDS_LockedShape*(): TopoDS_LockedShape {.constructor,importcpp: "TopoDS_LockedShape".}
+type
+  HandleTopoDS_LockedShape* = Handle[TopoDS_LockedShape]
 
-proc constructor_TopoDS_LockedShape*(theMessage: Standard_CString): TopoDS_LockedShape {.constructor,importcpp: "TopoDS_LockedShape(@)".}
+when not defined(noException) and not defined(noTopoDS_LockedShape):
+  template topoDS_LockedShapeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc topoDS_LockedShape*(a1: Message): Throw {.
+          importcpp: "TopoDS_LockedShape(@)", header: "TopoDS_LockedShape.hxx".}
 
-proc throw*(this: TopoDS_LockedShape)  {.importcpp: "Throw".}
-
-proc raise*(this: var TopoDS_LockedShape, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc raise*(this: var TopoDS_LockedShape, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc newInstance*(this: var TopoDS_LockedShape, theMessage: Standard_CString): Handle[TopoDS_LockedShape]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var TopoDS_LockedShape): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var TopoDS_LockedShape): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: TopoDS_LockedShape): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "TopoDS_LockedShape.hxx
+else:
+  discard

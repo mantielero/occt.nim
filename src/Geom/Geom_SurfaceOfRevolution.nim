@@ -1,191 +1,327 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_RangeError"
+discard "forward decl of Geom_UndefinedDerivative"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Ax1"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_SurfaceOfRevolution"
+discard "forward decl of Geom_SurfaceOfRevolution"
 
 type
-  Geom_SurfaceOfRevolution* {.header: "Geom_SurfaceOfRevolution.hxx", importcpp: "Geom_SurfaceOfRevolution", byref.} = object #of class Geom_SweptSurface
-    ## Describes a surface of revolution (revolved surface). Such a surface
-    ## is obtained by rotating a curve (called the "meridian") through a
-    ## complete revolution about an axis (referred to as the "axis of
-    ## revolution"). The curve and the axis must be in the same plane (the
-    ## "reference plane" of the surface). Rotation around the axis of
-    ## revolution in the trigonometric sense defines the u parametric
-    ## direction. So the u parameter is an angle, and its origin is given by
-    ## the position of the meridian on the surface. The parametric range for
-    ## the u parameter is: [ 0, 2.*Pi ] The v parameter is that of the
-    ## meridian. Note: A surface of revolution is built from a copy of the
-    ## original meridian. As a result the original meridian is not modified
-    ## when the surface is modified. The form of a surface of revolution is
-    ## typically a general revolution surface (GeomAbs_RevolutionForm). It
-    ## can be: - a conical surface, if the meridian is a line or a trimmed
-    ## line (GeomAbs_ConicalForm), - a cylindrical surface, if the meridian
-    ## is a line or a trimmed line parallel to the axis of revolution
-    ## (GeomAbs_CylindricalForm), - a planar surface if the meridian is a
-    ## line or a trimmed line perpendicular to the axis of revolution of the
-    ## surface (GeomAbs_PlanarForm), - a toroidal surface, if the meridian is
-    ## a circle or a trimmed circle (GeomAbs_ToroidalForm), or - a spherical
-    ## surface, if the meridian is a circle, the center of which is located
-    ## on the axis of the revolved surface (GeomAbs_SphericalForm). Warning
-    ## Be careful not to construct a surface of revolution where the curve
-    ## and the axis or revolution are not defined in the same plane. If you
-    ## do not have a correct configuration, you can correct your initial
-    ## curve, using a cylindrical projection in the reference plane.
+  GeomSurfaceOfRevolution* {.importcpp: "Geom_SurfaceOfRevolution",
+                            header: "Geom_SurfaceOfRevolution.hxx", bycopy.} = object of GeomSweptSurface ##
+                                                                                                   ## !
+                                                                                                   ## C
+                                                                                                   ## :
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## or
+                                                                                                   ## the
+                                                                                                   ## referenced
+                                                                                                   ## curve.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## A1
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## axis
+                                                                                                   ## of
+                                                                                                   ## revolution.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## The
+                                                                                                   ## form
+                                                                                                   ## of
+                                                                                                   ## a
+                                                                                                   ## SurfaceOfRevolution
+                                                                                                   ## can
+                                                                                                   ## be
+                                                                                                   ## :
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## general
+                                                                                                   ## revolution
+                                                                                                   ## surface
+                                                                                                   ## (RevolutionForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## conical
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## or
+                                                                                                   ## a
+                                                                                                   ## trimmed
+                                                                                                   ## line
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## (ConicalForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## cylindrical
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## or
+                                                                                                   ## a
+                                                                                                   ## trimmed
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## line
+                                                                                                   ## parallel
+                                                                                                   ## to
+                                                                                                   ## the
+                                                                                                   ## revolution
+                                                                                                   ## axis
+                                                                                                   ## (CylindricalForm),
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## planar
+                                                                                                   ## surface
+                                                                                                   ## if
+                                                                                                   ## the
+                                                                                                   ## meridian
+                                                                                                   ## is
+                                                                                                   ## a
+                                                                                                   ## line
+                                                                                                   ## perpendicular
+                                                                                                   ## to
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## the
+                                                                                                   ## revolution
+                                                                                                   ## axis
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## surface
+                                                                                                   ## (PlanarForm).
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## spherical
+                                                                                                   ## surface,
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## toroidal
+                                                                                                   ## surface,
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## .
+                                                                                                   ## a
+                                                                                                   ## quadric
+                                                                                                   ## surface.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Warnings
+                                                                                                   ## :
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## It
+                                                                                                   ## is
+                                                                                                   ## not
+                                                                                                   ## checked
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ## curve
+                                                                                                   ## C
+                                                                                                   ## is
+                                                                                                   ## planar
+                                                                                                   ## and
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## surface
+                                                                                                   ## axis
+                                                                                                   ## is
+                                                                                                   ## in
+                                                                                                   ## the
+                                                                                                   ## plane
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## curve.
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## It
+                                                                                                   ## is
+                                                                                                   ## not
+                                                                                                   ## checked
+                                                                                                   ## that
+                                                                                                   ## the
+                                                                                                   ## revolved
+                                                                                                   ## curve
+                                                                                                   ## C
+                                                                                                   ## doesn't
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## self-intersects.
 
-  Handle_Geom_SurfaceOfRevolution* {.header: "Geom_SurfaceOfRevolution.hxx", importcpp: "Handle_Geom_SurfaceOfRevolution".} = handle[Geom_SurfaceOfRevolution]
-  Base_type* {.header: "Geom_SurfaceOfRevolution.hxx", importcpp: "Geom_SurfaceOfRevolution::base_type".} = Geom_SweptSurface
+type
+  HandleGeomSurfaceOfRevolution* = Handle[GeomSurfaceOfRevolution]
+
+## ! Describes a surface of revolution (revolved surface).
+## ! Such a surface is obtained by rotating a curve (called
+## ! the "meridian") through a complete revolution about
+## ! an axis (referred to as the "axis of revolution"). The
+## ! curve and the axis must be in the same plane (the
+## ! "reference plane" of the surface).
+## ! Rotation around the axis of revolution in the
+## ! trigonometric sense defines the u parametric
+## ! direction. So the u parameter is an angle, and its
+## ! origin is given by the position of the meridian on the surface.
+## ! The parametric range for the u parameter is: [ 0, 2.*Pi ]
+## ! The v parameter is that of the meridian.
+## ! Note: A surface of revolution is built from a copy of the
+## ! original meridian. As a result the original meridian is
+## ! not modified when the surface is modified.
+## ! The form of a surface of revolution is typically a
+## ! general revolution surface
+## ! (GeomAbs_RevolutionForm). It can be:
+## ! - a conical surface, if the meridian is a line or a
+## ! trimmed line (GeomAbs_ConicalForm),
+## ! - a cylindrical surface, if the meridian is a line or a
+## ! trimmed line parallel to the axis of revolution
+## ! (GeomAbs_CylindricalForm),
+## ! - a planar surface if the meridian is a line or a
+## ! trimmed line perpendicular to the axis of revolution
+## ! of the surface (GeomAbs_PlanarForm),
+## ! - a toroidal surface, if the meridian is a circle or a
+## ! trimmed circle (GeomAbs_ToroidalForm), or
+## ! - a spherical surface, if the meridian is a circle, the
+## ! center of which is located on the axis of the
+## ! revolved surface (GeomAbs_SphericalForm).
+## ! Warning
+## ! Be careful not to construct a surface of revolution
+## ! where the curve and the axis or revolution are not
+## ! defined in the same plane. If you do not have a
+## ! correct configuration, you can correct your initial
+## ! curve, using a cylindrical projection in the reference plane.
+
+type
+  GeomSurfaceOfRevolutionbaseType* = GeomSweptSurface
+
+proc constructGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1): GeomSurfaceOfRevolution {.
+    constructor, importcpp: "Geom_SurfaceOfRevolution(@)",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc setAxis*(this: var GeomSurfaceOfRevolution; a1: Ax1) {.importcpp: "SetAxis",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc setDirection*(this: var GeomSurfaceOfRevolution; v: Dir) {.
+    importcpp: "SetDirection", header: "Geom_SurfaceOfRevolution.hxx".}
+proc setBasisCurve*(this: var GeomSurfaceOfRevolution; c: Handle[GeomCurve]) {.
+    importcpp: "SetBasisCurve", header: "Geom_SurfaceOfRevolution.hxx".}
+proc setLocation*(this: var GeomSurfaceOfRevolution; p: Pnt) {.
+    importcpp: "SetLocation", header: "Geom_SurfaceOfRevolution.hxx".}
+proc axis*(this: GeomSurfaceOfRevolution): Ax1 {.noSideEffect, importcpp: "Axis",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc location*(this: GeomSurfaceOfRevolution): Pnt {.noSideEffect,
+    importcpp: "Location", header: "Geom_SurfaceOfRevolution.hxx".}
+proc referencePlane*(this: GeomSurfaceOfRevolution): Ax2 {.noSideEffect,
+    importcpp: "ReferencePlane", header: "Geom_SurfaceOfRevolution.hxx".}
+proc uReverse*(this: var GeomSurfaceOfRevolution) {.importcpp: "UReverse",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc uReversedParameter*(this: GeomSurfaceOfRevolution; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc vReverse*(this: var GeomSurfaceOfRevolution) {.importcpp: "VReverse",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc vReversedParameter*(this: GeomSurfaceOfRevolution; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc transformParameters*(this: GeomSurfaceOfRevolution; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "Geom_SurfaceOfRevolution.hxx".}
+proc parametricTransformation*(this: GeomSurfaceOfRevolution; t: Trsf): GTrsf2d {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc bounds*(this: GeomSurfaceOfRevolution; u1: var StandardReal;
+            u2: var StandardReal; v1: var StandardReal; v2: var StandardReal) {.
+    noSideEffect, importcpp: "Bounds", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isUClosed*(this: GeomSurfaceOfRevolution): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isVClosed*(this: GeomSurfaceOfRevolution): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isCNu*(this: GeomSurfaceOfRevolution; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isCNv*(this: GeomSurfaceOfRevolution; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isUPeriodic*(this: GeomSurfaceOfRevolution): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
+proc isVPeriodic*(this: GeomSurfaceOfRevolution): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_SurfaceOfRevolution.hxx".}
+proc uIso*(this: GeomSurfaceOfRevolution; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_SurfaceOfRevolution.hxx".}
+proc vIso*(this: GeomSurfaceOfRevolution; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d0*(this: GeomSurfaceOfRevolution; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d1*(this: GeomSurfaceOfRevolution; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_SurfaceOfRevolution.hxx".}
+proc d2*(this: GeomSurfaceOfRevolution; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d3*(this: GeomSurfaceOfRevolution; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc dn*(this: GeomSurfaceOfRevolution; u: StandardReal; v: StandardReal; nu: int;
+        nv: int): Vec {.noSideEffect, importcpp: "DN",
+                     header: "Geom_SurfaceOfRevolution.hxx".}
+proc transform*(this: var GeomSurfaceOfRevolution; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc copy*(this: GeomSurfaceOfRevolution): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_SurfaceOfRevolution.hxx".}
+proc dumpJson*(this: GeomSurfaceOfRevolution; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_SurfaceOfRevolution.hxx".}
 
 
-{.push header: "Geom_SurfaceOfRevolution.hxx".}
-
-proc constructGeom_SurfaceOfRevolution*(C: handle[Geom_Curve], A1: gp_Ax1): Geom_SurfaceOfRevolution {.constructor,importcpp: "Geom_SurfaceOfRevolution::Geom_SurfaceOfRevolution(@)".}
-    ## C : is the meridian or the referenced curve. A1 is the axis of
-    ## revolution. The form of a SurfaceOfRevolution can be : . a general
-    ## revolution surface (RevolutionForm), . a conical surface if the
-    ## meridian is a line or a trimmed line (ConicalForm), . a cylindrical
-    ## surface if the meridian is a line or a trimmed line parallel to the
-    ## revolution axis (CylindricalForm), . a planar surface if the meridian
-    ## is a line perpendicular to the revolution axis of the surface
-    ## (PlanarForm). . a spherical surface, . a toroidal surface, . a quadric
-    ## surface. Warnings : It is not checked that the curve C is planar and
-    ## that the surface axis is in the plane of the curve. It is not checked
-    ## that the revolved curve C doesn't self-intersects.
-
-proc setAxis*(this: var Geom_SurfaceOfRevolution, A1: gp_Ax1)  {.importcpp: "SetAxis".}
-    ## Changes the axis of revolution. Warnings : It is not checked that the
-    ## axis is in the plane of the revolved curve.
-
-proc setDirection*(this: var Geom_SurfaceOfRevolution, V: gp_Dir)  {.importcpp: "SetDirection".}
-    ## Changes the direction of the revolution axis. Warnings : It is not
-    ## checked that the axis is in the plane of the revolved curve.
-
-proc setBasisCurve*(this: var Geom_SurfaceOfRevolution, C: handle[Geom_Curve])  {.importcpp: "SetBasisCurve".}
-    ## Changes the revolved curve of the surface. Warnings : It is not
-    ## checked that the curve C is planar and that the surface axis is in the
-    ## plane of the curve. It is not checked that the revolved curve C
-    ## doesn't self-intersects.
-
-proc setLocation*(this: var Geom_SurfaceOfRevolution, P: gp_Pnt)  {.importcpp: "SetLocation".}
-    ## Changes the location point of the revolution axis. Warnings : It is
-    ## not checked that the axis is in the plane of the revolved curve.
-
-proc axis*(this: Geom_SurfaceOfRevolution): gp_Ax1  {.importcpp: "Axis".}
-    ## Returns the revolution axis of the surface.
-
-proc location*(this: Geom_SurfaceOfRevolution): gp_Pnt  {.importcpp: "Location".}
-    ## Returns the location point of the axis of revolution.
-
-proc referencePlane*(this: Geom_SurfaceOfRevolution): gp_Ax2  {.importcpp: "ReferencePlane".}
-    ## Computes the position of the reference plane of the surface defined by
-    ## the basis curve and the symmetry axis. The location point is the
-    ## location point of the revolution's axis, the XDirection of the plane
-    ## is given by the revolution's axis and the orientation of the normal to
-    ## the plane is given by the sense of revolution.
-
-proc uReverse*(this: var Geom_SurfaceOfRevolution)  {.importcpp: "UReverse".}
-    ## Changes the orientation of this surface of revolution in the u
-    ## parametric direction. The bounds of the surface are not changed but
-    ## the given parametric direction is reversed. Hence the orientation of
-    ## the surface is reversed. As a consequence: - UReverse reverses the
-    ## direction of the axis of revolution of this surface,
-
-proc uReversedParameter*(this: Geom_SurfaceOfRevolution, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## Computes the u parameter on the modified surface, when reversing its u
-    ## parametric direction, for any point of u parameter U on this surface
-    ## of revolution. In the case of a revolved surface: - UReversedParameter
-    ## returns 2.*Pi - U
-
-proc vReverse*(this: var Geom_SurfaceOfRevolution)  {.importcpp: "VReverse".}
-    ## Changes the orientation of this surface of revolution in the v
-    ## parametric direction. The bounds of the surface are not changed but
-    ## the given parametric direction is reversed. Hence the orientation of
-    ## the surface is reversed. As a consequence: - VReverse reverses the
-    ## meridian of this surface of revolution.
-
-proc vReversedParameter*(this: Geom_SurfaceOfRevolution, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Computes the v parameter on the modified surface, when reversing its v
-    ## parametric direction, for any point of v parameter V on this surface
-    ## of revolution. In the case of a revolved surface: - VReversedParameter
-    ## returns the reversed parameter given by the function ReversedParameter
-    ## called with V on the meridian.
-
-proc transformParameters*(this: Geom_SurfaceOfRevolution, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-
-proc parametricTransformation*(this: Geom_SurfaceOfRevolution, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface.
-
-proc bounds*(this: Geom_SurfaceOfRevolution, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## Returns the parametric bounds U1, U2 , V1 and V2 of this surface. A
-    ## surface of revolution is always complete, so U1 = 0, U2 = 2*PI.
-
-proc isUClosed*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsUClosed".}
-    ## IsUClosed always returns true.
-
-proc isVClosed*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsVClosed".}
-    ## IsVClosed returns true if the meridian of this surface of revolution
-    ## is closed.
-
-proc isCNu*(this: Geom_SurfaceOfRevolution, N: cint): bool  {.importcpp: "IsCNu".}
-    ## IsCNu always returns true.
-
-proc isCNv*(this: Geom_SurfaceOfRevolution, N: cint): bool  {.importcpp: "IsCNv".}
-    ## IsCNv returns true if the degree of continuity of the meridian of this
-    ## surface of revolution is at least N. Raised if N < 0.
-
-proc isUPeriodic*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsUPeriodic".}
-    ## Returns True.
-
-proc isVPeriodic*(this: Geom_SurfaceOfRevolution): bool  {.importcpp: "IsVPeriodic".}
-    ## IsVPeriodic returns true if the meridian of this surface of revolution
-    ## is periodic.
-
-proc uIso*(this: Geom_SurfaceOfRevolution, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Computes the U isoparametric curve of this surface of revolution. It
-    ## is the curve obtained by rotating the meridian through an angle U
-    ## about the axis of revolution.
-
-proc vIso*(this: Geom_SurfaceOfRevolution, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Computes the U isoparametric curve of this surface of revolution. It
-    ## is the curve obtained by rotating the meridian through an angle U
-    ## about the axis of revolution.
-
-proc d0*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Computes the point P (U, V) on the surface. U is the angle of the
-    ## rotation around the revolution axis. The direction of this axis gives
-    ## the sense of rotation. V is the parameter of the revolved curve.
-
-proc d1*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Computes the current point and the first derivatives in the directions
-    ## U and V. Raised if the continuity of the surface is not C1.
-
-proc d2*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## Computes the current point, the first and the second derivatives in
-    ## the directions U and V. Raised if the continuity of the surface is not
-    ## C2.
-
-proc d3*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Computes the current point, the first,the second and the third
-    ## derivatives in the directions U and V. Raised if the continuity of the
-    ## surface is not C3.
-
-proc dN*(this: Geom_SurfaceOfRevolution, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## Computes the derivative of order Nu in the direction u and Nv in the
-    ## direction v.
-
-proc transform*(this: var Geom_SurfaceOfRevolution, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this surface of revolution.
-
-proc copy*(this: Geom_SurfaceOfRevolution): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this surface of revolution.
-
-proc dumpJson*(this: Geom_SurfaceOfRevolution, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_SurfaceOfRevolution): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_SurfaceOfRevolution): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_SurfaceOfRevolution): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_SurfaceOfRevolution.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_SurfaceOfRevolution::get_type_name(@)",
+                            header: "Geom_SurfaceOfRevolution.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_SurfaceOfRevolution::get_type_descriptor(@)",
+    header: "Geom_SurfaceOfRevolution.hxx".}
+proc dynamicType*(this: GeomSurfaceOfRevolution): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType", header: "Geom_SurfaceOfRevolution.hxx".} ]#

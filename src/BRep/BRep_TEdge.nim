@@ -1,40 +1,86 @@
-{.push header: "BRep_TEdge.hxx".}
+##  Created on: 1992-05-27
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1992-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of TopoDS_TShape"
+discard "forward decl of BRep_TEdge"
+discard "forward decl of BRep_TEdge"
+
+type
+  BRepTEdge* {.importcpp: "BRep_TEdge", header: "BRep_TEdge.hxx", bycopy.} = object of TopoDS_TEdge ##
+                                                                                          ## !
+                                                                                          ## Creates
+                                                                                          ## an
+                                                                                          ## empty
+                                                                                          ## TEdge.
 
 
-# Constructors and methods
-proc constructor_BRep_TEdge*(): BRep_TEdge {.constructor,importcpp: "BRep_TEdge".}
-  ## Creates an empty TEdge.
+type
+  HandleBRepTEdge* = Handle[BRepTEdge]
 
-proc tolerance*(this: BRep_TEdge): Standard_Real  {.importcpp: "Tolerance".}
+## ! The TEdge from BRep is  inherited from  the  TEdge
+## ! from TopoDS. It contains the geometric data.
+## !
+## ! The TEdge contains :
+## !
+## ! * A tolerance.
+## !
+## ! * A same parameter flag.
+## !
+## ! * A same range flag.
+## !
+## ! * A Degenerated flag.
+## !
+## ! *  A  list   of curve representation.
 
-proc tolerance*(this: var BRep_TEdge, T: Standard_Real)  {.importcpp: "Tolerance".}
+type
+  BRepTEdgebaseType* = TopoDS_TEdge
 
-proc updateTolerance*(this: var BRep_TEdge, T: Standard_Real)  {.importcpp: "UpdateTolerance".}
-  ## Sets the tolerance to the max of <T> and the current tolerance.
+#[ 
+proc constructBRepTEdge*(): BRepTEdge {.constructor, importcpp: "BRep_TEdge(@)",
+                                     header: "BRep_TEdge.hxx".}
+proc tolerance*(this: BRepTEdge): StandardReal {.noSideEffect,
+    importcpp: "Tolerance", header: "BRep_TEdge.hxx".}
+proc tolerance*(this: var BRepTEdge; t: StandardReal) {.importcpp: "Tolerance",
+    header: "BRep_TEdge.hxx".}
+proc updateTolerance*(this: var BRepTEdge; t: StandardReal) {.
+    importcpp: "UpdateTolerance", header: "BRep_TEdge.hxx".}
+proc sameParameter*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+    importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
+proc sameParameter*(this: var BRepTEdge; s: StandardBoolean) {.
+    importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
+proc sameRange*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+    importcpp: "SameRange", header: "BRep_TEdge.hxx".}
+proc sameRange*(this: var BRepTEdge; s: StandardBoolean) {.importcpp: "SameRange",
+    header: "BRep_TEdge.hxx".}
+proc degenerated*(this: BRepTEdge): StandardBoolean {.noSideEffect,
+    importcpp: "Degenerated", header: "BRep_TEdge.hxx".}
+proc degenerated*(this: var BRepTEdge; s: StandardBoolean) {.importcpp: "Degenerated",
+    header: "BRep_TEdge.hxx".}
+proc curves*(this: BRepTEdge): BRepListOfCurveRepresentation {.noSideEffect,
+    importcpp: "Curves", header: "BRep_TEdge.hxx".}
+proc changeCurves*(this: var BRepTEdge): var BRepListOfCurveRepresentation {.
+    importcpp: "ChangeCurves", header: "BRep_TEdge.hxx".}
+proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect,
+    importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
+proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "BRep_TEdge.hxx".}
 
-proc sameParameter*(this: BRep_TEdge): Standard_Boolean  {.importcpp: "SameParameter".}
-
-proc sameParameter*(this: var BRep_TEdge, S: Standard_Boolean)  {.importcpp: "SameParameter".}
-
-proc sameRange*(this: BRep_TEdge): Standard_Boolean  {.importcpp: "SameRange".}
-
-proc sameRange*(this: var BRep_TEdge, S: Standard_Boolean)  {.importcpp: "SameRange".}
-
-proc degenerated*(this: BRep_TEdge): Standard_Boolean  {.importcpp: "Degenerated".}
-
-proc degenerated*(this: var BRep_TEdge, S: Standard_Boolean)  {.importcpp: "Degenerated".}
-
-proc curves*(this: BRep_TEdge): BRep_ListOfCurveRepresentation  {.importcpp: "Curves".}
-
-proc changeCurves*(this: var BRep_TEdge): BRep_ListOfCurveRepresentation  {.importcpp: "ChangeCurves".}
-
-proc emptyCopy*(this: BRep_TEdge): Handle[TopoDS_TShape]  {.importcpp: "EmptyCopy".}
-  ## Returns a copy of the TShape with no sub-shapes.
-
-proc get_type_name*(this: var BRep_TEdge): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var BRep_TEdge): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: BRep_TEdge): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "BRep_TEdge.hxx
+proc getTypeName*(): cstring {.importcpp: "BRep_TEdge::get_type_name(@)",
+                            header: "BRep_TEdge.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "BRep_TEdge::get_type_descriptor(@)", header: "BRep_TEdge.hxx".}
+proc dynamicType*(this: BRepTEdge): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRep_TEdge.hxx".} ]#

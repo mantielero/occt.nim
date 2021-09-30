@@ -1,31 +1,35 @@
-import geom_types
+##  Created on: 1993-03-09
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Geom_UndefinedValue"
+discard "forward decl of Geom_UndefinedValue"
+
+type
+  GeomUndefinedValue* {.importcpp: "Geom_UndefinedValue",
+                       header: "Geom_UndefinedValue.hxx", bycopy.} = object of StandardDomainError
 
 
 type
-  Geom_UndefinedValue* {.header: "Geom_UndefinedValue.hxx", importcpp: "Geom_UndefinedValue", byref.} = object #of class Standard_DomainError
+  HandleGeomUndefinedValue* = Handle[GeomUndefinedValue]
 
-  Handle_Geom_UndefinedValue* {.header: "Geom_UndefinedValue.hxx", importcpp: "Handle_Geom_UndefinedValue".} = handle[Geom_UndefinedValue]
-  Base_type* {.header: "Geom_UndefinedValue.hxx", importcpp: "Geom_UndefinedValue::base_type".} = Standard_DomainError
+when not defined(noException) and not defined(noGeomUndefinedValue):
+  template geomUndefinedValueRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc geomUndefinedValue*(a1: Message): Throw {.
+          importcpp: "Geom_UndefinedValue(@)", header: "Geom_UndefinedValue.hxx".}
 
-
-{.push header: "Geom_UndefinedValue.hxx".}
-
-proc constructGeom_UndefinedValue*(): Geom_UndefinedValue {.constructor,importcpp: "Geom_UndefinedValue::Geom_UndefinedValue".}
-
-proc constructGeom_UndefinedValue*(theMessage: Standard_CString): Geom_UndefinedValue {.constructor,importcpp: "Geom_UndefinedValue::Geom_UndefinedValue(@)".}
-
-proc throw*(this: Geom_UndefinedValue)  {.importcpp: "Throw".}
-
-proc `raise`*(this: var Geom_UndefinedValue, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc `raise`*(this: var Geom_UndefinedValue, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc newInstance*(this: var Geom_UndefinedValue, theMessage: Standard_CString): handle[Geom_UndefinedValue]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var Geom_UndefinedValue): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_UndefinedValue): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_UndefinedValue): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_UndefinedValue.hxx"
+else:
+  discard

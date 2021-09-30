@@ -1,154 +1,104 @@
-{.push header: "gp_Parab2d.hxx".}
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Ax2d"
+discard "forward decl of gp_Ax22d"
+discard "forward decl of gp_Pnt2d"
+discard "forward decl of gp_Trsf2d"
+discard "forward decl of gp_Vec2d"
+type
+  Parab2d* {.importcpp: "gp_Parab2d", header: "gp_Parab2d.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Parab2d*(): gp_Parab2d {.constructor,importcpp: "gp_Parab2d".}
-  ## Creates an indefinite parabola.
-
-proc constructor_gp_Parab2d*(theMirrorAxis: gp_Ax2d, theFocalLength: cdouble, theSense: bool): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
-  ## Creates a parabola with its vertex point, its axis of symmetry
-  ## ("XAxis") and its focal length. The sense of parametrization is given
-  ## by theSense. If theSense == TRUE (by default) then right-handed
-  ## coordinate system is used, otherwise - left-handed. Warnings : It is
-  ## possible to have FocalLength = 0. In this case, the parabola looks
-  ## like a line, which is parallel to the symmetry-axis. Raises
-  ## ConstructionError if FocalLength < 0.0
-
-proc constructor_gp_Parab2d*(theAxes: gp_Ax22d, theFocalLength: cdouble): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
-  ## Creates a parabola with its vertex point, its axis of symmetry
-  ## ("XAxis"), correspond Y-axis and its focal length. Warnings : It is
-  ## possible to have FocalLength = 0. In this case, the parabola looks
-  ## like a line, which is parallel to the symmetry-axis. Raises
-  ## ConstructionError if Focal < 0.0
-
-proc constructor_gp_Parab2d*(theDirectrix: gp_Ax2d, theFocus: gp_Pnt2d, theSense: bool): gp_Parab2d {.constructor,importcpp: "gp_Parab2d(@)".}
-  ## Creates a parabola with the directrix and the focus point. Y-axis of
-  ## the parabola (in User Coordinate System - UCS) is the direction of
-  ## theDirectrix. X-axis always directs from theDirectrix to theFocus
-  ## point and always comes through theFocus. Apex of the parabola is a
-  ## middle point between the theFocus and the intersection point of
-  ## theDirectrix and the X-axis. Warnings : It is possible to have
-  ## FocalLength = 0 (when theFocus lies in theDirectrix). In this case,
-  ## X-direction of the parabola is defined by theSense parameter. If
-  ## theSense == TRUE (by default) then right-handed coordinate system is
-  ## used, otherwise - left-handed. Result parabola will look like a line,
-  ## which is perpendicular to the directrix.
-
-proc ` new`*(this: var gp_Parab2d, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Parab2d, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Parab2d, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Parab2d, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Parab2d, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Parab2d, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc SetFocal*(this: var gp_Parab2d, Focal: cdouble)  {.importcpp: "SetFocal".}
-  ## Changes the focal distance of the parabola Warnings : It is possible
-  ## to have Focal = 0. Raises ConstructionError if Focal < 0.0
-
-proc SetLocation*(this: var gp_Parab2d, P: gp_Pnt2d)  {.importcpp: "SetLocation".}
-  ## Changes the "Location" point of the parabola. It is the vertex of the
-  ## parabola.
-
-proc SetMirrorAxis*(this: var gp_Parab2d, A: gp_Ax2d)  {.importcpp: "SetMirrorAxis".}
-  ## Modifies this parabola, by redefining its local coordinate system so
-  ## that its origin and "X Direction" become those of the axis MA. The "Y
-  ## Direction" of the local coordinate system is then recomputed. The
-  ## orientation of the local coordinate system is not modified.
-
-proc SetAxis*(this: var gp_Parab2d, A: gp_Ax22d)  {.importcpp: "SetAxis".}
-  ## Changes the local coordinate system of the parabola. The "Location"
-  ## point of A becomes the vertex of the parabola.
-
-proc Coefficients*(this: gp_Parab2d, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble, E: var cdouble, F: var cdouble)  {.importcpp: "Coefficients".}
-  ## Computes the coefficients of the implicit equation of the parabola (in
-  ## WCS - World Coordinate System). A * (X**2) + B * (Y**2) + 2*C*(X*Y) +
-  ## 2*D*X + 2*E*Y + F = 0.
-
-proc Directrix*(this: gp_Parab2d): gp_Ax2d  {.importcpp: "Directrix".}
-  ## Computes the directrix of the parabola. The directrix is: - a line
-  ## parallel to the "Y Direction" of the local coordinate system of this
-  ## parabola, and - located on the negative side of the axis of symmetry,
-  ## at a distance from the apex which is equal to the focal length of this
-  ## parabola. The directrix is returned as an axis (a gp_Ax2d object), the
-  ## origin of which is situated on the "X Axis" of this parabola.
-
-proc Focal*(this: gp_Parab2d): cdouble  {.importcpp: "Focal".}
-  ## Returns the distance between the vertex and the focus of the parabola.
-
-proc Focus*(this: gp_Parab2d): gp_Pnt2d  {.importcpp: "Focus".}
-  ## Returns the focus of the parabola.
-
-proc Location*(this: gp_Parab2d): gp_Pnt2d  {.importcpp: "Location".}
-  ## Returns the vertex of the parabola.
-
-proc MirrorAxis*(this: gp_Parab2d): gp_Ax2d  {.importcpp: "MirrorAxis".}
-  ## Returns the symmetry axis of the parabola. The "Location" point of
-  ## this axis is the vertex of the parabola.
-
-proc Axis*(this: gp_Parab2d): gp_Ax22d  {.importcpp: "Axis".}
-  ## Returns the local coordinate system of the parabola. The "Location"
-  ## point of this axis is the vertex of the parabola.
-
-proc Parameter*(this: gp_Parab2d): cdouble  {.importcpp: "Parameter".}
-  ## Returns the distance between the focus and the directrix of the
-  ## parabola.
-
-proc Reverse*(this: var gp_Parab2d)  {.importcpp: "Reverse".}
-
-proc Reversed*(this: gp_Parab2d): gp_Parab2d  {.importcpp: "Reversed".}
-  ## Reverses the orientation of the local coordinate system of this
-  ## parabola (the "Y Direction" is reversed). Therefore, the implicit
-  ## orientation of this parabola is reversed. Note: - Reverse assigns the
-  ## result to this parabola, while - Reversed creates a new one.
-
-proc IsDirect*(this: gp_Parab2d): bool  {.importcpp: "IsDirect".}
-  ## Returns true if the local coordinate system is direct and false in the
-  ## other case.
-
-proc Mirror*(this: var gp_Parab2d, P: gp_Pnt2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Parab2d, P: gp_Pnt2d): gp_Parab2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a parabola with respect to
-  ## the point P which is the center of the symmetry
-
-proc Mirror*(this: var gp_Parab2d, A: gp_Ax2d)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Parab2d, A: gp_Ax2d): gp_Parab2d  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of a parabola with respect to
-  ## an axis placement which is the axis of the symmetry.
-
-proc Rotate*(this: var gp_Parab2d, P: gp_Pnt2d, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Parab2d, P: gp_Pnt2d, Ang: cdouble): gp_Parab2d  {.importcpp: "Rotated".}
-  ## Rotates a parabola. P is the center of the rotation. Ang is the
-  ## angular value of the rotation in radians.
-
-proc Scale*(this: var gp_Parab2d, P: gp_Pnt2d, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Parab2d, P: gp_Pnt2d, S: cdouble): gp_Parab2d  {.importcpp: "Scaled".}
-  ## Scales a parabola. S is the scaling value. If S is negative the
-  ## direction of the symmetry axis "XAxis" is reversed and the direction
-  ## of the "YAxis" too.
-
-proc Transform*(this: var gp_Parab2d, T: gp_Trsf2d)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Parab2d, T: gp_Trsf2d): gp_Parab2d  {.importcpp: "Transformed".}
-  ## Transforms an parabola with the transformation T from class Trsf2d.
-
-proc Translate*(this: var gp_Parab2d, V: gp_Vec2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Parab2d, V: gp_Vec2d): gp_Parab2d  {.importcpp: "Translated".}
-  ## Translates a parabola in the direction of the vector V. The magnitude
-  ## of the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Parab2d, P1: gp_Pnt2d, P2: gp_Pnt2d)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Parab2d, P1: gp_Pnt2d, P2: gp_Pnt2d): gp_Parab2d  {.importcpp: "Translated".}
-  ## Translates a parabola from the point P1 to the point P2.
-
-{.pop.} # header: "gp_Parab2d.hxx
+proc `new`*(this: var Parab2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab2d::operator new", header: "gp_Parab2d.hxx".}
+proc `delete`*(this: var Parab2d; theAddress: pointer) {.
+    importcpp: "gp_Parab2d::operator delete", header: "gp_Parab2d.hxx".}
+proc `new[]`*(this: var Parab2d; theSize: csize_t): pointer {.
+    importcpp: "gp_Parab2d::operator new[]", header: "gp_Parab2d.hxx".}
+proc `delete[]`*(this: var Parab2d; theAddress: pointer) {.
+    importcpp: "gp_Parab2d::operator delete[]", header: "gp_Parab2d.hxx".}
+proc `new`*(this: var Parab2d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Parab2d::operator new", header: "gp_Parab2d.hxx".}
+proc `delete`*(this: var Parab2d; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Parab2d::operator delete", header: "gp_Parab2d.hxx".}
+proc constructParab2d*(): Parab2d {.constructor, importcpp: "gp_Parab2d(@)",
+                                 header: "gp_Parab2d.hxx".}
+proc constructParab2d*(theMirrorAxis: Ax2d; theFocalLength: StandardReal;
+                      theSense: StandardBoolean = true): Parab2d {.constructor,
+    importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
+proc constructParab2d*(theAxes: Ax22d; theFocalLength: StandardReal): Parab2d {.
+    constructor, importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
+proc constructParab2d*(theDirectrix: Ax2d; theFocus: Pnt2d;
+                      theSense: StandardBoolean = true): Parab2d {.constructor,
+    importcpp: "gp_Parab2d(@)", header: "gp_Parab2d.hxx".}
+proc setFocal*(this: var Parab2d; focal: StandardReal) {.importcpp: "SetFocal",
+    header: "gp_Parab2d.hxx".}
+proc setLocation*(this: var Parab2d; p: Pnt2d) {.importcpp: "SetLocation",
+    header: "gp_Parab2d.hxx".}
+proc setMirrorAxis*(this: var Parab2d; a: Ax2d) {.importcpp: "SetMirrorAxis",
+    header: "gp_Parab2d.hxx".}
+proc setAxis*(this: var Parab2d; a: Ax22d) {.importcpp: "SetAxis",
+                                       header: "gp_Parab2d.hxx".}
+proc coefficients*(this: Parab2d; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal; e: var StandardReal;
+                  f: var StandardReal) {.noSideEffect, importcpp: "Coefficients",
+                                      header: "gp_Parab2d.hxx".}
+proc directrix*(this: Parab2d): Ax2d {.noSideEffect, importcpp: "Directrix",
+                                   header: "gp_Parab2d.hxx".}
+proc focal*(this: Parab2d): StandardReal {.noSideEffect, importcpp: "Focal",
+                                       header: "gp_Parab2d.hxx".}
+proc focus*(this: Parab2d): Pnt2d {.noSideEffect, importcpp: "Focus",
+                                header: "gp_Parab2d.hxx".}
+proc location*(this: Parab2d): Pnt2d {.noSideEffect, importcpp: "Location",
+                                   header: "gp_Parab2d.hxx".}
+proc mirrorAxis*(this: Parab2d): Ax2d {.noSideEffect, importcpp: "MirrorAxis",
+                                    header: "gp_Parab2d.hxx".}
+proc axis*(this: Parab2d): Ax22d {.noSideEffect, importcpp: "Axis",
+                               header: "gp_Parab2d.hxx".}
+proc parameter*(this: Parab2d): StandardReal {.noSideEffect, importcpp: "Parameter",
+    header: "gp_Parab2d.hxx".}
+proc reverse*(this: var Parab2d) {.importcpp: "Reverse", header: "gp_Parab2d.hxx".}
+proc reversed*(this: Parab2d): Parab2d {.noSideEffect, importcpp: "Reversed",
+                                     header: "gp_Parab2d.hxx".}
+proc isDirect*(this: Parab2d): StandardBoolean {.noSideEffect, importcpp: "IsDirect",
+    header: "gp_Parab2d.hxx".}
+proc mirror*(this: var Parab2d; p: Pnt2d) {.importcpp: "Mirror",
+                                      header: "gp_Parab2d.hxx".}
+proc mirrored*(this: Parab2d; p: Pnt2d): Parab2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Parab2d.hxx".}
+proc mirror*(this: var Parab2d; a: Ax2d) {.importcpp: "Mirror", header: "gp_Parab2d.hxx".}
+proc mirrored*(this: Parab2d; a: Ax2d): Parab2d {.noSideEffect, importcpp: "Mirrored",
+    header: "gp_Parab2d.hxx".}
+proc rotate*(this: var Parab2d; p: Pnt2d; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Parab2d.hxx".}
+proc rotated*(this: Parab2d; p: Pnt2d; ang: StandardReal): Parab2d {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Parab2d.hxx".}
+proc scale*(this: var Parab2d; p: Pnt2d; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Parab2d.hxx".}
+proc scaled*(this: Parab2d; p: Pnt2d; s: StandardReal): Parab2d {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Parab2d.hxx".}
+proc transform*(this: var Parab2d; t: Trsf2d) {.importcpp: "Transform",
+    header: "gp_Parab2d.hxx".}
+proc transformed*(this: Parab2d; t: Trsf2d): Parab2d {.noSideEffect,
+    importcpp: "Transformed", header: "gp_Parab2d.hxx".}
+proc translate*(this: var Parab2d; v: Vec2d) {.importcpp: "Translate",
+    header: "gp_Parab2d.hxx".}
+proc translated*(this: Parab2d; v: Vec2d): Parab2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Parab2d.hxx".}
+proc translate*(this: var Parab2d; p1: Pnt2d; p2: Pnt2d) {.importcpp: "Translate",
+    header: "gp_Parab2d.hxx".}
+proc translated*(this: Parab2d; p1: Pnt2d; p2: Pnt2d): Parab2d {.noSideEffect,
+    importcpp: "Translated", header: "gp_Parab2d.hxx".}

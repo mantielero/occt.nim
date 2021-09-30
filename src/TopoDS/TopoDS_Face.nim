@@ -1,20 +1,42 @@
-{.push header: "TopoDS_Face.hxx".}
+##  Created on: 1990-12-17
+##  Created by: Remi Lequette
+##  Copyright (c) 1990-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+## ! Describes a face which
+## ! - references an underlying face with the potential to
+## ! be given a location and an orientation
+## ! - has a location for the underlying face, giving its
+## ! placement in the local coordinate system
+## ! - has an orientation for the underlying face, in terms
+## ! of its geometry (as opposed to orientation in relation to other shapes).
+
+type
+  TopoDS_Face* {.importcpp: "TopoDS_Face", header: "TopoDS_Face.hxx", bycopy.} = object of TopoDS_Shape
 
 
-# Constructors and methods
-proc constructor_TopoDS_Face*(): TopoDS_Face {.constructor,importcpp: "TopoDS_Face".}
-  ## Undefined Face.
-
-proc ` new`*(this: var TopoDS_Face, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var TopoDS_Face, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var TopoDS_Face, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var TopoDS_Face, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var TopoDS_Face, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var TopoDS_Face, pointer, pointer)  {.importcpp: "#  delete #".}
-
-{.pop.} # header: "TopoDS_Face.hxx
+proc `new`*(this: var TopoDS_Face; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Face::operator new", header: "TopoDS_Face.hxx".}
+proc `delete`*(this: var TopoDS_Face; theAddress: pointer) {.
+    importcpp: "TopoDS_Face::operator delete", header: "TopoDS_Face.hxx".}
+proc `new[]`*(this: var TopoDS_Face; theSize: csize_t): pointer {.
+    importcpp: "TopoDS_Face::operator new[]", header: "TopoDS_Face.hxx".}
+proc `delete[]`*(this: var TopoDS_Face; theAddress: pointer) {.
+    importcpp: "TopoDS_Face::operator delete[]", header: "TopoDS_Face.hxx".}
+proc `new`*(this: var TopoDS_Face; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TopoDS_Face::operator new", header: "TopoDS_Face.hxx".}
+proc `delete`*(this: var TopoDS_Face; a2: pointer; a3: pointer) {.
+    importcpp: "TopoDS_Face::operator delete", header: "TopoDS_Face.hxx".}
+proc constructTopoDS_Face*(): TopoDS_Face {.constructor,
+    importcpp: "TopoDS_Face(@)", header: "TopoDS_Face.hxx".}

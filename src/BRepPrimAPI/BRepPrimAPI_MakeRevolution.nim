@@ -1,61 +1,77 @@
-import brepprimapi_types
-import ../Standard/standard
-import ../Geom/geom_types
-import ../gp/gp_types
-import ../BRepPrim/brepprim_types
+##  Created on: 1993-07-22
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "BRepPrimAPI_MakeRevolution.hxx".}
+discard "forward decl of Standard_DomainError"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Ax2"
+discard "forward decl of BRepPrim_Revolution"
+type
+  BRepPrimAPI_MakeRevolution* {.importcpp: "BRepPrimAPI_MakeRevolution",
+                               header: "BRepPrimAPI_MakeRevolution.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis
 
 
-# Constructors and methods
-proc MakeRevolution*(Meridian: Handle[Geom_Curve]): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Meridian: Handle[Geom_Curve], angle: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Meridian: Handle[Geom_Curve], VMin: cdouble, VMax: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Meridian: Handle[Geom_Curve], VMin: cdouble, VMax: cdouble, angle: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Axes: gp_Ax2, Meridian: Handle[Geom_Curve]): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Axes: gp_Ax2, Meridian: Handle[Geom_Curve], angle: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Axes: gp_Ax2, Meridian: Handle[Geom_Curve], VMin: cdouble, VMax: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z.
-
-proc MakeRevolution*(Axes: gp_Ax2, Meridian: Handle[Geom_Curve], VMin: cdouble, VMax: cdouble, angle: cdouble): BRepPrimAPI_MakeRevolution {.constructor,importcpp: "BRepPrimAPI_MakeRevolution(@)".}
-  ## Make a revolution body by rotating a curve around Z. For all
-  ## algorithms the resulting shape is composed of - a lateral revolved
-  ## face, - two planar faces in planes parallel to the plane z = 0, and
-  ## passing by the extremities of the revolved portion of Meridian, if
-  ## these points are not on the Z axis (in case of a complete revolved
-  ## shape, these faces are circles), - and in the case of a portion of a
-  ## revolved shape, two planar faces to close the shape (in the planes u =
-  ## 0 and u = angle).
-
-#[
-proc ` new`*(this: var BRepPrimAPI_MakeRevolution, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrimAPI_MakeRevolution, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepPrimAPI_MakeRevolution, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepPrimAPI_MakeRevolution, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepPrimAPI_MakeRevolution, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrimAPI_MakeRevolution, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
-proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): pointer  {.importcpp: "OneAxis".}
-  ## Returns the algorithm.
-
-proc revolution*(this: var BRepPrimAPI_MakeRevolution): BRepPrim_Revolution  {.importcpp: "Revolution".}
-  ## Returns the algorithm.
-
-{.pop.} # header: "BRepPrimAPI_MakeRevolution.hxx
+proc `new`*(this: var BRepPrimAPI_MakeRevolution; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator new",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeRevolution; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator delete",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc `new[]`*(this: var BRepPrimAPI_MakeRevolution; theSize: csize_t): pointer {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator new[]",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc `delete[]`*(this: var BRepPrimAPI_MakeRevolution; theAddress: pointer) {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator delete[]",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc `new`*(this: var BRepPrimAPI_MakeRevolution; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator new",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc `delete`*(this: var BRepPrimAPI_MakeRevolution; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrimAPI_MakeRevolution::operator delete",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve];
+    angle: StandardReal): BRepPrimAPI_MakeRevolution {.constructor,
+    importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve];
+    vMin: StandardReal; vMax: StandardReal): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve];
+    vMin: StandardReal; vMax: StandardReal; angle: StandardReal): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    angle: StandardReal): BRepPrimAPI_MakeRevolution {.constructor,
+    importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    vMin: StandardReal; vMax: StandardReal): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc constructBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
+    vMin: StandardReal; vMax: StandardReal; angle: StandardReal): BRepPrimAPI_MakeRevolution {.
+    constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)",
+    header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): StandardAddress {.
+    importcpp: "OneAxis", header: "BRepPrimAPI_MakeRevolution.hxx".}
+proc revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrimRevolution {.
+    importcpp: "Revolution", header: "BRepPrimAPI_MakeRevolution.hxx".}

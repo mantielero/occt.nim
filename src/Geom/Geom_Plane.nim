@@ -1,155 +1,197 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_RangeError"
+discard "forward decl of gp_Ax3"
+discard "forward decl of gp_Pln"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_Plane"
+discard "forward decl of Geom_Plane"
+
+type
+  GeomPlane* {.importcpp: "Geom_Plane", header: "Geom_Plane.hxx", bycopy.} = object of GeomElementarySurface ##
+                                                                                                   ## !
+                                                                                                   ## Creates
+                                                                                                   ## a
+                                                                                                   ## plane
+                                                                                                   ## located
+                                                                                                   ## in
+                                                                                                   ## 3D
+                                                                                                   ## space
+                                                                                                   ## with
+                                                                                                   ## an
+                                                                                                   ## axis
+                                                                                                   ## placement
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## three
+                                                                                                   ## axis.
+                                                                                                   ## The
+                                                                                                   ## "ZDirection"
+                                                                                                   ## of
+                                                                                                   ## "A3"
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## direction
+                                                                                                   ## normal
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## to
+                                                                                                   ## the
+                                                                                                   ## plane.
+                                                                                                   ## The
+                                                                                                   ## "Location"
+                                                                                                   ## point
+                                                                                                   ## of
+                                                                                                   ## "A3"
+                                                                                                   ## is
+                                                                                                   ## the
+                                                                                                   ## origin
+                                                                                                   ## of
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## the
+                                                                                                   ## plane.
+                                                                                                   ## The
+                                                                                                   ## "XDirection"
+                                                                                                   ## and
+                                                                                                   ## "YDirection"
+                                                                                                   ## of
+                                                                                                   ## "A3"
+                                                                                                   ## define
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## the
+                                                                                                   ## directions
+                                                                                                   ## of
+                                                                                                   ## the
+                                                                                                   ## U
+                                                                                                   ## isoparametric
+                                                                                                   ## and
+                                                                                                   ## V
+                                                                                                   ## isoparametric
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## curves.
 
 
 type
-  Geom_Plane* {.header: "Geom_Plane.hxx", importcpp: "Geom_Plane", byref.} = object #of class Geom_ElementarySurface
-    ## Describes a plane in 3D space. A plane is positioned in space by a
-    ## coordinate system (a gp_Ax3 object) such that the plane is defined by
-    ## the origin, "X Direction" and "Y Direction" of this coordinate system.
-    ## This coordinate system is the "local coordinate system" of the plane.
-    ## The following apply: - Its "X Direction" and "Y Direction" are
-    ## respectively the u and v parametric directions of the plane. - Its
-    ## origin is the origin of the u and v parameters (also called the
-    ## "origin" of the plane). - Its "main Direction" is a vector normal to
-    ## the plane. This normal vector gives the orientation of the plane only
-    ## if the local coordinate system is "direct". (The orientation of the
-    ## plane is always defined by the "X Direction" and the "Y Direction" of
-    ## its local coordinate system.) The parametric equation of the plane is:
-    ## P(u, v) = O + u*XDir + v*YDir where O, XDir and YDir are respectively
-    ## the origin, the "X Direction" and the "Y Direction" of the local
-    ## coordinate system of the plane. The parametric range of the two
-    ## parameters u and v is ] -infinity, +infinity [.
+  HandleGeomPlane* = Handle[GeomPlane]
 
-  Handle_Geom_Plane* {.header: "Geom_Plane.hxx", importcpp: "Handle_Geom_Plane".} = handle[Geom_Plane]
-  Base_type* {.header: "Geom_Plane.hxx", importcpp: "Geom_Plane::base_type".} = Geom_ElementarySurface
+## ! Describes a plane in 3D space.
+## ! A plane is positioned in space by a coordinate system
+## ! (a gp_Ax3 object) such that the plane is defined by
+## ! the origin, "X Direction" and "Y Direction" of this
+## ! coordinate system.
+## ! This coordinate system is the "local coordinate
+## ! system" of the plane. The following apply:
+## ! - Its "X Direction" and "Y Direction" are respectively
+## ! the u and v parametric directions of the plane.
+## ! - Its origin is the origin of the u and v parameters
+## ! (also called the "origin" of the plane).
+## ! - Its "main Direction" is a vector normal to the plane.
+## ! This normal vector gives the orientation of the
+## ! plane only if the local coordinate system is "direct".
+## ! (The orientation of the plane is always defined by
+## ! the "X Direction" and the "Y Direction" of its local
+## ! coordinate system.)
+## ! The parametric equation of the plane is:
+## ! P(u, v) = O + u*XDir + v*YDir
+## ! where O, XDir and YDir are respectively the
+## ! origin, the "X Direction" and the "Y Direction" of the
+## ! local coordinate system of the plane.
+## ! The parametric range of the two parameters u and v
+## ! is ] -infinity, +infinity [.
+
+type
+  GeomPlanebaseType* = GeomElementarySurface
+
+proc constructGeomPlane*(a3: Ax3): GeomPlane {.constructor,
+    importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+proc constructGeomPlane*(pl: Pln): GeomPlane {.constructor,
+    importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+proc constructGeomPlane*(p: Pnt; v: Dir): GeomPlane {.constructor,
+    importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+proc constructGeomPlane*(a: StandardReal; b: StandardReal; c: StandardReal;
+                        d: StandardReal): GeomPlane {.constructor,
+    importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+proc setPln*(this: var GeomPlane; pl: Pln) {.importcpp: "SetPln",
+                                       header: "Geom_Plane.hxx".}
+proc pln*(this: GeomPlane): Pln {.noSideEffect, importcpp: "Pln",
+                              header: "Geom_Plane.hxx".}
+proc uReverse*(this: var GeomPlane) {.importcpp: "UReverse", header: "Geom_Plane.hxx".}
+proc uReversedParameter*(this: GeomPlane; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}
+proc vReverse*(this: var GeomPlane) {.importcpp: "VReverse", header: "Geom_Plane.hxx".}
+proc vReversedParameter*(this: GeomPlane; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
+proc transformParameters*(this: GeomPlane; u: var StandardReal; v: var StandardReal;
+                         t: Trsf) {.noSideEffect, importcpp: "TransformParameters",
+                                  header: "Geom_Plane.hxx".}
+proc parametricTransformation*(this: GeomPlane; t: Trsf): GTrsf2d {.noSideEffect,
+    importcpp: "ParametricTransformation", header: "Geom_Plane.hxx".}
+proc bounds*(this: GeomPlane; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_Plane.hxx".}
+proc coefficients*(this: GeomPlane; a: var StandardReal; b: var StandardReal;
+                  c: var StandardReal; d: var StandardReal) {.noSideEffect,
+    importcpp: "Coefficients", header: "Geom_Plane.hxx".}
+proc isUClosed*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_Plane.hxx".}
+proc isVClosed*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_Plane.hxx".}
+proc isUPeriodic*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_Plane.hxx".}
+proc isVPeriodic*(this: GeomPlane): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_Plane.hxx".}
+proc uIso*(this: GeomPlane; u: StandardReal): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "UIso", header: "Geom_Plane.hxx".}
+proc vIso*(this: GeomPlane; v: StandardReal): Handle[GeomCurve] {.noSideEffect,
+    importcpp: "VIso", header: "Geom_Plane.hxx".}
+proc d0*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt) {.noSideEffect,
+    importcpp: "D0", header: "Geom_Plane.hxx".}
+proc d1*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec) {.noSideEffect, importcpp: "D1", header: "Geom_Plane.hxx".}
+proc d2*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_Plane.hxx".}
+proc d3*(this: GeomPlane; u: StandardReal; v: StandardReal; p: var Pnt; d1u: var Vec;
+        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
+        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+                                    header: "Geom_Plane.hxx".}
+proc dn*(this: GeomPlane; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_Plane.hxx".}
+proc transform*(this: var GeomPlane; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_Plane.hxx".}
+proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, importcpp: "Copy",
+    header: "Geom_Plane.hxx".}
+proc dumpJson*(this: GeomPlane; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "Geom_Plane.hxx".}
 
 
-{.push header: "Geom_Plane.hxx".}
-
-proc constructGeom_Plane*(A3: gp_Ax3): Geom_Plane {.constructor,importcpp: "Geom_Plane::Geom_Plane(@)".}
-    ## Creates a plane located in 3D space with an axis placement three axis.
-    ## The "ZDirection" of "A3" is the direction normal to the plane. The
-    ## "Location" point of "A3" is the origin of the plane. The "XDirection"
-    ## and "YDirection" of "A3" define the directions of the U isoparametric
-    ## and V isoparametric curves.
-
-proc constructGeom_Plane*(Pl: gp_Pln): Geom_Plane {.constructor,importcpp: "Geom_Plane::Geom_Plane(@)".}
-    ## Creates a plane from a non transient plane from package gp.
-
-proc constructGeom_Plane*(P: gp_Pnt, V: gp_Dir): Geom_Plane {.constructor,importcpp: "Geom_Plane::Geom_Plane(@)".}
-    ## P is the "Location" point or origin of the plane. V is the direction
-    ## normal to the plane.
-
-proc constructGeom_Plane*(A: cdouble, B: cdouble, C: cdouble, D: cdouble): Geom_Plane {.constructor,importcpp: "Geom_Plane::Geom_Plane(@)".}
-    ## Creates a plane from its cartesian equation : Ax + By + Cz + D = 0.0
-
-proc setPln*(this: var Geom_Plane, Pl: gp_Pln)  {.importcpp: "SetPln".}
-    ## Set <me> so that <me> has the same geometric properties as Pl.
-
-proc pln*(this: Geom_Plane): gp_Pln  {.importcpp: "Pln".}
-    ## Converts this plane into a gp_Pln plane.
-
-proc uReverse*(this: var Geom_Plane)  {.importcpp: "UReverse".}
-    ## Changes the orientation of this plane in the u (or v) parametric
-    ## direction. The bounds of the plane are not changed but the given
-    ## parametric direction is reversed. Hence the orientation of the surface
-    ## is reversed.
-
-proc uReversedParameter*(this: Geom_Plane, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## Computes the u parameter on the modified plane, produced when
-    ## reversing the u parametric of this plane, for any point of u parameter
-    ## U on this plane. In the case of a plane, these methods return - -U.
-
-proc vReverse*(this: var Geom_Plane)  {.importcpp: "VReverse".}
-    ## Changes the orientation of this plane in the u (or v) parametric
-    ## direction. The bounds of the plane are not changed but the given
-    ## parametric direction is reversed. Hence the orientation of the surface
-    ## is reversed.
-
-proc vReversedParameter*(this: Geom_Plane, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Computes the v parameter on the modified plane, produced when
-    ## reversing the v parametric of this plane, for any point of v parameter
-    ## V on this plane. In the case of a plane, these methods return -V.
-
-proc transformParameters*(this: Geom_Plane, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-    ## me->Transformed(T)->Value(U',V') is the same point as
-    ## me->Value(U,V).Transformed(T) Where U',V' are the new values of U,V
-    ## after calling me->TranformParameters(U,V,T) This methods multiplies U
-    ## and V by T.ScaleFactor()
-
-proc parametricTransformation*(this: Geom_Plane, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface. me->Transformed(T)->Value(U',V') is the
-    ## same point as me->Value(U,V).Transformed(T) Where U',V' are obtained
-    ## by transforming U,V with th 2d transformation returned by
-    ## me->ParametricTransformation(T) This methods returns a scale centered
-    ## on the origin with T.ScaleFactor
-
-proc bounds*(this: Geom_Plane, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## Returns the parametric bounds U1, U2, V1 and V2 of this plane. Because
-    ## a plane is an infinite surface, the following is always true: - U1 =
-    ## V1 = cdouble::RealFirst() - U2 = V2 = cdouble::RealLast().
-
-proc coefficients*(this: Geom_Plane, A: var cdouble, B: var cdouble, C: var cdouble, D: var cdouble)  {.importcpp: "Coefficients".}
-    ## Computes the normalized coefficients of the plane's cartesian equation
-    ## : Ax + By + Cz + D = 0.0
-
-proc isUClosed*(this: Geom_Plane): bool  {.importcpp: "IsUClosed".}
-    ## return False
-
-proc isVClosed*(this: Geom_Plane): bool  {.importcpp: "IsVClosed".}
-    ## return False
-
-proc isUPeriodic*(this: Geom_Plane): bool  {.importcpp: "IsUPeriodic".}
-    ## return False.
-
-proc isVPeriodic*(this: Geom_Plane): bool  {.importcpp: "IsVPeriodic".}
-    ## return False.
-
-proc uIso*(this: Geom_Plane, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Computes the U isoparametric curve. This is a Line parallel to the
-    ## YAxis of the plane.
-
-proc vIso*(this: Geom_Plane, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Computes the V isoparametric curve. This is a Line parallel to the
-    ## XAxis of the plane.
-
-proc d0*(this: Geom_Plane, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## Computes the point P (U, V) on <me>. P = O + U * XDir + V * YDir.
-    ## where O is the "Location" point of the plane, XDir the "XDirection"
-    ## and YDir the "YDirection" of the plane's local coordinate system.
-
-proc d1*(this: Geom_Plane, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Computes the current point and the first derivatives in the directions
-    ## U and V.
-
-proc d2*(this: Geom_Plane, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## Computes the current point, the first and the second derivatives in
-    ## the directions U and V.
-
-proc d3*(this: Geom_Plane, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Computes the current point, the first,the second and the third
-    ## derivatives in the directions U and V.
-
-proc dN*(this: Geom_Plane, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## Computes the derivative of order Nu in the direction u and Nv in the
-    ## direction v. Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
-
-proc transform*(this: var Geom_Plane, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this plane.
-
-proc copy*(this: Geom_Plane): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this plane.
-
-proc dumpJson*(this: Geom_Plane, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_Plane): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_Plane): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_Plane): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_Plane.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_Plane::get_type_name(@)",
+                            header: "Geom_Plane.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_Plane::get_type_descriptor(@)", header: "Geom_Plane.hxx".}
+proc dynamicType*(this: GeomPlane): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_Plane.hxx".} ]#

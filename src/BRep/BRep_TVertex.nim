@@ -1,31 +1,61 @@
-{.push header: "BRep_TVertex.hxx".}
+##  Created on: 1992-05-27
+##  Created by: Remi LEQUETTE
+##  Copyright (c) 1992-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
+discard "forward decl of gp_Pnt"
+discard "forward decl of TopoDS_TShape"
+discard "forward decl of BRep_TVertex"
+discard "forward decl of BRep_TVertex"
+type
+  BRepTVertex* {.importcpp: "BRep_TVertex", header: "BRep_TVertex.hxx", bycopy.} = object of TopoDS_TVertex
 
-# Constructors and methods
-proc constructor_BRep_TVertex*(): BRep_TVertex {.constructor,importcpp: "BRep_TVertex".}
+type
+  HandleBRepTVertex* = Handle[BRepTVertex]
 
-proc tolerance*(this: BRep_TVertex): Standard_Real  {.importcpp: "Tolerance".}
+## ! The TVertex from  BRep inherits  from  the TVertex
+## ! from TopoDS. It contains the geometric data.
+## !
+## ! The  TVertex contains a 3d point, location and a tolerance.
 
-proc tolerance*(this: var BRep_TVertex, T: Standard_Real)  {.importcpp: "Tolerance".}
+type
+  BRepTVertexbaseType* = TopoDS_TVertex
 
-proc updateTolerance*(this: var BRep_TVertex, T: Standard_Real)  {.importcpp: "UpdateTolerance".}
-  ## Sets the tolerance to the max of <T> and the current tolerance.
+#[ 
+proc constructBRepTVertex*(): BRepTVertex {.constructor,
+    importcpp: "BRep_TVertex(@)", header: "BRep_TVertex.hxx".}
+proc tolerance*(this: BRepTVertex): StandardReal {.noSideEffect,
+    importcpp: "Tolerance", header: "BRep_TVertex.hxx".}
+proc tolerance*(this: var BRepTVertex; t: StandardReal) {.importcpp: "Tolerance",
+    header: "BRep_TVertex.hxx".}
+proc updateTolerance*(this: var BRepTVertex; t: StandardReal) {.
+    importcpp: "UpdateTolerance", header: "BRep_TVertex.hxx".}
+proc pnt*(this: BRepTVertex): Pnt {.noSideEffect, importcpp: "Pnt",
+                                header: "BRep_TVertex.hxx".}
+proc pnt*(this: var BRepTVertex; p: Pnt) {.importcpp: "Pnt", header: "BRep_TVertex.hxx".}
+proc points*(this: BRepTVertex): BRepListOfPointRepresentation {.noSideEffect,
+    importcpp: "Points", header: "BRep_TVertex.hxx".}
+proc changePoints*(this: var BRepTVertex): var BRepListOfPointRepresentation {.
+    importcpp: "ChangePoints", header: "BRep_TVertex.hxx".}
+proc emptyCopy*(this: BRepTVertex): Handle[TopoDS_TShape] {.noSideEffect,
+    importcpp: "EmptyCopy", header: "BRep_TVertex.hxx".}
+proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "BRep_TVertex.hxx".}
 
-proc pnt*(this: BRep_TVertex): gp_Pnt  {.importcpp: "Pnt".}
-
-proc pnt*(this: var BRep_TVertex, P: gp_Pnt)  {.importcpp: "Pnt".}
-
-proc points*(this: BRep_TVertex): BRep_ListOfPointRepresentation  {.importcpp: "Points".}
-
-proc changePoints*(this: var BRep_TVertex): BRep_ListOfPointRepresentation  {.importcpp: "ChangePoints".}
-
-proc emptyCopy*(this: BRep_TVertex): Handle[TopoDS_TShape]  {.importcpp: "EmptyCopy".}
-  ## Returns a copy of the TShape with no sub-shapes.
-
-proc get_type_name*(this: var BRep_TVertex): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var BRep_TVertex): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: BRep_TVertex): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "BRep_TVertex.hxx
+proc getTypeName*(): cstring {.importcpp: "BRep_TVertex::get_type_name(@)",
+                            header: "BRep_TVertex.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "BRep_TVertex::get_type_descriptor(@)", header: "BRep_TVertex.hxx".}
+proc dynamicType*(this: BRepTVertex): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "BRep_TVertex.hxx".} ]#

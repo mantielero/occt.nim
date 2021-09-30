@@ -1,27 +1,56 @@
-{.push header: "Standard_Persistent.hxx".}
+##  Copyright (c) 1998-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+## ! Root of "persistent" classes, a legacy support of
+## ! object oriented databases, now outdated.
+
+type
+  StandardPersistent* {.importcpp: "Standard_Persistent",
+                       header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
 
-# Constructors and methods
-proc constructor_Standard_Persistent*(): Standard_Persistent {.constructor,importcpp: "Standard_Persistent".}
+proc `new`*(this: var StandardPersistent; theSize: csize_t): pointer {.
+    importcpp: "Standard_Persistent::operator new",
+    header: "Standard_Persistent.hxx".}
+proc `delete`*(this: var StandardPersistent; theAddress: pointer) {.
+    importcpp: "Standard_Persistent::operator delete",
+    header: "Standard_Persistent.hxx".}
+proc `new[]`*(this: var StandardPersistent; theSize: csize_t): pointer {.
+    importcpp: "Standard_Persistent::operator new[]",
+    header: "Standard_Persistent.hxx".}
+proc `delete[]`*(this: var StandardPersistent; theAddress: pointer) {.
+    importcpp: "Standard_Persistent::operator delete[]",
+    header: "Standard_Persistent.hxx".}
+proc `new`*(this: var StandardPersistent; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Standard_Persistent::operator new",
+    header: "Standard_Persistent.hxx".}
+proc `delete`*(this: var StandardPersistent; a2: pointer; a3: pointer) {.
+    importcpp: "Standard_Persistent::operator delete",
+    header: "Standard_Persistent.hxx".}
+proc constructStandardPersistent*(): StandardPersistent {.constructor,
+    importcpp: "Standard_Persistent(@)", header: "Standard_Persistent.hxx".}
+type
+  StandardPersistentbaseType* = StandardTransient
 
-proc ` new`*(this: var Standard_Persistent, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var Standard_Persistent, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var Standard_Persistent, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var Standard_Persistent, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var Standard_Persistent, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var Standard_Persistent, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc get_type_name*(this: var Standard_Persistent): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_Persistent): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_Persistent): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-proc TypeNum*(this: var Standard_Persistent): Standard_Integer  {.importcpp: "TypeNum".}
-
-{.pop.} # header: "Standard_Persistent.hxx
+#[
+proc getTypeName*(): cstring {.importcpp: "Standard_Persistent::get_type_name(@)",
+                            header: "Standard_Persistent.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Standard_Persistent::get_type_descriptor(@)",
+    header: "Standard_Persistent.hxx".}
+proc dynamicType*(this: StandardPersistent): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Standard_Persistent.hxx".}
+proc typeNum*(this: var StandardPersistent): var int {.importcpp: "TypeNum",
+    header: "Standard_Persistent.hxx".}
+]#

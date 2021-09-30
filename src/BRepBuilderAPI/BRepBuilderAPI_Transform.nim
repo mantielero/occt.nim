@@ -1,54 +1,57 @@
-import brepbuilderapi_types
-import ../gp/gp_types
-import ../TopoDS/topods_types
-import ../Standard/standard
+##  Created on: 1994-12-09
+##  Created by: Jacques GOUSSARD
+##  Copyright (c) 1994-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "BRepBuilderAPI_Transform.hxx".}
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of gp_Trsf"
+discard "forward decl of TopoDS_Shape"
+type
+  BRepBuilderAPI_Transform* {.importcpp: "BRepBuilderAPI_Transform",
+                             header: "BRepBuilderAPI_Transform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape
 
-#{.push header: "BRepBuilderAPI_Transform.hxx".}
 
-proc BRepBuilderAPI_Transform*(T: gp_Trsf): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
-    ## Constructs a framework for applying the geometric transformation T to
-    ## a shape. Use the function Perform to define the shape to transform.
-
-proc BRepBuilderAPI_Transform*(S: TopoDS_Shape, T: gp_Trsf, Copy: Standard_Boolean = false): BRepBuilderAPI_Transform {.constructor,importcpp: "BRepBuilderAPI_Transform::BRepBuilderAPI_Transform(@)".}
-    ## Creates a transformation from the gp_Trsf <T>, and applies it to the
-    ## shape <S>. If the transformation is direct and isometric (determinant
-    ## = 1) and <Copy> = Standard_False, the resulting shape is <S> on which
-    ## a new location has been set. Otherwise, the transformation is applied
-    ## on a duplication of <S>.
-
-#[
-proc ` new`*(this: var BRepBuilderAPI_Transform, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepBuilderAPI_Transform, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepBuilderAPI_Transform, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepBuilderAPI_Transform, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepBuilderAPI_Transform, a00: cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepBuilderAPI_Transform, a00: pointer, a01: pointer)  {.importcpp: "#  delete #".}
-]#
-
-proc perform*(this: var BRepBuilderAPI_Transform, S: TopoDS_Shape, Copy: Standard_Boolean)  {.importcpp: "Perform".}
-    ## pplies the geometric transformation defined at the time of
-    ## construction of this framework to the shape S. - If the transformation
-    ## T is direct and isometric, in other words, if the determinant of the
-    ## vectorial part of T is equal to 1., and if Copy equals false (the
-    ## default value), the resulting shape is the same as the original but
-    ## with a new location assigned to it. - In all other cases, the
-    ## transformation is applied to a duplicate of S. Use the function Shape
-    ## to access the result. Note: this framework can be reused to apply the
-    ## same geometric transformation to other shapes. You only need to
-    ## specify them by calling the function Perform again.
-
-proc modifiedShape*(this: BRepBuilderAPI_Transform, S: TopoDS_Shape): TopoDS_Shape  {.importcpp: "ModifiedShape".}
-    ## Returns the modified shape corresponding to <S>.
-
-#[FIXME
-proc modified*(this: var BRepBuilderAPI_Transform, S: TopoDS_Shape): TopTools_ListOfShape  {.importcpp: "Modified".}
-    ## Returns the list of shapes modified from the shape <S>.
-]#
-{.pop.}  # header: "BRepBuilderAPI_Transform.hxx"
+proc `new`*(this: var BRepBuilderAPI_Transform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Transform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `new[]`*(this: var BRepBuilderAPI_Transform; theSize: csize_t): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new[]",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete[]`*(this: var BRepBuilderAPI_Transform; theAddress: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete[]",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `new`*(this: var BRepBuilderAPI_Transform; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepBuilderAPI_Transform::operator new",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc `delete`*(this: var BRepBuilderAPI_Transform; a2: pointer; a3: pointer) {.
+    importcpp: "BRepBuilderAPI_Transform::operator delete",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc transform*(t: Trsf): BRepBuilderAPI_Transform {.
+    constructor, importcpp: "BRepBuilderAPI_Transform(@)",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc transform*(s: TopoDS_Shape; t: Trsf;
+                                       copy: StandardBoolean = false): BRepBuilderAPI_Transform {.
+    constructor, importcpp: "BRepBuilderAPI_Transform(@)",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape;
+             copy: StandardBoolean = false) {.importcpp: "Perform",
+    header: "BRepBuilderAPI_Transform.hxx".}
+proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Shape {.
+    noSideEffect, importcpp: "ModifiedShape",
+    header: "BRepBuilderAPI_Transform.hxx".}
+#[ proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
+    importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".} ]#

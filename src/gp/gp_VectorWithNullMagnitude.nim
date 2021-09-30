@@ -1,23 +1,35 @@
-{.push header: "gp_VectorWithNullMagnitude.hxx".}
+##  Created on: 1993-04-13
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of gp_VectorWithNullMagnitude"
+discard "forward decl of gp_VectorWithNullMagnitude"
+type
+  VectorWithNullMagnitude* {.importcpp: "gp_VectorWithNullMagnitude",
+                            header: "gp_VectorWithNullMagnitude.hxx", bycopy.} = object of StandardDomainError
+type
+  HandleVectorWithNullMagnitude* = Handle[VectorWithNullMagnitude]
+
+when not defined(noException) and not defined(noGpVectorWithNullMagnitude):
+  template vectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc vectorWithNullMagnitude*(a1: Message): Throw {.
+          importcpp: "gp_VectorWithNullMagnitude(@)",
+          header: "gp_VectorWithNullMagnitude.hxx".}
+
+else:
+  discard
 
 
-# Constructors and methods
-proc constructor_gp_VectorWithNullMagnitude*(): gp_VectorWithNullMagnitude {.constructor,importcpp: "gp_VectorWithNullMagnitude".}
-
-proc constructor_gp_VectorWithNullMagnitude*(theMessage: Standard_CString): gp_VectorWithNullMagnitude {.constructor,importcpp: "gp_VectorWithNullMagnitude(@)".}
-
-proc Throw*(this: gp_VectorWithNullMagnitude)  {.importcpp: "Throw".}
-
-proc Raise*(this: var gp_VectorWithNullMagnitude, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc Raise*(this: var gp_VectorWithNullMagnitude, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc NewInstance*(this: var gp_VectorWithNullMagnitude, theMessage: Standard_CString): Handle[gp_VectorWithNullMagnitude]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var gp_VectorWithNullMagnitude): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var gp_VectorWithNullMagnitude): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: gp_VectorWithNullMagnitude): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "gp_VectorWithNullMagnitude.hxx

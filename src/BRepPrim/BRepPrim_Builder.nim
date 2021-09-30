@@ -1,102 +1,99 @@
-import ../BRep/BRep_types
+##  Created on: 1992-03-12
+##  Created by: Philippe DAUTRY
+##  Copyright (c) 1992-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
 
-{.push header: "BRepPrim_Builder.hxx".}
+discard "forward decl of BRep_Builder"
+discard "forward decl of TopoDS_Shell"
+discard "forward decl of TopoDS_Face"
+discard "forward decl of gp_Pln"
+discard "forward decl of TopoDS_Wire"
+discard "forward decl of TopoDS_Edge"
+discard "forward decl of gp_Lin"
+discard "forward decl of gp_Circ"
+discard "forward decl of gp_Lin2d"
+discard "forward decl of gp_Circ2d"
+discard "forward decl of TopoDS_Vertex"
+discard "forward decl of gp_Pnt"
+type
+  BRepPrimBuilder* {.importcpp: "BRepPrim_Builder", header: "BRepPrim_Builder.hxx",
+                    bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_BRepPrim_Builder*(): BRepPrim_Builder {.constructor,importcpp: "BRepPrim_Builder".}
-  ## Creates an empty, useless Builder. Necesseray for compilation.
-
-proc constructor_BRepPrim_Builder*(B: BRep_Builder): BRepPrim_Builder {.constructor,importcpp: "BRepPrim_Builder(@)".}
-  ## Creates from a Builder.
-#[
-proc ` new`*(this: var BRepPrim_Builder, theSize: cint)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_Builder, theAddress: pointer)  {.importcpp: "#  delete #".}
-
-proc ` new[]`*(this: var BRepPrim_Builder, theSize: cint)  {.importcpp: "#  new[] #".}
-
-proc ` delete[]`*(this: var BRepPrim_Builder, theAddress: pointer)  {.importcpp: "#  delete[] #".}
-
-proc ` new`*(this: var BRepPrim_Builder, cint, theAddress: pointer)  {.importcpp: "#  new #".}
-
-proc ` delete`*(this: var BRepPrim_Builder, pointer, pointer)  {.importcpp: "#  delete #".}
-]#
-proc builder*(this: BRepPrim_Builder): BRep_Builder  {.importcpp: "Builder".}
-
-proc makeShell*(this: BRepPrim_Builder, S: var TopoDS_Shell)  {.importcpp: "MakeShell".}
-  ## Make a empty Shell.
-
-proc makeFace*(this: BRepPrim_Builder, F: var TopoDS_Face, P: gp_Pln)  {.importcpp: "MakeFace".}
-  ## Returns in <F> a Face built with the plane equation <P>. Used by all
-  ## primitives.
-
-proc makeWire*(this: BRepPrim_Builder, W: var TopoDS_Wire)  {.importcpp: "MakeWire".}
-  ## Returns in <W> an empty Wire.
-
-proc makeDegeneratedEdge*(this: BRepPrim_Builder, E: var TopoDS_Edge)  {.importcpp: "MakeDegeneratedEdge".}
-  ## Returns in <E> a degenerated edge.
-
-proc makeEdge*(this: BRepPrim_Builder, E: var TopoDS_Edge, L: gp_Lin)  {.importcpp: "MakeEdge".}
-  ## Returns in <E> an Edge built with the line equation <L>.
-
-proc makeEdge*(this: BRepPrim_Builder, E: var TopoDS_Edge, C: gp_Circ)  {.importcpp: "MakeEdge".}
-  ## Returns in <E> an Edge built with the circle equation <C>.
-
-proc setPCurve*(this: BRepPrim_Builder, E: var TopoDS_Edge, F: TopoDS_Face, L: gp_Lin2d)  {.importcpp: "SetPCurve".}
-  ## Sets the line <L> to be the curve representing the edge <E> in the
-  ## parametric space of the surface of <F>.
-
-proc setPCurve*(this: BRepPrim_Builder, E: var TopoDS_Edge, F: TopoDS_Face, L1: gp_Lin2d, L2: gp_Lin2d)  {.importcpp: "SetPCurve".}
-  ## Sets the lines <L1,L2> to be the curves representing the edge <E> in
-  ## the parametric space of the closed surface of <F>.
-
-proc setPCurve*(this: BRepPrim_Builder, E: var TopoDS_Edge, F: TopoDS_Face, C: gp_Circ2d)  {.importcpp: "SetPCurve".}
-  ## Sets the circle <C> to be the curve representing the edge <E> in the
-  ## parametric space of the surface of <F>.
-
-proc makeVertex*(this: BRepPrim_Builder, V: var TopoDS_Vertex, P: gp_Pnt)  {.importcpp: "MakeVertex".}
-  ## Returns in <V> a Vertex built with the point <P>.
-
-proc reverseFace*(this: BRepPrim_Builder, F: var TopoDS_Face)  {.importcpp: "ReverseFace".}
-  ## Reverses the Face <F>.
-
-proc addEdgeVertex*(this: BRepPrim_Builder, E: var TopoDS_Edge, V: TopoDS_Vertex, P: cdouble, direct: bool)  {.importcpp: "AddEdgeVertex".}
-  ## Adds the Vertex <V> in the Edge <E>. <P> is the parameter of the
-  ## vertex on the edge. If direct is False the Vertex is reversed.
-
-proc addEdgeVertex*(this: BRepPrim_Builder, E: var TopoDS_Edge, V: TopoDS_Vertex, P1: cdouble, P2: cdouble)  {.importcpp: "AddEdgeVertex".}
-  ## Adds the Vertex <V> in the Edge <E>. <P1,P2> are the parameters of the
-  ## vertex on the closed edge.
-
-proc setParameters*(this: BRepPrim_Builder, E: var TopoDS_Edge, V: TopoDS_Vertex, P1: cdouble, P2: cdouble)  {.importcpp: "SetParameters".}
-  ## <P1,P2> are the parameters of the vertex on the edge. The edge is a
-  ## closed curve.
-
-proc addWireEdge*(this: BRepPrim_Builder, W: var TopoDS_Wire, E: TopoDS_Edge, direct: bool)  {.importcpp: "AddWireEdge".}
-  ## Adds the Edge <E> in the Wire <W>, if direct is False the Edge is
-  ## reversed.
-
-proc addFaceWire*(this: BRepPrim_Builder, F: var TopoDS_Face, W: TopoDS_Wire)  {.importcpp: "AddFaceWire".}
-  ## Adds the Wire <W> in the Face <F>.
-
-proc addShellFace*(this: BRepPrim_Builder, Sh: var TopoDS_Shell, F: TopoDS_Face)  {.importcpp: "AddShellFace".}
-  ## Adds the Face <F> in the Shell <Sh>.
-
-proc completeEdge*(this: BRepPrim_Builder, E: var TopoDS_Edge)  {.importcpp: "CompleteEdge".}
-  ## This is called once an edge is completed. It gives the opportunity to
-  ## perform any post treatment.
-
-proc completeWire*(this: BRepPrim_Builder, W: var TopoDS_Wire)  {.importcpp: "CompleteWire".}
-  ## This is called once a wire is completed. It gives the opportunity to
-  ## perform any post treatment.
-
-proc completeFace*(this: BRepPrim_Builder, F: var TopoDS_Face)  {.importcpp: "CompleteFace".}
-  ## This is called once a face is completed. It gives the opportunity to
-  ## perform any post treatment.
-
-proc completeShell*(this: BRepPrim_Builder, S: var TopoDS_Shell)  {.importcpp: "CompleteShell".}
-  ## This is called once a shell is completed. It gives the opportunity to
-  ## perform any post treatment.
-
-{.pop.} # header: "BRepPrim_Builder.hxx
+proc `new`*(this: var BRepPrimBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Builder::operator new", header: "BRepPrim_Builder.hxx".}
+proc `delete`*(this: var BRepPrimBuilder; theAddress: pointer) {.
+    importcpp: "BRepPrim_Builder::operator delete", header: "BRepPrim_Builder.hxx".}
+proc `new[]`*(this: var BRepPrimBuilder; theSize: csize_t): pointer {.
+    importcpp: "BRepPrim_Builder::operator new[]", header: "BRepPrim_Builder.hxx".}
+proc `delete[]`*(this: var BRepPrimBuilder; theAddress: pointer) {.
+    importcpp: "BRepPrim_Builder::operator delete[]",
+    header: "BRepPrim_Builder.hxx".}
+proc `new`*(this: var BRepPrimBuilder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "BRepPrim_Builder::operator new", header: "BRepPrim_Builder.hxx".}
+proc `delete`*(this: var BRepPrimBuilder; a2: pointer; a3: pointer) {.
+    importcpp: "BRepPrim_Builder::operator delete", header: "BRepPrim_Builder.hxx".}
+proc constructBRepPrimBuilder*(): BRepPrimBuilder {.constructor,
+    importcpp: "BRepPrim_Builder(@)", header: "BRepPrim_Builder.hxx".}
+proc constructBRepPrimBuilder*(b: BRepBuilder): BRepPrimBuilder {.constructor,
+    importcpp: "BRepPrim_Builder(@)", header: "BRepPrim_Builder.hxx".}
+proc builder*(this: BRepPrimBuilder): BRepBuilder {.noSideEffect,
+    importcpp: "Builder", header: "BRepPrim_Builder.hxx".}
+proc makeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect,
+    importcpp: "MakeShell", header: "BRepPrim_Builder.hxx".}
+proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: Pln) {.noSideEffect,
+    importcpp: "MakeFace", header: "BRepPrim_Builder.hxx".}
+proc makeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect,
+    importcpp: "MakeWire", header: "BRepPrim_Builder.hxx".}
+proc makeDegeneratedEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge) {.noSideEffect,
+    importcpp: "MakeDegeneratedEdge", header: "BRepPrim_Builder.hxx".}
+proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; L: Lin) {.noSideEffect,
+    importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
+proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; c: Circ) {.noSideEffect,
+    importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; L: Lin2d) {.
+    noSideEffect, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; l1: Lin2d;
+               l2: Lin2d) {.noSideEffect, importcpp: "SetPCurve",
+                          header: "BRepPrim_Builder.hxx".}
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; c: Circ2d) {.
+    noSideEffect, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
+proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: Pnt) {.noSideEffect,
+    importcpp: "MakeVertex", header: "BRepPrim_Builder.hxx".}
+proc reverseFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect,
+    importcpp: "ReverseFace", header: "BRepPrim_Builder.hxx".}
+proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
+                   p: StandardReal; direct: StandardBoolean) {.noSideEffect,
+    importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
+proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
+                   p1: StandardReal; p2: StandardReal) {.noSideEffect,
+    importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
+proc setParameters*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
+                   p1: StandardReal; p2: StandardReal) {.noSideEffect,
+    importcpp: "SetParameters", header: "BRepPrim_Builder.hxx".}
+proc addWireEdge*(this: BRepPrimBuilder; w: var TopoDS_Wire; e: TopoDS_Edge;
+                 direct: StandardBoolean) {.noSideEffect, importcpp: "AddWireEdge",
+    header: "BRepPrim_Builder.hxx".}
+proc addFaceWire*(this: BRepPrimBuilder; f: var TopoDS_Face; w: TopoDS_Wire) {.
+    noSideEffect, importcpp: "AddFaceWire", header: "BRepPrim_Builder.hxx".}
+proc addShellFace*(this: BRepPrimBuilder; sh: var TopoDS_Shell; f: TopoDS_Face) {.
+    noSideEffect, importcpp: "AddShellFace", header: "BRepPrim_Builder.hxx".}
+proc completeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge) {.noSideEffect,
+    importcpp: "CompleteEdge", header: "BRepPrim_Builder.hxx".}
+proc completeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect,
+    importcpp: "CompleteWire", header: "BRepPrim_Builder.hxx".}
+proc completeFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect,
+    importcpp: "CompleteFace", header: "BRepPrim_Builder.hxx".}
+proc completeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect,
+    importcpp: "CompleteShell", header: "BRepPrim_Builder.hxx".}

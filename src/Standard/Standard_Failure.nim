@@ -1,71 +1,82 @@
-{.push header: "Standard_Failure.hxx".}
+##  Created on: 1991-09-05
+##  Created by: Philippe COICADAN
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of Standard_Failure"
+discard "forward decl of Standard_Failure"
 
 
-# Constructors and methods
-proc constructor_Standard_Failure*(): Standard_Failure {.constructor,importcpp: "Standard_Failure".}
-  ## Creates a status object of type "Failure".
+## ! Forms the root of the entire exception hierarchy.
 
-proc constructor_Standard_Failure*(f: Standard_Failure): Standard_Failure {.constructor,importcpp: "Standard_Failure(@)".}
-  ## Copy constructor
+type
+  StandardFailure* {.importcpp: "Standard_Failure", header: "Standard_Failure.hxx",
+                    bycopy.} = object of StandardTransient ## ! Creates a status object of type "Failure".
+                                                      ## ! Used only if standard C++ exceptions are used.
+                                                      ## ! Throws exception of the same type as this by C++ throw,
+                                                      ## ! and stores current object as last thrown exception,
+                                                      ## ! to be accessible by method Caught()
 
-proc constructor_Standard_Failure*(aString: Standard_CString): Standard_Failure {.constructor,importcpp: "Standard_Failure(@)".}
-  ## Creates a status object of type "Failure".
+  HandleStandardFailure* = Handle[StandardFailure]
 
-proc `=`*(this: var Standard_Failure, f: Standard_Failure): Standard_Failure  {.importcpp: "`=`".}
-  ## Assignment operator
+proc constructStandardFailure*(): StandardFailure {.constructor,
+    importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+proc constructStandardFailure*(f: StandardFailure): StandardFailure {.constructor,
+    importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+proc constructStandardFailure*(aString: StandardCString): StandardFailure {.
+    constructor, importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+proc destroyStandardFailure*(this: var StandardFailure) {.
+    importcpp: "#.~Standard_Failure()", header: "Standard_Failure.hxx".}
+proc print*(this: StandardFailure; theStream: var StandardOStream) {.noSideEffect,
+    importcpp: "Print", header: "Standard_Failure.hxx".}
+proc getMessageString*(this: StandardFailure): StandardCString {.noSideEffect,
+    importcpp: "GetMessageString", header: "Standard_Failure.hxx".}
+proc setMessageString*(this: var StandardFailure; aMessage: StandardCString) {.
+    importcpp: "SetMessageString", header: "Standard_Failure.hxx".}
+proc reraise*(this: var StandardFailure) {.importcpp: "Reraise",
+                                       header: "Standard_Failure.hxx".}
+proc reraise*(this: var StandardFailure; aMessage: StandardCString) {.
+    importcpp: "Reraise", header: "Standard_Failure.hxx".}
+proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.
+    importcpp: "Reraise", header: "Standard_Failure.hxx".}
+#[
+proc `raise`*(aMessage: StandardCString = "") {.
+    importcpp: "Standard_Failure::Raise(@)", header: "Standard_Failure.hxx".}
+]#
+proc `raise`*(aReason: StandardSStream) {.importcpp: "Standard_Failure::Raise(@)",
+                                       header: "Standard_Failure.hxx".}
+proc newInstance*(aMessage: StandardCString): Handle[StandardFailure] {.
+    importcpp: "Standard_Failure::NewInstance(@)", header: "Standard_Failure.hxx".}
+proc jump*(this: var StandardFailure) {.importcpp: "Jump",
+                                    header: "Standard_Failure.hxx".}
+proc caught*(): Handle[StandardFailure] {.importcpp: "Standard_Failure::Caught(@)",
+                                       header: "Standard_Failure.hxx".}
+type
+  StandardFailurebaseType* = StandardTransient
 
-proc Print*(this: Standard_Failure, s: var Standard_OStream)  {.importcpp: "Print".}
-  ## Prints on the stream the exception name followed by the error message.
-  ## Level: Advanced Warning: The operator "OStream& operator<<
-  ## (Standard_OStream&, Handle(Standard_Failure)&)" is implemented. (This
-  ## operator uses the method Print)
+proc getTypeName*(): cstring {.importcpp: "Standard_Failure::get_type_name(@)",
+                            header: "Standard_Failure.hxx".}
+#[
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Standard_Failure::get_type_descriptor(@)",
+    header: "Standard_Failure.hxx".}
 
-proc GetMessageString*(this: Standard_Failure): Standard_CString  {.importcpp: "GetMessageString".}
-  ## Returns error message
-
-proc SetMessageString*(this: var Standard_Failure, aMessage: Standard_CString)  {.importcpp: "SetMessageString".}
-  ## Sets error message
-
-proc Reraise*(this: var Standard_Failure)  {.importcpp: "Reraise".}
-
-proc Reraise*(this: var Standard_Failure, aMessage: Standard_CString)  {.importcpp: "Reraise".}
-
-proc Reraise*(this: var Standard_Failure, aReason: Standard_SStream)  {.importcpp: "Reraise".}
-  ## Reraises a caught exception and changes its error message.
-
-proc Raise*(this: var Standard_Failure, aMessage: Standard_CString)  {.importcpp: "Raise".}
-  ## Raises an exception of type "Failure" and associates an error message
-  ## to it. The message can be printed in an exception handler.
-
-proc Raise*(this: var Standard_Failure, aReason: Standard_SStream)  {.importcpp: "Raise".}
-  ## Raises an exception of type "Failure" and associates an error message
-  ## to it. The message can be constructed at run-time.
-
-proc NewInstance*(this: var Standard_Failure, aMessage: Standard_CString): Handle[Standard_Failure]  {.importcpp: "NewInstance".}
-  ## Used to construct an instance of the exception object as a handle.
-  ## Shall be used to protect against possible construction of exception
-  ## object in C stack -- that is dangerous since some of methods require
-  ## that object was allocated dynamically.
-
-proc Jump*(this: var Standard_Failure)  {.importcpp: "Jump".}
-  ## Used to throw CASCADE exception from C signal handler. On platforms
-  ## that do not allow throwing C++ exceptions from this handler (e.g.
-  ## Linux), uses longjump to get to the current active signal handler, and
-  ## only then is converted to C++ exception.
-
-proc Caught*(this: var Standard_Failure): Handle[Standard_Failure]  {.importcpp: "Caught".}
-  ## Returns the last caught exception. Needed when exceptions are emulated
-  ## by C longjumps, in other cases is also provided for compatibility.
-
-proc get_type_name*(this: var Standard_Failure): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_Failure): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_Failure): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-proc Throw*(this: Standard_Failure)  {.importcpp: "Throw".}
-  ## Used only if standard C++ exceptions are used. Throws exception of the
-  ## same type as this by C++ throw, and stores current object as last
-  ## thrown exception, to be accessible by method Caught()
-
-{.pop.} # header: "Standard_Failure.hxx
+proc dynamicType*(this: StandardFailure): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Standard_Failure.hxx".}
+proc `<<`*(aStream: var StandardOStream; aFailure: Handle[StandardFailure]): var StandardOStream {.
+    importcpp: "(# << #)", header: "Standard_Failure.hxx".}
+proc `<<`*(aStream: var StandardOStream; aFailure: StandardFailure): var StandardOStream {.
+    importcpp: "(# << #)", header: "Standard_Failure.hxx".}
+]#

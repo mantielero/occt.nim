@@ -1,189 +1,109 @@
-{.push header: "gp_Ax3.hxx".}
+##  Created on: 1993-08-02
+##  Created by: Laurent BOURESCHE
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Ax2"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Dir"
+discard "forward decl of gp_Ax1"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_Vec"
+type
+  Ax3* {.importcpp: "gp_Ax3", header: "gp_Ax3.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Ax3*(): gp_Ax3 {.constructor,importcpp: "gp_Ax3".}
-  ## Creates an object corresponding to the reference coordinate system
-  ## (OXYZ).
-
-proc constructor_gp_Ax3*(A: gp_Ax2): gp_Ax3 {.constructor,importcpp: "gp_Ax3(@)".}
-  ## Creates a coordinate system from a right-handed coordinate system.
-
-proc constructor_gp_Ax3*(P: gp_Pnt, N: gp_Dir, Vx: gp_Dir): gp_Ax3 {.constructor,importcpp: "gp_Ax3(@)".}
-  ## Creates a right handed axis placement with the "Location" point P and
-  ## two directions, N gives the "Direction" and Vx gives the "XDirection".
-  ## Raises ConstructionError if N and Vx are parallel (same or opposite
-  ## orientation).
-
-proc constructor_gp_Ax3*(P: gp_Pnt, V: gp_Dir): gp_Ax3 {.constructor,importcpp: "gp_Ax3(@)".}
-  ## Creates an axis placement with the "Location" point <P> and the normal
-  ## direction <V>.
-
-proc ` new`*(this: var gp_Ax3, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax3, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Ax3, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Ax3, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Ax3, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Ax3, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc XReverse*(this: var gp_Ax3)  {.importcpp: "XReverse".}
-  ## Reverses the X direction of <me>.
-
-proc YReverse*(this: var gp_Ax3)  {.importcpp: "YReverse".}
-  ## Reverses the Y direction of <me>.
-
-proc ZReverse*(this: var gp_Ax3)  {.importcpp: "ZReverse".}
-  ## Reverses the Z direction of <me>.
-
-proc SetAxis*(this: var gp_Ax3, A1: gp_Ax1)  {.importcpp: "SetAxis".}
-  ## Assigns the origin and "main Direction" of the axis A1 to this
-  ## coordinate system, then recomputes its "X Direction" and "Y
-  ## Direction". Note: - The new "X Direction" is computed as follows: new
-  ## "X Direction" = V1 ^(previous "X Direction" ^ V) where V is the
-  ## "Direction" of A1. - The orientation of this coordinate system (right-
-  ## handed or left-handed) is not modified. Raises ConstructionError if
-  ## the "Direction" of <A1> and the "XDirection" of <me> are parallel
-  ## (same or opposite orientation) because it is impossible to calculate
-  ## the new "XDirection" and the new "YDirection".
-
-proc SetDirection*(this: var gp_Ax3, V: gp_Dir)  {.importcpp: "SetDirection".}
-  ## Changes the main direction of this coordinate system, then recomputes
-  ## its "X Direction" and "Y Direction". Note: - The new "X Direction" is
-  ## computed as follows: new "X Direction" = V ^ (previous "X Direction" ^
-  ## V). - The orientation of this coordinate system (left- or right-
-  ## handed) is not modified. Raises ConstructionError if <V< and the
-  ## previous "XDirection" are parallel because it is impossible to
-  ## calculate the new "XDirection" and the new "YDirection".
-
-proc SetLocation*(this: var gp_Ax3, P: gp_Pnt)  {.importcpp: "SetLocation".}
-  ## Changes the "Location" point (origin) of <me>.
-
-proc SetXDirection*(this: var gp_Ax3, Vx: gp_Dir)  {.importcpp: "SetXDirection".}
-  ## Changes the "Xdirection" of <me>. The main direction "Direction" is
-  ## not modified, the "Ydirection" is modified. If <Vx> is not normal to
-  ## the main direction then <XDirection> is computed as follows XDirection
-  ## = Direction ^ (Vx ^ Direction). Raises ConstructionError if <Vx> is
-  ## parallel (same or opposite orientation) to the main direction of <me>
-
-proc SetYDirection*(this: var gp_Ax3, Vy: gp_Dir)  {.importcpp: "SetYDirection".}
-  ## Changes the "Ydirection" of <me>. The main direction is not modified
-  ## but the "Xdirection" is changed. If <Vy> is not normal to the main
-  ## direction then "YDirection" is computed as follows YDirection =
-  ## Direction ^ (<Vy> ^ Direction). Raises ConstructionError if <Vy> is
-  ## parallel to the main direction of <me>
-
-proc Angle*(this: gp_Ax3, Other: gp_Ax3): cdouble  {.importcpp: "Angle".}
-  ## Computes the angular value between the main direction of <me> and the
-  ## main direction of <Other>. Returns the angle between 0 and PI in
-  ## radians.
-
-proc Axis*(this: gp_Ax3): gp_Ax1  {.importcpp: "Axis".}
-  ## Returns the main axis of <me>. It is the "Location" point and the main
-  ## "Direction".
-
-proc Ax2*(this: gp_Ax3): gp_Ax2  {.importcpp: "Ax2".}
-  ## Computes a right-handed coordinate system with the same "X Direction"
-  ## and "Y Direction" as those of this coordinate system, then recomputes
-  ## the "main Direction". If this coordinate system is right-handed, the
-  ## result returned is the same coordinate system. If this coordinate
-  ## system is left-handed, the result is reversed.
-
-proc Direction*(this: gp_Ax3): gp_Dir  {.importcpp: "Direction".}
-  ## Returns the main direction of <me>.
-
-proc Location*(this: gp_Ax3): gp_Pnt  {.importcpp: "Location".}
-  ## Returns the "Location" point (origin) of <me>.
-
-proc XDirection*(this: gp_Ax3): gp_Dir  {.importcpp: "XDirection".}
-  ## Returns the "XDirection" of <me>.
-
-proc YDirection*(this: gp_Ax3): gp_Dir  {.importcpp: "YDirection".}
-  ## Returns the "YDirection" of <me>.
-
-proc Direct*(this: gp_Ax3): bool  {.importcpp: "Direct".}
-  ## Returns True if the coordinate system is right-handed. i.e.
-  ## XDirection().Crossed(YDirection()).Dot(Direction()) > 0
-
-proc IsCoplanar*(this: gp_Ax3, Other: gp_Ax3, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
-  ## Returns True if . the distance between the "Location" point of <me>
-  ## and <Other> is lower or equal to LinearTolerance and . the distance
-  ## between the "Location" point of <Other> and <me> is lower or equal to
-  ## LinearTolerance and . the main direction of <me> and the main
-  ## direction of <Other> are parallel (same or opposite orientation).
-
-proc IsCoplanar*(this: gp_Ax3, A1: gp_Ax1, LinearTolerance: cdouble, AngularTolerance: cdouble): bool  {.importcpp: "IsCoplanar".}
-  ## Returns True if . the distance between <me> and the "Location" point
-  ## of A1 is lower of equal to LinearTolerance and . the distance between
-  ## A1 and the "Location" point of <me> is lower or equal to
-  ## LinearTolerance and . the main direction of <me> and the direction of
-  ## A1 are normal.
-
-proc Mirror*(this: var gp_Ax3, P: gp_Pnt)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax3, P: gp_Pnt): gp_Ax3  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to the point P which is the center of the symmetry. Warnings :
-  ## The main direction of the axis placement is not changed. The
-  ## "XDirection" and the "YDirection" are reversed. So the axis placement
-  ## stay right handed.
-
-proc Mirror*(this: var gp_Ax3, A1: gp_Ax1)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax3, A1: gp_Ax1): gp_Ax3  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to an axis placement which is the axis of the symmetry. The
-  ## transformation is performed on the "Location" point, on the
-  ## "XDirection" and "YDirection". The resulting main "Direction" is the
-  ## cross product between the "XDirection" and the "YDirection" after
-  ## transformation.
-
-proc Mirror*(this: var gp_Ax3, A2: gp_Ax2)  {.importcpp: "Mirror".}
-
-proc Mirrored*(this: gp_Ax3, A2: gp_Ax2): gp_Ax3  {.importcpp: "Mirrored".}
-  ## Performs the symmetrical transformation of an axis placement with
-  ## respect to a plane. The axis placement <A2> locates the plane of the
-  ## symmetry : (Location, XDirection, YDirection). The transformation is
-  ## performed on the "Location" point, on the "XDirection" and
-  ## "YDirection". The resulting main "Direction" is the cross product
-  ## between the "XDirection" and the "YDirection" after transformation.
-
-proc Rotate*(this: var gp_Ax3, A1: gp_Ax1, Ang: cdouble)  {.importcpp: "Rotate".}
-
-proc Rotated*(this: gp_Ax3, A1: gp_Ax1, Ang: cdouble): gp_Ax3  {.importcpp: "Rotated".}
-  ## Rotates an axis placement. <A1> is the axis of the rotation . Ang is
-  ## the angular value of the rotation in radians.
-
-proc Scale*(this: var gp_Ax3, P: gp_Pnt, S: cdouble)  {.importcpp: "Scale".}
-
-proc Scaled*(this: gp_Ax3, P: gp_Pnt, S: cdouble): gp_Ax3  {.importcpp: "Scaled".}
-  ## Applies a scaling transformation on the axis placement. The "Location"
-  ## point of the axisplacement is modified. Warnings : If the scale <S> is
-  ## negative : . the main direction of the axis placement is not changed.
-  ## . The "XDirection" and the "YDirection" are reversed. So the axis
-  ## placement stay right handed.
-
-proc Transform*(this: var gp_Ax3, T: gp_Trsf)  {.importcpp: "Transform".}
-
-proc Transformed*(this: gp_Ax3, T: gp_Trsf): gp_Ax3  {.importcpp: "Transformed".}
-  ## Transforms an axis placement with a Trsf. The "Location" point, the
-  ## "XDirection" and the "YDirection" are transformed with T. The
-  ## resulting main "Direction" of <me> is the cross product between the
-  ## "XDirection" and the "YDirection" after transformation.
-
-proc Translate*(this: var gp_Ax3, V: gp_Vec)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax3, V: gp_Vec): gp_Ax3  {.importcpp: "Translated".}
-  ## Translates an axis plaxement in the direction of the vector <V>. The
-  ## magnitude of the translation is the vector's magnitude.
-
-proc Translate*(this: var gp_Ax3, P1: gp_Pnt, P2: gp_Pnt)  {.importcpp: "Translate".}
-
-proc Translated*(this: gp_Ax3, P1: gp_Pnt, P2: gp_Pnt): gp_Ax3  {.importcpp: "Translated".}
-  ## Translates an axis placement from the point <P1> to the point <P2>.
-
-{.pop.} # header: "gp_Ax3.hxx
+proc `new`*(this: var Ax3; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax3::operator new", header: "gp_Ax3.hxx".}
+proc `delete`*(this: var Ax3; theAddress: pointer) {.
+    importcpp: "gp_Ax3::operator delete", header: "gp_Ax3.hxx".}
+proc `new[]`*(this: var Ax3; theSize: csize_t): pointer {.
+    importcpp: "gp_Ax3::operator new[]", header: "gp_Ax3.hxx".}
+proc `delete[]`*(this: var Ax3; theAddress: pointer) {.
+    importcpp: "gp_Ax3::operator delete[]", header: "gp_Ax3.hxx".}
+proc `new`*(this: var Ax3; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Ax3::operator new", header: "gp_Ax3.hxx".}
+proc `delete`*(this: var Ax3; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Ax3::operator delete", header: "gp_Ax3.hxx".}
+proc newAx3*(): Ax3 {.constructor, importcpp: "gp_Ax3(@)", header: "gp_Ax3.hxx".}
+proc newAx3*(a: Ax2): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+                              header: "gp_Ax3.hxx".}
+proc newAx3*(p: Pnt; n: Dir; vx: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+    header: "gp_Ax3.hxx".}
+proc newAx3*(p: Pnt; v: Dir): Ax3 {.constructor, importcpp: "gp_Ax3(@)",
+                                    header: "gp_Ax3.hxx".}
+proc xReverse*(this: var Ax3) {.importcpp: "XReverse", header: "gp_Ax3.hxx".}
+proc yReverse*(this: var Ax3) {.importcpp: "YReverse", header: "gp_Ax3.hxx".}
+proc zReverse*(this: var Ax3) {.importcpp: "ZReverse", header: "gp_Ax3.hxx".}
+proc setAxis*(this: var Ax3; a1: Ax1) {.importcpp: "SetAxis", header: "gp_Ax3.hxx".}
+proc setDirection*(this: var Ax3; v: Dir) {.importcpp: "SetDirection",
+                                      header: "gp_Ax3.hxx".}
+proc setLocation*(this: var Ax3; p: Pnt) {.importcpp: "SetLocation",
+                                     header: "gp_Ax3.hxx".}
+proc setXDirection*(this: var Ax3; vx: Dir) {.importcpp: "SetXDirection",
+                                        header: "gp_Ax3.hxx".}
+proc setYDirection*(this: var Ax3; vy: Dir) {.importcpp: "SetYDirection",
+                                        header: "gp_Ax3.hxx".}
+proc angle*(this: Ax3; other: Ax3): StandardReal {.noSideEffect, importcpp: "Angle",
+    header: "gp_Ax3.hxx".}
+proc axis*(this: Ax3): Ax1 {.noSideEffect, importcpp: "Axis", header: "gp_Ax3.hxx".}
+proc ax2*(this: Ax3): Ax2 {.noSideEffect, importcpp: "Ax2", header: "gp_Ax3.hxx".}
+proc direction*(this: Ax3): Dir {.noSideEffect, importcpp: "Direction",
+                              header: "gp_Ax3.hxx".}
+proc location*(this: Ax3): Pnt {.noSideEffect, importcpp: "Location",
+                             header: "gp_Ax3.hxx".}
+proc xDirection*(this: Ax3): Dir {.noSideEffect, importcpp: "XDirection",
+                               header: "gp_Ax3.hxx".}
+proc yDirection*(this: Ax3): Dir {.noSideEffect, importcpp: "YDirection",
+                               header: "gp_Ax3.hxx".}
+proc direct*(this: Ax3): StandardBoolean {.noSideEffect, importcpp: "Direct",
+                                       header: "gp_Ax3.hxx".}
+proc isCoplanar*(this: Ax3; other: Ax3; linearTolerance: StandardReal;
+                angularTolerance: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsCoplanar", header: "gp_Ax3.hxx".}
+proc isCoplanar*(this: Ax3; a1: Ax1; linearTolerance: StandardReal;
+                angularTolerance: StandardReal): StandardBoolean {.noSideEffect,
+    importcpp: "IsCoplanar", header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; p: Pnt) {.importcpp: "Mirror", header: "gp_Ax3.hxx".}
+proc mirrored*(this: Ax3; p: Pnt): Ax3 {.noSideEffect, importcpp: "Mirrored",
+                                   header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; a1: Ax1) {.importcpp: "Mirror", header: "gp_Ax3.hxx".}
+proc mirrored*(this: Ax3; a1: Ax1): Ax3 {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; a2: Ax2) {.importcpp: "Mirror", header: "gp_Ax3.hxx".}
+proc mirrored*(this: Ax3; a2: Ax2): Ax3 {.noSideEffect, importcpp: "Mirrored",
+                                    header: "gp_Ax3.hxx".}
+proc rotate*(this: var Ax3; a1: Ax1; ang: StandardReal) {.importcpp: "Rotate",
+    header: "gp_Ax3.hxx".}
+proc rotated*(this: Ax3; a1: Ax1; ang: StandardReal): Ax3 {.noSideEffect,
+    importcpp: "Rotated", header: "gp_Ax3.hxx".}
+proc scale*(this: var Ax3; p: Pnt; s: StandardReal) {.importcpp: "Scale",
+    header: "gp_Ax3.hxx".}
+proc scaled*(this: Ax3; p: Pnt; s: StandardReal): Ax3 {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Ax3.hxx".}
+proc transform*(this: var Ax3; t: Trsf) {.importcpp: "Transform", header: "gp_Ax3.hxx".}
+proc transformed*(this: Ax3; t: Trsf): Ax3 {.noSideEffect, importcpp: "Transformed",
+                                       header: "gp_Ax3.hxx".}
+proc translate*(this: var Ax3; v: Vec) {.importcpp: "Translate", header: "gp_Ax3.hxx".}
+proc translated*(this: Ax3; v: Vec): Ax3 {.noSideEffect, importcpp: "Translated",
+                                     header: "gp_Ax3.hxx".}
+proc translate*(this: var Ax3; p1: Pnt; p2: Pnt) {.importcpp: "Translate",
+    header: "gp_Ax3.hxx".}
+proc translated*(this: Ax3; p1: Pnt; p2: Pnt): Ax3 {.noSideEffect,
+    importcpp: "Translated", header: "gp_Ax3.hxx".}
+proc dumpJson*(this: Ax3; theOStream: var StandardOStream; theDepth: int = -1) {.
+    noSideEffect, importcpp: "DumpJson", header: "gp_Ax3.hxx".}
+proc initFromJson*(this: var Ax3; theSStream: StandardSStream; theStreamPos: var int): StandardBoolean {.
+    importcpp: "InitFromJson", header: "gp_Ax3.hxx".}

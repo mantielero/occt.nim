@@ -1,23 +1,34 @@
-{.push header: "Standard_NullValue.hxx".}
+##  Created on: 1991-09-05
+##  Created by: J.P. TIRAUlt
+##  Copyright (c) 1991-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_NullValue"
+discard "forward decl of Standard_NullValue"
+type
+  StandardNullValue* {.importcpp: "Standard_NullValue",
+                      header: "Standard_NullValue.hxx", bycopy.} = object #of StandardRangeError
+type
+  HandleStandardNullValue* = Handle[StandardNullValue]
+
+when not defined(noException) and not defined(noStandardNullValue):
+  template standardNullValueRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNullValue*(a1: Message): Throw {.
+          importcpp: "Standard_NullValue(@)", header: "Standard_NullValue.hxx".}
+
+else:
+  discard
 
 
-# Constructors and methods
-proc constructor_Standard_NullValue*(): Standard_NullValue {.constructor,importcpp: "Standard_NullValue".}
-
-proc constructor_Standard_NullValue*(theMessage: Standard_CString): Standard_NullValue {.constructor,importcpp: "Standard_NullValue(@)".}
-
-proc Throw*(this: Standard_NullValue)  {.importcpp: "Throw".}
-
-proc Raise*(this: var Standard_NullValue, theMessage: Standard_CString)  {.importcpp: "Raise".}
-
-proc Raise*(this: var Standard_NullValue, theMessage: var Standard_SStream)  {.importcpp: "Raise".}
-
-proc NewInstance*(this: var Standard_NullValue, theMessage: Standard_CString): Handle[Standard_NullValue]  {.importcpp: "NewInstance".}
-
-proc get_type_name*(this: var Standard_NullValue): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Standard_NullValue): Handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc DynamicType*(this: Standard_NullValue): Handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.} # header: "Standard_NullValue.hxx

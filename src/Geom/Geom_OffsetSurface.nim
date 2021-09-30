@@ -1,227 +1,408 @@
-import geom_types
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Geom_Surface"
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of Standard_RangeError"
+discard "forward decl of Standard_NoSuchObject"
+discard "forward decl of Geom_UndefinedDerivative"
+discard "forward decl of Geom_UndefinedValue"
+discard "forward decl of Geom_Curve"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Vec"
+discard "forward decl of Geom_BSplineSurface"
+discard "forward decl of gp_Trsf"
+discard "forward decl of gp_GTrsf2d"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_OffsetSurface"
+discard "forward decl of Geom_OffsetSurface"
+
+type
+  GeomOffsetSurface* {.importcpp: "Geom_OffsetSurface",
+                      header: "Geom_OffsetSurface.hxx", bycopy.} = object of GeomSurface ##
+                                                                                  ## !
+                                                                                  ## Constructs
+                                                                                  ## a
+                                                                                  ## surface
+                                                                                  ## offset
+                                                                                  ## from
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## surface
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## S,
+                                                                                  ## where
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## the
+                                                                                  ## distance
+                                                                                  ## between
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## surface
+                                                                                  ## and
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## surface
+                                                                                  ## at
+                                                                                  ## any
+                                                                                  ## point.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## A
+                                                                                  ## point
+                                                                                  ## on
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ## surface
+                                                                                  ## is
+                                                                                  ## built
+                                                                                  ## by
+                                                                                  ## measuring
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ## value
+                                                                                  ## along
+                                                                                  ## a
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## at
+                                                                                  ## a
+                                                                                  ## point
+                                                                                  ## on
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## S.
+                                                                                  ## This
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## is
+                                                                                  ## given
+                                                                                  ## by
+                                                                                  ## the
+                                                                                  ## cross
+                                                                                  ## product
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## D1u^D1v,
+                                                                                  ## where
+                                                                                  ## D1u
+                                                                                  ## and
+                                                                                  ## D1v
+                                                                                  ## are
+                                                                                  ## the
+                                                                                  ## vectors
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## tangential
+                                                                                  ## to
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## surface
+                                                                                  ## in
+                                                                                  ## the
+                                                                                  ## u
+                                                                                  ## and
+                                                                                  ## v
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## parametric
+                                                                                  ## directions
+                                                                                  ## at
+                                                                                  ## this
+                                                                                  ## point.
+                                                                                  ## The
+                                                                                  ## side
+                                                                                  ## of
+                                                                                  ## S
+                                                                                  ## on
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## which
+                                                                                  ## the
+                                                                                  ## offset
+                                                                                  ## value
+                                                                                  ## is
+                                                                                  ## measured
+                                                                                  ## is
+                                                                                  ## indicated
+                                                                                  ## by
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## this
+                                                                                  ## normal
+                                                                                  ## vector
+                                                                                  ## if
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## positive,
+                                                                                  ## or
+                                                                                  ## is
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## inverse
+                                                                                  ## sense
+                                                                                  ## if
+                                                                                  ## Offset
+                                                                                  ## is
+                                                                                  ## negative.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## If
+                                                                                  ## isNotCheckC0
+                                                                                  ## =
+                                                                                  ## TRUE
+                                                                                  ## checking
+                                                                                  ## if
+                                                                                  ## basis
+                                                                                  ## surface
+                                                                                  ## has
+                                                                                  ## C0-continuity
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## made.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Warnings
+                                                                                  ## :
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## The
+                                                                                  ## offset
+                                                                                  ## surface
+                                                                                  ## is
+                                                                                  ## built
+                                                                                  ## with
+                                                                                  ## a
+                                                                                  ## copy
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## surface
+                                                                                  ## S.
+                                                                                  ## Therefore,
+                                                                                  ## when
+                                                                                  ## S
+                                                                                  ## is
+                                                                                  ## modified
+                                                                                  ## the
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## offset
+                                                                                  ## surface
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## modified.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## -
+                                                                                  ## No
+                                                                                  ## check
+                                                                                  ## is
+                                                                                  ## made
+                                                                                  ## at
+                                                                                  ## the
+                                                                                  ## time
+                                                                                  ## of
+                                                                                  ## construction
+                                                                                  ## to
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## detect
+                                                                                  ## points
+                                                                                  ## on
+                                                                                  ## S
+                                                                                  ## with
+                                                                                  ## multiple
+                                                                                  ## possible
+                                                                                  ## normal
+                                                                                  ## directions.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Raised
+                                                                                  ## if
+                                                                                  ## S
+                                                                                  ## is
+                                                                                  ## not
+                                                                                  ## at
+                                                                                  ## least
+                                                                                  ## C1.
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## Warnings
+                                                                                  ## :
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## No
+                                                                                  ## check
+                                                                                  ## is
+                                                                                  ## done
+                                                                                  ## to
+                                                                                  ## verify
+                                                                                  ## that
+                                                                                  ## a
+                                                                                  ## unique
+                                                                                  ## normal
+                                                                                  ## direction
+                                                                                  ## is
+                                                                                  ##
+                                                                                  ## !
+                                                                                  ## defined
+                                                                                  ## at
+                                                                                  ## any
+                                                                                  ## point
+                                                                                  ## of
+                                                                                  ## the
+                                                                                  ## basis
+                                                                                  ## surface
+                                                                                  ## S.
 
 
 type
-  Geom_OffsetSurface* {.header: "Geom_OffsetSurface.hxx", importcpp: "Geom_OffsetSurface", byref.} = object #of class Geom_Surface
-    ## Describes an offset surface in 3D space. An offset surface is defined
-    ## by: - the basis surface to which it is parallel, and - the distance
-    ## between the offset surface and its basis surface. A point on the
-    ## offset surface is built by measuring the offset value along the normal
-    ## vector at a point on the basis surface. This normal vector is given by
-    ## the cross product D1u^D1v, where D1u and D1v are the vectors
-    ## tangential to the basis surface in the u and v parametric directions
-    ## at this point. The side of the basis surface on which the offset is
-    ## measured depends on the sign of the offset value. A Geom_OffsetSurface
-    ## surface can be self-intersecting, even if the basis surface does not
-    ## self-intersect. The self-intersecting portions are not deleted at the
-    ## time of construction. Warning There must be only one normal vector
-    ## defined at any point on the basis surface. This must be verified by
-    ## the user as no check is made at the time of construction to detect
-    ## points with multiple possible normal directions (for example, the top
-    ## of a conical surface).
+  HandleGeomOffsetSurface* = Handle[GeomOffsetSurface]
 
-  Handle_Geom_OffsetSurface* {.header: "Geom_OffsetSurface.hxx", importcpp: "Handle_Geom_OffsetSurface".} = handle[Geom_OffsetSurface]
-  Base_type* {.header: "Geom_OffsetSurface.hxx", importcpp: "Geom_OffsetSurface::base_type".} = Geom_Surface
+## ! Describes an offset surface in 3D space.
+## ! An offset surface is defined by:
+## ! - the basis surface to which it is parallel, and
+## ! - the distance between the offset surface and its basis surface.
+## ! A point on the offset surface is built by measuring the
+## ! offset value along the normal vector at a point on the
+## ! basis surface. This normal vector is given by the cross
+## ! product D1u^D1v, where D1u and D1v are the
+## ! vectors tangential to the basis surface in the u and v
+## ! parametric directions at this point. The side of the
+## ! basis surface on which the offset is measured
+## ! depends on the sign of the offset value.
+## ! A Geom_OffsetSurface surface can be
+## ! self-intersecting, even if the basis surface does not
+## ! self-intersect. The self-intersecting portions are not
+## ! deleted at the time of construction.
+## ! Warning
+## ! There must be only one normal vector defined at any
+## ! point on the basis surface. This must be verified by the
+## ! user as no check is made at the time of construction
+## ! to detect points with multiple possible normal
+## ! directions (for example, the top of a conical surface).
+
+type
+  GeomOffsetSurfacebaseType* = GeomSurface
+
+proc constructGeomOffsetSurface*(s: Handle[GeomSurface]; offset: StandardReal;
+                                isNotCheckC0: StandardBoolean = false): GeomOffsetSurface {.
+    constructor, importcpp: "Geom_OffsetSurface(@)",
+    header: "Geom_OffsetSurface.hxx".}
+proc setBasisSurface*(this: var GeomOffsetSurface; s: Handle[GeomSurface];
+                     isNotCheckC0: StandardBoolean = false) {.
+    importcpp: "SetBasisSurface", header: "Geom_OffsetSurface.hxx".}
+proc setOffsetValue*(this: var GeomOffsetSurface; d: StandardReal) {.
+    importcpp: "SetOffsetValue", header: "Geom_OffsetSurface.hxx".}
+proc offset*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+    importcpp: "Offset", header: "Geom_OffsetSurface.hxx".}
+proc basisSurface*(this: GeomOffsetSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "BasisSurface", header: "Geom_OffsetSurface.hxx".}
+proc osculatingSurface*(this: GeomOffsetSurface): Handle[GeomOsculatingSurface] {.
+    noSideEffect, importcpp: "OsculatingSurface", header: "Geom_OffsetSurface.hxx".}
+proc uReverse*(this: var GeomOffsetSurface) {.importcpp: "UReverse",
+    header: "Geom_OffsetSurface.hxx".}
+proc uReversedParameter*(this: GeomOffsetSurface; u: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "UReversedParameter", header: "Geom_OffsetSurface.hxx".}
+proc vReverse*(this: var GeomOffsetSurface) {.importcpp: "VReverse",
+    header: "Geom_OffsetSurface.hxx".}
+proc vReversedParameter*(this: GeomOffsetSurface; v: StandardReal): StandardReal {.
+    noSideEffect, importcpp: "VReversedParameter", header: "Geom_OffsetSurface.hxx".}
+proc bounds*(this: GeomOffsetSurface; u1: var StandardReal; u2: var StandardReal;
+            v1: var StandardReal; v2: var StandardReal) {.noSideEffect,
+    importcpp: "Bounds", header: "Geom_OffsetSurface.hxx".}
+#[ proc continuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "Continuity", header: "Geom_OffsetSurface.hxx".} ]#
+proc isCNu*(this: GeomOffsetSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNu", header: "Geom_OffsetSurface.hxx".}
+proc isCNv*(this: GeomOffsetSurface; n: int): StandardBoolean {.noSideEffect,
+    importcpp: "IsCNv", header: "Geom_OffsetSurface.hxx".}
+proc isUClosed*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUClosed", header: "Geom_OffsetSurface.hxx".}
+proc isVClosed*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVClosed", header: "Geom_OffsetSurface.hxx".}
+proc isUPeriodic*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsUPeriodic", header: "Geom_OffsetSurface.hxx".}
+proc uPeriod*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+    importcpp: "UPeriod", header: "Geom_OffsetSurface.hxx".}
+proc isVPeriodic*(this: GeomOffsetSurface): StandardBoolean {.noSideEffect,
+    importcpp: "IsVPeriodic", header: "Geom_OffsetSurface.hxx".}
+proc vPeriod*(this: GeomOffsetSurface): StandardReal {.noSideEffect,
+    importcpp: "VPeriod", header: "Geom_OffsetSurface.hxx".}
+proc uIso*(this: GeomOffsetSurface; u: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "UIso", header: "Geom_OffsetSurface.hxx".}
+proc vIso*(this: GeomOffsetSurface; v: StandardReal): Handle[GeomCurve] {.
+    noSideEffect, importcpp: "VIso", header: "Geom_OffsetSurface.hxx".}
+proc d0*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var Pnt) {.
+    noSideEffect, importcpp: "D0", header: "Geom_OffsetSurface.hxx".}
+proc d1*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, importcpp: "D1",
+                                header: "Geom_OffsetSurface.hxx".}
+proc d2*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+    importcpp: "D2", header: "Geom_OffsetSurface.hxx".}
+proc d3*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; p: var Pnt;
+        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
+        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, importcpp: "D3",
+    header: "Geom_OffsetSurface.hxx".}
+proc dn*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal; nu: int; nv: int): Vec {.
+    noSideEffect, importcpp: "DN", header: "Geom_OffsetSurface.hxx".}
+proc transform*(this: var GeomOffsetSurface; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_OffsetSurface.hxx".}
+proc transformParameters*(this: GeomOffsetSurface; u: var StandardReal;
+                         v: var StandardReal; t: Trsf) {.noSideEffect,
+    importcpp: "TransformParameters", header: "Geom_OffsetSurface.hxx".}
+proc parametricTransformation*(this: GeomOffsetSurface; t: Trsf): GTrsf2d {.
+    noSideEffect, importcpp: "ParametricTransformation",
+    header: "Geom_OffsetSurface.hxx".}
+proc copy*(this: GeomOffsetSurface): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_OffsetSurface.hxx".}
+proc surface*(this: GeomOffsetSurface): Handle[GeomSurface] {.noSideEffect,
+    importcpp: "Surface", header: "Geom_OffsetSurface.hxx".}
+proc uOsculatingSurface*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal;
+                        isOpposite: var StandardBoolean;
+                        uOsculSurf: var Handle[GeomBSplineSurface]): StandardBoolean {.
+    noSideEffect, importcpp: "UOsculatingSurface", header: "Geom_OffsetSurface.hxx".}
+proc vOsculatingSurface*(this: GeomOffsetSurface; u: StandardReal; v: StandardReal;
+                        isOpposite: var StandardBoolean;
+                        vOsculSurf: var Handle[GeomBSplineSurface]): StandardBoolean {.
+    noSideEffect, importcpp: "VOsculatingSurface", header: "Geom_OffsetSurface.hxx".}
+#[ proc getBasisSurfContinuity*(this: GeomOffsetSurface): GeomAbsShape {.noSideEffect,
+    importcpp: "GetBasisSurfContinuity", header: "Geom_OffsetSurface.hxx".} ]#
+proc dumpJson*(this: GeomOffsetSurface; theOStream: var StandardOStream;
+              theDepth: int = -1) {.noSideEffect, importcpp: "DumpJson",
+                                header: "Geom_OffsetSurface.hxx".}
 
 
-{.push header: "Geom_OffsetSurface.hxx".}
-
-proc constructGeom_OffsetSurface*(S: handle[Geom_Surface], Offset: cdouble, isNotCheckC0: bool): Geom_OffsetSurface {.constructor,importcpp: "Geom_OffsetSurface::Geom_OffsetSurface(@)".}
-    ## Constructs a surface offset from the basis surface S, where Offset is
-    ## the distance between the offset surface and the basis surface at any
-    ## point. A point on the offset surface is built by measuring the offset
-    ## value along a normal vector at a point on S. This normal vector is
-    ## given by the cross product D1u^D1v, where D1u and D1v are the vectors
-    ## tangential to the basis surface in the u and v parametric directions
-    ## at this point. The side of S on which the offset value is measured is
-    ## indicated by this normal vector if Offset is positive, or is the
-    ## inverse sense if Offset is negative. If isNotCheckC0 = TRUE checking
-    ## if basis surface has C0-continuity is not made. Warnings : - The
-    ## offset surface is built with a copy of the surface S. Therefore, when
-    ## S is modified the offset surface is not modified. - No check is made
-    ## at the time of construction to detect points on S with multiple
-    ## possible normal directions. Raised if S is not at least C1. Warnings :
-    ## No check is done to verify that a unique normal direction is defined
-    ## at any point of the basis surface S.
-
-proc setBasisSurface*(this: var Geom_OffsetSurface, S: handle[Geom_Surface], isNotCheckC0: bool)  {.importcpp: "SetBasisSurface".}
-    ## Raised if S is not at least C1. Warnings : No check is done to verify
-    ## that a unique normal direction is defined at any point of the basis
-    ## surface S. If isNotCheckC0 = TRUE checking if basis surface has
-    ## C0-continuity is not made. Exceptions Standard_ConstructionError if
-    ## the surface S is not at least "C1" continuous.
-
-proc setOffsetValue*(this: var Geom_OffsetSurface, D: cdouble)  {.importcpp: "SetOffsetValue".}
-    ## Changes this offset surface by assigning D as the offset value.
-
-proc offset*(this: Geom_OffsetSurface): cdouble  {.importcpp: "Offset".}
-    ## Returns the offset value of this offset surface.
-
-proc basisSurface*(this: Geom_OffsetSurface): handle[Geom_Surface]  {.importcpp: "BasisSurface".}
-    ## Returns the basis surface of this offset surface. Note: The basis
-    ## surface can be an offset surface.
-
-proc osculatingSurface*(this: Geom_OffsetSurface): handle[Geom_OsculatingSurface]  {.importcpp: "OsculatingSurface".}
-    ## Returns osculating surface if base surface is B-spline or Bezier
-
-proc uReverse*(this: var Geom_OffsetSurface)  {.importcpp: "UReverse".}
-    ## Changes the orientation of this offset surface in the u parametric
-    ## direction. The bounds of the surface are not changed but the given
-    ## parametric direction is reversed.
-
-proc uReversedParameter*(this: Geom_OffsetSurface, U: cdouble): cdouble  {.importcpp: "UReversedParameter".}
-    ## Computes the u parameter on the modified surface, produced by
-    ## reversing the u parametric direction of this offset surface, for any
-    ## point of u parameter U on this offset surface.
-
-proc vReverse*(this: var Geom_OffsetSurface)  {.importcpp: "VReverse".}
-    ## Changes the orientation of this offset surface in the v parametric
-    ## direction. The bounds of the surface are not changed but the given
-    ## parametric direction is reversed.
-
-proc vReversedParameter*(this: Geom_OffsetSurface, V: cdouble): cdouble  {.importcpp: "VReversedParameter".}
-    ## Computes the v parameter on the modified surface, produced by
-    ## reversing the or v parametric direction of this offset surface, for
-    ## any point of v parameter V on this offset surface.
-
-proc bounds*(this: Geom_OffsetSurface, U1: var cdouble, U2: var cdouble, V1: var cdouble, V2: var cdouble)  {.importcpp: "Bounds".}
-    ## Returns the parametric bounds U1, U2, V1 and V2 of this offset
-    ## surface. If the surface is infinite, this function can return: -
-    ## cdouble::RealFirst(), or - cdouble::RealLast().
-
-proc continuity*(this: Geom_OffsetSurface): GeomAbs_Shape  {.importcpp: "Continuity".}
-    ## This method returns the continuity of the basis surface - 1.
-    ## Continuity of the Offset surface : C0 : only geometric continuity, C1
-    ## : continuity of the first derivative all along the Surface, C2 :
-    ## continuity of the second derivative all along the Surface, C3 :
-    ## continuity of the third derivative all along the Surface, CN : the
-    ## order of continuity is infinite. Example : If the basis surface is C2
-    ## in the V direction and C3 in the U direction Shape = C1. Warnings : If
-    ## the basis surface has a unique normal direction defined at any point
-    ## this method gives the continuity of the offset surface otherwise the
-    ## effective continuity can be lower than the continuity of the basis
-    ## surface - 1.
-
-proc isCNu*(this: Geom_OffsetSurface, N: cint): bool  {.importcpp: "IsCNu".}
-    ## This method answer True if the continuity of the basis surface is N +
-    ## 1 in the U parametric direction. We suppose in this class that a
-    ## unique normal is defined at any point on the basis surface. Raised if
-    ## N <0.
-
-proc isCNv*(this: Geom_OffsetSurface, N: cint): bool  {.importcpp: "IsCNv".}
-    ## This method answer True if the continuity of the basis surface is N +
-    ## 1 in the V parametric direction. We suppose in this class that a
-    ## unique normal is defined at any point on the basis surface. Raised if
-    ## N <0.
-
-proc isUClosed*(this: Geom_OffsetSurface): bool  {.importcpp: "IsUClosed".}
-    ## Checks whether this offset surface is closed in the u parametric
-    ## direction. Returns true if, taking uFirst and uLast as the parametric
-    ## bounds in the u parametric direction, the distance between the points
-    ## P(uFirst,v) and P(uLast,v) is less than or equal to gp::Resolution()
-    ## for each value of the parameter v.
-
-proc isVClosed*(this: Geom_OffsetSurface): bool  {.importcpp: "IsVClosed".}
-    ## Checks whether this offset surface is closed in the u or v parametric
-    ## direction. Returns true if taking vFirst and vLast as the parametric
-    ## bounds in the v parametric direction, the distance between the points
-    ## P(u,vFirst) and P(u,vLast) is less than or equal to gp::Resolution()
-    ## for each value of the parameter u.
-
-proc isUPeriodic*(this: Geom_OffsetSurface): bool  {.importcpp: "IsUPeriodic".}
-    ## Returns true if this offset surface is periodic in the u parametric
-    ## direction, i.e. if the basis surface of this offset surface is
-    ## periodic in this direction.
-
-proc uPeriod*(this: Geom_OffsetSurface): cdouble  {.importcpp: "UPeriod".}
-    ## Returns the period of this offset surface in the u parametric
-    ## direction respectively, i.e. the period of the basis surface of this
-    ## offset surface in this parametric direction. raises if the surface is
-    ## not uperiodic.
-
-proc isVPeriodic*(this: Geom_OffsetSurface): bool  {.importcpp: "IsVPeriodic".}
-    ## Returns true if this offset surface is periodic in the v parametric
-    ## direction, i.e. if the basis surface of this offset surface is
-    ## periodic in this direction.
-
-proc vPeriod*(this: Geom_OffsetSurface): cdouble  {.importcpp: "VPeriod".}
-    ## Returns the period of this offset surface in the v parametric
-    ## direction respectively, i.e. the period of the basis surface of this
-    ## offset surface in this parametric direction. raises if the surface is
-    ## not vperiodic.
-
-proc uIso*(this: Geom_OffsetSurface, U: cdouble): handle[Geom_Curve]  {.importcpp: "UIso".}
-    ## Computes the U isoparametric curve.
-
-proc vIso*(this: Geom_OffsetSurface, V: cdouble): handle[Geom_Curve]  {.importcpp: "VIso".}
-    ## Computes the V isoparametric curve.
-
-proc d0*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, P: var gp_Pnt)  {.importcpp: "D0".}
-    ## P (U, V) = Pbasis + Offset * Ndir where Ndir = D1Ubasis ^ D1Vbasis /
-    ## ||D1Ubasis ^ D1Vbasis|| is the normal direction of the basis surface.
-    ## Pbasis, D1Ubasis, D1Vbasis are the point and the first derivatives on
-    ## the basis surface. If Ndir is undefined this method computes an
-    ## approched normal direction using the following limited development :
-    ## Ndir = N0 + DNdir/DU + DNdir/DV + Eps with Eps->0 which requires to
-    ## compute the second derivatives on the basis surface. If the normal
-    ## direction cannot be approximate for this order of derivation the
-    ## exception UndefinedValue is raised.
-
-proc d1*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec)  {.importcpp: "D1".}
-    ## Raised if the continuity of the basis surface is not C2.
-
-proc d2*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec)  {.importcpp: "D2".}
-    ## ---Purpose ; Raised if the continuity of the basis surface is not C3.
-
-proc d3*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, P: var gp_Pnt, D1U: var gp_Vec, D1V: var gp_Vec, D2U: var gp_Vec, D2V: var gp_Vec, D2UV: var gp_Vec, D3U: var gp_Vec, D3V: var gp_Vec, D3UUV: var gp_Vec, D3UVV: var gp_Vec)  {.importcpp: "D3".}
-    ## Raised if the continuity of the basis surface is not C4.
-
-proc dN*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, Nu: cint, Nv: cint): gp_Vec  {.importcpp: "DN".}
-    ## Computes the derivative of order Nu in the direction u and Nv in the
-    ## direction v. ---Purpose ; Raised if the continuity of the basis
-    ## surface is not CNu + 1 in the U direction and CNv + 1 in the V
-    ## direction. Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
-
-proc transform*(this: var Geom_OffsetSurface, T: gp_Trsf)  {.importcpp: "Transform".}
-    ## Applies the transformation T to this offset surface. Note: the basis
-    ## surface is also modified.
-
-proc transformParameters*(this: Geom_OffsetSurface, U: var cdouble, V: var cdouble, T: gp_Trsf)  {.importcpp: "TransformParameters".}
-    ## Computes the parameters on the transformed surface for the transform
-    ## of the point of parameters U,V on <me>.
-
-proc parametricTransformation*(this: Geom_OffsetSurface, T: gp_Trsf): gp_GTrsf2d  {.importcpp: "ParametricTransformation".}
-    ## Returns a 2d transformation used to find the new parameters of a point
-    ## on the transformed surface.
-
-proc copy*(this: Geom_OffsetSurface): handle[Geom_Geometry]  {.importcpp: "Copy".}
-    ## Creates a new object which is a copy of this offset surface.
-
-proc surface*(this: Geom_OffsetSurface): handle[Geom_Surface]  {.importcpp: "Surface".}
-    ## returns an equivalent surface of the offset surface when the basis
-    ## surface is a canonic surface or a rectangular limited surface on
-    ## canonic surface or if the offset is null.
-
-proc uOsculatingSurface*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, IsOpposite: var bool, UOsculSurf: handle[Geom_BSplineSurface]): bool  {.importcpp: "UOsculatingSurface".}
-    ## if Standard_True, L is the local osculating surface along U at the
-    ## point U,V. It means that DL/DU is collinear to DS/DU . If IsOpposite
-    ## == Standard_True these vectors have opposite direction.
-
-proc vOsculatingSurface*(this: Geom_OffsetSurface, U: cdouble, V: cdouble, IsOpposite: var bool, VOsculSurf: handle[Geom_BSplineSurface]): bool  {.importcpp: "VOsculatingSurface".}
-    ## if Standard_True, L is the local osculating surface along V at the
-    ## point U,V. It means that DL/DV is collinear to DS/DV . If IsOpposite
-    ## == Standard_True these vectors have opposite direction.
-
-proc getBasisSurfContinuity*(this: Geom_OffsetSurface): GeomAbs_Shape  {.importcpp: "GetBasisSurfContinuity".}
-    ## Returns continuity of the basis surface.
-
-proc dumpJson*(this: Geom_OffsetSurface, theOStream: var Standard_OStream, theDepth: cint = 1)  {.importcpp: "DumpJson".}
-    ## Dumps the content of me into the stream
-
-proc get_type_name*(this: var Geom_OffsetSurface): cstring  {.importcpp: "get_type_name".}
-
-proc get_type_descriptor*(this: var Geom_OffsetSurface): handle[Standard_Type]  {.importcpp: "get_type_descriptor".}
-
-proc dynamicType*(this: Geom_OffsetSurface): handle[Standard_Type]  {.importcpp: "DynamicType".}
-
-{.pop.}  # header: "Geom_OffsetSurface.hxx"
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_OffsetSurface::get_type_name(@)",
+                            header: "Geom_OffsetSurface.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_OffsetSurface::get_type_descriptor(@)",
+    header: "Geom_OffsetSurface.hxx".}
+proc dynamicType*(this: GeomOffsetSurface): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "Geom_OffsetSurface.hxx".} ]#

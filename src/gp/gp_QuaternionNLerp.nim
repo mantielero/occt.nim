@@ -1,23 +1,42 @@
-{.push header: "gp_QuaternionNLerp.hxx".}
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+## ! Class perform linear interpolation (approximate rotation interpolation),
+## ! result quaternion nonunit, its length lay between. sqrt(2)/2  and 1.0
+
+type
+  QuaternionNLerp* {.importcpp: "gp_QuaternionNLerp",
+                    header: "gp_QuaternionNLerp.hxx", bycopy.} = object ## ! Compute interpolated quaternion between two quaternions.
+                                                                   ## ! @param theStart first  quaternion
+                                                                   ## ! @param theEnd   second quaternion
+                                                                   ## ! @param theT normalized interpolation coefficient within 0..1 range,
+                                                                   ## !             with 0 pointing to theStart and 1 to theEnd.
+                                                                   ## ! Empty constructor,
 
 
-# Constructors and methods
-proc constructor_gp_QuaternionNLerp*(): gp_QuaternionNLerp {.constructor,importcpp: "gp_QuaternionNLerp".}
-  ## Empty constructor,
-
-proc constructor_gp_QuaternionNLerp*(theQStart: gp_Quaternion, theQEnd: gp_Quaternion): gp_QuaternionNLerp {.constructor,importcpp: "gp_QuaternionNLerp(@)".}
-  ## Constructor with initialization.
-
-proc Interpolate*(this: var gp_QuaternionNLerp, theQStart: gp_Quaternion, theQEnd: gp_Quaternion, theT: cdouble): gp_Quaternion  {.importcpp: "Interpolate".}
-  ## Compute interpolated quaternion between two quaternions.
-
-proc Init*(this: var gp_QuaternionNLerp, theQStart: gp_Quaternion, theQEnd: gp_Quaternion)  {.importcpp: "Init".}
-  ## Initialize the tool with Start and End values.
-
-proc InitFromUnit*(this: var gp_QuaternionNLerp, theQStart: gp_Quaternion, theQEnd: gp_Quaternion)  {.importcpp: "InitFromUnit".}
-  ## Initialize the tool with Start and End unit quaternions.
-
-proc Interpolate*(this: gp_QuaternionNLerp, theT: cdouble, theResultQ: var gp_Quaternion)  {.importcpp: "Interpolate".}
-  ## Set interpolated quaternion for theT position (from 0.0 to 1.0)
-
-{.pop.} # header: "gp_QuaternionNLerp.hxx
+proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: StandardReal): Quaternion {.
+    importcpp: "gp_QuaternionNLerp::Interpolate(@)",
+    header: "gp_QuaternionNLerp.hxx".}
+proc constructQuaternionNLerp*(): QuaternionNLerp {.constructor,
+    importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
+proc constructQuaternionNLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionNLerp {.
+    constructor, importcpp: "gp_QuaternionNLerp(@)",
+    header: "gp_QuaternionNLerp.hxx".}
+proc init*(this: var QuaternionNLerp; theQStart: Quaternion; theQEnd: Quaternion) {.
+    importcpp: "Init", header: "gp_QuaternionNLerp.hxx".}
+proc initFromUnit*(this: var QuaternionNLerp; theQStart: Quaternion;
+                  theQEnd: Quaternion) {.importcpp: "InitFromUnit",
+                                       header: "gp_QuaternionNLerp.hxx".}
+proc interpolate*(this: QuaternionNLerp; theT: StandardReal;
+                 theResultQ: var Quaternion) {.noSideEffect,
+    importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}

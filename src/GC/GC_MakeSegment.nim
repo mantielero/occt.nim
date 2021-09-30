@@ -1,39 +1,83 @@
-import ../gp/gp, ../Geom/geom_types
-import gc_types
-{.push header: "GC_MakeSegment.hxx".}
+##  Created on: 1992-09-28
+##  Created by: Remi GILET
+##  Copyright (c) 1992-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of StdFail_NotDone"
+discard "forward decl of gp_Pnt"
+discard "forward decl of gp_Lin"
+type
+  GC_MakeSegment* {.importcpp: "GC_MakeSegment", header: "GC_MakeSegment.hxx", bycopy.} = object of GC_Root ##
+                                                                                                  ## !
+                                                                                                  ## Make
+                                                                                                  ## a
+                                                                                                  ## segment
+                                                                                                  ## of
+                                                                                                  ## Line
+                                                                                                  ## from
+                                                                                                  ## the
+                                                                                                  ## 2
+                                                                                                  ## points
+                                                                                                  ## <P1>
+                                                                                                  ## and
+                                                                                                  ## <P2>.
+                                                                                                  ##
+                                                                                                  ## !
+                                                                                                  ## It
+                                                                                                  ## returns
+                                                                                                  ## NullObject
+                                                                                                  ## if
+                                                                                                  ## <P1>
+                                                                                                  ## and
+                                                                                                  ## <P2>
+                                                                                                  ## are
+                                                                                                  ## confused.
 
 
-# Constructors and methods
-proc MakeSegment*(P1, P2: gp_Pnt): Handle_Geom_TrimmedCurve {.constructor,importcpp: "GC_MakeSegment(@)".}
-  ## Make a segment of Line from the 2 points <P1> and <P2>. It returns
-  ## NullObject if <P1> and <P2> are confused.
+proc makeSegment*(p1: Pnt; p2: Pnt): GC_MakeSegment {.constructor,
+    importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+proc makeSegment*(line: Lin; u1: cfloat; u2: cfloat): GC_MakeSegment {.
+    constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+proc makeSegment*(line: Lin; point: Pnt; ulast: cfloat): GC_MakeSegment {.
+    constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+proc makeSegment*(line: Lin; p1: Pnt; p2: Pnt): GC_MakeSegment {.
+    constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+proc value*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.noSideEffect,
+    importcpp: "Value", header: "GC_MakeSegment.hxx".}
 
-proc MakeSegment*(Line: gp_Lin; U1, U2: cdouble): Handle_Geom_TrimmedCurve {.constructor,importcpp: "GC_MakeSegment(@)".}
-  ## Make a segment of Line from the line <Line1> between the two
-  ## parameters U1 and U2. It returns NullObject if <U1> is equal <U2>.
+#[ converter `toHandleGeomTrimmedCurve`*(this: GC_MakeSegment): Handle[GeomTrimmedCurve] {.
+    noSideEffect, importcpp: "GC_MakeSegment::operator constopencascade",
+    header: "GC_MakeSegment.hxx".} ]#
 
-proc MakeSegment*(Line: gp_Lin, Point: gp_Pnt, Ulast: cdouble): Handle_Geom_TrimmedCurve {.constructor,importcpp: "GC_MakeSegment(@)".}
-  ## Make a segment of Line from the line <Line1> between the point <Point>
-  ## and the parameter Ulast. It returns NullObject if <U1> is equal <U2>.
+converter toHandle_Geom_TrimmedCurve*(self: GC_MakeSegment):Handle_Geom_TrimmedCurve {.noSideEffect, 
+    importcpp:"(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeSegment.hxx".}
 
-proc MakeSegment*(Line: gp_Lin; P1, P2: gp_Pnt): Handle_Geom_TrimmedCurve {.constructor,importcpp: "GC_MakeSegment(@)".}
-  ## Make a segment of Line from the line <Line1> between the two points
-  ## <P1> and <P2>. It returns NullObject if <U1> is equal <U2>.
 
-#[
-proc ` new`*(this: var GC_MakeSegment, theSize: cint)  {.importcpp: "` new`".}
 
-proc ` delete`*(this: var GC_MakeSegment, theAddress: pointer)  {.importcpp: "` delete`".}
 
-proc ` new[]`*(this: var GC_MakeSegment, theSize: cint)  {.importcpp: "` new[]`".}
 
-proc ` delete[]`*(this: var GC_MakeSegment, theAddress: pointer)  {.importcpp: "` delete[]`".}
 
-proc ` new`*(this: var GC_MakeSegment, cint, theAddress: pointer)  {.importcpp: "` new`".}
 
-proc ` delete`*(this: var GC_MakeSegment, pointer, pointer)  {.importcpp: "` delete`".}
-]#
-proc Value*(this: GC_MakeSegment): Handle_Geom_TrimmedCurve  {.importcpp: "Value".}
-  ## Returns the constructed line segment.
 
-{.pop.} # header: "GC_MakeSegment.hxx
+
+
+
+
+
+
+
+
+
+
+

@@ -1,186 +1,145 @@
-{.push header: "gp_Quaternion.hxx".}
+##  Created on: 2010-05-11
+##  Created by: Kirill GAVRILOV
+##  Copyright (c) 2010-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of gp_Vec"
+discard "forward decl of gp_Mat"
+type
+  Quaternion* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object
 
 
-# Constructors and methods
-proc constructor_gp_Quaternion*(): gp_Quaternion {.constructor,importcpp: "gp_Quaternion".}
-  ## Creates an identity quaternion
-
-proc constructor_gp_Quaternion*(x: cdouble, y: cdouble, z: cdouble, w: cdouble): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates quaternion directly from component values
-
-proc constructor_gp_Quaternion*(theToCopy: gp_Quaternion): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates copy of another quaternion
-
-proc constructor_gp_Quaternion*(theVecFrom: gp_Vec, theVecTo: gp_Vec): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates quaternion representing shortest-arc rotation operator
-  ## producing vector theVecTo from vector theVecFrom.
-
-proc constructor_gp_Quaternion*(theVecFrom: gp_Vec, theVecTo: gp_Vec, theHelpCrossVec: gp_Vec): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates quaternion representing shortest-arc rotation operator
-  ## producing vector theVecTo from vector theVecFrom. Additional vector
-  ## theHelpCrossVec defines preferred direction for rotation and is used
-  ## when theVecTo and theVecFrom are directed oppositely.
-
-proc constructor_gp_Quaternion*(theAxis: gp_Vec, theAngle: cdouble): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates quaternion representing rotation on angle theAngle around
-  ## vector theAxis
-
-proc constructor_gp_Quaternion*(theMat: gp_Mat): gp_Quaternion {.constructor,importcpp: "gp_Quaternion(@)".}
-  ## Creates quaternion from rotation matrix 3*3 (which should be
-  ## orthonormal skew-symmetric matrix)
-
-proc ` new`*(this: var gp_Quaternion, theSize: cint)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Quaternion, theAddress: pointer)  {.importcpp: "` delete`".}
-
-proc ` new[]`*(this: var gp_Quaternion, theSize: cint)  {.importcpp: "` new[]`".}
-
-proc ` delete[]`*(this: var gp_Quaternion, theAddress: pointer)  {.importcpp: "` delete[]`".}
-
-proc ` new`*(this: var gp_Quaternion, cint, theAddress: pointer)  {.importcpp: "` new`".}
-
-proc ` delete`*(this: var gp_Quaternion, pointer, pointer)  {.importcpp: "` delete`".}
-
-proc IsEqual*(this: gp_Quaternion, theOther: gp_Quaternion): bool  {.importcpp: "IsEqual".}
-  ## Simple equal test without precision
-
-proc SetRotation*(this: var gp_Quaternion, theVecFrom: gp_Vec, theVecTo: gp_Vec)  {.importcpp: "SetRotation".}
-  ## Sets quaternion to shortest-arc rotation producing vector theVecTo
-  ## from vector theVecFrom. If vectors theVecFrom and theVecTo are
-  ## opposite then rotation axis is computed as theVecFrom ^ (1,0,0) or
-  ## theVecFrom ^ (0,0,1).
-
-proc SetRotation*(this: var gp_Quaternion, theVecFrom: gp_Vec, theVecTo: gp_Vec, theHelpCrossVec: gp_Vec)  {.importcpp: "SetRotation".}
-  ## Sets quaternion to shortest-arc rotation producing vector theVecTo
-  ## from vector theVecFrom. If vectors theVecFrom and theVecTo are
-  ## opposite then rotation axis is computed as theVecFrom ^
-  ## theHelpCrossVec.
-
-proc SetVectorAndAngle*(this: var gp_Quaternion, theAxis: gp_Vec, theAngle: cdouble)  {.importcpp: "SetVectorAndAngle".}
-  ## Create a unit quaternion from Axis+Angle representation
-
-proc GetVectorAndAngle*(this: gp_Quaternion, theAxis: var gp_Vec, theAngle: var cdouble)  {.importcpp: "GetVectorAndAngle".}
-  ## Convert a quaternion to Axis+Angle representation, preserve the axis
-  ## direction and angle from -PI to +PI
-
-proc SetMatrix*(this: var gp_Quaternion, theMat: gp_Mat)  {.importcpp: "SetMatrix".}
-  ## Create a unit quaternion by rotation matrix matrix must contain only
-  ## rotation (not scale or shear)
-
-proc GetMatrix*(this: gp_Quaternion): gp_Mat  {.importcpp: "GetMatrix".}
-  ## Returns rotation operation as 3*3 matrix
-
-proc SetEulerAngles*(this: var gp_Quaternion, theOrder: gp_EulerSequence, theAlpha: cdouble, theBeta: cdouble, theGamma: cdouble)  {.importcpp: "SetEulerAngles".}
-  ## Create a unit quaternion representing rotation defined by generalized
-  ## Euler angles
-
-proc GetEulerAngles*(this: gp_Quaternion, theOrder: gp_EulerSequence, theAlpha: var cdouble, theBeta: var cdouble, theGamma: var cdouble)  {.importcpp: "GetEulerAngles".}
-  ## Returns Euler angles describing current rotation
-
-proc Set*(this: var gp_Quaternion, x: cdouble, y: cdouble, z: cdouble, w: cdouble)  {.importcpp: "Set".}
-
-proc Set*(this: var gp_Quaternion, theQuaternion: gp_Quaternion)  {.importcpp: "Set".}
-
-proc X*(this: gp_Quaternion): cdouble  {.importcpp: "X".}
-
-proc Y*(this: gp_Quaternion): cdouble  {.importcpp: "Y".}
-
-proc Z*(this: gp_Quaternion): cdouble  {.importcpp: "Z".}
-
-proc W*(this: gp_Quaternion): cdouble  {.importcpp: "W".}
-
-proc SetIdent*(this: var gp_Quaternion)  {.importcpp: "SetIdent".}
-  ## Make identity quaternion (zero-rotation)
-
-proc Reverse*(this: var gp_Quaternion)  {.importcpp: "Reverse".}
-  ## Reverse direction of rotation (conjugate quaternion)
-
-proc Reversed*(this: gp_Quaternion): gp_Quaternion  {.importcpp: "Reversed".}
-  ## Return rotation with reversed direction (conjugated quaternion)
-
-proc Invert*(this: var gp_Quaternion)  {.importcpp: "Invert".}
-  ## Inverts quaternion (both rotation direction and norm)
-
-proc Inverted*(this: gp_Quaternion): gp_Quaternion  {.importcpp: "Inverted".}
-  ## Return inversed quaternion q^-1
-
-proc SquareNorm*(this: gp_Quaternion): cdouble  {.importcpp: "SquareNorm".}
-  ## Returns square norm of quaternion
-
-proc Norm*(this: gp_Quaternion): cdouble  {.importcpp: "Norm".}
-  ## Returns norm of quaternion
-
-proc Scale*(this: var gp_Quaternion, theScale: cdouble)  {.importcpp: "Scale".}
-  ## Scale all components by quaternion by theScale; note that rotation is
-  ## not changed by this operation (except 0-scaling)
-
-proc `*=`*(this: var gp_Quaternion, theScale: cdouble)  {.importcpp: "`*=`".}
-
-proc Scaled*(this: gp_Quaternion, theScale: cdouble): gp_Quaternion  {.importcpp: "Scaled".}
-  ## Returns scaled quaternion
-
-proc `*`*(this: gp_Quaternion, theScale: cdouble): gp_Quaternion  {.importcpp: "`*`".}
-
-proc StabilizeLength*(this: var gp_Quaternion)  {.importcpp: "StabilizeLength".}
-  ## Stabilize quaternion length within 1 - 1/4. This operation is a lot
-  ## faster than normalization and preserve length goes to 0 or infinity
-
-proc Normalize*(this: var gp_Quaternion)  {.importcpp: "Normalize".}
-  ## Scale quaternion that its norm goes to 1. The appearing of 0 magnitude
-  ## or near is a error, so we can be sure that can divide by magnitude
-
-proc Normalized*(this: gp_Quaternion): gp_Quaternion  {.importcpp: "Normalized".}
-  ## Returns quaternion scaled so that its norm goes to 1.
-
-proc Negated*(this: gp_Quaternion): gp_Quaternion  {.importcpp: "Negated".}
-  ## Returns quaternion with all components negated. Note that this
-  ## operation does not affect neither rotation operator defined by
-  ## quaternion nor its norm.
-
-proc `-`*(this: gp_Quaternion): gp_Quaternion  {.importcpp: "`-`".}
-
-proc Added*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "Added".}
-  ## Makes sum of quaternion components; result is "rotations mix"
-
-proc `+`*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "`+`".}
-
-proc Subtracted*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "Subtracted".}
-  ## Makes difference of quaternion components; result is "rotations mix"
-
-proc `-`*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "`-`".}
-
-proc Multiplied*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "Multiplied".}
-  ## Multiply function - work the same as Matrices multiplying. qq' =
-  ## (cross(v,v') + wv' + w'v, ww' - dot(v,v')) Result is rotation
-  ## combination: q' than q (here q=this, q'=theQ). Notices than: qq' !=
-  ## q'q; qq^-1 = q;
-
-proc `*`*(this: gp_Quaternion, theOther: gp_Quaternion): gp_Quaternion  {.importcpp: "`*`".}
-
-proc Add*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "Add".}
-  ## Adds componnets of other quaternion; result is "rotations mix"
-
-proc `+=`*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "`+=`".}
-
-proc Subtract*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "Subtract".}
-  ## Subtracts componnets of other quaternion; result is "rotations mix"
-
-proc `-=`*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "`-=`".}
-
-proc Multiply*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "Multiply".}
-  ## Adds rotation by multiplication
-
-proc `*=`*(this: var gp_Quaternion, theOther: gp_Quaternion)  {.importcpp: "`*=`".}
-
-proc Dot*(this: gp_Quaternion, theOther: gp_Quaternion): cdouble  {.importcpp: "Dot".}
-  ## Computes inner product / scalar product / Dot
-
-proc GetRotationAngle*(this: gp_Quaternion): cdouble  {.importcpp: "GetRotationAngle".}
-  ## Return rotation angle from -PI to PI
-
-proc Multiply*(this: gp_Quaternion, theVec: gp_Vec): gp_Vec  {.importcpp: "Multiply".}
-  ## Rotates vector by quaternion as rotation operator
-
-proc `*`*(this: gp_Quaternion, theVec: gp_Vec): gp_Vec  {.importcpp: "`*`".}
-
-{.pop.} # header: "gp_Quaternion.hxx
+proc `new`*(this: var Quaternion; theSize: csize_t): pointer {.
+    importcpp: "gp_Quaternion::operator new", header: "gp_Quaternion.hxx".}
+proc `delete`*(this: var Quaternion; theAddress: pointer) {.
+    importcpp: "gp_Quaternion::operator delete", header: "gp_Quaternion.hxx".}
+proc `new[]`*(this: var Quaternion; theSize: csize_t): pointer {.
+    importcpp: "gp_Quaternion::operator new[]", header: "gp_Quaternion.hxx".}
+proc `delete[]`*(this: var Quaternion; theAddress: pointer) {.
+    importcpp: "gp_Quaternion::operator delete[]", header: "gp_Quaternion.hxx".}
+proc `new`*(this: var Quaternion; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "gp_Quaternion::operator new", header: "gp_Quaternion.hxx".}
+proc `delete`*(this: var Quaternion; a2: pointer; a3: pointer) {.
+    importcpp: "gp_Quaternion::operator delete", header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(): Quaternion {.constructor,
+                                       importcpp: "gp_Quaternion(@)",
+                                       header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(x: StandardReal; y: StandardReal; z: StandardReal;
+                         w: StandardReal): Quaternion {.constructor,
+    importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(theVecFrom: Vec; theVecTo: Vec): Quaternion {.constructor,
+    importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(theVecFrom: Vec; theVecTo: Vec; theHelpCrossVec: Vec): Quaternion {.
+    constructor, importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(theAxis: Vec; theAngle: StandardReal): Quaternion {.
+    constructor, importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
+proc constructQuaternion*(theMat: Mat): Quaternion {.constructor,
+    importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
+proc isEqual*(this: Quaternion; theOther: Quaternion): StandardBoolean {.noSideEffect,
+    importcpp: "IsEqual", header: "gp_Quaternion.hxx".}
+proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec) {.
+    importcpp: "SetRotation", header: "gp_Quaternion.hxx".}
+proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec;
+                 theHelpCrossVec: Vec) {.importcpp: "SetRotation",
+                                       header: "gp_Quaternion.hxx".}
+proc setVectorAndAngle*(this: var Quaternion; theAxis: Vec; theAngle: StandardReal) {.
+    importcpp: "SetVectorAndAngle", header: "gp_Quaternion.hxx".}
+proc getVectorAndAngle*(this: Quaternion; theAxis: var Vec; theAngle: var StandardReal) {.
+    noSideEffect, importcpp: "GetVectorAndAngle", header: "gp_Quaternion.hxx".}
+proc setMatrix*(this: var Quaternion; theMat: Mat) {.importcpp: "SetMatrix",
+    header: "gp_Quaternion.hxx".}
+proc getMatrix*(this: Quaternion): Mat {.noSideEffect, importcpp: "GetMatrix",
+                                     header: "gp_Quaternion.hxx".}
+proc setEulerAngles*(this: var Quaternion; theOrder: EulerSequence;
+                    theAlpha: StandardReal; theBeta: StandardReal;
+                    theGamma: StandardReal) {.importcpp: "SetEulerAngles",
+    header: "gp_Quaternion.hxx".}
+proc getEulerAngles*(this: Quaternion; theOrder: EulerSequence;
+                    theAlpha: var StandardReal; theBeta: var StandardReal;
+                    theGamma: var StandardReal) {.noSideEffect,
+    importcpp: "GetEulerAngles", header: "gp_Quaternion.hxx".}
+proc set*(this: var Quaternion; x: StandardReal; y: StandardReal; z: StandardReal;
+         w: StandardReal) {.importcpp: "Set", header: "gp_Quaternion.hxx".}
+proc set*(this: var Quaternion; theQuaternion: Quaternion) {.importcpp: "Set",
+    header: "gp_Quaternion.hxx".}
+proc x*(this: Quaternion): StandardReal {.noSideEffect, importcpp: "X",
+                                      header: "gp_Quaternion.hxx".}
+proc y*(this: Quaternion): StandardReal {.noSideEffect, importcpp: "Y",
+                                      header: "gp_Quaternion.hxx".}
+proc z*(this: Quaternion): StandardReal {.noSideEffect, importcpp: "Z",
+                                      header: "gp_Quaternion.hxx".}
+proc w*(this: Quaternion): StandardReal {.noSideEffect, importcpp: "W",
+                                      header: "gp_Quaternion.hxx".}
+proc setIdent*(this: var Quaternion) {.importcpp: "SetIdent",
+                                   header: "gp_Quaternion.hxx".}
+proc reverse*(this: var Quaternion) {.importcpp: "Reverse",
+                                  header: "gp_Quaternion.hxx".}
+proc reversed*(this: Quaternion): Quaternion {.noSideEffect, importcpp: "Reversed",
+    header: "gp_Quaternion.hxx".}
+proc invert*(this: var Quaternion) {.importcpp: "Invert", header: "gp_Quaternion.hxx".}
+proc inverted*(this: Quaternion): Quaternion {.noSideEffect, importcpp: "Inverted",
+    header: "gp_Quaternion.hxx".}
+proc squareNorm*(this: Quaternion): StandardReal {.noSideEffect,
+    importcpp: "SquareNorm", header: "gp_Quaternion.hxx".}
+proc norm*(this: Quaternion): StandardReal {.noSideEffect, importcpp: "Norm",
+    header: "gp_Quaternion.hxx".}
+proc scale*(this: var Quaternion; theScale: StandardReal) {.importcpp: "Scale",
+    header: "gp_Quaternion.hxx".}
+proc `*=`*(this: var Quaternion; theScale: StandardReal) {.importcpp: "(# *= #)",
+    header: "gp_Quaternion.hxx".}
+proc scaled*(this: Quaternion; theScale: StandardReal): Quaternion {.noSideEffect,
+    importcpp: "Scaled", header: "gp_Quaternion.hxx".}
+proc `*`*(this: Quaternion; theScale: StandardReal): Quaternion {.noSideEffect,
+    importcpp: "(# * #)", header: "gp_Quaternion.hxx".}
+proc stabilizeLength*(this: var Quaternion) {.importcpp: "StabilizeLength",
+    header: "gp_Quaternion.hxx".}
+proc normalize*(this: var Quaternion) {.importcpp: "Normalize",
+                                    header: "gp_Quaternion.hxx".}
+proc normalized*(this: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "Normalized", header: "gp_Quaternion.hxx".}
+proc negated*(this: Quaternion): Quaternion {.noSideEffect, importcpp: "Negated",
+    header: "gp_Quaternion.hxx".}
+proc `-`*(this: Quaternion): Quaternion {.noSideEffect, importcpp: "(- #)",
+                                      header: "gp_Quaternion.hxx".}
+proc added*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "Added", header: "gp_Quaternion.hxx".}
+proc `+`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "(# + #)", header: "gp_Quaternion.hxx".}
+proc subtracted*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "Subtracted", header: "gp_Quaternion.hxx".}
+proc `-`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "(# - #)", header: "gp_Quaternion.hxx".}
+proc multiplied*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "Multiplied", header: "gp_Quaternion.hxx".}
+proc `*`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    importcpp: "(# * #)", header: "gp_Quaternion.hxx".}
+proc add*(this: var Quaternion; theOther: Quaternion) {.importcpp: "Add",
+    header: "gp_Quaternion.hxx".}
+proc `+=`*(this: var Quaternion; theOther: Quaternion) {.importcpp: "(# += #)",
+    header: "gp_Quaternion.hxx".}
+proc subtract*(this: var Quaternion; theOther: Quaternion) {.importcpp: "Subtract",
+    header: "gp_Quaternion.hxx".}
+proc `-=`*(this: var Quaternion; theOther: Quaternion) {.importcpp: "(# -= #)",
+    header: "gp_Quaternion.hxx".}
+proc multiply*(this: var Quaternion; theOther: Quaternion) {.importcpp: "Multiply",
+    header: "gp_Quaternion.hxx".}
+proc `*=`*(this: var Quaternion; theOther: Quaternion) {.importcpp: "(# *= #)",
+    header: "gp_Quaternion.hxx".}
+proc dot*(this: Quaternion; theOther: Quaternion): StandardReal {.noSideEffect,
+    importcpp: "Dot", header: "gp_Quaternion.hxx".}
+proc getRotationAngle*(this: Quaternion): StandardReal {.noSideEffect,
+    importcpp: "GetRotationAngle", header: "gp_Quaternion.hxx".}
+proc multiply*(this: Quaternion; theVec: Vec): Vec {.noSideEffect,
+    importcpp: "Multiply", header: "gp_Quaternion.hxx".}
+proc `*`*(this: Quaternion; theVec: Vec): Vec {.noSideEffect, importcpp: "(# * #)",
+    header: "gp_Quaternion.hxx".}

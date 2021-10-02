@@ -1,3 +1,10 @@
+when defined(windows):
+  const tkernel* = "TKernel.dll"
+elif defined(macosx):
+  const tkernel* = "libTKernel.dylib"
+else:
+  const tkernel* = "libTKernel.so" 
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

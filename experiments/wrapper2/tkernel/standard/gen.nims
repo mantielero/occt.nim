@@ -10,12 +10,12 @@ else:
   const tkernel* = "libTKernel.so" 
 
 """
-proc genFiles(file:string;remove:seq[tuple[a,b:int]] = @[]; addColon:seq[int] = @[]) =
+proc genFiles(file:string;remove:seq[tuple[a,b:int]] = @[]; addSemiColon:seq[int] = @[]) =
     cpFile(lib & file & ".hxx", file & ".hxx")
 
     # Colons to add at the end of line
-    if addColon.len > 0:
-        for line in addColon:
+    if addSemiColon.len > 0:
+        for line in addSemiColon:
             var edit = "'" & $line & " s/$/;/i'"
             edit = "sed -e " & edit & " -i " & file & ".hxx"
 
@@ -34,8 +34,8 @@ proc genFiles(file:string;remove:seq[tuple[a,b:int]] = @[]; addColon:seq[int] = 
 
 
     exec "c2nim --cpp --header --strict --out:" & file.toLower & ".nim standard.c2nim " & file & ".hxx"
-    let txt = readFile("standard.nim")
-    writeFile("standard.nim", beg & txt)
+    let txt = readFile(file.toLower & ".nim")
+    writeFile(file.toLower & ".nim", beg & txt)
     rmFile(file & ".hxx")
     echo file
 
@@ -52,7 +52,7 @@ genFiles("Standard_Assert", remove = @[(18, 159), (165,171), (174,175)])
 genFiles("Standard_Atomic", remove = @[(72,76)])
 genFiles("Standard_Boolean")
 genFiles("Standard_Byte")
-genFiles("Standard_Character", remove = @[(126,127), (132,132)], addColon = @[125, 131])
+genFiles("Standard_Character", remove = @[(126,127), (132,132)], addSemiColon = @[125, 131])
 genFiles("Standard_CLocaleSentry", remove = @[(22,45), (95,106)])
 genFiles("Standard_Condition")
 genFiles("Standard_ConstructionError")
@@ -70,7 +70,7 @@ genFiles("Standard_ExtCharacter")
 genFiles("Standard_ExtString")
 genFiles("Standard_Failure", remove = @[(30,31), (107, 108)])
 genFiles("Standard_GUID")
-genFiles("Standard_Handle", remove = @[(152,154), (173,175), (180,182), (184,214), (216,398), (406,407), (413,417), (419,439)], addColon = @[151, 172, 179,414]) #remove = @[(152,154), (173,175), (180,182)], addColon = @[151, 172, 179] )#, remove = @[(159, 161)], addColon = @[158])
+genFiles("Standard_Handle", remove = @[(152,154), (173,175), (180,182), (184,214), (216,398), (406,407), (413,417), (419,439)], addSemiColon = @[151, 172, 179,414]) #remove = @[(152,154), (173,175), (180,182)], addSemiColon = @[151, 172, 179] )#, remove = @[(159, 161)], addSemiColon = @[158])
 genFiles("Standard_HandlerStatus")
 genFiles("Standard_ImmutableObject")
 genFiles("Standard_Integer")  # Ignored: #assumedef _Standard_Integer_HeaderFile
@@ -105,8 +105,8 @@ genFiles("Standard_PExtCharacter")
 genFiles("Standard_PrimitiveTypes")
 genFiles("Standard_ProgramError")
 genFiles("Standard_RangeError")
-genFiles("Standard_ReadBuffer", remove = @[(145, 147)], addColon = @[144])
-genFiles("Standard_ReadLineBuffer", remove = @[(253, 253), (290,293)], addColon = @[289])
+genFiles("Standard_ReadBuffer", remove = @[(145, 147)], addSemiColon = @[144])
+genFiles("Standard_ReadLineBuffer", remove = @[(253, 253), (290,293)], addSemiColon = @[289])
 genFiles("Standard_Real")   # Ignored: #assumedef _Standard_Real_HeaderFile
 genFiles("Standard_ShortReal") # Ignored: #assumedef _Standard_ShortReal_HeaderFile
 genFiles("Standard_Size")      # Ignored: #assumedef _Standard_Size_HeaderFile
@@ -116,7 +116,7 @@ genFiles("Standard_Stream")
 genFiles("Standard_ThreadId")
 genFiles("Standard_Time")
 genFiles("Standard_TooManyUsers")
-genFiles("Standard_Transient", remove = @[(117, 119)], addColon = @[116])
+genFiles("Standard_Transient", remove = @[(117, 119)], addSemiColon = @[116])
 genFiles("Standard_TypeDef") 
 genFiles("Standard_Type", remove = @[(27,87), (97,124)])  # Ignored: #assumedef _Standard_Type_HeaderFile
 genFiles("Standard_TypeMismatch")

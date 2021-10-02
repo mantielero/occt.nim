@@ -1,3 +1,10 @@
+when defined(windows):
+  const tkernel* = "TKernel.dll"
+elif defined(macosx):
+  const tkernel* = "libTKernel.dylib"
+else:
+  const tkernel* = "libTKernel.so" 
+
 ##  Created on: 1992-09-28
 ##  Created by: Ramin BARRETO
 ##  Copyright (c) 1992-1999 Matra Datavision

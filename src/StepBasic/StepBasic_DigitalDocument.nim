@@ -35,28 +35,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DigitalDocument.hxx".}
 proc dynamicType*(this: StepBasicDigitalDocument): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DigitalDocument.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

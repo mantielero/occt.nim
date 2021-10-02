@@ -33,7 +33,7 @@ proc constructStepBasicGeneralProperty*(): StepBasicGeneralProperty {.constructo
     importcpp: "StepBasic_GeneralProperty(@)",
     header: "StepBasic_GeneralProperty.hxx".}
 proc init*(this: var StepBasicGeneralProperty; aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_GeneralProperty.hxx".}
 proc id*(this: StepBasicGeneralProperty): Handle[TCollectionHAsciiString] {.
@@ -50,8 +50,9 @@ proc description*(this: StepBasicGeneralProperty): Handle[TCollectionHAsciiStrin
 proc setDescription*(this: var StepBasicGeneralProperty;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_GeneralProperty.hxx".}
-proc hasDescription*(this: StepBasicGeneralProperty): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_GeneralProperty.hxx".}
+proc hasDescription*(this: StepBasicGeneralProperty): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_GeneralProperty.hxx".}
 type
   StepBasicGeneralPropertybaseType* = StandardTransient
 
@@ -62,28 +63,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_GeneralProperty.hxx".}
 proc dynamicType*(this: StepBasicGeneralProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_GeneralProperty.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -39,7 +39,7 @@ proc constructStepAP214ExternallyDefinedGeneralProperty*(): StepAP214ExternallyD
 proc init*(this: var StepAP214ExternallyDefinedGeneralProperty;
           aGeneralPropertyId: Handle[TCollectionHAsciiString];
           aGeneralPropertyName: Handle[TCollectionHAsciiString];
-          hasGeneralPropertyDescription: bool;
+          hasGeneralPropertyDescription: StandardBoolean;
           aGeneralPropertyDescription: Handle[TCollectionHAsciiString];
           aExternallyDefinedItemItemId: StepBasicSourceItem;
           aExternallyDefinedItemSource: Handle[StepBasicExternalSource]) {.
@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_External
 proc dynamicType*(this: StepAP214ExternallyDefinedGeneralProperty): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP214_ExternallyDefinedGeneralProperty.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

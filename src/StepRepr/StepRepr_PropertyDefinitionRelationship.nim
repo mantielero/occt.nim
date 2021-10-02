@@ -74,28 +74,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_PropertyD
 proc dynamicType*(this: StepReprPropertyDefinitionRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_PropertyDefinitionRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

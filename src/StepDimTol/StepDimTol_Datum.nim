@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_Datum.hxx".}
 proc dynamicType*(this: StepDimTolDatum): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepDimTol_Datum.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

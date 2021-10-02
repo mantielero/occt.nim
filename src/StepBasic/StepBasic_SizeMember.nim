@@ -29,11 +29,11 @@ type
 
 proc constructStepBasicSizeMember*(): StepBasicSizeMember {.constructor,
     importcpp: "StepBasic_SizeMember(@)", header: "StepBasic_SizeMember.hxx".}
-proc hasName*(this: StepBasicSizeMember): bool {.noSideEffect, importcpp: "HasName",
-    header: "StepBasic_SizeMember.hxx".}
+proc hasName*(this: StepBasicSizeMember): StandardBoolean {.noSideEffect,
+    importcpp: "HasName", header: "StepBasic_SizeMember.hxx".}
 proc name*(this: StepBasicSizeMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepBasic_SizeMember.hxx".}
-proc setName*(this: var StepBasicSizeMember; name: StandardCString): bool {.
+proc setName*(this: var StepBasicSizeMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepBasic_SizeMember.hxx".}
 type
   StepBasicSizeMemberbaseType* = StepDataSelectReal
@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_SizeMember.hxx".}
 proc dynamicType*(this: StepBasicSizeMember): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_SizeMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolCoaxialityTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_CoaxialityTolerance.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

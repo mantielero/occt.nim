@@ -18,42 +18,32 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
   StepBasicSourceItem* {.importcpp: "StepBasic_SourceItem",
-                        header: "StepBasic_SourceItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
+                        header: "StepBasic_SourceItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicSourceItem; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_SourceItem::operator new",
+    header: "StepBasic_SourceItem.hxx".}
+proc `delete`*(this: var StepBasicSourceItem; theAddress: pointer) {.
+    importcpp: "StepBasic_SourceItem::operator delete",
+    header: "StepBasic_SourceItem.hxx".}
+proc `new[]`*(this: var StepBasicSourceItem; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_SourceItem::operator new[]",
+    header: "StepBasic_SourceItem.hxx".}
+proc `delete[]`*(this: var StepBasicSourceItem; theAddress: pointer) {.
+    importcpp: "StepBasic_SourceItem::operator delete[]",
+    header: "StepBasic_SourceItem.hxx".}
+proc `new`*(this: var StepBasicSourceItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepBasic_SourceItem::operator new",
+    header: "StepBasic_SourceItem.hxx".}
+proc `delete`*(this: var StepBasicSourceItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepBasic_SourceItem::operator delete",
+    header: "StepBasic_SourceItem.hxx".}
 proc constructStepBasicSourceItem*(): StepBasicSourceItem {.constructor,
     importcpp: "StepBasic_SourceItem(@)", header: "StepBasic_SourceItem.hxx".}
-proc caseNum*(this: StepBasicSourceItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepBasicSourceItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_SourceItem.hxx".}
 proc newMember*(this: StepBasicSourceItem): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepBasic_SourceItem.hxx".}
 proc identifier*(this: StepBasicSourceItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Identifier", header: "StepBasic_SourceItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

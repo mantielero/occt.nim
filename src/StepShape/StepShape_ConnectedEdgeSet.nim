@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedEdgeSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedEdgeSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

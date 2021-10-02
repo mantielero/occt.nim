@@ -26,8 +26,17 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of XSControl_WorkSession"
+
 type
-  HandleC1C1* = Handle[XSControlWorkSession]
+  XSControlWorkSession* {.importcpp: "XSControl_WorkSession",
+                         header: "XSControl_WorkSession.hxx", bycopy.} = object #of IFSelectWorkSession ##
+                                                                                                ## !
+                                                                                                ## Clears
+                                                                                                ## binders
+
+
+type
+  HandleXSControlWorkSession* = Handle[XSControlWorkSession]
 
 ## ! This WorkSession completes the basic one, by adding :
 ## ! - use of Controller, with norm selection...
@@ -39,12 +48,7 @@ type
 ## ! Each item is accessed by a Name
 
 type
-  XSControlWorkSession* {.importcpp: "XSControl_WorkSession",
-                         header: "XSControl_WorkSession.hxx", bycopy.} = object of IFSelectWorkSession ##
-                                                                                                ## !
-                                                                                                ## Clears
-                                                                                                ## binders
-
+  XSControlWorkSessionbaseType* = IFSelectWorkSession
 
 proc constructXSControlWorkSession*(): XSControlWorkSession {.constructor,
     importcpp: "XSControl_WorkSession(@)", header: "XSControl_WorkSession.hxx".}
@@ -61,7 +65,7 @@ proc selectedNorm*(this: XSControlWorkSession; theRsc: bool = false): StandardCS
     noSideEffect, importcpp: "SelectedNorm", header: "XSControl_WorkSession.hxx".}
 proc normAdaptor*(this: XSControlWorkSession): Handle[XSControlController] {.
     noSideEffect, importcpp: "NormAdaptor", header: "XSControl_WorkSession.hxx".}
-proc context*(this: XSControlWorkSession): NCollectionDataMap[
+#[ proc context*(this: XSControlWorkSession): NCollectionDataMap[
     TCollectionAsciiString, Handle[StandardTransient]] {.noSideEffect,
     importcpp: "Context", header: "XSControl_WorkSession.hxx".}
 proc setAllContext*(this: var XSControlWorkSession; theContext: NCollectionDataMap[
@@ -110,8 +114,6 @@ proc vars*(this: XSControlWorkSession): Handle[XSControlVars] {.noSideEffect,
     importcpp: "Vars", header: "XSControl_WorkSession.hxx".}
 proc setVars*(this: var XSControlWorkSession; theVars: Handle[XSControlVars]) {.
     importcpp: "SetVars", header: "XSControl_WorkSession.hxx".}
-type
-  XSControlWorkSessionbaseType* = IFSelectWorkSession
 
 proc getTypeName*(): cstring {.importcpp: "XSControl_WorkSession::get_type_name(@)",
                             header: "XSControl_WorkSession.hxx".}
@@ -145,3 +147,4 @@ proc dynamicType*(this: XSControlWorkSession): Handle[StandardType] {.noSideEffe
 
 
 
+ ]#

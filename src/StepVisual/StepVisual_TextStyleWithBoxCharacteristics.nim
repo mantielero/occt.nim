@@ -47,10 +47,10 @@ proc characteristics*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
     importcpp: "Characteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
 proc characteristicsValue*(this: StepVisualTextStyleWithBoxCharacteristics;
-                          num: cint): StepVisualBoxCharacteristicSelect {.
+                          num: int): StepVisualBoxCharacteristicSelect {.
     noSideEffect, importcpp: "CharacteristicsValue",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-proc nbCharacteristics*(this: StepVisualTextStyleWithBoxCharacteristics): cint {.
+proc nbCharacteristics*(this: StepVisualTextStyleWithBoxCharacteristics): int {.
     noSideEffect, importcpp: "NbCharacteristics",
     header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
 type
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_TextSty
 proc dynamicType*(this: StepVisualTextStyleWithBoxCharacteristics): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_TextStyleWithBoxCharacteristics.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

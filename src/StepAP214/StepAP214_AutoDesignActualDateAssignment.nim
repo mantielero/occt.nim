@@ -43,10 +43,10 @@ proc setItems*(this: var StepAP214AutoDesignActualDateAssignment;
 proc items*(this: StepAP214AutoDesignActualDateAssignment): Handle[
     StepAP214HArray1OfAutoDesignDatedItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AutoDesignActualDateAssignment.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignActualDateAssignment; num: cint): StepAP214AutoDesignDatedItem {.
+proc itemsValue*(this: StepAP214AutoDesignActualDateAssignment; num: int): StepAP214AutoDesignDatedItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignActualDateAssignment.hxx".}
-proc nbItems*(this: StepAP214AutoDesignActualDateAssignment): cint {.noSideEffect,
+proc nbItems*(this: StepAP214AutoDesignActualDateAssignment): int {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AutoDesignActualDateAssignment.hxx".}
 type
   StepAP214AutoDesignActualDateAssignmentbaseType* = StepBasicDateAssignment
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesi
 proc dynamicType*(this: StepAP214AutoDesignActualDateAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP214_AutoDesignActualDateAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

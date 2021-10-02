@@ -16,29 +16,3 @@
 
 type
   StepShapeArray1OfShell* = NCollectionArray1[StepShapeShell]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

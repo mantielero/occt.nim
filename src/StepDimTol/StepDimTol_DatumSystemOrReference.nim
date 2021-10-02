@@ -18,15 +18,31 @@ discard "forward decl of StepDimTol_DatumSystem"
 discard "forward decl of StepDimTol_DatumReference"
 type
   StepDimTolDatumSystemOrReference* {.importcpp: "StepDimTol_DatumSystemOrReference", header: "StepDimTol_DatumSystemOrReference.hxx",
-                                     bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                        ## DatumSystemOrReference select type
+                                     bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepDimTolDatumSystemOrReference; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_DatumSystemOrReference::operator new",
+    header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc `delete`*(this: var StepDimTolDatumSystemOrReference; theAddress: pointer) {.
+    importcpp: "StepDimTol_DatumSystemOrReference::operator delete",
+    header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc `new[]`*(this: var StepDimTolDatumSystemOrReference; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_DatumSystemOrReference::operator new[]",
+    header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc `delete[]`*(this: var StepDimTolDatumSystemOrReference; theAddress: pointer) {.
+    importcpp: "StepDimTol_DatumSystemOrReference::operator delete[]",
+    header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc `new`*(this: var StepDimTolDatumSystemOrReference; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepDimTol_DatumSystemOrReference::operator new", header: "StepDimTol_DatumSystemOrReference.hxx".}
+proc `delete`*(this: var StepDimTolDatumSystemOrReference; a2: pointer; a3: pointer) {.
+    importcpp: "StepDimTol_DatumSystemOrReference::operator delete",
+    header: "StepDimTol_DatumSystemOrReference.hxx".}
 proc constructStepDimTolDatumSystemOrReference*(): StepDimTolDatumSystemOrReference {.
     constructor, importcpp: "StepDimTol_DatumSystemOrReference(@)",
     header: "StepDimTol_DatumSystemOrReference.hxx".}
 proc caseNum*(this: StepDimTolDatumSystemOrReference;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_DatumSystemOrReference.hxx".}
 proc datumSystem*(this: StepDimTolDatumSystemOrReference): Handle[
     StepDimTolDatumSystem] {.noSideEffect, importcpp: "DatumSystem",
@@ -34,28 +50,3 @@ proc datumSystem*(this: StepDimTolDatumSystemOrReference): Handle[
 proc datumReference*(this: StepDimTolDatumSystemOrReference): Handle[
     StepDimTolDatumReference] {.noSideEffect, importcpp: "DatumReference",
                                header: "StepDimTol_DatumSystemOrReference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

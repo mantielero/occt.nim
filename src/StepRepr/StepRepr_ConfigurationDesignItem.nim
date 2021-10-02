@@ -19,14 +19,30 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
   StepReprConfigurationDesignItem* {.importcpp: "StepRepr_ConfigurationDesignItem", header: "StepRepr_ConfigurationDesignItem.hxx",
-                                    bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                       ## constructor
+                                    bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepReprConfigurationDesignItem; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_ConfigurationDesignItem::operator new",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc `delete`*(this: var StepReprConfigurationDesignItem; theAddress: pointer) {.
+    importcpp: "StepRepr_ConfigurationDesignItem::operator delete",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc `new[]`*(this: var StepReprConfigurationDesignItem; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_ConfigurationDesignItem::operator new[]",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc `delete[]`*(this: var StepReprConfigurationDesignItem; theAddress: pointer) {.
+    importcpp: "StepRepr_ConfigurationDesignItem::operator delete[]",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc `new`*(this: var StepReprConfigurationDesignItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepRepr_ConfigurationDesignItem::operator new", header: "StepRepr_ConfigurationDesignItem.hxx".}
+proc `delete`*(this: var StepReprConfigurationDesignItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepRepr_ConfigurationDesignItem::operator delete",
+    header: "StepRepr_ConfigurationDesignItem.hxx".}
 proc constructStepReprConfigurationDesignItem*(): StepReprConfigurationDesignItem {.
     constructor, importcpp: "StepRepr_ConfigurationDesignItem(@)",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
-proc caseNum*(this: StepReprConfigurationDesignItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepReprConfigurationDesignItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
 proc productDefinition*(this: StepReprConfigurationDesignItem): Handle[
@@ -36,28 +52,3 @@ proc productDefinitionFormation*(this: StepReprConfigurationDesignItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepRepr_ConfigurationDesignItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

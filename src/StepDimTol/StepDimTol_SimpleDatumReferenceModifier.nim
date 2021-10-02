@@ -31,29 +31,3 @@ type
     StepDimTolSDRMOrientation, StepDimTolSDRMPitchDiameter, StepDimTolSDRMPlane,
     StepDimTolSDRMPoint, StepDimTolSDRMTranslation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

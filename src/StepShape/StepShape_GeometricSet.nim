@@ -39,9 +39,9 @@ proc setElements*(this: var StepShapeGeometricSet;
 proc elements*(this: StepShapeGeometricSet): Handle[
     StepShapeHArray1OfGeometricSetSelect] {.noSideEffect, importcpp: "Elements",
     header: "StepShape_GeometricSet.hxx".}
-proc elementsValue*(this: StepShapeGeometricSet; num: cint): StepShapeGeometricSetSelect {.
+proc elementsValue*(this: StepShapeGeometricSet; num: int): StepShapeGeometricSetSelect {.
     noSideEffect, importcpp: "ElementsValue", header: "StepShape_GeometricSet.hxx".}
-proc nbElements*(this: StepShapeGeometricSet): cint {.noSideEffect,
+proc nbElements*(this: StepShapeGeometricSet): int {.noSideEffect,
     importcpp: "NbElements", header: "StepShape_GeometricSet.hxx".}
 type
   StepShapeGeometricSetbaseType* = StepGeomGeometricRepresentationItem
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_GeometricSet.hxx".}
 proc dynamicType*(this: StepShapeGeometricSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_GeometricSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

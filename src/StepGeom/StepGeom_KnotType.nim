@@ -20,29 +20,3 @@ type
     StepGeomKtUniformKnots, StepGeomKtUnspecified, StepGeomKtQuasiUniformKnots,
     StepGeomKtPiecewiseBezierKnots
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

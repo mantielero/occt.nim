@@ -40,28 +40,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_MassUnit.hxx".}
 proc dynamicType*(this: StepBasicMassUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_MassUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

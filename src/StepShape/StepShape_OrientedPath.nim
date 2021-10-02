@@ -32,26 +32,26 @@ type
 proc constructStepShapeOrientedPath*(): StepShapeOrientedPath {.constructor,
     importcpp: "StepShape_OrientedPath(@)", header: "StepShape_OrientedPath.hxx".}
 proc init*(this: var StepShapeOrientedPath; aName: Handle[TCollectionHAsciiString];
-          aPathElement: Handle[StepShapeEdgeLoop]; aOrientation: bool) {.
+          aPathElement: Handle[StepShapeEdgeLoop]; aOrientation: StandardBoolean) {.
     importcpp: "Init", header: "StepShape_OrientedPath.hxx".}
 proc setPathElement*(this: var StepShapeOrientedPath;
                     aPathElement: Handle[StepShapeEdgeLoop]) {.
     importcpp: "SetPathElement", header: "StepShape_OrientedPath.hxx".}
 proc pathElement*(this: StepShapeOrientedPath): Handle[StepShapeEdgeLoop] {.
     noSideEffect, importcpp: "PathElement", header: "StepShape_OrientedPath.hxx".}
-proc setOrientation*(this: var StepShapeOrientedPath; aOrientation: bool) {.
+proc setOrientation*(this: var StepShapeOrientedPath; aOrientation: StandardBoolean) {.
     importcpp: "SetOrientation", header: "StepShape_OrientedPath.hxx".}
-proc orientation*(this: StepShapeOrientedPath): bool {.noSideEffect,
+proc orientation*(this: StepShapeOrientedPath): StandardBoolean {.noSideEffect,
     importcpp: "Orientation", header: "StepShape_OrientedPath.hxx".}
 proc setEdgeList*(this: var StepShapeOrientedPath;
                  aEdgeList: Handle[StepShapeHArray1OfOrientedEdge]) {.
     importcpp: "SetEdgeList", header: "StepShape_OrientedPath.hxx".}
 proc edgeList*(this: StepShapeOrientedPath): Handle[StepShapeHArray1OfOrientedEdge] {.
     noSideEffect, importcpp: "EdgeList", header: "StepShape_OrientedPath.hxx".}
-proc edgeListValue*(this: StepShapeOrientedPath; num: cint): Handle[
+proc edgeListValue*(this: StepShapeOrientedPath; num: int): Handle[
     StepShapeOrientedEdge] {.noSideEffect, importcpp: "EdgeListValue",
                             header: "StepShape_OrientedPath.hxx".}
-proc nbEdgeList*(this: StepShapeOrientedPath): cint {.noSideEffect,
+proc nbEdgeList*(this: StepShapeOrientedPath): int {.noSideEffect,
     importcpp: "NbEdgeList", header: "StepShape_OrientedPath.hxx".}
 type
   StepShapeOrientedPathbaseType* = StepShapePath
@@ -63,28 +63,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_OrientedPath.hxx".}
 proc dynamicType*(this: StepShapeOrientedPath): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_OrientedPath.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

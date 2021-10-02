@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPresentationLayerUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationLayerUsage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

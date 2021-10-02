@@ -21,29 +21,3 @@ type
                          header: "Transfer_StatusResult.hxx".} = enum
     TransferStatusVoid, TransferStatusDefined, TransferStatusUsed
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

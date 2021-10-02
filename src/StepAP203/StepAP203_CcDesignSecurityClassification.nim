@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
 proc dynamicType*(this: StepAP203CcDesignSecurityClassification): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP203_CcDesignSecurityClassification.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

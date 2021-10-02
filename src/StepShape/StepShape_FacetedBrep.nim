@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_FacetedBrep.hxx".}
 proc dynamicType*(this: StepShapeFacetedBrep): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_FacetedBrep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -34,11 +34,11 @@ type
 proc constructStepBasicMeasureValueMember*(): StepBasicMeasureValueMember {.
     constructor, importcpp: "StepBasic_MeasureValueMember(@)",
     header: "StepBasic_MeasureValueMember.hxx".}
-proc hasName*(this: StepBasicMeasureValueMember): bool {.noSideEffect,
+proc hasName*(this: StepBasicMeasureValueMember): StandardBoolean {.noSideEffect,
     importcpp: "HasName", header: "StepBasic_MeasureValueMember.hxx".}
 proc name*(this: StepBasicMeasureValueMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepBasic_MeasureValueMember.hxx".}
-proc setName*(this: var StepBasicMeasureValueMember; name: StandardCString): bool {.
+proc setName*(this: var StepBasicMeasureValueMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepBasic_MeasureValueMember.hxx".}
 type
   StepBasicMeasureValueMemberbaseType* = StepDataSelectReal
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicMeasureValueMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_MeasureValueMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

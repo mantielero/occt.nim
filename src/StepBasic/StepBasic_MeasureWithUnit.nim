@@ -35,9 +35,10 @@ proc init*(this: var StepBasicMeasureWithUnit;
           aValueComponent: Handle[StepBasicMeasureValueMember];
           aUnitComponent: StepBasicUnit) {.importcpp: "Init",
     header: "StepBasic_MeasureWithUnit.hxx".}
-proc setValueComponent*(this: var StepBasicMeasureWithUnit; aValueComponent: cfloat) {.
+proc setValueComponent*(this: var StepBasicMeasureWithUnit;
+                       aValueComponent: StandardReal) {.
     importcpp: "SetValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
-proc valueComponent*(this: StepBasicMeasureWithUnit): cfloat {.noSideEffect,
+proc valueComponent*(this: StepBasicMeasureWithUnit): StandardReal {.noSideEffect,
     importcpp: "ValueComponent", header: "StepBasic_MeasureWithUnit.hxx".}
 proc valueComponentMember*(this: StepBasicMeasureWithUnit): Handle[
     StepBasicMeasureValueMember] {.noSideEffect,
@@ -61,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_MeasureWithUnit.hxx".}
 proc dynamicType*(this: StepBasicMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_MeasureWithUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -40,28 +40,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_DummyNode.hxx".}
 proc dynamicType*(this: StepFEA_DummyNode): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepFEA_DummyNode.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsAssemblyLink): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_AssemblyLink.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

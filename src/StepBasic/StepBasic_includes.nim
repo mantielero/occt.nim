@@ -79,16 +79,16 @@ include StepBasic_GeneralProperty
 include StepBasic_Group
 include StepBasic_GroupAssignment
 include StepBasic_GroupRelationship
-include StepBasic_HArray1OfApproval
-include StepBasic_HArray1OfDerivedUnitElement
-include StepBasic_HArray1OfDocument
-include StepBasic_HArray1OfNamedUnit
-include StepBasic_HArray1OfOrganization
-include StepBasic_HArray1OfPerson
-include StepBasic_HArray1OfProduct
-include StepBasic_HArray1OfProductContext
-include StepBasic_HArray1OfProductDefinition
-include StepBasic_HArray1OfUncertaintyMeasureWithUnit
+#include StepBasic_HArray1OfApproval
+#include StepBasic_HArray1OfDerivedUnitElement
+#include StepBasic_HArray1OfDocument
+#include StepBasic_HArray1OfNamedUnit
+#include StepBasic_HArray1OfOrganization
+#include StepBasic_HArray1OfPerson
+#include StepBasic_HArray1OfProduct
+#include StepBasic_HArray1OfProductContext
+#include StepBasic_HArray1OfProductDefinition
+#include StepBasic_HArray1OfUncertaintyMeasureWithUnit
 include StepBasic_IdentificationAssignment
 include StepBasic_IdentificationRole
 include StepBasic_LengthMeasureWithUnit
@@ -168,29 +168,3 @@ include StepBasic_Unit
 include StepBasic_VersionedActionRequest
 include StepBasic_VolumeUnit
 include StepBasic_WeekOfYearAndDayDate
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

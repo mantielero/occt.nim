@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP203_CcDesign
     header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
 proc dynamicType*(this: StepAP203CcDesignPersonAndOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP203_CcDesignPersonAndOrganizationAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

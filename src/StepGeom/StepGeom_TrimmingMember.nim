@@ -29,11 +29,11 @@ type
 
 proc constructStepGeomTrimmingMember*(): StepGeomTrimmingMember {.constructor,
     importcpp: "StepGeom_TrimmingMember(@)", header: "StepGeom_TrimmingMember.hxx".}
-proc hasName*(this: StepGeomTrimmingMember): bool {.noSideEffect,
+proc hasName*(this: StepGeomTrimmingMember): StandardBoolean {.noSideEffect,
     importcpp: "HasName", header: "StepGeom_TrimmingMember.hxx".}
 proc name*(this: StepGeomTrimmingMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepGeom_TrimmingMember.hxx".}
-proc setName*(this: var StepGeomTrimmingMember; name: StandardCString): bool {.
+proc setName*(this: var StepGeomTrimmingMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepGeom_TrimmingMember.hxx".}
 type
   StepGeomTrimmingMemberbaseType* = StepDataSelectReal
@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_TrimmingMember.hxx".}
 proc dynamicType*(this: StepGeomTrimmingMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_TrimmingMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

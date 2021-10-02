@@ -41,28 +41,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaMateria
 proc dynamicType*(this: StepFEA_FeaMaterialPropertyRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_FeaMaterialPropertyRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

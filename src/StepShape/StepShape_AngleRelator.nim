@@ -19,29 +19,3 @@ type
                           header: "StepShape_AngleRelator.hxx".} = enum
     StepShapeEqual, StepShapeLarge, StepShapeSmall
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

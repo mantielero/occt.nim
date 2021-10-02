@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BoundaryCurve.hxx".}
 proc dynamicType*(this: StepGeomBoundaryCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BoundaryCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

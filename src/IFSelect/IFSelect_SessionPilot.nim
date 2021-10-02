@@ -22,7 +22,7 @@ discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_SessionPilot"
 type
-  HandleC1C1* = Handle[IFSelectSessionPilot]
+  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
 
 ## ! A SessionPilot is intended to make easier the use of a
 ## ! WorkSession. It receives commands, under alphanumeric form,

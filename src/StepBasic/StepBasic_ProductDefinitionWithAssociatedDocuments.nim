@@ -44,15 +44,13 @@ proc setDocIds*(this: var StepBasicProductDefinitionWithAssociatedDocuments;
                docIds: Handle[StepBasicHArray1OfDocument]) {.
     importcpp: "SetDocIds",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc nbDocIds*(this: StepBasicProductDefinitionWithAssociatedDocuments): cint {.
+proc nbDocIds*(this: StepBasicProductDefinitionWithAssociatedDocuments): int {.
     noSideEffect, importcpp: "NbDocIds",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-proc docIdsValue*(this: StepBasicProductDefinitionWithAssociatedDocuments;
-                 num: cint): Handle[StepBasicDocument] {.noSideEffect,
-    importcpp: "DocIdsValue",
-    header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
+proc docIdsValue*(this: StepBasicProductDefinitionWithAssociatedDocuments; num: int): Handle[
+    StepBasicDocument] {.noSideEffect, importcpp: "DocIdsValue", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
 proc setDocIdsValue*(this: var StepBasicProductDefinitionWithAssociatedDocuments;
-                    num: cint; adoc: Handle[StepBasicDocument]) {.
+                    num: int; adoc: Handle[StepBasicDocument]) {.
     importcpp: "SetDocIdsValue",
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
 type
@@ -63,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductD
     header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
 proc dynamicType*(this: StepBasicProductDefinitionWithAssociatedDocuments): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductDefinitionWithAssociatedDocuments.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

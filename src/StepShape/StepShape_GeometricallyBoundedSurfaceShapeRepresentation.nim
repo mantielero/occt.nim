@@ -37,28 +37,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Geometri
     header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeGeometricallyBoundedSurfaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedSurfaceShapeRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

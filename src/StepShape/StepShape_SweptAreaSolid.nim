@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SweptAreaSolid.hxx".}
 proc dynamicType*(this: StepShapeSweptAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_SweptAreaSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

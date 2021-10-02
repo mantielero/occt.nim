@@ -34,21 +34,28 @@ discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
   StepAP242ItemIdentifiedRepresentationUsageDefinition* {.
       importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition",
-      header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                            ## !
-                                                                                                            ## Returns
-                                                                                                            ## a
-                                                                                                            ## ItemIdentifiedRepresentationUsageDefinition
-                                                                                                            ## select
-                                                                                                            ## type
+      header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+           theSize: csize_t): pointer {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator new", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc `delete`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+              theAddress: pointer) {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator delete", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc `new[]`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+             theSize: csize_t): pointer {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator new[]", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc `delete[]`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+                theAddress: pointer) {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator delete[]", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc `new`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+           a2: csize_t; theAddress: pointer): pointer {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator new",
+    header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
+proc `delete`*(this: var StepAP242ItemIdentifiedRepresentationUsageDefinition;
+              a2: pointer; a3: pointer) {.importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition::operator delete", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
 proc constructStepAP242ItemIdentifiedRepresentationUsageDefinition*(): StepAP242ItemIdentifiedRepresentationUsageDefinition {.
     constructor,
     importcpp: "StepAP242_ItemIdentifiedRepresentationUsageDefinition(@)",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
 proc caseNum*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
 proc appliedApprovalAssignment*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
@@ -108,28 +115,3 @@ proc shapeAspect*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): H
 proc shapeAspectRelationship*(this: StepAP242ItemIdentifiedRepresentationUsageDefinition): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship", header: "StepAP242_ItemIdentifiedRepresentationUsageDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

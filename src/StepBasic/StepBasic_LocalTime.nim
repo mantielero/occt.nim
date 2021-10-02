@@ -29,30 +29,31 @@ type
 
 proc constructStepBasicLocalTime*(): StepBasicLocalTime {.constructor,
     importcpp: "StepBasic_LocalTime(@)", header: "StepBasic_LocalTime.hxx".}
-proc init*(this: var StepBasicLocalTime; aHourComponent: cint;
-          hasAminuteComponent: bool; aMinuteComponent: cint;
-          hasAsecondComponent: bool; aSecondComponent: cfloat;
+proc init*(this: var StepBasicLocalTime; aHourComponent: int;
+          hasAminuteComponent: StandardBoolean; aMinuteComponent: int;
+          hasAsecondComponent: StandardBoolean; aSecondComponent: StandardReal;
           aZone: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
     importcpp: "Init", header: "StepBasic_LocalTime.hxx".}
-proc setHourComponent*(this: var StepBasicLocalTime; aHourComponent: cint) {.
+proc setHourComponent*(this: var StepBasicLocalTime; aHourComponent: int) {.
     importcpp: "SetHourComponent", header: "StepBasic_LocalTime.hxx".}
-proc hourComponent*(this: StepBasicLocalTime): cint {.noSideEffect,
+proc hourComponent*(this: StepBasicLocalTime): int {.noSideEffect,
     importcpp: "HourComponent", header: "StepBasic_LocalTime.hxx".}
-proc setMinuteComponent*(this: var StepBasicLocalTime; aMinuteComponent: cint) {.
+proc setMinuteComponent*(this: var StepBasicLocalTime; aMinuteComponent: int) {.
     importcpp: "SetMinuteComponent", header: "StepBasic_LocalTime.hxx".}
 proc unSetMinuteComponent*(this: var StepBasicLocalTime) {.
     importcpp: "UnSetMinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc minuteComponent*(this: StepBasicLocalTime): cint {.noSideEffect,
+proc minuteComponent*(this: StepBasicLocalTime): int {.noSideEffect,
     importcpp: "MinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc hasMinuteComponent*(this: StepBasicLocalTime): bool {.noSideEffect,
+proc hasMinuteComponent*(this: StepBasicLocalTime): StandardBoolean {.noSideEffect,
     importcpp: "HasMinuteComponent", header: "StepBasic_LocalTime.hxx".}
-proc setSecondComponent*(this: var StepBasicLocalTime; aSecondComponent: cfloat) {.
+proc setSecondComponent*(this: var StepBasicLocalTime;
+                        aSecondComponent: StandardReal) {.
     importcpp: "SetSecondComponent", header: "StepBasic_LocalTime.hxx".}
 proc unSetSecondComponent*(this: var StepBasicLocalTime) {.
     importcpp: "UnSetSecondComponent", header: "StepBasic_LocalTime.hxx".}
-proc secondComponent*(this: StepBasicLocalTime): cfloat {.noSideEffect,
+proc secondComponent*(this: StepBasicLocalTime): StandardReal {.noSideEffect,
     importcpp: "SecondComponent", header: "StepBasic_LocalTime.hxx".}
-proc hasSecondComponent*(this: StepBasicLocalTime): bool {.noSideEffect,
+proc hasSecondComponent*(this: StepBasicLocalTime): StandardBoolean {.noSideEffect,
     importcpp: "HasSecondComponent", header: "StepBasic_LocalTime.hxx".}
 proc setZone*(this: var StepBasicLocalTime;
              aZone: Handle[StepBasicCoordinatedUniversalTimeOffset]) {.
@@ -70,28 +71,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_LocalTime.hxx".}
 proc dynamicType*(this: StepBasicLocalTime): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_LocalTime.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

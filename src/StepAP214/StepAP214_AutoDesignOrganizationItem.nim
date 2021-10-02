@@ -22,11 +22,28 @@ type
                                         bycopy.} = object of StepAP214AutoDesignGeneralOrgItem
 
 
+proc `new`*(this: var StepAP214AutoDesignOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignOrganizationItem::operator new",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignOrganizationItem::operator delete",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignOrganizationItem::operator new[]",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignOrganizationItem::operator delete[]",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignOrganizationItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_AutoDesignOrganizationItem::operator new", header: "StepAP214_AutoDesignOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignOrganizationItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_AutoDesignOrganizationItem::operator delete",
+    header: "StepAP214_AutoDesignOrganizationItem.hxx".}
 proc constructStepAP214AutoDesignOrganizationItem*(): StepAP214AutoDesignOrganizationItem {.
     constructor, importcpp: "StepAP214_AutoDesignOrganizationItem(@)",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignOrganizationItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignOrganizationItem.hxx".}
 proc document*(this: StepAP214AutoDesignOrganizationItem): Handle[StepBasicDocument] {.
     noSideEffect, importcpp: "Document",
@@ -35,28 +52,3 @@ proc physicallyModeledProductDefinition*(this: StepAP214AutoDesignOrganizationIt
     StepBasicPhysicallyModeledProductDefinition] {.noSideEffect,
     importcpp: "PhysicallyModeledProductDefinition",
     header: "StepAP214_AutoDesignOrganizationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

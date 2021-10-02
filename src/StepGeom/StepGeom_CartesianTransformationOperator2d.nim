@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Cartesian
 proc dynamicType*(this: StepGeomCartesianTransformationOperator2d): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_CartesianTransformationOperator2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -35,14 +35,6 @@ type
   STEPConstructAP203Context* {.importcpp: "STEPConstruct_AP203Context",
                               header: "STEPConstruct_AP203Context.hxx", bycopy.} = object ##
                                                                                      ## !
-                                                                                     ## Creates
-                                                                                     ## tool
-                                                                                     ## and
-                                                                                     ## fills
-                                                                                     ## constant
-                                                                                     ## fields
-                                                                                     ##
-                                                                                     ## !
                                                                                      ## Initializes
                                                                                      ## all
                                                                                      ## missing
@@ -54,6 +46,24 @@ type
                                                                                      ## part
 
 
+proc `new`*(this: var STEPConstructAP203Context; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_AP203Context::operator new",
+    header: "STEPConstruct_AP203Context.hxx".}
+proc `delete`*(this: var STEPConstructAP203Context; theAddress: pointer) {.
+    importcpp: "STEPConstruct_AP203Context::operator delete",
+    header: "STEPConstruct_AP203Context.hxx".}
+proc `new[]`*(this: var STEPConstructAP203Context; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_AP203Context::operator new[]",
+    header: "STEPConstruct_AP203Context.hxx".}
+proc `delete[]`*(this: var STEPConstructAP203Context; theAddress: pointer) {.
+    importcpp: "STEPConstruct_AP203Context::operator delete[]",
+    header: "STEPConstruct_AP203Context.hxx".}
+proc `new`*(this: var STEPConstructAP203Context; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_AP203Context::operator new",
+    header: "STEPConstruct_AP203Context.hxx".}
+proc `delete`*(this: var STEPConstructAP203Context; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_AP203Context::operator delete",
+    header: "STEPConstruct_AP203Context.hxx".}
 proc constructSTEPConstructAP203Context*(): STEPConstructAP203Context {.
     constructor, importcpp: "STEPConstruct_AP203Context(@)",
     header: "STEPConstruct_AP203Context.hxx".}
@@ -159,28 +169,3 @@ proc initSecurityRequisites*(this: var STEPConstructAP203Context) {.
     importcpp: "InitSecurityRequisites", header: "STEPConstruct_AP203Context.hxx".}
 proc initApprovalRequisites*(this: var STEPConstructAP203Context) {.
     importcpp: "InitApprovalRequisites", header: "STEPConstruct_AP203Context.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

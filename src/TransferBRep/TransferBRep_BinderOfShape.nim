@@ -73,28 +73,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferBRepBinderOfShape): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_BinderOfShape.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

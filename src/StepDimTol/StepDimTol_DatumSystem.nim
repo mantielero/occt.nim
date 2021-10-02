@@ -43,12 +43,12 @@ proc constituents*(this: var StepDimTolDatumSystem): Handle[
 proc setConstituents*(this: var StepDimTolDatumSystem; theConstituents: Handle[
     StepDimTolHArray1OfDatumReferenceCompartment]) {.
     importcpp: "SetConstituents", header: "StepDimTol_DatumSystem.hxx".}
-proc nbConstituents*(this: StepDimTolDatumSystem): cint {.noSideEffect,
+proc nbConstituents*(this: StepDimTolDatumSystem): int {.noSideEffect,
     importcpp: "NbConstituents", header: "StepDimTol_DatumSystem.hxx".}
-proc constituentsValue*(this: StepDimTolDatumSystem; num: cint): Handle[
+proc constituentsValue*(this: StepDimTolDatumSystem; num: int): Handle[
     StepDimTolDatumReferenceCompartment] {.noSideEffect,
     importcpp: "ConstituentsValue", header: "StepDimTol_DatumSystem.hxx".}
-proc constituentsValue*(this: var StepDimTolDatumSystem; num: cint;
+proc constituentsValue*(this: var StepDimTolDatumSystem; num: int;
                        theItem: Handle[StepDimTolDatumReferenceCompartment]) {.
     importcpp: "ConstituentsValue", header: "StepDimTol_DatumSystem.hxx".}
 type
@@ -61,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_DatumSystem.hxx".}
 proc dynamicType*(this: StepDimTolDatumSystem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepDimTol_DatumSystem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

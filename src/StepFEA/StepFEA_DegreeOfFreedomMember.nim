@@ -30,13 +30,13 @@ type
 proc constructStepFEA_DegreeOfFreedomMember*(): StepFEA_DegreeOfFreedomMember {.
     constructor, importcpp: "StepFEA_DegreeOfFreedomMember(@)",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc hasName*(this: StepFEA_DegreeOfFreedomMember): bool {.noSideEffect,
+proc hasName*(this: StepFEA_DegreeOfFreedomMember): StandardBoolean {.noSideEffect,
     importcpp: "HasName", header: "StepFEA_DegreeOfFreedomMember.hxx".}
 proc name*(this: StepFEA_DegreeOfFreedomMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc setName*(this: var StepFEA_DegreeOfFreedomMember; name: StandardCString): bool {.
+proc setName*(this: var StepFEA_DegreeOfFreedomMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepFEA_DegreeOfFreedomMember.hxx".}
-proc matches*(this: StepFEA_DegreeOfFreedomMember; name: StandardCString): bool {.
+proc matches*(this: StepFEA_DegreeOfFreedomMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches", header: "StepFEA_DegreeOfFreedomMember.hxx".}
 type
   StepFEA_DegreeOfFreedomMemberbaseType* = StepDataSelectNamed
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_DegreeOfFreedomMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_DegreeOfFreedomMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

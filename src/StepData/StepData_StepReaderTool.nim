@@ -22,41 +22,39 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 type
   StepDataStepReaderTool* {.importcpp: "StepData_StepReaderTool",
-                           header: "StepData_StepReaderTool.hxx", bycopy.} = object of InterfaceFileReaderTool ##
-                                                                                                        ## !
-                                                                                                        ## creates
-                                                                                                        ## StepReaderTool
-                                                                                                        ## to
-                                                                                                        ## work
-                                                                                                        ## with
-                                                                                                        ## a
-                                                                                                        ## StepReaderData
-                                                                                                        ## according
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## to
-                                                                                                        ## a
-                                                                                                        ## Step
-                                                                                                        ## Protocol.
-                                                                                                        ## Defines
-                                                                                                        ## the
-                                                                                                        ## ReaderLib
-                                                                                                        ## at
-                                                                                                        ## this
-                                                                                                        ## time
+                           header: "StepData_StepReaderTool.hxx", bycopy.} = object of InterfaceFileReaderTool
 
 
+proc `new`*(this: var StepDataStepReaderTool; theSize: csize_t): pointer {.
+    importcpp: "StepData_StepReaderTool::operator new",
+    header: "StepData_StepReaderTool.hxx".}
+proc `delete`*(this: var StepDataStepReaderTool; theAddress: pointer) {.
+    importcpp: "StepData_StepReaderTool::operator delete",
+    header: "StepData_StepReaderTool.hxx".}
+proc `new[]`*(this: var StepDataStepReaderTool; theSize: csize_t): pointer {.
+    importcpp: "StepData_StepReaderTool::operator new[]",
+    header: "StepData_StepReaderTool.hxx".}
+proc `delete[]`*(this: var StepDataStepReaderTool; theAddress: pointer) {.
+    importcpp: "StepData_StepReaderTool::operator delete[]",
+    header: "StepData_StepReaderTool.hxx".}
+proc `new`*(this: var StepDataStepReaderTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_StepReaderTool::operator new",
+    header: "StepData_StepReaderTool.hxx".}
+proc `delete`*(this: var StepDataStepReaderTool; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_StepReaderTool::operator delete",
+    header: "StepData_StepReaderTool.hxx".}
 proc constructStepDataStepReaderTool*(reader: Handle[StepDataStepReaderData];
                                      protocol: Handle[StepDataProtocol]): StepDataStepReaderTool {.
     constructor, importcpp: "StepData_StepReaderTool(@)",
     header: "StepData_StepReaderTool.hxx".}
-proc prepare*(this: var StepDataStepReaderTool; optimize: bool = true) {.
+proc prepare*(this: var StepDataStepReaderTool; optimize: StandardBoolean = true) {.
     importcpp: "Prepare", header: "StepData_StepReaderTool.hxx".}
 proc prepare*(this: var StepDataStepReaderTool;
-             reco: Handle[StepDataFileRecognizer]; optimize: bool = true) {.
-    importcpp: "Prepare", header: "StepData_StepReaderTool.hxx".}
-proc recognize*(this: var StepDataStepReaderTool; num: cint;
-               ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
+             reco: Handle[StepDataFileRecognizer];
+             optimize: StandardBoolean = true) {.importcpp: "Prepare",
+    header: "StepData_StepReaderTool.hxx".}
+proc recognize*(this: var StepDataStepReaderTool; num: int;
+               ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): StandardBoolean {.
     importcpp: "Recognize", header: "StepData_StepReaderTool.hxx".}
 proc prepareHeader*(this: var StepDataStepReaderTool;
                    reco: Handle[StepDataFileRecognizer]) {.
@@ -64,35 +62,10 @@ proc prepareHeader*(this: var StepDataStepReaderTool;
 proc beginRead*(this: var StepDataStepReaderTool;
                amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "BeginRead",
     header: "StepData_StepReaderTool.hxx".}
-proc analyseRecord*(this: var StepDataStepReaderTool; num: cint;
+proc analyseRecord*(this: var StepDataStepReaderTool; num: int;
                    anent: Handle[StandardTransient];
-                   acheck: var Handle[InterfaceCheck]): bool {.
+                   acheck: var Handle[InterfaceCheck]): StandardBoolean {.
     importcpp: "AnalyseRecord", header: "StepData_StepReaderTool.hxx".}
 proc endRead*(this: var StepDataStepReaderTool;
              amodel: Handle[InterfaceInterfaceModel]) {.importcpp: "EndRead",
     header: "StepData_StepReaderTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,45 +19,33 @@ discard "forward decl of StepGeom_Vector"
 discard "forward decl of StepGeom_Direction"
 type
   StepGeomVectorOrDirection* {.importcpp: "StepGeom_VectorOrDirection",
-                              header: "StepGeom_VectorOrDirection.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## VectorOrDirection
-                                                                                                         ## SelectType
+                              header: "StepGeom_VectorOrDirection.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepGeomVectorOrDirection; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_VectorOrDirection::operator new",
+    header: "StepGeom_VectorOrDirection.hxx".}
+proc `delete`*(this: var StepGeomVectorOrDirection; theAddress: pointer) {.
+    importcpp: "StepGeom_VectorOrDirection::operator delete",
+    header: "StepGeom_VectorOrDirection.hxx".}
+proc `new[]`*(this: var StepGeomVectorOrDirection; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_VectorOrDirection::operator new[]",
+    header: "StepGeom_VectorOrDirection.hxx".}
+proc `delete[]`*(this: var StepGeomVectorOrDirection; theAddress: pointer) {.
+    importcpp: "StepGeom_VectorOrDirection::operator delete[]",
+    header: "StepGeom_VectorOrDirection.hxx".}
+proc `new`*(this: var StepGeomVectorOrDirection; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepGeom_VectorOrDirection::operator new",
+    header: "StepGeom_VectorOrDirection.hxx".}
+proc `delete`*(this: var StepGeomVectorOrDirection; a2: pointer; a3: pointer) {.
+    importcpp: "StepGeom_VectorOrDirection::operator delete",
+    header: "StepGeom_VectorOrDirection.hxx".}
 proc constructStepGeomVectorOrDirection*(): StepGeomVectorOrDirection {.
     constructor, importcpp: "StepGeom_VectorOrDirection(@)",
     header: "StepGeom_VectorOrDirection.hxx".}
-proc caseNum*(this: StepGeomVectorOrDirection; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepGeomVectorOrDirection; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_VectorOrDirection.hxx".}
 proc vector*(this: StepGeomVectorOrDirection): Handle[StepGeomVector] {.
     noSideEffect, importcpp: "Vector", header: "StepGeom_VectorOrDirection.hxx".}
 proc direction*(this: StepGeomVectorOrDirection): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "Direction", header: "StepGeom_VectorOrDirection.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

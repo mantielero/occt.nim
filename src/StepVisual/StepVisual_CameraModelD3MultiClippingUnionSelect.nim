@@ -19,21 +19,27 @@ discard "forward decl of StepVisual_CameraModelD3MultiClippingIntersection"
 type
   StepVisualCameraModelD3MultiClippingUnionSelect* {.
       importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect",
-      header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## a
-                                                                                                       ## CameraModelD3MultiClippingUnionSelect
-                                                                                                       ## select
-                                                                                                       ## type
+      header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect;
+           theSize: csize_t): pointer {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator new", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc `delete`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect;
+              theAddress: pointer) {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator delete", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc `new[]`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect;
+             theSize: csize_t): pointer {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator new[]", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc `delete[]`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect;
+                theAddress: pointer) {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator delete[]", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc `new`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator new", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
+proc `delete`*(this: var StepVisualCameraModelD3MultiClippingUnionSelect;
+              a2: pointer; a3: pointer) {.importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect::operator delete", header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
 proc constructStepVisualCameraModelD3MultiClippingUnionSelect*(): StepVisualCameraModelD3MultiClippingUnionSelect {.
     constructor,
     importcpp: "StepVisual_CameraModelD3MultiClippingUnionSelect(@)",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
 proc caseNum*(this: StepVisualCameraModelD3MultiClippingUnionSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
 proc plane*(this: StepVisualCameraModelD3MultiClippingUnionSelect): Handle[
@@ -43,28 +49,3 @@ proc cameraModelD3MultiClippingIntersection*(
     StepVisualCameraModelD3MultiClippingIntersection] {.noSideEffect,
     importcpp: "CameraModelD3MultiClippingIntersection",
     header: "StepVisual_CameraModelD3MultiClippingUnionSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -36,28 +36,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_Apex.hxx".}
 proc dynamicType*(this: StepReprApex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_Apex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

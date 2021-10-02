@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualBackgroundColour): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_BackgroundColour.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

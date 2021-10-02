@@ -19,17 +19,30 @@ discard "forward decl of StepRepr_ItemDefinedTransformation"
 discard "forward decl of StepRepr_FunctionallyDefinedTransformation"
 type
   StepReprTransformation* {.importcpp: "StepRepr_Transformation",
-                           header: "StepRepr_Transformation.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## Transformation
-                                                                                                   ## SelectType
+                           header: "StepRepr_Transformation.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepReprTransformation; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_Transformation::operator new",
+    header: "StepRepr_Transformation.hxx".}
+proc `delete`*(this: var StepReprTransformation; theAddress: pointer) {.
+    importcpp: "StepRepr_Transformation::operator delete",
+    header: "StepRepr_Transformation.hxx".}
+proc `new[]`*(this: var StepReprTransformation; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_Transformation::operator new[]",
+    header: "StepRepr_Transformation.hxx".}
+proc `delete[]`*(this: var StepReprTransformation; theAddress: pointer) {.
+    importcpp: "StepRepr_Transformation::operator delete[]",
+    header: "StepRepr_Transformation.hxx".}
+proc `new`*(this: var StepReprTransformation; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepRepr_Transformation::operator new",
+    header: "StepRepr_Transformation.hxx".}
+proc `delete`*(this: var StepReprTransformation; a2: pointer; a3: pointer) {.
+    importcpp: "StepRepr_Transformation::operator delete",
+    header: "StepRepr_Transformation.hxx".}
 proc constructStepReprTransformation*(): StepReprTransformation {.constructor,
     importcpp: "StepRepr_Transformation(@)", header: "StepRepr_Transformation.hxx".}
-proc caseNum*(this: StepReprTransformation; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepReprTransformation; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepRepr_Transformation.hxx".}
 proc itemDefinedTransformation*(this: StepReprTransformation): Handle[
     StepReprItemDefinedTransformation] {.noSideEffect,
@@ -39,28 +52,3 @@ proc functionallyDefinedTransformation*(this: StepReprTransformation): Handle[
     StepReprFunctionallyDefinedTransformation] {.noSideEffect,
     importcpp: "FunctionallyDefinedTransformation",
     header: "StepRepr_Transformation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,32 +21,25 @@ type
                            header: "StepToTopoDS_PointPair.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepToTopoDS_PointPair; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_PointPair::operator new",
+    header: "StepToTopoDS_PointPair.hxx".}
+proc `delete`*(this: var StepToTopoDS_PointPair; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_PointPair::operator delete",
+    header: "StepToTopoDS_PointPair.hxx".}
+proc `new[]`*(this: var StepToTopoDS_PointPair; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_PointPair::operator new[]",
+    header: "StepToTopoDS_PointPair.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_PointPair; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_PointPair::operator delete[]",
+    header: "StepToTopoDS_PointPair.hxx".}
+proc `new`*(this: var StepToTopoDS_PointPair; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_PointPair::operator new",
+    header: "StepToTopoDS_PointPair.hxx".}
+proc `delete`*(this: var StepToTopoDS_PointPair; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_PointPair::operator delete",
+    header: "StepToTopoDS_PointPair.hxx".}
 proc constructStepToTopoDS_PointPair*(p1: Handle[StepGeomCartesianPoint];
                                      p2: Handle[StepGeomCartesianPoint]): StepToTopoDS_PointPair {.
     constructor, importcpp: "StepToTopoDS_PointPair(@)",
     header: "StepToTopoDS_PointPair.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

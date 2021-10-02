@@ -27,24 +27,37 @@ discard "forward decl of StepVisual_Colour"
 discard "forward decl of Quantity_Color"
 type
   STEPConstructStyles* {.importcpp: "STEPConstruct_Styles",
-                        header: "STEPConstruct_Styles.hxx", bycopy.} = object of STEPConstructTool ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## empty
-                                                                                            ## tool
+                        header: "STEPConstruct_Styles.hxx", bycopy.} = object of STEPConstructTool
 
 
+proc `new`*(this: var STEPConstructStyles; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Styles::operator new",
+    header: "STEPConstruct_Styles.hxx".}
+proc `delete`*(this: var STEPConstructStyles; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Styles::operator delete",
+    header: "STEPConstruct_Styles.hxx".}
+proc `new[]`*(this: var STEPConstructStyles; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Styles::operator new[]",
+    header: "STEPConstruct_Styles.hxx".}
+proc `delete[]`*(this: var STEPConstructStyles; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Styles::operator delete[]",
+    header: "STEPConstruct_Styles.hxx".}
+proc `new`*(this: var STEPConstructStyles; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_Styles::operator new",
+    header: "STEPConstruct_Styles.hxx".}
+proc `delete`*(this: var STEPConstructStyles; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_Styles::operator delete",
+    header: "STEPConstruct_Styles.hxx".}
 proc constructSTEPConstructStyles*(): STEPConstructStyles {.constructor,
     importcpp: "STEPConstruct_Styles(@)", header: "STEPConstruct_Styles.hxx".}
 proc constructSTEPConstructStyles*(ws: Handle[XSControlWorkSession]): STEPConstructStyles {.
     constructor, importcpp: "STEPConstruct_Styles(@)",
     header: "STEPConstruct_Styles.hxx".}
-proc init*(this: var STEPConstructStyles; ws: Handle[XSControlWorkSession]): bool {.
+proc init*(this: var STEPConstructStyles; ws: Handle[XSControlWorkSession]): StandardBoolean {.
     importcpp: "Init", header: "STEPConstruct_Styles.hxx".}
-proc nbStyles*(this: STEPConstructStyles): cint {.noSideEffect,
-    importcpp: "NbStyles", header: "STEPConstruct_Styles.hxx".}
-proc style*(this: STEPConstructStyles; i: cint): Handle[StepVisualStyledItem] {.
+proc nbStyles*(this: STEPConstructStyles): int {.noSideEffect, importcpp: "NbStyles",
+    header: "STEPConstruct_Styles.hxx".}
+proc style*(this: STEPConstructStyles; i: int): Handle[StepVisualStyledItem] {.
     noSideEffect, importcpp: "Style", header: "STEPConstruct_Styles.hxx".}
 proc clearStyles*(this: var STEPConstructStyles) {.importcpp: "ClearStyles",
     header: "STEPConstruct_Styles.hxx".}
@@ -61,27 +74,27 @@ proc addStyle*(this: var STEPConstructStyles; shape: TopoDS_Shape;
     importcpp: "AddStyle", header: "STEPConstruct_Styles.hxx".}
 proc createMDGPR*(this: var STEPConstructStyles;
                  context: Handle[StepReprRepresentationContext]; mdgpr: var Handle[
-    StepVisualMechanicalDesignGeometricPresentationRepresentation]): bool {.
+    StepVisualMechanicalDesignGeometricPresentationRepresentation]): StandardBoolean {.
     importcpp: "CreateMDGPR", header: "STEPConstruct_Styles.hxx".}
 proc createNAUOSRD*(this: var STEPConstructStyles;
                    context: Handle[StepReprRepresentationContext];
                    cdsr: Handle[StepShapeContextDependentShapeRepresentation];
-                   initPDS: Handle[StepReprProductDefinitionShape]): bool {.
+                   initPDS: Handle[StepReprProductDefinitionShape]): StandardBoolean {.
     importcpp: "CreateNAUOSRD", header: "STEPConstruct_Styles.hxx".}
 proc findContext*(this: STEPConstructStyles; shape: TopoDS_Shape): Handle[
     StepReprRepresentationContext] {.noSideEffect, importcpp: "FindContext",
                                     header: "STEPConstruct_Styles.hxx".}
-proc loadStyles*(this: var STEPConstructStyles): bool {.importcpp: "LoadStyles",
-    header: "STEPConstruct_Styles.hxx".}
+proc loadStyles*(this: var STEPConstructStyles): StandardBoolean {.
+    importcpp: "LoadStyles", header: "STEPConstruct_Styles.hxx".}
 proc loadInvisStyles*(this: STEPConstructStyles;
-                     invSyles: var Handle[TColStdHSequenceOfTransient]): bool {.
+                     invSyles: var Handle[TColStdHSequenceOfTransient]): StandardBoolean {.
     noSideEffect, importcpp: "LoadInvisStyles", header: "STEPConstruct_Styles.hxx".}
 proc makeColorPSA*(this: STEPConstructStyles;
                   item: Handle[StepReprRepresentationItem];
                   surfCol: Handle[StepVisualColour];
                   curveCol: Handle[StepVisualColour];
-                  renderCol: Handle[StepVisualColour]; renderTransp: cfloat;
-                  isForNAUO: bool = false): Handle[
+                  renderCol: Handle[StepVisualColour]; renderTransp: StandardReal;
+                  isForNAUO: StandardBoolean = false): Handle[
     StepVisualPresentationStyleAssignment] {.noSideEffect,
     importcpp: "MakeColorPSA", header: "STEPConstruct_Styles.hxx".}
 proc getColorPSA*(this: var STEPConstructStyles;
@@ -93,9 +106,9 @@ proc getColors*(this: STEPConstructStyles; style: Handle[StepVisualStyledItem];
                surfCol: var Handle[StepVisualColour];
                boundCol: var Handle[StepVisualColour];
                curveCol: var Handle[StepVisualColour];
-               renderCol: var Handle[StepVisualColour]; renderTransp: var cfloat;
-               isComponent: var bool): bool {.noSideEffect, importcpp: "GetColors",
-    header: "STEPConstruct_Styles.hxx".}
+               renderCol: var Handle[StepVisualColour];
+               renderTransp: var StandardReal; isComponent: var StandardBoolean): StandardBoolean {.
+    noSideEffect, importcpp: "GetColors", header: "STEPConstruct_Styles.hxx".}
 proc encodeColor*(col: QuantityColor): Handle[StepVisualColour] {.
     importcpp: "STEPConstruct_Styles::EncodeColor(@)",
     header: "STEPConstruct_Styles.hxx".}
@@ -104,31 +117,6 @@ proc encodeColor*(col: QuantityColor;
                  colRGBs: var STEPConstructDataMapOfPointTransient): Handle[
     StepVisualColour] {.importcpp: "STEPConstruct_Styles::EncodeColor(@)",
                        header: "STEPConstruct_Styles.hxx".}
-proc decodeColor*(colour: Handle[StepVisualColour]; col: var QuantityColor): bool {.
+proc decodeColor*(colour: Handle[StepVisualColour]; col: var QuantityColor): StandardBoolean {.
     importcpp: "STEPConstruct_Styles::DecodeColor(@)",
     header: "STEPConstruct_Styles.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

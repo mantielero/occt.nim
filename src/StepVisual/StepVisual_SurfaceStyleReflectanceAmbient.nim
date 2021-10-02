@@ -34,13 +34,13 @@ proc constructStepVisualSurfaceStyleReflectanceAmbient*(): StepVisualSurfaceStyl
     constructor, importcpp: "StepVisual_SurfaceStyleReflectanceAmbient(@)",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 proc init*(this: var StepVisualSurfaceStyleReflectanceAmbient;
-          theAmbientReflectance: cfloat) {.importcpp: "Init",
+          theAmbientReflectance: StandardReal) {.importcpp: "Init",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
-proc ambientReflectance*(this: StepVisualSurfaceStyleReflectanceAmbient): cfloat {.
+proc ambientReflectance*(this: StepVisualSurfaceStyleReflectanceAmbient): StandardReal {.
     noSideEffect, importcpp: "AmbientReflectance",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 proc setAmbientReflectance*(this: var StepVisualSurfaceStyleReflectanceAmbient;
-                           theAmbientReflectance: cfloat) {.
+                           theAmbientReflectance: StandardReal) {.
     importcpp: "SetAmbientReflectance",
     header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
 type
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Surface
 proc dynamicType*(this: StepVisualSurfaceStyleReflectanceAmbient): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_SurfaceStyleReflectanceAmbient.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

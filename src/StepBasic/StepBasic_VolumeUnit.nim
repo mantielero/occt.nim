@@ -34,28 +34,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_VolumeUnit.hxx".}
 proc dynamicType*(this: StepBasicVolumeUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_VolumeUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

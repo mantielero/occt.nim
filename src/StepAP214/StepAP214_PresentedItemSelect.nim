@@ -20,14 +20,31 @@ discard "forward decl of StepBasic_ProductDefinition"
 type
   StepAP214PresentedItemSelect* {.importcpp: "StepAP214_PresentedItemSelect",
                                  header: "StepAP214_PresentedItemSelect.hxx",
-                                 bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                    ## PresentedItemSelect SelectType
+                                 bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214PresentedItemSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_PresentedItemSelect::operator new",
+    header: "StepAP214_PresentedItemSelect.hxx".}
+proc `delete`*(this: var StepAP214PresentedItemSelect; theAddress: pointer) {.
+    importcpp: "StepAP214_PresentedItemSelect::operator delete",
+    header: "StepAP214_PresentedItemSelect.hxx".}
+proc `new[]`*(this: var StepAP214PresentedItemSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_PresentedItemSelect::operator new[]",
+    header: "StepAP214_PresentedItemSelect.hxx".}
+proc `delete[]`*(this: var StepAP214PresentedItemSelect; theAddress: pointer) {.
+    importcpp: "StepAP214_PresentedItemSelect::operator delete[]",
+    header: "StepAP214_PresentedItemSelect.hxx".}
+proc `new`*(this: var StepAP214PresentedItemSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_PresentedItemSelect::operator new",
+    header: "StepAP214_PresentedItemSelect.hxx".}
+proc `delete`*(this: var StepAP214PresentedItemSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_PresentedItemSelect::operator delete",
+    header: "StepAP214_PresentedItemSelect.hxx".}
 proc constructStepAP214PresentedItemSelect*(): StepAP214PresentedItemSelect {.
     constructor, importcpp: "StepAP214_PresentedItemSelect(@)",
     header: "StepAP214_PresentedItemSelect.hxx".}
-proc caseNum*(this: StepAP214PresentedItemSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214PresentedItemSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_PresentedItemSelect.hxx".}
 proc productDefinitionRelationship*(this: StepAP214PresentedItemSelect): Handle[
     StepBasicProductDefinitionRelationship] {.noSideEffect,
@@ -36,28 +53,3 @@ proc productDefinitionRelationship*(this: StepAP214PresentedItemSelect): Handle[
 proc productDefinition*(this: StepAP214PresentedItemSelect): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
                                  header: "StepAP214_PresentedItemSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

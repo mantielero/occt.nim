@@ -23,6 +23,24 @@ type
                           header: "STEPSelections_Counter.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPSelectionsCounter; theSize: csize_t): pointer {.
+    importcpp: "STEPSelections_Counter::operator new",
+    header: "STEPSelections_Counter.hxx".}
+proc `delete`*(this: var STEPSelectionsCounter; theAddress: pointer) {.
+    importcpp: "STEPSelections_Counter::operator delete",
+    header: "STEPSelections_Counter.hxx".}
+proc `new[]`*(this: var STEPSelectionsCounter; theSize: csize_t): pointer {.
+    importcpp: "STEPSelections_Counter::operator new[]",
+    header: "STEPSelections_Counter.hxx".}
+proc `delete[]`*(this: var STEPSelectionsCounter; theAddress: pointer) {.
+    importcpp: "STEPSelections_Counter::operator delete[]",
+    header: "STEPSelections_Counter.hxx".}
+proc `new`*(this: var STEPSelectionsCounter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPSelections_Counter::operator new",
+    header: "STEPSelections_Counter.hxx".}
+proc `delete`*(this: var STEPSelectionsCounter; a2: pointer; a3: pointer) {.
+    importcpp: "STEPSelections_Counter::operator delete",
+    header: "STEPSelections_Counter.hxx".}
 proc constructSTEPSelectionsCounter*(): STEPSelectionsCounter {.constructor,
     importcpp: "STEPSelections_Counter(@)", header: "STEPSelections_Counter.hxx".}
 proc count*(this: var STEPSelectionsCounter; graph: InterfaceGraph;
@@ -30,52 +48,27 @@ proc count*(this: var STEPSelectionsCounter; graph: InterfaceGraph;
     header: "STEPSelections_Counter.hxx".}
 proc clear*(this: var STEPSelectionsCounter) {.importcpp: "Clear",
     header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfFaces*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbInstancesOfFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbInstancesOfFaces", header: "STEPSelections_Counter.hxx".}
-proc pop*(this: STEPSelectionsCounter): cint {.noSideEffect, importcpp: "POP",
+proc pop*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP",
     header: "STEPSelections_Counter.hxx".}
-proc pop2*(this: STEPSelectionsCounter): cint {.noSideEffect, importcpp: "POP2",
+proc pop2*(this: STEPSelectionsCounter): int {.noSideEffect, importcpp: "POP2",
     header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfShells*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbInstancesOfShells*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbInstancesOfShells", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfSolids*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbInstancesOfSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbInstancesOfSolids", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfEdges*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbInstancesOfEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbInstancesOfEdges", header: "STEPSelections_Counter.hxx".}
-proc nbInstancesOfWires*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbInstancesOfWires*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbInstancesOfWires", header: "STEPSelections_Counter.hxx".}
-proc nbSourceFaces*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbSourceFaces*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceFaces", header: "STEPSelections_Counter.hxx".}
-proc nbSourceShells*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbSourceShells*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceShells", header: "STEPSelections_Counter.hxx".}
-proc nbSourceSolids*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbSourceSolids*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceSolids", header: "STEPSelections_Counter.hxx".}
-proc nbSourceEdges*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbSourceEdges*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceEdges", header: "STEPSelections_Counter.hxx".}
-proc nbSourceWires*(this: STEPSelectionsCounter): cint {.noSideEffect,
+proc nbSourceWires*(this: STEPSelectionsCounter): int {.noSideEffect,
     importcpp: "NbSourceWires", header: "STEPSelections_Counter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

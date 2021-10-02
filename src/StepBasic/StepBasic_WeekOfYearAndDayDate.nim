@@ -27,21 +27,22 @@ type
 proc constructStepBasicWeekOfYearAndDayDate*(): StepBasicWeekOfYearAndDayDate {.
     constructor, importcpp: "StepBasic_WeekOfYearAndDayDate(@)",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc init*(this: var StepBasicWeekOfYearAndDayDate; aYearComponent: cint;
-          aWeekComponent: cint; hasAdayComponent: bool; aDayComponent: cint) {.
+proc init*(this: var StepBasicWeekOfYearAndDayDate; aYearComponent: int;
+          aWeekComponent: int; hasAdayComponent: StandardBoolean; aDayComponent: int) {.
     importcpp: "Init", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc setWeekComponent*(this: var StepBasicWeekOfYearAndDayDate; aWeekComponent: cint) {.
+proc setWeekComponent*(this: var StepBasicWeekOfYearAndDayDate; aWeekComponent: int) {.
     importcpp: "SetWeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc weekComponent*(this: StepBasicWeekOfYearAndDayDate): cint {.noSideEffect,
+proc weekComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
     importcpp: "WeekComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc setDayComponent*(this: var StepBasicWeekOfYearAndDayDate; aDayComponent: cint) {.
+proc setDayComponent*(this: var StepBasicWeekOfYearAndDayDate; aDayComponent: int) {.
     importcpp: "SetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
 proc unSetDayComponent*(this: var StepBasicWeekOfYearAndDayDate) {.
     importcpp: "UnSetDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc dayComponent*(this: StepBasicWeekOfYearAndDayDate): cint {.noSideEffect,
+proc dayComponent*(this: StepBasicWeekOfYearAndDayDate): int {.noSideEffect,
     importcpp: "DayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-proc hasDayComponent*(this: StepBasicWeekOfYearAndDayDate): bool {.noSideEffect,
-    importcpp: "HasDayComponent", header: "StepBasic_WeekOfYearAndDayDate.hxx".}
+proc hasDayComponent*(this: StepBasicWeekOfYearAndDayDate): StandardBoolean {.
+    noSideEffect, importcpp: "HasDayComponent",
+    header: "StepBasic_WeekOfYearAndDayDate.hxx".}
 type
   StepBasicWeekOfYearAndDayDatebaseType* = StepBasicDate
 
@@ -53,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicWeekOfYearAndDayDate): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_WeekOfYearAndDayDate.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

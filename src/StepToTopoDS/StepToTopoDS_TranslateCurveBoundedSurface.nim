@@ -20,13 +20,23 @@ discard "forward decl of TopoDS_Face"
 type
   StepToTopoDS_TranslateCurveBoundedSurface* {.
       importcpp: "StepToTopoDS_TranslateCurveBoundedSurface",
-      header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx", bycopy.} = object of StepToTopoDS_Root ##
-                                                                                               ## !
-                                                                                               ## Create
-                                                                                               ## empty
-                                                                                               ## tool
+      header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateCurveBoundedSurface; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator new",
+    header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
+              theAddress: pointer) {.importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator delete", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateCurveBoundedSurface; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator new[]",
+    header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
+                theAddress: pointer) {.importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator delete[]", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateCurveBoundedSurface; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator new", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateCurveBoundedSurface; a2: pointer;
+              a3: pointer) {.importcpp: "StepToTopoDS_TranslateCurveBoundedSurface::operator delete", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
 proc constructStepToTopoDS_TranslateCurveBoundedSurface*(): StepToTopoDS_TranslateCurveBoundedSurface {.
     constructor, importcpp: "StepToTopoDS_TranslateCurveBoundedSurface(@)",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
@@ -36,33 +46,8 @@ proc constructStepToTopoDS_TranslateCurveBoundedSurface*(
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
 proc init*(this: var StepToTopoDS_TranslateCurveBoundedSurface;
           cbs: Handle[StepGeomCurveBoundedSurface];
-          tp: Handle[TransferTransientProcess]): bool {.importcpp: "Init",
-    header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
+          tp: Handle[TransferTransientProcess]): StandardBoolean {.
+    importcpp: "Init", header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
 proc value*(this: StepToTopoDS_TranslateCurveBoundedSurface): TopoDS_Face {.
     noSideEffect, importcpp: "Value",
     header: "StepToTopoDS_TranslateCurveBoundedSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

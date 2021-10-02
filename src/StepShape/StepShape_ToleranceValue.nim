@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_ToleranceValue.hxx".}
 proc dynamicType*(this: StepShapeToleranceValue): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_ToleranceValue.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

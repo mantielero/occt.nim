@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_Template.hxx".}
 proc dynamicType*(this: StepVisualTemplate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_Template.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectForTransfer): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectForTransfer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

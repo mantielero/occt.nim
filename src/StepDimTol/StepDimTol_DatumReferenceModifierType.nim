@@ -20,29 +20,3 @@ type
     StepDimTolCircularOrCylindrical, StepDimTolDistance, StepDimTolProjected,
     StepDimTolSpherical
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

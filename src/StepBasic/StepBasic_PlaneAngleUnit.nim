@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_PlaneAngleUnit.hxx".}
 proc dynamicType*(this: StepBasicPlaneAngleUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_PlaneAngleUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

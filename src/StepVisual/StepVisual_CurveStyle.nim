@@ -64,28 +64,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CurveStyle.hxx".}
 proc dynamicType*(this: StepVisualCurveStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_CurveStyle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

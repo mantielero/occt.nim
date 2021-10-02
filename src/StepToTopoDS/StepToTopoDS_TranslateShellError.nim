@@ -18,29 +18,3 @@ type
   StepToTopoDS_TranslateShellError* {.size: sizeof(cint), importcpp: "StepToTopoDS_TranslateShellError", header: "StepToTopoDS_TranslateShellError.hxx".} = enum
     StepToTopoDS_TranslateShellDone, StepToTopoDS_TranslateShellOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

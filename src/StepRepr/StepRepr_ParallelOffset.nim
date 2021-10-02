@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ParallelOffset.hxx".}
 proc dynamicType*(this: StepReprParallelOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ParallelOffset.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

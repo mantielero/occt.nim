@@ -37,14 +37,31 @@ discard "forward decl of StepBasic_ProductDefinitionContext"
 discard "forward decl of StepRepr_RepresentationItem"
 type
   StepAP214DocumentReferenceItem* {.importcpp: "StepAP214_DocumentReferenceItem", header: "StepAP214_DocumentReferenceItem.hxx",
-                                   bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                      ## DocumentReferenceItem SelectType
+                                   bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214DocumentReferenceItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator new",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc `delete`*(this: var StepAP214DocumentReferenceItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator delete",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc `new[]`*(this: var StepAP214DocumentReferenceItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator new[]",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc `delete[]`*(this: var StepAP214DocumentReferenceItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator delete[]",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc `new`*(this: var StepAP214DocumentReferenceItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator new",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
+proc `delete`*(this: var StepAP214DocumentReferenceItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_DocumentReferenceItem::operator delete",
+    header: "StepAP214_DocumentReferenceItem.hxx".}
 proc constructStepAP214DocumentReferenceItem*(): StepAP214DocumentReferenceItem {.
     constructor, importcpp: "StepAP214_DocumentReferenceItem(@)",
     header: "StepAP214_DocumentReferenceItem.hxx".}
-proc caseNum*(this: StepAP214DocumentReferenceItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214DocumentReferenceItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP214_DocumentReferenceItem.hxx".}
 proc approval*(this: StepAP214DocumentReferenceItem): Handle[StepBasicApproval] {.
@@ -110,28 +127,3 @@ proc productDefinitionContext*(this: StepAP214DocumentReferenceItem): Handle[
 proc representationItem*(this: StepAP214DocumentReferenceItem): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
                                  header: "StepAP214_DocumentReferenceItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

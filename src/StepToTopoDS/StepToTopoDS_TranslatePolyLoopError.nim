@@ -18,29 +18,3 @@ type
   StepToTopoDS_TranslatePolyLoopError* {.size: sizeof(cint), importcpp: "StepToTopoDS_TranslatePolyLoopError", header: "StepToTopoDS_TranslatePolyLoopError.hxx".} = enum
     StepToTopoDS_TranslatePolyLoopDone, StepToTopoDS_TranslatePolyLoopOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,29 +20,3 @@ type
                              header: "StepShape_BooleanOperator.hxx".} = enum
     StepShapeBoDifference, StepShapeBoIntersection, StepShapeBoUnion
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

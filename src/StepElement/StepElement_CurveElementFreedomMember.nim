@@ -32,14 +32,15 @@ type
 proc constructStepElementCurveElementFreedomMember*(): StepElementCurveElementFreedomMember {.
     constructor, importcpp: "StepElement_CurveElementFreedomMember(@)",
     header: "StepElement_CurveElementFreedomMember.hxx".}
-proc hasName*(this: StepElementCurveElementFreedomMember): bool {.noSideEffect,
-    importcpp: "HasName", header: "StepElement_CurveElementFreedomMember.hxx".}
+proc hasName*(this: StepElementCurveElementFreedomMember): StandardBoolean {.
+    noSideEffect, importcpp: "HasName",
+    header: "StepElement_CurveElementFreedomMember.hxx".}
 proc name*(this: StepElementCurveElementFreedomMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_CurveElementFreedomMember.hxx".}
-proc setName*(this: var StepElementCurveElementFreedomMember; name: StandardCString): bool {.
+proc setName*(this: var StepElementCurveElementFreedomMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepElement_CurveElementFreedomMember.hxx".}
-proc matches*(this: StepElementCurveElementFreedomMember; name: StandardCString): bool {.
+proc matches*(this: StepElementCurveElementFreedomMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_CurveElementFreedomMember.hxx".}
 type
@@ -53,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementCurveElementFreedomMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_CurveElementFreedomMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

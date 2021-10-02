@@ -16,29 +16,3 @@
 
 type
   StepBasicArray1OfOrganization* = NCollectionArray1[Handle[StepBasicOrganization]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

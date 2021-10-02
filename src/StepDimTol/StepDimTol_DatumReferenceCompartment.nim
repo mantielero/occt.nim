@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolDatumReferenceCompartment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_DatumReferenceCompartment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

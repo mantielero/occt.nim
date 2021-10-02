@@ -19,24 +19,6 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Interface_TypedValue"
 discard "forward decl of Interface_TypedValue"
-type
-  HandleC1C1* = Handle[InterfaceTypedValue]
-
-## ! Now strictly equivalent to TypedValue from MoniTool,
-## ! except for ParamType which remains for compatibility reasons
-## !
-## ! This class allows to dynamically manage .. typed values, i.e.
-## ! values which have an alphanumeric expression, but with
-## ! controls. Such as "must be an Integer" or "Enumerative Text"
-## ! etc
-## !
-## ! Hence, a TypedValue brings a specification (type + constraints
-## ! if any) and a value. Its basic form is a string, it can be
-## ! specified as integer or real or enumerative string, then
-## ! queried as such.
-## ! Its string content, which is a Handle(HAsciiString) can be
-## ! shared by other data structures, hence gives a direct on line
-## ! access to its value.
 
 type
   InterfaceTypedValue* {.importcpp: "Interface_TypedValue",
@@ -117,6 +99,28 @@ type
                                                                                              ## is
                                                                                              ## empty
 
+type
+  HandleInterfaceTypedValue* = Handle[InterfaceTypedValue]
+
+## ! Now strictly equivalent to TypedValue from MoniTool,
+## ! except for ParamType which remains for compatibility reasons
+## !
+## ! This class allows to dynamically manage .. typed values, i.e.
+## ! values which have an alphanumeric expression, but with
+## ! controls. Such as "must be an Integer" or "Enumerative Text"
+## ! etc
+## !
+## ! Hence, a TypedValue brings a specification (type + constraints
+## ! if any) and a value. Its basic form is a string, it can be
+## ! specified as integer or real or enumerative string, then
+## ! queried as such.
+## ! Its string content, which is a Handle(HAsciiString) can be
+## ! shared by other data structures, hence gives a direct on line
+## ! access to its value.
+
+type
+  InterfaceTypedValuebaseType* = MoniToolTypedValue
+
 
 proc constructInterfaceTypedValue*(name: StandardCString; `type`: InterfaceParamType = interfaceParamText;
                                   init: StandardCString = ""): InterfaceTypedValue {.
@@ -130,8 +134,6 @@ proc paramTypeToValueType*(typ: InterfaceParamType): MoniToolValueType {.
 proc valueTypeToParamType*(typ: MoniToolValueType): InterfaceParamType {.
     importcpp: "Interface_TypedValue::ValueTypeToParamType(@)",
     header: "Interface_TypedValue.hxx".}
-type
-  InterfaceTypedValuebaseType* = MoniToolTypedValue
 
 proc getTypeName*(): cstring {.importcpp: "Interface_TypedValue::get_type_name(@)",
                             header: "Interface_TypedValue.hxx".}

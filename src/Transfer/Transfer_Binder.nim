@@ -16,12 +16,20 @@
 
 discard "forward decl of Interface_Check"
 discard "forward decl of Transfer_TransferFailure"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_Binder"
 type
-  HandleC1C1* = Handle[TransferBinder]
+  TransferBinder* {.importcpp: "Transfer_Binder", header: "Transfer_Binder.hxx",
+                   bycopy.} = object of StandardTransient ## ! Merges basic data (Check, ExecStatus) from another Binder but
+                                                     ## ! keeps its result. Used when a binder is replaced by another
+                                                     ## ! one, this allows to keep messages
+                                                     ## ! Sets fields at initial values
+                                                     ## ! Called by AddResult, to keep unicity of each item in the list
+
+type
+  HandleTransferBinder* = Handle[TransferBinder]
 
 ## ! A Binder is an auxiliary object to Map the Result of the
 ## ! Transfer of a given Object : it records the Result of the
@@ -45,21 +53,16 @@ type
 ## !
 ## ! In addition to the Result, a Binder can bring a list of
 ## ! Attributes, which are additional data, each of them has a name
-
 type
-  TransferBinder* {.importcpp: "Transfer_Binder", header: "Transfer_Binder.hxx",
-                   bycopy.} = object of StandardTransient ## ! Merges basic data (Check, ExecStatus) from another Binder but
-                                                     ## ! keeps its result. Used when a binder is replaced by another
-                                                     ## ! one, this allows to keep messages
-                                                     ## ! Sets fields at initial values
-                                                     ## ! Called by AddResult, to keep unicity of each item in the list
+  TransferBinderbaseType* = StandardTransient
+
 
 
 proc merge*(this: var TransferBinder; other: Handle[TransferBinder]) {.
     importcpp: "Merge", header: "Transfer_Binder.hxx".}
-proc isMultiple*(this: TransferBinder): bool {.noSideEffect, importcpp: "IsMultiple",
-    header: "Transfer_Binder.hxx".}
-proc resultType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
+proc isMultiple*(this: TransferBinder): StandardBoolean {.noSideEffect,
+    importcpp: "IsMultiple", header: "Transfer_Binder.hxx".}
+#[ proc resultType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "ResultType", header: "Transfer_Binder.hxx".}
 proc resultTypeName*(this: TransferBinder): StandardCString {.noSideEffect,
     importcpp: "ResultTypeName", header: "Transfer_Binder.hxx".}
@@ -67,8 +70,8 @@ proc addResult*(this: var TransferBinder; next: Handle[TransferBinder]) {.
     importcpp: "AddResult", header: "Transfer_Binder.hxx".}
 proc nextResult*(this: TransferBinder): Handle[TransferBinder] {.noSideEffect,
     importcpp: "NextResult", header: "Transfer_Binder.hxx".}
-proc hasResult*(this: TransferBinder): bool {.noSideEffect, importcpp: "HasResult",
-    header: "Transfer_Binder.hxx".}
+proc hasResult*(this: TransferBinder): StandardBoolean {.noSideEffect,
+    importcpp: "HasResult", header: "Transfer_Binder.hxx".}
 proc setAlreadyUsed*(this: var TransferBinder) {.importcpp: "SetAlreadyUsed",
     header: "Transfer_Binder.hxx".}
 proc status*(this: TransferBinder): TransferStatusResult {.noSideEffect,
@@ -89,8 +92,6 @@ proc cCheck*(this: var TransferBinder): Handle[InterfaceCheck] {.importcpp: "CCh
     header: "Transfer_Binder.hxx".}
 proc destroyTransferBinder*(this: var TransferBinder) {.
     importcpp: "#.~Transfer_Binder()", header: "Transfer_Binder.hxx".}
-type
-  TransferBinderbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_Binder::get_type_name(@)",
                             header: "Transfer_Binder.hxx".}
@@ -98,29 +99,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_Binder::get_type_descriptor(@)",
     header: "Transfer_Binder.hxx".}
 proc dynamicType*(this: TransferBinder): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Transfer_Binder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "Transfer_Binder.hxx".} ]#

@@ -17,23 +17,25 @@
 discard "forward decl of TCollection_AsciiString"
 type
   StepDataEnumTool* {.importcpp: "StepData_EnumTool",
-                     header: "StepData_EnumTool.hxx", bycopy.} = object ## ! Creates an EnumTool with definitions given by e0 .. e<max>
-                                                                   ## ! Each definition string can bring one term, or several
-                                                                   ## ! separated by blanks. Each term corresponds to one value of the
-                                                                   ## ! enumeration, if dots are not presents they are added
-                                                                   ## !
-                                                                   ## ! Such a static constructor allows to build a static description
-                                                                   ## ! as : static
-                                                                   ## StepData_EnumTool
-                                                                   ## myenumtool("e0","e1"...);
-                                                                   ## ! then use it without having to initialise it
-                                                                   ## !
-                                                                   ## ! A null definition can be input by given "$" :the corresponding
-                                                                   ## ! position is attached to
-                                                                   ## "null/undefined" value (as one
-                                                                   ## ! particular item of the enumeration list)
+                     header: "StepData_EnumTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepDataEnumTool; theSize: csize_t): pointer {.
+    importcpp: "StepData_EnumTool::operator new", header: "StepData_EnumTool.hxx".}
+proc `delete`*(this: var StepDataEnumTool; theAddress: pointer) {.
+    importcpp: "StepData_EnumTool::operator delete",
+    header: "StepData_EnumTool.hxx".}
+proc `new[]`*(this: var StepDataEnumTool; theSize: csize_t): pointer {.
+    importcpp: "StepData_EnumTool::operator new[]",
+    header: "StepData_EnumTool.hxx".}
+proc `delete[]`*(this: var StepDataEnumTool; theAddress: pointer) {.
+    importcpp: "StepData_EnumTool::operator delete[]",
+    header: "StepData_EnumTool.hxx".}
+proc `new`*(this: var StepDataEnumTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_EnumTool::operator new", header: "StepData_EnumTool.hxx".}
+proc `delete`*(this: var StepDataEnumTool; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_EnumTool::operator delete",
+    header: "StepData_EnumTool.hxx".}
 proc constructStepDataEnumTool*(e0: StandardCString = ""; e1: StandardCString = "";
                                e2: StandardCString = ""; e3: StandardCString = "";
                                e4: StandardCString = ""; e5: StandardCString = "";
@@ -57,42 +59,17 @@ proc constructStepDataEnumTool*(e0: StandardCString = ""; e1: StandardCString = 
     constructor, importcpp: "StepData_EnumTool(@)", header: "StepData_EnumTool.hxx".}
 proc addDefinition*(this: var StepDataEnumTool; term: StandardCString) {.
     importcpp: "AddDefinition", header: "StepData_EnumTool.hxx".}
-proc isSet*(this: StepDataEnumTool): bool {.noSideEffect, importcpp: "IsSet",
-                                        header: "StepData_EnumTool.hxx".}
-proc maxValue*(this: StepDataEnumTool): cint {.noSideEffect, importcpp: "MaxValue",
+proc isSet*(this: StepDataEnumTool): StandardBoolean {.noSideEffect,
+    importcpp: "IsSet", header: "StepData_EnumTool.hxx".}
+proc maxValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "MaxValue",
     header: "StepData_EnumTool.hxx".}
-proc optional*(this: var StepDataEnumTool; mode: bool) {.importcpp: "Optional",
+proc optional*(this: var StepDataEnumTool; mode: StandardBoolean) {.
+    importcpp: "Optional", header: "StepData_EnumTool.hxx".}
+proc nullValue*(this: StepDataEnumTool): int {.noSideEffect, importcpp: "NullValue",
     header: "StepData_EnumTool.hxx".}
-proc nullValue*(this: StepDataEnumTool): cint {.noSideEffect, importcpp: "NullValue",
-    header: "StepData_EnumTool.hxx".}
-proc text*(this: StepDataEnumTool; num: cint): TCollectionAsciiString {.noSideEffect,
+proc text*(this: StepDataEnumTool; num: int): TCollectionAsciiString {.noSideEffect,
     importcpp: "Text", header: "StepData_EnumTool.hxx".}
-proc value*(this: StepDataEnumTool; txt: StandardCString): cint {.noSideEffect,
+proc value*(this: StepDataEnumTool; txt: StandardCString): int {.noSideEffect,
     importcpp: "Value", header: "StepData_EnumTool.hxx".}
-proc value*(this: StepDataEnumTool; txt: TCollectionAsciiString): cint {.noSideEffect,
+proc value*(this: StepDataEnumTool; txt: TCollectionAsciiString): int {.noSideEffect,
     importcpp: "Value", header: "StepData_EnumTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

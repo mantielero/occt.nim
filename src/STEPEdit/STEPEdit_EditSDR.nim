@@ -36,16 +36,16 @@ proc constructSTEPEditEditSDR*(): STEPEditEditSDR {.constructor,
     importcpp: "STEPEdit_EditSDR(@)", header: "STEPEdit_EditSDR.hxx".}
 proc label*(this: STEPEditEditSDR): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditSDR.hxx".}
-proc recognize*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]): bool {.
+proc recognize*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]): StandardBoolean {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditSDR.hxx".}
-proc stringValue*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]; num: cint): Handle[
+proc stringValue*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm]; num: int): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
                               header: "STEPEdit_EditSDR.hxx".}
 proc apply*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm];
-           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
+           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
     noSideEffect, importcpp: "Apply", header: "STEPEdit_EditSDR.hxx".}
 proc load*(this: STEPEditEditSDR; form: Handle[IFSelectEditForm];
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
     noSideEffect, importcpp: "Load", header: "STEPEdit_EditSDR.hxx".}
 type
   STEPEditEditSDRbaseType* = IFSelectEditor
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPEdit_EditSDR.hxx".}
 proc dynamicType*(this: STEPEditEditSDR): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditSDR.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

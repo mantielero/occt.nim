@@ -28,7 +28,7 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceModel"
 type
-  HandleC1C1* = Handle[InterfaceInterfaceModel]
+  HandleInterfaceInterfaceModel* = Handle[InterfaceInterfaceModel]
 
 ## ! Defines an (Indexed) Set of data corresponding to a complete
 ## ! Transfer by a File Interface, i.e. File Header and Transient
@@ -84,7 +84,7 @@ proc destroy*(this: var InterfaceInterfaceModel) {.importcpp: "Destroy",
 proc destroyInterfaceInterfaceModel*(this: var InterfaceInterfaceModel) {.
     importcpp: "#.~Interface_InterfaceModel()",
     header: "Interface_InterfaceModel.hxx".}
-proc setProtocol*(this: var InterfaceInterfaceModel;
+#[ proc setProtocol*(this: var InterfaceInterfaceModel;
                  proto: Handle[InterfaceProtocol]) {.importcpp: "SetProtocol",
     header: "Interface_InterfaceModel.hxx".}
 proc protocol*(this: InterfaceInterfaceModel): Handle[InterfaceProtocol] {.
@@ -113,9 +113,9 @@ proc value*(this: InterfaceInterfaceModel; num: cint): Handle[StandardTransient]
     noSideEffect, importcpp: "Value", header: "Interface_InterfaceModel.hxx".}
 proc nbTypes*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "NbTypes", header: "Interface_InterfaceModel.hxx".}
-proc `type`*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
+#[ proc `type`*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
             num: cint = 1): Handle[StandardType] {.noSideEffect, importcpp: "Type",
-    header: "Interface_InterfaceModel.hxx".}
+    header: "Interface_InterfaceModel.hxx".} ]#
 proc typeName*(this: InterfaceInterfaceModel; ent: Handle[StandardTransient];
               complete: bool = true): StandardCString {.noSideEffect,
     importcpp: "TypeName", header: "Interface_InterfaceModel.hxx".}
@@ -272,3 +272,4 @@ proc dynamicType*(this: InterfaceInterfaceModel): Handle[StandardType] {.
 
 
 
+ ]#

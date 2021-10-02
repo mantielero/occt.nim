@@ -35,7 +35,7 @@ proc constructStepGeomQuasiUniformCurveAndRationalBSplineCurve*(): StepGeomQuasi
     importcpp: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve(@)",
     header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomQuasiUniformCurveAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -44,7 +44,7 @@ proc init*(this: var StepGeomQuasiUniformCurveAndRationalBSplineCurve;
     importcpp: "Init",
     header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomQuasiUniformCurveAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -70,9 +70,10 @@ proc setWeightsData*(this: var StepGeomQuasiUniformCurveAndRationalBSplineCurve;
 proc weightsData*(this: StepGeomQuasiUniformCurveAndRationalBSplineCurve): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
 proc weightsDataValue*(this: StepGeomQuasiUniformCurveAndRationalBSplineCurve;
-                      num: cint): cfloat {.noSideEffect,
-                                        importcpp: "WeightsDataValue", header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
-proc nbWeightsData*(this: StepGeomQuasiUniformCurveAndRationalBSplineCurve): cint {.
+                      num: int): StandardReal {.noSideEffect,
+    importcpp: "WeightsDataValue",
+    header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
+proc nbWeightsData*(this: StepGeomQuasiUniformCurveAndRationalBSplineCurve): int {.
     noSideEffect, importcpp: "NbWeightsData",
     header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
 type
@@ -83,28 +84,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_QuasiUnif
     header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
 proc dynamicType*(this: StepGeomQuasiUniformCurveAndRationalBSplineCurve): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_QuasiUniformCurveAndRationalBSplineCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

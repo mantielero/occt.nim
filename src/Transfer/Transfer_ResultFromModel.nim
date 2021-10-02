@@ -21,8 +21,18 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ResultFromModel"
 discard "forward decl of Transfer_ResultFromModel"
+
 type
-  HandleC1C1* = Handle[TransferResultFromModel]
+  TransferResultFromModel* {.importcpp: "Transfer_ResultFromModel",
+                            header: "Transfer_ResultFromModel.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Creates
+                                                                                                    ## a
+                                                                                                    ## ResultFromModel,
+                                                                                                    ## empty
+
+type
+  HandleTransferResultFromModel* = Handle[TransferResultFromModel]
 
 ## ! ResultFromModel is used to store a final result stored in a
 ## ! TransientProcess, respectfully to its structuration in scopes
@@ -41,13 +51,7 @@ type
 ## ! were filled by the operation which filled it the first time
 
 type
-  TransferResultFromModel* {.importcpp: "Transfer_ResultFromModel",
-                            header: "Transfer_ResultFromModel.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## ResultFromModel,
-                                                                                                    ## empty
+  TransferResultFromModelbaseType* = StandardTransient
 
 
 proc constructTransferResultFromModel*(): TransferResultFromModel {.constructor,
@@ -63,13 +67,13 @@ proc model*(this: TransferResultFromModel): Handle[InterfaceInterfaceModel] {.
 proc fileName*(this: TransferResultFromModel): StandardCString {.noSideEffect,
     importcpp: "FileName", header: "Transfer_ResultFromModel.hxx".}
 proc fill*(this: var TransferResultFromModel; tp: Handle[TransferTransientProcess];
-          ent: Handle[StandardTransient]): bool {.importcpp: "Fill",
+          ent: Handle[StandardTransient]): StandardBoolean {.importcpp: "Fill",
     header: "Transfer_ResultFromModel.hxx".}
-proc strip*(this: var TransferResultFromModel; mode: cint) {.importcpp: "Strip",
+proc strip*(this: var TransferResultFromModel; mode: int) {.importcpp: "Strip",
     header: "Transfer_ResultFromModel.hxx".}
 proc fillBack*(this: TransferResultFromModel; tp: Handle[TransferTransientProcess]) {.
     noSideEffect, importcpp: "FillBack", header: "Transfer_ResultFromModel.hxx".}
-proc hasResult*(this: TransferResultFromModel): bool {.noSideEffect,
+proc hasResult*(this: TransferResultFromModel): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "Transfer_ResultFromModel.hxx".}
 proc mainResult*(this: TransferResultFromModel): Handle[TransferResultFromTransient] {.
     noSideEffect, importcpp: "MainResult", header: "Transfer_ResultFromModel.hxx".}
@@ -78,28 +82,27 @@ proc setMainResult*(this: var TransferResultFromModel;
     importcpp: "SetMainResult", header: "Transfer_ResultFromModel.hxx".}
 proc mainLabel*(this: TransferResultFromModel): StandardCString {.noSideEffect,
     importcpp: "MainLabel", header: "Transfer_ResultFromModel.hxx".}
-proc mainNumber*(this: TransferResultFromModel): cint {.noSideEffect,
+proc mainNumber*(this: TransferResultFromModel): int {.noSideEffect,
     importcpp: "MainNumber", header: "Transfer_ResultFromModel.hxx".}
 proc resultFromKey*(this: TransferResultFromModel; start: Handle[StandardTransient]): Handle[
     TransferResultFromTransient] {.noSideEffect, importcpp: "ResultFromKey",
                                   header: "Transfer_ResultFromModel.hxx".}
-proc results*(this: TransferResultFromModel; level: cint): Handle[
+#[ proc results*(this: TransferResultFromModel; level: int): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "Results",
                                   header: "Transfer_ResultFromModel.hxx".}
-proc transferredList*(this: TransferResultFromModel; level: cint = 2): Handle[
+proc transferredList*(this: TransferResultFromModel; level: int = 2): Handle[
     TColStdHSequenceOfTransient] {.noSideEffect, importcpp: "TransferredList",
                                   header: "Transfer_ResultFromModel.hxx".}
 proc checkedList*(this: TransferResultFromModel; check: InterfaceCheckStatus;
-                 result: bool): Handle[TColStdHSequenceOfTransient] {.noSideEffect,
-    importcpp: "CheckedList", header: "Transfer_ResultFromModel.hxx".}
-proc checkList*(this: TransferResultFromModel; erronly: bool; level: cint = 2): InterfaceCheckIterator {.
-    noSideEffect, importcpp: "CheckList", header: "Transfer_ResultFromModel.hxx".}
+                 result: StandardBoolean): Handle[TColStdHSequenceOfTransient] {.
+    noSideEffect, importcpp: "CheckedList", header: "Transfer_ResultFromModel.hxx".}
+proc checkList*(this: TransferResultFromModel; erronly: StandardBoolean;
+               level: int = 2): InterfaceCheckIterator {.noSideEffect,
+    importcpp: "CheckList", header: "Transfer_ResultFromModel.hxx".}
 proc checkStatus*(this: TransferResultFromModel): InterfaceCheckStatus {.
     noSideEffect, importcpp: "CheckStatus", header: "Transfer_ResultFromModel.hxx".}
-proc computeCheckStatus*(this: var TransferResultFromModel; enforce: bool): InterfaceCheckStatus {.
+proc computeCheckStatus*(this: var TransferResultFromModel; enforce: StandardBoolean): InterfaceCheckStatus {.
     importcpp: "ComputeCheckStatus", header: "Transfer_ResultFromModel.hxx".}
-type
-  TransferResultFromModelbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_ResultFromModel::get_type_name(@)",
                             header: "Transfer_ResultFromModel.hxx".}
@@ -107,29 +110,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ResultFromModel::get_type_descriptor(@)",
     header: "Transfer_ResultFromModel.hxx".}
 proc dynamicType*(this: TransferResultFromModel): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_ResultFromModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    noSideEffect, importcpp: "DynamicType", header: "Transfer_ResultFromModel.hxx".} ]#

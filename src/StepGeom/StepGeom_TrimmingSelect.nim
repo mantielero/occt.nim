@@ -19,51 +19,40 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of StepGeom_CartesianPoint"
 type
   StepGeomTrimmingSelect* {.importcpp: "StepGeom_TrimmingSelect",
-                           header: "StepGeom_TrimmingSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## TrimmingSelect
-                                                                                                   ## SelectType
+                           header: "StepGeom_TrimmingSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepGeomTrimmingSelect; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_TrimmingSelect::operator new",
+    header: "StepGeom_TrimmingSelect.hxx".}
+proc `delete`*(this: var StepGeomTrimmingSelect; theAddress: pointer) {.
+    importcpp: "StepGeom_TrimmingSelect::operator delete",
+    header: "StepGeom_TrimmingSelect.hxx".}
+proc `new[]`*(this: var StepGeomTrimmingSelect; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_TrimmingSelect::operator new[]",
+    header: "StepGeom_TrimmingSelect.hxx".}
+proc `delete[]`*(this: var StepGeomTrimmingSelect; theAddress: pointer) {.
+    importcpp: "StepGeom_TrimmingSelect::operator delete[]",
+    header: "StepGeom_TrimmingSelect.hxx".}
+proc `new`*(this: var StepGeomTrimmingSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepGeom_TrimmingSelect::operator new",
+    header: "StepGeom_TrimmingSelect.hxx".}
+proc `delete`*(this: var StepGeomTrimmingSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepGeom_TrimmingSelect::operator delete",
+    header: "StepGeom_TrimmingSelect.hxx".}
 proc constructStepGeomTrimmingSelect*(): StepGeomTrimmingSelect {.constructor,
     importcpp: "StepGeom_TrimmingSelect(@)", header: "StepGeom_TrimmingSelect.hxx".}
-proc caseNum*(this: StepGeomTrimmingSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepGeomTrimmingSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_TrimmingSelect.hxx".}
 proc newMember*(this: StepGeomTrimmingSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepGeom_TrimmingSelect.hxx".}
-proc caseMem*(this: StepGeomTrimmingSelect; ent: Handle[StepDataSelectMember]): cint {.
+proc caseMem*(this: StepGeomTrimmingSelect; ent: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepGeom_TrimmingSelect.hxx".}
 proc cartesianPoint*(this: StepGeomTrimmingSelect): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "CartesianPoint",
     header: "StepGeom_TrimmingSelect.hxx".}
-proc setParameterValue*(this: var StepGeomTrimmingSelect; aParameterValue: cfloat) {.
+proc setParameterValue*(this: var StepGeomTrimmingSelect;
+                       aParameterValue: StandardReal) {.
     importcpp: "SetParameterValue", header: "StepGeom_TrimmingSelect.hxx".}
-proc parameterValue*(this: StepGeomTrimmingSelect): cfloat {.noSideEffect,
+proc parameterValue*(this: StepGeomTrimmingSelect): StandardReal {.noSideEffect,
     importcpp: "ParameterValue", header: "StepGeom_TrimmingSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

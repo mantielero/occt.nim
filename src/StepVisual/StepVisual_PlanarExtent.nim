@@ -30,15 +30,15 @@ type
 proc constructStepVisualPlanarExtent*(): StepVisualPlanarExtent {.constructor,
     importcpp: "StepVisual_PlanarExtent(@)", header: "StepVisual_PlanarExtent.hxx".}
 proc init*(this: var StepVisualPlanarExtent; aName: Handle[TCollectionHAsciiString];
-          aSizeInX: cfloat; aSizeInY: cfloat) {.importcpp: "Init",
+          aSizeInX: StandardReal; aSizeInY: StandardReal) {.importcpp: "Init",
     header: "StepVisual_PlanarExtent.hxx".}
-proc setSizeInX*(this: var StepVisualPlanarExtent; aSizeInX: cfloat) {.
+proc setSizeInX*(this: var StepVisualPlanarExtent; aSizeInX: StandardReal) {.
     importcpp: "SetSizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc sizeInX*(this: StepVisualPlanarExtent): cfloat {.noSideEffect,
+proc sizeInX*(this: StepVisualPlanarExtent): StandardReal {.noSideEffect,
     importcpp: "SizeInX", header: "StepVisual_PlanarExtent.hxx".}
-proc setSizeInY*(this: var StepVisualPlanarExtent; aSizeInY: cfloat) {.
+proc setSizeInY*(this: var StepVisualPlanarExtent; aSizeInY: StandardReal) {.
     importcpp: "SetSizeInY", header: "StepVisual_PlanarExtent.hxx".}
-proc sizeInY*(this: StepVisualPlanarExtent): cfloat {.noSideEffect,
+proc sizeInY*(this: StepVisualPlanarExtent): StandardReal {.noSideEffect,
     importcpp: "SizeInY", header: "StepVisual_PlanarExtent.hxx".}
 type
   StepVisualPlanarExtentbaseType* = StepGeomGeometricRepresentationItem
@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PlanarExtent.hxx".}
 proc dynamicType*(this: StepVisualPlanarExtent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_PlanarExtent.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

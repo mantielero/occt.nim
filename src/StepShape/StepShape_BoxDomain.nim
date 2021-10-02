@@ -30,25 +30,25 @@ type
 proc constructStepShapeBoxDomain*(): StepShapeBoxDomain {.constructor,
     importcpp: "StepShape_BoxDomain(@)", header: "StepShape_BoxDomain.hxx".}
 proc init*(this: var StepShapeBoxDomain; aCorner: Handle[StepGeomCartesianPoint];
-          aXlength: cfloat; aYlength: cfloat; aZlength: cfloat) {.importcpp: "Init",
-    header: "StepShape_BoxDomain.hxx".}
+          aXlength: StandardReal; aYlength: StandardReal; aZlength: StandardReal) {.
+    importcpp: "Init", header: "StepShape_BoxDomain.hxx".}
 proc setCorner*(this: var StepShapeBoxDomain;
                aCorner: Handle[StepGeomCartesianPoint]) {.importcpp: "SetCorner",
     header: "StepShape_BoxDomain.hxx".}
 proc corner*(this: StepShapeBoxDomain): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "Corner", header: "StepShape_BoxDomain.hxx".}
-proc setXlength*(this: var StepShapeBoxDomain; aXlength: cfloat) {.
+proc setXlength*(this: var StepShapeBoxDomain; aXlength: StandardReal) {.
     importcpp: "SetXlength", header: "StepShape_BoxDomain.hxx".}
-proc xlength*(this: StepShapeBoxDomain): cfloat {.noSideEffect, importcpp: "Xlength",
-    header: "StepShape_BoxDomain.hxx".}
-proc setYlength*(this: var StepShapeBoxDomain; aYlength: cfloat) {.
+proc xlength*(this: StepShapeBoxDomain): StandardReal {.noSideEffect,
+    importcpp: "Xlength", header: "StepShape_BoxDomain.hxx".}
+proc setYlength*(this: var StepShapeBoxDomain; aYlength: StandardReal) {.
     importcpp: "SetYlength", header: "StepShape_BoxDomain.hxx".}
-proc ylength*(this: StepShapeBoxDomain): cfloat {.noSideEffect, importcpp: "Ylength",
-    header: "StepShape_BoxDomain.hxx".}
-proc setZlength*(this: var StepShapeBoxDomain; aZlength: cfloat) {.
+proc ylength*(this: StepShapeBoxDomain): StandardReal {.noSideEffect,
+    importcpp: "Ylength", header: "StepShape_BoxDomain.hxx".}
+proc setZlength*(this: var StepShapeBoxDomain; aZlength: StandardReal) {.
     importcpp: "SetZlength", header: "StepShape_BoxDomain.hxx".}
-proc zlength*(this: StepShapeBoxDomain): cfloat {.noSideEffect, importcpp: "Zlength",
-    header: "StepShape_BoxDomain.hxx".}
+proc zlength*(this: StepShapeBoxDomain): StandardReal {.noSideEffect,
+    importcpp: "Zlength", header: "StepShape_BoxDomain.hxx".}
 type
   StepShapeBoxDomainbaseType* = StandardTransient
 
@@ -59,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BoxDomain.hxx".}
 proc dynamicType*(this: StepShapeBoxDomain): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_BoxDomain.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

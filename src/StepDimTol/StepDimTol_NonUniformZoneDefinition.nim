@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolNonUniformZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_NonUniformZoneDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

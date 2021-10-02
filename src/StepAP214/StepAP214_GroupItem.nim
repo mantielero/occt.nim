@@ -31,17 +31,30 @@ discard "forward decl of StepVisual_StyledItem"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 type
   StepAP214GroupItem* {.importcpp: "StepAP214_GroupItem",
-                       header: "StepAP214_GroupItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                           ## !
-                                                                                           ## Returns
-                                                                                           ## a
-                                                                                           ## GroupItem
-                                                                                           ## SelectType
+                       header: "StepAP214_GroupItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214GroupItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_GroupItem::operator new",
+    header: "StepAP214_GroupItem.hxx".}
+proc `delete`*(this: var StepAP214GroupItem; theAddress: pointer) {.
+    importcpp: "StepAP214_GroupItem::operator delete",
+    header: "StepAP214_GroupItem.hxx".}
+proc `new[]`*(this: var StepAP214GroupItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_GroupItem::operator new[]",
+    header: "StepAP214_GroupItem.hxx".}
+proc `delete[]`*(this: var StepAP214GroupItem; theAddress: pointer) {.
+    importcpp: "StepAP214_GroupItem::operator delete[]",
+    header: "StepAP214_GroupItem.hxx".}
+proc `new`*(this: var StepAP214GroupItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_GroupItem::operator new",
+    header: "StepAP214_GroupItem.hxx".}
+proc `delete`*(this: var StepAP214GroupItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_GroupItem::operator delete",
+    header: "StepAP214_GroupItem.hxx".}
 proc constructStepAP214GroupItem*(): StepAP214GroupItem {.constructor,
     importcpp: "StepAP214_GroupItem(@)", header: "StepAP214_GroupItem.hxx".}
-proc caseNum*(this: StepAP214GroupItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214GroupItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_GroupItem.hxx".}
 proc geometricRepresentationItem*(this: StepAP214GroupItem): Handle[
     StepGeomGeometricRepresentationItem] {.noSideEffect,
@@ -85,28 +98,3 @@ proc styledItem*(this: StepAP214GroupItem): Handle[StepVisualStyledItem] {.
 proc topologicalRepresentationItem*(this: StepAP214GroupItem): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect,
     importcpp: "TopologicalRepresentationItem", header: "StepAP214_GroupItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

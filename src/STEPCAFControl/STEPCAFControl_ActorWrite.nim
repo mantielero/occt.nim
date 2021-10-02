@@ -30,9 +30,9 @@ type
 proc constructSTEPCAFControlActorWrite*(): STEPCAFControlActorWrite {.constructor,
     importcpp: "STEPCAFControl_ActorWrite(@)",
     header: "STEPCAFControl_ActorWrite.hxx".}
-proc isAssembly*(this: STEPCAFControlActorWrite; s: var TopoDS_Shape): bool {.
+proc isAssembly*(this: STEPCAFControlActorWrite; s: var TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsAssembly", header: "STEPCAFControl_ActorWrite.hxx".}
-proc setStdMode*(this: var STEPCAFControlActorWrite; stdmode: bool = true) {.
+proc setStdMode*(this: var STEPCAFControlActorWrite; stdmode: StandardBoolean = true) {.
     importcpp: "SetStdMode", header: "STEPCAFControl_ActorWrite.hxx".}
 proc clearMap*(this: var STEPCAFControlActorWrite) {.importcpp: "ClearMap",
     header: "STEPCAFControl_ActorWrite.hxx".}
@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_ActorWrite.hxx".}
 proc dynamicType*(this: STEPCAFControlActorWrite): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ActorWrite.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

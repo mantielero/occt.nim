@@ -35,28 +35,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Physical
 proc dynamicType*(this: StepBasicPhysicallyModeledProductDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_PhysicallyModeledProductDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

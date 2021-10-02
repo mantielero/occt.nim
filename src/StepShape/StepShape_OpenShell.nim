@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_OpenShell.hxx".}
 proc dynamicType*(this: StepShapeOpenShell): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_OpenShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -34,7 +34,7 @@ proc constructStepGeomBezierSurfaceAndRationalBSplineSurface*(): StepGeomBezierS
     constructor, importcpp: "StepGeom_BezierSurfaceAndRationalBSplineSurface(@)",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 proc init*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
-          aName: Handle[TCollectionHAsciiString]; aUDegree: cint; aVDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
@@ -43,7 +43,7 @@ proc init*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
     importcpp: "Init",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 proc init*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
-          aName: Handle[TCollectionHAsciiString]; aUDegree: cint; aVDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
@@ -69,13 +69,13 @@ proc setWeightsData*(this: var StepGeomBezierSurfaceAndRationalBSplineSurface;
 proc weightsData*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
     TColStdHArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 proc weightsDataValue*(this: StepGeomBezierSurfaceAndRationalBSplineSurface;
-                      num1: cint; num2: cint): cfloat {.noSideEffect,
+                      num1: int; num2: int): StandardReal {.noSideEffect,
     importcpp: "WeightsDataValue",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc nbWeightsDataI*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): cint {.
+proc nbWeightsDataI*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataI",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-proc nbWeightsDataJ*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): cint {.
+proc nbWeightsDataJ*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataJ",
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 type
@@ -86,28 +86,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_BezierSur
     header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
 proc dynamicType*(this: StepGeomBezierSurfaceAndRationalBSplineSurface): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BezierSurfaceAndRationalBSplineSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

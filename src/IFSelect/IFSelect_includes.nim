@@ -2,10 +2,12 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-include IFSelect
+#[ include IFSelect
 include IFSelect_Act
 include IFSelect_ActFunc
+]#
 include IFSelect_Activator
+#[
 include IFSelect_AppliedModifiers
 include IFSelect_BasicDumper
 include IFSelect_CheckCounter
@@ -35,7 +37,9 @@ include IFSelect_ParamEditor
 include IFSelect_PrintCount
 include IFSelect_PrintFail
 include IFSelect_RemainMode
+]#
 include IFSelect_ReturnStatus
+#[
 include IFSelect_SelectAnyList
 include IFSelect_SelectAnyType
 include IFSelect_SelectBase
@@ -45,7 +49,9 @@ include IFSelect_SelectDeduct
 include IFSelect_SelectDiff
 include IFSelect_SelectEntityNumber
 include IFSelect_SelectErrorEntities
+]#
 include IFSelect_SelectExplore
+#[
 include IFSelect_SelectExtract
 include IFSelect_SelectFlag
 include IFSelect_SelectInList
@@ -74,7 +80,9 @@ include IFSelect_SequenceOfGeneralModifier
 include IFSelect_SequenceOfInterfaceModel
 include IFSelect_SessionDumper
 include IFSelect_SessionFile
+]#
 include IFSelect_SessionPilot
+#[
 include IFSelect_ShareOut
 include IFSelect_ShareOutResult
 include IFSelect_SignAncestor
@@ -90,7 +98,7 @@ include IFSelect_TSeqOfSelection
 include IFSelect_TransformStandard
 include IFSelect_Transformer
 include IFSelect_WorkLibrary
-include IFSelect_WorkSession
+include IFSelect_WorkSession ]#
 
 
 

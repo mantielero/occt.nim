@@ -22,7 +22,7 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of XSControl_SelectForTransfer"
 discard "forward decl of XSControl_SelectForTransfer"
 type
-  HandleC1C1* = Handle[XSControlSelectForTransfer]
+  HandleXSControlSelectForTransfer* = Handle[XSControlSelectForTransfer]
 
 ## ! This selection selects the entities which are recognised for
 ## ! transfer by an Actor for Read : current one or another one.
@@ -80,7 +80,7 @@ proc reader*(this: XSControlSelectForTransfer): Handle[XSControlTransferReader] 
 proc sort*(this: XSControlSelectForTransfer; rank: cint;
           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, importcpp: "Sort", header: "XSControl_SelectForTransfer.hxx".}
-proc extractLabel*(this: XSControlSelectForTransfer): TCollectionAsciiString {.
+#[ proc extractLabel*(this: XSControlSelectForTransfer): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExtractLabel",
     header: "XSControl_SelectForTransfer.hxx".}
 type
@@ -119,3 +119,4 @@ proc dynamicType*(this: XSControlSelectForTransfer): Handle[StandardType] {.
 
 
 
+ ]#

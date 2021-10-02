@@ -39,16 +39,16 @@ proc constructSTEPEditEditContext*(): STEPEditEditContext {.constructor,
     importcpp: "STEPEdit_EditContext(@)", header: "STEPEdit_EditContext.hxx".}
 proc label*(this: STEPEditEditContext): TCollectionAsciiString {.noSideEffect,
     importcpp: "Label", header: "STEPEdit_EditContext.hxx".}
-proc recognize*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]): bool {.
+proc recognize*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]): StandardBoolean {.
     noSideEffect, importcpp: "Recognize", header: "STEPEdit_EditContext.hxx".}
-proc stringValue*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-                 num: cint): Handle[TCollectionHAsciiString] {.noSideEffect,
-    importcpp: "StringValue", header: "STEPEdit_EditContext.hxx".}
+proc stringValue*(this: STEPEditEditContext; form: Handle[IFSelectEditForm]; num: int): Handle[
+    TCollectionHAsciiString] {.noSideEffect, importcpp: "StringValue",
+                              header: "STEPEdit_EditContext.hxx".}
 proc apply*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
+           ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
     noSideEffect, importcpp: "Apply", header: "STEPEdit_EditContext.hxx".}
 proc load*(this: STEPEditEditContext; form: Handle[IFSelectEditForm];
-          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
+          ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): StandardBoolean {.
     noSideEffect, importcpp: "Load", header: "STEPEdit_EditContext.hxx".}
 type
   STEPEditEditContextbaseType* = IFSelectEditor
@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPEdit_EditContext.hxx".}
 proc dynamicType*(this: STEPEditEditContext): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "STEPEdit_EditContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

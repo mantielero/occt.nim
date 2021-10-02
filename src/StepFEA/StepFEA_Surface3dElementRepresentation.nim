@@ -81,28 +81,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_Surface3dE
 proc dynamicType*(this: StepFEA_Surface3dElementRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepFEA_Surface3dElementRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

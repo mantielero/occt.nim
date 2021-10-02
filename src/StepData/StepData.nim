@@ -55,14 +55,21 @@ discard "forward decl of StepData_DefaultGeneral"
 discard "forward decl of StepData_GlobalNodeOfWriterLib"
 discard "forward decl of StepData_NodeOfWriterLib"
 type
-  StepData* {.importcpp: "StepData", header: "StepData.hxx", bycopy.} = object ## ! Returns the recorded
-                                                                       ## HeaderProtocol, which can be :
-                                                                       ## ! - a Null Handle if no Header Protocol was yet defined
-                                                                       ## ! - a simple Protocol if only one was defined
-                                                                       ## ! - a
-                                                                       ## FileProtocol if more than one Protocol was yet defined
+  StepData* {.importcpp: "StepData", header: "StepData.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepData; theSize: csize_t): pointer {.
+    importcpp: "StepData::operator new", header: "StepData.hxx".}
+proc `delete`*(this: var StepData; theAddress: pointer) {.
+    importcpp: "StepData::operator delete", header: "StepData.hxx".}
+proc `new[]`*(this: var StepData; theSize: csize_t): pointer {.
+    importcpp: "StepData::operator new[]", header: "StepData.hxx".}
+proc `delete[]`*(this: var StepData; theAddress: pointer) {.
+    importcpp: "StepData::operator delete[]", header: "StepData.hxx".}
+proc `new`*(this: var StepData; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData::operator new", header: "StepData.hxx".}
+proc `delete`*(this: var StepData; a2: pointer; a3: pointer) {.
+    importcpp: "StepData::operator delete", header: "StepData.hxx".}
 proc headerProtocol*(): Handle[StepDataProtocol] {.
     importcpp: "StepData::HeaderProtocol(@)", header: "StepData.hxx".}
 proc addHeaderProtocol*(headerproto: Handle[StepDataProtocol]) {.
@@ -70,28 +77,3 @@ proc addHeaderProtocol*(headerproto: Handle[StepDataProtocol]) {.
 proc init*() {.importcpp: "StepData::Init(@)", header: "StepData.hxx".}
 proc protocol*(): Handle[StepDataProtocol] {.importcpp: "StepData::Protocol(@)",
     header: "StepData.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -38,12 +38,12 @@ proc contents*(this: StepVisualDraughtingCallout): Handle[
 proc setContents*(this: var StepVisualDraughtingCallout; theContents: Handle[
     StepVisualHArray1OfDraughtingCalloutElement]) {.importcpp: "SetContents",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc nbContents*(this: StepVisualDraughtingCallout): cint {.noSideEffect,
+proc nbContents*(this: StepVisualDraughtingCallout): int {.noSideEffect,
     importcpp: "NbContents", header: "StepVisual_DraughtingCallout.hxx".}
-proc contentsValue*(this: StepVisualDraughtingCallout; theNum: cint): StepVisualDraughtingCalloutElement {.
+proc contentsValue*(this: StepVisualDraughtingCallout; theNum: int): StepVisualDraughtingCalloutElement {.
     noSideEffect, importcpp: "ContentsValue",
     header: "StepVisual_DraughtingCallout.hxx".}
-proc setContentsValue*(this: var StepVisualDraughtingCallout; theNum: cint;
+proc setContentsValue*(this: var StepVisualDraughtingCallout; theNum: int;
                       theItem: StepVisualDraughtingCalloutElement) {.
     importcpp: "SetContentsValue", header: "StepVisual_DraughtingCallout.hxx".}
 type
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualDraughtingCallout): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingCallout.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

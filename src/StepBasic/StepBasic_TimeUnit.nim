@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_TimeUnit.hxx".}
 proc dynamicType*(this: StepBasicTimeUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_TimeUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

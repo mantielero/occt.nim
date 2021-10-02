@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualPreDefinedTextFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PreDefinedTextFont.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

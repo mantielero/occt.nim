@@ -33,20 +33,21 @@ proc init*(this: var StepGeomCartesianPoint; aName: Handle[TCollectionHAsciiStri
           aCoordinates: Handle[TColStdHArray1OfReal]) {.importcpp: "Init",
     header: "StepGeom_CartesianPoint.hxx".}
 proc init2D*(this: var StepGeomCartesianPoint;
-            aName: Handle[TCollectionHAsciiString]; x: cfloat; y: cfloat) {.
+            aName: Handle[TCollectionHAsciiString]; x: StandardReal; y: StandardReal) {.
     importcpp: "Init2D", header: "StepGeom_CartesianPoint.hxx".}
 proc init3D*(this: var StepGeomCartesianPoint;
-            aName: Handle[TCollectionHAsciiString]; x: cfloat; y: cfloat; z: cfloat) {.
-    importcpp: "Init3D", header: "StepGeom_CartesianPoint.hxx".}
+            aName: Handle[TCollectionHAsciiString]; x: StandardReal;
+            y: StandardReal; z: StandardReal) {.importcpp: "Init3D",
+    header: "StepGeom_CartesianPoint.hxx".}
 proc setCoordinates*(this: var StepGeomCartesianPoint;
                     aCoordinates: Handle[TColStdHArray1OfReal]) {.
     importcpp: "SetCoordinates", header: "StepGeom_CartesianPoint.hxx".}
 proc coordinates*(this: StepGeomCartesianPoint): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "Coordinates", header: "StepGeom_CartesianPoint.hxx".}
-proc coordinatesValue*(this: StepGeomCartesianPoint; num: cint): cfloat {.
+proc coordinatesValue*(this: StepGeomCartesianPoint; num: int): StandardReal {.
     noSideEffect, importcpp: "CoordinatesValue",
     header: "StepGeom_CartesianPoint.hxx".}
-proc nbCoordinates*(this: StepGeomCartesianPoint): cint {.noSideEffect,
+proc nbCoordinates*(this: StepGeomCartesianPoint): int {.noSideEffect,
     importcpp: "NbCoordinates", header: "StepGeom_CartesianPoint.hxx".}
 type
   StepGeomCartesianPointbaseType* = StepGeomPoint
@@ -58,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_CartesianPoint.hxx".}
 proc dynamicType*(this: StepGeomCartesianPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CartesianPoint.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -33,7 +33,8 @@ type
 proc constructStepBasicActionMethod*(): StepBasicActionMethod {.constructor,
     importcpp: "StepBasic_ActionMethod(@)", header: "StepBasic_ActionMethod.hxx".}
 proc init*(this: var StepBasicActionMethod; aName: Handle[TCollectionHAsciiString];
-          hasDescription: bool; aDescription: Handle[TCollectionHAsciiString];
+          hasDescription: StandardBoolean;
+          aDescription: Handle[TCollectionHAsciiString];
           aConsequence: Handle[TCollectionHAsciiString];
           aPurpose: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ActionMethod.hxx".}
@@ -46,7 +47,7 @@ proc description*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] 
 proc setDescription*(this: var StepBasicActionMethod;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_ActionMethod.hxx".}
-proc hasDescription*(this: StepBasicActionMethod): bool {.noSideEffect,
+proc hasDescription*(this: StepBasicActionMethod): StandardBoolean {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_ActionMethod.hxx".}
 proc consequence*(this: StepBasicActionMethod): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Consequence", header: "StepBasic_ActionMethod.hxx".}
@@ -68,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ActionMethod.hxx".}
 proc dynamicType*(this: StepBasicActionMethod): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ActionMethod.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

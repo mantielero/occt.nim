@@ -27,44 +27,38 @@ type
                                    bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateEdgeLoop; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator new",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateEdgeLoop; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator delete",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateEdgeLoop; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator new[]",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateEdgeLoop; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator delete[]",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateEdgeLoop; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator new",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateEdgeLoop; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdgeLoop::operator delete",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc constructStepToTopoDS_TranslateEdgeLoop*(): StepToTopoDS_TranslateEdgeLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateEdgeLoop(@)",
     header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc constructStepToTopoDS_TranslateEdgeLoop*(fb: Handle[StepShapeFaceBound];
-    f: TopoDS_Face; s: Handle[GeomSurface]; ss: Handle[StepGeomSurface]; ss: bool;
-    t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdgeLoop {.
+    f: TopoDS_Face; s: Handle[GeomSurface]; ss: Handle[StepGeomSurface];
+    ss: StandardBoolean; t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool): StepToTopoDS_TranslateEdgeLoop {.
     constructor, importcpp: "StepToTopoDS_TranslateEdgeLoop(@)",
     header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc init*(this: var StepToTopoDS_TranslateEdgeLoop; fb: Handle[StepShapeFaceBound];
           f: TopoDS_Face; s: Handle[GeomSurface]; ss: Handle[StepGeomSurface];
-          ss: bool; t: var StepToTopoDS_Tool; nMTool: var StepToTopoDS_NMTool) {.
-    importcpp: "Init", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
+          ss: StandardBoolean; t: var StepToTopoDS_Tool;
+          nMTool: var StepToTopoDS_NMTool) {.importcpp: "Init",
+    header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc value*(this: StepToTopoDS_TranslateEdgeLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
 proc error*(this: StepToTopoDS_TranslateEdgeLoop): StepToTopoDS_TranslateEdgeLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdgeLoop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicRatioMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_RatioMeasureWithUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

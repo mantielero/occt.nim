@@ -30,10 +30,10 @@ type
 
 proc constructStepSelectActivator*(): StepSelectActivator {.constructor,
     importcpp: "StepSelect_Activator(@)", header: "StepSelect_Activator.hxx".}
-proc `do`*(this: var StepSelectActivator; number: cint;
+proc `do`*(this: var StepSelectActivator; number: int;
           pilot: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
     importcpp: "Do", header: "StepSelect_Activator.hxx".}
-proc help*(this: StepSelectActivator; number: cint): StandardCString {.noSideEffect,
+proc help*(this: StepSelectActivator; number: int): StandardCString {.noSideEffect,
     importcpp: "Help", header: "StepSelect_Activator.hxx".}
 type
   StepSelectActivatorbaseType* = IFSelectActivator
@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_Activator.hxx".}
 proc dynamicType*(this: StepSelectActivator): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_Activator.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,29 +16,3 @@
 
 type
   StepShapeArray1OfFaceBound* = NCollectionArray1[Handle[StepShapeFaceBound]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

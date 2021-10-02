@@ -32,16 +32,16 @@ proc constructStepDataECDescr*(): StepDataECDescr {.constructor,
     importcpp: "StepData_ECDescr(@)", header: "StepData_ECDescr.hxx".}
 proc add*(this: var StepDataECDescr; member: Handle[StepDataESDescr]) {.
     importcpp: "Add", header: "StepData_ECDescr.hxx".}
-proc nbMembers*(this: StepDataECDescr): cint {.noSideEffect, importcpp: "NbMembers",
+proc nbMembers*(this: StepDataECDescr): int {.noSideEffect, importcpp: "NbMembers",
     header: "StepData_ECDescr.hxx".}
-proc member*(this: StepDataECDescr; num: cint): Handle[StepDataESDescr] {.
-    noSideEffect, importcpp: "Member", header: "StepData_ECDescr.hxx".}
+proc member*(this: StepDataECDescr; num: int): Handle[StepDataESDescr] {.noSideEffect,
+    importcpp: "Member", header: "StepData_ECDescr.hxx".}
 proc typeList*(this: StepDataECDescr): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_ECDescr.hxx".}
-proc matches*(this: StepDataECDescr; steptype: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_ECDescr.hxx".}
-proc isComplex*(this: StepDataECDescr): bool {.noSideEffect, importcpp: "IsComplex",
-    header: "StepData_ECDescr.hxx".}
+proc matches*(this: StepDataECDescr; steptype: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_ECDescr.hxx".}
+proc isComplex*(this: StepDataECDescr): StandardBoolean {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_ECDescr.hxx".}
 proc newEntity*(this: StepDataECDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_ECDescr.hxx".}
 type
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_ECDescr.hxx".}
 proc dynamicType*(this: StepDataECDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ECDescr.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

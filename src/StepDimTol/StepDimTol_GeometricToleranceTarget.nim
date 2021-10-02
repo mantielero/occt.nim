@@ -20,16 +20,31 @@ discard "forward decl of StepRepr_ProductDefinitionShape"
 discard "forward decl of StepRepr_ShapeAspect"
 type
   StepDimTolGeometricToleranceTarget* {.importcpp: "StepDimTol_GeometricToleranceTarget", header: "StepDimTol_GeometricToleranceTarget.hxx",
-                                       bycopy.} = object of StepDataSelectType ## !
-                                                                          ## Returns a
-                                                                          ## GeometricToleranceTarget select type
+                                       bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepDimTolGeometricToleranceTarget; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_GeometricToleranceTarget::operator new",
+    header: "StepDimTol_GeometricToleranceTarget.hxx".}
+proc `delete`*(this: var StepDimTolGeometricToleranceTarget; theAddress: pointer) {.
+    importcpp: "StepDimTol_GeometricToleranceTarget::operator delete",
+    header: "StepDimTol_GeometricToleranceTarget.hxx".}
+proc `new[]`*(this: var StepDimTolGeometricToleranceTarget; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_GeometricToleranceTarget::operator new[]",
+    header: "StepDimTol_GeometricToleranceTarget.hxx".}
+proc `delete[]`*(this: var StepDimTolGeometricToleranceTarget; theAddress: pointer) {.
+    importcpp: "StepDimTol_GeometricToleranceTarget::operator delete[]",
+    header: "StepDimTol_GeometricToleranceTarget.hxx".}
+proc `new`*(this: var StepDimTolGeometricToleranceTarget; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepDimTol_GeometricToleranceTarget::operator new", header: "StepDimTol_GeometricToleranceTarget.hxx".}
+proc `delete`*(this: var StepDimTolGeometricToleranceTarget; a2: pointer; a3: pointer) {.
+    importcpp: "StepDimTol_GeometricToleranceTarget::operator delete",
+    header: "StepDimTol_GeometricToleranceTarget.hxx".}
 proc constructStepDimTolGeometricToleranceTarget*(): StepDimTolGeometricToleranceTarget {.
     constructor, importcpp: "StepDimTol_GeometricToleranceTarget(@)",
     header: "StepDimTol_GeometricToleranceTarget.hxx".}
 proc caseNum*(this: StepDimTolGeometricToleranceTarget;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepDimTol_GeometricToleranceTarget.hxx".}
 proc dimensionalLocation*(this: StepDimTolGeometricToleranceTarget): Handle[
     StepShapeDimensionalLocation] {.noSideEffect,
@@ -42,28 +57,3 @@ proc productDefinitionShape*(this: StepDimTolGeometricToleranceTarget): Handle[
 proc shapeAspect*(this: StepDimTolGeometricToleranceTarget): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
                           header: "StepDimTol_GeometricToleranceTarget.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

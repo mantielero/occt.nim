@@ -20,29 +20,3 @@ type
   STEPCAFControlDataMapIteratorOfDataMapOfSDRExternFile* = Iterator[
       Handle[StepShapeShapeDefinitionRepresentation],
       Handle[STEPCAFControlExternFile], TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

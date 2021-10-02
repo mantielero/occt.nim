@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprNextAssemblyUsageOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_NextAssemblyUsageOccurrence.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

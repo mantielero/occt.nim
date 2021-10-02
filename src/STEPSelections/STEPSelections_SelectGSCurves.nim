@@ -34,9 +34,9 @@ type
 proc constructSTEPSelectionsSelectGSCurves*(): STEPSelectionsSelectGSCurves {.
     constructor, importcpp: "STEPSelections_SelectGSCurves(@)",
     header: "STEPSelections_SelectGSCurves.hxx".}
-proc explore*(this: STEPSelectionsSelectGSCurves; level: cint;
+proc explore*(this: STEPSelectionsSelectGSCurves; level: int;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectGSCurves.hxx".}
 proc exploreLabel*(this: STEPSelectionsSelectGSCurves): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectGSCurves): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectGSCurves.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

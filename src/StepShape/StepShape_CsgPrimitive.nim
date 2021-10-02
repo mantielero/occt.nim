@@ -23,17 +23,30 @@ discard "forward decl of StepShape_RightCircularCone"
 discard "forward decl of StepShape_RightCircularCylinder"
 type
   StepShapeCsgPrimitive* {.importcpp: "StepShape_CsgPrimitive",
-                          header: "StepShape_CsgPrimitive.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## CsgPrimitive
-                                                                                                 ## SelectType
+                          header: "StepShape_CsgPrimitive.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeCsgPrimitive; theSize: csize_t): pointer {.
+    importcpp: "StepShape_CsgPrimitive::operator new",
+    header: "StepShape_CsgPrimitive.hxx".}
+proc `delete`*(this: var StepShapeCsgPrimitive; theAddress: pointer) {.
+    importcpp: "StepShape_CsgPrimitive::operator delete",
+    header: "StepShape_CsgPrimitive.hxx".}
+proc `new[]`*(this: var StepShapeCsgPrimitive; theSize: csize_t): pointer {.
+    importcpp: "StepShape_CsgPrimitive::operator new[]",
+    header: "StepShape_CsgPrimitive.hxx".}
+proc `delete[]`*(this: var StepShapeCsgPrimitive; theAddress: pointer) {.
+    importcpp: "StepShape_CsgPrimitive::operator delete[]",
+    header: "StepShape_CsgPrimitive.hxx".}
+proc `new`*(this: var StepShapeCsgPrimitive; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_CsgPrimitive::operator new",
+    header: "StepShape_CsgPrimitive.hxx".}
+proc `delete`*(this: var StepShapeCsgPrimitive; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_CsgPrimitive::operator delete",
+    header: "StepShape_CsgPrimitive.hxx".}
 proc constructStepShapeCsgPrimitive*(): StepShapeCsgPrimitive {.constructor,
     importcpp: "StepShape_CsgPrimitive(@)", header: "StepShape_CsgPrimitive.hxx".}
-proc caseNum*(this: StepShapeCsgPrimitive; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeCsgPrimitive; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_CsgPrimitive.hxx".}
 proc sphere*(this: StepShapeCsgPrimitive): Handle[StepShapeSphere] {.noSideEffect,
     importcpp: "Sphere", header: "StepShape_CsgPrimitive.hxx".}
@@ -51,28 +64,3 @@ proc rightCircularCylinder*(this: StepShapeCsgPrimitive): Handle[
     StepShapeRightCircularCylinder] {.noSideEffect,
                                      importcpp: "RightCircularCylinder",
                                      header: "StepShape_CsgPrimitive.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

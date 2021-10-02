@@ -33,11 +33,11 @@ proc constructStepGeomSphericalSurface*(): StepGeomSphericalSurface {.constructo
     header: "StepGeom_SphericalSurface.hxx".}
 proc init*(this: var StepGeomSphericalSurface;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: cfloat) {.
+          aPosition: Handle[StepGeomAxis2Placement3d]; aRadius: StandardReal) {.
     importcpp: "Init", header: "StepGeom_SphericalSurface.hxx".}
-proc setRadius*(this: var StepGeomSphericalSurface; aRadius: cfloat) {.
+proc setRadius*(this: var StepGeomSphericalSurface; aRadius: StandardReal) {.
     importcpp: "SetRadius", header: "StepGeom_SphericalSurface.hxx".}
-proc radius*(this: StepGeomSphericalSurface): cfloat {.noSideEffect,
+proc radius*(this: StepGeomSphericalSurface): StandardReal {.noSideEffect,
     importcpp: "Radius", header: "StepGeom_SphericalSurface.hxx".}
 type
   StepGeomSphericalSurfacebaseType* = StepGeomElementarySurface
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_SphericalSurface.hxx".}
 proc dynamicType*(this: StepGeomSphericalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_SphericalSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

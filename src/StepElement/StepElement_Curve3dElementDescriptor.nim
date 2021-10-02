@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementCurve3dElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_Curve3dElementDescriptor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

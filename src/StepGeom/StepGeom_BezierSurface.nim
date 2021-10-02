@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BezierSurface.hxx".}
 proc dynamicType*(this: StepGeomBezierSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BezierSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

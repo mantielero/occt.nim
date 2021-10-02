@@ -32,16 +32,16 @@ type
 proc constructStepShapeOrientedEdge*(): StepShapeOrientedEdge {.constructor,
     importcpp: "StepShape_OrientedEdge(@)", header: "StepShape_OrientedEdge.hxx".}
 proc init*(this: var StepShapeOrientedEdge; aName: Handle[TCollectionHAsciiString];
-          aEdgeElement: Handle[StepShapeEdge]; aOrientation: bool) {.
+          aEdgeElement: Handle[StepShapeEdge]; aOrientation: StandardBoolean) {.
     importcpp: "Init", header: "StepShape_OrientedEdge.hxx".}
 proc setEdgeElement*(this: var StepShapeOrientedEdge;
                     aEdgeElement: Handle[StepShapeEdge]) {.
     importcpp: "SetEdgeElement", header: "StepShape_OrientedEdge.hxx".}
 proc edgeElement*(this: StepShapeOrientedEdge): Handle[StepShapeEdge] {.
     noSideEffect, importcpp: "EdgeElement", header: "StepShape_OrientedEdge.hxx".}
-proc setOrientation*(this: var StepShapeOrientedEdge; aOrientation: bool) {.
+proc setOrientation*(this: var StepShapeOrientedEdge; aOrientation: StandardBoolean) {.
     importcpp: "SetOrientation", header: "StepShape_OrientedEdge.hxx".}
-proc orientation*(this: StepShapeOrientedEdge): bool {.noSideEffect,
+proc orientation*(this: StepShapeOrientedEdge): StandardBoolean {.noSideEffect,
     importcpp: "Orientation", header: "StepShape_OrientedEdge.hxx".}
 proc setEdgeStart*(this: var StepShapeOrientedEdge;
                   aEdgeStart: Handle[StepShapeVertex]) {.
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_OrientedEdge.hxx".}
 proc dynamicType*(this: StepShapeOrientedEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_OrientedEdge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

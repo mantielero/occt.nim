@@ -83,28 +83,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_GeoTolA
     header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndGeoTolWthMod.hxx".}
 proc dynamicType*(this: StepDimTolGeoTolAndGeoTolWthDatRefAndGeoTolWthMod): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeoTolAndGeoTolWthDatRefAndGeoTolWthMod.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

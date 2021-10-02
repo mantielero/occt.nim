@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementSurfaceSectionField): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceSectionField.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

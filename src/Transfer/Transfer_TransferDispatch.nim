@@ -22,48 +22,28 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Standard_Transient"
 type
   TransferTransferDispatch* {.importcpp: "Transfer_TransferDispatch",
-                             header: "Transfer_TransferDispatch.hxx", bycopy.} = object of InterfaceCopyTool ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## a
-                                                                                                      ## TransferDispatch
-                                                                                                      ## from
-                                                                                                      ## a
-                                                                                                      ## Model.
-                                                                                                      ## Works
-                                                                                                      ## with
-                                                                                                      ## a
-                                                                                                      ## General
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Service
-                                                                                                      ## Library,
-                                                                                                      ## given
-                                                                                                      ## as
-                                                                                                      ## an
-                                                                                                      ## Argument
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## A
-                                                                                                      ## TransferDispatch
-                                                                                                      ## is
-                                                                                                      ## created
-                                                                                                      ## as
-                                                                                                      ## a
-                                                                                                      ## CopyTool
-                                                                                                      ## in
-                                                                                                      ## which
-                                                                                                      ## the
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Control
-                                                                                                      ## is
-                                                                                                      ## set
-                                                                                                      ## to
-                                                                                                      ## TransientProcess
+                             header: "Transfer_TransferDispatch.hxx", bycopy.} = object of RootObj#of InterfaceCopyTool
 
 
-proc constructTransferTransferDispatch*(amodel: Handle[InterfaceInterfaceModel];
+proc `new`*(this: var TransferTransferDispatch; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferDispatch::operator new",
+    header: "Transfer_TransferDispatch.hxx".}
+proc `delete`*(this: var TransferTransferDispatch; theAddress: pointer) {.
+    importcpp: "Transfer_TransferDispatch::operator delete",
+    header: "Transfer_TransferDispatch.hxx".}
+proc `new[]`*(this: var TransferTransferDispatch; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferDispatch::operator new[]",
+    header: "Transfer_TransferDispatch.hxx".}
+proc `delete[]`*(this: var TransferTransferDispatch; theAddress: pointer) {.
+    importcpp: "Transfer_TransferDispatch::operator delete[]",
+    header: "Transfer_TransferDispatch.hxx".}
+proc `new`*(this: var TransferTransferDispatch; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Transfer_TransferDispatch::operator new",
+    header: "Transfer_TransferDispatch.hxx".}
+proc `delete`*(this: var TransferTransferDispatch; a2: pointer; a3: pointer) {.
+    importcpp: "Transfer_TransferDispatch::operator delete",
+    header: "Transfer_TransferDispatch.hxx".}
+#[ proc constructTransferTransferDispatch*(amodel: Handle[InterfaceInterfaceModel];
                                        lib: InterfaceGeneralLib): TransferTransferDispatch {.
     constructor, importcpp: "Transfer_TransferDispatch(@)",
     header: "Transfer_TransferDispatch.hxx".}
@@ -78,30 +58,6 @@ proc transientProcess*(this: TransferTransferDispatch): Handle[
     TransferTransientProcess] {.noSideEffect, importcpp: "TransientProcess",
                                header: "Transfer_TransferDispatch.hxx".}
 proc copy*(this: var TransferTransferDispatch; entfrom: Handle[StandardTransient];
-          entto: var Handle[StandardTransient]; mapped: bool; errstat: bool): bool {.
-    importcpp: "Copy", header: "Transfer_TransferDispatch.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          entto: var Handle[StandardTransient]; mapped: StandardBoolean;
+          errstat: StandardBoolean): StandardBoolean {.importcpp: "Copy",
+    header: "Transfer_TransferDispatch.hxx".} ]#

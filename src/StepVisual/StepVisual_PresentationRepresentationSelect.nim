@@ -20,19 +20,28 @@ discard "forward decl of StepVisual_PresentationSet"
 type
   StepVisualPresentationRepresentationSelect* {.
       importcpp: "StepVisual_PresentationRepresentationSelect",
-      header: "StepVisual_PresentationRepresentationSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## PresentationRepresentationSelect
-                                                                                                  ## SelectType
+      header: "StepVisual_PresentationRepresentationSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualPresentationRepresentationSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationRepresentationSelect::operator new",
+    header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationRepresentationSelect;
+              theAddress: pointer) {.importcpp: "StepVisual_PresentationRepresentationSelect::operator delete", header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc `new[]`*(this: var StepVisualPresentationRepresentationSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationRepresentationSelect::operator new[]",
+    header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc `delete[]`*(this: var StepVisualPresentationRepresentationSelect;
+                theAddress: pointer) {.importcpp: "StepVisual_PresentationRepresentationSelect::operator delete[]", header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc `new`*(this: var StepVisualPresentationRepresentationSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_PresentationRepresentationSelect::operator new", header: "StepVisual_PresentationRepresentationSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationRepresentationSelect; a2: pointer;
+              a3: pointer) {.importcpp: "StepVisual_PresentationRepresentationSelect::operator delete", header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc constructStepVisualPresentationRepresentationSelect*(): StepVisualPresentationRepresentationSelect {.
     constructor, importcpp: "StepVisual_PresentationRepresentationSelect(@)",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationRepresentationSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc presentationRepresentation*(this: StepVisualPresentationRepresentationSelect): Handle[
@@ -41,28 +50,3 @@ proc presentationRepresentation*(this: StepVisualPresentationRepresentationSelec
     header: "StepVisual_PresentationRepresentationSelect.hxx".}
 proc presentationSet*(this: StepVisualPresentationRepresentationSelect): Handle[
     StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet", header: "StepVisual_PresentationRepresentationSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

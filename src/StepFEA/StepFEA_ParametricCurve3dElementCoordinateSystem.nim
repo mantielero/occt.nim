@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_Parametric
     header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
 proc dynamicType*(this: StepFEA_ParametricCurve3dElementCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ParametricCurve3dElementCoordinateSystem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

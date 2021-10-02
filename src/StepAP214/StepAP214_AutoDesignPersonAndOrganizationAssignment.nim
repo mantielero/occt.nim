@@ -48,11 +48,10 @@ proc items*(this: StepAP214AutoDesignPersonAndOrganizationAssignment): Handle[
     StepAP214HArray1OfAutoDesignGeneralOrgItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AutoDesignPersonAndOrganizationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AutoDesignPersonAndOrganizationAssignment;
-                num: cint): StepAP214AutoDesignGeneralOrgItem {.noSideEffect,
-    importcpp: "ItemsValue",
+proc itemsValue*(this: StepAP214AutoDesignPersonAndOrganizationAssignment; num: int): StepAP214AutoDesignGeneralOrgItem {.
+    noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignPersonAndOrganizationAssignment.hxx".}
-proc nbItems*(this: StepAP214AutoDesignPersonAndOrganizationAssignment): cint {.
+proc nbItems*(this: StepAP214AutoDesignPersonAndOrganizationAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AutoDesignPersonAndOrganizationAssignment.hxx".}
 type
@@ -63,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesi
     header: "StepAP214_AutoDesignPersonAndOrganizationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AutoDesignPersonAndOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignPersonAndOrganizationAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

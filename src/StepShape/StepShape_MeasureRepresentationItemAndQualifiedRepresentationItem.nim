@@ -47,16 +47,16 @@ proc measure*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentation
     StepBasicMeasureWithUnit] {.noSideEffect, importcpp: "Measure", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc qualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
     StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-proc nbQualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): cint {.
+proc nbQualifiers*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): int {.
     noSideEffect, importcpp: "NbQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc setQualifiers*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
                    qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc qualifiersValue*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
-                     num: cint): StepShapeValueQualifier {.noSideEffect,
+                     num: int): StepShapeValueQualifier {.noSideEffect,
     importcpp: "QualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc setQualifiersValue*(this: var StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem;
-                        num: cint; aqualifier: StepShapeValueQualifier) {.
+                        num: int; aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 type
   StepShapeMeasureRepresentationItemAndQualifiedRepresentationItembaseType* = StepReprRepresentationItem
@@ -65,28 +65,3 @@ proc getTypeName*(): cstring {.importcpp: "StepShape_MeasureRepresentationItemAn
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem::get_type_descriptor(@)", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
 proc dynamicType*(this: StepShapeMeasureRepresentationItemAndQualifiedRepresentationItem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_MeasureRepresentationItemAndQualifiedRepresentationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

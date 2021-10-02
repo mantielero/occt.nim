@@ -21,16 +21,31 @@ discard "forward decl of StepVisual_NullStyleMember"
 discard "forward decl of StepVisual_SurfaceStyleUsage"
 type
   StepVisualPresentationStyleSelect* {.importcpp: "StepVisual_PresentationStyleSelect", header: "StepVisual_PresentationStyleSelect.hxx",
-                                      bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                         ## PresentationStyleSelect
-                                                                         ## SelectType
+                                      bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualPresentationStyleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationStyleSelect::operator new",
+    header: "StepVisual_PresentationStyleSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationStyleSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_PresentationStyleSelect::operator delete",
+    header: "StepVisual_PresentationStyleSelect.hxx".}
+proc `new[]`*(this: var StepVisualPresentationStyleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationStyleSelect::operator new[]",
+    header: "StepVisual_PresentationStyleSelect.hxx".}
+proc `delete[]`*(this: var StepVisualPresentationStyleSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_PresentationStyleSelect::operator delete[]",
+    header: "StepVisual_PresentationStyleSelect.hxx".}
+proc `new`*(this: var StepVisualPresentationStyleSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_PresentationStyleSelect::operator new", header: "StepVisual_PresentationStyleSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationStyleSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_PresentationStyleSelect::operator delete",
+    header: "StepVisual_PresentationStyleSelect.hxx".}
 proc constructStepVisualPresentationStyleSelect*(): StepVisualPresentationStyleSelect {.
     constructor, importcpp: "StepVisual_PresentationStyleSelect(@)",
     header: "StepVisual_PresentationStyleSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationStyleSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_PresentationStyleSelect.hxx".}
 proc pointStyle*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualPointStyle] {.noSideEffect, importcpp: "PointStyle",
@@ -42,28 +57,3 @@ proc nullStyle*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualNullStyleMember] {.noSideEffect, importcpp: "NullStyle", header: "StepVisual_PresentationStyleSelect.hxx".}
 proc surfaceStyleUsage*(this: StepVisualPresentationStyleSelect): Handle[
     StepVisualSurfaceStyleUsage] {.noSideEffect, importcpp: "SurfaceStyleUsage", header: "StepVisual_PresentationStyleSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

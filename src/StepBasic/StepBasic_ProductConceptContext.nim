@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductConceptContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductConceptContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,7 +17,7 @@
 discard "forward decl of Transfer_VoidBinder"
 discard "forward decl of Transfer_VoidBinder"
 type
-  HandleC1C1* = Handle[TransferVoidBinder]
+  HandleTransferVoidBinder* = Handle[TransferVoidBinder]
 
 ## ! a VoidBinder is used to bind a starting item with a status,
 ## ! error or warning messages, but no result
@@ -54,7 +54,7 @@ type
 
 proc constructTransferVoidBinder*(): TransferVoidBinder {.constructor,
     importcpp: "Transfer_VoidBinder(@)", header: "Transfer_VoidBinder.hxx".}
-proc resultType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
+#[ proc resultType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
     importcpp: "ResultType", header: "Transfer_VoidBinder.hxx".}
 proc resultTypeName*(this: TransferVoidBinder): StandardCString {.noSideEffect,
     importcpp: "ResultTypeName", header: "Transfer_VoidBinder.hxx".}
@@ -67,29 +67,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_VoidBinder::get_type_descriptor(@)",
     header: "Transfer_VoidBinder.hxx".}
 proc dynamicType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Transfer_VoidBinder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "Transfer_VoidBinder.hxx".} ]#

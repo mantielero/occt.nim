@@ -41,10 +41,10 @@ proc setSbsmBoundary*(this: var StepShapeShellBasedSurfaceModel;
 proc sbsmBoundary*(this: StepShapeShellBasedSurfaceModel): Handle[
     StepShapeHArray1OfShell] {.noSideEffect, importcpp: "SbsmBoundary",
                               header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc sbsmBoundaryValue*(this: StepShapeShellBasedSurfaceModel; num: cint): StepShapeShell {.
+proc sbsmBoundaryValue*(this: StepShapeShellBasedSurfaceModel; num: int): StepShapeShell {.
     noSideEffect, importcpp: "SbsmBoundaryValue",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}
-proc nbSbsmBoundary*(this: StepShapeShellBasedSurfaceModel): cint {.noSideEffect,
+proc nbSbsmBoundary*(this: StepShapeShellBasedSurfaceModel): int {.noSideEffect,
     importcpp: "NbSbsmBoundary", header: "StepShape_ShellBasedSurfaceModel.hxx".}
 type
   StepShapeShellBasedSurfaceModelbaseType* = StepGeomGeometricRepresentationItem
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeShellBasedSurfaceModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ShellBasedSurfaceModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

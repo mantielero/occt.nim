@@ -35,28 +35,3 @@ proc getTypeName*(): cstring {.importcpp: "StepVisual_CharacterizedObjAndReprese
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel::get_type_descriptor(@)", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
 proc dynamicType*(this: StepVisualCharacterizedObjAndRepresentationAndDraughtingModel): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_CharacterizedObjAndRepresentationAndDraughtingModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

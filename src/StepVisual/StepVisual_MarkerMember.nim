@@ -29,15 +29,15 @@ type
 
 proc constructStepVisualMarkerMember*(): StepVisualMarkerMember {.constructor,
     importcpp: "StepVisual_MarkerMember(@)", header: "StepVisual_MarkerMember.hxx".}
-proc hasName*(this: StepVisualMarkerMember): bool {.noSideEffect,
+proc hasName*(this: StepVisualMarkerMember): StandardBoolean {.noSideEffect,
     importcpp: "HasName", header: "StepVisual_MarkerMember.hxx".}
 proc name*(this: StepVisualMarkerMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepVisual_MarkerMember.hxx".}
-proc setName*(this: var StepVisualMarkerMember; name: StandardCString): bool {.
+proc setName*(this: var StepVisualMarkerMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepVisual_MarkerMember.hxx".}
 proc enumText*(this: StepVisualMarkerMember): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepVisual_MarkerMember.hxx".}
-proc setEnumText*(this: var StepVisualMarkerMember; val: cint; text: StandardCString) {.
+proc setEnumText*(this: var StepVisualMarkerMember; val: int; text: StandardCString) {.
     importcpp: "SetEnumText", header: "StepVisual_MarkerMember.hxx".}
 proc setValue*(this: var StepVisualMarkerMember; val: StepVisualMarkerType) {.
     importcpp: "SetValue", header: "StepVisual_MarkerMember.hxx".}
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_MarkerMember.hxx".}
 proc dynamicType*(this: StepVisualMarkerMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_MarkerMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

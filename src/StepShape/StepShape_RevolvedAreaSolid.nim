@@ -35,16 +35,16 @@ proc constructStepShapeRevolvedAreaSolid*(): StepShapeRevolvedAreaSolid {.
 proc init*(this: var StepShapeRevolvedAreaSolid;
           aName: Handle[TCollectionHAsciiString];
           aSweptArea: Handle[StepGeomCurveBoundedSurface];
-          aAxis: Handle[StepGeomAxis1Placement]; aAngle: cfloat) {.
+          aAxis: Handle[StepGeomAxis1Placement]; aAngle: StandardReal) {.
     importcpp: "Init", header: "StepShape_RevolvedAreaSolid.hxx".}
 proc setAxis*(this: var StepShapeRevolvedAreaSolid;
              aAxis: Handle[StepGeomAxis1Placement]) {.importcpp: "SetAxis",
     header: "StepShape_RevolvedAreaSolid.hxx".}
 proc axis*(this: StepShapeRevolvedAreaSolid): Handle[StepGeomAxis1Placement] {.
     noSideEffect, importcpp: "Axis", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc setAngle*(this: var StepShapeRevolvedAreaSolid; aAngle: cfloat) {.
+proc setAngle*(this: var StepShapeRevolvedAreaSolid; aAngle: StandardReal) {.
     importcpp: "SetAngle", header: "StepShape_RevolvedAreaSolid.hxx".}
-proc angle*(this: StepShapeRevolvedAreaSolid): cfloat {.noSideEffect,
+proc angle*(this: StepShapeRevolvedAreaSolid): StandardReal {.noSideEffect,
     importcpp: "Angle", header: "StepShape_RevolvedAreaSolid.hxx".}
 type
   StepShapeRevolvedAreaSolidbaseType* = StepShapeSweptAreaSolid
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeRevolvedAreaSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RevolvedAreaSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

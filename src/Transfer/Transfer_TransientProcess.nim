@@ -20,15 +20,6 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_TransientProcess"
-type
-  HandleC1C1* = Handle[TransferTransientProcess]
-
-## ! Adds specific features to the generic definition :
-## ! TransientProcess is intended to work from an InterfaceModel
-## ! to a set of application objects.
-## !
-## ! Hence, some informations about starting entities can be gotten
-## ! from the model : for Trace, CheckList, Integrity Status
 
 type
   TransferTransientProcess* {.importcpp: "Transfer_TransientProcess",
@@ -44,8 +35,21 @@ type
                                                                                                                 ## initial
                                                                                                                 ## size
 
+type
+  HandleTransferTransientProcess* = Handle[TransferTransientProcess]
 
-proc constructTransferTransientProcess*(nb: cint = 10000): TransferTransientProcess {.
+## ! Adds specific features to the generic definition :
+## ! TransientProcess is intended to work from an InterfaceModel
+## ! to a set of application objects.
+## !
+## ! Hence, some informations about starting entities can be gotten
+## ! from the model : for Trace, CheckList, Integrity Status
+
+type
+  TransferTransientProcessbaseType* = TransferProcessForTransient
+
+
+proc constructTransferTransientProcess*(nb: int = 10000): TransferTransientProcess {.
     constructor, importcpp: "Transfer_TransientProcess(@)",
     header: "Transfer_TransientProcess.hxx".}
 proc setModel*(this: var TransferTransientProcess;
@@ -53,9 +57,9 @@ proc setModel*(this: var TransferTransientProcess;
     header: "Transfer_TransientProcess.hxx".}
 proc model*(this: TransferTransientProcess): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "Transfer_TransientProcess.hxx".}
-proc setGraph*(this: var TransferTransientProcess; hg: Handle[InterfaceHGraph]) {.
+#[ proc setGraph*(this: var TransferTransientProcess; hg: Handle[InterfaceHGraph]) {.
     importcpp: "SetGraph", header: "Transfer_TransientProcess.hxx".}
-proc hasGraph*(this: TransferTransientProcess): bool {.noSideEffect,
+proc hasGraph*(this: TransferTransientProcess): StandardBoolean {.noSideEffect,
     importcpp: "HasGraph", header: "Transfer_TransientProcess.hxx".}
 proc hGraph*(this: TransferTransientProcess): Handle[InterfaceHGraph] {.
     noSideEffect, importcpp: "HGraph", header: "Transfer_TransientProcess.hxx".}
@@ -65,7 +69,7 @@ proc setContext*(this: var TransferTransientProcess; name: StandardCString;
                 ctx: Handle[StandardTransient]) {.importcpp: "SetContext",
     header: "Transfer_TransientProcess.hxx".}
 proc getContext*(this: TransferTransientProcess; name: StandardCString;
-                `type`: Handle[StandardType]; ctx: var Handle[StandardTransient]): bool {.
+                `type`: Handle[StandardType]; ctx: var Handle[StandardTransient]): StandardBoolean {.
     noSideEffect, importcpp: "GetContext", header: "Transfer_TransientProcess.hxx".}
 proc context*(this: var TransferTransientProcess): var NCollectionDataMap[
     TCollectionAsciiString, Handle[StandardTransient]] {.importcpp: "Context",
@@ -73,24 +77,22 @@ proc context*(this: var TransferTransientProcess): var NCollectionDataMap[
 proc printTrace*(this: TransferTransientProcess; start: Handle[StandardTransient];
                 s: var StandardOStream) {.noSideEffect, importcpp: "PrintTrace",
                                        header: "Transfer_TransientProcess.hxx".}
-proc checkNum*(this: TransferTransientProcess; ent: Handle[StandardTransient]): cint {.
+proc checkNum*(this: TransferTransientProcess; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CheckNum", header: "Transfer_TransientProcess.hxx".}
 proc typedSharings*(this: TransferTransientProcess;
                    start: Handle[StandardTransient]; `type`: Handle[StandardType]): InterfaceEntityIterator {.
     noSideEffect, importcpp: "TypedSharings",
     header: "Transfer_TransientProcess.hxx".}
-proc isDataLoaded*(this: TransferTransientProcess; ent: Handle[StandardTransient]): bool {.
+proc isDataLoaded*(this: TransferTransientProcess; ent: Handle[StandardTransient]): StandardBoolean {.
     noSideEffect, importcpp: "IsDataLoaded",
     header: "Transfer_TransientProcess.hxx".}
-proc isDataFail*(this: TransferTransientProcess; ent: Handle[StandardTransient]): bool {.
+proc isDataFail*(this: TransferTransientProcess; ent: Handle[StandardTransient]): StandardBoolean {.
     noSideEffect, importcpp: "IsDataFail", header: "Transfer_TransientProcess.hxx".}
-proc printStats*(this: TransferTransientProcess; mode: cint; s: var StandardOStream) {.
+proc printStats*(this: TransferTransientProcess; mode: int; s: var StandardOStream) {.
     noSideEffect, importcpp: "PrintStats", header: "Transfer_TransientProcess.hxx".}
 proc rootsForTransfer*(this: var TransferTransientProcess): Handle[
     TColStdHSequenceOfTransient] {.importcpp: "RootsForTransfer",
                                   header: "Transfer_TransientProcess.hxx".}
-type
-  TransferTransientProcessbaseType* = TransferProcessForTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_TransientProcess::get_type_name(@)",
                             header: "Transfer_TransientProcess.hxx".}
@@ -98,29 +100,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_TransientProcess::get_type_descriptor(@)",
     header: "Transfer_TransientProcess.hxx".}
 proc dynamicType*(this: TransferTransientProcess): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_TransientProcess.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    noSideEffect, importcpp: "DynamicType", header: "Transfer_TransientProcess.hxx".} ]#

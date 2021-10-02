@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP203_ChangeRequest.hxx".}
 proc dynamicType*(this: StepAP203ChangeRequest): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepAP203_ChangeRequest.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

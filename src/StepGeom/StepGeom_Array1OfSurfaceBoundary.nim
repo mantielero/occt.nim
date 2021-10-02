@@ -16,29 +16,3 @@
 
 type
   StepGeomArray1OfSurfaceBoundary* = NCollectionArray1[StepGeomSurfaceBoundary]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

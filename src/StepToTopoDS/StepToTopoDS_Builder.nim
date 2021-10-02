@@ -32,6 +32,24 @@ type
                          header: "StepToTopoDS_Builder.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_Builder; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_Builder::operator new",
+    header: "StepToTopoDS_Builder.hxx".}
+proc `delete`*(this: var StepToTopoDS_Builder; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_Builder::operator delete",
+    header: "StepToTopoDS_Builder.hxx".}
+proc `new[]`*(this: var StepToTopoDS_Builder; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_Builder::operator new[]",
+    header: "StepToTopoDS_Builder.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_Builder; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_Builder::operator delete[]",
+    header: "StepToTopoDS_Builder.hxx".}
+proc `new`*(this: var StepToTopoDS_Builder; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_Builder::operator new",
+    header: "StepToTopoDS_Builder.hxx".}
+proc `delete`*(this: var StepToTopoDS_Builder; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_Builder::operator delete",
+    header: "StepToTopoDS_Builder.hxx".}
 proc constructStepToTopoDS_Builder*(): StepToTopoDS_Builder {.constructor,
     importcpp: "StepToTopoDS_Builder(@)", header: "StepToTopoDS_Builder.hxx".}
 proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeManifoldSolidBrep];
@@ -67,35 +85,10 @@ proc init*(this: var StepToTopoDS_Builder;
 proc init*(this: var StepToTopoDS_Builder; s: Handle[StepShapeGeometricSet];
           tp: Handle[TransferTransientProcess];
           ra: Handle[TransferActorOfTransientProcess] = nil;
-          isManifold: bool = false;
+          isManifold: StandardBoolean = false;
           theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Init", header: "StepToTopoDS_Builder.hxx".}
 proc value*(this: StepToTopoDS_Builder): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_Builder.hxx".}
 proc error*(this: StepToTopoDS_Builder): StepToTopoDS_BuilderError {.noSideEffect,
     importcpp: "Error", header: "StepToTopoDS_Builder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

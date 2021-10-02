@@ -36,7 +36,7 @@ proc constructTransferActorOfProcessForFinder*(): TransferActorOfProcessForFinde
 proc recognize*(this: var TransferActorOfProcessForFinder;
                start: Handle[TransferFinder]): bool {.importcpp: "Recognize",
     header: "Transfer_ActorOfProcessForFinder.hxx".}
-proc transferring*(this: var TransferActorOfProcessForFinder;
+#[ proc transferring*(this: var TransferActorOfProcessForFinder;
                   start: Handle[TransferFinder];
                   tp: Handle[TransferProcessForFinder];
                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
@@ -69,48 +69,4 @@ proc dynamicType*(this: TransferActorOfProcessForFinder): Handle[StandardType] {
     noSideEffect, importcpp: "DynamicType",
     header: "Transfer_ActorOfProcessForFinder.hxx".}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ]#

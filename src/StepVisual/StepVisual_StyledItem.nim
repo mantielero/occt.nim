@@ -43,10 +43,10 @@ proc setStyles*(this: var StepVisualStyledItem;
 proc styles*(this: StepVisualStyledItem): Handle[
     StepVisualHArray1OfPresentationStyleAssignment] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_StyledItem.hxx".}
-proc stylesValue*(this: StepVisualStyledItem; num: cint): Handle[
+proc stylesValue*(this: StepVisualStyledItem; num: int): Handle[
     StepVisualPresentationStyleAssignment] {.noSideEffect,
     importcpp: "StylesValue", header: "StepVisual_StyledItem.hxx".}
-proc nbStyles*(this: StepVisualStyledItem): cint {.noSideEffect,
+proc nbStyles*(this: StepVisualStyledItem): int {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_StyledItem.hxx".}
 proc setItem*(this: var StepVisualStyledItem;
              aItem: Handle[StepReprRepresentationItem]) {.importcpp: "SetItem",
@@ -67,28 +67,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_StyledItem.hxx".}
 proc dynamicType*(this: StepVisualStyledItem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_StyledItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

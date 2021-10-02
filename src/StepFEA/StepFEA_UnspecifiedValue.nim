@@ -17,29 +17,3 @@ type
                              header: "StepFEA_UnspecifiedValue.hxx".} = enum
     StepFEA_Unspecified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

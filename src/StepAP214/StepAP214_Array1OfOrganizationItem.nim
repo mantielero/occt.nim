@@ -16,29 +16,3 @@
 
 type
   StepAP214Array1OfOrganizationItem* = NCollectionArray1[StepAP214OrganizationItem]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

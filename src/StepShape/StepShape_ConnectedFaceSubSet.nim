@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedFaceSubSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSubSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

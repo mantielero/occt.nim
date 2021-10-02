@@ -37,28 +37,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_Geometri
     header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeGeometricallyBoundedWireframeShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_GeometricallyBoundedWireframeShapeRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

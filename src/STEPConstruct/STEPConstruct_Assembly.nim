@@ -27,6 +27,24 @@ type
                           header: "STEPConstruct_Assembly.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPConstructAssembly; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Assembly::operator new",
+    header: "STEPConstruct_Assembly.hxx".}
+proc `delete`*(this: var STEPConstructAssembly; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Assembly::operator delete",
+    header: "STEPConstruct_Assembly.hxx".}
+proc `new[]`*(this: var STEPConstructAssembly; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Assembly::operator new[]",
+    header: "STEPConstruct_Assembly.hxx".}
+proc `delete[]`*(this: var STEPConstructAssembly; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Assembly::operator delete[]",
+    header: "STEPConstruct_Assembly.hxx".}
+proc `new`*(this: var STEPConstructAssembly; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_Assembly::operator new",
+    header: "STEPConstruct_Assembly.hxx".}
+proc `delete`*(this: var STEPConstructAssembly; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_Assembly::operator delete",
+    header: "STEPConstruct_Assembly.hxx".}
 proc constructSTEPConstructAssembly*(): STEPConstructAssembly {.constructor,
     importcpp: "STEPConstruct_Assembly(@)", header: "STEPConstruct_Assembly.hxx".}
 proc init*(this: var STEPConstructAssembly;
@@ -45,31 +63,6 @@ proc getNAUO*(this: STEPConstructAssembly): Handle[
     StepReprNextAssemblyUsageOccurrence] {.noSideEffect, importcpp: "GetNAUO",
     header: "STEPConstruct_Assembly.hxx".}
 proc checkSRRReversesNAUO*(theGraph: InterfaceGraph; cdsr: Handle[
-    StepShapeContextDependentShapeRepresentation]): bool {.
+    StepShapeContextDependentShapeRepresentation]): StandardBoolean {.
     importcpp: "STEPConstruct_Assembly::CheckSRRReversesNAUO(@)",
     header: "STEPConstruct_Assembly.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

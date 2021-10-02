@@ -32,13 +32,13 @@ proc constructStepGeomReparametrisedCompositeCurveSegment*(): StepGeomReparametr
     constructor, importcpp: "StepGeom_ReparametrisedCompositeCurveSegment(@)",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 proc init*(this: var StepGeomReparametrisedCompositeCurveSegment;
-          aTransition: StepGeomTransitionCode; aSameSense: bool;
-          aParentCurve: Handle[StepGeomCurve]; aParamLength: cfloat) {.
+          aTransition: StepGeomTransitionCode; aSameSense: StandardBoolean;
+          aParentCurve: Handle[StepGeomCurve]; aParamLength: StandardReal) {.
     importcpp: "Init", header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 proc setParamLength*(this: var StepGeomReparametrisedCompositeCurveSegment;
-                    aParamLength: cfloat) {.importcpp: "SetParamLength",
+                    aParamLength: StandardReal) {.importcpp: "SetParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-proc paramLength*(this: StepGeomReparametrisedCompositeCurveSegment): cfloat {.
+proc paramLength*(this: StepGeomReparametrisedCompositeCurveSegment): StandardReal {.
     noSideEffect, importcpp: "ParamLength",
     header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
 type
@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Reparamet
 proc dynamicType*(this: StepGeomReparametrisedCompositeCurveSegment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_ReparametrisedCompositeCurveSegment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

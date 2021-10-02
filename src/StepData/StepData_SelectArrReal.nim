@@ -23,7 +23,7 @@ type
 
 proc constructStepDataSelectArrReal*(): StepDataSelectArrReal {.constructor,
     importcpp: "StepData_SelectArrReal(@)", header: "StepData_SelectArrReal.hxx".}
-proc kind*(this: StepDataSelectArrReal): cint {.noSideEffect, importcpp: "Kind",
+proc kind*(this: StepDataSelectArrReal): int {.noSideEffect, importcpp: "Kind",
     header: "StepData_SelectArrReal.hxx".}
 proc arrReal*(this: StepDataSelectArrReal): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "ArrReal", header: "StepData_SelectArrReal.hxx".}
@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectArrReal.hxx".}
 proc dynamicType*(this: StepDataSelectArrReal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectArrReal.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprRepresentationMap): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_RepresentationMap.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

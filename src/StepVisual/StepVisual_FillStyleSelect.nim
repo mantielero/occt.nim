@@ -18,45 +18,33 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepVisual_FillAreaStyleColour"
 type
   StepVisualFillStyleSelect* {.importcpp: "StepVisual_FillStyleSelect",
-                              header: "StepVisual_FillStyleSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## FillStyleSelect
-                                                                                                         ## SelectType
+                              header: "StepVisual_FillStyleSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualFillStyleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_FillStyleSelect::operator new",
+    header: "StepVisual_FillStyleSelect.hxx".}
+proc `delete`*(this: var StepVisualFillStyleSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_FillStyleSelect::operator delete",
+    header: "StepVisual_FillStyleSelect.hxx".}
+proc `new[]`*(this: var StepVisualFillStyleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_FillStyleSelect::operator new[]",
+    header: "StepVisual_FillStyleSelect.hxx".}
+proc `delete[]`*(this: var StepVisualFillStyleSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_FillStyleSelect::operator delete[]",
+    header: "StepVisual_FillStyleSelect.hxx".}
+proc `new`*(this: var StepVisualFillStyleSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_FillStyleSelect::operator new",
+    header: "StepVisual_FillStyleSelect.hxx".}
+proc `delete`*(this: var StepVisualFillStyleSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_FillStyleSelect::operator delete",
+    header: "StepVisual_FillStyleSelect.hxx".}
 proc constructStepVisualFillStyleSelect*(): StepVisualFillStyleSelect {.
     constructor, importcpp: "StepVisual_FillStyleSelect(@)",
     header: "StepVisual_FillStyleSelect.hxx".}
-proc caseNum*(this: StepVisualFillStyleSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualFillStyleSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FillStyleSelect.hxx".}
 proc fillAreaStyleColour*(this: StepVisualFillStyleSelect): Handle[
     StepVisualFillAreaStyleColour] {.noSideEffect,
                                     importcpp: "FillAreaStyleColour",
                                     header: "StepVisual_FillStyleSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

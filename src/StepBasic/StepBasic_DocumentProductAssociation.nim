@@ -33,7 +33,7 @@ proc constructStepBasicDocumentProductAssociation*(): StepBasicDocumentProductAs
     constructor, importcpp: "StepBasic_DocumentProductAssociation(@)",
     header: "StepBasic_DocumentProductAssociation.hxx".}
 proc init*(this: var StepBasicDocumentProductAssociation;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aRelatingDocument: Handle[StepBasicDocument];
           aRelatedProduct: StepBasicProductOrFormationOrDefinition) {.
@@ -49,7 +49,7 @@ proc setDescription*(this: var StepBasicDocumentProductAssociation;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepBasic_DocumentProductAssociation.hxx".}
-proc hasDescription*(this: StepBasicDocumentProductAssociation): bool {.
+proc hasDescription*(this: StepBasicDocumentProductAssociation): StandardBoolean {.
     noSideEffect, importcpp: "HasDescription",
     header: "StepBasic_DocumentProductAssociation.hxx".}
 proc relatingDocument*(this: StepBasicDocumentProductAssociation): Handle[
@@ -77,28 +77,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDocumentProductAssociation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DocumentProductAssociation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

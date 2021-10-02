@@ -40,21 +40,21 @@ proc constructTransferBRepTransferResultInfo*(): TransferBRepTransferResultInfo 
     header: "TransferBRep_TransferResultInfo.hxx".}
 proc clear*(this: var TransferBRepTransferResultInfo) {.importcpp: "Clear",
     header: "TransferBRep_TransferResultInfo.hxx".}
-proc result*(this: var TransferBRepTransferResultInfo): var cint {.
-    importcpp: "Result", header: "TransferBRep_TransferResultInfo.hxx".}
-proc resultWarning*(this: var TransferBRepTransferResultInfo): var cint {.
+proc result*(this: var TransferBRepTransferResultInfo): var int {.importcpp: "Result",
+    header: "TransferBRep_TransferResultInfo.hxx".}
+proc resultWarning*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultWarning", header: "TransferBRep_TransferResultInfo.hxx".}
-proc resultFail*(this: var TransferBRepTransferResultInfo): var cint {.
+proc resultFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc resultWarningFail*(this: var TransferBRepTransferResultInfo): var cint {.
+proc resultWarningFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "ResultWarningFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc noResult*(this: var TransferBRepTransferResultInfo): var cint {.
+proc noResult*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResult", header: "TransferBRep_TransferResultInfo.hxx".}
-proc noResultWarning*(this: var TransferBRepTransferResultInfo): var cint {.
+proc noResultWarning*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultWarning", header: "TransferBRep_TransferResultInfo.hxx".}
-proc noResultFail*(this: var TransferBRepTransferResultInfo): var cint {.
+proc noResultFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultFail", header: "TransferBRep_TransferResultInfo.hxx".}
-proc noResultWarningFail*(this: var TransferBRepTransferResultInfo): var cint {.
+proc noResultWarningFail*(this: var TransferBRepTransferResultInfo): var int {.
     importcpp: "NoResultWarningFail",
     header: "TransferBRep_TransferResultInfo.hxx".}
 type
@@ -68,28 +68,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: TransferBRepTransferResultInfo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "TransferBRep_TransferResultInfo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

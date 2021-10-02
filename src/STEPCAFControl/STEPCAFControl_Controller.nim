@@ -41,8 +41,8 @@ type
 proc constructSTEPCAFControlController*(): STEPCAFControlController {.constructor,
     importcpp: "STEPCAFControl_Controller(@)",
     header: "STEPCAFControl_Controller.hxx".}
-proc init*(): bool {.importcpp: "STEPCAFControl_Controller::Init(@)",
-                  header: "STEPCAFControl_Controller.hxx".}
+proc init*(): StandardBoolean {.importcpp: "STEPCAFControl_Controller::Init(@)",
+                             header: "STEPCAFControl_Controller.hxx".}
 type
   STEPCAFControlControllerbaseType* = STEPControlController
 
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_Controller.hxx".}
 proc dynamicType*(this: STEPCAFControlController): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_Controller.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

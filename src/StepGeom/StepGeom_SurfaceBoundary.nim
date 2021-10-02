@@ -19,16 +19,31 @@ discard "forward decl of StepGeom_BoundaryCurve"
 discard "forward decl of StepGeom_DegeneratePcurve"
 type
   StepGeomSurfaceBoundary* {.importcpp: "StepGeom_SurfaceBoundary",
-                            header: "StepGeom_SurfaceBoundary.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor
+                            header: "StepGeom_SurfaceBoundary.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepGeomSurfaceBoundary; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_SurfaceBoundary::operator new",
+    header: "StepGeom_SurfaceBoundary.hxx".}
+proc `delete`*(this: var StepGeomSurfaceBoundary; theAddress: pointer) {.
+    importcpp: "StepGeom_SurfaceBoundary::operator delete",
+    header: "StepGeom_SurfaceBoundary.hxx".}
+proc `new[]`*(this: var StepGeomSurfaceBoundary; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_SurfaceBoundary::operator new[]",
+    header: "StepGeom_SurfaceBoundary.hxx".}
+proc `delete[]`*(this: var StepGeomSurfaceBoundary; theAddress: pointer) {.
+    importcpp: "StepGeom_SurfaceBoundary::operator delete[]",
+    header: "StepGeom_SurfaceBoundary.hxx".}
+proc `new`*(this: var StepGeomSurfaceBoundary; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepGeom_SurfaceBoundary::operator new",
+    header: "StepGeom_SurfaceBoundary.hxx".}
+proc `delete`*(this: var StepGeomSurfaceBoundary; a2: pointer; a3: pointer) {.
+    importcpp: "StepGeom_SurfaceBoundary::operator delete",
+    header: "StepGeom_SurfaceBoundary.hxx".}
 proc constructStepGeomSurfaceBoundary*(): StepGeomSurfaceBoundary {.constructor,
     importcpp: "StepGeom_SurfaceBoundary(@)",
     header: "StepGeom_SurfaceBoundary.hxx".}
-proc caseNum*(this: StepGeomSurfaceBoundary; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepGeomSurfaceBoundary; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_SurfaceBoundary.hxx".}
 proc boundaryCurve*(this: StepGeomSurfaceBoundary): Handle[StepGeomBoundaryCurve] {.
     noSideEffect, importcpp: "BoundaryCurve",
@@ -36,28 +51,3 @@ proc boundaryCurve*(this: StepGeomSurfaceBoundary): Handle[StepGeomBoundaryCurve
 proc degeneratePcurve*(this: StepGeomSurfaceBoundary): Handle[
     StepGeomDegeneratePcurve] {.noSideEffect, importcpp: "DegeneratePcurve",
                                header: "StepGeom_SurfaceBoundary.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

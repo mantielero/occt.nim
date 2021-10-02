@@ -28,15 +28,30 @@ discard "forward decl of StepBasic_Certification"
 discard "forward decl of StepBasic_Contract"
 type
   StepAP203ApprovedItem* {.importcpp: "StepAP203_ApprovedItem",
-                          header: "StepAP203_ApprovedItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
+                          header: "StepAP203_ApprovedItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203ApprovedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_ApprovedItem::operator new",
+    header: "StepAP203_ApprovedItem.hxx".}
+proc `delete`*(this: var StepAP203ApprovedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_ApprovedItem::operator delete",
+    header: "StepAP203_ApprovedItem.hxx".}
+proc `new[]`*(this: var StepAP203ApprovedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_ApprovedItem::operator new[]",
+    header: "StepAP203_ApprovedItem.hxx".}
+proc `delete[]`*(this: var StepAP203ApprovedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_ApprovedItem::operator delete[]",
+    header: "StepAP203_ApprovedItem.hxx".}
+proc `new`*(this: var StepAP203ApprovedItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_ApprovedItem::operator new",
+    header: "StepAP203_ApprovedItem.hxx".}
+proc `delete`*(this: var StepAP203ApprovedItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_ApprovedItem::operator delete",
+    header: "StepAP203_ApprovedItem.hxx".}
 proc constructStepAP203ApprovedItem*(): StepAP203ApprovedItem {.constructor,
     importcpp: "StepAP203_ApprovedItem(@)", header: "StepAP203_ApprovedItem.hxx".}
-proc caseNum*(this: StepAP203ApprovedItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203ApprovedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_ApprovedItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203ApprovedItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
@@ -67,28 +82,3 @@ proc certification*(this: StepAP203ApprovedItem): Handle[StepBasicCertification]
     noSideEffect, importcpp: "Certification", header: "StepAP203_ApprovedItem.hxx".}
 proc contract*(this: StepAP203ApprovedItem): Handle[StepBasicContract] {.
     noSideEffect, importcpp: "Contract", header: "StepAP203_ApprovedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -54,15 +54,15 @@ type
                                                                                                      ## below
 
 
-proc fillSharedCase*(this: StepDataGeneralModule; casenum: cint;
+proc fillSharedCase*(this: StepDataGeneralModule; casenum: int;
                     ent: Handle[StandardTransient];
                     iter: var InterfaceEntityIterator) {.noSideEffect,
     importcpp: "FillSharedCase", header: "StepData_GeneralModule.hxx".}
-proc checkCase*(this: StepDataGeneralModule; casenum: cint;
+proc checkCase*(this: StepDataGeneralModule; casenum: int;
                ent: Handle[StandardTransient]; shares: InterfaceShareTool;
                ach: var Handle[InterfaceCheck]) {.noSideEffect,
     importcpp: "CheckCase", header: "StepData_GeneralModule.hxx".}
-proc copyCase*(this: StepDataGeneralModule; casenum: cint;
+proc copyCase*(this: StepDataGeneralModule; casenum: int;
               entfrom: Handle[StandardTransient];
               entto: Handle[StandardTransient]; tc: var InterfaceCopyTool) {.
     noSideEffect, importcpp: "CopyCase", header: "StepData_GeneralModule.hxx".}
@@ -76,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_GeneralModule.hxx".}
 proc dynamicType*(this: StepDataGeneralModule): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_GeneralModule.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

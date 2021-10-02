@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaMoistureAbsorption): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaMoistureAbsorption.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

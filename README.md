@@ -2,30 +2,98 @@
 OpenCascade nim wrapper
 
 ## OpenCascade overview
-Por un lado, parece que Open CASCADE Technology, está organizado en toolkit (por ejemplo [tkGeomBase](https://old.opencascade.com/doc/occt-7.3.0/refman/html/toolkit_tkgeombase.html)). Los toolkit se dividen en paquetes.
+OpenCascade is organized in different [modules](https://dev.opencascade.org/doc/refman/html/index.html) (alphabetic order):
+- [ApplicationFramework](https://dev.opencascade.org/doc/refman/html/module_applicationframework.html)
+- [DataExchange](https://dev.opencascade.org/doc/refman/html/module_dataexchange.html)
+- [Draw](https://dev.opencascade.org/doc/refman/html/module_draw.html)
+- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
+- [ModelingAlgorithms](https://dev.opencascade.org/doc/refman/html/module_modelingalgorithms.html)
+- [ModelingData](https://dev.opencascade.org/doc/refman/html/module_modelingdata.html)
+- [Visualization](https://dev.opencascade.org/doc/refman/html/module_visualization.html)
 
-In Open CASCADE Technology a package is a group of classes providing related functionality. The classes have names that start with the name of a package they belong to. For example, [Geom_Line](https://old.opencascade.com/doc/occt-7.3.0/refman/html/class_geom___line.html) and [Geom_Circle](https://old.opencascade.com/doc/occt-7.3.0/refman/html/class_geom___circle.html) classes belong to the Geom package. 
+Each module contain a number of toolkits (TK). For example:
+- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
+  - [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html)
+  - [tkmath](https://dev.opencascade.org/doc/refman/html/toolkit_tkmath.html)
 
-AIS
-Adaptor2D / Adaptor3D
-AdvApp2Var
-App
-Approx
-Aspect
-BOPAlgo
-BOPDS
-BOPTools
-BRep: Boundary Representation
-BSplCLib
-BVH
-BiT
-Bin
-Blend
-Bnd
-CDF / CDM
-...
-Geom2d
+Each toolkit contains a number of packages as seen for [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html).
 
+## Wrapping process
+In order to quickly play with the code, the shorter path is using [cinterop](https://github.com/n0bra1n3r/cinterop). In order to create proper bindings, it is better to use [c2nim](https://github.com/nim-lang/c2nim).
+
+### Example: [Standard package](https://dev.opencascade.org/doc/refman/html/package_standard.html)
+There are cases where the bindings will be created without any issue:
+```
+$ c2nim --cpp --header --strict --out:standard.nim /usr/include/opencascade/Standard.hxx
+/usr/include/opencascade/Standard.hxx(94, 1) Warning: comment ' _Standard_HeaderFile' ignored [CommentXIgnored]
+Hint: operation successful (94 lines compiled; 1 millisecond, 24 microseconds, and 983 nanoseconds sec total; 3.012MiB; ) [SuccessX]
+```
+
+But this doesn't mean that this is what you want/need. By inspecting the file, we see that there are plenty of `Standard_EXPORT`, macros that have not been transformed (like `DEFINE_STANDARD_ALLOC`), ... Besides, we might be interested in the type, but not in the method. So we might need to pre-process or post-process the header.
+
+#### Dealing with macros
+We can find where is defined the `DEFINE_STANDARD_ALLOC`:
+```bash
+$ grep "define DEFINE_STANDARD_ALLOC" /usr/include/opencascade/*.hxx
+```
+It is defined in `Standard_DefineAlloc.hxx`.
+
+We can create a file where we define what we do with the macro. For instance: 
+- Option 1: we can use exactly the same specification:
+  **occt.c2nim**
+```
+#ifdef C2NIM
+# define DEFINE_STANDARD_ALLOC                                         \
+  void* operator new (size_t theSize)                                  \
+  {                                                                    \
+    return Standard::Allocate (theSize);                               \
+  }                                                                    \
+  void  operator delete (void* theAddress)                             \
+  {                                                                    \
+    Standard::Free (theAddress);                                       \
+  }                                                                    \
+  DEFINE_STANDARD_ALLOC_ARRAY                                          \
+  DEFINE_STANDARD_ALLOC_PLACEMENT
+#endif
+```
+- Option 2: we don't care about the bodies; we are only interested in the headers
+  **occt.c2nim**
+```
+#ifdef C2NIM
+# define DEFINE_STANDARD_ALLOC               \
+  void* operator new (size_t theSize);       \
+  void  operator delete (void* theAddress);  \
+  DEFINE_STANDARD_ALLOC_ARRAY                \
+  DEFINE_STANDARD_ALLOC_PLACEMENT
+#endif
+```
+- Option 3: we don't plan to use the functions that the macros are introducing:
+  **occt.c2nim**
+```
+#ifdef C2NIM
+# define DEFINE_STANDARD_ALLOC
+#endif
+```
+
+#### Standard_EXPORT
+It is defined in `Standard_Macro.hxx`. We can safely add:
+```
+#ifdef C2NIM
+# define DEFINE_STANDARD_ALLOC
+# define Standard_EXPORT
+#endif
+```
+
+#### Generate the bindings
+In this case, we would execute:
+```bash
+$ c2nim --cpp --header --strict --out:standard.nim occt.c2nim /usr/include/opencascade/Standard.hxx
+```
+and we will get a better binding.
+
+And so on with: `Standard_Size`, `Standard_Address``.
+
+## Overview
 - Geom: The Geom package implements 3D geometric objects: elementary curves and surfaces are provided as well as more complex ones (such as Bezier and BSpline). The Geom package provides only the data structure of geometric entities. You can directly instantiate classes belonging to Geom, but it is easier to compute elementary curves and surfaces by using the GC package. 
 - [GC](https://old.opencascade.com/doc/occt-7.3.0/refman/html/package_gc.html)
 
@@ -48,13 +116,14 @@ TCol
 TDF
 TopoDS
 
-
+```
 from OCCT.BRep import BRep_Builder
 from OCCT.BRepTools import BRepTools
 from OCCT.IGESControl import IGESControl_Reader, IGESControl_Writer
 from OCCT.STEPControl import (STEPControl_Reader, STEPControl_Writer,
                               STEPControl_AsIs)
 from OCCT.TopoDS import TopoDS_Shape
+```
 
 https://github.com/FreeCAD/FreeCAD/blob/master/src/Mod/Part/App/ImportStep.cpp
 https://old.opencascade.com/doc/occt-7.3.0/overview/html/occt__tutorial.html#sec6

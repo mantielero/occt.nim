@@ -38,9 +38,9 @@ proc setPoints*(this: var StepGeomPolyline;
     importcpp: "SetPoints", header: "StepGeom_Polyline.hxx".}
 proc points*(this: StepGeomPolyline): Handle[StepGeomHArray1OfCartesianPoint] {.
     noSideEffect, importcpp: "Points", header: "StepGeom_Polyline.hxx".}
-proc pointsValue*(this: StepGeomPolyline; num: cint): Handle[StepGeomCartesianPoint] {.
+proc pointsValue*(this: StepGeomPolyline; num: int): Handle[StepGeomCartesianPoint] {.
     noSideEffect, importcpp: "PointsValue", header: "StepGeom_Polyline.hxx".}
-proc nbPoints*(this: StepGeomPolyline): cint {.noSideEffect, importcpp: "NbPoints",
+proc nbPoints*(this: StepGeomPolyline): int {.noSideEffect, importcpp: "NbPoints",
     header: "StepGeom_Polyline.hxx".}
 type
   StepGeomPolylinebaseType* = StepGeomBoundedCurve
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Polyline.hxx".}
 proc dynamicType*(this: StepGeomPolyline): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Polyline.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -45,28 +45,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_TypeQualifier.hxx".}
 proc dynamicType*(this: StepShapeTypeQualifier): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_TypeQualifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

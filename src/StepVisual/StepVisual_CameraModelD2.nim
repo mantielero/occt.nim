@@ -33,18 +33,20 @@ proc constructStepVisualCameraModelD2*(): StepVisualCameraModelD2 {.constructor,
     header: "StepVisual_CameraModelD2.hxx".}
 proc init*(this: var StepVisualCameraModelD2;
           aName: Handle[TCollectionHAsciiString];
-          aViewWindow: Handle[StepVisualPlanarBox]; aViewWindowClipping: bool) {.
-    importcpp: "Init", header: "StepVisual_CameraModelD2.hxx".}
+          aViewWindow: Handle[StepVisualPlanarBox];
+          aViewWindowClipping: StandardBoolean) {.importcpp: "Init",
+    header: "StepVisual_CameraModelD2.hxx".}
 proc setViewWindow*(this: var StepVisualCameraModelD2;
                    aViewWindow: Handle[StepVisualPlanarBox]) {.
     importcpp: "SetViewWindow", header: "StepVisual_CameraModelD2.hxx".}
 proc viewWindow*(this: StepVisualCameraModelD2): Handle[StepVisualPlanarBox] {.
     noSideEffect, importcpp: "ViewWindow", header: "StepVisual_CameraModelD2.hxx".}
 proc setViewWindowClipping*(this: var StepVisualCameraModelD2;
-                           aViewWindowClipping: bool) {.
+                           aViewWindowClipping: StandardBoolean) {.
     importcpp: "SetViewWindowClipping", header: "StepVisual_CameraModelD2.hxx".}
-proc viewWindowClipping*(this: StepVisualCameraModelD2): bool {.noSideEffect,
-    importcpp: "ViewWindowClipping", header: "StepVisual_CameraModelD2.hxx".}
+proc viewWindowClipping*(this: StepVisualCameraModelD2): StandardBoolean {.
+    noSideEffect, importcpp: "ViewWindowClipping",
+    header: "StepVisual_CameraModelD2.hxx".}
 type
   StepVisualCameraModelD2baseType* = StepVisualCameraModel
 
@@ -55,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CameraModelD2.hxx".}
 proc dynamicType*(this: StepVisualCameraModelD2): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CameraModelD2.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

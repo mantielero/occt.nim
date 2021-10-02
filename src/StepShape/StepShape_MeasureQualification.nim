@@ -57,15 +57,15 @@ proc setQualifiedMeasure*(this: var StepShapeMeasureQualification;
     importcpp: "SetQualifiedMeasure", header: "StepShape_MeasureQualification.hxx".}
 proc qualifiers*(this: StepShapeMeasureQualification): Handle[
     StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc nbQualifiers*(this: StepShapeMeasureQualification): cint {.noSideEffect,
+proc nbQualifiers*(this: StepShapeMeasureQualification): int {.noSideEffect,
     importcpp: "NbQualifiers", header: "StepShape_MeasureQualification.hxx".}
 proc setQualifiers*(this: var StepShapeMeasureQualification;
                    qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers", header: "StepShape_MeasureQualification.hxx".}
-proc qualifiersValue*(this: StepShapeMeasureQualification; num: cint): StepShapeValueQualifier {.
+proc qualifiersValue*(this: StepShapeMeasureQualification; num: int): StepShapeValueQualifier {.
     noSideEffect, importcpp: "QualifiersValue",
     header: "StepShape_MeasureQualification.hxx".}
-proc setQualifiersValue*(this: var StepShapeMeasureQualification; num: cint;
+proc setQualifiersValue*(this: var StepShapeMeasureQualification; num: int;
                         aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue", header: "StepShape_MeasureQualification.hxx".}
 type
@@ -79,28 +79,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeMeasureQualification): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_MeasureQualification.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -31,7 +31,8 @@ proc constructStepBasicProductCategory*(): StepBasicProductCategory {.constructo
     importcpp: "StepBasic_ProductCategory(@)",
     header: "StepBasic_ProductCategory.hxx".}
 proc init*(this: var StepBasicProductCategory;
-          aName: Handle[TCollectionHAsciiString]; hasAdescription: bool;
+          aName: Handle[TCollectionHAsciiString];
+          hasAdescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_ProductCategory.hxx".}
 proc setName*(this: var StepBasicProductCategory;
@@ -46,8 +47,9 @@ proc unSetDescription*(this: var StepBasicProductCategory) {.
     importcpp: "UnSetDescription", header: "StepBasic_ProductCategory.hxx".}
 proc description*(this: StepBasicProductCategory): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Description", header: "StepBasic_ProductCategory.hxx".}
-proc hasDescription*(this: StepBasicProductCategory): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_ProductCategory.hxx".}
+proc hasDescription*(this: StepBasicProductCategory): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_ProductCategory.hxx".}
 type
   StepBasicProductCategorybaseType* = StandardTransient
 
@@ -58,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ProductCategory.hxx".}
 proc dynamicType*(this: StepBasicProductCategory): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ProductCategory.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

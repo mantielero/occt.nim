@@ -19,42 +19,34 @@ discard "forward decl of StepDimTol_HArray1OfDatumReferenceElement"
 type
   StepDimTolDatumOrCommonDatum* {.importcpp: "StepDimTol_DatumOrCommonDatum",
                                  header: "StepDimTol_DatumOrCommonDatum.hxx",
-                                 bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                    ## DatumOrCommonDatum select type
+                                 bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepDimTolDatumOrCommonDatum; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator new",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
+proc `delete`*(this: var StepDimTolDatumOrCommonDatum; theAddress: pointer) {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator delete",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
+proc `new[]`*(this: var StepDimTolDatumOrCommonDatum; theSize: csize_t): pointer {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator new[]",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
+proc `delete[]`*(this: var StepDimTolDatumOrCommonDatum; theAddress: pointer) {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator delete[]",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
+proc `new`*(this: var StepDimTolDatumOrCommonDatum; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator new",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
+proc `delete`*(this: var StepDimTolDatumOrCommonDatum; a2: pointer; a3: pointer) {.
+    importcpp: "StepDimTol_DatumOrCommonDatum::operator delete",
+    header: "StepDimTol_DatumOrCommonDatum.hxx".}
 proc constructStepDimTolDatumOrCommonDatum*(): StepDimTolDatumOrCommonDatum {.
     constructor, importcpp: "StepDimTol_DatumOrCommonDatum(@)",
     header: "StepDimTol_DatumOrCommonDatum.hxx".}
-proc caseNum*(this: StepDimTolDatumOrCommonDatum; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepDimTolDatumOrCommonDatum; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
 proc datum*(this: StepDimTolDatumOrCommonDatum): Handle[StepDimTolDatum] {.
     noSideEffect, importcpp: "Datum", header: "StepDimTol_DatumOrCommonDatum.hxx".}
 proc commonDatumList*(this: StepDimTolDatumOrCommonDatum): Handle[
     StepDimTolHArray1OfDatumReferenceElement] {.noSideEffect,
     importcpp: "CommonDatumList", header: "StepDimTol_DatumOrCommonDatum.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

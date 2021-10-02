@@ -31,14 +31,14 @@ type
 proc constructStepGeomBSplineCurve*(): StepGeomBSplineCurve {.constructor,
     importcpp: "StepGeom_BSplineCurve(@)", header: "StepGeom_BSplineCurve.hxx".}
 proc init*(this: var StepGeomBSplineCurve; aName: Handle[TCollectionHAsciiString];
-          aDegree: cint;
+          aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical) {.importcpp: "Init",
     header: "StepGeom_BSplineCurve.hxx".}
-proc setDegree*(this: var StepGeomBSplineCurve; aDegree: cint) {.
+proc setDegree*(this: var StepGeomBSplineCurve; aDegree: int) {.
     importcpp: "SetDegree", header: "StepGeom_BSplineCurve.hxx".}
-proc degree*(this: StepGeomBSplineCurve): cint {.noSideEffect, importcpp: "Degree",
+proc degree*(this: StepGeomBSplineCurve): int {.noSideEffect, importcpp: "Degree",
     header: "StepGeom_BSplineCurve.hxx".}
 proc setControlPointsList*(this: var StepGeomBSplineCurve; aControlPointsList: Handle[
     StepGeomHArray1OfCartesianPoint]) {.importcpp: "SetControlPointsList",
@@ -47,10 +47,10 @@ proc controlPointsList*(this: StepGeomBSplineCurve): Handle[
     StepGeomHArray1OfCartesianPoint] {.noSideEffect,
                                       importcpp: "ControlPointsList",
                                       header: "StepGeom_BSplineCurve.hxx".}
-proc controlPointsListValue*(this: StepGeomBSplineCurve; num: cint): Handle[
+proc controlPointsListValue*(this: StepGeomBSplineCurve; num: int): Handle[
     StepGeomCartesianPoint] {.noSideEffect, importcpp: "ControlPointsListValue",
                              header: "StepGeom_BSplineCurve.hxx".}
-proc nbControlPointsList*(this: StepGeomBSplineCurve): cint {.noSideEffect,
+proc nbControlPointsList*(this: StepGeomBSplineCurve): int {.noSideEffect,
     importcpp: "NbControlPointsList", header: "StepGeom_BSplineCurve.hxx".}
 proc setCurveForm*(this: var StepGeomBSplineCurve;
                   aCurveForm: StepGeomBSplineCurveForm) {.
@@ -76,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BSplineCurve.hxx".}
 proc dynamicType*(this: StepGeomBSplineCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_BSplineCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

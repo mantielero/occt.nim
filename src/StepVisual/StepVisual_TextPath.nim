@@ -19,29 +19,3 @@ type
                        header: "StepVisual_TextPath.hxx".} = enum
     StepVisualTpUp, StepVisualTpRight, StepVisualTpDown, StepVisualTpLeft
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

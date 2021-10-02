@@ -46,28 +46,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_EulerAngles.hxx".}
 proc dynamicType*(this: StepBasicEulerAngles): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_EulerAngles.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

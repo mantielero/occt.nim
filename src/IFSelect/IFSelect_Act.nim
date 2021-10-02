@@ -19,7 +19,7 @@ discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Act"
 discard "forward decl of IFSelect_Act"
 type
-  HandleC1C1* = Handle[IFSelectAct]
+  HandleIFSelectAct* = Handle[IFSelectAct]
 
 ## ! Act gives a simple way to define and add functions to be ran
 ## ! from a SessionPilot, as follows :
@@ -73,7 +73,7 @@ proc `do`*(this: var IFSelectAct; number: cint; pilot: Handle[IFSelectSessionPil
     importcpp: "Do", header: "IFSelect_Act.hxx".}
 proc help*(this: IFSelectAct; number: cint): StandardCString {.noSideEffect,
     importcpp: "Help", header: "IFSelect_Act.hxx".}
-proc setGroup*(group: StandardCString; file: StandardCString = "") {.
+#[ proc setGroup*(group: StandardCString; file: StandardCString = "") {.
     importcpp: "IFSelect_Act::SetGroup(@)", header: "IFSelect_Act.hxx".}
 proc addFunc*(name: StandardCString; help: StandardCString; `func`: IFSelectActFunc) {.
     importcpp: "IFSelect_Act::AddFunc(@)", header: "IFSelect_Act.hxx".}
@@ -113,3 +113,4 @@ proc dynamicType*(this: IFSelectAct): Handle[StandardType] {.noSideEffect,
 
 
 
+ ]#

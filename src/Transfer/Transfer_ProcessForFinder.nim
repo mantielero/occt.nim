@@ -117,7 +117,7 @@ type
 proc constructTransferProcessForFinder*(nb: int = 10000): TransferProcessForFinder {.
     constructor, importcpp: "Transfer_ProcessForFinder(@)",
     header: "Transfer_ProcessForFinder.hxx".}
-proc constructTransferProcessForFinder*(printer: Handle[MessageMessenger];
+#[ proc constructTransferProcessForFinder*(printer: Handle[MessageMessenger];
                                        nb: int = 10000): TransferProcessForFinder {.
     constructor, importcpp: "Transfer_ProcessForFinder(@)",
     header: "Transfer_ProcessForFinder.hxx".}
@@ -348,3 +348,4 @@ proc dynamicType*(this: TransferProcessForFinder): Handle[StandardType] {.
 
 
 
+ ]#

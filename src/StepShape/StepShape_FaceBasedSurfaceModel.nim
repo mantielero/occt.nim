@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeFaceBasedSurfaceModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_FaceBasedSurfaceModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

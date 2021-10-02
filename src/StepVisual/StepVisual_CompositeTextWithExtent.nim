@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCompositeTextWithExtent): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CompositeTextWithExtent.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

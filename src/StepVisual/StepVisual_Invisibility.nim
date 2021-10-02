@@ -38,10 +38,10 @@ proc setInvisibleItems*(this: var StepVisualInvisibility; aInvisibleItems: Handl
 proc invisibleItems*(this: StepVisualInvisibility): Handle[
     StepVisualHArray1OfInvisibleItem] {.noSideEffect, importcpp: "InvisibleItems",
                                        header: "StepVisual_Invisibility.hxx".}
-proc invisibleItemsValue*(this: StepVisualInvisibility; num: cint): StepVisualInvisibleItem {.
+proc invisibleItemsValue*(this: StepVisualInvisibility; num: int): StepVisualInvisibleItem {.
     noSideEffect, importcpp: "InvisibleItemsValue",
     header: "StepVisual_Invisibility.hxx".}
-proc nbInvisibleItems*(this: StepVisualInvisibility): cint {.noSideEffect,
+proc nbInvisibleItems*(this: StepVisualInvisibility): int {.noSideEffect,
     importcpp: "NbInvisibleItems", header: "StepVisual_Invisibility.hxx".}
 type
   StepVisualInvisibilitybaseType* = StandardTransient
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_Invisibility.hxx".}
 proc dynamicType*(this: StepVisualInvisibility): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_Invisibility.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

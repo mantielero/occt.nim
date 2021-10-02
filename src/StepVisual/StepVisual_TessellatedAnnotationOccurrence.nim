@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Tessell
 proc dynamicType*(this: StepVisualTessellatedAnnotationOccurrence): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_TessellatedAnnotationOccurrence.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

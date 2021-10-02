@@ -17,29 +17,3 @@ type
       header: "StepElement_EnumeratedVolumeElementPurpose.hxx".} = enum
     StepElementStressDisplacement
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

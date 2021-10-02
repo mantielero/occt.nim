@@ -21,19 +21,28 @@ discard "forward decl of StepVisual_AreaInSet"
 type
   StepVisualPresentationSizeAssignmentSelect* {.
       importcpp: "StepVisual_PresentationSizeAssignmentSelect",
-      header: "StepVisual_PresentationSizeAssignmentSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## a
-                                                                                                  ## PresentationSizeAssignmentSelect
-                                                                                                  ## SelectType
+      header: "StepVisual_PresentationSizeAssignmentSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualPresentationSizeAssignmentSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator new",
+    header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationSizeAssignmentSelect;
+              theAddress: pointer) {.importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator delete", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc `new[]`*(this: var StepVisualPresentationSizeAssignmentSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator new[]",
+    header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc `delete[]`*(this: var StepVisualPresentationSizeAssignmentSelect;
+                theAddress: pointer) {.importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator delete[]", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc `new`*(this: var StepVisualPresentationSizeAssignmentSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator new", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
+proc `delete`*(this: var StepVisualPresentationSizeAssignmentSelect; a2: pointer;
+              a3: pointer) {.importcpp: "StepVisual_PresentationSizeAssignmentSelect::operator delete", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc constructStepVisualPresentationSizeAssignmentSelect*(): StepVisualPresentationSizeAssignmentSelect {.
     constructor, importcpp: "StepVisual_PresentationSizeAssignmentSelect(@)",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc caseNum*(this: StepVisualPresentationSizeAssignmentSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum",
     header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc presentationView*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
@@ -42,28 +51,3 @@ proc presentationArea*(this: StepVisualPresentationSizeAssignmentSelect): Handle
     StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
 proc areaInSet*(this: StepVisualPresentationSizeAssignmentSelect): Handle[
     StepVisualAreaInSet] {.noSideEffect, importcpp: "AreaInSet", header: "StepVisual_PresentationSizeAssignmentSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -30,20 +30,20 @@ type
 proc constructStepVisualColourRgb*(): StepVisualColourRgb {.constructor,
     importcpp: "StepVisual_ColourRgb(@)", header: "StepVisual_ColourRgb.hxx".}
 proc init*(this: var StepVisualColourRgb; aName: Handle[TCollectionHAsciiString];
-          aRed: cfloat; aGreen: cfloat; aBlue: cfloat) {.importcpp: "Init",
+          aRed: StandardReal; aGreen: StandardReal; aBlue: StandardReal) {.
+    importcpp: "Init", header: "StepVisual_ColourRgb.hxx".}
+proc setRed*(this: var StepVisualColourRgb; aRed: StandardReal) {.importcpp: "SetRed",
     header: "StepVisual_ColourRgb.hxx".}
-proc setRed*(this: var StepVisualColourRgb; aRed: cfloat) {.importcpp: "SetRed",
+proc red*(this: StepVisualColourRgb): StandardReal {.noSideEffect, importcpp: "Red",
     header: "StepVisual_ColourRgb.hxx".}
-proc red*(this: StepVisualColourRgb): cfloat {.noSideEffect, importcpp: "Red",
-    header: "StepVisual_ColourRgb.hxx".}
-proc setGreen*(this: var StepVisualColourRgb; aGreen: cfloat) {.importcpp: "SetGreen",
-    header: "StepVisual_ColourRgb.hxx".}
-proc green*(this: StepVisualColourRgb): cfloat {.noSideEffect, importcpp: "Green",
-    header: "StepVisual_ColourRgb.hxx".}
-proc setBlue*(this: var StepVisualColourRgb; aBlue: cfloat) {.importcpp: "SetBlue",
-    header: "StepVisual_ColourRgb.hxx".}
-proc blue*(this: StepVisualColourRgb): cfloat {.noSideEffect, importcpp: "Blue",
-    header: "StepVisual_ColourRgb.hxx".}
+proc setGreen*(this: var StepVisualColourRgb; aGreen: StandardReal) {.
+    importcpp: "SetGreen", header: "StepVisual_ColourRgb.hxx".}
+proc green*(this: StepVisualColourRgb): StandardReal {.noSideEffect,
+    importcpp: "Green", header: "StepVisual_ColourRgb.hxx".}
+proc setBlue*(this: var StepVisualColourRgb; aBlue: StandardReal) {.
+    importcpp: "SetBlue", header: "StepVisual_ColourRgb.hxx".}
+proc blue*(this: StepVisualColourRgb): StandardReal {.noSideEffect,
+    importcpp: "Blue", header: "StepVisual_ColourRgb.hxx".}
 type
   StepVisualColourRgbbaseType* = StepVisualColourSpecification
 
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_ColourRgb.hxx".}
 proc dynamicType*(this: StepVisualColourRgb): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_ColourRgb.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

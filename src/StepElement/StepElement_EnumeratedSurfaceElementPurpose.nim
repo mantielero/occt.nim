@@ -18,29 +18,3 @@ type
     StepElementMembraneDirect, StepElementMembraneShear, StepElementBendingDirect,
     StepElementBendingTorsion, StepElementNormalToPlaneShear
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -18,29 +18,3 @@ type
     StepElementAxial, StepElementYYBending, StepElementZZBending,
     StepElementTorsion, StepElementXYShear, StepElementXZShear, StepElementWarping
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

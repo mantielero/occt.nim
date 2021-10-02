@@ -16,29 +16,3 @@
 
 type
   StepBasicArray1OfProduct* = NCollectionArray1[Handle[StepBasicProduct]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

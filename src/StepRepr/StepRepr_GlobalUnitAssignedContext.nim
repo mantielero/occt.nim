@@ -41,10 +41,10 @@ proc setUnits*(this: var StepReprGlobalUnitAssignedContext;
     importcpp: "SetUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
 proc units*(this: StepReprGlobalUnitAssignedContext): Handle[
     StepBasicHArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc unitsValue*(this: StepReprGlobalUnitAssignedContext; num: cint): Handle[
+proc unitsValue*(this: StepReprGlobalUnitAssignedContext; num: int): Handle[
     StepBasicNamedUnit] {.noSideEffect, importcpp: "UnitsValue",
                          header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-proc nbUnits*(this: StepReprGlobalUnitAssignedContext): cint {.noSideEffect,
+proc nbUnits*(this: StepReprGlobalUnitAssignedContext): int {.noSideEffect,
     importcpp: "NbUnits", header: "StepRepr_GlobalUnitAssignedContext.hxx".}
 type
   StepReprGlobalUnitAssignedContextbaseType* = StepReprRepresentationContext
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprGlobalUnitAssignedContext): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GlobalUnitAssignedContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

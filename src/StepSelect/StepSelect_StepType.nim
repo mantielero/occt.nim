@@ -86,28 +86,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepSelect_StepType.hxx".}
 proc dynamicType*(this: StepSelectStepType): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepSelect_StepType.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

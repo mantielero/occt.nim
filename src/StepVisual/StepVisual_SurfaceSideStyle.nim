@@ -46,10 +46,10 @@ proc setStyles*(this: var StepVisualSurfaceSideStyle;
 proc styles*(this: StepVisualSurfaceSideStyle): Handle[
     StepVisualHArray1OfSurfaceStyleElementSelect] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_SurfaceSideStyle.hxx".}
-proc stylesValue*(this: StepVisualSurfaceSideStyle; num: cint): StepVisualSurfaceStyleElementSelect {.
+proc stylesValue*(this: StepVisualSurfaceSideStyle; num: int): StepVisualSurfaceStyleElementSelect {.
     noSideEffect, importcpp: "StylesValue",
     header: "StepVisual_SurfaceSideStyle.hxx".}
-proc nbStyles*(this: StepVisualSurfaceSideStyle): cint {.noSideEffect,
+proc nbStyles*(this: StepVisualSurfaceSideStyle): int {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_SurfaceSideStyle.hxx".}
 type
   StepVisualSurfaceSideStylebaseType* = StandardTransient
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceSideStyle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceSideStyle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

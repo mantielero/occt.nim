@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualOverRidingStyledItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_OverRidingStyledItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

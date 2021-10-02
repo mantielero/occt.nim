@@ -20,16 +20,31 @@ discard "forward decl of StepVisual_AnnotationTextOccurrence"
 discard "forward decl of StepVisual_TessellatedAnnotationOccurrence"
 type
   StepVisualDraughtingCalloutElement* {.importcpp: "StepVisual_DraughtingCalloutElement", header: "StepVisual_DraughtingCalloutElement.hxx",
-                                       bycopy.} = object of StepDataSelectType ## !
-                                                                          ## Returns a
-                                                                          ## DraughtingCalloutElement select type
+                                       bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualDraughtingCalloutElement; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_DraughtingCalloutElement::operator new",
+    header: "StepVisual_DraughtingCalloutElement.hxx".}
+proc `delete`*(this: var StepVisualDraughtingCalloutElement; theAddress: pointer) {.
+    importcpp: "StepVisual_DraughtingCalloutElement::operator delete",
+    header: "StepVisual_DraughtingCalloutElement.hxx".}
+proc `new[]`*(this: var StepVisualDraughtingCalloutElement; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_DraughtingCalloutElement::operator new[]",
+    header: "StepVisual_DraughtingCalloutElement.hxx".}
+proc `delete[]`*(this: var StepVisualDraughtingCalloutElement; theAddress: pointer) {.
+    importcpp: "StepVisual_DraughtingCalloutElement::operator delete[]",
+    header: "StepVisual_DraughtingCalloutElement.hxx".}
+proc `new`*(this: var StepVisualDraughtingCalloutElement; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_DraughtingCalloutElement::operator new", header: "StepVisual_DraughtingCalloutElement.hxx".}
+proc `delete`*(this: var StepVisualDraughtingCalloutElement; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_DraughtingCalloutElement::operator delete",
+    header: "StepVisual_DraughtingCalloutElement.hxx".}
 proc constructStepVisualDraughtingCalloutElement*(): StepVisualDraughtingCalloutElement {.
     constructor, importcpp: "StepVisual_DraughtingCalloutElement(@)",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
 proc caseNum*(this: StepVisualDraughtingCalloutElement;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_DraughtingCalloutElement.hxx".}
 proc annotationCurveOccurrence*(this: StepVisualDraughtingCalloutElement): Handle[
     StepVisualAnnotationCurveOccurrence] {.noSideEffect,
@@ -47,28 +62,3 @@ proc annotationFillAreaOccurrence*(this: StepVisualDraughtingCalloutElement): Ha
     StepVisualAnnotationFillAreaOccurrence] {.noSideEffect,
     importcpp: "AnnotationFillAreaOccurrence",
     header: "StepVisual_DraughtingCalloutElement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

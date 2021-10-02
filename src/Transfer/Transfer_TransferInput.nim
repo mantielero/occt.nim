@@ -23,12 +23,27 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of Transfer_FinderProcess"
 type
   TransferTransferInput* {.importcpp: "Transfer_TransferInput",
-                          header: "Transfer_TransferInput.hxx", bycopy.} = object ## !
-                                                                             ## Creates a
-                                                                             ## TransferInput
-                                                                             ## ready to use
+                          header: "Transfer_TransferInput.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TransferTransferInput; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferInput::operator new",
+    header: "Transfer_TransferInput.hxx".}
+proc `delete`*(this: var TransferTransferInput; theAddress: pointer) {.
+    importcpp: "Transfer_TransferInput::operator delete",
+    header: "Transfer_TransferInput.hxx".}
+proc `new[]`*(this: var TransferTransferInput; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferInput::operator new[]",
+    header: "Transfer_TransferInput.hxx".}
+proc `delete[]`*(this: var TransferTransferInput; theAddress: pointer) {.
+    importcpp: "Transfer_TransferInput::operator delete[]",
+    header: "Transfer_TransferInput.hxx".}
+proc `new`*(this: var TransferTransferInput; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Transfer_TransferInput::operator new",
+    header: "Transfer_TransferInput.hxx".}
+proc `delete`*(this: var TransferTransferInput; a2: pointer; a3: pointer) {.
+    importcpp: "Transfer_TransferInput::operator delete",
+    header: "Transfer_TransferInput.hxx".}
 proc constructTransferTransferInput*(): TransferTransferInput {.constructor,
     importcpp: "Transfer_TransferInput(@)", header: "Transfer_TransferInput.hxx".}
 proc entities*(this: TransferTransferInput; list: var TransferTransferIterator): InterfaceEntityIterator {.
@@ -37,40 +52,15 @@ proc fillModel*(this: TransferTransferInput;
                `proc`: Handle[TransferTransientProcess];
                amodel: Handle[InterfaceInterfaceModel]) {.noSideEffect,
     importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
-proc fillModel*(this: TransferTransferInput;
+#[ proc fillModel*(this: TransferTransferInput;
                `proc`: Handle[TransferTransientProcess];
                amodel: Handle[InterfaceInterfaceModel];
-               proto: Handle[InterfaceProtocol]; roots: bool = true) {.noSideEffect,
-    importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
+               proto: Handle[InterfaceProtocol]; roots: StandardBoolean = true) {.
+    noSideEffect, importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
 proc fillModel*(this: TransferTransferInput; `proc`: Handle[TransferFinderProcess];
                amodel: Handle[InterfaceInterfaceModel]) {.noSideEffect,
     importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
 proc fillModel*(this: TransferTransferInput; `proc`: Handle[TransferFinderProcess];
                amodel: Handle[InterfaceInterfaceModel];
-               proto: Handle[InterfaceProtocol]; roots: bool = true) {.noSideEffect,
-    importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+               proto: Handle[InterfaceProtocol]; roots: StandardBoolean = true) {.
+    noSideEffect, importcpp: "FillModel", header: "Transfer_TransferInput.hxx".} ]#

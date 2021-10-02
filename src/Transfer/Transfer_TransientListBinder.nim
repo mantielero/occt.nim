@@ -20,7 +20,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransientListBinder"
 discard "forward decl of Transfer_TransientListBinder"
 type
-  HandleC1C1* = Handle[TransferTransientListBinder]
+  HandleTransferTransientListBinder* = Handle[TransferTransientListBinder]
 
 ## ! This binder binds several (a list of) Transients with a starting
 ## ! entity, when this entity itself corresponds to a simple list
@@ -31,15 +31,17 @@ type
   TransferTransientListBinder* {.importcpp: "Transfer_TransientListBinder",
                                 header: "Transfer_TransientListBinder.hxx", bycopy.} = object of TransferBinder
 
+type
+  TransferTransientListBinderbaseType* = TransferBinder
 
 proc constructTransferTransientListBinder*(): TransferTransientListBinder {.
     constructor, importcpp: "Transfer_TransientListBinder(@)",
     header: "Transfer_TransientListBinder.hxx".}
-proc constructTransferTransientListBinder*(
+#[ proc constructTransferTransientListBinder*(
     list: Handle[TColStdHSequenceOfTransient]): TransferTransientListBinder {.
     constructor, importcpp: "Transfer_TransientListBinder(@)",
     header: "Transfer_TransientListBinder.hxx".}
-proc isMultiple*(this: TransferTransientListBinder): bool {.noSideEffect,
+proc isMultiple*(this: TransferTransientListBinder): StandardBoolean {.noSideEffect,
     importcpp: "IsMultiple", header: "Transfer_TransientListBinder.hxx".}
 proc resultType*(this: TransferTransientListBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "ResultType",
@@ -52,16 +54,14 @@ proc addResult*(this: var TransferTransientListBinder;
     header: "Transfer_TransientListBinder.hxx".}
 proc result*(this: TransferTransientListBinder): Handle[TColStdHSequenceOfTransient] {.
     noSideEffect, importcpp: "Result", header: "Transfer_TransientListBinder.hxx".}
-proc setResult*(this: var TransferTransientListBinder; num: cint;
+proc setResult*(this: var TransferTransientListBinder; num: int;
                res: Handle[StandardTransient]) {.importcpp: "SetResult",
     header: "Transfer_TransientListBinder.hxx".}
-proc nbTransients*(this: TransferTransientListBinder): cint {.noSideEffect,
+proc nbTransients*(this: TransferTransientListBinder): int {.noSideEffect,
     importcpp: "NbTransients", header: "Transfer_TransientListBinder.hxx".}
-proc transient*(this: TransferTransientListBinder; num: cint): Handle[
+proc transient*(this: TransferTransientListBinder; num: int): Handle[
     StandardTransient] {.noSideEffect, importcpp: "Transient",
                         header: "Transfer_TransientListBinder.hxx".}
-type
-  TransferTransientListBinderbaseType* = TransferBinder
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_TransientListBinder::get_type_name(@)",
                             header: "Transfer_TransientListBinder.hxx".}
@@ -70,29 +70,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_TransientListBinder.hxx".}
 proc dynamicType*(this: TransferTransientListBinder): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Transfer_TransientListBinder.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "Transfer_TransientListBinder.hxx".} ]#

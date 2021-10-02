@@ -29,7 +29,7 @@ type
 proc constructStepBasicSiUnitAndLengthUnit*(): StepBasicSiUnitAndLengthUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndLengthUnit(@)",
     header: "StepBasic_SiUnitAndLengthUnit.hxx".}
-proc init*(this: var StepBasicSiUnitAndLengthUnit; hasAprefix: bool;
+proc init*(this: var StepBasicSiUnitAndLengthUnit; hasAprefix: StandardBoolean;
           aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndLengthUnit.hxx".}
 proc setLengthUnit*(this: var StepBasicSiUnitAndLengthUnit;
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSiUnitAndLengthUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndLengthUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

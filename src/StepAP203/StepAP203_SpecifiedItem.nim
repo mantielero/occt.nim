@@ -19,43 +19,33 @@ discard "forward decl of StepBasic_ProductDefinition"
 discard "forward decl of StepRepr_ShapeAspect"
 type
   StepAP203SpecifiedItem* {.importcpp: "StepAP203_SpecifiedItem",
-                           header: "StepAP203_SpecifiedItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+                           header: "StepAP203_SpecifiedItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203SpecifiedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_SpecifiedItem::operator new",
+    header: "StepAP203_SpecifiedItem.hxx".}
+proc `delete`*(this: var StepAP203SpecifiedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_SpecifiedItem::operator delete",
+    header: "StepAP203_SpecifiedItem.hxx".}
+proc `new[]`*(this: var StepAP203SpecifiedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_SpecifiedItem::operator new[]",
+    header: "StepAP203_SpecifiedItem.hxx".}
+proc `delete[]`*(this: var StepAP203SpecifiedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_SpecifiedItem::operator delete[]",
+    header: "StepAP203_SpecifiedItem.hxx".}
+proc `new`*(this: var StepAP203SpecifiedItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_SpecifiedItem::operator new",
+    header: "StepAP203_SpecifiedItem.hxx".}
+proc `delete`*(this: var StepAP203SpecifiedItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_SpecifiedItem::operator delete",
+    header: "StepAP203_SpecifiedItem.hxx".}
 proc constructStepAP203SpecifiedItem*(): StepAP203SpecifiedItem {.constructor,
     importcpp: "StepAP203_SpecifiedItem(@)", header: "StepAP203_SpecifiedItem.hxx".}
-proc caseNum*(this: StepAP203SpecifiedItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203SpecifiedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_SpecifiedItem.hxx".}
 proc productDefinition*(this: StepAP203SpecifiedItem): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
                                  header: "StepAP203_SpecifiedItem.hxx".}
 proc shapeAspect*(this: StepAP203SpecifiedItem): Handle[StepReprShapeAspect] {.
     noSideEffect, importcpp: "ShapeAspect", header: "StepAP203_SpecifiedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,7 +20,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Signature"
 discard "forward decl of IFSelect_Signature"
 type
-  HandleC1C1* = Handle[IFSelectSignature]
+  HandleIFSelectSignature* = Handle[IFSelectSignature]
 
 ## ! Signature provides the basic service used by the classes
 ## ! SelectSignature and Counter (i.e. Name, Value), which is :
@@ -32,7 +32,7 @@ type
 
 type
   IFSelectSignature* {.importcpp: "IFSelect_Signature",
-                      header: "IFSelect_Signature.hxx", bycopy.} = object of InterfaceSignType ##
+                      header: "IFSelect_Signature.hxx", bycopy.} = object # of InterfaceSignType ##
                                                                                         ## !
                                                                                         ## Sets
                                                                                         ## the

@@ -20,29 +20,3 @@ type
     StepVisualMtDot, StepVisualMtX, StepVisualMtPlus, StepVisualMtAsterisk,
     StepVisualMtRing, StepVisualMtSquare, StepVisualMtTriangle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

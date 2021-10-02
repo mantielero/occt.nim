@@ -31,11 +31,11 @@ type
 proc constructStepGeomParabola*(): StepGeomParabola {.constructor,
     importcpp: "StepGeom_Parabola(@)", header: "StepGeom_Parabola.hxx".}
 proc init*(this: var StepGeomParabola; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aFocalDist: cfloat) {.
+          aPosition: StepGeomAxis2Placement; aFocalDist: StandardReal) {.
     importcpp: "Init", header: "StepGeom_Parabola.hxx".}
-proc setFocalDist*(this: var StepGeomParabola; aFocalDist: cfloat) {.
+proc setFocalDist*(this: var StepGeomParabola; aFocalDist: StandardReal) {.
     importcpp: "SetFocalDist", header: "StepGeom_Parabola.hxx".}
-proc focalDist*(this: StepGeomParabola): cfloat {.noSideEffect,
+proc focalDist*(this: StepGeomParabola): StandardReal {.noSideEffect,
     importcpp: "FocalDist", header: "StepGeom_Parabola.hxx".}
 type
   StepGeomParabolabaseType* = StepGeomConic
@@ -47,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Parabola.hxx".}
 proc dynamicType*(this: StepGeomParabola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Parabola.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PreDefinedItem.hxx".}
 proc dynamicType*(this: StepVisualPreDefinedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_PreDefinedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

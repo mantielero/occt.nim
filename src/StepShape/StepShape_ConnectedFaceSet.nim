@@ -40,10 +40,10 @@ proc setCfsFaces*(this: var StepShapeConnectedFaceSet;
     importcpp: "SetCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
 proc cfsFaces*(this: StepShapeConnectedFaceSet): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
-proc cfsFacesValue*(this: StepShapeConnectedFaceSet; num: cint): Handle[StepShapeFace] {.
+proc cfsFacesValue*(this: StepShapeConnectedFaceSet; num: int): Handle[StepShapeFace] {.
     noSideEffect, importcpp: "CfsFacesValue",
     header: "StepShape_ConnectedFaceSet.hxx".}
-proc nbCfsFaces*(this: StepShapeConnectedFaceSet): cint {.noSideEffect,
+proc nbCfsFaces*(this: StepShapeConnectedFaceSet): int {.noSideEffect,
     importcpp: "NbCfsFaces", header: "StepShape_ConnectedFaceSet.hxx".}
 type
   StepShapeConnectedFaceSetbaseType* = StepShapeTopologicalRepresentationItem
@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeConnectedFaceSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ConnectedFaceSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

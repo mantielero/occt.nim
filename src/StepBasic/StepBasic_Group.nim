@@ -29,8 +29,9 @@ type
 proc constructStepBasicGroup*(): StepBasicGroup {.constructor,
     importcpp: "StepBasic_Group(@)", header: "StepBasic_Group.hxx".}
 proc init*(this: var StepBasicGroup; aName: Handle[TCollectionHAsciiString];
-          hasDescription: bool; aDescription: Handle[TCollectionHAsciiString]) {.
-    importcpp: "Init", header: "StepBasic_Group.hxx".}
+          hasDescription: StandardBoolean;
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+    header: "StepBasic_Group.hxx".}
 proc name*(this: StepBasicGroup): Handle[TCollectionHAsciiString] {.noSideEffect,
     importcpp: "Name", header: "StepBasic_Group.hxx".}
 proc setName*(this: var StepBasicGroup; name: Handle[TCollectionHAsciiString]) {.
@@ -40,7 +41,7 @@ proc description*(this: StepBasicGroup): Handle[TCollectionHAsciiString] {.
 proc setDescription*(this: var StepBasicGroup;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_Group.hxx".}
-proc hasDescription*(this: StepBasicGroup): bool {.noSideEffect,
+proc hasDescription*(this: StepBasicGroup): StandardBoolean {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_Group.hxx".}
 type
   StepBasicGroupbaseType* = StandardTransient
@@ -52,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Group.hxx".}
 proc dynamicType*(this: StepBasicGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Group.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

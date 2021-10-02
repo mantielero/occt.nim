@@ -71,28 +71,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Analys
 proc dynamicType*(this: StepElementAnalysisItemWithinRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_AnalysisItemWithinRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,8 +16,8 @@
 
 discard "forward decl of StepBasic_ApprovalStatus"
 discard "forward decl of TCollection_HAsciiString"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of StepBasic_Approval"
 discard "forward decl of StepBasic_Approval"
 type
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Approval.hxx".}
 proc dynamicType*(this: StepBasicApproval): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Approval.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

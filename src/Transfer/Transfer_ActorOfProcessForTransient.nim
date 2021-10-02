@@ -23,11 +23,13 @@ discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 type
-  HandleTransferActorOfProcessForTransient* = Handle[
-      TransferActorOfProcessForTransient]
   TransferActorOfProcessForTransient* {.importcpp: "Transfer_ActorOfProcessForTransient", header: "Transfer_ActorOfProcessForTransient.hxx",
                                        bycopy.} = object of StandardTransient
+  HandleTransferActorOfProcessForTransient* = Handle[
+      TransferActorOfProcessForTransient]
 
+type
+  TransferActorOfProcessForTransientbaseType* = StandardTransient
 
 proc constructTransferActorOfProcessForTransient*(): TransferActorOfProcessForTransient {.
     constructor, importcpp: "Transfer_ActorOfProcessForTransient(@)",
@@ -35,7 +37,7 @@ proc constructTransferActorOfProcessForTransient*(): TransferActorOfProcessForTr
 proc recognize*(this: var TransferActorOfProcessForTransient;
                start: Handle[StandardTransient]): bool {.importcpp: "Recognize",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-proc transferring*(this: var TransferActorOfProcessForTransient;
+#[ proc transferring*(this: var TransferActorOfProcessForTransient;
                   start: Handle[StandardTransient];
                   tp: Handle[TransferProcessForTransient];
                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
@@ -57,8 +59,7 @@ proc setNext*(this: var TransferActorOfProcessForTransient;
 proc next*(this: TransferActorOfProcessForTransient): Handle[
     TransferActorOfProcessForTransient] {.noSideEffect, importcpp: "Next",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-type
-  TransferActorOfProcessForTransientbaseType* = StandardTransient
+
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_ActorOfProcessForTransient::get_type_name(@)",
                             header: "Transfer_ActorOfProcessForTransient.hxx".}
@@ -114,3 +115,4 @@ proc dynamicType*(this: TransferActorOfProcessForTransient): Handle[StandardType
 
 
 
+ ]#

@@ -31,8 +31,9 @@ type
 proc constructStepVisualPlanarBox*(): StepVisualPlanarBox {.constructor,
     importcpp: "StepVisual_PlanarBox(@)", header: "StepVisual_PlanarBox.hxx".}
 proc init*(this: var StepVisualPlanarBox; aName: Handle[TCollectionHAsciiString];
-          aSizeInX: cfloat; aSizeInY: cfloat; aPlacement: StepGeomAxis2Placement) {.
-    importcpp: "Init", header: "StepVisual_PlanarBox.hxx".}
+          aSizeInX: StandardReal; aSizeInY: StandardReal;
+          aPlacement: StepGeomAxis2Placement) {.importcpp: "Init",
+    header: "StepVisual_PlanarBox.hxx".}
 proc setPlacement*(this: var StepVisualPlanarBox; aPlacement: StepGeomAxis2Placement) {.
     importcpp: "SetPlacement", header: "StepVisual_PlanarBox.hxx".}
 proc placement*(this: StepVisualPlanarBox): StepGeomAxis2Placement {.noSideEffect,
@@ -47,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PlanarBox.hxx".}
 proc dynamicType*(this: StepVisualPlanarBox): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_PlanarBox.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

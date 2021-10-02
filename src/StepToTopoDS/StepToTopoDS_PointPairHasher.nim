@@ -18,40 +18,30 @@ discard "forward decl of StepToTopoDS_PointPair"
 type
   StepToTopoDS_PointPairHasher* {.importcpp: "StepToTopoDS_PointPairHasher",
                                  header: "StepToTopoDS_PointPairHasher.hxx",
-                                 bycopy.} = object ## ! Computes a hash code for the point pair, in the range [1, theUpperBound]
-                                                ## ! @param thePointPair the point pair which hash code is to be computed
-                                                ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                ## ! @return a computed hash code, in the range [1, theUpperBound]
+                                 bycopy.} = object
 
 
-proc hashCode*(thePointPair: StepToTopoDS_PointPair; theUpperBound: cint): cint {.
+proc `new`*(this: var StepToTopoDS_PointPairHasher; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator new",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc `delete`*(this: var StepToTopoDS_PointPairHasher; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator delete",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc `new[]`*(this: var StepToTopoDS_PointPairHasher; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator new[]",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_PointPairHasher; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator delete[]",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc `new`*(this: var StepToTopoDS_PointPairHasher; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator new",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc `delete`*(this: var StepToTopoDS_PointPairHasher; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_PointPairHasher::operator delete",
+    header: "StepToTopoDS_PointPairHasher.hxx".}
+proc hashCode*(thePointPair: StepToTopoDS_PointPair; theUpperBound: int): int {.
     importcpp: "StepToTopoDS_PointPairHasher::HashCode(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}
-proc isEqual*(k1: StepToTopoDS_PointPair; k2: StepToTopoDS_PointPair): bool {.
+proc isEqual*(k1: StepToTopoDS_PointPair; k2: StepToTopoDS_PointPair): StandardBoolean {.
     importcpp: "StepToTopoDS_PointPairHasher::IsEqual(@)",
     header: "StepToTopoDS_PointPairHasher.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

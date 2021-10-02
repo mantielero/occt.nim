@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprStructuralResponseProperty): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_StructuralResponseProperty.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

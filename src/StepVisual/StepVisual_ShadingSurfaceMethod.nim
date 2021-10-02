@@ -19,29 +19,3 @@ type
     StepVisualSsmConstantShading, StepVisualSsmColourShading,
     StepVisualSsmDotShading, StepVisualSsmNormalShading
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

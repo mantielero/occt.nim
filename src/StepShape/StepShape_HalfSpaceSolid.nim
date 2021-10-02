@@ -33,16 +33,17 @@ proc constructStepShapeHalfSpaceSolid*(): StepShapeHalfSpaceSolid {.constructor,
     header: "StepShape_HalfSpaceSolid.hxx".}
 proc init*(this: var StepShapeHalfSpaceSolid;
           aName: Handle[TCollectionHAsciiString];
-          aBaseSurface: Handle[StepGeomSurface]; aAgreementFlag: bool) {.
+          aBaseSurface: Handle[StepGeomSurface]; aAgreementFlag: StandardBoolean) {.
     importcpp: "Init", header: "StepShape_HalfSpaceSolid.hxx".}
 proc setBaseSurface*(this: var StepShapeHalfSpaceSolid;
                     aBaseSurface: Handle[StepGeomSurface]) {.
     importcpp: "SetBaseSurface", header: "StepShape_HalfSpaceSolid.hxx".}
 proc baseSurface*(this: StepShapeHalfSpaceSolid): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BaseSurface", header: "StepShape_HalfSpaceSolid.hxx".}
-proc setAgreementFlag*(this: var StepShapeHalfSpaceSolid; aAgreementFlag: bool) {.
+proc setAgreementFlag*(this: var StepShapeHalfSpaceSolid;
+                      aAgreementFlag: StandardBoolean) {.
     importcpp: "SetAgreementFlag", header: "StepShape_HalfSpaceSolid.hxx".}
-proc agreementFlag*(this: StepShapeHalfSpaceSolid): bool {.noSideEffect,
+proc agreementFlag*(this: StepShapeHalfSpaceSolid): StandardBoolean {.noSideEffect,
     importcpp: "AgreementFlag", header: "StepShape_HalfSpaceSolid.hxx".}
 type
   StepShapeHalfSpaceSolidbaseType* = StepGeomGeometricRepresentationItem
@@ -54,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_HalfSpaceSolid.hxx".}
 proc dynamicType*(this: StepShapeHalfSpaceSolid): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_HalfSpaceSolid.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

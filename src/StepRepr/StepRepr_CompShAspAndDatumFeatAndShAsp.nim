@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_CompShAsp
 proc dynamicType*(this: StepReprCompShAspAndDatumFeatAndShAsp): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CompShAspAndDatumFeatAndShAsp.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

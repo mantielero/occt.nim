@@ -20,7 +20,7 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of TopoDS_Shape"
 type
   XSControlReader* {.importcpp: "XSControl_Reader", header: "XSControl_Reader.hxx",
-                    bycopy.} = object ## ! Creates a Reader from scratch (creates an empty WorkSession)
+                    bycopy.} = object of RootObj## ! Creates a Reader from scratch (creates an empty WorkSession)
                                    ## ! A WorkSession or a Controller must be provided before running
                                    ## ! Returns a sequence of produced shapes
 
@@ -42,7 +42,7 @@ proc ws*(this: XSControlReader): Handle[XSControlWorkSession] {.noSideEffect,
     importcpp: "WS", header: "XSControl_Reader.hxx".}
 proc readFile*(this: var XSControlReader; filename: StandardCString): IFSelectReturnStatus {.
     importcpp: "ReadFile", header: "XSControl_Reader.hxx".}
-proc readStream*(this: var XSControlReader; theName: StandardCString;
+#[ proc readStream*(this: var XSControlReader; theName: StandardCString;
                 theIStream: var Istream): IFSelectReturnStatus {.
     importcpp: "ReadStream", header: "XSControl_Reader.hxx".}
 proc model*(this: XSControlReader): Handle[InterfaceInterfaceModel] {.noSideEffect,
@@ -127,3 +127,4 @@ proc getStatsTransfer*(this: XSControlReader;
 
 
 
+ ]#

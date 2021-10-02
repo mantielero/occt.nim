@@ -19,40 +19,33 @@ type
                                       bycopy.} = object
 
 
+proc `new`*(this: var StepVisualBoxCharacteristicSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_BoxCharacteristicSelect::operator new",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc `delete`*(this: var StepVisualBoxCharacteristicSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_BoxCharacteristicSelect::operator delete",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc `new[]`*(this: var StepVisualBoxCharacteristicSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_BoxCharacteristicSelect::operator new[]",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc `delete[]`*(this: var StepVisualBoxCharacteristicSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_BoxCharacteristicSelect::operator delete[]",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc `new`*(this: var StepVisualBoxCharacteristicSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_BoxCharacteristicSelect::operator new", header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc `delete`*(this: var StepVisualBoxCharacteristicSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_BoxCharacteristicSelect::operator delete",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
 proc constructStepVisualBoxCharacteristicSelect*(): StepVisualBoxCharacteristicSelect {.
     constructor, importcpp: "StepVisual_BoxCharacteristicSelect(@)",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc typeOfContent*(this: StepVisualBoxCharacteristicSelect): cint {.noSideEffect,
+proc typeOfContent*(this: StepVisualBoxCharacteristicSelect): int {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc setTypeOfContent*(this: var StepVisualBoxCharacteristicSelect; aType: cint) {.
+proc setTypeOfContent*(this: var StepVisualBoxCharacteristicSelect; aType: int) {.
     importcpp: "SetTypeOfContent",
     header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc realValue*(this: StepVisualBoxCharacteristicSelect): cfloat {.noSideEffect,
-    importcpp: "RealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}
-proc setRealValue*(this: var StepVisualBoxCharacteristicSelect; aValue: cfloat) {.
+proc realValue*(this: StepVisualBoxCharacteristicSelect): StandardReal {.
+    noSideEffect, importcpp: "RealValue",
+    header: "StepVisual_BoxCharacteristicSelect.hxx".}
+proc setRealValue*(this: var StepVisualBoxCharacteristicSelect; aValue: StandardReal) {.
     importcpp: "SetRealValue", header: "StepVisual_BoxCharacteristicSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,29 +17,3 @@ type
                               header: "StepElement_Element2dShape.hxx".} = enum
     StepElementQuadrilateral, StepElementTriangle
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

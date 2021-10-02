@@ -35,14 +35,16 @@ proc init*(this: var StepElementUniformSurfaceSection;
           aSurfaceSectionOffset: StepElementMeasureOrUnspecifiedValue;
     aSurfaceSectionNonStructuralMass: StepElementMeasureOrUnspecifiedValue;
     aSurfaceSectionNonStructuralMassOffset: StepElementMeasureOrUnspecifiedValue;
-          aThickness: cfloat;
+          aThickness: StandardReal;
           aBendingThickness: StepElementMeasureOrUnspecifiedValue;
           aShearThickness: StepElementMeasureOrUnspecifiedValue) {.
     importcpp: "Init", header: "StepElement_UniformSurfaceSection.hxx".}
-proc thickness*(this: StepElementUniformSurfaceSection): cfloat {.noSideEffect,
-    importcpp: "Thickness", header: "StepElement_UniformSurfaceSection.hxx".}
-proc setThickness*(this: var StepElementUniformSurfaceSection; thickness: cfloat) {.
-    importcpp: "SetThickness", header: "StepElement_UniformSurfaceSection.hxx".}
+proc thickness*(this: StepElementUniformSurfaceSection): StandardReal {.
+    noSideEffect, importcpp: "Thickness",
+    header: "StepElement_UniformSurfaceSection.hxx".}
+proc setThickness*(this: var StepElementUniformSurfaceSection;
+                  thickness: StandardReal) {.importcpp: "SetThickness",
+    header: "StepElement_UniformSurfaceSection.hxx".}
 proc bendingThickness*(this: StepElementUniformSurfaceSection): StepElementMeasureOrUnspecifiedValue {.
     noSideEffect, importcpp: "BendingThickness",
     header: "StepElement_UniformSurfaceSection.hxx".}
@@ -68,28 +70,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementUniformSurfaceSection): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_UniformSurfaceSection.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

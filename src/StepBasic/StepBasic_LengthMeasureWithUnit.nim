@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicLengthMeasureWithUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_LengthMeasureWithUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

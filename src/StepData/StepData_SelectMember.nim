@@ -43,51 +43,51 @@ type
 
 proc constructStepDataSelectMember*(): StepDataSelectMember {.constructor,
     importcpp: "StepData_SelectMember(@)", header: "StepData_SelectMember.hxx".}
-proc hasName*(this: StepDataSelectMember): bool {.noSideEffect, importcpp: "HasName",
-    header: "StepData_SelectMember.hxx".}
+proc hasName*(this: StepDataSelectMember): StandardBoolean {.noSideEffect,
+    importcpp: "HasName", header: "StepData_SelectMember.hxx".}
 proc name*(this: StepDataSelectMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepData_SelectMember.hxx".}
-proc setName*(this: var StepDataSelectMember; name: StandardCString): bool {.
+proc setName*(this: var StepDataSelectMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepData_SelectMember.hxx".}
-proc matches*(this: StepDataSelectMember; name: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_SelectMember.hxx".}
-proc kind*(this: StepDataSelectMember): cint {.noSideEffect, importcpp: "Kind",
+proc matches*(this: StepDataSelectMember; name: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_SelectMember.hxx".}
+proc kind*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Kind",
     header: "StepData_SelectMember.hxx".}
-proc setKind*(this: var StepDataSelectMember; kind: cint) {.importcpp: "SetKind",
+proc setKind*(this: var StepDataSelectMember; kind: int) {.importcpp: "SetKind",
     header: "StepData_SelectMember.hxx".}
 proc paramType*(this: StepDataSelectMember): InterfaceParamType {.noSideEffect,
     importcpp: "ParamType", header: "StepData_SelectMember.hxx".}
-proc int*(this: StepDataSelectMember): cint {.noSideEffect, importcpp: "Int",
+proc int*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Int",
     header: "StepData_SelectMember.hxx".}
-proc setInt*(this: var StepDataSelectMember; val: cint) {.importcpp: "SetInt",
+proc setInt*(this: var StepDataSelectMember; val: int) {.importcpp: "SetInt",
     header: "StepData_SelectMember.hxx".}
-proc integer*(this: StepDataSelectMember): cint {.noSideEffect, importcpp: "Integer",
+proc integer*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Integer",
     header: "StepData_SelectMember.hxx".}
-proc setInteger*(this: var StepDataSelectMember; val: cint) {.importcpp: "SetInteger",
+proc setInteger*(this: var StepDataSelectMember; val: int) {.importcpp: "SetInteger",
     header: "StepData_SelectMember.hxx".}
-proc boolean*(this: StepDataSelectMember): bool {.noSideEffect, importcpp: "Boolean",
-    header: "StepData_SelectMember.hxx".}
-proc setBoolean*(this: var StepDataSelectMember; val: bool) {.importcpp: "SetBoolean",
-    header: "StepData_SelectMember.hxx".}
+proc boolean*(this: StepDataSelectMember): StandardBoolean {.noSideEffect,
+    importcpp: "Boolean", header: "StepData_SelectMember.hxx".}
+proc setBoolean*(this: var StepDataSelectMember; val: StandardBoolean) {.
+    importcpp: "SetBoolean", header: "StepData_SelectMember.hxx".}
 proc logical*(this: StepDataSelectMember): StepDataLogical {.noSideEffect,
     importcpp: "Logical", header: "StepData_SelectMember.hxx".}
 proc setLogical*(this: var StepDataSelectMember; val: StepDataLogical) {.
     importcpp: "SetLogical", header: "StepData_SelectMember.hxx".}
-proc real*(this: StepDataSelectMember): cfloat {.noSideEffect, importcpp: "Real",
-    header: "StepData_SelectMember.hxx".}
-proc setReal*(this: var StepDataSelectMember; val: cfloat) {.importcpp: "SetReal",
-    header: "StepData_SelectMember.hxx".}
+proc real*(this: StepDataSelectMember): StandardReal {.noSideEffect,
+    importcpp: "Real", header: "StepData_SelectMember.hxx".}
+proc setReal*(this: var StepDataSelectMember; val: StandardReal) {.
+    importcpp: "SetReal", header: "StepData_SelectMember.hxx".}
 proc string*(this: StepDataSelectMember): StandardCString {.noSideEffect,
     importcpp: "String", header: "StepData_SelectMember.hxx".}
 proc setString*(this: var StepDataSelectMember; val: StandardCString) {.
     importcpp: "SetString", header: "StepData_SelectMember.hxx".}
-proc `enum`*(this: StepDataSelectMember): cint {.noSideEffect, importcpp: "Enum",
+proc `enum`*(this: StepDataSelectMember): int {.noSideEffect, importcpp: "Enum",
     header: "StepData_SelectMember.hxx".}
 proc enumText*(this: StepDataSelectMember): StandardCString {.noSideEffect,
     importcpp: "EnumText", header: "StepData_SelectMember.hxx".}
-proc setEnum*(this: var StepDataSelectMember; val: cint; text: StandardCString = "") {.
+proc setEnum*(this: var StepDataSelectMember; val: int; text: StandardCString = "") {.
     importcpp: "SetEnum", header: "StepData_SelectMember.hxx".}
-proc setEnumText*(this: var StepDataSelectMember; val: cint; text: StandardCString) {.
+proc setEnumText*(this: var StepDataSelectMember; val: int; text: StandardCString) {.
     importcpp: "SetEnumText", header: "StepData_SelectMember.hxx".}
 type
   StepDataSelectMemberbaseType* = StandardTransient
@@ -99,28 +99,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectMember.hxx".}
 proc dynamicType*(this: StepDataSelectMember): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

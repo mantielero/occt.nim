@@ -22,7 +22,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_TransferWriter"
 discard "forward decl of XSControl_TransferWriter"
 type
-  HandleC1C1* = Handle[XSControlTransferWriter]
+  HandleXSControlTransferWriter* = Handle[XSControlTransferWriter]
 
 ## ! TransferWriter gives help to control transfer to write a file
 ## ! after having converted data from Cascade/Imagine
@@ -79,7 +79,7 @@ proc printStats*(this: XSControlTransferWriter; theWhat: cint; theMode: cint = 0
 proc recognizeTransient*(this: var XSControlTransferWriter;
                         theObj: Handle[StandardTransient]): bool {.
     importcpp: "RecognizeTransient", header: "XSControl_TransferWriter.hxx".}
-proc transferWriteTransient*(this: var XSControlTransferWriter;
+#[ proc transferWriteTransient*(this: var XSControlTransferWriter;
                             theModel: Handle[InterfaceInterfaceModel];
                             theObj: Handle[StandardTransient]; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     importcpp: "TransferWriteTransient", header: "XSControl_TransferWriter.hxx".}
@@ -130,3 +130,4 @@ proc dynamicType*(this: XSControlTransferWriter): Handle[StandardType] {.
 
 
 
+ ]#

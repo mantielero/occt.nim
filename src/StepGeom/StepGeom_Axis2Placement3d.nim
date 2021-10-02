@@ -34,8 +34,8 @@ proc constructStepGeomAxis2Placement3d*(): StepGeomAxis2Placement3d {.constructo
     header: "StepGeom_Axis2Placement3d.hxx".}
 proc init*(this: var StepGeomAxis2Placement3d;
           aName: Handle[TCollectionHAsciiString];
-          aLocation: Handle[StepGeomCartesianPoint]; hasAaxis: bool;
-          aAxis: Handle[StepGeomDirection]; hasArefDirection: bool;
+          aLocation: Handle[StepGeomCartesianPoint]; hasAaxis: StandardBoolean;
+          aAxis: Handle[StepGeomDirection]; hasArefDirection: StandardBoolean;
           aRefDirection: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepGeom_Axis2Placement3d.hxx".}
 proc setAxis*(this: var StepGeomAxis2Placement3d; aAxis: Handle[StepGeomDirection]) {.
@@ -44,7 +44,7 @@ proc unSetAxis*(this: var StepGeomAxis2Placement3d) {.importcpp: "UnSetAxis",
     header: "StepGeom_Axis2Placement3d.hxx".}
 proc axis*(this: StepGeomAxis2Placement3d): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "Axis", header: "StepGeom_Axis2Placement3d.hxx".}
-proc hasAxis*(this: StepGeomAxis2Placement3d): bool {.noSideEffect,
+proc hasAxis*(this: StepGeomAxis2Placement3d): StandardBoolean {.noSideEffect,
     importcpp: "HasAxis", header: "StepGeom_Axis2Placement3d.hxx".}
 proc setRefDirection*(this: var StepGeomAxis2Placement3d;
                      aRefDirection: Handle[StepGeomDirection]) {.
@@ -54,8 +54,9 @@ proc unSetRefDirection*(this: var StepGeomAxis2Placement3d) {.
 proc refDirection*(this: StepGeomAxis2Placement3d): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "RefDirection",
     header: "StepGeom_Axis2Placement3d.hxx".}
-proc hasRefDirection*(this: StepGeomAxis2Placement3d): bool {.noSideEffect,
-    importcpp: "HasRefDirection", header: "StepGeom_Axis2Placement3d.hxx".}
+proc hasRefDirection*(this: StepGeomAxis2Placement3d): StandardBoolean {.
+    noSideEffect, importcpp: "HasRefDirection",
+    header: "StepGeom_Axis2Placement3d.hxx".}
 type
   StepGeomAxis2Placement3dbaseType* = StepGeomPlacement
 
@@ -66,28 +67,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Axis2Placement3d.hxx".}
 proc dynamicType*(this: StepGeomAxis2Placement3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_Axis2Placement3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

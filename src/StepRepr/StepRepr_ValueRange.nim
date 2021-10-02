@@ -37,28 +37,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ValueRange.hxx".}
 proc dynamicType*(this: StepReprValueRange): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_ValueRange.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

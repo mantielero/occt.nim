@@ -45,7 +45,7 @@ type
 proc constructInterfaceEntityIterator*(): InterfaceEntityIterator {.constructor,
     importcpp: "Interface_EntityIterator(@)",
     header: "Interface_EntityIterator.hxx".}
-proc constructInterfaceEntityIterator*(list: Handle[TColStdHSequenceOfTransient]): InterfaceEntityIterator {.
+#[ proc constructInterfaceEntityIterator*(list: Handle[TColStdHSequenceOfTransient]): InterfaceEntityIterator {.
     constructor, importcpp: "Interface_EntityIterator(@)",
     header: "Interface_EntityIterator.hxx".}
 proc addList*(this: var InterfaceEntityIterator;
@@ -83,7 +83,7 @@ proc destroyInterfaceEntityIterator*(this: var InterfaceEntityIterator) {.
 
 
 
-
+ ]#
 
 
 

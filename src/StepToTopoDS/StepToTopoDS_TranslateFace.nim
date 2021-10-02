@@ -24,6 +24,24 @@ type
                                header: "StepToTopoDS_TranslateFace.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateFace; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateFace::operator new",
+    header: "StepToTopoDS_TranslateFace.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateFace; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateFace::operator delete",
+    header: "StepToTopoDS_TranslateFace.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateFace; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateFace::operator new[]",
+    header: "StepToTopoDS_TranslateFace.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateFace; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateFace::operator delete[]",
+    header: "StepToTopoDS_TranslateFace.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateFace; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslateFace::operator new",
+    header: "StepToTopoDS_TranslateFace.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateFace; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslateFace::operator delete",
+    header: "StepToTopoDS_TranslateFace.hxx".}
 proc constructStepToTopoDS_TranslateFace*(): StepToTopoDS_TranslateFace {.
     constructor, importcpp: "StepToTopoDS_TranslateFace(@)",
     header: "StepToTopoDS_TranslateFace.hxx".}
@@ -38,28 +56,3 @@ proc value*(this: StepToTopoDS_TranslateFace): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateFace.hxx".}
 proc error*(this: StepToTopoDS_TranslateFace): StepToTopoDS_TranslateFaceError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateFace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

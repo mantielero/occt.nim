@@ -39,12 +39,12 @@ proc boundaries*(this: StepDimTolToleranceZoneDefinition): Handle[
 proc setBoundaries*(this: var StepDimTolToleranceZoneDefinition;
                    theBoundaries: Handle[StepReprHArray1OfShapeAspect]) {.
     importcpp: "SetBoundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc nbBoundaries*(this: StepDimTolToleranceZoneDefinition): cint {.noSideEffect,
+proc nbBoundaries*(this: StepDimTolToleranceZoneDefinition): int {.noSideEffect,
     importcpp: "NbBoundaries", header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc boundariesValue*(this: StepDimTolToleranceZoneDefinition; theNum: cint): Handle[
+proc boundariesValue*(this: StepDimTolToleranceZoneDefinition; theNum: int): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "BoundariesValue",
                           header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-proc setBoundariesValue*(this: var StepDimTolToleranceZoneDefinition; theNum: cint;
+proc setBoundariesValue*(this: var StepDimTolToleranceZoneDefinition; theNum: int;
                         theItem: Handle[StepReprShapeAspect]) {.
     importcpp: "SetBoundariesValue",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepDimTolToleranceZoneDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepDimTol_ToleranceZoneDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

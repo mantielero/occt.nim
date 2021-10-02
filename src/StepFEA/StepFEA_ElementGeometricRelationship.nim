@@ -69,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_ElementGeometricRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_ElementGeometricRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

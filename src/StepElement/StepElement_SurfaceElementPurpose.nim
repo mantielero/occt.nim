@@ -18,18 +18,34 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
   StepElementSurfaceElementPurpose* {.importcpp: "StepElement_SurfaceElementPurpose", header: "StepElement_SurfaceElementPurpose.hxx",
-                                     bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                        ## constructor
+                                     bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepElementSurfaceElementPurpose; theSize: csize_t): pointer {.
+    importcpp: "StepElement_SurfaceElementPurpose::operator new",
+    header: "StepElement_SurfaceElementPurpose.hxx".}
+proc `delete`*(this: var StepElementSurfaceElementPurpose; theAddress: pointer) {.
+    importcpp: "StepElement_SurfaceElementPurpose::operator delete",
+    header: "StepElement_SurfaceElementPurpose.hxx".}
+proc `new[]`*(this: var StepElementSurfaceElementPurpose; theSize: csize_t): pointer {.
+    importcpp: "StepElement_SurfaceElementPurpose::operator new[]",
+    header: "StepElement_SurfaceElementPurpose.hxx".}
+proc `delete[]`*(this: var StepElementSurfaceElementPurpose; theAddress: pointer) {.
+    importcpp: "StepElement_SurfaceElementPurpose::operator delete[]",
+    header: "StepElement_SurfaceElementPurpose.hxx".}
+proc `new`*(this: var StepElementSurfaceElementPurpose; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepElement_SurfaceElementPurpose::operator new", header: "StepElement_SurfaceElementPurpose.hxx".}
+proc `delete`*(this: var StepElementSurfaceElementPurpose; a2: pointer; a3: pointer) {.
+    importcpp: "StepElement_SurfaceElementPurpose::operator delete",
+    header: "StepElement_SurfaceElementPurpose.hxx".}
 proc constructStepElementSurfaceElementPurpose*(): StepElementSurfaceElementPurpose {.
     constructor, importcpp: "StepElement_SurfaceElementPurpose(@)",
     header: "StepElement_SurfaceElementPurpose.hxx".}
 proc caseNum*(this: StepElementSurfaceElementPurpose;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepElement_SurfaceElementPurpose.hxx".}
 proc caseMem*(this: StepElementSurfaceElementPurpose;
-             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_SurfaceElementPurpose.hxx".}
 proc newMember*(this: StepElementSurfaceElementPurpose): Handle[
     StepDataSelectMember] {.noSideEffect, importcpp: "NewMember",
@@ -50,28 +66,3 @@ proc applicationDefinedElementPurpose*(this: StepElementSurfaceElementPurpose): 
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedElementPurpose",
                               header: "StepElement_SurfaceElementPurpose.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -25,6 +25,24 @@ type
                                    bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslatePolyLoop; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator new",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslatePolyLoop; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator delete",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslatePolyLoop; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator new[]",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslatePolyLoop; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator delete[]",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslatePolyLoop; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator new",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslatePolyLoop; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslatePolyLoop::operator delete",
+    header: "StepToTopoDS_TranslatePolyLoop.hxx".}
 proc constructStepToTopoDS_TranslatePolyLoop*(): StepToTopoDS_TranslatePolyLoop {.
     constructor, importcpp: "StepToTopoDS_TranslatePolyLoop(@)",
     header: "StepToTopoDS_TranslatePolyLoop.hxx".}
@@ -39,28 +57,3 @@ proc value*(this: StepToTopoDS_TranslatePolyLoop): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
 proc error*(this: StepToTopoDS_TranslatePolyLoop): StepToTopoDS_TranslatePolyLoopError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslatePolyLoop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

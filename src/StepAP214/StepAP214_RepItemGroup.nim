@@ -33,7 +33,8 @@ type
 proc constructStepAP214RepItemGroup*(): StepAP214RepItemGroup {.constructor,
     importcpp: "StepAP214_RepItemGroup(@)", header: "StepAP214_RepItemGroup.hxx".}
 proc init*(this: var StepAP214RepItemGroup;
-          aGroupName: Handle[TCollectionHAsciiString]; hasGroupDescription: bool;
+          aGroupName: Handle[TCollectionHAsciiString];
+          hasGroupDescription: StandardBoolean;
           aGroupDescription: Handle[TCollectionHAsciiString];
           aRepresentationItemName: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepAP214_RepItemGroup.hxx".}
@@ -53,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP214_RepItemGroup.hxx".}
 proc dynamicType*(this: StepAP214RepItemGroup): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_RepItemGroup.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,19 +27,31 @@ discard "forward decl of StepRepr_ShapeAspect"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
   StepAP242IdAttributeSelect* {.importcpp: "StepAP242_IdAttributeSelect",
-                               header: "StepAP242_IdAttributeSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## IdAttributeSelect
-                                                                                                           ## select
-                                                                                                           ## type
+                               header: "StepAP242_IdAttributeSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP242IdAttributeSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP242_IdAttributeSelect::operator new",
+    header: "StepAP242_IdAttributeSelect.hxx".}
+proc `delete`*(this: var StepAP242IdAttributeSelect; theAddress: pointer) {.
+    importcpp: "StepAP242_IdAttributeSelect::operator delete",
+    header: "StepAP242_IdAttributeSelect.hxx".}
+proc `new[]`*(this: var StepAP242IdAttributeSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP242_IdAttributeSelect::operator new[]",
+    header: "StepAP242_IdAttributeSelect.hxx".}
+proc `delete[]`*(this: var StepAP242IdAttributeSelect; theAddress: pointer) {.
+    importcpp: "StepAP242_IdAttributeSelect::operator delete[]",
+    header: "StepAP242_IdAttributeSelect.hxx".}
+proc `new`*(this: var StepAP242IdAttributeSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP242_IdAttributeSelect::operator new",
+    header: "StepAP242_IdAttributeSelect.hxx".}
+proc `delete`*(this: var StepAP242IdAttributeSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP242_IdAttributeSelect::operator delete",
+    header: "StepAP242_IdAttributeSelect.hxx".}
 proc constructStepAP242IdAttributeSelect*(): StepAP242IdAttributeSelect {.
     constructor, importcpp: "StepAP242_IdAttributeSelect(@)",
     header: "StepAP242_IdAttributeSelect.hxx".}
-proc caseNum*(this: StepAP242IdAttributeSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP242IdAttributeSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP242_IdAttributeSelect.hxx".}
 proc action*(this: StepAP242IdAttributeSelect): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action", header: "StepAP242_IdAttributeSelect.hxx".}
@@ -72,28 +84,3 @@ proc shapeAspectRelationship*(this: StepAP242IdAttributeSelect): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship",
                                       header: "StepAP242_IdAttributeSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -34,7 +34,8 @@ proc constructStepBasicVersionedActionRequest*(): StepBasicVersionedActionReques
 proc init*(this: var StepBasicVersionedActionRequest;
           aId: Handle[TCollectionHAsciiString];
           aVersion: Handle[TCollectionHAsciiString];
-          aPurpose: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aPurpose: Handle[TCollectionHAsciiString];
+          hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_VersionedActionRequest.hxx".}
 proc id*(this: StepBasicVersionedActionRequest): Handle[TCollectionHAsciiString] {.
@@ -60,8 +61,9 @@ proc description*(this: StepBasicVersionedActionRequest): Handle[
 proc setDescription*(this: var StepBasicVersionedActionRequest;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_VersionedActionRequest.hxx".}
-proc hasDescription*(this: StepBasicVersionedActionRequest): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_VersionedActionRequest.hxx".}
+proc hasDescription*(this: StepBasicVersionedActionRequest): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_VersionedActionRequest.hxx".}
 type
   StepBasicVersionedActionRequestbaseType* = StandardTransient
 
@@ -73,28 +75,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicVersionedActionRequest): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_VersionedActionRequest.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

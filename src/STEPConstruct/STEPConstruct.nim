@@ -33,39 +33,21 @@ discard "forward decl of STEPConstruct_AP203Context"
 discard "forward decl of STEPConstruct_ContextTool"
 discard "forward decl of STEPConstruct_PointHasher"
 type
-  STEPConstruct* {.importcpp: "STEPConstruct", header: "STEPConstruct.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## STEP
-                                                                                      ## entity
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## (sub)type
-                                                                                      ## of
-                                                                                      ## RepresentationItem
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## which
-                                                                                      ## is
-                                                                                      ## a
-                                                                                      ## result
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## tranalation
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## Shape,
-                                                                                      ## or
-                                                                                      ## Null
-                                                                                      ## if
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## no
-                                                                                      ## result
-                                                                                      ## is
-                                                                                      ## recorded
+  STEPConstruct* {.importcpp: "STEPConstruct", header: "STEPConstruct.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPConstruct; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct::operator new", header: "STEPConstruct.hxx".}
+proc `delete`*(this: var STEPConstruct; theAddress: pointer) {.
+    importcpp: "STEPConstruct::operator delete", header: "STEPConstruct.hxx".}
+proc `new[]`*(this: var STEPConstruct; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct::operator new[]", header: "STEPConstruct.hxx".}
+proc `delete[]`*(this: var STEPConstruct; theAddress: pointer) {.
+    importcpp: "STEPConstruct::operator delete[]", header: "STEPConstruct.hxx".}
+proc `new`*(this: var STEPConstruct; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct::operator new", header: "STEPConstruct.hxx".}
+proc `delete`*(this: var STEPConstruct; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct::operator delete", header: "STEPConstruct.hxx".}
 proc findEntity*(finderProcess: Handle[TransferFinderProcess]; shape: TopoDS_Shape): Handle[
     StepReprRepresentationItem] {.importcpp: "STEPConstruct::FindEntity(@)",
                                  header: "STEPConstruct.hxx".}
@@ -77,30 +59,5 @@ proc findShape*(transientProcess: Handle[TransferTransientProcess];
     importcpp: "STEPConstruct::FindShape(@)", header: "STEPConstruct.hxx".}
 proc findCDSR*(componentBinder: Handle[TransferBinder];
               assemblySDR: Handle[StepShapeShapeDefinitionRepresentation];
-    componentCDSR: var Handle[StepShapeContextDependentShapeRepresentation]): bool {.
+    componentCDSR: var Handle[StepShapeContextDependentShapeRepresentation]): StandardBoolean {.
     importcpp: "STEPConstruct::FindCDSR(@)", header: "STEPConstruct.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -30,7 +30,7 @@ type
 proc constructStepBasicSiUnitAndMassUnit*(): StepBasicSiUnitAndMassUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndMassUnit(@)",
     header: "StepBasic_SiUnitAndMassUnit.hxx".}
-proc init*(this: var StepBasicSiUnitAndMassUnit; hasAprefix: bool;
+proc init*(this: var StepBasicSiUnitAndMassUnit; hasAprefix: StandardBoolean;
           aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndMassUnit.hxx".}
 proc setMassUnit*(this: var StepBasicSiUnitAndMassUnit;
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSiUnitAndMassUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndMassUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

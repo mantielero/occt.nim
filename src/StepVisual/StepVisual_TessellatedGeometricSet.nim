@@ -24,15 +24,26 @@ discard "forward decl of StepVisual_TessellatedGeometricSet"
 type
   HandleC1C1* = Handle[StepVisualTessellatedGeometricSet]
   StepVisualTessellatedGeometricSet* {.importcpp: "StepVisual_TessellatedGeometricSet", header: "StepVisual_TessellatedGeometricSet.hxx",
-                                      bycopy.} = object of StepVisualTessellatedItem ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## a
-                                                                                ## DraughtingCalloutElement
-                                                                                ## select
-                                                                                ## type
+                                      bycopy.} = object of StepVisualTessellatedItem
 
 
+proc `new`*(this: var StepVisualTessellatedGeometricSet; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TessellatedGeometricSet::operator new",
+    header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc `delete`*(this: var StepVisualTessellatedGeometricSet; theAddress: pointer) {.
+    importcpp: "StepVisual_TessellatedGeometricSet::operator delete",
+    header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc `new[]`*(this: var StepVisualTessellatedGeometricSet; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TessellatedGeometricSet::operator new[]",
+    header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc `delete[]`*(this: var StepVisualTessellatedGeometricSet; theAddress: pointer) {.
+    importcpp: "StepVisual_TessellatedGeometricSet::operator delete[]",
+    header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc `new`*(this: var StepVisualTessellatedGeometricSet; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_TessellatedGeometricSet::operator new", header: "StepVisual_TessellatedGeometricSet.hxx".}
+proc `delete`*(this: var StepVisualTessellatedGeometricSet; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_TessellatedGeometricSet::operator delete",
+    header: "StepVisual_TessellatedGeometricSet.hxx".}
 proc constructStepVisualTessellatedGeometricSet*(): StepVisualTessellatedGeometricSet {.
     constructor, importcpp: "StepVisual_TessellatedGeometricSet(@)",
     header: "StepVisual_TessellatedGeometricSet.hxx".}
@@ -53,28 +64,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTessellatedGeometricSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedGeometricSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

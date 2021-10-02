@@ -31,11 +31,11 @@ type
 
 proc constructStepDataSelectReal*(): StepDataSelectReal {.constructor,
     importcpp: "StepData_SelectReal(@)", header: "StepData_SelectReal.hxx".}
-proc kind*(this: StepDataSelectReal): cint {.noSideEffect, importcpp: "Kind",
+proc kind*(this: StepDataSelectReal): int {.noSideEffect, importcpp: "Kind",
+                                        header: "StepData_SelectReal.hxx".}
+proc real*(this: StepDataSelectReal): StandardReal {.noSideEffect, importcpp: "Real",
     header: "StepData_SelectReal.hxx".}
-proc real*(this: StepDataSelectReal): cfloat {.noSideEffect, importcpp: "Real",
-    header: "StepData_SelectReal.hxx".}
-proc setReal*(this: var StepDataSelectReal; val: cfloat) {.importcpp: "SetReal",
+proc setReal*(this: var StepDataSelectReal; val: StandardReal) {.importcpp: "SetReal",
     header: "StepData_SelectReal.hxx".}
 type
   StepDataSelectRealbaseType* = StepDataSelectMember
@@ -47,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectReal.hxx".}
 proc dynamicType*(this: StepDataSelectReal): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectReal.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

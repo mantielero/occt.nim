@@ -17,29 +17,3 @@ type
                                 header: "StepElement_UnspecifiedValue.hxx".} = enum
     StepElementUnspecified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

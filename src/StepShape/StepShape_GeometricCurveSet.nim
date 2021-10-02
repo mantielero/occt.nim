@@ -40,28 +40,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeGeometricCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_GeometricCurveSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

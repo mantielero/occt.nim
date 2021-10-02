@@ -32,14 +32,15 @@ type
 proc constructStepElementVolumeElementPurposeMember*(): StepElementVolumeElementPurposeMember {.
     constructor, importcpp: "StepElement_VolumeElementPurposeMember(@)",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc hasName*(this: StepElementVolumeElementPurposeMember): bool {.noSideEffect,
-    importcpp: "HasName", header: "StepElement_VolumeElementPurposeMember.hxx".}
+proc hasName*(this: StepElementVolumeElementPurposeMember): StandardBoolean {.
+    noSideEffect, importcpp: "HasName",
+    header: "StepElement_VolumeElementPurposeMember.hxx".}
 proc name*(this: StepElementVolumeElementPurposeMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc setName*(this: var StepElementVolumeElementPurposeMember; name: StandardCString): bool {.
+proc setName*(this: var StepElementVolumeElementPurposeMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepElement_VolumeElementPurposeMember.hxx".}
-proc matches*(this: StepElementVolumeElementPurposeMember; name: StandardCString): bool {.
+proc matches*(this: StepElementVolumeElementPurposeMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
 type
@@ -51,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Volume
 proc dynamicType*(this: StepElementVolumeElementPurposeMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_VolumeElementPurposeMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

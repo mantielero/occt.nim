@@ -34,7 +34,7 @@ type
 proc constructStepReprProductConcept*(): StepReprProductConcept {.constructor,
     importcpp: "StepRepr_ProductConcept(@)", header: "StepRepr_ProductConcept.hxx".}
 proc init*(this: var StepReprProductConcept; aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aMarketContext: Handle[StepBasicProductConceptContext]) {.
     importcpp: "Init", header: "StepRepr_ProductConcept.hxx".}
@@ -52,7 +52,7 @@ proc description*(this: StepReprProductConcept): Handle[TCollectionHAsciiString]
 proc setDescription*(this: var StepReprProductConcept;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ProductConcept.hxx".}
-proc hasDescription*(this: StepReprProductConcept): bool {.noSideEffect,
+proc hasDescription*(this: StepReprProductConcept): StandardBoolean {.noSideEffect,
     importcpp: "HasDescription", header: "StepRepr_ProductConcept.hxx".}
 proc marketContext*(this: StepReprProductConcept): Handle[
     StepBasicProductConceptContext] {.noSideEffect, importcpp: "MarketContext",
@@ -70,28 +70,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_ProductConcept.hxx".}
 proc dynamicType*(this: StepReprProductConcept): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_ProductConcept.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

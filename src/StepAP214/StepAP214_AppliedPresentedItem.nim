@@ -38,10 +38,10 @@ proc setItems*(this: var StepAP214AppliedPresentedItem;
 proc items*(this: StepAP214AppliedPresentedItem): Handle[
     StepAP214HArray1OfPresentedItemSelect] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc itemsValue*(this: StepAP214AppliedPresentedItem; num: cint): StepAP214PresentedItemSelect {.
+proc itemsValue*(this: StepAP214AppliedPresentedItem; num: int): StepAP214PresentedItemSelect {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-proc nbItems*(this: StepAP214AppliedPresentedItem): cint {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedPresentedItem): int {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedPresentedItem.hxx".}
 type
   StepAP214AppliedPresentedItembaseType* = StepVisualPresentedItem
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedPresentedItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedPresentedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

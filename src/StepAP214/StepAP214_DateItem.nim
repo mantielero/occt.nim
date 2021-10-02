@@ -21,17 +21,30 @@ discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 type
   StepAP214DateItem* {.importcpp: "StepAP214_DateItem",
-                      header: "StepAP214_DateItem.hxx", bycopy.} = object of StepAP214ApprovalItem ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## DateItem
-                                                                                            ## SelectType
+                      header: "StepAP214_DateItem.hxx", bycopy.} = object of StepAP214ApprovalItem
 
 
+proc `new`*(this: var StepAP214DateItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DateItem::operator new",
+    header: "StepAP214_DateItem.hxx".}
+proc `delete`*(this: var StepAP214DateItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DateItem::operator delete",
+    header: "StepAP214_DateItem.hxx".}
+proc `new[]`*(this: var StepAP214DateItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DateItem::operator new[]",
+    header: "StepAP214_DateItem.hxx".}
+proc `delete[]`*(this: var StepAP214DateItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DateItem::operator delete[]",
+    header: "StepAP214_DateItem.hxx".}
+proc `new`*(this: var StepAP214DateItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_DateItem::operator new",
+    header: "StepAP214_DateItem.hxx".}
+proc `delete`*(this: var StepAP214DateItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_DateItem::operator delete",
+    header: "StepAP214_DateItem.hxx".}
 proc constructStepAP214DateItem*(): StepAP214DateItem {.constructor,
     importcpp: "StepAP214_DateItem(@)", header: "StepAP214_DateItem.hxx".}
-proc caseNum*(this: StepAP214DateItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214DateItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_DateItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214DateItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -47,28 +60,3 @@ proc appliedSecurityClassificationAssignment*(this: StepAP214DateItem): Handle[
     StepAP214AppliedSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "AppliedSecurityClassificationAssignment",
     header: "StepAP214_DateItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

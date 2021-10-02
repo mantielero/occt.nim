@@ -28,3 +28,10 @@ include BRepAlgo/BRepAlgo_includes
 include GeomAbs/GeomAbs_includes
 include Adaptor2d/Adaptor2d_includes
 include Adaptor3d/Adaptor3d_includes
+
+include STEPControl/STEPControl_includes
+include StepData/StepData_includes
+include Transfer/Transfer_includes
+include XSControl/XSControl_includes
+include Interface/Interface_includes
+include IFSelect/IFSelect_includes

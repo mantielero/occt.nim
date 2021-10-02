@@ -50,14 +50,14 @@ proc modifiers*(this: StepDimTolGeometricToleranceWithModifiers): Handle[
 proc setModifiers*(this: var StepDimTolGeometricToleranceWithModifiers; theModifiers: Handle[
     StepDimTolHArray1OfGeometricToleranceModifier]) {.importcpp: "SetModifiers",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
-proc nbModifiers*(this: StepDimTolGeometricToleranceWithModifiers): cint {.
+proc nbModifiers*(this: StepDimTolGeometricToleranceWithModifiers): int {.
     noSideEffect, importcpp: "NbModifiers",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
-proc modifierValue*(this: StepDimTolGeometricToleranceWithModifiers; theNum: cint): StepDimTolGeometricToleranceModifier {.
+proc modifierValue*(this: StepDimTolGeometricToleranceWithModifiers; theNum: int): StepDimTolGeometricToleranceModifier {.
     noSideEffect, importcpp: "ModifierValue",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
 proc setModifierValue*(this: var StepDimTolGeometricToleranceWithModifiers;
-                      theNum: cint; theItem: StepDimTolGeometricToleranceModifier) {.
+                      theNum: int; theItem: StepDimTolGeometricToleranceModifier) {.
     importcpp: "SetModifierValue",
     header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
 type
@@ -69,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
 proc dynamicType*(this: StepDimTolGeometricToleranceWithModifiers): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_GeometricToleranceWithModifiers.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

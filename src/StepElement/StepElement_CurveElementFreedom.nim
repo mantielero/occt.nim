@@ -18,18 +18,35 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
   StepElementCurveElementFreedom* {.importcpp: "StepElement_CurveElementFreedom", header: "StepElement_CurveElementFreedom.hxx",
-                                   bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                      ## constructor
+                                   bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepElementCurveElementFreedom; theSize: csize_t): pointer {.
+    importcpp: "StepElement_CurveElementFreedom::operator new",
+    header: "StepElement_CurveElementFreedom.hxx".}
+proc `delete`*(this: var StepElementCurveElementFreedom; theAddress: pointer) {.
+    importcpp: "StepElement_CurveElementFreedom::operator delete",
+    header: "StepElement_CurveElementFreedom.hxx".}
+proc `new[]`*(this: var StepElementCurveElementFreedom; theSize: csize_t): pointer {.
+    importcpp: "StepElement_CurveElementFreedom::operator new[]",
+    header: "StepElement_CurveElementFreedom.hxx".}
+proc `delete[]`*(this: var StepElementCurveElementFreedom; theAddress: pointer) {.
+    importcpp: "StepElement_CurveElementFreedom::operator delete[]",
+    header: "StepElement_CurveElementFreedom.hxx".}
+proc `new`*(this: var StepElementCurveElementFreedom; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepElement_CurveElementFreedom::operator new",
+    header: "StepElement_CurveElementFreedom.hxx".}
+proc `delete`*(this: var StepElementCurveElementFreedom; a2: pointer; a3: pointer) {.
+    importcpp: "StepElement_CurveElementFreedom::operator delete",
+    header: "StepElement_CurveElementFreedom.hxx".}
 proc constructStepElementCurveElementFreedom*(): StepElementCurveElementFreedom {.
     constructor, importcpp: "StepElement_CurveElementFreedom(@)",
     header: "StepElement_CurveElementFreedom.hxx".}
-proc caseNum*(this: StepElementCurveElementFreedom; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepElementCurveElementFreedom; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepElement_CurveElementFreedom.hxx".}
 proc caseMem*(this: StepElementCurveElementFreedom;
-             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_CurveElementFreedom.hxx".}
 proc newMember*(this: StepElementCurveElementFreedom): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember",
@@ -49,28 +66,3 @@ proc applicationDefinedDegreeOfFreedom*(this: StepElementCurveElementFreedom): H
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedDegreeOfFreedom",
                               header: "StepElement_CurveElementFreedom.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

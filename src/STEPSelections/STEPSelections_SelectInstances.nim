@@ -33,9 +33,9 @@ proc constructSTEPSelectionsSelectInstances*(): STEPSelectionsSelectInstances {.
 proc rootResult*(this: STEPSelectionsSelectInstances; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, importcpp: "RootResult",
     header: "STEPSelections_SelectInstances.hxx".}
-proc explore*(this: STEPSelectionsSelectInstances; level: cint;
+proc explore*(this: STEPSelectionsSelectInstances; level: int;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectInstances.hxx".}
 proc exploreLabel*(this: STEPSelectionsSelectInstances): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectInstances): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectInstances.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

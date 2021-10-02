@@ -18,18 +18,34 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of TCollection_HAsciiString"
 type
   StepElementVolumeElementPurpose* {.importcpp: "StepElement_VolumeElementPurpose", header: "StepElement_VolumeElementPurpose.hxx",
-                                    bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                       ## constructor
+                                    bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepElementVolumeElementPurpose; theSize: csize_t): pointer {.
+    importcpp: "StepElement_VolumeElementPurpose::operator new",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc `delete`*(this: var StepElementVolumeElementPurpose; theAddress: pointer) {.
+    importcpp: "StepElement_VolumeElementPurpose::operator delete",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc `new[]`*(this: var StepElementVolumeElementPurpose; theSize: csize_t): pointer {.
+    importcpp: "StepElement_VolumeElementPurpose::operator new[]",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc `delete[]`*(this: var StepElementVolumeElementPurpose; theAddress: pointer) {.
+    importcpp: "StepElement_VolumeElementPurpose::operator delete[]",
+    header: "StepElement_VolumeElementPurpose.hxx".}
+proc `new`*(this: var StepElementVolumeElementPurpose; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepElement_VolumeElementPurpose::operator new", header: "StepElement_VolumeElementPurpose.hxx".}
+proc `delete`*(this: var StepElementVolumeElementPurpose; a2: pointer; a3: pointer) {.
+    importcpp: "StepElement_VolumeElementPurpose::operator delete",
+    header: "StepElement_VolumeElementPurpose.hxx".}
 proc constructStepElementVolumeElementPurpose*(): StepElementVolumeElementPurpose {.
     constructor, importcpp: "StepElement_VolumeElementPurpose(@)",
     header: "StepElement_VolumeElementPurpose.hxx".}
-proc caseNum*(this: StepElementVolumeElementPurpose; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepElementVolumeElementPurpose; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepElement_VolumeElementPurpose.hxx".}
 proc caseMem*(this: StepElementVolumeElementPurpose;
-             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_VolumeElementPurpose.hxx".}
 proc newMember*(this: StepElementVolumeElementPurpose): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember",
@@ -50,28 +66,3 @@ proc applicationDefinedElementPurpose*(this: StepElementVolumeElementPurpose): H
     TCollectionHAsciiString] {.noSideEffect,
                               importcpp: "ApplicationDefinedElementPurpose",
                               header: "StepElement_VolumeElementPurpose.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

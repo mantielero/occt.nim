@@ -26,17 +26,31 @@ discard "forward decl of StepRepr_ProductDefinitionUsage"
 discard "forward decl of StepBasic_VersionedActionRequest"
 type
   StepAP214SecurityClassificationItem* {.importcpp: "StepAP214_SecurityClassificationItem", header: "StepAP214_SecurityClassificationItem.hxx",
-                                        bycopy.} = object of StepAP214ApprovalItem ## !
-                                                                              ## Returns a
-                                                                              ## SecurityClassificationItem
-                                                                              ## SelectType
+                                        bycopy.} = object of StepAP214ApprovalItem
 
 
+proc `new`*(this: var StepAP214SecurityClassificationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_SecurityClassificationItem::operator new",
+    header: "StepAP214_SecurityClassificationItem.hxx".}
+proc `delete`*(this: var StepAP214SecurityClassificationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_SecurityClassificationItem::operator delete",
+    header: "StepAP214_SecurityClassificationItem.hxx".}
+proc `new[]`*(this: var StepAP214SecurityClassificationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_SecurityClassificationItem::operator new[]",
+    header: "StepAP214_SecurityClassificationItem.hxx".}
+proc `delete[]`*(this: var StepAP214SecurityClassificationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_SecurityClassificationItem::operator delete[]",
+    header: "StepAP214_SecurityClassificationItem.hxx".}
+proc `new`*(this: var StepAP214SecurityClassificationItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_SecurityClassificationItem::operator new", header: "StepAP214_SecurityClassificationItem.hxx".}
+proc `delete`*(this: var StepAP214SecurityClassificationItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_SecurityClassificationItem::operator delete",
+    header: "StepAP214_SecurityClassificationItem.hxx".}
 proc constructStepAP214SecurityClassificationItem*(): StepAP214SecurityClassificationItem {.
     constructor, importcpp: "StepAP214_SecurityClassificationItem(@)",
     header: "StepAP214_SecurityClassificationItem.hxx".}
 proc caseNum*(this: StepAP214SecurityClassificationItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_SecurityClassificationItem.hxx".}
 proc action*(this: StepAP214SecurityClassificationItem): Handle[StepBasicAction] {.
     noSideEffect, importcpp: "Action",
@@ -64,28 +78,3 @@ proc productDefinitionUsage*(this: StepAP214SecurityClassificationItem): Handle[
 proc versionedActionRequest*(this: StepAP214SecurityClassificationItem): Handle[
     StepBasicVersionedActionRequest] {.noSideEffect,
                                       importcpp: "VersionedActionRequest", header: "StepAP214_SecurityClassificationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

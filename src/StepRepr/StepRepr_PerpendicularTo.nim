@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_PerpendicularTo.hxx".}
 proc dynamicType*(this: StepReprPerpendicularTo): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_PerpendicularTo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

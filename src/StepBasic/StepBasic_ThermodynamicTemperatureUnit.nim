@@ -41,28 +41,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Thermody
 proc dynamicType*(this: StepBasicThermodynamicTemperatureUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ThermodynamicTemperatureUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

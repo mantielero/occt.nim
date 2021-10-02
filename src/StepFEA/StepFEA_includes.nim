@@ -56,16 +56,16 @@ include StepFEA_FeaTangentialCoefficientOfLinearThermalExpansion
 include StepFEA_FreedomAndCoefficient
 include StepFEA_FreedomsList
 include StepFEA_GeometricNode
-include StepFEA_HArray1OfCurveElementEndOffset
-include StepFEA_HArray1OfCurveElementEndRelease
-include StepFEA_HArray1OfCurveElementInterval
-include StepFEA_HArray1OfDegreeOfFreedom
-include StepFEA_HArray1OfElementRepresentation
-include StepFEA_HArray1OfNodeRepresentation
-include StepFEA_HSequenceOfCurve3dElementProperty
-include StepFEA_HSequenceOfElementGeometricRelationship
-include StepFEA_HSequenceOfElementRepresentation
-include StepFEA_HSequenceOfNodeRepresentation
+#include StepFEA_HArray1OfCurveElementEndOffset
+#include StepFEA_HArray1OfCurveElementEndRelease
+#include StepFEA_HArray1OfCurveElementInterval
+#include StepFEA_HArray1OfDegreeOfFreedom
+#include StepFEA_HArray1OfElementRepresentation
+#include StepFEA_HArray1OfNodeRepresentation
+#include StepFEA_HSequenceOfCurve3dElementProperty
+#include StepFEA_HSequenceOfElementGeometricRelationship
+#include StepFEA_HSequenceOfElementRepresentation
+#include StepFEA_HSequenceOfNodeRepresentation
 include StepFEA_Node
 include StepFEA_NodeDefinition
 include StepFEA_NodeGroup
@@ -89,29 +89,3 @@ include StepFEA_SymmetricTensor43d
 include StepFEA_SymmetricTensor43dMember
 include StepFEA_UnspecifiedValue
 include StepFEA_Volume3dElementRepresentation
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

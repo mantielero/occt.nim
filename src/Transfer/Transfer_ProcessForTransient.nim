@@ -122,10 +122,10 @@ type
 proc constructTransferProcessForTransient*(nb: int = 10000): TransferProcessForTransient {.
     constructor, importcpp: "Transfer_ProcessForTransient(@)",
     header: "Transfer_ProcessForTransient.hxx".}
-proc constructTransferProcessForTransient*(printer: Handle[MessageMessenger];
+#[ proc constructTransferProcessForTransient*(printer: Handle[MessageMessenger];
     nb: int = 10000): TransferProcessForTransient {.constructor,
     importcpp: "Transfer_ProcessForTransient(@)",
-    header: "Transfer_ProcessForTransient.hxx".}
+    header: "Transfer_ProcessForTransient.hxx".} ]#
 proc clear*(this: var TransferProcessForTransient) {.importcpp: "Clear",
     header: "Transfer_ProcessForTransient.hxx".}
 proc clean*(this: var TransferProcessForTransient) {.importcpp: "Clean",
@@ -157,7 +157,7 @@ proc unbind*(this: var TransferProcessForTransient; start: Handle[StandardTransi
 proc findElseBind*(this: var TransferProcessForTransient;
                   start: Handle[StandardTransient]): Handle[TransferBinder] {.
     importcpp: "FindElseBind", header: "Transfer_ProcessForTransient.hxx".}
-proc setMessenger*(this: var TransferProcessForTransient;
+#[ proc setMessenger*(this: var TransferProcessForTransient;
                   messenger: Handle[MessageMessenger]) {.
     importcpp: "SetMessenger", header: "Transfer_ProcessForTransient.hxx".}
 proc messenger*(this: TransferProcessForTransient): Handle[MessageMessenger] {.
@@ -360,3 +360,4 @@ proc dynamicType*(this: TransferProcessForTransient): Handle[StandardType] {.
 
 
 
+ ]#

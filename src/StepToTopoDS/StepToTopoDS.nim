@@ -37,6 +37,18 @@ type
   StepToTopoDS* {.importcpp: "StepToTopoDS", header: "StepToTopoDS.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepToTopoDS; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS::operator new", header: "StepToTopoDS.hxx".}
+proc `delete`*(this: var StepToTopoDS; theAddress: pointer) {.
+    importcpp: "StepToTopoDS::operator delete", header: "StepToTopoDS.hxx".}
+proc `new[]`*(this: var StepToTopoDS; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS::operator new[]", header: "StepToTopoDS.hxx".}
+proc `delete[]`*(this: var StepToTopoDS; theAddress: pointer) {.
+    importcpp: "StepToTopoDS::operator delete[]", header: "StepToTopoDS.hxx".}
+proc `new`*(this: var StepToTopoDS; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS::operator new", header: "StepToTopoDS.hxx".}
+proc `delete`*(this: var StepToTopoDS; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS::operator delete", header: "StepToTopoDS.hxx".}
 proc decodeBuilderError*(error: StepToTopoDS_BuilderError): Handle[
     TCollectionHAsciiString] {.importcpp: "StepToTopoDS::DecodeBuilderError(@)",
                               header: "StepToTopoDS.hxx".}
@@ -61,28 +73,3 @@ proc decodePolyLoopError*(error: StepToTopoDS_TranslatePolyLoopError): Handle[
 proc decodeGeometricToolError*(error: StepToTopoDS_GeometricToolError): StandardCString {.
     importcpp: "StepToTopoDS::DecodeGeometricToolError(@)",
     header: "StepToTopoDS.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

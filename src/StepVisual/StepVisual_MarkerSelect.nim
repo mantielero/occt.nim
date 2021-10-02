@@ -19,46 +19,34 @@ discard "forward decl of StepData_SelectMember"
 discard "forward decl of StepVisual_MarkerMember"
 type
   StepVisualMarkerSelect* {.importcpp: "StepVisual_MarkerSelect",
-                           header: "StepVisual_MarkerSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## MarkerSelect
-                                                                                                   ## SelectType
+                           header: "StepVisual_MarkerSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualMarkerSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_MarkerSelect::operator new",
+    header: "StepVisual_MarkerSelect.hxx".}
+proc `delete`*(this: var StepVisualMarkerSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_MarkerSelect::operator delete",
+    header: "StepVisual_MarkerSelect.hxx".}
+proc `new[]`*(this: var StepVisualMarkerSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_MarkerSelect::operator new[]",
+    header: "StepVisual_MarkerSelect.hxx".}
+proc `delete[]`*(this: var StepVisualMarkerSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_MarkerSelect::operator delete[]",
+    header: "StepVisual_MarkerSelect.hxx".}
+proc `new`*(this: var StepVisualMarkerSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_MarkerSelect::operator new",
+    header: "StepVisual_MarkerSelect.hxx".}
+proc `delete`*(this: var StepVisualMarkerSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_MarkerSelect::operator delete",
+    header: "StepVisual_MarkerSelect.hxx".}
 proc constructStepVisualMarkerSelect*(): StepVisualMarkerSelect {.constructor,
     importcpp: "StepVisual_MarkerSelect(@)", header: "StepVisual_MarkerSelect.hxx".}
-proc caseNum*(this: StepVisualMarkerSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualMarkerSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_MarkerSelect.hxx".}
 proc newMember*(this: StepVisualMarkerSelect): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepVisual_MarkerSelect.hxx".}
-proc caseMem*(this: StepVisualMarkerSelect; sm: Handle[StepDataSelectMember]): cint {.
+proc caseMem*(this: StepVisualMarkerSelect; sm: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepVisual_MarkerSelect.hxx".}
 proc markerMember*(this: StepVisualMarkerSelect): Handle[StepVisualMarkerMember] {.
     noSideEffect, importcpp: "MarkerMember", header: "StepVisual_MarkerSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

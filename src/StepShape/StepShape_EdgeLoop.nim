@@ -38,9 +38,9 @@ proc setEdgeList*(this: var StepShapeEdgeLoop;
     importcpp: "SetEdgeList", header: "StepShape_EdgeLoop.hxx".}
 proc edgeList*(this: StepShapeEdgeLoop): Handle[StepShapeHArray1OfOrientedEdge] {.
     noSideEffect, importcpp: "EdgeList", header: "StepShape_EdgeLoop.hxx".}
-proc edgeListValue*(this: StepShapeEdgeLoop; num: cint): Handle[StepShapeOrientedEdge] {.
+proc edgeListValue*(this: StepShapeEdgeLoop; num: int): Handle[StepShapeOrientedEdge] {.
     noSideEffect, importcpp: "EdgeListValue", header: "StepShape_EdgeLoop.hxx".}
-proc nbEdgeList*(this: StepShapeEdgeLoop): cint {.noSideEffect,
+proc nbEdgeList*(this: StepShapeEdgeLoop): int {.noSideEffect,
     importcpp: "NbEdgeList", header: "StepShape_EdgeLoop.hxx".}
 type
   StepShapeEdgeLoopbaseType* = StepShapeLoop
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_EdgeLoop.hxx".}
 proc dynamicType*(this: StepShapeEdgeLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_EdgeLoop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Contract.hxx".}
 proc dynamicType*(this: StepBasicContract): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Contract.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

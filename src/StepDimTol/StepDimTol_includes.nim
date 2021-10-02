@@ -47,13 +47,13 @@ include StepDimTol_GeometricToleranceWithDefinedAreaUnit
 include StepDimTol_GeometricToleranceWithDefinedUnit
 include StepDimTol_GeometricToleranceWithMaximumTolerance
 include StepDimTol_GeometricToleranceWithModifiers
-include StepDimTol_HArray1OfDatumReference
-include StepDimTol_HArray1OfDatumReferenceCompartment
-include StepDimTol_HArray1OfDatumReferenceElement
-include StepDimTol_HArray1OfDatumReferenceModifier
-include StepDimTol_HArray1OfDatumSystemOrReference
-include StepDimTol_HArray1OfGeometricToleranceModifier
-include StepDimTol_HArray1OfToleranceZoneTarget
+#include StepDimTol_HArray1OfDatumReference
+#include StepDimTol_HArray1OfDatumReferenceCompartment
+#include StepDimTol_HArray1OfDatumReferenceElement
+#include StepDimTol_HArray1OfDatumReferenceModifier
+#include StepDimTol_HArray1OfDatumSystemOrReference
+#include StepDimTol_HArray1OfGeometricToleranceModifier
+#include StepDimTol_HArray1OfToleranceZoneTarget
 include StepDimTol_LimitCondition
 include StepDimTol_LineProfileTolerance
 include StepDimTol_ModifiedGeometricTolerance
@@ -78,29 +78,3 @@ include StepDimTol_ToleranceZoneForm
 include StepDimTol_ToleranceZoneTarget
 include StepDimTol_TotalRunoutTolerance
 include StepDimTol_UnequallyDisposedGeometricTolerance
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

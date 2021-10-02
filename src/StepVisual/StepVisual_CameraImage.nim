@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CameraImage.hxx".}
 proc dynamicType*(this: StepVisualCameraImage): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_CameraImage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

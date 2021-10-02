@@ -34,7 +34,7 @@ proc constructStepShapeBoxedHalfSpace*(): StepShapeBoxedHalfSpace {.constructor,
     header: "StepShape_BoxedHalfSpace.hxx".}
 proc init*(this: var StepShapeBoxedHalfSpace;
           aName: Handle[TCollectionHAsciiString];
-          aBaseSurface: Handle[StepGeomSurface]; aAgreementFlag: bool;
+          aBaseSurface: Handle[StepGeomSurface]; aAgreementFlag: StandardBoolean;
           aEnclosure: Handle[StepShapeBoxDomain]) {.importcpp: "Init",
     header: "StepShape_BoxedHalfSpace.hxx".}
 proc setEnclosure*(this: var StepShapeBoxedHalfSpace;
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BoxedHalfSpace.hxx".}
 proc dynamicType*(this: StepShapeBoxedHalfSpace): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BoxedHalfSpace.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

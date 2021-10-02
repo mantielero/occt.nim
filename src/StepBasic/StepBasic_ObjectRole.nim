@@ -32,8 +32,9 @@ type
 proc constructStepBasicObjectRole*(): StepBasicObjectRole {.constructor,
     importcpp: "StepBasic_ObjectRole(@)", header: "StepBasic_ObjectRole.hxx".}
 proc init*(this: var StepBasicObjectRole; aName: Handle[TCollectionHAsciiString];
-          hasDescription: bool; aDescription: Handle[TCollectionHAsciiString]) {.
-    importcpp: "Init", header: "StepBasic_ObjectRole.hxx".}
+          hasDescription: StandardBoolean;
+          aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
+    header: "StepBasic_ObjectRole.hxx".}
 proc name*(this: StepBasicObjectRole): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Name", header: "StepBasic_ObjectRole.hxx".}
 proc setName*(this: var StepBasicObjectRole; name: Handle[TCollectionHAsciiString]) {.
@@ -43,7 +44,7 @@ proc description*(this: StepBasicObjectRole): Handle[TCollectionHAsciiString] {.
 proc setDescription*(this: var StepBasicObjectRole;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_ObjectRole.hxx".}
-proc hasDescription*(this: StepBasicObjectRole): bool {.noSideEffect,
+proc hasDescription*(this: StepBasicObjectRole): StandardBoolean {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_ObjectRole.hxx".}
 type
   StepBasicObjectRolebaseType* = StandardTransient
@@ -55,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ObjectRole.hxx".}
 proc dynamicType*(this: StepBasicObjectRole): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_ObjectRole.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

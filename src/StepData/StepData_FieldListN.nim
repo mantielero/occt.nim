@@ -18,46 +18,32 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StepData_Field"
 type
   StepDataFieldListN* {.importcpp: "StepData_FieldListN",
-                       header: "StepData_FieldListN.hxx", bycopy.} = object of StepDataFieldList ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## FieldListN
-                                                                                          ## of
-                                                                                          ## <nb>
-                                                                                          ## Fields
+                       header: "StepData_FieldListN.hxx", bycopy.} = object of StepDataFieldList
 
 
-proc constructStepDataFieldListN*(nb: cint): StepDataFieldListN {.constructor,
-    importcpp: "StepData_FieldListN(@)", header: "StepData_FieldListN.hxx".}
-proc nbFields*(this: StepDataFieldListN): cint {.noSideEffect, importcpp: "NbFields",
+proc `new`*(this: var StepDataFieldListN; theSize: csize_t): pointer {.
+    importcpp: "StepData_FieldListN::operator new",
     header: "StepData_FieldListN.hxx".}
-proc field*(this: StepDataFieldListN; num: cint): StepDataField {.noSideEffect,
+proc `delete`*(this: var StepDataFieldListN; theAddress: pointer) {.
+    importcpp: "StepData_FieldListN::operator delete",
+    header: "StepData_FieldListN.hxx".}
+proc `new[]`*(this: var StepDataFieldListN; theSize: csize_t): pointer {.
+    importcpp: "StepData_FieldListN::operator new[]",
+    header: "StepData_FieldListN.hxx".}
+proc `delete[]`*(this: var StepDataFieldListN; theAddress: pointer) {.
+    importcpp: "StepData_FieldListN::operator delete[]",
+    header: "StepData_FieldListN.hxx".}
+proc `new`*(this: var StepDataFieldListN; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_FieldListN::operator new",
+    header: "StepData_FieldListN.hxx".}
+proc `delete`*(this: var StepDataFieldListN; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_FieldListN::operator delete",
+    header: "StepData_FieldListN.hxx".}
+proc constructStepDataFieldListN*(nb: int): StepDataFieldListN {.constructor,
+    importcpp: "StepData_FieldListN(@)", header: "StepData_FieldListN.hxx".}
+proc nbFields*(this: StepDataFieldListN): int {.noSideEffect, importcpp: "NbFields",
+    header: "StepData_FieldListN.hxx".}
+proc field*(this: StepDataFieldListN; num: int): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FieldListN.hxx".}
-proc cField*(this: var StepDataFieldListN; num: cint): var StepDataField {.
+proc cField*(this: var StepDataFieldListN; num: int): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldListN.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

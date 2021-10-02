@@ -20,14 +20,31 @@ discard "forward decl of StepVisual_PreDefinedCurveFont"
 discard "forward decl of StepVisual_ExternallyDefinedCurveFont"
 type
   StepVisualCurveStyleFontSelect* {.importcpp: "StepVisual_CurveStyleFontSelect", header: "StepVisual_CurveStyleFontSelect.hxx",
-                                   bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                      ## CurveStyleFontSelect SelectType
+                                   bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualCurveStyleFontSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator new",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc `delete`*(this: var StepVisualCurveStyleFontSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator delete",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc `new[]`*(this: var StepVisualCurveStyleFontSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator new[]",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc `delete[]`*(this: var StepVisualCurveStyleFontSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator delete[]",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc `new`*(this: var StepVisualCurveStyleFontSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator new",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
+proc `delete`*(this: var StepVisualCurveStyleFontSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_CurveStyleFontSelect::operator delete",
+    header: "StepVisual_CurveStyleFontSelect.hxx".}
 proc constructStepVisualCurveStyleFontSelect*(): StepVisualCurveStyleFontSelect {.
     constructor, importcpp: "StepVisual_CurveStyleFontSelect(@)",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
-proc caseNum*(this: StepVisualCurveStyleFontSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualCurveStyleFontSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
 proc curveStyleFont*(this: StepVisualCurveStyleFontSelect): Handle[
@@ -40,28 +57,3 @@ proc externallyDefinedCurveFont*(this: StepVisualCurveStyleFontSelect): Handle[
     StepVisualExternallyDefinedCurveFont] {.noSideEffect,
     importcpp: "ExternallyDefinedCurveFont",
     header: "StepVisual_CurveStyleFontSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

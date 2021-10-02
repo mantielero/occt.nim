@@ -18,29 +18,3 @@ type
       Handle[StepShapeShapeDefinitionRepresentation], TopToolsShapeMapHasher]
   STEPCAFControlDataMapIteratorOfDataMapOfShapeSDR* = Iterator[TopoDS_Shape,
       Handle[StepShapeShapeDefinitionRepresentation], TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

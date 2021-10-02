@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_AlignedSur
     header: "StepFEA_AlignedSurface3dElementCoordinateSystem.hxx".}
 proc dynamicType*(this: StepFEA_AlignedSurface3dElementCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_AlignedSurface3dElementCoordinateSystem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

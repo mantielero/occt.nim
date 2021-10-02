@@ -31,7 +31,7 @@ type
 proc constructStepBasicSiUnitAndRatioUnit*(): StepBasicSiUnitAndRatioUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndRatioUnit(@)",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-proc init*(this: var StepBasicSiUnitAndRatioUnit; hasAprefix: bool;
+proc init*(this: var StepBasicSiUnitAndRatioUnit; hasAprefix: StandardBoolean;
           aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndRatioUnit.hxx".}
 proc setRatioUnit*(this: var StepBasicSiUnitAndRatioUnit;
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSiUnitAndRatioUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndRatioUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

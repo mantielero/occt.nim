@@ -19,29 +19,3 @@ type
       TCollectionAsciiString, Handle[StandardTransient], TCollectionAsciiString]
   STEPConstructDataMapIteratorOfDataMapOfAsciiStringTransient* = Iterator[
       TCollectionAsciiString, Handle[StandardTransient], TCollectionAsciiString]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

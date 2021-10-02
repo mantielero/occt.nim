@@ -18,42 +18,32 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepRepr_SuppliedPartRelationship"
 type
   StepAP203CertifiedItem* {.importcpp: "StepAP203_CertifiedItem",
-                           header: "StepAP203_CertifiedItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
+                           header: "StepAP203_CertifiedItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203CertifiedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_CertifiedItem::operator new",
+    header: "StepAP203_CertifiedItem.hxx".}
+proc `delete`*(this: var StepAP203CertifiedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_CertifiedItem::operator delete",
+    header: "StepAP203_CertifiedItem.hxx".}
+proc `new[]`*(this: var StepAP203CertifiedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_CertifiedItem::operator new[]",
+    header: "StepAP203_CertifiedItem.hxx".}
+proc `delete[]`*(this: var StepAP203CertifiedItem; theAddress: pointer) {.
+    importcpp: "StepAP203_CertifiedItem::operator delete[]",
+    header: "StepAP203_CertifiedItem.hxx".}
+proc `new`*(this: var StepAP203CertifiedItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_CertifiedItem::operator new",
+    header: "StepAP203_CertifiedItem.hxx".}
+proc `delete`*(this: var StepAP203CertifiedItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_CertifiedItem::operator delete",
+    header: "StepAP203_CertifiedItem.hxx".}
 proc constructStepAP203CertifiedItem*(): StepAP203CertifiedItem {.constructor,
     importcpp: "StepAP203_CertifiedItem(@)", header: "StepAP203_CertifiedItem.hxx".}
-proc caseNum*(this: StepAP203CertifiedItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203CertifiedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_CertifiedItem.hxx".}
 proc suppliedPartRelationship*(this: StepAP203CertifiedItem): Handle[
     StepReprSuppliedPartRelationship] {.noSideEffect,
                                        importcpp: "SuppliedPartRelationship",
                                        header: "StepAP203_CertifiedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

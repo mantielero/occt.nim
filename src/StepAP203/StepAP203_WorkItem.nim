@@ -18,41 +18,31 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
   StepAP203WorkItem* {.importcpp: "StepAP203_WorkItem",
-                      header: "StepAP203_WorkItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
+                      header: "StepAP203_WorkItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203WorkItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_WorkItem::operator new",
+    header: "StepAP203_WorkItem.hxx".}
+proc `delete`*(this: var StepAP203WorkItem; theAddress: pointer) {.
+    importcpp: "StepAP203_WorkItem::operator delete",
+    header: "StepAP203_WorkItem.hxx".}
+proc `new[]`*(this: var StepAP203WorkItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_WorkItem::operator new[]",
+    header: "StepAP203_WorkItem.hxx".}
+proc `delete[]`*(this: var StepAP203WorkItem; theAddress: pointer) {.
+    importcpp: "StepAP203_WorkItem::operator delete[]",
+    header: "StepAP203_WorkItem.hxx".}
+proc `new`*(this: var StepAP203WorkItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_WorkItem::operator new",
+    header: "StepAP203_WorkItem.hxx".}
+proc `delete`*(this: var StepAP203WorkItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_WorkItem::operator delete",
+    header: "StepAP203_WorkItem.hxx".}
 proc constructStepAP203WorkItem*(): StepAP203WorkItem {.constructor,
     importcpp: "StepAP203_WorkItem(@)", header: "StepAP203_WorkItem.hxx".}
-proc caseNum*(this: StepAP203WorkItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203WorkItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_WorkItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203WorkItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation", header: "StepAP203_WorkItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

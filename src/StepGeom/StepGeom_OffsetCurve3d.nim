@@ -32,7 +32,7 @@ type
 proc constructStepGeomOffsetCurve3d*(): StepGeomOffsetCurve3d {.constructor,
     importcpp: "StepGeom_OffsetCurve3d(@)", header: "StepGeom_OffsetCurve3d.hxx".}
 proc init*(this: var StepGeomOffsetCurve3d; aName: Handle[TCollectionHAsciiString];
-          aBasisCurve: Handle[StepGeomCurve]; aDistance: cfloat;
+          aBasisCurve: Handle[StepGeomCurve]; aDistance: StandardReal;
           aSelfIntersect: StepDataLogical;
           aRefDirection: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepGeom_OffsetCurve3d.hxx".}
@@ -41,9 +41,9 @@ proc setBasisCurve*(this: var StepGeomOffsetCurve3d;
     importcpp: "SetBasisCurve", header: "StepGeom_OffsetCurve3d.hxx".}
 proc basisCurve*(this: StepGeomOffsetCurve3d): Handle[StepGeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "StepGeom_OffsetCurve3d.hxx".}
-proc setDistance*(this: var StepGeomOffsetCurve3d; aDistance: cfloat) {.
+proc setDistance*(this: var StepGeomOffsetCurve3d; aDistance: StandardReal) {.
     importcpp: "SetDistance", header: "StepGeom_OffsetCurve3d.hxx".}
-proc distance*(this: StepGeomOffsetCurve3d): cfloat {.noSideEffect,
+proc distance*(this: StepGeomOffsetCurve3d): StandardReal {.noSideEffect,
     importcpp: "Distance", header: "StepGeom_OffsetCurve3d.hxx".}
 proc setSelfIntersect*(this: var StepGeomOffsetCurve3d;
                       aSelfIntersect: StepDataLogical) {.
@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_OffsetCurve3d.hxx".}
 proc dynamicType*(this: StepGeomOffsetCurve3d): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_OffsetCurve3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

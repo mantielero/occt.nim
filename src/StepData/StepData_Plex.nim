@@ -58,21 +58,21 @@ proc add*(this: var StepDataPlex; member: Handle[StepDataSimple]) {.importcpp: "
     header: "StepData_Plex.hxx".}
 proc eCDescr*(this: StepDataPlex): Handle[StepDataECDescr] {.noSideEffect,
     importcpp: "ECDescr", header: "StepData_Plex.hxx".}
-proc isComplex*(this: StepDataPlex): bool {.noSideEffect, importcpp: "IsComplex",
-                                        header: "StepData_Plex.hxx".}
-proc matches*(this: StepDataPlex; steptype: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_Plex.hxx".}
+proc isComplex*(this: StepDataPlex): StandardBoolean {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_Plex.hxx".}
+proc matches*(this: StepDataPlex; steptype: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_Plex.hxx".}
 proc `as`*(this: StepDataPlex; steptype: StandardCString): Handle[StepDataSimple] {.
     noSideEffect, importcpp: "As", header: "StepData_Plex.hxx".}
-proc hasField*(this: StepDataPlex; name: StandardCString): bool {.noSideEffect,
-    importcpp: "HasField", header: "StepData_Plex.hxx".}
+proc hasField*(this: StepDataPlex; name: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "HasField", header: "StepData_Plex.hxx".}
 proc field*(this: StepDataPlex; name: StandardCString): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_Plex.hxx".}
 proc cField*(this: var StepDataPlex; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Plex.hxx".}
-proc nbMembers*(this: StepDataPlex): cint {.noSideEffect, importcpp: "NbMembers",
-                                        header: "StepData_Plex.hxx".}
-proc member*(this: StepDataPlex; num: cint): Handle[StepDataSimple] {.noSideEffect,
+proc nbMembers*(this: StepDataPlex): int {.noSideEffect, importcpp: "NbMembers",
+                                       header: "StepData_Plex.hxx".}
+proc member*(this: StepDataPlex; num: int): Handle[StepDataSimple] {.noSideEffect,
     importcpp: "Member", header: "StepData_Plex.hxx".}
 proc typeList*(this: StepDataPlex): Handle[TColStdHSequenceOfAsciiString] {.
     noSideEffect, importcpp: "TypeList", header: "StepData_Plex.hxx".}
@@ -90,28 +90,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Plex.hxx".}
 proc dynamicType*(this: StepDataPlex): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Plex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

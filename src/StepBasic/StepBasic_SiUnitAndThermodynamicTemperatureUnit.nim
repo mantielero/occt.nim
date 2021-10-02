@@ -32,9 +32,8 @@ proc constructStepBasicSiUnitAndThermodynamicTemperatureUnit*(): StepBasicSiUnit
     constructor, importcpp: "StepBasic_SiUnitAndThermodynamicTemperatureUnit(@)",
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
 proc init*(this: var StepBasicSiUnitAndThermodynamicTemperatureUnit;
-          hasAprefix: bool; aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
-    importcpp: "Init",
-    header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
+          hasAprefix: StandardBoolean; aPrefix: StepBasicSiPrefix;
+          aName: StepBasicSiUnitName) {.importcpp: "Init", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
 proc setThermodynamicTemperatureUnit*(this: var StepBasicSiUnitAndThermodynamicTemperatureUnit;
     aThermodynamicTemperatureUnit: Handle[StepBasicThermodynamicTemperatureUnit]) {.
     importcpp: "SetThermodynamicTemperatureUnit",
@@ -51,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_SiUnitAn
     header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
 proc dynamicType*(this: StepBasicSiUnitAndThermodynamicTemperatureUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepBasic_SiUnitAndThermodynamicTemperatureUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

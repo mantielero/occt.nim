@@ -17,26 +17,41 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 type
   StepFEA_SymmetricTensor23d* {.importcpp: "StepFEA_SymmetricTensor23d",
-                               header: "StepFEA_SymmetricTensor23d.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+                               header: "StepFEA_SymmetricTensor23d.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepFEA_SymmetricTensor23d; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator new",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
+proc `delete`*(this: var StepFEA_SymmetricTensor23d; theAddress: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator delete",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
+proc `new[]`*(this: var StepFEA_SymmetricTensor23d; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator new[]",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
+proc `delete[]`*(this: var StepFEA_SymmetricTensor23d; theAddress: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator delete[]",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
+proc `new`*(this: var StepFEA_SymmetricTensor23d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator new",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
+proc `delete`*(this: var StepFEA_SymmetricTensor23d; a2: pointer; a3: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor23d::operator delete",
+    header: "StepFEA_SymmetricTensor23d.hxx".}
 proc constructStepFEA_SymmetricTensor23d*(): StepFEA_SymmetricTensor23d {.
     constructor, importcpp: "StepFEA_SymmetricTensor23d(@)",
     header: "StepFEA_SymmetricTensor23d.hxx".}
-proc caseNum*(this: StepFEA_SymmetricTensor23d; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepFEA_SymmetricTensor23d; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_SymmetricTensor23d.hxx".}
-proc caseMem*(this: StepFEA_SymmetricTensor23d; ent: Handle[StepDataSelectMember]): cint {.
+proc caseMem*(this: StepFEA_SymmetricTensor23d; ent: Handle[StepDataSelectMember]): int {.
     noSideEffect, importcpp: "CaseMem", header: "StepFEA_SymmetricTensor23d.hxx".}
 proc newMember*(this: StepFEA_SymmetricTensor23d): Handle[StepDataSelectMember] {.
     noSideEffect, importcpp: "NewMember", header: "StepFEA_SymmetricTensor23d.hxx".}
 proc setIsotropicSymmetricTensor23d*(this: var StepFEA_SymmetricTensor23d;
-                                    aVal: cfloat) {.
+                                    aVal: StandardReal) {.
     importcpp: "SetIsotropicSymmetricTensor23d",
     header: "StepFEA_SymmetricTensor23d.hxx".}
-proc isotropicSymmetricTensor23d*(this: StepFEA_SymmetricTensor23d): cfloat {.
+proc isotropicSymmetricTensor23d*(this: StepFEA_SymmetricTensor23d): StandardReal {.
     noSideEffect, importcpp: "IsotropicSymmetricTensor23d",
     header: "StepFEA_SymmetricTensor23d.hxx".}
 proc setOrthotropicSymmetricTensor23d*(this: var StepFEA_SymmetricTensor23d;
@@ -55,28 +70,3 @@ proc anisotropicSymmetricTensor23d*(this: StepFEA_SymmetricTensor23d): Handle[
     TColStdHArray1OfReal] {.noSideEffect,
                            importcpp: "AnisotropicSymmetricTensor23d",
                            header: "StepFEA_SymmetricTensor23d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

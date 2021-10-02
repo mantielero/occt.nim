@@ -20,29 +20,3 @@ type
                                header: "StepGeom_TrimmingPreference.hxx".} = enum
     StepGeomTpCartesian, StepGeomTpParameter, StepGeomTpUnspecified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

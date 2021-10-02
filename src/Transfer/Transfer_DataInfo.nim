@@ -17,36 +17,26 @@
 discard "forward decl of Standard_Transient"
 type
   TransferDataInfo* {.importcpp: "Transfer_DataInfo",
-                     header: "Transfer_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
-                                                                   ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
+                     header: "Transfer_DataInfo.hxx", bycopy.} = object
 
 
-proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
-    importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".}
+proc `new`*(this: var TransferDataInfo; theSize: csize_t): pointer {.
+    importcpp: "Transfer_DataInfo::operator new", header: "Transfer_DataInfo.hxx".}
+proc `delete`*(this: var TransferDataInfo; theAddress: pointer) {.
+    importcpp: "Transfer_DataInfo::operator delete",
+    header: "Transfer_DataInfo.hxx".}
+proc `new[]`*(this: var TransferDataInfo; theSize: csize_t): pointer {.
+    importcpp: "Transfer_DataInfo::operator new[]",
+    header: "Transfer_DataInfo.hxx".}
+proc `delete[]`*(this: var TransferDataInfo; theAddress: pointer) {.
+    importcpp: "Transfer_DataInfo::operator delete[]",
+    header: "Transfer_DataInfo.hxx".}
+proc `new`*(this: var TransferDataInfo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Transfer_DataInfo::operator new", header: "Transfer_DataInfo.hxx".}
+proc `delete`*(this: var TransferDataInfo; a2: pointer; a3: pointer) {.
+    importcpp: "Transfer_DataInfo::operator delete",
+    header: "Transfer_DataInfo.hxx".}
+#[ proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.
+    importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".} ]#
 proc typeName*(ent: Handle[StandardTransient]): StandardCString {.
     importcpp: "Transfer_DataInfo::TypeName(@)", header: "Transfer_DataInfo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

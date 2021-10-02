@@ -31,21 +31,27 @@ type
 proc constructStepBasicPersonalAddress*(): StepBasicPersonalAddress {.constructor,
     importcpp: "StepBasic_PersonalAddress(@)",
     header: "StepBasic_PersonalAddress.hxx".}
-proc init*(this: var StepBasicPersonalAddress; hasAinternalLocation: bool;
+proc init*(this: var StepBasicPersonalAddress;
+          hasAinternalLocation: StandardBoolean;
           aInternalLocation: Handle[TCollectionHAsciiString];
-          hasAstreetNumber: bool; aStreetNumber: Handle[TCollectionHAsciiString];
-          hasAstreet: bool; aStreet: Handle[TCollectionHAsciiString];
-          hasApostalBox: bool; aPostalBox: Handle[TCollectionHAsciiString];
-          hasAtown: bool; aTown: Handle[TCollectionHAsciiString]; hasAregion: bool;
-          aRegion: Handle[TCollectionHAsciiString]; hasApostalCode: bool;
-          aPostalCode: Handle[TCollectionHAsciiString]; hasAcountry: bool;
-          aCountry: Handle[TCollectionHAsciiString]; hasAfacsimileNumber: bool;
+          hasAstreetNumber: StandardBoolean;
+          aStreetNumber: Handle[TCollectionHAsciiString];
+          hasAstreet: StandardBoolean; aStreet: Handle[TCollectionHAsciiString];
+          hasApostalBox: StandardBoolean;
+          aPostalBox: Handle[TCollectionHAsciiString]; hasAtown: StandardBoolean;
+          aTown: Handle[TCollectionHAsciiString]; hasAregion: StandardBoolean;
+          aRegion: Handle[TCollectionHAsciiString];
+          hasApostalCode: StandardBoolean;
+          aPostalCode: Handle[TCollectionHAsciiString];
+          hasAcountry: StandardBoolean; aCountry: Handle[TCollectionHAsciiString];
+          hasAfacsimileNumber: StandardBoolean;
           aFacsimileNumber: Handle[TCollectionHAsciiString];
-          hasAtelephoneNumber: bool;
+          hasAtelephoneNumber: StandardBoolean;
           aTelephoneNumber: Handle[TCollectionHAsciiString];
-          hasAelectronicMailAddress: bool;
+          hasAelectronicMailAddress: StandardBoolean;
           aElectronicMailAddress: Handle[TCollectionHAsciiString];
-          hasAtelexNumber: bool; aTelexNumber: Handle[TCollectionHAsciiString];
+          hasAtelexNumber: StandardBoolean;
+          aTelexNumber: Handle[TCollectionHAsciiString];
           aPeople: Handle[StepBasicHArray1OfPerson];
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_PersonalAddress.hxx".}
@@ -54,9 +60,9 @@ proc setPeople*(this: var StepBasicPersonalAddress;
     importcpp: "SetPeople", header: "StepBasic_PersonalAddress.hxx".}
 proc people*(this: StepBasicPersonalAddress): Handle[StepBasicHArray1OfPerson] {.
     noSideEffect, importcpp: "People", header: "StepBasic_PersonalAddress.hxx".}
-proc peopleValue*(this: StepBasicPersonalAddress; num: cint): Handle[StepBasicPerson] {.
+proc peopleValue*(this: StepBasicPersonalAddress; num: int): Handle[StepBasicPerson] {.
     noSideEffect, importcpp: "PeopleValue", header: "StepBasic_PersonalAddress.hxx".}
-proc nbPeople*(this: StepBasicPersonalAddress): cint {.noSideEffect,
+proc nbPeople*(this: StepBasicPersonalAddress): int {.noSideEffect,
     importcpp: "NbPeople", header: "StepBasic_PersonalAddress.hxx".}
 proc setDescription*(this: var StepBasicPersonalAddress;
                     aDescription: Handle[TCollectionHAsciiString]) {.
@@ -73,28 +79,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_PersonalAddress.hxx".}
 proc dynamicType*(this: StepBasicPersonalAddress): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_PersonalAddress.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

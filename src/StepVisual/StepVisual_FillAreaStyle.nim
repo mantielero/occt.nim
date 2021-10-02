@@ -46,10 +46,10 @@ proc setFillStyles*(this: var StepVisualFillAreaStyle;
 proc fillStyles*(this: StepVisualFillAreaStyle): Handle[
     StepVisualHArray1OfFillStyleSelect] {.noSideEffect, importcpp: "FillStyles",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc fillStylesValue*(this: StepVisualFillAreaStyle; num: cint): StepVisualFillStyleSelect {.
+proc fillStylesValue*(this: StepVisualFillAreaStyle; num: int): StepVisualFillStyleSelect {.
     noSideEffect, importcpp: "FillStylesValue",
     header: "StepVisual_FillAreaStyle.hxx".}
-proc nbFillStyles*(this: StepVisualFillAreaStyle): cint {.noSideEffect,
+proc nbFillStyles*(this: StepVisualFillAreaStyle): int {.noSideEffect,
     importcpp: "NbFillStyles", header: "StepVisual_FillAreaStyle.hxx".}
 type
   StepVisualFillAreaStylebaseType* = StandardTransient
@@ -61,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_FillAreaStyle.hxx".}
 proc dynamicType*(this: StepVisualFillAreaStyle): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_FillAreaStyle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -33,7 +33,7 @@ type
 proc constructStepBasicDocument*(): StepBasicDocument {.constructor,
     importcpp: "StepBasic_Document(@)", header: "StepBasic_Document.hxx".}
 proc init*(this: var StepBasicDocument; aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aKind: Handle[StepBasicDocumentType]) {.importcpp: "Init",
     header: "StepBasic_Document.hxx".}
@@ -50,7 +50,7 @@ proc description*(this: StepBasicDocument): Handle[TCollectionHAsciiString] {.
 proc setDescription*(this: var StepBasicDocument;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_Document.hxx".}
-proc hasDescription*(this: StepBasicDocument): bool {.noSideEffect,
+proc hasDescription*(this: StepBasicDocument): StandardBoolean {.noSideEffect,
     importcpp: "HasDescription", header: "StepBasic_Document.hxx".}
 proc kind*(this: StepBasicDocument): Handle[StepBasicDocumentType] {.noSideEffect,
     importcpp: "Kind", header: "StepBasic_Document.hxx".}
@@ -66,28 +66,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Document.hxx".}
 proc dynamicType*(this: StepBasicDocument): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Document.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

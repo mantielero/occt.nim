@@ -47,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ApprovalStatus.hxx".}
 proc dynamicType*(this: StepBasicApprovalStatus): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ApprovalStatus.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

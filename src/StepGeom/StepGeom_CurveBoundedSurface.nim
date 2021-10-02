@@ -38,8 +38,8 @@ proc init*(this: var StepGeomCurveBoundedSurface;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
           aBasisSurface: Handle[StepGeomSurface];
           aBoundaries: Handle[StepGeomHArray1OfSurfaceBoundary];
-          aImplicitOuter: bool) {.importcpp: "Init",
-                                header: "StepGeom_CurveBoundedSurface.hxx".}
+          aImplicitOuter: StandardBoolean) {.importcpp: "Init",
+    header: "StepGeom_CurveBoundedSurface.hxx".}
 proc basisSurface*(this: StepGeomCurveBoundedSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "BasisSurface",
     header: "StepGeom_CurveBoundedSurface.hxx".}
@@ -51,9 +51,11 @@ proc boundaries*(this: StepGeomCurveBoundedSurface): Handle[
 proc setBoundaries*(this: var StepGeomCurveBoundedSurface;
                    boundaries: Handle[StepGeomHArray1OfSurfaceBoundary]) {.
     importcpp: "SetBoundaries", header: "StepGeom_CurveBoundedSurface.hxx".}
-proc implicitOuter*(this: StepGeomCurveBoundedSurface): bool {.noSideEffect,
-    importcpp: "ImplicitOuter", header: "StepGeom_CurveBoundedSurface.hxx".}
-proc setImplicitOuter*(this: var StepGeomCurveBoundedSurface; implicitOuter: bool) {.
+proc implicitOuter*(this: StepGeomCurveBoundedSurface): StandardBoolean {.
+    noSideEffect, importcpp: "ImplicitOuter",
+    header: "StepGeom_CurveBoundedSurface.hxx".}
+proc setImplicitOuter*(this: var StepGeomCurveBoundedSurface;
+                      implicitOuter: StandardBoolean) {.
     importcpp: "SetImplicitOuter", header: "StepGeom_CurveBoundedSurface.hxx".}
 type
   StepGeomCurveBoundedSurfacebaseType* = StepGeomBoundedSurface
@@ -66,28 +68,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCurveBoundedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CurveBoundedSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

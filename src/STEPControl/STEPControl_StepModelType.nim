@@ -36,29 +36,3 @@ type
     STEPControlShellBasedSurfaceModel, STEPControlGeometricCurveSet,
     STEPControlHybrid
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

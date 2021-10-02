@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SolidReplica.hxx".}
 proc dynamicType*(this: StepShapeSolidReplica): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SolidReplica.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

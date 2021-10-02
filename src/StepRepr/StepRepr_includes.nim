@@ -37,12 +37,12 @@ include StepRepr_FunctionallyDefinedTransformation
 include StepRepr_GeometricAlignment
 include StepRepr_GlobalUncertaintyAssignedContext
 include StepRepr_GlobalUnitAssignedContext
-include StepRepr_HArray1OfMaterialPropertyRepresentation
-include StepRepr_HArray1OfPropertyDefinitionRepresentation
-include StepRepr_HArray1OfRepresentationItem
-include StepRepr_HArray1OfShapeAspect
-include StepRepr_HSequenceOfMaterialPropertyRepresentation
-include StepRepr_HSequenceOfRepresentationItem
+#include StepRepr_HArray1OfMaterialPropertyRepresentation
+#include StepRepr_HArray1OfPropertyDefinitionRepresentation
+#include StepRepr_HArray1OfRepresentationItem
+#include StepRepr_HArray1OfShapeAspect
+#include StepRepr_HSequenceOfMaterialPropertyRepresentation
+#include StepRepr_HSequenceOfRepresentationItem
 include StepRepr_IntegerRepresentationItem
 include StepRepr_ItemDefinedTransformation
 include StepRepr_MakeFromUsageOption
@@ -93,29 +93,3 @@ include StepRepr_Tangent
 include StepRepr_Transformation
 include StepRepr_ValueRange
 include StepRepr_ValueRepresentationItem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

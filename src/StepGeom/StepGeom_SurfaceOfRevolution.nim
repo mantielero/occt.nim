@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomSurfaceOfRevolution): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceOfRevolution.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -30,9 +30,9 @@ type
 proc constructSTEPSelectionsSelectAssembly*(): STEPSelectionsSelectAssembly {.
     constructor, importcpp: "STEPSelections_SelectAssembly(@)",
     header: "STEPSelections_SelectAssembly.hxx".}
-proc explore*(this: STEPSelectionsSelectAssembly; level: cint;
+proc explore*(this: STEPSelectionsSelectAssembly; level: int;
              ent: Handle[StandardTransient]; g: InterfaceGraph;
-             explored: var InterfaceEntityIterator): bool {.noSideEffect,
+             explored: var InterfaceEntityIterator): StandardBoolean {.noSideEffect,
     importcpp: "Explore", header: "STEPSelections_SelectAssembly.hxx".}
 proc exploreLabel*(this: STEPSelectionsSelectAssembly): TCollectionAsciiString {.
     noSideEffect, importcpp: "ExploreLabel",
@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectAssembly): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectAssembly.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

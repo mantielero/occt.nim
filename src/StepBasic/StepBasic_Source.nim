@@ -19,29 +19,3 @@ type
                     header: "StepBasic_Source.hxx".} = enum
     StepBasicSMade, StepBasicSBought, StepBasicSNotKnown
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

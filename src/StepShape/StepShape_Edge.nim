@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Edge.hxx".}
 proc dynamicType*(this: StepShapeEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Edge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

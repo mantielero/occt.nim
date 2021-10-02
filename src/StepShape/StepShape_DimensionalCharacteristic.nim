@@ -18,43 +18,34 @@ discard "forward decl of StepShape_DimensionalLocation"
 discard "forward decl of StepShape_DimensionalSize"
 type
   StepShapeDimensionalCharacteristic* {.importcpp: "StepShape_DimensionalCharacteristic", header: "StepShape_DimensionalCharacteristic.hxx",
-                                       bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                          ## constructor
+                                       bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeDimensionalCharacteristic; theSize: csize_t): pointer {.
+    importcpp: "StepShape_DimensionalCharacteristic::operator new",
+    header: "StepShape_DimensionalCharacteristic.hxx".}
+proc `delete`*(this: var StepShapeDimensionalCharacteristic; theAddress: pointer) {.
+    importcpp: "StepShape_DimensionalCharacteristic::operator delete",
+    header: "StepShape_DimensionalCharacteristic.hxx".}
+proc `new[]`*(this: var StepShapeDimensionalCharacteristic; theSize: csize_t): pointer {.
+    importcpp: "StepShape_DimensionalCharacteristic::operator new[]",
+    header: "StepShape_DimensionalCharacteristic.hxx".}
+proc `delete[]`*(this: var StepShapeDimensionalCharacteristic; theAddress: pointer) {.
+    importcpp: "StepShape_DimensionalCharacteristic::operator delete[]",
+    header: "StepShape_DimensionalCharacteristic.hxx".}
+proc `new`*(this: var StepShapeDimensionalCharacteristic; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepShape_DimensionalCharacteristic::operator new", header: "StepShape_DimensionalCharacteristic.hxx".}
+proc `delete`*(this: var StepShapeDimensionalCharacteristic; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_DimensionalCharacteristic::operator delete",
+    header: "StepShape_DimensionalCharacteristic.hxx".}
 proc constructStepShapeDimensionalCharacteristic*(): StepShapeDimensionalCharacteristic {.
     constructor, importcpp: "StepShape_DimensionalCharacteristic(@)",
     header: "StepShape_DimensionalCharacteristic.hxx".}
 proc caseNum*(this: StepShapeDimensionalCharacteristic;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_DimensionalCharacteristic.hxx".}
 proc dimensionalLocation*(this: StepShapeDimensionalCharacteristic): Handle[
     StepShapeDimensionalLocation] {.noSideEffect,
                                    importcpp: "DimensionalLocation", header: "StepShape_DimensionalCharacteristic.hxx".}
 proc dimensionalSize*(this: StepShapeDimensionalCharacteristic): Handle[
     StepShapeDimensionalSize] {.noSideEffect, importcpp: "DimensionalSize", header: "StepShape_DimensionalCharacteristic.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

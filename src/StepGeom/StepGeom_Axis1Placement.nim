@@ -32,7 +32,7 @@ type
 proc constructStepGeomAxis1Placement*(): StepGeomAxis1Placement {.constructor,
     importcpp: "StepGeom_Axis1Placement(@)", header: "StepGeom_Axis1Placement.hxx".}
 proc init*(this: var StepGeomAxis1Placement; aName: Handle[TCollectionHAsciiString];
-          aLocation: Handle[StepGeomCartesianPoint]; hasAaxis: bool;
+          aLocation: Handle[StepGeomCartesianPoint]; hasAaxis: StandardBoolean;
           aAxis: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepGeom_Axis1Placement.hxx".}
 proc setAxis*(this: var StepGeomAxis1Placement; aAxis: Handle[StepGeomDirection]) {.
@@ -41,7 +41,7 @@ proc unSetAxis*(this: var StepGeomAxis1Placement) {.importcpp: "UnSetAxis",
     header: "StepGeom_Axis1Placement.hxx".}
 proc axis*(this: StepGeomAxis1Placement): Handle[StepGeomDirection] {.noSideEffect,
     importcpp: "Axis", header: "StepGeom_Axis1Placement.hxx".}
-proc hasAxis*(this: StepGeomAxis1Placement): bool {.noSideEffect,
+proc hasAxis*(this: StepGeomAxis1Placement): StandardBoolean {.noSideEffect,
     importcpp: "HasAxis", header: "StepGeom_Axis1Placement.hxx".}
 type
   StepGeomAxis1PlacementbaseType* = StepGeomPlacement
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Axis1Placement.hxx".}
 proc dynamicType*(this: StepGeomAxis1Placement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_Axis1Placement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

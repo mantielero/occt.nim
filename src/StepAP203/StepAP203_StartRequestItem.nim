@@ -18,43 +18,33 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_ProductDefinitionFormation"
 type
   StepAP203StartRequestItem* {.importcpp: "StepAP203_StartRequestItem",
-                              header: "StepAP203_StartRequestItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                         ## !
-                                                                                                         ## Empty
-                                                                                                         ## constructor
+                              header: "StepAP203_StartRequestItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203StartRequestItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_StartRequestItem::operator new",
+    header: "StepAP203_StartRequestItem.hxx".}
+proc `delete`*(this: var StepAP203StartRequestItem; theAddress: pointer) {.
+    importcpp: "StepAP203_StartRequestItem::operator delete",
+    header: "StepAP203_StartRequestItem.hxx".}
+proc `new[]`*(this: var StepAP203StartRequestItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_StartRequestItem::operator new[]",
+    header: "StepAP203_StartRequestItem.hxx".}
+proc `delete[]`*(this: var StepAP203StartRequestItem; theAddress: pointer) {.
+    importcpp: "StepAP203_StartRequestItem::operator delete[]",
+    header: "StepAP203_StartRequestItem.hxx".}
+proc `new`*(this: var StepAP203StartRequestItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_StartRequestItem::operator new",
+    header: "StepAP203_StartRequestItem.hxx".}
+proc `delete`*(this: var StepAP203StartRequestItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_StartRequestItem::operator delete",
+    header: "StepAP203_StartRequestItem.hxx".}
 proc constructStepAP203StartRequestItem*(): StepAP203StartRequestItem {.
     constructor, importcpp: "StepAP203_StartRequestItem(@)",
     header: "StepAP203_StartRequestItem.hxx".}
-proc caseNum*(this: StepAP203StartRequestItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203StartRequestItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_StartRequestItem.hxx".}
 proc productDefinitionFormation*(this: StepAP203StartRequestItem): Handle[
     StepBasicProductDefinitionFormation] {.noSideEffect,
     importcpp: "ProductDefinitionFormation",
     header: "StepAP203_StartRequestItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -22,13 +22,31 @@ discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
   StepReprRepresentedDefinition* {.importcpp: "StepRepr_RepresentedDefinition",
                                   header: "StepRepr_RepresentedDefinition.hxx",
-                                  bycopy.} = object of StepDataSelectType ## ! Empty constructor
+                                  bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepReprRepresentedDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_RepresentedDefinition::operator new",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc `delete`*(this: var StepReprRepresentedDefinition; theAddress: pointer) {.
+    importcpp: "StepRepr_RepresentedDefinition::operator delete",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc `new[]`*(this: var StepReprRepresentedDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_RepresentedDefinition::operator new[]",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc `delete[]`*(this: var StepReprRepresentedDefinition; theAddress: pointer) {.
+    importcpp: "StepRepr_RepresentedDefinition::operator delete[]",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc `new`*(this: var StepReprRepresentedDefinition; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepRepr_RepresentedDefinition::operator new",
+    header: "StepRepr_RepresentedDefinition.hxx".}
+proc `delete`*(this: var StepReprRepresentedDefinition; a2: pointer; a3: pointer) {.
+    importcpp: "StepRepr_RepresentedDefinition::operator delete",
+    header: "StepRepr_RepresentedDefinition.hxx".}
 proc constructStepReprRepresentedDefinition*(): StepReprRepresentedDefinition {.
     constructor, importcpp: "StepRepr_RepresentedDefinition(@)",
     header: "StepRepr_RepresentedDefinition.hxx".}
-proc caseNum*(this: StepReprRepresentedDefinition; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepReprRepresentedDefinition; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_RepresentedDefinition.hxx".}
 proc generalProperty*(this: StepReprRepresentedDefinition): Handle[
@@ -47,28 +65,3 @@ proc shapeAspect*(this: StepReprRepresentedDefinition): Handle[StepReprShapeAspe
 proc shapeAspectRelationship*(this: StepReprRepresentedDefinition): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship", header: "StepRepr_RepresentedDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

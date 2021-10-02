@@ -36,7 +36,7 @@ proc init*(this: var StepGeomGeometricRepresentationContextAndParametricRepresen
 proc init*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: cint) {.importcpp: "Init", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
+          aCoordinateSpaceDimension: int) {.importcpp: "Init", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc setGeometricRepresentationContext*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
     aGeometricRepresentationContext: Handle[
     StepGeomGeometricRepresentationContext]) {.
@@ -52,9 +52,9 @@ proc parametricRepresentationContext*(this: StepGeomGeometricRepresentationConte
     StepReprParametricRepresentationContext] {.noSideEffect,
     importcpp: "ParametricRepresentationContext", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContextAndParametricRepresentationContext;
-                                 aCoordinateSpaceDimension: cint) {.
+                                 aCoordinateSpaceDimension: int) {.
     importcpp: "SetCoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): cint {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): int {.
     noSideEffect, importcpp: "CoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 type
   StepGeomGeometricRepresentationContextAndParametricRepresentationContextbaseType* = StepReprRepresentationContext
@@ -63,28 +63,3 @@ proc getTypeName*(): cstring {.importcpp: "StepGeom_GeometricRepresentationConte
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext::get_type_descriptor(@)", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
 proc dynamicType*(this: StepGeomGeometricRepresentationContextAndParametricRepresentationContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_GeometricRepresentationContextAndParametricRepresentationContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

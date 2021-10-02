@@ -36,8 +36,9 @@ proc constructStepShapeSeamEdge*(): StepShapeSeamEdge {.constructor,
 proc init*(this: var StepShapeSeamEdge;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
           aOrientedEdgeEdgeElement: Handle[StepShapeEdge];
-          aOrientedEdgeOrientation: bool; aPcurveReference: Handle[StepGeomPcurve]) {.
-    importcpp: "Init", header: "StepShape_SeamEdge.hxx".}
+          aOrientedEdgeOrientation: StandardBoolean;
+          aPcurveReference: Handle[StepGeomPcurve]) {.importcpp: "Init",
+    header: "StepShape_SeamEdge.hxx".}
 proc pcurveReference*(this: StepShapeSeamEdge): Handle[StepGeomPcurve] {.
     noSideEffect, importcpp: "PcurveReference", header: "StepShape_SeamEdge.hxx".}
 proc setPcurveReference*(this: var StepShapeSeamEdge;
@@ -53,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_SeamEdge.hxx".}
 proc dynamicType*(this: StepShapeSeamEdge): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_SeamEdge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

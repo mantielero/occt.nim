@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Pcurve.hxx".}
 proc dynamicType*(this: StepGeomPcurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Pcurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

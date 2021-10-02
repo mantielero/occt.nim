@@ -32,15 +32,16 @@ type
 proc constructStepElementSurfaceElementPurposeMember*(): StepElementSurfaceElementPurposeMember {.
     constructor, importcpp: "StepElement_SurfaceElementPurposeMember(@)",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc hasName*(this: StepElementSurfaceElementPurposeMember): bool {.noSideEffect,
-    importcpp: "HasName", header: "StepElement_SurfaceElementPurposeMember.hxx".}
+proc hasName*(this: StepElementSurfaceElementPurposeMember): StandardBoolean {.
+    noSideEffect, importcpp: "HasName",
+    header: "StepElement_SurfaceElementPurposeMember.hxx".}
 proc name*(this: StepElementSurfaceElementPurposeMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
 proc setName*(this: var StepElementSurfaceElementPurposeMember;
-             name: StandardCString): bool {.importcpp: "SetName",
+             name: StandardCString): StandardBoolean {.importcpp: "SetName",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
-proc matches*(this: StepElementSurfaceElementPurposeMember; name: StandardCString): bool {.
+proc matches*(this: StepElementSurfaceElementPurposeMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_SurfaceElementPurposeMember.hxx".}
 type
@@ -52,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurfaceElementPurposeMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_SurfaceElementPurposeMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

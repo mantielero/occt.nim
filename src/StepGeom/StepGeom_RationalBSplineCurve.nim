@@ -29,7 +29,7 @@ proc constructStepGeomRationalBSplineCurve*(): StepGeomRationalBSplineCurve {.
     constructor, importcpp: "StepGeom_RationalBSplineCurve(@)",
     header: "StepGeom_RationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -41,10 +41,10 @@ proc setWeightsData*(this: var StepGeomRationalBSplineCurve;
 proc weightsData*(this: StepGeomRationalBSplineCurve): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "WeightsData",
     header: "StepGeom_RationalBSplineCurve.hxx".}
-proc weightsDataValue*(this: StepGeomRationalBSplineCurve; num: cint): cfloat {.
+proc weightsDataValue*(this: StepGeomRationalBSplineCurve; num: int): StandardReal {.
     noSideEffect, importcpp: "WeightsDataValue",
     header: "StepGeom_RationalBSplineCurve.hxx".}
-proc nbWeightsData*(this: StepGeomRationalBSplineCurve): cint {.noSideEffect,
+proc nbWeightsData*(this: StepGeomRationalBSplineCurve): int {.noSideEffect,
     importcpp: "NbWeightsData", header: "StepGeom_RationalBSplineCurve.hxx".}
 type
   StepGeomRationalBSplineCurvebaseType* = StepGeomBSplineCurve
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomRationalBSplineCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RationalBSplineCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

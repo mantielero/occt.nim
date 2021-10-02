@@ -20,17 +20,28 @@ discard "forward decl of StepFEA_ParametricCurve3dElementCoordinateSystem"
 type
   StepFEA_CurveElementEndCoordinateSystem* {.
       importcpp: "StepFEA_CurveElementEndCoordinateSystem",
-      header: "StepFEA_CurveElementEndCoordinateSystem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor
+      header: "StepFEA_CurveElementEndCoordinateSystem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepFEA_CurveElementEndCoordinateSystem; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator new",
+    header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+proc `delete`*(this: var StepFEA_CurveElementEndCoordinateSystem;
+              theAddress: pointer) {.importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator delete", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+proc `new[]`*(this: var StepFEA_CurveElementEndCoordinateSystem; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator new[]",
+    header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+proc `delete[]`*(this: var StepFEA_CurveElementEndCoordinateSystem;
+                theAddress: pointer) {.importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator delete[]", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+proc `new`*(this: var StepFEA_CurveElementEndCoordinateSystem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator new", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
+proc `delete`*(this: var StepFEA_CurveElementEndCoordinateSystem; a2: pointer;
+              a3: pointer) {.importcpp: "StepFEA_CurveElementEndCoordinateSystem::operator delete", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
 proc constructStepFEA_CurveElementEndCoordinateSystem*(): StepFEA_CurveElementEndCoordinateSystem {.
     constructor, importcpp: "StepFEA_CurveElementEndCoordinateSystem(@)",
     header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
 proc caseNum*(this: StepFEA_CurveElementEndCoordinateSystem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
 proc feaAxis2Placement3d*(this: StepFEA_CurveElementEndCoordinateSystem): Handle[
     StepFEA_FeaAxis2Placement3d] {.noSideEffect, importcpp: "FeaAxis2Placement3d", header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
@@ -44,28 +55,3 @@ proc parametricCurve3dElementCoordinateSystem*(
     StepFEA_ParametricCurve3dElementCoordinateSystem] {.noSideEffect,
     importcpp: "ParametricCurve3dElementCoordinateSystem",
     header: "StepFEA_CurveElementEndCoordinateSystem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

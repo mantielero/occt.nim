@@ -35,7 +35,7 @@ proc constructStepShapeAngularLocation*(): StepShapeAngularLocation {.constructo
     header: "StepShape_AngularLocation.hxx".}
 proc init*(this: var StepShapeAngularLocation;
           aShapeAspectRelationshipName: Handle[TCollectionHAsciiString];
-          hasShapeAspectRelationshipDescription: bool;
+          hasShapeAspectRelationshipDescription: StandardBoolean;
           aShapeAspectRelationshipDescription: Handle[TCollectionHAsciiString];
     aShapeAspectRelationshipRelatingShapeAspect: Handle[StepReprShapeAspect];
     aShapeAspectRelationshipRelatedShapeAspect: Handle[StepReprShapeAspect];
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_AngularLocation.hxx".}
 proc dynamicType*(this: StepShapeAngularLocation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_AngularLocation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

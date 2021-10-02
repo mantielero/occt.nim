@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Conversi
 proc dynamicType*(this: StepBasicConversionBasedUnitAndRatioUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ConversionBasedUnitAndRatioUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

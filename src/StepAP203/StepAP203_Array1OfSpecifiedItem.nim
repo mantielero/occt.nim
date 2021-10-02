@@ -16,29 +16,3 @@
 
 type
   StepAP203Array1OfSpecifiedItem* = NCollectionArray1[StepAP203SpecifiedItem]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

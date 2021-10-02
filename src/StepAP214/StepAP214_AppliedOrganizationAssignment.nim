@@ -44,10 +44,10 @@ proc setItems*(this: var StepAP214AppliedOrganizationAssignment;
 proc items*(this: StepAP214AppliedOrganizationAssignment): Handle[
     StepAP214HArray1OfOrganizationItem] {.noSideEffect, importcpp: "Items",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedOrganizationAssignment; num: cint): StepAP214OrganizationItem {.
+proc itemsValue*(this: StepAP214AppliedOrganizationAssignment; num: int): StepAP214OrganizationItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedOrganizationAssignment): cint {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedOrganizationAssignment): int {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedOrganizationAssignment.hxx".}
 type
   StepAP214AppliedOrganizationAssignmentbaseType* = StepBasicOrganizationAssignment
@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedO
 proc dynamicType*(this: StepAP214AppliedOrganizationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP214_AppliedOrganizationAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,9 +21,21 @@ discard "forward decl of IFSelect_SelectSignature"
 discard "forward decl of STEPEdit_EditContext"
 discard "forward decl of STEPEdit_EditSDR"
 type
-  STEPEdit* {.importcpp: "STEPEdit", header: "STEPEdit.hxx", bycopy.} = object ## ! Returns a Protocol fit for STEP (creates the first time)
+  STEPEdit* {.importcpp: "STEPEdit", header: "STEPEdit.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPEdit; theSize: csize_t): pointer {.
+    importcpp: "STEPEdit::operator new", header: "STEPEdit.hxx".}
+proc `delete`*(this: var STEPEdit; theAddress: pointer) {.
+    importcpp: "STEPEdit::operator delete", header: "STEPEdit.hxx".}
+proc `new[]`*(this: var STEPEdit; theSize: csize_t): pointer {.
+    importcpp: "STEPEdit::operator new[]", header: "STEPEdit.hxx".}
+proc `delete[]`*(this: var STEPEdit; theAddress: pointer) {.
+    importcpp: "STEPEdit::operator delete[]", header: "STEPEdit.hxx".}
+proc `new`*(this: var STEPEdit; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPEdit::operator new", header: "STEPEdit.hxx".}
+proc `delete`*(this: var STEPEdit; a2: pointer; a3: pointer) {.
+    importcpp: "STEPEdit::operator delete", header: "STEPEdit.hxx".}
 proc protocol*(): Handle[InterfaceProtocol] {.importcpp: "STEPEdit::Protocol(@)",
     header: "STEPEdit.hxx".}
 proc newModel*(): Handle[StepDataStepModel] {.importcpp: "STEPEdit::NewModel(@)",
@@ -36,28 +48,3 @@ proc newSelectPlacedItem*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectPlacedItem(@)", header: "STEPEdit.hxx".}
 proc newSelectShapeRepr*(): Handle[IFSelectSelectSignature] {.
     importcpp: "STEPEdit::NewSelectShapeRepr(@)", header: "STEPEdit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

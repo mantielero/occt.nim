@@ -22,29 +22,3 @@ type
     TransferUndefIgnore, TransferUndefFailure, TransferUndefContent,
     TransferUndefUser
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

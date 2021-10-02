@@ -28,7 +28,7 @@ discard "forward decl of Interface_CheckIterator"
 discard "forward decl of XSControl_Controller"
 discard "forward decl of XSControl_Controller"
 type
-  HandleC1C1* = Handle[XSControlController]
+  HandleXSControlController* = Handle[XSControlController]
 
 ## ! This class allows a general X-STEP engine to run generic
 ## ! functions on any interface norm, in the same way. It includes
@@ -115,7 +115,7 @@ proc recorded*(name: StandardCString): Handle[XSControlController] {.
     header: "XSControl_Controller.hxx".}
 proc name*(this: XSControlController; rsc: bool = false): StandardCString {.
     noSideEffect, importcpp: "Name", header: "XSControl_Controller.hxx".}
-proc protocol*(this: XSControlController): Handle[InterfaceProtocol] {.noSideEffect,
+#[ proc protocol*(this: XSControlController): Handle[InterfaceProtocol] {.noSideEffect,
     importcpp: "Protocol", header: "XSControl_Controller.hxx".}
 proc workLibrary*(this: XSControlController): Handle[IFSelectWorkLibrary] {.
     noSideEffect, importcpp: "WorkLibrary", header: "XSControl_Controller.hxx".}
@@ -206,3 +206,4 @@ proc dynamicType*(this: XSControlController): Handle[StandardType] {.noSideEffec
 
 
 
+ ]#

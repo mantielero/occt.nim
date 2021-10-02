@@ -36,11 +36,11 @@ proc constructStepReprConfigurationItem*(): StepReprConfigurationItem {.
     header: "StepRepr_ConfigurationItem.hxx".}
 proc init*(this: var StepReprConfigurationItem;
           aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
-          aItemConcept: Handle[StepReprProductConcept]; hasPurpose: bool;
-          aPurpose: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
-    header: "StepRepr_ConfigurationItem.hxx".}
+          aItemConcept: Handle[StepReprProductConcept];
+          hasPurpose: StandardBoolean; aPurpose: Handle[TCollectionHAsciiString]) {.
+    importcpp: "Init", header: "StepRepr_ConfigurationItem.hxx".}
 proc id*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepRepr_ConfigurationItem.hxx".}
 proc setId*(this: var StepReprConfigurationItem; id: Handle[TCollectionHAsciiString]) {.
@@ -56,8 +56,9 @@ proc description*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiStri
 proc setDescription*(this: var StepReprConfigurationItem;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ConfigurationItem.hxx".}
-proc hasDescription*(this: StepReprConfigurationItem): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepRepr_ConfigurationItem.hxx".}
+proc hasDescription*(this: StepReprConfigurationItem): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepRepr_ConfigurationItem.hxx".}
 proc itemConcept*(this: StepReprConfigurationItem): Handle[StepReprProductConcept] {.
     noSideEffect, importcpp: "ItemConcept",
     header: "StepRepr_ConfigurationItem.hxx".}
@@ -69,7 +70,7 @@ proc purpose*(this: StepReprConfigurationItem): Handle[TCollectionHAsciiString] 
 proc setPurpose*(this: var StepReprConfigurationItem;
                 purpose: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPurpose", header: "StepRepr_ConfigurationItem.hxx".}
-proc hasPurpose*(this: StepReprConfigurationItem): bool {.noSideEffect,
+proc hasPurpose*(this: StepReprConfigurationItem): StandardBoolean {.noSideEffect,
     importcpp: "HasPurpose", header: "StepRepr_ConfigurationItem.hxx".}
 type
   StepReprConfigurationItembaseType* = StandardTransient
@@ -82,28 +83,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprConfigurationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ConfigurationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

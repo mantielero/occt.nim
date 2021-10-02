@@ -33,11 +33,11 @@ proc constructStepFEA_FeaMassDensity*(): StepFEA_FeaMassDensity {.constructor,
     importcpp: "StepFEA_FeaMassDensity(@)", header: "StepFEA_FeaMassDensity.hxx".}
 proc init*(this: var StepFEA_FeaMassDensity;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
-          aFeaConstant: cfloat) {.importcpp: "Init",
-                                header: "StepFEA_FeaMassDensity.hxx".}
-proc feaConstant*(this: StepFEA_FeaMassDensity): cfloat {.noSideEffect,
+          aFeaConstant: StandardReal) {.importcpp: "Init",
+                                      header: "StepFEA_FeaMassDensity.hxx".}
+proc feaConstant*(this: StepFEA_FeaMassDensity): StandardReal {.noSideEffect,
     importcpp: "FeaConstant", header: "StepFEA_FeaMassDensity.hxx".}
-proc setFeaConstant*(this: var StepFEA_FeaMassDensity; feaConstant: cfloat) {.
+proc setFeaConstant*(this: var StepFEA_FeaMassDensity; feaConstant: StandardReal) {.
     importcpp: "SetFeaConstant", header: "StepFEA_FeaMassDensity.hxx".}
 type
   StepFEA_FeaMassDensitybaseType* = StepFEA_FeaMaterialPropertyRepresentationItem
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepFEA_FeaMassDensity.hxx".}
 proc dynamicType*(this: StepFEA_FeaMassDensity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaMassDensity.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

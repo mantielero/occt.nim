@@ -40,10 +40,10 @@ proc setStyles*(this: var StepVisualPresentationStyleAssignment;
 proc styles*(this: StepVisualPresentationStyleAssignment): Handle[
     StepVisualHArray1OfPresentationStyleSelect] {.noSideEffect,
     importcpp: "Styles", header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc stylesValue*(this: StepVisualPresentationStyleAssignment; num: cint): StepVisualPresentationStyleSelect {.
+proc stylesValue*(this: StepVisualPresentationStyleAssignment; num: int): StepVisualPresentationStyleSelect {.
     noSideEffect, importcpp: "StylesValue",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-proc nbStyles*(this: StepVisualPresentationStyleAssignment): cint {.noSideEffect,
+proc nbStyles*(this: StepVisualPresentationStyleAssignment): int {.noSideEffect,
     importcpp: "NbStyles", header: "StepVisual_PresentationStyleAssignment.hxx".}
 type
   StepVisualPresentationStyleAssignmentbaseType* = StandardTransient
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Present
 proc dynamicType*(this: StepVisualPresentationStyleAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationStyleAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

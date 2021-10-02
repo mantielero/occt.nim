@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomSurfaceOfLinearExtrusion): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_SurfaceOfLinearExtrusion.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

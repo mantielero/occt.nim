@@ -19,17 +19,30 @@ discard "forward decl of StepGeom_Axis2Placement2d"
 discard "forward decl of StepGeom_Axis2Placement3d"
 type
   StepGeomAxis2Placement* {.importcpp: "StepGeom_Axis2Placement",
-                           header: "StepGeom_Axis2Placement.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## Axis2Placement
-                                                                                                   ## SelectType
+                           header: "StepGeom_Axis2Placement.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepGeomAxis2Placement; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_Axis2Placement::operator new",
+    header: "StepGeom_Axis2Placement.hxx".}
+proc `delete`*(this: var StepGeomAxis2Placement; theAddress: pointer) {.
+    importcpp: "StepGeom_Axis2Placement::operator delete",
+    header: "StepGeom_Axis2Placement.hxx".}
+proc `new[]`*(this: var StepGeomAxis2Placement; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_Axis2Placement::operator new[]",
+    header: "StepGeom_Axis2Placement.hxx".}
+proc `delete[]`*(this: var StepGeomAxis2Placement; theAddress: pointer) {.
+    importcpp: "StepGeom_Axis2Placement::operator delete[]",
+    header: "StepGeom_Axis2Placement.hxx".}
+proc `new`*(this: var StepGeomAxis2Placement; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepGeom_Axis2Placement::operator new",
+    header: "StepGeom_Axis2Placement.hxx".}
+proc `delete`*(this: var StepGeomAxis2Placement; a2: pointer; a3: pointer) {.
+    importcpp: "StepGeom_Axis2Placement::operator delete",
+    header: "StepGeom_Axis2Placement.hxx".}
 proc constructStepGeomAxis2Placement*(): StepGeomAxis2Placement {.constructor,
     importcpp: "StepGeom_Axis2Placement(@)", header: "StepGeom_Axis2Placement.hxx".}
-proc caseNum*(this: StepGeomAxis2Placement; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepGeomAxis2Placement; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_Axis2Placement.hxx".}
 proc axis2Placement2d*(this: StepGeomAxis2Placement): Handle[
     StepGeomAxis2Placement2d] {.noSideEffect, importcpp: "Axis2Placement2d",
@@ -37,28 +50,3 @@ proc axis2Placement2d*(this: StepGeomAxis2Placement): Handle[
 proc axis2Placement3d*(this: StepGeomAxis2Placement): Handle[
     StepGeomAxis2Placement3d] {.noSideEffect, importcpp: "Axis2Placement3d",
                                header: "StepGeom_Axis2Placement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

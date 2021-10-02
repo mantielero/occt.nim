@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualAnnotationCurveOccurrence): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_AnnotationCurveOccurrence.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

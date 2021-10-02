@@ -8,29 +8,3 @@ include STEPControl_Controller
 include STEPControl_Reader
 include STEPControl_StepModelType
 include STEPControl_Writer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

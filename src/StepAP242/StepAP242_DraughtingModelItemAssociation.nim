@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP242_Draughti
 proc dynamicType*(this: StepAP242DraughtingModelItemAssociation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP242_DraughtingModelItemAssociation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

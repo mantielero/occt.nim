@@ -16,29 +16,3 @@
 
 type
   StepShapeArray1OfEdge* = NCollectionArray1[Handle[StepShapeEdge]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

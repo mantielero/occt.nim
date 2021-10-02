@@ -34,7 +34,8 @@ proc constructStepElementSurfaceSectionFieldVarying*(): StepElementSurfaceSectio
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
 proc init*(this: var StepElementSurfaceSectionFieldVarying;
           aDefinitions: Handle[StepElementHArray1OfSurfaceSection];
-          aAdditionalNodeValues: bool) {.importcpp: "Init", header: "StepElement_SurfaceSectionFieldVarying.hxx".}
+          aAdditionalNodeValues: StandardBoolean) {.importcpp: "Init",
+    header: "StepElement_SurfaceSectionFieldVarying.hxx".}
 proc definitions*(this: StepElementSurfaceSectionFieldVarying): Handle[
     StepElementHArray1OfSurfaceSection] {.noSideEffect, importcpp: "Definitions",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
@@ -42,11 +43,11 @@ proc setDefinitions*(this: var StepElementSurfaceSectionFieldVarying;
                     definitions: Handle[StepElementHArray1OfSurfaceSection]) {.
     importcpp: "SetDefinitions",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-proc additionalNodeValues*(this: StepElementSurfaceSectionFieldVarying): bool {.
+proc additionalNodeValues*(this: StepElementSurfaceSectionFieldVarying): StandardBoolean {.
     noSideEffect, importcpp: "AdditionalNodeValues",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
 proc setAdditionalNodeValues*(this: var StepElementSurfaceSectionFieldVarying;
-                             additionalNodeValues: bool) {.
+                             additionalNodeValues: StandardBoolean) {.
     importcpp: "SetAdditionalNodeValues",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
 type
@@ -58,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurfaceSectionFieldVarying): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_SurfaceSectionFieldVarying.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

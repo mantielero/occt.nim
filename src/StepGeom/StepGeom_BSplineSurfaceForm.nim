@@ -24,29 +24,3 @@ type
     StepGeomBssfGeneralisedCone, StepGeomBssfQuadricSurf,
     StepGeomBssfSurfOfLinearExtrusion, StepGeomBssfUnspecified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

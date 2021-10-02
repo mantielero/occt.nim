@@ -21,29 +21,3 @@ type
                     header: "StepData_Logical.hxx".} = enum
     StepDataLFalse, StepDataLTrue, StepDataLUnknown
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -33,7 +33,7 @@ proc constructStepBasicIdentificationRole*(): StepBasicIdentificationRole {.
     constructor, importcpp: "StepBasic_IdentificationRole(@)",
     header: "StepBasic_IdentificationRole.hxx".}
 proc init*(this: var StepBasicIdentificationRole;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_IdentificationRole.hxx".}
 proc name*(this: StepBasicIdentificationRole): Handle[TCollectionHAsciiString] {.
@@ -47,8 +47,9 @@ proc description*(this: StepBasicIdentificationRole): Handle[
 proc setDescription*(this: var StepBasicIdentificationRole;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_IdentificationRole.hxx".}
-proc hasDescription*(this: StepBasicIdentificationRole): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_IdentificationRole.hxx".}
+proc hasDescription*(this: StepBasicIdentificationRole): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_IdentificationRole.hxx".}
 type
   StepBasicIdentificationRolebaseType* = StandardTransient
 
@@ -60,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicIdentificationRole): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_IdentificationRole.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

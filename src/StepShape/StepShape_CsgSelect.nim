@@ -18,15 +18,32 @@ discard "forward decl of StepShape_BooleanResult"
 discard "forward decl of StepShape_CsgPrimitive"
 type
   StepShapeCsgSelect* {.importcpp: "StepShape_CsgSelect",
-                       header: "StepShape_CsgSelect.hxx", bycopy.} = object ## ! Returns a CsgSelect
-                                                                       ## SelectType
+                       header: "StepShape_CsgSelect.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepShapeCsgSelect; theSize: csize_t): pointer {.
+    importcpp: "StepShape_CsgSelect::operator new",
+    header: "StepShape_CsgSelect.hxx".}
+proc `delete`*(this: var StepShapeCsgSelect; theAddress: pointer) {.
+    importcpp: "StepShape_CsgSelect::operator delete",
+    header: "StepShape_CsgSelect.hxx".}
+proc `new[]`*(this: var StepShapeCsgSelect; theSize: csize_t): pointer {.
+    importcpp: "StepShape_CsgSelect::operator new[]",
+    header: "StepShape_CsgSelect.hxx".}
+proc `delete[]`*(this: var StepShapeCsgSelect; theAddress: pointer) {.
+    importcpp: "StepShape_CsgSelect::operator delete[]",
+    header: "StepShape_CsgSelect.hxx".}
+proc `new`*(this: var StepShapeCsgSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_CsgSelect::operator new",
+    header: "StepShape_CsgSelect.hxx".}
+proc `delete`*(this: var StepShapeCsgSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_CsgSelect::operator delete",
+    header: "StepShape_CsgSelect.hxx".}
 proc constructStepShapeCsgSelect*(): StepShapeCsgSelect {.constructor,
     importcpp: "StepShape_CsgSelect(@)", header: "StepShape_CsgSelect.hxx".}
-proc setTypeOfContent*(this: var StepShapeCsgSelect; aTypeOfContent: cint) {.
+proc setTypeOfContent*(this: var StepShapeCsgSelect; aTypeOfContent: int) {.
     importcpp: "SetTypeOfContent", header: "StepShape_CsgSelect.hxx".}
-proc typeOfContent*(this: StepShapeCsgSelect): cint {.noSideEffect,
+proc typeOfContent*(this: StepShapeCsgSelect): int {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepShape_CsgSelect.hxx".}
 proc booleanResult*(this: StepShapeCsgSelect): Handle[StepShapeBooleanResult] {.
     noSideEffect, importcpp: "BooleanResult", header: "StepShape_CsgSelect.hxx".}
@@ -38,28 +55,3 @@ proc csgPrimitive*(this: StepShapeCsgSelect): StepShapeCsgPrimitive {.noSideEffe
 proc setCsgPrimitive*(this: var StepShapeCsgSelect;
                      aCsgPrimitive: StepShapeCsgPrimitive) {.
     importcpp: "SetCsgPrimitive", header: "StepShape_CsgSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -23,7 +23,7 @@ type
 
 proc init*() {.importcpp: "XSControl_FuncShape::Init(@)",
              header: "XSControl_FuncShape.hxx".}
-proc moreShapes*(session: Handle[XSControlWorkSession];
+#[ proc moreShapes*(session: Handle[XSControlWorkSession];
                 list: var Handle[TopToolsHSequenceOfShape]; name: StandardCString): cint {.
     importcpp: "XSControl_FuncShape::MoreShapes(@)",
     header: "XSControl_FuncShape.hxx".}
@@ -58,3 +58,4 @@ proc fileAndVar*(session: Handle[XSControlWorkSession]; file: StandardCString;
 
 
 
+ ]#

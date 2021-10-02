@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Mechani
     header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
 proc dynamicType*(this: StepVisualMechanicalDesignGeometricPresentationArea): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_MechanicalDesignGeometricPresentationArea.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

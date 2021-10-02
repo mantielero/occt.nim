@@ -18,44 +18,32 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepShape_ShellBasedSurfaceModel"
 type
   StepShapeSurfaceModel* {.importcpp: "StepShape_SurfaceModel",
-                          header: "StepShape_SurfaceModel.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## SurfaceModel
-                                                                                                 ## SelectType
+                          header: "StepShape_SurfaceModel.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeSurfaceModel; theSize: csize_t): pointer {.
+    importcpp: "StepShape_SurfaceModel::operator new",
+    header: "StepShape_SurfaceModel.hxx".}
+proc `delete`*(this: var StepShapeSurfaceModel; theAddress: pointer) {.
+    importcpp: "StepShape_SurfaceModel::operator delete",
+    header: "StepShape_SurfaceModel.hxx".}
+proc `new[]`*(this: var StepShapeSurfaceModel; theSize: csize_t): pointer {.
+    importcpp: "StepShape_SurfaceModel::operator new[]",
+    header: "StepShape_SurfaceModel.hxx".}
+proc `delete[]`*(this: var StepShapeSurfaceModel; theAddress: pointer) {.
+    importcpp: "StepShape_SurfaceModel::operator delete[]",
+    header: "StepShape_SurfaceModel.hxx".}
+proc `new`*(this: var StepShapeSurfaceModel; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_SurfaceModel::operator new",
+    header: "StepShape_SurfaceModel.hxx".}
+proc `delete`*(this: var StepShapeSurfaceModel; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_SurfaceModel::operator delete",
+    header: "StepShape_SurfaceModel.hxx".}
 proc constructStepShapeSurfaceModel*(): StepShapeSurfaceModel {.constructor,
     importcpp: "StepShape_SurfaceModel(@)", header: "StepShape_SurfaceModel.hxx".}
-proc caseNum*(this: StepShapeSurfaceModel; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeSurfaceModel; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_SurfaceModel.hxx".}
 proc shellBasedSurfaceModel*(this: StepShapeSurfaceModel): Handle[
     StepShapeShellBasedSurfaceModel] {.noSideEffect,
                                       importcpp: "ShellBasedSurfaceModel",
                                       header: "StepShape_SurfaceModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

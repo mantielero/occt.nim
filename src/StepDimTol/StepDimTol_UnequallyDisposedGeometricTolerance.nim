@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Unequal
 proc dynamicType*(this: StepDimTolUnequallyDisposedGeometricTolerance): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_UnequallyDisposedGeometricTolerance.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

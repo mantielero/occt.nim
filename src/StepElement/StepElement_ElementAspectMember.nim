@@ -29,13 +29,13 @@ type
 proc constructStepElementElementAspectMember*(): StepElementElementAspectMember {.
     constructor, importcpp: "StepElement_ElementAspectMember(@)",
     header: "StepElement_ElementAspectMember.hxx".}
-proc hasName*(this: StepElementElementAspectMember): bool {.noSideEffect,
+proc hasName*(this: StepElementElementAspectMember): StandardBoolean {.noSideEffect,
     importcpp: "HasName", header: "StepElement_ElementAspectMember.hxx".}
 proc name*(this: StepElementElementAspectMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepElement_ElementAspectMember.hxx".}
-proc setName*(this: var StepElementElementAspectMember; name: StandardCString): bool {.
+proc setName*(this: var StepElementElementAspectMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepElement_ElementAspectMember.hxx".}
-proc matches*(this: StepElementElementAspectMember; name: StandardCString): bool {.
+proc matches*(this: StepElementElementAspectMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches",
     header: "StepElement_ElementAspectMember.hxx".}
 type
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementElementAspectMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementAspectMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

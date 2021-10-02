@@ -26,29 +26,3 @@ type
     StepDimTolGTMSeparateRequirement, StepDimTolGTMStatisticalTolerance,
     StepDimTolGTMTangentPlane
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

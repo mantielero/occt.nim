@@ -46,10 +46,10 @@ proc setItems*(this: var StepReprRepresentation;
 proc items*(this: StepReprRepresentation): Handle[
     StepReprHArray1OfRepresentationItem] {.noSideEffect, importcpp: "Items",
     header: "StepRepr_Representation.hxx".}
-proc itemsValue*(this: StepReprRepresentation; num: cint): Handle[
+proc itemsValue*(this: StepReprRepresentation; num: int): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "ItemsValue",
                                  header: "StepRepr_Representation.hxx".}
-proc nbItems*(this: StepReprRepresentation): cint {.noSideEffect,
+proc nbItems*(this: StepReprRepresentation): int {.noSideEffect,
     importcpp: "NbItems", header: "StepRepr_Representation.hxx".}
 proc setContextOfItems*(this: var StepReprRepresentation;
                        aContextOfItems: Handle[StepReprRepresentationContext]) {.
@@ -67,28 +67,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_Representation.hxx".}
 proc dynamicType*(this: StepReprRepresentation): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_Representation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

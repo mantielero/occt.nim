@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_MappedItem.hxx".}
 proc dynamicType*(this: StepReprMappedItem): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepRepr_MappedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

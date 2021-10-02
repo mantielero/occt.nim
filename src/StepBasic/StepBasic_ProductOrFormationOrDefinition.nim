@@ -20,17 +20,28 @@ discard "forward decl of StepBasic_ProductDefinition"
 type
   StepBasicProductOrFormationOrDefinition* {.
       importcpp: "StepBasic_ProductOrFormationOrDefinition",
-      header: "StepBasic_ProductOrFormationOrDefinition.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
+      header: "StepBasic_ProductOrFormationOrDefinition.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicProductOrFormationOrDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_ProductOrFormationOrDefinition::operator new",
+    header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc `delete`*(this: var StepBasicProductOrFormationOrDefinition;
+              theAddress: pointer) {.importcpp: "StepBasic_ProductOrFormationOrDefinition::operator delete", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc `new[]`*(this: var StepBasicProductOrFormationOrDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_ProductOrFormationOrDefinition::operator new[]",
+    header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc `delete[]`*(this: var StepBasicProductOrFormationOrDefinition;
+                theAddress: pointer) {.importcpp: "StepBasic_ProductOrFormationOrDefinition::operator delete[]", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc `new`*(this: var StepBasicProductOrFormationOrDefinition; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepBasic_ProductOrFormationOrDefinition::operator new", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
+proc `delete`*(this: var StepBasicProductOrFormationOrDefinition; a2: pointer;
+              a3: pointer) {.importcpp: "StepBasic_ProductOrFormationOrDefinition::operator delete", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc constructStepBasicProductOrFormationOrDefinition*(): StepBasicProductOrFormationOrDefinition {.
     constructor, importcpp: "StepBasic_ProductOrFormationOrDefinition(@)",
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc caseNum*(this: StepBasicProductOrFormationOrDefinition;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc product*(this: StepBasicProductOrFormationOrDefinition): Handle[
     StepBasicProduct] {.noSideEffect, importcpp: "Product",
@@ -41,28 +52,3 @@ proc productDefinitionFormation*(this: StepBasicProductOrFormationOrDefinition):
     header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
 proc productDefinition*(this: StepBasicProductOrFormationOrDefinition): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductOrFormationOrDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

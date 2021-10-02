@@ -19,39 +19,26 @@ discard "forward decl of StepShape_OpenShell"
 discard "forward decl of StepShape_ClosedShell"
 type
   StepShapeShell* {.importcpp: "StepShape_Shell", header: "StepShape_Shell.hxx",
-                   bycopy.} = object of StepDataSelectType ## ! Returns a Shell SelectType
+                   bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeShell; theSize: csize_t): pointer {.
+    importcpp: "StepShape_Shell::operator new", header: "StepShape_Shell.hxx".}
+proc `delete`*(this: var StepShapeShell; theAddress: pointer) {.
+    importcpp: "StepShape_Shell::operator delete", header: "StepShape_Shell.hxx".}
+proc `new[]`*(this: var StepShapeShell; theSize: csize_t): pointer {.
+    importcpp: "StepShape_Shell::operator new[]", header: "StepShape_Shell.hxx".}
+proc `delete[]`*(this: var StepShapeShell; theAddress: pointer) {.
+    importcpp: "StepShape_Shell::operator delete[]", header: "StepShape_Shell.hxx".}
+proc `new`*(this: var StepShapeShell; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_Shell::operator new", header: "StepShape_Shell.hxx".}
+proc `delete`*(this: var StepShapeShell; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_Shell::operator delete", header: "StepShape_Shell.hxx".}
 proc constructStepShapeShell*(): StepShapeShell {.constructor,
     importcpp: "StepShape_Shell(@)", header: "StepShape_Shell.hxx".}
-proc caseNum*(this: StepShapeShell; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeShell; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_Shell.hxx".}
 proc openShell*(this: StepShapeShell): Handle[StepShapeOpenShell] {.noSideEffect,
     importcpp: "OpenShell", header: "StepShape_Shell.hxx".}
 proc closedShell*(this: StepShapeShell): Handle[StepShapeClosedShell] {.
     noSideEffect, importcpp: "ClosedShell", header: "StepShape_Shell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

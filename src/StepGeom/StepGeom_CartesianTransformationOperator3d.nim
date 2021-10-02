@@ -34,11 +34,12 @@ proc constructStepGeomCartesianTransformationOperator3d*(): StepGeomCartesianTra
     constructor, importcpp: "StepGeom_CartesianTransformationOperator3d(@)",
     header: "StepGeom_CartesianTransformationOperator3d.hxx".}
 proc init*(this: var StepGeomCartesianTransformationOperator3d;
-          aName: Handle[TCollectionHAsciiString]; hasAaxis1: bool;
-          aAxis1: Handle[StepGeomDirection]; hasAaxis2: bool;
+          aName: Handle[TCollectionHAsciiString]; hasAaxis1: StandardBoolean;
+          aAxis1: Handle[StepGeomDirection]; hasAaxis2: StandardBoolean;
           aAxis2: Handle[StepGeomDirection];
-          aLocalOrigin: Handle[StepGeomCartesianPoint]; hasAscale: bool;
-          aScale: cfloat; hasAaxis3: bool; aAxis3: Handle[StepGeomDirection]) {.
+          aLocalOrigin: Handle[StepGeomCartesianPoint];
+          hasAscale: StandardBoolean; aScale: StandardReal;
+          hasAaxis3: StandardBoolean; aAxis3: Handle[StepGeomDirection]) {.
     importcpp: "Init", header: "StepGeom_CartesianTransformationOperator3d.hxx".}
 proc setAxis3*(this: var StepGeomCartesianTransformationOperator3d;
               aAxis3: Handle[StepGeomDirection]) {.importcpp: "SetAxis3",
@@ -48,7 +49,7 @@ proc unSetAxis3*(this: var StepGeomCartesianTransformationOperator3d) {.
     header: "StepGeom_CartesianTransformationOperator3d.hxx".}
 proc axis3*(this: StepGeomCartesianTransformationOperator3d): Handle[
     StepGeomDirection] {.noSideEffect, importcpp: "Axis3", header: "StepGeom_CartesianTransformationOperator3d.hxx".}
-proc hasAxis3*(this: StepGeomCartesianTransformationOperator3d): bool {.
+proc hasAxis3*(this: StepGeomCartesianTransformationOperator3d): StandardBoolean {.
     noSideEffect, importcpp: "HasAxis3",
     header: "StepGeom_CartesianTransformationOperator3d.hxx".}
 type
@@ -60,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Cartesian
 proc dynamicType*(this: StepGeomCartesianTransformationOperator3d): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_CartesianTransformationOperator3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

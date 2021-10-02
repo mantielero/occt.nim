@@ -20,29 +20,3 @@ type
       header: "StepGeom_PreferredSurfaceCurveRepresentation.hxx".} = enum
     StepGeomPscrCurve3d, StepGeomPscrPcurveS1, StepGeomPscrPcurveS2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

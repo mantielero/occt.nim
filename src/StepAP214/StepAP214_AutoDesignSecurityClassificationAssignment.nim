@@ -43,10 +43,10 @@ proc setItems*(this: var StepAP214AutoDesignSecurityClassificationAssignment;
 proc items*(this: StepAP214AutoDesignSecurityClassificationAssignment): Handle[
     StepBasicHArray1OfApproval] {.noSideEffect, importcpp: "Items", header: "StepAP214_AutoDesignSecurityClassificationAssignment.hxx".}
 proc itemsValue*(this: StepAP214AutoDesignSecurityClassificationAssignment;
-                num: cint): Handle[StepBasicApproval] {.noSideEffect,
+                num: int): Handle[StepBasicApproval] {.noSideEffect,
     importcpp: "ItemsValue",
     header: "StepAP214_AutoDesignSecurityClassificationAssignment.hxx".}
-proc nbItems*(this: StepAP214AutoDesignSecurityClassificationAssignment): cint {.
+proc nbItems*(this: StepAP214AutoDesignSecurityClassificationAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AutoDesignSecurityClassificationAssignment.hxx".}
 type
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AutoDesi
     header: "StepAP214_AutoDesignSecurityClassificationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AutoDesignSecurityClassificationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AutoDesignSecurityClassificationAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

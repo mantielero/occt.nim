@@ -34,7 +34,7 @@ proc constructStepBasicGroupRelationship*(): StepBasicGroupRelationship {.
     constructor, importcpp: "StepBasic_GroupRelationship(@)",
     header: "StepBasic_GroupRelationship.hxx".}
 proc init*(this: var StepBasicGroupRelationship;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aRelatingGroup: Handle[StepBasicGroup];
           aRelatedGroup: Handle[StepBasicGroup]) {.importcpp: "Init",
@@ -50,8 +50,9 @@ proc description*(this: StepBasicGroupRelationship): Handle[TCollectionHAsciiStr
 proc setDescription*(this: var StepBasicGroupRelationship;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_GroupRelationship.hxx".}
-proc hasDescription*(this: StepBasicGroupRelationship): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_GroupRelationship.hxx".}
+proc hasDescription*(this: StepBasicGroupRelationship): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_GroupRelationship.hxx".}
 proc relatingGroup*(this: StepBasicGroupRelationship): Handle[StepBasicGroup] {.
     noSideEffect, importcpp: "RelatingGroup",
     header: "StepBasic_GroupRelationship.hxx".}
@@ -75,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicGroupRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_GroupRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

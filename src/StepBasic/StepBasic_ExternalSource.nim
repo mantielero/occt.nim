@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_ExternalSource.hxx".}
 proc dynamicType*(this: StepBasicExternalSource): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_ExternalSource.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_CentreOfSymmetry.hxx".}
 proc dynamicType*(this: StepReprCentreOfSymmetry): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_CentreOfSymmetry.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

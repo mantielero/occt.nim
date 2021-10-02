@@ -30,11 +30,11 @@ proc constructStepReprIntegerRepresentationItem*(): StepReprIntegerRepresentatio
     constructor, importcpp: "StepRepr_IntegerRepresentationItem(@)",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
 proc init*(this: var StepReprIntegerRepresentationItem;
-          theName: Handle[TCollectionHAsciiString]; theValue: cint) {.
+          theName: Handle[TCollectionHAsciiString]; theValue: int) {.
     importcpp: "Init", header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc setValue*(this: var StepReprIntegerRepresentationItem; theValue: cint) {.
+proc setValue*(this: var StepReprIntegerRepresentationItem; theValue: int) {.
     importcpp: "SetValue", header: "StepRepr_IntegerRepresentationItem.hxx".}
-proc value*(this: StepReprIntegerRepresentationItem): cint {.noSideEffect,
+proc value*(this: StepReprIntegerRepresentationItem): int {.noSideEffect,
     importcpp: "Value", header: "StepRepr_IntegerRepresentationItem.hxx".}
 type
   StepReprIntegerRepresentationItembaseType* = StepReprRepresentationItem
@@ -47,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprIntegerRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_IntegerRepresentationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,7 +29,7 @@ proc constructStepGeomCompositeCurveSegment*(): StepGeomCompositeCurveSegment {.
     constructor, importcpp: "StepGeom_CompositeCurveSegment(@)",
     header: "StepGeom_CompositeCurveSegment.hxx".}
 proc init*(this: var StepGeomCompositeCurveSegment;
-          aTransition: StepGeomTransitionCode; aSameSense: bool;
+          aTransition: StepGeomTransitionCode; aSameSense: StandardBoolean;
           aParentCurve: Handle[StepGeomCurve]) {.importcpp: "Init",
     header: "StepGeom_CompositeCurveSegment.hxx".}
 proc setTransition*(this: var StepGeomCompositeCurveSegment;
@@ -38,10 +38,12 @@ proc setTransition*(this: var StepGeomCompositeCurveSegment;
 proc transition*(this: StepGeomCompositeCurveSegment): StepGeomTransitionCode {.
     noSideEffect, importcpp: "Transition",
     header: "StepGeom_CompositeCurveSegment.hxx".}
-proc setSameSense*(this: var StepGeomCompositeCurveSegment; aSameSense: bool) {.
-    importcpp: "SetSameSense", header: "StepGeom_CompositeCurveSegment.hxx".}
-proc sameSense*(this: StepGeomCompositeCurveSegment): bool {.noSideEffect,
-    importcpp: "SameSense", header: "StepGeom_CompositeCurveSegment.hxx".}
+proc setSameSense*(this: var StepGeomCompositeCurveSegment;
+                  aSameSense: StandardBoolean) {.importcpp: "SetSameSense",
+    header: "StepGeom_CompositeCurveSegment.hxx".}
+proc sameSense*(this: StepGeomCompositeCurveSegment): StandardBoolean {.
+    noSideEffect, importcpp: "SameSense",
+    header: "StepGeom_CompositeCurveSegment.hxx".}
 proc setParentCurve*(this: var StepGeomCompositeCurveSegment;
                     aParentCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetParentCurve", header: "StepGeom_CompositeCurveSegment.hxx".}
@@ -59,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomCompositeCurveSegment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_CompositeCurveSegment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

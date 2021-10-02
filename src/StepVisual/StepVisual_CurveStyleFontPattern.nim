@@ -26,21 +26,22 @@ type
 proc constructStepVisualCurveStyleFontPattern*(): StepVisualCurveStyleFontPattern {.
     constructor, importcpp: "StepVisual_CurveStyleFontPattern(@)",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc init*(this: var StepVisualCurveStyleFontPattern; aVisibleSegmentLength: cfloat;
-          aInvisibleSegmentLength: cfloat) {.importcpp: "Init",
+proc init*(this: var StepVisualCurveStyleFontPattern;
+          aVisibleSegmentLength: StandardReal;
+          aInvisibleSegmentLength: StandardReal) {.importcpp: "Init",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 proc setVisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
-                             aVisibleSegmentLength: cfloat) {.
+                             aVisibleSegmentLength: StandardReal) {.
     importcpp: "SetVisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc visibleSegmentLength*(this: StepVisualCurveStyleFontPattern): cfloat {.
+proc visibleSegmentLength*(this: StepVisualCurveStyleFontPattern): StandardReal {.
     noSideEffect, importcpp: "VisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 proc setInvisibleSegmentLength*(this: var StepVisualCurveStyleFontPattern;
-                               aInvisibleSegmentLength: cfloat) {.
+                               aInvisibleSegmentLength: StandardReal) {.
     importcpp: "SetInvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-proc invisibleSegmentLength*(this: StepVisualCurveStyleFontPattern): cfloat {.
+proc invisibleSegmentLength*(this: StepVisualCurveStyleFontPattern): StandardReal {.
     noSideEffect, importcpp: "InvisibleSegmentLength",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
 type
@@ -54,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCurveStyleFontPattern): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CurveStyleFontPattern.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

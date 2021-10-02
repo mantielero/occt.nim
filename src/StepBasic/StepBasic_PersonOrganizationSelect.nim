@@ -20,16 +20,31 @@ discard "forward decl of StepBasic_Organization"
 discard "forward decl of StepBasic_PersonAndOrganization"
 type
   StepBasicPersonOrganizationSelect* {.importcpp: "StepBasic_PersonOrganizationSelect", header: "StepBasic_PersonOrganizationSelect.hxx",
-                                      bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                         ## PersonOrganizationSelect
-                                                                         ## SelectType
+                                      bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicPersonOrganizationSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_PersonOrganizationSelect::operator new",
+    header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc `delete`*(this: var StepBasicPersonOrganizationSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_PersonOrganizationSelect::operator delete",
+    header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc `new[]`*(this: var StepBasicPersonOrganizationSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_PersonOrganizationSelect::operator new[]",
+    header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc `delete[]`*(this: var StepBasicPersonOrganizationSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_PersonOrganizationSelect::operator delete[]",
+    header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc `new`*(this: var StepBasicPersonOrganizationSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepBasic_PersonOrganizationSelect::operator new", header: "StepBasic_PersonOrganizationSelect.hxx".}
+proc `delete`*(this: var StepBasicPersonOrganizationSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepBasic_PersonOrganizationSelect::operator delete",
+    header: "StepBasic_PersonOrganizationSelect.hxx".}
 proc constructStepBasicPersonOrganizationSelect*(): StepBasicPersonOrganizationSelect {.
     constructor, importcpp: "StepBasic_PersonOrganizationSelect(@)",
     header: "StepBasic_PersonOrganizationSelect.hxx".}
 proc caseNum*(this: StepBasicPersonOrganizationSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_PersonOrganizationSelect.hxx".}
 proc person*(this: StepBasicPersonOrganizationSelect): Handle[StepBasicPerson] {.
     noSideEffect, importcpp: "Person",
@@ -40,28 +55,3 @@ proc organization*(this: StepBasicPersonOrganizationSelect): Handle[
 proc personAndOrganization*(this: StepBasicPersonOrganizationSelect): Handle[
     StepBasicPersonAndOrganization] {.noSideEffect,
                                      importcpp: "PersonAndOrganization", header: "StepBasic_PersonOrganizationSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

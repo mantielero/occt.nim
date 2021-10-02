@@ -39,7 +39,7 @@ proc init*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssigned
 proc init*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: cint;
+          aCoordinateSpaceDimension: int;
           aUnits: Handle[StepBasicHArray1OfNamedUnit]) {.importcpp: "Init", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 proc setGeometricRepresentationContext*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext;
     aGeometricRepresentationContext: Handle[
@@ -55,9 +55,9 @@ proc globalUnitAssignedContext*(this: StepGeomGeometricRepresentationContextAndG
     StepReprGlobalUnitAssignedContext] {.noSideEffect,
                                         importcpp: "GlobalUnitAssignedContext", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext;
-                                 aCoordinateSpaceDimension: cint) {.
+                                 aCoordinateSpaceDimension: int) {.
     importcpp: "SetCoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): cint {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): int {.
     noSideEffect, importcpp: "CoordinateSpaceDimension", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 proc setUnits*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext;
               aUnits: Handle[StepBasicHArray1OfNamedUnit]) {.
@@ -65,9 +65,9 @@ proc setUnits*(this: var StepGeomGeometricRepresentationContextAndGlobalUnitAssi
 proc units*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): Handle[
     StepBasicHArray1OfNamedUnit] {.noSideEffect, importcpp: "Units", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 proc unitsValue*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext;
-                num: cint): Handle[StepBasicNamedUnit] {.noSideEffect,
+                num: int): Handle[StepBasicNamedUnit] {.noSideEffect,
     importcpp: "UnitsValue", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-proc nbUnits*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): cint {.
+proc nbUnits*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): int {.
     noSideEffect, importcpp: "NbUnits", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 type
   StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContextbaseType* = StepReprRepresentationContext
@@ -76,28 +76,3 @@ proc getTypeName*(): cstring {.importcpp: "StepGeom_GeometricRepresentationConte
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext::get_type_descriptor(@)", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
 proc dynamicType*(this: StepGeomGeometricRepresentationContextAndGlobalUnitAssignedContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

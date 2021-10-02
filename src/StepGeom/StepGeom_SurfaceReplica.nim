@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_SurfaceReplica.hxx".}
 proc dynamicType*(this: StepGeomSurfaceReplica): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_SurfaceReplica.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

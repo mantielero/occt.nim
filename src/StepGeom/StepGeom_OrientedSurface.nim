@@ -34,11 +34,11 @@ proc constructStepGeomOrientedSurface*(): StepGeomOrientedSurface {.constructor,
     header: "StepGeom_OrientedSurface.hxx".}
 proc init*(this: var StepGeomOrientedSurface;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
-          aOrientation: bool) {.importcpp: "Init",
-                              header: "StepGeom_OrientedSurface.hxx".}
-proc orientation*(this: StepGeomOrientedSurface): bool {.noSideEffect,
+          aOrientation: StandardBoolean) {.importcpp: "Init",
+    header: "StepGeom_OrientedSurface.hxx".}
+proc orientation*(this: StepGeomOrientedSurface): StandardBoolean {.noSideEffect,
     importcpp: "Orientation", header: "StepGeom_OrientedSurface.hxx".}
-proc setOrientation*(this: var StepGeomOrientedSurface; orientation: bool) {.
+proc setOrientation*(this: var StepGeomOrientedSurface; orientation: StandardBoolean) {.
     importcpp: "SetOrientation", header: "StepGeom_OrientedSurface.hxx".}
 type
   StepGeomOrientedSurfacebaseType* = StepGeomSurface
@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_OrientedSurface.hxx".}
 proc dynamicType*(this: StepGeomOrientedSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_OrientedSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

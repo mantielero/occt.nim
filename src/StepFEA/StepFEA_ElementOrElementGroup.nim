@@ -19,13 +19,31 @@ discard "forward decl of StepFEA_ElementGroup"
 type
   StepFEA_ElementOrElementGroup* {.importcpp: "StepFEA_ElementOrElementGroup",
                                   header: "StepFEA_ElementOrElementGroup.hxx",
-                                  bycopy.} = object of StepDataSelectType ## ! Empty constructor
+                                  bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepFEA_ElementOrElementGroup; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator new",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
+proc `delete`*(this: var StepFEA_ElementOrElementGroup; theAddress: pointer) {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator delete",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
+proc `new[]`*(this: var StepFEA_ElementOrElementGroup; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator new[]",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
+proc `delete[]`*(this: var StepFEA_ElementOrElementGroup; theAddress: pointer) {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator delete[]",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
+proc `new`*(this: var StepFEA_ElementOrElementGroup; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator new",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
+proc `delete`*(this: var StepFEA_ElementOrElementGroup; a2: pointer; a3: pointer) {.
+    importcpp: "StepFEA_ElementOrElementGroup::operator delete",
+    header: "StepFEA_ElementOrElementGroup.hxx".}
 proc constructStepFEA_ElementOrElementGroup*(): StepFEA_ElementOrElementGroup {.
     constructor, importcpp: "StepFEA_ElementOrElementGroup(@)",
     header: "StepFEA_ElementOrElementGroup.hxx".}
-proc caseNum*(this: StepFEA_ElementOrElementGroup; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepFEA_ElementOrElementGroup; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_ElementOrElementGroup.hxx".}
 proc elementRepresentation*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementRepresentation] {.noSideEffect,
@@ -34,28 +52,3 @@ proc elementRepresentation*(this: StepFEA_ElementOrElementGroup): Handle[
 proc elementGroup*(this: StepFEA_ElementOrElementGroup): Handle[
     StepFEA_ElementGroup] {.noSideEffect, importcpp: "ElementGroup",
                            header: "StepFEA_ElementOrElementGroup.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

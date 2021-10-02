@@ -86,6 +86,8 @@ groups &= group
 #let filter = @["TopAbs", "TopBas", "TopClass", "TopCnx","TopExp", "TopLoc"]
 #let filter = @["ChFi"]
 #let filter = @["TopoDSToStep", "TopOpe","TopTools","TopTrans","TPrsStd", "Trnasfer", "TShort"]
+#let filter = @["Step", "STEP"]
+let filter = @["Transfer"]
 var errorFiles = newSeq[string]()
 for group in groups:
   var flag = false

@@ -31,16 +31,16 @@ proc constructStepBasicDerivedUnitElement*(): StepBasicDerivedUnitElement {.
     constructor, importcpp: "StepBasic_DerivedUnitElement(@)",
     header: "StepBasic_DerivedUnitElement.hxx".}
 proc init*(this: var StepBasicDerivedUnitElement; aUnit: Handle[StepBasicNamedUnit];
-          aExponent: cfloat) {.importcpp: "Init",
-                             header: "StepBasic_DerivedUnitElement.hxx".}
+          aExponent: StandardReal) {.importcpp: "Init",
+                                   header: "StepBasic_DerivedUnitElement.hxx".}
 proc setUnit*(this: var StepBasicDerivedUnitElement;
              aUnit: Handle[StepBasicNamedUnit]) {.importcpp: "SetUnit",
     header: "StepBasic_DerivedUnitElement.hxx".}
 proc unit*(this: StepBasicDerivedUnitElement): Handle[StepBasicNamedUnit] {.
     noSideEffect, importcpp: "Unit", header: "StepBasic_DerivedUnitElement.hxx".}
-proc setExponent*(this: var StepBasicDerivedUnitElement; aExponent: cfloat) {.
+proc setExponent*(this: var StepBasicDerivedUnitElement; aExponent: StandardReal) {.
     importcpp: "SetExponent", header: "StepBasic_DerivedUnitElement.hxx".}
-proc exponent*(this: StepBasicDerivedUnitElement): cfloat {.noSideEffect,
+proc exponent*(this: StepBasicDerivedUnitElement): StandardReal {.noSideEffect,
     importcpp: "Exponent", header: "StepBasic_DerivedUnitElement.hxx".}
 type
   StepBasicDerivedUnitElementbaseType* = StandardTransient
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicDerivedUnitElement): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_DerivedUnitElement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

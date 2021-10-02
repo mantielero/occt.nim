@@ -27,15 +27,16 @@ type
 proc constructStepGeomEllipse*(): StepGeomEllipse {.constructor,
     importcpp: "StepGeom_Ellipse(@)", header: "StepGeom_Ellipse.hxx".}
 proc init*(this: var StepGeomEllipse; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aSemiAxis1: cfloat; aSemiAxis2: cfloat) {.
-    importcpp: "Init", header: "StepGeom_Ellipse.hxx".}
-proc setSemiAxis1*(this: var StepGeomEllipse; aSemiAxis1: cfloat) {.
+          aPosition: StepGeomAxis2Placement; aSemiAxis1: StandardReal;
+          aSemiAxis2: StandardReal) {.importcpp: "Init",
+                                    header: "StepGeom_Ellipse.hxx".}
+proc setSemiAxis1*(this: var StepGeomEllipse; aSemiAxis1: StandardReal) {.
     importcpp: "SetSemiAxis1", header: "StepGeom_Ellipse.hxx".}
-proc semiAxis1*(this: StepGeomEllipse): cfloat {.noSideEffect,
+proc semiAxis1*(this: StepGeomEllipse): StandardReal {.noSideEffect,
     importcpp: "SemiAxis1", header: "StepGeom_Ellipse.hxx".}
-proc setSemiAxis2*(this: var StepGeomEllipse; aSemiAxis2: cfloat) {.
+proc setSemiAxis2*(this: var StepGeomEllipse; aSemiAxis2: StandardReal) {.
     importcpp: "SetSemiAxis2", header: "StepGeom_Ellipse.hxx".}
-proc semiAxis2*(this: StepGeomEllipse): cfloat {.noSideEffect,
+proc semiAxis2*(this: StepGeomEllipse): StandardReal {.noSideEffect,
     importcpp: "SemiAxis2", header: "StepGeom_Ellipse.hxx".}
 type
   StepGeomEllipsebaseType* = StepGeomConic
@@ -47,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Ellipse.hxx".}
 proc dynamicType*(this: StepGeomEllipse): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Ellipse.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_ShapeDef
 proc dynamicType*(this: StepShapeShapeDefinitionRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepShape_ShapeDefinitionRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -40,28 +40,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepShape_NonManif
     header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
 proc dynamicType*(this: StepShapeNonManifoldSurfaceShapeRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepShape_NonManifoldSurfaceShapeRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

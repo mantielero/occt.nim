@@ -21,29 +21,3 @@ type
     StepGeomBscfPolylineForm, StepGeomBscfCircularArc, StepGeomBscfEllipticArc,
     StepGeomBscfParabolicArc, StepGeomBscfHyperbolicArc, StepGeomBscfUnspecified
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

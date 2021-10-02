@@ -21,29 +21,3 @@ type
   StepToTopoDS_DataMapIteratorOfDataMapOfTRI* = Iterator[
       Handle[StepShapeTopologicalRepresentationItem], TopoDS_Shape,
       TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

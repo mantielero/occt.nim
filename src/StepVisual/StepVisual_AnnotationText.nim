@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_AnnotationText.hxx".}
 proc dynamicType*(this: StepVisualAnnotationText): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_AnnotationText.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,17 +20,31 @@ discard "forward decl of StepAP214_AppliedSecurityClassificationAssignment"
 discard "forward decl of StepBasic_Approval"
 type
   StepAP214PersonAndOrganizationItem* {.importcpp: "StepAP214_PersonAndOrganizationItem", header: "StepAP214_PersonAndOrganizationItem.hxx",
-                                       bycopy.} = object of StepAP214ApprovalItem ## !
-                                                                             ## Returns a
-                                                                             ## PersonAndOrganizationItem
-                                                                             ## SelectType
+                                       bycopy.} = object of StepAP214ApprovalItem
 
 
+proc `new`*(this: var StepAP214PersonAndOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_PersonAndOrganizationItem::operator new",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP214PersonAndOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_PersonAndOrganizationItem::operator delete",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc `new[]`*(this: var StepAP214PersonAndOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_PersonAndOrganizationItem::operator new[]",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc `delete[]`*(this: var StepAP214PersonAndOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_PersonAndOrganizationItem::operator delete[]",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc `new`*(this: var StepAP214PersonAndOrganizationItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_PersonAndOrganizationItem::operator new", header: "StepAP214_PersonAndOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP214PersonAndOrganizationItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_PersonAndOrganizationItem::operator delete",
+    header: "StepAP214_PersonAndOrganizationItem.hxx".}
 proc constructStepAP214PersonAndOrganizationItem*(): StepAP214PersonAndOrganizationItem {.
     constructor, importcpp: "StepAP214_PersonAndOrganizationItem(@)",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
 proc caseNum*(this: StepAP214PersonAndOrganizationItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_PersonAndOrganizationItem.hxx".}
 proc appliedOrganizationAssignment*(this: StepAP214PersonAndOrganizationItem): Handle[
     StepAP214AppliedOrganizationAssignment] {.noSideEffect,
@@ -44,28 +58,3 @@ proc appliedSecurityClassificationAssignment*(
 proc approval*(this: StepAP214PersonAndOrganizationItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval",
     header: "StepAP214_PersonAndOrganizationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

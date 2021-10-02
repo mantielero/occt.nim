@@ -21,6 +21,24 @@ type
                         header: "StepToTopoDS_NMTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepToTopoDS_NMTool; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_NMTool::operator new",
+    header: "StepToTopoDS_NMTool.hxx".}
+proc `delete`*(this: var StepToTopoDS_NMTool; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_NMTool::operator delete",
+    header: "StepToTopoDS_NMTool.hxx".}
+proc `new[]`*(this: var StepToTopoDS_NMTool; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_NMTool::operator new[]",
+    header: "StepToTopoDS_NMTool.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_NMTool; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_NMTool::operator delete[]",
+    header: "StepToTopoDS_NMTool.hxx".}
+proc `new`*(this: var StepToTopoDS_NMTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_NMTool::operator new",
+    header: "StepToTopoDS_NMTool.hxx".}
+proc `delete`*(this: var StepToTopoDS_NMTool; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_NMTool::operator delete",
+    header: "StepToTopoDS_NMTool.hxx".}
 proc constructStepToTopoDS_NMTool*(): StepToTopoDS_NMTool {.constructor,
     importcpp: "StepToTopoDS_NMTool(@)", header: "StepToTopoDS_NMTool.hxx".}
 proc constructStepToTopoDS_NMTool*(mapOfRI: StepToTopoDS_DataMapOfRI;
@@ -30,15 +48,15 @@ proc constructStepToTopoDS_NMTool*(mapOfRI: StepToTopoDS_DataMapOfRI;
 proc init*(this: var StepToTopoDS_NMTool; mapOfRI: StepToTopoDS_DataMapOfRI;
           mapOfRINames: StepToTopoDS_DataMapOfRINames) {.importcpp: "Init",
     header: "StepToTopoDS_NMTool.hxx".}
-proc setActive*(this: var StepToTopoDS_NMTool; isActive: bool) {.
+proc setActive*(this: var StepToTopoDS_NMTool; isActive: StandardBoolean) {.
     importcpp: "SetActive", header: "StepToTopoDS_NMTool.hxx".}
-proc isActive*(this: var StepToTopoDS_NMTool): bool {.importcpp: "IsActive",
-    header: "StepToTopoDS_NMTool.hxx".}
+proc isActive*(this: var StepToTopoDS_NMTool): StandardBoolean {.
+    importcpp: "IsActive", header: "StepToTopoDS_NMTool.hxx".}
 proc cleanUp*(this: var StepToTopoDS_NMTool) {.importcpp: "CleanUp",
     header: "StepToTopoDS_NMTool.hxx".}
-proc isBound*(this: var StepToTopoDS_NMTool; ri: Handle[StepReprRepresentationItem]): bool {.
+proc isBound*(this: var StepToTopoDS_NMTool; ri: Handle[StepReprRepresentationItem]): StandardBoolean {.
     importcpp: "IsBound", header: "StepToTopoDS_NMTool.hxx".}
-proc isBound*(this: var StepToTopoDS_NMTool; rIName: TCollectionAsciiString): bool {.
+proc isBound*(this: var StepToTopoDS_NMTool; rIName: TCollectionAsciiString): StandardBoolean {.
     importcpp: "IsBound", header: "StepToTopoDS_NMTool.hxx".}
 proc `bind`*(this: var StepToTopoDS_NMTool; ri: Handle[StepReprRepresentationItem];
             s: TopoDS_Shape) {.importcpp: "Bind", header: "StepToTopoDS_NMTool.hxx".}
@@ -51,36 +69,11 @@ proc find*(this: var StepToTopoDS_NMTool; rIName: TCollectionAsciiString): TopoD
 proc registerNMEdge*(this: var StepToTopoDS_NMTool; edge: TopoDS_Shape) {.
     importcpp: "RegisterNMEdge", header: "StepToTopoDS_NMTool.hxx".}
 proc isSuspectedAsClosing*(this: var StepToTopoDS_NMTool; baseShell: TopoDS_Shape;
-                          suspectedShell: TopoDS_Shape): bool {.
+                          suspectedShell: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsSuspectedAsClosing", header: "StepToTopoDS_NMTool.hxx".}
-proc isPureNMShell*(this: var StepToTopoDS_NMTool; shell: TopoDS_Shape): bool {.
+proc isPureNMShell*(this: var StepToTopoDS_NMTool; shell: TopoDS_Shape): StandardBoolean {.
     importcpp: "IsPureNMShell", header: "StepToTopoDS_NMTool.hxx".}
-proc setIDEASCase*(this: var StepToTopoDS_NMTool; iDEASCase: bool) {.
+proc setIDEASCase*(this: var StepToTopoDS_NMTool; iDEASCase: StandardBoolean) {.
     importcpp: "SetIDEASCase", header: "StepToTopoDS_NMTool.hxx".}
-proc isIDEASCase*(this: var StepToTopoDS_NMTool): bool {.importcpp: "IsIDEASCase",
-    header: "StepToTopoDS_NMTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc isIDEASCase*(this: var StepToTopoDS_NMTool): StandardBoolean {.
+    importcpp: "IsIDEASCase", header: "StepToTopoDS_NMTool.hxx".}

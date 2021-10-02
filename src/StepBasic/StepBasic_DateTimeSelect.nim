@@ -20,18 +20,31 @@ discard "forward decl of StepBasic_LocalTime"
 discard "forward decl of StepBasic_DateAndTime"
 type
   StepBasicDateTimeSelect* {.importcpp: "StepBasic_DateTimeSelect",
-                            header: "StepBasic_DateTimeSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## DateTimeSelect
-                                                                                                     ## SelectType
+                            header: "StepBasic_DateTimeSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicDateTimeSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_DateTimeSelect::operator new",
+    header: "StepBasic_DateTimeSelect.hxx".}
+proc `delete`*(this: var StepBasicDateTimeSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_DateTimeSelect::operator delete",
+    header: "StepBasic_DateTimeSelect.hxx".}
+proc `new[]`*(this: var StepBasicDateTimeSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_DateTimeSelect::operator new[]",
+    header: "StepBasic_DateTimeSelect.hxx".}
+proc `delete[]`*(this: var StepBasicDateTimeSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_DateTimeSelect::operator delete[]",
+    header: "StepBasic_DateTimeSelect.hxx".}
+proc `new`*(this: var StepBasicDateTimeSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepBasic_DateTimeSelect::operator new",
+    header: "StepBasic_DateTimeSelect.hxx".}
+proc `delete`*(this: var StepBasicDateTimeSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepBasic_DateTimeSelect::operator delete",
+    header: "StepBasic_DateTimeSelect.hxx".}
 proc constructStepBasicDateTimeSelect*(): StepBasicDateTimeSelect {.constructor,
     importcpp: "StepBasic_DateTimeSelect(@)",
     header: "StepBasic_DateTimeSelect.hxx".}
-proc caseNum*(this: StepBasicDateTimeSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepBasicDateTimeSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_DateTimeSelect.hxx".}
 proc date*(this: StepBasicDateTimeSelect): Handle[StepBasicDate] {.noSideEffect,
     importcpp: "Date", header: "StepBasic_DateTimeSelect.hxx".}
@@ -39,28 +52,3 @@ proc localTime*(this: StepBasicDateTimeSelect): Handle[StepBasicLocalTime] {.
     noSideEffect, importcpp: "LocalTime", header: "StepBasic_DateTimeSelect.hxx".}
 proc dateAndTime*(this: StepBasicDateTimeSelect): Handle[StepBasicDateAndTime] {.
     noSideEffect, importcpp: "DateAndTime", header: "StepBasic_DateTimeSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

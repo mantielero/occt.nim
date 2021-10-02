@@ -27,15 +27,30 @@ discard "forward decl of StepBasic_NameAssignment"
 discard "forward decl of StepBasic_SecurityClassificationAssignment"
 type
   StepBasicRoleSelect* {.importcpp: "StepBasic_RoleSelect",
-                        header: "StepBasic_RoleSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor
+                        header: "StepBasic_RoleSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicRoleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_RoleSelect::operator new",
+    header: "StepBasic_RoleSelect.hxx".}
+proc `delete`*(this: var StepBasicRoleSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_RoleSelect::operator delete",
+    header: "StepBasic_RoleSelect.hxx".}
+proc `new[]`*(this: var StepBasicRoleSelect; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_RoleSelect::operator new[]",
+    header: "StepBasic_RoleSelect.hxx".}
+proc `delete[]`*(this: var StepBasicRoleSelect; theAddress: pointer) {.
+    importcpp: "StepBasic_RoleSelect::operator delete[]",
+    header: "StepBasic_RoleSelect.hxx".}
+proc `new`*(this: var StepBasicRoleSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepBasic_RoleSelect::operator new",
+    header: "StepBasic_RoleSelect.hxx".}
+proc `delete`*(this: var StepBasicRoleSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepBasic_RoleSelect::operator delete",
+    header: "StepBasic_RoleSelect.hxx".}
 proc constructStepBasicRoleSelect*(): StepBasicRoleSelect {.constructor,
     importcpp: "StepBasic_RoleSelect(@)", header: "StepBasic_RoleSelect.hxx".}
-proc caseNum*(this: StepBasicRoleSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepBasicRoleSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_RoleSelect.hxx".}
 proc actionAssignment*(this: StepBasicRoleSelect): Handle[StepBasicActionAssignment] {.
     noSideEffect, importcpp: "ActionAssignment", header: "StepBasic_RoleSelect.hxx".}
@@ -70,28 +85,3 @@ proc securityClassificationAssignment*(this: StepBasicRoleSelect): Handle[
     StepBasicSecurityClassificationAssignment] {.noSideEffect,
     importcpp: "SecurityClassificationAssignment",
     header: "StepBasic_RoleSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

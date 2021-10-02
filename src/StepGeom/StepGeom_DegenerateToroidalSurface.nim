@@ -31,13 +31,15 @@ proc constructStepGeomDegenerateToroidalSurface*(): StepGeomDegenerateToroidalSu
     header: "StepGeom_DegenerateToroidalSurface.hxx".}
 proc init*(this: var StepGeomDegenerateToroidalSurface;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aMajorRadius: cfloat;
-          aMinorRadius: cfloat; aSelectOuter: bool) {.importcpp: "Init",
+          aPosition: Handle[StepGeomAxis2Placement3d]; aMajorRadius: StandardReal;
+          aMinorRadius: StandardReal; aSelectOuter: StandardBoolean) {.
+    importcpp: "Init", header: "StepGeom_DegenerateToroidalSurface.hxx".}
+proc setSelectOuter*(this: var StepGeomDegenerateToroidalSurface;
+                    aSelectOuter: StandardBoolean) {.importcpp: "SetSelectOuter",
     header: "StepGeom_DegenerateToroidalSurface.hxx".}
-proc setSelectOuter*(this: var StepGeomDegenerateToroidalSurface; aSelectOuter: bool) {.
-    importcpp: "SetSelectOuter", header: "StepGeom_DegenerateToroidalSurface.hxx".}
-proc selectOuter*(this: StepGeomDegenerateToroidalSurface): bool {.noSideEffect,
-    importcpp: "SelectOuter", header: "StepGeom_DegenerateToroidalSurface.hxx".}
+proc selectOuter*(this: StepGeomDegenerateToroidalSurface): StandardBoolean {.
+    noSideEffect, importcpp: "SelectOuter",
+    header: "StepGeom_DegenerateToroidalSurface.hxx".}
 type
   StepGeomDegenerateToroidalSurfacebaseType* = StepGeomToroidalSurface
 
@@ -49,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomDegenerateToroidalSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_DegenerateToroidalSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

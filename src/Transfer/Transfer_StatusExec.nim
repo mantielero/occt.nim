@@ -22,29 +22,3 @@ type
     TransferStatusInitial, TransferStatusRun, TransferStatusDone,
     TransferStatusError, TransferStatusLoop
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

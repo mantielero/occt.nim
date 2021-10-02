@@ -35,7 +35,7 @@ proc constructStepGeomQuasiUniformSurfaceAndRationalBSplineSurface*(): StepGeomQ
     importcpp: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface(@)",
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
 proc init*(this: var StepGeomQuasiUniformSurfaceAndRationalBSplineSurface;
-          aName: Handle[TCollectionHAsciiString]; aUDegree: cint; aVDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
@@ -44,7 +44,7 @@ proc init*(this: var StepGeomQuasiUniformSurfaceAndRationalBSplineSurface;
     importcpp: "Init",
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
 proc init*(this: var StepGeomQuasiUniformSurfaceAndRationalBSplineSurface;
-          aName: Handle[TCollectionHAsciiString]; aUDegree: cint; aVDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aUDegree: int; aVDegree: int;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical;
@@ -70,13 +70,13 @@ proc setWeightsData*(this: var StepGeomQuasiUniformSurfaceAndRationalBSplineSurf
 proc weightsData*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): Handle[
     TColStdHArray2OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
 proc weightsDataValue*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface;
-                      num1: cint; num2: cint): cfloat {.noSideEffect,
+                      num1: int; num2: int): StandardReal {.noSideEffect,
     importcpp: "WeightsDataValue",
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-proc nbWeightsDataI*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): cint {.
+proc nbWeightsDataI*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataI",
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-proc nbWeightsDataJ*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): cint {.
+proc nbWeightsDataJ*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): int {.
     noSideEffect, importcpp: "NbWeightsDataJ",
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
 type
@@ -87,28 +87,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_QuasiUnif
     header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
 proc dynamicType*(this: StepGeomQuasiUniformSurfaceAndRationalBSplineSurface): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_QuasiUniformSurfaceAndRationalBSplineSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

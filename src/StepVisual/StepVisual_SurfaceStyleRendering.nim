@@ -58,28 +58,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleRendering): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleRendering.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

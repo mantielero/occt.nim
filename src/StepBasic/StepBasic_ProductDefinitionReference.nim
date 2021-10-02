@@ -74,7 +74,7 @@ proc setIdOwningOrganizationName*(this: var StepBasicProductDefinitionReference;
     theIdOwningOrganizationName: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetIdOwningOrganizationName",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-proc hasIdOwningOrganizationName*(this: StepBasicProductDefinitionReference): bool {.
+proc hasIdOwningOrganizationName*(this: StepBasicProductDefinitionReference): StandardBoolean {.
     noSideEffect, importcpp: "HasIdOwningOrganizationName",
     header: "StepBasic_ProductDefinitionReference.hxx".}
 type
@@ -88,28 +88,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductDefinitionReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductDefinitionReference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

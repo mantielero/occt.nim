@@ -39,23 +39,23 @@ proc eSDescr*(this: StepDataSimple): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "ESDescr", header: "StepData_Simple.hxx".}
 proc stepType*(this: StepDataSimple): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_Simple.hxx".}
-proc isComplex*(this: StepDataSimple): bool {.noSideEffect, importcpp: "IsComplex",
-    header: "StepData_Simple.hxx".}
-proc matches*(this: StepDataSimple; steptype: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_Simple.hxx".}
+proc isComplex*(this: StepDataSimple): StandardBoolean {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_Simple.hxx".}
+proc matches*(this: StepDataSimple; steptype: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_Simple.hxx".}
 proc `as`*(this: StepDataSimple; steptype: StandardCString): Handle[StepDataSimple] {.
     noSideEffect, importcpp: "As", header: "StepData_Simple.hxx".}
-proc hasField*(this: StepDataSimple; name: StandardCString): bool {.noSideEffect,
-    importcpp: "HasField", header: "StepData_Simple.hxx".}
+proc hasField*(this: StepDataSimple; name: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "HasField", header: "StepData_Simple.hxx".}
 proc field*(this: StepDataSimple; name: StandardCString): StepDataField {.
     noSideEffect, importcpp: "Field", header: "StepData_Simple.hxx".}
 proc cField*(this: var StepDataSimple; name: StandardCString): var StepDataField {.
     importcpp: "CField", header: "StepData_Simple.hxx".}
-proc nbFields*(this: StepDataSimple): cint {.noSideEffect, importcpp: "NbFields",
-    header: "StepData_Simple.hxx".}
-proc fieldNum*(this: StepDataSimple; num: cint): StepDataField {.noSideEffect,
+proc nbFields*(this: StepDataSimple): int {.noSideEffect, importcpp: "NbFields",
+                                        header: "StepData_Simple.hxx".}
+proc fieldNum*(this: StepDataSimple; num: int): StepDataField {.noSideEffect,
     importcpp: "FieldNum", header: "StepData_Simple.hxx".}
-proc cFieldNum*(this: var StepDataSimple; num: cint): var StepDataField {.
+proc cFieldNum*(this: var StepDataSimple; num: int): var StepDataField {.
     importcpp: "CFieldNum", header: "StepData_Simple.hxx".}
 proc fields*(this: StepDataSimple): StepDataFieldListN {.noSideEffect,
     importcpp: "Fields", header: "StepData_Simple.hxx".}
@@ -75,28 +75,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Simple.hxx".}
 proc dynamicType*(this: StepDataSimple): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Simple.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

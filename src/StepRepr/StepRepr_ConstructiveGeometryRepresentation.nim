@@ -38,28 +38,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Construct
 proc dynamicType*(this: StepReprConstructiveGeometryRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ConstructiveGeometryRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

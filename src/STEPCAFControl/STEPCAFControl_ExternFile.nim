@@ -46,10 +46,11 @@ proc setLoadStatus*(this: var STEPCAFControlExternFile; stat: IFSelectReturnStat
 proc getLoadStatus*(this: STEPCAFControlExternFile): IFSelectReturnStatus {.
     noSideEffect, importcpp: "GetLoadStatus",
     header: "STEPCAFControl_ExternFile.hxx".}
-proc setTransferStatus*(this: var STEPCAFControlExternFile; isok: bool) {.
+proc setTransferStatus*(this: var STEPCAFControlExternFile; isok: StandardBoolean) {.
     importcpp: "SetTransferStatus", header: "STEPCAFControl_ExternFile.hxx".}
-proc getTransferStatus*(this: STEPCAFControlExternFile): bool {.noSideEffect,
-    importcpp: "GetTransferStatus", header: "STEPCAFControl_ExternFile.hxx".}
+proc getTransferStatus*(this: STEPCAFControlExternFile): StandardBoolean {.
+    noSideEffect, importcpp: "GetTransferStatus",
+    header: "STEPCAFControl_ExternFile.hxx".}
 proc setWriteStatus*(this: var STEPCAFControlExternFile; stat: IFSelectReturnStatus) {.
     importcpp: "SetWriteStatus", header: "STEPCAFControl_ExternFile.hxx".}
 proc getWriteStatus*(this: STEPCAFControlExternFile): IFSelectReturnStatus {.
@@ -74,28 +75,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "STEPCAFControl_ExternFile.hxx".}
 proc dynamicType*(this: STEPCAFControlExternFile): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "STEPCAFControl_ExternFile.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,18 +20,31 @@ discard "forward decl of StepGeom_Curve"
 discard "forward decl of StepGeom_Surface"
 type
   StepShapeGeometricSetSelect* {.importcpp: "StepShape_GeometricSetSelect",
-                                header: "StepShape_GeometricSetSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## a
-                                                                                                             ## GeometricSetSelect
-                                                                                                             ## SelectType
+                                header: "StepShape_GeometricSetSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeGeometricSetSelect; theSize: csize_t): pointer {.
+    importcpp: "StepShape_GeometricSetSelect::operator new",
+    header: "StepShape_GeometricSetSelect.hxx".}
+proc `delete`*(this: var StepShapeGeometricSetSelect; theAddress: pointer) {.
+    importcpp: "StepShape_GeometricSetSelect::operator delete",
+    header: "StepShape_GeometricSetSelect.hxx".}
+proc `new[]`*(this: var StepShapeGeometricSetSelect; theSize: csize_t): pointer {.
+    importcpp: "StepShape_GeometricSetSelect::operator new[]",
+    header: "StepShape_GeometricSetSelect.hxx".}
+proc `delete[]`*(this: var StepShapeGeometricSetSelect; theAddress: pointer) {.
+    importcpp: "StepShape_GeometricSetSelect::operator delete[]",
+    header: "StepShape_GeometricSetSelect.hxx".}
+proc `new`*(this: var StepShapeGeometricSetSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_GeometricSetSelect::operator new",
+    header: "StepShape_GeometricSetSelect.hxx".}
+proc `delete`*(this: var StepShapeGeometricSetSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_GeometricSetSelect::operator delete",
+    header: "StepShape_GeometricSetSelect.hxx".}
 proc constructStepShapeGeometricSetSelect*(): StepShapeGeometricSetSelect {.
     constructor, importcpp: "StepShape_GeometricSetSelect(@)",
     header: "StepShape_GeometricSetSelect.hxx".}
-proc caseNum*(this: StepShapeGeometricSetSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeGeometricSetSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_GeometricSetSelect.hxx".}
 proc point*(this: StepShapeGeometricSetSelect): Handle[StepGeomPoint] {.
     noSideEffect, importcpp: "Point", header: "StepShape_GeometricSetSelect.hxx".}
@@ -39,28 +52,3 @@ proc curve*(this: StepShapeGeometricSetSelect): Handle[StepGeomCurve] {.
     noSideEffect, importcpp: "Curve", header: "StepShape_GeometricSetSelect.hxx".}
 proc surface*(this: StepShapeGeometricSetSelect): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "Surface", header: "StepShape_GeometricSetSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

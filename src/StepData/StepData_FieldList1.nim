@@ -18,46 +18,32 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StepData_Field"
 type
   StepDataFieldList1* {.importcpp: "StepData_FieldList1",
-                       header: "StepData_FieldList1.hxx", bycopy.} = object of StepDataFieldList ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## FieldList
-                                                                                          ## of
-                                                                                          ## 1
-                                                                                          ## Field
+                       header: "StepData_FieldList1.hxx", bycopy.} = object of StepDataFieldList
 
 
+proc `new`*(this: var StepDataFieldList1; theSize: csize_t): pointer {.
+    importcpp: "StepData_FieldList1::operator new",
+    header: "StepData_FieldList1.hxx".}
+proc `delete`*(this: var StepDataFieldList1; theAddress: pointer) {.
+    importcpp: "StepData_FieldList1::operator delete",
+    header: "StepData_FieldList1.hxx".}
+proc `new[]`*(this: var StepDataFieldList1; theSize: csize_t): pointer {.
+    importcpp: "StepData_FieldList1::operator new[]",
+    header: "StepData_FieldList1.hxx".}
+proc `delete[]`*(this: var StepDataFieldList1; theAddress: pointer) {.
+    importcpp: "StepData_FieldList1::operator delete[]",
+    header: "StepData_FieldList1.hxx".}
+proc `new`*(this: var StepDataFieldList1; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_FieldList1::operator new",
+    header: "StepData_FieldList1.hxx".}
+proc `delete`*(this: var StepDataFieldList1; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_FieldList1::operator delete",
+    header: "StepData_FieldList1.hxx".}
 proc constructStepDataFieldList1*(): StepDataFieldList1 {.constructor,
     importcpp: "StepData_FieldList1(@)", header: "StepData_FieldList1.hxx".}
-proc nbFields*(this: StepDataFieldList1): cint {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataFieldList1): int {.noSideEffect, importcpp: "NbFields",
     header: "StepData_FieldList1.hxx".}
-proc field*(this: StepDataFieldList1; num: cint): StepDataField {.noSideEffect,
+proc field*(this: StepDataFieldList1; num: int): StepDataField {.noSideEffect,
     importcpp: "Field", header: "StepData_FieldList1.hxx".}
-proc cField*(this: var StepDataFieldList1; num: cint): var StepDataField {.
+proc cField*(this: var StepDataFieldList1; num: int): var StepDataField {.
     importcpp: "CField", header: "StepData_FieldList1.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapePlusMinusTolerance): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_PlusMinusTolerance.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -29,13 +29,14 @@ type
 proc constructStepFEA_SymmetricTensor23dMember*(): StepFEA_SymmetricTensor23dMember {.
     constructor, importcpp: "StepFEA_SymmetricTensor23dMember(@)",
     header: "StepFEA_SymmetricTensor23dMember.hxx".}
-proc hasName*(this: StepFEA_SymmetricTensor23dMember): bool {.noSideEffect,
-    importcpp: "HasName", header: "StepFEA_SymmetricTensor23dMember.hxx".}
+proc hasName*(this: StepFEA_SymmetricTensor23dMember): StandardBoolean {.
+    noSideEffect, importcpp: "HasName",
+    header: "StepFEA_SymmetricTensor23dMember.hxx".}
 proc name*(this: StepFEA_SymmetricTensor23dMember): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepFEA_SymmetricTensor23dMember.hxx".}
-proc setName*(this: var StepFEA_SymmetricTensor23dMember; name: StandardCString): bool {.
+proc setName*(this: var StepFEA_SymmetricTensor23dMember; name: StandardCString): StandardBoolean {.
     importcpp: "SetName", header: "StepFEA_SymmetricTensor23dMember.hxx".}
-proc matches*(this: StepFEA_SymmetricTensor23dMember; name: StandardCString): bool {.
+proc matches*(this: StepFEA_SymmetricTensor23dMember; name: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches",
     header: "StepFEA_SymmetricTensor23dMember.hxx".}
 type
@@ -49,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_SymmetricTensor23dMember): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_SymmetricTensor23dMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

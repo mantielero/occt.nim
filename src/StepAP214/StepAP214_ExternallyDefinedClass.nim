@@ -33,7 +33,8 @@ proc constructStepAP214ExternallyDefinedClass*(): StepAP214ExternallyDefinedClas
     constructor, importcpp: "StepAP214_ExternallyDefinedClass(@)",
     header: "StepAP214_ExternallyDefinedClass.hxx".}
 proc init*(this: var StepAP214ExternallyDefinedClass;
-          aGroupName: Handle[TCollectionHAsciiString]; hasGroupDescription: bool;
+          aGroupName: Handle[TCollectionHAsciiString];
+          hasGroupDescription: StandardBoolean;
           aGroupDescription: Handle[TCollectionHAsciiString];
           aExternallyDefinedItemItemId: StepBasicSourceItem;
           aExternallyDefinedItemSource: Handle[StepBasicExternalSource]) {.
@@ -56,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214ExternallyDefinedClass): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_ExternallyDefinedClass.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -48,10 +48,10 @@ proc directionCounts*(this: StepVisualSurfaceStyleParameterLine): Handle[
     StepVisualHArray1OfDirectionCountSelect] {.noSideEffect,
     importcpp: "DirectionCounts",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc directionCountsValue*(this: StepVisualSurfaceStyleParameterLine; num: cint): StepVisualDirectionCountSelect {.
+proc directionCountsValue*(this: StepVisualSurfaceStyleParameterLine; num: int): StepVisualDirectionCountSelect {.
     noSideEffect, importcpp: "DirectionCountsValue",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-proc nbDirectionCounts*(this: StepVisualSurfaceStyleParameterLine): cint {.
+proc nbDirectionCounts*(this: StepVisualSurfaceStyleParameterLine): int {.
     noSideEffect, importcpp: "NbDirectionCounts",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
 type
@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualSurfaceStyleParameterLine): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_SurfaceStyleParameterLine.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

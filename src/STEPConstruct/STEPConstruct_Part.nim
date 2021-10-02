@@ -30,6 +30,24 @@ type
                       header: "STEPConstruct_Part.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPConstructPart; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Part::operator new",
+    header: "STEPConstruct_Part.hxx".}
+proc `delete`*(this: var STEPConstructPart; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Part::operator delete",
+    header: "STEPConstruct_Part.hxx".}
+proc `new[]`*(this: var STEPConstructPart; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Part::operator new[]",
+    header: "STEPConstruct_Part.hxx".}
+proc `delete[]`*(this: var STEPConstructPart; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Part::operator delete[]",
+    header: "STEPConstruct_Part.hxx".}
+proc `new`*(this: var STEPConstructPart; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_Part::operator new",
+    header: "STEPConstruct_Part.hxx".}
+proc `delete`*(this: var STEPConstructPart; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_Part::operator delete",
+    header: "STEPConstruct_Part.hxx".}
 proc constructSTEPConstructPart*(): STEPConstructPart {.constructor,
     importcpp: "STEPConstruct_Part(@)", header: "STEPConstruct_Part.hxx".}
 proc makeSDR*(this: var STEPConstructPart;
@@ -40,8 +58,8 @@ proc makeSDR*(this: var STEPConstructPart;
 proc readSDR*(this: var STEPConstructPart;
              aShape: Handle[StepShapeShapeDefinitionRepresentation]) {.
     importcpp: "ReadSDR", header: "STEPConstruct_Part.hxx".}
-proc isDone*(this: STEPConstructPart): bool {.noSideEffect, importcpp: "IsDone",
-    header: "STEPConstruct_Part.hxx".}
+proc isDone*(this: STEPConstructPart): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "STEPConstruct_Part.hxx".}
 proc sDRValue*(this: STEPConstructPart): Handle[
     StepShapeShapeDefinitionRepresentation] {.noSideEffect, importcpp: "SDRValue",
     header: "STEPConstruct_Part.hxx".}
@@ -132,28 +150,3 @@ proc setPRPCname*(this: var STEPConstructPart;
 proc setPRPCdescription*(this: var STEPConstructPart;
                         text: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetPRPCdescription", header: "STEPConstruct_Part.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

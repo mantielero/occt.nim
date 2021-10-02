@@ -29,7 +29,7 @@ type
 
 proc constructStepBasicOrganization*(): StepBasicOrganization {.constructor,
     importcpp: "StepBasic_Organization(@)", header: "StepBasic_Organization.hxx".}
-proc init*(this: var StepBasicOrganization; hasAid: bool;
+proc init*(this: var StepBasicOrganization; hasAid: StandardBoolean;
           aId: Handle[TCollectionHAsciiString];
           aName: Handle[TCollectionHAsciiString];
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
@@ -40,8 +40,8 @@ proc unSetId*(this: var StepBasicOrganization) {.importcpp: "UnSetId",
     header: "StepBasic_Organization.hxx".}
 proc id*(this: StepBasicOrganization): Handle[TCollectionHAsciiString] {.
     noSideEffect, importcpp: "Id", header: "StepBasic_Organization.hxx".}
-proc hasId*(this: StepBasicOrganization): bool {.noSideEffect, importcpp: "HasId",
-    header: "StepBasic_Organization.hxx".}
+proc hasId*(this: StepBasicOrganization): StandardBoolean {.noSideEffect,
+    importcpp: "HasId", header: "StepBasic_Organization.hxx".}
 proc setName*(this: var StepBasicOrganization;
              aName: Handle[TCollectionHAsciiString]) {.importcpp: "SetName",
     header: "StepBasic_Organization.hxx".}
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Organization.hxx".}
 proc dynamicType*(this: StepBasicOrganization): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Organization.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

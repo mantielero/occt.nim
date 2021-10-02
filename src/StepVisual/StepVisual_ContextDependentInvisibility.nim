@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Context
 proc dynamicType*(this: StepVisualContextDependentInvisibility): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_ContextDependentInvisibility.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

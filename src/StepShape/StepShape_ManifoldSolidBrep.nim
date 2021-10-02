@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeManifoldSolidBrep): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_ManifoldSolidBrep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

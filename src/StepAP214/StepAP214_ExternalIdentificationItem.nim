@@ -31,15 +31,31 @@ discard "forward decl of StepBasic_DateAndTimeAssignment"
 discard "forward decl of StepBasic_DateAssignment"
 type
   StepAP214ExternalIdentificationItem* {.importcpp: "StepAP214_ExternalIdentificationItem", header: "StepAP214_ExternalIdentificationItem.hxx",
-                                        bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                           ## constructor
+                                        bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214ExternalIdentificationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_ExternalIdentificationItem::operator new",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc `delete`*(this: var StepAP214ExternalIdentificationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_ExternalIdentificationItem::operator delete",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc `new[]`*(this: var StepAP214ExternalIdentificationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_ExternalIdentificationItem::operator new[]",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc `delete[]`*(this: var StepAP214ExternalIdentificationItem; theAddress: pointer) {.
+    importcpp: "StepAP214_ExternalIdentificationItem::operator delete[]",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc `new`*(this: var StepAP214ExternalIdentificationItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_ExternalIdentificationItem::operator new", header: "StepAP214_ExternalIdentificationItem.hxx".}
+proc `delete`*(this: var StepAP214ExternalIdentificationItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_ExternalIdentificationItem::operator delete",
+    header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc constructStepAP214ExternalIdentificationItem*(): StepAP214ExternalIdentificationItem {.
     constructor, importcpp: "StepAP214_ExternalIdentificationItem(@)",
     header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc caseNum*(this: StepAP214ExternalIdentificationItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc documentFile*(this: StepAP214ExternalIdentificationItem): Handle[
     StepBasicDocumentFile] {.noSideEffect, importcpp: "DocumentFile",
@@ -86,28 +102,3 @@ proc dateAndTimeAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
                                      importcpp: "DateAndTimeAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
 proc dateAssignment*(this: StepAP214ExternalIdentificationItem): Handle[
     StepBasicDateAssignment] {.noSideEffect, importcpp: "DateAssignment", header: "StepAP214_ExternalIdentificationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

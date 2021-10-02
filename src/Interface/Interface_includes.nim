@@ -2,7 +2,7 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-include Interface_Array1OfFileParameter
+#[ include Interface_Array1OfFileParameter
 include Interface_Array1OfHAsciiString
 include Interface_BitMap
 include Interface_Category
@@ -18,7 +18,9 @@ include Interface_DataMapIteratorOfDataMapOfTransientInteger
 include Interface_DataMapOfTransientInteger
 include Interface_DataState
 include Interface_EntityCluster
+]#
 include Interface_EntityIterator
+#[
 include Interface_EntityList
 include Interface_FileParameter
 include Interface_FileReaderData
@@ -39,7 +41,9 @@ include Interface_IntList
 include Interface_IntVal
 include Interface_InterfaceError
 include Interface_InterfaceMismatch
+]#
 include Interface_InterfaceModel
+#[
 include Interface_LineBuffer
 include Interface_MSG
 include Interface_Macros
@@ -69,7 +73,7 @@ include Interface_ValueInterpret
 include Interface_ValueSatisfies
 include Interface_VectorOfFileParameter
 include Interface_Version
-
+ ]#
 
 
 

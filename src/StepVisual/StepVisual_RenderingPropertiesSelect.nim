@@ -19,15 +19,31 @@ discard "forward decl of StepVisual_SurfaceStyleReflectanceAmbient"
 discard "forward decl of StepVisual_SurfaceStyleTransparent"
 type
   StepVisualRenderingPropertiesSelect* {.importcpp: "StepVisual_RenderingPropertiesSelect", header: "StepVisual_RenderingPropertiesSelect.hxx",
-                                        bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                           ## constructor
+                                        bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualRenderingPropertiesSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_RenderingPropertiesSelect::operator new",
+    header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc `delete`*(this: var StepVisualRenderingPropertiesSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_RenderingPropertiesSelect::operator delete",
+    header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc `new[]`*(this: var StepVisualRenderingPropertiesSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_RenderingPropertiesSelect::operator new[]",
+    header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc `delete[]`*(this: var StepVisualRenderingPropertiesSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_RenderingPropertiesSelect::operator delete[]",
+    header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc `new`*(this: var StepVisualRenderingPropertiesSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_RenderingPropertiesSelect::operator new", header: "StepVisual_RenderingPropertiesSelect.hxx".}
+proc `delete`*(this: var StepVisualRenderingPropertiesSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_RenderingPropertiesSelect::operator delete",
+    header: "StepVisual_RenderingPropertiesSelect.hxx".}
 proc constructStepVisualRenderingPropertiesSelect*(): StepVisualRenderingPropertiesSelect {.
     constructor, importcpp: "StepVisual_RenderingPropertiesSelect(@)",
     header: "StepVisual_RenderingPropertiesSelect.hxx".}
 proc caseNum*(this: StepVisualRenderingPropertiesSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_RenderingPropertiesSelect.hxx".}
 proc surfaceStyleReflectanceAmbient*(this: StepVisualRenderingPropertiesSelect): Handle[
     StepVisualSurfaceStyleReflectanceAmbient] {.noSideEffect,
@@ -36,28 +52,3 @@ proc surfaceStyleReflectanceAmbient*(this: StepVisualRenderingPropertiesSelect):
 proc surfaceStyleTransparent*(this: StepVisualRenderingPropertiesSelect): Handle[
     StepVisualSurfaceStyleTransparent] {.noSideEffect,
                                         importcpp: "SurfaceStyleTransparent", header: "StepVisual_RenderingPropertiesSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

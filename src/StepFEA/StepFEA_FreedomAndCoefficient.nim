@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FreedomAndCoefficient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FreedomAndCoefficient.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -16,29 +16,3 @@ type
     StepElementHexahedron, StepElementWedge, StepElementTetrahedron,
     StepElementPyramid
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

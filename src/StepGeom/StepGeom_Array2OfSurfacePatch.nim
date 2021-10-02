@@ -16,29 +16,3 @@
 
 type
   StepGeomArray2OfSurfacePatch* = NCollectionArray2[Handle[StepGeomSurfacePatch]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

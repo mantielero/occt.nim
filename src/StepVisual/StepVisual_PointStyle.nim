@@ -63,28 +63,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_PointStyle.hxx".}
 proc dynamicType*(this: StepVisualPointStyle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_PointStyle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

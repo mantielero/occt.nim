@@ -37,8 +37,8 @@ proc constructStepFEA_FeaSecantCoefficientOfLinearThermalExpansion*(): StepFEA_F
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 proc init*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
-          aFeaConstants: StepFEA_SymmetricTensor23d; aReferenceTemperature: cfloat) {.
-    importcpp: "Init",
+          aFeaConstants: StepFEA_SymmetricTensor23d;
+          aReferenceTemperature: StandardReal) {.importcpp: "Init",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 proc feaConstants*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): StepFEA_SymmetricTensor23d {.
     noSideEffect, importcpp: "FeaConstants",
@@ -47,11 +47,11 @@ proc setFeaConstants*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpan
                      feaConstants: StepFEA_SymmetricTensor23d) {.
     importcpp: "SetFeaConstants",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-proc referenceTemperature*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): cfloat {.
+proc referenceTemperature*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): StandardReal {.
     noSideEffect, importcpp: "ReferenceTemperature",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 proc setReferenceTemperature*(this: var StepFEA_FeaSecantCoefficientOfLinearThermalExpansion;
-                             referenceTemperature: cfloat) {.
+                             referenceTemperature: StandardReal) {.
     importcpp: "SetReferenceTemperature",
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 type
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaSecantC
     header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
 proc dynamicType*(this: StepFEA_FeaSecantCoefficientOfLinearThermalExpansion): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaSecantCoefficientOfLinearThermalExpansion.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

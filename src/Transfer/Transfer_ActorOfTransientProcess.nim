@@ -22,19 +22,22 @@ discard "forward decl of Message_ProgressScope"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 discard "forward decl of Transfer_ActorOfTransientProcess"
 type
-  HandleC1C1* = Handle[TransferActorOfTransientProcess]
-
-## ! The original class was renamed. Compatibility only
-
-type
   TransferActorOfTransientProcess* {.importcpp: "Transfer_ActorOfTransientProcess", header: "Transfer_ActorOfTransientProcess.hxx",
                                     bycopy.} = object of TransferActorOfProcessForTransient
+
+
+type
+  HandleTransferActorOfTransientProcess* = Handle[TransferActorOfTransientProcess]
+
+## ! The original class was renamed. Compatibility only
+type
+  TransferActorOfTransientProcessbaseType* = TransferActorOfProcessForTransient
 
 
 proc constructTransferActorOfTransientProcess*(): TransferActorOfTransientProcess {.
     constructor, importcpp: "Transfer_ActorOfTransientProcess(@)",
     header: "Transfer_ActorOfTransientProcess.hxx".}
-proc transferring*(this: var TransferActorOfTransientProcess;
+#[ proc transferring*(this: var TransferActorOfTransientProcess;
                   start: Handle[StandardTransient];
                   tp: Handle[TransferProcessForTransient];
                   theProgress: MessageProgressRange = messageProgressRange()): Handle[
@@ -51,8 +54,6 @@ proc transferTransient*(this: var TransferActorOfTransientProcess;
                        tp: Handle[TransferTransientProcess]; theProgress: MessageProgressRange = messageProgressRange()): Handle[
     StandardTransient] {.importcpp: "TransferTransient",
                         header: "Transfer_ActorOfTransientProcess.hxx".}
-type
-  TransferActorOfTransientProcessbaseType* = TransferActorOfProcessForTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_ActorOfTransientProcess::get_type_name(@)",
                             header: "Transfer_ActorOfTransientProcess.hxx".}
@@ -61,29 +62,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_ActorOfTransientProcess.hxx".}
 proc dynamicType*(this: TransferActorOfTransientProcess): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Transfer_ActorOfTransientProcess.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "Transfer_ActorOfTransientProcess.hxx".} ]#

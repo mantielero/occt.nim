@@ -30,8 +30,8 @@ proc constructSTEPSelectionsSelectDerived*(): STEPSelectionsSelectDerived {.
     header: "STEPSelections_SelectDerived.hxx".}
 proc matches*(this: STEPSelectionsSelectDerived; ent: Handle[StandardTransient];
              model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
-             exact: bool): bool {.noSideEffect, importcpp: "Matches",
-                               header: "STEPSelections_SelectDerived.hxx".}
+             exact: StandardBoolean): StandardBoolean {.noSideEffect,
+    importcpp: "Matches", header: "STEPSelections_SelectDerived.hxx".}
 type
   STEPSelectionsSelectDerivedbaseType* = StepSelectStepType
 
@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: STEPSelectionsSelectDerived): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "STEPSelections_SelectDerived.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

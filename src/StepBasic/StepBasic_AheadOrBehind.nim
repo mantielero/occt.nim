@@ -20,29 +20,3 @@ type
                            header: "StepBasic_AheadOrBehind.hxx".} = enum
     StepBasicAobAhead, StepBasicAobExact, StepBasicAobBehind
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

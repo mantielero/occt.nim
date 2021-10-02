@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedGroupAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedGroupAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

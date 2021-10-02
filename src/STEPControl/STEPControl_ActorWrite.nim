@@ -24,14 +24,8 @@ discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of STEPControl_ActorWrite"
 discard "forward decl of STEPControl_ActorWrite"
 type
-  HandleC1C1* = Handle[STEPControlActorWrite]
-
-## ! This class performs the transfer of a Shape from TopoDS
-## ! to AP203 or AP214 (CD2 or DIS)
-
-type
   STEPControlActorWrite* {.importcpp: "STEPControl_ActorWrite",
-                          header: "STEPControl_ActorWrite.hxx", bycopy.} = object of TransferActorOfFinderProcess ##
+                          header: "STEPControl_ActorWrite.hxx", bycopy.} = object #of TransferActorOfFinderProcess ##
                                                                                                            ## !
                                                                                                            ## Non-manifold
                                                                                                            ## shapes
@@ -70,82 +64,64 @@ type
                                                                                                            ## (ssv;
                                                                                                            ## 13.11.2010)
 
+type
+  HandleSTEPControlActorWrite* = Handle[STEPControlActorWrite]
+
+## ! This class performs the transfer of a Shape from TopoDS
+## ! to AP203 or AP214 (CD2 or DIS)
+
+#type
+#  STEPControlActorWritebaseType* = TransferActorOfFinderProcess
 
 proc constructSTEPControlActorWrite*(): STEPControlActorWrite {.constructor,
     importcpp: "STEPControl_ActorWrite(@)", header: "STEPControl_ActorWrite.hxx".}
-proc recognize*(this: var STEPControlActorWrite; start: Handle[TransferFinder]): bool {.
-    importcpp: "Recognize", header: "STEPControl_ActorWrite.hxx".}
-proc transfer*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
+#[ proc recognize*(this: var STEPControlActorWrite; start: Handle[TransferFinder]): StandardBoolean {.
+    importcpp: "Recognize", header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc transfer*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
               fp: Handle[TransferFinderProcess];
               theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "Transfer", header: "STEPControl_ActorWrite.hxx".}
-proc transferSubShape*(this: var STEPControlActorWrite;
+    TransferBinder] {.importcpp: "Transfer", header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc transferSubShape*(this: var STEPControlActorWrite;
                       start: Handle[TransferFinder];
                       sdr: Handle[StepShapeShapeDefinitionRepresentation];
                       ax1: var Handle[StepGeomAxis2Placement3d];
                       fp: Handle[TransferFinderProcess];
                       shapeGroup: Handle[TopToolsHSequenceOfShape] = nil;
-                      isManifold: bool = true; theProgress: MessageProgressRange = messageProgressRange()): Handle[
+                      isManifold: StandardBoolean = true; theProgress: MessageProgressRange = messageProgressRange()): Handle[
     TransferBinder] {.importcpp: "TransferSubShape",
-                     header: "STEPControl_ActorWrite.hxx".}
-proc transferShape*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
+                     header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc transferShape*(this: var STEPControlActorWrite; start: Handle[TransferFinder];
                    sdr: Handle[StepShapeShapeDefinitionRepresentation];
                    fp: Handle[TransferFinderProcess];
                    shapeGroup: Handle[TopToolsHSequenceOfShape] = nil;
-                   isManifold: bool = true;
+                   isManifold: StandardBoolean = true;
                    theProgress: MessageProgressRange = messageProgressRange()): Handle[
     TransferBinder] {.importcpp: "TransferShape",
-                     header: "STEPControl_ActorWrite.hxx".}
-proc transferCompound*(this: var STEPControlActorWrite;
+                     header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc transferCompound*(this: var STEPControlActorWrite;
                       start: Handle[TransferFinder];
                       sdr: Handle[StepShapeShapeDefinitionRepresentation];
                       fp: Handle[TransferFinderProcess]; theProgress: MessageProgressRange = messageProgressRange()): Handle[
     TransferBinder] {.importcpp: "TransferCompound",
-                     header: "STEPControl_ActorWrite.hxx".}
+                     header: "STEPControl_ActorWrite.hxx".} ]#
 proc setMode*(this: var STEPControlActorWrite; m: STEPControlStepModelType) {.
     importcpp: "SetMode", header: "STEPControl_ActorWrite.hxx".}
 proc mode*(this: STEPControlActorWrite): STEPControlStepModelType {.noSideEffect,
     importcpp: "Mode", header: "STEPControl_ActorWrite.hxx".}
-proc setGroupMode*(this: var STEPControlActorWrite; mode: cint) {.
+proc setGroupMode*(this: var STEPControlActorWrite; mode: int) {.
     importcpp: "SetGroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc groupMode*(this: STEPControlActorWrite): cint {.noSideEffect,
+proc groupMode*(this: STEPControlActorWrite): int {.noSideEffect,
     importcpp: "GroupMode", header: "STEPControl_ActorWrite.hxx".}
-proc setTolerance*(this: var STEPControlActorWrite; tol: cfloat) {.
+proc setTolerance*(this: var STEPControlActorWrite; tol: StandardReal) {.
     importcpp: "SetTolerance", header: "STEPControl_ActorWrite.hxx".}
-proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): bool {.
+proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "IsAssembly", header: "STEPControl_ActorWrite.hxx".}
-type
-  STEPControlActorWritebaseType* = TransferActorOfFinderProcess
 
-proc getTypeName*(): cstring {.importcpp: "STEPControl_ActorWrite::get_type_name(@)",
-                            header: "STEPControl_ActorWrite.hxx".}
-proc getTypeDescriptor*(): Handle[StandardType] {.
+
+#[ proc getTypeName*(): cstring {.importcpp: "STEPControl_ActorWrite::get_type_name(@)",
+                            header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPControl_ActorWrite::get_type_descriptor(@)",
-    header: "STEPControl_ActorWrite.hxx".}
-proc dynamicType*(this: STEPControlActorWrite): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "STEPControl_ActorWrite.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "STEPControl_ActorWrite.hxx".} ]#
+#[ proc dynamicType*(this: STEPControlActorWrite): Handle[StandardType] {.noSideEffect,
+    importcpp: "DynamicType", header: "STEPControl_ActorWrite.hxx".} ]#

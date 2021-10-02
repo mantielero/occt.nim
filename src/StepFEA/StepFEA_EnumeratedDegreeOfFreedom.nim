@@ -16,29 +16,3 @@ type
     StepFEA_XTranslation, StepFEA_YTranslation, StepFEA_ZTranslation,
     StepFEA_XRotation, StepFEA_YRotation, StepFEA_ZRotation, StepFEA_Warp
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

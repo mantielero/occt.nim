@@ -32,16 +32,16 @@ proc constructStepShapeFaceSurface*(): StepShapeFaceSurface {.constructor,
     importcpp: "StepShape_FaceSurface(@)", header: "StepShape_FaceSurface.hxx".}
 proc init*(this: var StepShapeFaceSurface; aName: Handle[TCollectionHAsciiString];
           aBounds: Handle[StepShapeHArray1OfFaceBound];
-          aFaceGeometry: Handle[StepGeomSurface]; aSameSense: bool) {.
+          aFaceGeometry: Handle[StepGeomSurface]; aSameSense: StandardBoolean) {.
     importcpp: "Init", header: "StepShape_FaceSurface.hxx".}
 proc setFaceGeometry*(this: var StepShapeFaceSurface;
                      aFaceGeometry: Handle[StepGeomSurface]) {.
     importcpp: "SetFaceGeometry", header: "StepShape_FaceSurface.hxx".}
 proc faceGeometry*(this: StepShapeFaceSurface): Handle[StepGeomSurface] {.
     noSideEffect, importcpp: "FaceGeometry", header: "StepShape_FaceSurface.hxx".}
-proc setSameSense*(this: var StepShapeFaceSurface; aSameSense: bool) {.
+proc setSameSense*(this: var StepShapeFaceSurface; aSameSense: StandardBoolean) {.
     importcpp: "SetSameSense", header: "StepShape_FaceSurface.hxx".}
-proc sameSense*(this: StepShapeFaceSurface): bool {.noSideEffect,
+proc sameSense*(this: StepShapeFaceSurface): StandardBoolean {.noSideEffect,
     importcpp: "SameSense", header: "StepShape_FaceSurface.hxx".}
 type
   StepShapeFaceSurfacebaseType* = StepShapeFace
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_FaceSurface.hxx".}
 proc dynamicType*(this: StepShapeFaceSurface): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_FaceSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

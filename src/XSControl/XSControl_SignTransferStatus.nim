@@ -21,7 +21,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of XSControl_SignTransferStatus"
 discard "forward decl of XSControl_SignTransferStatus"
 type
-  HandleC1C1* = Handle[XSControlSignTransferStatus]
+  HandleXSControlSignTransferStatus* = Handle[XSControlSignTransferStatus]
 
 ## ! This Signatures gives the Transfer Status of an entity, as
 ## ! recorded in a TransferProcess. It can be :
@@ -39,7 +39,7 @@ type
 
 type
   XSControlSignTransferStatus* {.importcpp: "XSControl_SignTransferStatus",
-                                header: "XSControl_SignTransferStatus.hxx", bycopy.} = object of IFSelectSignature ##
+                                header: "XSControl_SignTransferStatus.hxx", bycopy.} = object #of IFSelectSignature ##
                                                                                                             ## !
                                                                                                             ## Creates
                                                                                                             ## a
@@ -76,7 +76,7 @@ proc value*(this: XSControlSignTransferStatus; ent: Handle[StandardTransient];
     importcpp: "Value", header: "XSControl_SignTransferStatus.hxx".}
 type
   XSControlSignTransferStatusbaseType* = IFSelectSignature
-
+#[ 
 proc getTypeName*(): cstring {.importcpp: "XSControl_SignTransferStatus::get_type_name(@)",
                             header: "XSControl_SignTransferStatus.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
@@ -110,3 +110,4 @@ proc dynamicType*(this: XSControlSignTransferStatus): Handle[StandardType] {.
 
 
 
+ ]#

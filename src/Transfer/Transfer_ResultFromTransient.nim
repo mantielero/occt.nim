@@ -20,17 +20,6 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ResultFromTransient"
 discard "forward decl of Transfer_ResultFromTransient"
-type
-  HandleC1C1* = Handle[TransferResultFromTransient]
-
-## ! This class, in conjunction with ResultFromModel, allows to
-## ! record the result of a transfer initially stored in a
-## ! TransientProcess.
-## !
-## ! A ResultFromTransient records a couple (Transient,Binder for
-## ! the result and checks) plus a list of "sub-results", which
-## ! have been recorded in the TrabsientProcess, under scope
-## ! attached to the starting transient.
 
 type
   TransferResultFromTransient* {.importcpp: "Transfer_ResultFromTransient",
@@ -40,6 +29,20 @@ type
                                                                                                             ## a
                                                                                                             ## ResultFromTransient,
                                                                                                             ## empty
+
+type
+  HandleTransferResultFromTransient* = Handle[TransferResultFromTransient]
+
+## ! This class, in conjunction with ResultFromModel, allows to
+## ! record the result of a transfer initially stored in a
+## ! TransientProcess.
+## !
+## ! A ResultFromTransient records a couple (Transient,Binder for
+## ! the result and checks) plus a list of "sub-results", which
+## ! have been recorded in the TrabsientProcess, under scope
+## ! attached to the starting transient.
+type
+  TransferResultFromTransientbaseType* = StandardTransient
 
 
 proc constructTransferResultFromTransient*(): TransferResultFromTransient {.
@@ -55,9 +58,9 @@ proc start*(this: TransferResultFromTransient): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Start", header: "Transfer_ResultFromTransient.hxx".}
 proc binder*(this: TransferResultFromTransient): Handle[TransferBinder] {.
     noSideEffect, importcpp: "Binder", header: "Transfer_ResultFromTransient.hxx".}
-proc hasResult*(this: TransferResultFromTransient): bool {.noSideEffect,
+proc hasResult*(this: TransferResultFromTransient): StandardBoolean {.noSideEffect,
     importcpp: "HasResult", header: "Transfer_ResultFromTransient.hxx".}
-proc check*(this: TransferResultFromTransient): Handle[InterfaceCheck] {.
+#[ proc check*(this: TransferResultFromTransient): Handle[InterfaceCheck] {.
     noSideEffect, importcpp: "Check", header: "Transfer_ResultFromTransient.hxx".}
 proc checkStatus*(this: TransferResultFromTransient): InterfaceCheckStatus {.
     noSideEffect, importcpp: "CheckStatus",
@@ -67,9 +70,9 @@ proc clearSubs*(this: var TransferResultFromTransient) {.importcpp: "ClearSubs",
 proc addSubResult*(this: var TransferResultFromTransient;
                   sub: Handle[TransferResultFromTransient]) {.
     importcpp: "AddSubResult", header: "Transfer_ResultFromTransient.hxx".}
-proc nbSubResults*(this: TransferResultFromTransient): cint {.noSideEffect,
+proc nbSubResults*(this: TransferResultFromTransient): int {.noSideEffect,
     importcpp: "NbSubResults", header: "Transfer_ResultFromTransient.hxx".}
-proc subResult*(this: TransferResultFromTransient; num: cint): Handle[
+proc subResult*(this: TransferResultFromTransient; num: int): Handle[
     TransferResultFromTransient] {.noSideEffect, importcpp: "SubResult",
                                   header: "Transfer_ResultFromTransient.hxx".}
 proc resultFromKey*(this: TransferResultFromTransient;
@@ -87,8 +90,6 @@ proc strip*(this: var TransferResultFromTransient) {.importcpp: "Strip",
 proc fillBack*(this: TransferResultFromTransient;
               tp: Handle[TransferTransientProcess]) {.noSideEffect,
     importcpp: "FillBack", header: "Transfer_ResultFromTransient.hxx".}
-type
-  TransferResultFromTransientbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_ResultFromTransient::get_type_name(@)",
                             header: "Transfer_ResultFromTransient.hxx".}
@@ -97,29 +98,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "Transfer_ResultFromTransient.hxx".}
 proc dynamicType*(this: TransferResultFromTransient): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Transfer_ResultFromTransient.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "Transfer_ResultFromTransient.hxx".} ]#

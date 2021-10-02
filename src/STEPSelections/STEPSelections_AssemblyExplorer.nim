@@ -25,6 +25,24 @@ type
                                    bycopy.} = object
 
 
+proc `new`*(this: var STEPSelectionsAssemblyExplorer; theSize: csize_t): pointer {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator new",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
+proc `delete`*(this: var STEPSelectionsAssemblyExplorer; theAddress: pointer) {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator delete",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
+proc `new[]`*(this: var STEPSelectionsAssemblyExplorer; theSize: csize_t): pointer {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator new[]",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
+proc `delete[]`*(this: var STEPSelectionsAssemblyExplorer; theAddress: pointer) {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator delete[]",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
+proc `new`*(this: var STEPSelectionsAssemblyExplorer; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator new",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
+proc `delete`*(this: var STEPSelectionsAssemblyExplorer; a2: pointer; a3: pointer) {.
+    importcpp: "STEPSelections_AssemblyExplorer::operator delete",
+    header: "STEPSelections_AssemblyExplorer.hxx".}
 proc constructSTEPSelectionsAssemblyExplorer*(g: InterfaceGraph): STEPSelectionsAssemblyExplorer {.
     constructor, importcpp: "STEPSelections_AssemblyExplorer(@)",
     header: "STEPSelections_AssemblyExplorer.hxx".}
@@ -43,32 +61,7 @@ proc findItemWithNAUO*(this: STEPSelectionsAssemblyExplorer;
                       nauo: Handle[StepReprNextAssemblyUsageOccurrence]): Handle[
     StandardTransient] {.noSideEffect, importcpp: "FindItemWithNAUO",
                         header: "STEPSelections_AssemblyExplorer.hxx".}
-proc nbAssemblies*(this: STEPSelectionsAssemblyExplorer): cint {.noSideEffect,
+proc nbAssemblies*(this: STEPSelectionsAssemblyExplorer): int {.noSideEffect,
     importcpp: "NbAssemblies", header: "STEPSelections_AssemblyExplorer.hxx".}
-proc root*(this: STEPSelectionsAssemblyExplorer; rank: cint = 1): Handle[
+proc root*(this: STEPSelectionsAssemblyExplorer; rank: int = 1): Handle[
     STEPSelectionsAssemblyComponent] {.noSideEffect, importcpp: "Root", header: "STEPSelections_AssemblyExplorer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

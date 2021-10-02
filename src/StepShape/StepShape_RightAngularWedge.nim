@@ -33,30 +33,30 @@ proc constructStepShapeRightAngularWedge*(): StepShapeRightAngularWedge {.
     header: "StepShape_RightAngularWedge.hxx".}
 proc init*(this: var StepShapeRightAngularWedge;
           aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis2Placement3d]; aX: cfloat; aY: cfloat;
-          aZ: cfloat; aLtx: cfloat) {.importcpp: "Init",
-                                  header: "StepShape_RightAngularWedge.hxx".}
+          aPosition: Handle[StepGeomAxis2Placement3d]; aX: StandardReal;
+          aY: StandardReal; aZ: StandardReal; aLtx: StandardReal) {.importcpp: "Init",
+    header: "StepShape_RightAngularWedge.hxx".}
 proc setPosition*(this: var StepShapeRightAngularWedge;
                  aPosition: Handle[StepGeomAxis2Placement3d]) {.
     importcpp: "SetPosition", header: "StepShape_RightAngularWedge.hxx".}
 proc position*(this: StepShapeRightAngularWedge): Handle[StepGeomAxis2Placement3d] {.
     noSideEffect, importcpp: "Position", header: "StepShape_RightAngularWedge.hxx".}
-proc setX*(this: var StepShapeRightAngularWedge; aX: cfloat) {.importcpp: "SetX",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc x*(this: StepShapeRightAngularWedge): cfloat {.noSideEffect, importcpp: "X",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc setY*(this: var StepShapeRightAngularWedge; aY: cfloat) {.importcpp: "SetY",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc y*(this: StepShapeRightAngularWedge): cfloat {.noSideEffect, importcpp: "Y",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc setZ*(this: var StepShapeRightAngularWedge; aZ: cfloat) {.importcpp: "SetZ",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc z*(this: StepShapeRightAngularWedge): cfloat {.noSideEffect, importcpp: "Z",
-    header: "StepShape_RightAngularWedge.hxx".}
-proc setLtx*(this: var StepShapeRightAngularWedge; aLtx: cfloat) {.
+proc setX*(this: var StepShapeRightAngularWedge; aX: StandardReal) {.
+    importcpp: "SetX", header: "StepShape_RightAngularWedge.hxx".}
+proc x*(this: StepShapeRightAngularWedge): StandardReal {.noSideEffect,
+    importcpp: "X", header: "StepShape_RightAngularWedge.hxx".}
+proc setY*(this: var StepShapeRightAngularWedge; aY: StandardReal) {.
+    importcpp: "SetY", header: "StepShape_RightAngularWedge.hxx".}
+proc y*(this: StepShapeRightAngularWedge): StandardReal {.noSideEffect,
+    importcpp: "Y", header: "StepShape_RightAngularWedge.hxx".}
+proc setZ*(this: var StepShapeRightAngularWedge; aZ: StandardReal) {.
+    importcpp: "SetZ", header: "StepShape_RightAngularWedge.hxx".}
+proc z*(this: StepShapeRightAngularWedge): StandardReal {.noSideEffect,
+    importcpp: "Z", header: "StepShape_RightAngularWedge.hxx".}
+proc setLtx*(this: var StepShapeRightAngularWedge; aLtx: StandardReal) {.
     importcpp: "SetLtx", header: "StepShape_RightAngularWedge.hxx".}
-proc ltx*(this: StepShapeRightAngularWedge): cfloat {.noSideEffect, importcpp: "Ltx",
-    header: "StepShape_RightAngularWedge.hxx".}
+proc ltx*(this: StepShapeRightAngularWedge): StandardReal {.noSideEffect,
+    importcpp: "Ltx", header: "StepShape_RightAngularWedge.hxx".}
 type
   StepShapeRightAngularWedgebaseType* = StepGeomGeometricRepresentationItem
 
@@ -68,28 +68,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeRightAngularWedge): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_RightAngularWedge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

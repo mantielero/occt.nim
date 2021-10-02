@@ -18,29 +18,3 @@ type
       TDF_LabelMapHasher]
   STEPCAFControlDataMapIteratorOfDataMapOfLabelShape* = Iterator[TDF_Label,
       TopoDS_Shape, TDF_LabelMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

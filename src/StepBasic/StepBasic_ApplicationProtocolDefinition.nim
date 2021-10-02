@@ -16,8 +16,8 @@
 
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of StepBasic_ApplicationContext"
-# when defined(Status):
-#   discard
+when defined(Status):
+  discard
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 discard "forward decl of StepBasic_ApplicationProtocolDefinition"
 type
@@ -37,7 +37,7 @@ proc constructStepBasicApplicationProtocolDefinition*(): StepBasicApplicationPro
 proc init*(this: var StepBasicApplicationProtocolDefinition;
           aStatus: Handle[TCollectionHAsciiString];
     aApplicationInterpretedModelSchemaName: Handle[TCollectionHAsciiString];
-          aApplicationProtocolYear: cint;
+          aApplicationProtocolYear: int;
           aApplication: Handle[StepBasicApplicationContext]) {.importcpp: "Init",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setStatus*(this: var StepBasicApplicationProtocolDefinition;
@@ -55,10 +55,10 @@ proc applicationInterpretedModelSchemaName*(
     noSideEffect, importcpp: "ApplicationInterpretedModelSchemaName",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setApplicationProtocolYear*(this: var StepBasicApplicationProtocolDefinition;
-                                aApplicationProtocolYear: cint) {.
+                                aApplicationProtocolYear: int) {.
     importcpp: "SetApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-proc applicationProtocolYear*(this: StepBasicApplicationProtocolDefinition): cint {.
+proc applicationProtocolYear*(this: StepBasicApplicationProtocolDefinition): int {.
     noSideEffect, importcpp: "ApplicationProtocolYear",
     header: "StepBasic_ApplicationProtocolDefinition.hxx".}
 proc setApplication*(this: var StepBasicApplicationProtocolDefinition;
@@ -76,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_Applicat
 proc dynamicType*(this: StepBasicApplicationProtocolDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ApplicationProtocolDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -37,16 +37,16 @@ proc init*(this: var StepShapeQualifiedRepresentationItem;
     importcpp: "Init", header: "StepShape_QualifiedRepresentationItem.hxx".}
 proc qualifiers*(this: StepShapeQualifiedRepresentationItem): Handle[
     StepShapeHArray1OfValueQualifier] {.noSideEffect, importcpp: "Qualifiers", header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc nbQualifiers*(this: StepShapeQualifiedRepresentationItem): cint {.noSideEffect,
+proc nbQualifiers*(this: StepShapeQualifiedRepresentationItem): int {.noSideEffect,
     importcpp: "NbQualifiers", header: "StepShape_QualifiedRepresentationItem.hxx".}
 proc setQualifiers*(this: var StepShapeQualifiedRepresentationItem;
                    qualifiers: Handle[StepShapeHArray1OfValueQualifier]) {.
     importcpp: "SetQualifiers",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc qualifiersValue*(this: StepShapeQualifiedRepresentationItem; num: cint): StepShapeValueQualifier {.
+proc qualifiersValue*(this: StepShapeQualifiedRepresentationItem; num: int): StepShapeValueQualifier {.
     noSideEffect, importcpp: "QualifiersValue",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-proc setQualifiersValue*(this: var StepShapeQualifiedRepresentationItem; num: cint;
+proc setQualifiersValue*(this: var StepShapeQualifiedRepresentationItem; num: int;
                         aqualifier: StepShapeValueQualifier) {.
     importcpp: "SetQualifiersValue",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
@@ -61,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeQualifiedRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_QualifiedRepresentationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

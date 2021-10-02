@@ -21,6 +21,24 @@ type
                               header: "STEPCAFControl_GDTProperty.hxx", bycopy.} = object
 
 
+proc `new`*(this: var STEPCAFControlGDTProperty; theSize: csize_t): pointer {.
+    importcpp: "STEPCAFControl_GDTProperty::operator new",
+    header: "STEPCAFControl_GDTProperty.hxx".}
+proc `delete`*(this: var STEPCAFControlGDTProperty; theAddress: pointer) {.
+    importcpp: "STEPCAFControl_GDTProperty::operator delete",
+    header: "STEPCAFControl_GDTProperty.hxx".}
+proc `new[]`*(this: var STEPCAFControlGDTProperty; theSize: csize_t): pointer {.
+    importcpp: "STEPCAFControl_GDTProperty::operator new[]",
+    header: "STEPCAFControl_GDTProperty.hxx".}
+proc `delete[]`*(this: var STEPCAFControlGDTProperty; theAddress: pointer) {.
+    importcpp: "STEPCAFControl_GDTProperty::operator delete[]",
+    header: "STEPCAFControl_GDTProperty.hxx".}
+proc `new`*(this: var STEPCAFControlGDTProperty; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPCAFControl_GDTProperty::operator new",
+    header: "STEPCAFControl_GDTProperty.hxx".}
+proc `delete`*(this: var STEPCAFControlGDTProperty; a2: pointer; a3: pointer) {.
+    importcpp: "STEPCAFControl_GDTProperty::operator delete",
+    header: "STEPCAFControl_GDTProperty.hxx".}
 proc constructSTEPCAFControlGDTProperty*(): STEPCAFControlGDTProperty {.
     constructor, importcpp: "STEPCAFControl_GDTProperty(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
@@ -29,25 +47,25 @@ proc getDimModifiers*(theCRI: Handle[StepReprCompoundRepresentationItem];
     importcpp: "STEPCAFControl_GDTProperty::GetDimModifiers(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDimClassOfTolerance*(theLAF: Handle[StepShapeLimitsAndFits];
-                            theHolle: var bool;
+                            theHolle: var StandardBoolean;
                             theFV: var XCAFDimTolObjectsDimensionFormVariance;
                             theG: var XCAFDimTolObjectsDimensionGrade) {.
     importcpp: "STEPCAFControl_GDTProperty::GetDimClassOfTolerance(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDimType*(theName: Handle[TCollectionHAsciiString];
-                theType: var XCAFDimTolObjectsDimensionType): bool {.
+                theType: var XCAFDimTolObjectsDimensionType): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::GetDimType(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDatumTargetType*(theDescription: Handle[TCollectionHAsciiString];
-                        theType: var XCAFDimTolObjectsDatumTargetType): bool {.
+                        theType: var XCAFDimTolObjectsDatumTargetType): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::GetDatumTargetType(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDimQualifierType*(theDescription: Handle[TCollectionHAsciiString];
-                         theType: var XCAFDimTolObjectsDimensionQualifier): bool {.
+                         theType: var XCAFDimTolObjectsDimensionQualifier): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::GetDimQualifierType(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getTolValueType*(theDescription: Handle[TCollectionHAsciiString];
-                     theType: var XCAFDimTolObjectsGeomToleranceTypeValue): bool {.
+                     theType: var XCAFDimTolObjectsGeomToleranceTypeValue): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::GetTolValueType(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getTolValueType*(theType: XCAFDimTolObjectsGeomToleranceTypeValue): Handle[
@@ -62,7 +80,7 @@ proc getDimQualifierName*(theQualifier: XCAFDimTolObjectsDimensionQualifier): Ha
 proc getDimModifierName*(theModifier: XCAFDimTolObjectsDimensionModif): Handle[
     TCollectionHAsciiString] {.importcpp: "STEPCAFControl_GDTProperty::GetDimModifierName(@)",
                               header: "STEPCAFControl_GDTProperty.hxx".}
-proc getLimitsAndFits*(theHole: bool;
+proc getLimitsAndFits*(theHole: StandardBoolean;
                       theFormVariance: XCAFDimTolObjectsDimensionFormVariance;
                       theGrade: XCAFDimTolObjectsDimensionGrade): Handle[
     StepShapeLimitsAndFits] {.importcpp: "STEPCAFControl_GDTProperty::GetLimitsAndFits(@)",
@@ -70,10 +88,10 @@ proc getLimitsAndFits*(theHole: bool;
 proc getDatumTargetName*(theDatumType: XCAFDimTolObjectsDatumTargetType): Handle[
     TCollectionHAsciiString] {.importcpp: "STEPCAFControl_GDTProperty::GetDatumTargetName(@)",
                               header: "STEPCAFControl_GDTProperty.hxx".}
-proc isDimensionalLocation*(theType: XCAFDimTolObjectsDimensionType): bool {.
+proc isDimensionalLocation*(theType: XCAFDimTolObjectsDimensionType): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::IsDimensionalLocation(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
-proc isDimensionalSize*(theType: XCAFDimTolObjectsDimensionType): bool {.
+proc isDimensionalSize*(theType: XCAFDimTolObjectsDimensionType): StandardBoolean {.
     importcpp: "STEPCAFControl_GDTProperty::IsDimensionalSize(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getGeomToleranceType*(theType: XCAFDimTolObjectsGeomToleranceType): StepDimTolGeometricToleranceType {.
@@ -89,35 +107,10 @@ proc getGeomToleranceModifier*(theModifier: XCAFDimTolObjectsGeomToleranceModif)
     importcpp: "STEPCAFControl_GDTProperty::GetGeomToleranceModifier(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getDatumRefModifiers*(theModifiers: XCAFDimTolObjectsDatumModifiersSequence;
-    theModifWithVal: XCAFDimTolObjectsDatumModifWithValue; theValue: cfloat;
+    theModifWithVal: XCAFDimTolObjectsDatumModifWithValue; theValue: StandardReal;
                           theUnit: StepBasicUnit): Handle[
     StepDimTolHArray1OfDatumReferenceModifier] {.
     importcpp: "STEPCAFControl_GDTProperty::GetDatumRefModifiers(@)",
     header: "STEPCAFControl_GDTProperty.hxx".}
 proc getTessellation*(theShape: TopoDS_Shape): Handle[
     StepVisualTessellatedGeometricSet] {.importcpp: "STEPCAFControl_GDTProperty::GetTessellation(@)", header: "STEPCAFControl_GDTProperty.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

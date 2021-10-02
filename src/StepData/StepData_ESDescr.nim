@@ -31,9 +31,9 @@ type
 
 proc constructStepDataESDescr*(name: StandardCString): StepDataESDescr {.
     constructor, importcpp: "StepData_ESDescr(@)", header: "StepData_ESDescr.hxx".}
-proc setNbFields*(this: var StepDataESDescr; nb: cint) {.importcpp: "SetNbFields",
+proc setNbFields*(this: var StepDataESDescr; nb: int) {.importcpp: "SetNbFields",
     header: "StepData_ESDescr.hxx".}
-proc setField*(this: var StepDataESDescr; num: cint; name: StandardCString;
+proc setField*(this: var StepDataESDescr; num: int; name: StandardCString;
               descr: Handle[StepDataPDescr]) {.importcpp: "SetField",
     header: "StepData_ESDescr.hxx".}
 proc setBase*(this: var StepDataESDescr; base: Handle[StepDataESDescr]) {.
@@ -48,22 +48,22 @@ proc base*(this: StepDataESDescr): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "Base", header: "StepData_ESDescr.hxx".}
 proc super*(this: StepDataESDescr): Handle[StepDataESDescr] {.noSideEffect,
     importcpp: "Super", header: "StepData_ESDescr.hxx".}
-proc isSub*(this: StepDataESDescr; other: Handle[StepDataESDescr]): bool {.
+proc isSub*(this: StepDataESDescr; other: Handle[StepDataESDescr]): StandardBoolean {.
     noSideEffect, importcpp: "IsSub", header: "StepData_ESDescr.hxx".}
-proc nbFields*(this: StepDataESDescr): cint {.noSideEffect, importcpp: "NbFields",
+proc nbFields*(this: StepDataESDescr): int {.noSideEffect, importcpp: "NbFields",
     header: "StepData_ESDescr.hxx".}
-proc rank*(this: StepDataESDescr; name: StandardCString): cint {.noSideEffect,
+proc rank*(this: StepDataESDescr; name: StandardCString): int {.noSideEffect,
     importcpp: "Rank", header: "StepData_ESDescr.hxx".}
-proc name*(this: StepDataESDescr; num: cint): StandardCString {.noSideEffect,
+proc name*(this: StepDataESDescr; num: int): StandardCString {.noSideEffect,
     importcpp: "Name", header: "StepData_ESDescr.hxx".}
-proc field*(this: StepDataESDescr; num: cint): Handle[StepDataPDescr] {.noSideEffect,
+proc field*(this: StepDataESDescr; num: int): Handle[StepDataPDescr] {.noSideEffect,
     importcpp: "Field", header: "StepData_ESDescr.hxx".}
 proc namedField*(this: StepDataESDescr; name: StandardCString): Handle[StepDataPDescr] {.
     noSideEffect, importcpp: "NamedField", header: "StepData_ESDescr.hxx".}
-proc matches*(this: StepDataESDescr; steptype: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_ESDescr.hxx".}
-proc isComplex*(this: StepDataESDescr): bool {.noSideEffect, importcpp: "IsComplex",
-    header: "StepData_ESDescr.hxx".}
+proc matches*(this: StepDataESDescr; steptype: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_ESDescr.hxx".}
+proc isComplex*(this: StepDataESDescr): StandardBoolean {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_ESDescr.hxx".}
 proc newEntity*(this: StepDataESDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_ESDescr.hxx".}
 type
@@ -76,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_ESDescr.hxx".}
 proc dynamicType*(this: StepDataESDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_ESDescr.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

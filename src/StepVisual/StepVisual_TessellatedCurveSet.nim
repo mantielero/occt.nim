@@ -23,12 +23,27 @@ type
   HandleC1C1* = Handle[StepVisualTessellatedCurveSet]
   StepVisualTessellatedCurveSet* {.importcpp: "StepVisual_TessellatedCurveSet",
                                   header: "StepVisual_TessellatedCurveSet.hxx",
-                                  bycopy.} = object of StepVisualTessellatedItem ## !
-                                                                            ## Returns a
-                                                                            ## DraughtingCalloutElement
-                                                                            ## select type
+                                  bycopy.} = object of StepVisualTessellatedItem
 
 
+proc `new`*(this: var StepVisualTessellatedCurveSet; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator new",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
+proc `delete`*(this: var StepVisualTessellatedCurveSet; theAddress: pointer) {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator delete",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
+proc `new[]`*(this: var StepVisualTessellatedCurveSet; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator new[]",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
+proc `delete[]`*(this: var StepVisualTessellatedCurveSet; theAddress: pointer) {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator delete[]",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
+proc `new`*(this: var StepVisualTessellatedCurveSet; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator new",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
+proc `delete`*(this: var StepVisualTessellatedCurveSet; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_TessellatedCurveSet::operator delete",
+    header: "StepVisual_TessellatedCurveSet.hxx".}
 proc constructStepVisualTessellatedCurveSet*(): StepVisualTessellatedCurveSet {.
     constructor, importcpp: "StepVisual_TessellatedCurveSet(@)",
     header: "StepVisual_TessellatedCurveSet.hxx".}
@@ -54,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualTessellatedCurveSet): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_TessellatedCurveSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

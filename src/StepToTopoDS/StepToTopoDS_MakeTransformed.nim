@@ -26,47 +26,40 @@ type
                                  bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_MakeTransformed; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator new",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
+proc `delete`*(this: var StepToTopoDS_MakeTransformed; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator delete",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
+proc `new[]`*(this: var StepToTopoDS_MakeTransformed; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator new[]",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_MakeTransformed; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator delete[]",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
+proc `new`*(this: var StepToTopoDS_MakeTransformed; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator new",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
+proc `delete`*(this: var StepToTopoDS_MakeTransformed; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_MakeTransformed::operator delete",
+    header: "StepToTopoDS_MakeTransformed.hxx".}
 proc constructStepToTopoDS_MakeTransformed*(): StepToTopoDS_MakeTransformed {.
     constructor, importcpp: "StepToTopoDS_MakeTransformed(@)",
     header: "StepToTopoDS_MakeTransformed.hxx".}
 proc compute*(this: var StepToTopoDS_MakeTransformed;
              origin: Handle[StepGeomAxis2Placement3d];
-             target: Handle[StepGeomAxis2Placement3d]): bool {.
+             target: Handle[StepGeomAxis2Placement3d]): StandardBoolean {.
     importcpp: "Compute", header: "StepToTopoDS_MakeTransformed.hxx".}
 proc compute*(this: var StepToTopoDS_MakeTransformed;
-             operator: Handle[StepGeomCartesianTransformationOperator3d]): bool {.
+             operator: Handle[StepGeomCartesianTransformationOperator3d]): StandardBoolean {.
     importcpp: "Compute", header: "StepToTopoDS_MakeTransformed.hxx".}
 proc transformation*(this: StepToTopoDS_MakeTransformed): Trsf {.noSideEffect,
     importcpp: "Transformation", header: "StepToTopoDS_MakeTransformed.hxx".}
-proc transform*(this: StepToTopoDS_MakeTransformed; shape: var TopoDS_Shape): bool {.
+proc transform*(this: StepToTopoDS_MakeTransformed; shape: var TopoDS_Shape): StandardBoolean {.
     noSideEffect, importcpp: "Transform",
     header: "StepToTopoDS_MakeTransformed.hxx".}
 proc translateMappedItem*(this: var StepToTopoDS_MakeTransformed;
                          mapit: Handle[StepReprMappedItem];
                          tp: Handle[TransferTransientProcess]; theProgress: MessageProgressRange = messageProgressRange()): TopoDS_Shape {.
     importcpp: "TranslateMappedItem", header: "StepToTopoDS_MakeTransformed.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

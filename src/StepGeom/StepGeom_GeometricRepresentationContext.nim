@@ -34,13 +34,13 @@ proc constructStepGeomGeometricRepresentationContext*(): StepGeomGeometricRepres
 proc init*(this: var StepGeomGeometricRepresentationContext;
           aContextIdentifier: Handle[TCollectionHAsciiString];
           aContextType: Handle[TCollectionHAsciiString];
-          aCoordinateSpaceDimension: cint) {.importcpp: "Init",
+          aCoordinateSpaceDimension: int) {.importcpp: "Init",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
 proc setCoordinateSpaceDimension*(this: var StepGeomGeometricRepresentationContext;
-                                 aCoordinateSpaceDimension: cint) {.
+                                 aCoordinateSpaceDimension: int) {.
     importcpp: "SetCoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
-proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContext): cint {.
+proc coordinateSpaceDimension*(this: StepGeomGeometricRepresentationContext): int {.
     noSideEffect, importcpp: "CoordinateSpaceDimension",
     header: "StepGeom_GeometricRepresentationContext.hxx".}
 type
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_Geometric
 proc dynamicType*(this: StepGeomGeometricRepresentationContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepGeom_GeometricRepresentationContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

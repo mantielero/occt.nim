@@ -66,28 +66,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
 proc dynamicType*(this: StepDimTolGeometricToleranceWithDefinedUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_GeometricToleranceWithDefinedUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

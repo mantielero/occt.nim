@@ -20,53 +20,35 @@ discard "forward decl of StepData_Protocol"
 discard "forward decl of StepData_StepWriter"
 type
   StepDataStepDumper* {.importcpp: "StepData_StepDumper",
-                       header: "StepData_StepDumper.hxx", bycopy.} = object ## ! Creates a
-                                                                       ## StepDumper, able to work on a given StepModel
-                                                                       ## ! (which defines the total scope for dumping entities) and
-                                                                       ## ! a given Protocol from Step (which defines the
-                                                                       ## authorized
-                                                                       ## ! types to be dumped)
-                                                                       ## ! <mode> commands what is to be displayed (number or label)
-                                                                       ## ! 0 for number (and
-                                                                       ## corresponding labels  are displayed apart)
-                                                                       ## ! 1 for label  (and
-                                                                       ## corresponding numbers are displayed apart)
-                                                                       ## ! 2 for label without anymore
+                       header: "StepData_StepDumper.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepDataStepDumper; theSize: csize_t): pointer {.
+    importcpp: "StepData_StepDumper::operator new",
+    header: "StepData_StepDumper.hxx".}
+proc `delete`*(this: var StepDataStepDumper; theAddress: pointer) {.
+    importcpp: "StepData_StepDumper::operator delete",
+    header: "StepData_StepDumper.hxx".}
+proc `new[]`*(this: var StepDataStepDumper; theSize: csize_t): pointer {.
+    importcpp: "StepData_StepDumper::operator new[]",
+    header: "StepData_StepDumper.hxx".}
+proc `delete[]`*(this: var StepDataStepDumper; theAddress: pointer) {.
+    importcpp: "StepData_StepDumper::operator delete[]",
+    header: "StepData_StepDumper.hxx".}
+proc `new`*(this: var StepDataStepDumper; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_StepDumper::operator new",
+    header: "StepData_StepDumper.hxx".}
+proc `delete`*(this: var StepDataStepDumper; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_StepDumper::operator delete",
+    header: "StepData_StepDumper.hxx".}
 proc constructStepDataStepDumper*(amodel: Handle[StepDataStepModel];
-                                 protocol: Handle[StepDataProtocol];
-                                 mode: cint = 0): StepDataStepDumper {.constructor,
-    importcpp: "StepData_StepDumper(@)", header: "StepData_StepDumper.hxx".}
+                                 protocol: Handle[StepDataProtocol]; mode: int = 0): StepDataStepDumper {.
+    constructor, importcpp: "StepData_StepDumper(@)",
+    header: "StepData_StepDumper.hxx".}
 proc stepWriter*(this: var StepDataStepDumper): var StepDataStepWriter {.
     importcpp: "StepWriter", header: "StepData_StepDumper.hxx".}
 proc dump*(this: var StepDataStepDumper; s: var StandardOStream;
-          ent: Handle[StandardTransient]; level: cint): bool {.importcpp: "Dump",
-    header: "StepData_StepDumper.hxx".}
-proc dump*(this: var StepDataStepDumper; s: var StandardOStream; num: cint; level: cint): bool {.
+          ent: Handle[StandardTransient]; level: int): StandardBoolean {.
     importcpp: "Dump", header: "StepData_StepDumper.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+proc dump*(this: var StepDataStepDumper; s: var StandardOStream; num: int; level: int): StandardBoolean {.
+    importcpp: "Dump", header: "StepData_StepDumper.hxx".}

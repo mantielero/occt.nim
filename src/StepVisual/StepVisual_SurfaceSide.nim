@@ -19,29 +19,3 @@ type
                           header: "StepVisual_SurfaceSide.hxx".} = enum
     StepVisualSsNegative, StepVisualSsPositive, StepVisualSsBoth
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

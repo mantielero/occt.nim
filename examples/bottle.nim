@@ -98,5 +98,26 @@ proc main() =
   
   # Creating a Hollowed Solid
 
+#[
+#include <STEPControl.hxx> 
+#include <STEPControl_Writer.hxx> 
+#include <TopoDS_Shape.hxx> 
+#include <BRepTools.hxx> 
+#include <BRep_Builder.hxx> 
+ 
+Standard_Integer main() 
+{ 
+TopoDS_Solid source; 
+. . . 
+ 
+STEPControl_Writer writer; 
+writer.Transfer(source, STEPControl_ManifoldSolidBrep); 
+ 
+// Translates TopoDS_Shape into manifold_solid_brep entity 
+writer.Write(;Output.stp;); 
+// writes the resulting entity in the STEP file 
+ 
+} 
 
+]#
 main()

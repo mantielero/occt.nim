@@ -27,14 +27,30 @@ discard "forward decl of StepBasic_Contract"
 discard "forward decl of StepBasic_SecurityClassification"
 type
   StepAP203PersonOrganizationItem* {.importcpp: "StepAP203_PersonOrganizationItem", header: "StepAP203_PersonOrganizationItem.hxx",
-                                    bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                       ## constructor
+                                    bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203PersonOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_PersonOrganizationItem::operator new",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP203PersonOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP203_PersonOrganizationItem::operator delete",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
+proc `new[]`*(this: var StepAP203PersonOrganizationItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_PersonOrganizationItem::operator new[]",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
+proc `delete[]`*(this: var StepAP203PersonOrganizationItem; theAddress: pointer) {.
+    importcpp: "StepAP203_PersonOrganizationItem::operator delete[]",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
+proc `new`*(this: var StepAP203PersonOrganizationItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP203_PersonOrganizationItem::operator new", header: "StepAP203_PersonOrganizationItem.hxx".}
+proc `delete`*(this: var StepAP203PersonOrganizationItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_PersonOrganizationItem::operator delete",
+    header: "StepAP203_PersonOrganizationItem.hxx".}
 proc constructStepAP203PersonOrganizationItem*(): StepAP203PersonOrganizationItem {.
     constructor, importcpp: "StepAP203_PersonOrganizationItem(@)",
     header: "StepAP203_PersonOrganizationItem.hxx".}
-proc caseNum*(this: StepAP203PersonOrganizationItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203PersonOrganizationItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP203_PersonOrganizationItem.hxx".}
 proc change*(this: StepAP203PersonOrganizationItem): Handle[StepAP203Change] {.
@@ -68,28 +84,3 @@ proc contract*(this: StepAP203PersonOrganizationItem): Handle[StepBasicContract]
 proc securityClassification*(this: StepAP203PersonOrganizationItem): Handle[
     StepBasicSecurityClassification] {.noSideEffect,
                                       importcpp: "SecurityClassification", header: "StepAP203_PersonOrganizationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,17 +19,30 @@ discard "forward decl of StepVisual_PresentationRepresentation"
 discard "forward decl of StepRepr_RepresentationItem"
 type
   StepVisualLayeredItem* {.importcpp: "StepVisual_LayeredItem",
-                          header: "StepVisual_LayeredItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## LayeredItem
-                                                                                                 ## SelectType
+                          header: "StepVisual_LayeredItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualLayeredItem; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_LayeredItem::operator new",
+    header: "StepVisual_LayeredItem.hxx".}
+proc `delete`*(this: var StepVisualLayeredItem; theAddress: pointer) {.
+    importcpp: "StepVisual_LayeredItem::operator delete",
+    header: "StepVisual_LayeredItem.hxx".}
+proc `new[]`*(this: var StepVisualLayeredItem; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_LayeredItem::operator new[]",
+    header: "StepVisual_LayeredItem.hxx".}
+proc `delete[]`*(this: var StepVisualLayeredItem; theAddress: pointer) {.
+    importcpp: "StepVisual_LayeredItem::operator delete[]",
+    header: "StepVisual_LayeredItem.hxx".}
+proc `new`*(this: var StepVisualLayeredItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_LayeredItem::operator new",
+    header: "StepVisual_LayeredItem.hxx".}
+proc `delete`*(this: var StepVisualLayeredItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_LayeredItem::operator delete",
+    header: "StepVisual_LayeredItem.hxx".}
 proc constructStepVisualLayeredItem*(): StepVisualLayeredItem {.constructor,
     importcpp: "StepVisual_LayeredItem(@)", header: "StepVisual_LayeredItem.hxx".}
-proc caseNum*(this: StepVisualLayeredItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualLayeredItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_LayeredItem.hxx".}
 proc presentationRepresentation*(this: StepVisualLayeredItem): Handle[
     StepVisualPresentationRepresentation] {.noSideEffect,
@@ -37,28 +50,3 @@ proc presentationRepresentation*(this: StepVisualLayeredItem): Handle[
 proc representationItem*(this: StepVisualLayeredItem): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "RepresentationItem",
                                  header: "StepVisual_LayeredItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

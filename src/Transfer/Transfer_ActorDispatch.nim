@@ -26,7 +26,7 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ActorDispatch"
 discard "forward decl of Transfer_ActorDispatch"
 type
-  HandleC1C1* = Handle[TransferActorDispatch]
+  HandleTransferActorDispatch* = Handle[TransferActorDispatch]
 
 ## ! This class allows to work with a TransferDispatch, i.e. to
 ## ! transfer entities from a data set to another one defined by
@@ -79,7 +79,7 @@ type
                                                                                                               ## <me>
 
 
-proc constructTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel];
+#[ proc constructTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel];
                                     lib: InterfaceGeneralLib): TransferActorDispatch {.
     constructor, importcpp: "Transfer_ActorDispatch(@)",
     header: "Transfer_ActorDispatch.hxx".}
@@ -108,29 +108,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_ActorDispatch::get_type_descriptor(@)",
     header: "Transfer_ActorDispatch.hxx".}
 proc dynamicType*(this: TransferActorDispatch): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Transfer_ActorDispatch.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "Transfer_ActorDispatch.hxx".} ]#

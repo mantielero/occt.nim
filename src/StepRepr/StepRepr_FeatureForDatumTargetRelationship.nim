@@ -41,28 +41,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_FeatureFo
 proc dynamicType*(this: StepReprFeatureForDatumTargetRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_FeatureForDatumTargetRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

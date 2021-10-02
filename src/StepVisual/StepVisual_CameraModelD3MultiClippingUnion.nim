@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_CameraM
 proc dynamicType*(this: StepVisualCameraModelD3MultiClippingUnion): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_CameraModelD3MultiClippingUnion.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,20 +27,21 @@ type
 proc constructStepShapeTorus*(): StepShapeTorus {.constructor,
     importcpp: "StepShape_Torus(@)", header: "StepShape_Torus.hxx".}
 proc init*(this: var StepShapeTorus; aName: Handle[TCollectionHAsciiString];
-          aPosition: Handle[StepGeomAxis1Placement]; aMajorRadius: cfloat;
-          aMinorRadius: cfloat) {.importcpp: "Init", header: "StepShape_Torus.hxx".}
+          aPosition: Handle[StepGeomAxis1Placement]; aMajorRadius: StandardReal;
+          aMinorRadius: StandardReal) {.importcpp: "Init",
+                                      header: "StepShape_Torus.hxx".}
 proc setPosition*(this: var StepShapeTorus;
                  aPosition: Handle[StepGeomAxis1Placement]) {.
     importcpp: "SetPosition", header: "StepShape_Torus.hxx".}
 proc position*(this: StepShapeTorus): Handle[StepGeomAxis1Placement] {.noSideEffect,
     importcpp: "Position", header: "StepShape_Torus.hxx".}
-proc setMajorRadius*(this: var StepShapeTorus; aMajorRadius: cfloat) {.
+proc setMajorRadius*(this: var StepShapeTorus; aMajorRadius: StandardReal) {.
     importcpp: "SetMajorRadius", header: "StepShape_Torus.hxx".}
-proc majorRadius*(this: StepShapeTorus): cfloat {.noSideEffect,
+proc majorRadius*(this: StepShapeTorus): StandardReal {.noSideEffect,
     importcpp: "MajorRadius", header: "StepShape_Torus.hxx".}
-proc setMinorRadius*(this: var StepShapeTorus; aMinorRadius: cfloat) {.
+proc setMinorRadius*(this: var StepShapeTorus; aMinorRadius: StandardReal) {.
     importcpp: "SetMinorRadius", header: "StepShape_Torus.hxx".}
-proc minorRadius*(this: StepShapeTorus): cfloat {.noSideEffect,
+proc minorRadius*(this: StepShapeTorus): StandardReal {.noSideEffect,
     importcpp: "MinorRadius", header: "StepShape_Torus.hxx".}
 type
   StepShapeTorusbaseType* = StepGeomGeometricRepresentationItem
@@ -52,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Torus.hxx".}
 proc dynamicType*(this: StepShapeTorus): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Torus.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

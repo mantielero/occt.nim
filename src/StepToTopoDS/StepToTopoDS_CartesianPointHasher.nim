@@ -17,40 +17,29 @@
 discard "forward decl of StepGeom_CartesianPoint"
 type
   StepToTopoDS_CartesianPointHasher* {.importcpp: "StepToTopoDS_CartesianPointHasher", header: "StepToTopoDS_CartesianPointHasher.hxx",
-                                      bycopy.} = object ## ! Computes a hash code for the cartesian point, in the range [1, theUpperBound]
-                                                     ## ! @param theCartesianPoint the cartesian point which hash code is to be computed
-                                                     ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                     ## ! @return a computed hash code, in the range [1, theUpperBound]
+                                      bycopy.} = object
 
 
+proc `new`*(this: var StepToTopoDS_CartesianPointHasher; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_CartesianPointHasher::operator new",
+    header: "StepToTopoDS_CartesianPointHasher.hxx".}
+proc `delete`*(this: var StepToTopoDS_CartesianPointHasher; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_CartesianPointHasher::operator delete",
+    header: "StepToTopoDS_CartesianPointHasher.hxx".}
+proc `new[]`*(this: var StepToTopoDS_CartesianPointHasher; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_CartesianPointHasher::operator new[]",
+    header: "StepToTopoDS_CartesianPointHasher.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_CartesianPointHasher; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_CartesianPointHasher::operator delete[]",
+    header: "StepToTopoDS_CartesianPointHasher.hxx".}
+proc `new`*(this: var StepToTopoDS_CartesianPointHasher; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepToTopoDS_CartesianPointHasher::operator new", header: "StepToTopoDS_CartesianPointHasher.hxx".}
+proc `delete`*(this: var StepToTopoDS_CartesianPointHasher; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_CartesianPointHasher::operator delete",
+    header: "StepToTopoDS_CartesianPointHasher.hxx".}
 proc hashCode*(theCartesianPoint: Handle[StepGeomCartesianPoint];
-              theUpperBound: cint): cint {.importcpp: "StepToTopoDS_CartesianPointHasher::HashCode(@)", header: "StepToTopoDS_CartesianPointHasher.hxx".}
+              theUpperBound: int): int {.importcpp: "StepToTopoDS_CartesianPointHasher::HashCode(@)", header: "StepToTopoDS_CartesianPointHasher.hxx".}
 proc isEqual*(k1: Handle[StepGeomCartesianPoint];
-             k2: Handle[StepGeomCartesianPoint]): bool {.
+             k2: Handle[StepGeomCartesianPoint]): StandardBoolean {.
     importcpp: "StepToTopoDS_CartesianPointHasher::IsEqual(@)",
     header: "StepToTopoDS_CartesianPointHasher.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

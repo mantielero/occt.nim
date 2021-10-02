@@ -19,29 +19,3 @@ type
       TopoDS_Edge, StepToTopoDS_PointPairHasher]
   StepToTopoDS_DataMapIteratorOfPointEdgeMap* = Iterator[StepToTopoDS_PointPair,
       TopoDS_Edge, StepToTopoDS_PointPairHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

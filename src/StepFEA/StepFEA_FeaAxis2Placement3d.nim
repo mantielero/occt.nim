@@ -37,9 +37,9 @@ proc constructStepFEA_FeaAxis2Placement3d*(): StepFEA_FeaAxis2Placement3d {.
 proc init*(this: var StepFEA_FeaAxis2Placement3d;
           aRepresentationItemName: Handle[TCollectionHAsciiString];
           aPlacementLocation: Handle[StepGeomCartesianPoint];
-          hasAxis2Placement3dAxis: bool;
+          hasAxis2Placement3dAxis: StandardBoolean;
           aAxis2Placement3dAxis: Handle[StepGeomDirection];
-          hasAxis2Placement3dRefDirection: bool;
+          hasAxis2Placement3dRefDirection: StandardBoolean;
           aAxis2Placement3dRefDirection: Handle[StepGeomDirection];
           aSystemType: StepFEA_CoordinateSystemType;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
@@ -67,28 +67,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaAxis2Placement3d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaAxis2Placement3d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -34,7 +34,7 @@ proc constructStepReprPropertyDefinition*(): StepReprPropertyDefinition {.
     constructor, importcpp: "StepRepr_PropertyDefinition(@)",
     header: "StepRepr_PropertyDefinition.hxx".}
 proc init*(this: var StepReprPropertyDefinition;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aDefinition: StepReprCharacterizedDefinition) {.importcpp: "Init",
     header: "StepRepr_PropertyDefinition.hxx".}
@@ -49,8 +49,9 @@ proc description*(this: StepReprPropertyDefinition): Handle[TCollectionHAsciiStr
 proc setDescription*(this: var StepReprPropertyDefinition;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_PropertyDefinition.hxx".}
-proc hasDescription*(this: StepReprPropertyDefinition): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepRepr_PropertyDefinition.hxx".}
+proc hasDescription*(this: StepReprPropertyDefinition): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepRepr_PropertyDefinition.hxx".}
 proc definition*(this: StepReprPropertyDefinition): StepReprCharacterizedDefinition {.
     noSideEffect, importcpp: "Definition",
     header: "StepRepr_PropertyDefinition.hxx".}
@@ -68,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprPropertyDefinition): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_PropertyDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

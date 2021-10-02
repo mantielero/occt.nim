@@ -56,15 +56,15 @@ include StepGeom_GeometricRepresentationContext
 include StepGeom_GeometricRepresentationContextAndGlobalUnitAssignedContext
 include StepGeom_GeometricRepresentationContextAndParametricRepresentationContext
 include StepGeom_GeometricRepresentationItem
-include StepGeom_HArray1OfBoundaryCurve
-include StepGeom_HArray1OfCartesianPoint
-include StepGeom_HArray1OfCompositeCurveSegment
-include StepGeom_HArray1OfCurve
-include StepGeom_HArray1OfPcurveOrSurface
-include StepGeom_HArray1OfSurfaceBoundary
-include StepGeom_HArray1OfTrimmingSelect
-include StepGeom_HArray2OfCartesianPoint
-include StepGeom_HArray2OfSurfacePatch
+#include StepGeom_HArray1OfBoundaryCurve
+#include StepGeom_HArray1OfCartesianPoint
+#include StepGeom_HArray1OfCompositeCurveSegment
+#include StepGeom_HArray1OfCurve
+#include StepGeom_HArray1OfPcurveOrSurface
+#include StepGeom_HArray1OfSurfaceBoundary
+#include StepGeom_HArray1OfTrimmingSelect
+#include StepGeom_HArray2OfCartesianPoint
+#include StepGeom_HArray2OfSurfacePatch
 include StepGeom_Hyperbola
 include StepGeom_IntersectionCurve
 include StepGeom_KnotType
@@ -116,29 +116,3 @@ include StepGeom_UniformSurface
 include StepGeom_UniformSurfaceAndRationalBSplineSurface
 include StepGeom_Vector
 include StepGeom_VectorOrDirection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

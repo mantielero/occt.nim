@@ -18,29 +18,3 @@ type
       Handle[StepBasicProductDefinition], TopToolsShapeMapHasher]
   STEPCAFControlDataMapIteratorOfDataMapOfShapePD* = Iterator[TopoDS_Shape,
       Handle[StepBasicProductDefinition], TopToolsShapeMapHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

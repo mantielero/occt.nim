@@ -35,28 +35,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Construct
     header: "StepRepr_ConstructiveGeometryRepresentationRelationship.hxx".}
 proc dynamicType*(this: StepReprConstructiveGeometryRepresentationRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepRepr_ConstructiveGeometryRepresentationRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

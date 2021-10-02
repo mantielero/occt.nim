@@ -32,28 +32,3 @@ proc getTypeName*(): cstring {.importcpp: "StepVisual_MechanicalDesignGeometricP
 proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_MechanicalDesignGeometricPresentationRepresentation::get_type_descriptor(@)", header: "StepVisual_MechanicalDesignGeometricPresentationRepresentation.hxx".}
 proc dynamicType*(this: StepVisualMechanicalDesignGeometricPresentationRepresentation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepVisual_MechanicalDesignGeometricPresentationRepresentation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

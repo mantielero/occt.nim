@@ -37,10 +37,10 @@ proc setBounds*(this: var StepShapeFace;
     importcpp: "SetBounds", header: "StepShape_Face.hxx".}
 proc bounds*(this: StepShapeFace): Handle[StepShapeHArray1OfFaceBound] {.
     noSideEffect, importcpp: "Bounds", header: "StepShape_Face.hxx".}
-proc boundsValue*(this: StepShapeFace; num: cint): Handle[StepShapeFaceBound] {.
+proc boundsValue*(this: StepShapeFace; num: int): Handle[StepShapeFaceBound] {.
     noSideEffect, importcpp: "BoundsValue", header: "StepShape_Face.hxx".}
-proc nbBounds*(this: StepShapeFace): cint {.noSideEffect, importcpp: "NbBounds",
-                                        header: "StepShape_Face.hxx".}
+proc nbBounds*(this: StepShapeFace): int {.noSideEffect, importcpp: "NbBounds",
+                                       header: "StepShape_Face.hxx".}
 type
   StepShapeFacebaseType* = StepShapeTopologicalRepresentationItem
 
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Face.hxx".}
 proc dynamicType*(this: StepShapeFace): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Face.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

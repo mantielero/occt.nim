@@ -19,17 +19,30 @@ discard "forward decl of StepVisual_PreDefinedTextFont"
 discard "forward decl of StepVisual_ExternallyDefinedTextFont"
 type
   StepVisualFontSelect* {.importcpp: "StepVisual_FontSelect",
-                         header: "StepVisual_FontSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## FontSelect
-                                                                                               ## SelectType
+                         header: "StepVisual_FontSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualFontSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_FontSelect::operator new",
+    header: "StepVisual_FontSelect.hxx".}
+proc `delete`*(this: var StepVisualFontSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_FontSelect::operator delete",
+    header: "StepVisual_FontSelect.hxx".}
+proc `new[]`*(this: var StepVisualFontSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_FontSelect::operator new[]",
+    header: "StepVisual_FontSelect.hxx".}
+proc `delete[]`*(this: var StepVisualFontSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_FontSelect::operator delete[]",
+    header: "StepVisual_FontSelect.hxx".}
+proc `new`*(this: var StepVisualFontSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_FontSelect::operator new",
+    header: "StepVisual_FontSelect.hxx".}
+proc `delete`*(this: var StepVisualFontSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_FontSelect::operator delete",
+    header: "StepVisual_FontSelect.hxx".}
 proc constructStepVisualFontSelect*(): StepVisualFontSelect {.constructor,
     importcpp: "StepVisual_FontSelect(@)", header: "StepVisual_FontSelect.hxx".}
-proc caseNum*(this: StepVisualFontSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualFontSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_FontSelect.hxx".}
 proc preDefinedTextFont*(this: StepVisualFontSelect): Handle[
     StepVisualPreDefinedTextFont] {.noSideEffect, importcpp: "PreDefinedTextFont",
@@ -37,28 +50,3 @@ proc preDefinedTextFont*(this: StepVisualFontSelect): Handle[
 proc externallyDefinedTextFont*(this: StepVisualFontSelect): Handle[
     StepVisualExternallyDefinedTextFont] {.noSideEffect,
     importcpp: "ExternallyDefinedTextFont", header: "StepVisual_FontSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

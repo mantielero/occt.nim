@@ -46,28 +46,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DateAssignment.hxx".}
 proc dynamicType*(this: StepBasicDateAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepBasic_DateAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

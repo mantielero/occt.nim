@@ -21,29 +21,3 @@ type
   StepToTopoDS_DataMapIteratorOfPointVertexMap* = Iterator[
       Handle[StepGeomCartesianPoint], TopoDS_Vertex,
       StepToTopoDS_CartesianPointHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

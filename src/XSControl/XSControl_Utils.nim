@@ -33,7 +33,7 @@ proc traceLine*(this: XSControlUtils; line: StandardCString) {.noSideEffect,
     importcpp: "TraceLine", header: "XSControl_Utils.hxx".}
 proc traceLines*(this: XSControlUtils; lines: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "TraceLines", header: "XSControl_Utils.hxx".}
-proc isKind*(this: XSControlUtils; item: Handle[StandardTransient];
+#[ proc isKind*(this: XSControlUtils; item: Handle[StandardTransient];
             what: Handle[StandardType]): bool {.noSideEffect, importcpp: "IsKind",
     header: "XSControl_Utils.hxx".}
 proc typeName*(this: XSControlUtils; item: Handle[StandardTransient];
@@ -150,3 +150,4 @@ proc seqIntValue*(this: XSControlUtils; list: Handle[TColStdHSequenceOfInteger];
 
 
 
+ ]#

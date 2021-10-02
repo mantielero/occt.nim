@@ -17,29 +17,3 @@ type
                              header: "StepElement_ElementVolume.hxx".} = enum
     StepElementVolume
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -45,11 +45,11 @@ proc uncertainty*(this: StepReprGlobalUncertaintyAssignedContext): Handle[
     StepBasicHArray1OfUncertaintyMeasureWithUnit] {.noSideEffect,
     importcpp: "Uncertainty",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc uncertaintyValue*(this: StepReprGlobalUncertaintyAssignedContext; num: cint): Handle[
+proc uncertaintyValue*(this: StepReprGlobalUncertaintyAssignedContext; num: int): Handle[
     StepBasicUncertaintyMeasureWithUnit] {.noSideEffect,
     importcpp: "UncertaintyValue",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-proc nbUncertainty*(this: StepReprGlobalUncertaintyAssignedContext): cint {.
+proc nbUncertainty*(this: StepReprGlobalUncertaintyAssignedContext): int {.
     noSideEffect, importcpp: "NbUncertainty",
     header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
 type
@@ -61,28 +61,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_GlobalUnc
 proc dynamicType*(this: StepReprGlobalUncertaintyAssignedContext): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_GlobalUncertaintyAssignedContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

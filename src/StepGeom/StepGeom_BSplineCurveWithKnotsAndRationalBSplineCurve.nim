@@ -35,7 +35,7 @@ proc constructStepGeomBSplineCurveWithKnotsAndRationalBSplineCurve*(): StepGeomB
     importcpp: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve(@)",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -44,7 +44,7 @@ proc init*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
     importcpp: "Init",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc init*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
-          aName: Handle[TCollectionHAsciiString]; aDegree: cint;
+          aName: Handle[TCollectionHAsciiString]; aDegree: int;
           aControlPointsList: Handle[StepGeomHArray1OfCartesianPoint];
           aCurveForm: StepGeomBSplineCurveForm; aClosedCurve: StepDataLogical;
           aSelfIntersect: StepDataLogical;
@@ -73,10 +73,10 @@ proc setKnotMultiplicities*(this: var StepGeomBSplineCurveWithKnotsAndRationalBS
 proc knotMultiplicities*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, importcpp: "KnotMultiplicities", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc knotMultiplicitiesValue*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
-                             num: cint): cint {.noSideEffect,
+                             num: int): int {.noSideEffect,
     importcpp: "KnotMultiplicitiesValue",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-proc nbKnotMultiplicities*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): cint {.
+proc nbKnotMultiplicities*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): int {.
     noSideEffect, importcpp: "NbKnotMultiplicities",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc setKnots*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
@@ -85,8 +85,8 @@ proc setKnots*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
 proc knots*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "Knots", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc knotsValue*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
-                num: cint): cfloat {.noSideEffect, importcpp: "KnotsValue", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-proc nbKnots*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): cint {.
+                num: int): StandardReal {.noSideEffect, importcpp: "KnotsValue", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc nbKnots*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): int {.
     noSideEffect, importcpp: "NbKnots",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc setKnotSpec*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
@@ -102,9 +102,10 @@ proc setWeightsData*(this: var StepGeomBSplineCurveWithKnotsAndRationalBSplineCu
 proc weightsData*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): Handle[
     TColStdHArray1OfReal] {.noSideEffect, importcpp: "WeightsData", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc weightsDataValue*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve;
-                      num: cint): cfloat {.noSideEffect,
-                                        importcpp: "WeightsDataValue", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-proc nbWeightsData*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): cint {.
+                      num: int): StandardReal {.noSideEffect,
+    importcpp: "WeightsDataValue",
+    header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
+proc nbWeightsData*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): int {.
     noSideEffect, importcpp: "NbWeightsData",
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 type
@@ -115,28 +116,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepGeom_BSplineCu
     header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
 proc dynamicType*(this: StepGeomBSplineCurveWithKnotsAndRationalBSplineCurve): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepGeom_BSplineCurveWithKnotsAndRationalBSplineCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

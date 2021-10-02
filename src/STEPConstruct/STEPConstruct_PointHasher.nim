@@ -16,92 +16,30 @@
 discard "forward decl of gp_Pnt"
 type
   STEPConstructPointHasher* {.importcpp: "STEPConstruct_PointHasher",
-                             header: "STEPConstruct_PointHasher.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Computes
-                                                                                   ## a
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## for
-                                                                                   ## the
-                                                                                   ## point,
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## [1,
-                                                                                   ## theUpperBound]
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @param
-                                                                                   ## thePoint
-                                                                                   ## the
-                                                                                   ## point
-                                                                                   ## which
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## is
-                                                                                   ## to
-                                                                                   ## be
-                                                                                   ## computed
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @param
-                                                                                   ## theUpperBound
-                                                                                   ## the
-                                                                                   ## upper
-                                                                                   ## bound
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## a
-                                                                                   ## computing
-                                                                                   ## hash
-                                                                                   ## code
-                                                                                   ## must
-                                                                                   ## be
-                                                                                   ## within
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## @return
-                                                                                   ## a
-                                                                                   ## computed
-                                                                                   ## hash
-                                                                                   ## code,
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## range
-                                                                                   ## [1,
-                                                                                   ## theUpperBound]
+                             header: "STEPConstruct_PointHasher.hxx", bycopy.} = object
 
 
-proc hashCode*(thePoint: Pnt; theUpperBound: cint): cint {.
+proc `new`*(this: var STEPConstructPointHasher; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_PointHasher::operator new",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc `delete`*(this: var STEPConstructPointHasher; theAddress: pointer) {.
+    importcpp: "STEPConstruct_PointHasher::operator delete",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc `new[]`*(this: var STEPConstructPointHasher; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_PointHasher::operator new[]",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc `delete[]`*(this: var STEPConstructPointHasher; theAddress: pointer) {.
+    importcpp: "STEPConstruct_PointHasher::operator delete[]",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc `new`*(this: var STEPConstructPointHasher; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_PointHasher::operator new",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc `delete`*(this: var STEPConstructPointHasher; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_PointHasher::operator delete",
+    header: "STEPConstruct_PointHasher.hxx".}
+proc hashCode*(thePoint: Pnt; theUpperBound: int): int {.
     importcpp: "STEPConstruct_PointHasher::HashCode(@)",
     header: "STEPConstruct_PointHasher.hxx".}
-proc isEqual*(point1: Pnt; point2: Pnt): bool {.
+proc isEqual*(point1: Pnt; point2: Pnt): StandardBoolean {.
     importcpp: "STEPConstruct_PointHasher::IsEqual(@)",
     header: "STEPConstruct_PointHasher.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

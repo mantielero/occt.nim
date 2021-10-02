@@ -68,7 +68,7 @@ proc identifiedItem*(this: StepAP242ItemIdentifiedRepresentationUsage): Handle[
     StepReprHArray1OfRepresentationItem] {.noSideEffect,
     importcpp: "IdentifiedItem",
     header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
-proc nbIdentifiedItem*(this: StepAP242ItemIdentifiedRepresentationUsage): cint {.
+proc nbIdentifiedItem*(this: StepAP242ItemIdentifiedRepresentationUsage): int {.
     noSideEffect, importcpp: "NbIdentifiedItem",
     header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
 proc setIdentifiedItem*(this: var StepAP242ItemIdentifiedRepresentationUsage;
@@ -76,11 +76,11 @@ proc setIdentifiedItem*(this: var StepAP242ItemIdentifiedRepresentationUsage;
     importcpp: "SetIdentifiedItem",
     header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
 proc identifiedItemValue*(this: StepAP242ItemIdentifiedRepresentationUsage;
-                         num: cint): Handle[StepReprRepresentationItem] {.
+                         num: int): Handle[StepReprRepresentationItem] {.
     noSideEffect, importcpp: "IdentifiedItemValue",
     header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
 proc setIdentifiedItemValue*(this: var StepAP242ItemIdentifiedRepresentationUsage;
-                            num: cint; theItem: Handle[StepReprRepresentationItem]) {.
+                            num: int; theItem: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetIdentifiedItemValue",
     header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
 type
@@ -92,28 +92,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP242_ItemIden
 proc dynamicType*(this: StepAP242ItemIdentifiedRepresentationUsage): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepAP242_ItemIdentifiedRepresentationUsage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

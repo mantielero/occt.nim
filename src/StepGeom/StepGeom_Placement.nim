@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Placement.hxx".}
 proc dynamicType*(this: StepGeomPlacement): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Placement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

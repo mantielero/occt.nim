@@ -17,40 +17,44 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of StepData_SelectMember"
 type
-  StepDataField* {.importcpp: "StepData_Field", header: "StepData_Field.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## a
-                                                                                        ## Field,
-                                                                                        ## empty
-                                                                                        ## ("no
-                                                                                        ## value
-                                                                                        ## defined")
+  StepDataField* {.importcpp: "StepData_Field", header: "StepData_Field.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepDataField; theSize: csize_t): pointer {.
+    importcpp: "StepData_Field::operator new", header: "StepData_Field.hxx".}
+proc `delete`*(this: var StepDataField; theAddress: pointer) {.
+    importcpp: "StepData_Field::operator delete", header: "StepData_Field.hxx".}
+proc `new[]`*(this: var StepDataField; theSize: csize_t): pointer {.
+    importcpp: "StepData_Field::operator new[]", header: "StepData_Field.hxx".}
+proc `delete[]`*(this: var StepDataField; theAddress: pointer) {.
+    importcpp: "StepData_Field::operator delete[]", header: "StepData_Field.hxx".}
+proc `new`*(this: var StepDataField; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepData_Field::operator new", header: "StepData_Field.hxx".}
+proc `delete`*(this: var StepDataField; a2: pointer; a3: pointer) {.
+    importcpp: "StepData_Field::operator delete", header: "StepData_Field.hxx".}
 proc constructStepDataField*(): StepDataField {.constructor,
     importcpp: "StepData_Field(@)", header: "StepData_Field.hxx".}
-proc constructStepDataField*(other: StepDataField; copy: bool = false): StepDataField {.
+proc constructStepDataField*(other: StepDataField; copy: StandardBoolean = false): StepDataField {.
     constructor, importcpp: "StepData_Field(@)", header: "StepData_Field.hxx".}
 proc copyFrom*(this: var StepDataField; other: StepDataField) {.importcpp: "CopyFrom",
     header: "StepData_Field.hxx".}
-proc clear*(this: var StepDataField; kind: cint = 0) {.importcpp: "Clear",
+proc clear*(this: var StepDataField; kind: int = 0) {.importcpp: "Clear",
     header: "StepData_Field.hxx".}
 proc setDerived*(this: var StepDataField) {.importcpp: "SetDerived",
                                         header: "StepData_Field.hxx".}
-proc setInt*(this: var StepDataField; val: cint) {.importcpp: "SetInt",
+proc setInt*(this: var StepDataField; val: int) {.importcpp: "SetInt",
     header: "StepData_Field.hxx".}
-proc setInteger*(this: var StepDataField; val: cint = 0) {.importcpp: "SetInteger",
+proc setInteger*(this: var StepDataField; val: int = 0) {.importcpp: "SetInteger",
     header: "StepData_Field.hxx".}
-proc setBoolean*(this: var StepDataField; val: bool = false) {.importcpp: "SetBoolean",
-    header: "StepData_Field.hxx".}
+proc setBoolean*(this: var StepDataField; val: StandardBoolean = false) {.
+    importcpp: "SetBoolean", header: "StepData_Field.hxx".}
 proc setLogical*(this: var StepDataField; val: StepDataLogical = stepDataLFalse) {.
     importcpp: "SetLogical", header: "StepData_Field.hxx".}
-proc setReal*(this: var StepDataField; val: cfloat = 0.0) {.importcpp: "SetReal",
+proc setReal*(this: var StepDataField; val: StandardReal = 0.0) {.importcpp: "SetReal",
     header: "StepData_Field.hxx".}
 proc setString*(this: var StepDataField; val: StandardCString = "") {.
     importcpp: "SetString", header: "StepData_Field.hxx".}
-proc setEnum*(this: var StepDataField; val: cint = -1; text: StandardCString = "") {.
+proc setEnum*(this: var StepDataField; val: int = -1; text: StandardCString = "") {.
     importcpp: "SetEnum", header: "StepData_Field.hxx".}
 proc setSelectMember*(this: var StepDataField; val: Handle[StepDataSelectMember]) {.
     importcpp: "SetSelectMember", header: "StepData_Field.hxx".}
@@ -58,84 +62,59 @@ proc setEntity*(this: var StepDataField; val: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "StepData_Field.hxx".}
 proc setEntity*(this: var StepDataField) {.importcpp: "SetEntity",
                                        header: "StepData_Field.hxx".}
-proc setList*(this: var StepDataField; size: cint; first: cint = 1) {.
-    importcpp: "SetList", header: "StepData_Field.hxx".}
-proc setList2*(this: var StepDataField; siz1: cint; siz2: cint; f1: cint = 1; f2: cint = 1) {.
+proc setList*(this: var StepDataField; size: int; first: int = 1) {.importcpp: "SetList",
+    header: "StepData_Field.hxx".}
+proc setList2*(this: var StepDataField; siz1: int; siz2: int; f1: int = 1; f2: int = 1) {.
     importcpp: "SetList2", header: "StepData_Field.hxx".}
 proc set*(this: var StepDataField; val: Handle[StandardTransient]) {.importcpp: "Set",
     header: "StepData_Field.hxx".}
-proc clearItem*(this: var StepDataField; num: cint) {.importcpp: "ClearItem",
+proc clearItem*(this: var StepDataField; num: int) {.importcpp: "ClearItem",
     header: "StepData_Field.hxx".}
-proc setInt*(this: var StepDataField; num: cint; val: cint; kind: cint) {.
+proc setInt*(this: var StepDataField; num: int; val: int; kind: int) {.
     importcpp: "SetInt", header: "StepData_Field.hxx".}
-proc setInteger*(this: var StepDataField; num: cint; val: cint) {.
-    importcpp: "SetInteger", header: "StepData_Field.hxx".}
-proc setBoolean*(this: var StepDataField; num: cint; val: bool) {.
-    importcpp: "SetBoolean", header: "StepData_Field.hxx".}
-proc setLogical*(this: var StepDataField; num: cint; val: StepDataLogical) {.
-    importcpp: "SetLogical", header: "StepData_Field.hxx".}
-proc setEnum*(this: var StepDataField; num: cint; val: cint; text: StandardCString = "") {.
-    importcpp: "SetEnum", header: "StepData_Field.hxx".}
-proc setReal*(this: var StepDataField; num: cint; val: cfloat) {.importcpp: "SetReal",
+proc setInteger*(this: var StepDataField; num: int; val: int) {.importcpp: "SetInteger",
     header: "StepData_Field.hxx".}
-proc setString*(this: var StepDataField; num: cint; val: StandardCString) {.
+proc setBoolean*(this: var StepDataField; num: int; val: StandardBoolean) {.
+    importcpp: "SetBoolean", header: "StepData_Field.hxx".}
+proc setLogical*(this: var StepDataField; num: int; val: StepDataLogical) {.
+    importcpp: "SetLogical", header: "StepData_Field.hxx".}
+proc setEnum*(this: var StepDataField; num: int; val: int; text: StandardCString = "") {.
+    importcpp: "SetEnum", header: "StepData_Field.hxx".}
+proc setReal*(this: var StepDataField; num: int; val: StandardReal) {.
+    importcpp: "SetReal", header: "StepData_Field.hxx".}
+proc setString*(this: var StepDataField; num: int; val: StandardCString) {.
     importcpp: "SetString", header: "StepData_Field.hxx".}
-proc setEntity*(this: var StepDataField; num: cint; val: Handle[StandardTransient]) {.
+proc setEntity*(this: var StepDataField; num: int; val: Handle[StandardTransient]) {.
     importcpp: "SetEntity", header: "StepData_Field.hxx".}
-proc isSet*(this: StepDataField; n1: cint = 1; n2: cint = 1): bool {.noSideEffect,
+proc isSet*(this: StepDataField; n1: int = 1; n2: int = 1): StandardBoolean {.noSideEffect,
     importcpp: "IsSet", header: "StepData_Field.hxx".}
-proc itemKind*(this: StepDataField; n1: cint = 1; n2: cint = 1): cint {.noSideEffect,
+proc itemKind*(this: StepDataField; n1: int = 1; n2: int = 1): int {.noSideEffect,
     importcpp: "ItemKind", header: "StepData_Field.hxx".}
-proc kind*(this: StepDataField; `type`: bool = true): cint {.noSideEffect,
+proc kind*(this: StepDataField; `type`: StandardBoolean = true): int {.noSideEffect,
     importcpp: "Kind", header: "StepData_Field.hxx".}
-proc arity*(this: StepDataField): cint {.noSideEffect, importcpp: "Arity",
-                                     header: "StepData_Field.hxx".}
-proc length*(this: StepDataField; index: cint = 1): cint {.noSideEffect,
+proc arity*(this: StepDataField): int {.noSideEffect, importcpp: "Arity",
+                                    header: "StepData_Field.hxx".}
+proc length*(this: StepDataField; index: int = 1): int {.noSideEffect,
     importcpp: "Length", header: "StepData_Field.hxx".}
-proc lower*(this: StepDataField; index: cint = 1): cint {.noSideEffect,
-    importcpp: "Lower", header: "StepData_Field.hxx".}
-proc int*(this: StepDataField): cint {.noSideEffect, importcpp: "Int",
-                                   header: "StepData_Field.hxx".}
-proc integer*(this: StepDataField; n1: cint = 1; n2: cint = 1): cint {.noSideEffect,
+proc lower*(this: StepDataField; index: int = 1): int {.noSideEffect, importcpp: "Lower",
+    header: "StepData_Field.hxx".}
+proc int*(this: StepDataField): int {.noSideEffect, importcpp: "Int",
+                                  header: "StepData_Field.hxx".}
+proc integer*(this: StepDataField; n1: int = 1; n2: int = 1): int {.noSideEffect,
     importcpp: "Integer", header: "StepData_Field.hxx".}
-proc boolean*(this: StepDataField; n1: cint = 1; n2: cint = 1): bool {.noSideEffect,
-    importcpp: "Boolean", header: "StepData_Field.hxx".}
-proc logical*(this: StepDataField; n1: cint = 1; n2: cint = 1): StepDataLogical {.
+proc boolean*(this: StepDataField; n1: int = 1; n2: int = 1): StandardBoolean {.
+    noSideEffect, importcpp: "Boolean", header: "StepData_Field.hxx".}
+proc logical*(this: StepDataField; n1: int = 1; n2: int = 1): StepDataLogical {.
     noSideEffect, importcpp: "Logical", header: "StepData_Field.hxx".}
-proc real*(this: StepDataField; n1: cint = 1; n2: cint = 1): cfloat {.noSideEffect,
+proc real*(this: StepDataField; n1: int = 1; n2: int = 1): StandardReal {.noSideEffect,
     importcpp: "Real", header: "StepData_Field.hxx".}
-proc string*(this: StepDataField; n1: cint = 1; n2: cint = 1): StandardCString {.
-    noSideEffect, importcpp: "String", header: "StepData_Field.hxx".}
-proc `enum`*(this: StepDataField; n1: cint = 1; n2: cint = 1): cint {.noSideEffect,
+proc string*(this: StepDataField; n1: int = 1; n2: int = 1): StandardCString {.noSideEffect,
+    importcpp: "String", header: "StepData_Field.hxx".}
+proc `enum`*(this: StepDataField; n1: int = 1; n2: int = 1): int {.noSideEffect,
     importcpp: "Enum", header: "StepData_Field.hxx".}
-proc enumText*(this: StepDataField; n1: cint = 1; n2: cint = 1): StandardCString {.
+proc enumText*(this: StepDataField; n1: int = 1; n2: int = 1): StandardCString {.
     noSideEffect, importcpp: "EnumText", header: "StepData_Field.hxx".}
-proc entity*(this: StepDataField; n1: cint = 1; n2: cint = 1): Handle[StandardTransient] {.
+proc entity*(this: StepDataField; n1: int = 1; n2: int = 1): Handle[StandardTransient] {.
     noSideEffect, importcpp: "Entity", header: "StepData_Field.hxx".}
 proc transient*(this: StepDataField): Handle[StandardTransient] {.noSideEffect,
     importcpp: "Transient", header: "StepData_Field.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

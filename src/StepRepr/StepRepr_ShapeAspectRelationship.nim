@@ -32,7 +32,7 @@ proc constructStepReprShapeAspectRelationship*(): StepReprShapeAspectRelationshi
     constructor, importcpp: "StepRepr_ShapeAspectRelationship(@)",
     header: "StepRepr_ShapeAspectRelationship.hxx".}
 proc init*(this: var StepReprShapeAspectRelationship;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aRelatingShapeAspect: Handle[StepReprShapeAspect];
           aRelatedShapeAspect: Handle[StepReprShapeAspect]) {.importcpp: "Init",
@@ -48,8 +48,9 @@ proc description*(this: StepReprShapeAspectRelationship): Handle[
 proc setDescription*(this: var StepReprShapeAspectRelationship;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepRepr_ShapeAspectRelationship.hxx".}
-proc hasDescription*(this: StepReprShapeAspectRelationship): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepRepr_ShapeAspectRelationship.hxx".}
+proc hasDescription*(this: StepReprShapeAspectRelationship): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepRepr_ShapeAspectRelationship.hxx".}
 proc relatingShapeAspect*(this: StepReprShapeAspectRelationship): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "RelatingShapeAspect",
                           header: "StepRepr_ShapeAspectRelationship.hxx".}
@@ -75,28 +76,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprShapeAspectRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_ShapeAspectRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

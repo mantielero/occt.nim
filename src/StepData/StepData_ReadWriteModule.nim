@@ -112,30 +112,30 @@ type
 
 
 proc caseNum*(this: StepDataReadWriteModule; data: Handle[InterfaceFileReaderData];
-             num: cint): cint {.noSideEffect, importcpp: "CaseNum",
-                             header: "StepData_ReadWriteModule.hxx".}
-proc caseStep*(this: StepDataReadWriteModule; atype: TCollectionAsciiString): cint {.
+             num: int): int {.noSideEffect, importcpp: "CaseNum",
+                           header: "StepData_ReadWriteModule.hxx".}
+proc caseStep*(this: StepDataReadWriteModule; atype: TCollectionAsciiString): int {.
     noSideEffect, importcpp: "CaseStep", header: "StepData_ReadWriteModule.hxx".}
-proc caseStep*(this: StepDataReadWriteModule; types: TColStdSequenceOfAsciiString): cint {.
+proc caseStep*(this: StepDataReadWriteModule; types: TColStdSequenceOfAsciiString): int {.
     noSideEffect, importcpp: "CaseStep", header: "StepData_ReadWriteModule.hxx".}
-proc isComplex*(this: StepDataReadWriteModule; cn: cint): bool {.noSideEffect,
-    importcpp: "IsComplex", header: "StepData_ReadWriteModule.hxx".}
-proc stepType*(this: StepDataReadWriteModule; cn: cint): TCollectionAsciiString {.
+proc isComplex*(this: StepDataReadWriteModule; cn: int): StandardBoolean {.
+    noSideEffect, importcpp: "IsComplex", header: "StepData_ReadWriteModule.hxx".}
+proc stepType*(this: StepDataReadWriteModule; cn: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "StepType", header: "StepData_ReadWriteModule.hxx".}
-proc shortType*(this: StepDataReadWriteModule; cn: cint): TCollectionAsciiString {.
+proc shortType*(this: StepDataReadWriteModule; cn: int): TCollectionAsciiString {.
     noSideEffect, importcpp: "ShortType", header: "StepData_ReadWriteModule.hxx".}
-proc complexType*(this: StepDataReadWriteModule; cn: cint;
-                 types: var TColStdSequenceOfAsciiString): bool {.noSideEffect,
-    importcpp: "ComplexType", header: "StepData_ReadWriteModule.hxx".}
-proc read*(this: StepDataReadWriteModule; cn: cint;
-          data: Handle[InterfaceFileReaderData]; num: cint;
+proc complexType*(this: StepDataReadWriteModule; cn: int;
+                 types: var TColStdSequenceOfAsciiString): StandardBoolean {.
+    noSideEffect, importcpp: "ComplexType", header: "StepData_ReadWriteModule.hxx".}
+proc read*(this: StepDataReadWriteModule; cn: int;
+          data: Handle[InterfaceFileReaderData]; num: int;
           ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "Read", header: "StepData_ReadWriteModule.hxx".}
-proc readStep*(this: StepDataReadWriteModule; cn: cint;
-              data: Handle[StepDataStepReaderData]; num: cint;
+proc readStep*(this: StepDataReadWriteModule; cn: int;
+              data: Handle[StepDataStepReaderData]; num: int;
               ach: var Handle[InterfaceCheck]; ent: Handle[StandardTransient]) {.
     noSideEffect, importcpp: "ReadStep", header: "StepData_ReadWriteModule.hxx".}
-proc writeStep*(this: StepDataReadWriteModule; cn: cint; sw: var StepDataStepWriter;
+proc writeStep*(this: StepDataReadWriteModule; cn: int; sw: var StepDataStepWriter;
                ent: Handle[StandardTransient]) {.noSideEffect,
     importcpp: "WriteStep", header: "StepData_ReadWriteModule.hxx".}
 type
@@ -148,28 +148,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_ReadWriteModule.hxx".}
 proc dynamicType*(this: StepDataReadWriteModule): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_ReadWriteModule.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

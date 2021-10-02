@@ -38,17 +38,30 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepRepr_ShapeAspectRelationship"
 type
   StepAP214ApprovalItem* {.importcpp: "StepAP214_ApprovalItem",
-                          header: "StepAP214_ApprovalItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Returns
-                                                                                                 ## a
-                                                                                                 ## ApprovalItem
-                                                                                                 ## SelectType
+                          header: "StepAP214_ApprovalItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214ApprovalItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_ApprovalItem::operator new",
+    header: "StepAP214_ApprovalItem.hxx".}
+proc `delete`*(this: var StepAP214ApprovalItem; theAddress: pointer) {.
+    importcpp: "StepAP214_ApprovalItem::operator delete",
+    header: "StepAP214_ApprovalItem.hxx".}
+proc `new[]`*(this: var StepAP214ApprovalItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_ApprovalItem::operator new[]",
+    header: "StepAP214_ApprovalItem.hxx".}
+proc `delete[]`*(this: var StepAP214ApprovalItem; theAddress: pointer) {.
+    importcpp: "StepAP214_ApprovalItem::operator delete[]",
+    header: "StepAP214_ApprovalItem.hxx".}
+proc `new`*(this: var StepAP214ApprovalItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_ApprovalItem::operator new",
+    header: "StepAP214_ApprovalItem.hxx".}
+proc `delete`*(this: var StepAP214ApprovalItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_ApprovalItem::operator delete",
+    header: "StepAP214_ApprovalItem.hxx".}
 proc constructStepAP214ApprovalItem*(): StepAP214ApprovalItem {.constructor,
     importcpp: "StepAP214_ApprovalItem(@)", header: "StepAP214_ApprovalItem.hxx".}
-proc caseNum*(this: StepAP214ApprovalItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214ApprovalItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_ApprovalItem.hxx".}
 proc assemblyComponentUsageSubstitute*(this: StepAP214ApprovalItem): Handle[
     StepReprAssemblyComponentUsageSubstitute] {.noSideEffect,
@@ -114,28 +127,3 @@ proc shapeAspectRelationship*(this: StepAP214ApprovalItem): Handle[
     StepReprShapeAspectRelationship] {.noSideEffect,
                                       importcpp: "ShapeAspectRelationship",
                                       header: "StepAP214_ApprovalItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

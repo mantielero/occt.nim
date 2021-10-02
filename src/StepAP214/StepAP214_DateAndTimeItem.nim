@@ -20,18 +20,31 @@ discard "forward decl of StepAP214_AppliedPersonAndOrganizationAssignment"
 discard "forward decl of StepAP214_AppliedOrganizationAssignment"
 type
   StepAP214DateAndTimeItem* {.importcpp: "StepAP214_DateAndTimeItem",
-                             header: "StepAP214_DateAndTimeItem.hxx", bycopy.} = object of StepAP214ApprovalItem ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## a
-                                                                                                          ## DateAndTimeItem
-                                                                                                          ## SelectType
+                             header: "StepAP214_DateAndTimeItem.hxx", bycopy.} = object of StepAP214ApprovalItem
 
 
+proc `new`*(this: var StepAP214DateAndTimeItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DateAndTimeItem::operator new",
+    header: "StepAP214_DateAndTimeItem.hxx".}
+proc `delete`*(this: var StepAP214DateAndTimeItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DateAndTimeItem::operator delete",
+    header: "StepAP214_DateAndTimeItem.hxx".}
+proc `new[]`*(this: var StepAP214DateAndTimeItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_DateAndTimeItem::operator new[]",
+    header: "StepAP214_DateAndTimeItem.hxx".}
+proc `delete[]`*(this: var StepAP214DateAndTimeItem; theAddress: pointer) {.
+    importcpp: "StepAP214_DateAndTimeItem::operator delete[]",
+    header: "StepAP214_DateAndTimeItem.hxx".}
+proc `new`*(this: var StepAP214DateAndTimeItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_DateAndTimeItem::operator new",
+    header: "StepAP214_DateAndTimeItem.hxx".}
+proc `delete`*(this: var StepAP214DateAndTimeItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_DateAndTimeItem::operator delete",
+    header: "StepAP214_DateAndTimeItem.hxx".}
 proc constructStepAP214DateAndTimeItem*(): StepAP214DateAndTimeItem {.constructor,
     importcpp: "StepAP214_DateAndTimeItem(@)",
     header: "StepAP214_DateAndTimeItem.hxx".}
-proc caseNum*(this: StepAP214DateAndTimeItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214DateAndTimeItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_DateAndTimeItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214DateAndTimeItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -45,28 +58,3 @@ proc appliedOrganizationAssignment*(this: StepAP214DateAndTimeItem): Handle[
     StepAP214AppliedOrganizationAssignment] {.noSideEffect,
     importcpp: "AppliedOrganizationAssignment",
     header: "StepAP214_DateAndTimeItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Functiona
 proc dynamicType*(this: StepReprFunctionallyDefinedTransformation): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_FunctionallyDefinedTransformation.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_ReprItemA
 proc dynamicType*(this: StepReprReprItemAndPlaneAngleMeasureWithUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_ReprItemAndPlaneAngleMeasureWithUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

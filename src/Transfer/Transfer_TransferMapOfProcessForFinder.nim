@@ -17,29 +17,3 @@
 type
   TransferTransferMapOfProcessForFinder* = NCollectionIndexedDataMap[
       Handle[TransferFinder], Handle[TransferBinder], TransferFindHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

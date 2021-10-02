@@ -18,29 +18,3 @@ type
                         header: "StepVisual_NullStyle.hxx".} = enum
     StepVisualNull
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

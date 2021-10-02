@@ -31,7 +31,7 @@ type
 proc constructStepBasicSiUnitAndTimeUnit*(): StepBasicSiUnitAndTimeUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndTimeUnit(@)",
     header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-proc init*(this: var StepBasicSiUnitAndTimeUnit; hasAprefix: bool;
+proc init*(this: var StepBasicSiUnitAndTimeUnit; hasAprefix: StandardBoolean;
           aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndTimeUnit.hxx".}
 proc setTimeUnit*(this: var StepBasicSiUnitAndTimeUnit;
@@ -50,28 +50,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSiUnitAndTimeUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndTimeUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

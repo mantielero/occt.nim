@@ -19,29 +19,3 @@ type
                            header: "StepDimTol_AreaUnitType.hxx".} = enum
     StepDimTolCircular, StepDimTolRectangular, StepDimTolSquare
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

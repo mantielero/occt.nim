@@ -21,29 +21,3 @@ type
     StepGeomTcDiscontinuous, StepGeomTcContinuous, StepGeomTcContSameGradient,
     StepGeomTcContSameGradientSameCurvature
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

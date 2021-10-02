@@ -38,9 +38,9 @@ proc setElements*(this: var StepBasicDerivedUnit;
 proc elements*(this: StepBasicDerivedUnit): Handle[
     StepBasicHArray1OfDerivedUnitElement] {.noSideEffect, importcpp: "Elements",
     header: "StepBasic_DerivedUnit.hxx".}
-proc nbElements*(this: StepBasicDerivedUnit): cint {.noSideEffect,
+proc nbElements*(this: StepBasicDerivedUnit): int {.noSideEffect,
     importcpp: "NbElements", header: "StepBasic_DerivedUnit.hxx".}
-proc elementsValue*(this: StepBasicDerivedUnit; num: cint): Handle[
+proc elementsValue*(this: StepBasicDerivedUnit; num: int): Handle[
     StepBasicDerivedUnitElement] {.noSideEffect, importcpp: "ElementsValue",
                                   header: "StepBasic_DerivedUnit.hxx".}
 type
@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DerivedUnit.hxx".}
 proc dynamicType*(this: StepBasicDerivedUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DerivedUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

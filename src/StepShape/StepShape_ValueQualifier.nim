@@ -22,10 +22,28 @@ type
                             header: "StepShape_ValueQualifier.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeValueQualifier; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ValueQualifier::operator new",
+    header: "StepShape_ValueQualifier.hxx".}
+proc `delete`*(this: var StepShapeValueQualifier; theAddress: pointer) {.
+    importcpp: "StepShape_ValueQualifier::operator delete",
+    header: "StepShape_ValueQualifier.hxx".}
+proc `new[]`*(this: var StepShapeValueQualifier; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ValueQualifier::operator new[]",
+    header: "StepShape_ValueQualifier.hxx".}
+proc `delete[]`*(this: var StepShapeValueQualifier; theAddress: pointer) {.
+    importcpp: "StepShape_ValueQualifier::operator delete[]",
+    header: "StepShape_ValueQualifier.hxx".}
+proc `new`*(this: var StepShapeValueQualifier; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_ValueQualifier::operator new",
+    header: "StepShape_ValueQualifier.hxx".}
+proc `delete`*(this: var StepShapeValueQualifier; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_ValueQualifier::operator delete",
+    header: "StepShape_ValueQualifier.hxx".}
 proc constructStepShapeValueQualifier*(): StepShapeValueQualifier {.constructor,
     importcpp: "StepShape_ValueQualifier(@)",
     header: "StepShape_ValueQualifier.hxx".}
-proc caseNum*(this: StepShapeValueQualifier; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeValueQualifier; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepShape_ValueQualifier.hxx".}
 proc precisionQualifier*(this: StepShapeValueQualifier): Handle[
     StepShapePrecisionQualifier] {.noSideEffect, importcpp: "PrecisionQualifier",
@@ -37,28 +55,3 @@ proc valueFormatTypeQualifier*(this: StepShapeValueQualifier): Handle[
     StepShapeValueFormatTypeQualifier] {.noSideEffect,
                                         importcpp: "ValueFormatTypeQualifier",
                                         header: "StepShape_ValueQualifier.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

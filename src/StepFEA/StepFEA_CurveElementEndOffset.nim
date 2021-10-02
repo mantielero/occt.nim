@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementEndOffset): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementEndOffset.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

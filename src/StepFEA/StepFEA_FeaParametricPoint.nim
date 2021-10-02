@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_FeaParametricPoint): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_FeaParametricPoint.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

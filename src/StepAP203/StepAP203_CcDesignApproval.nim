@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP203CcDesignApproval): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignApproval.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

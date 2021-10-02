@@ -39,12 +39,12 @@ proc constructStepReprSpecifiedHigherUsageOccurrence*(): StepReprSpecifiedHigher
 proc init*(this: var StepReprSpecifiedHigherUsageOccurrence;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: Handle[
     StepBasicProductDefinition]; aProductDefinitionRelationshipRelatedProductDefinition: Handle[
     StepBasicProductDefinition];
-          hasAssemblyComponentUsageReferenceDesignator: bool;
+          hasAssemblyComponentUsageReferenceDesignator: StandardBoolean;
     aAssemblyComponentUsageReferenceDesignator: Handle[TCollectionHAsciiString];
           aUpperUsage: Handle[StepReprAssemblyComponentUsage];
           aNextUsage: Handle[StepReprNextAssemblyUsageOccurrence]) {.
@@ -52,11 +52,11 @@ proc init*(this: var StepReprSpecifiedHigherUsageOccurrence;
 proc init*(this: var StepReprSpecifiedHigherUsageOccurrence;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: StepBasicProductDefinitionOrReference;
     aProductDefinitionRelationshipRelatedProductDefinition: StepBasicProductDefinitionOrReference;
-          hasAssemblyComponentUsageReferenceDesignator: bool;
+          hasAssemblyComponentUsageReferenceDesignator: StandardBoolean;
     aAssemblyComponentUsageReferenceDesignator: Handle[TCollectionHAsciiString];
           aUpperUsage: Handle[StepReprAssemblyComponentUsage];
           aNextUsage: Handle[StepReprNextAssemblyUsageOccurrence]) {.
@@ -83,28 +83,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Specified
 proc dynamicType*(this: StepReprSpecifiedHigherUsageOccurrence): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_SpecifiedHigherUsageOccurrence.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

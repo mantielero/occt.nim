@@ -40,10 +40,10 @@ proc setSegments*(this: var StepGeomCompositeCurve;
 proc segments*(this: StepGeomCompositeCurve): Handle[
     StepGeomHArray1OfCompositeCurveSegment] {.noSideEffect, importcpp: "Segments",
     header: "StepGeom_CompositeCurve.hxx".}
-proc segmentsValue*(this: StepGeomCompositeCurve; num: cint): Handle[
+proc segmentsValue*(this: StepGeomCompositeCurve; num: int): Handle[
     StepGeomCompositeCurveSegment] {.noSideEffect, importcpp: "SegmentsValue",
                                     header: "StepGeom_CompositeCurve.hxx".}
-proc nbSegments*(this: StepGeomCompositeCurve): cint {.noSideEffect,
+proc nbSegments*(this: StepGeomCompositeCurve): int {.noSideEffect,
     importcpp: "NbSegments", header: "StepGeom_CompositeCurve.hxx".}
 proc setSelfIntersect*(this: var StepGeomCompositeCurve;
                       aSelfIntersect: StepDataLogical) {.
@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_CompositeCurve.hxx".}
 proc dynamicType*(this: StepGeomCompositeCurve): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_CompositeCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

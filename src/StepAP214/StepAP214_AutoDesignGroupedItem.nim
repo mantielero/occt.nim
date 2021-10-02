@@ -28,14 +28,31 @@ discard "forward decl of StepShape_ShapeRepresentation"
 discard "forward decl of StepVisual_TemplateInstance"
 type
   StepAP214AutoDesignGroupedItem* {.importcpp: "StepAP214_AutoDesignGroupedItem", header: "StepAP214_AutoDesignGroupedItem.hxx",
-                                   bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                      ## AutoDesignGroupedItem SelectType
+                                   bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignGroupedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator new",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignGroupedItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator delete",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignGroupedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator new[]",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignGroupedItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator delete[]",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignGroupedItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator new",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignGroupedItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_AutoDesignGroupedItem::operator delete",
+    header: "StepAP214_AutoDesignGroupedItem.hxx".}
 proc constructStepAP214AutoDesignGroupedItem*(): StepAP214AutoDesignGroupedItem {.
     constructor, importcpp: "StepAP214_AutoDesignGroupedItem(@)",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
-proc caseNum*(this: StepAP214AutoDesignGroupedItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214AutoDesignGroupedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepAP214_AutoDesignGroupedItem.hxx".}
 proc advancedBrepShapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
@@ -78,28 +95,3 @@ proc shapeRepresentation*(this: StepAP214AutoDesignGroupedItem): Handle[
 proc templateInstance*(this: StepAP214AutoDesignGroupedItem): Handle[
     StepVisualTemplateInstance] {.noSideEffect, importcpp: "TemplateInstance",
                                  header: "StepAP214_AutoDesignGroupedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

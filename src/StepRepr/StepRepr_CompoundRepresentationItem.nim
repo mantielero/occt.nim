@@ -37,14 +37,14 @@ proc init*(this: var StepReprCompoundRepresentationItem;
 proc itemElement*(this: StepReprCompoundRepresentationItem): Handle[
     StepReprHArray1OfRepresentationItem] {.noSideEffect, importcpp: "ItemElement",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc nbItemElement*(this: StepReprCompoundRepresentationItem): cint {.noSideEffect,
+proc nbItemElement*(this: StepReprCompoundRepresentationItem): int {.noSideEffect,
     importcpp: "NbItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
 proc setItemElement*(this: var StepReprCompoundRepresentationItem;
                     itemElement: Handle[StepReprHArray1OfRepresentationItem]) {.
     importcpp: "SetItemElement", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc itemElementValue*(this: StepReprCompoundRepresentationItem; num: cint): Handle[
+proc itemElementValue*(this: StepReprCompoundRepresentationItem; num: int): Handle[
     StepReprRepresentationItem] {.noSideEffect, importcpp: "ItemElementValue", header: "StepRepr_CompoundRepresentationItem.hxx".}
-proc setItemElementValue*(this: var StepReprCompoundRepresentationItem; num: cint;
+proc setItemElementValue*(this: var StepReprCompoundRepresentationItem; num: int;
                          anelement: Handle[StepReprRepresentationItem]) {.
     importcpp: "SetItemElementValue",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
@@ -59,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprCompoundRepresentationItem): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_CompoundRepresentationItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

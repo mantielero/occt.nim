@@ -36,7 +36,7 @@ proc constructStepBasicProductCategoryRelationship*(): StepBasicProductCategoryR
     constructor, importcpp: "StepBasic_ProductCategoryRelationship(@)",
     header: "StepBasic_ProductCategoryRelationship.hxx".}
 proc init*(this: var StepBasicProductCategoryRelationship;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aCategory: Handle[StepBasicProductCategory];
           aSubCategory: Handle[StepBasicProductCategory]) {.importcpp: "Init",
@@ -52,7 +52,7 @@ proc setDescription*(this: var StepBasicProductCategoryRelationship;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepBasic_ProductCategoryRelationship.hxx".}
-proc hasDescription*(this: StepBasicProductCategoryRelationship): bool {.
+proc hasDescription*(this: StepBasicProductCategoryRelationship): StandardBoolean {.
     noSideEffect, importcpp: "HasDescription",
     header: "StepBasic_ProductCategoryRelationship.hxx".}
 proc category*(this: StepBasicProductCategoryRelationship): Handle[
@@ -77,28 +77,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicProductCategoryRelationship): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_ProductCategoryRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

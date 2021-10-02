@@ -42,28 +42,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualDraughtingModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_DraughtingModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

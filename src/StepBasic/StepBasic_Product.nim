@@ -55,10 +55,10 @@ proc frameOfReference*(this: StepBasicProduct): Handle[
     StepBasicHArray1OfProductContext] {.noSideEffect,
                                        importcpp: "FrameOfReference",
                                        header: "StepBasic_Product.hxx".}
-proc frameOfReferenceValue*(this: StepBasicProduct; num: cint): Handle[
+proc frameOfReferenceValue*(this: StepBasicProduct; num: int): Handle[
     StepBasicProductContext] {.noSideEffect, importcpp: "FrameOfReferenceValue",
                               header: "StepBasic_Product.hxx".}
-proc nbFrameOfReference*(this: StepBasicProduct): cint {.noSideEffect,
+proc nbFrameOfReference*(this: StepBasicProduct): int {.noSideEffect,
     importcpp: "NbFrameOfReference", header: "StepBasic_Product.hxx".}
 type
   StepBasicProductbaseType* = StandardTransient
@@ -70,28 +70,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Product.hxx".}
 proc dynamicType*(this: StepBasicProduct): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Product.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

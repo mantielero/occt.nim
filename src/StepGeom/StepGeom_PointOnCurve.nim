@@ -31,16 +31,17 @@ type
 proc constructStepGeomPointOnCurve*(): StepGeomPointOnCurve {.constructor,
     importcpp: "StepGeom_PointOnCurve(@)", header: "StepGeom_PointOnCurve.hxx".}
 proc init*(this: var StepGeomPointOnCurve; aName: Handle[TCollectionHAsciiString];
-          aBasisCurve: Handle[StepGeomCurve]; aPointParameter: cfloat) {.
+          aBasisCurve: Handle[StepGeomCurve]; aPointParameter: StandardReal) {.
     importcpp: "Init", header: "StepGeom_PointOnCurve.hxx".}
 proc setBasisCurve*(this: var StepGeomPointOnCurve;
                    aBasisCurve: Handle[StepGeomCurve]) {.
     importcpp: "SetBasisCurve", header: "StepGeom_PointOnCurve.hxx".}
 proc basisCurve*(this: StepGeomPointOnCurve): Handle[StepGeomCurve] {.noSideEffect,
     importcpp: "BasisCurve", header: "StepGeom_PointOnCurve.hxx".}
-proc setPointParameter*(this: var StepGeomPointOnCurve; aPointParameter: cfloat) {.
+proc setPointParameter*(this: var StepGeomPointOnCurve;
+                       aPointParameter: StandardReal) {.
     importcpp: "SetPointParameter", header: "StepGeom_PointOnCurve.hxx".}
-proc pointParameter*(this: StepGeomPointOnCurve): cfloat {.noSideEffect,
+proc pointParameter*(this: StepGeomPointOnCurve): StandardReal {.noSideEffect,
     importcpp: "PointParameter", header: "StepGeom_PointOnCurve.hxx".}
 type
   StepGeomPointOnCurvebaseType* = StepGeomPoint
@@ -52,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_PointOnCurve.hxx".}
 proc dynamicType*(this: StepGeomPointOnCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_PointOnCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

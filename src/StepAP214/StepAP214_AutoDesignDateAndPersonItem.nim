@@ -27,19 +27,31 @@ discard "forward decl of StepBasic_ProductDefinitionWithAssociatedDocuments"
 type
   StepAP214AutoDesignDateAndPersonItem* {.
       importcpp: "StepAP214_AutoDesignDateAndPersonItem",
-      header: "StepAP214_AutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## a
-                                                                                            ## AutoDesignDateAndPersonItem
-                                                                                            ## SelectType
+      header: "StepAP214_AutoDesignDateAndPersonItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignDateAndPersonItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator new",
+    header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignDateAndPersonItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator delete",
+    header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignDateAndPersonItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator new[]",
+    header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignDateAndPersonItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator delete[]",
+    header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignDateAndPersonItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator new", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignDateAndPersonItem; a2: pointer;
+              a3: pointer) {.importcpp: "StepAP214_AutoDesignDateAndPersonItem::operator delete",
+                           header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
 proc constructStepAP214AutoDesignDateAndPersonItem*(): StepAP214AutoDesignDateAndPersonItem {.
     constructor, importcpp: "StepAP214_AutoDesignDateAndPersonItem(@)",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignDateAndPersonItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
 proc autoDesignOrganizationAssignment*(this: StepAP214AutoDesignDateAndPersonItem): Handle[
     StepAP214AutoDesignOrganizationAssignment] {.noSideEffect,
@@ -73,28 +85,3 @@ proc productDefinitionWithAssociatedDocuments*(
     StepBasicProductDefinitionWithAssociatedDocuments] {.noSideEffect,
     importcpp: "ProductDefinitionWithAssociatedDocuments",
     header: "StepAP214_AutoDesignDateAndPersonItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

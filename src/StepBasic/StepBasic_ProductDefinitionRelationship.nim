@@ -36,14 +36,14 @@ proc constructStepBasicProductDefinitionRelationship*(): StepBasicProductDefinit
     header: "StepBasic_ProductDefinitionRelationship.hxx".}
 proc init*(this: var StepBasicProductDefinitionRelationship;
           aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aRelatingProductDefinition: Handle[StepBasicProductDefinition];
           aRelatedProductDefinition: Handle[StepBasicProductDefinition]) {.
     importcpp: "Init", header: "StepBasic_ProductDefinitionRelationship.hxx".}
 proc init*(this: var StepBasicProductDefinitionRelationship;
           aId: Handle[TCollectionHAsciiString];
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString];
           aRelatingProductDefinition: StepBasicProductDefinitionOrReference;
           aRelatedProductDefinition: StepBasicProductDefinitionOrReference) {.
@@ -64,7 +64,7 @@ proc setDescription*(this: var StepBasicProductDefinitionRelationship;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepBasic_ProductDefinitionRelationship.hxx".}
-proc hasDescription*(this: StepBasicProductDefinitionRelationship): bool {.
+proc hasDescription*(this: StepBasicProductDefinitionRelationship): StandardBoolean {.
     noSideEffect, importcpp: "HasDescription",
     header: "StepBasic_ProductDefinitionRelationship.hxx".}
 proc relatingProductDefinition*(this: StepBasicProductDefinitionRelationship): Handle[
@@ -104,28 +104,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepBasic_ProductD
 proc dynamicType*(this: StepBasicProductDefinitionRelationship): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepBasic_ProductDefinitionRelationship.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

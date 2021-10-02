@@ -63,28 +63,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepRepr_DataEnvironment.hxx".}
 proc dynamicType*(this: StepReprDataEnvironment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepRepr_DataEnvironment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

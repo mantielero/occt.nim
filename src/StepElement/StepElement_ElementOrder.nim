@@ -17,29 +17,3 @@ type
                             header: "StepElement_ElementOrder.hxx".} = enum
     StepElementLinear, StepElementQuadratic, StepElementCubic
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

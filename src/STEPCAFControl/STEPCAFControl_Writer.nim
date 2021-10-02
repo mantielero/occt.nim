@@ -20,115 +20,98 @@ discard "forward decl of STEPCAFControl_ExternFile"
 discard "forward decl of TopoDS_Shape"
 type
   STEPCAFControlWriter* {.importcpp: "STEPCAFControl_Writer",
-                         header: "STEPCAFControl_Writer.hxx", bycopy.} = object ## !
-                                                                           ## Creates a
-                                                                           ## writer with an empty
-                                                                           ## ! STEP model and sets
-                                                                           ## ColorMode,
-                                                                           ## LayerMode,
-                                                                           ## NameMode and
-                                                                           ## !
-                                                                           ## PropsMode to
-                                                                           ## Standard_True.
-                                                                           ## ! Mehod to
+                         header: "STEPCAFControl_Writer.hxx", bycopy.} = object ## ! Mehod to
                                                                            ## writing
                                                                            ## sequence of root
                                                                            ## assemblies or part of the file
                                                                            ## specified by use by one label
 
 
+proc `new`*(this: var STEPCAFControlWriter; theSize: csize_t): pointer {.
+    importcpp: "STEPCAFControl_Writer::operator new",
+    header: "STEPCAFControl_Writer.hxx".}
+proc `delete`*(this: var STEPCAFControlWriter; theAddress: pointer) {.
+    importcpp: "STEPCAFControl_Writer::operator delete",
+    header: "STEPCAFControl_Writer.hxx".}
+proc `new[]`*(this: var STEPCAFControlWriter; theSize: csize_t): pointer {.
+    importcpp: "STEPCAFControl_Writer::operator new[]",
+    header: "STEPCAFControl_Writer.hxx".}
+proc `delete[]`*(this: var STEPCAFControlWriter; theAddress: pointer) {.
+    importcpp: "STEPCAFControl_Writer::operator delete[]",
+    header: "STEPCAFControl_Writer.hxx".}
+proc `new`*(this: var STEPCAFControlWriter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPCAFControl_Writer::operator new",
+    header: "STEPCAFControl_Writer.hxx".}
+proc `delete`*(this: var STEPCAFControlWriter; a2: pointer; a3: pointer) {.
+    importcpp: "STEPCAFControl_Writer::operator delete",
+    header: "STEPCAFControl_Writer.hxx".}
 proc constructSTEPCAFControlWriter*(): STEPCAFControlWriter {.constructor,
     importcpp: "STEPCAFControl_Writer(@)", header: "STEPCAFControl_Writer.hxx".}
 proc constructSTEPCAFControlWriter*(ws: Handle[XSControlWorkSession];
-                                   scratch: bool = true): STEPCAFControlWriter {.
+                                   scratch: StandardBoolean = true): STEPCAFControlWriter {.
     constructor, importcpp: "STEPCAFControl_Writer(@)",
     header: "STEPCAFControl_Writer.hxx".}
 proc init*(this: var STEPCAFControlWriter; ws: Handle[XSControlWorkSession];
-          scratch: bool = true) {.importcpp: "Init",
-                              header: "STEPCAFControl_Writer.hxx".}
+          scratch: StandardBoolean = true) {.importcpp: "Init",
+    header: "STEPCAFControl_Writer.hxx".}
 proc write*(this: var STEPCAFControlWriter; filename: StandardCString): IFSelectReturnStatus {.
     importcpp: "Write", header: "STEPCAFControl_Writer.hxx".}
 proc transfer*(this: var STEPCAFControlWriter; doc: Handle[TDocStdDocument];
               mode: STEPControlStepModelType = sTEPControlAsIs;
               multi: StandardCString = 0;
-              theProgress: MessageProgressRange = messageProgressRange()): bool {.
+              theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
     importcpp: "Transfer", header: "STEPCAFControl_Writer.hxx".}
 proc transfer*(this: var STEPCAFControlWriter; L: TDF_Label;
               mode: STEPControlStepModelType = sTEPControlAsIs;
               multi: StandardCString = 0;
-              theProgress: MessageProgressRange = messageProgressRange()): bool {.
+              theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
     importcpp: "Transfer", header: "STEPCAFControl_Writer.hxx".}
 proc perform*(this: var STEPCAFControlWriter; doc: Handle[TDocStdDocument];
              filename: TCollectionAsciiString;
-             theProgress: MessageProgressRange = messageProgressRange()): bool {.
+             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
     importcpp: "Perform", header: "STEPCAFControl_Writer.hxx".}
 proc perform*(this: var STEPCAFControlWriter; doc: Handle[TDocStdDocument];
              filename: StandardCString;
-             theProgress: MessageProgressRange = messageProgressRange()): bool {.
+             theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
     importcpp: "Perform", header: "STEPCAFControl_Writer.hxx".}
 proc externFiles*(this: STEPCAFControlWriter): NCollectionDataMap[
     TCollectionAsciiString, Handle[STEPCAFControlExternFile]] {.noSideEffect,
     importcpp: "ExternFiles", header: "STEPCAFControl_Writer.hxx".}
 proc externFile*(this: STEPCAFControlWriter; L: TDF_Label;
-                ef: var Handle[STEPCAFControlExternFile]): bool {.noSideEffect,
-    importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
+                ef: var Handle[STEPCAFControlExternFile]): StandardBoolean {.
+    noSideEffect, importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
 proc externFile*(this: STEPCAFControlWriter; name: StandardCString;
-                ef: var Handle[STEPCAFControlExternFile]): bool {.noSideEffect,
-    importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
+                ef: var Handle[STEPCAFControlExternFile]): StandardBoolean {.
+    noSideEffect, importcpp: "ExternFile", header: "STEPCAFControl_Writer.hxx".}
 proc changeWriter*(this: var STEPCAFControlWriter): var STEPControlWriter {.
     importcpp: "ChangeWriter", header: "STEPCAFControl_Writer.hxx".}
 proc writer*(this: STEPCAFControlWriter): STEPControlWriter {.noSideEffect,
     importcpp: "Writer", header: "STEPCAFControl_Writer.hxx".}
-proc setColorMode*(this: var STEPCAFControlWriter; colormode: bool) {.
+proc setColorMode*(this: var STEPCAFControlWriter; colormode: StandardBoolean) {.
     importcpp: "SetColorMode", header: "STEPCAFControl_Writer.hxx".}
-proc getColorMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getColorMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetColorMode", header: "STEPCAFControl_Writer.hxx".}
-proc setNameMode*(this: var STEPCAFControlWriter; namemode: bool) {.
+proc setNameMode*(this: var STEPCAFControlWriter; namemode: StandardBoolean) {.
     importcpp: "SetNameMode", header: "STEPCAFControl_Writer.hxx".}
-proc getNameMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getNameMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetNameMode", header: "STEPCAFControl_Writer.hxx".}
-proc setLayerMode*(this: var STEPCAFControlWriter; layermode: bool) {.
+proc setLayerMode*(this: var STEPCAFControlWriter; layermode: StandardBoolean) {.
     importcpp: "SetLayerMode", header: "STEPCAFControl_Writer.hxx".}
-proc getLayerMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getLayerMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetLayerMode", header: "STEPCAFControl_Writer.hxx".}
-proc setPropsMode*(this: var STEPCAFControlWriter; propsmode: bool) {.
+proc setPropsMode*(this: var STEPCAFControlWriter; propsmode: StandardBoolean) {.
     importcpp: "SetPropsMode", header: "STEPCAFControl_Writer.hxx".}
-proc getPropsMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getPropsMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetPropsMode", header: "STEPCAFControl_Writer.hxx".}
-proc setSHUOMode*(this: var STEPCAFControlWriter; shuomode: bool) {.
+proc setSHUOMode*(this: var STEPCAFControlWriter; shuomode: StandardBoolean) {.
     importcpp: "SetSHUOMode", header: "STEPCAFControl_Writer.hxx".}
-proc getSHUOMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getSHUOMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetSHUOMode", header: "STEPCAFControl_Writer.hxx".}
-proc setDimTolMode*(this: var STEPCAFControlWriter; dimtolmode: bool) {.
+proc setDimTolMode*(this: var STEPCAFControlWriter; dimtolmode: StandardBoolean) {.
     importcpp: "SetDimTolMode", header: "STEPCAFControl_Writer.hxx".}
-proc getDimTolMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getDimTolMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetDimTolMode", header: "STEPCAFControl_Writer.hxx".}
-proc setMaterialMode*(this: var STEPCAFControlWriter; matmode: bool) {.
+proc setMaterialMode*(this: var STEPCAFControlWriter; matmode: StandardBoolean) {.
     importcpp: "SetMaterialMode", header: "STEPCAFControl_Writer.hxx".}
-proc getMaterialMode*(this: STEPCAFControlWriter): bool {.noSideEffect,
+proc getMaterialMode*(this: STEPCAFControlWriter): StandardBoolean {.noSideEffect,
     importcpp: "GetMaterialMode", header: "STEPCAFControl_Writer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

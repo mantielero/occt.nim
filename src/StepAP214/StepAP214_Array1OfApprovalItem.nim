@@ -16,29 +16,3 @@
 
 type
   StepAP214Array1OfApprovalItem* = NCollectionArray1[StepAP214ApprovalItem]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

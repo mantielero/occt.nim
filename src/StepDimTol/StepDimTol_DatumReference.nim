@@ -32,12 +32,12 @@ type
 proc constructStepDimTolDatumReference*(): StepDimTolDatumReference {.constructor,
     importcpp: "StepDimTol_DatumReference(@)",
     header: "StepDimTol_DatumReference.hxx".}
-proc init*(this: var StepDimTolDatumReference; thePrecedence: cint;
+proc init*(this: var StepDimTolDatumReference; thePrecedence: int;
           theReferencedDatum: Handle[StepDimTolDatum]) {.importcpp: "Init",
     header: "StepDimTol_DatumReference.hxx".}
-proc precedence*(this: StepDimTolDatumReference): cint {.noSideEffect,
+proc precedence*(this: StepDimTolDatumReference): int {.noSideEffect,
     importcpp: "Precedence", header: "StepDimTol_DatumReference.hxx".}
-proc setPrecedence*(this: var StepDimTolDatumReference; thePrecedence: cint) {.
+proc setPrecedence*(this: var StepDimTolDatumReference; thePrecedence: int) {.
     importcpp: "SetPrecedence", header: "StepDimTol_DatumReference.hxx".}
 proc referencedDatum*(this: StepDimTolDatumReference): Handle[StepDimTolDatum] {.
     noSideEffect, importcpp: "ReferencedDatum",
@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepDimTol_DatumReference.hxx".}
 proc dynamicType*(this: StepDimTolDatumReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepDimTol_DatumReference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

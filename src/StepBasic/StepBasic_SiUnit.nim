@@ -25,17 +25,17 @@ type
 
 proc constructStepBasicSiUnit*(): StepBasicSiUnit {.constructor,
     importcpp: "StepBasic_SiUnit(@)", header: "StepBasic_SiUnit.hxx".}
-proc init*(this: var StepBasicSiUnit; hasAprefix: bool; aPrefix: StepBasicSiPrefix;
-          aName: StepBasicSiUnitName) {.importcpp: "Init",
-                                      header: "StepBasic_SiUnit.hxx".}
+proc init*(this: var StepBasicSiUnit; hasAprefix: StandardBoolean;
+          aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
+    importcpp: "Init", header: "StepBasic_SiUnit.hxx".}
 proc setPrefix*(this: var StepBasicSiUnit; aPrefix: StepBasicSiPrefix) {.
     importcpp: "SetPrefix", header: "StepBasic_SiUnit.hxx".}
 proc unSetPrefix*(this: var StepBasicSiUnit) {.importcpp: "UnSetPrefix",
     header: "StepBasic_SiUnit.hxx".}
 proc prefix*(this: StepBasicSiUnit): StepBasicSiPrefix {.noSideEffect,
     importcpp: "Prefix", header: "StepBasic_SiUnit.hxx".}
-proc hasPrefix*(this: StepBasicSiUnit): bool {.noSideEffect, importcpp: "HasPrefix",
-    header: "StepBasic_SiUnit.hxx".}
+proc hasPrefix*(this: StepBasicSiUnit): StandardBoolean {.noSideEffect,
+    importcpp: "HasPrefix", header: "StepBasic_SiUnit.hxx".}
 proc setName*(this: var StepBasicSiUnit; aName: StepBasicSiUnitName) {.
     importcpp: "SetName", header: "StepBasic_SiUnit.hxx".}
 proc name*(this: StepBasicSiUnit): StepBasicSiUnitName {.noSideEffect,
@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_SiUnit.hxx".}
 proc dynamicType*(this: StepBasicSiUnit): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_SiUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

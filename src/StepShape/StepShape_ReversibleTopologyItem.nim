@@ -23,15 +23,30 @@ discard "forward decl of StepShape_ClosedShell"
 discard "forward decl of StepShape_OpenShell"
 type
   StepShapeReversibleTopologyItem* {.importcpp: "StepShape_ReversibleTopologyItem", header: "StepShape_ReversibleTopologyItem.hxx",
-                                    bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                       ## ReversibleTopologyItem
-                                                                       ## SelectType
+                                    bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeReversibleTopologyItem; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ReversibleTopologyItem::operator new",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
+proc `delete`*(this: var StepShapeReversibleTopologyItem; theAddress: pointer) {.
+    importcpp: "StepShape_ReversibleTopologyItem::operator delete",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
+proc `new[]`*(this: var StepShapeReversibleTopologyItem; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ReversibleTopologyItem::operator new[]",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
+proc `delete[]`*(this: var StepShapeReversibleTopologyItem; theAddress: pointer) {.
+    importcpp: "StepShape_ReversibleTopologyItem::operator delete[]",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
+proc `new`*(this: var StepShapeReversibleTopologyItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepShape_ReversibleTopologyItem::operator new", header: "StepShape_ReversibleTopologyItem.hxx".}
+proc `delete`*(this: var StepShapeReversibleTopologyItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_ReversibleTopologyItem::operator delete",
+    header: "StepShape_ReversibleTopologyItem.hxx".}
 proc constructStepShapeReversibleTopologyItem*(): StepShapeReversibleTopologyItem {.
     constructor, importcpp: "StepShape_ReversibleTopologyItem(@)",
     header: "StepShape_ReversibleTopologyItem.hxx".}
-proc caseNum*(this: StepShapeReversibleTopologyItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepShapeReversibleTopologyItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepShape_ReversibleTopologyItem.hxx".}
 proc edge*(this: StepShapeReversibleTopologyItem): Handle[StepShapeEdge] {.
@@ -49,28 +64,3 @@ proc closedShell*(this: StepShapeReversibleTopologyItem): Handle[
 proc openShell*(this: StepShapeReversibleTopologyItem): Handle[StepShapeOpenShell] {.
     noSideEffect, importcpp: "OpenShell",
     header: "StepShape_ReversibleTopologyItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

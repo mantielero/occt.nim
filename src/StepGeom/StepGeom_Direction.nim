@@ -37,9 +37,10 @@ proc setDirectionRatios*(this: var StepGeomDirection;
     importcpp: "SetDirectionRatios", header: "StepGeom_Direction.hxx".}
 proc directionRatios*(this: StepGeomDirection): Handle[TColStdHArray1OfReal] {.
     noSideEffect, importcpp: "DirectionRatios", header: "StepGeom_Direction.hxx".}
-proc directionRatiosValue*(this: StepGeomDirection; num: cint): cfloat {.noSideEffect,
-    importcpp: "DirectionRatiosValue", header: "StepGeom_Direction.hxx".}
-proc nbDirectionRatios*(this: StepGeomDirection): cint {.noSideEffect,
+proc directionRatiosValue*(this: StepGeomDirection; num: int): StandardReal {.
+    noSideEffect, importcpp: "DirectionRatiosValue",
+    header: "StepGeom_Direction.hxx".}
+proc nbDirectionRatios*(this: StepGeomDirection): int {.noSideEffect,
     importcpp: "NbDirectionRatios", header: "StepGeom_Direction.hxx".}
 type
   StepGeomDirectionbaseType* = StepGeomGeometricRepresentationItem
@@ -51,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Direction.hxx".}
 proc dynamicType*(this: StepGeomDirection): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Direction.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

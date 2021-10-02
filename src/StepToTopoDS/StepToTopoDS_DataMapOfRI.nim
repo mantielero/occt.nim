@@ -19,29 +19,3 @@ type
       Handle[StepReprRepresentationItem], TopoDS_Shape, TColStdMapTransientHasher]
   StepToTopoDS_DataMapIteratorOfDataMapOfRI* = Iterator[
       Handle[StepReprRepresentationItem], TopoDS_Shape, TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

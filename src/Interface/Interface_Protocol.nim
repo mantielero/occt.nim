@@ -21,17 +21,6 @@ discard "forward decl of Interface_Check"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Protocol"
-type
-  HandleC1C1* = Handle[InterfaceProtocol]
-
-## ! General description of Interface Protocols. A Protocol defines
-## ! a set of Entity types. This class provides also the notion of
-## ! Active Protocol, as a working context, defined once then
-## ! exploited by various Tools and Libraries.
-## !
-## ! It also gives control of type definitions. By default, types
-## ! are provided by CDL, but specific implementations, or topics
-## ! like multi-typing, may involve another way
 
 type
   InterfaceProtocol* {.importcpp: "Interface_Protocol",
@@ -57,6 +46,21 @@ type
                                                                                         ## active
                                                                                         ## protocol")
 
+type
+  HandleInterfaceProtocol* = Handle[InterfaceProtocol]
+
+## ! General description of Interface Protocols. A Protocol defines
+## ! a set of Entity types. This class provides also the notion of
+## ! Active Protocol, as a working context, defined once then
+## ! exploited by various Tools and Libraries.
+## !
+## ! It also gives control of type definitions. By default, types
+## ! are provided by CDL, but specific implementations, or topics
+## ! like multi-typing, may involve another way
+type
+  InterfaceProtocolbaseType* = StandardTransient
+
+
 
 proc active*(): Handle[InterfaceProtocol] {.
     importcpp: "Interface_Protocol::Active(@)", header: "Interface_Protocol.hxx".}
@@ -75,9 +79,9 @@ proc isDynamicType*(this: InterfaceProtocol; obj: Handle[StandardTransient]): bo
     noSideEffect, importcpp: "IsDynamicType", header: "Interface_Protocol.hxx".}
 proc nbTypes*(this: InterfaceProtocol; obj: Handle[StandardTransient]): cint {.
     noSideEffect, importcpp: "NbTypes", header: "Interface_Protocol.hxx".}
-proc `type`*(this: InterfaceProtocol; obj: Handle[StandardTransient]; nt: cint = 1): Handle[
+#[ proc `type`*(this: InterfaceProtocol; obj: Handle[StandardTransient]; nt: cint = 1): Handle[
     StandardType] {.noSideEffect, importcpp: "Type",
-                   header: "Interface_Protocol.hxx".}
+                   header: "Interface_Protocol.hxx".} ]#
 proc typeNumber*(this: InterfaceProtocol; atype: Handle[StandardType]): cint {.
     noSideEffect, importcpp: "TypeNumber", header: "Interface_Protocol.hxx".}
 proc globalCheck*(this: InterfaceProtocol; g: InterfaceGraph;
@@ -92,8 +96,6 @@ proc unknownEntity*(this: InterfaceProtocol): Handle[StandardTransient] {.
     noSideEffect, importcpp: "UnknownEntity", header: "Interface_Protocol.hxx".}
 proc isUnknownEntity*(this: InterfaceProtocol; ent: Handle[StandardTransient]): bool {.
     noSideEffect, importcpp: "IsUnknownEntity", header: "Interface_Protocol.hxx".}
-type
-  InterfaceProtocolbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Interface_Protocol::get_type_name(@)",
                             header: "Interface_Protocol.hxx".}

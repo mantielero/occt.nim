@@ -38,12 +38,12 @@ proc setSegments*(this: var StepGeomRectangularCompositeSurface;
     importcpp: "SetSegments", header: "StepGeom_RectangularCompositeSurface.hxx".}
 proc segments*(this: StepGeomRectangularCompositeSurface): Handle[
     StepGeomHArray2OfSurfacePatch] {.noSideEffect, importcpp: "Segments", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc segmentsValue*(this: StepGeomRectangularCompositeSurface; num1: cint; num2: cint): Handle[
+proc segmentsValue*(this: StepGeomRectangularCompositeSurface; num1: int; num2: int): Handle[
     StepGeomSurfacePatch] {.noSideEffect, importcpp: "SegmentsValue",
                            header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc nbSegmentsI*(this: StepGeomRectangularCompositeSurface): cint {.noSideEffect,
+proc nbSegmentsI*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
     importcpp: "NbSegmentsI", header: "StepGeom_RectangularCompositeSurface.hxx".}
-proc nbSegmentsJ*(this: StepGeomRectangularCompositeSurface): cint {.noSideEffect,
+proc nbSegmentsJ*(this: StepGeomRectangularCompositeSurface): int {.noSideEffect,
     importcpp: "NbSegmentsJ", header: "StepGeom_RectangularCompositeSurface.hxx".}
 type
   StepGeomRectangularCompositeSurfacebaseType* = StepGeomBoundedSurface
@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepGeomRectangularCompositeSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepGeom_RectangularCompositeSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

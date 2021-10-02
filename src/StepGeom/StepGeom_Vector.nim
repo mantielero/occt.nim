@@ -27,17 +27,17 @@ type
 proc constructStepGeomVector*(): StepGeomVector {.constructor,
     importcpp: "StepGeom_Vector(@)", header: "StepGeom_Vector.hxx".}
 proc init*(this: var StepGeomVector; aName: Handle[TCollectionHAsciiString];
-          aOrientation: Handle[StepGeomDirection]; aMagnitude: cfloat) {.
+          aOrientation: Handle[StepGeomDirection]; aMagnitude: StandardReal) {.
     importcpp: "Init", header: "StepGeom_Vector.hxx".}
 proc setOrientation*(this: var StepGeomVector;
                     aOrientation: Handle[StepGeomDirection]) {.
     importcpp: "SetOrientation", header: "StepGeom_Vector.hxx".}
 proc orientation*(this: StepGeomVector): Handle[StepGeomDirection] {.noSideEffect,
     importcpp: "Orientation", header: "StepGeom_Vector.hxx".}
-proc setMagnitude*(this: var StepGeomVector; aMagnitude: cfloat) {.
+proc setMagnitude*(this: var StepGeomVector; aMagnitude: StandardReal) {.
     importcpp: "SetMagnitude", header: "StepGeom_Vector.hxx".}
-proc magnitude*(this: StepGeomVector): cfloat {.noSideEffect, importcpp: "Magnitude",
-    header: "StepGeom_Vector.hxx".}
+proc magnitude*(this: StepGeomVector): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "StepGeom_Vector.hxx".}
 type
   StepGeomVectorbaseType* = StepGeomGeometricRepresentationItem
 
@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Vector.hxx".}
 proc dynamicType*(this: StepGeomVector): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Vector.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

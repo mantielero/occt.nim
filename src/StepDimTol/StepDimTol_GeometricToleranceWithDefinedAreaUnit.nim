@@ -43,7 +43,8 @@ proc init*(this: var StepDimTolGeometricToleranceWithDefinedAreaUnit;
           theMagnitude: Handle[StepBasicMeasureWithUnit];
           theTolerancedShapeAspect: StepDimTolGeometricToleranceTarget;
           theUnitSize: Handle[StepBasicLengthMeasureWithUnit];
-          theAreaType: StepDimTolAreaUnitType; theHasSecondUnitSize: bool;
+          theAreaType: StepDimTolAreaUnitType;
+          theHasSecondUnitSize: StandardBoolean;
           theSecondUnitSize: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "Init",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
@@ -59,7 +60,7 @@ proc setSecondUnitSize*(this: var StepDimTolGeometricToleranceWithDefinedAreaUni
     theSecondUnitSize: Handle[StepBasicLengthMeasureWithUnit]) {.
     importcpp: "SetSecondUnitSize",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-proc hasSecondUnitSize*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): bool {.
+proc hasSecondUnitSize*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): StandardBoolean {.
     noSideEffect, importcpp: "HasSecondUnitSize",
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
 type
@@ -70,28 +71,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_Geometr
     header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
 proc dynamicType*(this: StepDimTolGeometricToleranceWithDefinedAreaUnit): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepDimTol_GeometricToleranceWithDefinedAreaUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

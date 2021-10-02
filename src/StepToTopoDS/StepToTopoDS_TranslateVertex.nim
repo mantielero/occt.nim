@@ -25,6 +25,24 @@ type
                                  bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateVertex; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator new",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateVertex; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator delete",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateVertex; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator new[]",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateVertex; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator delete[]",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateVertex; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator new",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateVertex; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslateVertex::operator delete",
+    header: "StepToTopoDS_TranslateVertex.hxx".}
 proc constructStepToTopoDS_TranslateVertex*(): StepToTopoDS_TranslateVertex {.
     constructor, importcpp: "StepToTopoDS_TranslateVertex(@)",
     header: "StepToTopoDS_TranslateVertex.hxx".}
@@ -39,28 +57,3 @@ proc value*(this: StepToTopoDS_TranslateVertex): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateVertex.hxx".}
 proc error*(this: StepToTopoDS_TranslateVertex): StepToTopoDS_TranslateVertexError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateVertex.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

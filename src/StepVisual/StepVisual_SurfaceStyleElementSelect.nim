@@ -21,17 +21,31 @@ discard "forward decl of StepVisual_SurfaceStyleParameterLine"
 discard "forward decl of StepVisual_SurfaceStyleRendering"
 type
   StepVisualSurfaceStyleElementSelect* {.importcpp: "StepVisual_SurfaceStyleElementSelect", header: "StepVisual_SurfaceStyleElementSelect.hxx",
-                                        bycopy.} = object of StepDataSelectType ## !
-                                                                           ## Returns a
-                                                                           ## SurfaceStyleElementSelect
-                                                                           ## SelectType
+                                        bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualSurfaceStyleElementSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_SurfaceStyleElementSelect::operator new",
+    header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc `delete`*(this: var StepVisualSurfaceStyleElementSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_SurfaceStyleElementSelect::operator delete",
+    header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc `new[]`*(this: var StepVisualSurfaceStyleElementSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_SurfaceStyleElementSelect::operator new[]",
+    header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc `delete[]`*(this: var StepVisualSurfaceStyleElementSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_SurfaceStyleElementSelect::operator delete[]",
+    header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc `new`*(this: var StepVisualSurfaceStyleElementSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_SurfaceStyleElementSelect::operator new", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
+proc `delete`*(this: var StepVisualSurfaceStyleElementSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_SurfaceStyleElementSelect::operator delete",
+    header: "StepVisual_SurfaceStyleElementSelect.hxx".}
 proc constructStepVisualSurfaceStyleElementSelect*(): StepVisualSurfaceStyleElementSelect {.
     constructor, importcpp: "StepVisual_SurfaceStyleElementSelect(@)",
     header: "StepVisual_SurfaceStyleElementSelect.hxx".}
 proc caseNum*(this: StepVisualSurfaceStyleElementSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
 proc surfaceStyleFillArea*(this: StepVisualSurfaceStyleElementSelect): Handle[
     StepVisualSurfaceStyleFillArea] {.noSideEffect,
@@ -46,28 +60,3 @@ proc surfaceStyleParameterLine*(this: StepVisualSurfaceStyleElementSelect): Hand
 proc surfaceStyleRendering*(this: StepVisualSurfaceStyleElementSelect): Handle[
     StepVisualSurfaceStyleRendering] {.noSideEffect,
                                       importcpp: "SurfaceStyleRendering", header: "StepVisual_SurfaceStyleElementSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,14 +21,31 @@ discard "forward decl of StepVisual_PresentationSet"
 type
   StepVisualInvisibilityContext* {.importcpp: "StepVisual_InvisibilityContext",
                                   header: "StepVisual_InvisibilityContext.hxx",
-                                  bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                     ## InvisibilityContext SelectType
+                                  bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualInvisibilityContext; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_InvisibilityContext::operator new",
+    header: "StepVisual_InvisibilityContext.hxx".}
+proc `delete`*(this: var StepVisualInvisibilityContext; theAddress: pointer) {.
+    importcpp: "StepVisual_InvisibilityContext::operator delete",
+    header: "StepVisual_InvisibilityContext.hxx".}
+proc `new[]`*(this: var StepVisualInvisibilityContext; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_InvisibilityContext::operator new[]",
+    header: "StepVisual_InvisibilityContext.hxx".}
+proc `delete[]`*(this: var StepVisualInvisibilityContext; theAddress: pointer) {.
+    importcpp: "StepVisual_InvisibilityContext::operator delete[]",
+    header: "StepVisual_InvisibilityContext.hxx".}
+proc `new`*(this: var StepVisualInvisibilityContext; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_InvisibilityContext::operator new",
+    header: "StepVisual_InvisibilityContext.hxx".}
+proc `delete`*(this: var StepVisualInvisibilityContext; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_InvisibilityContext::operator delete",
+    header: "StepVisual_InvisibilityContext.hxx".}
 proc constructStepVisualInvisibilityContext*(): StepVisualInvisibilityContext {.
     constructor, importcpp: "StepVisual_InvisibilityContext(@)",
     header: "StepVisual_InvisibilityContext.hxx".}
-proc caseNum*(this: StepVisualInvisibilityContext; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualInvisibilityContext; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepVisual_InvisibilityContext.hxx".}
 proc presentationRepresentation*(this: StepVisualInvisibilityContext): Handle[
@@ -41,28 +58,3 @@ proc presentationSet*(this: StepVisualInvisibilityContext): Handle[
 proc draughtingModel*(this: StepVisualInvisibilityContext): Handle[
     StepVisualDraughtingModel] {.noSideEffect, importcpp: "DraughtingModel",
                                 header: "StepVisual_InvisibilityContext.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

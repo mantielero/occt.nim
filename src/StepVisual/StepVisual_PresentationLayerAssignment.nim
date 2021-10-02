@@ -54,10 +54,10 @@ proc setAssignedItems*(this: var StepVisualPresentationLayerAssignment;
     header: "StepVisual_PresentationLayerAssignment.hxx".}
 proc assignedItems*(this: StepVisualPresentationLayerAssignment): Handle[
     StepVisualHArray1OfLayeredItem] {.noSideEffect, importcpp: "AssignedItems", header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc assignedItemsValue*(this: StepVisualPresentationLayerAssignment; num: cint): StepVisualLayeredItem {.
+proc assignedItemsValue*(this: StepVisualPresentationLayerAssignment; num: int): StepVisualLayeredItem {.
     noSideEffect, importcpp: "AssignedItemsValue",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-proc nbAssignedItems*(this: StepVisualPresentationLayerAssignment): cint {.
+proc nbAssignedItems*(this: StepVisualPresentationLayerAssignment): int {.
     noSideEffect, importcpp: "NbAssignedItems",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
 type
@@ -69,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Present
 proc dynamicType*(this: StepVisualPresentationLayerAssignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_PresentationLayerAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

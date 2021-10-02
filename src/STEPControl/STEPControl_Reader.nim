@@ -21,17 +21,6 @@ type
   STEPControlReader* {.importcpp: "STEPControl_Reader",
                       header: "STEPControl_Reader.hxx", bycopy.} = object of XSControlReader ##
                                                                                       ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## reader
-                                                                                      ## object
-                                                                                      ## with
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## STEP
-                                                                                      ## model.
-                                                                                      ##
-                                                                                      ## !
                                                                                       ## Returns
                                                                                       ## units
                                                                                       ## for
@@ -45,46 +34,39 @@ type
                                                                                       ## representations
 
 
+proc `new`*(this: var STEPControlReader; theSize: csize_t): pointer {.
+    importcpp: "STEPControl_Reader::operator new",
+    header: "STEPControl_Reader.hxx".}
+proc `delete`*(this: var STEPControlReader; theAddress: pointer) {.
+    importcpp: "STEPControl_Reader::operator delete",
+    header: "STEPControl_Reader.hxx".}
+proc `new[]`*(this: var STEPControlReader; theSize: csize_t): pointer {.
+    importcpp: "STEPControl_Reader::operator new[]",
+    header: "STEPControl_Reader.hxx".}
+proc `delete[]`*(this: var STEPControlReader; theAddress: pointer) {.
+    importcpp: "STEPControl_Reader::operator delete[]",
+    header: "STEPControl_Reader.hxx".}
+proc `new`*(this: var STEPControlReader; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPControl_Reader::operator new",
+    header: "STEPControl_Reader.hxx".}
+proc `delete`*(this: var STEPControlReader; a2: pointer; a3: pointer) {.
+    importcpp: "STEPControl_Reader::operator delete",
+    header: "STEPControl_Reader.hxx".}
 proc constructSTEPControlReader*(): STEPControlReader {.constructor,
     importcpp: "STEPControl_Reader(@)", header: "STEPControl_Reader.hxx".}
 proc constructSTEPControlReader*(ws: Handle[XSControlWorkSession];
-                                scratch: bool = true): STEPControlReader {.
+                                scratch: StandardBoolean = true): STEPControlReader {.
     constructor, importcpp: "STEPControl_Reader(@)",
     header: "STEPControl_Reader.hxx".}
 proc stepModel*(this: STEPControlReader): Handle[StepDataStepModel] {.noSideEffect,
     importcpp: "StepModel", header: "STEPControl_Reader.hxx".}
-proc transferRoot*(this: var STEPControlReader; num: cint = 1;
-                  theProgress: MessageProgressRange = messageProgressRange()): bool {.
-    importcpp: "TransferRoot", header: "STEPControl_Reader.hxx".}
-proc nbRootsForTransfer*(this: var STEPControlReader): cint {.
+#[ proc transferRoot*(this: var STEPControlReader; num: int = 1;
+                  theProgress: MessageProgressRange = messageProgressRange()): StandardBoolean {.
+    importcpp: "TransferRoot", header: "STEPControl_Reader.hxx".} ]#
+proc nbRootsForTransfer*(this: var STEPControlReader): int {.
     importcpp: "NbRootsForTransfer", header: "STEPControl_Reader.hxx".}
-proc fileUnits*(this: var STEPControlReader;
+#[ proc fileUnits*(this: var STEPControlReader;
                theUnitLengthNames: var TColStdSequenceOfAsciiString;
                theUnitAngleNames: var TColStdSequenceOfAsciiString;
                theUnitSolidAngleNames: var TColStdSequenceOfAsciiString) {.
-    importcpp: "FileUnits", header: "STEPControl_Reader.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "FileUnits", header: "STEPControl_Reader.hxx".} ]#

@@ -24,19 +24,29 @@ discard "forward decl of StepBasic_DocumentRelationship"
 type
   StepAP214AutoDesignPresentedItemSelect* {.
       importcpp: "StepAP214_AutoDesignPresentedItemSelect",
-      header: "StepAP214_AutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## AutoDesignPresentedItemSelect
-                                                                                              ## SelectType
+      header: "StepAP214_AutoDesignPresentedItemSelect.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignPresentedItemSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator new",
+    header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignPresentedItemSelect; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator delete",
+    header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignPresentedItemSelect; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator new[]",
+    header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignPresentedItemSelect;
+                theAddress: pointer) {.importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator delete[]", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc `new`*(this: var StepAP214AutoDesignPresentedItemSelect; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator new", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignPresentedItemSelect; a2: pointer;
+              a3: pointer) {.importcpp: "StepAP214_AutoDesignPresentedItemSelect::operator delete", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
 proc constructStepAP214AutoDesignPresentedItemSelect*(): StepAP214AutoDesignPresentedItemSelect {.
     constructor, importcpp: "StepAP214_AutoDesignPresentedItemSelect(@)",
     header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
 proc caseNum*(this: StepAP214AutoDesignPresentedItemSelect;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
 proc productDefinitionRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
     StepBasicProductDefinitionRelationship] {.noSideEffect,
@@ -57,28 +67,3 @@ proc shapeAspect*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
 proc documentRelationship*(this: StepAP214AutoDesignPresentedItemSelect): Handle[
     StepBasicDocumentRelationship] {.noSideEffect,
                                     importcpp: "DocumentRelationship", header: "StepAP214_AutoDesignPresentedItemSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

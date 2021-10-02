@@ -21,10 +21,6 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of STEPControl_Controller"
 discard "forward decl of STEPControl_Controller"
-type
-  HandleC1C1* = Handle[STEPControlController]
-
-## ! defines basic controller for STEP processor
 
 type
   STEPControlController* {.importcpp: "STEPControl_Controller",
@@ -47,6 +43,14 @@ type
                                                                                                   ## Controller
 
 
+type
+  HandleSTEPControlController* = Handle[STEPControlController]
+
+## ! defines basic controller for STEP processor
+
+type
+  STEPControlControllerbaseType* = XSControlController
+  
 proc constructSTEPControlController*(): STEPControlController {.constructor,
     importcpp: "STEPControl_Controller(@)", header: "STEPControl_Controller.hxx".}
 proc newModel*(this: STEPControlController): Handle[InterfaceInterfaceModel] {.
@@ -54,46 +58,20 @@ proc newModel*(this: STEPControlController): Handle[InterfaceInterfaceModel] {.
 proc customise*(this: var STEPControlController;
                ws: var Handle[XSControlWorkSession]) {.importcpp: "Customise",
     header: "STEPControl_Controller.hxx".}
-proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
+#[ proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
                         fp: Handle[TransferFinderProcess];
                         model: Handle[InterfaceInterfaceModel];
-                        modetrans: cint = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
+                        modetrans: int = 0; theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     noSideEffect, importcpp: "TransferWriteShape",
-    header: "STEPControl_Controller.hxx".}
-proc init*(): bool {.importcpp: "STEPControl_Controller::Init(@)",
-                  header: "STEPControl_Controller.hxx".}
-type
-  STEPControlControllerbaseType* = XSControlController
+    header: "STEPControl_Controller.hxx".} ]#
+proc init*(): StandardBoolean {.importcpp: "STEPControl_Controller::Init(@)",
+                             header: "STEPControl_Controller.hxx".}
 
-proc getTypeName*(): cstring {.importcpp: "STEPControl_Controller::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "STEPControl_Controller::get_type_name(@)",
                             header: "STEPControl_Controller.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPControl_Controller::get_type_descriptor(@)",
     header: "STEPControl_Controller.hxx".}
 proc dynamicType*(this: STEPControlController): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "STEPControl_Controller.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "STEPControl_Controller.hxx".} ]#

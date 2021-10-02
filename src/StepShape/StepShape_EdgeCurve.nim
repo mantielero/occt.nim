@@ -33,16 +33,16 @@ proc constructStepShapeEdgeCurve*(): StepShapeEdgeCurve {.constructor,
     importcpp: "StepShape_EdgeCurve(@)", header: "StepShape_EdgeCurve.hxx".}
 proc init*(this: var StepShapeEdgeCurve; aName: Handle[TCollectionHAsciiString];
           aEdgeStart: Handle[StepShapeVertex]; aEdgeEnd: Handle[StepShapeVertex];
-          aEdgeGeometry: Handle[StepGeomCurve]; aSameSense: bool) {.
+          aEdgeGeometry: Handle[StepGeomCurve]; aSameSense: StandardBoolean) {.
     importcpp: "Init", header: "StepShape_EdgeCurve.hxx".}
 proc setEdgeGeometry*(this: var StepShapeEdgeCurve;
                      aEdgeGeometry: Handle[StepGeomCurve]) {.
     importcpp: "SetEdgeGeometry", header: "StepShape_EdgeCurve.hxx".}
 proc edgeGeometry*(this: StepShapeEdgeCurve): Handle[StepGeomCurve] {.noSideEffect,
     importcpp: "EdgeGeometry", header: "StepShape_EdgeCurve.hxx".}
-proc setSameSense*(this: var StepShapeEdgeCurve; aSameSense: bool) {.
+proc setSameSense*(this: var StepShapeEdgeCurve; aSameSense: StandardBoolean) {.
     importcpp: "SetSameSense", header: "StepShape_EdgeCurve.hxx".}
-proc sameSense*(this: StepShapeEdgeCurve): bool {.noSideEffect,
+proc sameSense*(this: StepShapeEdgeCurve): StandardBoolean {.noSideEffect,
     importcpp: "SameSense", header: "StepShape_EdgeCurve.hxx".}
 type
   StepShapeEdgeCurvebaseType* = StepShapeEdge
@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_EdgeCurve.hxx".}
 proc dynamicType*(this: StepShapeEdgeCurve): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_EdgeCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

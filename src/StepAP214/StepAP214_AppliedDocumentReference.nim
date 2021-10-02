@@ -39,10 +39,10 @@ proc items*(this: StepAP214AppliedDocumentReference): Handle[
 proc setItems*(this: var StepAP214AppliedDocumentReference;
               aItems: Handle[StepAP214HArray1OfDocumentReferenceItem]) {.
     importcpp: "SetItems", header: "StepAP214_AppliedDocumentReference.hxx".}
-proc itemsValue*(this: StepAP214AppliedDocumentReference; num: cint): StepAP214DocumentReferenceItem {.
+proc itemsValue*(this: StepAP214AppliedDocumentReference; num: int): StepAP214DocumentReferenceItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-proc nbItems*(this: StepAP214AppliedDocumentReference): cint {.noSideEffect,
+proc nbItems*(this: StepAP214AppliedDocumentReference): int {.noSideEffect,
     importcpp: "NbItems", header: "StepAP214_AppliedDocumentReference.hxx".}
 type
   StepAP214AppliedDocumentReferencebaseType* = StepBasicDocumentReference
@@ -55,28 +55,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP214AppliedDocumentReference): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP214_AppliedDocumentReference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

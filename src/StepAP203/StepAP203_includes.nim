@@ -27,45 +27,19 @@ include StepAP203_ChangeRequestItem
 include StepAP203_ClassifiedItem
 include StepAP203_ContractedItem
 include StepAP203_DateTimeItem
-include StepAP203_HArray1OfApprovedItem
-include StepAP203_HArray1OfCertifiedItem
-include StepAP203_HArray1OfChangeRequestItem
-include StepAP203_HArray1OfClassifiedItem
-include StepAP203_HArray1OfContractedItem
-include StepAP203_HArray1OfDateTimeItem
-include StepAP203_HArray1OfPersonOrganizationItem
-include StepAP203_HArray1OfSpecifiedItem
-include StepAP203_HArray1OfStartRequestItem
-include StepAP203_HArray1OfWorkItem
+#include StepAP203_HArray1OfApprovedItem
+#include StepAP203_HArray1OfCertifiedItem
+#include StepAP203_HArray1OfChangeRequestItem
+#include StepAP203_HArray1OfClassifiedItem
+#include StepAP203_HArray1OfContractedItem
+#include StepAP203_HArray1OfDateTimeItem
+#include StepAP203_HArray1OfPersonOrganizationItem
+#include StepAP203_HArray1OfSpecifiedItem
+#include StepAP203_HArray1OfStartRequestItem
+#include StepAP203_HArray1OfWorkItem
 include StepAP203_PersonOrganizationItem
 include StepAP203_SpecifiedItem
 include StepAP203_StartRequest
 include StepAP203_StartRequestItem
 include StepAP203_StartWork
 include StepAP203_WorkItem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

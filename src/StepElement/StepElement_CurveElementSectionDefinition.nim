@@ -34,19 +34,19 @@ proc constructStepElementCurveElementSectionDefinition*(): StepElementCurveEleme
     constructor, importcpp: "StepElement_CurveElementSectionDefinition(@)",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc init*(this: var StepElementCurveElementSectionDefinition;
-          aDescription: Handle[TCollectionHAsciiString]; aSectionAngle: cfloat) {.
-    importcpp: "Init", header: "StepElement_CurveElementSectionDefinition.hxx".}
+          aDescription: Handle[TCollectionHAsciiString];
+          aSectionAngle: StandardReal) {.importcpp: "Init", header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc description*(this: StepElementCurveElementSectionDefinition): Handle[
     TCollectionHAsciiString] {.noSideEffect, importcpp: "Description", header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc setDescription*(this: var StepElementCurveElementSectionDefinition;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
-proc sectionAngle*(this: StepElementCurveElementSectionDefinition): cfloat {.
+proc sectionAngle*(this: StepElementCurveElementSectionDefinition): StandardReal {.
     noSideEffect, importcpp: "SectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 proc setSectionAngle*(this: var StepElementCurveElementSectionDefinition;
-                     sectionAngle: cfloat) {.importcpp: "SetSectionAngle",
+                     sectionAngle: StandardReal) {.importcpp: "SetSectionAngle",
     header: "StepElement_CurveElementSectionDefinition.hxx".}
 type
   StepElementCurveElementSectionDefinitionbaseType* = StandardTransient
@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveE
 proc dynamicType*(this: StepElementCurveElementSectionDefinition): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_CurveElementSectionDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -21,16 +21,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_DispatchControl"
 discard "forward decl of Transfer_DispatchControl"
 type
-  HandleC1C1* = Handle[TransferDispatchControl]
-
-## ! This is an auxiliary class for TransferDispatch, which allows
-## ! to record simple copies, as CopyControl from Interface, but
-## ! based on a TransientProcess. Hence, it allows in addition
-## ! more actions (such as recording results of adaptations)
-
-type
   TransferDispatchControl* {.importcpp: "Transfer_DispatchControl",
-                            header: "Transfer_DispatchControl.hxx", bycopy.} = object of InterfaceCopyControl ##
+                            header: "Transfer_DispatchControl.hxx", bycopy.} = object #of InterfaceCopyControl ##
                                                                                                        ## !
                                                                                                        ## Creates
                                                                                                        ## the
@@ -39,6 +31,18 @@ type
                                                                                                        ## for
                                                                                                        ## use
 
+
+type
+  HandleTransferDispatchControl* = Handle[TransferDispatchControl]
+
+## ! This is an auxiliary class for TransferDispatch, which allows
+## ! to record simple copies, as CopyControl from Interface, but
+## ! based on a TransientProcess. Hence, it allows in addition
+## ! more actions (such as recording results of adaptations)
+#[ 
+type
+  TransferDispatchControlbaseType* = InterfaceCopyControl
+ ]#
 
 proc constructTransferDispatchControl*(model: Handle[InterfaceInterfaceModel];
                                       tp: Handle[TransferTransientProcess]): TransferDispatchControl {.
@@ -55,11 +59,9 @@ proc clear*(this: var TransferDispatchControl) {.importcpp: "Clear",
 proc `bind`*(this: var TransferDispatchControl; ent: Handle[StandardTransient];
             res: Handle[StandardTransient]) {.importcpp: "Bind",
     header: "Transfer_DispatchControl.hxx".}
-proc search*(this: TransferDispatchControl; ent: Handle[StandardTransient];
-            res: var Handle[StandardTransient]): bool {.noSideEffect,
+#[ proc search*(this: TransferDispatchControl; ent: Handle[StandardTransient];
+            res: var Handle[StandardTransient]): StandardBoolean {.noSideEffect,
     importcpp: "Search", header: "Transfer_DispatchControl.hxx".}
-type
-  TransferDispatchControlbaseType* = InterfaceCopyControl
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_DispatchControl::get_type_name(@)",
                             header: "Transfer_DispatchControl.hxx".}
@@ -67,29 +69,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_DispatchControl::get_type_descriptor(@)",
     header: "Transfer_DispatchControl.hxx".}
 proc dynamicType*(this: TransferDispatchControl): Handle[StandardType] {.
-    noSideEffect, importcpp: "DynamicType", header: "Transfer_DispatchControl.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    noSideEffect, importcpp: "DynamicType", header: "Transfer_DispatchControl.hxx".} ]#

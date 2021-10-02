@@ -20,29 +20,3 @@ type
     StepDimTolMaximumMaterialCondition, StepDimTolLeastMaterialCondition,
     StepDimTolRegardlessOfFeatureSize
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

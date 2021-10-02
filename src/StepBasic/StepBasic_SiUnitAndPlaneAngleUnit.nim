@@ -28,7 +28,7 @@ type
 proc constructStepBasicSiUnitAndPlaneAngleUnit*(): StepBasicSiUnitAndPlaneAngleUnit {.
     constructor, importcpp: "StepBasic_SiUnitAndPlaneAngleUnit(@)",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-proc init*(this: var StepBasicSiUnitAndPlaneAngleUnit; hasAprefix: bool;
+proc init*(this: var StepBasicSiUnitAndPlaneAngleUnit; hasAprefix: StandardBoolean;
           aPrefix: StepBasicSiPrefix; aName: StepBasicSiUnitName) {.
     importcpp: "Init", header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
 proc setPlaneAngleUnit*(this: var StepBasicSiUnitAndPlaneAngleUnit;
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicSiUnitAndPlaneAngleUnit): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_SiUnitAndPlaneAngleUnit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -41,10 +41,10 @@ proc setCollectedText*(this: var StepVisualCompositeText; aCollectedText: Handle
 proc collectedText*(this: StepVisualCompositeText): Handle[
     StepVisualHArray1OfTextOrCharacter] {.noSideEffect,
     importcpp: "CollectedText", header: "StepVisual_CompositeText.hxx".}
-proc collectedTextValue*(this: StepVisualCompositeText; num: cint): StepVisualTextOrCharacter {.
+proc collectedTextValue*(this: StepVisualCompositeText; num: int): StepVisualTextOrCharacter {.
     noSideEffect, importcpp: "CollectedTextValue",
     header: "StepVisual_CompositeText.hxx".}
-proc nbCollectedText*(this: StepVisualCompositeText): cint {.noSideEffect,
+proc nbCollectedText*(this: StepVisualCompositeText): int {.noSideEffect,
     importcpp: "NbCollectedText", header: "StepVisual_CompositeText.hxx".}
 type
   StepVisualCompositeTextbaseType* = StepGeomGeometricRepresentationItem
@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CompositeText.hxx".}
 proc dynamicType*(this: StepVisualCompositeText): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CompositeText.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

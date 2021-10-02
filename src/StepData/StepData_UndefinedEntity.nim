@@ -45,24 +45,24 @@ type
 proc constructStepDataUndefinedEntity*(): StepDataUndefinedEntity {.constructor,
     importcpp: "StepData_UndefinedEntity(@)",
     header: "StepData_UndefinedEntity.hxx".}
-proc constructStepDataUndefinedEntity*(issub: bool): StepDataUndefinedEntity {.
+proc constructStepDataUndefinedEntity*(issub: StandardBoolean): StepDataUndefinedEntity {.
     constructor, importcpp: "StepData_UndefinedEntity(@)",
     header: "StepData_UndefinedEntity.hxx".}
 proc undefinedContent*(this: StepDataUndefinedEntity): Handle[
     InterfaceUndefinedContent] {.noSideEffect, importcpp: "UndefinedContent",
                                 header: "StepData_UndefinedEntity.hxx".}
-proc isSub*(this: StepDataUndefinedEntity): bool {.noSideEffect, importcpp: "IsSub",
-    header: "StepData_UndefinedEntity.hxx".}
+proc isSub*(this: StepDataUndefinedEntity): StandardBoolean {.noSideEffect,
+    importcpp: "IsSub", header: "StepData_UndefinedEntity.hxx".}
 proc super*(this: StepDataUndefinedEntity): Handle[StepDataUndefinedEntity] {.
     noSideEffect, importcpp: "Super", header: "StepData_UndefinedEntity.hxx".}
-proc isComplex*(this: StepDataUndefinedEntity): bool {.noSideEffect,
+proc isComplex*(this: StepDataUndefinedEntity): StandardBoolean {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_UndefinedEntity.hxx".}
 proc next*(this: StepDataUndefinedEntity): Handle[StepDataUndefinedEntity] {.
     noSideEffect, importcpp: "Next", header: "StepData_UndefinedEntity.hxx".}
 proc stepType*(this: StepDataUndefinedEntity): StandardCString {.noSideEffect,
     importcpp: "StepType", header: "StepData_UndefinedEntity.hxx".}
 proc readRecord*(this: var StepDataUndefinedEntity;
-                sr: Handle[StepDataStepReaderData]; num: cint;
+                sr: Handle[StepDataStepReaderData]; num: int;
                 ach: var Handle[InterfaceCheck]) {.importcpp: "ReadRecord",
     header: "StepData_UndefinedEntity.hxx".}
 proc writeParams*(this: StepDataUndefinedEntity; sw: var StepDataStepWriter) {.
@@ -83,28 +83,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_UndefinedEntity.hxx".}
 proc dynamicType*(this: StepDataUndefinedEntity): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepData_UndefinedEntity.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

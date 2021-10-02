@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_AssemblyC
 proc dynamicType*(this: StepReprAssemblyComponentUsageSubstitute): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_AssemblyComponentUsageSubstitute.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

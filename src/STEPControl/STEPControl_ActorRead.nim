@@ -36,17 +36,8 @@ discard "forward decl of StepRepr_ConstructiveGeometryRepresentationRelationship
 discard "forward decl of STEPControl_ActorRead"
 discard "forward decl of STEPControl_ActorRead"
 type
-  HandleC1C1* = Handle[STEPControlActorRead]
-
-## ! This class performs the transfer of an Entity from
-## ! AP214 and AP203, either Geometric or Topologic.
-## !
-## ! I.E. for each type of Entity, it invokes the appropriate Tool
-## ! then returns the Binder which contains the Result
-
-type
   STEPControlActorRead* {.importcpp: "STEPControl_ActorRead",
-                         header: "STEPControl_ActorRead.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
+                         header: "STEPControl_ActorRead.hxx", bycopy.} = object #of TransferActorOfTransientProcess ##
                                                                                                             ## !
                                                                                                             ## Transfers
                                                                                                             ## product
@@ -68,71 +59,57 @@ type
                                                                                                             ## root
                                                                                                             ## shape
 
+type
+  HandleSTEPControlActorRead* = Handle[STEPControlActorRead]
+
+## ! This class performs the transfer of an Entity from
+## ! AP214 and AP203, either Geometric or Topologic.
+## !
+## ! I.E. for each type of Entity, it invokes the appropriate Tool
+## ! then returns the Binder which contains the Result
+
+type
+  STEPControlActorReadbaseType* = TransferActorOfTransientProcess
 
 proc constructSTEPControlActorRead*(): STEPControlActorRead {.constructor,
     importcpp: "STEPControl_ActorRead(@)", header: "STEPControl_ActorRead.hxx".}
-proc recognize*(this: var STEPControlActorRead; start: Handle[StandardTransient]): bool {.
+proc recognize*(this: var STEPControlActorRead; start: Handle[StandardTransient]): StandardBoolean {.
     importcpp: "Recognize", header: "STEPControl_ActorRead.hxx".}
-proc transfer*(this: var STEPControlActorRead; start: Handle[StandardTransient];
+#[ proc transfer*(this: var STEPControlActorRead; start: Handle[StandardTransient];
               tp: Handle[TransferTransientProcess];
               theProgress: MessageProgressRange = messageProgressRange()): Handle[
-    TransferBinder] {.importcpp: "Transfer", header: "STEPControl_ActorRead.hxx".}
-proc transferShape*(this: var STEPControlActorRead;
+    TransferBinder] {.importcpp: "Transfer", header: "STEPControl_ActorRead.hxx".} ]#
+#[ proc transferShape*(this: var STEPControlActorRead;
                    start: Handle[StandardTransient];
-                   tp: Handle[TransferTransientProcess]; isManifold: bool = true;
-                   theUseTrsf: bool = false;
+                   tp: Handle[TransferTransientProcess];
+                   isManifold: StandardBoolean = true;
+                   theUseTrsf: StandardBoolean = false;
                    theProgress: MessageProgressRange = messageProgressRange()): Handle[
     TransferBinder] {.importcpp: "TransferShape",
-                     header: "STEPControl_ActorRead.hxx".}
-proc prepareUnits*(this: var STEPControlActorRead;
+                     header: "STEPControl_ActorRead.hxx".} ]#
+#[ proc prepareUnits*(this: var STEPControlActorRead;
                   rep: Handle[StepReprRepresentation];
                   tp: Handle[TransferTransientProcess]) {.
-    importcpp: "PrepareUnits", header: "STEPControl_ActorRead.hxx".}
+    importcpp: "PrepareUnits", header: "STEPControl_ActorRead.hxx".} ]#
 proc resetUnits*(this: var STEPControlActorRead) {.importcpp: "ResetUnits",
     header: "STEPControl_ActorRead.hxx".}
-proc computeTransformation*(this: var STEPControlActorRead;
+#[ proc computeTransformation*(this: var STEPControlActorRead;
                            origin: Handle[StepGeomAxis2Placement3d];
                            target: Handle[StepGeomAxis2Placement3d];
                            origContext: Handle[StepReprRepresentation];
                            targContext: Handle[StepReprRepresentation];
-                           tp: Handle[TransferTransientProcess]; trsf: var Trsf): bool {.
-    importcpp: "ComputeTransformation", header: "STEPControl_ActorRead.hxx".}
-proc computeSRRWT*(this: var STEPControlActorRead;
+                           tp: Handle[TransferTransientProcess]; trsf: var Trsf): StandardBoolean {.
+    importcpp: "ComputeTransformation", header: "STEPControl_ActorRead.hxx".} ]#
+#[ proc computeSRRWT*(this: var STEPControlActorRead;
                   srr: Handle[StepReprRepresentationRelationship];
-                  tp: Handle[TransferTransientProcess]; trsf: var Trsf): bool {.
-    importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".}
-type
-  STEPControlActorReadbaseType* = TransferActorOfTransientProcess
+                  tp: Handle[TransferTransientProcess]; trsf: var Trsf): StandardBoolean {.
+    importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".} ]#
 
-proc getTypeName*(): cstring {.importcpp: "STEPControl_ActorRead::get_type_name(@)",
+
+#[ proc getTypeName*(): cstring {.importcpp: "STEPControl_ActorRead::get_type_name(@)",
                             header: "STEPControl_ActorRead.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "STEPControl_ActorRead::get_type_descriptor(@)",
     header: "STEPControl_ActorRead.hxx".}
 proc dynamicType*(this: STEPControlActorRead): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "STEPControl_ActorRead.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "STEPControl_ActorRead.hxx".} ]#

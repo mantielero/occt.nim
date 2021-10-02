@@ -27,11 +27,11 @@ type
 
 proc constructStepBasicDate*(): StepBasicDate {.constructor,
     importcpp: "StepBasic_Date(@)", header: "StepBasic_Date.hxx".}
-proc init*(this: var StepBasicDate; aYearComponent: cint) {.importcpp: "Init",
+proc init*(this: var StepBasicDate; aYearComponent: int) {.importcpp: "Init",
     header: "StepBasic_Date.hxx".}
-proc setYearComponent*(this: var StepBasicDate; aYearComponent: cint) {.
+proc setYearComponent*(this: var StepBasicDate; aYearComponent: int) {.
     importcpp: "SetYearComponent", header: "StepBasic_Date.hxx".}
-proc yearComponent*(this: StepBasicDate): cint {.noSideEffect,
+proc yearComponent*(this: StepBasicDate): int {.noSideEffect,
     importcpp: "YearComponent", header: "StepBasic_Date.hxx".}
 type
   StepBasicDatebaseType* = StandardTransient
@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_Date.hxx".}
 proc dynamicType*(this: StepBasicDate): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_Date.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

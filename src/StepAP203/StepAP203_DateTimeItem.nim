@@ -26,15 +26,30 @@ discard "forward decl of StepBasic_SecurityClassification"
 discard "forward decl of StepBasic_Certification"
 type
   StepAP203DateTimeItem* {.importcpp: "StepAP203_DateTimeItem",
-                          header: "StepAP203_DateTimeItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                 ## !
-                                                                                                 ## Empty
-                                                                                                 ## constructor
+                          header: "StepAP203_DateTimeItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP203DateTimeItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_DateTimeItem::operator new",
+    header: "StepAP203_DateTimeItem.hxx".}
+proc `delete`*(this: var StepAP203DateTimeItem; theAddress: pointer) {.
+    importcpp: "StepAP203_DateTimeItem::operator delete",
+    header: "StepAP203_DateTimeItem.hxx".}
+proc `new[]`*(this: var StepAP203DateTimeItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP203_DateTimeItem::operator new[]",
+    header: "StepAP203_DateTimeItem.hxx".}
+proc `delete[]`*(this: var StepAP203DateTimeItem; theAddress: pointer) {.
+    importcpp: "StepAP203_DateTimeItem::operator delete[]",
+    header: "StepAP203_DateTimeItem.hxx".}
+proc `new`*(this: var StepAP203DateTimeItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP203_DateTimeItem::operator new",
+    header: "StepAP203_DateTimeItem.hxx".}
+proc `delete`*(this: var StepAP203DateTimeItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP203_DateTimeItem::operator delete",
+    header: "StepAP203_DateTimeItem.hxx".}
 proc constructStepAP203DateTimeItem*(): StepAP203DateTimeItem {.constructor,
     importcpp: "StepAP203_DateTimeItem(@)", header: "StepAP203_DateTimeItem.hxx".}
-proc caseNum*(this: StepAP203DateTimeItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP203DateTimeItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP203_DateTimeItem.hxx".}
 proc productDefinition*(this: StepAP203DateTimeItem): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition",
@@ -58,28 +73,3 @@ proc securityClassification*(this: StepAP203DateTimeItem): Handle[
                                       header: "StepAP203_DateTimeItem.hxx".}
 proc certification*(this: StepAP203DateTimeItem): Handle[StepBasicCertification] {.
     noSideEffect, importcpp: "Certification", header: "StepAP203_DateTimeItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -17,16 +17,6 @@
 discard "forward decl of Transfer_BinderOfTransientInteger"
 discard "forward decl of Transfer_BinderOfTransientInteger"
 type
-  HandleC1C1* = Handle[TransferBinderOfTransientInteger]
-
-## ! This type of Binder allows to attach as result, besides a
-## ! Transient Object, an Integer Value, which can be an Index
-## ! in the Object if it defines a List, for instance
-## !
-## ! This Binder is otherwise a kind of SimpleBinderOfTransient,
-## ! i.e. its basic result (for iterators, etc) is the Transient
-
-type
   TransferBinderOfTransientInteger* {.importcpp: "Transfer_BinderOfTransientInteger", header: "Transfer_BinderOfTransientInteger.hxx",
                                      bycopy.} = object of TransferSimpleBinderOfTransient ##
                                                                                      ## !
@@ -46,46 +36,32 @@ type
                                                                                      ## zero
 
 
-proc constructTransferBinderOfTransientInteger*(): TransferBinderOfTransientInteger {.
-    constructor, importcpp: "Transfer_BinderOfTransientInteger(@)",
-    header: "Transfer_BinderOfTransientInteger.hxx".}
-proc setInteger*(this: var TransferBinderOfTransientInteger; value: cint) {.
-    importcpp: "SetInteger", header: "Transfer_BinderOfTransientInteger.hxx".}
-proc integer*(this: TransferBinderOfTransientInteger): cint {.noSideEffect,
-    importcpp: "Integer", header: "Transfer_BinderOfTransientInteger.hxx".}
+type
+  HandleTransferBinderOfTransientInteger* = Handle[TransferBinderOfTransientInteger]
+
+## ! This type of Binder allows to attach as result, besides a
+## ! Transient Object, an Integer Value, which can be an Index
+## ! in the Object if it defines a List, for instance
+## !
+## ! This Binder is otherwise a kind of SimpleBinderOfTransient,
+## ! i.e. its basic result (for iterators, etc) is the Transient
+
 type
   TransferBinderOfTransientIntegerbaseType* = TransferSimpleBinderOfTransient
 
-proc getTypeName*(): cstring {.importcpp: "Transfer_BinderOfTransientInteger::get_type_name(@)",
+proc constructTransferBinderOfTransientInteger*(): TransferBinderOfTransientInteger {.
+    constructor, importcpp: "Transfer_BinderOfTransientInteger(@)",
+    header: "Transfer_BinderOfTransientInteger.hxx".}
+proc setInteger*(this: var TransferBinderOfTransientInteger; value: int) {.
+    importcpp: "SetInteger", header: "Transfer_BinderOfTransientInteger.hxx".}
+proc integer*(this: TransferBinderOfTransientInteger): int {.noSideEffect,
+    importcpp: "Integer", header: "Transfer_BinderOfTransientInteger.hxx".}
+
+#[ proc getTypeName*(): cstring {.importcpp: "Transfer_BinderOfTransientInteger::get_type_name(@)",
                             header: "Transfer_BinderOfTransientInteger.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_BinderOfTransientInteger::get_type_descriptor(@)",
     header: "Transfer_BinderOfTransientInteger.hxx".}
 proc dynamicType*(this: TransferBinderOfTransientInteger): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
-    header: "Transfer_BinderOfTransientInteger.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "Transfer_BinderOfTransientInteger.hxx".} ]#

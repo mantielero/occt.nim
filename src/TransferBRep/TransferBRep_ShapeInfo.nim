@@ -17,47 +17,30 @@
 discard "forward decl of TopoDS_Shape"
 type
   TransferBRepShapeInfo* {.importcpp: "TransferBRep_ShapeInfo",
-                          header: "TransferBRep_ShapeInfo.hxx", bycopy.} = object ## !
-                                                                             ## Returns the
-                                                                             ## Type
-                                                                             ## attached to an
-                                                                             ## object
-                                                                             ## !
-                                                                             ## Here,
-                                                                             ## TShape
-                                                                             ## (Shape has no
-                                                                             ## Dynamic
-                                                                             ## Type)
+                          header: "TransferBRep_ShapeInfo.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TransferBRepShapeInfo; theSize: csize_t): pointer {.
+    importcpp: "TransferBRep_ShapeInfo::operator new",
+    header: "TransferBRep_ShapeInfo.hxx".}
+proc `delete`*(this: var TransferBRepShapeInfo; theAddress: pointer) {.
+    importcpp: "TransferBRep_ShapeInfo::operator delete",
+    header: "TransferBRep_ShapeInfo.hxx".}
+proc `new[]`*(this: var TransferBRepShapeInfo; theSize: csize_t): pointer {.
+    importcpp: "TransferBRep_ShapeInfo::operator new[]",
+    header: "TransferBRep_ShapeInfo.hxx".}
+proc `delete[]`*(this: var TransferBRepShapeInfo; theAddress: pointer) {.
+    importcpp: "TransferBRep_ShapeInfo::operator delete[]",
+    header: "TransferBRep_ShapeInfo.hxx".}
+proc `new`*(this: var TransferBRepShapeInfo; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TransferBRep_ShapeInfo::operator new",
+    header: "TransferBRep_ShapeInfo.hxx".}
+proc `delete`*(this: var TransferBRepShapeInfo; a2: pointer; a3: pointer) {.
+    importcpp: "TransferBRep_ShapeInfo::operator delete",
+    header: "TransferBRep_ShapeInfo.hxx".}
 proc `type`*(ent: TopoDS_Shape): Handle[StandardType] {.
     importcpp: "TransferBRep_ShapeInfo::Type(@)",
     header: "TransferBRep_ShapeInfo.hxx".}
 proc typeName*(ent: TopoDS_Shape): StandardCString {.
     importcpp: "TransferBRep_ShapeInfo::TypeName(@)",
     header: "TransferBRep_ShapeInfo.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

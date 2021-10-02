@@ -31,15 +31,15 @@ type
 proc constructStepShapeFaceBound*(): StepShapeFaceBound {.constructor,
     importcpp: "StepShape_FaceBound(@)", header: "StepShape_FaceBound.hxx".}
 proc init*(this: var StepShapeFaceBound; aName: Handle[TCollectionHAsciiString];
-          aBound: Handle[StepShapeLoop]; aOrientation: bool) {.importcpp: "Init",
-    header: "StepShape_FaceBound.hxx".}
+          aBound: Handle[StepShapeLoop]; aOrientation: StandardBoolean) {.
+    importcpp: "Init", header: "StepShape_FaceBound.hxx".}
 proc setBound*(this: var StepShapeFaceBound; aBound: Handle[StepShapeLoop]) {.
     importcpp: "SetBound", header: "StepShape_FaceBound.hxx".}
 proc bound*(this: StepShapeFaceBound): Handle[StepShapeLoop] {.noSideEffect,
     importcpp: "Bound", header: "StepShape_FaceBound.hxx".}
-proc setOrientation*(this: var StepShapeFaceBound; aOrientation: bool) {.
+proc setOrientation*(this: var StepShapeFaceBound; aOrientation: StandardBoolean) {.
     importcpp: "SetOrientation", header: "StepShape_FaceBound.hxx".}
-proc orientation*(this: StepShapeFaceBound): bool {.noSideEffect,
+proc orientation*(this: StepShapeFaceBound): StandardBoolean {.noSideEffect,
     importcpp: "Orientation", header: "StepShape_FaceBound.hxx".}
 type
   StepShapeFaceBoundbaseType* = StepShapeTopologicalRepresentationItem
@@ -51,28 +51,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_FaceBound.hxx".}
 proc dynamicType*(this: StepShapeFaceBound): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_FaceBound.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

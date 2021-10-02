@@ -20,18 +20,31 @@ discard "forward decl of StepVisual_PresentationLayerAssignment"
 discard "forward decl of StepVisual_PresentationRepresentation"
 type
   StepVisualInvisibleItem* {.importcpp: "StepVisual_InvisibleItem",
-                            header: "StepVisual_InvisibleItem.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## a
-                                                                                                     ## InvisibleItem
-                                                                                                     ## SelectType
+                            header: "StepVisual_InvisibleItem.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualInvisibleItem; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_InvisibleItem::operator new",
+    header: "StepVisual_InvisibleItem.hxx".}
+proc `delete`*(this: var StepVisualInvisibleItem; theAddress: pointer) {.
+    importcpp: "StepVisual_InvisibleItem::operator delete",
+    header: "StepVisual_InvisibleItem.hxx".}
+proc `new[]`*(this: var StepVisualInvisibleItem; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_InvisibleItem::operator new[]",
+    header: "StepVisual_InvisibleItem.hxx".}
+proc `delete[]`*(this: var StepVisualInvisibleItem; theAddress: pointer) {.
+    importcpp: "StepVisual_InvisibleItem::operator delete[]",
+    header: "StepVisual_InvisibleItem.hxx".}
+proc `new`*(this: var StepVisualInvisibleItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_InvisibleItem::operator new",
+    header: "StepVisual_InvisibleItem.hxx".}
+proc `delete`*(this: var StepVisualInvisibleItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_InvisibleItem::operator delete",
+    header: "StepVisual_InvisibleItem.hxx".}
 proc constructStepVisualInvisibleItem*(): StepVisualInvisibleItem {.constructor,
     importcpp: "StepVisual_InvisibleItem(@)",
     header: "StepVisual_InvisibleItem.hxx".}
-proc caseNum*(this: StepVisualInvisibleItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualInvisibleItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_InvisibleItem.hxx".}
 proc styledItem*(this: StepVisualInvisibleItem): Handle[StepVisualStyledItem] {.
     noSideEffect, importcpp: "StyledItem", header: "StepVisual_InvisibleItem.hxx".}
@@ -43,28 +56,3 @@ proc presentationRepresentation*(this: StepVisualInvisibleItem): Handle[
     StepVisualPresentationRepresentation] {.noSideEffect,
     importcpp: "PresentationRepresentation",
     header: "StepVisual_InvisibleItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

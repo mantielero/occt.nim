@@ -30,23 +30,23 @@ type
 proc constructStepDimTolSimpleDatumReferenceModifierMember*(): StepDimTolSimpleDatumReferenceModifierMember {.
     constructor, importcpp: "StepDimTol_SimpleDatumReferenceModifierMember(@)",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc hasName*(this: StepDimTolSimpleDatumReferenceModifierMember): bool {.
+proc hasName*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardBoolean {.
     noSideEffect, importcpp: "HasName",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc name*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-proc setName*(this: var StepDimTolSimpleDatumReferenceModifierMember; a2: StandardCString): bool {.
+proc setName*(this: var StepDimTolSimpleDatumReferenceModifierMember; a2: StandardCString): StandardBoolean {.
     importcpp: "SetName",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
   ## theName
-proc kind*(this: StepDimTolSimpleDatumReferenceModifierMember): cint {.noSideEffect,
+proc kind*(this: StepDimTolSimpleDatumReferenceModifierMember): int {.noSideEffect,
     importcpp: "Kind", header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc enumText*(this: StepDimTolSimpleDatumReferenceModifierMember): StandardCString {.
     noSideEffect, importcpp: "EnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc setEnumText*(this: var StepDimTolSimpleDatumReferenceModifierMember;
-                 theValue: cint; theText: StandardCString) {.
+                 theValue: int; theText: StandardCString) {.
     importcpp: "SetEnumText",
     header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
 proc setValue*(this: var StepDimTolSimpleDatumReferenceModifierMember;
@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepDimTol_SimpleD
 proc dynamicType*(this: StepDimTolSimpleDatumReferenceModifierMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepDimTol_SimpleDatumReferenceModifierMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

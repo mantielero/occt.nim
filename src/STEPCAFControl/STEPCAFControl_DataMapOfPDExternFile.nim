@@ -20,29 +20,3 @@ type
   STEPCAFControlDataMapIteratorOfDataMapOfPDExternFile* = Iterator[
       Handle[StepBasicProductDefinition], Handle[STEPCAFControlExternFile],
       TColStdMapTransientHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

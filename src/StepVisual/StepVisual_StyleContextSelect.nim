@@ -21,14 +21,31 @@ discard "forward decl of StepVisual_PresentationSet"
 type
   StepVisualStyleContextSelect* {.importcpp: "StepVisual_StyleContextSelect",
                                  header: "StepVisual_StyleContextSelect.hxx",
-                                 bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                    ## StyleContextSelect SelectType
+                                 bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualStyleContextSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_StyleContextSelect::operator new",
+    header: "StepVisual_StyleContextSelect.hxx".}
+proc `delete`*(this: var StepVisualStyleContextSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_StyleContextSelect::operator delete",
+    header: "StepVisual_StyleContextSelect.hxx".}
+proc `new[]`*(this: var StepVisualStyleContextSelect; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_StyleContextSelect::operator new[]",
+    header: "StepVisual_StyleContextSelect.hxx".}
+proc `delete[]`*(this: var StepVisualStyleContextSelect; theAddress: pointer) {.
+    importcpp: "StepVisual_StyleContextSelect::operator delete[]",
+    header: "StepVisual_StyleContextSelect.hxx".}
+proc `new`*(this: var StepVisualStyleContextSelect; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_StyleContextSelect::operator new",
+    header: "StepVisual_StyleContextSelect.hxx".}
+proc `delete`*(this: var StepVisualStyleContextSelect; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_StyleContextSelect::operator delete",
+    header: "StepVisual_StyleContextSelect.hxx".}
 proc constructStepVisualStyleContextSelect*(): StepVisualStyleContextSelect {.
     constructor, importcpp: "StepVisual_StyleContextSelect(@)",
     header: "StepVisual_StyleContextSelect.hxx".}
-proc caseNum*(this: StepVisualStyleContextSelect; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualStyleContextSelect; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_StyleContextSelect.hxx".}
 proc representation*(this: StepVisualStyleContextSelect): Handle[
     StepReprRepresentation] {.noSideEffect, importcpp: "Representation",
@@ -39,28 +56,3 @@ proc representationItem*(this: StepVisualStyleContextSelect): Handle[
 proc presentationSet*(this: StepVisualStyleContextSelect): Handle[
     StepVisualPresentationSet] {.noSideEffect, importcpp: "PresentationSet",
                                 header: "StepVisual_StyleContextSelect.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

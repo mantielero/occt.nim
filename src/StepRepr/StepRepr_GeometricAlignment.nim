@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprGeometricAlignment): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_GeometricAlignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

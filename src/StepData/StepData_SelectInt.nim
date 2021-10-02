@@ -31,13 +31,13 @@ type
 
 proc constructStepDataSelectInt*(): StepDataSelectInt {.constructor,
     importcpp: "StepData_SelectInt(@)", header: "StepData_SelectInt.hxx".}
-proc kind*(this: StepDataSelectInt): cint {.noSideEffect, importcpp: "Kind",
-                                        header: "StepData_SelectInt.hxx".}
-proc setKind*(this: var StepDataSelectInt; kind: cint) {.importcpp: "SetKind",
-    header: "StepData_SelectInt.hxx".}
-proc int*(this: StepDataSelectInt): cint {.noSideEffect, importcpp: "Int",
+proc kind*(this: StepDataSelectInt): int {.noSideEffect, importcpp: "Kind",
                                        header: "StepData_SelectInt.hxx".}
-proc setInt*(this: var StepDataSelectInt; val: cint) {.importcpp: "SetInt",
+proc setKind*(this: var StepDataSelectInt; kind: int) {.importcpp: "SetKind",
+    header: "StepData_SelectInt.hxx".}
+proc int*(this: StepDataSelectInt): int {.noSideEffect, importcpp: "Int",
+                                      header: "StepData_SelectInt.hxx".}
+proc setInt*(this: var StepDataSelectInt; val: int) {.importcpp: "SetInt",
     header: "StepData_SelectInt.hxx".}
 type
   StepDataSelectIntbaseType* = StepDataSelectMember
@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_SelectInt.hxx".}
 proc dynamicType*(this: StepDataSelectInt): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_SelectInt.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

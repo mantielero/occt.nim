@@ -16,29 +16,3 @@
 
 type
   StepBasicArray1OfNamedUnit* = NCollectionArray1[Handle[StepBasicNamedUnit]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -36,11 +36,11 @@ proc constructStepBasicDocumentFile*(): StepBasicDocumentFile {.constructor,
 proc init*(this: var StepBasicDocumentFile;
           aDocumentId: Handle[TCollectionHAsciiString];
           aDocumentName: Handle[TCollectionHAsciiString];
-          hasDocumentDescription: bool;
+          hasDocumentDescription: StandardBoolean;
           aDocumentDescription: Handle[TCollectionHAsciiString];
           aDocumentKind: Handle[StepBasicDocumentType];
           aCharacterizedObjectName: Handle[TCollectionHAsciiString];
-          hasCharacterizedObjectDescription: bool;
+          hasCharacterizedObjectDescription: StandardBoolean;
           aCharacterizedObjectDescription: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepBasic_DocumentFile.hxx".}
 proc characterizedObject*(this: StepBasicDocumentFile): Handle[
@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepBasic_DocumentFile.hxx".}
 proc dynamicType*(this: StepBasicDocumentFile): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepBasic_DocumentFile.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

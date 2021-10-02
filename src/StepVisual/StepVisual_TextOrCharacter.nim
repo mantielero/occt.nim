@@ -20,18 +20,31 @@ discard "forward decl of StepVisual_CompositeText"
 discard "forward decl of StepVisual_TextLiteral"
 type
   StepVisualTextOrCharacter* {.importcpp: "StepVisual_TextOrCharacter",
-                              header: "StepVisual_TextOrCharacter.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## a
-                                                                                                         ## TextOrCharacter
-                                                                                                         ## SelectType
+                              header: "StepVisual_TextOrCharacter.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualTextOrCharacter; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TextOrCharacter::operator new",
+    header: "StepVisual_TextOrCharacter.hxx".}
+proc `delete`*(this: var StepVisualTextOrCharacter; theAddress: pointer) {.
+    importcpp: "StepVisual_TextOrCharacter::operator delete",
+    header: "StepVisual_TextOrCharacter.hxx".}
+proc `new[]`*(this: var StepVisualTextOrCharacter; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_TextOrCharacter::operator new[]",
+    header: "StepVisual_TextOrCharacter.hxx".}
+proc `delete[]`*(this: var StepVisualTextOrCharacter; theAddress: pointer) {.
+    importcpp: "StepVisual_TextOrCharacter::operator delete[]",
+    header: "StepVisual_TextOrCharacter.hxx".}
+proc `new`*(this: var StepVisualTextOrCharacter; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_TextOrCharacter::operator new",
+    header: "StepVisual_TextOrCharacter.hxx".}
+proc `delete`*(this: var StepVisualTextOrCharacter; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_TextOrCharacter::operator delete",
+    header: "StepVisual_TextOrCharacter.hxx".}
 proc constructStepVisualTextOrCharacter*(): StepVisualTextOrCharacter {.
     constructor, importcpp: "StepVisual_TextOrCharacter(@)",
     header: "StepVisual_TextOrCharacter.hxx".}
-proc caseNum*(this: StepVisualTextOrCharacter; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualTextOrCharacter; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_TextOrCharacter.hxx".}
 proc annotationText*(this: StepVisualTextOrCharacter): Handle[
     StepVisualAnnotationText] {.noSideEffect, importcpp: "AnnotationText",
@@ -42,28 +55,3 @@ proc compositeText*(this: StepVisualTextOrCharacter): Handle[
 proc textLiteral*(this: StepVisualTextOrCharacter): Handle[StepVisualTextLiteral] {.
     noSideEffect, importcpp: "TextLiteral",
     header: "StepVisual_TextOrCharacter.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

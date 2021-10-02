@@ -20,19 +20,30 @@ discard "forward decl of StepBasic_ProductDefinitionReferenceWithLocalRepresenta
 type
   StepBasicProductDefinitionOrReference* {.
       importcpp: "StepBasic_ProductDefinitionOrReference",
-      header: "StepBasic_ProductDefinitionOrReference.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## a
-                                                                                             ## ProductDefinitionOrReference
-                                                                                             ## SelectType
+      header: "StepBasic_ProductDefinitionOrReference.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicProductDefinitionOrReference; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_ProductDefinitionOrReference::operator new",
+    header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc `delete`*(this: var StepBasicProductDefinitionOrReference; theAddress: pointer) {.
+    importcpp: "StepBasic_ProductDefinitionOrReference::operator delete",
+    header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc `new[]`*(this: var StepBasicProductDefinitionOrReference; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_ProductDefinitionOrReference::operator new[]",
+    header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc `delete[]`*(this: var StepBasicProductDefinitionOrReference;
+                theAddress: pointer) {.importcpp: "StepBasic_ProductDefinitionOrReference::operator delete[]", header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc `new`*(this: var StepBasicProductDefinitionOrReference; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepBasic_ProductDefinitionOrReference::operator new", header: "StepBasic_ProductDefinitionOrReference.hxx".}
+proc `delete`*(this: var StepBasicProductDefinitionOrReference; a2: pointer;
+              a3: pointer) {.importcpp: "StepBasic_ProductDefinitionOrReference::operator delete",
+                           header: "StepBasic_ProductDefinitionOrReference.hxx".}
 proc constructStepBasicProductDefinitionOrReference*(): StepBasicProductDefinitionOrReference {.
     constructor, importcpp: "StepBasic_ProductDefinitionOrReference(@)",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
 proc caseNum*(this: StepBasicProductDefinitionOrReference;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepBasic_ProductDefinitionOrReference.hxx".}
 proc productDefinition*(this: StepBasicProductDefinitionOrReference): Handle[
     StepBasicProductDefinition] {.noSideEffect, importcpp: "ProductDefinition", header: "StepBasic_ProductDefinitionOrReference.hxx".}
@@ -45,28 +56,3 @@ proc productDefinitionReferenceWithLocalRepresentation*(
     StepBasicProductDefinitionReferenceWithLocalRepresentation] {.noSideEffect,
     importcpp: "ProductDefinitionReferenceWithLocalRepresentation",
     header: "StepBasic_ProductDefinitionOrReference.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

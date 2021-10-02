@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_FeaShellMe
     header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
 proc dynamicType*(this: StepFEA_FeaShellMembraneBendingCouplingStiffness): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_FeaShellMembraneBendingCouplingStiffness.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

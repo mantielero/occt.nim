@@ -64,28 +64,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_LimitsAndFits.hxx".}
 proc dynamicType*(this: StepShapeLimitsAndFits): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_LimitsAndFits.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

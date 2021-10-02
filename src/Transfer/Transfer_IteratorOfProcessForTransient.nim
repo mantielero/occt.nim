@@ -22,36 +22,26 @@ discard "forward decl of Transfer_Binder"
 type
   TransferIteratorOfProcessForTransient* {.
       importcpp: "Transfer_IteratorOfProcessForTransient",
-      header: "Transfer_IteratorOfProcessForTransient.hxx", bycopy.} = object of TransferTransferIterator ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## an
-                                                                                                   ## empty
-                                                                                                   ## Iterator
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## if
-                                                                                                   ## withstarts
-                                                                                                   ## is
-                                                                                                   ## True,
-                                                                                                   ## each
-                                                                                                   ## Binder
-                                                                                                   ## to
-                                                                                                   ## be
-                                                                                                   ## iterated
-                                                                                                   ## will
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## be
-                                                                                                   ## associated
-                                                                                                   ## to
-                                                                                                   ## its
-                                                                                                   ## corresponding
-                                                                                                   ## Starting
-                                                                                                   ## Object
+      header: "Transfer_IteratorOfProcessForTransient.hxx", bycopy.} = object of TransferTransferIterator
 
 
-proc constructTransferIteratorOfProcessForTransient*(withstarts: bool): TransferIteratorOfProcessForTransient {.
+proc `new`*(this: var TransferIteratorOfProcessForTransient; theSize: csize_t): pointer {.
+    importcpp: "Transfer_IteratorOfProcessForTransient::operator new",
+    header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc `delete`*(this: var TransferIteratorOfProcessForTransient; theAddress: pointer) {.
+    importcpp: "Transfer_IteratorOfProcessForTransient::operator delete",
+    header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc `new[]`*(this: var TransferIteratorOfProcessForTransient; theSize: csize_t): pointer {.
+    importcpp: "Transfer_IteratorOfProcessForTransient::operator new[]",
+    header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc `delete[]`*(this: var TransferIteratorOfProcessForTransient;
+                theAddress: pointer) {.importcpp: "Transfer_IteratorOfProcessForTransient::operator delete[]", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc `new`*(this: var TransferIteratorOfProcessForTransient; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "Transfer_IteratorOfProcessForTransient::operator new", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc `delete`*(this: var TransferIteratorOfProcessForTransient; a2: pointer;
+              a3: pointer) {.importcpp: "Transfer_IteratorOfProcessForTransient::operator delete",
+                           header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc constructTransferIteratorOfProcessForTransient*(withstarts: StandardBoolean): TransferIteratorOfProcessForTransient {.
     constructor, importcpp: "Transfer_IteratorOfProcessForTransient(@)",
     header: "Transfer_IteratorOfProcessForTransient.hxx".}
 proc add*(this: var TransferIteratorOfProcessForTransient;
@@ -60,36 +50,12 @@ proc add*(this: var TransferIteratorOfProcessForTransient;
 proc add*(this: var TransferIteratorOfProcessForTransient;
          binder: Handle[TransferBinder]; start: Handle[StandardTransient]) {.
     importcpp: "Add", header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc filter*(this: var TransferIteratorOfProcessForTransient;
-            list: Handle[TColStdHSequenceOfTransient]; keep: bool = true) {.
-    importcpp: "Filter", header: "Transfer_IteratorOfProcessForTransient.hxx".}
-proc hasStarting*(this: TransferIteratorOfProcessForTransient): bool {.noSideEffect,
-    importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+#[ proc filter*(this: var TransferIteratorOfProcessForTransient;
+            list: Handle[TColStdHSequenceOfTransient];
+            keep: StandardBoolean = true) {.importcpp: "Filter", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+proc hasStarting*(this: TransferIteratorOfProcessForTransient): StandardBoolean {.
+    noSideEffect, importcpp: "HasStarting",
+    header: "Transfer_IteratorOfProcessForTransient.hxx".}
 proc starting*(this: TransferIteratorOfProcessForTransient): Handle[
     StandardTransient] {.noSideEffect, importcpp: "Starting",
-                        header: "Transfer_IteratorOfProcessForTransient.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        header: "Transfer_IteratorOfProcessForTransient.hxx".} ]#

@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_AreaInSet.hxx".}
 proc dynamicType*(this: StepVisualAreaInSet): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_AreaInSet.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

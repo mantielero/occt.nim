@@ -21,11 +21,28 @@ type
                                        bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepShapeToleranceMethodDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ToleranceMethodDefinition::operator new",
+    header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc `delete`*(this: var StepShapeToleranceMethodDefinition; theAddress: pointer) {.
+    importcpp: "StepShape_ToleranceMethodDefinition::operator delete",
+    header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc `new[]`*(this: var StepShapeToleranceMethodDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepShape_ToleranceMethodDefinition::operator new[]",
+    header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc `delete[]`*(this: var StepShapeToleranceMethodDefinition; theAddress: pointer) {.
+    importcpp: "StepShape_ToleranceMethodDefinition::operator delete[]",
+    header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc `new`*(this: var StepShapeToleranceMethodDefinition; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepShape_ToleranceMethodDefinition::operator new", header: "StepShape_ToleranceMethodDefinition.hxx".}
+proc `delete`*(this: var StepShapeToleranceMethodDefinition; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_ToleranceMethodDefinition::operator delete",
+    header: "StepShape_ToleranceMethodDefinition.hxx".}
 proc constructStepShapeToleranceMethodDefinition*(): StepShapeToleranceMethodDefinition {.
     constructor, importcpp: "StepShape_ToleranceMethodDefinition(@)",
     header: "StepShape_ToleranceMethodDefinition.hxx".}
 proc caseNum*(this: StepShapeToleranceMethodDefinition;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepShape_ToleranceMethodDefinition.hxx".}
 proc toleranceValue*(this: StepShapeToleranceMethodDefinition): Handle[
     StepShapeToleranceValue] {.noSideEffect, importcpp: "ToleranceValue",
@@ -33,28 +50,3 @@ proc toleranceValue*(this: StepShapeToleranceMethodDefinition): Handle[
 proc limitsAndFits*(this: StepShapeToleranceMethodDefinition): Handle[
     StepShapeLimitsAndFits] {.noSideEffect, importcpp: "LimitsAndFits",
                              header: "StepShape_ToleranceMethodDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

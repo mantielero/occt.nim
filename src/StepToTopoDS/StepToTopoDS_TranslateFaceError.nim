@@ -18,29 +18,3 @@ type
   StepToTopoDS_TranslateFaceError* {.size: sizeof(cint), importcpp: "StepToTopoDS_TranslateFaceError", header: "StepToTopoDS_TranslateFaceError.hxx".} = enum
     StepToTopoDS_TranslateFaceDone, StepToTopoDS_TranslateFaceOther
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

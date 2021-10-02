@@ -37,28 +37,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepAP214_Class.hxx".}
 proc dynamicType*(this: StepAP214Class): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepAP214_Class.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

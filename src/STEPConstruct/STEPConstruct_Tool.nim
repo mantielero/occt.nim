@@ -21,8 +21,7 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Graph"
 type
   STEPConstructTool* {.importcpp: "STEPConstruct_Tool",
-                      header: "STEPConstruct_Tool.hxx", bycopy.} = object ## ! Creates an empty tool
-                                                                     ## ! Load
+                      header: "STEPConstruct_Tool.hxx", bycopy.} = object ## ! Load
                                                                      ## worksession; returns True if succeeded
                                                                      ## ! Returns False if either
                                                                      ## FinderProcess of
@@ -30,6 +29,24 @@ type
                                                                      ## ! cannot be obtained or are Null
 
 
+proc `new`*(this: var STEPConstructTool; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Tool::operator new",
+    header: "STEPConstruct_Tool.hxx".}
+proc `delete`*(this: var STEPConstructTool; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Tool::operator delete",
+    header: "STEPConstruct_Tool.hxx".}
+proc `new[]`*(this: var STEPConstructTool; theSize: csize_t): pointer {.
+    importcpp: "STEPConstruct_Tool::operator new[]",
+    header: "STEPConstruct_Tool.hxx".}
+proc `delete[]`*(this: var STEPConstructTool; theAddress: pointer) {.
+    importcpp: "STEPConstruct_Tool::operator delete[]",
+    header: "STEPConstruct_Tool.hxx".}
+proc `new`*(this: var STEPConstructTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "STEPConstruct_Tool::operator new",
+    header: "STEPConstruct_Tool.hxx".}
+proc `delete`*(this: var STEPConstructTool; a2: pointer; a3: pointer) {.
+    importcpp: "STEPConstruct_Tool::operator delete",
+    header: "STEPConstruct_Tool.hxx".}
 proc constructSTEPConstructTool*(): STEPConstructTool {.constructor,
     importcpp: "STEPConstruct_Tool(@)", header: "STEPConstruct_Tool.hxx".}
 proc constructSTEPConstructTool*(ws: Handle[XSControlWorkSession]): STEPConstructTool {.
@@ -39,34 +56,9 @@ proc ws*(this: STEPConstructTool): Handle[XSControlWorkSession] {.noSideEffect,
     importcpp: "WS", header: "STEPConstruct_Tool.hxx".}
 proc model*(this: STEPConstructTool): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "STEPConstruct_Tool.hxx".}
-proc graph*(this: STEPConstructTool; recompute: bool = false): InterfaceGraph {.
+proc graph*(this: STEPConstructTool; recompute: StandardBoolean = false): InterfaceGraph {.
     noSideEffect, importcpp: "Graph", header: "STEPConstruct_Tool.hxx".}
 proc transientProcess*(this: STEPConstructTool): Handle[TransferTransientProcess] {.
     noSideEffect, importcpp: "TransientProcess", header: "STEPConstruct_Tool.hxx".}
 proc finderProcess*(this: STEPConstructTool): Handle[TransferFinderProcess] {.
     noSideEffect, importcpp: "FinderProcess", header: "STEPConstruct_Tool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

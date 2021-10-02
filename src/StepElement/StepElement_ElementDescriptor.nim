@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepElementElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_ElementDescriptor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

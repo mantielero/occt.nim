@@ -36,7 +36,7 @@ proc constructStepShapeDimensionalLocationWithPath*(): StepShapeDimensionalLocat
     header: "StepShape_DimensionalLocationWithPath.hxx".}
 proc init*(this: var StepShapeDimensionalLocationWithPath;
           aShapeAspectRelationshipName: Handle[TCollectionHAsciiString];
-          hasShapeAspectRelationshipDescription: bool;
+          hasShapeAspectRelationshipDescription: StandardBoolean;
           aShapeAspectRelationshipDescription: Handle[TCollectionHAsciiString];
     aShapeAspectRelationshipRelatingShapeAspect: Handle[StepReprShapeAspect];
     aShapeAspectRelationshipRelatedShapeAspect: Handle[StepReprShapeAspect];
@@ -59,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeDimensionalLocationWithPath): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_DimensionalLocationWithPath.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

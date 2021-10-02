@@ -34,27 +34,29 @@ proc constructStepShapeOrientedOpenShell*(): StepShapeOrientedOpenShell {.
     header: "StepShape_OrientedOpenShell.hxx".}
 proc init*(this: var StepShapeOrientedOpenShell;
           aName: Handle[TCollectionHAsciiString];
-          aOpenShellElement: Handle[StepShapeOpenShell]; aOrientation: bool) {.
-    importcpp: "Init", header: "StepShape_OrientedOpenShell.hxx".}
+          aOpenShellElement: Handle[StepShapeOpenShell];
+          aOrientation: StandardBoolean) {.importcpp: "Init",
+    header: "StepShape_OrientedOpenShell.hxx".}
 proc setOpenShellElement*(this: var StepShapeOrientedOpenShell;
                          aOpenShellElement: Handle[StepShapeOpenShell]) {.
     importcpp: "SetOpenShellElement", header: "StepShape_OrientedOpenShell.hxx".}
 proc openShellElement*(this: StepShapeOrientedOpenShell): Handle[StepShapeOpenShell] {.
     noSideEffect, importcpp: "OpenShellElement",
     header: "StepShape_OrientedOpenShell.hxx".}
-proc setOrientation*(this: var StepShapeOrientedOpenShell; aOrientation: bool) {.
-    importcpp: "SetOrientation", header: "StepShape_OrientedOpenShell.hxx".}
-proc orientation*(this: StepShapeOrientedOpenShell): bool {.noSideEffect,
+proc setOrientation*(this: var StepShapeOrientedOpenShell;
+                    aOrientation: StandardBoolean) {.importcpp: "SetOrientation",
+    header: "StepShape_OrientedOpenShell.hxx".}
+proc orientation*(this: StepShapeOrientedOpenShell): StandardBoolean {.noSideEffect,
     importcpp: "Orientation", header: "StepShape_OrientedOpenShell.hxx".}
 proc setCfsFaces*(this: var StepShapeOrientedOpenShell;
                  aCfsFaces: Handle[StepShapeHArray1OfFace]) {.
     importcpp: "SetCfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
 proc cfsFaces*(this: StepShapeOrientedOpenShell): Handle[StepShapeHArray1OfFace] {.
     noSideEffect, importcpp: "CfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
-proc cfsFacesValue*(this: StepShapeOrientedOpenShell; num: cint): Handle[
-    StepShapeFace] {.noSideEffect, importcpp: "CfsFacesValue",
-                    header: "StepShape_OrientedOpenShell.hxx".}
-proc nbCfsFaces*(this: StepShapeOrientedOpenShell): cint {.noSideEffect,
+proc cfsFacesValue*(this: StepShapeOrientedOpenShell; num: int): Handle[StepShapeFace] {.
+    noSideEffect, importcpp: "CfsFacesValue",
+    header: "StepShape_OrientedOpenShell.hxx".}
+proc nbCfsFaces*(this: StepShapeOrientedOpenShell): int {.noSideEffect,
     importcpp: "NbCfsFaces", header: "StepShape_OrientedOpenShell.hxx".}
 type
   StepShapeOrientedOpenShellbaseType* = StepShapeOpenShell
@@ -67,28 +69,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeOrientedOpenShell): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_OrientedOpenShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

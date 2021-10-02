@@ -17,29 +17,3 @@ include STEPConstruct_Styles
 include STEPConstruct_Tool
 include STEPConstruct_UnitContext
 include STEPConstruct_ValidationProps
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

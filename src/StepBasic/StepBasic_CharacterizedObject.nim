@@ -31,7 +31,7 @@ proc constructStepBasicCharacterizedObject*(): StepBasicCharacterizedObject {.
     constructor, importcpp: "StepBasic_CharacterizedObject(@)",
     header: "StepBasic_CharacterizedObject.hxx".}
 proc init*(this: var StepBasicCharacterizedObject;
-          aName: Handle[TCollectionHAsciiString]; hasDescription: bool;
+          aName: Handle[TCollectionHAsciiString]; hasDescription: StandardBoolean;
           aDescription: Handle[TCollectionHAsciiString]) {.importcpp: "Init",
     header: "StepBasic_CharacterizedObject.hxx".}
 proc name*(this: StepBasicCharacterizedObject): Handle[TCollectionHAsciiString] {.
@@ -45,8 +45,9 @@ proc description*(this: StepBasicCharacterizedObject): Handle[
 proc setDescription*(this: var StepBasicCharacterizedObject;
                     description: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetDescription", header: "StepBasic_CharacterizedObject.hxx".}
-proc hasDescription*(this: StepBasicCharacterizedObject): bool {.noSideEffect,
-    importcpp: "HasDescription", header: "StepBasic_CharacterizedObject.hxx".}
+proc hasDescription*(this: StepBasicCharacterizedObject): StandardBoolean {.
+    noSideEffect, importcpp: "HasDescription",
+    header: "StepBasic_CharacterizedObject.hxx".}
 type
   StepBasicCharacterizedObjectbaseType* = StandardTransient
 
@@ -58,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepBasicCharacterizedObject): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepBasic_CharacterizedObject.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

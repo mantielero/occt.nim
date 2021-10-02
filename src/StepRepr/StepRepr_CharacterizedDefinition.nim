@@ -23,14 +23,30 @@ discard "forward decl of StepRepr_ShapeAspectRelationship"
 discard "forward decl of StepBasic_DocumentFile"
 type
   StepReprCharacterizedDefinition* {.importcpp: "StepRepr_CharacterizedDefinition", header: "StepRepr_CharacterizedDefinition.hxx",
-                                    bycopy.} = object of StepDataSelectType ## ! Empty
-                                                                       ## constructor
+                                    bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepReprCharacterizedDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_CharacterizedDefinition::operator new",
+    header: "StepRepr_CharacterizedDefinition.hxx".}
+proc `delete`*(this: var StepReprCharacterizedDefinition; theAddress: pointer) {.
+    importcpp: "StepRepr_CharacterizedDefinition::operator delete",
+    header: "StepRepr_CharacterizedDefinition.hxx".}
+proc `new[]`*(this: var StepReprCharacterizedDefinition; theSize: csize_t): pointer {.
+    importcpp: "StepRepr_CharacterizedDefinition::operator new[]",
+    header: "StepRepr_CharacterizedDefinition.hxx".}
+proc `delete[]`*(this: var StepReprCharacterizedDefinition; theAddress: pointer) {.
+    importcpp: "StepRepr_CharacterizedDefinition::operator delete[]",
+    header: "StepRepr_CharacterizedDefinition.hxx".}
+proc `new`*(this: var StepReprCharacterizedDefinition; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepRepr_CharacterizedDefinition::operator new", header: "StepRepr_CharacterizedDefinition.hxx".}
+proc `delete`*(this: var StepReprCharacterizedDefinition; a2: pointer; a3: pointer) {.
+    importcpp: "StepRepr_CharacterizedDefinition::operator delete",
+    header: "StepRepr_CharacterizedDefinition.hxx".}
 proc constructStepReprCharacterizedDefinition*(): StepReprCharacterizedDefinition {.
     constructor, importcpp: "StepRepr_CharacterizedDefinition(@)",
     header: "StepRepr_CharacterizedDefinition.hxx".}
-proc caseNum*(this: StepReprCharacterizedDefinition; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepReprCharacterizedDefinition; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum",
     header: "StepRepr_CharacterizedDefinition.hxx".}
 proc characterizedObject*(this: StepReprCharacterizedDefinition): Handle[
@@ -55,28 +71,3 @@ proc shapeAspectRelationship*(this: StepReprCharacterizedDefinition): Handle[
 proc documentFile*(this: StepReprCharacterizedDefinition): Handle[
     StepBasicDocumentFile] {.noSideEffect, importcpp: "DocumentFile",
                             header: "StepRepr_CharacterizedDefinition.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

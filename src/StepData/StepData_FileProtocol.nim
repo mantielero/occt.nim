@@ -44,14 +44,14 @@ proc constructStepDataFileProtocol*(): StepDataFileProtocol {.constructor,
     importcpp: "StepData_FileProtocol(@)", header: "StepData_FileProtocol.hxx".}
 proc add*(this: var StepDataFileProtocol; protocol: Handle[StepDataProtocol]) {.
     importcpp: "Add", header: "StepData_FileProtocol.hxx".}
-proc nbResources*(this: StepDataFileProtocol): cint {.noSideEffect,
+proc nbResources*(this: StepDataFileProtocol): int {.noSideEffect,
     importcpp: "NbResources", header: "StepData_FileProtocol.hxx".}
-proc resource*(this: StepDataFileProtocol; num: cint): Handle[InterfaceProtocol] {.
+proc resource*(this: StepDataFileProtocol; num: int): Handle[InterfaceProtocol] {.
     noSideEffect, importcpp: "Resource", header: "StepData_FileProtocol.hxx".}
-proc typeNumber*(this: StepDataFileProtocol; atype: Handle[StandardType]): cint {.
+proc typeNumber*(this: StepDataFileProtocol; atype: Handle[StandardType]): int {.
     noSideEffect, importcpp: "TypeNumber", header: "StepData_FileProtocol.hxx".}
 proc globalCheck*(this: StepDataFileProtocol; g: InterfaceGraph;
-                 ach: var Handle[InterfaceCheck]): bool {.noSideEffect,
+                 ach: var Handle[InterfaceCheck]): StandardBoolean {.noSideEffect,
     importcpp: "GlobalCheck", header: "StepData_FileProtocol.hxx".}
 proc schemaName*(this: StepDataFileProtocol): StandardCString {.noSideEffect,
     importcpp: "SchemaName", header: "StepData_FileProtocol.hxx".}
@@ -65,28 +65,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_FileProtocol.hxx".}
 proc dynamicType*(this: StepDataFileProtocol): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_FileProtocol.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

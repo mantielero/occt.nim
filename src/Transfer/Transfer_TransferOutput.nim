@@ -25,16 +25,27 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 type
   TransferTransferOutput* {.importcpp: "Transfer_TransferOutput",
-                           header: "Transfer_TransferOutput.hxx", bycopy.} = object ## !
-                                                                               ## Creates a
-                                                                               ## TransferOutput
-                                                                               ## ready
-                                                                               ## to
-                                                                               ## use,
-                                                                               ## with a
-                                                                               ## TransientProcess
+                           header: "Transfer_TransferOutput.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TransferTransferOutput; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferOutput::operator new",
+    header: "Transfer_TransferOutput.hxx".}
+proc `delete`*(this: var TransferTransferOutput; theAddress: pointer) {.
+    importcpp: "Transfer_TransferOutput::operator delete",
+    header: "Transfer_TransferOutput.hxx".}
+proc `new[]`*(this: var TransferTransferOutput; theSize: csize_t): pointer {.
+    importcpp: "Transfer_TransferOutput::operator new[]",
+    header: "Transfer_TransferOutput.hxx".}
+proc `delete[]`*(this: var TransferTransferOutput; theAddress: pointer) {.
+    importcpp: "Transfer_TransferOutput::operator delete[]",
+    header: "Transfer_TransferOutput.hxx".}
+proc `new`*(this: var TransferTransferOutput; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Transfer_TransferOutput::operator new",
+    header: "Transfer_TransferOutput.hxx".}
+proc `delete`*(this: var TransferTransferOutput; a2: pointer; a3: pointer) {.
+    importcpp: "Transfer_TransferOutput::operator delete",
+    header: "Transfer_TransferOutput.hxx".}
 proc constructTransferTransferOutput*(actor: Handle[
     TransferActorOfTransientProcess]; amodel: Handle[InterfaceInterfaceModel]): TransferTransferOutput {.
     constructor, importcpp: "Transfer_TransferOutput(@)",
@@ -48,7 +59,7 @@ proc model*(this: TransferTransferOutput): Handle[InterfaceInterfaceModel] {.
 proc transientProcess*(this: TransferTransferOutput): Handle[
     TransferTransientProcess] {.noSideEffect, importcpp: "TransientProcess",
                                header: "Transfer_TransferOutput.hxx".}
-proc transfer*(this: var TransferTransferOutput; obj: Handle[StandardTransient];
+#[ proc transfer*(this: var TransferTransferOutput; obj: Handle[StandardTransient];
               theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "Transfer", header: "Transfer_TransferOutput.hxx".}
 proc transferRoots*(this: var TransferTransferOutput;
@@ -61,35 +72,11 @@ proc transferRoots*(this: var TransferTransferOutput; g: InterfaceGraph;
 proc transferRoots*(this: var TransferTransferOutput;
                    theProgress: MessageProgressRange = messageProgressRange()) {.
     importcpp: "TransferRoots", header: "Transfer_TransferOutput.hxx".}
-proc listForStatus*(this: TransferTransferOutput; normal: bool; roots: bool = true): InterfaceEntityIterator {.
+proc listForStatus*(this: TransferTransferOutput; normal: StandardBoolean;
+                   roots: StandardBoolean = true): InterfaceEntityIterator {.
     noSideEffect, importcpp: "ListForStatus", header: "Transfer_TransferOutput.hxx".}
 proc modelForStatus*(this: TransferTransferOutput;
-                    protocol: Handle[InterfaceProtocol]; normal: bool;
-                    roots: bool = true): Handle[InterfaceInterfaceModel] {.
+                    protocol: Handle[InterfaceProtocol]; normal: StandardBoolean;
+                    roots: StandardBoolean = true): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "ModelForStatus",
-    header: "Transfer_TransferOutput.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    header: "Transfer_TransferOutput.hxx".} ]#

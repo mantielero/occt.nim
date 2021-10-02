@@ -54,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP203CcDesignContract): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP203_CcDesignContract.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

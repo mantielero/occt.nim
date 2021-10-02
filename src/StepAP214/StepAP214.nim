@@ -61,35 +61,20 @@ discard "forward decl of StepAP214_ExternallyDefinedClass"
 discard "forward decl of StepAP214_ExternallyDefinedGeneralProperty"
 discard "forward decl of StepAP214_RepItemGroup"
 type
-  StepAP214* {.importcpp: "StepAP214", header: "StepAP214.hxx", bycopy.} = object ## !
-                                                                          ## creates a
-                                                                          ## Protocol
+  StepAP214* {.importcpp: "StepAP214", header: "StepAP214.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepAP214; theSize: csize_t): pointer {.
+    importcpp: "StepAP214::operator new", header: "StepAP214.hxx".}
+proc `delete`*(this: var StepAP214; theAddress: pointer) {.
+    importcpp: "StepAP214::operator delete", header: "StepAP214.hxx".}
+proc `new[]`*(this: var StepAP214; theSize: csize_t): pointer {.
+    importcpp: "StepAP214::operator new[]", header: "StepAP214.hxx".}
+proc `delete[]`*(this: var StepAP214; theAddress: pointer) {.
+    importcpp: "StepAP214::operator delete[]", header: "StepAP214.hxx".}
+proc `new`*(this: var StepAP214; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214::operator new", header: "StepAP214.hxx".}
+proc `delete`*(this: var StepAP214; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214::operator delete", header: "StepAP214.hxx".}
 proc protocol*(): Handle[StepAP214Protocol] {.importcpp: "StepAP214::Protocol(@)",
     header: "StepAP214.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

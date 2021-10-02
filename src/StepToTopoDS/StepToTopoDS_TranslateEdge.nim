@@ -32,6 +32,24 @@ type
                                header: "StepToTopoDS_TranslateEdge.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateEdge; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator new",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateEdge; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator delete",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateEdge; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator new[]",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateEdge; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator delete[]",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateEdge; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator new",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateEdge; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslateEdge::operator delete",
+    header: "StepToTopoDS_TranslateEdge.hxx".}
 proc constructStepToTopoDS_TranslateEdge*(): StepToTopoDS_TranslateEdge {.
     constructor, importcpp: "StepToTopoDS_TranslateEdge(@)",
     header: "StepToTopoDS_TranslateEdge.hxx".}
@@ -44,7 +62,7 @@ proc init*(this: var StepToTopoDS_TranslateEdge; e: Handle[StepShapeEdge];
     importcpp: "Init", header: "StepToTopoDS_TranslateEdge.hxx".}
 proc makeFromCurve3D*(this: var StepToTopoDS_TranslateEdge;
                      c3d: Handle[StepGeomCurve]; ec: Handle[StepShapeEdgeCurve];
-                     vend: Handle[StepShapeVertex]; preci: cfloat;
+                     vend: Handle[StepShapeVertex]; preci: StandardReal;
                      e: var TopoDS_Edge; v1: var TopoDS_Vertex; v2: var TopoDS_Vertex;
                      t: var StepToTopoDS_Tool) {.importcpp: "MakeFromCurve3D",
     header: "StepToTopoDS_TranslateEdge.hxx".}
@@ -55,28 +73,3 @@ proc value*(this: StepToTopoDS_TranslateEdge): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateEdge.hxx".}
 proc error*(this: StepToTopoDS_TranslateEdge): StepToTopoDS_TranslateEdgeError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateEdge.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

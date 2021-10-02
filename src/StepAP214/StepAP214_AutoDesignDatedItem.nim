@@ -21,14 +21,31 @@ discard "forward decl of StepBasic_ProductDefinitionEffectivity"
 type
   StepAP214AutoDesignDatedItem* {.importcpp: "StepAP214_AutoDesignDatedItem",
                                  header: "StepAP214_AutoDesignDatedItem.hxx",
-                                 bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                    ## AutoDesignDatedItem SelectType
+                                 bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignDatedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator new",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignDatedItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator delete",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignDatedItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator new[]",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignDatedItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator delete[]",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignDatedItem; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator new",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignDatedItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_AutoDesignDatedItem::operator delete",
+    header: "StepAP214_AutoDesignDatedItem.hxx".}
 proc constructStepAP214AutoDesignDatedItem*(): StepAP214AutoDesignDatedItem {.
     constructor, importcpp: "StepAP214_AutoDesignDatedItem(@)",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-proc caseNum*(this: StepAP214AutoDesignDatedItem; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepAP214AutoDesignDatedItem; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepAP214_AutoDesignDatedItem.hxx".}
 proc approvalPersonOrganization*(this: StepAP214AutoDesignDatedItem): Handle[
     StepBasicApprovalPersonOrganization] {.noSideEffect,
@@ -42,28 +59,3 @@ proc productDefinitionEffectivity*(this: StepAP214AutoDesignDatedItem): Handle[
     StepBasicProductDefinitionEffectivity] {.noSideEffect,
     importcpp: "ProductDefinitionEffectivity",
     header: "StepAP214_AutoDesignDatedItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

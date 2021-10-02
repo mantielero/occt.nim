@@ -14,63 +14,21 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-## !!!Ignored construct:  # _Transfer_TransferFailure_HeaderFile [NewLine] # _Transfer_TransferFailure_HeaderFile [NewLine] # < Standard_Type . hxx > [NewLine] # < Standard_DefineException . hxx > [NewLine] # < Standard_SStream . hxx > [NewLine] # < Interface_InterfaceError . hxx > [NewLine] class Transfer_TransferFailure ;
-## Error: expected ';'!!!
-
+discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Transfer_TransferFailure"
 type
-  HandleTransferTransferFailureTransferTransferFailure* = Handle[
-      TransferTransferFailure]
+  HandleTransferTransferFailure* = Handle[TransferTransferFailure]
+type
+  TransferTransferFailure* {.importcpp: "Transfer_TransferFailure",
+                            header: "Transfer_TransferFailure.hxx", bycopy.} = object of RootObj#of InterfaceInterfaceError
 
-## !!!Ignored construct:  # ! defined No_Exception && ! defined No_Transfer_TransferFailure [NewLine] # if ( CONDITION ) throw Transfer_TransferFailure ( MESSAGE ) ;
-## Error: did not expect [NewLine]!!!
+when not defined(noException) and not defined(noTransferTransferFailure):
+  template transferTransferFailureRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc transferTransferFailure*(a1: Message): Throw {.
+          importcpp: "Transfer_TransferFailure(@)",
+          header: "Transfer_TransferFailure.hxx".}
 
-## !!!Ignored construct:  [NewLine] # [NewLine] # [NewLine] # [NewLine] DEFINE_STANDARD_EXCEPTION ( Transfer_TransferFailure , Interface_InterfaceError ) #  _Transfer_TransferFailure_HeaderFile
-## Error: did not expect [NewLine]!!!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+else:
+  discard
 

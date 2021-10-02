@@ -40,29 +40,3 @@ include StepToTopoDS_TranslateVertex
 include StepToTopoDS_TranslateVertexError
 include StepToTopoDS_TranslateVertexLoop
 include StepToTopoDS_TranslateVertexLoopError
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

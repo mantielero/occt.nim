@@ -31,17 +31,31 @@ discard "forward decl of StepRepr_RepresentationRelationship"
 discard "forward decl of StepRepr_ShapeAspect"
 type
   StepAP214AutoDesignReferencingItem* {.importcpp: "StepAP214_AutoDesignReferencingItem", header: "StepAP214_AutoDesignReferencingItem.hxx",
-                                       bycopy.} = object of StepDataSelectType ## !
-                                                                          ## Returns a
-                                                                          ## AutoDesignReferencingItem
-                                                                          ## SelectType
+                                       bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignReferencingItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignReferencingItem::operator new",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignReferencingItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignReferencingItem::operator delete",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignReferencingItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignReferencingItem::operator new[]",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignReferencingItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignReferencingItem::operator delete[]",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignReferencingItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_AutoDesignReferencingItem::operator new", header: "StepAP214_AutoDesignReferencingItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignReferencingItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_AutoDesignReferencingItem::operator delete",
+    header: "StepAP214_AutoDesignReferencingItem.hxx".}
 proc constructStepAP214AutoDesignReferencingItem*(): StepAP214AutoDesignReferencingItem {.
     constructor, importcpp: "StepAP214_AutoDesignReferencingItem(@)",
     header: "StepAP214_AutoDesignReferencingItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignReferencingItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignReferencingItem.hxx".}
 proc approval*(this: StepAP214AutoDesignReferencingItem): Handle[StepBasicApproval] {.
     noSideEffect, importcpp: "Approval",
@@ -82,28 +96,3 @@ proc representationRelationship*(this: StepAP214AutoDesignReferencingItem): Hand
 proc shapeAspect*(this: StepAP214AutoDesignReferencingItem): Handle[
     StepReprShapeAspect] {.noSideEffect, importcpp: "ShapeAspect",
                           header: "StepAP214_AutoDesignReferencingItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

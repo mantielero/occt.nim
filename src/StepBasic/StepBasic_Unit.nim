@@ -18,43 +18,26 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of StepBasic_NamedUnit"
 discard "forward decl of StepBasic_DerivedUnit"
 type
-  StepBasicUnit* {.importcpp: "StepBasic_Unit", header: "StepBasic_Unit.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## empty
-                                                                                                            ## object
+  StepBasicUnit* {.importcpp: "StepBasic_Unit", header: "StepBasic_Unit.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepBasicUnit; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_Unit::operator new", header: "StepBasic_Unit.hxx".}
+proc `delete`*(this: var StepBasicUnit; theAddress: pointer) {.
+    importcpp: "StepBasic_Unit::operator delete", header: "StepBasic_Unit.hxx".}
+proc `new[]`*(this: var StepBasicUnit; theSize: csize_t): pointer {.
+    importcpp: "StepBasic_Unit::operator new[]", header: "StepBasic_Unit.hxx".}
+proc `delete[]`*(this: var StepBasicUnit; theAddress: pointer) {.
+    importcpp: "StepBasic_Unit::operator delete[]", header: "StepBasic_Unit.hxx".}
+proc `new`*(this: var StepBasicUnit; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepBasic_Unit::operator new", header: "StepBasic_Unit.hxx".}
+proc `delete`*(this: var StepBasicUnit; a2: pointer; a3: pointer) {.
+    importcpp: "StepBasic_Unit::operator delete", header: "StepBasic_Unit.hxx".}
 proc constructStepBasicUnit*(): StepBasicUnit {.constructor,
     importcpp: "StepBasic_Unit(@)", header: "StepBasic_Unit.hxx".}
-proc caseNum*(this: StepBasicUnit; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepBasicUnit; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepBasic_Unit.hxx".}
 proc namedUnit*(this: StepBasicUnit): Handle[StepBasicNamedUnit] {.noSideEffect,
     importcpp: "NamedUnit", header: "StepBasic_Unit.hxx".}
 proc derivedUnit*(this: StepBasicUnit): Handle[StepBasicDerivedUnit] {.noSideEffect,
     importcpp: "DerivedUnit", header: "StepBasic_Unit.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

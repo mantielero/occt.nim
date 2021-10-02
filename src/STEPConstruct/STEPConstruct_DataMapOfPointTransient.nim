@@ -19,29 +19,3 @@ type
       Handle[StandardTransient], STEPConstructPointHasher]
   STEPConstructDataMapIteratorOfDataMapOfPointTransient* = Iterator[Pnt,
       Handle[StandardTransient], STEPConstructPointHasher]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

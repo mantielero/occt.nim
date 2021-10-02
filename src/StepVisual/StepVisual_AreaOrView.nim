@@ -19,17 +19,30 @@ discard "forward decl of StepVisual_PresentationArea"
 discard "forward decl of StepVisual_PresentationView"
 type
   StepVisualAreaOrView* {.importcpp: "StepVisual_AreaOrView",
-                         header: "StepVisual_AreaOrView.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## a
-                                                                                               ## AreaOrView
-                                                                                               ## SelectType
+                         header: "StepVisual_AreaOrView.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualAreaOrView; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_AreaOrView::operator new",
+    header: "StepVisual_AreaOrView.hxx".}
+proc `delete`*(this: var StepVisualAreaOrView; theAddress: pointer) {.
+    importcpp: "StepVisual_AreaOrView::operator delete",
+    header: "StepVisual_AreaOrView.hxx".}
+proc `new[]`*(this: var StepVisualAreaOrView; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_AreaOrView::operator new[]",
+    header: "StepVisual_AreaOrView.hxx".}
+proc `delete[]`*(this: var StepVisualAreaOrView; theAddress: pointer) {.
+    importcpp: "StepVisual_AreaOrView::operator delete[]",
+    header: "StepVisual_AreaOrView.hxx".}
+proc `new`*(this: var StepVisualAreaOrView; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_AreaOrView::operator new",
+    header: "StepVisual_AreaOrView.hxx".}
+proc `delete`*(this: var StepVisualAreaOrView; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_AreaOrView::operator delete",
+    header: "StepVisual_AreaOrView.hxx".}
 proc constructStepVisualAreaOrView*(): StepVisualAreaOrView {.constructor,
     importcpp: "StepVisual_AreaOrView(@)", header: "StepVisual_AreaOrView.hxx".}
-proc caseNum*(this: StepVisualAreaOrView; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualAreaOrView; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_AreaOrView.hxx".}
 proc presentationArea*(this: StepVisualAreaOrView): Handle[
     StepVisualPresentationArea] {.noSideEffect, importcpp: "PresentationArea",
@@ -37,28 +50,3 @@ proc presentationArea*(this: StepVisualAreaOrView): Handle[
 proc presentationView*(this: StepVisualAreaOrView): Handle[
     StepVisualPresentationView] {.noSideEffect, importcpp: "PresentationView",
                                  header: "StepVisual_AreaOrView.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

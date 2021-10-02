@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualExternallyDefinedCurveFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_ExternallyDefinedCurveFont.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

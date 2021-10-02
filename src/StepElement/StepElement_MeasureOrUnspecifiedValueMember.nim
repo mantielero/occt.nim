@@ -32,17 +32,18 @@ type
 proc constructStepElementMeasureOrUnspecifiedValueMember*(): StepElementMeasureOrUnspecifiedValueMember {.
     constructor, importcpp: "StepElement_MeasureOrUnspecifiedValueMember(@)",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-proc hasName*(this: StepElementMeasureOrUnspecifiedValueMember): bool {.
+proc hasName*(this: StepElementMeasureOrUnspecifiedValueMember): StandardBoolean {.
     noSideEffect, importcpp: "HasName",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
 proc name*(this: StepElementMeasureOrUnspecifiedValueMember): StandardCString {.
     noSideEffect, importcpp: "Name",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
 proc setName*(this: var StepElementMeasureOrUnspecifiedValueMember;
-             name: StandardCString): bool {.importcpp: "SetName",
+             name: StandardCString): StandardBoolean {.importcpp: "SetName",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
 proc matches*(this: StepElementMeasureOrUnspecifiedValueMember;
-             name: StandardCString): bool {.noSideEffect, importcpp: "Matches",
+             name: StandardCString): StandardBoolean {.noSideEffect,
+    importcpp: "Matches",
     header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
 type
   StepElementMeasureOrUnspecifiedValueMemberbaseType* = StepDataSelectNamed
@@ -53,28 +54,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Measur
 proc dynamicType*(this: StepElementMeasureOrUnspecifiedValueMember): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_MeasureOrUnspecifiedValueMember.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

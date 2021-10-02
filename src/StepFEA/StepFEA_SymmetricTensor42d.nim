@@ -16,43 +16,33 @@
 discard "forward decl of Standard_Transient"
 type
   StepFEA_SymmetricTensor42d* {.importcpp: "StepFEA_SymmetricTensor42d",
-                               header: "StepFEA_SymmetricTensor42d.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                          ## !
-                                                                                                          ## Empty
-                                                                                                          ## constructor
+                               header: "StepFEA_SymmetricTensor42d.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepFEA_SymmetricTensor42d; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator new",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
+proc `delete`*(this: var StepFEA_SymmetricTensor42d; theAddress: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator delete",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
+proc `new[]`*(this: var StepFEA_SymmetricTensor42d; theSize: csize_t): pointer {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator new[]",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
+proc `delete[]`*(this: var StepFEA_SymmetricTensor42d; theAddress: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator delete[]",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
+proc `new`*(this: var StepFEA_SymmetricTensor42d; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator new",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
+proc `delete`*(this: var StepFEA_SymmetricTensor42d; a2: pointer; a3: pointer) {.
+    importcpp: "StepFEA_SymmetricTensor42d::operator delete",
+    header: "StepFEA_SymmetricTensor42d.hxx".}
 proc constructStepFEA_SymmetricTensor42d*(): StepFEA_SymmetricTensor42d {.
     constructor, importcpp: "StepFEA_SymmetricTensor42d(@)",
     header: "StepFEA_SymmetricTensor42d.hxx".}
-proc caseNum*(this: StepFEA_SymmetricTensor42d; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepFEA_SymmetricTensor42d; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepFEA_SymmetricTensor42d.hxx".}
 proc anisotropicSymmetricTensor42d*(this: StepFEA_SymmetricTensor42d): Handle[
     TColStdHArray1OfReal] {.noSideEffect,
                            importcpp: "AnisotropicSymmetricTensor42d",
                            header: "StepFEA_SymmetricTensor42d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

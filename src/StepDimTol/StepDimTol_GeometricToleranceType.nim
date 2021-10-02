@@ -24,29 +24,3 @@ type
     StepDimTolGTTSurfaceProfileTolerance, StepDimTolGTTSymmetryTolerance,
     StepDimTolGTTTotalRunoutTolerance
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

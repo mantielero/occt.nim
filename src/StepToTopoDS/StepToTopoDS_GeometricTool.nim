@@ -25,43 +25,37 @@ type
                                header: "StepToTopoDS_GeometricTool.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepToTopoDS_GeometricTool; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_GeometricTool::operator new",
+    header: "StepToTopoDS_GeometricTool.hxx".}
+proc `delete`*(this: var StepToTopoDS_GeometricTool; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_GeometricTool::operator delete",
+    header: "StepToTopoDS_GeometricTool.hxx".}
+proc `new[]`*(this: var StepToTopoDS_GeometricTool; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_GeometricTool::operator new[]",
+    header: "StepToTopoDS_GeometricTool.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_GeometricTool; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_GeometricTool::operator delete[]",
+    header: "StepToTopoDS_GeometricTool.hxx".}
+proc `new`*(this: var StepToTopoDS_GeometricTool; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_GeometricTool::operator new",
+    header: "StepToTopoDS_GeometricTool.hxx".}
+proc `delete`*(this: var StepToTopoDS_GeometricTool; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_GeometricTool::operator delete",
+    header: "StepToTopoDS_GeometricTool.hxx".}
 proc pCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
-            pc: var Handle[StepGeomPcurve]; last: cint = 0): cint {.
+            pc: var Handle[StepGeomPcurve]; last: int = 0): int {.
     importcpp: "StepToTopoDS_GeometricTool::PCurve(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
 proc isSeamCurve*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
-                 e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): bool {.
+                 e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): StandardBoolean {.
     importcpp: "StepToTopoDS_GeometricTool::IsSeamCurve(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
 proc isLikeSeam*(sc: Handle[StepGeomSurfaceCurve]; s: Handle[StepGeomSurface];
-                e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): bool {.
+                e: Handle[StepShapeEdge]; el: Handle[StepShapeEdgeLoop]): StandardBoolean {.
     importcpp: "StepToTopoDS_GeometricTool::IsLikeSeam(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-proc updateParam3d*(c: Handle[GeomCurve]; w1: var cfloat; w2: var cfloat; preci: cfloat): bool {.
+proc updateParam3d*(c: Handle[GeomCurve]; w1: var StandardReal; w2: var StandardReal;
+                   preci: StandardReal): StandardBoolean {.
     importcpp: "StepToTopoDS_GeometricTool::UpdateParam3d(@)",
     header: "StepToTopoDS_GeometricTool.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

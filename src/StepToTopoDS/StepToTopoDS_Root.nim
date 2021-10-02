@@ -23,38 +23,29 @@ type
                       header: "StepToTopoDS_Root.hxx", bycopy.} = object
 
 
-proc isDone*(this: StepToTopoDS_Root): bool {.noSideEffect, importcpp: "IsDone",
+proc `new`*(this: var StepToTopoDS_Root; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_Root::operator new", header: "StepToTopoDS_Root.hxx".}
+proc `delete`*(this: var StepToTopoDS_Root; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_Root::operator delete",
     header: "StepToTopoDS_Root.hxx".}
-proc precision*(this: StepToTopoDS_Root): cfloat {.noSideEffect,
+proc `new[]`*(this: var StepToTopoDS_Root; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_Root::operator new[]",
+    header: "StepToTopoDS_Root.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_Root; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_Root::operator delete[]",
+    header: "StepToTopoDS_Root.hxx".}
+proc `new`*(this: var StepToTopoDS_Root; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_Root::operator new", header: "StepToTopoDS_Root.hxx".}
+proc `delete`*(this: var StepToTopoDS_Root; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_Root::operator delete",
+    header: "StepToTopoDS_Root.hxx".}
+proc isDone*(this: StepToTopoDS_Root): StandardBoolean {.noSideEffect,
+    importcpp: "IsDone", header: "StepToTopoDS_Root.hxx".}
+proc precision*(this: StepToTopoDS_Root): StandardReal {.noSideEffect,
     importcpp: "Precision", header: "StepToTopoDS_Root.hxx".}
-proc setPrecision*(this: var StepToTopoDS_Root; preci: cfloat) {.
+proc setPrecision*(this: var StepToTopoDS_Root; preci: StandardReal) {.
     importcpp: "SetPrecision", header: "StepToTopoDS_Root.hxx".}
-proc maxTol*(this: StepToTopoDS_Root): cfloat {.noSideEffect, importcpp: "MaxTol",
-    header: "StepToTopoDS_Root.hxx".}
-proc setMaxTol*(this: var StepToTopoDS_Root; maxpreci: cfloat) {.
+proc maxTol*(this: StepToTopoDS_Root): StandardReal {.noSideEffect,
+    importcpp: "MaxTol", header: "StepToTopoDS_Root.hxx".}
+proc setMaxTol*(this: var StepToTopoDS_Root; maxpreci: StandardReal) {.
     importcpp: "SetMaxTol", header: "StepToTopoDS_Root.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

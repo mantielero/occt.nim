@@ -37,7 +37,7 @@ proc ws*(this: XSControlWriter): Handle[XSControlWorkSession] {.noSideEffect,
     importcpp: "WS", header: "XSControl_Writer.hxx".}
 proc model*(this: var XSControlWriter; newone: bool = false): Handle[
     InterfaceInterfaceModel] {.importcpp: "Model", header: "XSControl_Writer.hxx".}
-proc transferShape*(this: var XSControlWriter; sh: TopoDS_Shape; mode: cint = 0;
+#[ proc transferShape*(this: var XSControlWriter; sh: TopoDS_Shape; mode: cint = 0;
                    theProgress: MessageProgressRange = messageProgressRange()): IFSelectReturnStatus {.
     importcpp: "TransferShape", header: "XSControl_Writer.hxx".}
 proc writeFile*(this: var XSControlWriter; filename: StandardCString): IFSelectReturnStatus {.
@@ -55,7 +55,7 @@ proc printStatsTransfer*(this: XSControlWriter; what: cint; mode: cint = 0) {.
 
 
 
-
+ ]#
 
 
 

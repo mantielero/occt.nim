@@ -25,16 +25,31 @@ discard "forward decl of StepRepr_ExternallyDefinedRepresentation"
 discard "forward decl of StepAP214_AutoDesignDocumentReference"
 type
   StepAP214AutoDesignGeneralOrgItem* {.importcpp: "StepAP214_AutoDesignGeneralOrgItem", header: "StepAP214_AutoDesignGeneralOrgItem.hxx",
-                                      bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                         ## AutoDesignGeneralOrgItem
-                                                                         ## SelectType
+                                      bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepAP214AutoDesignGeneralOrgItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator new",
+    header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignGeneralOrgItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator delete",
+    header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc `new[]`*(this: var StepAP214AutoDesignGeneralOrgItem; theSize: csize_t): pointer {.
+    importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator new[]",
+    header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc `delete[]`*(this: var StepAP214AutoDesignGeneralOrgItem; theAddress: pointer) {.
+    importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator delete[]",
+    header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc `new`*(this: var StepAP214AutoDesignGeneralOrgItem; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator new", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
+proc `delete`*(this: var StepAP214AutoDesignGeneralOrgItem; a2: pointer; a3: pointer) {.
+    importcpp: "StepAP214_AutoDesignGeneralOrgItem::operator delete",
+    header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
 proc constructStepAP214AutoDesignGeneralOrgItem*(): StepAP214AutoDesignGeneralOrgItem {.
     constructor, importcpp: "StepAP214_AutoDesignGeneralOrgItem(@)",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
 proc caseNum*(this: StepAP214AutoDesignGeneralOrgItem;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
 proc product*(this: StepAP214AutoDesignGeneralOrgItem): Handle[StepBasicProduct] {.
     noSideEffect, importcpp: "Product",
@@ -65,28 +80,3 @@ proc autoDesignDocumentReference*(this: StepAP214AutoDesignGeneralOrgItem): Hand
     StepAP214AutoDesignDocumentReference] {.noSideEffect,
     importcpp: "AutoDesignDocumentReference",
     header: "StepAP214_AutoDesignGeneralOrgItem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

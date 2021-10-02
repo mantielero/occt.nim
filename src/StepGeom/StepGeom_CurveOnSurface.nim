@@ -20,17 +20,30 @@ discard "forward decl of StepGeom_SurfaceCurve"
 discard "forward decl of StepGeom_CompositeCurveOnSurface"
 type
   StepGeomCurveOnSurface* {.importcpp: "StepGeom_CurveOnSurface",
-                           header: "StepGeom_CurveOnSurface.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                   ## !
-                                                                                                   ## Returns
-                                                                                                   ## a
-                                                                                                   ## CurveOnSurface
-                                                                                                   ## SelectType
+                           header: "StepGeom_CurveOnSurface.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepGeomCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_CurveOnSurface::operator new",
+    header: "StepGeom_CurveOnSurface.hxx".}
+proc `delete`*(this: var StepGeomCurveOnSurface; theAddress: pointer) {.
+    importcpp: "StepGeom_CurveOnSurface::operator delete",
+    header: "StepGeom_CurveOnSurface.hxx".}
+proc `new[]`*(this: var StepGeomCurveOnSurface; theSize: csize_t): pointer {.
+    importcpp: "StepGeom_CurveOnSurface::operator new[]",
+    header: "StepGeom_CurveOnSurface.hxx".}
+proc `delete[]`*(this: var StepGeomCurveOnSurface; theAddress: pointer) {.
+    importcpp: "StepGeom_CurveOnSurface::operator delete[]",
+    header: "StepGeom_CurveOnSurface.hxx".}
+proc `new`*(this: var StepGeomCurveOnSurface; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepGeom_CurveOnSurface::operator new",
+    header: "StepGeom_CurveOnSurface.hxx".}
+proc `delete`*(this: var StepGeomCurveOnSurface; a2: pointer; a3: pointer) {.
+    importcpp: "StepGeom_CurveOnSurface::operator delete",
+    header: "StepGeom_CurveOnSurface.hxx".}
 proc constructStepGeomCurveOnSurface*(): StepGeomCurveOnSurface {.constructor,
     importcpp: "StepGeom_CurveOnSurface(@)", header: "StepGeom_CurveOnSurface.hxx".}
-proc caseNum*(this: StepGeomCurveOnSurface; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepGeomCurveOnSurface; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepGeom_CurveOnSurface.hxx".}
 proc pcurve*(this: StepGeomCurveOnSurface): Handle[StepGeomPcurve] {.noSideEffect,
     importcpp: "Pcurve", header: "StepGeom_CurveOnSurface.hxx".}
@@ -40,28 +53,3 @@ proc compositeCurveOnSurface*(this: StepGeomCurveOnSurface): Handle[
     StepGeomCompositeCurveOnSurface] {.noSideEffect,
                                       importcpp: "CompositeCurveOnSurface",
                                       header: "StepGeom_CurveOnSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

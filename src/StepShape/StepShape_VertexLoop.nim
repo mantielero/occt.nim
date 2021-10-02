@@ -48,28 +48,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_VertexLoop.hxx".}
 proc dynamicType*(this: StepShapeVertexLoop): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_VertexLoop.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

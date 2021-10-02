@@ -20,20 +20,33 @@ discard "forward decl of StepShape_BooleanResult"
 discard "forward decl of StepShape_CsgPrimitive"
 type
   StepShapeBooleanOperand* {.importcpp: "StepShape_BooleanOperand",
-                            header: "StepShape_BooleanOperand.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## a
-                                                                                 ## BooleanOperand
-                                                                                 ## SelectType
+                            header: "StepShape_BooleanOperand.hxx", bycopy.} = object
 
 
+proc `new`*(this: var StepShapeBooleanOperand; theSize: csize_t): pointer {.
+    importcpp: "StepShape_BooleanOperand::operator new",
+    header: "StepShape_BooleanOperand.hxx".}
+proc `delete`*(this: var StepShapeBooleanOperand; theAddress: pointer) {.
+    importcpp: "StepShape_BooleanOperand::operator delete",
+    header: "StepShape_BooleanOperand.hxx".}
+proc `new[]`*(this: var StepShapeBooleanOperand; theSize: csize_t): pointer {.
+    importcpp: "StepShape_BooleanOperand::operator new[]",
+    header: "StepShape_BooleanOperand.hxx".}
+proc `delete[]`*(this: var StepShapeBooleanOperand; theAddress: pointer) {.
+    importcpp: "StepShape_BooleanOperand::operator delete[]",
+    header: "StepShape_BooleanOperand.hxx".}
+proc `new`*(this: var StepShapeBooleanOperand; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepShape_BooleanOperand::operator new",
+    header: "StepShape_BooleanOperand.hxx".}
+proc `delete`*(this: var StepShapeBooleanOperand; a2: pointer; a3: pointer) {.
+    importcpp: "StepShape_BooleanOperand::operator delete",
+    header: "StepShape_BooleanOperand.hxx".}
 proc constructStepShapeBooleanOperand*(): StepShapeBooleanOperand {.constructor,
     importcpp: "StepShape_BooleanOperand(@)",
     header: "StepShape_BooleanOperand.hxx".}
-proc setTypeOfContent*(this: var StepShapeBooleanOperand; aTypeOfContent: cint) {.
+proc setTypeOfContent*(this: var StepShapeBooleanOperand; aTypeOfContent: int) {.
     importcpp: "SetTypeOfContent", header: "StepShape_BooleanOperand.hxx".}
-proc typeOfContent*(this: StepShapeBooleanOperand): cint {.noSideEffect,
+proc typeOfContent*(this: StepShapeBooleanOperand): int {.noSideEffect,
     importcpp: "TypeOfContent", header: "StepShape_BooleanOperand.hxx".}
 proc solidModel*(this: StepShapeBooleanOperand): Handle[StepShapeSolidModel] {.
     noSideEffect, importcpp: "SolidModel", header: "StepShape_BooleanOperand.hxx".}
@@ -57,28 +70,3 @@ proc booleanResult*(this: StepShapeBooleanOperand): Handle[StepShapeBooleanResul
 proc setBooleanResult*(this: var StepShapeBooleanOperand;
                       aBooleanResult: Handle[StepShapeBooleanResult]) {.
     importcpp: "SetBooleanResult", header: "StepShape_BooleanOperand.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

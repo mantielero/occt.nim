@@ -22,12 +22,26 @@ discard "forward decl of TopoDS_Wire"
 type
   StepToTopoDS_TranslateCompositeCurve* {.
       importcpp: "StepToTopoDS_TranslateCompositeCurve",
-      header: "StepToTopoDS_TranslateCompositeCurve.hxx", bycopy.} = object of StepToTopoDS_Root ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor
+      header: "StepToTopoDS_TranslateCompositeCurve.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateCompositeCurve; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateCompositeCurve::operator new",
+    header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateCompositeCurve; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateCompositeCurve::operator delete",
+    header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateCompositeCurve; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateCompositeCurve::operator new[]",
+    header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateCompositeCurve; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateCompositeCurve::operator delete[]",
+    header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateCompositeCurve; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepToTopoDS_TranslateCompositeCurve::operator new", header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateCompositeCurve; a2: pointer;
+              a3: pointer) {.importcpp: "StepToTopoDS_TranslateCompositeCurve::operator delete",
+                           header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc constructStepToTopoDS_TranslateCompositeCurve*(): StepToTopoDS_TranslateCompositeCurve {.
     constructor, importcpp: "StepToTopoDS_TranslateCompositeCurve(@)",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
@@ -41,40 +55,15 @@ proc constructStepToTopoDS_TranslateCompositeCurve*(
     constructor, importcpp: "StepToTopoDS_TranslateCompositeCurve(@)",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc init*(this: var StepToTopoDS_TranslateCompositeCurve;
-          cc: Handle[StepGeomCompositeCurve]; tp: Handle[TransferTransientProcess]): bool {.
+          cc: Handle[StepGeomCompositeCurve]; tp: Handle[TransferTransientProcess]): StandardBoolean {.
     importcpp: "Init", header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc init*(this: var StepToTopoDS_TranslateCompositeCurve;
           cc: Handle[StepGeomCompositeCurve];
           tp: Handle[TransferTransientProcess]; s: Handle[StepGeomSurface];
-          surf: Handle[GeomSurface]): bool {.importcpp: "Init",
+          surf: Handle[GeomSurface]): StandardBoolean {.importcpp: "Init",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
 proc value*(this: StepToTopoDS_TranslateCompositeCurve): TopoDS_Wire {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-proc isInfiniteSegment*(this: StepToTopoDS_TranslateCompositeCurve): bool {.
+proc isInfiniteSegment*(this: StepToTopoDS_TranslateCompositeCurve): StandardBoolean {.
     noSideEffect, importcpp: "IsInfiniteSegment",
     header: "StepToTopoDS_TranslateCompositeCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

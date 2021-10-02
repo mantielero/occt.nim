@@ -36,21 +36,21 @@ proc constructStepReprAssemblyComponentUsage*(): StepReprAssemblyComponentUsage 
 proc init*(this: var StepReprAssemblyComponentUsage;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: Handle[
     StepBasicProductDefinition]; aProductDefinitionRelationshipRelatedProductDefinition: Handle[
-    StepBasicProductDefinition]; hasReferenceDesignator: bool;
+    StepBasicProductDefinition]; hasReferenceDesignator: StandardBoolean;
           aReferenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepRepr_AssemblyComponentUsage.hxx".}
 proc init*(this: var StepReprAssemblyComponentUsage;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: StepBasicProductDefinitionOrReference;
     aProductDefinitionRelationshipRelatedProductDefinition: StepBasicProductDefinitionOrReference;
-          hasReferenceDesignator: bool;
+          hasReferenceDesignator: StandardBoolean;
           aReferenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "Init", header: "StepRepr_AssemblyComponentUsage.hxx".}
 proc referenceDesignator*(this: StepReprAssemblyComponentUsage): Handle[
@@ -60,7 +60,7 @@ proc setReferenceDesignator*(this: var StepReprAssemblyComponentUsage;
     referenceDesignator: Handle[TCollectionHAsciiString]) {.
     importcpp: "SetReferenceDesignator",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
-proc hasReferenceDesignator*(this: StepReprAssemblyComponentUsage): bool {.
+proc hasReferenceDesignator*(this: StepReprAssemblyComponentUsage): StandardBoolean {.
     noSideEffect, importcpp: "HasReferenceDesignator",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
 type
@@ -74,28 +74,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepReprAssemblyComponentUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepRepr_AssemblyComponentUsage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

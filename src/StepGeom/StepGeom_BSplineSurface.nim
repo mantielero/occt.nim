@@ -31,18 +31,18 @@ type
 proc constructStepGeomBSplineSurface*(): StepGeomBSplineSurface {.constructor,
     importcpp: "StepGeom_BSplineSurface(@)", header: "StepGeom_BSplineSurface.hxx".}
 proc init*(this: var StepGeomBSplineSurface; aName: Handle[TCollectionHAsciiString];
-          aUDegree: cint; aVDegree: cint;
+          aUDegree: int; aVDegree: int;
           aControlPointsList: Handle[StepGeomHArray2OfCartesianPoint];
           aSurfaceForm: StepGeomBSplineSurfaceForm; aUClosed: StepDataLogical;
           aVClosed: StepDataLogical; aSelfIntersect: StepDataLogical) {.
     importcpp: "Init", header: "StepGeom_BSplineSurface.hxx".}
-proc setUDegree*(this: var StepGeomBSplineSurface; aUDegree: cint) {.
+proc setUDegree*(this: var StepGeomBSplineSurface; aUDegree: int) {.
     importcpp: "SetUDegree", header: "StepGeom_BSplineSurface.hxx".}
-proc uDegree*(this: StepGeomBSplineSurface): cint {.noSideEffect,
+proc uDegree*(this: StepGeomBSplineSurface): int {.noSideEffect,
     importcpp: "UDegree", header: "StepGeom_BSplineSurface.hxx".}
-proc setVDegree*(this: var StepGeomBSplineSurface; aVDegree: cint) {.
+proc setVDegree*(this: var StepGeomBSplineSurface; aVDegree: int) {.
     importcpp: "SetVDegree", header: "StepGeom_BSplineSurface.hxx".}
-proc vDegree*(this: StepGeomBSplineSurface): cint {.noSideEffect,
+proc vDegree*(this: StepGeomBSplineSurface): int {.noSideEffect,
     importcpp: "VDegree", header: "StepGeom_BSplineSurface.hxx".}
 proc setControlPointsList*(this: var StepGeomBSplineSurface; aControlPointsList: Handle[
     StepGeomHArray2OfCartesianPoint]) {.importcpp: "SetControlPointsList",
@@ -51,12 +51,12 @@ proc controlPointsList*(this: StepGeomBSplineSurface): Handle[
     StepGeomHArray2OfCartesianPoint] {.noSideEffect,
                                       importcpp: "ControlPointsList",
                                       header: "StepGeom_BSplineSurface.hxx".}
-proc controlPointsListValue*(this: StepGeomBSplineSurface; num1: cint; num2: cint): Handle[
+proc controlPointsListValue*(this: StepGeomBSplineSurface; num1: int; num2: int): Handle[
     StepGeomCartesianPoint] {.noSideEffect, importcpp: "ControlPointsListValue",
                              header: "StepGeom_BSplineSurface.hxx".}
-proc nbControlPointsListI*(this: StepGeomBSplineSurface): cint {.noSideEffect,
+proc nbControlPointsListI*(this: StepGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbControlPointsListI", header: "StepGeom_BSplineSurface.hxx".}
-proc nbControlPointsListJ*(this: StepGeomBSplineSurface): cint {.noSideEffect,
+proc nbControlPointsListJ*(this: StepGeomBSplineSurface): int {.noSideEffect,
     importcpp: "NbControlPointsListJ", header: "StepGeom_BSplineSurface.hxx".}
 proc setSurfaceForm*(this: var StepGeomBSplineSurface;
                     aSurfaceForm: StepGeomBSplineSurfaceForm) {.
@@ -86,28 +86,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_BSplineSurface.hxx".}
 proc dynamicType*(this: StepGeomBSplineSurface): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_BSplineSurface.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

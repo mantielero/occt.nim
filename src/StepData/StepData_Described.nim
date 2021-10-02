@@ -62,14 +62,14 @@ type
 
 proc description*(this: StepDataDescribed): Handle[StepDataEDescr] {.noSideEffect,
     importcpp: "Description", header: "StepData_Described.hxx".}
-proc isComplex*(this: StepDataDescribed): bool {.noSideEffect,
+proc isComplex*(this: StepDataDescribed): StandardBoolean {.noSideEffect,
     importcpp: "IsComplex", header: "StepData_Described.hxx".}
-proc matches*(this: StepDataDescribed; steptype: StandardCString): bool {.
+proc matches*(this: StepDataDescribed; steptype: StandardCString): StandardBoolean {.
     noSideEffect, importcpp: "Matches", header: "StepData_Described.hxx".}
 proc `as`*(this: StepDataDescribed; steptype: StandardCString): Handle[StepDataSimple] {.
     noSideEffect, importcpp: "As", header: "StepData_Described.hxx".}
-proc hasField*(this: StepDataDescribed; name: StandardCString): bool {.noSideEffect,
-    importcpp: "HasField", header: "StepData_Described.hxx".}
+proc hasField*(this: StepDataDescribed; name: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "HasField", header: "StepData_Described.hxx".}
 proc field*(this: StepDataDescribed; name: StandardCString): StepDataField {.
     noSideEffect, importcpp: "Field", header: "StepData_Described.hxx".}
 proc cField*(this: var StepDataDescribed; name: StandardCString): var StepDataField {.
@@ -88,28 +88,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_Described.hxx".}
 proc dynamicType*(this: StepDataDescribed): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_Described.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

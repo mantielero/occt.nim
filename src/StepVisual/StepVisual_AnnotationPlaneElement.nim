@@ -18,43 +18,34 @@ discard "forward decl of StepVisual_DraughtingCallout"
 discard "forward decl of StepVisual_StyledItem"
 type
   StepVisualAnnotationPlaneElement* {.importcpp: "StepVisual_AnnotationPlaneElement", header: "StepVisual_AnnotationPlaneElement.hxx",
-                                     bycopy.} = object of StepDataSelectType ## ! Returns a
-                                                                        ## AnnotationPlaneElement select type
+                                     bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualAnnotationPlaneElement; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_AnnotationPlaneElement::operator new",
+    header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc `delete`*(this: var StepVisualAnnotationPlaneElement; theAddress: pointer) {.
+    importcpp: "StepVisual_AnnotationPlaneElement::operator delete",
+    header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc `new[]`*(this: var StepVisualAnnotationPlaneElement; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_AnnotationPlaneElement::operator new[]",
+    header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc `delete[]`*(this: var StepVisualAnnotationPlaneElement; theAddress: pointer) {.
+    importcpp: "StepVisual_AnnotationPlaneElement::operator delete[]",
+    header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc `new`*(this: var StepVisualAnnotationPlaneElement; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepVisual_AnnotationPlaneElement::operator new", header: "StepVisual_AnnotationPlaneElement.hxx".}
+proc `delete`*(this: var StepVisualAnnotationPlaneElement; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_AnnotationPlaneElement::operator delete",
+    header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc constructStepVisualAnnotationPlaneElement*(): StepVisualAnnotationPlaneElement {.
     constructor, importcpp: "StepVisual_AnnotationPlaneElement(@)",
     header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc caseNum*(this: StepVisualAnnotationPlaneElement;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc draughtingCallout*(this: StepVisualAnnotationPlaneElement): Handle[
     StepVisualDraughtingCallout] {.noSideEffect, importcpp: "DraughtingCallout", header: "StepVisual_AnnotationPlaneElement.hxx".}
 proc styledItem*(this: StepVisualAnnotationPlaneElement): Handle[
     StepVisualStyledItem] {.noSideEffect, importcpp: "StyledItem",
                            header: "StepVisual_AnnotationPlaneElement.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

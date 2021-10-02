@@ -46,11 +46,11 @@ proc setPatternList*(this: var StepVisualCurveStyleFont; aPatternList: Handle[
 proc patternList*(this: StepVisualCurveStyleFont): Handle[
     StepVisualHArray1OfCurveStyleFontPattern] {.noSideEffect,
     importcpp: "PatternList", header: "StepVisual_CurveStyleFont.hxx".}
-proc patternListValue*(this: StepVisualCurveStyleFont; num: cint): Handle[
+proc patternListValue*(this: StepVisualCurveStyleFont; num: int): Handle[
     StepVisualCurveStyleFontPattern] {.noSideEffect,
                                       importcpp: "PatternListValue",
                                       header: "StepVisual_CurveStyleFont.hxx".}
-proc nbPatternList*(this: StepVisualCurveStyleFont): cint {.noSideEffect,
+proc nbPatternList*(this: StepVisualCurveStyleFont): int {.noSideEffect,
     importcpp: "NbPatternList", header: "StepVisual_CurveStyleFont.hxx".}
 type
   StepVisualCurveStyleFontbaseType* = StandardTransient
@@ -62,28 +62,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_CurveStyleFont.hxx".}
 proc dynamicType*(this: StepVisualCurveStyleFont): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepVisual_CurveStyleFont.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

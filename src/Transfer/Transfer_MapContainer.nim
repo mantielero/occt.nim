@@ -16,20 +16,22 @@
 discard "forward decl of Transfer_MapContainer"
 discard "forward decl of Transfer_MapContainer"
 type
-  HandleC1C1* = Handle[TransferMapContainer]
   TransferMapContainer* {.importcpp: "Transfer_MapContainer",
                          header: "Transfer_MapContainer.hxx", bycopy.} = object of StandardTransient
+
+  HandleTransferMapContainer* = Handle[TransferMapContainer]
+
+type
+  TransferMapContainerbaseType* = StandardTransient
 
 
 proc constructTransferMapContainer*(): TransferMapContainer {.constructor,
     importcpp: "Transfer_MapContainer(@)", header: "Transfer_MapContainer.hxx".}
-proc setMapObjects*(this: var TransferMapContainer;
+#[ proc setMapObjects*(this: var TransferMapContainer;
                    theMapObjects: var TColStdDataMapOfTransientTransient) {.
     importcpp: "SetMapObjects", header: "Transfer_MapContainer.hxx".}
 proc getMapObjects*(this: var TransferMapContainer): var TColStdDataMapOfTransientTransient {.
     importcpp: "GetMapObjects", header: "Transfer_MapContainer.hxx".}
-type
-  TransferMapContainerbaseType* = StandardTransient
 
 proc getTypeName*(): cstring {.importcpp: "Transfer_MapContainer::get_type_name(@)",
                             header: "Transfer_MapContainer.hxx".}
@@ -37,29 +39,4 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     importcpp: "Transfer_MapContainer::get_type_descriptor(@)",
     header: "Transfer_MapContainer.hxx".}
 proc dynamicType*(this: TransferMapContainer): Handle[StandardType] {.noSideEffect,
-    importcpp: "DynamicType", header: "Transfer_MapContainer.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    importcpp: "DynamicType", header: "Transfer_MapContainer.hxx".} ]#

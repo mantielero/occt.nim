@@ -19,29 +19,3 @@ type
     StepElementXRotation, StepElementYRotation, StepElementZRotation,
     StepElementWarp, StepElementNone
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

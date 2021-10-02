@@ -49,28 +49,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepVisual_Surface
 proc dynamicType*(this: StepVisualSurfaceStyleSegmentationCurve): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepVisual_SurfaceStyleSegmentationCurve.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -27,7 +27,7 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of XSControl_TransferReader"
 discard "forward decl of XSControl_TransferReader"
 type
-  HandleC1C1* = Handle[XSControlTransferReader]
+  HandleXSControlTransferReader* = Handle[XSControlTransferReader]
 
 ## ! A TransferReader performs, manages, handles results of,
 ## ! transfers done when reading a file (i.e. from entities of an
@@ -73,7 +73,7 @@ proc actor*(this: var XSControlTransferReader): Handle[
 proc setModel*(this: var XSControlTransferReader;
               theModel: Handle[InterfaceInterfaceModel]) {.importcpp: "SetModel",
     header: "XSControl_TransferReader.hxx".}
-proc setGraph*(this: var XSControlTransferReader; theGraph: Handle[InterfaceHGraph]) {.
+#[ proc setGraph*(this: var XSControlTransferReader; theGraph: Handle[InterfaceHGraph]) {.
     importcpp: "SetGraph", header: "XSControl_TransferReader.hxx".}
 proc model*(this: XSControlTransferReader): Handle[InterfaceInterfaceModel] {.
     noSideEffect, importcpp: "Model", header: "XSControl_TransferReader.hxx".}
@@ -233,3 +233,4 @@ proc dynamicType*(this: XSControlTransferReader): Handle[StandardType] {.
 
 
 
+ ]#

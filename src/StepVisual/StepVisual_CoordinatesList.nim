@@ -18,14 +18,27 @@ discard "forward decl of StepVisual_CoordinatesList"
 type
   HandleC1C1* = Handle[StepVisualCoordinatesList]
   StepVisualCoordinatesList* {.importcpp: "StepVisual_CoordinatesList",
-                              header: "StepVisual_CoordinatesList.hxx", bycopy.} = object of StepVisualTessellatedItem ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## a
-                                                                                                                ## coordinate
-                                                                                                                ## list
+                              header: "StepVisual_CoordinatesList.hxx", bycopy.} = object of StepVisualTessellatedItem
 
 
+proc `new`*(this: var StepVisualCoordinatesList; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_CoordinatesList::operator new",
+    header: "StepVisual_CoordinatesList.hxx".}
+proc `delete`*(this: var StepVisualCoordinatesList; theAddress: pointer) {.
+    importcpp: "StepVisual_CoordinatesList::operator delete",
+    header: "StepVisual_CoordinatesList.hxx".}
+proc `new[]`*(this: var StepVisualCoordinatesList; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_CoordinatesList::operator new[]",
+    header: "StepVisual_CoordinatesList.hxx".}
+proc `delete[]`*(this: var StepVisualCoordinatesList; theAddress: pointer) {.
+    importcpp: "StepVisual_CoordinatesList::operator delete[]",
+    header: "StepVisual_CoordinatesList.hxx".}
+proc `new`*(this: var StepVisualCoordinatesList; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_CoordinatesList::operator new",
+    header: "StepVisual_CoordinatesList.hxx".}
+proc `delete`*(this: var StepVisualCoordinatesList; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_CoordinatesList::operator delete",
+    header: "StepVisual_CoordinatesList.hxx".}
 proc constructStepVisualCoordinatesList*(): StepVisualCoordinatesList {.
     constructor, importcpp: "StepVisual_CoordinatesList(@)",
     header: "StepVisual_CoordinatesList.hxx".}
@@ -46,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepVisualCoordinatesList): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepVisual_CoordinatesList.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

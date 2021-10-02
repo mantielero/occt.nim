@@ -35,19 +35,19 @@ proc constructStepFEA_ConstantSurface3dElementCoordinateSystem*(): StepFEA_Const
     importcpp: "StepFEA_ConstantSurface3dElementCoordinateSystem(@)",
     header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
 proc init*(this: var StepFEA_ConstantSurface3dElementCoordinateSystem;
-          aRepresentationItemName: Handle[TCollectionHAsciiString]; aAxis: cint;
-          aAngle: cfloat) {.importcpp: "Init", header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
-proc axis*(this: StepFEA_ConstantSurface3dElementCoordinateSystem): cint {.
+          aRepresentationItemName: Handle[TCollectionHAsciiString]; aAxis: int;
+          aAngle: StandardReal) {.importcpp: "Init", header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
+proc axis*(this: StepFEA_ConstantSurface3dElementCoordinateSystem): int {.
     noSideEffect, importcpp: "Axis",
     header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
-proc setAxis*(this: var StepFEA_ConstantSurface3dElementCoordinateSystem; axis: cint) {.
+proc setAxis*(this: var StepFEA_ConstantSurface3dElementCoordinateSystem; axis: int) {.
     importcpp: "SetAxis",
     header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
-proc angle*(this: StepFEA_ConstantSurface3dElementCoordinateSystem): cfloat {.
+proc angle*(this: StepFEA_ConstantSurface3dElementCoordinateSystem): StandardReal {.
     noSideEffect, importcpp: "Angle",
     header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
 proc setAngle*(this: var StepFEA_ConstantSurface3dElementCoordinateSystem;
-              angle: cfloat) {.importcpp: "SetAngle", header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
+              angle: StandardReal) {.importcpp: "SetAngle", header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
 type
   StepFEA_ConstantSurface3dElementCoordinateSystembaseType* = StepFEA_FeaRepresentationItem
 
@@ -56,28 +56,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepFEA_ConstantSu
     header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
 proc dynamicType*(this: StepFEA_ConstantSurface3dElementCoordinateSystem): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepFEA_ConstantSurface3dElementCoordinateSystem.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

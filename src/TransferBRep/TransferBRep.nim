@@ -34,30 +34,21 @@ discard "forward decl of TransferBRep_ShapeMapper"
 discard "forward decl of TransferBRep_OrientedShapeMapper"
 discard "forward decl of TransferBRep_TransferResultInfo"
 type
-  TransferBRep* {.importcpp: "TransferBRep", header: "TransferBRep.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Get
-                                                                                   ## the
-                                                                                   ## Shape
-                                                                                   ## recorded
-                                                                                   ## in
-                                                                                   ## a
-                                                                                   ## Binder
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## If
-                                                                                   ## the
-                                                                                   ## Binder
-                                                                                   ## brings
-                                                                                   ## a
-                                                                                   ## multiple
-                                                                                   ## result,
-                                                                                   ## search
-                                                                                   ## for
-                                                                                   ## the
-                                                                                   ## Shape
+  TransferBRep* {.importcpp: "TransferBRep", header: "TransferBRep.hxx", bycopy.} = object
 
 
+proc `new`*(this: var TransferBRep; theSize: csize_t): pointer {.
+    importcpp: "TransferBRep::operator new", header: "TransferBRep.hxx".}
+proc `delete`*(this: var TransferBRep; theAddress: pointer) {.
+    importcpp: "TransferBRep::operator delete", header: "TransferBRep.hxx".}
+proc `new[]`*(this: var TransferBRep; theSize: csize_t): pointer {.
+    importcpp: "TransferBRep::operator new[]", header: "TransferBRep.hxx".}
+proc `delete[]`*(this: var TransferBRep; theAddress: pointer) {.
+    importcpp: "TransferBRep::operator delete[]", header: "TransferBRep.hxx".}
+proc `new`*(this: var TransferBRep; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "TransferBRep::operator new", header: "TransferBRep.hxx".}
+proc `delete`*(this: var TransferBRep; a2: pointer; a3: pointer) {.
+    importcpp: "TransferBRep::operator delete", header: "TransferBRep.hxx".}
 proc shapeResult*(binder: Handle[TransferBinder]): TopoDS_Shape {.
     importcpp: "TransferBRep::ShapeResult(@)", header: "TransferBRep.hxx".}
 proc shapeResult*(tp: Handle[TransferTransientProcess];
@@ -66,9 +57,9 @@ proc shapeResult*(tp: Handle[TransferTransientProcess];
 proc setShapeResult*(tp: Handle[TransferTransientProcess];
                     ent: Handle[StandardTransient]; result: TopoDS_Shape) {.
     importcpp: "TransferBRep::SetShapeResult(@)", header: "TransferBRep.hxx".}
-proc shapes*(tp: Handle[TransferTransientProcess]; rootsonly: bool = true): Handle[
-    TopToolsHSequenceOfShape] {.importcpp: "TransferBRep::Shapes(@)",
-                               header: "TransferBRep.hxx".}
+proc shapes*(tp: Handle[TransferTransientProcess];
+            rootsonly: StandardBoolean = true): Handle[TopToolsHSequenceOfShape] {.
+    importcpp: "TransferBRep::Shapes(@)", header: "TransferBRep.hxx".}
 proc shapes*(tp: Handle[TransferTransientProcess];
             list: Handle[TColStdHSequenceOfTransient]): Handle[
     TopToolsHSequenceOfShape] {.importcpp: "TransferBRep::Shapes(@)",
@@ -98,43 +89,18 @@ proc transferResultInfo*(fp: Handle[TransferFinderProcess];
     importcpp: "TransferBRep::TransferResultInfo(@)", header: "TransferBRep.hxx".}
 proc printResultInfo*(printer: Handle[MessagePrinter]; header: MessageMsg;
                      resultInfo: Handle[TransferBRepTransferResultInfo];
-                     printEmpty: bool = true) {.
+                     printEmpty: StandardBoolean = true) {.
     importcpp: "TransferBRep::PrintResultInfo(@)", header: "TransferBRep.hxx".}
-proc bRepCheck*(shape: TopoDS_Shape; lev: cint = 1): InterfaceCheckIterator {.
+proc bRepCheck*(shape: TopoDS_Shape; lev: int = 1): InterfaceCheckIterator {.
     importcpp: "TransferBRep::BRepCheck(@)", header: "TransferBRep.hxx".}
 proc resultCheckList*(chl: InterfaceCheckIterator;
                      fp: Handle[TransferFinderProcess];
                      model: Handle[InterfaceInterfaceModel]): InterfaceCheckIterator {.
     importcpp: "TransferBRep::ResultCheckList(@)", header: "TransferBRep.hxx".}
-proc checked*(chl: InterfaceCheckIterator; alsoshapes: bool = false): Handle[
+proc checked*(chl: InterfaceCheckIterator; alsoshapes: StandardBoolean = false): Handle[
     TColStdHSequenceOfTransient] {.importcpp: "TransferBRep::Checked(@)",
                                   header: "TransferBRep.hxx".}
 proc checkedShapes*(chl: InterfaceCheckIterator): Handle[TopToolsHSequenceOfShape] {.
     importcpp: "TransferBRep::CheckedShapes(@)", header: "TransferBRep.hxx".}
 proc checkObject*(chl: InterfaceCheckIterator; obj: Handle[StandardTransient]): InterfaceCheckIterator {.
     importcpp: "TransferBRep::CheckObject(@)", header: "TransferBRep.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

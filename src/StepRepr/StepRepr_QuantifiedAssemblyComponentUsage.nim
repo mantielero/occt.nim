@@ -38,23 +38,23 @@ proc constructStepReprQuantifiedAssemblyComponentUsage*(): StepReprQuantifiedAss
 proc init*(this: var StepReprQuantifiedAssemblyComponentUsage;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: Handle[
     StepBasicProductDefinition]; aProductDefinitionRelationshipRelatedProductDefinition: Handle[
     StepBasicProductDefinition];
-          hasAssemblyComponentUsageReferenceDesignator: bool;
+          hasAssemblyComponentUsageReferenceDesignator: StandardBoolean;
     aAssemblyComponentUsageReferenceDesignator: Handle[TCollectionHAsciiString];
           aQuantity: Handle[StepBasicMeasureWithUnit]) {.importcpp: "Init",
     header: "StepRepr_QuantifiedAssemblyComponentUsage.hxx".}
 proc init*(this: var StepReprQuantifiedAssemblyComponentUsage;
           aProductDefinitionRelationshipId: Handle[TCollectionHAsciiString];
           aProductDefinitionRelationshipName: Handle[TCollectionHAsciiString];
-          hasProductDefinitionRelationshipDescription: bool;
+          hasProductDefinitionRelationshipDescription: StandardBoolean;
     aProductDefinitionRelationshipDescription: Handle[TCollectionHAsciiString];
     aProductDefinitionRelationshipRelatingProductDefinition: StepBasicProductDefinitionOrReference;
     aProductDefinitionRelationshipRelatedProductDefinition: StepBasicProductDefinitionOrReference;
-          hasAssemblyComponentUsageReferenceDesignator: bool;
+          hasAssemblyComponentUsageReferenceDesignator: StandardBoolean;
     aAssemblyComponentUsageReferenceDesignator: Handle[TCollectionHAsciiString];
           aQuantity: Handle[StepBasicMeasureWithUnit]) {.importcpp: "Init",
     header: "StepRepr_QuantifiedAssemblyComponentUsage.hxx".}
@@ -73,28 +73,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepRepr_Quantifie
 proc dynamicType*(this: StepReprQuantifiedAssemblyComponentUsage): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepRepr_QuantifiedAssemblyComponentUsage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

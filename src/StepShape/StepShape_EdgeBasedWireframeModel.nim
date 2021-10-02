@@ -53,28 +53,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepShapeEdgeBasedWireframeModel): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepShape_EdgeBasedWireframeModel.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

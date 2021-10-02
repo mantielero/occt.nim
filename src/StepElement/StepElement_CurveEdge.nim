@@ -16,29 +16,3 @@ type
                          header: "StepElement_CurveEdge.hxx".} = enum
     StepElementElementEdge
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

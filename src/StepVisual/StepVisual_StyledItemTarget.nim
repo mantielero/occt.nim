@@ -20,19 +20,31 @@ discard "forward decl of StepRepr_Representation"
 discard "forward decl of StepShape_TopologicalRepresentationItem"
 type
   StepVisualStyledItemTarget* {.importcpp: "StepVisual_StyledItemTarget",
-                               header: "StepVisual_StyledItemTarget.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## a
-                                                                                                           ## StyledItemTarget
-                                                                                                           ## select
-                                                                                                           ## type
+                               header: "StepVisual_StyledItemTarget.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepVisualStyledItemTarget; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_StyledItemTarget::operator new",
+    header: "StepVisual_StyledItemTarget.hxx".}
+proc `delete`*(this: var StepVisualStyledItemTarget; theAddress: pointer) {.
+    importcpp: "StepVisual_StyledItemTarget::operator delete",
+    header: "StepVisual_StyledItemTarget.hxx".}
+proc `new[]`*(this: var StepVisualStyledItemTarget; theSize: csize_t): pointer {.
+    importcpp: "StepVisual_StyledItemTarget::operator new[]",
+    header: "StepVisual_StyledItemTarget.hxx".}
+proc `delete[]`*(this: var StepVisualStyledItemTarget; theAddress: pointer) {.
+    importcpp: "StepVisual_StyledItemTarget::operator delete[]",
+    header: "StepVisual_StyledItemTarget.hxx".}
+proc `new`*(this: var StepVisualStyledItemTarget; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepVisual_StyledItemTarget::operator new",
+    header: "StepVisual_StyledItemTarget.hxx".}
+proc `delete`*(this: var StepVisualStyledItemTarget; a2: pointer; a3: pointer) {.
+    importcpp: "StepVisual_StyledItemTarget::operator delete",
+    header: "StepVisual_StyledItemTarget.hxx".}
 proc constructStepVisualStyledItemTarget*(): StepVisualStyledItemTarget {.
     constructor, importcpp: "StepVisual_StyledItemTarget(@)",
     header: "StepVisual_StyledItemTarget.hxx".}
-proc caseNum*(this: StepVisualStyledItemTarget; ent: Handle[StandardTransient]): cint {.
+proc caseNum*(this: StepVisualStyledItemTarget; ent: Handle[StandardTransient]): int {.
     noSideEffect, importcpp: "CaseNum", header: "StepVisual_StyledItemTarget.hxx".}
 proc geometricRepresentationItem*(this: StepVisualStyledItemTarget): Handle[
     StepGeomGeometricRepresentationItem] {.noSideEffect,
@@ -48,28 +60,3 @@ proc topologicalRepresentationItem*(this: StepVisualStyledItemTarget): Handle[
     StepShapeTopologicalRepresentationItem] {.noSideEffect,
     importcpp: "TopologicalRepresentationItem",
     header: "StepVisual_StyledItemTarget.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

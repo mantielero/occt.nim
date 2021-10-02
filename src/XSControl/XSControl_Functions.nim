@@ -24,7 +24,7 @@ type
   XSControlFunctions* {.importcpp: "XSControl_Functions",
                        header: "XSControl_Functions.hxx", bycopy.} = object ## ! Defines and loads all functions for XSControl (as ActFunc)
 
-
+#[ 
 proc init*() {.importcpp: "XSControl_Functions::Init(@)",
              header: "XSControl_Functions.hxx".}
 
@@ -43,7 +43,7 @@ proc init*() {.importcpp: "XSControl_Functions::Init(@)",
 
 
 
-
+ ]#
 
 
 

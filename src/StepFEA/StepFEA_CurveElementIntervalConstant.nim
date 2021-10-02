@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepFEA_CurveElementIntervalConstant): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepFEA_CurveElementIntervalConstant.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -28,10 +28,10 @@ type
                    bycopy.} = object of StandardTransient ## ! Tells if a ESDescr matches a step type : exact or super type
 
 
-proc matches*(this: StepDataEDescr; steptype: StandardCString): bool {.noSideEffect,
-    importcpp: "Matches", header: "StepData_EDescr.hxx".}
-proc isComplex*(this: StepDataEDescr): bool {.noSideEffect, importcpp: "IsComplex",
-    header: "StepData_EDescr.hxx".}
+proc matches*(this: StepDataEDescr; steptype: StandardCString): StandardBoolean {.
+    noSideEffect, importcpp: "Matches", header: "StepData_EDescr.hxx".}
+proc isComplex*(this: StepDataEDescr): StandardBoolean {.noSideEffect,
+    importcpp: "IsComplex", header: "StepData_EDescr.hxx".}
 proc newEntity*(this: StepDataEDescr): Handle[StepDataDescribed] {.noSideEffect,
     importcpp: "NewEntity", header: "StepData_EDescr.hxx".}
 type
@@ -44,28 +44,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepData_EDescr.hxx".}
 proc dynamicType*(this: StepDataEDescr): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepData_EDescr.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

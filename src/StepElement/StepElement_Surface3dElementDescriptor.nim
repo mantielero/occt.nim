@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_Surfac
 proc dynamicType*(this: StepElementSurface3dElementDescriptor): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepElement_Surface3dElementDescriptor.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

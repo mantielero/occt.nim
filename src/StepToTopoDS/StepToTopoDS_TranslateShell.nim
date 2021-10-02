@@ -24,6 +24,24 @@ type
                                 header: "StepToTopoDS_TranslateShell.hxx", bycopy.} = object of StepToTopoDS_Root
 
 
+proc `new`*(this: var StepToTopoDS_TranslateShell; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateShell::operator new",
+    header: "StepToTopoDS_TranslateShell.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateShell; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateShell::operator delete",
+    header: "StepToTopoDS_TranslateShell.hxx".}
+proc `new[]`*(this: var StepToTopoDS_TranslateShell; theSize: csize_t): pointer {.
+    importcpp: "StepToTopoDS_TranslateShell::operator new[]",
+    header: "StepToTopoDS_TranslateShell.hxx".}
+proc `delete[]`*(this: var StepToTopoDS_TranslateShell; theAddress: pointer) {.
+    importcpp: "StepToTopoDS_TranslateShell::operator delete[]",
+    header: "StepToTopoDS_TranslateShell.hxx".}
+proc `new`*(this: var StepToTopoDS_TranslateShell; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "StepToTopoDS_TranslateShell::operator new",
+    header: "StepToTopoDS_TranslateShell.hxx".}
+proc `delete`*(this: var StepToTopoDS_TranslateShell; a2: pointer; a3: pointer) {.
+    importcpp: "StepToTopoDS_TranslateShell::operator delete",
+    header: "StepToTopoDS_TranslateShell.hxx".}
 proc constructStepToTopoDS_TranslateShell*(): StepToTopoDS_TranslateShell {.
     constructor, importcpp: "StepToTopoDS_TranslateShell(@)",
     header: "StepToTopoDS_TranslateShell.hxx".}
@@ -36,28 +54,3 @@ proc value*(this: StepToTopoDS_TranslateShell): TopoDS_Shape {.noSideEffect,
     importcpp: "Value", header: "StepToTopoDS_TranslateShell.hxx".}
 proc error*(this: StepToTopoDS_TranslateShell): StepToTopoDS_TranslateShellError {.
     noSideEffect, importcpp: "Error", header: "StepToTopoDS_TranslateShell.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

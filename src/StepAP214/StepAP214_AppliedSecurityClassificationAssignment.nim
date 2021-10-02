@@ -46,10 +46,10 @@ proc items*(this: StepAP214AppliedSecurityClassificationAssignment): Handle[
     StepAP214HArray1OfSecurityClassificationItem] {.noSideEffect,
     importcpp: "Items",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
-proc itemsValue*(this: StepAP214AppliedSecurityClassificationAssignment; num: cint): StepAP214SecurityClassificationItem {.
+proc itemsValue*(this: StepAP214AppliedSecurityClassificationAssignment; num: int): StepAP214SecurityClassificationItem {.
     noSideEffect, importcpp: "ItemsValue",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
-proc nbItems*(this: StepAP214AppliedSecurityClassificationAssignment): cint {.
+proc nbItems*(this: StepAP214AppliedSecurityClassificationAssignment): int {.
     noSideEffect, importcpp: "NbItems",
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
 type
@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepAP214_AppliedS
     header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
 proc dynamicType*(this: StepAP214AppliedSecurityClassificationAssignment): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType", header: "StepAP214_AppliedSecurityClassificationAssignment.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

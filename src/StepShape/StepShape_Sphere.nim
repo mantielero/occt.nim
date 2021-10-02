@@ -27,12 +27,12 @@ type
 proc constructStepShapeSphere*(): StepShapeSphere {.constructor,
     importcpp: "StepShape_Sphere(@)", header: "StepShape_Sphere.hxx".}
 proc init*(this: var StepShapeSphere; aName: Handle[TCollectionHAsciiString];
-          aRadius: cfloat; aCentre: Handle[StepGeomPoint]) {.importcpp: "Init",
-    header: "StepShape_Sphere.hxx".}
-proc setRadius*(this: var StepShapeSphere; aRadius: cfloat) {.importcpp: "SetRadius",
-    header: "StepShape_Sphere.hxx".}
-proc radius*(this: StepShapeSphere): cfloat {.noSideEffect, importcpp: "Radius",
-    header: "StepShape_Sphere.hxx".}
+          aRadius: StandardReal; aCentre: Handle[StepGeomPoint]) {.
+    importcpp: "Init", header: "StepShape_Sphere.hxx".}
+proc setRadius*(this: var StepShapeSphere; aRadius: StandardReal) {.
+    importcpp: "SetRadius", header: "StepShape_Sphere.hxx".}
+proc radius*(this: StepShapeSphere): StandardReal {.noSideEffect,
+    importcpp: "Radius", header: "StepShape_Sphere.hxx".}
 proc setCentre*(this: var StepShapeSphere; aCentre: Handle[StepGeomPoint]) {.
     importcpp: "SetCentre", header: "StepShape_Sphere.hxx".}
 proc centre*(this: StepShapeSphere): Handle[StepGeomPoint] {.noSideEffect,
@@ -47,28 +47,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_Sphere.hxx".}
 proc dynamicType*(this: StepShapeSphere): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepShape_Sphere.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

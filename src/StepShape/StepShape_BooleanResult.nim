@@ -60,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_BooleanResult.hxx".}
 proc dynamicType*(this: StepShapeBooleanResult): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_BooleanResult.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

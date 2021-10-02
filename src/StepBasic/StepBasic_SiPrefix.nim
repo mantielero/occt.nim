@@ -22,29 +22,3 @@ type
     StepBasicSpDeci, StepBasicSpCenti, StepBasicSpMilli, StepBasicSpMicro,
     StepBasicSpNano, StepBasicSpPico, StepBasicSpFemto, StepBasicSpAtto
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

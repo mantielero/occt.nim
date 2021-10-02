@@ -35,7 +35,8 @@ proc constructStepElementCurveElementEndReleasePacket*(): StepElementCurveElemen
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
 proc init*(this: var StepElementCurveElementEndReleasePacket;
           aReleaseFreedom: StepElementCurveElementFreedom;
-          aReleaseStiffness: cfloat) {.importcpp: "Init", header: "StepElement_CurveElementEndReleasePacket.hxx".}
+          aReleaseStiffness: StandardReal) {.importcpp: "Init",
+    header: "StepElement_CurveElementEndReleasePacket.hxx".}
 proc releaseFreedom*(this: StepElementCurveElementEndReleasePacket): StepElementCurveElementFreedom {.
     noSideEffect, importcpp: "ReleaseFreedom",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
@@ -43,11 +44,11 @@ proc setReleaseFreedom*(this: var StepElementCurveElementEndReleasePacket;
                        releaseFreedom: StepElementCurveElementFreedom) {.
     importcpp: "SetReleaseFreedom",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
-proc releaseStiffness*(this: StepElementCurveElementEndReleasePacket): cfloat {.
+proc releaseStiffness*(this: StepElementCurveElementEndReleasePacket): StandardReal {.
     noSideEffect, importcpp: "ReleaseStiffness",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
 proc setReleaseStiffness*(this: var StepElementCurveElementEndReleasePacket;
-                         releaseStiffness: cfloat) {.
+                         releaseStiffness: StandardReal) {.
     importcpp: "SetReleaseStiffness",
     header: "StepElement_CurveElementEndReleasePacket.hxx".}
 type
@@ -59,28 +60,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.importcpp: "StepElement_CurveE
 proc dynamicType*(this: StepElementCurveElementEndReleasePacket): Handle[
     StandardType] {.noSideEffect, importcpp: "DynamicType",
                    header: "StepElement_CurveElementEndReleasePacket.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

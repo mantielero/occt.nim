@@ -70,28 +70,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepVisual_TextLiteral.hxx".}
 proc dynamicType*(this: StepVisualTextLiteral): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepVisual_TextLiteral.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

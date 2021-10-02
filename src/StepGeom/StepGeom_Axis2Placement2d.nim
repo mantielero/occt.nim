@@ -34,7 +34,8 @@ proc constructStepGeomAxis2Placement2d*(): StepGeomAxis2Placement2d {.constructo
     header: "StepGeom_Axis2Placement2d.hxx".}
 proc init*(this: var StepGeomAxis2Placement2d;
           aName: Handle[TCollectionHAsciiString];
-          aLocation: Handle[StepGeomCartesianPoint]; hasArefDirection: bool;
+          aLocation: Handle[StepGeomCartesianPoint];
+          hasArefDirection: StandardBoolean;
           aRefDirection: Handle[StepGeomDirection]) {.importcpp: "Init",
     header: "StepGeom_Axis2Placement2d.hxx".}
 proc setRefDirection*(this: var StepGeomAxis2Placement2d;
@@ -45,8 +46,9 @@ proc unSetRefDirection*(this: var StepGeomAxis2Placement2d) {.
 proc refDirection*(this: StepGeomAxis2Placement2d): Handle[StepGeomDirection] {.
     noSideEffect, importcpp: "RefDirection",
     header: "StepGeom_Axis2Placement2d.hxx".}
-proc hasRefDirection*(this: StepGeomAxis2Placement2d): bool {.noSideEffect,
-    importcpp: "HasRefDirection", header: "StepGeom_Axis2Placement2d.hxx".}
+proc hasRefDirection*(this: StepGeomAxis2Placement2d): StandardBoolean {.
+    noSideEffect, importcpp: "HasRefDirection",
+    header: "StepGeom_Axis2Placement2d.hxx".}
 type
   StepGeomAxis2Placement2dbaseType* = StepGeomPlacement
 
@@ -57,28 +59,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Axis2Placement2d.hxx".}
 proc dynamicType*(this: StepGeomAxis2Placement2d): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepGeom_Axis2Placement2d.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

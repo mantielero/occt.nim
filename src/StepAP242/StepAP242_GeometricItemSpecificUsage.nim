@@ -39,28 +39,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
 proc dynamicType*(this: StepAP242GeometricItemSpecificUsage): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType",
     header: "StepAP242_GeometricItemSpecificUsage.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

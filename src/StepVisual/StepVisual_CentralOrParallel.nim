@@ -20,29 +20,3 @@ type
                                 header: "StepVisual_CentralOrParallel.hxx".} = enum
     StepVisualCopCentral, StepVisualCopParallel
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

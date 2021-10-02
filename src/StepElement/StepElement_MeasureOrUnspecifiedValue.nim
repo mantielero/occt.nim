@@ -18,29 +18,43 @@ discard "forward decl of StepData_SelectMember"
 type
   StepElementMeasureOrUnspecifiedValue* {.
       importcpp: "StepElement_MeasureOrUnspecifiedValue",
-      header: "StepElement_MeasureOrUnspecifiedValue.hxx", bycopy.} = object of StepDataSelectType ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor
+      header: "StepElement_MeasureOrUnspecifiedValue.hxx", bycopy.} = object of StepDataSelectType
 
 
+proc `new`*(this: var StepElementMeasureOrUnspecifiedValue; theSize: csize_t): pointer {.
+    importcpp: "StepElement_MeasureOrUnspecifiedValue::operator new",
+    header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+proc `delete`*(this: var StepElementMeasureOrUnspecifiedValue; theAddress: pointer) {.
+    importcpp: "StepElement_MeasureOrUnspecifiedValue::operator delete",
+    header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+proc `new[]`*(this: var StepElementMeasureOrUnspecifiedValue; theSize: csize_t): pointer {.
+    importcpp: "StepElement_MeasureOrUnspecifiedValue::operator new[]",
+    header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+proc `delete[]`*(this: var StepElementMeasureOrUnspecifiedValue; theAddress: pointer) {.
+    importcpp: "StepElement_MeasureOrUnspecifiedValue::operator delete[]",
+    header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+proc `new`*(this: var StepElementMeasureOrUnspecifiedValue; a2: csize_t;
+           theAddress: pointer): pointer {.importcpp: "StepElement_MeasureOrUnspecifiedValue::operator new", header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
+proc `delete`*(this: var StepElementMeasureOrUnspecifiedValue; a2: pointer;
+              a3: pointer) {.importcpp: "StepElement_MeasureOrUnspecifiedValue::operator delete",
+                           header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc constructStepElementMeasureOrUnspecifiedValue*(): StepElementMeasureOrUnspecifiedValue {.
     constructor, importcpp: "StepElement_MeasureOrUnspecifiedValue(@)",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc caseNum*(this: StepElementMeasureOrUnspecifiedValue;
-             ent: Handle[StandardTransient]): cint {.noSideEffect,
+             ent: Handle[StandardTransient]): int {.noSideEffect,
     importcpp: "CaseNum", header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc caseMem*(this: StepElementMeasureOrUnspecifiedValue;
-             ent: Handle[StepDataSelectMember]): cint {.noSideEffect,
+             ent: Handle[StepDataSelectMember]): int {.noSideEffect,
     importcpp: "CaseMem", header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc newMember*(this: StepElementMeasureOrUnspecifiedValue): Handle[
     StepDataSelectMember] {.noSideEffect, importcpp: "NewMember",
                            header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc setContextDependentMeasure*(this: var StepElementMeasureOrUnspecifiedValue;
-                                aVal: cfloat) {.
+                                aVal: StandardReal) {.
     importcpp: "SetContextDependentMeasure",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
-proc contextDependentMeasure*(this: StepElementMeasureOrUnspecifiedValue): cfloat {.
+proc contextDependentMeasure*(this: StepElementMeasureOrUnspecifiedValue): StandardReal {.
     noSideEffect, importcpp: "ContextDependentMeasure",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
 proc setUnspecifiedValue*(this: var StepElementMeasureOrUnspecifiedValue;
@@ -50,28 +64,3 @@ proc setUnspecifiedValue*(this: var StepElementMeasureOrUnspecifiedValue;
 proc unspecifiedValue*(this: StepElementMeasureOrUnspecifiedValue): StepElementUnspecifiedValue {.
     noSideEffect, importcpp: "UnspecifiedValue",
     header: "StepElement_MeasureOrUnspecifiedValue.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

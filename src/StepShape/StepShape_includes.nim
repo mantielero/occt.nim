@@ -64,17 +64,17 @@ include StepShape_GeometricSet
 include StepShape_GeometricSetSelect
 include StepShape_GeometricallyBoundedSurfaceShapeRepresentation
 include StepShape_GeometricallyBoundedWireframeShapeRepresentation
-include StepShape_HArray1OfConnectedEdgeSet
-include StepShape_HArray1OfConnectedFaceSet
-include StepShape_HArray1OfEdge
-include StepShape_HArray1OfFace
-include StepShape_HArray1OfFaceBound
-include StepShape_HArray1OfGeometricSetSelect
-include StepShape_HArray1OfOrientedClosedShell
-include StepShape_HArray1OfOrientedEdge
-include StepShape_HArray1OfShapeDimensionRepresentationItem
-include StepShape_HArray1OfShell
-include StepShape_HArray1OfValueQualifier
+#include StepShape_HArray1OfConnectedEdgeSet
+#include StepShape_HArray1OfConnectedFaceSet
+#include StepShape_HArray1OfEdge
+#include StepShape_HArray1OfFace
+#include StepShape_HArray1OfFaceBound
+#include StepShape_HArray1OfGeometricSetSelect
+#include StepShape_HArray1OfOrientedClosedShell
+#include StepShape_HArray1OfOrientedEdge
+#include StepShape_HArray1OfShapeDimensionRepresentationItem
+#include StepShape_HArray1OfShell
+#include StepShape_HArray1OfValueQualifier
 include StepShape_HalfSpaceSolid
 include StepShape_LimitsAndFits
 include StepShape_Loop
@@ -129,29 +129,3 @@ include StepShape_ValueQualifier
 include StepShape_Vertex
 include StepShape_VertexLoop
 include StepShape_VertexPoint
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

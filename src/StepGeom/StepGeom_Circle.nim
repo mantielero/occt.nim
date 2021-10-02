@@ -27,11 +27,11 @@ type
 proc constructStepGeomCircle*(): StepGeomCircle {.constructor,
     importcpp: "StepGeom_Circle(@)", header: "StepGeom_Circle.hxx".}
 proc init*(this: var StepGeomCircle; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aRadius: cfloat) {.importcpp: "Init",
-    header: "StepGeom_Circle.hxx".}
-proc setRadius*(this: var StepGeomCircle; aRadius: cfloat) {.importcpp: "SetRadius",
-    header: "StepGeom_Circle.hxx".}
-proc radius*(this: StepGeomCircle): cfloat {.noSideEffect, importcpp: "Radius",
+          aPosition: StepGeomAxis2Placement; aRadius: StandardReal) {.
+    importcpp: "Init", header: "StepGeom_Circle.hxx".}
+proc setRadius*(this: var StepGeomCircle; aRadius: StandardReal) {.
+    importcpp: "SetRadius", header: "StepGeom_Circle.hxx".}
+proc radius*(this: StepGeomCircle): StandardReal {.noSideEffect, importcpp: "Radius",
     header: "StepGeom_Circle.hxx".}
 type
   StepGeomCirclebaseType* = StepGeomConic
@@ -43,28 +43,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Circle.hxx".}
 proc dynamicType*(this: StepGeomCircle): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Circle.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

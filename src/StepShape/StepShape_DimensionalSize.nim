@@ -57,28 +57,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepShape_DimensionalSize.hxx".}
 proc dynamicType*(this: StepShapeDimensionalSize): Handle[StandardType] {.
     noSideEffect, importcpp: "DynamicType", header: "StepShape_DimensionalSize.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

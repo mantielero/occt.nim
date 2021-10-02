@@ -31,16 +31,16 @@ type
 proc constructStepGeomHyperbola*(): StepGeomHyperbola {.constructor,
     importcpp: "StepGeom_Hyperbola(@)", header: "StepGeom_Hyperbola.hxx".}
 proc init*(this: var StepGeomHyperbola; aName: Handle[TCollectionHAsciiString];
-          aPosition: StepGeomAxis2Placement; aSemiAxis: cfloat;
-          aSemiImagAxis: cfloat) {.importcpp: "Init",
-                                 header: "StepGeom_Hyperbola.hxx".}
-proc setSemiAxis*(this: var StepGeomHyperbola; aSemiAxis: cfloat) {.
+          aPosition: StepGeomAxis2Placement; aSemiAxis: StandardReal;
+          aSemiImagAxis: StandardReal) {.importcpp: "Init",
+                                       header: "StepGeom_Hyperbola.hxx".}
+proc setSemiAxis*(this: var StepGeomHyperbola; aSemiAxis: StandardReal) {.
     importcpp: "SetSemiAxis", header: "StepGeom_Hyperbola.hxx".}
-proc semiAxis*(this: StepGeomHyperbola): cfloat {.noSideEffect,
+proc semiAxis*(this: StepGeomHyperbola): StandardReal {.noSideEffect,
     importcpp: "SemiAxis", header: "StepGeom_Hyperbola.hxx".}
-proc setSemiImagAxis*(this: var StepGeomHyperbola; aSemiImagAxis: cfloat) {.
+proc setSemiImagAxis*(this: var StepGeomHyperbola; aSemiImagAxis: StandardReal) {.
     importcpp: "SetSemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
-proc semiImagAxis*(this: StepGeomHyperbola): cfloat {.noSideEffect,
+proc semiImagAxis*(this: StepGeomHyperbola): StandardReal {.noSideEffect,
     importcpp: "SemiImagAxis", header: "StepGeom_Hyperbola.hxx".}
 type
   StepGeomHyperbolabaseType* = StepGeomConic
@@ -52,28 +52,3 @@ proc getTypeDescriptor*(): Handle[StandardType] {.
     header: "StepGeom_Hyperbola.hxx".}
 proc dynamicType*(this: StepGeomHyperbola): Handle[StandardType] {.noSideEffect,
     importcpp: "DynamicType", header: "StepGeom_Hyperbola.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

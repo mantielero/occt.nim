@@ -17,45 +17,30 @@
 discard "forward decl of Transfer_Finder"
 type
   TransferFindHasher* {.importcpp: "Transfer_FindHasher",
-                       header: "Transfer_FindHasher.hxx", bycopy.} = object ## ! Returns hash code for the given finder, in the range [1,
-                                                                       ## theUpperBound].
-                                                                       ## ! Asks the finder its hash code, then
-                                                                       ## transforms it to be in the required range
-                                                                       ## ! @param theFinder the finder which hash code is to be computed
-                                                                       ## ! @param
-                                                                       ## theUpperBound the upper bound of the range a computing hash code must be within
-                                                                       ## ! @return a computed hash code, in the range [1,
-                                                                       ## theUpperBound]
+                       header: "Transfer_FindHasher.hxx", bycopy.} = object
 
 
-proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: cint): cint {.
+proc `new`*(this: var TransferFindHasher; theSize: csize_t): pointer {.
+    importcpp: "Transfer_FindHasher::operator new",
+    header: "Transfer_FindHasher.hxx".}
+proc `delete`*(this: var TransferFindHasher; theAddress: pointer) {.
+    importcpp: "Transfer_FindHasher::operator delete",
+    header: "Transfer_FindHasher.hxx".}
+proc `new[]`*(this: var TransferFindHasher; theSize: csize_t): pointer {.
+    importcpp: "Transfer_FindHasher::operator new[]",
+    header: "Transfer_FindHasher.hxx".}
+proc `delete[]`*(this: var TransferFindHasher; theAddress: pointer) {.
+    importcpp: "Transfer_FindHasher::operator delete[]",
+    header: "Transfer_FindHasher.hxx".}
+proc `new`*(this: var TransferFindHasher; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "Transfer_FindHasher::operator new",
+    header: "Transfer_FindHasher.hxx".}
+proc `delete`*(this: var TransferFindHasher; a2: pointer; a3: pointer) {.
+    importcpp: "Transfer_FindHasher::operator delete",
+    header: "Transfer_FindHasher.hxx".}
+proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: int): int {.
     importcpp: "Transfer_FindHasher::HashCode(@)",
     header: "Transfer_FindHasher.hxx".}
-proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): bool {.
+proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): StandardBoolean {.
     importcpp: "Transfer_FindHasher::IsEqual(@)",
     header: "Transfer_FindHasher.hxx".}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

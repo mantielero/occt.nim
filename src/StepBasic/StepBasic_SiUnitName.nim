@@ -26,29 +26,3 @@ type
     StepBasicSunDegreeCelsius, StepBasicSunLumen, StepBasicSunLux,
     StepBasicSunBecquerel, StepBasicSunGray, StepBasicSunSievert
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -85,16 +85,16 @@ proc Init*(this: var NCollection_BaseListIterator; theList: NCollection_BaseList
 proc Initialize*(this: var NCollection_BaseListIterator;
                 theList: NCollection_BaseList) {.cdecl, importcpp: "Initialize",
     dynlib: tkernel.}
-proc More*(this: NCollection_BaseListIterator): Standard_Boolean {.noSideEffect,
-    cdecl, importcpp: "More", dynlib: tkernel.}
-proc `==`*(this: NCollection_BaseListIterator; theIt: NCollection_BaseListIterator): Standard_Boolean {.
+proc More*(this: NCollection_BaseListIterator): bool {.noSideEffect, cdecl,
+    importcpp: "More", dynlib: tkernel.}
+proc `==`*(this: NCollection_BaseListIterator; theIt: NCollection_BaseListIterator): bool {.
     noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
 proc IsEqual*(this: NCollection_BaseListIterator;
-             theOther: NCollection_BaseListIterator): Standard_Boolean {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
+             theOther: NCollection_BaseListIterator): bool {.noSideEffect, cdecl,
+    importcpp: "IsEqual", dynlib: tkernel.}
 proc Extent*(this: NCollection_BaseList): cint {.noSideEffect, cdecl,
     importcpp: "Extent", dynlib: tkernel.}
-proc IsEmpty*(this: NCollection_BaseList): Standard_Boolean {.noSideEffect, cdecl,
+proc IsEmpty*(this: NCollection_BaseList): bool {.noSideEffect, cdecl,
     importcpp: "IsEmpty", dynlib: tkernel.}
 proc Allocator*(this: NCollection_BaseList): handle[NCollection_BaseAllocator] {.
     noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}

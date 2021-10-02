@@ -14,6 +14,12 @@
 #assumedef _Standard_Size_HeaderFile
 #assumedef _Standard_Std_HeaderFile
 #assumedef _Standard_Type_HeaderFile
+#assumedef _NCollection_DefineAlloc_HeaderFile
+#assumedef NCollection_DefineHArray1_HeaderFile
+#assumedef NCollection_DefineHArray2_HeaderFile
+#assumedef NCollection_DefineHSequence_HeaderFile
+#assumedef NCollection_HSequence_HeaderFile
+#assumedef NCollection_TypeDef_HeaderFile
 #assumendef __has_cpp_attribute
 #def DEFINE_STANDARD_ALLOC
 #def Standard_EXPORT
@@ -26,6 +32,8 @@
 #mangle Standard_Size csize_t
 #mangle Standard_Address pointer
 #mangle Standard_Integer cint
+#def Standard_Integer int
+#def Standard_Boolean bool
 #def DEFINE_STANDARD_HANDLE(C1,C2) \
   typedef Handle(C1) Handle_##C1;
 #def Handle(x) opencascade::handle<x>
@@ -61,4 +69,131 @@ public: \
 #def OCCT_DUMP_FIELD_VALUE_POINTER(A,B)
 #def OCCT_DUMP_FIELD_VALUE_NUMERICAL(A,B)
 #def TYPENAME typename
+#def DEFINE_HARRAY1(HClassName, _Array1Type_)                               \
+  class HClassName : public _Array1Type_, public Standard_Transient         \
+  {                                                                         \
+  public:                                                                   \
+    HClassName (const Standard_Integer theLower,                            \
+                const Standard_Integer theUpper);                           \
+    HClassName (const Standard_Integer theLower,                            \
+                const Standard_Integer theUpper,                            \
+                const _Array1Type_::value_type& theValue);                  \
+    HClassName  (const _Array1Type_& theOther);                             \
+    const _Array1Type_& Array1 () const;                                    \
+  };  
+#def DEFINE_HARRAY2(HClassName, _Array2Type_)                               \
+  class HClassName : public _Array2Type_, public Standard_Transient {       \
+  public:                                                                   \
+    HClassName  (const Standard_Integer theRowLow,                          \
+                  const Standard_Integer theRowUpp,                         \
+                  const Standard_Integer theColLow,                         \
+                  const Standard_Integer theColUpp);                        \
+    HClassName  (const Standard_Integer theRowLow,                          \
+                  const Standard_Integer theRowUpp,                         \
+                  const Standard_Integer theColLow,                         \
+                  const Standard_Integer theColUpp,                         \
+                  const _Array2Type_::value_type& theValue);                \
+    HClassName  (const _Array2Type_& theOther);                             \
+    const _Array2Type_& Array2 () const;                                    \
+    _Array2Type_& ChangeArray2 ();                                          \
+  };    
+
+#def DEFINE_HSEQUENCE(HClassName, _SequenceType_)                           \
+class HClassName : public _SequenceType_, public Standard_Transient {                \
+ public:                                                                       \
+   HClassName ();                                                           \
+   HClassName (const _SequenceType_& theOther) ;  \
+   const _SequenceType_& Sequence () const;                  \
+   void Append (const _SequenceType_::value_type& theItem);        \
+   void Append (_SequenceType_& theSequence) ;                  \
+   _SequenceType_& ChangeSequence () ;       \
+   template <class T>                                                          \
+   void Append (const Handle(T)& theOther,                                     \
+                typename opencascade::std::enable_if<opencascade::std::is_base_of<HClassName, T>::value>::type * = 0) ;            \
+   DEFINE_STANDARD_RTTI_INLINE(HClassName,Standard_Transient)                             \
+}; \
+DEFINE_STANDARD_HANDLE (HClassName, Standard_Transient) 
+
+#def IMPLEMENT_HSEQUENCE(HClassName)  
+#def DEFINE_HEBTREE(_HEBTREE, _OBJTYPE, _BNDTYPE, _HUBTREE)          \
+class _HEBTREE : public _HUBTREE                                        \
+{                                                                       \
+ public:                                                                \
+  typedef NCollection_UBTree <_OBJTYPE, _BNDTYPE> UBTree;               \
+  typedef NCollection_EBTree <_OBJTYPE, _BNDTYPE> EBTree;               \
+                                                                        \
+  _HEBTREE () : _HUBTREE(new EBTree);                                   \
+  /* Empty constructor */                                               \
+                                                                        \
+  /* Access to the methods of EBTree */                                 \
+                                                                        \
+  Standard_Boolean Remove (const _OBJTYPE& theObj) ; \
+                                                                        \
+  Standard_Boolean Contains (const _OBJTYPE& theObj) const  ; \
+                                                                        \
+  const UBTree::TreeNode& FindNode (const _OBJTYPE& theObj) const  ; \
+                                                                        \
+  /* Access to the extended tree algorithm */                           \
+                                                                        \
+  const EBTree& ETree () const ; \
+  EBTree&       ChangeETree () ;    \
+                                                                        \
+                                       \
+                                                 \
+};                                                                      \
+DEFINE_STANDARD_HANDLE (_HEBTREE, _HUBTREE)
+#def IMPLEMENT_HEBTREE(_HEBTREE, _HUBTREE)  
+#def NCOLLECTION_HSEQUENCE(HClassName,Type)                                 \
+ DEFINE_HSEQUENCE(HClassName,NCollection_Sequence<Type >)
+
+
+#def DEFINE_HUBTREE(_HUBTREE, _OBJTYPE, _BNDTYPE, _HPARENT)          \
+class _HUBTREE : public _HPARENT                                        \
+{                                                                       \
+ public:                                                                \
+  typedef NCollection_UBTree <_OBJTYPE, _BNDTYPE> UBTree;               \
+                                                                        \
+  _HUBTREE () : myTree(new UBTree) {}                                   \
+  /* Empty constructor */                                               \
+  _HUBTREE (const Handle(NCollection_BaseAllocator)& theAlloc)           \
+     : myTree(new UBTree(theAlloc)) {}                                  \
+  /* Constructor */                                                     \
+                                                                        \
+  /* Access to the methods of UBTree */                                 \
+                                                                        \
+  Standard_Boolean Add (const _OBJTYPE& theObj,                         \
+                        const _BNDTYPE& theBnd)                         \
+        { return ChangeTree().Add (theObj, theBnd); }                   \
+                                                                        \
+  Standard_Integer Select (UBTree::Selector& theSelector) const         \
+        { return Tree().Select (theSelector); }                         \
+                                                                        \
+  void Clear () { ChangeTree().Clear (); }                              \
+                                                                        \
+  Standard_Boolean IsEmpty () const { return Tree().IsEmpty(); }        \
+                                                                        \
+  const UBTree::TreeNode& Root () const { return Tree().Root(); }       \
+                                                                        \
+                                                                        \
+  /* Access to the tree algorithm */                                    \
+                                                                        \
+  const UBTree& Tree () const { return *myTree; }                       \
+  UBTree&       ChangeTree () { return *myTree; }                       \
+                                                                        \
+  ~_HUBTREE () { delete myTree; }                                       \
+  /* Destructor */                                                      \
+                                                                        \
+  DEFINE_STANDARD_RTTI_INLINE(_HUBTREE,_HPARENT)                                       \
+  /* Type management */                                                 \
+                                                                        \
+ private:                                                               \
+  /* Copying and assignment are prohibited  */                          \
+  _HUBTREE (UBTree*);                                                   \
+  _HUBTREE (const _HUBTREE&);                                           \
+  void operator = (const _HUBTREE&);                                    \
+                                                                        \
+ private:                                                               \
+  UBTree       *myTree;        /* pointer to the tree algorithm */      \
+};                                                                      \
+DEFINE_STANDARD_HANDLE (_HUBTREE, _HPARENT)
 #endif

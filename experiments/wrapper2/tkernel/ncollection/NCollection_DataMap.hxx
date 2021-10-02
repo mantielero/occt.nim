@@ -44,7 +44,7 @@
 
 template < class TheKeyType, 
            class TheItemType, 
-           class Hasher = NCollection_DefaultHasher<TheKeyType> >
+           class Hasher >
 class NCollection_DataMap : public NCollection_BaseMap
 {
 public:
@@ -72,11 +72,7 @@ public:
     
     //! Static deleter to be passed to BaseMap
     static void delNode (NCollection_ListNode * theNode, 
-                         Handle(NCollection_BaseAllocator)& theAl)
-    {
-      ((DataMapNode *) theNode)->~DataMapNode();
-      theAl->Free(theNode);
-    }
+                         Handle(NCollection_BaseAllocator)& theAl);
 
   private:
     TheKeyType    myKey;
@@ -222,48 +218,10 @@ public:
   //! @param theKey  key to add/update
   //! @param theItem new item; overrides value previously bound to the key, if any
   //! @return Standard_True if Key was not bound already
-  Standard_Boolean Bind (const TheKeyType& theKey, const TheItemType& theItem)
-  {
-    if (Resizable()) 
-      ReSize(Extent());
-    DataMapNode** data = (DataMapNode**)myData1;
-    Standard_Integer k = Hasher::HashCode (theKey, NbBuckets());
-    DataMapNode* p = data[k];
-    while (p) 
-    {
-      if (Hasher::IsEqual(p->Key(), theKey))
-      {
-        p->ChangeValue() = theItem;
-        return Standard_False;
-      }
-      p = (DataMapNode *) p->Next();
-    }
-    data[k] = new (this->myAllocator) DataMapNode (theKey, theItem, data[k]);
-    Increment();
-    return Standard_True;
-  }
+  Standard_Boolean Bind (const TheKeyType& theKey, const TheItemType& theItem);
 
   //! Bound binds Item to Key in map. Returns modifiable Item 
-  TheItemType* Bound (const TheKeyType& theKey, const TheItemType& theItem)
-  {
-    if (Resizable()) 
-      ReSize(Extent());
-    DataMapNode** data = (DataMapNode**)myData1;
-    Standard_Integer k = Hasher::HashCode (theKey, NbBuckets());
-    DataMapNode* p = data[k];
-    while (p)
-    {
-      if (Hasher::IsEqual(p->Key(), theKey))
-      {
-        p->ChangeValue() = theItem;
-        return &p->ChangeValue();
-      }
-      p = (DataMapNode*)p->Next();
-    }
-    data[k] = new (this->myAllocator) DataMapNode (theKey, theItem, data[k]);
-    Increment();
-    return &data[k]->ChangeValue();
-  }
+  TheItemType* Bound (const TheKeyType& theKey, const TheItemType& theItem);
 
   //! IsBound
   Standard_Boolean IsBound(const TheKeyType& theKey) const
@@ -273,32 +231,7 @@ public:
   }
 
   //! UnBind removes Item Key pair from map
-  Standard_Boolean UnBind(const TheKeyType& theKey)
-  {
-    if (IsEmpty()) 
-      return Standard_False;
-    DataMapNode** data = (DataMapNode**) myData1;
-    Standard_Integer k = Hasher::HashCode(theKey,NbBuckets());
-    DataMapNode* p = data[k];
-    DataMapNode* q = NULL;
-    while (p) 
-    {
-      if (Hasher::IsEqual(p->Key(), theKey))
-      {
-        Decrement();
-        if (q) 
-          q->Next() = p->Next();
-        else
-          data[k] = (DataMapNode*) p->Next();
-        p->~DataMapNode();
-        this->myAllocator->Free(p);
-        return Standard_True;
-      }
-      q = p;
-      p = (DataMapNode*) p->Next();
-    }
-    return Standard_False;
-  }
+  Standard_Boolean UnBind(const TheKeyType& theKey);
 
   //! Seek returns pointer to Item by Key. Returns
   //! NULL is Key was not bound.

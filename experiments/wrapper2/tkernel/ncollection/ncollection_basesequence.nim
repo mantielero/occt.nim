@@ -81,17 +81,15 @@ proc constructNCollection_BaseSequenceIterator*(): NCollection_BaseSequenceItera
     cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
     dynlib: tkernel.}
 proc constructNCollection_BaseSequenceIterator*(theSeq: NCollection_BaseSequence;
-    isStart: Standard_Boolean): NCollection_BaseSequenceIterator {.cdecl,
-    constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
-    dynlib: tkernel.}
+    isStart: bool): NCollection_BaseSequenceIterator {.cdecl, constructor,
+    importcpp: "NCollection_BaseSequence::Iterator(@)", dynlib: tkernel.}
 proc Init*(this: var NCollection_BaseSequenceIterator;
-          theSeq: NCollection_BaseSequence;
-          isStart: Standard_Boolean = Standard_True) {.cdecl, importcpp: "Init",
-    dynlib: tkernel.}
+          theSeq: NCollection_BaseSequence; isStart: bool = Standard_True) {.cdecl,
+    importcpp: "Init", dynlib: tkernel.}
 proc Previous*(this: var NCollection_BaseSequenceIterator) {.cdecl,
     importcpp: "Previous", dynlib: tkernel.}
-proc IsEmpty*(this: NCollection_BaseSequence): Standard_Boolean {.noSideEffect,
-    cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
+proc IsEmpty*(this: NCollection_BaseSequence): bool {.noSideEffect, cdecl,
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc Length*(this: NCollection_BaseSequence): cint {.noSideEffect, cdecl,
     importcpp: "Length", dynlib: tkernel.}
 proc Allocator*(this: NCollection_BaseSequence): handle[NCollection_BaseAllocator] {.

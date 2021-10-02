@@ -108,14 +108,14 @@ proc constructNCollection_Array1Iterator*[TheItemType](): NCollection_Array1Iter
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
 proc constructNCollection_Array1Iterator*[TheItemType](
-    theArray: NCollection_Array1; theToEnd: Standard_Boolean = Standard_False): NCollection_Array1Iterator[
+    theArray: NCollection_Array1; theToEnd: bool = Standard_False): NCollection_Array1Iterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
 proc Init*[TheItemType](this: var NCollection_Array1Iterator[TheItemType];
                        theArray: NCollection_Array1) {.cdecl, importcpp: "Init",
     dynlib: tkernel.}
-proc More*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): Standard_Boolean {.
+proc More*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
 proc Next*[TheItemType](this: var NCollection_Array1Iterator[TheItemType]) {.cdecl,
     importcpp: "Next", dynlib: tkernel.}
@@ -132,7 +132,7 @@ proc Value*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): TheItem
 proc ChangeValue*[TheItemType](this: NCollection_Array1Iterator[TheItemType]): var TheItemType {.
     noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
 proc IsEqual*[TheItemType](this: NCollection_Array1Iterator[TheItemType];
-                          theOther: NCollection_Array1Iterator): Standard_Boolean {.
+                          theOther: NCollection_Array1Iterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 type
   NCollection_Array1iterator* = NCollection_StlIterator[
@@ -166,15 +166,15 @@ proc Size*[TheItemType](this: NCollection_Array1[TheItemType]): cint {.noSideEff
     cdecl, importcpp: "Size", dynlib: tkernel.}
 proc Length*[TheItemType](this: NCollection_Array1[TheItemType]): cint {.
     noSideEffect, cdecl, importcpp: "Length", dynlib: tkernel.}
-proc IsEmpty*[TheItemType](this: NCollection_Array1[TheItemType]): Standard_Boolean {.
+proc IsEmpty*[TheItemType](this: NCollection_Array1[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
 proc Lower*[TheItemType](this: NCollection_Array1[TheItemType]): cint {.
     noSideEffect, cdecl, importcpp: "Lower", dynlib: tkernel.}
 proc Upper*[TheItemType](this: NCollection_Array1[TheItemType]): cint {.
     noSideEffect, cdecl, importcpp: "Upper", dynlib: tkernel.}
-proc IsDeletable*[TheItemType](this: NCollection_Array1[TheItemType]): Standard_Boolean {.
+proc IsDeletable*[TheItemType](this: NCollection_Array1[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "IsDeletable", dynlib: tkernel.}
-proc IsAllocated*[TheItemType](this: NCollection_Array1[TheItemType]): Standard_Boolean {.
+proc IsAllocated*[TheItemType](this: NCollection_Array1[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "IsAllocated", dynlib: tkernel.}
 proc Assign*[TheItemType](this: var NCollection_Array1[TheItemType];
                          theOther: NCollection_Array1): var NCollection_Array1 {.
@@ -207,7 +207,7 @@ proc SetValue*[TheItemType](this: var NCollection_Array1[TheItemType];
                            theIndex: cint; theItem: TheItemType) {.cdecl,
     importcpp: "SetValue", dynlib: tkernel.}
 proc Resize*[TheItemType](this: var NCollection_Array1[TheItemType]; theLower: cint;
-                         theUpper: cint; theToCopyData: Standard_Boolean) {.cdecl,
+                         theUpper: cint; theToCopyData: bool) {.cdecl,
     importcpp: "Resize", dynlib: tkernel.}
 proc destroyNCollection_Array1*[TheItemType](
     this: var NCollection_Array1[TheItemType]) {.cdecl,

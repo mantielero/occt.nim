@@ -88,13 +88,13 @@ proc Initialize*(this: var NCollection_BaseMapIterator; theMap: NCollection_Base
 proc Reset*(this: var NCollection_BaseMapIterator) {.cdecl, importcpp: "Reset",
     dynlib: tkernel.}
 proc IsEqual*(this: NCollection_BaseMapIterator;
-             theOther: NCollection_BaseMapIterator): Standard_Boolean {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
+             theOther: NCollection_BaseMapIterator): bool {.noSideEffect, cdecl,
+    importcpp: "IsEqual", dynlib: tkernel.}
 proc NbBuckets*(this: NCollection_BaseMap): cint {.noSideEffect, cdecl,
     importcpp: "NbBuckets", dynlib: tkernel.}
 proc Extent*(this: NCollection_BaseMap): cint {.noSideEffect, cdecl,
     importcpp: "Extent", dynlib: tkernel.}
-proc IsEmpty*(this: NCollection_BaseMap): Standard_Boolean {.noSideEffect, cdecl,
+proc IsEmpty*(this: NCollection_BaseMap): bool {.noSideEffect, cdecl,
     importcpp: "IsEmpty", dynlib: tkernel.}
 proc Statistics*(this: NCollection_BaseMap; S: var Standard_OStream) {.noSideEffect,
     cdecl, importcpp: "Statistics", dynlib: tkernel.}

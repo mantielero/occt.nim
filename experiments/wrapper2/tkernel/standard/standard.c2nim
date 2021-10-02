@@ -1,0 +1,60 @@
+#ifdef C2NIM
+#dynlib tkernel
+#cdecl
+#assumendef _MSC_VER
+#assumendef _DEBUG
+#assumendef _WIN32
+#assumedef No_Exception
+#assumedef _Standard_Byte_HeaderFile
+#assumedef _Standard_Integer_HeaderFile
+#assumedef _Standard_JmpBuf_HeaderFile
+#assumedef _Standard_Macro_HeaderFile
+#assumedef _Standard_ShortReal_HeaderFile
+#assumedef _Standard_Real_HeaderFile
+#assumedef _Standard_Size_HeaderFile
+#assumedef _Standard_Std_HeaderFile
+#assumedef _Standard_Type_HeaderFile
+#assumendef __has_cpp_attribute
+#def DEFINE_STANDARD_ALLOC
+#def Standard_EXPORT
+#def Standard_OVERRIDE
+#def Standard_NODISCARD
+#def Standard_UNUSED
+#def Standard_THREADLOCAL
+#def Standard_DISABLE_DEPRECATION_WARNINGS
+#def Standard_ENABLE_DEPRECATION_WARNINGS
+#mangle Standard_Size csize_t
+#mangle Standard_Address pointer
+#mangle Standard_Integer cint
+#def DEFINE_STANDARD_HANDLE(C1,C2) \
+  typedef Handle(C1) Handle_##C1;
+#def Handle(x) opencascade::handle<x>
+#def DEFINE_STANDARD_HANDLE(C1,C2) \
+  typedef Handle(C1) Handle_##C1;
+#def DEFINE_STANDARD_PHANDLE(C1,C2) \
+  typedef Handle(C1) Handle_##C1;
+#def DEFINE_STANDARD_EXCEPTION(C1,C2) 
+#def Standard_STATIC_ASSERT(theExpr) 
+#assumendef OCCT_CLOCALE_POSIX2008
+#assumendef OCCT_CLOCALE_POSIX2008
+#assumedef _Standard_DefineAlloc_HeaderFile
+#assumedef _Standard_DefineException_HeaderFile
+#def OCCT_CLASS_NAME(theClass) #theClass
+#def Standard_DEPRECATED(A)
+#def DEFINE_STANDARD_RTTIEXT(Standard_Failure,Standard_Transient)
+#assumedef OCCT_NO_RVALUE_REFERENCE
+#def Standard_DEPRECATED
+#def OCCT_NO_RVALUE_REFERENCE
+#def DEFINE_STANDARD_RTTI_INLINE(Class,Base) \
+public: \
+  typedef Base base_type;
+#def DEFINE_STANDARD_RTTIEXT(Class,Base) \
+public: \
+  typedef Base base_type; 
+#def OCCT_CHECK_BASE_CLASS(Class,Base)
+#def IMPLEMENT_STANDARD_RTTIEXT(Class,Base)
+#pp OCC_VERSION_MAJOR
+#pp OCC_VERSION_MINOR
+#pp OCC_VERSION_MAINTENANCE 
+#assumendef OCC_VERSION_DEVELOPMENT
+#endif

@@ -168,9 +168,29 @@ genFiles("NCollection_UBTree",
 
 
 
-genFiles("NCollection_UtfIterator") #<-------
-genFiles("NCollection_UtfString")
-genFiles("NCollection_Vec2")
+genFiles("NCollection_UtfIterator",
+  replaceAll = @[("""
+  : myPosition(theString),
+    myPosNext(theString),
+    myCharIndex(0),
+    myCharUtf32(0)
+  {
+    if (theString != NULL)
+    {
+      ++(*this);
+      myCharIndex = 0;
+    }
+  }""", "; \n\n\n\n\n\n\n\n\n\n")], 
+  remove = @[(52,61), (63, 86), (163,165), (173,175), (177, 239)],
+  addSemiColon = @[51, 162, 172]
+  ) 
+genFiles("NCollection_UtfString", remove = @[(112,122), (229,240), (250, 338)], addSemiColon = @[228])  #<-------
+genFiles("NCollection_Vec2", 
+  remove = @[(24,26), (118,171), (209,211), (258,261), (265,267), (296, 299)],
+  addSemiColon = @[               208,       257,       264,       295])
+
+
+
 genFiles("NCollection_Vec3")
 genFiles("NCollection_Vec4")
 genFiles("NCollection_Vector")

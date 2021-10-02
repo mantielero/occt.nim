@@ -196,4 +196,8 @@ class _HUBTREE : public _HPARENT                                        \
   UBTree       *myTree;        /* pointer to the tree algorithm */      \
 };                                                                      \
 DEFINE_STANDARD_HANDLE (_HUBTREE, _HPARENT)
+
+#def NCOLLECTION_VEC_COMPONENTS_2D(theX, theY) \
+  const NCollection_Vec2<Element_t> theX##theY() const; \
+  const NCollection_Vec2<Element_t> theY##theX() const;
 #endif

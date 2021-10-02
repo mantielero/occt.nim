@@ -35,55 +35,21 @@ public:
   //! Constructor.
   //! @param theString buffer to iterate
   NCollection_UtfIterator (const Type* theString)
-  : myPosition(theString),
-    myPosNext(theString),
-    myCharIndex(0),
-    myCharUtf32(0)
-  {
-    if (theString != NULL)
-    {
-      ++(*this);
-      myCharIndex = 0;
-    }
-  }
+; 
+
+
+
+
+
+
+
+
+
+
 
   //! Initialize iterator within specified NULL-terminated string.
-  void Init (const Type* theString)
-  {
-    myPosition  = theString;
-    myPosNext   = theString;
-    myCharUtf32 = 0;
-    if (theString != NULL)
-    {
-      ++(*this);
-    }
-    myCharIndex = 0;
-  }
+  void Init (const Type* theString);
 
-  //! Pre-increment operator. Reads the next unicode symbol.
-  //! Notice - no protection against overrun!
-  NCollection_UtfIterator& operator++()
-  {
-    myPosition = myPosNext;
-    ++myCharIndex;
-    readNext (static_cast<const typename CharTypeChooser<Type>::type*>(0));
-    return *this;
-  }
-
-  //! Post-increment operator.
-  //! Notice - no protection against overrun!
-  NCollection_UtfIterator operator++ (int )
-  {
-    NCollection_UtfIterator aCopy = *this;
-    ++*this;
-    return aCopy;
-  }
-
-  //! Equality operator.
-  bool operator== (const NCollection_UtfIterator& theRight) const
-  {
-    return myPosition == theRight.myPosition;
-  }
 
   //! Return true if Unicode symbol is within valid range.
   bool IsValid() const
@@ -159,84 +125,15 @@ public:
 
   //! @return the advance in TypeWrite chars needed to store current symbol
   template<typename TypeWrite>
-  inline Standard_Integer AdvanceBytesUtf() const
-  { 
-    return advanceBytes(static_cast<const typename CharTypeChooser<TypeWrite>::type*>(0));
-  }
+  inline Standard_Integer AdvanceBytesUtf() const;
 
   //! Fill the UTF-** buffer within current Unicode symbol.
   //! Use method AdvanceUtf**() to allocate buffer with enough size.
   //! @param theBuffer buffer to fill
   //! @return new buffer position (for next char)
   template<typename TypeWrite>
-  inline TypeWrite* GetUtf (TypeWrite* theBuffer) const
-  { 
-    return (TypeWrite*)(getUtf (reinterpret_cast<typename CharTypeChooser<TypeWrite>::type*>(theBuffer)));
-  }
+  inline TypeWrite* GetUtf (TypeWrite* theBuffer) const;
 
-private:
-
-  //! Helper template class dispatching its argument class
-  //! to the equivalent (by size) character (Unicode code unit) type.
-  //! The code unit type is defined as nested typedef "type".
-  //! 
-  //! In practice this is relevant for wchar_t type:
-  //! typename CharTypeChooser<wchar_t>::type resolves to
-  //! Standard_Utf16Char on Windows and to Standard_Utf32Char on Linux.
-  template <typename TypeChar>
-  class CharTypeChooser : 
-    public   opencascade::std::conditional< sizeof(TypeChar) == 1, Standard_Utf8Char,
-    typename opencascade::std::conditional< sizeof(TypeChar) == 2, Standard_Utf16Char,
-    typename opencascade::std::conditional< sizeof(TypeChar) == 4, Standard_Utf32Char, void >::type >::type >
-  {
-  };
-
-  //! Helper function for reading a single Unicode symbol from the UTF-8 string.
-  //! Updates internal state appropriately.
-  void readUTF8();
-
-  //! Helper function for reading a single Unicode symbol from the UTF-16 string.
-  //! Updates internal state appropriately.
-  void readUTF16();
-
-  //! Helper overload methods to dispatch reading function depending on code unit size
-  void readNext (const Standard_Utf8Char*)  { readUTF8(); }
-  void readNext (const Standard_Utf16Char*) { readUTF16(); }
-  void readNext (const Standard_Utf32Char*) { myCharUtf32 = *myPosNext++; }
-
-  //! Helper overload methods to dispatch advance function depending on code unit size
-  Standard_Integer advanceBytes (const Standard_Utf8Char*)  const { return AdvanceBytesUtf8(); }
-  Standard_Integer advanceBytes (const Standard_Utf16Char*) const { return AdvanceBytesUtf16(); }
-  Standard_Integer advanceBytes (const Standard_Utf32Char*) const { return AdvanceBytesUtf32(); }
-
-  //! Helper overload methods to dispatch getter function depending on code unit size
-  Standard_Utf8Char*  getUtf (Standard_Utf8Char*  theBuffer) const { return GetUtf8 (theBuffer); }
-  Standard_Utf16Char* getUtf (Standard_Utf16Char* theBuffer) const { return GetUtf16(theBuffer); }
-  Standard_Utf32Char* getUtf (Standard_Utf32Char* theBuffer) const { return GetUtf32(theBuffer); }
-
-private: //! @name unicode magic numbers
-
-  static const unsigned char UTF8_BYTES_MINUS_ONE[256];
-  static const unsigned long offsetsFromUTF8[6];
-  static const unsigned char UTF8_FIRST_BYTE_MARK[7];
-  static const unsigned long UTF8_BYTE_MASK;
-  static const unsigned long UTF8_BYTE_MARK;
-  static const unsigned long UTF16_SURROGATE_HIGH_START;
-  static const unsigned long UTF16_SURROGATE_HIGH_END;
-  static const unsigned long UTF16_SURROGATE_LOW_START;
-  static const unsigned long UTF16_SURROGATE_LOW_END;
-  static const unsigned long UTF16_SURROGATE_HIGH_SHIFT;
-  static const unsigned long UTF16_SURROGATE_LOW_BASE;
-  static const unsigned long UTF16_SURROGATE_LOW_MASK;
-  static const unsigned long UTF32_MAX_BMP;
-  static const unsigned long UTF32_MAX_LEGAL;
-
-private: //! @name private fields
-
-  const Type*        myPosition;  //!< buffer position of the first element in the current symbol
-  const Type*        myPosNext;   //!< buffer position of the first element in the next symbol
-  Standard_Integer   myCharIndex; //!< index displacement from iterator intialization
-  Standard_Utf32Char myCharUtf32; //!< Unicode symbol stored at the current buffer position
 
 };
 

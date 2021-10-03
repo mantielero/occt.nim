@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-11-12
 ##  Created by: Maxim YAKUNIN (myn)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -40,24 +33,24 @@ else:
 ## ! parameter of the constructor (measured in bytes).
 
 type
-  NCollection_AccAllocator* {.importcpp: "NCollection_AccAllocator",
-                             header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollection_BaseAllocator ##  --------- PUBLIC CONSTANTS ---------
-                                                                                                             ## ! Alignment of all allocated objects: 4 bytes
-                                                                                                             ## ! Constructor
-                                                                                                             ## ! Size value aligned to a 4 byte boundary
-                                                                                                             ## ! Calculate a key for the data map basing on the given address
+  NCollectionAccAllocator* {.importcpp: "NCollection_AccAllocator",
+                            header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  --------- PUBLIC CONSTANTS ---------
+                                                                                                           ## ! Alignment of all allocated objects: 4 bytes
+                                                                                                           ## ! Constructor
+                                                                                                           ## ! Size value aligned to a 4 byte boundary
+                                                                                                           ## ! Calculate a key for the data map basing on the given address
     ##  Declaration of CASCADE RTTI
 
 
-proc constructNCollection_AccAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollection_AccAllocator {.
+proc constructNCollectionAccAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionAccAllocator {.
     cdecl, constructor, importcpp: "NCollection_AccAllocator(@)", dynlib: tkernel.}
-proc destroyNCollection_AccAllocator*(this: var NCollection_AccAllocator) {.cdecl,
+proc destroyNCollectionAccAllocator*(this: var NCollectionAccAllocator) {.cdecl,
     importcpp: "#.~NCollection_AccAllocator()", dynlib: tkernel.}
-proc Allocate*(this: var NCollection_AccAllocator; theSize: csize_t): pointer {.cdecl,
+proc allocate*(this: var NCollectionAccAllocator; theSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Free*(this: var NCollection_AccAllocator; theAddress: pointer) {.cdecl,
+proc free*(this: var NCollectionAccAllocator; theAddress: pointer) {.cdecl,
     importcpp: "Free", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type
-  Handle_NCollection_AccAllocator* = handle[NCollection_AccAllocator]
+  HandleNCollectionAccAllocator* = Handle[NCollectionAccAllocator]

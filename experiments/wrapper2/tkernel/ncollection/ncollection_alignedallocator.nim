@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2014-03-31
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -23,29 +16,41 @@ else:
 ## ! NCollection allocator with managed memory alignment capabilities.
 
 type
-  NCollection_AlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
-                                 header: "NCollection_AlignedAllocator.hxx",
-                                 bycopy.} = object of NCollection_BaseAllocator ## !
-                                                                           ## Constructor. The
-                                                                           ## alignment
-                                                                           ## should be
-                                                                           ## specified
-                                                                           ## explicitly:
-                                                                           ## ! 16 bytes for SSE
-                                                                           ## instructions
-                                                                           ## ! 32 bytes for AVX
-                                                                           ## instructions
+  NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
+                                header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
+                                                                                                                   ## !
+                                                                                                                   ## Constructor.
+                                                                                                                   ## The
+                                                                                                                   ## alignment
+                                                                                                                   ## should
+                                                                                                                   ## be
+                                                                                                                   ## specified
+                                                                                                                   ## explicitly:
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 16
+                                                                                                                   ## bytes
+                                                                                                                   ## for
+                                                                                                                   ## SSE
+                                                                                                                   ## instructions
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 32
+                                                                                                                   ## bytes
+                                                                                                                   ## for
+                                                                                                                   ## AVX
+                                                                                                                   ## instructions
     ## !< alignment in bytes
 
 
-proc constructNCollection_AlignedAllocator*(theAlignment: csize_t): NCollection_AlignedAllocator {.
+proc constructNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
     cdecl, constructor, importcpp: "NCollection_AlignedAllocator(@)",
     dynlib: tkernel.}
-proc Allocate*(this: var NCollection_AlignedAllocator; theSize: csize_t): pointer {.
+proc allocate*(this: var NCollectionAlignedAllocator; theSize: csize_t): pointer {.
     cdecl, importcpp: "Allocate", dynlib: tkernel.}
-proc Free*(this: var NCollection_AlignedAllocator; thePtr: pointer) {.cdecl,
+proc free*(this: var NCollectionAlignedAllocator; thePtr: pointer) {.cdecl,
     importcpp: "Free", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type
-  Handle_NCollection_AlignedAllocator* = handle[NCollection_AlignedAllocator]
+  HandleNCollectionAlignedAllocator* = Handle[NCollectionAlignedAllocator]

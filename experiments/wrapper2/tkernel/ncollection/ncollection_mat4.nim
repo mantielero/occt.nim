@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-05-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -26,125 +19,123 @@ else:
 ## ! operations.
 
 type
-  NCollection_Mat4*[Element_t] {.importcpp: "NCollection_Mat4<\'0>",
-                                header: "NCollection_Mat4.hxx", bycopy.} = object ## ! Get
-                                                                             ## number of
-                                                                             ## rows.
-                                                                             ## !
-                                                                             ## @return
-                                                                             ## number of
-                                                                             ## rows.
+  NCollectionMat4*[ElementT] {.importcpp: "NCollection_Mat4<\'0>",
+                              header: "NCollection_Mat4.hxx", bycopy.} = object ## ! Get
+                                                                           ## number of rows.
+                                                                           ## !
+                                                                           ## @return
+                                                                           ## number of rows.
 
 
-proc Rows*[Element_t](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Rows(@)",
-                                dynlib: tkernel.}
-proc Cols*[Element_t](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Cols(@)",
-                                dynlib: tkernel.}
-proc constructNCollection_Mat4*[Element_t](): NCollection_Mat4[Element_t] {.cdecl,
+proc rows*[ElementT](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Rows(@)",
+                               dynlib: tkernel.}
+proc cols*[ElementT](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Cols(@)",
+                               dynlib: tkernel.}
+proc constructNCollectionMat4*[ElementT](): NCollectionMat4[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Mat4<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Mat4*[Element_t; OtherElement_t](
-    theOtherMat4: NCollection_Mat4[OtherElement_t]): NCollection_Mat4[Element_t] {.
+proc constructNCollectionMat4*[ElementT; OtherElementT](
+    theOtherMat4: NCollectionMat4[OtherElementT]): NCollectionMat4[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Mat4<\'*0>(@)", dynlib: tkernel.}
-proc GetValue*[Element_t](this: NCollection_Mat4[Element_t]; theRow: csize_t;
-                         theCol: csize_t): Element_t {.noSideEffect, cdecl,
+proc getValue*[ElementT](this: NCollectionMat4[ElementT]; theRow: csize_t;
+                        theCol: csize_t): ElementT {.noSideEffect, cdecl,
     importcpp: "GetValue", dynlib: tkernel.}
-proc ChangeValue*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
-                            theCol: csize_t): var Element_t {.cdecl,
+proc changeValue*[ElementT](this: var NCollectionMat4[ElementT]; theRow: csize_t;
+                           theCol: csize_t): var ElementT {.cdecl,
     importcpp: "ChangeValue", dynlib: tkernel.}
-proc SetValue*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
-                         theCol: csize_t; theValue: Element_t) {.cdecl,
+proc setValue*[ElementT](this: var NCollectionMat4[ElementT]; theRow: csize_t;
+                        theCol: csize_t; theValue: ElementT) {.cdecl,
     importcpp: "SetValue", dynlib: tkernel.}
-proc GetRow*[Element_t](this: NCollection_Mat4[Element_t]; theRow: csize_t): NCollection_Vec4[
-    Element_t] {.noSideEffect, cdecl, importcpp: "GetRow", dynlib: tkernel.}
-proc SetRow*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
-                       theVec: NCollection_Vec3[Element_t]) {.cdecl,
+proc getRow*[ElementT](this: NCollectionMat4[ElementT]; theRow: csize_t): NCollectionVec4[
+    ElementT] {.noSideEffect, cdecl, importcpp: "GetRow", dynlib: tkernel.}
+proc setRow*[ElementT](this: var NCollectionMat4[ElementT]; theRow: csize_t;
+                      theVec: NCollectionVec3[ElementT]) {.cdecl,
     importcpp: "SetRow", dynlib: tkernel.}
-proc SetRow*[Element_t](this: var NCollection_Mat4[Element_t]; theRow: csize_t;
-                       theVec: NCollection_Vec4[Element_t]) {.cdecl,
+proc setRow*[ElementT](this: var NCollectionMat4[ElementT]; theRow: csize_t;
+                      theVec: NCollectionVec4[ElementT]) {.cdecl,
     importcpp: "SetRow", dynlib: tkernel.}
-proc GetColumn*[Element_t](this: NCollection_Mat4[Element_t]; theCol: csize_t): NCollection_Vec4[
-    Element_t] {.noSideEffect, cdecl, importcpp: "GetColumn", dynlib: tkernel.}
-proc SetColumn*[Element_t](this: var NCollection_Mat4[Element_t]; theCol: csize_t;
-                          theVec: NCollection_Vec3[Element_t]) {.cdecl,
+proc getColumn*[ElementT](this: NCollectionMat4[ElementT]; theCol: csize_t): NCollectionVec4[
+    ElementT] {.noSideEffect, cdecl, importcpp: "GetColumn", dynlib: tkernel.}
+proc setColumn*[ElementT](this: var NCollectionMat4[ElementT]; theCol: csize_t;
+                         theVec: NCollectionVec3[ElementT]) {.cdecl,
     importcpp: "SetColumn", dynlib: tkernel.}
-proc SetColumn*[Element_t](this: var NCollection_Mat4[Element_t]; theCol: csize_t;
-                          theVec: NCollection_Vec4[Element_t]) {.cdecl,
+proc setColumn*[ElementT](this: var NCollectionMat4[ElementT]; theCol: csize_t;
+                         theVec: NCollectionVec4[ElementT]) {.cdecl,
     importcpp: "SetColumn", dynlib: tkernel.}
-proc GetDiagonal*[Element_t](this: NCollection_Mat4[Element_t]): NCollection_Vec4[
-    Element_t] {.noSideEffect, cdecl, importcpp: "GetDiagonal", dynlib: tkernel.}
-proc SetDiagonal*[Element_t](this: var NCollection_Mat4[Element_t];
-                            theVec: NCollection_Vec3[Element_t]) {.cdecl,
+proc getDiagonal*[ElementT](this: NCollectionMat4[ElementT]): NCollectionVec4[
+    ElementT] {.noSideEffect, cdecl, importcpp: "GetDiagonal", dynlib: tkernel.}
+proc setDiagonal*[ElementT](this: var NCollectionMat4[ElementT];
+                           theVec: NCollectionVec3[ElementT]) {.cdecl,
     importcpp: "SetDiagonal", dynlib: tkernel.}
-proc SetDiagonal*[Element_t](this: var NCollection_Mat4[Element_t];
-                            theVec: NCollection_Vec4[Element_t]) {.cdecl,
+proc setDiagonal*[ElementT](this: var NCollectionMat4[ElementT];
+                           theVec: NCollectionVec4[ElementT]) {.cdecl,
     importcpp: "SetDiagonal", dynlib: tkernel.}
-proc InitIdentity*[Element_t](this: var NCollection_Mat4[Element_t]) {.cdecl,
+proc initIdentity*[ElementT](this: var NCollectionMat4[ElementT]) {.cdecl,
     importcpp: "InitIdentity", dynlib: tkernel.}
-proc IsIdentity*[Element_t](this: NCollection_Mat4[Element_t]): bool {.noSideEffect,
+proc isIdentity*[ElementT](this: NCollectionMat4[ElementT]): bool {.noSideEffect,
     cdecl, importcpp: "IsIdentity", dynlib: tkernel.}
-proc IsEqual*[Element_t](this: NCollection_Mat4[Element_t];
-                        theOther: NCollection_Mat4): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", dynlib: tkernel.}
-proc `==`*[Element_t](this: var NCollection_Mat4[Element_t];
-                     theOther: NCollection_Mat4): bool {.cdecl,
-    importcpp: "(# == #)", dynlib: tkernel.}
-proc `==`*[Element_t](this: NCollection_Mat4[Element_t]; theOther: NCollection_Mat4): bool {.
+proc isEqual*[ElementT](this: NCollectionMat4[ElementT]; theOther: NCollectionMat4): bool {.
+    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
+proc `==`*[ElementT](this: var NCollectionMat4[ElementT]; theOther: NCollectionMat4): bool {.
+    cdecl, importcpp: "(# == #)", dynlib: tkernel.}
+proc `==`*[ElementT](this: NCollectionMat4[ElementT]; theOther: NCollectionMat4): bool {.
     noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
-proc GetData*[Element_t](this: NCollection_Mat4[Element_t]): ptr Element_t {.
+proc getData*[ElementT](this: NCollectionMat4[ElementT]): ptr ElementT {.
     noSideEffect, cdecl, importcpp: "GetData", dynlib: tkernel.}
-proc ChangeData*[Element_t](this: var NCollection_Mat4[Element_t]): ptr Element_t {.
-    cdecl, importcpp: "ChangeData", dynlib: tkernel.}
-converter `constElement_t*`*[Element_t](this: NCollection_Mat4[Element_t]): ptr Element_t {.
+proc changeData*[ElementT](this: var NCollectionMat4[ElementT]): ptr ElementT {.cdecl,
+    importcpp: "ChangeData", dynlib: tkernel.}
+converter `constElementT*`*[ElementT](this: NCollectionMat4[ElementT]): ptr ElementT {.
     noSideEffect, cdecl, importcpp: "NCollection_Mat4::operator constElement_t*",
     dynlib: tkernel.}
-converter `Element_t*`*[Element_t](this: var NCollection_Mat4[Element_t]): ptr Element_t {.
+converter `elementT*`*[ElementT](this: var NCollectionMat4[ElementT]): ptr ElementT {.
     cdecl, importcpp: "NCollection_Mat4::operator Element_t*", dynlib: tkernel.}
-proc `*`*[Element_t](this: NCollection_Mat4[Element_t];
-                    theVec: NCollection_Vec4[Element_t]): NCollection_Vec4[
-    Element_t] {.noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
-proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
-                         theMatA: NCollection_Mat4; theMatB: NCollection_Mat4): NCollection_Mat4 {.
+proc `*`*[ElementT](this: NCollectionMat4[ElementT];
+                   theVec: NCollectionVec4[ElementT]): NCollectionVec4[ElementT] {.
+    noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
+proc multiply*[ElementT](this: var NCollectionMat4[ElementT];
+                        theMatA: NCollectionMat4; theMatB: NCollectionMat4): NCollectionMat4 {.
     cdecl, importcpp: "Multiply", dynlib: tkernel.}
-proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
-                         theMat: NCollection_Mat4) {.cdecl, importcpp: "Multiply",
+proc multiply*[ElementT](this: var NCollectionMat4[ElementT];
+                        theMat: NCollectionMat4) {.cdecl, importcpp: "Multiply",
     dynlib: tkernel.}
-proc `*=`*[Element_t](this: var NCollection_Mat4[Element_t];
-                     theMat: NCollection_Mat4) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkernel.}
-proc `*`*[Element_t](this: NCollection_Mat4[Element_t]; theMat: NCollection_Mat4): NCollection_Mat4 {.
-    noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
-proc Multiplied*[Element_t](this: NCollection_Mat4[Element_t];
-                           theMat: NCollection_Mat4): NCollection_Mat4 {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkernel.}
-proc Multiply*[Element_t](this: var NCollection_Mat4[Element_t];
-                         theFactor: Element_t) {.cdecl, importcpp: "Multiply",
-    dynlib: tkernel.}
-proc `*=`*[Element_t](this: var NCollection_Mat4[Element_t]; theFactor: Element_t) {.
+proc `*=`*[ElementT](this: var NCollectionMat4[ElementT]; theMat: NCollectionMat4) {.
     cdecl, importcpp: "(# *= #)", dynlib: tkernel.}
-proc `*`*[Element_t](this: NCollection_Mat4[Element_t]; theFactor: Element_t): NCollection_Mat4 {.
+proc `*`*[ElementT](this: NCollectionMat4[ElementT]; theMat: NCollectionMat4): NCollectionMat4 {.
     noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
-proc Multiplied*[Element_t](this: NCollection_Mat4[Element_t]; theFactor: Element_t): NCollection_Mat4 {.
+proc multiplied*[ElementT](this: NCollectionMat4[ElementT]; theMat: NCollectionMat4): NCollectionMat4 {.
     noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkernel.}
-proc Translate*[Element_t](this: var NCollection_Mat4[Element_t];
-                          theVec: NCollection_Vec3[Element_t]) {.cdecl,
+proc multiply*[ElementT](this: var NCollectionMat4[ElementT]; theFactor: ElementT) {.
+    cdecl, importcpp: "Multiply", dynlib: tkernel.}
+proc `*=`*[ElementT](this: var NCollectionMat4[ElementT]; theFactor: ElementT) {.
+    cdecl, importcpp: "(# *= #)", dynlib: tkernel.}
+proc `*`*[ElementT](this: NCollectionMat4[ElementT]; theFactor: ElementT): NCollectionMat4 {.
+    noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
+proc multiplied*[ElementT](this: NCollectionMat4[ElementT]; theFactor: ElementT): NCollectionMat4 {.
+    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkernel.}
+proc translate*[ElementT](this: var NCollectionMat4[ElementT];
+                         theVec: NCollectionVec3[ElementT]) {.cdecl,
     importcpp: "Translate", dynlib: tkernel.}
-proc Transposed*[Element_t](this: NCollection_Mat4[Element_t]): NCollection_Mat4 {.
+proc transposed*[ElementT](this: NCollectionMat4[ElementT]): NCollectionMat4 {.
     noSideEffect, cdecl, importcpp: "Transposed", dynlib: tkernel.}
-proc Transpose*[Element_t](this: var NCollection_Mat4[Element_t]) {.cdecl,
+proc transpose*[ElementT](this: var NCollectionMat4[ElementT]) {.cdecl,
     importcpp: "Transpose", dynlib: tkernel.}
-proc Inverted*[Element_t](this: NCollection_Mat4[Element_t];
-                         theOutMx: var NCollection_Mat4[Element_t]): bool {.
+proc inverted*[ElementT](this: NCollectionMat4[ElementT];
+                        theOutMx: var NCollectionMat4[ElementT]): bool {.
     noSideEffect, cdecl, importcpp: "Inverted", dynlib: tkernel.}
-proc ConvertFrom*[Element_t; Other_t](this: var NCollection_Mat4[Element_t];
-                                    theFrom: NCollection_Mat4[Other_t]) {.cdecl,
+proc convertFrom*[ElementT; OtherT](this: var NCollectionMat4[ElementT];
+                                  theFrom: NCollectionMat4[OtherT]) {.cdecl,
     importcpp: "ConvertFrom", dynlib: tkernel.}
-proc Convert*[Element_t; Other_t](this: var NCollection_Mat4[Element_t];
-                                theFrom: NCollection_Mat4[Other_t]) {.cdecl,
+proc convert*[ElementT; OtherT](this: var NCollectionMat4[ElementT];
+                              theFrom: NCollectionMat4[OtherT]) {.cdecl,
     importcpp: "Convert", dynlib: tkernel.}
-proc Map*[Element_t](theData: ptr Element_t): var NCollection_Mat4[Element_t] {.cdecl,
+proc map*[ElementT](theData: ptr ElementT): var NCollectionMat4[ElementT] {.cdecl,
     importcpp: "NCollection_Mat4::Map(@)", dynlib: tkernel.}
-proc Map*[Element_t](theData: ptr Element_t): NCollection_Mat4[Element_t] {.cdecl,
+proc map*[ElementT](theData: ptr ElementT): NCollectionMat4[ElementT] {.cdecl,
     importcpp: "NCollection_Mat4::Map(@)", dynlib: tkernel.}
-proc DumpJson*[Element_t](this: NCollection_Mat4[Element_t];
-                         theOStream: var Standard_OStream; a3: cint) {.noSideEffect,
+proc dumpJson*[ElementT](this: NCollectionMat4[ElementT];
+                        theOStream: var StandardOStream; a3: cint) {.noSideEffect,
     cdecl, importcpp: "DumpJson", dynlib: tkernel.}
+when defined(msc_Ver) and (msc_Ver >= 1900):
+  staticAssert(Value[NCollectionMat4[cfloat]],
+               "NCollection_Mat4 is not is_trivially_copyable() structure!")
+  staticAssert(Value[NCollectionMat4[cfloat]],
+               "NCollection_Mat4 is not is_standard_layout() structure!")

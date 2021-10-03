@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-07-30
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -32,32 +25,32 @@ else:
 ##
 
 type
-  NCollection_EBTree*[TheObjType; TheBndType] {.
+  NCollectionEBTree*[TheObjType; TheBndType] {.
       importcpp: "NCollection_EBTree<\'0,\'1>", header: "NCollection_EBTree.hxx",
-      bycopy.} = object of NCollection_UBTree[TheObjType, TheBndType]
+      bycopy.} = object of NCollectionUBTree[TheObjType, TheBndType]
 
-  NCollection_EBTreeUBTree* = NCollection_UBTree[TheObjType, TheBndType]
-  NCollection_EBTreeTreeNode* = TreeNode
+  NCollectionEBTreeUBTree* = NCollectionUBTree[TheObjType, TheBndType]
+  NCollectionEBTreeTreeNode* = TreeNode
 
-proc constructNCollection_EBTree*[TheObjType; TheBndType](
-    theAllocator: handle[NCollection_BaseAllocator] = 0L'i64): NCollection_EBTree[
+proc constructNCollectionEBTree*[TheObjType; TheBndType](
+    theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionEBTree[
     TheObjType, TheBndType] {.cdecl, constructor,
                             importcpp: "NCollection_EBTree<\'*0,\'*1>(@)",
                             dynlib: tkernel.}
-proc Add*[TheObjType; TheBndType](this: var NCollection_EBTree[TheObjType, TheBndType];
+proc add*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType, TheBndType];
                                 theObj: TheObjType; theBnd: TheBndType): bool {.
     cdecl, importcpp: "Add", dynlib: tkernel.}
-proc Remove*[TheObjType; TheBndType](this: var NCollection_EBTree[TheObjType,
+proc remove*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): bool {.cdecl, importcpp: "Remove",
     dynlib: tkernel.}
-proc Contains*[TheObjType; TheBndType](this: NCollection_EBTree[TheObjType,
+proc contains*[TheObjType; TheBndType](this: NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): bool {.noSideEffect, cdecl,
     importcpp: "Contains", dynlib: tkernel.}
-proc FindNode*[TheObjType; TheBndType](this: NCollection_EBTree[TheObjType,
-    TheBndType]; theObj: TheObjType): NCollection_EBTreeTreeNode {.noSideEffect,
+proc findNode*[TheObjType; TheBndType](this: NCollectionEBTree[TheObjType,
+    TheBndType]; theObj: TheObjType): NCollectionEBTreeTreeNode {.noSideEffect,
     cdecl, importcpp: "FindNode", dynlib: tkernel.}
-proc Clear*[TheObjType; TheBndType](this: var NCollection_EBTree[TheObjType,
-    TheBndType]; aNewAlloc: handle[NCollection_BaseAllocator] = 0L'i64) {.cdecl,
+proc clear*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
+    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = 0) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
 ##  ================== METHODS TEMPLATES =====================
 ## =======================================================================

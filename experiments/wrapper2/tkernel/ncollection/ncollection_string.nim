@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -21,7 +14,7 @@ else:
 ##  commercial license or contractual agreement.
 
 import
-  NCollection_UtfString
+  nCollectionUtfString
 
 type
-  NCollection_String* = NCollection_Utf8String
+  NCollectionString* = NCollectionUtf8String

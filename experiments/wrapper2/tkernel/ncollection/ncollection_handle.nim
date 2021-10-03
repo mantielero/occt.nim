@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2009-01-30
 ##  Created by: Andrey BETENEV (abv)
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -29,29 +22,29 @@ else:
 ## ! Handle(Standard_Transient) in OCCT components.
 
 type
-  NCollection_Handle*[T] {.importcpp: "NCollection_Handle<\'0>",
-                          header: "NCollection_Handle.hxx", bycopy.} = object of handle[
-      Standard_Transient] ## ! Internal adaptor class wrapping actual type
-                         ## ! and enhancing it by reference counter inherited from
-                         ## ! Standard_Transient
+  NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
+                         header: "NCollection_Handle.hxx", bycopy.} = object of Handle[
+      StandardTransient] ## ! Internal adaptor class wrapping actual type
+                        ## ! and enhancing it by reference counter inherited from
+                        ## ! Standard_Transient
 
-  NCollection_Handleelement_type*[T] = T
+  NCollectionHandleelementType*[T] = T
 
-proc constructNCollection_Handle*[T](): NCollection_Handle[T] {.cdecl, constructor,
+proc constructNCollectionHandle*[T](): NCollectionHandle[T] {.cdecl, constructor,
     importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Handle*[T](theObject: ptr T): NCollection_Handle[T] {.
-    cdecl, constructor, importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
-proc get*[T](this: var NCollection_Handle[T]): ptr T {.cdecl, importcpp: "get",
+proc constructNCollectionHandle*[T](theObject: ptr T): NCollectionHandle[T] {.cdecl,
+    constructor, importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
+proc get*[T](this: var NCollectionHandle[T]): ptr T {.cdecl, importcpp: "get",
     dynlib: tkernel.}
-proc get*[T](this: NCollection_Handle[T]): ptr T {.noSideEffect, cdecl,
+proc get*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect, cdecl,
     importcpp: "get", dynlib: tkernel.}
-proc `->`*[T](this: var NCollection_Handle[T]): ptr T {.cdecl, importcpp: "(# -> #)",
+proc `->`*[T](this: var NCollectionHandle[T]): ptr T {.cdecl, importcpp: "(# -> #)",
     dynlib: tkernel.}
-proc `->`*[T](this: NCollection_Handle[T]): ptr T {.noSideEffect, cdecl,
+proc `->`*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect, cdecl,
     importcpp: "(# -> #)", dynlib: tkernel.}
-proc `*`*[T](this: var NCollection_Handle[T]): var T {.cdecl, importcpp: "(* #)",
+proc `*`*[T](this: var NCollectionHandle[T]): var T {.cdecl, importcpp: "(* #)",
     dynlib: tkernel.}
-proc `*`*[T](this: NCollection_Handle[T]): T {.noSideEffect, cdecl,
-    importcpp: "(* #)", dynlib: tkernel.}
-proc DownCast*[T](theOther: handle[Standard_Transient]): NCollection_Handle[T] {.
+proc `*`*[T](this: NCollectionHandle[T]): T {.noSideEffect, cdecl, importcpp: "(* #)",
+    dynlib: tkernel.}
+proc downCast*[T](theOther: Handle[StandardTransient]): NCollectionHandle[T] {.
     cdecl, importcpp: "NCollection_Handle::DownCast(@)", dynlib: tkernel.}

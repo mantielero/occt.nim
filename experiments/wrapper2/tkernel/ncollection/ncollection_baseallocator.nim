@@ -1,11 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
-import ../standard/standard_transient
 ##  Created on: 2002-04-12
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -45,7 +37,7 @@ import ../standard/standard_transient
 ##
 
 type
-  NCollection_BaseAllocator* {.importcpp: "NCollection_BaseAllocator",
-                              header: "NCollection_BaseAllocator.hxx", bycopy.} = object of Standard_Transient
+  NCollectionBaseAllocator* {.importcpp: "NCollection_BaseAllocator",
+                             header: "NCollection_BaseAllocator.hxx", bycopy.} = object of StandardTransient
 
-  Handle_NCollection_BaseAllocator* = handle[NCollection_BaseAllocator]
+  HandleNCollectionBaseAllocator* = Handle[NCollectionBaseAllocator]

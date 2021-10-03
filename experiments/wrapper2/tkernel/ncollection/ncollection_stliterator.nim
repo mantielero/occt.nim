@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2014-04-15
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -28,31 +21,31 @@ else:
 ## ! example of declaring custom STL iterators.
 
 type
-  NCollection_StlIterator*[Category; BaseIterator; ItemType;
-                           IsConstant: static[bool]] {.
+  NCollectionStlIterator*[Category; BaseIterator; ItemType;
+                          IsConstant: static[bool]] {.
       importcpp: "NCollection_StlIterator<\'0,\'1,\'2,\'3>",
       header: "NCollection_StlIterator.hxx", bycopy.} = object ## ! Default constructor
     myIterator* {.importc: "myIterator".}: BaseIterator
 
 
-proc constructNCollection_StlIterator*[Category; BaseIterator; ItemType;
-                                      IsConstant: static[bool]](): NCollection_StlIterator[
+proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                                     IsConstant: static[bool]](): NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant] {.cdecl, constructor,
     importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
-proc constructNCollection_StlIterator*[Category; BaseIterator; ItemType;
-                                      IsConstant: static[bool]](
-    theIterator: BaseIterator): NCollection_StlIterator[Category, BaseIterator,
+proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                                     IsConstant: static[bool]](
+    theIterator: BaseIterator): NCollectionStlIterator[Category, BaseIterator,
     ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
                           dynlib: tkernel.}
-proc constructNCollection_StlIterator*[Category; BaseIterator; ItemType;
-                                      IsConstant: static[bool]](theIterator: NCollection_StlIterator[
-    Category, BaseIterator, ItemType, false]): NCollection_StlIterator[Category,
+proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                                     IsConstant: static[bool]](theIterator: NCollectionStlIterator[
+    Category, BaseIterator, ItemType, False]): NCollectionStlIterator[Category,
     BaseIterator, ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
                                        dynlib: tkernel.}
-proc Iterator*[Category; BaseIterator; ItemType; IsConstant: static[bool]](
-    this: NCollection_StlIterator[Category, BaseIterator, ItemType, IsConstant]): BaseIterator {.
+proc `iterator`*[Category; BaseIterator; ItemType; IsConstant: static[bool]](
+    this: NCollectionStlIterator[Category, BaseIterator, ItemType, IsConstant]): BaseIterator {.
     noSideEffect, cdecl, importcpp: "Iterator", dynlib: tkernel.}
-proc ChangeIterator*[Category; BaseIterator; ItemType; IsConstant: static[bool]](this: var NCollection_StlIterator[
+proc changeIterator*[Category; BaseIterator; ItemType; IsConstant: static[bool]](this: var NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant]): var BaseIterator {.cdecl,
     importcpp: "ChangeIterator", dynlib: tkernel.}
   ##  Note: Here we use SFINAE (Substitution failure is not an error) to choose

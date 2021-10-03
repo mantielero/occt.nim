@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-24
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -30,6 +23,6 @@ else:
 
 ##  *********************************************** Class IndexedMap ***********
 
-template DEFINE_INDEXEDMAP*(_ClassName_, _BaseCollection_, TheKeyType: untyped): void =
+template define_Indexedmap*(className, baseCollection, theKeyType: untyped): void =
   type
-    _ClassName_* = NCollection_IndexedMap[TheKeyType]
+    ClassName* = NCollectionIndexedMap[TheKeyType]

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-17
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -27,110 +20,110 @@ else:
 ##
 
 type
-  NCollection_List*[TheItemType] {.importcpp: "NCollection_List<\'0>",
-                                  header: "NCollection_List.hxx", bycopy.} = object of NCollection_BaseList ##
-                                                                                                     ## !
-                                                                                                     ## STL-compliant
-                                                                                                     ## typedef
-                                                                                                     ## for
-                                                                                                     ## value
-                                                                                                     ## type
-                                                                                                     ##
-                                                                                                     ## ----------
-                                                                                                     ## PUBLIC
-                                                                                                     ## METHODS
-                                                                                                     ## ------------
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor.
-                                                                                                     ##
-                                                                                                     ## -----------
-                                                                                                     ## PRIVATE
-                                                                                                     ## METHODS
-                                                                                                     ## -----------
+  NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
+                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
+                                                                                                   ## !
+                                                                                                   ## STL-compliant
+                                                                                                   ## typedef
+                                                                                                   ## for
+                                                                                                   ## value
+                                                                                                   ## type
+                                                                                                   ##
+                                                                                                   ## ----------
+                                                                                                   ## PUBLIC
+                                                                                                   ## METHODS
+                                                                                                   ## ------------
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor.
+                                                                                                   ##
+                                                                                                   ## -----------
+                                                                                                   ## PRIVATE
+                                                                                                   ## METHODS
+                                                                                                   ## -----------
 
-  NCollection_Listvalue_type*[TheItemType] = TheItemType
-  NCollection_ListListNode* = NCollection_TListNode[TheItemType]
-  NCollection_ListIterator* = NCollection_TListIterator[TheItemType]
-  NCollection_Listiterator* = NCollection_StlIterator[forward_iterator_tag,
-      NCollection_ListIterator, TheItemType, false]
-  NCollection_Listconst_iterator* = NCollection_StlIterator[forward_iterator_tag,
-      NCollection_ListIterator, TheItemType, true]
+  NCollectionListvalueType*[TheItemType] = TheItemType
+  NCollectionListListNode* = NCollectionTListNode[TheItemType]
+  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
+  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
+      NCollectionListIterator, TheItemType, False]
+  NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
+      NCollectionListIterator, TheItemType, True]
 
-proc begin*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
+proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
     noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
-proc `end`*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listiterator {.
+proc `end`*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
     noSideEffect, cdecl, importcpp: "end", dynlib: tkernel.}
-proc cbegin*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listconst_iterator {.
+proc cbegin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
-proc cend*[TheItemType](this: NCollection_List[TheItemType]): NCollection_Listconst_iterator {.
+proc cend*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollection_List*[TheItemType](): NCollection_List[TheItemType] {.
+proc constructNCollectionList*[TheItemType](): NCollectionList[TheItemType] {.
     cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_List*[TheItemType](
-    theAllocator: handle[NCollection_BaseAllocator]): NCollection_List[TheItemType] {.
+proc constructNCollectionList*[TheItemType](
+    theAllocator: Handle[NCollectionBaseAllocator]): NCollectionList[TheItemType] {.
     cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_List*[TheItemType](theOther: NCollection_List): NCollection_List[
+proc constructNCollectionList*[TheItemType](theOther: NCollectionList): NCollectionList[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)",
                   dynlib: tkernel.}
-proc Size*[TheItemType](this: NCollection_List[TheItemType]): cint {.noSideEffect,
+proc size*[TheItemType](this: NCollectionList[TheItemType]): cint {.noSideEffect,
     cdecl, importcpp: "Size", dynlib: tkernel.}
-proc Assign*[TheItemType](this: var NCollection_List[TheItemType];
-                         theOther: NCollection_List): var NCollection_List {.cdecl,
+proc assign*[TheItemType](this: var NCollectionList[TheItemType];
+                         theOther: NCollectionList): var NCollectionList {.cdecl,
     importcpp: "Assign", dynlib: tkernel.}
-proc Clear*[TheItemType](this: var NCollection_List[TheItemType]; theAllocator: handle[
-    NCollection_BaseAllocator] = 0L'i64) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
-proc First*[TheItemType](this: NCollection_List[TheItemType]): TheItemType {.
+proc clear*[TheItemType](this: var NCollectionList[TheItemType];
+                        theAllocator: Handle[NCollectionBaseAllocator] = 0) {.
+    cdecl, importcpp: "Clear", dynlib: tkernel.}
+proc first*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "First", dynlib: tkernel.}
-proc First*[TheItemType](this: var NCollection_List[TheItemType]): var TheItemType {.
+proc first*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
     cdecl, importcpp: "First", dynlib: tkernel.}
-proc Last*[TheItemType](this: NCollection_List[TheItemType]): TheItemType {.
+proc last*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Last", dynlib: tkernel.}
-proc Last*[TheItemType](this: var NCollection_List[TheItemType]): var TheItemType {.
+proc last*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
     cdecl, importcpp: "Last", dynlib: tkernel.}
-proc Append*[TheItemType](this: var NCollection_List[TheItemType];
+proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theItem: TheItemType): var TheItemType {.cdecl,
     importcpp: "Append", dynlib: tkernel.}
-proc Append*[TheItemType](this: var NCollection_List[TheItemType];
+proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theItem: TheItemType;
-                         theIter: var NCollection_ListIterator) {.cdecl,
+                         theIter: var NCollectionListIterator) {.cdecl,
     importcpp: "Append", dynlib: tkernel.}
-proc Append*[TheItemType](this: var NCollection_List[TheItemType];
-                         theOther: var NCollection_List) {.cdecl,
+proc append*[TheItemType](this: var NCollectionList[TheItemType];
+                         theOther: var NCollectionList) {.cdecl,
     importcpp: "Append", dynlib: tkernel.}
-proc Prepend*[TheItemType](this: var NCollection_List[TheItemType];
+proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
                           theItem: TheItemType): var TheItemType {.cdecl,
     importcpp: "Prepend", dynlib: tkernel.}
-proc Prepend*[TheItemType](this: var NCollection_List[TheItemType];
-                          theOther: var NCollection_List) {.cdecl,
+proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
+                          theOther: var NCollectionList) {.cdecl,
     importcpp: "Prepend", dynlib: tkernel.}
-proc RemoveFirst*[TheItemType](this: var NCollection_List[TheItemType]) {.cdecl,
+proc removeFirst*[TheItemType](this: var NCollectionList[TheItemType]) {.cdecl,
     importcpp: "RemoveFirst", dynlib: tkernel.}
-proc Remove*[TheItemType](this: var NCollection_List[TheItemType];
-                         theIter: var NCollection_ListIterator) {.cdecl,
+proc remove*[TheItemType](this: var NCollectionList[TheItemType];
+                         theIter: var NCollectionListIterator) {.cdecl,
     importcpp: "Remove", dynlib: tkernel.}
-proc InsertBefore*[TheItemType](this: var NCollection_List[TheItemType];
+proc insertBefore*[TheItemType](this: var NCollectionList[TheItemType];
                                theItem: TheItemType;
-                               theIter: var NCollection_ListIterator): var TheItemType {.
+                               theIter: var NCollectionListIterator): var TheItemType {.
     cdecl, importcpp: "InsertBefore", dynlib: tkernel.}
-proc InsertBefore*[TheItemType](this: var NCollection_List[TheItemType];
-                               theOther: var NCollection_List;
-                               theIter: var NCollection_ListIterator) {.cdecl,
+proc insertBefore*[TheItemType](this: var NCollectionList[TheItemType];
+                               theOther: var NCollectionList;
+                               theIter: var NCollectionListIterator) {.cdecl,
     importcpp: "InsertBefore", dynlib: tkernel.}
-proc InsertAfter*[TheItemType](this: var NCollection_List[TheItemType];
+proc insertAfter*[TheItemType](this: var NCollectionList[TheItemType];
                               theItem: TheItemType;
-                              theIter: var NCollection_ListIterator): var TheItemType {.
+                              theIter: var NCollectionListIterator): var TheItemType {.
     cdecl, importcpp: "InsertAfter", dynlib: tkernel.}
-proc InsertAfter*[TheItemType](this: var NCollection_List[TheItemType];
-                              theOther: var NCollection_List;
-                              theIter: var NCollection_ListIterator) {.cdecl,
+proc insertAfter*[TheItemType](this: var NCollectionList[TheItemType];
+                              theOther: var NCollectionList;
+                              theIter: var NCollectionListIterator) {.cdecl,
     importcpp: "InsertAfter", dynlib: tkernel.}
-proc Reverse*[TheItemType](this: var NCollection_List[TheItemType]) {.cdecl,
+proc reverse*[TheItemType](this: var NCollectionList[TheItemType]) {.cdecl,
     importcpp: "Reverse", dynlib: tkernel.}
-proc Contains*[TheItemType](this: NCollection_List[TheItemType];
+proc contains*[TheItemType](this: NCollectionList[TheItemType];
                            theObject: TheValueType): bool {.noSideEffect, cdecl,
     importcpp: "Contains", dynlib: tkernel.}
-proc destroyNCollection_List*[TheItemType](
-    this: var NCollection_List[TheItemType]) {.cdecl,
-    importcpp: "#.~NCollection_List()", dynlib: tkernel.}
+proc destroyNCollectionList*[TheItemType](this: var NCollectionList[TheItemType]) {.
+    cdecl, importcpp: "#.~NCollection_List()", dynlib: tkernel.}

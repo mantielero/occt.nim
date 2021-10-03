@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-07-30
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -62,7 +55,7 @@ else:
 ##
 
 type
-  NCollection_UBTree*[TheObjType; TheBndType] {.
+  NCollectionUBTree*[TheObjType; TheBndType] {.
       importcpp: "NCollection_UBTree<\'0,\'1>", header: "NCollection_UBTree.hxx",
       bycopy.} = object         ## ! Memory allocation
                      ##  ---------- PUBLIC TYPES ----------
@@ -80,7 +73,7 @@ type
     ## /< the last added node
     ## /< Allocator for TreeNode
 
-  NCollection_UBTreeSelector*[TheObjType; TheBndType] {.
+  NCollectionUBTreeSelector*[TheObjType; TheBndType] {.
       importcpp: "NCollection_UBTree<\'0,\'1>::Selector",
       header: "NCollection_UBTree.hxx", bycopy.} = object ## *
                                                      ##  Constructor
@@ -91,22 +84,21 @@ type
                                                      ##
 
 
-proc constructNCollection_UBTreeSelector*[TheObjType; TheBndType](): NCollection_UBTreeSelector[
+proc constructNCollectionUBTreeSelector*[TheObjType; TheBndType](): NCollectionUBTreeSelector[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTree<\'*0,\'*1>::Selector(@)",
                             dynlib: tkernel.}
-proc Reject*[TheObjType; TheBndType](this: NCollection_UBTreeSelector[TheObjType,
+proc reject*[TheObjType; TheBndType](this: NCollectionUBTreeSelector[TheObjType,
     TheBndType]; a2: TheBndType): bool {.noSideEffect, cdecl, importcpp: "Reject",
                                      dynlib: tkernel.}
-proc Accept*[TheObjType; TheBndType](this: var NCollection_UBTreeSelector[
-    TheObjType, TheBndType]; a2: TheObjType): bool {.cdecl, importcpp: "Accept",
-    dynlib: tkernel.}
-proc Stop*[TheObjType; TheBndType](this: NCollection_UBTreeSelector[TheObjType,
+proc accept*[TheObjType; TheBndType](this: var NCollectionUBTreeSelector[TheObjType,
+    TheBndType]; a2: TheObjType): bool {.cdecl, importcpp: "Accept", dynlib: tkernel.}
+proc stop*[TheObjType; TheBndType](this: NCollectionUBTreeSelector[TheObjType,
     TheBndType]): bool {.noSideEffect, cdecl, importcpp: "Stop", dynlib: tkernel.}
-proc destroyNCollection_UBTreeSelector*[TheObjType; TheBndType](
-    this: var NCollection_UBTreeSelector[TheObjType, TheBndType]) {.cdecl,
+proc destroyNCollectionUBTreeSelector*[TheObjType; TheBndType](
+    this: var NCollectionUBTreeSelector[TheObjType, TheBndType]) {.cdecl,
     importcpp: "#.~Selector()", dynlib: tkernel.}
 type
-  NCollection_UBTreeTreeNode*[TheObjType; TheBndType] {.
+  NCollectionUBTreeTreeNode*[TheObjType; TheBndType] {.
       importcpp: "NCollection_UBTree<\'0,\'1>::TreeNode",
       header: "NCollection_UBTree.hxx", bycopy.} = object
     ## /< bounding geometry
@@ -115,77 +107,76 @@ type
     ## /< the pointer to a parent node
 
 
-proc constructNCollection_UBTreeTreeNode*[TheObjType; TheBndType](
-    theObj: TheObjType; theBnd: TheBndType): NCollection_UBTreeTreeNode[TheObjType,
+proc constructNCollectionUBTreeTreeNode*[TheObjType; TheBndType](
+    theObj: TheObjType; theBnd: TheBndType): NCollectionUBTreeTreeNode[TheObjType,
     TheBndType] {.cdecl, constructor,
                  importcpp: "NCollection_UBTree<\'*0,\'*1>::TreeNode(@)",
                  dynlib: tkernel.}
-proc IsLeaf*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
+proc isLeaf*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
     TheBndType]): bool {.noSideEffect, cdecl, importcpp: "IsLeaf", dynlib: tkernel.}
-proc IsRoot*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
+proc isRoot*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
     TheBndType]): bool {.noSideEffect, cdecl, importcpp: "IsRoot", dynlib: tkernel.}
-proc Bnd*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
+proc bnd*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
     TheBndType]): TheBndType {.noSideEffect, cdecl, importcpp: "Bnd", dynlib: tkernel.}
-proc ChangeBnd*[TheObjType; TheBndType](this: var NCollection_UBTreeTreeNode[
+proc changeBnd*[TheObjType; TheBndType](this: var NCollectionUBTreeTreeNode[
     TheObjType, TheBndType]): var TheBndType {.cdecl, importcpp: "ChangeBnd",
     dynlib: tkernel.}
-proc Object*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
+proc `object`*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
     TheBndType]): TheObjType {.noSideEffect, cdecl, importcpp: "Object",
                              dynlib: tkernel.}
-proc Child*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
-    TheBndType]; i: cint): NCollection_UBTreeTreeNode {.noSideEffect, cdecl,
+proc child*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
+    TheBndType]; i: cint): NCollectionUBTreeTreeNode {.noSideEffect, cdecl,
     importcpp: "Child", dynlib: tkernel.}
-proc ChangeChild*[TheObjType; TheBndType](this: var NCollection_UBTreeTreeNode[
-    TheObjType, TheBndType]; i: cint): var NCollection_UBTreeTreeNode {.cdecl,
+proc changeChild*[TheObjType; TheBndType](this: var NCollectionUBTreeTreeNode[
+    TheObjType, TheBndType]; i: cint): var NCollectionUBTreeTreeNode {.cdecl,
     importcpp: "ChangeChild", dynlib: tkernel.}
-proc Parent*[TheObjType; TheBndType](this: NCollection_UBTreeTreeNode[TheObjType,
-    TheBndType]): NCollection_UBTreeTreeNode {.noSideEffect, cdecl,
+proc parent*[TheObjType; TheBndType](this: NCollectionUBTreeTreeNode[TheObjType,
+    TheBndType]): NCollectionUBTreeTreeNode {.noSideEffect, cdecl,
     importcpp: "Parent", dynlib: tkernel.}
-proc ChangeParent*[TheObjType; TheBndType](
-    this: var NCollection_UBTreeTreeNode[TheObjType, TheBndType]): var NCollection_UBTreeTreeNode {.
+proc changeParent*[TheObjType; TheBndType](
+    this: var NCollectionUBTreeTreeNode[TheObjType, TheBndType]): var NCollectionUBTreeTreeNode {.
     cdecl, importcpp: "ChangeParent", dynlib: tkernel.}
-proc Gemmate*[TheObjType; TheBndType](this: var NCollection_UBTreeTreeNode[
+proc gemmate*[TheObjType; TheBndType](this: var NCollectionUBTreeTreeNode[
     TheObjType, TheBndType]; theNewBnd: TheBndType; theObj: TheObjType;
                                     theBnd: TheBndType;
-                                    theAlloc: handle[NCollection_BaseAllocator]) {.
+                                    theAlloc: Handle[NCollectionBaseAllocator]) {.
     cdecl, importcpp: "Gemmate", dynlib: tkernel.}
-proc Kill*[TheObjType; TheBndType](this: var NCollection_UBTreeTreeNode[TheObjType,
-    TheBndType]; i: cint; theAlloc: handle[NCollection_BaseAllocator]) {.cdecl,
+proc kill*[TheObjType; TheBndType](this: var NCollectionUBTreeTreeNode[TheObjType,
+    TheBndType]; i: cint; theAlloc: Handle[NCollectionBaseAllocator]) {.cdecl,
     importcpp: "Kill", dynlib: tkernel.}
-proc destroyNCollection_UBTreeTreeNode*[TheObjType; TheBndType](
-    this: var NCollection_UBTreeTreeNode[TheObjType, TheBndType]) {.cdecl,
+proc destroyNCollectionUBTreeTreeNode*[TheObjType; TheBndType](
+    this: var NCollectionUBTreeTreeNode[TheObjType, TheBndType]) {.cdecl,
     importcpp: "#.~TreeNode()", dynlib: tkernel.}
-proc delNode*[TheObjType; TheBndType](theNode: ptr NCollection_UBTreeTreeNode;
-                                    theAlloc: handle[NCollection_BaseAllocator]) {.
+proc delNode*[TheObjType; TheBndType](theNode: ptr NCollectionUBTreeTreeNode;
+                                    theAlloc: Handle[NCollectionBaseAllocator]) {.
     cdecl, importcpp: "TreeNode::delNode(@)", dynlib: tkernel.}
-proc constructNCollection_UBTree*[TheObjType; TheBndType](): NCollection_UBTree[
+proc constructNCollectionUBTree*[TheObjType; TheBndType](): NCollectionUBTree[
     TheObjType, TheBndType] {.cdecl, constructor,
                             importcpp: "NCollection_UBTree<\'*0,\'*1>(@)",
                             dynlib: tkernel.}
-proc constructNCollection_UBTree*[TheObjType; TheBndType](
-    theAllocator: handle[NCollection_BaseAllocator]): NCollection_UBTree[
-    TheObjType, TheBndType] {.cdecl, constructor,
-                            importcpp: "NCollection_UBTree<\'*0,\'*1>(@)",
-                            dynlib: tkernel.}
-proc Add*[TheObjType; TheBndType](this: var NCollection_UBTree[TheObjType, TheBndType];
+proc constructNCollectionUBTree*[TheObjType; TheBndType](
+    theAllocator: Handle[NCollectionBaseAllocator]): NCollectionUBTree[TheObjType,
+    TheBndType] {.cdecl, constructor,
+                 importcpp: "NCollection_UBTree<\'*0,\'*1>(@)", dynlib: tkernel.}
+proc add*[TheObjType; TheBndType](this: var NCollectionUBTree[TheObjType, TheBndType];
                                 theObj: TheObjType; theBnd: TheBndType): bool {.
     cdecl, importcpp: "Add", dynlib: tkernel.}
-proc Select*[TheObjType; TheBndType](this: NCollection_UBTree[TheObjType, TheBndType];
-                                   theSelector: var NCollection_UBTreeSelector): cint {.
+proc select*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType, TheBndType];
+                                   theSelector: var NCollectionUBTreeSelector): cint {.
     noSideEffect, cdecl, importcpp: "Select", dynlib: tkernel.}
-proc Clear*[TheObjType; TheBndType](this: var NCollection_UBTree[TheObjType,
-    TheBndType]; aNewAlloc: handle[NCollection_BaseAllocator] = 0L'i64) {.cdecl,
+proc clear*[TheObjType; TheBndType](this: var NCollectionUBTree[TheObjType,
+    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = 0) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
   ##       { if (myRoot) delete myRoot; myRoot = 0L; }
-proc IsEmpty*[TheObjType; TheBndType](this: NCollection_UBTree[TheObjType,
-    TheBndType]): bool {.noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
-proc Root*[TheObjType; TheBndType](this: NCollection_UBTree[TheObjType, TheBndType]): NCollection_UBTreeTreeNode {.
+proc isEmpty*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType, TheBndType]): bool {.
+    noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
+proc root*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType, TheBndType]): NCollectionUBTreeTreeNode {.
     noSideEffect, cdecl, importcpp: "Root", dynlib: tkernel.}
-proc destroyNCollection_UBTree*[TheObjType; TheBndType](
-    this: var NCollection_UBTree[TheObjType, TheBndType]) {.cdecl,
+proc destroyNCollectionUBTree*[TheObjType; TheBndType](
+    this: var NCollectionUBTree[TheObjType, TheBndType]) {.cdecl,
     importcpp: "#.~NCollection_UBTree()", dynlib: tkernel.}
-proc Allocator*[TheObjType; TheBndType](this: NCollection_UBTree[TheObjType,
-    TheBndType]): handle[NCollection_BaseAllocator] {.noSideEffect, cdecl,
+proc allocator*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType,
+    TheBndType]): Handle[NCollectionBaseAllocator] {.noSideEffect, cdecl,
     importcpp: "Allocator", dynlib: tkernel.}
 ##  ======================================================================
 ## *

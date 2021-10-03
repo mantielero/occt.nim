@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-17
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -26,6 +19,6 @@ else:
 
 ##  **************************************** Template for  List   class ********
 
-template DEFINE_LIST*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
+template define_List*(className, baseCollection, theItemType: untyped): void =
   type
-    _ClassName_* = NCollection_List[TheItemType]
+    ClassName* = NCollectionList[TheItemType]

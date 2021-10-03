@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2015-06-26
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -35,27 +28,25 @@ else:
 ## ! implementation defines a separate type.
 
 type
-  NCollection_Shared*[T] {.importcpp: "NCollection_Shared<\'0>",
-                          header: "NCollection_Shared.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                             ## !
-                                                                                             ## Default
-                                                                                             ## constructor
+  NCollectionShared*[T] {.importcpp: "NCollection_Shared<\'0>",
+                         header: "NCollection_Shared.hxx", bycopy.} = object of StandardTransient ##
+                                                                                           ## !
+                                                                                           ## Default
+                                                                                           ## constructor
 
 
-proc constructNCollection_Shared*[T](): NCollection_Shared[T] {.cdecl, constructor,
+proc constructNCollectionShared*[T](): NCollectionShared[T] {.cdecl, constructor,
     importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1](arg1: T1): NCollection_Shared[T] {.cdecl,
+proc constructNCollectionShared*[T; T1](arg1: T1): NCollectionShared[T] {.cdecl,
     constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1](arg1: var T1): NCollection_Shared[T] {.cdecl,
+proc constructNCollectionShared*[T; T1](arg1: var T1): NCollectionShared[T] {.cdecl,
     constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1; T2](arg1: T1; arg2: T2): NCollection_Shared[T] {.
+proc constructNCollectionShared*[T; T1; T2](arg1: T1; arg2: T2): NCollectionShared[T] {.
     cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1; T2](arg1: var T1; arg2: T2): NCollection_Shared[
-    T] {.cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)",
-        dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1; T2](arg1: T1; arg2: var T2): NCollection_Shared[
-    T] {.cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)",
-        dynlib: tkernel.}
-proc constructNCollection_Shared*[T; T1; T2](arg1: var T1; arg2: var T2): NCollection_Shared[
+proc constructNCollectionShared*[T; T1; T2](arg1: var T1; arg2: T2): NCollectionShared[T] {.
+    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
+proc constructNCollectionShared*[T; T1; T2](arg1: T1; arg2: var T2): NCollectionShared[T] {.
+    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
+proc constructNCollectionShared*[T; T1; T2](arg1: var T1; arg2: var T2): NCollectionShared[
     T] {.cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)",
         dynlib: tkernel.}

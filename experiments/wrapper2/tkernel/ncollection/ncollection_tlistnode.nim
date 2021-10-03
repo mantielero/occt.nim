@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -26,20 +19,20 @@ else:
 ##
 
 type
-  NCollection_TListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
-                                       header: "NCollection_TListNode.hxx", bycopy.} = object of NCollection_ListNode ##
-                                                                                                               ## !
-                                                                                                               ## Constructor
+  NCollectionTListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
+                                      header: "NCollection_TListNode.hxx", bycopy.} = object of NCollectionListNode ##
+                                                                                                             ## !
+                                                                                                             ## Constructor
     ## !< The item stored in the node
 
 
-proc constructNCollection_TListNode*[TheItemType](theItem: TheItemType;
-    theNext: ptr NCollection_ListNode = nil): NCollection_TListNode[TheItemType] {.
+proc constructNCollectionTListNode*[TheItemType](theItem: TheItemType;
+    theNext: ptr NCollectionListNode = nil): NCollectionTListNode[TheItemType] {.
     cdecl, constructor, importcpp: "NCollection_TListNode<\'*0>(@)", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_TListNode[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionTListNode[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: var NCollection_TListNode[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: var NCollectionTListNode[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc delNode*[TheItemType](theNode: ptr NCollection_ListNode;
-                          theAl: var handle[NCollection_BaseAllocator]) {.cdecl,
+proc delNode*[TheItemType](theNode: ptr NCollectionListNode;
+                          theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
     importcpp: "NCollection_TListNode::delNode(@)", dynlib: tkernel.}

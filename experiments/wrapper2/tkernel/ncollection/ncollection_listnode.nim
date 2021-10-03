@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-17
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -26,16 +19,16 @@ else:
 ##
 
 type
-  NCollection_ListNode* {.importcpp: "NCollection_ListNode",
-                         header: "NCollection_ListNode.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
-                                                                          ## ! The only constructor
-                                                                          ## ! operator= - forbidden
+  NCollectionListNode* {.importcpp: "NCollection_ListNode",
+                        header: "NCollection_ListNode.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+                                                                         ## ! The only constructor
+                                                                         ## ! operator= - forbidden
     ## !< Pointer to the next node
 
 
-proc constructNCollection_ListNode*(theNext: ptr NCollection_ListNode): NCollection_ListNode {.
+proc constructNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.
     cdecl, constructor, importcpp: "NCollection_ListNode(@)", dynlib: tkernel.}
-proc Next*(this: var NCollection_ListNode): ptr NCollection_ListNode {.cdecl,
+proc next*(this: var NCollectionListNode): ptr NCollectionListNode {.cdecl,
     importcpp: "Next", dynlib: tkernel.}
-proc Next*(this: NCollection_ListNode): ptr NCollection_ListNode {.noSideEffect,
-    cdecl, importcpp: "Next", dynlib: tkernel.}
+proc next*(this: NCollectionListNode): ptr NCollectionListNode {.noSideEffect, cdecl,
+    importcpp: "Next", dynlib: tkernel.}

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-10-18
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -31,7 +24,7 @@ else:
 ##
 
 type
-  NCollection_UBTreeFiller*[TheObjType; TheBndType] {.
+  NCollectionUBTreeFiller*[TheObjType; TheBndType] {.
       importcpp: "NCollection_UBTreeFiller<\'0,\'1>",
       header: "NCollection_UBTreeFiller.hxx", bycopy.} = object ##  ---------- PUBLIC TYPES ----------
                                                            ## ! Structure of pair (object, bnd box)
@@ -40,41 +33,41 @@ type
                                                            ##  ---------- PRIVATE FIELDS ----------
     ## !< random number generator
 
-  NCollection_UBTreeFillerObjBnd*[TheObjType; TheBndType] {.
+  NCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType] {.
       importcpp: "NCollection_UBTreeFiller<\'0,\'1>::ObjBnd",
       header: "NCollection_UBTreeFiller.hxx", bycopy.} = object
     myObj* {.importc: "myObj".}: TheObjType
     myBnd* {.importc: "myBnd".}: TheBndType
 
 
-proc constructNCollection_UBTreeFillerObjBnd*[TheObjType; TheBndType](
-    theObj: TheObjType; theBnd: TheBndType): NCollection_UBTreeFillerObjBnd[
+proc constructNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](
+    theObj: TheObjType; theBnd: TheBndType): NCollectionUBTreeFillerObjBnd[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
                             dynlib: tkernel.}
-proc constructNCollection_UBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollection_UBTreeFillerObjBnd[
+proc constructNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollectionUBTreeFillerObjBnd[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
                             dynlib: tkernel.}
 type
-  NCollection_UBTreeFillerUBTree* = NCollection_UBTree[TheObjType, TheBndType]
-  NCollection_UBTreeFillerUBTreeNode* = TreeNode
+  NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
+  NCollectionUBTreeFillerUBTreeNode* = TreeNode
 
-proc constructNCollection_UBTreeFiller*[TheObjType; TheBndType](
-    theTree: var NCollection_UBTreeFillerUBTree;
-    theAlloc: handle[NCollection_BaseAllocator] = 0L'i64;
-    isFullRandom: bool = Standard_True): NCollection_UBTreeFiller[TheObjType,
+proc constructNCollectionUBTreeFiller*[TheObjType; TheBndType](
+    theTree: var NCollectionUBTreeFillerUBTree;
+    theAlloc: Handle[NCollectionBaseAllocator] = 0;
+    isFullRandom: bool = standardTrue): NCollectionUBTreeFiller[TheObjType,
     TheBndType] {.cdecl, constructor,
                  importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>(@)",
                  dynlib: tkernel.}
-proc Add*[TheObjType; TheBndType](this: var NCollection_UBTreeFiller[TheObjType,
+proc add*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
     TheBndType]; theObj: TheObjType; theBnd: TheBndType) {.cdecl, importcpp: "Add",
     dynlib: tkernel.}
-proc Fill*[TheObjType; TheBndType](this: var NCollection_UBTreeFiller[TheObjType,
+proc fill*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
     TheBndType]): cint {.cdecl, importcpp: "Fill", dynlib: tkernel.}
-proc Reset*[TheObjType; TheBndType](this: var NCollection_UBTreeFiller[TheObjType,
+proc reset*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
     TheBndType]) {.cdecl, importcpp: "Reset", dynlib: tkernel.}
-proc CheckTree*[TheObjType; TheBndType](this: var NCollection_UBTreeFiller[
-    TheObjType, TheBndType]; theStream: var Standard_OStream): cint {.cdecl,
+proc checkTree*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[
+    TheObjType, TheBndType]; theStream: var StandardOStream): cint {.cdecl,
     importcpp: "CheckTree", dynlib: tkernel.}
-proc destroyNCollection_UBTreeFiller*[TheObjType; TheBndType](
-    this: var NCollection_UBTreeFiller[TheObjType, TheBndType]) {.cdecl,
+proc destroyNCollectionUBTreeFiller*[TheObjType; TheBndType](
+    this: var NCollectionUBTreeFiller[TheObjType, TheBndType]) {.cdecl,
     importcpp: "#.~NCollection_UBTreeFiller()", dynlib: tkernel.}

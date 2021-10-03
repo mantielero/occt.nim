@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-29
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -22,21 +15,21 @@ else:
 
 ##       Declaration of Array2 class managed by Handle
 
-template NCOLLECTION_HARRAY2*(HClassName, Type: untyped): void =
+template ncollection_Harray2*(hClassName, `type`: untyped): void =
   type
-    HClassName* {.importcpp: "HClassName", header: "NCollection_HArray2.hxx", bycopy.} = object of NCollection_Array2[
+    HClassName* {.importcpp: "HClassName", header: "NCollection_HArray2.hxx", bycopy.} = object of NCollectionArray2[
         Type]
 
   proc constructHClassName*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                            theColUpp: cint): HClassName {.cdecl, constructor,
       importcpp: "HClassName(@)", dynlib: tkernel.}
   proc constructHClassName*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
-                           theColUpp: cint; theValue: value_type[Type]): HClassName {.
+                           theColUpp: cint; theValue: ValueType[Type]): HClassName {.
       cdecl, constructor, importcpp: "HClassName(@)", dynlib: tkernel.}
-  proc constructHClassName*(theOther: NCollection_Array2[Type]): HClassName {.cdecl,
+  proc constructHClassName*(theOther: NCollectionArray2[Type]): HClassName {.cdecl,
       constructor, importcpp: "HClassName(@)", dynlib: tkernel.}
-  proc Array2*(this: HClassName): NCollection_Array2[Type] {.noSideEffect, cdecl,
+  proc array2*(this: HClassName): NCollectionArray2[Type] {.noSideEffect, cdecl,
       importcpp: "Array2", dynlib: tkernel.}
-  proc ChangeArray2*(this: var HClassName): var NCollection_Array2[Type] {.cdecl,
+  proc changeArray2*(this: var HClassName): var NCollectionArray2[Type] {.cdecl,
       importcpp: "ChangeArray2", dynlib: tkernel.}
   

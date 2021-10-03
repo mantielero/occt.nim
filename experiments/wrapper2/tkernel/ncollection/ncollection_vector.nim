@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-23
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2013 OPEN CASCADE SAS
@@ -43,142 +36,141 @@ else:
 ## ! to enlarge the vector during the iteration.
 
 type
-  NCollection_Vector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
-                                    header: "NCollection_Vector.hxx", bycopy.} = object of NCollection_BaseVector ##
-                                                                                                           ## !
-                                                                                                           ## STL-compliant
-                                                                                                           ## typedef
-                                                                                                           ## for
-                                                                                                           ## value
-                                                                                                           ## type
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Nested
-                                                                                                           ## class
-                                                                                                           ## Iterator
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @name
-                                                                                                           ## public
-                                                                                                           ## methods
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Constructor
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @name
-                                                                                                           ## private
-                                                                                                           ## methods
+  NCollectionVector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
+                                   header: "NCollection_Vector.hxx", bycopy.} = object of NCollectionBaseVector ##
+                                                                                                         ## !
+                                                                                                         ## STL-compliant
+                                                                                                         ## typedef
+                                                                                                         ## for
+                                                                                                         ## value
+                                                                                                         ## type
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Nested
+                                                                                                         ## class
+                                                                                                         ## Iterator
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @name
+                                                                                                         ## public
+                                                                                                         ## methods
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Constructor
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @name
+                                                                                                         ## private
+                                                                                                         ## methods
 
-  NCollection_Vectorvalue_type*[TheItemType] = TheItemType
-  NCollection_VectorIterator*[TheItemType] {.
+  NCollectionVectorvalueType*[TheItemType] = TheItemType
+  NCollectionVectorIterator*[TheItemType] {.
       importcpp: "NCollection_Vector<\'0>::Iterator",
-      header: "NCollection_Vector.hxx", bycopy.} = object of NCollection_VectorIterator ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor
-                                                                                 ## -
-                                                                                 ## for
-                                                                                 ## later
-                                                                                 ## Init
+      header: "NCollection_Vector.hxx", bycopy.} = object of NCollectionVectorIterator ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
+                                                                                ## -
+                                                                                ## for
+                                                                                ## later
+                                                                                ## Init
 
 
-proc constructNCollection_VectorIterator*[TheItemType](): NCollection_VectorIterator[
+proc constructNCollectionVectorIterator*[TheItemType](): NCollectionVectorIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Vector<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc constructNCollection_VectorIterator*[TheItemType](
-    theVector: NCollection_Vector; theToEnd: bool = Standard_False): NCollection_VectorIterator[
+proc constructNCollectionVectorIterator*[TheItemType](
+    theVector: NCollectionVector; theToEnd: bool = standardFalse): NCollectionVectorIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Vector<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc Init*[TheItemType](this: var NCollection_VectorIterator[TheItemType];
-                       theVector: NCollection_Vector) {.cdecl, importcpp: "Init",
+proc init*[TheItemType](this: var NCollectionVectorIterator[TheItemType];
+                       theVector: NCollectionVector) {.cdecl, importcpp: "Init",
     dynlib: tkernel.}
-proc More*[TheItemType](this: NCollection_VectorIterator[TheItemType]): bool {.
+proc more*[TheItemType](this: NCollectionVectorIterator[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
-proc Next*[TheItemType](this: var NCollection_VectorIterator[TheItemType]) {.cdecl,
+proc next*[TheItemType](this: var NCollectionVectorIterator[TheItemType]) {.cdecl,
     importcpp: "Next", dynlib: tkernel.}
-proc Previous*[TheItemType](this: var NCollection_VectorIterator[TheItemType]) {.
+proc previous*[TheItemType](this: var NCollectionVectorIterator[TheItemType]) {.
     cdecl, importcpp: "Previous", dynlib: tkernel.}
-proc Offset*[TheItemType](this: var NCollection_VectorIterator[TheItemType];
-                         theOffset: ptrdiff_t) {.cdecl, importcpp: "Offset",
+proc offset*[TheItemType](this: var NCollectionVectorIterator[TheItemType];
+                         theOffset: PtrdiffT) {.cdecl, importcpp: "Offset",
     dynlib: tkernel.}
-proc Differ*[TheItemType](this: NCollection_VectorIterator[TheItemType];
-                         theOther: NCollection_VectorIterator): ptrdiff_t {.
+proc differ*[TheItemType](this: NCollectionVectorIterator[TheItemType];
+                         theOther: NCollectionVectorIterator): PtrdiffT {.
     noSideEffect, cdecl, importcpp: "Differ", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_VectorIterator[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionVectorIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: NCollection_VectorIterator[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: NCollectionVectorIterator[TheItemType]): var TheItemType {.
     noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc IsEqual*[TheItemType](this: NCollection_VectorIterator[TheItemType];
-                          theOther: NCollection_VectorIterator): bool {.
+proc isEqual*[TheItemType](this: NCollectionVectorIterator[TheItemType];
+                          theOther: NCollectionVectorIterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 type
-  NCollection_Vectoriterator* = NCollection_StlIterator[
-      random_access_iterator_tag, NCollection_VectorIterator, TheItemType, false]
-  NCollection_Vectorconst_iterator* = NCollection_StlIterator[
-      random_access_iterator_tag, NCollection_VectorIterator, TheItemType, true]
+  NCollectionVectoriterator* = NCollectionStlIterator[RandomAccessIteratorTag,
+      NCollectionVectorIterator, TheItemType, False]
+  NCollectionVectorconstIterator* = NCollectionStlIterator[
+      RandomAccessIteratorTag, NCollectionVectorIterator, TheItemType, True]
 
-proc begin*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectoriterator {.
+proc begin*[TheItemType](this: NCollectionVector[TheItemType]): NCollectionVectoriterator {.
     noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
-proc `end`*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectoriterator {.
+proc `end`*[TheItemType](this: NCollectionVector[TheItemType]): NCollectionVectoriterator {.
     noSideEffect, cdecl, importcpp: "end", dynlib: tkernel.}
-proc cbegin*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectorconst_iterator {.
+proc cbegin*[TheItemType](this: NCollectionVector[TheItemType]): NCollectionVectorconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
-proc cend*[TheItemType](this: NCollection_Vector[TheItemType]): NCollection_Vectorconst_iterator {.
+proc cend*[TheItemType](this: NCollectionVector[TheItemType]): NCollectionVectorconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollection_Vector*[TheItemType](theIncrement: cint = 256;
-    theAlloc: handle[NCollection_BaseAllocator] = nil): NCollection_Vector[
+proc constructNCollectionVector*[TheItemType](theIncrement: cint = 256;
+    theAlloc: Handle[NCollectionBaseAllocator] = nil): NCollectionVector[TheItemType] {.
+    cdecl, constructor, importcpp: "NCollection_Vector<\'*0>(@)", dynlib: tkernel.}
+proc constructNCollectionVector*[TheItemType](theOther: NCollectionVector): NCollectionVector[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_Vector<\'*0>(@)",
                   dynlib: tkernel.}
-proc constructNCollection_Vector*[TheItemType](theOther: NCollection_Vector): NCollection_Vector[
-    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Vector<\'*0>(@)",
-                  dynlib: tkernel.}
-proc destroyNCollection_Vector*[TheItemType](
-    this: var NCollection_Vector[TheItemType]) {.cdecl,
+proc destroyNCollectionVector*[TheItemType](
+    this: var NCollectionVector[TheItemType]) {.cdecl,
     importcpp: "#.~NCollection_Vector()", dynlib: tkernel.}
-proc Length*[TheItemType](this: NCollection_Vector[TheItemType]): cint {.
+proc length*[TheItemType](this: NCollectionVector[TheItemType]): cint {.
     noSideEffect, cdecl, importcpp: "Length", dynlib: tkernel.}
-proc Size*[TheItemType](this: NCollection_Vector[TheItemType]): cint {.noSideEffect,
+proc size*[TheItemType](this: NCollectionVector[TheItemType]): cint {.noSideEffect,
     cdecl, importcpp: "Size", dynlib: tkernel.}
-proc Lower*[TheItemType](this: NCollection_Vector[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Lower", dynlib: tkernel.}
-proc Upper*[TheItemType](this: NCollection_Vector[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Upper", dynlib: tkernel.}
-proc IsEmpty*[TheItemType](this: NCollection_Vector[TheItemType]): bool {.
+proc lower*[TheItemType](this: NCollectionVector[TheItemType]): cint {.noSideEffect,
+    cdecl, importcpp: "Lower", dynlib: tkernel.}
+proc upper*[TheItemType](this: NCollectionVector[TheItemType]): cint {.noSideEffect,
+    cdecl, importcpp: "Upper", dynlib: tkernel.}
+proc isEmpty*[TheItemType](this: NCollectionVector[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
-proc Assign*[TheItemType](this: var NCollection_Vector[TheItemType];
-                         theOther: NCollection_Vector;
-                         theOwnAllocator: bool = Standard_True) {.cdecl,
+proc assign*[TheItemType](this: var NCollectionVector[TheItemType];
+                         theOther: NCollectionVector;
+                         theOwnAllocator: bool = standardTrue) {.cdecl,
     importcpp: "Assign", dynlib: tkernel.}
-proc Append*[TheItemType](this: var NCollection_Vector[TheItemType];
+proc append*[TheItemType](this: var NCollectionVector[TheItemType];
                          theValue: TheItemType): var TheItemType {.cdecl,
     importcpp: "Append", dynlib: tkernel.}
-proc Appended*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+proc appended*[TheItemType](this: var NCollectionVector[TheItemType]): var TheItemType {.
     cdecl, importcpp: "Appended", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: cint): TheItemType {.
+proc `()`*[TheItemType](this: NCollectionVector[TheItemType]; theIndex: cint): TheItemType {.
     noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
-proc `[]`*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: cint): TheItemType {.
+proc `[]`*[TheItemType](this: NCollectionVector[TheItemType]; theIndex: cint): TheItemType {.
     noSideEffect, cdecl, importcpp: "#[@]", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_Vector[TheItemType]; theIndex: cint): TheItemType {.
+proc value*[TheItemType](this: NCollectionVector[TheItemType]; theIndex: cint): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc First*[TheItemType](this: NCollection_Vector[TheItemType]): TheItemType {.
+proc first*[TheItemType](this: NCollectionVector[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "First", dynlib: tkernel.}
-proc ChangeFirst*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+proc changeFirst*[TheItemType](this: var NCollectionVector[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeFirst", dynlib: tkernel.}
-proc Last*[TheItemType](this: NCollection_Vector[TheItemType]): TheItemType {.
+proc last*[TheItemType](this: NCollectionVector[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Last", dynlib: tkernel.}
-proc ChangeLast*[TheItemType](this: var NCollection_Vector[TheItemType]): var TheItemType {.
+proc changeLast*[TheItemType](this: var NCollectionVector[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeLast", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollection_Vector[TheItemType]; theIndex: cint): var TheItemType {.
+proc `()`*[TheItemType](this: var NCollectionVector[TheItemType]; theIndex: cint): var TheItemType {.
     cdecl, importcpp: "#(@)", dynlib: tkernel.}
-proc `[]`*[TheItemType](this: var NCollection_Vector[TheItemType]; theIndex: cint): var TheItemType {.
+proc `[]`*[TheItemType](this: var NCollectionVector[TheItemType]; theIndex: cint): var TheItemType {.
     cdecl, importcpp: "#[@]", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: var NCollection_Vector[TheItemType];
+proc changeValue*[TheItemType](this: var NCollectionVector[TheItemType];
                               theIndex: cint): var TheItemType {.cdecl,
     importcpp: "ChangeValue", dynlib: tkernel.}
-proc SetValue*[TheItemType](this: var NCollection_Vector[TheItemType];
+proc setValue*[TheItemType](this: var NCollectionVector[TheItemType];
                            theIndex: cint; theValue: TheItemType): var TheItemType {.
     cdecl, importcpp: "SetValue", dynlib: tkernel.}
 ## ignored statement

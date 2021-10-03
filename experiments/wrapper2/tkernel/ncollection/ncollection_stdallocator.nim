@@ -1,16 +1,9 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Author: Roman Lygin, 2012.
 ##  This file is in the Public Domain and thus can freely be used for any purpose.
 ##  The author disclaims any rights and liabilities.
 
-when _MSC_VER:
-  ## Workaround for false "unreferenced parameter" warning in destroy().
+#when msc_Ver:
+#  ## Workaround for false "unreferenced parameter" warning in destroy().
 ## ! Implements allocator requirements as defined in ISO C++ Standard 2003, section 20.1.5.
 ## ! The allocator uses instance of the NCollection_BaseAllocator (sub)class for memory
 ##   allocation/deallocation. The allocator can be used with standard
@@ -32,58 +25,58 @@ when _MSC_VER:
 ##
 
 type
-  NCollection_StdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
-                                header: "NCollection_StdAllocator.hxx", bycopy.} = object
+  NCollectionStdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
+                               header: "NCollection_StdAllocator.hxx", bycopy.} = object
 
-  NCollection_StdAllocatorvalue_type*[T] = T
-  NCollection_StdAllocatorpointer* = ptr NCollection_StdAllocatorvalue_type
-  NCollection_StdAllocatorconst_pointer* = ptr NCollection_StdAllocatorvalue_type
-  NCollection_StdAllocatorreference* = var NCollection_StdAllocatorvalue_type
-  NCollection_StdAllocatorconst_reference* = NCollection_StdAllocatorvalue_type
-  NCollection_StdAllocatorsize_type* = csize_t
-  NCollection_StdAllocatordifference_type* = ptrdiff_t
-  NCollection_StdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
-                                        header: "NCollection_StdAllocator.hxx",
-                                        bycopy.} = object
+  NCollectionStdAllocatorvalueType*[T] = T
+  NCollectionStdAllocatorpointer* = ptr NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorconstPointer* = ptr NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorreference* = var NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorconstReference* = NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorsizeType* = csize_t
+  NCollectionStdAllocatordifferenceType* = PtrdiffT
+  NCollectionStdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
+                                       header: "NCollection_StdAllocator.hxx",
+                                       bycopy.} = object
 
-  NCollection_StdAllocatorrebindother* = NCollection_StdAllocator[U]
+  NCollectionStdAllocatorrebindother* = NCollectionStdAllocator[U]
 
-proc constructNCollection_StdAllocator*[T](): NCollection_StdAllocator[T] {.cdecl,
+proc constructNCollectionStdAllocator*[T](): NCollectionStdAllocator[T] {.cdecl,
     constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_StdAllocator*[T](
-    theAlloc: handle[NCollection_BaseAllocator]): NCollection_StdAllocator[T] {.
+proc constructNCollectionStdAllocator*[T](
+    theAlloc: Handle[NCollectionBaseAllocator]): NCollectionStdAllocator[T] {.
     cdecl, constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)",
     dynlib: tkernel.}
-proc constructNCollection_StdAllocator*[T; U](Y: NCollection_StdAllocator[U]): NCollection_StdAllocator[
+proc constructNCollectionStdAllocator*[T; U](y: NCollectionStdAllocator[U]): NCollectionStdAllocator[
     T] {.cdecl, constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)",
         dynlib: tkernel.}
-proc address*[T](this: NCollection_StdAllocator[T];
-                x: NCollection_StdAllocatorreference): NCollection_StdAllocatorpointer {.
+proc address*[T](this: NCollectionStdAllocator[T];
+                x: NCollectionStdAllocatorreference): NCollectionStdAllocatorpointer {.
     noSideEffect, cdecl, importcpp: "address", dynlib: tkernel.}
-proc address*[T](this: NCollection_StdAllocator[T];
-                x: NCollection_StdAllocatorconst_reference): NCollection_StdAllocatorconst_pointer {.
+proc address*[T](this: NCollectionStdAllocator[T];
+                x: NCollectionStdAllocatorconstReference): NCollectionStdAllocatorconstPointer {.
     noSideEffect, cdecl, importcpp: "address", dynlib: tkernel.}
-proc allocate*[T](this: var NCollection_StdAllocator[T];
-                 n: NCollection_StdAllocatorsize_type; a3: pointer = 0): NCollection_StdAllocatorpointer {.
+proc allocate*[T](this: var NCollectionStdAllocator[T];
+                 n: NCollectionStdAllocatorsizeType; a3: pointer = 0): NCollectionStdAllocatorpointer {.
     cdecl, importcpp: "allocate", dynlib: tkernel.}
-proc deallocate*[T](this: var NCollection_StdAllocator[T];
-                   p: NCollection_StdAllocatorpointer;
-                   a3: NCollection_StdAllocatorsize_type) {.cdecl,
+proc deallocate*[T](this: var NCollectionStdAllocator[T];
+                   p: NCollectionStdAllocatorpointer;
+                   a3: NCollectionStdAllocatorsizeType) {.cdecl,
     importcpp: "deallocate", dynlib: tkernel.}
-proc max_size*[T](this: NCollection_StdAllocator[T]): NCollection_StdAllocatorsize_type {.
+proc maxSize*[T](this: NCollectionStdAllocator[T]): NCollectionStdAllocatorsizeType {.
     noSideEffect, cdecl, importcpp: "max_size", dynlib: tkernel.}
-proc construct*[T](this: var NCollection_StdAllocator[T];
-                  p: NCollection_StdAllocatorpointer;
-                  val: NCollection_StdAllocatorconst_reference) {.cdecl,
+proc construct*[T](this: var NCollectionStdAllocator[T];
+                  p: NCollectionStdAllocatorpointer;
+                  val: NCollectionStdAllocatorconstReference) {.cdecl,
     importcpp: "construct", dynlib: tkernel.}
-proc destroy*[T](this: var NCollection_StdAllocator[T];
-                p: NCollection_StdAllocatorpointer) {.cdecl, importcpp: "destroy",
+proc destroy*[T](this: var NCollectionStdAllocator[T];
+                p: NCollectionStdAllocatorpointer) {.cdecl, importcpp: "destroy",
     dynlib: tkernel.}
-proc Allocator*[T](this: NCollection_StdAllocator[T]): handle[
-    NCollection_BaseAllocator] {.noSideEffect, cdecl, importcpp: "Allocator",
-                                dynlib: tkernel.}
-when _MSC_VER:
-  discard
+proc allocator*[T](this: NCollectionStdAllocator[T]): Handle[
+    NCollectionBaseAllocator] {.noSideEffect, cdecl, importcpp: "Allocator",
+                               dynlib: tkernel.}
+#when msc_Ver:
+#  discard
 ## ! Implements specialization NCollection_StdAllocator<void>.
 ## ! Specialization is of low value and should normally be avoided in favor of a typed specialization.
 ##
@@ -97,23 +90,23 @@ when _MSC_VER:
 ##
 
 type
-  NCollection_StdAllocator* {.importcpp: "NCollection_StdAllocator",
-                             header: "NCollection_StdAllocator.hxx", bycopy.} = object
+  NCollectionStdAllocator* {.importcpp: "NCollection_StdAllocator",
+                            header: "NCollection_StdAllocator.hxx", bycopy.} = object
 
-  NCollection_StdAllocatorpointer* = pointer
-  NCollection_StdAllocatorconst_pointer* = pointer
-  NCollection_StdAllocatorvalue_type* = void
-  NCollection_StdAllocatorrebind*[U] {.importcpp: "NCollection_StdAllocator::rebind<\'0>",
-                                      header: "NCollection_StdAllocator.hxx",
-                                      bycopy.} = object
+  NCollectionStdAllocatorpointer* = pointer
+  NCollectionStdAllocatorconstPointer* = pointer
+  NCollectionStdAllocatorvalueType* = void
+  NCollectionStdAllocatorrebind*[U] {.importcpp: "NCollection_StdAllocator::rebind<\'0>",
+                                     header: "NCollection_StdAllocator.hxx",
+                                     bycopy.} = object
 
-  NCollection_StdAllocatorrebindother* = NCollection_StdAllocator[U]
+  NCollectionStdAllocatorrebindother* = NCollectionStdAllocator[U]
 
-proc constructNCollection_StdAllocator*(): NCollection_StdAllocator {.cdecl,
+proc constructNCollectionStdAllocator*(): NCollectionStdAllocator {.cdecl,
     constructor, importcpp: "NCollection_StdAllocator(@)", dynlib: tkernel.}
-proc constructNCollection_StdAllocator*(theAlloc: handle[NCollection_BaseAllocator]): NCollection_StdAllocator {.
+proc constructNCollectionStdAllocator*(theAlloc: Handle[NCollectionBaseAllocator]): NCollectionStdAllocator {.
     cdecl, constructor, importcpp: "NCollection_StdAllocator(@)", dynlib: tkernel.}
-proc constructNCollection_StdAllocator*(X: NCollection_StdAllocator): NCollection_StdAllocator {.
+proc constructNCollectionStdAllocator*(x: NCollectionStdAllocator): NCollectionStdAllocator {.
     cdecl, constructor, importcpp: "NCollection_StdAllocator(@)", dynlib: tkernel.}
-proc Allocator*(this: NCollection_StdAllocator): handle[NCollection_BaseAllocator] {.
+proc allocator*(this: NCollectionStdAllocator): Handle[NCollectionBaseAllocator] {.
     noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}

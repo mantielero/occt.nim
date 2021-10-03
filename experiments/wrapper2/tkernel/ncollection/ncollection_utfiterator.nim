@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -30,68 +23,68 @@ else:
 ## ! synonym of "Unicode code point".
 
 type
-  NCollection_UtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
-                                  header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Constructor.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @param
-                                                                                      ## theString
-                                                                                      ## buffer
-                                                                                      ## to
-                                                                                      ## iterate
+  NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
+                                 header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructor.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theString
+                                                                                     ## buffer
+                                                                                     ## to
+                                                                                     ## iterate
 
 
-proc constructNCollection_UtfIterator*[Type](theString: ptr Type): NCollection_UtfIterator[
+proc constructNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfIterator<\'*0>(@)",
            dynlib: tkernel.}
-proc Init*[Type](this: var NCollection_UtfIterator[Type]; theString: ptr Type) {.cdecl,
+proc init*[Type](this: var NCollectionUtfIterator[Type]; theString: ptr Type) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}
-proc IsValid*[Type](this: NCollection_UtfIterator[Type]): bool {.noSideEffect, cdecl,
+proc isValid*[Type](this: NCollectionUtfIterator[Type]): bool {.noSideEffect, cdecl,
     importcpp: "IsValid", dynlib: tkernel.}
-proc `*`*[Type](this: NCollection_UtfIterator[Type]): Standard_Utf32Char {.
+proc `*`*[Type](this: NCollectionUtfIterator[Type]): StandardUtf32Char {.
     noSideEffect, cdecl, importcpp: "(* #)", dynlib: tkernel.}
-proc BufferHere*[Type](this: NCollection_UtfIterator[Type]): ptr Type {.noSideEffect,
+proc bufferHere*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
     cdecl, importcpp: "BufferHere", dynlib: tkernel.}
-proc ChangeBufferHere*[Type](this: var NCollection_UtfIterator[Type]): ptr Type {.
+proc changeBufferHere*[Type](this: var NCollectionUtfIterator[Type]): ptr Type {.
     cdecl, importcpp: "ChangeBufferHere", dynlib: tkernel.}
-proc BufferNext*[Type](this: NCollection_UtfIterator[Type]): ptr Type {.noSideEffect,
+proc bufferNext*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
     cdecl, importcpp: "BufferNext", dynlib: tkernel.}
-proc Index*[Type](this: NCollection_UtfIterator[Type]): cint {.noSideEffect, cdecl,
+proc index*[Type](this: NCollectionUtfIterator[Type]): cint {.noSideEffect, cdecl,
     importcpp: "Index", dynlib: tkernel.}
-proc AdvanceBytesUtf8*[Type](this: NCollection_UtfIterator[Type]): cint {.
+proc advanceBytesUtf8*[Type](this: NCollectionUtfIterator[Type]): cint {.
     noSideEffect, cdecl, importcpp: "AdvanceBytesUtf8", dynlib: tkernel.}
-proc AdvanceBytesUtf16*[Type](this: NCollection_UtfIterator[Type]): cint {.
+proc advanceBytesUtf16*[Type](this: NCollectionUtfIterator[Type]): cint {.
     noSideEffect, cdecl, importcpp: "AdvanceBytesUtf16", dynlib: tkernel.}
-proc AdvanceCodeUnitsUtf16*[Type](this: NCollection_UtfIterator[Type]): cint {.
+proc advanceCodeUnitsUtf16*[Type](this: NCollectionUtfIterator[Type]): cint {.
     noSideEffect, cdecl, importcpp: "AdvanceCodeUnitsUtf16", dynlib: tkernel.}
-proc AdvanceBytesUtf32*[Type](this: NCollection_UtfIterator[Type]): cint {.
+proc advanceBytesUtf32*[Type](this: NCollectionUtfIterator[Type]): cint {.
     noSideEffect, cdecl, importcpp: "AdvanceBytesUtf32", dynlib: tkernel.}
-proc GetUtf8*[Type](this: NCollection_UtfIterator[Type];
-                   theBuffer: ptr Standard_Utf8Char): ptr Standard_Utf8Char {.
+proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
+                   theBuffer: ptr StandardUtf8Char): ptr StandardUtf8Char {.
     noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
-proc GetUtf8*[Type](this: NCollection_UtfIterator[Type];
-                   theBuffer: ptr Standard_Utf8UChar): ptr Standard_Utf8UChar {.
+proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
+                   theBuffer: ptr StandardUtf8UChar): ptr StandardUtf8UChar {.
     noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
-proc GetUtf16*[Type](this: NCollection_UtfIterator[Type];
-                    theBuffer: ptr Standard_Utf16Char): ptr Standard_Utf16Char {.
+proc getUtf16*[Type](this: NCollectionUtfIterator[Type];
+                    theBuffer: ptr StandardUtf16Char): ptr StandardUtf16Char {.
     noSideEffect, cdecl, importcpp: "GetUtf16", dynlib: tkernel.}
-proc GetUtf32*[Type](this: NCollection_UtfIterator[Type];
-                    theBuffer: ptr Standard_Utf32Char): ptr Standard_Utf32Char {.
+proc getUtf32*[Type](this: NCollectionUtfIterator[Type];
+                    theBuffer: ptr StandardUtf32Char): ptr StandardUtf32Char {.
     noSideEffect, cdecl, importcpp: "GetUtf32", dynlib: tkernel.}
-proc AdvanceBytesUtf*[Type; TypeWrite](this: NCollection_UtfIterator[Type]): cint {.
+proc advanceBytesUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type]): cint {.
     noSideEffect, cdecl, importcpp: "AdvanceBytesUtf", dynlib: tkernel.}
-proc GetUtf*[Type; TypeWrite](this: NCollection_UtfIterator[Type];
+proc getUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type];
                             theBuffer: ptr TypeWrite): ptr TypeWrite {.noSideEffect,
     cdecl, importcpp: "GetUtf", dynlib: tkernel.}
 type
-  NCollection_Utf8Iter* = NCollection_UtfIterator[Standard_Utf8Char]
-  NCollection_Utf16Iter* = NCollection_UtfIterator[Standard_Utf16Char]
-  NCollection_Utf32Iter* = NCollection_UtfIterator[Standard_Utf32Char]
-  NCollection_UtfWideIter* = NCollection_UtfIterator[Standard_WideChar]
+  NCollectionUtf8Iter* = NCollectionUtfIterator[StandardUtf8Char]
+  NCollectionUtf16Iter* = NCollectionUtfIterator[StandardUtf16Char]
+  NCollectionUtf32Iter* = NCollectionUtfIterator[StandardUtf32Char]
+  NCollectionUtfWideIter* = NCollectionUtfIterator[StandardWideChar]
 
 ##  template implementation
 
 import
-  NCollection_UtfIterator
+  nCollectionUtfIterator

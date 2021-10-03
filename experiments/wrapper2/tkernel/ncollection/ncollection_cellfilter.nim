@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2007-05-26
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -23,11 +16,11 @@ else:
 ## ! Auxiliary enumeration serving as responce from method Inspect
 
 type
-  NCollection_CellFilter_Action* {.size: sizeof(cint),
-                                  importcpp: "NCollection_CellFilter_Action",
-                                  header: "NCollection_CellFilter.hxx".} = enum
-    CellFilter_Keep = 0,        ## !< Target is needed and should be kept
-    CellFilter_Purge = 1
+  NCollectionCellFilterAction* {.size: sizeof(cint),
+                                importcpp: "NCollection_CellFilter_Action",
+                                header: "NCollection_CellFilter.hxx".} = enum
+    CellFilterKeep = 0,         ## !< Target is needed and should be kept
+    CellFilterPurge = 1
 
 
 ## *
@@ -111,171 +104,171 @@ type
 ##
 
 type
-  NCollection_CellFilter*[Inspector] {.importcpp: "NCollection_CellFilter<\'0>",
-                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Constructor;
-                                                                                         ## initialized
-                                                                                         ## by
-                                                                                         ## dimension
-                                                                                         ## count
-                                                                                         ## and
-                                                                                         ## cell
-                                                                                         ## size.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Note:
-                                                                                         ## the
-                                                                                         ## cell
-                                                                                         ## size
-                                                                                         ## must
-                                                                                         ## be
-                                                                                         ## ensured
-                                                                                         ## to
-                                                                                         ## be
-                                                                                         ## greater
-                                                                                         ## than
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## maximal
-                                                                                         ## co-ordinate
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## involved
-                                                                                         ## points
-                                                                                         ## divided
-                                                                                         ## by
-                                                                                         ## INT_MAX,
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## in
-                                                                                         ## order
-                                                                                         ## to
-                                                                                         ## avoid
-                                                                                         ## integer
-                                                                                         ## overflow
-                                                                                         ## of
-                                                                                         ## cell
-                                                                                         ## index.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## By
-                                                                                         ## default
-                                                                                         ## cell
-                                                                                         ## size
-                                                                                         ## is
-                                                                                         ## 0,
-                                                                                         ## which
-                                                                                         ## is
-                                                                                         ## invalid;
-                                                                                         ## thus
-                                                                                         ## if
-                                                                                         ## default
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## constructor
-                                                                                         ## is
-                                                                                         ## used,
-                                                                                         ## the
-                                                                                         ## tool
-                                                                                         ## must
-                                                                                         ## be
-                                                                                         ## initialized
-                                                                                         ## later
-                                                                                         ## with
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## appropriate
-                                                                                         ## cell
-                                                                                         ## size
-                                                                                         ## by
-                                                                                         ## call
-                                                                                         ## to
-                                                                                         ## Reset()
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Constructor
-                                                                                         ## when
-                                                                                         ## dimension
-                                                                                         ## count
-                                                                                         ## is
-                                                                                         ## unknown
-                                                                                         ## at
-                                                                                         ## compilation
-                                                                                         ## time.
-                                                                                         ##
-                                                                                         ## *
-                                                                                         ##
-                                                                                         ## Auxiliary
-                                                                                         ## class
-                                                                                         ## for
-                                                                                         ## storing
-                                                                                         ## points
-                                                                                         ## belonging
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## cell
-                                                                                         ## as
-                                                                                         ## the
-                                                                                         ## list
-                                                                                         ##
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Reset
-                                                                                         ## allocator
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## new
-                                                                                         ## one
+  NCollectionCellFilter*[Inspector] {.importcpp: "NCollection_CellFilter<\'0>",
+                                     header: "NCollection_CellFilter.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Constructor;
+                                                                                        ## initialized
+                                                                                        ## by
+                                                                                        ## dimension
+                                                                                        ## count
+                                                                                        ## and
+                                                                                        ## cell
+                                                                                        ## size.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Note:
+                                                                                        ## the
+                                                                                        ## cell
+                                                                                        ## size
+                                                                                        ## must
+                                                                                        ## be
+                                                                                        ## ensured
+                                                                                        ## to
+                                                                                        ## be
+                                                                                        ## greater
+                                                                                        ## than
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## maximal
+                                                                                        ## co-ordinate
+                                                                                        ## of
+                                                                                        ## the
+                                                                                        ## involved
+                                                                                        ## points
+                                                                                        ## divided
+                                                                                        ## by
+                                                                                        ## INT_MAX,
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## in
+                                                                                        ## order
+                                                                                        ## to
+                                                                                        ## avoid
+                                                                                        ## integer
+                                                                                        ## overflow
+                                                                                        ## of
+                                                                                        ## cell
+                                                                                        ## index.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## By
+                                                                                        ## default
+                                                                                        ## cell
+                                                                                        ## size
+                                                                                        ## is
+                                                                                        ## 0,
+                                                                                        ## which
+                                                                                        ## is
+                                                                                        ## invalid;
+                                                                                        ## thus
+                                                                                        ## if
+                                                                                        ## default
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## constructor
+                                                                                        ## is
+                                                                                        ## used,
+                                                                                        ## the
+                                                                                        ## tool
+                                                                                        ## must
+                                                                                        ## be
+                                                                                        ## initialized
+                                                                                        ## later
+                                                                                        ## with
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## appropriate
+                                                                                        ## cell
+                                                                                        ## size
+                                                                                        ## by
+                                                                                        ## call
+                                                                                        ## to
+                                                                                        ## Reset()
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Constructor
+                                                                                        ## when
+                                                                                        ## dimension
+                                                                                        ## count
+                                                                                        ## is
+                                                                                        ## unknown
+                                                                                        ## at
+                                                                                        ## compilation
+                                                                                        ## time.
+                                                                                        ##
+                                                                                        ## *
+                                                                                        ##
+                                                                                        ## Auxiliary
+                                                                                        ## class
+                                                                                        ## for
+                                                                                        ## storing
+                                                                                        ## points
+                                                                                        ## belonging
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## cell
+                                                                                        ## as
+                                                                                        ## the
+                                                                                        ## list
+                                                                                        ##
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## Reset
+                                                                                        ## allocator
+                                                                                        ## to
+                                                                                        ## the
+                                                                                        ## new
+                                                                                        ## one
 
-  NCollection_CellFilterTarget* = Target
-  NCollection_CellFilterPoint* = Point
+  NCollectionCellFilterTarget* = Target
+  NCollectionCellFilterPoint* = Point
 
-proc constructNCollection_CellFilter*[Inspector](theDim: cint;
-    theCellSize: Standard_Real = 0; theAlloc: handle[NCollection_IncAllocator] = 0): NCollection_CellFilter[
+proc constructNCollectionCellFilter*[Inspector](theDim: cint;
+    theCellSize: StandardReal = 0; theAlloc: Handle[NCollectionIncAllocator] = 0): NCollectionCellFilter[
     Inspector] {.cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
                 dynlib: tkernel.}
-proc constructNCollection_CellFilter*[Inspector](theCellSize: Standard_Real = 0;
-    theAlloc: handle[NCollection_IncAllocator] = 0): NCollection_CellFilter[
-    Inspector] {.cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
-                dynlib: tkernel.}
-proc Reset*[Inspector](this: var NCollection_CellFilter[Inspector];
-                      theCellSize: Standard_Real;
-                      theAlloc: handle[NCollection_IncAllocator] = 0) {.cdecl,
-    importcpp: "Reset", dynlib: tkernel.}
-proc Reset*[Inspector](this: var NCollection_CellFilter[Inspector];
-                      theCellSize: var NCollection_Array1[Standard_Real];
-                      theAlloc: handle[NCollection_IncAllocator] = 0) {.cdecl,
-    importcpp: "Reset", dynlib: tkernel.}
-proc Add*[Inspector](this: var NCollection_CellFilter[Inspector];
-                    theTarget: NCollection_CellFilterTarget;
-                    thePnt: NCollection_CellFilterPoint) {.cdecl, importcpp: "Add",
+proc constructNCollectionCellFilter*[Inspector](theCellSize: StandardReal = 0;
+    theAlloc: Handle[NCollectionIncAllocator] = 0): NCollectionCellFilter[Inspector] {.
+    cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
     dynlib: tkernel.}
-proc Add*[Inspector](this: var NCollection_CellFilter[Inspector];
-                    theTarget: NCollection_CellFilterTarget;
-                    thePntMin: NCollection_CellFilterPoint;
-                    thePntMax: NCollection_CellFilterPoint) {.cdecl,
+proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
+                      theCellSize: StandardReal;
+                      theAlloc: Handle[NCollectionIncAllocator] = 0) {.cdecl,
+    importcpp: "Reset", dynlib: tkernel.}
+proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
+                      theCellSize: var NCollectionArray1[StandardReal];
+                      theAlloc: Handle[NCollectionIncAllocator] = 0) {.cdecl,
+    importcpp: "Reset", dynlib: tkernel.}
+proc add*[Inspector](this: var NCollectionCellFilter[Inspector];
+                    theTarget: NCollectionCellFilterTarget;
+                    thePnt: NCollectionCellFilterPoint) {.cdecl, importcpp: "Add",
+    dynlib: tkernel.}
+proc add*[Inspector](this: var NCollectionCellFilter[Inspector];
+                    theTarget: NCollectionCellFilterTarget;
+                    thePntMin: NCollectionCellFilterPoint;
+                    thePntMax: NCollectionCellFilterPoint) {.cdecl,
     importcpp: "Add", dynlib: tkernel.}
-proc Remove*[Inspector](this: var NCollection_CellFilter[Inspector];
-                       theTarget: NCollection_CellFilterTarget;
-                       thePnt: NCollection_CellFilterPoint) {.cdecl,
+proc remove*[Inspector](this: var NCollectionCellFilter[Inspector];
+                       theTarget: NCollectionCellFilterTarget;
+                       thePnt: NCollectionCellFilterPoint) {.cdecl,
     importcpp: "Remove", dynlib: tkernel.}
-proc Remove*[Inspector](this: var NCollection_CellFilter[Inspector];
-                       theTarget: NCollection_CellFilterTarget;
-                       thePntMin: NCollection_CellFilterPoint;
-                       thePntMax: NCollection_CellFilterPoint) {.cdecl,
+proc remove*[Inspector](this: var NCollectionCellFilter[Inspector];
+                       theTarget: NCollectionCellFilterTarget;
+                       thePntMin: NCollectionCellFilterPoint;
+                       thePntMax: NCollectionCellFilterPoint) {.cdecl,
     importcpp: "Remove", dynlib: tkernel.}
-proc Inspect*[Inspector](this: var NCollection_CellFilter[Inspector];
-                        thePnt: NCollection_CellFilterPoint;
+proc inspect*[Inspector](this: var NCollectionCellFilter[Inspector];
+                        thePnt: NCollectionCellFilterPoint;
                         theInspector: var Inspector) {.cdecl, importcpp: "Inspect",
     dynlib: tkernel.}
-proc Inspect*[Inspector](this: var NCollection_CellFilter[Inspector];
-                        thePntMin: NCollection_CellFilterPoint;
-                        thePntMax: NCollection_CellFilterPoint;
+proc inspect*[Inspector](this: var NCollectionCellFilter[Inspector];
+                        thePntMin: NCollectionCellFilterPoint;
+                        thePntMax: NCollectionCellFilterPoint;
                         theInspector: var Inspector) {.cdecl, importcpp: "Inspect",
     dynlib: tkernel.}
 ## *
@@ -285,22 +278,24 @@ proc Inspect*[Inspector](this: var NCollection_CellFilter[Inspector];
 
 discard "forward decl of gp_XYZ"
 type
-  NCollection_CellFilter_InspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
-                                        header: "NCollection_CellFilter.hxx",
-                                        bycopy.} = object ## ! Points dimension
+  NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
+                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Points
+                                                                                         ## dimension
 
 
 const
-  NCollection_CellFilter_InspectorXYZDimension* = 3
+  NCollectionCellFilterInspectorXYZDimension* = 3
 
 type
-  NCollection_CellFilter_InspectorXYZPoint* = gp_XYZ
+  NCollectionCellFilterInspectorXYZPoint* = GpXYZ
 
-proc Coord*(i: cint; thePnt: NCollection_CellFilter_InspectorXYZPoint): Standard_Real {.
+proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYZPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXYZ::Coord(@)",
     dynlib: tkernel.}
-proc Shift*(this: NCollection_CellFilter_InspectorXYZ;
-           thePnt: NCollection_CellFilter_InspectorXYZPoint; theTol: Standard_Real): NCollection_CellFilter_InspectorXYZPoint {.
+proc shift*(this: NCollectionCellFilterInspectorXYZ;
+           thePnt: NCollectionCellFilterInspectorXYZPoint; theTol: StandardReal): NCollectionCellFilterInspectorXYZPoint {.
     noSideEffect, cdecl, importcpp: "Shift", dynlib: tkernel.}
 ## *
 ##  Base class defining part of the Inspector interface
@@ -309,20 +304,22 @@ proc Shift*(this: NCollection_CellFilter_InspectorXYZ;
 
 discard "forward decl of gp_XY"
 type
-  NCollection_CellFilter_InspectorXY* {.importcpp: "NCollection_CellFilter_InspectorXY",
-                                       header: "NCollection_CellFilter.hxx",
-                                       bycopy.} = object ## ! Points dimension
+  NCollectionCellFilterInspectorXY* {.importcpp: "NCollection_CellFilter_InspectorXY",
+                                     header: "NCollection_CellFilter.hxx", bycopy.} = object ##
+                                                                                        ## !
+                                                                                        ## Points
+                                                                                        ## dimension
 
 
 const
-  NCollection_CellFilter_InspectorXYDimension* = 2
+  NCollectionCellFilterInspectorXYDimension* = 2
 
 type
-  NCollection_CellFilter_InspectorXYPoint* = gp_XY
+  NCollectionCellFilterInspectorXYPoint* = GpXY
 
-proc Coord*(i: cint; thePnt: NCollection_CellFilter_InspectorXYPoint): Standard_Real {.
+proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXY::Coord(@)",
     dynlib: tkernel.}
-proc Shift*(this: NCollection_CellFilter_InspectorXY;
-           thePnt: NCollection_CellFilter_InspectorXYPoint; theTol: Standard_Real): NCollection_CellFilter_InspectorXYPoint {.
+proc shift*(this: NCollectionCellFilterInspectorXY;
+           thePnt: NCollectionCellFilterInspectorXYPoint; theTol: StandardReal): NCollectionCellFilterInspectorXYPoint {.
     noSideEffect, cdecl, importcpp: "Shift", dynlib: tkernel.}

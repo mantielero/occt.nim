@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2011-07-11
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -35,27 +28,31 @@ else:
 ## ! allocated with him.
 
 type
-  NCollection_WinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
-                                 header: "NCollection_WinHeapAllocator.hxx",
-                                 bycopy.} = object of NCollection_BaseAllocator ## ! Main
-                                                                           ## constructor
-                                                                           ## ! Copy
-                                                                           ## constructor -
-                                                                           ## prohibited
-    when (defined(_WIN32) or defined(__WIN32__)):
-      discard
+  NCollectionWinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
+                                header: "NCollection_WinHeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
+                                                                                                                   ## !
+                                                                                                                   ## Main
+                                                                                                                   ## constructor
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## Copy
+                                                                                                                   ## constructor
+                                                                                                                   ## -
+                                                                                                                   ## prohibited
+#    when (defined(win32) or defined(win32)):
+#      discard
 
 
-proc constructNCollection_WinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollection_WinHeapAllocator {.
+proc constructNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
     cdecl, constructor, importcpp: "NCollection_WinHeapAllocator(@)",
     dynlib: tkernel.}
-proc destroyNCollection_WinHeapAllocator*(this: var NCollection_WinHeapAllocator) {.
+proc destroyNCollectionWinHeapAllocator*(this: var NCollectionWinHeapAllocator) {.
     cdecl, importcpp: "#.~NCollection_WinHeapAllocator()", dynlib: tkernel.}
-proc Allocate*(this: var NCollection_WinHeapAllocator; theSize: csize_t): pointer {.
+proc allocate*(this: var NCollectionWinHeapAllocator; theSize: csize_t): pointer {.
     cdecl, importcpp: "Allocate", dynlib: tkernel.}
-proc Free*(this: var NCollection_WinHeapAllocator; theAddress: pointer) {.cdecl,
+proc free*(this: var NCollectionWinHeapAllocator; theAddress: pointer) {.cdecl,
     importcpp: "Free", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type
-  Handle_NCollection_WinHeapAllocator* = handle[NCollection_WinHeapAllocator]
+  HandleNCollectionWinHeapAllocator* = Handle[NCollectionWinHeapAllocator]

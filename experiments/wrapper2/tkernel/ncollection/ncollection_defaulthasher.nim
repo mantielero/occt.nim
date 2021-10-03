@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created by: Eugene Maltchikov
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -29,8 +22,7 @@ else:
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
-proc HashCode_Proxy*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.
-    cdecl.} =
+proc hashCodeProxy*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.cdecl.} =
   discard
 
 ## =======================================================================
@@ -38,7 +30,7 @@ proc HashCode_Proxy*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint 
 ## purpose  : Default implementation of IsEqual via operator ==
 ## =======================================================================
 
-proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl.} =
+proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl.} =
   discard
 
 ## =======================================================================
@@ -46,8 +38,7 @@ proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdec
 ## purpose  : Function is required to call the global function IsEqual.
 ## =======================================================================
 
-proc IsEqual_Proxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.
-    cdecl.} =
+proc isEqualProxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl.} =
   discard
 
 ## *
@@ -60,7 +51,7 @@ proc IsEqual_Proxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool 
 ##
 
 type
-  NCollection_DefaultHasher*[TheKeyType] {.
+  NCollectionDefaultHasher*[TheKeyType] {.
       importcpp: "NCollection_DefaultHasher<\'0>",
       header: "NCollection_DefaultHasher.hxx", bycopy.} = object ## ! Returns hash code for the given key, in the range [1, theUpperBound]
                                                             ## ! @param theKey the key which hash code is to be computed
@@ -68,7 +59,7 @@ type
                                                             ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
-proc HashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.cdecl,
+proc hashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.cdecl,
     importcpp: "NCollection_DefaultHasher::HashCode(@)", dynlib: tkernel.}
-proc IsEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl,
+proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl,
     importcpp: "NCollection_DefaultHasher::IsEqual(@)", dynlib: tkernel.}

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -27,25 +20,25 @@ else:
 ##
 
 type
-  NCollection_TListIterator*[TheItemType] {.
+  NCollectionTListIterator*[TheItemType] {.
       importcpp: "NCollection_TListIterator<\'0>",
       header: "NCollection_TListIterator.hxx", bycopy.} = object of Iterator ## ! Empty
                                                                       ## constructor - for later Init
 
 
-proc constructNCollection_TListIterator*[TheItemType](): NCollection_TListIterator[
+proc constructNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_TListIterator*[TheItemType](
-    theList: NCollection_BaseList): NCollection_TListIterator[TheItemType] {.cdecl,
-    constructor, importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
-proc More*[TheItemType](this: NCollection_TListIterator[TheItemType]): bool {.
+proc constructNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
+    TheItemType] {.cdecl, constructor,
+                  importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
+proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
-proc Next*[TheItemType](this: var NCollection_TListIterator[TheItemType]) {.cdecl,
+proc next*[TheItemType](this: var NCollectionTListIterator[TheItemType]) {.cdecl,
     importcpp: "Next", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_TListIterator[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionTListIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc Value*[TheItemType](this: var NCollection_TListIterator[TheItemType]): var TheItemType {.
+proc value*[TheItemType](this: var NCollectionTListIterator[TheItemType]): var TheItemType {.
     cdecl, importcpp: "Value", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: NCollection_TListIterator[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: NCollectionTListIterator[TheItemType]): var TheItemType {.
     noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}

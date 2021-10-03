@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -49,185 +42,185 @@ else:
 ##
 
 type
-  NCollection_Map*[TheKeyType; Hasher] {.importcpp: "NCollection_Map<\'0,\'1>",
-                                       header: "NCollection_Map.hxx", bycopy.} = object of NCollection_BaseMap ##
-                                                                                                        ## !
-                                                                                                        ## STL-compliant
-                                                                                                        ## typedef
-                                                                                                        ## for
-                                                                                                        ## key
-                                                                                                        ## type
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Adaptation
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## TListNode
-                                                                                                        ## to
-                                                                                                        ## the
-                                                                                                        ## map
-                                                                                                        ## notations
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Implementation
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## Iterator
-                                                                                                        ## interface.
-                                                                                                        ##
-                                                                                                        ## ----------
-                                                                                                        ## PUBLIC
-                                                                                                        ## METHODS
-                                                                                                        ## ------------
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Empty
-                                                                                                        ## constructor.
-                                                                                                        ##
-                                                                                                        ## !@name
-                                                                                                        ## Boolean
-                                                                                                        ## operations
-                                                                                                        ## with
-                                                                                                        ## maps
-                                                                                                        ## as
-                                                                                                        ## sets
-                                                                                                        ## of
-                                                                                                        ## keys
-                                                                                                        ##
-                                                                                                        ## !@{
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## @return
-                                                                                                        ## true
-                                                                                                        ## if
-                                                                                                        ## two
-                                                                                                        ## maps
-                                                                                                        ## contains
-                                                                                                        ## exactly
-                                                                                                        ## the
-                                                                                                        ## same
-                                                                                                        ## keys
+  NCollectionMap*[TheKeyType; Hasher] {.importcpp: "NCollection_Map<\'0,\'1>",
+                                      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionBaseMap ##
+                                                                                                      ## !
+                                                                                                      ## STL-compliant
+                                                                                                      ## typedef
+                                                                                                      ## for
+                                                                                                      ## key
+                                                                                                      ## type
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Adaptation
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## TListNode
+                                                                                                      ## to
+                                                                                                      ## the
+                                                                                                      ## map
+                                                                                                      ## notations
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Implementation
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## Iterator
+                                                                                                      ## interface.
+                                                                                                      ##
+                                                                                                      ## ----------
+                                                                                                      ## PUBLIC
+                                                                                                      ## METHODS
+                                                                                                      ## ------------
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor.
+                                                                                                      ##
+                                                                                                      ## !@name
+                                                                                                      ## Boolean
+                                                                                                      ## operations
+                                                                                                      ## with
+                                                                                                      ## maps
+                                                                                                      ## as
+                                                                                                      ## sets
+                                                                                                      ## of
+                                                                                                      ## keys
+                                                                                                      ##
+                                                                                                      ## !@{
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @return
+                                                                                                      ## true
+                                                                                                      ## if
+                                                                                                      ## two
+                                                                                                      ## maps
+                                                                                                      ## contains
+                                                                                                      ## exactly
+                                                                                                      ## the
+                                                                                                      ## same
+                                                                                                      ## keys
 
-  NCollection_Mapkey_type*[TheKeyType] = TheKeyType
-  NCollection_MapMapNode*[TheKeyType; Hasher] {.
+  NCollectionMapkeyType*[TheKeyType] = TheKeyType
+  NCollectionMapMapNode*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::MapNode",
-      header: "NCollection_Map.hxx", bycopy.} = object of NCollection_TListNode[
+      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionTListNode[
       TheKeyType]             ## ! Constructor with 'Next'
 
 
-proc constructNCollection_MapMapNode*[TheKeyType; Hasher](theKey: TheKeyType;
-    theNext: ptr NCollection_ListNode): NCollection_MapMapNode[TheKeyType, Hasher] {.
+proc constructNCollectionMapMapNode*[TheKeyType; Hasher](theKey: TheKeyType;
+    theNext: ptr NCollectionListNode): NCollectionMapMapNode[TheKeyType, Hasher] {.
     cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>::MapNode(@)",
     dynlib: tkernel.}
-proc Key*[TheKeyType; Hasher](this: var NCollection_MapMapNode[TheKeyType, Hasher]): TheKeyType {.
+proc key*[TheKeyType; Hasher](this: var NCollectionMapMapNode[TheKeyType, Hasher]): TheKeyType {.
     cdecl, importcpp: "Key", dynlib: tkernel.}
 type
-  NCollection_MapIterator*[TheKeyType; Hasher] {.
+  NCollectionMapIterator*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::Iterator",
-      header: "NCollection_Map.hxx", bycopy.} = object of NCollection_MapIterator ## ! Empty
-                                                                           ## constructor
+      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionMapIterator ## ! Empty
+                                                                          ## constructor
 
 
-proc constructNCollection_MapIterator*[TheKeyType; Hasher](): NCollection_MapIterator[
+proc constructNCollectionMapIterator*[TheKeyType; Hasher](): NCollectionMapIterator[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>::Iterator(@)",
                         dynlib: tkernel.}
-proc constructNCollection_MapIterator*[TheKeyType; Hasher](theMap: NCollection_Map): NCollection_MapIterator[
+proc constructNCollectionMapIterator*[TheKeyType; Hasher](theMap: NCollectionMap): NCollectionMapIterator[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>::Iterator(@)",
                         dynlib: tkernel.}
-proc More*[TheKeyType; Hasher](this: NCollection_MapIterator[TheKeyType, Hasher]): bool {.
+proc more*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): bool {.
     noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
-proc Next*[TheKeyType; Hasher](this: var NCollection_MapIterator[TheKeyType, Hasher]) {.
+proc next*[TheKeyType; Hasher](this: var NCollectionMapIterator[TheKeyType, Hasher]) {.
     cdecl, importcpp: "Next", dynlib: tkernel.}
-proc Value*[TheKeyType; Hasher](this: NCollection_MapIterator[TheKeyType, Hasher]): TheKeyType {.
+proc value*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): TheKeyType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc Key*[TheKeyType; Hasher](this: NCollection_MapIterator[TheKeyType, Hasher]): TheKeyType {.
+proc key*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): TheKeyType {.
     noSideEffect, cdecl, importcpp: "Key", dynlib: tkernel.}
 type
-  NCollection_Mapconst_iterator* = NCollection_StlIterator[forward_iterator_tag,
-      NCollection_MapIterator, TheKeyType, true]
+  NCollectionMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
+      NCollectionMapIterator, TheKeyType, True]
 
-proc cbegin*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher]): NCollection_Mapconst_iterator {.
+proc cbegin*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
-proc cend*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher]): NCollection_Mapconst_iterator {.
+proc cend*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollection_Map*[TheKeyType; Hasher](): NCollection_Map[TheKeyType,
+proc constructNCollectionMap*[TheKeyType; Hasher](): NCollectionMap[TheKeyType,
     Hasher] {.cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>(@)",
              dynlib: tkernel.}
-proc constructNCollection_Map*[TheKeyType; Hasher](theNbBuckets: cint;
-    theAllocator: handle[NCollection_BaseAllocator] = 0L'i64): NCollection_Map[
+proc constructNCollectionMap*[TheKeyType; Hasher](theNbBuckets: cint;
+    theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
-proc constructNCollection_Map*[TheKeyType; Hasher](theOther: NCollection_Map): NCollection_Map[
+proc constructNCollectionMap*[TheKeyType; Hasher](theOther: NCollectionMap): NCollectionMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
-proc Exchange*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                 theOther: var NCollection_Map) {.cdecl,
+proc exchange*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                 theOther: var NCollectionMap) {.cdecl,
     importcpp: "Exchange", dynlib: tkernel.}
-proc Assign*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                               theOther: NCollection_Map): var NCollection_Map {.
+proc assign*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                               theOther: NCollectionMap): var NCollectionMap {.
     cdecl, importcpp: "Assign", dynlib: tkernel.}
-proc ReSize*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                               N: cint) {.cdecl, importcpp: "ReSize", dynlib: tkernel.}
-proc Add*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                            K: TheKeyType): bool {.cdecl, importcpp: "Add",
+proc reSize*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher]; n: cint) {.
+    cdecl, importcpp: "ReSize", dynlib: tkernel.}
+proc add*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                            k: TheKeyType): bool {.cdecl, importcpp: "Add",
     dynlib: tkernel.}
-proc Added*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                              K: TheKeyType): TheKeyType {.cdecl,
+proc added*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                              k: TheKeyType): TheKeyType {.cdecl,
     importcpp: "Added", dynlib: tkernel.}
-proc Contains*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher];
-                                 K: TheKeyType): bool {.noSideEffect, cdecl,
+proc contains*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
+                                 k: TheKeyType): bool {.noSideEffect, cdecl,
     importcpp: "Contains", dynlib: tkernel.}
-proc Remove*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                               K: TheKeyType): bool {.cdecl, importcpp: "Remove",
+proc remove*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                               k: TheKeyType): bool {.cdecl, importcpp: "Remove",
     dynlib: tkernel.}
-proc Clear*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                              doReleaseMemory: bool = Standard_True) {.cdecl,
+proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                              doReleaseMemory: bool = standardTrue) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
-proc Clear*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                              theAllocator: handle[NCollection_BaseAllocator]) {.
+proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                              theAllocator: Handle[NCollectionBaseAllocator]) {.
     cdecl, importcpp: "Clear", dynlib: tkernel.}
-proc destroyNCollection_Map*[TheKeyType; Hasher](
-    this: var NCollection_Map[TheKeyType, Hasher]) {.cdecl,
+proc destroyNCollectionMap*[TheKeyType; Hasher](
+    this: var NCollectionMap[TheKeyType, Hasher]) {.cdecl,
     importcpp: "#.~NCollection_Map()", dynlib: tkernel.}
-proc Size*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher]): cint {.
+proc size*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): cint {.
     noSideEffect, cdecl, importcpp: "Size", dynlib: tkernel.}
-proc IsEqual*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher];
-                                theOther: NCollection_Map): bool {.noSideEffect,
+proc isEqual*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
+                                theOther: NCollectionMap): bool {.noSideEffect,
     cdecl, importcpp: "IsEqual", dynlib: tkernel.}
-proc Contains*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher];
-                                 theOther: NCollection_Map): bool {.noSideEffect,
+proc contains*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
+                                 theOther: NCollectionMap): bool {.noSideEffect,
     cdecl, importcpp: "Contains", dynlib: tkernel.}
-proc Union*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                              theLeft: NCollection_Map; theRight: NCollection_Map) {.
+proc union*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                              theLeft: NCollectionMap; theRight: NCollectionMap) {.
     cdecl, importcpp: "Union", dynlib: tkernel.}
-proc Unite*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                              theOther: NCollection_Map): bool {.cdecl,
+proc unite*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                              theOther: NCollectionMap): bool {.cdecl,
     importcpp: "Unite", dynlib: tkernel.}
-proc HasIntersection*[TheKeyType; Hasher](this: NCollection_Map[TheKeyType, Hasher];
-                                        theMap: NCollection_Map): bool {.
+proc hasIntersection*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
+                                        theMap: NCollectionMap): bool {.
     noSideEffect, cdecl, importcpp: "HasIntersection", dynlib: tkernel.}
-proc Intersection*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                     theLeft: NCollection_Map;
-                                     theRight: NCollection_Map) {.cdecl,
+proc intersection*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                     theLeft: NCollectionMap;
+                                     theRight: NCollectionMap) {.cdecl,
     importcpp: "Intersection", dynlib: tkernel.}
-proc Intersect*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                  theOther: NCollection_Map): bool {.cdecl,
+proc intersect*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                  theOther: NCollectionMap): bool {.cdecl,
     importcpp: "Intersect", dynlib: tkernel.}
-proc Subtraction*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                    theLeft: NCollection_Map;
-                                    theRight: NCollection_Map) {.cdecl,
+proc subtraction*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                    theLeft: NCollectionMap;
+                                    theRight: NCollectionMap) {.cdecl,
     importcpp: "Subtraction", dynlib: tkernel.}
-proc Subtract*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                 theOther: NCollection_Map): bool {.cdecl,
+proc subtract*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                 theOther: NCollectionMap): bool {.cdecl,
     importcpp: "Subtract", dynlib: tkernel.}
-proc Difference*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                                   theLeft: NCollection_Map;
-                                   theRight: NCollection_Map) {.cdecl,
+proc difference*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                                   theLeft: NCollectionMap;
+                                   theRight: NCollectionMap) {.cdecl,
     importcpp: "Difference", dynlib: tkernel.}
-proc Differ*[TheKeyType; Hasher](this: var NCollection_Map[TheKeyType, Hasher];
-                               theOther: NCollection_Map): bool {.cdecl,
+proc differ*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
+                               theOther: NCollectionMap): bool {.cdecl,
     importcpp: "Differ", dynlib: tkernel.}

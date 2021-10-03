@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2006-11-23
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -46,213 +39,213 @@ else:
 ##
 
 type
-  NCollection_SparseArray*[TheItemType] {.
-      importcpp: "NCollection_SparseArray<\'0>",
-      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollection_SparseArrayBase ##
-                                                                                       ## !
-                                                                                       ## Constructor;
-                                                                                       ## accepts
-                                                                                       ## size
-                                                                                       ## of
-                                                                                       ## blocks
-                                                                                       ##
-                                                                                       ## !@name
-                                                                                       ## Array-like
-                                                                                       ## interface
-                                                                                       ## (in
-                                                                                       ## addition
-                                                                                       ## to
-                                                                                       ## inherited
-                                                                                       ## methods)
-                                                                                       ##
-                                                                                       ## !@{
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Direct
-                                                                                       ## const
-                                                                                       ## access
-                                                                                       ## to
-                                                                                       ## the
-                                                                                       ## item
-                                                                                       ##
-                                                                                       ## !@name
-                                                                                       ## DataMap-like
-                                                                                       ## interface
-                                                                                       ##
-                                                                                       ## !@{
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## items
-                                                                                       ## in
-                                                                                       ## the
-                                                                                       ## array
-                                                                                       ##
-                                                                                       ## Iterator
-                                                                                       ## interface
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##
-                                                                                       ## Implementation
-                                                                                       ## of
-                                                                                       ## type-specific
-                                                                                       ## const
-                                                                                       ## Iterator
-                                                                                       ## class
-                                                                                       ##
-                                                                                       ##
-                                                                                       ## Implementation
-                                                                                       ## of
-                                                                                       ## virtual
-                                                                                       ## methods
-                                                                                       ## providing
-                                                                                       ## type-specific
-                                                                                       ## behaviour
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Create
-                                                                                       ## new
-                                                                                       ## item
-                                                                                       ## at
-                                                                                       ## the
-                                                                                       ## specified
-                                                                                       ## address
-                                                                                       ## with
-                                                                                       ## default
-                                                                                       ## constructor
-                                                                                       ##
-                                                                                       ## virtual
-                                                                                       ## void
-                                                                                       ## createItem
-                                                                                       ## (Standard_Address
-                                                                                       ## theAddress)
-                                                                                       ##
-                                                                                       ## {
-                                                                                       ##
-                                                                                       ## new
-                                                                                       ## (theAddress)
-                                                                                       ## TheItemType;
-                                                                                       ##
-                                                                                       ## }
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Create
-                                                                                       ## new
-                                                                                       ## item
-                                                                                       ## at
-                                                                                       ## the
-                                                                                       ## specified
-                                                                                       ## address
-                                                                                       ## with
-                                                                                       ## copy
-                                                                                       ## constructor
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## from
-                                                                                       ## existing
-                                                                                       ## item
+  NCollectionSparseArray*[TheItemType] {.importcpp: "NCollection_SparseArray<\'0>",
+                                        header: "NCollection_SparseArray.hxx",
+                                        bycopy.} = object of NCollectionSparseArrayBase ##
+                                                                                   ## !
+                                                                                   ## Constructor;
+                                                                                   ## accepts
+                                                                                   ## size
+                                                                                   ## of
+                                                                                   ## blocks
+                                                                                   ##
+                                                                                   ## !@name
+                                                                                   ## Array-like
+                                                                                   ## interface
+                                                                                   ## (in
+                                                                                   ## addition
+                                                                                   ## to
+                                                                                   ## inherited
+                                                                                   ## methods)
+                                                                                   ##
+                                                                                   ## !@{
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Direct
+                                                                                   ## const
+                                                                                   ## access
+                                                                                   ## to
+                                                                                   ## the
+                                                                                   ## item
+                                                                                   ##
+                                                                                   ## !@name
+                                                                                   ## DataMap-like
+                                                                                   ## interface
+                                                                                   ##
+                                                                                   ## !@{
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Returns
+                                                                                   ## number
+                                                                                   ## of
+                                                                                   ## items
+                                                                                   ## in
+                                                                                   ## the
+                                                                                   ## array
+                                                                                   ##
+                                                                                   ## Iterator
+                                                                                   ## interface
+                                                                                   ##
+                                                                                   ## *
+                                                                                   ##
+                                                                                   ## Implementation
+                                                                                   ## of
+                                                                                   ## type-specific
+                                                                                   ## const
+                                                                                   ## Iterator
+                                                                                   ## class
+                                                                                   ##
+                                                                                   ##
+                                                                                   ## Implementation
+                                                                                   ## of
+                                                                                   ## virtual
+                                                                                   ## methods
+                                                                                   ## providing
+                                                                                   ## type-specific
+                                                                                   ## behaviour
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Create
+                                                                                   ## new
+                                                                                   ## item
+                                                                                   ## at
+                                                                                   ## the
+                                                                                   ## specified
+                                                                                   ## address
+                                                                                   ## with
+                                                                                   ## default
+                                                                                   ## constructor
+                                                                                   ##
+                                                                                   ## virtual
+                                                                                   ## void
+                                                                                   ## createItem
+                                                                                   ## (Standard_Address
+                                                                                   ## theAddress)
+                                                                                   ##
+                                                                                   ## {
+                                                                                   ##
+                                                                                   ## new
+                                                                                   ## (theAddress)
+                                                                                   ## TheItemType;
+                                                                                   ##
+                                                                                   ## }
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## Create
+                                                                                   ## new
+                                                                                   ## item
+                                                                                   ## at
+                                                                                   ## the
+                                                                                   ## specified
+                                                                                   ## address
+                                                                                   ## with
+                                                                                   ## copy
+                                                                                   ## constructor
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## from
+                                                                                   ## existing
+                                                                                   ## item
 
 
-proc constructNCollection_SparseArray*[TheItemType](theIncrement: csize_t): NCollection_SparseArray[
+proc constructNCollectionSparseArray*[TheItemType](theIncrement: csize_t): NCollectionSparseArray[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>(@)", dynlib: tkernel.}
-proc Assign*[TheItemType](this: var NCollection_SparseArray[TheItemType];
-                         theOther: NCollection_SparseArray): var NCollection_SparseArray {.
+proc assign*[TheItemType](this: var NCollectionSparseArray[TheItemType];
+                         theOther: NCollectionSparseArray): var NCollectionSparseArray {.
     cdecl, importcpp: "Assign", dynlib: tkernel.}
-proc Exchange*[TheItemType](this: var NCollection_SparseArray[TheItemType];
-                           theOther: var NCollection_SparseArray) {.cdecl,
+proc exchange*[TheItemType](this: var NCollectionSparseArray[TheItemType];
+                           theOther: var NCollectionSparseArray) {.cdecl,
     importcpp: "Exchange", dynlib: tkernel.}
-proc destroyNCollection_SparseArray*[TheItemType](
-    this: var NCollection_SparseArray[TheItemType]) {.cdecl,
+proc destroyNCollectionSparseArray*[TheItemType](
+    this: var NCollectionSparseArray[TheItemType]) {.cdecl,
     importcpp: "#.~NCollection_SparseArray()", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_SparseArray[TheItemType];
+proc value*[TheItemType](this: NCollectionSparseArray[TheItemType];
                         theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
     importcpp: "Value", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollection_SparseArray[TheItemType];
+proc `()`*[TheItemType](this: NCollectionSparseArray[TheItemType];
                        theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
     importcpp: "#(@)", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: var NCollection_SparseArray[TheItemType];
+proc changeValue*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                               theIndex: csize_t): var TheItemType {.cdecl,
     importcpp: "ChangeValue", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollection_SparseArray[TheItemType];
+proc `()`*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                        theIndex: csize_t): var TheItemType {.cdecl,
     importcpp: "#(@)", dynlib: tkernel.}
-proc SetValue*[TheItemType](this: var NCollection_SparseArray[TheItemType];
+proc setValue*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                            theIndex: csize_t; theValue: TheItemType): var TheItemType {.
     cdecl, importcpp: "SetValue", dynlib: tkernel.}
-proc Extent*[TheItemType](this: NCollection_SparseArray[TheItemType]): csize_t {.
+proc extent*[TheItemType](this: NCollectionSparseArray[TheItemType]): csize_t {.
     noSideEffect, cdecl, importcpp: "Extent", dynlib: tkernel.}
-proc IsEmpty*[TheItemType](this: NCollection_SparseArray[TheItemType]): bool {.
+proc isEmpty*[TheItemType](this: NCollectionSparseArray[TheItemType]): bool {.
     noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
-proc Find*[TheItemType](this: NCollection_SparseArray[TheItemType];
+proc find*[TheItemType](this: NCollectionSparseArray[TheItemType];
                        theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
     importcpp: "Find", dynlib: tkernel.}
-proc ChangeFind*[TheItemType](this: var NCollection_SparseArray[TheItemType];
+proc changeFind*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                              theIndex: csize_t): var TheItemType {.cdecl,
     importcpp: "ChangeFind", dynlib: tkernel.}
-proc Bind*[TheItemType](this: var NCollection_SparseArray[TheItemType];
-                       theIndex: csize_t; theValue: TheItemType): var TheItemType {.
+proc `bind`*[TheItemType](this: var NCollectionSparseArray[TheItemType];
+                         theIndex: csize_t; theValue: TheItemType): var TheItemType {.
     cdecl, importcpp: "Bind", dynlib: tkernel.}
-proc IsBound*[TheItemType](this: NCollection_SparseArray[TheItemType];
+proc isBound*[TheItemType](this: NCollectionSparseArray[TheItemType];
                           theIndex: csize_t): bool {.noSideEffect, cdecl,
     importcpp: "IsBound", dynlib: tkernel.}
-proc UnBind*[TheItemType](this: var NCollection_SparseArray[TheItemType];
+proc unBind*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                          theIndex: csize_t): bool {.cdecl, importcpp: "UnBind",
     dynlib: tkernel.}
 type
-  NCollection_SparseArrayConstIterator*[TheItemType] {.
+  NCollectionSparseArrayConstIterator*[TheItemType] {.
       importcpp: "NCollection_SparseArray<\'0>::ConstIterator",
       header: "NCollection_SparseArray.hxx", bycopy.} = object of Iterator ## ! Empty constructor - for later Init
 
 
-proc constructNCollection_SparseArrayConstIterator*[TheItemType](): NCollection_SparseArrayConstIterator[
+proc constructNCollectionSparseArrayConstIterator*[TheItemType](): NCollectionSparseArrayConstIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::ConstIterator(@)",
                   dynlib: tkernel.}
-proc constructNCollection_SparseArrayConstIterator*[TheItemType](
-    theVector: NCollection_SparseArray): NCollection_SparseArrayConstIterator[
+proc constructNCollectionSparseArrayConstIterator*[TheItemType](
+    theVector: NCollectionSparseArray): NCollectionSparseArrayConstIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::ConstIterator(@)",
                   dynlib: tkernel.}
-proc Init*[TheItemType](this: var NCollection_SparseArrayConstIterator[TheItemType];
-                       theVector: NCollection_SparseArray) {.cdecl,
+proc init*[TheItemType](this: var NCollectionSparseArrayConstIterator[TheItemType];
+                       theVector: NCollectionSparseArray) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}
-proc Value*[TheItemType](this: NCollection_SparseArrayConstIterator[TheItemType]): TheItemType {.
+proc value*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollection_SparseArrayConstIterator[TheItemType]): TheItemType {.
+proc `()`*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
-proc Key*[TheItemType](this: NCollection_SparseArrayConstIterator[TheItemType]): csize_t {.
+proc key*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): csize_t {.
     noSideEffect, cdecl, importcpp: "Key", dynlib: tkernel.}
 type
-  NCollection_SparseArrayIterator*[TheItemType] {.
+  NCollectionSparseArrayIterator*[TheItemType] {.
       importcpp: "NCollection_SparseArray<\'0>::Iterator",
-      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollection_SparseArrayConstIterator ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
-                                                                                                ## -
-                                                                                                ## for
-                                                                                                ## later
-                                                                                                ## Init
+      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayConstIterator ##
+                                                                                               ## !
+                                                                                               ## Empty
+                                                                                               ## constructor
+                                                                                               ## -
+                                                                                               ## for
+                                                                                               ## later
+                                                                                               ## Init
 
 
-proc constructNCollection_SparseArrayIterator*[TheItemType](): NCollection_SparseArrayIterator[
+proc constructNCollectionSparseArrayIterator*[TheItemType](): NCollectionSparseArrayIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc constructNCollection_SparseArrayIterator*[TheItemType](
-    theVector: var NCollection_SparseArray): NCollection_SparseArrayIterator[
+proc constructNCollectionSparseArrayIterator*[TheItemType](
+    theVector: var NCollectionSparseArray): NCollectionSparseArrayIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc Init*[TheItemType](this: var NCollection_SparseArrayIterator[TheItemType];
-                       theVector: NCollection_SparseArray) {.cdecl,
+proc init*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType];
+                       theVector: NCollectionSparseArray) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}
-proc ChangeValue*[TheItemType](this: var NCollection_SparseArrayIterator[
-    TheItemType]): var TheItemType {.cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollection_SparseArrayIterator[TheItemType]): var TheItemType {.
+proc changeValue*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType]): var TheItemType {.
+    cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
+proc `()`*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType]): var TheItemType {.
     cdecl, importcpp: "#(@)", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollection_SparseArrayIterator[TheItemType]): TheItemType {.
+proc `()`*[TheItemType](this: NCollectionSparseArrayIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-03-28
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -25,6 +18,6 @@ else:
 
 ##  **************************************** Template for Sequence class ********
 
-template DEFINE_SEQUENCE*(_ClassName_, _BaseCollection_, TheItemType: untyped): void =
+template define_Sequence*(className, baseCollection, theItemType: untyped): void =
   type
-    _ClassName_* = NCollection_Sequence[TheItemType]
+    ClassName* = NCollectionSequence[TheItemType]

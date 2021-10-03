@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -42,6 +35,6 @@ else:
 
 ##  *********************************************** Class Map *****************
 
-template DEFINE_MAP*(_ClassName_, _BaseCollection_, TheKeyType: untyped): void =
+template define_Map*(className, baseCollection, theKeyType: untyped): void =
   type
-    _ClassName_* = NCollection_Map[TheKeyType]
+    ClassName* = NCollectionMap[TheKeyType]

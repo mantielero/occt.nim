@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2002-04-10
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -23,24 +16,23 @@ else:
 ##  **************************************** Class SeqNode ********************
 
 type
-  NCollection_SeqNode* {.importcpp: "NCollection_SeqNode",
-                        header: "NCollection_BaseSequence.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+  NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
+                       header: "NCollection_BaseSequence.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
 
 
-proc constructNCollection_SeqNode*(): NCollection_SeqNode {.cdecl, constructor,
+proc constructNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
     importcpp: "NCollection_SeqNode(@)", dynlib: tkernel.}
-proc Next*(this: NCollection_SeqNode): ptr NCollection_SeqNode {.noSideEffect, cdecl,
+proc next*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect, cdecl,
     importcpp: "Next", dynlib: tkernel.}
-proc Previous*(this: NCollection_SeqNode): ptr NCollection_SeqNode {.noSideEffect,
+proc previous*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect,
     cdecl, importcpp: "Previous", dynlib: tkernel.}
-proc SetNext*(this: var NCollection_SeqNode; theNext: ptr NCollection_SeqNode) {.cdecl,
+proc setNext*(this: var NCollectionSeqNode; theNext: ptr NCollectionSeqNode) {.cdecl,
     importcpp: "SetNext", dynlib: tkernel.}
-proc SetPrevious*(this: var NCollection_SeqNode; thePrev: ptr NCollection_SeqNode) {.
+proc setPrevious*(this: var NCollectionSeqNode; thePrev: ptr NCollectionSeqNode) {.
     cdecl, importcpp: "SetPrevious", dynlib: tkernel.}
 type
-  NCollection_DelSeqNode* = proc (a1: ptr NCollection_SeqNode;
-                               theAl: var handle[NCollection_BaseAllocator]) {.
-      cdecl.}
+  NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
+                              theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
 ## *
 ##  Purpose:     This  is  a base  class  for  the  Sequence.  It  deals with
@@ -48,49 +40,51 @@ type
 ##
 
 type
-  NCollection_BaseSequence* {.importcpp: "NCollection_BaseSequence",
-                             header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Memory
-                                                                                  ## allocation
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PUBLIC
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PROTECTED
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Fields
-                                                                                  ## PROTECTED
-                                                                                  ##
-                                                                                  ##
-                                                                                  ## Methods
-                                                                                  ## PRIVATE
-                                                                                  ##
+  NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
+                            header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Memory
+                                                                                 ## allocation
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PUBLIC
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PROTECTED
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Fields
+                                                                                 ## PROTECTED
+                                                                                 ##
+                                                                                 ##
+                                                                                 ## Methods
+                                                                                 ## PRIVATE
+                                                                                 ##
 
-  NCollection_BaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
-                                     header: "NCollection_BaseSequence.hxx",
-                                     bycopy.} = object ## ! Empty constructor
+  NCollectionBaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
+                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Empty
+                                                                                         ## constructor
     ## !< Pointer to the current node
     ## !< Pointer to the previous node
 
 
-proc constructNCollection_BaseSequenceIterator*(): NCollection_BaseSequenceIterator {.
+proc constructNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
     dynlib: tkernel.}
-proc constructNCollection_BaseSequenceIterator*(theSeq: NCollection_BaseSequence;
-    isStart: bool): NCollection_BaseSequenceIterator {.cdecl, constructor,
+proc constructNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
+    isStart: bool): NCollectionBaseSequenceIterator {.cdecl, constructor,
     importcpp: "NCollection_BaseSequence::Iterator(@)", dynlib: tkernel.}
-proc Init*(this: var NCollection_BaseSequenceIterator;
-          theSeq: NCollection_BaseSequence; isStart: bool = Standard_True) {.cdecl,
+proc init*(this: var NCollectionBaseSequenceIterator;
+          theSeq: NCollectionBaseSequence; isStart: bool = standardTrue) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}
-proc Previous*(this: var NCollection_BaseSequenceIterator) {.cdecl,
+proc previous*(this: var NCollectionBaseSequenceIterator) {.cdecl,
     importcpp: "Previous", dynlib: tkernel.}
-proc IsEmpty*(this: NCollection_BaseSequence): bool {.noSideEffect, cdecl,
+proc isEmpty*(this: NCollectionBaseSequence): bool {.noSideEffect, cdecl,
     importcpp: "IsEmpty", dynlib: tkernel.}
-proc Length*(this: NCollection_BaseSequence): cint {.noSideEffect, cdecl,
+proc length*(this: NCollectionBaseSequence): cint {.noSideEffect, cdecl,
     importcpp: "Length", dynlib: tkernel.}
-proc Allocator*(this: NCollection_BaseSequence): handle[NCollection_BaseAllocator] {.
+proc allocator*(this: NCollectionBaseSequence): Handle[NCollectionBaseAllocator] {.
     noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}

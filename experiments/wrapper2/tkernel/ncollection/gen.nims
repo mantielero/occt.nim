@@ -1,8 +1,8 @@
 #!/usr/bin/env nim
-import strutils,os
+import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
 let c2nimFile = "ncollection.c2nim"
-let beg = """
+#[ let beg = """
 when defined(windows):
   const tkernel* = "TKernel.dll"
 elif defined(macosx):
@@ -10,7 +10,7 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
-"""
+""" ]#
 proc genFiles*( infile:string;
                remove:seq[tuple[a,b:int]] = @[]; 
                addSemiColon:seq[int] = @[];
@@ -56,16 +56,25 @@ proc genFiles*( infile:string;
         exec "sed -e '" & edit & "' -i " & name & ".hxx"
 
 
-    exec "c2nim --cpp --header --strict --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
+    exec "c2nim --cpp --header --strict --nep1 --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
     let txt = readFile(name.toLower & ".nim")
-    writeFile(name.toLower & ".nim", beg & txt)
+    writeFile(name.toLower & ".nim", txt ) #beg & txt)
     rmFile(name & ".hxx")
     echo name
 
 
 proc pp*(file:string,
         insert:seq[tuple[line:int;value:string]] = @[],
-        comment:seq[int] = @[] ) =
+        replaceAll:seq[tuple[sub,by:string]] = @[];        
+        comment:seq[int] = @[];
+        commentRange:seq[tuple[a,b:int]] = @[] ) =
+  # Reemplazar
+  if replaceAll.len > 0:    
+    for item in replaceAll:
+      var txt = readFile(file)        
+      txt = txt.replace(item.sub, item.by)
+      writeFile(file, txt)
+
   var lines = file.readFile.splitLines
 
   # Comment lines
@@ -73,11 +82,16 @@ proc pp*(file:string,
     if i+1 in comment:
       lines[i] = "#" & lines[i]
 
+
+  for item in commentRange:
+      for i in item.a .. item.b:
+        lines[i-1] = "#" & lines[i-1]
+
   # Insert lines
   var n = 0
   for item in insert:
-    var tmp1 = lines[0 .. item.line - 1 + n] 
-    var tmp2 = lines[item.line + n .. lines.len-1]
+    var tmp1 = lines[0 .. item.line - 2 + n] 
+    var tmp2 = lines[item.line - 1 + n .. lines.len-1]
     lines = tmp1 & item.value & tmp2
     n += 1
   writeFile( file, lines.join("\n"))
@@ -93,8 +107,8 @@ genFiles("NCollection_AlignedAllocator")
 genFiles("NCollection_Array1")
 genFiles("NCollection_Array2", remove= @[(390,423)])
 genFiles("NCollection_BaseAllocator", remove = @[(30,32),(49,81)])
-pp("ncollection_baseallocator.nim",
-  insert = @[(7, "import ../standard/standard_transient")])
+#[ pp("ncollection_baseallocator.nim",
+  insert = @[(7, "import ../standard/standard_transient")]) ]#
 
 genFiles("NCollection_BaseList")
 genFiles("NCollection_BaseMap")
@@ -105,6 +119,10 @@ genFiles("NCollection_CellFilter", remove= @[(235,237), (239,239), (304, 309), (
 genFiles("NCollection_DataMap", replaceAll = @[ ("class Hasher = NCollection_DefaultHasher<TheKeyType> >", "class Hasher >")],
           remove       = @[(76,79), (226, 244), (248,266), (277,301)], 
           addSemiColon = @[75,       225,        247,       276])
+pp("ncollection_datamap.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_DefaultHasher")
 genFiles("NCollection_DefineAlloc")  # Ignored: #assumedef _NCollection_DefineAlloc_HeaderFile
 genFiles("NCollection_DefineArray1")
@@ -126,7 +144,14 @@ genFiles("NCollection_DoubleMap",
                   ],
     remove = @[(77,80), (149, 174), (219, 244), (313, 354), (358,399), (404,410), (418,425), (446,452), (460, 467)],
     addSemiColon = @[76, 148, 218, 312, 357, 403, 417, 445, 459]   ) 
+pp("ncollection_doublemap.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_EBTree", remove = @[(114, 125),(136, 169), (180,211)], addSemiColon = @[138])
+pp("ncollection_ebtree.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
 
 genFiles("NCollection_Handle")
 genFiles("NCollection_HArray1")
@@ -141,14 +166,26 @@ genFiles("NCollection_IndexedDataMap",
   remove = @[(81,84), (190,211), (255, 277), (367, 389)],
   addSemiColon = @[80, 189, 254, 366]
 )
+pp("ncollection_indexeddatamap.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_IndexedMap",
   replaceAll = @[("= NCollection_DefaultHasher<TheKeyType>", "")],
   remove = @[(69,72), (150,170), (211,233), (320, 342)],
   addSemiColon = @[68, 149, 210, 319] )
+pp("ncollection_indexedmap.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_Lerp")
 genFiles("NCollection_List", 
   remove = @[(133, 137), (142,145), (169,173), (207,219), (224,228), (254,258), (263,284), (291, 291),(293,302), (310,329)], 
   addSemiColon = @[132,141,168,208, 223,253,262, 292])
+pp("ncollection_list.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_ListNode")
 genFiles("NCollection_LocalArray",
   replaceAll = @[("= 1024> class NCollection_LocalArray", "> class NCollection_LocalArray")],
@@ -158,6 +195,10 @@ genFiles("NCollection_Map",
   remove = @[(202,217), (222,237), (257, 281)],
   addSemiColon = @[201, 221, 256]
   )
+pp("ncollection_map.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_Mat4",
   remove = @[(468, 474), (489, 494)],
   addSemiColon = @[467]
@@ -166,10 +207,12 @@ genFiles("NCollection_Sequence",
   remove       = @[(162, 165), (208, 208), (231,231), (265,265), (270,285), (290, 293), (347,353), (362, 396)], # , (362,362) 
   addSemiColon = @[ 161,        207,        230,       264,       269,       289,        346,       361]
 )
-genFiles("NCollection_Shared",
-  replaceAll = @[(", typename = typename opencascade::std::enable_if<! opencascade::std::is_base_of<Standard_Transient, T>::value>::type", "")]#,
-  #remove = @[(19,19)]
+pp("ncollection_sequence.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
 
+genFiles("NCollection_Shared",
+  replaceAll = @[(", typename = typename opencascade::std::enable_if<! opencascade::std::is_base_of<Standard_Transient, T>::value>::type", "")]
 )
 genFiles("NCollection_SparseArrayBase",
   remove = @[(51,53), (55,55), (230,234)],
@@ -187,6 +230,10 @@ genFiles("NCollection_StdAllocator",
   remove = @[(97,97), (168,174)],
   addSemiColon = @[96]
   )
+pp("ncollection_stdallocator.nim",
+  comment = @[5,6, 78, 79]
+)
+
 genFiles("NCollection_StlIterator",
   replaceAll = @[(""" :
   public std::iterator<Category, ItemType, ptrdiff_t,
@@ -200,11 +247,17 @@ genFiles("NCollection_TListIterator")
 genFiles("NCollection_TListNode", remove = @[(41,44)], addSemiColon = @[40])
 genFiles("NCollection_TypeDef")  # Ignored: #assumedef NCollection_TypeDef_HeaderFile
 genFiles("NCollection_UBTreeFiller", remove = @[(137, 208)] ) #, addSemiColon = @[143])
+pp("ncollection_ubtreefiller.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
+
 genFiles("NCollection_UBTree", 
   remove = @[(167, 183), (190,207), (218,227), (343, 434), (445,495)],
   addSemiColon = @[166, 189, 217]
    )
-
+pp("ncollection_ubtree.nim",
+  replaceAll = @[("0L'i64", "0")]
+  )
 
 
 genFiles("NCollection_UtfIterator",
@@ -244,28 +297,45 @@ genFiles("NCollection_Vec4",
     remove = @[(391,403)]
 )
 genFiles("NCollection_Vector",
-  removeFuncBody = @[(326,353), (359,389)]
+  removeFuncBody = @[(326,353), (359,389)],
+  remove = @[(100,102)]
 )
 genFiles("NCollection_WinHeapAllocator")
-
+pp("ncollection_winheapallocator.nim",
+  comment = @[42,43]
+  )
 
 # genFiles("NCollection_Haft.h")   # IGNORE: only for C++/CLI under C#
 
 # Create the import/export file (to be modified manually)
 var txt = ""
-var exp = "\n\nexport "
-for path in listFiles("./"):
+var files = listFiles("./")
+files.sort()
+for path in files:
   var (dir, name, ext) = splitFile(path)
 
 
-  if ext == ".nim" and name != "gen":
-    txt &= "import " & name & "\n"
-    exp &= name & ", "
+  if ext == ".nim" and name != "gen" and name != "ncollection_includes":
+    txt &= "include " & name & "\n"
+    #exp &= name & ", "
   #txt &= exp
 
-var beggining = "{.passL:\"-lTKernel\".}\n"
-beggining &= "{.passC:\"-I" & lib & "\" .}\n\n"
 
-writeFile("ncollection.nim", beggining & txt & exp)
-pp("ncollection.nim",
-   comment = @[5, 6])
+var beggining = "{.passL:\"-lTKernel\".}\n"
+beggining &= "{.passC:\"-I" & lib & "\" .}\n"
+beggining &= "{.experimental: \"codeReordering\".}\n\n"
+beggining &= """
+when defined(windows):
+  const tkernel* = "TKernel.dll"
+elif defined(macosx):
+  const tkernel* = "libTKernel.dylib"
+else:
+  const tkernel* = "libTKernel.so" 
+
+
+"""
+
+writeFile("ncollection_includes.nim", beggining & txt )#& exp)
+pp("ncollection_includes.nim",
+   comment = @[27, 28, 29, 30, 34, 35, 36, 37, 38, 39]
+)

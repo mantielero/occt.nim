@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -31,100 +24,99 @@ else:
 ## ! synonym of "Unicode code point".
 
 type
-  NCollection_UtfString*[Type] {.importcpp: "NCollection_UtfString<\'0>",
-                                header: "NCollection_UtfString.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## @name
-                                                                                  ## assign
-                                                                                  ## operators
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Copy
-                                                                                  ## from
-                                                                                  ## another
-                                                                                  ## string.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @name
-                                                                                  ## compare
-                                                                                  ## operators
+  NCollectionUtfString*[Type] {.importcpp: "NCollection_UtfString<\'0>",
+                               header: "NCollection_UtfString.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## assign
+                                                                                 ## operators
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Copy
+                                                                                 ## from
+                                                                                 ## another
+                                                                                 ## string.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## compare
+                                                                                 ## operators
 
 
-proc Iterator*[Type](this: NCollection_UtfString[Type]): NCollection_UtfIterator[
+proc `iterator`*[Type](this: NCollectionUtfString[Type]): NCollectionUtfIterator[
     Type] {.noSideEffect, cdecl, importcpp: "Iterator", dynlib: tkernel.}
-proc Size*[Type](this: NCollection_UtfString[Type]): cint {.noSideEffect, cdecl,
+proc size*[Type](this: NCollectionUtfString[Type]): cint {.noSideEffect, cdecl,
     importcpp: "Size", dynlib: tkernel.}
-proc Length*[Type](this: NCollection_UtfString[Type]): cint {.noSideEffect, cdecl,
+proc length*[Type](this: NCollectionUtfString[Type]): cint {.noSideEffect, cdecl,
     importcpp: "Length", dynlib: tkernel.}
-proc GetChar*[Type](this: NCollection_UtfString[Type]; theCharIndex: cint): Standard_Utf32Char {.
+proc getChar*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): StandardUtf32Char {.
     noSideEffect, cdecl, importcpp: "GetChar", dynlib: tkernel.}
-proc GetCharBuffer*[Type](this: NCollection_UtfString[Type]; theCharIndex: cint): ptr Type {.
+proc getCharBuffer*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): ptr Type {.
     noSideEffect, cdecl, importcpp: "GetCharBuffer", dynlib: tkernel.}
-proc `[]`*[Type](this: NCollection_UtfString[Type]; theCharIndex: cint): Standard_Utf32Char {.
+proc `[]`*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): StandardUtf32Char {.
     noSideEffect, cdecl, importcpp: "#[@]", dynlib: tkernel.}
-proc constructNCollection_UtfString*[Type](): NCollection_UtfString[Type] {.cdecl,
+proc constructNCollectionUtfString*[Type](): NCollectionUtfString[Type] {.cdecl,
     constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_UtfString*[Type](theCopy: NCollection_UtfString): NCollection_UtfString[
+proc constructNCollectionUtfString*[Type](theCopy: NCollectionUtfString): NCollectionUtfString[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)",
            dynlib: tkernel.}
-proc constructNCollection_UtfString*[Type](theCopyUtf8: cstring;
-    theLength: cint = -1): NCollection_UtfString[Type] {.cdecl, constructor,
+proc constructNCollectionUtfString*[Type](theCopyUtf8: cstring;
+    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
     importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_UtfString*[Type](theCopyUtf16: ptr Standard_Utf16Char;
-    theLength: cint = -1): NCollection_UtfString[Type] {.cdecl, constructor,
+proc constructNCollectionUtfString*[Type](theCopyUtf16: ptr StandardUtf16Char;
+    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
     importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollection_UtfString*[Type](theCopyUtf32: ptr Standard_Utf32Char;
-    theLength: cint = -1): NCollection_UtfString[Type] {.cdecl, constructor,
+proc constructNCollectionUtfString*[Type](theCopyUtf32: ptr StandardUtf32Char;
+    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
     importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc FromUnicode*[Type; TypeFrom](this: var NCollection_UtfString[Type];
+proc fromUnicode*[Type; TypeFrom](this: var NCollectionUtfString[Type];
                                 theStringUtf: ptr TypeFrom; theLength: cint = -1) {.
     cdecl, importcpp: "FromUnicode", dynlib: tkernel.}
-proc FromLocale*[Type](this: var NCollection_UtfString[Type]; theString: cstring;
+proc fromLocale*[Type](this: var NCollectionUtfString[Type]; theString: cstring;
                       theLength: cint = -1) {.cdecl, importcpp: "FromLocale",
     dynlib: tkernel.}
-proc destroyNCollection_UtfString*[Type](this: var NCollection_UtfString[Type]) {.
+proc destroyNCollectionUtfString*[Type](this: var NCollectionUtfString[Type]) {.
     cdecl, importcpp: "#.~NCollection_UtfString()", dynlib: tkernel.}
-proc IsEqual*[Type](this: NCollection_UtfString[Type];
-                   theCompare: NCollection_UtfString): bool {.noSideEffect, cdecl,
+proc isEqual*[Type](this: NCollectionUtfString[Type];
+                   theCompare: NCollectionUtfString): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", dynlib: tkernel.}
-proc SubString*[Type](this: NCollection_UtfString[Type]; theStart: cint; theEnd: cint): NCollection_UtfString {.
+proc subString*[Type](this: NCollectionUtfString[Type]; theStart: cint; theEnd: cint): NCollectionUtfString {.
     noSideEffect, cdecl, importcpp: "SubString", dynlib: tkernel.}
-proc ToCString*[Type](this: NCollection_UtfString[Type]): ptr Type {.noSideEffect,
+proc toCString*[Type](this: NCollectionUtfString[Type]): ptr Type {.noSideEffect,
     cdecl, importcpp: "ToCString", dynlib: tkernel.}
-proc ToUtf8*[Type](this: NCollection_UtfString[Type]): NCollection_UtfString[
-    Standard_Utf8Char] {.noSideEffect, cdecl, importcpp: "ToUtf8", dynlib: tkernel.}
-proc ToUtf16*[Type](this: NCollection_UtfString[Type]): NCollection_UtfString[
-    Standard_Utf16Char] {.noSideEffect, cdecl, importcpp: "ToUtf16", dynlib: tkernel.}
-proc ToUtf32*[Type](this: NCollection_UtfString[Type]): NCollection_UtfString[
-    Standard_Utf32Char] {.noSideEffect, cdecl, importcpp: "ToUtf32", dynlib: tkernel.}
-proc ToUtfWide*[Type](this: NCollection_UtfString[Type]): NCollection_UtfString[
-    Standard_WideChar] {.noSideEffect, cdecl, importcpp: "ToUtfWide", dynlib: tkernel.}
-proc ToLocale*[Type](this: NCollection_UtfString[Type]; theBuffer: cstring;
+proc toUtf8*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
+    StandardUtf8Char] {.noSideEffect, cdecl, importcpp: "ToUtf8", dynlib: tkernel.}
+proc toUtf16*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
+    StandardUtf16Char] {.noSideEffect, cdecl, importcpp: "ToUtf16", dynlib: tkernel.}
+proc toUtf32*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
+    StandardUtf32Char] {.noSideEffect, cdecl, importcpp: "ToUtf32", dynlib: tkernel.}
+proc toUtfWide*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
+    StandardWideChar] {.noSideEffect, cdecl, importcpp: "ToUtfWide", dynlib: tkernel.}
+proc toLocale*[Type](this: NCollectionUtfString[Type]; theBuffer: cstring;
                     theSizeBytes: cint): bool {.noSideEffect, cdecl,
     importcpp: "ToLocale", dynlib: tkernel.}
-proc IsEmpty*[Type](this: NCollection_UtfString[Type]): bool {.noSideEffect, cdecl,
+proc isEmpty*[Type](this: NCollectionUtfString[Type]): bool {.noSideEffect, cdecl,
     importcpp: "IsEmpty", dynlib: tkernel.}
-proc Clear*[Type](this: var NCollection_UtfString[Type]) {.cdecl, importcpp: "Clear",
+proc clear*[Type](this: var NCollectionUtfString[Type]) {.cdecl, importcpp: "Clear",
     dynlib: tkernel.}
-proc Assign*[Type](this: var NCollection_UtfString[Type];
-                  theOther: NCollection_UtfString): NCollection_UtfString {.cdecl,
+proc assign*[Type](this: var NCollectionUtfString[Type];
+                  theOther: NCollectionUtfString): NCollectionUtfString {.cdecl,
     importcpp: "Assign", dynlib: tkernel.}
-proc Swap*[Type](this: var NCollection_UtfString[Type];
-                theOther: var NCollection_UtfString) {.cdecl, importcpp: "Swap",
+proc swap*[Type](this: var NCollectionUtfString[Type];
+                theOther: var NCollectionUtfString) {.cdecl, importcpp: "Swap",
     dynlib: tkernel.}
-proc `+=`*[Type](this: var NCollection_UtfString[Type];
-                theAppend: NCollection_UtfString) {.cdecl, importcpp: "(# += #)",
+proc `+=`*[Type](this: var NCollectionUtfString[Type];
+                theAppend: NCollectionUtfString) {.cdecl, importcpp: "(# += #)",
     dynlib: tkernel.}
-proc `==`*[Type](this: NCollection_UtfString[Type];
-                theCompare: NCollection_UtfString): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkernel.}
+proc `==`*[Type](this: NCollectionUtfString[Type]; theCompare: NCollectionUtfString): bool {.
+    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
 type
-  NCollection_Utf8String* = NCollection_UtfString[Standard_Utf8Char]
-  NCollection_Utf16String* = NCollection_UtfString[Standard_Utf16Char]
-  NCollection_Utf32String* = NCollection_UtfString[Standard_Utf32Char]
-  NCollection_UtfWideString* = NCollection_UtfString[Standard_WideChar]
+  NCollectionUtf8String* = NCollectionUtfString[StandardUtf8Char]
+  NCollectionUtf16String* = NCollectionUtfString[StandardUtf16Char]
+  NCollectionUtf32String* = NCollectionUtfString[StandardUtf32Char]
+  NCollectionUtfWideString* = NCollectionUtfString[StandardWideChar]
 
 ##  template implementation (inline methods)
 
 import
-  NCollection_UtfString
+  nCollectionUtfString

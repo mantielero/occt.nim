@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2014-04-01
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -23,81 +16,81 @@ else:
 ## ! Low-level buffer object.
 
 type
-  NCollection_Buffer* {.importcpp: "NCollection_Buffer",
-                       header: "NCollection_Buffer.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                          ## !
-                                                                                          ## Default
-                                                                                          ## constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## When
-                                                                                          ## theData
-                                                                                          ## is
-                                                                                          ## NULL
-                                                                                          ## but
-                                                                                          ## theSize
-                                                                                          ## is
-                                                                                          ## not
-                                                                                          ## 0
-                                                                                          ## than
-                                                                                          ## buffer
-                                                                                          ## of
-                                                                                          ## specified
-                                                                                          ## size
-                                                                                          ## will
-                                                                                          ## be
-                                                                                          ## allocated.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theAlloc
-                                                                                          ## memory
-                                                                                          ## allocator
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theSize
-                                                                                          ## buffer
-                                                                                          ## size
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theData
-                                                                                          ## buffer
-                                                                                          ## data
-                                                                                          ## allocated
-                                                                                          ## by
-                                                                                          ## theAlloc
+  NCollectionBuffer* {.importcpp: "NCollection_Buffer",
+                      header: "NCollection_Buffer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Default
+                                                                                        ## constructor.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## When
+                                                                                        ## theData
+                                                                                        ## is
+                                                                                        ## NULL
+                                                                                        ## but
+                                                                                        ## theSize
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## 0
+                                                                                        ## than
+                                                                                        ## buffer
+                                                                                        ## of
+                                                                                        ## specified
+                                                                                        ## size
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## allocated.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theAlloc
+                                                                                        ## memory
+                                                                                        ## allocator
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theSize
+                                                                                        ## buffer
+                                                                                        ## size
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theData
+                                                                                        ## buffer
+                                                                                        ## data
+                                                                                        ## allocated
+                                                                                        ## by
+                                                                                        ## theAlloc
     ## !< data pointer
     ## !< buffer length in bytes
     ## !< buffer allocator
 
 
-proc constructNCollection_Buffer*(theAlloc: handle[NCollection_BaseAllocator];
-                                 theSize: csize_t = 0;
-                                 theData: ptr Standard_Byte = nil): NCollection_Buffer {.
+proc constructNCollectionBuffer*(theAlloc: Handle[NCollectionBaseAllocator];
+                                theSize: csize_t = 0;
+                                theData: ptr StandardByte = nil): NCollectionBuffer {.
     cdecl, constructor, importcpp: "NCollection_Buffer(@)", dynlib: tkernel.}
-proc destroyNCollection_Buffer*(this: var NCollection_Buffer) {.cdecl,
+proc destroyNCollectionBuffer*(this: var NCollectionBuffer) {.cdecl,
     importcpp: "#.~NCollection_Buffer()", dynlib: tkernel.}
-proc Data*(this: NCollection_Buffer): ptr Standard_Byte {.noSideEffect, cdecl,
+proc data*(this: NCollectionBuffer): ptr StandardByte {.noSideEffect, cdecl,
     importcpp: "Data", dynlib: tkernel.}
-proc ChangeData*(this: var NCollection_Buffer): ptr Standard_Byte {.cdecl,
+proc changeData*(this: var NCollectionBuffer): ptr StandardByte {.cdecl,
     importcpp: "ChangeData", dynlib: tkernel.}
-proc IsEmpty*(this: NCollection_Buffer): bool {.noSideEffect, cdecl,
+proc isEmpty*(this: NCollectionBuffer): bool {.noSideEffect, cdecl,
     importcpp: "IsEmpty", dynlib: tkernel.}
-proc Size*(this: NCollection_Buffer): csize_t {.noSideEffect, cdecl,
-    importcpp: "Size", dynlib: tkernel.}
-proc Allocator*(this: NCollection_Buffer): handle[NCollection_BaseAllocator] {.
+proc size*(this: NCollectionBuffer): csize_t {.noSideEffect, cdecl, importcpp: "Size",
+    dynlib: tkernel.}
+proc allocator*(this: NCollectionBuffer): Handle[NCollectionBaseAllocator] {.
     noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}
-proc SetAllocator*(this: var NCollection_Buffer;
-                  theAlloc: handle[NCollection_BaseAllocator]) {.cdecl,
+proc setAllocator*(this: var NCollectionBuffer;
+                  theAlloc: Handle[NCollectionBaseAllocator]) {.cdecl,
     importcpp: "SetAllocator", dynlib: tkernel.}
-proc Allocate*(this: var NCollection_Buffer; theSize: csize_t): bool {.cdecl,
+proc allocate*(this: var NCollectionBuffer; theSize: csize_t): bool {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Free*(this: var NCollection_Buffer) {.cdecl, importcpp: "Free", dynlib: tkernel.}
-proc DumpJson*(this: NCollection_Buffer; theOStream: var Standard_OStream;
+proc free*(this: var NCollectionBuffer) {.cdecl, importcpp: "Free", dynlib: tkernel.}
+proc dumpJson*(this: NCollectionBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  dynlib: tkernel.}
 type
-  NCollection_Bufferbase_type* = Standard_Transient
-  Handle_NCollection_Buffer* = handle[NCollection_Buffer]
+  NCollectionBufferbaseType* = StandardTransient
+  HandleNCollectionBuffer* = Handle[NCollectionBuffer]

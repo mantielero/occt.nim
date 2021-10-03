@@ -1,5 +1,5 @@
 #!/usr/bin/env nim
-import strutils
+import strutils,os
 let lib = "/usr/include/opencascade/"
 let c2nimFile = "ncollection.c2nim"
 let beg = """
@@ -11,46 +11,59 @@ else:
   const tkernel* = "libTKernel.so" 
 
 """
-proc genFiles( file:string;
+proc genFiles( infile:string;
                remove:seq[tuple[a,b:int]] = @[]; 
                addSemiColon:seq[int] = @[];
-               replaceAll:seq[tuple[sub,by:string]] =  @[]) =
-    cpFile(lib & file & ".hxx", file & ".hxx")
-
+               replaceAll:seq[tuple[sub,by:string]] = @[];
+               removeFuncBody:seq[tuple[a,b:int]] = @[]) =
+    var (dir, name, ext) = splitFile(infile)
+    if dir == "":
+      dir = lib
+    if ext == "":
+      ext = ".hxx"
+    cpFile(dir & name & ext, name & ".hxx")
+    var rem:seq[tuple[a,b:int]] = remove
+    var semiColon = addSemiColon
+    if removeFuncBody.len > 0:
+      for item in removeFuncBody:
+        rem &= item
+        semiColon &= item.a - 1
+    #echo semiColon
     # Replace text strings
     if replaceAll.len > 0:    
       for item in replaceAll:
-        var txt = readFile(file & ".hxx")        
+        var txt = readFile(name & ".hxx")        
         txt = txt.replace(item.sub, item.by)
-        writeFile(file & ".hxx", txt)
+        writeFile(name & ".hxx", txt)
 
 
     # Colons to add at the end of line
-    if addSemiColon.len > 0:
-        for line in addSemiColon:
+    if semiColon.len > 0:
+        for line in semiColon:
             var edit = "'" & $line & " s/$/;/i'"
-            edit = "sed -e " & edit & " -i " & file & ".hxx"
-
+            edit = "sed -e " & edit & " -i " & name & ".hxx"
             exec edit
 
     # Lines to remove from the header
-    if remove.len > 0:
+    if rem.len > 0:
         var edit = ""
         var n = 0
-        for item in remove:
+        for item in rem:
             edit &= $item.a & "," & $item.b & "d"
             n += 1
-            if n != remove.len:
+            if n != rem.len:
                 edit &= ";"
-        exec "sed -e '" & edit & "' -i " & file & ".hxx"
+        exec "sed -e '" & edit & "' -i " & name & ".hxx"
 
 
-    exec "c2nim --cpp --header --strict --out:" & file.toLower & ".nim " & c2nimFile & " " & file & ".hxx"
-    let txt = readFile(file.toLower & ".nim")
-    writeFile(file.toLower & ".nim", beg & txt)
-    #rmFile(file & ".hxx")
-    echo file
+    exec "c2nim --cpp --header --strict --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
+    let txt = readFile(name.toLower & ".nim")
+    writeFile(name.toLower & ".nim", beg & txt)
+    rmFile(name & ".hxx")
+    echo name
 
+
+#=====================================================
 
 
 # ls -l | cut -c 44-
@@ -191,9 +204,23 @@ genFiles("NCollection_Vec2",
 
 
 
-genFiles("NCollection_Vec3")
-genFiles("NCollection_Vec4")
-genFiles("NCollection_Vector")
+genFiles("NCollection_Vec3",
+  removeFuncBody = @[(23, 29), (185,188), (192,194), (198,203), (208,211), (215,219),
+   (223,228), (233,236), (240,243), (247,249), (253,257), (261,265), (269,273), (277,281),
+   (285, 288), (292, 295), (299,304), (308,313), (317,320), (325,328), (332,334), (338,340),
+   (345,347), (351,359),(363,367),(372,376),(384,386),(390,392), (396,398), (402,404),
+   (408,411)],
+   remove = @[(419, 431)]) #, addSemiColon = @[           184,       191,       197,       207,       214,       222]
+genFiles("NCollection_Vec4",
+  removeFuncBody = @[(178,183),(201,207),(212,215),(219,221),(225,231), (236,239), (243,249),(254,257),(261,266),(270,273),
+    (277,279),(283,287),(291,296),(300,305),(390,314), (318,323), (336,341),(345,351),(355,361),
+    (365,368), (373,376),(380,383)],
+    remove = @[(391,403)]
+)
+genFiles("NCollection_Vector",
+  removeFuncBody = @[(326,353), (359,389)]
+)
 genFiles("NCollection_WinHeapAllocator")
 
-genFiles("NCollection_Haft.h")
+
+# genFiles("NCollection_Haft.h")   # IGNORE: only for C++/CLI under C#

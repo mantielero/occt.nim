@@ -200,4 +200,13 @@ DEFINE_STANDARD_HANDLE (_HUBTREE, _HPARENT)
 #def NCOLLECTION_VEC_COMPONENTS_2D(theX, theY) \
   const NCollection_Vec2<Element_t> theX##theY() const; \
   const NCollection_Vec2<Element_t> theY##theX() const;
+
+#def NCOLLECTION_VEC_COMPONENTS_3D(theX, theY, theZ) \
+  const NCollection_Vec3<Element_t> theX##theY##theZ() const; \
+  const NCollection_Vec3<Element_t> theX##theZ##theY() const; \
+  const NCollection_Vec3<Element_t> theY##theX##theZ() const; \
+  const NCollection_Vec3<Element_t> theY##theZ##theX() const; \
+  const NCollection_Vec3<Element_t> theZ##theY##theX() const; \
+  const NCollection_Vec3<Element_t> theZ##theX##theY() const;
+  
 #endif

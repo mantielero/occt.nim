@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -27,31 +20,17 @@ else:
 ##
 
 type
-  Standard_MMgrRaw* {.importcpp: "Standard_MMgrRaw",
-                     header: "Standard_MMgrRaw.hxx", bycopy.} = object of Standard_MMgrRoot ##
-                                                                                     ## !
-                                                                                     ## Constructor;
-                                                                                     ## if
-                                                                                     ## aClear
-                                                                                     ## is
-                                                                                     ## True,
-                                                                                     ## the
-                                                                                     ## memory
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ## nullified
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## upon
-                                                                                     ## allocation.
+  StandardMMgrRaw* {.importcpp: "Standard_MMgrRaw", header: "Standard_MMgrRaw.hxx",
+                    bycopy.} = object of StandardMMgrRoot ## ! Constructor; if aClear is True, the memory will be nullified
+                                                     ## ! upon allocation.
     ## ! Option to nullify allocated memory
 
 
-proc constructStandard_MMgrRaw*(aClear: Standard_Boolean = Standard_False): Standard_MMgrRaw {.
+proc constructStandardMMgrRaw*(aClear: StandardBoolean = false): StandardMMgrRaw {.
     cdecl, constructor, importcpp: "Standard_MMgrRaw(@)", dynlib: tkernel.}
-proc Allocate*(this: var Standard_MMgrRaw; aSize: csize_t): pointer {.cdecl,
+proc allocate*(this: var StandardMMgrRaw; aSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Reallocate*(this: var Standard_MMgrRaw; thePtr: pointer; theSize: csize_t): pointer {.
+proc reallocate*(this: var StandardMMgrRaw; thePtr: pointer; theSize: csize_t): pointer {.
     cdecl, importcpp: "Reallocate", dynlib: tkernel.}
-proc Free*(this: var Standard_MMgrRaw; thePtr: pointer) {.cdecl, importcpp: "Free",
+proc free*(this: var StandardMMgrRaw; thePtr: pointer) {.cdecl, importcpp: "Free",
     dynlib: tkernel.}

@@ -11,7 +11,7 @@ else:
   const tkernel* = "libTKernel.so" 
 
 """
-proc genFiles( infile:string;
+proc genFiles*( infile:string;
                remove:seq[tuple[a,b:int]] = @[]; 
                addSemiColon:seq[int] = @[];
                replaceAll:seq[tuple[sub,by:string]] = @[];
@@ -63,6 +63,27 @@ proc genFiles( infile:string;
     echo name
 
 
+proc pp*(file:string,
+        insert:seq[tuple[line:int;value:string]] = @[],
+        comment:seq[int] = @[] ) =
+  var lines = file.readFile.splitLines
+
+  # Comment lines
+  for i in 0..<lines.len:
+    if i+1 in comment:
+      lines[i] = "#" & lines[i]
+
+  # Insert lines
+  var n = 0
+  for item in insert:
+    var tmp1 = lines[0 .. item.line - 1 + n] 
+    var tmp2 = lines[item.line + n .. lines.len-1]
+    lines = tmp1 & item.value & tmp2
+    n += 1
+  writeFile( file, lines.join("\n"))
+  
+  
+
 #=====================================================
 
 
@@ -72,6 +93,9 @@ genFiles("NCollection_AlignedAllocator")
 genFiles("NCollection_Array1")
 genFiles("NCollection_Array2", remove= @[(390,423)])
 genFiles("NCollection_BaseAllocator", remove = @[(30,32),(49,81)])
+pp("ncollection_baseallocator.nim",
+  insert = @[(7, "import ../standard/standard_transient")])
+
 genFiles("NCollection_BaseList")
 genFiles("NCollection_BaseMap")
 genFiles("NCollection_BaseSequence")
@@ -108,6 +132,8 @@ genFiles("NCollection_Handle")
 genFiles("NCollection_HArray1")
 genFiles("NCollection_HArray2")
 genFiles("NCollection_HeapAllocator")
+pp("ncollection_heapallocator.nim", insert = @[(7, "import ncollection_baseallocator")])
+
 genFiles("NCollection_HSequence")    # Ignored: #assumedef NCollection_HSequence_HeaderFile
 genFiles("NCollection_IncAllocator")
 genFiles("NCollection_IndexedDataMap",
@@ -224,3 +250,22 @@ genFiles("NCollection_WinHeapAllocator")
 
 
 # genFiles("NCollection_Haft.h")   # IGNORE: only for C++/CLI under C#
+
+# Create the import/export file (to be modified manually)
+var txt = ""
+var exp = "\n\nexport "
+for path in listFiles("./"):
+  var (dir, name, ext) = splitFile(path)
+
+
+  if ext == ".nim" and name != "gen":
+    txt &= "import " & name & "\n"
+    exp &= name & ", "
+  #txt &= exp
+
+var beggining = "{.passL:\"-lTKernel\".}\n"
+beggining &= "{.passC:\"-I" & lib & "\" .}\n\n"
+
+writeFile("ncollection.nim", beggining & txt & exp)
+pp("ncollection.nim",
+   comment = @[5, 6])

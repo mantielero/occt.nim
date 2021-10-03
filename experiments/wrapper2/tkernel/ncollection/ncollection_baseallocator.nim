@@ -5,6 +5,7 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
+import ../standard/standard_transient
 ##  Created on: 2002-04-12
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS

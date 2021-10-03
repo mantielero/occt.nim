@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -33,10 +26,9 @@ else:
 ## ! #include <Standard_WarningsRestore.hxx>
 ## ! @endcode
 
-when defined(__clang__):
+when defined(clang):
   discard
-elif defined(_MSC_VER):
+elif defined(msc_Ver):
   discard
-elif defined(__GNUC__) and
-    (__GNUC__ > 4 or (__GNUC__ == 4 and __GNUC_MINOR__ >= 6)):
+elif defined(gnuc) and (gnuc > 4 or (gnuc == 4 and gnuc_Minor >= 6)):
   discard

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -21,26 +14,29 @@ else:
 ## !@file
 ## ! Functions working with plain C strings
 
+when defined(msc_Ver) and not defined(strcasecmp):
+  const
+    strcasecmp* = stricmp
 ##  C++ only definitions
 
 ## ! Equivalent of standard C function atof() that always uses C locale
 
-proc Atof*(theStr: cstring): cdouble {.cdecl, importcpp: "Atof(@)", dynlib: tkernel.}
+proc atof*(theStr: cstring): cdouble {.cdecl, importcpp: "Atof(@)", dynlib: tkernel.}
 ## ! Optimized equivalent of standard C function strtod() that always uses C locale
 
-proc Strtod*(theStr: cstring; theNextPtr: cstringArray): cdouble {.cdecl,
+proc strtod*(theStr: cstring; theNextPtr: cstringArray): cdouble {.cdecl,
     importcpp: "Strtod(@)", dynlib: tkernel.}
 ## ! Equivalent of standard C function printf() that always uses C locale
 
-proc Printf*(theFormat: cstring): cint {.varargs, cdecl, importcpp: "Printf(@)",
+proc printf*(theFormat: cstring): cint {.varargs, cdecl, importcpp: "Printf(@)",
                                      dynlib: tkernel.}
 ## ! Equivalent of standard C function fprintf() that always uses C locale
 
-proc Fprintf*(theFile: ptr FILE; theFormat: cstring): cint {.varargs, cdecl,
+proc fprintf*(theFile: ptr File; theFormat: cstring): cint {.varargs, cdecl,
     importcpp: "Fprintf(@)", dynlib: tkernel.}
 ## ! Equivalent of standard C function sprintf() that always uses C locale
 
-proc Sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs, cdecl,
+proc sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs, cdecl,
     importcpp: "Sprintf(@)", dynlib: tkernel.}
 ## ! Equivalent of standard C function vsprintf() that always uses C locale.
 ## ! Note that this function does not check buffer bounds and should be used with precaution measures
@@ -50,5 +46,5 @@ proc Sprintf*(theBuffer: cstring; theFormat: cstring): cint {.varargs, cdecl,
 ## ! @param theArgList [in] argument list for specified format
 ## ! @return the total number of characters written, or a negative number on error
 
-proc Vsprintf*(theBuffer: cstring; theFormat: cstring; theArgList: va_list): cint {.
-    cdecl, importcpp: "Vsprintf(@)", dynlib: tkernel.}
+#proc vsprintf*(theBuffer: cstring; theFormat: cstring; theArgList: VaList): cint {.
+#    cdecl, importcpp: "Vsprintf(@)", dynlib: tkernel.}

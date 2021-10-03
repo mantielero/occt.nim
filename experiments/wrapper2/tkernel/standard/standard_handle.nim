@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -43,37 +36,37 @@ discard "forward decl of Standard_Transient"
 ## ! Weak pointers are not supported.
 
 type
-  handle*[T] {.importcpp: "opencascade::handle<\'0>",
+  Handle*[T] {.importcpp: "opencascade::handle<\'0>",
               header: "Standard_Handle.hxx", bycopy.} = object ## ! STL-compliant typedef of contained type
                                                           ## ! Empty constructor
 
-  handleelement_type*[T] = T
+  HandleelementType*[T] = T
 
-proc constructhandle*[T](): handle[T] {.cdecl, constructor,
+proc constructHandle*[T](): Handle[T] {.cdecl, constructor,
                                      importcpp: "opencascade::handle<\'*0>(@)",
                                      dynlib: tkernel.}
-proc constructhandle*[T](thePtr: ptr T): handle[T] {.cdecl, constructor,
+proc constructHandle*[T](thePtr: ptr T): Handle[T] {.cdecl, constructor,
     importcpp: "opencascade::handle<\'*0>(@)", dynlib: tkernel.}
-proc constructhandle*[T](theHandle: handle): handle[T] {.cdecl, constructor,
+proc constructHandle*[T](theHandle: Handle): Handle[T] {.cdecl, constructor,
     importcpp: "opencascade::handle<\'*0>(@)", dynlib: tkernel.}
-proc destroyhandle*[T](this: var handle[T]) {.cdecl, importcpp: "#.~handle()",
+proc destroyHandle*[T](this: var Handle[T]) {.cdecl, importcpp: "#.~handle()",
     dynlib: tkernel.}
-proc Nullify*[T](this: var handle[T]) {.cdecl, importcpp: "Nullify", dynlib: tkernel.}
-proc IsNull*[T](this: handle[T]): bool {.noSideEffect, cdecl, importcpp: "IsNull",
+proc nullify*[T](this: var Handle[T]) {.cdecl, importcpp: "Nullify", dynlib: tkernel.}
+proc isNull*[T](this: Handle[T]): bool {.noSideEffect, cdecl, importcpp: "IsNull",
                                      dynlib: tkernel.}
-proc reset*[T](this: var handle[T]; thePtr: ptr T) {.cdecl, importcpp: "reset",
+proc reset*[T](this: var Handle[T]; thePtr: ptr T) {.cdecl, importcpp: "reset",
     dynlib: tkernel.}
-proc get*[T](this: handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "get",
+proc get*[T](this: Handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "get",
                                   dynlib: tkernel.}
-proc `->`*[T](this: handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "(# -> #)",
+proc `->`*[T](this: Handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "(# -> #)",
                                    dynlib: tkernel.}
-proc `*`*[T](this: handle[T]): var T {.noSideEffect, cdecl, importcpp: "(* #)",
+proc `*`*[T](this: Handle[T]): var T {.noSideEffect, cdecl, importcpp: "(* #)",
                                   dynlib: tkernel.}
-proc `==`*[T; T2](this: handle[T]; theHandle: handle[T2]): bool {.noSideEffect, cdecl,
+proc `==`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, cdecl,
     importcpp: "(# == #)", dynlib: tkernel.}
-proc `==`*[T; T2](this: handle[T]; thePtr: ptr T2): bool {.noSideEffect, cdecl,
+proc `==`*[T; T2](this: Handle[T]; thePtr: ptr T2): bool {.noSideEffect, cdecl,
     importcpp: "(# == #)", dynlib: tkernel.}
-proc `<`*[T; T2](this: handle[T]; theHandle: handle[T2]): bool {.noSideEffect, cdecl,
+proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, cdecl,
     importcpp: "(# < #)", dynlib: tkernel.}
 ##  namespace opencascade
 ## ! Computes a hash code for the standard handle, in the range [1, theUpperBound]

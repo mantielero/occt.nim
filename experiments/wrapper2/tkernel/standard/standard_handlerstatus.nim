@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -22,8 +15,7 @@ else:
 ##  commercial license or contractual agreement.
 
 type
-  Standard_HandlerStatus* {.size: sizeof(cint),
-                           importcpp: "Standard_HandlerStatus",
-                           header: "Standard_HandlerStatus.hxx".} = enum
-    Standard_HandlerVoid, Standard_HandlerJumped, Standard_HandlerProcessed
+  StandardHandlerStatus* {.size: sizeof(cint), importcpp: "Standard_HandlerStatus",
+                          header: "Standard_HandlerStatus.hxx".} = enum
+    StandardHandlerVoid, StandardHandlerJumped, StandardHandlerProcessed
 

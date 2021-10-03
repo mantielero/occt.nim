@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2007-09-04
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -33,12 +26,12 @@ else:
 ## ! Increments atomically integer variable pointed by theValue
 ## ! and returns resulting incremented value.
 
-proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl,
+proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl,
     importcpp: "Standard_Atomic_Increment(@)", dynlib: tkernel.}
 ## ! Decrements atomically integer variable pointed by theValue
 ## ! and returns resulting decremented value.
 
-proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl,
+proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl,
     importcpp: "Standard_Atomic_Decrement(@)", dynlib: tkernel.}
 ## ! Perform an atomic compare and swap.
 ## ! That is, if the current value of *theValue is theOldValue, then write theNewValue into *theValue.
@@ -47,80 +40,82 @@ proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl,
 ## ! @param theNewValue new value to set in case if *theValue was equal to theOldValue
 ## ! @return TRUE if theNewValue has been set to *theValue
 
-proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                    theNewValue: cint): bool {.cdecl,
+proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+                                  theNewValue: cint): bool {.cdecl,
     importcpp: "Standard_Atomic_CompareAndSwap(@)", dynlib: tkernel.}
 ##  Platform-dependent implementation
 
-when defined(__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4) or defined(__EMSCRIPTEN__):
-  ##  gcc explicitly defines the macros __GCC_HAVE_SYNC_COMPARE_AND_SWAP_*
-  ##  starting with version 4.4+, although built-in functions
-  ##  are available since 4.1.x. However unless __GCC_HAVE_SYNC_COMPARE_AND_SWAP_*
-  ##  are defined, linking may fail without specifying -march option when
-  ##  building for 32bit architecture on 64bit (using -m32 option). To avoid
-  ##  making -march mandatory, check for __GCC_HAVE_SYNC_COMPARE_AND_SWAP_* is
-  ##  enforced.
-  proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                      theNewValue: cint): bool {.cdecl.} =
-    discard
-
-elif defined(_WIN32):
-  ##  WinAPI function or MSVC intrinsic
-  ##  Note that we safely cast int* to long*, as they have same size and endian-ness
-  proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                      theNewValue: cint): bool {.cdecl.} =
-    discard
-
-elif defined(__APPLE__):
-  ##  use atomic operations provided by MacOS
-  proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                      theNewValue: cint): bool {.cdecl.} =
-    discard
-
-elif defined(__ANDROID__):
-  ##  Atomic operations that were exported by the C library didn't
-  ##  provide any memory barriers, which created potential issues on
-  ##  multi-core devices. Starting from ndk version r7b they are defined as
-  ##  inlined calls to GCC sync builtins, which always provide a full barrier.
-  ##  It is strongly recommended to use newer versions of ndk.
-  proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                      theNewValue: cint): bool {.cdecl.} =
-    discard
-
-else:
-  when not defined(IGNORE_NO_ATOMICS):
-    discard
-  proc Standard_Atomic_Increment*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_Decrement*(theValue: ptr cint): cint {.cdecl.} =
-    discard
-
-  proc Standard_Atomic_CompareAndSwap*(theValue: ptr cint; theOldValue: cint;
-                                      theNewValue: cint): bool {.cdecl.} =
-    discard
+#when defined(gcc_Have_Sync_Compare_And_Swap_4) or defined(emscripten):
+#  ##  gcc explicitly defines the macros __GCC_HAVE_SYNC_COMPARE_AND_SWAP_*
+#  ##  starting with version 4.4+, although built-in functions
+#  ##  are available since 4.1.x. However unless __GCC_HAVE_SYNC_COMPARE_AND_SWAP_*
+#  ##  are defined, linking may fail without specifying -march option when
+#  ##  building for 32bit architecture on 64bit (using -m32 option). To avoid
+#  ##  making -march mandatory, check for __GCC_HAVE_SYNC_COMPARE_AND_SWAP_* is
+#  ##  enforced.
+#  proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+#                                    theNewValue: cint): bool {.cdecl.} =
+#    discard
+#
+#elif defined(win32):
+#  when defined(msc_Ver) and not defined(intel_Compiler):
+#    ##  force intrinsic instead of WinAPI calls
+#  ##  WinAPI function or MSVC intrinsic
+#  ##  Note that we safely cast int* to long*, as they have same size and endian-ness
+#  proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+#                                    theNewValue: cint): bool {.cdecl.} =
+#    discard
+#
+#elif defined(apple):
+#  ##  use atomic operations provided by MacOS
+#  proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+#                                    theNewValue: cint): bool {.cdecl.} =
+#    discard
+#
+#elif defined(android):
+#  ##  Atomic operations that were exported by the C library didn't
+#  ##  provide any memory barriers, which created potential issues on
+#  ##  multi-core devices. Starting from ndk version r7b they are defined as
+#  ##  inlined calls to GCC sync builtins, which always provide a full barrier.
+#  ##  It is strongly recommended to use newer versions of ndk.
+#  proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+#                                    theNewValue: cint): bool {.cdecl.} =
+#    discard
+#
+#else:
+#  when not defined(IGNORE_NO_ATOMICS):
+#    discard
+#  proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl.} =
+#    discard
+#
+#  proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
+#                                    theNewValue: cint): bool {.cdecl.} =
+#    discard
   

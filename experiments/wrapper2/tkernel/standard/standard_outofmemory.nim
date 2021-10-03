@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -23,8 +16,16 @@ else:
 
 discard "forward decl of Standard_OutOfMemory"
 type
-  Handle_Standard_OutOfMemory* = handle[Standard_OutOfMemory]
+  HandleStandardOutOfMemory* = Handle[StandardOutOfMemory]
 
+when not defined(noException) and not defined(noStandardOutOfMemory):
+  template standardOutOfMemoryRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardOutOfMemory*(a1: Message): Throw {.cdecl,
+          importcpp: "Standard_OutOfMemory(@)", dynlib: tkernel.}
+
+else:
+  discard
 ## ! Standard_OutOfMemory exception is defined explicitly and not by
 ## ! macro DEFINE_STANDARD_EXCEPTION, to avoid necessity of dynamic
 ## ! memory allocations during throwing and stack unwinding:
@@ -40,27 +41,27 @@ type
 ## ! is dangerous (can cause recursion until stack overflow, see #24836).
 
 type
-  Standard_OutOfMemory* {.importcpp: "Standard_OutOfMemory",
-                         header: "Standard_OutOfMemory.hxx", bycopy.} = object of Standard_ProgramError ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-                                                                                                 ## is
-                                                                                                 ## kept
-                                                                                                 ## public
-                                                                                                 ## for
-                                                                                                 ## backward
-                                                                                                 ## compatibility
+  StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
+                        header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError ##
+                                                                                               ## !
+                                                                                               ## Constructor
+                                                                                               ## is
+                                                                                               ## kept
+                                                                                               ## public
+                                                                                               ## for
+                                                                                               ## backward
+                                                                                               ## compatibility
 
 
-proc constructStandard_OutOfMemory*(theMessage: Standard_CString = 0): Standard_OutOfMemory {.
+proc constructStandardOutOfMemory*(theMessage: StandardCString = 0): StandardOutOfMemory {.
     cdecl, constructor, importcpp: "Standard_OutOfMemory(@)", dynlib: tkernel.}
-proc GetMessageString*(this: Standard_OutOfMemory): Standard_CString {.noSideEffect,
+proc getMessageString*(this: StandardOutOfMemory): StandardCString {.noSideEffect,
     cdecl, importcpp: "GetMessageString", dynlib: tkernel.}
-proc SetMessageString*(this: var Standard_OutOfMemory; aMessage: Standard_CString) {.
+proc setMessageString*(this: var StandardOutOfMemory; aMessage: StandardCString) {.
     cdecl, importcpp: "SetMessageString", dynlib: tkernel.}
-proc Raise*(theMessage: Standard_CString = "") {.cdecl,
+proc `raise`*(theMessage: StandardCString = "") {.cdecl,
     importcpp: "Standard_OutOfMemory::Raise(@)", dynlib: tkernel.}
-proc Raise*(theMessage: var Standard_SStream) {.cdecl,
+proc `raise`*(theMessage: var StandardSStream) {.cdecl,
     importcpp: "Standard_OutOfMemory::Raise(@)", dynlib: tkernel.}
-proc NewInstance*(theMessage: Standard_CString = ""): handle[Standard_OutOfMemory] {.
+proc newInstance*(theMessage: StandardCString = ""): Handle[StandardOutOfMemory] {.
     cdecl, importcpp: "Standard_OutOfMemory::NewInstance(@)", dynlib: tkernel.}

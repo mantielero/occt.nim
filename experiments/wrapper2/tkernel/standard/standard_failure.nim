@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: Philippe COICADAN
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -23,90 +16,44 @@ else:
 
 discard "forward decl of Standard_NoSuchObject"
 type
-  Standard_Failure* {.importcpp: "Standard_Failure",
-                     header: "Standard_Failure.hxx", bycopy.} = object of Standard_Transient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## status
-                                                                                      ## object
-                                                                                      ## of
-                                                                                      ## type
-                                                                                      ## "Failure".
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Used
-                                                                                      ## only
-                                                                                      ## if
-                                                                                      ## standard
-                                                                                      ## C++
-                                                                                      ## exceptions
-                                                                                      ## are
-                                                                                      ## used.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Throws
-                                                                                      ## exception
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## same
-                                                                                      ## type
-                                                                                      ## as
-                                                                                      ## this
-                                                                                      ## by
-                                                                                      ## C++
-                                                                                      ## throw,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## and
-                                                                                      ## stores
-                                                                                      ## current
-                                                                                      ## object
-                                                                                      ## as
-                                                                                      ## last
-                                                                                      ## thrown
-                                                                                      ## exception,
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## accessible
-                                                                                      ## by
-                                                                                      ## method
-                                                                                      ## Caught()
+  StandardFailure* {.importcpp: "Standard_Failure", header: "Standard_Failure.hxx",
+                    bycopy.} = object of StandardTransient ## ! Creates a status object of type "Failure".
+                                                      ## ! Used only if standard C++ exceptions are used.
+                                                      ## ! Throws exception of the same type as this by C++ throw,
+                                                      ## ! and stores current object as last thrown exception,
+                                                      ## ! to be accessible by method Caught()
 
 
-proc constructStandard_Failure*(): Standard_Failure {.cdecl, constructor,
+proc constructStandardFailure*(): StandardFailure {.cdecl, constructor,
     importcpp: "Standard_Failure(@)", dynlib: tkernel.}
-proc constructStandard_Failure*(f: Standard_Failure): Standard_Failure {.cdecl,
+proc constructStandardFailure*(f: StandardFailure): StandardFailure {.cdecl,
     constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
-proc constructStandard_Failure*(aString: Standard_CString): Standard_Failure {.
-    cdecl, constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
-proc destroyStandard_Failure*(this: var Standard_Failure) {.cdecl,
+proc constructStandardFailure*(aString: StandardCString): StandardFailure {.cdecl,
+    constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
+proc destroyStandardFailure*(this: var StandardFailure) {.cdecl,
     importcpp: "#.~Standard_Failure()", dynlib: tkernel.}
-proc Print*(this: Standard_Failure; theStream: var Standard_OStream) {.noSideEffect,
+proc print*(this: StandardFailure; theStream: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Print", dynlib: tkernel.}
-proc GetMessageString*(this: Standard_Failure): Standard_CString {.noSideEffect,
-    cdecl, importcpp: "GetMessageString", dynlib: tkernel.}
-proc SetMessageString*(this: var Standard_Failure; aMessage: Standard_CString) {.
-    cdecl, importcpp: "SetMessageString", dynlib: tkernel.}
-proc Reraise*(this: var Standard_Failure) {.cdecl, importcpp: "Reraise",
-                                        dynlib: tkernel.}
-proc Reraise*(this: var Standard_Failure; aMessage: Standard_CString) {.cdecl,
+proc getMessageString*(this: StandardFailure): StandardCString {.noSideEffect, cdecl,
+    importcpp: "GetMessageString", dynlib: tkernel.}
+proc setMessageString*(this: var StandardFailure; aMessage: StandardCString) {.cdecl,
+    importcpp: "SetMessageString", dynlib: tkernel.}
+proc reraise*(this: var StandardFailure) {.cdecl, importcpp: "Reraise", dynlib: tkernel.}
+proc reraise*(this: var StandardFailure; aMessage: StandardCString) {.cdecl,
     importcpp: "Reraise", dynlib: tkernel.}
-proc Reraise*(this: var Standard_Failure; aReason: Standard_SStream) {.cdecl,
+proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.cdecl,
     importcpp: "Reraise", dynlib: tkernel.}
-proc Raise*(aMessage: Standard_CString = "") {.cdecl,
+proc `raise`*(aMessage: StandardCString = "") {.cdecl,
     importcpp: "Standard_Failure::Raise(@)", dynlib: tkernel.}
-proc Raise*(aReason: Standard_SStream) {.cdecl,
-                                      importcpp: "Standard_Failure::Raise(@)",
-                                      dynlib: tkernel.}
-proc NewInstance*(aMessage: Standard_CString): handle[Standard_Failure] {.cdecl,
+proc `raise`*(aReason: StandardSStream) {.cdecl,
+                                       importcpp: "Standard_Failure::Raise(@)",
+                                       dynlib: tkernel.}
+proc newInstance*(aMessage: StandardCString): Handle[StandardFailure] {.cdecl,
     importcpp: "Standard_Failure::NewInstance(@)", dynlib: tkernel.}
-proc Jump*(this: var Standard_Failure) {.cdecl, importcpp: "Jump", dynlib: tkernel.}
-proc Caught*(): handle[Standard_Failure] {.cdecl, importcpp: "Standard_Failure::Caught(@)",
-                                        dynlib: tkernel.}
-proc `<<`*(AStream: var Standard_OStream; AFailure: handle[Standard_Failure]): var Standard_OStream {.
+proc jump*(this: var StandardFailure) {.cdecl, importcpp: "Jump", dynlib: tkernel.}
+proc caught*(): Handle[StandardFailure] {.cdecl, importcpp: "Standard_Failure::Caught(@)",
+                                       dynlib: tkernel.}
+proc `<<`*(aStream: var StandardOStream; aFailure: Handle[StandardFailure]): var StandardOStream {.
     cdecl, importcpp: "(# << #)", dynlib: tkernel.}
-proc `<<`*(AStream: var Standard_OStream; AFailure: Standard_Failure): var Standard_OStream {.
+proc `<<`*(aStream: var StandardOStream; aFailure: StandardFailure): var StandardOStream {.
     cdecl, importcpp: "(# << #)", dynlib: tkernel.}

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -42,100 +35,102 @@ else:
 ## ! @endcode
 
 type
-  Standard_ArrayStreamBuffer* {.importcpp: "Standard_ArrayStreamBuffer",
-                               header: "Standard_ArrayStreamBuffer.hxx", bycopy.} = object of streambuf ##
-                                                                                                 ## !
-                                                                                                 ## Main
-                                                                                                 ## constructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Passed
-                                                                                                 ## pointer
-                                                                                                 ## is
-                                                                                                 ## stored
-                                                                                                 ## as
-                                                                                                 ## is
-                                                                                                 ## (memory
-                                                                                                 ## is
-                                                                                                 ## NOT
-                                                                                                 ## copied
-                                                                                                 ## nor
-                                                                                                 ## released
-                                                                                                 ## with
-                                                                                                 ## destructor).
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theBegin
-                                                                                                 ## pointer
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## beggining
-                                                                                                 ## of
-                                                                                                 ## pre-allocated
-                                                                                                 ## buffer
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @param
-                                                                                                 ## theSize
-                                                                                                 ## length
-                                                                                                 ## of
-                                                                                                 ## pre-allocated
-                                                                                                 ## buffer
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Get
-                                                                                                 ## character
-                                                                                                 ## on
-                                                                                                 ## underflow.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Virtual
-                                                                                                 ## function
-                                                                                                 ## called
-                                                                                                 ## by
-                                                                                                 ## other
-                                                                                                 ## member
-                                                                                                 ## functions
-                                                                                                 ## to
-                                                                                                 ## get
-                                                                                                 ## the
-                                                                                                 ## current
-                                                                                                 ## character
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## in
-                                                                                                 ## the
-                                                                                                 ## controlled
-                                                                                                 ## input
-                                                                                                 ## sequence
-                                                                                                 ## without
-                                                                                                 ## changing
-                                                                                                 ## the
-                                                                                                 ## current
-                                                                                                 ## position.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Read
-                                                                                                 ## a
-                                                                                                 ## bunch
-                                                                                                 ## of
-                                                                                                 ## bytes
-                                                                                                 ## at
-                                                                                                 ## once.
-                                                                                                 ##
-                                                                                                 ## copying
-                                                                                                 ## is
-                                                                                                 ## not
-                                                                                                 ## allowed
+  Streambuf* {.importcpp:"std::streambuf".} = object of RootObj
+  Streamsize* {.importcpp:"std::streamsize".} = object
+  StandardArrayStreamBuffer* {.importcpp: "Standard_ArrayStreamBuffer",
+                              header: "Standard_ArrayStreamBuffer.hxx", bycopy.} = object of Streambuf ##
+                                                                                                ## !
+                                                                                                ## Main
+                                                                                                ## constructor.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Passed
+                                                                                                ## pointer
+                                                                                                ## is
+                                                                                                ## stored
+                                                                                                ## as
+                                                                                                ## is
+                                                                                                ## (memory
+                                                                                                ## is
+                                                                                                ## NOT
+                                                                                                ## copied
+                                                                                                ## nor
+                                                                                                ## released
+                                                                                                ## with
+                                                                                                ## destructor).
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theBegin
+                                                                                                ## pointer
+                                                                                                ## to
+                                                                                                ## the
+                                                                                                ## beggining
+                                                                                                ## of
+                                                                                                ## pre-allocated
+                                                                                                ## buffer
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## @param
+                                                                                                ## theSize
+                                                                                                ## length
+                                                                                                ## of
+                                                                                                ## pre-allocated
+                                                                                                ## buffer
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Get
+                                                                                                ## character
+                                                                                                ## on
+                                                                                                ## underflow.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Virtual
+                                                                                                ## function
+                                                                                                ## called
+                                                                                                ## by
+                                                                                                ## other
+                                                                                                ## member
+                                                                                                ## functions
+                                                                                                ## to
+                                                                                                ## get
+                                                                                                ## the
+                                                                                                ## current
+                                                                                                ## character
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## in
+                                                                                                ## the
+                                                                                                ## controlled
+                                                                                                ## input
+                                                                                                ## sequence
+                                                                                                ## without
+                                                                                                ## changing
+                                                                                                ## the
+                                                                                                ## current
+                                                                                                ## position.
+                                                                                                ##
+                                                                                                ## !
+                                                                                                ## Read
+                                                                                                ## a
+                                                                                                ## bunch
+                                                                                                ## of
+                                                                                                ## bytes
+                                                                                                ## at
+                                                                                                ## once.
+                                                                                                ##
+                                                                                                ## copying
+                                                                                                ## is
+                                                                                                ## not
+                                                                                                ## allowed
 
 
-proc constructStandard_ArrayStreamBuffer*(theBegin: cstring; theSize: csize_t): Standard_ArrayStreamBuffer {.
+proc constructStandardArrayStreamBuffer*(theBegin: cstring; theSize: csize_t): StandardArrayStreamBuffer {.
     cdecl, constructor, importcpp: "Standard_ArrayStreamBuffer(@)", dynlib: tkernel.}
-proc destroyStandard_ArrayStreamBuffer*(this: var Standard_ArrayStreamBuffer) {.
-    cdecl, importcpp: "#.~Standard_ArrayStreamBuffer()", dynlib: tkernel.}
-proc Init*(this: var Standard_ArrayStreamBuffer; theBegin: cstring; theSize: csize_t) {.
+proc destroyStandardArrayStreamBuffer*(this: var StandardArrayStreamBuffer) {.cdecl,
+    importcpp: "#.~Standard_ArrayStreamBuffer()", dynlib: tkernel.}
+proc init*(this: var StandardArrayStreamBuffer; theBegin: cstring; theSize: csize_t) {.
     cdecl, importcpp: "Init", dynlib: tkernel.}
-proc xsgetn*(this: var Standard_ArrayStreamBuffer; thePtr: cstring;
-            theCount: streamsize): streamsize {.cdecl, importcpp: "xsgetn",
+proc xsgetn*(this: var StandardArrayStreamBuffer; thePtr: cstring;
+            theCount: Streamsize): Streamsize {.cdecl, importcpp: "xsgetn",
     dynlib: tkernel.}

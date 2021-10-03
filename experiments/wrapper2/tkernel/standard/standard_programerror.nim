@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -23,4 +16,13 @@ else:
 
 discard "forward decl of Standard_ProgramError"
 type
-  Handle_Standard_ProgramError* = handle[Standard_ProgramError]
+  HandleStandardProgramError* = Handle[StandardProgramError]
+
+when not defined(noException) and not defined(noStandardProgramError):
+  template standardProgramErrorRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardProgramError*(a1: Message): Throw {.cdecl,
+          importcpp: "Standard_ProgramError(@)", dynlib: tkernel.}
+
+else:
+  discard

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,4 +12,4 @@ else:
 ##  commercial license or contractual agreement.
 
 type
-  Standard_PExtCharacter* = ptr Standard_ExtCharacter
+  StandardPExtCharacter* = ptr StandardExtCharacter

@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -26,24 +19,24 @@ else:
 ## ! This class provides interface similar to WinAPI Event objects.
 
 type
-  Standard_Condition* {.importcpp: "Standard_Condition",
-                       header: "Standard_Condition.hxx", bycopy.} = object ## ! Default
-                                                                      ## constructor.
-                                                                      ## ! @param theIsSet Initial flag state
-                                                                      ## ! This method should not be called
-                                                                      ## (prohibited).
+  StandardCondition* {.importcpp: "Standard_Condition",
+                      header: "Standard_Condition.hxx", bycopy.} = object ## ! Default
+                                                                     ## constructor.
+                                                                     ## ! @param theIsSet Initial flag state
+                                                                     ## ! This method should not be called
+                                                                     ## (prohibited).
 
 
-proc constructStandard_Condition*(theIsSet: bool): Standard_Condition {.cdecl,
+proc constructStandardCondition*(theIsSet: bool): StandardCondition {.cdecl,
     constructor, importcpp: "Standard_Condition(@)", dynlib: tkernel.}
-proc destroyStandard_Condition*(this: var Standard_Condition) {.cdecl,
+proc destroyStandardCondition*(this: var StandardCondition) {.cdecl,
     importcpp: "#.~Standard_Condition()", dynlib: tkernel.}
-proc Set*(this: var Standard_Condition) {.cdecl, importcpp: "Set", dynlib: tkernel.}
-proc Reset*(this: var Standard_Condition) {.cdecl, importcpp: "Reset", dynlib: tkernel.}
-proc Wait*(this: var Standard_Condition) {.cdecl, importcpp: "Wait", dynlib: tkernel.}
-proc Wait*(this: var Standard_Condition; theTimeMilliseconds: cint): bool {.cdecl,
+proc set*(this: var StandardCondition) {.cdecl, importcpp: "Set", dynlib: tkernel.}
+proc reset*(this: var StandardCondition) {.cdecl, importcpp: "Reset", dynlib: tkernel.}
+proc wait*(this: var StandardCondition) {.cdecl, importcpp: "Wait", dynlib: tkernel.}
+proc wait*(this: var StandardCondition; theTimeMilliseconds: cint): bool {.cdecl,
     importcpp: "Wait", dynlib: tkernel.}
-proc Check*(this: var Standard_Condition): bool {.cdecl, importcpp: "Check",
+proc check*(this: var StandardCondition): bool {.cdecl, importcpp: "Check",
     dynlib: tkernel.}
-proc CheckReset*(this: var Standard_Condition): bool {.cdecl, importcpp: "CheckReset",
+proc checkReset*(this: var StandardCondition): bool {.cdecl, importcpp: "CheckReset",
     dynlib: tkernel.}

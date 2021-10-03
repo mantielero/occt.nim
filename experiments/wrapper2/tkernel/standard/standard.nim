@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -30,18 +23,18 @@ type
                                                                        ## ! aSize - bytes to  allocate
 
 
-proc Allocate*(aSize: csize_t): pointer {.cdecl, importcpp: "Standard::Allocate(@)",
+proc allocate*(aSize: csize_t): pointer {.cdecl, importcpp: "Standard::Allocate(@)",
                                       dynlib: tkernel.}
-proc Free*(thePtr: pointer) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
-proc Free*[T](thePtr: ptr T) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
-proc Reallocate*(aStorage: pointer; aNewSize: csize_t): pointer {.cdecl,
+proc free*(thePtr: pointer) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
+proc free*[T](thePtr: ptr T) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
+proc reallocate*(aStorage: pointer; aNewSize: csize_t): pointer {.cdecl,
     importcpp: "Standard::Reallocate(@)", dynlib: tkernel.}
-proc AllocateAligned*(theSize: csize_t; theAlign: csize_t): pointer {.cdecl,
+proc allocateAligned*(theSize: csize_t; theAlign: csize_t): pointer {.cdecl,
     importcpp: "Standard::AllocateAligned(@)", dynlib: tkernel.}
-proc FreeAligned*(thePtrAligned: pointer) {.cdecl,
+proc freeAligned*(thePtrAligned: pointer) {.cdecl,
     importcpp: "Standard::FreeAligned(@)", dynlib: tkernel.}
-proc FreeAligned*[T](thePtrAligned: ptr T) {.cdecl,
+proc freeAligned*[T](thePtrAligned: ptr T) {.cdecl,
     importcpp: "Standard::FreeAligned(@)", dynlib: tkernel.}
-proc Purge*(): cint {.cdecl, importcpp: "Standard::Purge(@)", dynlib: tkernel.}
+proc purge*(): cint {.cdecl, importcpp: "Standard::Purge(@)", dynlib: tkernel.}
 ##  include definition of handle to make it always visible
 ##  (put at the and of the file due to cyclic dependency between headers)

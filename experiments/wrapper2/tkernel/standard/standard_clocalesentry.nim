@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2013-01-17
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -32,21 +25,22 @@ else:
 ## ! or OCCT wrappers to some C functions like Sprintf, Atof, Strtod.
 
 type
-  Standard_CLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
-                           header: "Standard_CLocaleSentry.hxx", bycopy.} = object ## !
-                                                                              ## Setup
-                                                                              ## current C
-                                                                              ## locale to
-                                                                              ## "C".
-                                                                              ## !
-                                                                              ## Copying
-                                                                              ## disallowed
+  StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
+                          header: "Standard_CLocaleSentry.hxx", bycopy.} = object ## !
+                                                                             ## Setup
+                                                                             ## current C
+                                                                             ## locale to
+                                                                             ## "C".
+                                                                             ## !
+                                                                             ## Copying
+                                                                             ## disallowed
     ## !< previous locale, platform-dependent pointer!
 
 
-proc constructStandard_CLocaleSentry*(): Standard_CLocaleSentry {.cdecl,
-    constructor, importcpp: "Standard_CLocaleSentry(@)", dynlib: tkernel.}
-proc destroyStandard_CLocaleSentry*(this: var Standard_CLocaleSentry) {.cdecl,
+proc constructStandardCLocaleSentry*(): StandardCLocaleSentry {.cdecl, constructor,
+    importcpp: "Standard_CLocaleSentry(@)", dynlib: tkernel.}
+proc destroyStandardCLocaleSentry*(this: var StandardCLocaleSentry) {.cdecl,
     importcpp: "#.~Standard_CLocaleSentry()", dynlib: tkernel.}
-proc GetCLocale*(): clocale_t {.cdecl, importcpp: "Standard_CLocaleSentry::GetCLocale(@)",
-                             dynlib: tkernel.}
+#proc getCLocale*(): ClocaleT {.cdecl,
+#                            importcpp: "Standard_CLocaleSentry::GetCLocale(@)",
+#                            dynlib: tkernel.}

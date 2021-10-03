@@ -7,13 +7,12 @@
 #assumedef No_Exception
 #assumedef _Standard_Byte_HeaderFile
 #assumedef _Standard_Integer_HeaderFile
-#assumedef _Standard_JmpBuf_HeaderFile
 #assumedef _Standard_Macro_HeaderFile
 #assumedef _Standard_ShortReal_HeaderFile
 #assumedef _Standard_Real_HeaderFile
 #assumedef _Standard_Size_HeaderFile
 #assumedef _Standard_Std_HeaderFile
-#assumedef _Standard_Type_HeaderFile
+
 #assumendef __has_cpp_attribute
 #def DEFINE_STANDARD_ALLOC
 #def Standard_EXPORT

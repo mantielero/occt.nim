@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -21,40 +14,36 @@ else:
 ## ! Auxiliary tool for buffered reading of lines from input stream.
 
 type
-  Standard_ReadLineBuffer* {.importcpp: "Standard_ReadLineBuffer",
-                            header: "Standard_ReadLineBuffer.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Constructor
-                                                                                ## with
-                                                                                ## initialization.
-                                                                                ##
-                                                                                ## !
-                                                                                ## @param
-                                                                                ## theMaxBufferSizeBytes
-                                                                                ## the
-                                                                                ## length
-                                                                                ## of
-                                                                                ## buffer
-                                                                                ## to
-                                                                                ## read
-                                                                                ## (in
-                                                                                ## bytes)
-                                                                                ##
-                                                                                ## !
-                                                                                ## Read
-                                                                                ## from
-                                                                                ## stl
-                                                                                ## stream.
-                                                                                ##
-                                                                                ## !
-                                                                                ## @return
-                                                                                ## true
-                                                                                ## if
-                                                                                ## reading
-                                                                                ## was
-                                                                                ## finished
-                                                                                ## without
-                                                                                ## errors.
+  StandardReadLineBuffer* {.importcpp: "Standard_ReadLineBuffer",
+                           header: "Standard_ReadLineBuffer.hxx", bycopy.} = object ## !
+                                                                               ## Constructor
+                                                                               ## with
+                                                                               ## initialization.
+                                                                               ## !
+                                                                               ## @param
+                                                                               ## theMaxBufferSizeBytes
+                                                                               ## the
+                                                                               ## length
+                                                                               ## of
+                                                                               ## buffer
+                                                                               ## to
+                                                                               ## read
+                                                                               ## (in
+                                                                               ## bytes)
+                                                                               ## !
+                                                                               ## Read
+                                                                               ## from
+                                                                               ## stl
+                                                                               ## stream.
+                                                                               ## !
+                                                                               ## @return
+                                                                               ## true
+                                                                               ## if
+                                                                               ## reading
+                                                                               ## was
+                                                                               ## finished
+                                                                               ## without
+                                                                               ## errors.
     ## !< Temp read buffer
     ## !< Part of last string of myReadBuffer
     ## !< Flag to use myReadBufferLastStr during next line reading
@@ -64,20 +53,20 @@ type
     ## !< The number of characters that were read last time from myReadBuffer.
 
 
-proc constructStandard_ReadLineBuffer*(theMaxBufferSizeBytes: csize_t): Standard_ReadLineBuffer {.
+proc constructStandardReadLineBuffer*(theMaxBufferSizeBytes: csize_t): StandardReadLineBuffer {.
     cdecl, constructor, importcpp: "Standard_ReadLineBuffer(@)", dynlib: tkernel.}
-proc destroyStandard_ReadLineBuffer*(this: var Standard_ReadLineBuffer) {.cdecl,
+proc destroyStandardReadLineBuffer*(this: var StandardReadLineBuffer) {.cdecl,
     importcpp: "#.~Standard_ReadLineBuffer()", dynlib: tkernel.}
-proc Clear*(this: var Standard_ReadLineBuffer) {.cdecl, importcpp: "Clear",
+proc clear*(this: var StandardReadLineBuffer) {.cdecl, importcpp: "Clear",
     dynlib: tkernel.}
-proc ReadLine*[Stream_T](this: var Standard_ReadLineBuffer; theStream: var Stream_T;
-                        theLineLength: var csize_t): cstring {.cdecl,
+proc readLine*[StreamT](this: var StandardReadLineBuffer; theStream: var StreamT;
+                       theLineLength: var csize_t): cstring {.cdecl,
     importcpp: "ReadLine", dynlib: tkernel.}
-proc ReadLine*[Stream_T](this: var Standard_ReadLineBuffer; theStream: var Stream_T;
-                        theLineLength: var csize_t; theReadData: var int64_t): cstring {.
+proc readLine*[StreamT](this: var StandardReadLineBuffer; theStream: var StreamT;
+                       theLineLength: var csize_t; theReadData: var int): cstring {.
     cdecl, importcpp: "ReadLine", dynlib: tkernel.}
-proc ToPutGapInMultiline*(this: Standard_ReadLineBuffer): bool {.noSideEffect, cdecl,
+proc toPutGapInMultiline*(this: StandardReadLineBuffer): bool {.noSideEffect, cdecl,
     importcpp: "ToPutGapInMultiline", dynlib: tkernel.}
-proc SetMultilineMode*(this: var Standard_ReadLineBuffer; theMultilineMode: bool;
+proc setMultilineMode*(this: var StandardReadLineBuffer; theMultilineMode: bool;
                       theToPutGap: bool = true) {.cdecl,
     importcpp: "SetMultilineMode", dynlib: tkernel.}

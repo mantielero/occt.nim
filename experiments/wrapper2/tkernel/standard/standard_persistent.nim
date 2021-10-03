@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -23,11 +16,11 @@ else:
 ## ! object oriented databases, now outdated.
 
 type
-  Standard_Persistent* {.importcpp: "Standard_Persistent",
-                        header: "Standard_Persistent.hxx", bycopy.} = object of Standard_Transient
+  StandardPersistent* {.importcpp: "Standard_Persistent",
+                       header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
 
-proc constructStandard_Persistent*(): Standard_Persistent {.cdecl, constructor,
+proc constructStandardPersistent*(): StandardPersistent {.cdecl, constructor,
     importcpp: "Standard_Persistent(@)", dynlib: tkernel.}
-proc TypeNum*(this: var Standard_Persistent): var cint {.cdecl, importcpp: "TypeNum",
+proc typeNum*(this: var StandardPersistent): var cint {.cdecl, importcpp: "TypeNum",
     dynlib: tkernel.}

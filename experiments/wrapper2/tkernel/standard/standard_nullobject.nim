@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -23,4 +16,13 @@ else:
 
 discard "forward decl of Standard_NullObject"
 type
-  Handle_Standard_NullObject* = handle[Standard_NullObject]
+  HandleStandardNullObject* = Handle[StandardNullObject]
+
+when not defined(noException) and not defined(noStandardNullObject):
+  template standardNullObjectRaiseIf*(condition, message: untyped): void =
+    if condition:
+      proc standardNullObject*(a1: Message): Throw {.cdecl,
+          importcpp: "Standard_NullObject(@)", dynlib: tkernel.}
+
+else:
+  discard

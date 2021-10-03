@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -62,42 +55,11 @@ else:
 ##
 
 type
-  Standard_MMgrOpt* {.importcpp: "Standard_MMgrOpt",
-                     header: "Standard_MMgrOpt.hxx", bycopy.} = object of Standard_MMgrRoot ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ## If
-                                                                                     ## aClear
-                                                                                     ## is
-                                                                                     ## True,
-                                                                                     ## the
-                                                                                     ## allocated
-                                                                                     ## emmory
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## nullified.
-                                                                                     ## For
-                                                                                     ## description
-                                                                                     ## of
-                                                                                     ## other
-                                                                                     ## parameters,
-                                                                                     ## see
-                                                                                     ## description
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## class
-                                                                                     ## above.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Internal
-                                                                                     ## -
-                                                                                     ## initialization
-                                                                                     ## of
-                                                                                     ## buffers
+  StandardMMgrOpt* {.importcpp: "Standard_MMgrOpt", header: "Standard_MMgrOpt.hxx",
+                    bycopy.} = object of StandardMMgrRoot ## ! Constructor. If aClear is True, the allocated emmory will be
+                                                     ## ! nullified. For description of other parameters, see description
+                                                     ## ! of the class above.
+                                                     ## ! Internal - initialization of buffers
     ## !< option to clear allocated memory
     ## !< last allocated index in the free blocks list
     ## !< free blocks list
@@ -113,25 +75,25 @@ type
     ## !< Mutex to protect small block pools data
 
 
-proc constructStandard_MMgrOpt*(aClear: Standard_Boolean = Standard_True;
-                               aMMap: Standard_Boolean = Standard_True;
-                               aCellSize: csize_t = 200; aNbPages: cint = 10000;
-                               aThreshold: csize_t = 40000): Standard_MMgrOpt {.
-    cdecl, constructor, importcpp: "Standard_MMgrOpt(@)", dynlib: tkernel.}
-proc destroyStandard_MMgrOpt*(this: var Standard_MMgrOpt) {.cdecl,
+proc constructStandardMMgrOpt*(aClear: StandardBoolean = true;
+                              aMMap: StandardBoolean = true;
+                              aCellSize: csize_t = 200; aNbPages: cint = 10000;
+                              aThreshold: csize_t = 40000): StandardMMgrOpt {.cdecl,
+    constructor, importcpp: "Standard_MMgrOpt(@)", dynlib: tkernel.}
+proc destroyStandardMMgrOpt*(this: var StandardMMgrOpt) {.cdecl,
     importcpp: "#.~Standard_MMgrOpt()", dynlib: tkernel.}
-proc Allocate*(this: var Standard_MMgrOpt; aSize: csize_t): pointer {.cdecl,
+proc allocate*(this: var StandardMMgrOpt; aSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Reallocate*(this: var Standard_MMgrOpt; thePtr: pointer; theSize: csize_t): pointer {.
+proc reallocate*(this: var StandardMMgrOpt; thePtr: pointer; theSize: csize_t): pointer {.
     cdecl, importcpp: "Reallocate", dynlib: tkernel.}
-proc Free*(this: var Standard_MMgrOpt; thePtr: pointer) {.cdecl, importcpp: "Free",
+proc free*(this: var StandardMMgrOpt; thePtr: pointer) {.cdecl, importcpp: "Free",
     dynlib: tkernel.}
-proc Purge*(this: var Standard_MMgrOpt; isDestroyed: Standard_Boolean): cint {.cdecl,
+proc purge*(this: var StandardMMgrOpt; isDestroyed: StandardBoolean): cint {.cdecl,
     importcpp: "Purge", dynlib: tkernel.}
 type
-  Standard_MMgrOptTPCallBackFunc* = proc (theIsAlloc: Standard_Boolean;
-                                       theStorage: pointer; theRoundSize: csize_t;
-                                       theSize: csize_t) {.cdecl.}
+  StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: StandardBoolean;
+                                      theStorage: pointer; theRoundSize: csize_t;
+                                      theSize: csize_t) {.cdecl.}
 
-proc SetCallBackFunction*(pFunc: Standard_MMgrOptTPCallBackFunc) {.cdecl,
+proc setCallBackFunction*(pFunc: StandardMMgrOptTPCallBackFunc) {.cdecl,
     importcpp: "Standard_MMgrOpt::SetCallBackFunction(@)", dynlib: tkernel.}

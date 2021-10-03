@@ -5,6 +5,7 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
+import ncollection_baseallocator
 ##  Created on: 2009-12-30
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS

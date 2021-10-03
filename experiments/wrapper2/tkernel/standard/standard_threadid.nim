@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2006-03-10
 ##  Created by: data exchange team
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -23,4 +16,4 @@ else:
 ##  Platform-independent definition of the thread identifier type
 
 type
-  Standard_ThreadId* = csize_t
+  StandardThreadId* = csize_t

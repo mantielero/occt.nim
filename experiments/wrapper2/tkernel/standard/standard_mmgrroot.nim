@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -26,18 +19,17 @@ else:
 ##
 
 type
-  Standard_MMgrRoot* {.importcpp: "Standard_MMgrRoot",
-                      header: "Standard_MMgrRoot.hxx", bycopy.} = object ## ! Virtual destructor; required for correct inheritance
+  StandardMMgrRoot* {.importcpp: "Standard_MMgrRoot",
+                     header: "Standard_MMgrRoot.hxx", bycopy.} = object of RootObj ## ! Virtual destructor; required for correct inheritance
 
 
-proc destroyStandard_MMgrRoot*(this: var Standard_MMgrRoot) {.cdecl,
+proc destroyStandardMMgrRoot*(this: var StandardMMgrRoot) {.cdecl,
     importcpp: "#.~Standard_MMgrRoot()", dynlib: tkernel.}
-proc Allocate*(this: var Standard_MMgrRoot; theSize: csize_t): pointer {.cdecl,
+proc allocate*(this: var StandardMMgrRoot; theSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Reallocate*(this: var Standard_MMgrRoot; thePtr: pointer; theSize: csize_t): pointer {.
+proc reallocate*(this: var StandardMMgrRoot; thePtr: pointer; theSize: csize_t): pointer {.
     cdecl, importcpp: "Reallocate", dynlib: tkernel.}
-proc Free*(this: var Standard_MMgrRoot; thePtr: pointer) {.cdecl, importcpp: "Free",
+proc free*(this: var StandardMMgrRoot; thePtr: pointer) {.cdecl, importcpp: "Free",
     dynlib: tkernel.}
-proc Purge*(this: var Standard_MMgrRoot;
-           isDestroyed: Standard_Boolean = Standard_False): cint {.cdecl,
-    importcpp: "Purge", dynlib: tkernel.}
+proc purge*(this: var StandardMMgrRoot; isDestroyed: StandardBoolean = false): cint {.
+    cdecl, importcpp: "Purge", dynlib: tkernel.}

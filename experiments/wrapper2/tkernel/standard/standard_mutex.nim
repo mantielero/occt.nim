@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2005-04-10
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -20,6 +13,10 @@ else:
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+when defined(win32):
+  discard
+else:
+  discard
 ## *
 ##  @brief Mutex: a class to synchronize access to shared data.
 ##
@@ -54,45 +51,45 @@ else:
 ##
 
 type
-  Standard_Mutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object of Callback ## *
-                                                                                                   ##  @brief Simple sentry class providing convenient interface to mutex.
-                                                                                                   ##
-                                                                                                   ##  Provides automatic locking and unlocking a mutex in its constructor
-                                                                                                   ##  and destructor, thus ensuring correct unlock of the mutex even in case of
-                                                                                                   ##  raising an exception or signal from the protected code.
-                                                                                                   ##
-                                                                                                   ##  Create instance of that class when entering critical section.
-                                                                                                   ##
-                                                                                                   ## ! Constructor: creates a mutex object and initializes it.
-                                                                                                   ## ! It is strongly recommended that mutexes were created as
-                                                                                                   ## ! static objects whenever possible.
-                                                                                                   ## ! Callback method to unlock the mutex if OCC exception or signal is raised
-    when (defined(_WIN32) or defined(__WIN32__)):
-      discard
-    when not (defined(_WIN32) or defined(__WIN32__)):
-      discard
+  StandardMutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object #of Callback ## *
+                                                                                                  ##  @brief Simple sentry class providing convenient interface to mutex.
+                                                                                                  ##
+                                                                                                  ##  Provides automatic locking and unlocking a mutex in its constructor
+                                                                                                  ##  and destructor, thus ensuring correct unlock of the mutex even in case of
+                                                                                                  ##  raising an exception or signal from the protected code.
+                                                                                                  ##
+                                                                                                  ##  Create instance of that class when entering critical section.
+                                                                                                  ##
+                                                                                                  ## ! Constructor: creates a mutex object and initializes it.
+                                                                                                  ## ! It is strongly recommended that mutexes were created as
+                                                                                                  ## ! static objects whenever possible.
+                                                                                                  ## ! Callback method to unlock the mutex if OCC exception or signal is raised
+#    when (defined(win32) or defined(win32)):
+#      discard
+#    when not (defined(win32) or defined(win32)):
+#      discard
 
-  Standard_MutexSentry* {.importcpp: "Standard_Mutex::Sentry",
-                         header: "Standard_Mutex.hxx", bycopy.} = object ## ! Constructor - initializes the sentry object by reference to a
-                                                                    ## ! mutex (which must be initialized) and locks the mutex immediately
-                                                                    ## ! Lock the mutex
+  StandardMutexSentry* {.importcpp: "Standard_Mutex::Sentry",
+                        header: "Standard_Mutex.hxx", bycopy.} = object ## ! Constructor - initializes the sentry object by reference to a
+                                                                   ## ! mutex (which must be initialized) and locks the mutex immediately
+                                                                   ## ! Lock the mutex
 
 
-proc constructStandard_MutexSentry*(theMutex: var Standard_Mutex): Standard_MutexSentry {.
+proc constructStandardMutexSentry*(theMutex: var StandardMutex): StandardMutexSentry {.
     cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", dynlib: tkernel.}
-proc constructStandard_MutexSentry*(theMutex: ptr Standard_Mutex): Standard_MutexSentry {.
+proc constructStandardMutexSentry*(theMutex: ptr StandardMutex): StandardMutexSentry {.
     cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", dynlib: tkernel.}
-proc destroyStandard_MutexSentry*(this: var Standard_MutexSentry) {.cdecl,
+proc destroyStandardMutexSentry*(this: var StandardMutexSentry) {.cdecl,
     importcpp: "#.~Sentry()", dynlib: tkernel.}
-proc constructStandard_Mutex*(): Standard_Mutex {.cdecl, constructor,
+proc constructStandardMutex*(): StandardMutex {.cdecl, constructor,
     importcpp: "Standard_Mutex(@)", dynlib: tkernel.}
-proc destroyStandard_Mutex*(this: var Standard_Mutex) {.cdecl,
+proc destroyStandardMutex*(this: var StandardMutex) {.cdecl,
     importcpp: "#.~Standard_Mutex()", dynlib: tkernel.}
-proc Lock*(this: var Standard_Mutex) {.cdecl, importcpp: "Lock", dynlib: tkernel.}
-proc TryLock*(this: var Standard_Mutex): Standard_Boolean {.cdecl,
-    importcpp: "TryLock", dynlib: tkernel.}
-proc Unlock*(this: var Standard_Mutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}
+proc lock*(this: var StandardMutex) {.cdecl, importcpp: "Lock", dynlib: tkernel.}
+proc tryLock*(this: var StandardMutex): StandardBoolean {.cdecl, importcpp: "TryLock",
+    dynlib: tkernel.}
+proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}
 ##  Implementation of the method Unlock is inline, since it is
 ##  just a shortcut to system function
 
-proc Unlock*(this: var Standard_Mutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}
+#proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}

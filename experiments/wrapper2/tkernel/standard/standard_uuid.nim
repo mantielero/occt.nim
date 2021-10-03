@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -20,4 +13,10 @@ else:
 ##  commercial license or contractual agreement.
 
 type
-  Standard_UUID* = GUID
+  Guid* {.importcpp: "GUID", header: "Standard_UUID.hxx", bycopy.} = object
+    data1* {.importc: "Data1".}: culong
+    data2* {.importc: "Data2".}: cushort
+    data3* {.importc: "Data3".}: cushort
+    data4* {.importc: "Data4".}: array[8, cuchar]
+
+  StandardUUID* = Guid

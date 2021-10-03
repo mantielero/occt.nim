@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -24,12 +17,12 @@ else:
 ## ! @param theUpperBound the upper bound of the range a resulting hash code must be within
 ## ! @return a value of a computed hash code, in range [1, UpperBound]
 
-proc HashCode*(thePointer: pointer; theUpperBound: cint): cint {.cdecl.} =
+proc hashCode*(thePointer: pointer; theUpperBound: cint): cint {.cdecl.} =
   discard
 
 ## ============================================================================
 ##  IsEqual : Returns Standard_True if two CString have the same value
 ## ============================================================================
 
-proc IsEqual*(One: pointer; Two: pointer): Standard_Boolean {.cdecl.} =
+proc isEqual*(one: pointer; two: pointer): StandardBoolean {.cdecl.} =
   discard

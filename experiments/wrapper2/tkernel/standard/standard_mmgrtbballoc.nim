@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Created on: 2010-03-15
 ##  Created by: Sergey KUUL
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -28,31 +21,31 @@ else:
 ## ! malloc() / free() are used.
 
 type
-  Standard_MMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
-                          header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of Standard_MMgrRoot ##
-                                                                                               ## !
-                                                                                               ## Constructor;
-                                                                                               ## if
-                                                                                               ## aClear
-                                                                                               ## is
-                                                                                               ## True,
-                                                                                               ## the
-                                                                                               ## memory
-                                                                                               ## will
-                                                                                               ## be
-                                                                                               ## nullified
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## upon
-                                                                                               ## allocation.
+  StandardMMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
+                         header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of StandardMMgrRoot ##
+                                                                                             ## !
+                                                                                             ## Constructor;
+                                                                                             ## if
+                                                                                             ## aClear
+                                                                                             ## is
+                                                                                             ## True,
+                                                                                             ## the
+                                                                                             ## memory
+                                                                                             ## will
+                                                                                             ## be
+                                                                                             ## nullified
+                                                                                             ##
+                                                                                             ## !
+                                                                                             ## upon
+                                                                                             ## allocation.
     ## ! Option to nullify allocated memory
 
 
-proc constructStandard_MMgrTBBalloc*(aClear: Standard_Boolean = Standard_False): Standard_MMgrTBBalloc {.
+proc constructStandardMMgrTBBalloc*(aClear: StandardBoolean = false): StandardMMgrTBBalloc {.
     cdecl, constructor, importcpp: "Standard_MMgrTBBalloc(@)", dynlib: tkernel.}
-proc Allocate*(this: var Standard_MMgrTBBalloc; aSize: csize_t): pointer {.cdecl,
+proc allocate*(this: var StandardMMgrTBBalloc; aSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
-proc Reallocate*(this: var Standard_MMgrTBBalloc; thePtr: pointer; theSize: csize_t): pointer {.
+proc reallocate*(this: var StandardMMgrTBBalloc; thePtr: pointer; theSize: csize_t): pointer {.
     cdecl, importcpp: "Reallocate", dynlib: tkernel.}
-proc Free*(this: var Standard_MMgrTBBalloc; thePtr: pointer) {.cdecl,
-    importcpp: "Free", dynlib: tkernel.}
+proc free*(this: var StandardMMgrTBBalloc; thePtr: pointer) {.cdecl, importcpp: "Free",
+    dynlib: tkernel.}

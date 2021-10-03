@@ -1,10 +1,3 @@
-when defined(windows):
-  const tkernel* = "TKernel.dll"
-elif defined(macosx):
-  const tkernel* = "libTKernel.dylib"
-else:
-  const tkernel* = "libTKernel.so" 
-
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -34,27 +27,27 @@ else:
 ##  ToExtCharacter : Returns an ExtCharacter from a Character
 ##  ------------------------------------------------------------------
 
-proc ToExtCharacter*(achar: Standard_Character): Standard_ExtCharacter {.cdecl.} =
+proc toExtCharacter*(achar: StandardCharacter): StandardExtCharacter {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  ToCharacter : Returns an Character from an ExtCharacter
 ##  ------------------------------------------------------------------
 
-proc ToCharacter*(achar: Standard_ExtCharacter): Standard_Character {.cdecl.} =
+proc toCharacter*(achar: StandardExtCharacter): StandardCharacter {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsAnAscii : Returns True if an ExtCharacter is in the "Ascii Range"
 ##  ------------------------------------------------------------------
 
-proc IsAnAscii*(achar: Standard_ExtCharacter): Standard_Boolean {.cdecl.} =
+proc isAnAscii*(achar: StandardExtCharacter): StandardBoolean {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc IsEqual*(One: Standard_ExtCharacter; Two: Standard_ExtCharacter): Standard_Boolean {.
+proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): StandardBoolean {.
     cdecl.} =
   discard

@@ -20,7 +20,7 @@
 
 type
   NCollectionListNode* {.importcpp: "NCollection_ListNode",
-                        header: "NCollection_ListNode.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+                        header: "NCollection_ListNode.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
                                                                          ## ! The only constructor
                                                                          ## ! operator= - forbidden
     ## !< Pointer to the next node

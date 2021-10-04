@@ -103,24 +103,61 @@ proc pp*(file:string,
 
 # ls -l | cut -c 44-
 genFiles("NCollection_AccAllocator", remove= @[(116,118)], addSemiColon = @[115])
+pp("ncollection_accallocator.nim",
+  replaceAll = @[("defaultBlockSize", "DefaultBlockSize")]
+)
+
 genFiles("NCollection_AlignedAllocator")
 genFiles("NCollection_Array1")
+pp("ncollection_array1.nim",
+  comment = @[131,132, 188,189,195,196],
+  replaceAll = @[("standardFalse", "false"), ("True", "true")],
+  insert = @[(47, """  PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object
+  RandomAccessIteratorTag* {.importcpp:"std::random_access_iterator_tag".} = object
+  TheItemType* = object
+  """)]
+  )
+
 genFiles("NCollection_Array2", remove= @[(390,423)])
+pp("ncollection_array2.nim",
+  commentRange = @[(170,172), (176,178)]
+)
+
 genFiles("NCollection_BaseAllocator", remove = @[(30,32),(49,81)])
 #[ pp("ncollection_baseallocator.nim",
   insert = @[(7, "import ../standard/standard_transient")]) ]#
 
 genFiles("NCollection_BaseList")
 genFiles("NCollection_BaseMap")
+pp("ncollection_basemap.nim",
+  replaceAll = @[("header: \"NCollection_BaseMap.hxx\", bycopy.} = object","header: \"NCollection_BaseMap.hxx\", bycopy.} = object of RootObj")]
+)
+
 genFiles("NCollection_BaseSequence")
+pp("ncollection_basesequence.nim",
+  replaceAll = @[("standardTrue", "true")]
+)
+
 genFiles("NCollection_BaseVector")
 genFiles("NCollection_Buffer")
 genFiles("NCollection_CellFilter", remove= @[(235,237), (239,239), (304, 309), (324, 336), (348,350), (353,353), (369,378), (399, 421), (442,465)], addSemiColon = @[303, 323, 347,352, 368, 398, 441])
+pp("ncollection_cellfilter.nim",
+  replaceAll = @[("NCollectionCellFilterTarget* = Target", "NCollectionCellFilterTarget* {.importcpp:\"typename Inspector::Target\".} = object"),
+                 ("NCollectionCellFilterPoint* = Point", "NCollectionCellFilterPoint* {.importcpp:\"typename Inspector::Point\".} = object"),
+                 ("theAlloc: Handle[NCollectionIncAllocator] = 0","theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)")
+  ]
+)
+
+
 genFiles("NCollection_DataMap", replaceAll = @[ ("class Hasher = NCollection_DefaultHasher<TheKeyType> >", "class Hasher >")],
           remove       = @[(76,79), (226, 244), (248,266), (277,301)], 
           addSemiColon = @[75,       225,        247,       276])
 pp("ncollection_datamap.nim",
-  replaceAll = @[("0L'i64", "0")]
+  replaceAll = @[("0L'i64", "0"),
+                 ("object of NCollectionDataMapIterator", "object of RootObj"),
+                 ("True", "true")],
+  comment = @[121,122],
+  insert = @[(35, "  ForwardIteratorTag* {.importcpp:\"std::forward_iterator_tag\".} = object")]
   )
 
 genFiles("NCollection_DefaultHasher")
@@ -157,10 +194,15 @@ genFiles("NCollection_Handle")
 genFiles("NCollection_HArray1")
 genFiles("NCollection_HArray2")
 genFiles("NCollection_HeapAllocator")
-pp("ncollection_heapallocator.nim", insert = @[(7, "import ncollection_baseallocator")])
+#pp("ncollection_heapallocator.nim", insert = @[(7, "import ncollection_baseallocator")])
 
 genFiles("NCollection_HSequence")    # Ignored: #assumedef NCollection_HSequence_HeaderFile
 genFiles("NCollection_IncAllocator")
+pp("ncollection_incallocator.nim",
+  insert = @[(1, "const\n  DefaultBlockSize:csize_t = 24600")],
+  replaceAll = @[("defaultBlockSize", "DefaultBlockSize")]
+)
+
 genFiles("NCollection_IndexedDataMap",
   replaceAll = @[("= NCollection_DefaultHasher<TheKeyType>", "")],
   remove = @[(81,84), (190,211), (255, 277), (367, 389)],
@@ -187,6 +229,10 @@ pp("ncollection_list.nim",
   )
 
 genFiles("NCollection_ListNode")
+pp("ncollection_listnode.nim",
+  replaceAll = @[("header: \"NCollection_ListNode.hxx\", bycopy.} = object", "header: \"NCollection_ListNode.hxx\", bycopy.} = object of RootObj")]
+)
+
 genFiles("NCollection_LocalArray",
   replaceAll = @[("= 1024> class NCollection_LocalArray", "> class NCollection_LocalArray")],
   remove = @[(18,19)])
@@ -218,6 +264,9 @@ genFiles("NCollection_SparseArrayBase",
   remove = @[(51,53), (55,55), (230,234)],
   addSemiColon = @[             229]
   )
+pp("ncollection_sparsearraybase.nim", 
+  comment = @[16,17])
+
 genFiles("NCollection_SparseArray", 
   remove = @[(254,256), (260,262)],
   addSemiColon = @[253, 259]
@@ -243,6 +292,10 @@ genFiles("NCollection_StlIterator",
   addSemiColon = @[63]
 )
 genFiles("NCollection_String")
+pp("ncollection_string.nim",
+  comment = @[16,17]
+)
+
 genFiles("NCollection_TListIterator")
 genFiles("NCollection_TListNode", remove = @[(41,44)], addSemiColon = @[40])
 genFiles("NCollection_TypeDef")  # Ignored: #assumedef NCollection_TypeDef_HeaderFile
@@ -276,11 +329,18 @@ genFiles("NCollection_UtfIterator",
   remove = @[(52,61), (63, 86), (163,165), (173,175), (177, 239)],
   addSemiColon = @[51, 162, 172]
   ) 
+pp("ncollection_utfiterator.nim",
+  comment = @[89,90]
+)
+
 genFiles("NCollection_UtfString", remove = @[(112,122), (229,240), (250, 338)], addSemiColon = @[228])  #<-------
+pp("ncollection_utfstring.nim",
+  comment = @[121,122]
+)
+
 genFiles("NCollection_Vec2", 
   remove = @[(24,26), (118,171), (209,211), (258,261), (265,267), (296, 299)],
   addSemiColon = @[               208,       257,       264,       295])
-
 
 
 genFiles("NCollection_Vec3",

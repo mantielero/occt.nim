@@ -9,7 +9,6 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
-import ../standard/standard_includes
 
 include ncollection_accallocator
 include ncollection_alignedallocator

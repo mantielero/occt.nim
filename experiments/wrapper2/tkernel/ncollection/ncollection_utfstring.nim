@@ -118,5 +118,5 @@ type
 
 ##  template implementation (inline methods)
 
-import
-  nCollectionUtfString
+#import
+#  nCollectionUtfString

@@ -42,7 +42,7 @@ type
     ##  Declaration of CASCADE RTTI
 
 
-proc constructNCollectionAccAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionAccAllocator {.
+proc constructNCollectionAccAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionAccAllocator {.
     cdecl, constructor, importcpp: "NCollection_AccAllocator(@)", dynlib: tkernel.}
 proc destroyNCollectionAccAllocator*(this: var NCollectionAccAllocator) {.cdecl,
     importcpp: "#.~NCollection_AccAllocator()", dynlib: tkernel.}

@@ -1,3 +1,5 @@
+const
+  DefaultBlockSize:csize_t = 24600
 ##  Created on: 2002-04-12
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -24,7 +26,7 @@ type
 
   NCollectionIncAllocatoralignedT* = pointer
 
-proc constructNCollectionIncAllocator*(theBlockSize: csize_t = defaultBlockSize): NCollectionIncAllocator {.
+proc constructNCollectionIncAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionIncAllocator {.
     cdecl, constructor, importcpp: "NCollection_IncAllocator(@)", dynlib: tkernel.}
 proc setThreadSafe*(this: var NCollectionIncAllocator; theIsThreadSafe: bool = true) {.
     cdecl, importcpp: "SetThreadSafe", dynlib: tkernel.}

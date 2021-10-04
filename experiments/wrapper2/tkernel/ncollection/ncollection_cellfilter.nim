@@ -225,24 +225,24 @@ type
                                                                                         ## new
                                                                                         ## one
 
-  NCollectionCellFilterTarget* = Target
-  NCollectionCellFilterPoint* = Point
+  NCollectionCellFilterTarget* {.importcpp:"typename Inspector::Target".} = object
+  NCollectionCellFilterPoint* {.importcpp:"typename Inspector::Point".} = object
 
 proc constructNCollectionCellFilter*[Inspector](theDim: cint;
-    theCellSize: StandardReal = 0; theAlloc: Handle[NCollectionIncAllocator] = 0): NCollectionCellFilter[
+    theCellSize: StandardReal = 0; theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[
     Inspector] {.cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
                 dynlib: tkernel.}
 proc constructNCollectionCellFilter*[Inspector](theCellSize: StandardReal = 0;
-    theAlloc: Handle[NCollectionIncAllocator] = 0): NCollectionCellFilter[Inspector] {.
+    theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[Inspector] {.
     cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
     dynlib: tkernel.}
 proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
                       theCellSize: StandardReal;
-                      theAlloc: Handle[NCollectionIncAllocator] = 0) {.cdecl,
+                      theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)) {.cdecl,
     importcpp: "Reset", dynlib: tkernel.}
 proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
                       theCellSize: var NCollectionArray1[StandardReal];
-                      theAlloc: Handle[NCollectionIncAllocator] = 0) {.cdecl,
+                      theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)) {.cdecl,
     importcpp: "Reset", dynlib: tkernel.}
 proc add*[Inspector](this: var NCollectionCellFilter[Inspector];
                     theTarget: NCollectionCellFilterTarget;

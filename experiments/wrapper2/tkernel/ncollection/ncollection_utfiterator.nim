@@ -86,5 +86,5 @@ type
 
 ##  template implementation
 
-import
-  nCollectionUtfIterator
+#import
+#  nCollectionUtfIterator

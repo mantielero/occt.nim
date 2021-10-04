@@ -29,7 +29,7 @@ type
 
 type
   NCollectionBaseMap* {.importcpp: "NCollection_BaseMap",
-                       header: "NCollection_BaseMap.hxx", bycopy.} = object ## ! Memory
+                       header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj ## ! Memory
                                                                        ## allocation
                                                                        ##
                                                                        ## **************************************** Class Iterator
@@ -50,7 +50,7 @@ type
     ##  ---------- FRIEND CLASSES ------------
 
   NCollectionBaseMapIterator* {.importcpp: "NCollection_BaseMap::Iterator",
-                               header: "NCollection_BaseMap.hxx", bycopy.} = object ## !
+                               header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj ## !
                                                                                ## Empty
                                                                                ## constructor
                                                                                ## !

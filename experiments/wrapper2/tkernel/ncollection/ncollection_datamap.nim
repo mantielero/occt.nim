@@ -32,6 +32,7 @@
 ##
 
 type
+  ForwardIteratorTag* {.importcpp:"std::forward_iterator_tag".} = object
   NCollectionDataMap*[TheKeyType; TheItemType; Hasher] {.
       importcpp: "NCollection_DataMap<\'0,\'1,\'2>",
       header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
@@ -89,7 +90,7 @@ proc delNode*[TheKeyType; TheItemType; Hasher](theNode: ptr NCollectionListNode;
 type
   NCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
       importcpp: "NCollection_DataMap<\'0,\'1,\'2>::Iterator",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionDataMapIterator ##
+      header: "NCollection_DataMap.hxx", bycopy.} = object of RootObj ##
                                                                                   ## !
                                                                                   ## Empty
                                                                                   ## constructor
@@ -118,10 +119,10 @@ proc key*[TheKeyType; TheItemType; Hasher](this: NCollectionDataMapIterator[
     TheKeyType, TheItemType, Hasher]): TheKeyType {.noSideEffect, cdecl,
     importcpp: "Key", dynlib: tkernel.}
 type
-  NCollectionDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionDataMapIterator, TheItemType, False]
+#  NCollectionDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
+#      NCollectionDataMapIterator, TheItemType, False]
   NCollectionDataMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionDataMapIterator, TheItemType, True]
+      NCollectionDataMapIterator, TheItemType, true]
 
 proc begin*[TheKeyType; TheItemType; Hasher](
     this: NCollectionDataMap[TheKeyType, TheItemType, Hasher]): NCollectionDataMapiterator {.
@@ -194,7 +195,7 @@ proc `()`*[TheKeyType; TheItemType; Hasher](
     cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc clear*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionDataMap[TheKeyType, TheItemType, Hasher];
-    doReleaseMemory: bool = standardTrue) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
+    doReleaseMemory: bool = standardtrue) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
 proc clear*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionDataMap[TheKeyType, TheItemType, Hasher];
     theAllocator: Handle[NCollectionBaseAllocator]) {.cdecl, importcpp: "Clear",

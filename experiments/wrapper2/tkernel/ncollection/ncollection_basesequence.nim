@@ -78,7 +78,7 @@ proc constructNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
     isStart: bool): NCollectionBaseSequenceIterator {.cdecl, constructor,
     importcpp: "NCollection_BaseSequence::Iterator(@)", dynlib: tkernel.}
 proc init*(this: var NCollectionBaseSequenceIterator;
-          theSeq: NCollectionBaseSequence; isStart: bool = standardTrue) {.cdecl,
+          theSeq: NCollectionBaseSequence; isStart: bool = true) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}
 proc previous*(this: var NCollectionBaseSequenceIterator) {.cdecl,
     importcpp: "Previous", dynlib: tkernel.}

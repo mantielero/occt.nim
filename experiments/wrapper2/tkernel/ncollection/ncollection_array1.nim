@@ -44,6 +44,10 @@
 ##
 
 type
+  PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object
+  RandomAccessIteratorTag* {.importcpp:"std::random_access_iterator_tag".} = object
+  TheItemType* = object
+  
   NCollectionArray1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
                                    header: "NCollection_Array1.hxx", bycopy.} = object ##
                                                                                   ## !
@@ -101,7 +105,7 @@ proc constructNCollectionArray1Iterator*[TheItemType](): NCollectionArray1Iterat
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
 proc constructNCollectionArray1Iterator*[TheItemType](
-    theArray: NCollectionArray1; theToEnd: bool = standardFalse): NCollectionArray1Iterator[
+    theArray: NCollectionArray1; theToEnd: bool = false): NCollectionArray1Iterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
@@ -128,10 +132,10 @@ proc isEqual*[TheItemType](this: NCollectionArray1Iterator[TheItemType];
                           theOther: NCollectionArray1Iterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 type
-  NCollectionArray1iterator* = NCollectionStlIterator[RandomAccessIteratorTag,
-      NCollectionArray1Iterator, TheItemType, False]
+#  NCollectionArray1iterator* = NCollectionStlIterator[RandomAccessIteratorTag,
+#      NCollectionArray1Iterator, TheItemType, False]
   NCollectionArray1constIterator* = NCollectionStlIterator[
-      RandomAccessIteratorTag, NCollectionArray1Iterator, TheItemType, True]
+      RandomAccessIteratorTag, NCollectionArray1Iterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1iterator {.
     noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
@@ -185,15 +189,15 @@ proc changeLast*[TheItemType](this: var NCollectionArray1[TheItemType]): var The
     cdecl, importcpp: "ChangeLast", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionArray1[TheItemType]; theIndex: cint): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollectionArray1[TheItemType]; theIndex: cint): TheItemType {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: NCollectionArray1[TheItemType]; theIndex: cint): TheItemType {.
+#    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc `[]`*[TheItemType](this: NCollectionArray1[TheItemType]; theIndex: cint): TheItemType {.
     noSideEffect, cdecl, importcpp: "#[@]", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionArray1[TheItemType];
                               theIndex: cint): var TheItemType {.cdecl,
     importcpp: "ChangeValue", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollectionArray1[TheItemType]; theIndex: cint): var TheItemType {.
-    cdecl, importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: var NCollectionArray1[TheItemType]; theIndex: cint): var TheItemType {.
+#    cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc `[]`*[TheItemType](this: var NCollectionArray1[TheItemType]; theIndex: cint): var TheItemType {.
     cdecl, importcpp: "#[@]", dynlib: tkernel.}
 proc setValue*[TheItemType](this: var NCollectionArray1[TheItemType];

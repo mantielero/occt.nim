@@ -27,7 +27,7 @@ type
     ## !< define the vector as array to avoid structure alignment issues
 
 
-proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec4::Length(@)",
+proc lengthV4*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec4::Length(@)",
                               dynlib: tkernel.}
 proc constructNCollectionVec4*[ElementT](): NCollectionVec4[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Vec4<\'*0>(@)", dynlib: tkernel.}
@@ -42,7 +42,7 @@ proc constructNCollectionVec4*[ElementT](theVec2: NCollectionVec2[ElementT]): NC
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec4<\'*0>(@)",
                dynlib: tkernel.}
 proc constructNCollectionVec4*[ElementT](theVec3: NCollectionVec3[ElementT];
-                                        theW: ElementT = elementT(0)): NCollectionVec4[
+                                        theW: ElementT = ElementT(0)): NCollectionVec4[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec4<\'*0>(@)",
                dynlib: tkernel.}
 proc constructNCollectionVec4*[ElementT; OtherElementT](

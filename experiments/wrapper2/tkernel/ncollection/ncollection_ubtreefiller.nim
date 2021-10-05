@@ -53,8 +53,8 @@ type
 
 proc constructNCollectionUBTreeFiller*[TheObjType; TheBndType](
     theTree: var NCollectionUBTreeFillerUBTree;
-    theAlloc: Handle[NCollectionBaseAllocator] = 0;
-    isFullRandom: bool = standardTrue): NCollectionUBTreeFiller[TheObjType,
+    theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0);
+    isFullRandom: bool = true): NCollectionUBTreeFiller[TheObjType,
     TheBndType] {.cdecl, constructor,
                  importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>(@)",
                  dynlib: tkernel.}

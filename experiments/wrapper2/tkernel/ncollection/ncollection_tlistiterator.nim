@@ -22,7 +22,7 @@
 type
   NCollectionTListIterator*[TheItemType] {.
       importcpp: "NCollection_TListIterator<\'0>",
-      header: "NCollection_TListIterator.hxx", bycopy.} = object of Iterator ## ! Empty
+      header: "NCollection_TListIterator.hxx", bycopy.} = object of NCollectionBaseListIterator ## ! Empty
                                                                       ## constructor - for later Init
 
 

@@ -25,15 +25,18 @@
 ##
 
 type
+  TheObjType* = object
+  TheBndType* = object
+  TreeNode* {.importcpp:"typename UBTree::TreeNode".} = object
   NCollectionEBTree*[TheObjType; TheBndType] {.
       importcpp: "NCollection_EBTree<\'0,\'1>", header: "NCollection_EBTree.hxx",
-      bycopy.} = object of NCollectionUBTree[TheObjType, TheBndType]
+      bycopy.} = object of RootObj
 
   NCollectionEBTreeUBTree* = NCollectionUBTree[TheObjType, TheBndType]
   NCollectionEBTreeTreeNode* = TreeNode
 
 proc constructNCollectionEBTree*[TheObjType; TheBndType](
-    theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionEBTree[
+    theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionEBTree[
     TheObjType, TheBndType] {.cdecl, constructor,
                             importcpp: "NCollection_EBTree<\'*0,\'*1>(@)",
                             dynlib: tkernel.}
@@ -50,7 +53,7 @@ proc findNode*[TheObjType; TheBndType](this: NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): NCollectionEBTreeTreeNode {.noSideEffect,
     cdecl, importcpp: "FindNode", dynlib: tkernel.}
 proc clear*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
-    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = 0) {.cdecl,
+    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
 ##  ================== METHODS TEMPLATES =====================
 ## =======================================================================

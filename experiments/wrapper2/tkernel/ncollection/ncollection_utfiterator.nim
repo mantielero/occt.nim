@@ -23,6 +23,8 @@
 ## ! synonym of "Unicode code point".
 
 type
+  StandardUtf32Char* = object
+  StandardWideChar*  = object
   NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
                                  header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
                                                                                      ## !
@@ -65,9 +67,9 @@ proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
                    theBuffer: ptr StandardUtf8Char): ptr StandardUtf8Char {.
     noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
 proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
-                   theBuffer: ptr StandardUtf8UChar): ptr StandardUtf8UChar {.
-    noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
-proc getUtf16*[Type](this: NCollectionUtfIterator[Type];
+#                   theBuffer: ptr StandardUtf8UChar): ptr StandardUtf8UChar {.
+#    noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
+#proc getUtf16*[Type](this: NCollectionUtfIterator[Type];
                     theBuffer: ptr StandardUtf16Char): ptr StandardUtf16Char {.
     noSideEffect, cdecl, importcpp: "GetUtf16", dynlib: tkernel.}
 proc getUtf32*[Type](this: NCollectionUtfIterator[Type];

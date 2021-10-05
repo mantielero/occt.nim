@@ -20,6 +20,7 @@
 ##
 
 type
+  TheValueType* = object
   NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
                                  header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
                                                                                                    ## !
@@ -46,10 +47,10 @@ type
   NCollectionListvalueType*[TheItemType] = TheItemType
   NCollectionListListNode* = NCollectionTListNode[TheItemType]
   NCollectionListIterator* = NCollectionTListIterator[TheItemType]
-  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, False]
+#  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
+#      NCollectionListIterator, TheItemType, False]
   NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, True]
+      NCollectionListIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
     noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
@@ -73,7 +74,7 @@ proc assign*[TheItemType](this: var NCollectionList[TheItemType];
                          theOther: NCollectionList): var NCollectionList {.cdecl,
     importcpp: "Assign", dynlib: tkernel.}
 proc clear*[TheItemType](this: var NCollectionList[TheItemType];
-                        theAllocator: Handle[NCollectionBaseAllocator] = 0) {.
+                        theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.
     cdecl, importcpp: "Clear", dynlib: tkernel.}
 proc first*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "First", dynlib: tkernel.}

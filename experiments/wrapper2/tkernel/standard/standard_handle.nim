@@ -37,7 +37,7 @@ discard "forward decl of Standard_Transient"
 
 type
   Handle*[T] {.importcpp: "opencascade::handle<\'0>",
-              header: "Standard_Handle.hxx", bycopy.} = object ## ! STL-compliant typedef of contained type
+              header: "Standard_Handle.hxx", bycopy.} = object of RootObj ## ! STL-compliant typedef of contained type
                                                           ## ! Empty constructor
 
   HandleelementType*[T] = T

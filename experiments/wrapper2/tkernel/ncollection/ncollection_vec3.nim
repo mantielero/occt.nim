@@ -26,8 +26,8 @@ type
     ## !< define the vector as array to avoid structure alignment issues
 
 
-proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
-                              dynlib: tkernel.}
+#proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
+#                              dynlib: tkernel.}
 proc constructNCollectionVec3*[ElementT](): NCollectionVec3[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
 proc constructNCollectionVec3*[ElementT](theValue: ElementT): NCollectionVec3[
@@ -37,7 +37,7 @@ proc constructNCollectionVec3*[ElementT](theX: ElementT; theY: ElementT;
                                         theZ: ElementT): NCollectionVec3[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
 proc constructNCollectionVec3*[ElementT](theVec2: NCollectionVec2[ElementT];
-                                        theZ: ElementT = elementT(0)): NCollectionVec3[
+                                        theZ: ElementT = ElementT(0)): NCollectionVec3[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
                dynlib: tkernel.}
 proc constructNCollectionVec3*[ElementT; OtherElementT](
@@ -159,11 +159,11 @@ proc cross*[ElementT](theVec1: NCollectionVec3; theVec2: NCollectionVec3): NColl
 proc getLERP*[ElementT](theFrom: NCollectionVec3; theTo: NCollectionVec3;
                        theT: ElementT): NCollectionVec3 {.cdecl,
     importcpp: "NCollection_Vec3::GetLERP(@)", dynlib: tkernel.}
-proc dx*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DX(@)",
+proc dxVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DX(@)",
                                      dynlib: tkernel.}
-proc dy*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DY(@)",
+proc dyVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DY(@)",
                                      dynlib: tkernel.}
-proc dz*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DZ(@)",
+proc dzVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DZ(@)",
                                      dynlib: tkernel.}
 proc dumpJson*[ElementT](this: NCollectionVec3[ElementT];
                         theOStream: var StandardOStream; theDepth: cint = -1) {.

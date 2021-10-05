@@ -69,13 +69,13 @@ proc key2*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: var NCollectionDoub
 proc next2*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: var NCollectionDoubleMapDoubleMapNode[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2]): ptr NCollectionDoubleMapDoubleMapNode {.
     cdecl, importcpp: "Next2", dynlib: tkernel.}
-proc delNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
-    theNode: ptr NCollectionListNode; theAl: var Handle[NCollectionBaseAllocator]) {.
-    cdecl, importcpp: "DoubleMapNode::delNode(@)", dynlib: tkernel.}
+#proc delNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
+#    theNode: ptr NCollectionListNode; theAl: var Handle[NCollectionBaseAllocator]) {.
+#    cdecl, importcpp: "DoubleMapNode::delNode(@)", dynlib: tkernel.}
 type
   NCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
       importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::Iterator",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionDoubleMapIterator ##
+      header: "NCollection_DoubleMap.hxx", bycopy.} = object of RootObj ##
                                                                                       ## !
                                                                                       ## Empty
                                                                                       ## constructor
@@ -109,7 +109,7 @@ proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
     importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
 proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
-    theNbBuckets: cint; theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionDoubleMap[
+    theNbBuckets: cint; theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionDoubleMap[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
     importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
 proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
@@ -175,7 +175,7 @@ proc seek2*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     dynlib: tkernel.}
 proc clear*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     this: var NCollectionDoubleMap[TheKey1Type, TheKey2Type, Hasher1, Hasher2];
-    doReleaseMemory: bool = standardTrue) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
+    doReleaseMemory: bool = true) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
 proc clear*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     this: var NCollectionDoubleMap[TheKey1Type, TheKey2Type, Hasher1, Hasher2];
     theAllocator: Handle[NCollectionBaseAllocator]) {.cdecl, importcpp: "Clear",

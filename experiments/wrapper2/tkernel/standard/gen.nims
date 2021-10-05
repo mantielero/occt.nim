@@ -143,6 +143,10 @@ genFiles("Standard_GUID")
 pp("standard_guid.nim", replaceAll = @[("standardGUID_SIZE + 1", "StandardGUID_SIZE + 1")])
 
 genFiles("Standard_Handle", remove = @[(152,154), (173,175), (180,182), (184,214), (216,398), (406,407), (413,417), (419,439)], addSemiColon = @[151, 172, 179,414]) #remove = @[(152,154), (173,175), (180,182)], addSemiColon = @[151, 172, 179] )#, remove = @[(159, 161)], addSemiColon = @[158])
+pp("standard_handle.nim",
+  replaceAll = @[("header: \"Standard_Handle.hxx\", bycopy.} = object", "header: \"Standard_Handle.hxx\", bycopy.} = object of RootObj")]
+)
+
 genFiles("Standard_HandlerStatus")
 genFiles("Standard_ImmutableObject")
 genFiles("Standard_Integer")  # Ignored: #assumedef _Standard_Integer_HeaderFile
@@ -238,7 +242,8 @@ genFiles("Standard_Time",  replaceAll = @[("__QNX__", "QNX")])
 genFiles("Standard_TooManyUsers")
 genFiles("Standard_Transient", remove = @[(117, 119)], addSemiColon = @[116])
 pp("standard_transient.nim",
-  replaceAll = @[("header: \"Standard_Transient.hxx\", bycopy.} = object","header: \"Standard_Transient.hxx\", bycopy.} = object of RootObj")])
+  replaceAll = @[("header: \"Standard_Transient.hxx\", bycopy.} = object","header: \"Standard_Transient.hxx\", bycopy.} = object of RootObj")]
+  )
 
 genFiles("Standard_TypeDef", replaceAll = @[("_WIN64", "WIN64")]) 
 pp("standard_typedef.nim",

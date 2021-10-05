@@ -33,6 +33,6 @@ proc value*[TheItemType](this: NCollectionTListNode[TheItemType]): TheItemType {
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionTListNode[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc delNode*[TheItemType](theNode: ptr NCollectionListNode;
-                          theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
-    importcpp: "NCollection_TListNode::delNode(@)", dynlib: tkernel.}
+#proc delNode*[TheItemType](theNode: ptr NCollectionListNode;
+#                          theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
+#    importcpp: "NCollection_TListNode::delNode(@)", dynlib: tkernel.}

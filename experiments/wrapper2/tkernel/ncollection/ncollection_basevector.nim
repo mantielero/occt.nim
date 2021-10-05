@@ -23,7 +23,7 @@ proc getCapacity*(theIncrement: cint): cint {.cdecl.} =
 
 type
   NCollectionBaseVector* {.importcpp: "NCollection_BaseVector",
-                          header: "NCollection_BaseVector.hxx", bycopy.} = object ## !
+                          header: "NCollection_BaseVector.hxx", bycopy.} = object of RootObj ## !
                                                                              ## Memory
                                                                              ## allocation
                                                                              ##

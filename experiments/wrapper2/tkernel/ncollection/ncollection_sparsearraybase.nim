@@ -24,7 +24,7 @@
 
 type
   NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
-                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object ## !@name Type-independent public interface
+                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object of RootObj ## !@name Type-independent public interface
                                                                                        ## !@{
                                                                                        ## ! Clears all the data
                                                                                        ## *
@@ -70,7 +70,7 @@ proc unsetValue*(this: var NCollectionSparseArrayBase; theIndex: csize_t): bool 
     cdecl, importcpp: "UnsetValue", dynlib: tkernel.}
 type
   NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
-                                       bycopy.} = object ##  Public interface
+                                       bycopy.} = object of RootObj ##  Public interface
                                                       ## ! Restart iterations on the same array
                                                       ##  Methods for descendant
                                                       ## ! Empty constructor

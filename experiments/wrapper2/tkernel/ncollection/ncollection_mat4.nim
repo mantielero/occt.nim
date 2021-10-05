@@ -129,13 +129,13 @@ proc convert*[ElementT; OtherT](this: var NCollectionMat4[ElementT];
     importcpp: "Convert", dynlib: tkernel.}
 proc map*[ElementT](theData: ptr ElementT): var NCollectionMat4[ElementT] {.cdecl,
     importcpp: "NCollection_Mat4::Map(@)", dynlib: tkernel.}
-proc map*[ElementT](theData: ptr ElementT): NCollectionMat4[ElementT] {.cdecl,
-    importcpp: "NCollection_Mat4::Map(@)", dynlib: tkernel.}
+#proc map*[ElementT](theData: ptr ElementT): NCollectionMat4[ElementT] {.cdecl,
+#    importcpp: "NCollection_Mat4::Map(@)", dynlib: tkernel.}
 proc dumpJson*[ElementT](this: NCollectionMat4[ElementT];
                         theOStream: var StandardOStream; a3: cint) {.noSideEffect,
     cdecl, importcpp: "DumpJson", dynlib: tkernel.}
-when defined(msc_Ver) and (msc_Ver >= 1900):
-  staticAssert(Value[NCollectionMat4[cfloat]],
-               "NCollection_Mat4 is not is_trivially_copyable() structure!")
-  staticAssert(Value[NCollectionMat4[cfloat]],
-               "NCollection_Mat4 is not is_standard_layout() structure!")
+#when defined(msc_Ver) and (msc_Ver >= 1900):
+#  staticAssert(Value[NCollectionMat4[cfloat]],
+#               "NCollection_Mat4 is not is_trivially_copyable() structure!")
+#  staticAssert(Value[NCollectionMat4[cfloat]],
+#               "NCollection_Mat4 is not is_standard_layout() structure!")

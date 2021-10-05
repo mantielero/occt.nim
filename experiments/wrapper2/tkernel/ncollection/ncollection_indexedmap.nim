@@ -75,8 +75,9 @@ proc isEqual*[TheKeyType; Hasher](this: NCollectionIndexedMapIterator[TheKeyType
     Hasher]; theOther: NCollectionIndexedMapIterator): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", dynlib: tkernel.}
 type
+  TheKeyType* = object
   NCollectionIndexedMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionIndexedMapIterator, TheKeyType, True]
+      NCollectionIndexedMapIterator, TheKeyType, true]
 
 proc cbegin*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher]): NCollectionIndexedMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
@@ -87,7 +88,7 @@ proc constructNCollectionIndexedMap*[TheKeyType; Hasher](): NCollectionIndexedMa
                         importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
 proc constructNCollectionIndexedMap*[TheKeyType; Hasher](theNbBuckets: cint;
-    theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionIndexedMap[
+    theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionIndexedMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
@@ -127,14 +128,14 @@ proc removeKey*[TheKeyType; Hasher](this: var NCollectionIndexedMap[TheKeyType,
 proc findKey*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher];
                                 theIndex: cint): TheKeyType {.noSideEffect, cdecl,
     importcpp: "FindKey", dynlib: tkernel.}
-proc `()`*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher];
-                             theIndex: cint): TheKeyType {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher];
+#                             theIndex: cint): TheKeyType {.noSideEffect, cdecl,
+#    importcpp: "#(@)", dynlib: tkernel.}
 proc findIndex*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher];
                                   theKey1: TheKeyType): cint {.noSideEffect, cdecl,
     importcpp: "FindIndex", dynlib: tkernel.}
 proc clear*[TheKeyType; Hasher](this: var NCollectionIndexedMap[TheKeyType, Hasher];
-                              doReleaseMemory: bool = standardTrue) {.cdecl,
+                              doReleaseMemory: bool = true) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
 proc clear*[TheKeyType; Hasher](this: var NCollectionIndexedMap[TheKeyType, Hasher];
                               theAllocator: Handle[NCollectionBaseAllocator]) {.

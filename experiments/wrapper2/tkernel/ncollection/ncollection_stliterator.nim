@@ -39,7 +39,7 @@ proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
                           dynlib: tkernel.}
 proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
                                      IsConstant: static[bool]](theIterator: NCollectionStlIterator[
-    Category, BaseIterator, ItemType, False]): NCollectionStlIterator[Category,
+    Category, BaseIterator, ItemType, false]): NCollectionStlIterator[Category,
     BaseIterator, ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
                                        dynlib: tkernel.}
 proc `iterator`*[Category; BaseIterator; ItemType; IsConstant: static[bool]](

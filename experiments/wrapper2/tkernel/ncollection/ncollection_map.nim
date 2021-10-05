@@ -117,7 +117,7 @@ proc key*[TheKeyType; Hasher](this: var NCollectionMapMapNode[TheKeyType, Hasher
 type
   NCollectionMapIterator*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::Iterator",
-      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionMapIterator ## ! Empty
+      header: "NCollection_Map.hxx", bycopy.} = object of RootObj ## ! Empty
                                                                           ## constructor
 
 
@@ -139,7 +139,7 @@ proc key*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]):
     noSideEffect, cdecl, importcpp: "Key", dynlib: tkernel.}
 type
   NCollectionMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionMapIterator, TheKeyType, True]
+      NCollectionMapIterator, TheKeyType, true]
 
 proc cbegin*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
@@ -149,7 +149,7 @@ proc constructNCollectionMap*[TheKeyType; Hasher](): NCollectionMap[TheKeyType,
     Hasher] {.cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>(@)",
              dynlib: tkernel.}
 proc constructNCollectionMap*[TheKeyType; Hasher](theNbBuckets: cint;
-    theAllocator: Handle[NCollectionBaseAllocator] = 0): NCollectionMap[
+    theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
@@ -178,7 +178,7 @@ proc remove*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                k: TheKeyType): bool {.cdecl, importcpp: "Remove",
     dynlib: tkernel.}
 proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
-                              doReleaseMemory: bool = standardTrue) {.cdecl,
+                              doReleaseMemory: bool = true) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
 proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               theAllocator: Handle[NCollectionBaseAllocator]) {.

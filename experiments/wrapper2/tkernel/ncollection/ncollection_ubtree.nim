@@ -165,7 +165,7 @@ proc select*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType, TheBndT
                                    theSelector: var NCollectionUBTreeSelector): cint {.
     noSideEffect, cdecl, importcpp: "Select", dynlib: tkernel.}
 proc clear*[TheObjType; TheBndType](this: var NCollectionUBTree[TheObjType,
-    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = 0) {.cdecl,
+    TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
   ##       { if (myRoot) delete myRoot; myRoot = 0L; }
 proc isEmpty*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType, TheBndType]): bool {.

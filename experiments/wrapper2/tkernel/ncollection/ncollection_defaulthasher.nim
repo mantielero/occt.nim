@@ -30,8 +30,8 @@ proc hashCodeProxy*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {
 ## purpose  : Default implementation of IsEqual via operator ==
 ## =======================================================================
 
-proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl.} =
-  discard
+#proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl.} =
+#  discard
 
 ## =======================================================================
 ## function : IsEqual_Proxy

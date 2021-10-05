@@ -163,15 +163,15 @@ proc destroyNCollectionSparseArray*[TheItemType](
 proc value*[TheItemType](this: NCollectionSparseArray[TheItemType];
                         theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
     importcpp: "Value", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollectionSparseArray[TheItemType];
-                       theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: NCollectionSparseArray[TheItemType];
+#                       theIndex: csize_t): TheItemType {.noSideEffect, cdecl,
+#    importcpp: "#(@)", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                               theIndex: csize_t): var TheItemType {.cdecl,
     importcpp: "ChangeValue", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollectionSparseArray[TheItemType];
-                       theIndex: csize_t): var TheItemType {.cdecl,
-    importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: var NCollectionSparseArray[TheItemType];
+#                       theIndex: csize_t): var TheItemType {.cdecl,
+#    importcpp: "#(@)", dynlib: tkernel.}
 proc setValue*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                            theIndex: csize_t; theValue: TheItemType): var TheItemType {.
     cdecl, importcpp: "SetValue", dynlib: tkernel.}
@@ -197,7 +197,7 @@ proc unBind*[TheItemType](this: var NCollectionSparseArray[TheItemType];
 type
   NCollectionSparseArrayConstIterator*[TheItemType] {.
       importcpp: "NCollection_SparseArray<\'0>::ConstIterator",
-      header: "NCollection_SparseArray.hxx", bycopy.} = object of Iterator ## ! Empty constructor - for later Init
+      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayBaseIterator ## ! Empty constructor - for later Init
 
 
 proc constructNCollectionSparseArrayConstIterator*[TheItemType](): NCollectionSparseArrayConstIterator[
@@ -214,8 +214,8 @@ proc init*[TheItemType](this: var NCollectionSparseArrayConstIterator[TheItemTyp
     importcpp: "Init", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): TheItemType {.
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): TheItemType {.
+#    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc key*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): csize_t {.
     noSideEffect, cdecl, importcpp: "Key", dynlib: tkernel.}
 type
@@ -245,7 +245,7 @@ proc init*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType];
     importcpp: "Init", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc `()`*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "#(@)", dynlib: tkernel.}
-proc `()`*[TheItemType](this: NCollectionSparseArrayIterator[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: var NCollectionSparseArrayIterator[TheItemType]): var TheItemType {.
+#    cdecl, importcpp: "#(@)", dynlib: tkernel.}
+#proc `()`*[TheItemType](this: NCollectionSparseArrayIterator[TheItemType]): TheItemType {.
+#    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}

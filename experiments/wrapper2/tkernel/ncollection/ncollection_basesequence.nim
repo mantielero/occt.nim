@@ -17,7 +17,7 @@
 
 type
   NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
-                       header: "NCollection_BaseSequence.hxx", bycopy.} = object ##  define new operator for use with NCollection allocators
+                       header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
 
 
 proc constructNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
@@ -41,7 +41,7 @@ type
 
 type
   NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
-                            header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
+                            header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##
                                                                                  ## !
                                                                                  ## Memory
                                                                                  ## allocation
@@ -63,7 +63,7 @@ type
                                                                                  ##
 
   NCollectionBaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
-                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object ##
+                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##
                                                                                          ## !
                                                                                          ## Empty
                                                                                          ## constructor

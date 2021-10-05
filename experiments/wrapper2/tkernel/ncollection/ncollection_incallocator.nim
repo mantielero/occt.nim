@@ -41,7 +41,7 @@ proc destroyNCollectionIncAllocator*(this: var NCollectionIncAllocator) {.cdecl,
 proc reallocate*(this: var NCollectionIncAllocator; anAddress: pointer;
                 oldSize: csize_t; newSize: csize_t): pointer {.cdecl,
     importcpp: "Reallocate", dynlib: tkernel.}
-proc reset*(this: var NCollectionIncAllocator; doReleaseMem: bool = standardTrue) {.
+proc reset*(this: var NCollectionIncAllocator; doReleaseMem: bool = true) {.
     cdecl, importcpp: "Reset", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 

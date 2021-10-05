@@ -29,7 +29,7 @@ type
 
 type
   NCollectionBaseList* {.importcpp: "NCollection_BaseList",
-                        header: "NCollection_BaseList.hxx", bycopy.} = object ## ! Memory
+                        header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ## ! Memory
                                                                          ## allocation
                                                                          ##
                                                                          ## ---------- PUBLIC METHODS
@@ -58,7 +58,7 @@ type
     ##  ------------ FRIEND CLASSES ------------
 
   NCollectionBaseListIterator* {.importcpp: "NCollection_BaseList::Iterator",
-                                header: "NCollection_BaseList.hxx", bycopy.} = object ##  ******** Empty constructor
+                                header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ##  ******** Empty constructor
     myCurrent* {.importc: "myCurrent".}: ptr NCollectionListNode ##  Pointer to the current node
     myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode ##  Pointer to the previous one
 

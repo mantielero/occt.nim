@@ -28,7 +28,7 @@ type
 proc constructGpElips2d*(): GpElips2d {.cdecl, constructor,
                                      importcpp: "gp_Elips2d(@)", dynlib: tkmath.}
 proc constructGpElips2d*(majorAxis: GpAx2d; majorRadius: cfloat; minorRadius: cfloat;
-                        sense: bool = standardTrue): GpElips2d {.cdecl, constructor,
+                        sense: bool = true): GpElips2d {.cdecl, constructor,
     importcpp: "gp_Elips2d(@)", dynlib: tkmath.}
 proc constructGpElips2d*(a: GpAx22d; majorRadius: cfloat; minorRadius: cfloat): GpElips2d {.
     cdecl, constructor, importcpp: "gp_Elips2d(@)", dynlib: tkmath.}

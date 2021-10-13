@@ -28,7 +28,7 @@ type
                                                                      ## constructor,
 
 
-proc interpolate*(theQStart: GpQuaternion; theQEnd: GpQuaternion; theT: cfloat): GpQuaternion {.
+proc interpolateSlerp*(theQStart: GpQuaternion; theQEnd: GpQuaternion; theT: cfloat): GpQuaternion {.
     cdecl, importcpp: "gp_QuaternionSLerp::Interpolate(@)", dynlib: tkmath.}
 proc constructGpQuaternionSLerp*(): GpQuaternionSLerp {.cdecl, constructor,
     importcpp: "gp_QuaternionSLerp(@)", dynlib: tkmath.}
@@ -39,5 +39,5 @@ proc init*(this: var GpQuaternionSLerp; theQStart: GpQuaternion; theQEnd: GpQuat
 proc initFromUnit*(this: var GpQuaternionSLerp; theQStart: GpQuaternion;
                   theQEnd: GpQuaternion) {.cdecl, importcpp: "InitFromUnit",
     dynlib: tkmath.}
-proc interpolate*(this: GpQuaternionSLerp; theT: cfloat; theResultQ: var GpQuaternion) {.
+proc interpolateSlerp*(this: GpQuaternionSLerp; theT: cfloat; theResultQ: var GpQuaternion) {.
     noSideEffect, cdecl, importcpp: "Interpolate", dynlib: tkmath.}

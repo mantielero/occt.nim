@@ -35,6 +35,8 @@
 #def Standard_Integer int
 #def Standard_Boolean bool
 #def Standard_Real float
+#def Standard_True true
+#def Standard_False false
 #def DEFINE_STANDARD_HANDLE(C1,C2) \
   typedef Handle(C1) Handle_##C1;
 #def Handle(x) opencascade::handle<x>

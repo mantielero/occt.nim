@@ -69,9 +69,9 @@ type
 
 proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", dynlib: tkmath.}
 proc origin*(): GpPnt {.cdecl, importcpp: "gp::Origin(@)", dynlib: tkmath.}
-proc dx*(): GpDir {.cdecl, importcpp: "gp::DX(@)", dynlib: tkmath.}
-proc dy*(): GpDir {.cdecl, importcpp: "gp::DY(@)", dynlib: tkmath.}
-proc dz*(): GpDir {.cdecl, importcpp: "gp::DZ(@)", dynlib: tkmath.}
+proc dxAsDir*(): GpDir {.cdecl, importcpp: "gp::DX(@)", dynlib: tkmath.}
+proc dyAsDir*(): GpDir {.cdecl, importcpp: "gp::DY(@)", dynlib: tkmath.}
+proc dzAsDir*(): GpDir {.cdecl, importcpp: "gp::DZ(@)", dynlib: tkmath.}
 proc ox*(): GpAx1 {.cdecl, importcpp: "gp::OX(@)", dynlib: tkmath.}
 proc oy*(): GpAx1 {.cdecl, importcpp: "gp::OY(@)", dynlib: tkmath.}
 proc oz*(): GpAx1 {.cdecl, importcpp: "gp::OZ(@)", dynlib: tkmath.}

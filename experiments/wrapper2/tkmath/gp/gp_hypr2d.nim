@@ -28,7 +28,7 @@ type
 proc constructGpHypr2d*(): GpHypr2d {.cdecl, constructor, importcpp: "gp_Hypr2d(@)",
                                    dynlib: tkmath.}
 proc constructGpHypr2d*(majorAxis: GpAx2d; majorRadius: cfloat; minorRadius: cfloat;
-                       sense: bool = standardTrue): GpHypr2d {.cdecl, constructor,
+                       sense: bool = true): GpHypr2d {.cdecl, constructor,
     importcpp: "gp_Hypr2d(@)", dynlib: tkmath.}
 proc constructGpHypr2d*(a: GpAx22d; majorRadius: cfloat; minorRadius: cfloat): GpHypr2d {.
     cdecl, constructor, importcpp: "gp_Hypr2d(@)", dynlib: tkmath.}

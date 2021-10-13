@@ -28,13 +28,13 @@ type
 proc constructGpParab2d*(): GpParab2d {.cdecl, constructor,
                                      importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
 proc constructGpParab2d*(theMirrorAxis: GpAx2d; theFocalLength: cfloat;
-                        theSense: bool = standardTrue): GpParab2d {.cdecl,
-    constructor, importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
+                        theSense: bool = true): GpParab2d {.cdecl, constructor,
+    importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
 proc constructGpParab2d*(theAxes: GpAx22d; theFocalLength: cfloat): GpParab2d {.cdecl,
     constructor, importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
 proc constructGpParab2d*(theDirectrix: GpAx2d; theFocus: GpPnt2d;
-                        theSense: bool = standardTrue): GpParab2d {.cdecl,
-    constructor, importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
+                        theSense: bool = true): GpParab2d {.cdecl, constructor,
+    importcpp: "gp_Parab2d(@)", dynlib: tkmath.}
 proc setFocal*(this: var GpParab2d; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     dynlib: tkmath.}
 proc setLocation*(this: var GpParab2d; p: GpPnt2d) {.cdecl, importcpp: "SetLocation",

@@ -2,6 +2,10 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
+type
+  TColStdArray1OfReal* = object
+  GpVectorWithNullMagnitude* = object
+
 when defined(windows):
   const tkmath* = "TKMath.dll"
 elif defined(macosx):

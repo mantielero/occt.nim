@@ -29,10 +29,10 @@ proc constructGpAx22d*(): GpAx22d {.cdecl, constructor, importcpp: "gp_Ax22d(@)"
                                  dynlib: tkmath.}
 proc constructGpAx22d*(p: GpPnt2d; vx: GpDir2d; vy: GpDir2d): GpAx22d {.cdecl,
     constructor, importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
-proc constructGpAx22d*(p: GpPnt2d; v: GpDir2d; sense: bool = standardTrue): GpAx22d {.
-    cdecl, constructor, importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
-proc constructGpAx22d*(a: GpAx2d; sense: bool = standardTrue): GpAx22d {.cdecl,
+proc constructGpAx22d*(p: GpPnt2d; v: GpDir2d; sense: bool = true): GpAx22d {.cdecl,
     constructor, importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
+proc constructGpAx22d*(a: GpAx2d; sense: bool = true): GpAx22d {.cdecl, constructor,
+    importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
 proc setAxis*(this: var GpAx22d; a1: GpAx22d) {.cdecl, importcpp: "SetAxis",
     dynlib: tkmath.}
 proc setXAxis*(this: var GpAx22d; a1: GpAx2d) {.cdecl, importcpp: "SetXAxis",

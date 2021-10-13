@@ -25,7 +25,7 @@ type
 
 proc constructGpCirc2d*(): GpCirc2d {.cdecl, constructor, importcpp: "gp_Circ2d(@)",
                                    dynlib: tkmath.}
-proc constructGpCirc2d*(xAxis: GpAx2d; radius: cfloat; sense: bool = standardTrue): GpCirc2d {.
+proc constructGpCirc2d*(xAxis: GpAx2d; radius: cfloat; sense: bool = true): GpCirc2d {.
     cdecl, constructor, importcpp: "gp_Circ2d(@)", dynlib: tkmath.}
 proc constructGpCirc2d*(axis: GpAx22d; radius: cfloat): GpCirc2d {.cdecl, constructor,
     importcpp: "gp_Circ2d(@)", dynlib: tkmath.}

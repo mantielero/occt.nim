@@ -9,9 +9,9 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
-type
-  GpXYZ* = object  #<--- TO be removed with gp
-  GpXy* = object
+#type
+#  GpXYZ* = object  #<--- TO be removed with gp
+#  #GpXy* = object
 
 
 include standard/standard

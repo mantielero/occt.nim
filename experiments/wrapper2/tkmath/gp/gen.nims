@@ -119,6 +119,10 @@ genFiles("gp_EulerSequence")
 genFiles("gp_GTrsf2d")
 genFiles("gp_GTrsf")
 genFiles("gp")
+pp("gp.nim",
+  replaceAll = @[("dx*", "dxAsDir*"),("dy*", "dyAsDir*"),("dz*", "dzAsDir*")
+  ]
+)
 genFiles("gp_Hypr2d")
 genFiles("gp_Hypr")
 genFiles("gp_Lin2d")
@@ -133,6 +137,10 @@ genFiles("gp_Pnt")
 genFiles("gp_Quaternion")
 genFiles("gp_QuaternionNLerp")
 genFiles("gp_QuaternionSLerp")
+pp("gp_quaternionslerp.nim",
+  replaceAll = @[("interpolate*", "interpolateSlerp*")]
+)
+
 genFiles("gp_Sphere")
 genFiles("gp_Torus")
 genFiles("gp_Trsf2d")

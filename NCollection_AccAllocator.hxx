@@ -112,7 +112,10 @@ protected:
     //! @param theKey the key which hash code is to be computed
     //! @param theUpperBound the upper bound of the range a computing hash code must be within
     //! @return a computed hash code, in the range [1, theUpperBound]
-    static Standard_Integer HashCode (const Key theKey, const Standard_Integer theUpperBound);
+    static Standard_Integer HashCode (const Key theKey, const Standard_Integer theUpperBound)
+    {
+      return ::HashCode (theKey.Value, theUpperBound);
+    }
 
     static Standard_Boolean IsEqual(const Key theOne, const Key theTwo)
     { return theOne.Value == theTwo.Value; }

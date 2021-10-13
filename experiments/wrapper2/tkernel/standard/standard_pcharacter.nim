@@ -12,4 +12,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  StandardPCharacter* = ptr StandardCharacter
+  StandardPCharacter* = ptr cchar

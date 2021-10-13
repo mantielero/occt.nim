@@ -28,27 +28,28 @@ proc constructStandardFailure*(): StandardFailure {.cdecl, constructor,
     importcpp: "Standard_Failure(@)", dynlib: tkernel.}
 proc constructStandardFailure*(f: StandardFailure): StandardFailure {.cdecl,
     constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
-proc constructStandardFailure*(aString: StandardCString): StandardFailure {.cdecl,
+proc constructStandardFailure*(aString: cstring): StandardFailure {.cdecl,
     constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
 proc destroyStandardFailure*(this: var StandardFailure) {.cdecl,
     importcpp: "#.~Standard_Failure()", dynlib: tkernel.}
 proc print*(this: StandardFailure; theStream: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Print", dynlib: tkernel.}
-proc getMessageString*(this: StandardFailure): StandardCString {.noSideEffect, cdecl,
+proc getMessageString*(this: StandardFailure): cstring {.noSideEffect, cdecl,
     importcpp: "GetMessageString", dynlib: tkernel.}
-proc setMessageString*(this: var StandardFailure; aMessage: StandardCString) {.cdecl,
+proc setMessageString*(this: var StandardFailure; aMessage: cstring) {.cdecl,
     importcpp: "SetMessageString", dynlib: tkernel.}
 proc reraise*(this: var StandardFailure) {.cdecl, importcpp: "Reraise", dynlib: tkernel.}
-proc reraise*(this: var StandardFailure; aMessage: StandardCString) {.cdecl,
+proc reraise*(this: var StandardFailure; aMessage: cstring) {.cdecl,
     importcpp: "Reraise", dynlib: tkernel.}
 proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.cdecl,
     importcpp: "Reraise", dynlib: tkernel.}
-proc `raise`*(aMessage: StandardCString = "") {.cdecl,
-    importcpp: "Standard_Failure::Raise(@)", dynlib: tkernel.}
+proc `raise`*(aMessage: cstring = cstring("")) {.cdecl,
+                                   importcpp: "Standard_Failure::Raise(@)",
+                                   dynlib: tkernel.}
 proc `raise`*(aReason: StandardSStream) {.cdecl,
                                        importcpp: "Standard_Failure::Raise(@)",
                                        dynlib: tkernel.}
-proc newInstance*(aMessage: StandardCString): Handle[StandardFailure] {.cdecl,
+proc newInstance*(aMessage: cstring): Handle[StandardFailure] {.cdecl,
     importcpp: "Standard_Failure::NewInstance(@)", dynlib: tkernel.}
 proc jump*(this: var StandardFailure) {.cdecl, importcpp: "Jump", dynlib: tkernel.}
 proc caught*(): Handle[StandardFailure] {.cdecl, importcpp: "Standard_Failure::Caught(@)",

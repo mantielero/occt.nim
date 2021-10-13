@@ -70,18 +70,18 @@ type
     ## !< Type descriptor of parent class
 
 
-proc systemName*(this: StandardType): StandardCString {.noSideEffect, cdecl,
+proc systemName*(this: StandardType): cstring {.noSideEffect, cdecl,
     importcpp: "SystemName", dynlib: tkernel.}
-proc name*(this: StandardType): StandardCString {.noSideEffect, cdecl,
-    importcpp: "Name", dynlib: tkernel.}
+proc name*(this: StandardType): cstring {.noSideEffect, cdecl, importcpp: "Name",
+                                      dynlib: tkernel.}
 proc size*(this: StandardType): csize_t {.noSideEffect, cdecl, importcpp: "Size",
                                       dynlib: tkernel.}
 proc parent*(this: StandardType): Handle[StandardType] {.noSideEffect, cdecl,
     importcpp: "Parent", dynlib: tkernel.}
-proc subType*(this: StandardType; theOther: Handle[StandardType]): StandardBoolean {.
+proc subType*(this: StandardType; theOther: Handle[StandardType]): bool {.
     noSideEffect, cdecl, importcpp: "SubType", dynlib: tkernel.}
-proc subType*(this: StandardType; theOther: StandardCString): StandardBoolean {.
-    noSideEffect, cdecl, importcpp: "SubType", dynlib: tkernel.}
+proc subType*(this: StandardType; theOther: cstring): bool {.noSideEffect, cdecl,
+    importcpp: "SubType", dynlib: tkernel.}
 proc print*(this: StandardType; theStream: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Print", dynlib: tkernel.}
 proc instance*[T](): Handle[StandardType] {.cdecl,

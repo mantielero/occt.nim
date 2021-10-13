@@ -31,5 +31,5 @@ proc reallocate*(this: var StandardMMgrRoot; thePtr: pointer; theSize: csize_t):
     cdecl, importcpp: "Reallocate", dynlib: tkernel.}
 proc free*(this: var StandardMMgrRoot; thePtr: pointer) {.cdecl, importcpp: "Free",
     dynlib: tkernel.}
-proc purge*(this: var StandardMMgrRoot; isDestroyed: StandardBoolean = false): cint {.
-    cdecl, importcpp: "Purge", dynlib: tkernel.}
+proc purge*(this: var StandardMMgrRoot; isDestroyed: bool = false): cint {.cdecl,
+    importcpp: "Purge", dynlib: tkernel.}

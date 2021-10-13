@@ -27,27 +27,26 @@
 ##  ToExtCharacter : Returns an ExtCharacter from a Character
 ##  ------------------------------------------------------------------
 
-proc toExtCharacter*(achar: StandardCharacter): StandardExtCharacter {.cdecl.} =
+proc toExtCharacter*(achar: cchar): StandardExtCharacter {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  ToCharacter : Returns an Character from an ExtCharacter
 ##  ------------------------------------------------------------------
 
-proc toCharacter*(achar: StandardExtCharacter): StandardCharacter {.cdecl.} =
+proc toCharacter*(achar: StandardExtCharacter): cchar {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsAnAscii : Returns True if an ExtCharacter is in the "Ascii Range"
 ##  ------------------------------------------------------------------
 
-proc isAnAscii*(achar: StandardExtCharacter): StandardBoolean {.cdecl.} =
+proc isAnAscii*(achar: StandardExtCharacter): bool {.cdecl.} =
   discard
 
 ##  ------------------------------------------------------------------
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): StandardBoolean {.
-    cdecl.} =
+proc isEqual*(one: StandardExtCharacter; two: StandardExtCharacter): bool {.cdecl.} =
   discard

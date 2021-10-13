@@ -138,7 +138,7 @@ proc destroyStandardErrorHandler*(this: var StandardErrorHandler) {.cdecl,
     importcpp: "#.~Standard_ErrorHandler()", dynlib: tkernel.}
 proc unlink*(this: var StandardErrorHandler) {.cdecl, importcpp: "Unlink",
     dynlib: tkernel.}
-proc catches*(this: var StandardErrorHandler; aType: Handle[StandardType]): StandardBoolean {.
+proc catches*(this: var StandardErrorHandler; aType: Handle[StandardType]): bool {.
     cdecl, importcpp: "Catches", dynlib: tkernel.}
 proc label*(this: var StandardErrorHandler): var StandardJmpBuf {.cdecl,
     importcpp: "Label", dynlib: tkernel.}
@@ -146,8 +146,9 @@ proc error*(this: StandardErrorHandler): Handle[StandardFailure] {.noSideEffect,
     cdecl, importcpp: "Error", dynlib: tkernel.}
 proc lastCaughtError*(): Handle[StandardFailure] {.cdecl,
     importcpp: "Standard_ErrorHandler::LastCaughtError(@)", dynlib: tkernel.}
-proc isInTryBlock*(): StandardBoolean {.cdecl, importcpp: "Standard_ErrorHandler::IsInTryBlock(@)",
-                                     dynlib: tkernel.}
+proc isInTryBlock*(): bool {.cdecl,
+                          importcpp: "Standard_ErrorHandler::IsInTryBlock(@)",
+                          dynlib: tkernel.}
 type
   StandardErrorHandlerCallback* {.importcpp: "Standard_ErrorHandler::Callback",
                                  header: "Standard_ErrorHandler.hxx", bycopy.} = object ##

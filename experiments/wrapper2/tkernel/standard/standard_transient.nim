@@ -47,14 +47,14 @@ proc getTypeDescriptor*(): Handle[StandardType] {.cdecl,
     importcpp: "Standard_Transient::get_type_descriptor(@)", dynlib: tkernel.}
 proc dynamicType*(this: StandardTransient): Handle[StandardType] {.noSideEffect,
     cdecl, importcpp: "DynamicType", dynlib: tkernel.}
-proc isInstance*(this: StandardTransient; theType: Handle[StandardType]): StandardBoolean {.
+proc isInstance*(this: StandardTransient; theType: Handle[StandardType]): bool {.
     noSideEffect, cdecl, importcpp: "IsInstance", dynlib: tkernel.}
-proc isInstance*(this: StandardTransient; theTypeName: StandardCString): StandardBoolean {.
-    noSideEffect, cdecl, importcpp: "IsInstance", dynlib: tkernel.}
-proc isKind*(this: StandardTransient; theType: Handle[StandardType]): StandardBoolean {.
+proc isInstance*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
+    cdecl, importcpp: "IsInstance", dynlib: tkernel.}
+proc isKind*(this: StandardTransient; theType: Handle[StandardType]): bool {.
     noSideEffect, cdecl, importcpp: "IsKind", dynlib: tkernel.}
-proc isKind*(this: StandardTransient; theTypeName: StandardCString): StandardBoolean {.
-    noSideEffect, cdecl, importcpp: "IsKind", dynlib: tkernel.}
+proc isKind*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
+    cdecl, importcpp: "IsKind", dynlib: tkernel.}
 proc this*(this: StandardTransient): ptr StandardTransient {.noSideEffect, cdecl,
     importcpp: "This", dynlib: tkernel.}
 proc getRefCount*(this: StandardTransient): cint {.noSideEffect, cdecl,

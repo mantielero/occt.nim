@@ -86,7 +86,7 @@ proc constructStandardMutex*(): StandardMutex {.cdecl, constructor,
 proc destroyStandardMutex*(this: var StandardMutex) {.cdecl,
     importcpp: "#.~Standard_Mutex()", dynlib: tkernel.}
 proc lock*(this: var StandardMutex) {.cdecl, importcpp: "Lock", dynlib: tkernel.}
-proc tryLock*(this: var StandardMutex): StandardBoolean {.cdecl, importcpp: "TryLock",
+proc tryLock*(this: var StandardMutex): bool {.cdecl, importcpp: "TryLock",
     dynlib: tkernel.}
 proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}
 ##  Implementation of the method Unlock is inline, since it is

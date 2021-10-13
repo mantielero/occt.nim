@@ -26,8 +26,8 @@ type
     ## ! Option to nullify allocated memory
 
 
-proc constructStandardMMgrRaw*(aClear: StandardBoolean = false): StandardMMgrRaw {.
-    cdecl, constructor, importcpp: "Standard_MMgrRaw(@)", dynlib: tkernel.}
+proc constructStandardMMgrRaw*(aClear: bool = false): StandardMMgrRaw {.cdecl,
+    constructor, importcpp: "Standard_MMgrRaw(@)", dynlib: tkernel.}
 proc allocate*(this: var StandardMMgrRaw; aSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}
 proc reallocate*(this: var StandardMMgrRaw; thePtr: pointer; theSize: csize_t): pointer {.

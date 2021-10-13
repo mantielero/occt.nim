@@ -135,10 +135,14 @@ genFiles("Standard_DivideByZero")
 genFiles("Standard_DomainError")
 genFiles("Standard_Dump", remove = @[(21, 231)])
 genFiles("Standard_ErrorHandler", remove = @[(48, 68), (198,214)])
-pp("standard_errorhandler.nim", comment = @[184,185])
+pp("standard_errorhandler.nim", comment = @[185,186])
 genFiles("Standard_ExtCharacter")
 genFiles("Standard_ExtString")
 genFiles("Standard_Failure", remove = @[(30,31), (107, 108)])
+pp("standard_failure.nim",
+  replaceAll = @[("cstring = \"\"", """cstring = cstring("")""")]
+)
+
 genFiles("Standard_GUID")
 pp("standard_guid.nim", replaceAll = @[("standardGUID_SIZE + 1", "StandardGUID_SIZE + 1")])
 
@@ -253,7 +257,7 @@ pp("standard_typedef.nim",
   replaceAll = @[("StandardCString* = ptr StandardCharacter", "StandardCString* = cstring"),
                  ("StandardTime* = TimeT", "StandardTime* {.importcpp:\"std::time_t\".} = object")],
   commentRange = @[(17,29), (30,52), (80,98)],
-  comment = @[50, 58, 64,65])
+  comment = @[50, 58, 60, 62, 64, 65, 103])
 
 genFiles("Standard_Type", remove = @[(27,87), (97,124), (238,243), (247,263), (273,280)])
 pp("standard_type.nim",

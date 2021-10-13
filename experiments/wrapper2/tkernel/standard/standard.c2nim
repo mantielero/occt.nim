@@ -22,6 +22,9 @@
 #def Standard_THREADLOCAL
 #def Standard_DISABLE_DEPRECATION_WARNINGS
 #def Standard_ENABLE_DEPRECATION_WARNINGS
+#def Standard_Boolean bool
+#def Standard_Character cchar
+#def Standard_CString cstring
 #mangle Standard_Size csize_t
 #mangle Standard_Address pointer
 #mangle Standard_Integer cint

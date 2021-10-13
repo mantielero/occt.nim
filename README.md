@@ -19,7 +19,7 @@ Each module contain a number of toolkits (TK). For example:
 Each toolkit contains a number of packages as seen for [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html).
 
 ## Wrapping process
-In order to quickly play with the code, the shorter path is using [cinterop](https://github.com/n0bra1n3r/cinterop). In order to create proper bindings, it is better to use [c2nim](https://github.com/nim-lang/c2nim).
+We are wrapping C++ code here. In order to quickly play with the code, the shorter path is using [cinterop](https://github.com/n0bra1n3r/cinterop). In order to create proper bindings, it is better to use [c2nim](https://github.com/nim-lang/c2nim).
 
 ### Example: [Standard package](https://dev.opencascade.org/doc/refman/html/package_standard.html)
 There are cases where the bindings will be created without any issue:
@@ -92,6 +92,65 @@ $ c2nim --cpp --header --strict --out:standard.nim occt.c2nim /usr/include/openc
 and we will get a better binding.
 
 And so on with: `Standard_Size`, `Standard_Address``.
+
+## How to add a new package?
+1. Create the folder structure. For example: `tkmath/gp`.
+2. We need a `.c2nim` file. For example, we can copy the one from another package into `gp.c2nim`.
+3. We will create a `gen.nims`. This file will be responsible of creating the bindings. We can take it from another package. Then we will call `genFiles(<whatever>)` for each header in the package. In order to get all the headers in the package we can use something like:
+```
+$ ls /usr/include/opencascade/gp*.hxx | cut -c 26-
+```
+4. We will have something like this:
+```
+genFiles("gp_Ax1")
+genFiles("gp_Ax22d")
+genFiles("gp_Ax2d")
+genFiles("gp_Ax2")
+...
+```
+5. Modify the beginning of the file. 
+```
+let c2nimFile = "gp.c2nim"
+```
+6. Adjust the last block which creates file including all the binding files:
+```nim
+var txt = ""
+var files = listFiles("./")
+files.sort()
+for path in files:
+  var (dir, name, ext) = splitFile(path)
+
+  if ext == ".nim" and name != "gen" and name != "gp_includes":
+    txt &= "include " & name & "\n"
+    #exp &= name & ", "
+  #txt &= exp
+
+
+var beggining = "{.passL:\"-lTKMath\".}\n"
+beggining &= "{.passC:\"-I" & lib & "\" .}\n"
+beggining &= "{.experimental: \"codeReordering\".}\n\n"
+beggining &= """
+when defined(windows):
+  const tkernel* = "TKMath.dll"
+elif defined(macosx):
+  const tkernel* = "libTKMath.dylib"
+else:
+  const tkernel* = "libTKMath.so" 
+
+
+"""
+
+writeFile("gp_includes.nim", beggining & txt )
+pp("gp_includes.nim")
+```
+
+7. Start executing `gen.nims` until it fully works. You will have to:
+
+  a. Modify the `.c2nim` file
+  b. Modify `genFiles` you can `remove` lines. It can be interesting to remove the function body: remove lines of the body and then add the semicolon with `addSemiColon`. But it is easier using: `removeFuncBody`. It might be interesting to comment the line `rmFile(name & ".hxx")` in order to inspect the modified headers that are left in the folder. You can also replace strings by means `replaceAll`.
+  c. Postprocess the results using `pp`. Commenting lines in the header by means of `comment` or `commentRange`
+
+
 
 ## Overview
 - Geom: The Geom package implements 3D geometric objects: elementary curves and surfaces are provided as well as more complex ones (such as Bezier and BSpline). The Geom package provides only the data structure of geometric entities. You can directly instantiate classes belonging to Geom, but it is easier to compute elementary curves and surfaces by using the GC package. 

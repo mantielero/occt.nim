@@ -24,8 +24,8 @@ type
 
 proc constructStandardGUID*(): StandardGUID {.cdecl, constructor,
     importcpp: "Standard_GUID(@)", dynlib: tkernel.}
-proc constructStandardGUID*(aGuid: StandardCString): StandardGUID {.cdecl,
-    constructor, importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+proc constructStandardGUID*(aGuid: cstring): StandardGUID {.cdecl, constructor,
+    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
 proc constructStandardGUID*(aGuid: StandardExtString): StandardGUID {.cdecl,
     constructor, importcpp: "Standard_GUID(@)", dynlib: tkernel.}
 proc constructStandardGUID*(a32b: cint; a16b1: StandardExtCharacter;
@@ -45,23 +45,23 @@ proc toCString*(this: StandardGUID; aStrGuid: StandardPCharacter) {.noSideEffect
     cdecl, importcpp: "ToCString", dynlib: tkernel.}
 proc toExtString*(this: StandardGUID; aStrGuid: StandardPExtCharacter) {.
     noSideEffect, cdecl, importcpp: "ToExtString", dynlib: tkernel.}
-proc isSame*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.noSideEffect,
-    cdecl, importcpp: "IsSame", dynlib: tkernel.}
-proc `==`*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.noSideEffect,
-    cdecl, importcpp: "(# == #)", dynlib: tkernel.}
-proc isNotSame*(this: StandardGUID; uid: StandardGUID): StandardBoolean {.
-    noSideEffect, cdecl, importcpp: "IsNotSame", dynlib: tkernel.}
+proc isSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
+    importcpp: "IsSame", dynlib: tkernel.}
+proc `==`*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
+    importcpp: "(# == #)", dynlib: tkernel.}
+proc isNotSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
+    importcpp: "IsNotSame", dynlib: tkernel.}
 proc assign*(this: var StandardGUID; uid: StandardGUID) {.cdecl, importcpp: "Assign",
     dynlib: tkernel.}
 proc assign*(this: var StandardGUID; uid: StandardUUID) {.cdecl, importcpp: "Assign",
     dynlib: tkernel.}
 proc shallowDump*(this: StandardGUID; aStream: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "ShallowDump", dynlib: tkernel.}
-proc checkGUIDFormat*(aGuid: StandardCString): StandardBoolean {.cdecl,
+proc checkGUIDFormat*(aGuid: cstring): bool {.cdecl,
     importcpp: "Standard_GUID::CheckGUIDFormat(@)", dynlib: tkernel.}
 proc hash*(this: StandardGUID; upper: cint): cint {.noSideEffect, cdecl,
     importcpp: "Hash", dynlib: tkernel.}
 proc hashCode*(theGUID: StandardGUID; theUpperBound: cint): cint {.cdecl,
     importcpp: "Standard_GUID::HashCode(@)", dynlib: tkernel.}
-proc isEqual*(string1: StandardGUID; string2: StandardGUID): StandardBoolean {.cdecl,
+proc isEqual*(string1: StandardGUID; string2: StandardGUID): bool {.cdecl,
     importcpp: "Standard_GUID::IsEqual(@)", dynlib: tkernel.}

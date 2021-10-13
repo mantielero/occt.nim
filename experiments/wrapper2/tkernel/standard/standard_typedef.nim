@@ -57,9 +57,9 @@ const
 type
 #  cint* = cint
   StandardReal* = cdouble
-  StandardBoolean* = bool
+#  bool* = bool
   StandardShortReal* = cfloat
-  StandardCharacter* = char
+#  cchar* = char
   StandardByte* = cuchar
 #  pointer* = pointer
 #  csize_t* = csize_t
@@ -102,5 +102,5 @@ type
 type
   StandardExtCharacter* = distinct int16
   StandardUtf16Char* = distinct int16
-  StandardCString* = cstring
+#  cstring* = ptr cchar
   StandardExtString* = ptr StandardExtCharacter

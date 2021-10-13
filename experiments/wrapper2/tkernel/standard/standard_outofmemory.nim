@@ -53,15 +53,15 @@ type
                                                                                                ## compatibility
 
 
-proc constructStandardOutOfMemory*(theMessage: StandardCString = 0): StandardOutOfMemory {.
+proc constructStandardOutOfMemory*(theMessage: cstring = 0): StandardOutOfMemory {.
     cdecl, constructor, importcpp: "Standard_OutOfMemory(@)", dynlib: tkernel.}
-proc getMessageString*(this: StandardOutOfMemory): StandardCString {.noSideEffect,
-    cdecl, importcpp: "GetMessageString", dynlib: tkernel.}
-proc setMessageString*(this: var StandardOutOfMemory; aMessage: StandardCString) {.
-    cdecl, importcpp: "SetMessageString", dynlib: tkernel.}
-proc `raise`*(theMessage: StandardCString = "") {.cdecl,
-    importcpp: "Standard_OutOfMemory::Raise(@)", dynlib: tkernel.}
+proc getMessageString*(this: StandardOutOfMemory): cstring {.noSideEffect, cdecl,
+    importcpp: "GetMessageString", dynlib: tkernel.}
+proc setMessageString*(this: var StandardOutOfMemory; aMessage: cstring) {.cdecl,
+    importcpp: "SetMessageString", dynlib: tkernel.}
+proc `raise`*(theMessage: cstring = "") {.cdecl, importcpp: "Standard_OutOfMemory::Raise(@)",
+                                     dynlib: tkernel.}
 proc `raise`*(theMessage: var StandardSStream) {.cdecl,
     importcpp: "Standard_OutOfMemory::Raise(@)", dynlib: tkernel.}
-proc newInstance*(theMessage: StandardCString = ""): Handle[StandardOutOfMemory] {.
-    cdecl, importcpp: "Standard_OutOfMemory::NewInstance(@)", dynlib: tkernel.}
+proc newInstance*(theMessage: cstring = ""): Handle[StandardOutOfMemory] {.cdecl,
+    importcpp: "Standard_OutOfMemory::NewInstance(@)", dynlib: tkernel.}

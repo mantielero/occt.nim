@@ -41,7 +41,7 @@ type
     ## ! Option to nullify allocated memory
 
 
-proc constructStandardMMgrTBBalloc*(aClear: StandardBoolean = false): StandardMMgrTBBalloc {.
+proc constructStandardMMgrTBBalloc*(aClear: bool = false): StandardMMgrTBBalloc {.
     cdecl, constructor, importcpp: "Standard_MMgrTBBalloc(@)", dynlib: tkernel.}
 proc allocate*(this: var StandardMMgrTBBalloc; aSize: csize_t): pointer {.cdecl,
     importcpp: "Allocate", dynlib: tkernel.}

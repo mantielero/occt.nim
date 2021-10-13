@@ -24,7 +24,7 @@
 ##  IsEqual : Returns Standard_True if two characters have the same value
 ##  ------------------------------------------------------------------
 
-proc isEqual*(one: StandardCharacter; two: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isEqual*(one: cchar; two: cchar): bool {.cdecl.} =
   discard
 
 ##  ===============================================
@@ -45,56 +45,56 @@ proc isEqual*(one: StandardCharacter; two: StandardCharacter): StandardBoolean {
 ##  IsAlphabetic : Returns Standard_True if a character is alphabetic
 ##  ==================================================================
 
-proc isAlphabetic*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isAlphabetic*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsDigit : Returns Standard_True if a character is a digit
 ##  ==================================================================
 
-proc isDigit*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isDigit*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsXDigit : Returns Standard_True if a character is a digit
 ##  ==================================================================
 
-proc isXDigit*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isXDigit*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsAlphanumeric : Returns Standard_True if a character is alphanumeric
 ##  ==================================================================
 
-proc isAlphanumeric*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isAlphanumeric*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsControl : Returns Standard_True if a character  is a control character
 ##  ==================================================================
 
-proc isControl*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isControl*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsGraphic : Returns Standard_True if a character is graphic
 ##  ==================================================================
 
-proc isGraphic*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isGraphic*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsLowerCase : Returns Standard_True if a character is lowercase
 ##  ==================================================================
 
-proc isLowerCase*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isLowerCase*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsPrintable : Returns Standard_True if a character is printable
 ##  ==================================================================
 
-proc isPrintable*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isPrintable*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
@@ -102,32 +102,30 @@ proc isPrintable*(me: StandardCharacter): StandardBoolean {.cdecl.} =
 ##                  not a alphanumeric character
 ##  ==================================================================
 
-proc isPunctuation*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isPunctuation*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsSpace : Returns Standard_True if a character is a space
 ##  ==================================================================
 
-proc isSpace*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isSpace*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  IsUppercase : Returns Standard_True if a character is uppercase
 ##  ==================================================================
 
-proc isUpperCase*(me: StandardCharacter): StandardBoolean {.cdecl.} =
+proc isUpperCase*(me: cchar): bool {.cdecl.} =
   discard
 
 ##  ==================================================================
 ##  LowerCase : Returns a lowercase character
 ##  ==================================================================
 
-proc lowerCase*(me: StandardCharacter): StandardCharacter {.cdecl,
-    importcpp: "LowerCase(@)", dynlib: tkernel.}
+proc lowerCase*(me: cchar): cchar {.cdecl, importcpp: "LowerCase(@)", dynlib: tkernel.}
 ##  ==================================================================
 ##  UpperCase : Returns a uppercase character
 ##  ==================================================================
 
-proc upperCase*(me: StandardCharacter): StandardCharacter {.cdecl,
-    importcpp: "UpperCase(@)", dynlib: tkernel.}
+proc upperCase*(me: cchar): cchar {.cdecl, importcpp: "UpperCase(@)", dynlib: tkernel.}

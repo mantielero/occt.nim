@@ -155,14 +155,14 @@ proc text*(theStream: StandardSStream): TCollectionAsciiString {.cdecl,
 proc formatJson*(theStream: StandardSStream; theIndent: cint = 3): TCollectionAsciiString {.
     cdecl, importcpp: "Standard_Dump::FormatJson(@)", dynlib: tkernel.}
 proc splitJson*(theStreamStr: TCollectionAsciiString; theKeyToValues: var NCollectionIndexedDataMap[
-    TCollectionAsciiString, StandardDumpValue]): StandardBoolean {.cdecl,
+    TCollectionAsciiString, StandardDumpValue]): bool {.cdecl,
     importcpp: "Standard_Dump::SplitJson(@)", dynlib: tkernel.}
 proc hierarchicalValueIndices*(theValues: NCollectionIndexedDataMap[
     TCollectionAsciiString, TCollectionAsciiString]): NCollectionList[cint] {.
     cdecl, importcpp: "Standard_Dump::HierarchicalValueIndices(@)", dynlib: tkernel.}
-proc hasChildKey*(theSourceValue: TCollectionAsciiString): StandardBoolean {.cdecl,
+proc hasChildKey*(theSourceValue: TCollectionAsciiString): bool {.cdecl,
     importcpp: "Standard_Dump::HasChildKey(@)", dynlib: tkernel.}
-proc jsonKeyToString*(theKey: StandardJsonKey): StandardCString {.cdecl,
+proc jsonKeyToString*(theKey: StandardJsonKey): cstring {.cdecl,
     importcpp: "Standard_Dump::JsonKeyToString(@)", dynlib: tkernel.}
 proc jsonKeyLength*(theKey: StandardJsonKey): cint {.cdecl,
     importcpp: "Standard_Dump::JsonKeyLength(@)", dynlib: tkernel.}
@@ -184,16 +184,16 @@ proc dumpCharacterValues*(theOStream: var StandardOStream; theCount: cint) {.var
 proc dumpRealValues*(theOStream: var StandardOStream; theCount: cint) {.varargs, cdecl,
     importcpp: "Standard_Dump::DumpRealValues(@)", dynlib: tkernel.}
 proc processStreamName*(theStreamStr: TCollectionAsciiString;
-                       theName: TCollectionAsciiString; theStreamPos: var cint): StandardBoolean {.
+                       theName: TCollectionAsciiString; theStreamPos: var cint): bool {.
     cdecl, importcpp: "Standard_Dump::ProcessStreamName(@)", dynlib: tkernel.}
 proc processFieldName*(theStreamStr: TCollectionAsciiString;
-                      theName: TCollectionAsciiString; theStreamPos: var cint): StandardBoolean {.
+                      theName: TCollectionAsciiString; theStreamPos: var cint): bool {.
     cdecl, importcpp: "Standard_Dump::ProcessFieldName(@)", dynlib: tkernel.}
 proc initRealValues*(theStreamStr: TCollectionAsciiString; theStreamPos: var cint;
-                    theCount: cint): StandardBoolean {.varargs, cdecl,
+                    theCount: cint): bool {.varargs, cdecl,
     importcpp: "Standard_Dump::InitRealValues(@)", dynlib: tkernel.}
 proc initValue*(theStreamStr: TCollectionAsciiString; theStreamPos: var cint;
-               theValue: var TCollectionAsciiString): StandardBoolean {.cdecl,
+               theValue: var TCollectionAsciiString): bool {.cdecl,
     importcpp: "Standard_Dump::InitValue(@)", dynlib: tkernel.}
 proc dumpFieldToName*(theField: TCollectionAsciiString): TCollectionAsciiString {.
     cdecl, importcpp: "Standard_Dump::DumpFieldToName(@)", dynlib: tkernel.}

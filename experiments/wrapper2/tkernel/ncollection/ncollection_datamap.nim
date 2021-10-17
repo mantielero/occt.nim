@@ -77,7 +77,7 @@ type
       TheItemType]            ## ! Constructor with 'Next'
 
 
-proc constructNCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher](
+proc newNCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher](
     theKey: TheKeyType; theItem: TheItemType; theNext: ptr NCollectionListNode): NCollectionDataMapDataMapNode[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>::DataMapNode(@)",
                                     dynlib: tkernel.}
@@ -96,10 +96,10 @@ type
                                                                                   ## constructor
 
 
-proc constructNCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher](): NCollectionDataMapIterator[
+proc newNCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher](): NCollectionDataMapIterator[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>::Iterator(@)",
                                     dynlib: tkernel.}
-proc constructNCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher](
+proc newNCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher](
     theMap: NCollectionDataMap): NCollectionDataMapIterator[TheKeyType,
     TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>::Iterator(@)",
                          dynlib: tkernel.}
@@ -136,14 +136,14 @@ proc cbegin*[TheKeyType; TheItemType; Hasher](
 proc cend*[TheKeyType; TheItemType; Hasher](
     this: NCollectionDataMap[TheKeyType, TheItemType, Hasher]): NCollectionDataMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollectionDataMap*[TheKeyType; TheItemType; Hasher](): NCollectionDataMap[
+proc newNCollectionDataMap*[TheKeyType; TheItemType; Hasher](): NCollectionDataMap[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>(@)",
                                     dynlib: tkernel.}
-proc constructNCollectionDataMap*[TheKeyType; TheItemType; Hasher](
-    theNbBuckets: cint; theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionDataMap[
+proc newNCollectionDataMap*[TheKeyType; TheItemType; Hasher](theNbBuckets: cint;
+    theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionDataMap[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>(@)",
                                     dynlib: tkernel.}
-proc constructNCollectionDataMap*[TheKeyType; TheItemType; Hasher](
+proc newNCollectionDataMap*[TheKeyType; TheItemType; Hasher](
     theOther: NCollectionDataMap): NCollectionDataMap[TheKeyType, TheItemType,
     Hasher] {.cdecl, constructor,
              importcpp: "NCollection_DataMap<\'*0,\'*1,\'*2>(@)", dynlib: tkernel.}

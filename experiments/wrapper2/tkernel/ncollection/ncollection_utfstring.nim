@@ -55,20 +55,20 @@ proc getCharBuffer*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint):
     noSideEffect, cdecl, importcpp: "GetCharBuffer", dynlib: tkernel.}
 proc `[]`*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): StandardUtf32Char {.
     noSideEffect, cdecl, importcpp: "#[@]", dynlib: tkernel.}
-proc constructNCollectionUtfString*[Type](): NCollectionUtfString[Type] {.cdecl,
+proc newNCollectionUtfString*[Type](): NCollectionUtfString[Type] {.cdecl,
     constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionUtfString*[Type](theCopy: NCollectionUtfString): NCollectionUtfString[
+proc newNCollectionUtfString*[Type](theCopy: NCollectionUtfString): NCollectionUtfString[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)",
            dynlib: tkernel.}
-proc constructNCollectionUtfString*[Type](theCopyUtf8: cstring;
-    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
-    importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionUtfString*[Type](theCopyUtf16: ptr StandardUtf16Char;
-    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
-    importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionUtfString*[Type](theCopyUtf32: ptr StandardUtf32Char;
-    theLength: cint = -1): NCollectionUtfString[Type] {.cdecl, constructor,
-    importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
+proc newNCollectionUtfString*[Type](theCopyUtf8: cstring; theLength: cint = -1): NCollectionUtfString[
+    Type] {.cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)",
+           dynlib: tkernel.}
+proc newNCollectionUtfString*[Type](theCopyUtf16: ptr StandardUtf16Char;
+                                   theLength: cint = -1): NCollectionUtfString[Type] {.
+    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
+proc newNCollectionUtfString*[Type](theCopyUtf32: ptr StandardUtf32Char;
+                                   theLength: cint = -1): NCollectionUtfString[Type] {.
+    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
 proc fromUnicode*[Type; TypeFrom](this: var NCollectionUtfString[Type];
                                 theStringUtf: ptr TypeFrom; theLength: cint = -1) {.
     cdecl, importcpp: "FromUnicode", dynlib: tkernel.}

@@ -15,29 +15,25 @@
 ## ! return unit length quaternion.
 
 type
-  GpQuaternionSLerp* {.importcpp: "gp_QuaternionSLerp",
-                      header: "gp_QuaternionSLerp.hxx", bycopy.} = object ## ! Compute
-                                                                     ## interpolated quaternion between two
-                                                                     ## quaternions.
-                                                                     ## ! @param theStart first  quaternion
-                                                                     ## ! @param theEnd   second quaternion
-                                                                     ## ! @param theT normalized
-                                                                     ## interpolation coefficient within 0..1 range,
-                                                                     ## !             with 0 pointing to theStart and 1 to theEnd.
-                                                                     ## ! Empty
-                                                                     ## constructor,
+  QuaternionSLerp* {.importcpp: "gp_QuaternionSLerp",
+                    header: "gp_QuaternionSLerp.hxx", bycopy.} = object ## ! Compute interpolated quaternion between two quaternions.
+                                                                   ## ! @param theStart first  quaternion
+                                                                   ## ! @param theEnd   second quaternion
+                                                                   ## ! @param theT normalized interpolation coefficient within 0..1 range,
+                                                                   ## !             with 0 pointing to theStart and 1 to theEnd.
+                                                                   ## ! Empty constructor,
 
 
-proc interpolateSlerp*(theQStart: GpQuaternion; theQEnd: GpQuaternion; theT: cfloat): GpQuaternion {.
+proc interpolateSlerp*(theQStart: Quaternion; theQEnd: Quaternion; theT: cfloat): Quaternion {.
     cdecl, importcpp: "gp_QuaternionSLerp::Interpolate(@)", dynlib: tkmath.}
-proc constructGpQuaternionSLerp*(): GpQuaternionSLerp {.cdecl, constructor,
+proc newQuaternionSLerp*(): QuaternionSLerp {.cdecl, constructor,
     importcpp: "gp_QuaternionSLerp(@)", dynlib: tkmath.}
-proc constructGpQuaternionSLerp*(theQStart: GpQuaternion; theQEnd: GpQuaternion): GpQuaternionSLerp {.
+proc newQuaternionSLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionSLerp {.
     cdecl, constructor, importcpp: "gp_QuaternionSLerp(@)", dynlib: tkmath.}
-proc init*(this: var GpQuaternionSLerp; theQStart: GpQuaternion; theQEnd: GpQuaternion) {.
+proc init*(this: var QuaternionSLerp; theQStart: Quaternion; theQEnd: Quaternion) {.
     cdecl, importcpp: "Init", dynlib: tkmath.}
-proc initFromUnit*(this: var GpQuaternionSLerp; theQStart: GpQuaternion;
-                  theQEnd: GpQuaternion) {.cdecl, importcpp: "InitFromUnit",
-    dynlib: tkmath.}
-proc interpolateSlerp*(this: GpQuaternionSLerp; theT: cfloat; theResultQ: var GpQuaternion) {.
+proc initFromUnit*(this: var QuaternionSLerp; theQStart: Quaternion;
+                  theQEnd: Quaternion) {.cdecl, importcpp: "InitFromUnit",
+                                       dynlib: tkmath.}
+proc interpolateSlerp*(this: QuaternionSLerp; theT: cfloat; theResultQ: var Quaternion) {.
     noSideEffect, cdecl, importcpp: "Interpolate", dynlib: tkmath.}

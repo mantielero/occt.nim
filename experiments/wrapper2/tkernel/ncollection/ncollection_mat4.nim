@@ -31,9 +31,9 @@ proc rows*[ElementT](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Rows(@)",
                                dynlib: tkernel.}
 proc cols*[ElementT](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Cols(@)",
                                dynlib: tkernel.}
-proc constructNCollectionMat4*[ElementT](): NCollectionMat4[ElementT] {.cdecl,
+proc newNCollectionMat4*[ElementT](): NCollectionMat4[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Mat4<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionMat4*[ElementT; OtherElementT](
+proc newNCollectionMat4*[ElementT; OtherElementT](
     theOtherMat4: NCollectionMat4[OtherElementT]): NCollectionMat4[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Mat4<\'*0>(@)", dynlib: tkernel.}
 proc getValue*[ElementT](this: NCollectionMat4[ElementT]; theRow: csize_t;

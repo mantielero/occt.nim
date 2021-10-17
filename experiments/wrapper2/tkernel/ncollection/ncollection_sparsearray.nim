@@ -148,7 +148,7 @@ type
                                                                                    ## item
 
 
-proc constructNCollectionSparseArray*[TheItemType](theIncrement: csize_t): NCollectionSparseArray[
+proc newNCollectionSparseArray*[TheItemType](theIncrement: csize_t): NCollectionSparseArray[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>(@)", dynlib: tkernel.}
 proc assign*[TheItemType](this: var NCollectionSparseArray[TheItemType];
@@ -200,11 +200,11 @@ type
       header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayBaseIterator ## ! Empty constructor - for later Init
 
 
-proc constructNCollectionSparseArrayConstIterator*[TheItemType](): NCollectionSparseArrayConstIterator[
+proc newNCollectionSparseArrayConstIterator*[TheItemType](): NCollectionSparseArrayConstIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::ConstIterator(@)",
                   dynlib: tkernel.}
-proc constructNCollectionSparseArrayConstIterator*[TheItemType](
+proc newNCollectionSparseArrayConstIterator*[TheItemType](
     theVector: NCollectionSparseArray): NCollectionSparseArrayConstIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::ConstIterator(@)",
@@ -231,11 +231,11 @@ type
                                                                                                ## Init
 
 
-proc constructNCollectionSparseArrayIterator*[TheItemType](): NCollectionSparseArrayIterator[
+proc newNCollectionSparseArrayIterator*[TheItemType](): NCollectionSparseArrayIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc constructNCollectionSparseArrayIterator*[TheItemType](
+proc newNCollectionSparseArrayIterator*[TheItemType](
     theVector: var NCollectionSparseArray): NCollectionSparseArrayIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_SparseArray<\'*0>::Iterator(@)",

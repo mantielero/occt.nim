@@ -59,7 +59,7 @@ proc genFiles*( infile:string;
     exec "c2nim --cpp --header --strict --nep1 --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
     let txt = readFile(name.toLower & ".nim")
     writeFile(name.toLower & ".nim", txt ) #beg & txt)
-    #rmFile(name & ".hxx")
+    rmFile(name & ".hxx")
     echo name
 
 

@@ -66,9 +66,8 @@ type
     ## !< buffer allocator
 
 
-proc constructNCollectionBuffer*(theAlloc: Handle[NCollectionBaseAllocator];
-                                theSize: csize_t = 0;
-                                theData: ptr StandardByte = nil): NCollectionBuffer {.
+proc newNCollectionBuffer*(theAlloc: Handle[NCollectionBaseAllocator];
+                          theSize: csize_t = 0; theData: ptr StandardByte = nil): NCollectionBuffer {.
     cdecl, constructor, importcpp: "NCollection_Buffer(@)", dynlib: tkernel.}
 proc destroyNCollectionBuffer*(this: var NCollectionBuffer) {.cdecl,
     importcpp: "#.~NCollection_Buffer()", dynlib: tkernel.}

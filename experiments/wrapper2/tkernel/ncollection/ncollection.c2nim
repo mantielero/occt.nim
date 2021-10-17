@@ -1,6 +1,7 @@
 #ifdef C2NIM
 #dynlib tkernel
 #cdecl
+#prefix gp_
 #assumendef _MSC_VER
 #assumendef _DEBUG
 #assumendef _WIN32
@@ -32,6 +33,7 @@
 #mangle Standard_Size csize_t
 #mangle Standard_Address pointer
 #mangle Standard_Integer cint
+#mangle construct new
 #def Standard_Integer int
 #def Standard_Boolean bool
 #def DEFINE_STANDARD_HANDLE(C1,C2) \

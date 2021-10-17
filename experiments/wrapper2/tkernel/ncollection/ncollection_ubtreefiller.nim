@@ -40,18 +40,18 @@ type
     myBnd* {.importc: "myBnd".}: TheBndType
 
 
-proc constructNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](
-    theObj: TheObjType; theBnd: TheBndType): NCollectionUBTreeFillerObjBnd[
-    TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
-                            dynlib: tkernel.}
-proc constructNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollectionUBTreeFillerObjBnd[
+proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](theObj: TheObjType;
+    theBnd: TheBndType): NCollectionUBTreeFillerObjBnd[TheObjType, TheBndType] {.
+    cdecl, constructor,
+    importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)", dynlib: tkernel.}
+proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollectionUBTreeFillerObjBnd[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
                             dynlib: tkernel.}
 type
   NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
   NCollectionUBTreeFillerUBTreeNode* = TreeNode
 
-proc constructNCollectionUBTreeFiller*[TheObjType; TheBndType](
+proc newNCollectionUBTreeFiller*[TheObjType; TheBndType](
     theTree: var NCollectionUBTreeFillerUBTree;
     theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0);
     isFullRandom: bool = true): NCollectionUBTreeFiller[TheObjType,

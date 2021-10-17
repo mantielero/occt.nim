@@ -28,17 +28,17 @@ type
     myIterator* {.importc: "myIterator".}: BaseIterator
 
 
-proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
-                                     IsConstant: static[bool]](): NCollectionStlIterator[
+proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                               IsConstant: static[bool]](): NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant] {.cdecl, constructor,
     importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
-proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
-                                     IsConstant: static[bool]](
+proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                               IsConstant: static[bool]](
     theIterator: BaseIterator): NCollectionStlIterator[Category, BaseIterator,
     ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
                           dynlib: tkernel.}
-proc constructNCollectionStlIterator*[Category; BaseIterator; ItemType;
-                                     IsConstant: static[bool]](theIterator: NCollectionStlIterator[
+proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
+                               IsConstant: static[bool]](theIterator: NCollectionStlIterator[
     Category, BaseIterator, ItemType, false]): NCollectionStlIterator[Category,
     BaseIterator, ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
                                        dynlib: tkernel.}

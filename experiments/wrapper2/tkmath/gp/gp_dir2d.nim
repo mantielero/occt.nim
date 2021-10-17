@@ -20,67 +20,65 @@ discard "forward decl of gp_XY"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 type
-  GpDir2d* {.importcpp: "gp_Dir2d", header: "gp_Dir2d.hxx", bycopy.} = object ## ! Creates a direction
-                                                                      ## corresponding to X axis.
+  Dir2d* {.importcpp: "gp_Dir2d", header: "gp_Dir2d.hxx", bycopy.} = object ## ! Creates a direction
+                                                                    ## corresponding to X axis.
 
 
-proc constructGpDir2d*(): GpDir2d {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
-                                 dynlib: tkmath.}
-proc constructGpDir2d*(v: GpVec2d): GpDir2d {.cdecl, constructor,
+proc newDir2d*(): Dir2d {.cdecl, constructor, importcpp: "gp_Dir2d(@)", dynlib: tkmath.}
+proc newDir2d*(v: Vec2d): Dir2d {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
+                              dynlib: tkmath.}
+proc newDir2d*(coord: Xy): Dir2d {.cdecl, constructor, importcpp: "gp_Dir2d(@)",
+                               dynlib: tkmath.}
+proc newDir2d*(xv: cfloat; yv: cfloat): Dir2d {.cdecl, constructor,
     importcpp: "gp_Dir2d(@)", dynlib: tkmath.}
-proc constructGpDir2d*(coord: GpXY): GpDir2d {.cdecl, constructor,
-    importcpp: "gp_Dir2d(@)", dynlib: tkmath.}
-proc constructGpDir2d*(xv: cfloat; yv: cfloat): GpDir2d {.cdecl, constructor,
-    importcpp: "gp_Dir2d(@)", dynlib: tkmath.}
-proc setCoord*(this: var GpDir2d; index: cint; xi: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkmath.}
-proc setCoord*(this: var GpDir2d; xv: cfloat; yv: cfloat) {.cdecl, importcpp: "SetCoord",
+proc setCoord*(this: var Dir2d; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
     dynlib: tkmath.}
-proc setX*(this: var GpDir2d; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
-proc setY*(this: var GpDir2d; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
-proc setXY*(this: var GpDir2d; coord: GpXY) {.cdecl, importcpp: "SetXY", dynlib: tkmath.}
-proc coord*(this: GpDir2d; index: cint): cfloat {.noSideEffect, cdecl,
+proc setCoord*(this: var Dir2d; xv: cfloat; yv: cfloat) {.cdecl, importcpp: "SetCoord",
+    dynlib: tkmath.}
+proc setX*(this: var Dir2d; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
+proc setY*(this: var Dir2d; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
+proc setXY*(this: var Dir2d; coord: Xy) {.cdecl, importcpp: "SetXY", dynlib: tkmath.}
+proc coord*(this: Dir2d; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
+    dynlib: tkmath.}
+proc coord*(this: Dir2d; xv: var cfloat; yv: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", dynlib: tkmath.}
-proc coord*(this: GpDir2d; xv: var cfloat; yv: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkmath.}
-proc x*(this: GpDir2d): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
-proc y*(this: GpDir2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
-proc xy*(this: GpDir2d): GpXY {.noSideEffect, cdecl, importcpp: "XY", dynlib: tkmath.}
-proc isEqual*(this: GpDir2d; other: GpDir2d; angularTolerance: cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkmath.}
-proc isNormal*(this: GpDir2d; other: GpDir2d; angularTolerance: cfloat): bool {.
+proc x*(this: Dir2d): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
+proc y*(this: Dir2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
+proc xy*(this: Dir2d): Xy {.noSideEffect, cdecl, importcpp: "XY", dynlib: tkmath.}
+proc isEqual*(this: Dir2d; other: Dir2d; angularTolerance: cfloat): bool {.noSideEffect,
+    cdecl, importcpp: "IsEqual", dynlib: tkmath.}
+proc isNormal*(this: Dir2d; other: Dir2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsNormal", dynlib: tkmath.}
-proc isOpposite*(this: GpDir2d; other: GpDir2d; angularTolerance: cfloat): bool {.
+proc isOpposite*(this: Dir2d; other: Dir2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsOpposite", dynlib: tkmath.}
-proc isParallel*(this: GpDir2d; other: GpDir2d; angularTolerance: cfloat): bool {.
+proc isParallel*(this: Dir2d; other: Dir2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsParallel", dynlib: tkmath.}
-proc angle*(this: GpDir2d; other: GpDir2d): cfloat {.noSideEffect, cdecl,
+proc angle*(this: Dir2d; other: Dir2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Angle", dynlib: tkmath.}
-proc crossed*(this: GpDir2d; right: GpDir2d): cfloat {.noSideEffect, cdecl,
+proc crossed*(this: Dir2d; right: Dir2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Crossed", dynlib: tkmath.}
-proc `^`*(this: GpDir2d; right: GpDir2d): cfloat {.noSideEffect, cdecl,
+proc `^`*(this: Dir2d; right: Dir2d): cfloat {.noSideEffect, cdecl,
     importcpp: "(# ^ #)", dynlib: tkmath.}
-proc dot*(this: GpDir2d; other: GpDir2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "Dot", dynlib: tkmath.}
-proc `*`*(this: GpDir2d; other: GpDir2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
-proc reverse*(this: var GpDir2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
-proc reversed*(this: GpDir2d): GpDir2d {.noSideEffect, cdecl, importcpp: "Reversed",
-                                     dynlib: tkmath.}
-proc `-`*(this: GpDir2d): GpDir2d {.noSideEffect, cdecl, importcpp: "(- #)",
-                                dynlib: tkmath.}
-proc mirror*(this: var GpDir2d; v: GpDir2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpDir2d; v: GpDir2d): GpDir2d {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpDir2d; a: GpAx2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpDir2d; a: GpAx2d): GpDir2d {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc rotate*(this: var GpDir2d; ang: cfloat) {.cdecl, importcpp: "Rotate", dynlib: tkmath.}
-proc rotated*(this: GpDir2d; ang: cfloat): GpDir2d {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc transform*(this: var GpDir2d; t: GpTrsf2d) {.cdecl, importcpp: "Transform",
+proc dot*(this: Dir2d; other: Dir2d): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
     dynlib: tkmath.}
-proc transformed*(this: GpDir2d; t: GpTrsf2d): GpDir2d {.noSideEffect, cdecl,
+proc `*`*(this: Dir2d; other: Dir2d): cfloat {.noSideEffect, cdecl,
+    importcpp: "(# * #)", dynlib: tkmath.}
+proc reverse*(this: var Dir2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+proc reversed*(this: Dir2d): Dir2d {.noSideEffect, cdecl, importcpp: "Reversed",
+                                 dynlib: tkmath.}
+proc `-`*(this: Dir2d): Dir2d {.noSideEffect, cdecl, importcpp: "(- #)", dynlib: tkmath.}
+proc mirror*(this: var Dir2d; v: Dir2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Dir2d; v: Dir2d): Dir2d {.noSideEffect, cdecl,
+    importcpp: "Mirrored", dynlib: tkmath.}
+proc mirror*(this: var Dir2d; a: Ax2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Dir2d; a: Ax2d): Dir2d {.noSideEffect, cdecl,
+                                        importcpp: "Mirrored", dynlib: tkmath.}
+proc rotate*(this: var Dir2d; ang: cfloat) {.cdecl, importcpp: "Rotate", dynlib: tkmath.}
+proc rotated*(this: Dir2d; ang: cfloat): Dir2d {.noSideEffect, cdecl,
+    importcpp: "Rotated", dynlib: tkmath.}
+proc transform*(this: var Dir2d; t: Trsf2d) {.cdecl, importcpp: "Transform",
+                                        dynlib: tkmath.}
+proc transformed*(this: Dir2d; t: Trsf2d): Dir2d {.noSideEffect, cdecl,
     importcpp: "Transformed", dynlib: tkmath.}
-proc dumpJson*(this: GpDir2d; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: Dir2d; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}

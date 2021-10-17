@@ -35,7 +35,7 @@ type
   NCollectionEBTreeUBTree* = NCollectionUBTree[TheObjType, TheBndType]
   NCollectionEBTreeTreeNode* = TreeNode
 
-proc constructNCollectionEBTree*[TheObjType; TheBndType](
+proc newNCollectionEBTree*[TheObjType; TheBndType](
     theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionEBTree[
     TheObjType, TheBndType] {.cdecl, constructor,
                             importcpp: "NCollection_EBTree<\'*0,\'*1>(@)",

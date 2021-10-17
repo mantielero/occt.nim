@@ -60,12 +60,12 @@ proc cbegin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListco
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
 proc cend*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollectionList*[TheItemType](): NCollectionList[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionList*[TheItemType](
-    theAllocator: Handle[NCollectionBaseAllocator]): NCollectionList[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionList*[TheItemType](theOther: NCollectionList): NCollectionList[
+proc newNCollectionList*[TheItemType](): NCollectionList[TheItemType] {.cdecl,
+    constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
+proc newNCollectionList*[TheItemType](theAllocator: Handle[
+    NCollectionBaseAllocator]): NCollectionList[TheItemType] {.cdecl, constructor,
+    importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
+proc newNCollectionList*[TheItemType](theOther: NCollectionList): NCollectionList[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)",
                   dynlib: tkernel.}
 proc size*[TheItemType](this: NCollectionList[TheItemType]): cint {.noSideEffect,

@@ -68,18 +68,18 @@ type
 
 
 proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", dynlib: tkmath.}
-proc origin*(): GpPnt {.cdecl, importcpp: "gp::Origin(@)", dynlib: tkmath.}
-proc dxAsDir*(): GpDir {.cdecl, importcpp: "gp::DX(@)", dynlib: tkmath.}
-proc dyAsDir*(): GpDir {.cdecl, importcpp: "gp::DY(@)", dynlib: tkmath.}
-proc dzAsDir*(): GpDir {.cdecl, importcpp: "gp::DZ(@)", dynlib: tkmath.}
-proc ox*(): GpAx1 {.cdecl, importcpp: "gp::OX(@)", dynlib: tkmath.}
-proc oy*(): GpAx1 {.cdecl, importcpp: "gp::OY(@)", dynlib: tkmath.}
-proc oz*(): GpAx1 {.cdecl, importcpp: "gp::OZ(@)", dynlib: tkmath.}
-proc xoy*(): GpAx2 {.cdecl, importcpp: "gp::XOY(@)", dynlib: tkmath.}
-proc zox*(): GpAx2 {.cdecl, importcpp: "gp::ZOX(@)", dynlib: tkmath.}
-proc yoz*(): GpAx2 {.cdecl, importcpp: "gp::YOZ(@)", dynlib: tkmath.}
-proc origin2d*(): GpPnt2d {.cdecl, importcpp: "gp::Origin2d(@)", dynlib: tkmath.}
-proc dX2d*(): GpDir2d {.cdecl, importcpp: "gp::DX2d(@)", dynlib: tkmath.}
-proc dY2d*(): GpDir2d {.cdecl, importcpp: "gp::DY2d(@)", dynlib: tkmath.}
-proc oX2d*(): GpAx2d {.cdecl, importcpp: "gp::OX2d(@)", dynlib: tkmath.}
-proc oY2d*(): GpAx2d {.cdecl, importcpp: "gp::OY2d(@)", dynlib: tkmath.}
+proc origin*(): Pnt {.cdecl, importcpp: "gp::Origin(@)", dynlib: tkmath.}
+proc dxAsDir*(): Dir {.cdecl, importcpp: "gp::DX(@)", dynlib: tkmath.}
+proc dyAsDir*(): Dir {.cdecl, importcpp: "gp::DY(@)", dynlib: tkmath.}
+proc dzAsDir*(): Dir {.cdecl, importcpp: "gp::DZ(@)", dynlib: tkmath.}
+proc ox*(): Ax1 {.cdecl, importcpp: "gp::OX(@)", dynlib: tkmath.}
+proc oy*(): Ax1 {.cdecl, importcpp: "gp::OY(@)", dynlib: tkmath.}
+proc oz*(): Ax1 {.cdecl, importcpp: "gp::OZ(@)", dynlib: tkmath.}
+proc xoy*(): Ax2 {.cdecl, importcpp: "gp::XOY(@)", dynlib: tkmath.}
+proc zox*(): Ax2 {.cdecl, importcpp: "gp::ZOX(@)", dynlib: tkmath.}
+proc yoz*(): Ax2 {.cdecl, importcpp: "gp::YOZ(@)", dynlib: tkmath.}
+proc origin2d*(): Pnt2d {.cdecl, importcpp: "gp::Origin2d(@)", dynlib: tkmath.}
+proc dX2d*(): Dir2d {.cdecl, importcpp: "gp::DX2d(@)", dynlib: tkmath.}
+proc dY2d*(): Dir2d {.cdecl, importcpp: "gp::DY2d(@)", dynlib: tkmath.}
+proc oX2d*(): Ax2d {.cdecl, importcpp: "gp::OX2d(@)", dynlib: tkmath.}
+proc oY2d*(): Ax2d {.cdecl, importcpp: "gp::OY2d(@)", dynlib: tkmath.}

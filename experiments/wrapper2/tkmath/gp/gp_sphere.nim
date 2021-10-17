@@ -20,68 +20,65 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  GpSphere* {.importcpp: "gp_Sphere", header: "gp_Sphere.hxx", bycopy.} = object ## ! Creates an
-                                                                         ## indefinite sphere.
+  Sphere* {.importcpp: "gp_Sphere", header: "gp_Sphere.hxx", bycopy.} = object ## ! Creates an
+                                                                       ## indefinite sphere.
 
 
-proc constructGpSphere*(): GpSphere {.cdecl, constructor, importcpp: "gp_Sphere(@)",
-                                   dynlib: tkmath.}
-proc constructGpSphere*(a3: GpAx3; radius: cfloat): GpSphere {.cdecl, constructor,
+proc newSphere*(): Sphere {.cdecl, constructor, importcpp: "gp_Sphere(@)",
+                         dynlib: tkmath.}
+proc newSphere*(a3: Ax3; radius: cfloat): Sphere {.cdecl, constructor,
     importcpp: "gp_Sphere(@)", dynlib: tkmath.}
-proc setLocation*(this: var GpSphere; loc: GpPnt) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var Sphere; loc: Pnt) {.cdecl, importcpp: "SetLocation",
     dynlib: tkmath.}
-proc setPosition*(this: var GpSphere; a3: GpAx3) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var Sphere; a3: Ax3) {.cdecl, importcpp: "SetPosition",
     dynlib: tkmath.}
-proc setRadius*(this: var GpSphere; r: cfloat) {.cdecl, importcpp: "SetRadius",
+proc setRadius*(this: var Sphere; r: cfloat) {.cdecl, importcpp: "SetRadius",
     dynlib: tkmath.}
-proc area*(this: GpSphere): cfloat {.noSideEffect, cdecl, importcpp: "Area",
-                                 dynlib: tkmath.}
-proc coefficients*(this: GpSphere; a1: var cfloat; a2: var cfloat; a3: var cfloat;
+proc area*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Area",
+                               dynlib: tkmath.}
+proc coefficients*(this: Sphere; a1: var cfloat; a2: var cfloat; a3: var cfloat;
                   b1: var cfloat; b2: var cfloat; b3: var cfloat; c1: var cfloat;
                   c2: var cfloat; c3: var cfloat; d: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coefficients", dynlib: tkmath.}
-proc uReverse*(this: var GpSphere) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
-proc vReverse*(this: var GpSphere) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
-proc direct*(this: GpSphere): bool {.noSideEffect, cdecl, importcpp: "Direct",
+proc uReverse*(this: var Sphere) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
+proc vReverse*(this: var Sphere) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
+proc direct*(this: Sphere): bool {.noSideEffect, cdecl, importcpp: "Direct",
+                               dynlib: tkmath.}
+proc location*(this: Sphere): Pnt {.noSideEffect, cdecl, importcpp: "Location",
+                                dynlib: tkmath.}
+proc position*(this: Sphere): Ax3 {.noSideEffect, cdecl, importcpp: "Position",
+                                dynlib: tkmath.}
+proc radius*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                  dynlib: tkmath.}
-proc location*(this: GpSphere): GpPnt {.noSideEffect, cdecl, importcpp: "Location",
-                                    dynlib: tkmath.}
-proc position*(this: GpSphere): GpAx3 {.noSideEffect, cdecl, importcpp: "Position",
-                                    dynlib: tkmath.}
-proc radius*(this: GpSphere): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                                   dynlib: tkmath.}
-proc volume*(this: GpSphere): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
-                                   dynlib: tkmath.}
-proc xAxis*(this: GpSphere): GpAx1 {.noSideEffect, cdecl, importcpp: "XAxis",
+proc volume*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
                                  dynlib: tkmath.}
-proc yAxis*(this: GpSphere): GpAx1 {.noSideEffect, cdecl, importcpp: "YAxis",
-                                 dynlib: tkmath.}
-proc mirror*(this: var GpSphere; p: GpPnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpSphere; p: GpPnt): GpSphere {.noSideEffect, cdecl,
+proc xAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
+proc yAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
+proc mirror*(this: var Sphere; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Sphere; p: Pnt): Sphere {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpSphere; a1: GpAx1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpSphere; a1: GpAx1): GpSphere {.noSideEffect, cdecl,
+proc mirror*(this: var Sphere; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Sphere; a1: Ax1): Sphere {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpSphere; a2: GpAx2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpSphere; a2: GpAx2): GpSphere {.noSideEffect, cdecl,
+proc mirror*(this: var Sphere; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Sphere; a2: Ax2): Sphere {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc rotate*(this: var GpSphere; a1: GpAx1; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var Sphere; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     dynlib: tkmath.}
-proc rotated*(this: GpSphere; a1: GpAx1; ang: cfloat): GpSphere {.noSideEffect, cdecl,
+proc rotated*(this: Sphere; a1: Ax1; ang: cfloat): Sphere {.noSideEffect, cdecl,
     importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var GpSphere; p: GpPnt; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var Sphere; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
     dynlib: tkmath.}
-proc scaled*(this: GpSphere; p: GpPnt; s: cfloat): GpSphere {.noSideEffect, cdecl,
+proc scaled*(this: Sphere; p: Pnt; s: cfloat): Sphere {.noSideEffect, cdecl,
     importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var GpSphere; t: GpTrsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
-proc transformed*(this: GpSphere; t: GpTrsf): GpSphere {.noSideEffect, cdecl,
+proc transform*(this: var Sphere; t: Trsf) {.cdecl, importcpp: "Transform",
+                                       dynlib: tkmath.}
+proc transformed*(this: Sphere; t: Trsf): Sphere {.noSideEffect, cdecl,
     importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var GpSphere; v: GpVec) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
-proc translated*(this: GpSphere; v: GpVec): GpSphere {.noSideEffect, cdecl,
+proc translate*(this: var Sphere; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+proc translated*(this: Sphere; v: Vec): Sphere {.noSideEffect, cdecl,
     importcpp: "Translated", dynlib: tkmath.}
-proc translate*(this: var GpSphere; p1: GpPnt; p2: GpPnt) {.cdecl,
-    importcpp: "Translate", dynlib: tkmath.}
-proc translated*(this: GpSphere; p1: GpPnt; p2: GpPnt): GpSphere {.noSideEffect, cdecl,
+proc translate*(this: var Sphere; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
+    dynlib: tkmath.}
+proc translated*(this: Sphere; p1: Pnt; p2: Pnt): Sphere {.noSideEffect, cdecl,
     importcpp: "Translated", dynlib: tkmath.}

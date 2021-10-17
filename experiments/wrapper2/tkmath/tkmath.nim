@@ -3,8 +3,9 @@
 {.experimental: "codeReordering".}
 
 type
-  TColStdArray1OfReal* = object
-  GpVectorWithNullMagnitude* = object
+  #TColStdArray1OfReal* = object
+  VectorWithNullMagnitude* = object
+  ValueType* = object
 
 when defined(windows):
   const tkmath* = "TKMath.dll"
@@ -14,3 +15,5 @@ else:
   const tkmath* = "libTKMath.so" 
 
 include gp/gp_includes
+include tcolgp/tcolgp_includes
+include geomabs/geomabs_includes

@@ -16,12 +16,12 @@
 
 discard "forward decl of gp_VectorWithNullMagnitude"
 type
-  HandleGpVectorWithNullMagnitude* = Handle[GpVectorWithNullMagnitude]
+  HandleGpVectorWithNullMagnitude* = Handle[VectorWithNullMagnitude]
 
 when not defined(noException) and not defined(noGpVectorWithNullMagnitude):
-  template gpVectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
+  template vectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
     if condition:
-      proc gpVectorWithNullMagnitude*(a1: Message): Throw {.cdecl,
+      proc vectorWithNullMagnitude*(a1: Message): Throw {.cdecl,
           importcpp: "gp_VectorWithNullMagnitude(@)", dynlib: tkmath.}
 
 else:

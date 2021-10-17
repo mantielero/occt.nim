@@ -53,64 +53,61 @@ when defined(SetForm):
 ## ! objects of this class respect the nature of geometric objects.
 
 type
-  GpGTrsf* {.importcpp: "gp_GTrsf", header: "gp_GTrsf.hxx", bycopy.} = object ## ! Returns the Identity
-                                                                      ## transformation.
+  GTrsf* {.importcpp: "gp_GTrsf", header: "gp_GTrsf.hxx", bycopy.} = object ## ! Returns the Identity
+                                                                    ## transformation.
 
 
-proc constructGpGTrsf*(): GpGTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
-                                 dynlib: tkmath.}
-proc constructGpGTrsf*(t: GpTrsf): GpGTrsf {.cdecl, constructor,
-    importcpp: "gp_GTrsf(@)", dynlib: tkmath.}
-proc constructGpGTrsf*(m: GpMat; v: GpXYZ): GpGTrsf {.cdecl, constructor,
-    importcpp: "gp_GTrsf(@)", dynlib: tkmath.}
-proc setAffinity*(this: var GpGTrsf; a1: GpAx1; ratio: cfloat) {.cdecl,
+proc newGTrsf*(): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)", dynlib: tkmath.}
+proc newGTrsf*(t: Trsf): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
+                             dynlib: tkmath.}
+proc newGTrsf*(m: Mat; v: Xyz): GTrsf {.cdecl, constructor, importcpp: "gp_GTrsf(@)",
+                                  dynlib: tkmath.}
+proc setAffinity*(this: var GTrsf; a1: Ax1; ratio: cfloat) {.cdecl,
     importcpp: "SetAffinity", dynlib: tkmath.}
-proc setAffinity*(this: var GpGTrsf; a2: GpAx2; ratio: cfloat) {.cdecl,
+proc setAffinity*(this: var GTrsf; a2: Ax2; ratio: cfloat) {.cdecl,
     importcpp: "SetAffinity", dynlib: tkmath.}
-proc setValue*(this: var GpGTrsf; row: cint; col: cint; value: cfloat) {.cdecl,
+proc setValue*(this: var GTrsf; row: cint; col: cint; value: cfloat) {.cdecl,
     importcpp: "SetValue", dynlib: tkmath.}
-proc setVectorialPart*(this: var GpGTrsf; matrix: GpMat) {.cdecl,
+proc setVectorialPart*(this: var GTrsf; matrix: Mat) {.cdecl,
     importcpp: "SetVectorialPart", dynlib: tkmath.}
-proc setTranslationPart*(this: var GpGTrsf; coord: GpXYZ) {.cdecl,
+proc setTranslationPart*(this: var GTrsf; coord: Xyz) {.cdecl,
     importcpp: "SetTranslationPart", dynlib: tkmath.}
-proc setTrsf*(this: var GpGTrsf; t: GpTrsf) {.cdecl, importcpp: "SetTrsf", dynlib: tkmath.}
-proc isNegative*(this: GpGTrsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
-                                    dynlib: tkmath.}
-proc isSingular*(this: GpGTrsf): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
-                                    dynlib: tkmath.}
-proc form*(this: GpGTrsf): GpTrsfForm {.noSideEffect, cdecl, importcpp: "Form",
-                                    dynlib: tkmath.}
-proc setForm*(this: var GpGTrsf) {.cdecl, importcpp: "SetForm", dynlib: tkmath.}
-proc translationPart*(this: GpGTrsf): GpXYZ {.noSideEffect, cdecl,
-    importcpp: "TranslationPart", dynlib: tkmath.}
-proc vectorialPart*(this: GpGTrsf): GpMat {.noSideEffect, cdecl,
-                                        importcpp: "VectorialPart", dynlib: tkmath.}
-proc value*(this: GpGTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
-proc `()`*(this: GpGTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
-proc invert*(this: var GpGTrsf) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
-proc inverted*(this: GpGTrsf): GpGTrsf {.noSideEffect, cdecl, importcpp: "Inverted",
-                                     dynlib: tkmath.}
-proc multiplied*(this: GpGTrsf; t: GpGTrsf): GpGTrsf {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
-proc `*`*(this: GpGTrsf; t: GpGTrsf): GpGTrsf {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
-proc multiply*(this: var GpGTrsf; t: GpGTrsf) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
-proc `*=`*(this: var GpGTrsf; t: GpGTrsf) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
-proc preMultiply*(this: var GpGTrsf; t: GpGTrsf) {.cdecl, importcpp: "PreMultiply",
-    dynlib: tkmath.}
-proc power*(this: var GpGTrsf; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
-proc powered*(this: GpGTrsf; n: cint): GpGTrsf {.noSideEffect, cdecl,
-    importcpp: "Powered", dynlib: tkmath.}
-proc transforms*(this: GpGTrsf; coord: var GpXYZ) {.noSideEffect, cdecl,
-    importcpp: "Transforms", dynlib: tkmath.}
-proc transforms*(this: GpGTrsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Transforms", dynlib: tkmath.}
-proc trsf*(this: GpGTrsf): GpTrsf {.noSideEffect, cdecl, importcpp: "Trsf",
+proc setTrsf*(this: var GTrsf; t: Trsf) {.cdecl, importcpp: "SetTrsf", dynlib: tkmath.}
+proc isNegative*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
+                                  dynlib: tkmath.}
+proc isSingular*(this: GTrsf): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
+                                  dynlib: tkmath.}
+proc form*(this: GTrsf): TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
                                 dynlib: tkmath.}
-proc getMat4*[T](this: GpGTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
+proc setForm*(this: var GTrsf) {.cdecl, importcpp: "SetForm", dynlib: tkmath.}
+proc translationPart*(this: GTrsf): Xyz {.noSideEffect, cdecl,
+                                      importcpp: "TranslationPart", dynlib: tkmath.}
+proc vectorialPart*(this: GTrsf): Mat {.noSideEffect, cdecl,
+                                    importcpp: "VectorialPart", dynlib: tkmath.}
+proc value*(this: GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkmath.}
+proc `()`*(this: GTrsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+    importcpp: "#(@)", dynlib: tkmath.}
+proc invert*(this: var GTrsf) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+proc inverted*(this: GTrsf): GTrsf {.noSideEffect, cdecl, importcpp: "Inverted",
+                                 dynlib: tkmath.}
+proc multiplied*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, cdecl,
+    importcpp: "Multiplied", dynlib: tkmath.}
+proc `*`*(this: GTrsf; t: GTrsf): GTrsf {.noSideEffect, cdecl, importcpp: "(# * #)",
+                                    dynlib: tkmath.}
+proc multiply*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "Multiply", dynlib: tkmath.}
+proc `*=`*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+proc preMultiply*(this: var GTrsf; t: GTrsf) {.cdecl, importcpp: "PreMultiply",
+    dynlib: tkmath.}
+proc power*(this: var GTrsf; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
+proc powered*(this: GTrsf; n: cint): GTrsf {.noSideEffect, cdecl, importcpp: "Powered",
+                                       dynlib: tkmath.}
+proc transforms*(this: GTrsf; coord: var Xyz) {.noSideEffect, cdecl,
+    importcpp: "Transforms", dynlib: tkmath.}
+proc transforms*(this: GTrsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
+    cdecl, importcpp: "Transforms", dynlib: tkmath.}
+proc trsf*(this: GTrsf): Trsf {.noSideEffect, cdecl, importcpp: "Trsf", dynlib: tkmath.}
+proc getMat4*[T](this: GTrsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
     importcpp: "GetMat4", dynlib: tkmath.}
-proc dumpJson*(this: GpGTrsf; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: GTrsf; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}

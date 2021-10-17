@@ -57,10 +57,10 @@ type
     ##  Current index
 
 
-proc constructNCollectionIndexedMapIterator*[TheKeyType; Hasher](): NCollectionIndexedMapIterator[
+proc newNCollectionIndexedMapIterator*[TheKeyType; Hasher](): NCollectionIndexedMapIterator[
     TheKeyType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedMap<\'*0,\'*1>::Iterator(@)",
                         dynlib: tkernel.}
-proc constructNCollectionIndexedMapIterator*[TheKeyType; Hasher](
+proc newNCollectionIndexedMapIterator*[TheKeyType; Hasher](
     theMap: NCollectionIndexedMap): NCollectionIndexedMapIterator[TheKeyType,
     Hasher] {.cdecl, constructor,
              importcpp: "NCollection_IndexedMap<\'*0,\'*1>::Iterator(@)",
@@ -83,19 +83,19 @@ proc cbegin*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher]
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
 proc cend*[TheKeyType; Hasher](this: NCollectionIndexedMap[TheKeyType, Hasher]): NCollectionIndexedMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollectionIndexedMap*[TheKeyType; Hasher](): NCollectionIndexedMap[
+proc newNCollectionIndexedMap*[TheKeyType; Hasher](): NCollectionIndexedMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
-proc constructNCollectionIndexedMap*[TheKeyType; Hasher](theNbBuckets: cint;
+proc newNCollectionIndexedMap*[TheKeyType; Hasher](theNbBuckets: cint;
     theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionIndexedMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
                         dynlib: tkernel.}
-proc constructNCollectionIndexedMap*[TheKeyType; Hasher](
-    theOther: NCollectionIndexedMap): NCollectionIndexedMap[TheKeyType, Hasher] {.
-    cdecl, constructor, importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
-    dynlib: tkernel.}
+proc newNCollectionIndexedMap*[TheKeyType; Hasher](theOther: NCollectionIndexedMap): NCollectionIndexedMap[
+    TheKeyType, Hasher] {.cdecl, constructor,
+                        importcpp: "NCollection_IndexedMap<\'*0,\'*1>(@)",
+                        dynlib: tkernel.}
 proc exchange*[TheKeyType; Hasher](this: var NCollectionIndexedMap[TheKeyType, Hasher];
                                  theOther: var NCollectionIndexedMap) {.cdecl,
     importcpp: "Exchange", dynlib: tkernel.}

@@ -27,14 +27,14 @@ type
 
 proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec2::Length(@)",
                               dynlib: tkernel.}
-proc constructNCollectionVec2*[ElementT](): NCollectionVec2[ElementT] {.cdecl,
+proc newNCollectionVec2*[ElementT](): NCollectionVec2[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Vec2<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionVec2*[ElementT](theXY: ElementT): NCollectionVec2[ElementT] {.
+proc newNCollectionVec2*[ElementT](theXY: ElementT): NCollectionVec2[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Vec2<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionVec2*[ElementT](theX: ElementT; theY: ElementT): NCollectionVec2[
+proc newNCollectionVec2*[ElementT](theX: ElementT; theY: ElementT): NCollectionVec2[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec2<\'*0>(@)",
                dynlib: tkernel.}
-proc constructNCollectionVec2*[ElementT; OtherElementT](
+proc newNCollectionVec2*[ElementT; OtherElementT](
     theOtherVec2: NCollectionVec2[OtherElementT]): NCollectionVec2[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Vec2<\'*0>(@)", dynlib: tkernel.}
 proc setValues*[ElementT](this: var NCollectionVec2[ElementT]; theX: ElementT;

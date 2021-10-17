@@ -38,7 +38,7 @@ type
                                                                                      ## iterate
 
 
-proc constructNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
+proc newNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfIterator<\'*0>(@)",
            dynlib: tkernel.}
 proc init*[Type](this: var NCollectionUtfIterator[Type]; theString: ptr Type) {.cdecl,

@@ -26,7 +26,7 @@ type
 
   NCollectionIncAllocatoralignedT* = pointer
 
-proc constructNCollectionIncAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionIncAllocator {.
+proc newNCollectionIncAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionIncAllocator {.
     cdecl, constructor, importcpp: "NCollection_IncAllocator(@)", dynlib: tkernel.}
 proc setThreadSafe*(this: var NCollectionIncAllocator; theIsThreadSafe: bool = true) {.
     cdecl, importcpp: "SetThreadSafe", dynlib: tkernel.}

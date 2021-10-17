@@ -26,7 +26,7 @@ type
     ## !< Pointer to the next node
 
 
-proc constructNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.
+proc newNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.
     cdecl, constructor, importcpp: "NCollection_ListNode(@)", dynlib: tkernel.}
 proc next*(this: var NCollectionListNode): ptr NCollectionListNode {.cdecl,
     importcpp: "Next", dynlib: tkernel.}

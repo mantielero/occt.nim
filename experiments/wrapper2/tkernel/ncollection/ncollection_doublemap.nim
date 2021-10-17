@@ -54,7 +54,7 @@ type
       TheKey2Type]            ## ! Constructor with 'Next'
 
 
-proc constructNCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1;
+proc newNCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1;
     Hasher2](theKey1: TheKey1Type; theKey2: TheKey2Type;
              theNext1: ptr NCollectionListNode; theNext2: ptr NCollectionListNode): NCollectionDoubleMapDoubleMapNode[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
@@ -81,15 +81,14 @@ type
                                                                                       ## constructor
 
 
-proc constructNCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1;
-    Hasher2](): NCollectionDoubleMapIterator[TheKey1Type, TheKey2Type, Hasher1,
-    Hasher2] {.cdecl, constructor, importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>::Iterator(@)",
-              dynlib: tkernel.}
-proc constructNCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1;
-    Hasher2](theMap: NCollectionDoubleMap): NCollectionDoubleMapIterator[
+proc newNCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](): NCollectionDoubleMapIterator[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
     importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>::Iterator(@)",
     dynlib: tkernel.}
+proc newNCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
+    theMap: NCollectionDoubleMap): NCollectionDoubleMapIterator[TheKey1Type,
+    TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor, importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>::Iterator(@)",
+                                  dynlib: tkernel.}
 proc more*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: NCollectionDoubleMapIterator[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2]): bool {.noSideEffect, cdecl,
     importcpp: "More", dynlib: tkernel.}
@@ -105,14 +104,14 @@ proc key2*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: NCollectionDoubleMa
 proc value*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: NCollectionDoubleMapIterator[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2]): TheKey2Type {.noSideEffect, cdecl,
     importcpp: "Value", dynlib: tkernel.}
-proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](): NCollectionDoubleMap[
+proc newNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](): NCollectionDoubleMap[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
     importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
-proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
+proc newNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     theNbBuckets: cint; theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionDoubleMap[
     TheKey1Type, TheKey2Type, Hasher1, Hasher2] {.cdecl, constructor,
     importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
-proc constructNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
+proc newNCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
     theOther: NCollectionDoubleMap): NCollectionDoubleMap[TheKey1Type, TheKey2Type,
     Hasher1, Hasher2] {.cdecl, constructor, importcpp: "NCollection_DoubleMap<\'*0,\'*1,\'*2,\'*3>(@)",
                       dynlib: tkernel.}

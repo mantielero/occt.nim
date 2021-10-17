@@ -16,117 +16,112 @@
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Mat"
 type
-  GpQuaternion* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## identity
-                                                                                     ## quaternion
+  Quaternion* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## an
+                                                                                   ## identity
+                                                                                   ## quaternion
 
 
-proc constructGpQuaternion*(): GpQuaternion {.cdecl, constructor,
+proc newQuaternion*(): Quaternion {.cdecl, constructor,
+                                 importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
+proc newQuaternion*(x: cfloat; y: cfloat; z: cfloat; w: cfloat): Quaternion {.cdecl,
+    constructor, importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
+proc newQuaternion*(theVecFrom: Vec; theVecTo: Vec): Quaternion {.cdecl, constructor,
     importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc constructGpQuaternion*(x: cfloat; y: cfloat; z: cfloat; w: cfloat): GpQuaternion {.
+proc newQuaternion*(theVecFrom: Vec; theVecTo: Vec; theHelpCrossVec: Vec): Quaternion {.
     cdecl, constructor, importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc constructGpQuaternion*(theVecFrom: GpVec; theVecTo: GpVec): GpQuaternion {.cdecl,
-    constructor, importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc constructGpQuaternion*(theVecFrom: GpVec; theVecTo: GpVec;
-                           theHelpCrossVec: GpVec): GpQuaternion {.cdecl,
-    constructor, importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc constructGpQuaternion*(theAxis: GpVec; theAngle: cfloat): GpQuaternion {.cdecl,
-    constructor, importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc constructGpQuaternion*(theMat: GpMat): GpQuaternion {.cdecl, constructor,
+proc newQuaternion*(theAxis: Vec; theAngle: cfloat): Quaternion {.cdecl, constructor,
     importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
-proc isEqual*(this: GpQuaternion; theOther: GpQuaternion): bool {.noSideEffect, cdecl,
+proc newQuaternion*(theMat: Mat): Quaternion {.cdecl, constructor,
+    importcpp: "gp_Quaternion(@)", dynlib: tkmath.}
+proc isEqual*(this: Quaternion; theOther: Quaternion): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", dynlib: tkmath.}
-proc setRotation*(this: var GpQuaternion; theVecFrom: GpVec; theVecTo: GpVec) {.cdecl,
+proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec) {.cdecl,
     importcpp: "SetRotation", dynlib: tkmath.}
-proc setRotation*(this: var GpQuaternion; theVecFrom: GpVec; theVecTo: GpVec;
-                 theHelpCrossVec: GpVec) {.cdecl, importcpp: "SetRotation",
-    dynlib: tkmath.}
-proc setVectorAndAngle*(this: var GpQuaternion; theAxis: GpVec; theAngle: cfloat) {.
-    cdecl, importcpp: "SetVectorAndAngle", dynlib: tkmath.}
-proc getVectorAndAngle*(this: GpQuaternion; theAxis: var GpVec; theAngle: var cfloat) {.
+proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec;
+                 theHelpCrossVec: Vec) {.cdecl, importcpp: "SetRotation",
+                                       dynlib: tkmath.}
+proc setVectorAndAngle*(this: var Quaternion; theAxis: Vec; theAngle: cfloat) {.cdecl,
+    importcpp: "SetVectorAndAngle", dynlib: tkmath.}
+proc getVectorAndAngle*(this: Quaternion; theAxis: var Vec; theAngle: var cfloat) {.
     noSideEffect, cdecl, importcpp: "GetVectorAndAngle", dynlib: tkmath.}
-proc setMatrix*(this: var GpQuaternion; theMat: GpMat) {.cdecl, importcpp: "SetMatrix",
+proc setMatrix*(this: var Quaternion; theMat: Mat) {.cdecl, importcpp: "SetMatrix",
     dynlib: tkmath.}
-proc getMatrix*(this: GpQuaternion): GpMat {.noSideEffect, cdecl,
-    importcpp: "GetMatrix", dynlib: tkmath.}
-proc setEulerAngles*(this: var GpQuaternion; theOrder: GpEulerSequence;
-                    theAlpha: cfloat; theBeta: cfloat; theGamma: cfloat) {.cdecl,
-    importcpp: "SetEulerAngles", dynlib: tkmath.}
-proc getEulerAngles*(this: GpQuaternion; theOrder: GpEulerSequence;
-                    theAlpha: var cfloat; theBeta: var cfloat; theGamma: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetEulerAngles", dynlib: tkmath.}
-proc set*(this: var GpQuaternion; x: cfloat; y: cfloat; z: cfloat; w: cfloat) {.cdecl,
-    importcpp: "Set", dynlib: tkmath.}
-proc set*(this: var GpQuaternion; theQuaternion: GpQuaternion) {.cdecl,
-    importcpp: "Set", dynlib: tkmath.}
-proc x*(this: GpQuaternion): cfloat {.noSideEffect, cdecl, importcpp: "X",
-                                  dynlib: tkmath.}
-proc y*(this: GpQuaternion): cfloat {.noSideEffect, cdecl, importcpp: "Y",
-                                  dynlib: tkmath.}
-proc z*(this: GpQuaternion): cfloat {.noSideEffect, cdecl, importcpp: "Z",
-                                  dynlib: tkmath.}
-proc w*(this: GpQuaternion): cfloat {.noSideEffect, cdecl, importcpp: "W",
-                                  dynlib: tkmath.}
-proc setIdent*(this: var GpQuaternion) {.cdecl, importcpp: "SetIdent", dynlib: tkmath.}
-proc reverse*(this: var GpQuaternion) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
-proc reversed*(this: GpQuaternion): GpQuaternion {.noSideEffect, cdecl,
-    importcpp: "Reversed", dynlib: tkmath.}
-proc invert*(this: var GpQuaternion) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
-proc inverted*(this: GpQuaternion): GpQuaternion {.noSideEffect, cdecl,
-    importcpp: "Inverted", dynlib: tkmath.}
-proc squareNorm*(this: GpQuaternion): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareNorm", dynlib: tkmath.}
-proc norm*(this: GpQuaternion): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
+proc getMatrix*(this: Quaternion): Mat {.noSideEffect, cdecl, importcpp: "GetMatrix",
                                      dynlib: tkmath.}
-proc scale*(this: var GpQuaternion; theScale: cfloat) {.cdecl, importcpp: "Scale",
+proc setEulerAngles*(this: var Quaternion; theOrder: EulerSequence; theAlpha: cfloat;
+                    theBeta: cfloat; theGamma: cfloat) {.cdecl,
+    importcpp: "SetEulerAngles", dynlib: tkmath.}
+proc getEulerAngles*(this: Quaternion; theOrder: EulerSequence; theAlpha: var cfloat;
+                    theBeta: var cfloat; theGamma: var cfloat) {.noSideEffect, cdecl,
+    importcpp: "GetEulerAngles", dynlib: tkmath.}
+proc set*(this: var Quaternion; x: cfloat; y: cfloat; z: cfloat; w: cfloat) {.cdecl,
+    importcpp: "Set", dynlib: tkmath.}
+proc set*(this: var Quaternion; theQuaternion: Quaternion) {.cdecl, importcpp: "Set",
     dynlib: tkmath.}
-proc `*=`*(this: var GpQuaternion; theScale: cfloat) {.cdecl, importcpp: "(# *= #)",
+proc x*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
+proc y*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
+proc z*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Z", dynlib: tkmath.}
+proc w*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "W", dynlib: tkmath.}
+proc setIdent*(this: var Quaternion) {.cdecl, importcpp: "SetIdent", dynlib: tkmath.}
+proc reverse*(this: var Quaternion) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+proc reversed*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "Reversed", dynlib: tkmath.}
+proc invert*(this: var Quaternion) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+proc inverted*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "Inverted", dynlib: tkmath.}
+proc squareNorm*(this: Quaternion): cfloat {.noSideEffect, cdecl,
+    importcpp: "SquareNorm", dynlib: tkmath.}
+proc norm*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
+                                   dynlib: tkmath.}
+proc scale*(this: var Quaternion; theScale: cfloat) {.cdecl, importcpp: "Scale",
     dynlib: tkmath.}
-proc scaled*(this: GpQuaternion; theScale: cfloat): GpQuaternion {.noSideEffect, cdecl,
+proc `*=`*(this: var Quaternion; theScale: cfloat) {.cdecl, importcpp: "(# *= #)",
+    dynlib: tkmath.}
+proc scaled*(this: Quaternion; theScale: cfloat): Quaternion {.noSideEffect, cdecl,
     importcpp: "Scaled", dynlib: tkmath.}
-proc `*`*(this: GpQuaternion; theScale: cfloat): GpQuaternion {.noSideEffect, cdecl,
+proc `*`*(this: Quaternion; theScale: cfloat): Quaternion {.noSideEffect, cdecl,
     importcpp: "(# * #)", dynlib: tkmath.}
-proc stabilizeLength*(this: var GpQuaternion) {.cdecl, importcpp: "StabilizeLength",
+proc stabilizeLength*(this: var Quaternion) {.cdecl, importcpp: "StabilizeLength",
     dynlib: tkmath.}
-proc normalize*(this: var GpQuaternion) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
-proc normalized*(this: GpQuaternion): GpQuaternion {.noSideEffect, cdecl,
+proc normalize*(this: var Quaternion) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
+proc normalized*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
     importcpp: "Normalized", dynlib: tkmath.}
-proc negated*(this: GpQuaternion): GpQuaternion {.noSideEffect, cdecl,
+proc negated*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
     importcpp: "Negated", dynlib: tkmath.}
-proc `-`*(this: GpQuaternion): GpQuaternion {.noSideEffect, cdecl, importcpp: "(- #)",
+proc `-`*(this: Quaternion): Quaternion {.noSideEffect, cdecl, importcpp: "(- #)",
+                                      dynlib: tkmath.}
+proc added*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "Added", dynlib: tkmath.}
+proc `+`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "(# + #)", dynlib: tkmath.}
+proc subtracted*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    cdecl, importcpp: "Subtracted", dynlib: tkmath.}
+proc `-`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "(# - #)", dynlib: tkmath.}
+proc multiplied*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+    cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+proc `*`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+    importcpp: "(# * #)", dynlib: tkmath.}
+proc add*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "Add",
     dynlib: tkmath.}
-proc added*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.noSideEffect,
-    cdecl, importcpp: "Added", dynlib: tkmath.}
-proc `+`*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.noSideEffect,
-    cdecl, importcpp: "(# + #)", dynlib: tkmath.}
-proc subtracted*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.
-    noSideEffect, cdecl, importcpp: "Subtracted", dynlib: tkmath.}
-proc `-`*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.noSideEffect,
-    cdecl, importcpp: "(# - #)", dynlib: tkmath.}
-proc multiplied*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkmath.}
-proc `*`*(this: GpQuaternion; theOther: GpQuaternion): GpQuaternion {.noSideEffect,
-    cdecl, importcpp: "(# * #)", dynlib: tkmath.}
-proc add*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl, importcpp: "Add",
+proc `+=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# += #)",
     dynlib: tkmath.}
-proc `+=`*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
-proc subtract*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl,
+proc subtract*(this: var Quaternion; theOther: Quaternion) {.cdecl,
     importcpp: "Subtract", dynlib: tkmath.}
-proc `-=`*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl,
-    importcpp: "(# -= #)", dynlib: tkmath.}
-proc multiply*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl,
+proc `-=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# -= #)",
+    dynlib: tkmath.}
+proc multiply*(this: var Quaternion; theOther: Quaternion) {.cdecl,
     importcpp: "Multiply", dynlib: tkmath.}
-proc `*=`*(this: var GpQuaternion; theOther: GpQuaternion) {.cdecl,
-    importcpp: "(# *= #)", dynlib: tkmath.}
-proc dot*(this: GpQuaternion; theOther: GpQuaternion): cfloat {.noSideEffect, cdecl,
+proc `*=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# *= #)",
+    dynlib: tkmath.}
+proc dot*(this: Quaternion; theOther: Quaternion): cfloat {.noSideEffect, cdecl,
     importcpp: "Dot", dynlib: tkmath.}
-proc getRotationAngle*(this: GpQuaternion): cfloat {.noSideEffect, cdecl,
+proc getRotationAngle*(this: Quaternion): cfloat {.noSideEffect, cdecl,
     importcpp: "GetRotationAngle", dynlib: tkmath.}
-proc multiply*(this: GpQuaternion; theVec: GpVec): GpVec {.noSideEffect, cdecl,
+proc multiply*(this: Quaternion; theVec: Vec): Vec {.noSideEffect, cdecl,
     importcpp: "Multiply", dynlib: tkmath.}
-proc `*`*(this: GpQuaternion; theVec: GpVec): GpVec {.noSideEffect, cdecl,
+proc `*`*(this: Quaternion; theVec: Vec): Vec {.noSideEffect, cdecl,
     importcpp: "(# * #)", dynlib: tkmath.}

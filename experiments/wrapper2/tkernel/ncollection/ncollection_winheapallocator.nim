@@ -43,7 +43,7 @@ type
 #      discard
 
 
-proc constructNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
+proc newNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
     cdecl, constructor, importcpp: "NCollection_WinHeapAllocator(@)",
     dynlib: tkernel.}
 proc destroyNCollectionWinHeapAllocator*(this: var NCollectionWinHeapAllocator) {.

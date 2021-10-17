@@ -30,9 +30,9 @@ type
 
   NCollectionHandleelementType*[T] = T
 
-proc constructNCollectionHandle*[T](): NCollectionHandle[T] {.cdecl, constructor,
+proc newNCollectionHandle*[T](): NCollectionHandle[T] {.cdecl, constructor,
     importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionHandle*[T](theObject: ptr T): NCollectionHandle[T] {.cdecl,
+proc newNCollectionHandle*[T](theObject: ptr T): NCollectionHandle[T] {.cdecl,
     constructor, importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
 proc get*[T](this: var NCollectionHandle[T]): ptr T {.cdecl, importcpp: "get",
     dynlib: tkernel.}

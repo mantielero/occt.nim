@@ -32,14 +32,14 @@
 ## ! yaw-pitch-roll (intrinsic ZYX).
 
 type
-  GpEulerSequence* {.size: sizeof(cint), importcpp: "gp_EulerSequence",
-                    header: "gp_EulerSequence.hxx".} = enum ## ! Classic Euler angles, alias to Intrinsic_ZXZ
-    gpEulerAngles,            ## ! Yaw Pitch Roll (or nautical) angles, alias to Intrinsic_ZYX
-    gpYawPitchRoll,           ##  Tait-Bryan angles (using three different axes)
-    gpExtrinsicXYZ, gpExtrinsicXZY, gpExtrinsicYZX, gpExtrinsicYXZ, gpExtrinsicZXY,
-    gpExtrinsicZYX, gpIntrinsicXYZ, gpIntrinsicXZY, gpIntrinsicYZX, gpIntrinsicYXZ,
-    gpIntrinsicZXY, gpIntrinsicZYX, ##  Proper Euler angles (using two different axes, first and third the same)
-    gpExtrinsicXYX, gpExtrinsicXZX, gpExtrinsicYZY, gpExtrinsicYXY, gpExtrinsicZYZ,
-    gpExtrinsicZXZ, gpIntrinsicXYX, gpIntrinsicXZX, gpIntrinsicYZY, gpIntrinsicYXY,
-    gpIntrinsicZXZ, gpIntrinsicZYZ
+  EulerSequence* {.size: sizeof(cint), importcpp: "gp_EulerSequence",
+                  header: "gp_EulerSequence.hxx".} = enum ## ! Classic Euler angles, alias to Intrinsic_ZXZ
+    EulerAngles,              ## ! Yaw Pitch Roll (or nautical) angles, alias to Intrinsic_ZYX
+    YawPitchRoll,             ##  Tait-Bryan angles (using three different axes)
+    ExtrinsicXYZ, ExtrinsicXZY, ExtrinsicYZX, ExtrinsicYXZ, ExtrinsicZXY,
+    ExtrinsicZYX, IntrinsicXYZ, IntrinsicXZY, IntrinsicYZX, IntrinsicYXZ,
+    IntrinsicZXY, IntrinsicZYX, ##  Proper Euler angles (using two different axes, first and third the same)
+    ExtrinsicXYX, ExtrinsicXZX, ExtrinsicYZY, ExtrinsicYXY, ExtrinsicZYZ,
+    ExtrinsicZXZ, IntrinsicXYX, IntrinsicXZX, IntrinsicYZY, IntrinsicYXY,
+    IntrinsicZXZ, IntrinsicZYZ
 

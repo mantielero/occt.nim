@@ -26,7 +26,7 @@ type
     ## !< The item stored in the node
 
 
-proc constructNCollectionTListNode*[TheItemType](theItem: TheItemType;
+proc newNCollectionTListNode*[TheItemType](theItem: TheItemType;
     theNext: ptr NCollectionListNode = nil): NCollectionTListNode[TheItemType] {.
     cdecl, constructor, importcpp: "NCollection_TListNode<\'*0>(@)", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionTListNode[TheItemType]): TheItemType {.

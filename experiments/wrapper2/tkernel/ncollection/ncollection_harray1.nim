@@ -20,11 +20,11 @@ template ncollection_Harray1*(hClassName, `type`: untyped): void =
     HClassName* {.importcpp: "HClassName", header: "NCollection_HArray1.hxx", bycopy.} = object of NCollectionArray1[
         Type]
 
-  proc constructHClassName*(theLower: cint; theUpper: cint): HClassName {.cdecl,
-      constructor, importcpp: "HClassName(@)", dynlib: tkernel.}
-  proc constructHClassName*(theLower: cint; theUpper: cint; theValue: ValueType[Type]): HClassName {.
+  proc newHClassName*(theLower: cint; theUpper: cint): HClassName {.cdecl, constructor,
+      importcpp: "HClassName(@)", dynlib: tkernel.}
+  proc newHClassName*(theLower: cint; theUpper: cint; theValue: ValueType[Type]): HClassName {.
       cdecl, constructor, importcpp: "HClassName(@)", dynlib: tkernel.}
-  proc constructHClassName*(theOther: NCollectionArray1[Type]): HClassName {.cdecl,
+  proc newHClassName*(theOther: NCollectionArray1[Type]): HClassName {.cdecl,
       constructor, importcpp: "HClassName(@)", dynlib: tkernel.}
   proc array1*(this: HClassName): NCollectionArray1[Type] {.noSideEffect, cdecl,
       importcpp: "Array1", dynlib: tkernel.}

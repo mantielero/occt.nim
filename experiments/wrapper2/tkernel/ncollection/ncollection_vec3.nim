@@ -28,19 +28,18 @@ type
 
 #proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
 #                              dynlib: tkernel.}
-proc constructNCollectionVec3*[ElementT](): NCollectionVec3[ElementT] {.cdecl,
+proc newNCollectionVec3*[ElementT](): NCollectionVec3[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionVec3*[ElementT](theValue: ElementT): NCollectionVec3[
-    ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
-               dynlib: tkernel.}
-proc constructNCollectionVec3*[ElementT](theX: ElementT; theY: ElementT;
-                                        theZ: ElementT): NCollectionVec3[ElementT] {.
+proc newNCollectionVec3*[ElementT](theValue: ElementT): NCollectionVec3[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionVec3*[ElementT](theVec2: NCollectionVec2[ElementT];
-                                        theZ: ElementT = ElementT(0)): NCollectionVec3[
+proc newNCollectionVec3*[ElementT](theX: ElementT; theY: ElementT; theZ: ElementT): NCollectionVec3[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
                dynlib: tkernel.}
-proc constructNCollectionVec3*[ElementT; OtherElementT](
+proc newNCollectionVec3*[ElementT](theVec2: NCollectionVec2[ElementT];
+                                  theZ: ElementT = ElementT(0)): NCollectionVec3[
+    ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
+               dynlib: tkernel.}
+proc newNCollectionVec3*[ElementT; OtherElementT](
     theOtherVec3: NCollectionVec3[OtherElementT]): NCollectionVec3[ElementT] {.
     cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
 proc setValues*[ElementT](this: var NCollectionVec3[ElementT]; theX: ElementT;

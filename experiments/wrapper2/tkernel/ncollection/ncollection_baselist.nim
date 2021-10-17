@@ -63,9 +63,9 @@ type
     myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode ##  Pointer to the previous one
 
 
-proc constructNCollectionBaseListIterator*(): NCollectionBaseListIterator {.cdecl,
+proc newNCollectionBaseListIterator*(): NCollectionBaseListIterator {.cdecl,
     constructor, importcpp: "NCollection_BaseList::Iterator(@)", dynlib: tkernel.}
-proc constructNCollectionBaseListIterator*(theList: NCollectionBaseList): NCollectionBaseListIterator {.
+proc newNCollectionBaseListIterator*(theList: NCollectionBaseList): NCollectionBaseListIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseList::Iterator(@)",
     dynlib: tkernel.}
 proc init*(this: var NCollectionBaseListIterator; theList: NCollectionBaseList) {.

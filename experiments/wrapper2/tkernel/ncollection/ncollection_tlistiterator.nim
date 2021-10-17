@@ -26,10 +26,10 @@ type
                                                                       ## constructor - for later Init
 
 
-proc constructNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
+proc newNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
+proc newNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
 proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): bool {.

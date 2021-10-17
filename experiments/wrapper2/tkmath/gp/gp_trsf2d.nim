@@ -22,74 +22,72 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_XY"
 discard "forward decl of gp_Mat2d"
 type
-  GpTrsf2d* {.importcpp: "gp_Trsf2d", header: "gp_Trsf2d.hxx", bycopy.} = object ## ! Returns
-                                                                         ## identity
-                                                                         ## transformation.
-                                                                         ## ! Makes
-                                                                         ## orthogonalization of
-                                                                         ## "matrix"
+  Trsf2d* {.importcpp: "gp_Trsf2d", header: "gp_Trsf2d.hxx", bycopy.} = object ## ! Returns identity
+                                                                       ## transformation.
+                                                                       ## ! Makes
+                                                                       ## orthogonalization of "matrix"
 
 
-proc constructGpTrsf2d*(): GpTrsf2d {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
-                                   dynlib: tkmath.}
-proc constructGpTrsf2d*(t: GpTrsf): GpTrsf2d {.cdecl, constructor,
-    importcpp: "gp_Trsf2d(@)", dynlib: tkmath.}
-proc setMirror*(this: var GpTrsf2d; p: GpPnt2d) {.cdecl, importcpp: "SetMirror",
-    dynlib: tkmath.}
-proc setMirror*(this: var GpTrsf2d; a: GpAx2d) {.cdecl, importcpp: "SetMirror",
-    dynlib: tkmath.}
-proc setRotation*(this: var GpTrsf2d; p: GpPnt2d; ang: cfloat) {.cdecl,
-    importcpp: "SetRotation", dynlib: tkmath.}
-proc setScale*(this: var GpTrsf2d; p: GpPnt2d; s: cfloat) {.cdecl, importcpp: "SetScale",
-    dynlib: tkmath.}
-proc setTransformation*(this: var GpTrsf2d; fromSystem1: GpAx2d; toSystem2: GpAx2d) {.
-    cdecl, importcpp: "SetTransformation", dynlib: tkmath.}
-proc setTransformation*(this: var GpTrsf2d; toSystem: GpAx2d) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkmath.}
-proc setTranslation*(this: var GpTrsf2d; v: GpVec2d) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkmath.}
-proc setTranslation*(this: var GpTrsf2d; p1: GpPnt2d; p2: GpPnt2d) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkmath.}
-proc setTranslationPart*(this: var GpTrsf2d; v: GpVec2d) {.cdecl,
-    importcpp: "SetTranslationPart", dynlib: tkmath.}
-proc setScaleFactor*(this: var GpTrsf2d; s: cfloat) {.cdecl,
-    importcpp: "SetScaleFactor", dynlib: tkmath.}
-proc isNegative*(this: GpTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
-                                     dynlib: tkmath.}
-proc form*(this: GpTrsf2d): GpTrsfForm {.noSideEffect, cdecl, importcpp: "Form",
-                                     dynlib: tkmath.}
-proc scaleFactor*(this: GpTrsf2d): cfloat {.noSideEffect, cdecl,
-                                        importcpp: "ScaleFactor", dynlib: tkmath.}
-proc translationPart*(this: GpTrsf2d): GpXY {.noSideEffect, cdecl,
-    importcpp: "TranslationPart", dynlib: tkmath.}
-proc vectorialPart*(this: GpTrsf2d): GpMat2d {.noSideEffect, cdecl,
-    importcpp: "VectorialPart", dynlib: tkmath.}
-proc hVectorialPart*(this: GpTrsf2d): GpMat2d {.noSideEffect, cdecl,
-    importcpp: "HVectorialPart", dynlib: tkmath.}
-proc rotationPart*(this: GpTrsf2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "RotationPart", dynlib: tkmath.}
-proc value*(this: GpTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
-proc invert*(this: var GpTrsf2d) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
-proc inverted*(this: GpTrsf2d): GpTrsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
-                                       dynlib: tkmath.}
-proc multiplied*(this: GpTrsf2d; t: GpTrsf2d): GpTrsf2d {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
-proc `*`*(this: GpTrsf2d; t: GpTrsf2d): GpTrsf2d {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
-proc multiply*(this: var GpTrsf2d; t: GpTrsf2d) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
-proc `*=`*(this: var GpTrsf2d; t: GpTrsf2d) {.cdecl, importcpp: "(# *= #)",
+proc newTrsf2d*(): Trsf2d {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
+                         dynlib: tkmath.}
+proc newTrsf2d*(t: Trsf): Trsf2d {.cdecl, constructor, importcpp: "gp_Trsf2d(@)",
+                               dynlib: tkmath.}
+proc setMirror*(this: var Trsf2d; p: Pnt2d) {.cdecl, importcpp: "SetMirror",
                                         dynlib: tkmath.}
-proc preMultiply*(this: var GpTrsf2d; t: GpTrsf2d) {.cdecl, importcpp: "PreMultiply",
+proc setMirror*(this: var Trsf2d; a: Ax2d) {.cdecl, importcpp: "SetMirror",
+                                       dynlib: tkmath.}
+proc setRotation*(this: var Trsf2d; p: Pnt2d; ang: cfloat) {.cdecl,
+    importcpp: "SetRotation", dynlib: tkmath.}
+proc setScale*(this: var Trsf2d; p: Pnt2d; s: cfloat) {.cdecl, importcpp: "SetScale",
     dynlib: tkmath.}
-proc power*(this: var GpTrsf2d; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
-proc powered*(this: var GpTrsf2d; n: cint): GpTrsf2d {.cdecl, importcpp: "Powered",
+proc setTransformation*(this: var Trsf2d; fromSystem1: Ax2d; toSystem2: Ax2d) {.cdecl,
+    importcpp: "SetTransformation", dynlib: tkmath.}
+proc setTransformation*(this: var Trsf2d; toSystem: Ax2d) {.cdecl,
+    importcpp: "SetTransformation", dynlib: tkmath.}
+proc setTranslation*(this: var Trsf2d; v: Vec2d) {.cdecl, importcpp: "SetTranslation",
     dynlib: tkmath.}
-proc transforms*(this: GpTrsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
+proc setTranslation*(this: var Trsf2d; p1: Pnt2d; p2: Pnt2d) {.cdecl,
+    importcpp: "SetTranslation", dynlib: tkmath.}
+proc setTranslationPart*(this: var Trsf2d; v: Vec2d) {.cdecl,
+    importcpp: "SetTranslationPart", dynlib: tkmath.}
+proc setScaleFactor*(this: var Trsf2d; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
+    dynlib: tkmath.}
+proc isNegative*(this: Trsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
+                                   dynlib: tkmath.}
+proc form*(this: Trsf2d): TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
+                                 dynlib: tkmath.}
+proc scaleFactor*(this: Trsf2d): cfloat {.noSideEffect, cdecl,
+                                      importcpp: "ScaleFactor", dynlib: tkmath.}
+proc translationPart*(this: Trsf2d): Xy {.noSideEffect, cdecl,
+                                      importcpp: "TranslationPart", dynlib: tkmath.}
+proc vectorialPart*(this: Trsf2d): Mat2d {.noSideEffect, cdecl,
+                                       importcpp: "VectorialPart", dynlib: tkmath.}
+proc hVectorialPart*(this: Trsf2d): Mat2d {.noSideEffect, cdecl,
+                                        importcpp: "HVectorialPart",
+                                        dynlib: tkmath.}
+proc rotationPart*(this: Trsf2d): cfloat {.noSideEffect, cdecl,
+                                       importcpp: "RotationPart", dynlib: tkmath.}
+proc value*(this: Trsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkmath.}
+proc invert*(this: var Trsf2d) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+proc inverted*(this: Trsf2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
+                                   dynlib: tkmath.}
+proc multiplied*(this: Trsf2d; t: Trsf2d): Trsf2d {.noSideEffect, cdecl,
+    importcpp: "Multiplied", dynlib: tkmath.}
+proc `*`*(this: Trsf2d; t: Trsf2d): Trsf2d {.noSideEffect, cdecl, importcpp: "(# * #)",
+                                       dynlib: tkmath.}
+proc multiply*(this: var Trsf2d; t: Trsf2d) {.cdecl, importcpp: "Multiply",
+                                        dynlib: tkmath.}
+proc `*=`*(this: var Trsf2d; t: Trsf2d) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+proc preMultiply*(this: var Trsf2d; t: Trsf2d) {.cdecl, importcpp: "PreMultiply",
+    dynlib: tkmath.}
+proc power*(this: var Trsf2d; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
+proc powered*(this: var Trsf2d; n: cint): Trsf2d {.cdecl, importcpp: "Powered",
+    dynlib: tkmath.}
+proc transforms*(this: Trsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Transforms", dynlib: tkmath.}
-proc transforms*(this: GpTrsf2d; coord: var GpXY) {.noSideEffect, cdecl,
+proc transforms*(this: Trsf2d; coord: var Xy) {.noSideEffect, cdecl,
     importcpp: "Transforms", dynlib: tkmath.}
-proc setValues*(this: var GpTrsf2d; a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat;
+proc setValues*(this: var Trsf2d; a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat;
                a22: cfloat; a23: cfloat) {.cdecl, importcpp: "SetValues",
                                        dynlib: tkmath.}

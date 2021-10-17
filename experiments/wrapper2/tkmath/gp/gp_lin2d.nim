@@ -19,73 +19,72 @@ discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of gp_Vec2d"
 type
-  GpLin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object ## ! Creates a Line
-                                                                      ## corresponding to X axis of the
-                                                                      ## ! reference coordinate system.
+  Lin2d* {.importcpp: "gp_Lin2d", header: "gp_Lin2d.hxx", bycopy.} = object ## ! Creates a Line
+                                                                    ## corresponding to X axis of the
+                                                                    ## ! reference coordinate system.
 
 
-proc constructGpLin2d*(): GpLin2d {.cdecl, constructor, importcpp: "gp_Lin2d(@)",
+proc newLin2d*(): Lin2d {.cdecl, constructor, importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
+proc newLin2d*(a: Ax2d): Lin2d {.cdecl, constructor, importcpp: "gp_Lin2d(@)",
+                             dynlib: tkmath.}
+proc newLin2d*(p: Pnt2d; v: Dir2d): Lin2d {.cdecl, constructor,
+                                      importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
+proc newLin2d*(a: cfloat; b: cfloat; c: cfloat): Lin2d {.cdecl, constructor,
+    importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
+proc reverse*(this: var Lin2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+proc reversed*(this: Lin2d): Lin2d {.noSideEffect, cdecl, importcpp: "Reversed",
                                  dynlib: tkmath.}
-proc constructGpLin2d*(a: GpAx2d): GpLin2d {.cdecl, constructor,
-    importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
-proc constructGpLin2d*(p: GpPnt2d; v: GpDir2d): GpLin2d {.cdecl, constructor,
-    importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
-proc constructGpLin2d*(a: cfloat; b: cfloat; c: cfloat): GpLin2d {.cdecl, constructor,
-    importcpp: "gp_Lin2d(@)", dynlib: tkmath.}
-proc reverse*(this: var GpLin2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
-proc reversed*(this: GpLin2d): GpLin2d {.noSideEffect, cdecl, importcpp: "Reversed",
-                                     dynlib: tkmath.}
-proc setDirection*(this: var GpLin2d; v: GpDir2d) {.cdecl, importcpp: "SetDirection",
+proc setDirection*(this: var Lin2d; v: Dir2d) {.cdecl, importcpp: "SetDirection",
     dynlib: tkmath.}
-proc setLocation*(this: var GpLin2d; p: GpPnt2d) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var Lin2d; p: Pnt2d) {.cdecl, importcpp: "SetLocation",
     dynlib: tkmath.}
-proc setPosition*(this: var GpLin2d; a: GpAx2d) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkmath.}
-proc coefficients*(this: GpLin2d; a: var cfloat; b: var cfloat; c: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkmath.}
-proc direction*(this: GpLin2d): GpDir2d {.noSideEffect, cdecl, importcpp: "Direction",
-                                      dynlib: tkmath.}
-proc location*(this: GpLin2d): GpPnt2d {.noSideEffect, cdecl, importcpp: "Location",
-                                     dynlib: tkmath.}
-proc position*(this: GpLin2d): GpAx2d {.noSideEffect, cdecl, importcpp: "Position",
-                                    dynlib: tkmath.}
-proc angle*(this: GpLin2d; other: GpLin2d): cfloat {.noSideEffect, cdecl,
+proc setPosition*(this: var Lin2d; a: Ax2d) {.cdecl, importcpp: "SetPosition",
+                                        dynlib: tkmath.}
+proc coefficients*(this: Lin2d; a: var cfloat; b: var cfloat; c: var cfloat) {.noSideEffect,
+    cdecl, importcpp: "Coefficients", dynlib: tkmath.}
+proc direction*(this: Lin2d): Dir2d {.noSideEffect, cdecl, importcpp: "Direction",
+                                  dynlib: tkmath.}
+proc location*(this: Lin2d): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
+                                 dynlib: tkmath.}
+proc position*(this: Lin2d): Ax2d {.noSideEffect, cdecl, importcpp: "Position",
+                                dynlib: tkmath.}
+proc angle*(this: Lin2d; other: Lin2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Angle", dynlib: tkmath.}
-proc contains*(this: GpLin2d; p: GpPnt2d; linearTolerance: cfloat): bool {.noSideEffect,
+proc contains*(this: Lin2d; p: Pnt2d; linearTolerance: cfloat): bool {.noSideEffect,
     cdecl, importcpp: "Contains", dynlib: tkmath.}
-proc distance*(this: GpLin2d; p: GpPnt2d): cfloat {.noSideEffect, cdecl,
+proc distance*(this: Lin2d; p: Pnt2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", dynlib: tkmath.}
-proc distance*(this: GpLin2d; other: GpLin2d): cfloat {.noSideEffect, cdecl,
+proc distance*(this: Lin2d; other: Lin2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", dynlib: tkmath.}
-proc squareDistance*(this: GpLin2d; p: GpPnt2d): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: Lin2d; p: Pnt2d): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", dynlib: tkmath.}
-proc squareDistance*(this: GpLin2d; other: GpLin2d): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: Lin2d; other: Lin2d): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", dynlib: tkmath.}
-proc normal*(this: GpLin2d; p: GpPnt2d): GpLin2d {.noSideEffect, cdecl,
-    importcpp: "Normal", dynlib: tkmath.}
-proc mirror*(this: var GpLin2d; p: GpPnt2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpLin2d; p: GpPnt2d): GpLin2d {.noSideEffect, cdecl,
+proc normal*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, cdecl, importcpp: "Normal",
+                                       dynlib: tkmath.}
+proc mirror*(this: var Lin2d; p: Pnt2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Lin2d; p: Pnt2d): Lin2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpLin2d; a: GpAx2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpLin2d; a: GpAx2d): GpLin2d {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc rotate*(this: var GpLin2d; p: GpPnt2d; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc mirror*(this: var Lin2d; a: Ax2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Lin2d; a: Ax2d): Lin2d {.noSideEffect, cdecl,
+                                        importcpp: "Mirrored", dynlib: tkmath.}
+proc rotate*(this: var Lin2d; p: Pnt2d; ang: cfloat) {.cdecl, importcpp: "Rotate",
     dynlib: tkmath.}
-proc rotated*(this: GpLin2d; p: GpPnt2d; ang: cfloat): GpLin2d {.noSideEffect, cdecl,
+proc rotated*(this: Lin2d; p: Pnt2d; ang: cfloat): Lin2d {.noSideEffect, cdecl,
     importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var GpLin2d; p: GpPnt2d; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var Lin2d; p: Pnt2d; s: cfloat) {.cdecl, importcpp: "Scale",
     dynlib: tkmath.}
-proc scaled*(this: GpLin2d; p: GpPnt2d; s: cfloat): GpLin2d {.noSideEffect, cdecl,
+proc scaled*(this: Lin2d; p: Pnt2d; s: cfloat): Lin2d {.noSideEffect, cdecl,
     importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var GpLin2d; t: GpTrsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
-proc transformed*(this: GpLin2d; t: GpTrsf2d): GpLin2d {.noSideEffect, cdecl,
+proc transform*(this: var Lin2d; t: Trsf2d) {.cdecl, importcpp: "Transform",
+                                        dynlib: tkmath.}
+proc transformed*(this: Lin2d; t: Trsf2d): Lin2d {.noSideEffect, cdecl,
     importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var GpLin2d; v: GpVec2d) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
-proc translated*(this: GpLin2d; v: GpVec2d): GpLin2d {.noSideEffect, cdecl,
+proc translate*(this: var Lin2d; v: Vec2d) {.cdecl, importcpp: "Translate",
+                                       dynlib: tkmath.}
+proc translated*(this: Lin2d; v: Vec2d): Lin2d {.noSideEffect, cdecl,
     importcpp: "Translated", dynlib: tkmath.}
-proc translate*(this: var GpLin2d; p1: GpPnt2d; p2: GpPnt2d) {.cdecl,
-    importcpp: "Translate", dynlib: tkmath.}
-proc translated*(this: GpLin2d; p1: GpPnt2d; p2: GpPnt2d): GpLin2d {.noSideEffect, cdecl,
+proc translate*(this: var Lin2d; p1: Pnt2d; p2: Pnt2d) {.cdecl, importcpp: "Translate",
+    dynlib: tkmath.}
+proc translated*(this: Lin2d; p1: Pnt2d; p2: Pnt2d): Lin2d {.noSideEffect, cdecl,
     importcpp: "Translated", dynlib: tkmath.}

@@ -228,11 +228,11 @@ type
   NCollectionCellFilterTarget* {.importcpp:"typename Inspector::Target".} = object
   NCollectionCellFilterPoint* {.importcpp:"typename Inspector::Point".} = object
 
-proc constructNCollectionCellFilter*[Inspector](theDim: cint;
+proc newNCollectionCellFilter*[Inspector](theDim: cint;
     theCellSize: StandardReal = 0; theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[
     Inspector] {.cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
                 dynlib: tkernel.}
-proc constructNCollectionCellFilter*[Inspector](theCellSize: StandardReal = 0;
+proc newNCollectionCellFilter*[Inspector](theCellSize: StandardReal = 0;
     theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[Inspector] {.
     cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
     dynlib: tkernel.}
@@ -289,7 +289,7 @@ const
   NCollectionCellFilterInspectorXYZDimension* = 3
 
 type
-  NCollectionCellFilterInspectorXYZPoint* = GpXYZ
+  NCollectionCellFilterInspectorXYZPoint* = Xyz
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYZPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXYZ::Coord(@)",
@@ -315,7 +315,7 @@ const
   NCollectionCellFilterInspectorXYDimension* = 2
 
 type
-  NCollectionCellFilterInspectorXYPoint* = GpXY
+  NCollectionCellFilterInspectorXYPoint* = Xy
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXY::Coord(@)",

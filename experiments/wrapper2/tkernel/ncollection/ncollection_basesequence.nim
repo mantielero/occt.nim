@@ -20,7 +20,7 @@ type
                        header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
 
 
-proc constructNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
+proc newNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
     importcpp: "NCollection_SeqNode(@)", dynlib: tkernel.}
 proc next*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect, cdecl,
     importcpp: "Next", dynlib: tkernel.}
@@ -71,12 +71,13 @@ type
     ## !< Pointer to the previous node
 
 
-proc constructNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.
+proc newNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
     dynlib: tkernel.}
-proc constructNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
-    isStart: bool): NCollectionBaseSequenceIterator {.cdecl, constructor,
-    importcpp: "NCollection_BaseSequence::Iterator(@)", dynlib: tkernel.}
+proc newNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
+                                        isStart: bool): NCollectionBaseSequenceIterator {.
+    cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
+    dynlib: tkernel.}
 proc init*(this: var NCollectionBaseSequenceIterator;
           theSeq: NCollectionBaseSequence; isStart: bool = true) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}

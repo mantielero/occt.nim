@@ -28,9 +28,9 @@ type
 
 proc interpolate*[T](theStart: T; theEnd: T; theT: cdouble): T {.cdecl,
     importcpp: "NCollection_Lerp::Interpolate(@)", dynlib: tkernel.}
-proc constructNCollectionLerp*[T](): NCollectionLerp[T] {.cdecl, constructor,
+proc newNCollectionLerp*[T](): NCollectionLerp[T] {.cdecl, constructor,
     importcpp: "NCollection_Lerp<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionLerp*[T](theStart: T; theEnd: T): NCollectionLerp[T] {.cdecl,
+proc newNCollectionLerp*[T](theStart: T; theEnd: T): NCollectionLerp[T] {.cdecl,
     constructor, importcpp: "NCollection_Lerp<\'*0>(@)", dynlib: tkernel.}
 proc init*[T](this: var NCollectionLerp[T]; theStart: T; theEnd: T) {.cdecl,
     importcpp: "Init", dynlib: tkernel.}

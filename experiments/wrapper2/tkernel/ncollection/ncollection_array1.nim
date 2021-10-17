@@ -49,7 +49,7 @@ type
   TheItemType* = object
   
   NCollectionArray1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
-                                   header: "NCollection_Array1.hxx", bycopy.} = object ##
+                                   header: "NCollection_Array1.hxx", bycopy.} = object of RootObj ##
                                                                                   ## !
                                                                                   ## STL-compliant
                                                                                   ## typedef
@@ -95,20 +95,19 @@ type
   NCollectionArray1valueType*[TheItemType] = TheItemType
   NCollectionArray1Iterator*[TheItemType] {.
       importcpp: "NCollection_Array1<\'0>::Iterator",
-      header: "NCollection_Array1.hxx", bycopy.} = object ## ! Empty constructor - for later Init
+      header: "NCollection_Array1.hxx", bycopy.} = object of RootObj ## ! Empty constructor - for later Init
     ## !< Pointer to the current element in the array
     ## !< Pointer to the past-the-end element in the array
 
 
-proc constructNCollectionArray1Iterator*[TheItemType](): NCollectionArray1Iterator[
+proc newNCollectionArray1Iterator*[TheItemType](): NCollectionArray1Iterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc constructNCollectionArray1Iterator*[TheItemType](
-    theArray: NCollectionArray1; theToEnd: bool = false): NCollectionArray1Iterator[
-    TheItemType] {.cdecl, constructor,
-                  importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
-                  dynlib: tkernel.}
+proc newNCollectionArray1Iterator*[TheItemType](theArray: NCollectionArray1;
+    theToEnd: bool = false): NCollectionArray1Iterator[TheItemType] {.cdecl,
+    constructor, importcpp: "NCollection_Array1<\'*0>::Iterator(@)",
+    dynlib: tkernel.}
 proc init*[TheItemType](this: var NCollectionArray1Iterator[TheItemType];
                        theArray: NCollectionArray1) {.cdecl, importcpp: "Init",
     dynlib: tkernel.}
@@ -145,17 +144,18 @@ proc cbegin*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArra
     noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
 proc cend*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1constIterator {.
     noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
-proc constructNCollectionArray1*[TheItemType](): NCollectionArray1[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionArray1*[TheItemType](theLower: cint; theUpper: cint): NCollectionArray1[
-    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)",
-                  dynlib: tkernel.}
-proc constructNCollectionArray1*[TheItemType](theOther: NCollectionArray1): NCollectionArray1[
-    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)",
-                  dynlib: tkernel.}
-proc constructNCollectionArray1*[TheItemType](theBegin: TheItemType;
-    theLower: cint; theUpper: cint): NCollectionArray1[TheItemType] {.cdecl,
+proc newNCollectionArray1*[TheItemType](): NCollectionArray1[TheItemType] {.cdecl,
     constructor, importcpp: "NCollection_Array1<\'*0>(@)", dynlib: tkernel.}
+proc newNCollectionArray1*[TheItemType](theLower: cint; theUpper: cint): NCollectionArray1[
+    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)",
+                  dynlib: tkernel.}
+proc newNCollectionArray1*[TheItemType](theOther: NCollectionArray1): NCollectionArray1[
+    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)",
+                  dynlib: tkernel.}
+proc newNCollectionArray1*[TheItemType](theBegin: TheItemType; theLower: cint;
+                                       theUpper: cint): NCollectionArray1[
+    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array1<\'*0>(@)",
+                  dynlib: tkernel.}
 proc init*[TheItemType](this: var NCollectionArray1[TheItemType];
                        theValue: TheItemType) {.cdecl, importcpp: "Init",
     dynlib: tkernel.}

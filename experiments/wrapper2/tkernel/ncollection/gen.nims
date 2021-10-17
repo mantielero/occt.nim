@@ -110,8 +110,10 @@ pp("ncollection_accallocator.nim",
 genFiles("NCollection_AlignedAllocator")
 genFiles("NCollection_Array1")
 pp("ncollection_array1.nim",
-  comment = @[131,132, 188,189,195,196],
-  replaceAll = @[("standardFalse", "false"), ("True", "true")],
+  comment = @[130,131, 188,189,195,196],
+  replaceAll = @[("standardFalse", "false"), ("True", "true"),
+    ("""header: "NCollection_Array1.hxx", bycopy.} = object""", """header: "NCollection_Array1.hxx", bycopy.} = object of RootObj""")
+                ],
   insert = @[(47, """  PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object
   RandomAccessIteratorTag* {.importcpp:"std::random_access_iterator_tag".} = object
   TheItemType* = object
@@ -120,7 +122,8 @@ pp("ncollection_array1.nim",
 
 genFiles("NCollection_Array2", remove= @[(390,423)])
 pp("ncollection_array2.nim",
-  commentRange = @[(170,172), (176,178)]
+  commentRange = @[(170,172), (176,178)],
+  replaceAll = @[("""header: "NCollection_Array2.hxx", bycopy.} = object""", """header: "NCollection_Array2.hxx", bycopy.} = object of RootObj""")]
 )
 
 genFiles("NCollection_BaseAllocator", remove = @[(30,32),(49,81)])
@@ -307,7 +310,7 @@ pp("ncollection_sequence.nim",
                  ("standardTrue", "true"), ("True", "true"),
                  ("Handle[NCollectionBaseAllocator] = 0", "Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)")],
   insert = @[(22, "  BidirectionalIteratorTag* {.importcpp:\"std::bidirectional_iterator_tag\".} = object")],
-  comment = @[108, 109, 202,203,207, 208]
+  comment = @[107, 108]  #, 202,203,207, 208]
   )
 
 genFiles("NCollection_Shared",
@@ -342,9 +345,9 @@ genFiles("NCollection_StdAllocator",
   addSemiColon = @[96]
   )
 pp("ncollection_stdallocator.nim",
-  comment = @[5,6, 42, 44,45,78, 79, 93,94,96,97,98, 103,107,108, 109, 110],
+  comment = @[5,6, 42, 44,45],
   replaceAll = @[("pointer = 0", "pointer = cast[pointer](0)")],
-  commentRange = @[(92,106)]
+  commentRange = @[(77,79), (91,105), (106,111)]
 )
 
 genFiles("NCollection_StlIterator",
@@ -455,10 +458,10 @@ genFiles("NCollection_Vector",
   remove = @[(100,102)]
 )
 pp("ncollection_vector.nim",
-  comment = @[111,112, 152, 153, 166,167],
+  comment = @[110,111, 152, 153, 166,167],
   replaceAll = @[("object of NCollectionVectorIterator", "object of RootObj"),
                  ("standardFalse", "false"), ("True", "true"), ("standardtrue", "true"),
-                 ("Handle[NCollectionBaseAllocator] = nil", "Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](nil)")]
+                 ("NCollectionBaseAllocator] = nil", "NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](nil)")]
 )
 
 genFiles("NCollection_WinHeapAllocator")

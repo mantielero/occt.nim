@@ -21,10 +21,10 @@ type
       header: "NCollection_LocalArray.hxx", bycopy.} = object
 
 
-proc constructNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](
+proc newNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](
     theSize: csize_t): NCollectionLocalArray[TheItem, Max_Array_Size] {.cdecl,
     constructor, importcpp: "NCollection_LocalArray<\'*0,\'*1>(@)", dynlib: tkernel.}
-proc constructNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](): NCollectionLocalArray[
+proc newNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](): NCollectionLocalArray[
     TheItem, Max_Array_Size] {.cdecl, constructor,
                              importcpp: "NCollection_LocalArray<\'*0,\'*1>(@)",
                              dynlib: tkernel.}

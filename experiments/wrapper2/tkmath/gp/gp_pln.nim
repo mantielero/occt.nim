@@ -22,82 +22,74 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
 type
-  GpPln* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object ## ! Creates a plane coincident with OXY plane of the
-                                                                ## ! reference coordinate system.
+  Pln* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object ## ! Creates a plane coincident with OXY plane of the
+                                                              ## ! reference coordinate system.
 
 
-proc constructGpPln*(): GpPln {.cdecl, constructor, importcpp: "gp_Pln(@)",
-                             dynlib: tkmath.}
-proc constructGpPln*(a3: GpAx3): GpPln {.cdecl, constructor, importcpp: "gp_Pln(@)",
-                                     dynlib: tkmath.}
-proc constructGpPln*(p: GpPnt; v: GpDir): GpPln {.cdecl, constructor,
+proc newPln*(): Pln {.cdecl, constructor, importcpp: "gp_Pln(@)", dynlib: tkmath.}
+proc newPln*(a3: Ax3): Pln {.cdecl, constructor, importcpp: "gp_Pln(@)", dynlib: tkmath.}
+proc newPln*(p: Pnt; v: Dir): Pln {.cdecl, constructor, importcpp: "gp_Pln(@)",
+                              dynlib: tkmath.}
+proc newPln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): Pln {.cdecl, constructor,
     importcpp: "gp_Pln(@)", dynlib: tkmath.}
-proc constructGpPln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GpPln {.cdecl,
-    constructor, importcpp: "gp_Pln(@)", dynlib: tkmath.}
-proc coefficients*(this: GpPln; a: var cfloat; b: var cfloat; c: var cfloat; d: var cfloat) {.
+proc coefficients*(this: Pln; a: var cfloat; b: var cfloat; c: var cfloat; d: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkmath.}
-proc setAxis*(this: var GpPln; a1: GpAx1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
-proc setLocation*(this: var GpPln; loc: GpPnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
-proc setPosition*(this: var GpPln; a3: GpAx3) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkmath.}
-proc uReverse*(this: var GpPln) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
-proc vReverse*(this: var GpPln) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
-proc direct*(this: GpPln): bool {.noSideEffect, cdecl, importcpp: "Direct",
-                              dynlib: tkmath.}
-proc axis*(this: GpPln): GpAx1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
-proc location*(this: GpPln): GpPnt {.noSideEffect, cdecl, importcpp: "Location",
-                                 dynlib: tkmath.}
-proc position*(this: GpPln): GpAx3 {.noSideEffect, cdecl, importcpp: "Position",
-                                 dynlib: tkmath.}
-proc distance*(this: GpPln; p: GpPnt): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkmath.}
-proc distance*(this: GpPln; L: GpLin): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkmath.}
-proc distance*(this: GpPln; other: GpPln): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkmath.}
-proc squareDistance*(this: GpPln; p: GpPnt): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
-proc squareDistance*(this: GpPln; L: GpLin): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
-proc squareDistance*(this: GpPln; other: GpPln): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
-proc xAxis*(this: GpPln): GpAx1 {.noSideEffect, cdecl, importcpp: "XAxis",
-                              dynlib: tkmath.}
-proc yAxis*(this: GpPln): GpAx1 {.noSideEffect, cdecl, importcpp: "YAxis",
-                              dynlib: tkmath.}
-proc contains*(this: GpPln; p: GpPnt; linearTolerance: cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "Contains", dynlib: tkmath.}
-proc contains*(this: GpPln; L: GpLin; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "Contains", dynlib: tkmath.}
-proc mirror*(this: var GpPln; p: GpPnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpPln; p: GpPnt): GpPln {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpPln; a1: GpAx1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpPln; a1: GpAx1): GpPln {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpPln; a2: GpAx2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpPln; a2: GpAx2): GpPln {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc rotate*(this: var GpPln; a1: GpAx1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
-proc rotated*(this: GpPln; a1: GpAx1; ang: cfloat): GpPln {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var GpPln; p: GpPnt; s: cfloat) {.cdecl, importcpp: "Scale",
-    dynlib: tkmath.}
-proc scaled*(this: GpPln; p: GpPnt; s: cfloat): GpPln {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var GpPln; t: GpTrsf) {.cdecl, importcpp: "Transform",
-                                        dynlib: tkmath.}
-proc transformed*(this: GpPln; t: GpTrsf): GpPln {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var GpPln; v: GpVec) {.cdecl, importcpp: "Translate",
+proc setAxis*(this: var Pln; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+proc setLocation*(this: var Pln; loc: Pnt) {.cdecl, importcpp: "SetLocation",
                                        dynlib: tkmath.}
-proc translated*(this: GpPln; v: GpVec): GpPln {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
-proc translate*(this: var GpPln; p1: GpPnt; p2: GpPnt) {.cdecl, importcpp: "Translate",
+proc setPosition*(this: var Pln; a3: Ax3) {.cdecl, importcpp: "SetPosition",
+                                      dynlib: tkmath.}
+proc uReverse*(this: var Pln) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
+proc vReverse*(this: var Pln) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
+proc direct*(this: Pln): bool {.noSideEffect, cdecl, importcpp: "Direct", dynlib: tkmath.}
+proc axis*(this: Pln): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+proc location*(this: Pln): Pnt {.noSideEffect, cdecl, importcpp: "Location",
+                             dynlib: tkmath.}
+proc position*(this: Pln): Ax3 {.noSideEffect, cdecl, importcpp: "Position",
+                             dynlib: tkmath.}
+proc distance*(this: Pln; p: Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
+                                      dynlib: tkmath.}
+proc distance*(this: Pln; L: Lin): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
+                                      dynlib: tkmath.}
+proc distance*(this: Pln; other: Pln): cfloat {.noSideEffect, cdecl,
+    importcpp: "Distance", dynlib: tkmath.}
+proc squareDistance*(this: Pln; p: Pnt): cfloat {.noSideEffect, cdecl,
+    importcpp: "SquareDistance", dynlib: tkmath.}
+proc squareDistance*(this: Pln; L: Lin): cfloat {.noSideEffect, cdecl,
+    importcpp: "SquareDistance", dynlib: tkmath.}
+proc squareDistance*(this: Pln; other: Pln): cfloat {.noSideEffect, cdecl,
+    importcpp: "SquareDistance", dynlib: tkmath.}
+proc xAxis*(this: Pln): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
+proc yAxis*(this: Pln): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
+proc contains*(this: Pln; p: Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
+    importcpp: "Contains", dynlib: tkmath.}
+proc contains*(this: Pln; L: Lin; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
+    noSideEffect, cdecl, importcpp: "Contains", dynlib: tkmath.}
+proc mirror*(this: var Pln; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Pln; p: Pnt): Pln {.noSideEffect, cdecl, importcpp: "Mirrored",
+                                   dynlib: tkmath.}
+proc mirror*(this: var Pln; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Pln; a1: Ax1): Pln {.noSideEffect, cdecl, importcpp: "Mirrored",
+                                    dynlib: tkmath.}
+proc mirror*(this: var Pln; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Pln; a2: Ax2): Pln {.noSideEffect, cdecl, importcpp: "Mirrored",
+                                    dynlib: tkmath.}
+proc rotate*(this: var Pln; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
     dynlib: tkmath.}
-proc translated*(this: GpPln; p1: GpPnt; p2: GpPnt): GpPln {.noSideEffect, cdecl,
+proc rotated*(this: Pln; a1: Ax1; ang: cfloat): Pln {.noSideEffect, cdecl,
+    importcpp: "Rotated", dynlib: tkmath.}
+proc scale*(this: var Pln; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+proc scaled*(this: Pln; p: Pnt; s: cfloat): Pln {.noSideEffect, cdecl,
+    importcpp: "Scaled", dynlib: tkmath.}
+proc transform*(this: var Pln; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+proc transformed*(this: Pln; t: Trsf): Pln {.noSideEffect, cdecl,
+                                       importcpp: "Transformed", dynlib: tkmath.}
+proc translate*(this: var Pln; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+proc translated*(this: Pln; v: Vec): Pln {.noSideEffect, cdecl, importcpp: "Translated",
+                                     dynlib: tkmath.}
+proc translate*(this: var Pln; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
+    dynlib: tkmath.}
+proc translated*(this: Pln; p1: Pnt; p2: Pnt): Pln {.noSideEffect, cdecl,
     importcpp: "Translated", dynlib: tkmath.}
-proc dumpJson*(this: GpPln; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: Pln; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}

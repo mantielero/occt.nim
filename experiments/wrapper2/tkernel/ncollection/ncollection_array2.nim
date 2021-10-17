@@ -32,7 +32,7 @@
 
 type
   NCollectionArray2*[TheItemType] {.importcpp: "NCollection_Array2<\'0>",
-                                   header: "NCollection_Array2.hxx", bycopy.} = object ##
+                                   header: "NCollection_Array2.hxx", bycopy.} = object of RootObj ##
                                                                                   ## !
                                                                                   ## STL-compliant
                                                                                   ## typedef
@@ -96,17 +96,17 @@ type
   NCollectionArray2valueType*[TheItemType] = TheItemType
   NCollectionArray2Iterator*[TheItemType] {.
       importcpp: "NCollection_Array2<\'0>::Iterator",
-      header: "NCollection_Array2.hxx", bycopy.} = object ## ! Empty constructor - for later Init
+      header: "NCollection_Array2.hxx", bycopy.} = object of RootObj ## ! Empty constructor - for later Init
     ## !< Index of the current item
     ## !< Total amount of items
     ## !< Pointer to the array being iterated
 
 
-proc constructNCollectionArray2Iterator*[TheItemType](): NCollectionArray2Iterator[
+proc newNCollectionArray2Iterator*[TheItemType](): NCollectionArray2Iterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Array2<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
-proc constructNCollectionArray2Iterator*[TheItemType](theArray: NCollectionArray2): NCollectionArray2Iterator[
+proc newNCollectionArray2Iterator*[TheItemType](theArray: NCollectionArray2): NCollectionArray2Iterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Array2<\'*0>::Iterator(@)",
                   dynlib: tkernel.}
@@ -121,16 +121,18 @@ proc value*[TheItemType](this: NCollectionArray2Iterator[TheItemType]): TheItemT
     noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: NCollectionArray2Iterator[TheItemType]): var TheItemType {.
     noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
-proc constructNCollectionArray2*[TheItemType](): NCollectionArray2[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_Array2<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionArray2*[TheItemType](theRowLower: cint; theRowUpper: cint;
-    theColLower: cint; theColUpper: cint): NCollectionArray2[TheItemType] {.cdecl,
+proc newNCollectionArray2*[TheItemType](): NCollectionArray2[TheItemType] {.cdecl,
     constructor, importcpp: "NCollection_Array2<\'*0>(@)", dynlib: tkernel.}
-proc constructNCollectionArray2*[TheItemType](theOther: NCollectionArray2): NCollectionArray2[
+proc newNCollectionArray2*[TheItemType](theRowLower: cint; theRowUpper: cint;
+                                       theColLower: cint; theColUpper: cint): NCollectionArray2[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array2<\'*0>(@)",
                   dynlib: tkernel.}
-proc constructNCollectionArray2*[TheItemType](theBegin: TheItemType;
-    theRowLower: cint; theRowUpper: cint; theColLower: cint; theColUpper: cint): NCollectionArray2[
+proc newNCollectionArray2*[TheItemType](theOther: NCollectionArray2): NCollectionArray2[
+    TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array2<\'*0>(@)",
+                  dynlib: tkernel.}
+proc newNCollectionArray2*[TheItemType](theBegin: TheItemType; theRowLower: cint;
+                                       theRowUpper: cint; theColLower: cint;
+                                       theColUpper: cint): NCollectionArray2[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_Array2<\'*0>(@)",
                   dynlib: tkernel.}
 proc init*[TheItemType](this: var NCollectionArray2[TheItemType];
@@ -165,17 +167,17 @@ proc move*[TheItemType](this: var NCollectionArray2[TheItemType];
                        theOther: var NCollectionArray2): var NCollectionArray2 {.
     cdecl, importcpp: "Move", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionArray2[TheItemType]; theRow: cint;
-                        theCol: cint): TheItemType {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkernel.}
+#                        theCol: cint): TheItemType {.noSideEffect, cdecl,
+#    importcpp: "Value", dynlib: tkernel.}
 #proc `()`*[TheItemType](this: NCollectionArray2[TheItemType]; theRow: cint;
-#                       theCol: cint): TheItemType {.noSideEffect, cdecl,
-#    importcpp: "#(@)", dynlib: tkernel.}
+                       theCol: cint): TheItemType {.noSideEffect, cdecl,
+    importcpp: "#(@)", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionArray2[TheItemType];
-                              theRow: cint; theCol: cint): var TheItemType {.cdecl,
-    importcpp: "ChangeValue", dynlib: tkernel.}
+#                              theRow: cint; theCol: cint): var TheItemType {.cdecl,
+#    importcpp: "ChangeValue", dynlib: tkernel.}
 #proc `()`*[TheItemType](this: var NCollectionArray2[TheItemType]; theRow: cint;
-#                       theCol: cint): var TheItemType {.cdecl, importcpp: "#(@)",
-#    dynlib: tkernel.}
+                       theCol: cint): var TheItemType {.cdecl, importcpp: "#(@)",
+    dynlib: tkernel.}
 proc setValue*[TheItemType](this: var NCollectionArray2[TheItemType]; theRow: cint;
                            theCol: cint; theItem: TheItemType) {.cdecl,
     importcpp: "SetValue", dynlib: tkernel.}

@@ -21,122 +21,118 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Trsf2d"
 type
-  GpVec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object ## ! Creates a zero vector.
+  Vec2d* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object ## ! Creates a zero vector.
 
 
-proc constructGpVec2d*(): GpVec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
-                                 dynlib: tkmath.}
-proc constructGpVec2d*(v: GpDir2d): GpVec2d {.cdecl, constructor,
+proc newVec2d*(): Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
+proc newVec2d*(v: Dir2d): Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
+                              dynlib: tkmath.}
+proc newVec2d*(coord: Xy): Vec2d {.cdecl, constructor, importcpp: "gp_Vec2d(@)",
+                               dynlib: tkmath.}
+proc newVec2d*(xv: cfloat; yv: cfloat): Vec2d {.cdecl, constructor,
     importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
-proc constructGpVec2d*(coord: GpXY): GpVec2d {.cdecl, constructor,
-    importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
-proc constructGpVec2d*(xv: cfloat; yv: cfloat): GpVec2d {.cdecl, constructor,
-    importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
-proc constructGpVec2d*(p1: GpPnt2d; p2: GpPnt2d): GpVec2d {.cdecl, constructor,
-    importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
-proc setCoord*(this: var GpVec2d; index: cint; xi: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkmath.}
-proc setCoord*(this: var GpVec2d; xv: cfloat; yv: cfloat) {.cdecl, importcpp: "SetCoord",
+proc newVec2d*(p1: Pnt2d; p2: Pnt2d): Vec2d {.cdecl, constructor,
+                                        importcpp: "gp_Vec2d(@)", dynlib: tkmath.}
+proc setCoord*(this: var Vec2d; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
     dynlib: tkmath.}
-proc setX*(this: var GpVec2d; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
-proc setY*(this: var GpVec2d; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
-proc setXY*(this: var GpVec2d; coord: GpXY) {.cdecl, importcpp: "SetXY", dynlib: tkmath.}
-proc coord*(this: GpVec2d; index: cint): cfloat {.noSideEffect, cdecl,
+proc setCoord*(this: var Vec2d; xv: cfloat; yv: cfloat) {.cdecl, importcpp: "SetCoord",
+    dynlib: tkmath.}
+proc setX*(this: var Vec2d; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
+proc setY*(this: var Vec2d; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
+proc setXY*(this: var Vec2d; coord: Xy) {.cdecl, importcpp: "SetXY", dynlib: tkmath.}
+proc coord*(this: Vec2d; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
+    dynlib: tkmath.}
+proc coord*(this: Vec2d; xv: var cfloat; yv: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Coord", dynlib: tkmath.}
-proc coord*(this: GpVec2d; xv: var cfloat; yv: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkmath.}
-proc x*(this: GpVec2d): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
-proc y*(this: GpVec2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
-proc xy*(this: GpVec2d): GpXY {.noSideEffect, cdecl, importcpp: "XY", dynlib: tkmath.}
-proc isEqual*(this: GpVec2d; other: GpVec2d; linearTolerance: cfloat;
+proc x*(this: Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
+proc y*(this: Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
+proc xy*(this: Vec2d): Xy {.noSideEffect, cdecl, importcpp: "XY", dynlib: tkmath.}
+proc isEqual*(this: Vec2d; other: Vec2d; linearTolerance: cfloat;
              angularTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", dynlib: tkmath.}
-proc isNormal*(this: GpVec2d; other: GpVec2d; angularTolerance: cfloat): bool {.
+proc isNormal*(this: Vec2d; other: Vec2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsNormal", dynlib: tkmath.}
-proc isOpposite*(this: GpVec2d; other: GpVec2d; angularTolerance: cfloat): bool {.
+proc isOpposite*(this: Vec2d; other: Vec2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsOpposite", dynlib: tkmath.}
-proc isParallel*(this: GpVec2d; other: GpVec2d; angularTolerance: cfloat): bool {.
+proc isParallel*(this: Vec2d; other: Vec2d; angularTolerance: cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsParallel", dynlib: tkmath.}
-proc angle*(this: GpVec2d; other: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc angle*(this: Vec2d; other: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Angle", dynlib: tkmath.}
-proc magnitude*(this: GpVec2d): cfloat {.noSideEffect, cdecl, importcpp: "Magnitude",
-                                     dynlib: tkmath.}
-proc squareMagnitude*(this: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc magnitude*(this: Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "Magnitude",
+                                   dynlib: tkmath.}
+proc squareMagnitude*(this: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareMagnitude", dynlib: tkmath.}
-proc add*(this: var GpVec2d; other: GpVec2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc `+=`*(this: var GpVec2d; other: GpVec2d) {.cdecl, importcpp: "(# += #)",
+proc add*(this: var Vec2d; other: Vec2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+proc `+=`*(this: var Vec2d; other: Vec2d) {.cdecl, importcpp: "(# += #)", dynlib: tkmath.}
+proc added*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "Added",
     dynlib: tkmath.}
-proc added*(this: GpVec2d; other: GpVec2d): GpVec2d {.noSideEffect, cdecl,
-    importcpp: "Added", dynlib: tkmath.}
-proc `+`*(this: GpVec2d; other: GpVec2d): GpVec2d {.noSideEffect, cdecl,
-    importcpp: "(# + #)", dynlib: tkmath.}
-proc crossed*(this: GpVec2d; right: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc `+`*(this: Vec2d; other: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "(# + #)",
+                                        dynlib: tkmath.}
+proc crossed*(this: Vec2d; right: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "Crossed", dynlib: tkmath.}
-proc `^`*(this: GpVec2d; right: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc `^`*(this: Vec2d; right: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "(# ^ #)", dynlib: tkmath.}
-proc crossMagnitude*(this: GpVec2d; right: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc crossMagnitude*(this: Vec2d; right: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "CrossMagnitude", dynlib: tkmath.}
-proc crossSquareMagnitude*(this: GpVec2d; right: GpVec2d): cfloat {.noSideEffect,
-    cdecl, importcpp: "CrossSquareMagnitude", dynlib: tkmath.}
-proc divide*(this: var GpVec2d; scalar: cfloat) {.cdecl, importcpp: "Divide",
+proc crossSquareMagnitude*(this: Vec2d; right: Vec2d): cfloat {.noSideEffect, cdecl,
+    importcpp: "CrossSquareMagnitude", dynlib: tkmath.}
+proc divide*(this: var Vec2d; scalar: cfloat) {.cdecl, importcpp: "Divide",
     dynlib: tkmath.}
-proc `/=`*(this: var GpVec2d; scalar: cfloat) {.cdecl, importcpp: "(# /= #)",
-    dynlib: tkmath.}
-proc divided*(this: GpVec2d; scalar: cfloat): GpVec2d {.noSideEffect, cdecl,
+proc `/=`*(this: var Vec2d; scalar: cfloat) {.cdecl, importcpp: "(# /= #)",
+                                        dynlib: tkmath.}
+proc divided*(this: Vec2d; scalar: cfloat): Vec2d {.noSideEffect, cdecl,
     importcpp: "Divided", dynlib: tkmath.}
-proc `/`*(this: GpVec2d; scalar: cfloat): GpVec2d {.noSideEffect, cdecl,
+proc `/`*(this: Vec2d; scalar: cfloat): Vec2d {.noSideEffect, cdecl,
     importcpp: "(# / #)", dynlib: tkmath.}
-proc dot*(this: GpVec2d; other: GpVec2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "Dot", dynlib: tkmath.}
-proc `*`*(this: GpVec2d; other: GpVec2d): cfloat {.noSideEffect, cdecl,
+proc dot*(this: Vec2d; other: Vec2d): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
+    dynlib: tkmath.}
+proc `*`*(this: Vec2d; other: Vec2d): cfloat {.noSideEffect, cdecl,
     importcpp: "(# * #)", dynlib: tkmath.}
-proc getNormal*(this: GpVec2d): GpVec2d {.noSideEffect, cdecl, importcpp: "GetNormal",
-                                      dynlib: tkmath.}
-proc multiply*(this: var GpVec2d; scalar: cfloat) {.cdecl, importcpp: "Multiply",
+proc getNormal*(this: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "GetNormal",
+                                  dynlib: tkmath.}
+proc multiply*(this: var Vec2d; scalar: cfloat) {.cdecl, importcpp: "Multiply",
     dynlib: tkmath.}
-proc `*=`*(this: var GpVec2d; scalar: cfloat) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkmath.}
-proc multiplied*(this: GpVec2d; scalar: cfloat): GpVec2d {.noSideEffect, cdecl,
+proc `*=`*(this: var Vec2d; scalar: cfloat) {.cdecl, importcpp: "(# *= #)",
+                                        dynlib: tkmath.}
+proc multiplied*(this: Vec2d; scalar: cfloat): Vec2d {.noSideEffect, cdecl,
     importcpp: "Multiplied", dynlib: tkmath.}
-proc `*`*(this: GpVec2d; scalar: cfloat): GpVec2d {.noSideEffect, cdecl,
+proc `*`*(this: Vec2d; scalar: cfloat): Vec2d {.noSideEffect, cdecl,
     importcpp: "(# * #)", dynlib: tkmath.}
-proc normalize*(this: var GpVec2d) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
-proc normalized*(this: GpVec2d): GpVec2d {.noSideEffect, cdecl,
-                                       importcpp: "Normalized", dynlib: tkmath.}
-proc reverse*(this: var GpVec2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
-proc reversed*(this: GpVec2d): GpVec2d {.noSideEffect, cdecl, importcpp: "Reversed",
-                                     dynlib: tkmath.}
-proc `-`*(this: GpVec2d): GpVec2d {.noSideEffect, cdecl, importcpp: "(- #)",
-                                dynlib: tkmath.}
-proc subtract*(this: var GpVec2d; right: GpVec2d) {.cdecl, importcpp: "Subtract",
+proc normalize*(this: var Vec2d) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
+proc normalized*(this: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "Normalized",
+                                   dynlib: tkmath.}
+proc reverse*(this: var Vec2d) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+proc reversed*(this: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "Reversed",
+                                 dynlib: tkmath.}
+proc `-`*(this: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "(- #)", dynlib: tkmath.}
+proc subtract*(this: var Vec2d; right: Vec2d) {.cdecl, importcpp: "Subtract",
     dynlib: tkmath.}
-proc `-=`*(this: var GpVec2d; right: GpVec2d) {.cdecl, importcpp: "(# -= #)",
-    dynlib: tkmath.}
-proc subtracted*(this: GpVec2d; right: GpVec2d): GpVec2d {.noSideEffect, cdecl,
+proc `-=`*(this: var Vec2d; right: Vec2d) {.cdecl, importcpp: "(# -= #)", dynlib: tkmath.}
+proc subtracted*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect, cdecl,
     importcpp: "Subtracted", dynlib: tkmath.}
-proc `-`*(this: GpVec2d; right: GpVec2d): GpVec2d {.noSideEffect, cdecl,
-    importcpp: "(# - #)", dynlib: tkmath.}
-proc setLinearForm*(this: var GpVec2d; a1: cfloat; v1: GpVec2d; a2: cfloat; v2: GpVec2d;
-                   v3: GpVec2d) {.cdecl, importcpp: "SetLinearForm", dynlib: tkmath.}
-proc setLinearForm*(this: var GpVec2d; a1: cfloat; v1: GpVec2d; a2: cfloat; v2: GpVec2d) {.
+proc `-`*(this: Vec2d; right: Vec2d): Vec2d {.noSideEffect, cdecl, importcpp: "(# - #)",
+                                        dynlib: tkmath.}
+proc setLinearForm*(this: var Vec2d; a1: cfloat; v1: Vec2d; a2: cfloat; v2: Vec2d; v3: Vec2d) {.
     cdecl, importcpp: "SetLinearForm", dynlib: tkmath.}
-proc setLinearForm*(this: var GpVec2d; a1: cfloat; v1: GpVec2d; v2: GpVec2d) {.cdecl,
+proc setLinearForm*(this: var Vec2d; a1: cfloat; v1: Vec2d; a2: cfloat; v2: Vec2d) {.cdecl,
     importcpp: "SetLinearForm", dynlib: tkmath.}
-proc setLinearForm*(this: var GpVec2d; left: GpVec2d; right: GpVec2d) {.cdecl,
+proc setLinearForm*(this: var Vec2d; a1: cfloat; v1: Vec2d; v2: Vec2d) {.cdecl,
     importcpp: "SetLinearForm", dynlib: tkmath.}
-proc mirror*(this: var GpVec2d; v: GpVec2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpVec2d; v: GpVec2d): GpVec2d {.noSideEffect, cdecl,
+proc setLinearForm*(this: var Vec2d; left: Vec2d; right: Vec2d) {.cdecl,
+    importcpp: "SetLinearForm", dynlib: tkmath.}
+proc mirror*(this: var Vec2d; v: Vec2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Vec2d; v: Vec2d): Vec2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var GpVec2d; a1: GpAx2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirrored*(this: GpVec2d; a1: GpAx2d): GpVec2d {.noSideEffect, cdecl,
+proc mirror*(this: var Vec2d; a1: Ax2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+proc mirrored*(this: Vec2d; a1: Ax2d): Vec2d {.noSideEffect, cdecl,
     importcpp: "Mirrored", dynlib: tkmath.}
-proc rotate*(this: var GpVec2d; ang: cfloat) {.cdecl, importcpp: "Rotate", dynlib: tkmath.}
-proc rotated*(this: GpVec2d; ang: cfloat): GpVec2d {.noSideEffect, cdecl,
+proc rotate*(this: var Vec2d; ang: cfloat) {.cdecl, importcpp: "Rotate", dynlib: tkmath.}
+proc rotated*(this: Vec2d; ang: cfloat): Vec2d {.noSideEffect, cdecl,
     importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var GpVec2d; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
-proc scaled*(this: GpVec2d; s: cfloat): GpVec2d {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var GpVec2d; t: GpTrsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
-proc transformed*(this: GpVec2d; t: GpTrsf2d): GpVec2d {.noSideEffect, cdecl,
+proc scale*(this: var Vec2d; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+proc scaled*(this: Vec2d; s: cfloat): Vec2d {.noSideEffect, cdecl, importcpp: "Scaled",
+                                        dynlib: tkmath.}
+proc transform*(this: var Vec2d; t: Trsf2d) {.cdecl, importcpp: "Transform",
+                                        dynlib: tkmath.}
+proc transformed*(this: Vec2d; t: Trsf2d): Vec2d {.noSideEffect, cdecl,
     importcpp: "Transformed", dynlib: tkmath.}

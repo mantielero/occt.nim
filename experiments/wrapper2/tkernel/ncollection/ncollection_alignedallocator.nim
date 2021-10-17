@@ -43,7 +43,7 @@ type
     ## !< alignment in bytes
 
 
-proc constructNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
+proc newNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
     cdecl, constructor, importcpp: "NCollection_AlignedAllocator(@)",
     dynlib: tkernel.}
 proc allocate*(this: var NCollectionAlignedAllocator; theSize: csize_t): pointer {.

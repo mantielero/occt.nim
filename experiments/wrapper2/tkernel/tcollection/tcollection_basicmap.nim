@@ -31,10 +31,10 @@ type
 
 
 proc nbBuckets*(this: TCollectionBasicMap): cint {.noSideEffect, cdecl,
-    importcpp: "NbBuckets", dynlib: tkmath.}
+    importcpp: "NbBuckets", dynlib: tkernel.}
 proc extent*(this: TCollectionBasicMap): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", dynlib: tkmath.}
+    importcpp: "Extent", dynlib: tkernel.}
 proc isEmpty*(this: TCollectionBasicMap): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc statistics*(this: TCollectionBasicMap; s: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Statistics", dynlib: tkmath.}
+    cdecl, importcpp: "Statistics", dynlib: tkernel.}

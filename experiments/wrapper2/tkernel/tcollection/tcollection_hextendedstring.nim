@@ -56,81 +56,81 @@ type
 
 
 proc newTCollectionHExtendedString*(): TCollectionHExtendedString {.cdecl,
-    constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(message: cstring): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(message: StandardExtString): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(aChar: StandardExtCharacter): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(length: cint; filler: StandardExtCharacter): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(aString: TCollectionExtendedString): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(aString: Handle[TCollectionHAsciiString]): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc newTCollectionHExtendedString*(aString: Handle[TCollectionHExtendedString]): TCollectionHExtendedString {.
-    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_HExtendedString(@)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionHExtendedString;
                other: Handle[TCollectionHExtendedString]) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkmath.}
+    importcpp: "AssignCat", dynlib: tkernel.}
 proc cat*(this: TCollectionHExtendedString;
          other: Handle[TCollectionHExtendedString]): Handle[
     TCollectionHExtendedString] {.noSideEffect, cdecl, importcpp: "Cat",
-                                 dynlib: tkmath.}
+                                 dynlib: tkernel.}
 proc changeAll*(this: var TCollectionHExtendedString; aChar: StandardExtCharacter;
                newChar: StandardExtCharacter) {.cdecl, importcpp: "ChangeAll",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc clear*(this: var TCollectionHExtendedString) {.cdecl, importcpp: "Clear",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc isEmpty*(this: TCollectionHExtendedString): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc insert*(this: var TCollectionHExtendedString; where: cint;
-            what: StandardExtCharacter) {.cdecl, importcpp: "Insert", dynlib: tkmath.}
+            what: StandardExtCharacter) {.cdecl, importcpp: "Insert", dynlib: tkernel.}
 proc insert*(this: var TCollectionHExtendedString; where: cint;
             what: Handle[TCollectionHExtendedString]) {.cdecl, importcpp: "Insert",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc isLess*(this: TCollectionHExtendedString;
             other: Handle[TCollectionHExtendedString]): bool {.noSideEffect, cdecl,
-    importcpp: "IsLess", dynlib: tkmath.}
+    importcpp: "IsLess", dynlib: tkernel.}
 proc isGreater*(this: TCollectionHExtendedString;
                other: Handle[TCollectionHExtendedString]): bool {.noSideEffect,
-    cdecl, importcpp: "IsGreater", dynlib: tkmath.}
+    cdecl, importcpp: "IsGreater", dynlib: tkernel.}
 proc isAscii*(this: TCollectionHExtendedString): bool {.noSideEffect, cdecl,
-    importcpp: "IsAscii", dynlib: tkmath.}
+    importcpp: "IsAscii", dynlib: tkernel.}
 proc length*(this: TCollectionHExtendedString): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkmath.}
+    importcpp: "Length", dynlib: tkernel.}
 proc remove*(this: var TCollectionHExtendedString; where: cint; ahowmany: cint = 1) {.
-    cdecl, importcpp: "Remove", dynlib: tkmath.}
+    cdecl, importcpp: "Remove", dynlib: tkernel.}
 proc removeAll*(this: var TCollectionHExtendedString; what: StandardExtCharacter) {.
-    cdecl, importcpp: "RemoveAll", dynlib: tkmath.}
+    cdecl, importcpp: "RemoveAll", dynlib: tkernel.}
 proc setValue*(this: var TCollectionHExtendedString; where: cint;
               what: StandardExtCharacter) {.cdecl, importcpp: "SetValue",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc setValue*(this: var TCollectionHExtendedString; where: cint;
               what: Handle[TCollectionHExtendedString]) {.cdecl,
-    importcpp: "SetValue", dynlib: tkmath.}
+    importcpp: "SetValue", dynlib: tkernel.}
 proc split*(this: var TCollectionHExtendedString; where: cint): Handle[
-    TCollectionHExtendedString] {.cdecl, importcpp: "Split", dynlib: tkmath.}
+    TCollectionHExtendedString] {.cdecl, importcpp: "Split", dynlib: tkernel.}
 proc search*(this: TCollectionHExtendedString;
             what: Handle[TCollectionHExtendedString]): cint {.noSideEffect, cdecl,
-    importcpp: "Search", dynlib: tkmath.}
+    importcpp: "Search", dynlib: tkernel.}
 proc searchFromEnd*(this: TCollectionHExtendedString;
                    what: Handle[TCollectionHExtendedString]): cint {.noSideEffect,
-    cdecl, importcpp: "SearchFromEnd", dynlib: tkmath.}
+    cdecl, importcpp: "SearchFromEnd", dynlib: tkernel.}
 proc toExtString*(this: TCollectionHExtendedString): StandardExtString {.
-    noSideEffect, cdecl, importcpp: "ToExtString", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "ToExtString", dynlib: tkernel.}
 proc token*(this: TCollectionHExtendedString; separators: StandardExtString;
            whichone: cint = 1): Handle[TCollectionHExtendedString] {.noSideEffect,
-    cdecl, importcpp: "Token", dynlib: tkmath.}
+    cdecl, importcpp: "Token", dynlib: tkernel.}
 proc trunc*(this: var TCollectionHExtendedString; ahowmany: cint) {.cdecl,
-    importcpp: "Trunc", dynlib: tkmath.}
+    importcpp: "Trunc", dynlib: tkernel.}
 proc value*(this: TCollectionHExtendedString; where: cint): StandardExtCharacter {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc string*(this: TCollectionHExtendedString): TCollectionExtendedString {.
-    noSideEffect, cdecl, importcpp: "String", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "String", dynlib: tkernel.}
 proc print*(this: TCollectionHExtendedString; astream: var StandardOStream) {.
-    noSideEffect, cdecl, importcpp: "Print", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Print", dynlib: tkernel.}
 proc isSameState*(this: TCollectionHExtendedString;
                  other: Handle[TCollectionHExtendedString]): bool {.noSideEffect,
-    cdecl, importcpp: "IsSameState", dynlib: tkmath.}
+    cdecl, importcpp: "IsSameState", dynlib: tkernel.}

@@ -34,217 +34,217 @@ type
 
 
 proc newTCollectionAsciiString*(): TCollectionAsciiString {.cdecl, constructor,
-    importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(message: cstring): TCollectionAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(message: cstring; aLen: cint): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(aChar: cchar): TCollectionAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(length: cint; filler: cchar): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(value: cint): TCollectionAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(value: cfloat): TCollectionAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(astring: TCollectionAsciiString): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(astring: TCollectionAsciiString; message: cchar): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(astring: TCollectionAsciiString; message: cstring): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(astring: TCollectionAsciiString;
                                message: TCollectionAsciiString): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc newTCollectionAsciiString*(astring: TCollectionExtendedString;
                                replaceNonAscii: cchar = cchar(0)): TCollectionAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TCollection_AsciiString(@)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionAsciiString; other: cchar) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkmath.}
+    importcpp: "AssignCat", dynlib: tkernel.}
 proc `+=`*(this: var TCollectionAsciiString; other: cchar) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionAsciiString; other: cint) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkmath.}
+    importcpp: "AssignCat", dynlib: tkernel.}
 proc `+=`*(this: var TCollectionAsciiString; other: cint) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionAsciiString; other: cfloat) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkmath.}
+    importcpp: "AssignCat", dynlib: tkernel.}
 proc `+=`*(this: var TCollectionAsciiString; other: cfloat) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionAsciiString; other: cstring) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkmath.}
+    importcpp: "AssignCat", dynlib: tkernel.}
 proc `+=`*(this: var TCollectionAsciiString; other: cstring) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", dynlib: tkernel.}
 proc assignCat*(this: var TCollectionAsciiString; other: TCollectionAsciiString) {.
-    cdecl, importcpp: "AssignCat", dynlib: tkmath.}
+    cdecl, importcpp: "AssignCat", dynlib: tkernel.}
 proc `+=`*(this: var TCollectionAsciiString; other: TCollectionAsciiString) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", dynlib: tkernel.}
 proc capitalize*(this: var TCollectionAsciiString) {.cdecl, importcpp: "Capitalize",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc cat*(this: TCollectionAsciiString; other: cchar): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
 proc `+`*(this: TCollectionAsciiString; other: cchar): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkernel.}
 proc cat*(this: TCollectionAsciiString; other: cint): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
 proc `+`*(this: TCollectionAsciiString; other: cint): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkernel.}
 proc cat*(this: TCollectionAsciiString; other: cfloat): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
 proc `+`*(this: TCollectionAsciiString; other: cfloat): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkernel.}
 proc cat*(this: TCollectionAsciiString; other: cstring): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
 proc `+`*(this: TCollectionAsciiString; other: cstring): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkernel.}
 proc cat*(this: TCollectionAsciiString; other: TCollectionAsciiString): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
 proc `+`*(this: TCollectionAsciiString; other: TCollectionAsciiString): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkernel.}
 proc center*(this: var TCollectionAsciiString; width: cint; filler: cchar) {.cdecl,
-    importcpp: "Center", dynlib: tkmath.}
+    importcpp: "Center", dynlib: tkernel.}
 proc changeAll*(this: var TCollectionAsciiString; aChar: cchar; newChar: cchar;
                caseSensitive: bool = true) {.cdecl, importcpp: "ChangeAll",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc clear*(this: var TCollectionAsciiString) {.cdecl, importcpp: "Clear",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc copy*(this: var TCollectionAsciiString; fromwhere: cstring) {.cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkernel.}
 proc copy*(this: var TCollectionAsciiString; fromwhere: TCollectionAsciiString) {.
-    cdecl, importcpp: "Copy", dynlib: tkmath.}
+    cdecl, importcpp: "Copy", dynlib: tkernel.}
 proc swap*(this: var TCollectionAsciiString; theOther: var TCollectionAsciiString) {.
-    cdecl, importcpp: "Swap", dynlib: tkmath.}
+    cdecl, importcpp: "Swap", dynlib: tkernel.}
 proc destroyTCollectionAsciiString*(this: var TCollectionAsciiString) {.cdecl,
-    importcpp: "#.~TCollection_AsciiString()", dynlib: tkmath.}
+    importcpp: "#.~TCollection_AsciiString()", dynlib: tkernel.}
 proc firstLocationInSet*(this: TCollectionAsciiString; set: TCollectionAsciiString;
                         fromIndex: cint; toIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "FirstLocationInSet", dynlib: tkmath.}
+    importcpp: "FirstLocationInSet", dynlib: tkernel.}
 proc firstLocationNotInSet*(this: TCollectionAsciiString;
                            set: TCollectionAsciiString; fromIndex: cint;
                            toIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "FirstLocationNotInSet", dynlib: tkmath.}
+    importcpp: "FirstLocationNotInSet", dynlib: tkernel.}
 proc insert*(this: var TCollectionAsciiString; where: cint; what: cchar) {.cdecl,
-    importcpp: "Insert", dynlib: tkmath.}
+    importcpp: "Insert", dynlib: tkernel.}
 proc insert*(this: var TCollectionAsciiString; where: cint; what: cstring) {.cdecl,
-    importcpp: "Insert", dynlib: tkmath.}
+    importcpp: "Insert", dynlib: tkernel.}
 proc insert*(this: var TCollectionAsciiString; where: cint;
             what: TCollectionAsciiString) {.cdecl, importcpp: "Insert",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc insertAfter*(this: var TCollectionAsciiString; index: cint;
                  other: TCollectionAsciiString) {.cdecl, importcpp: "InsertAfter",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc insertBefore*(this: var TCollectionAsciiString; index: cint;
                   other: TCollectionAsciiString) {.cdecl,
-    importcpp: "InsertBefore", dynlib: tkmath.}
+    importcpp: "InsertBefore", dynlib: tkernel.}
 proc isEmpty*(this: TCollectionAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc isEqual*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect,
-    cdecl, importcpp: "IsEqual", dynlib: tkmath.}
+    cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 proc `==`*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkmath.}
+    importcpp: "(# == #)", dynlib: tkernel.}
 proc isEqual*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 proc `==`*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
 proc isDifferent*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect,
-    cdecl, importcpp: "IsDifferent", dynlib: tkmath.}
+    cdecl, importcpp: "IsDifferent", dynlib: tkernel.}
 proc isDifferent*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "IsDifferent", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsDifferent", dynlib: tkernel.}
 proc isLess*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect, cdecl,
-    importcpp: "IsLess", dynlib: tkmath.}
+    importcpp: "IsLess", dynlib: tkernel.}
 proc `<`*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect, cdecl,
-    importcpp: "(# < #)", dynlib: tkmath.}
+    importcpp: "(# < #)", dynlib: tkernel.}
 proc isLess*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "IsLess", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsLess", dynlib: tkernel.}
 proc `<`*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "(# < #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# < #)", dynlib: tkernel.}
 proc isGreater*(this: TCollectionAsciiString; other: cstring): bool {.noSideEffect,
-    cdecl, importcpp: "IsGreater", dynlib: tkmath.}
+    cdecl, importcpp: "IsGreater", dynlib: tkernel.}
 proc isGreater*(this: TCollectionAsciiString; other: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "IsGreater", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsGreater", dynlib: tkernel.}
 proc startsWith*(this: TCollectionAsciiString;
                 theStartString: TCollectionAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "StartsWith", dynlib: tkmath.}
+    importcpp: "StartsWith", dynlib: tkernel.}
 proc endsWith*(this: TCollectionAsciiString; theEndString: TCollectionAsciiString): bool {.
-    noSideEffect, cdecl, importcpp: "EndsWith", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "EndsWith", dynlib: tkernel.}
 proc integerValue*(this: TCollectionAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "IntegerValue", dynlib: tkmath.}
+    importcpp: "IntegerValue", dynlib: tkernel.}
 proc isIntegerValue*(this: TCollectionAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsIntegerValue", dynlib: tkmath.}
+    importcpp: "IsIntegerValue", dynlib: tkernel.}
 proc isRealValue*(this: TCollectionAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsRealValue", dynlib: tkmath.}
+    importcpp: "IsRealValue", dynlib: tkernel.}
 proc isAscii*(this: TCollectionAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsAscii", dynlib: tkmath.}
+    importcpp: "IsAscii", dynlib: tkernel.}
 proc leftAdjust*(this: var TCollectionAsciiString) {.cdecl, importcpp: "LeftAdjust",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc leftJustify*(this: var TCollectionAsciiString; width: cint; filler: cchar) {.cdecl,
-    importcpp: "LeftJustify", dynlib: tkmath.}
+    importcpp: "LeftJustify", dynlib: tkernel.}
 proc length*(this: TCollectionAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkmath.}
+    importcpp: "Length", dynlib: tkernel.}
 proc location*(this: TCollectionAsciiString; other: TCollectionAsciiString;
               fromIndex: cint; toIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", dynlib: tkernel.}
 proc location*(this: TCollectionAsciiString; n: cint; c: cchar; fromIndex: cint;
               toIndex: cint): cint {.noSideEffect, cdecl, importcpp: "Location",
-                                  dynlib: tkmath.}
+                                  dynlib: tkernel.}
 proc lowerCase*(this: var TCollectionAsciiString) {.cdecl, importcpp: "LowerCase",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc prepend*(this: var TCollectionAsciiString; other: TCollectionAsciiString) {.
-    cdecl, importcpp: "Prepend", dynlib: tkmath.}
+    cdecl, importcpp: "Prepend", dynlib: tkernel.}
 proc print*(this: TCollectionAsciiString; astream: var StandardOStream) {.
-    noSideEffect, cdecl, importcpp: "Print", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Print", dynlib: tkernel.}
 proc read*(this: var TCollectionAsciiString; astream: var StandardIStream) {.cdecl,
-    importcpp: "Read", dynlib: tkmath.}
+    importcpp: "Read", dynlib: tkernel.}
 proc realValue*(this: TCollectionAsciiString): cfloat {.noSideEffect, cdecl,
-    importcpp: "RealValue", dynlib: tkmath.}
+    importcpp: "RealValue", dynlib: tkernel.}
 proc removeAll*(this: var TCollectionAsciiString; c: cchar; caseSensitive: bool) {.
-    cdecl, importcpp: "RemoveAll", dynlib: tkmath.}
+    cdecl, importcpp: "RemoveAll", dynlib: tkernel.}
 proc removeAll*(this: var TCollectionAsciiString; what: cchar) {.cdecl,
-    importcpp: "RemoveAll", dynlib: tkmath.}
+    importcpp: "RemoveAll", dynlib: tkernel.}
 proc remove*(this: var TCollectionAsciiString; where: cint; ahowmany: cint = 1) {.cdecl,
-    importcpp: "Remove", dynlib: tkmath.}
+    importcpp: "Remove", dynlib: tkernel.}
 proc rightAdjust*(this: var TCollectionAsciiString) {.cdecl,
-    importcpp: "RightAdjust", dynlib: tkmath.}
+    importcpp: "RightAdjust", dynlib: tkernel.}
 proc rightJustify*(this: var TCollectionAsciiString; width: cint; filler: cchar) {.
-    cdecl, importcpp: "RightJustify", dynlib: tkmath.}
+    cdecl, importcpp: "RightJustify", dynlib: tkernel.}
 proc search*(this: TCollectionAsciiString; what: cstring): cint {.noSideEffect, cdecl,
-    importcpp: "Search", dynlib: tkmath.}
+    importcpp: "Search", dynlib: tkernel.}
 proc search*(this: TCollectionAsciiString; what: TCollectionAsciiString): cint {.
-    noSideEffect, cdecl, importcpp: "Search", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Search", dynlib: tkernel.}
 proc searchFromEnd*(this: TCollectionAsciiString; what: cstring): cint {.noSideEffect,
-    cdecl, importcpp: "SearchFromEnd", dynlib: tkmath.}
+    cdecl, importcpp: "SearchFromEnd", dynlib: tkernel.}
 proc searchFromEnd*(this: TCollectionAsciiString; what: TCollectionAsciiString): cint {.
-    noSideEffect, cdecl, importcpp: "SearchFromEnd", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "SearchFromEnd", dynlib: tkernel.}
 proc setValue*(this: var TCollectionAsciiString; where: cint; what: cchar) {.cdecl,
-    importcpp: "SetValue", dynlib: tkmath.}
+    importcpp: "SetValue", dynlib: tkernel.}
 proc setValue*(this: var TCollectionAsciiString; where: cint; what: cstring) {.cdecl,
-    importcpp: "SetValue", dynlib: tkmath.}
+    importcpp: "SetValue", dynlib: tkernel.}
 proc setValue*(this: var TCollectionAsciiString; where: cint;
               what: TCollectionAsciiString) {.cdecl, importcpp: "SetValue",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc split*(this: var TCollectionAsciiString; where: cint): TCollectionAsciiString {.
-    cdecl, importcpp: "Split", dynlib: tkmath.}
+    cdecl, importcpp: "Split", dynlib: tkernel.}
 proc subString*(this: TCollectionAsciiString; fromIndex: cint; toIndex: cint): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SubString", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "SubString", dynlib: tkernel.}
 proc toCString*(this: TCollectionAsciiString): cstring {.noSideEffect, cdecl,
-    importcpp: "ToCString", dynlib: tkmath.}
+    importcpp: "ToCString", dynlib: tkernel.}
 proc token*(this: TCollectionAsciiString; separators: cstring = " \t";
            whichone: cint = 1): TCollectionAsciiString {.noSideEffect, cdecl,
-    importcpp: "Token", dynlib: tkmath.}
+    importcpp: "Token", dynlib: tkernel.}
 proc trunc*(this: var TCollectionAsciiString; ahowmany: cint) {.cdecl,
-    importcpp: "Trunc", dynlib: tkmath.}
+    importcpp: "Trunc", dynlib: tkernel.}
 proc upperCase*(this: var TCollectionAsciiString) {.cdecl, importcpp: "UpperCase",
-    dynlib: tkmath.}
+    dynlib: tkernel.}
 proc usefullLength*(this: TCollectionAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "UsefullLength", dynlib: tkmath.}
+    importcpp: "UsefullLength", dynlib: tkernel.}
 proc value*(this: TCollectionAsciiString; where: cint): cchar {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkernel.}
 proc hashCode*(theAsciiString: TCollectionAsciiString; theUpperBound: cint): cint {.
-    cdecl, importcpp: "TCollection_AsciiString::HashCode(@)", dynlib: tkmath.}
+    cdecl, importcpp: "TCollection_AsciiString::HashCode(@)", dynlib: tkernel.}
 proc isEqual*(string1: TCollectionAsciiString; string2: TCollectionAsciiString): bool {.
-    cdecl, importcpp: "TCollection_AsciiString::IsEqual(@)", dynlib: tkmath.}
+    cdecl, importcpp: "TCollection_AsciiString::IsEqual(@)", dynlib: tkernel.}
 proc isEqual*(string1: TCollectionAsciiString; string2: cstring): bool {.cdecl,
-    importcpp: "TCollection_AsciiString::IsEqual(@)", dynlib: tkmath.}
+    importcpp: "TCollection_AsciiString::IsEqual(@)", dynlib: tkernel.}
 proc isSameString*(theString1: TCollectionAsciiString;
                   theString2: TCollectionAsciiString; theIsCaseSensitive: bool): bool {.
-    cdecl, importcpp: "TCollection_AsciiString::IsSameString(@)", dynlib: tkmath.}
+    cdecl, importcpp: "TCollection_AsciiString::IsSameString(@)", dynlib: tkernel.}

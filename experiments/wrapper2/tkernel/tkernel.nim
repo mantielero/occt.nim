@@ -163,3 +163,4 @@ include ncollection/ncollection_vector
 include ncollection/ncollection_winheapallocator
 
 include tcolstd/tcolstd_includes
+include tcollection/tcollection_includes

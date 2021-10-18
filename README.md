@@ -216,3 +216,35 @@ pyOcct seem to cover:
 - TopoDS
 - V3d
 - XCAFDoc
+
+## TODO
+
+- [X] Standard/Standard_includes
+- [X] NCollection/NCollection_includes
+- [X] gp/gp_includes
+- [X] Geom/Geom_includes
+- [ ] Geom2d/Geom2d_includes
+- [ ] GC/GC_includes
+- [ ] TopoDS/TopoDS_includes
+- [ ] BRepBuilderAPI/BRepBuilderAPI_includes
+- [ ] BRepPrim/BRepPrim_includes
+- [ ] BRepPrimAPI/BRepPrimAPI_includes
+- [ ] BRepFilletAPI/BRepFilletAPI_includes
+- [ ] ChFi3d/ChFi3d_includes
+- [ ] BRep/BRep_includes
+#- [ ] BRepSweep/BRepSweep_includes
+- [ ] TopLoc/TopLoc_includes
+- [ ] TopAbs/TopAbs_includes
+- [ ] TopExp/TopExp_includes
+- [ ] TopTools/TopTools_includes
+- [ ] BRepAlgo/BRepAlgo_includes
+- [ ] GeomAbs/GeomAbs_includes
+- [ ] Adaptor2d/Adaptor2d_includes
+- [ ] Adaptor3d/Adaptor3d_includes
+
+- [ ] STEPControl/STEPControl_includes
+- [ ] StepData/StepData_includes
+- [ ] Transfer/Transfer_includes
+- [ ] XSControl/XSControl_includes
+- [ ] Interface/Interface_includes
+- [ ] IFSelect/IFSelect_includes

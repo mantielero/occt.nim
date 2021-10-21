@@ -223,8 +223,8 @@ pyOcct seem to cover:
 - [X] NCollection/NCollection_includes
 - [X] gp/gp_includes
 - [X] Geom/Geom_includes
-- [ ] Geom2d/Geom2d_includes
-- [ ] GC/GC_includes
+- [X] Geom2d/Geom2d_includes
+- [X] GC/GC_includes
 - [ ] TopoDS/TopoDS_includes
 - [ ] BRepBuilderAPI/BRepBuilderAPI_includes
 - [ ] BRepPrim/BRepPrim_includes

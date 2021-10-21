@@ -9,10 +9,10 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
-#type
-#  GpXYZ* = object  #<--- TO be removed with gp
-#  #GpXy* = object
-
+type
+  Ostream* = object
+  StreamBuffer* = object
+  Counter* = object
 
 include standard/standard
 #include standard/standard_abortivetransaction
@@ -164,3 +164,4 @@ include ncollection/ncollection_winheapallocator
 
 include tcolstd/tcolstd_includes
 include tcollection/tcollection_includes
+include message/message_includes

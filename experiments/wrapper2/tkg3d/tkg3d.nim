@@ -1,4 +1,4 @@
-{.passL:"-lTKMath".}
+{.passL:"-l-lTKG3d".}
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 

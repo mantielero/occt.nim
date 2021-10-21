@@ -1,7 +1,10 @@
-{.passL:"-lTKGeomBase".}
+{.passL:"-lTKBrep".}
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
+#type
+#  Geom2dUndefinedDerivative* = object
+#  Geom2dUndefinedValue* = object
 #[ type
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#
@@ -13,5 +16,4 @@ elif defined(macosx):
 else:
   const tkmath* = "libTKMath.so"  ]#
 
-include gc/gc_includes
-include gce/gce_includes
+include topods/topods_includes

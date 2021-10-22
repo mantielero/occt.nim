@@ -13,6 +13,7 @@ type
   Ostream* = object
   StreamBuffer* = object
   Counter* = object
+  MessageProgressScopeNullString* = object
 
 include standard/standard
 #include standard/standard_abortivetransaction

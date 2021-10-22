@@ -17,7 +17,7 @@ discard "forward decl of Message_ProgressRange"
 discard "forward decl of Message_ProgressIndicator"
 type
   MessageProgressScope* {.importcpp: "Message_ProgressScope",
-                         header: "Message_ProgressScope.hxx", bycopy.} = object ## ! @name
+                         header: "Message_ProgressScope.hxx", bycopy.} = object of RootObj ## ! @name
                                                                            ## Preparation
                                                                            ## methods
                                                                            ## !
@@ -91,7 +91,7 @@ proc newMessageProgressScope*(theRange: MessageProgressRange;
                              isInfinite: bool = false): MessageProgressScope {.cdecl,
     constructor, importcpp: "Message_ProgressScope(@)", dynlib: tkernel.}
 proc newMessageProgressScope*[N: static[csize_t]](theRange: MessageProgressRange;
-    theName: array[n, char]; theMax: cfloat; isInfinite: bool = false): MessageProgressScope {.
+    theName: array[N, char]; theMax: cfloat; isInfinite: bool = false): MessageProgressScope {.
     cdecl, constructor, importcpp: "Message_ProgressScope(@)", dynlib: tkernel.}
 proc newMessageProgressScope*(theRange: MessageProgressRange;
                              theName: ptr MessageProgressScopeNullString;
@@ -100,7 +100,7 @@ proc newMessageProgressScope*(theRange: MessageProgressRange;
 proc setName*(this: var MessageProgressScope; theName: TCollectionAsciiString) {.
     cdecl, importcpp: "SetName", dynlib: tkernel.}
 proc setName*[N: static[csize_t]](this: var MessageProgressScope;
-                                theName: array[n, char]) {.cdecl,
+                                theName: array[N, char]) {.cdecl,
     importcpp: "SetName", dynlib: tkernel.}
 proc userBreak*(this: MessageProgressScope): bool {.noSideEffect, cdecl,
     importcpp: "UserBreak", dynlib: tkernel.}
@@ -218,39 +218,39 @@ proc close*(this: var MessageProgressScope) {.cdecl, importcpp: "Close",
 ## purpose  :
 ## =======================================================================
 
-proc close*(this: var MessageProgressScope) {.cdecl, importcpp: "Close",
-    dynlib: tkernel.}
+#proc close*(this: var MessageProgressScope) {.cdecl, importcpp: "Close",
+#    dynlib: tkernel.}
 ## =======================================================================
 ## function : UserBreak
 ## purpose  :
 ## =======================================================================
 
-proc userBreak*(this: MessageProgressScope): bool {.noSideEffect, cdecl,
-    importcpp: "UserBreak", dynlib: tkernel.}
+#proc userBreak*(this: MessageProgressScope): bool {.noSideEffect, cdecl,
+#    importcpp: "UserBreak", dynlib: tkernel.}
 ## =======================================================================
 ## function : Next
 ## purpose  :
 ## =======================================================================
 
-proc next*(this: var MessageProgressScope; theStep: cfloat): MessageProgressRange {.
-    cdecl, importcpp: "Next", dynlib: tkernel.}
+#proc next*(this: var MessageProgressScope; theStep: cfloat): MessageProgressRange {.
+#    cdecl, importcpp: "Next", dynlib: tkernel.}
 ## =======================================================================
 ## function : Show
 ## purpose  :
 ## =======================================================================
 
-proc show*(this: var MessageProgressScope) {.cdecl, importcpp: "Show", dynlib: tkernel.}
+#proc show*(this: var MessageProgressScope) {.cdecl, importcpp: "Show", dynlib: tkernel.}
 ## =======================================================================
 ## function : localToGlobal
 ## purpose  :
 ## =======================================================================
 
-proc localToGlobal*(this: MessageProgressScope; theVal: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "localToGlobal", dynlib: tkernel.}
+#proc localToGlobal*(this: MessageProgressScope; theVal: cfloat): cfloat {.
+#    noSideEffect, cdecl, importcpp: "localToGlobal", dynlib: tkernel.}
 ## =======================================================================
 ## function : Value
 ## purpose  :
 ## =======================================================================
 
-proc value*(this: MessageProgressScope): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkernel.}
+#proc value*(this: MessageProgressScope): cfloat {.noSideEffect, cdecl,
+#    importcpp: "Value", dynlib: tkernel.}

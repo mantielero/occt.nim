@@ -184,8 +184,18 @@ pp("message_progressrange.nim",
 genFiles("Message_ProgressScope",
   comment = @[(431,444), (449,467), (473,491), (497,514)]
 )
+pp("message_progressscope.nim",
+  replaceAll = @[("array[n", "array[N"), ("bycopy.} = object", "bycopy.} = object of RootObj")],
+  commentRange = @[(221,222), (228,229), (235,236), (242,242), (248,249), (255,256)]
+)
+
 genFiles("Message_ProgressSentry")
 genFiles("Message_Report")
+pp("message_report.nim",
+  replaceAll = @[("Handle[MessageMessenger] = nil", "Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)")],
+  commentRange = @[(131,132)]
+)
+
 genFiles("Message_SequenceOfPrinters")
 genFiles("Message_Status")
 pp("message_status.nim",

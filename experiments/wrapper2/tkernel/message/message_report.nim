@@ -110,13 +110,13 @@ proc hasAlert*(this: var MessageReport; theType: Handle[StandardType];
               theGravity: MessageGravity): bool {.cdecl, importcpp: "HasAlert",
     dynlib: tkernel.}
 proc isActiveInMessenger*(this: MessageReport;
-                         theMessenger: Handle[MessageMessenger] = nil): bool {.
+                         theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)): bool {.
     noSideEffect, cdecl, importcpp: "IsActiveInMessenger", dynlib: tkernel.}
 proc activateInMessenger*(this: var MessageReport; toActivate: bool;
-                         theMessenger: Handle[MessageMessenger] = nil) {.cdecl,
+                         theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)) {.cdecl,
     importcpp: "ActivateInMessenger", dynlib: tkernel.}
 proc updateActiveInMessenger*(this: var MessageReport;
-                             theMessenger: Handle[MessageMessenger] = nil) {.cdecl,
+                             theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)) {.cdecl,
     importcpp: "UpdateActiveInMessenger", dynlib: tkernel.}
 proc addLevel*(this: var MessageReport; theLevel: ptr MessageLevel;
               theName: TCollectionAsciiString) {.cdecl, importcpp: "AddLevel",
@@ -128,8 +128,8 @@ proc clear*(this: var MessageReport; theGravity: MessageGravity) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
 proc clear*(this: var MessageReport; theType: Handle[StandardType]) {.cdecl,
     importcpp: "Clear", dynlib: tkernel.}
-proc activeMetrics*(this: MessageReport): NCollectionIndexedMap[MessageMetricType] {.
-    noSideEffect, cdecl, importcpp: "ActiveMetrics", dynlib: tkernel.}
+#proc activeMetrics*(this: MessageReport): NCollectionIndexedMap[MessageMetricType] {.
+#    noSideEffect, cdecl, importcpp: "ActiveMetrics", dynlib: tkernel.}
 proc setActiveMetric*(this: var MessageReport; theMetricType: MessageMetricType;
                      theActivate: bool) {.cdecl, importcpp: "SetActiveMetric",
                                         dynlib: tkernel.}

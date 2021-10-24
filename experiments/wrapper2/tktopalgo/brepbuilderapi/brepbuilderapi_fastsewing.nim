@@ -62,7 +62,7 @@ proc getTolerance*(this: BRepBuilderAPI_FastSewing): cfloat {.noSideEffect, cdec
 proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetResult", dynlib: tktopalgo.}
 proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
-                 theOS: ptr StandardOStream = 0): BRepBuilderAPI_FastSewingFS_VARStatuses {.
+                 theOS: ptr StandardOStream = cast[ptr StandardOStream](0)): BRepBuilderAPI_FastSewingFS_VARStatuses {.
     cdecl, importcpp: "GetStatuses", dynlib: tktopalgo.}
 type
   HandleBRepBuilderAPI_FastSewing* = Handle[BRepBuilderAPI_FastSewing]

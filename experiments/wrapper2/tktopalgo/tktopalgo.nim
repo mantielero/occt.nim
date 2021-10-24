@@ -13,5 +13,6 @@ else:
 type
   BndBox* = object
   Selector* = object of RootObj
+  BRepToolsReShape* = object
 
 include brepbuilderapi/brepbuilderapi_includes

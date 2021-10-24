@@ -86,8 +86,8 @@ proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt): BRepBu
 proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
                                 v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p1: cfloat;
-                                p2: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,
+proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p3: cfloat;
+                                p4: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
                                 v2: TopoDS_Vertex; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
@@ -104,7 +104,7 @@ proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
-                                p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+                                p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat): BRepBuilderAPI_MakeEdge {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;
@@ -119,7 +119,7 @@ proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2:
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
           v2: TopoDS_Vertex) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt;
-          p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
+          p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
           v2: TopoDS_Vertex; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
     dynlib: tktopalgo.}
@@ -135,7 +135,7 @@ proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex) {.cdecl,
     importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat) {.cdecl,
+          s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,
     importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;

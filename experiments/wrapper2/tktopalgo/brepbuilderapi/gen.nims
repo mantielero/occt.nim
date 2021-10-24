@@ -131,11 +131,40 @@ genFiles("BRepBuilderAPI_Copy")
 genFiles("BRepBuilderAPI_EdgeError")
 genFiles("BRepBuilderAPI_FaceError")
 genFiles("BRepBuilderAPI_FastSewing")
+pp("brepbuilderapi_fastsewing.nim",
+  replaceAll = @[("ptr StandardOStream = 0", "ptr StandardOStream = cast[ptr StandardOStream](0)")]
+)
+
 genFiles("BRepBuilderAPI_FindPlane")
 genFiles("BRepBuilderAPI_GTransform")
 genFiles("BRepBuilderAPI")
 genFiles("BRepBuilderAPI_MakeEdge2d")
+pp("brepbuilderapi_makeedge2d.nim",
+  replaceAll = @[("""proc newBRepBuilderAPI_MakeEdge2d*(L: Handle[Geom2dCurve]; p1: Pnt2d; p2: Pnt2d;
+                                  p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge2d {.""", 
+                  """proc newBRepBuilderAPI_MakeEdge2d*(L: Handle[Geom2dCurve]; p1: Pnt2d; p2: Pnt2d;
+                                  p3: cfloat; p4: cfloat): BRepBuilderAPI_MakeEdge2d {."""),
+                  ("""proc init*(this: var BRepBuilderAPI_MakeEdge2d; c: Handle[Geom2dCurve]; p1: Pnt2d;
+          p2: Pnt2d; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",""",
+                  """proc init*(this: var BRepBuilderAPI_MakeEdge2d; c: Handle[Geom2dCurve]; p1: Pnt2d;
+          p2: Pnt2d; p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init",""")]
+)
 genFiles("BRepBuilderAPI_MakeEdge")
+pp("brepbuilderapi_makeedge.nim",
+  replaceAll = @[("""proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p1: cfloat;
+                                p2: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,""", 
+                  """proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p3: cfloat;
+                                p4: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,"""),
+                  ("p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.",
+                  "p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat): BRepBuilderAPI_MakeEdge {."),
+                  ("""proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt;
+          p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}""",
+          """proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt;
+          p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}"""),
+          ("""s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat) {.cdecl,""",
+          """s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,""")]
+)
+
 genFiles("BRepBuilderAPI_MakeFace")
 genFiles("BRepBuilderAPI_MakePolygon")
 genFiles("BRepBuilderAPI_MakeShape")
@@ -147,6 +176,11 @@ genFiles("BRepBuilderAPI_ModifyShape")
 genFiles("BRepBuilderAPI_NurbsConvert")
 genFiles("BRepBuilderAPI_PipeError")
 genFiles("BRepBuilderAPI_Sewing")
+pp("brepbuilderapi_sewing.nim",
+  replaceAll = @[("MessageProgressRange = messageProgressRange()", "MessageProgressRange = newMessageProgressRange()")]
+)
+
+
 genFiles("BRepBuilderAPI_ShapeModification")
 genFiles("BRepBuilderAPI_ShellError")
 genFiles("BRepBuilderAPI_Transform")

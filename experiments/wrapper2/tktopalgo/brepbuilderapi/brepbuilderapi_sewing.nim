@@ -124,7 +124,7 @@ proc load*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.cdecl,
 proc add*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.cdecl,
     importcpp: "Add", dynlib: tktopalgo.}
 proc perform*(this: var BRepBuilderAPI_Sewing;
-             theProgress: MessageProgressRange = messageProgressRange()) {.cdecl,
+             theProgress: MessageProgressRange = newMessageProgressRange()) {.cdecl,
     importcpp: "Perform", dynlib: tktopalgo.}
 proc sewedShape*(this: BRepBuilderAPI_Sewing): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "SewedShape", dynlib: tktopalgo.}

@@ -59,57 +59,57 @@ type
 
 
 proc newGeom2dParabola*(prb: Parab2d): Geom2dParabola {.cdecl, constructor,
-    importcpp: "Geom2d_Parabola(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Parabola(@)", dynlib: tkg2d.}
 proc newGeom2dParabola*(mirrorAxis: Ax2d; focal: cfloat; sense: bool = true): Geom2dParabola {.
-    cdecl, constructor, importcpp: "Geom2d_Parabola(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Geom2d_Parabola(@)", dynlib: tkg2d.}
 proc newGeom2dParabola*(axis: Ax22d; focal: cfloat): Geom2dParabola {.cdecl,
-    constructor, importcpp: "Geom2d_Parabola(@)", dynlib: tkernel.}
+    constructor, importcpp: "Geom2d_Parabola(@)", dynlib: tkg2d.}
 proc newGeom2dParabola*(d: Ax2d; f: Pnt2d): Geom2dParabola {.cdecl, constructor,
-    importcpp: "Geom2d_Parabola(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Parabola(@)", dynlib: tkg2d.}
 proc setFocal*(this: var Geom2dParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setParab2d*(this: var Geom2dParabola; prb: Parab2d) {.cdecl,
-    importcpp: "SetParab2d", dynlib: tkernel.}
+    importcpp: "SetParab2d", dynlib: tkg2d.}
 proc parab2d*(this: Geom2dParabola): Parab2d {.noSideEffect, cdecl,
-    importcpp: "Parab2d", dynlib: tkernel.}
+    importcpp: "Parab2d", dynlib: tkg2d.}
 proc reversedParameter*(this: Geom2dParabola; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkernel.}
+    importcpp: "ReversedParameter", dynlib: tkg2d.}
 proc firstParameter*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkernel.}
+    importcpp: "FirstParameter", dynlib: tkg2d.}
 proc lastParameter*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkernel.}
+    importcpp: "LastParameter", dynlib: tkg2d.}
 proc isClosed*(this: Geom2dParabola): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkernel.}
+    importcpp: "IsClosed", dynlib: tkg2d.}
 proc isPeriodic*(this: Geom2dParabola): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkernel.}
+    importcpp: "IsPeriodic", dynlib: tkg2d.}
 proc directrix*(this: Geom2dParabola): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Directrix", dynlib: tkernel.}
+    importcpp: "Directrix", dynlib: tkg2d.}
 proc eccentricity*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkernel.}
+    importcpp: "Eccentricity", dynlib: tkg2d.}
 proc focus*(this: Geom2dParabola): Pnt2d {.noSideEffect, cdecl, importcpp: "Focus",
-                                       dynlib: tkernel.}
+                                       dynlib: tkg2d.}
 proc focal*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                                        dynlib: tkernel.}
+                                        dynlib: tkg2d.}
 proc parameter*(this: Geom2dParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkernel.}
+    importcpp: "Parameter", dynlib: tkg2d.}
 proc d0*(this: Geom2dParabola; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkernel.}
+    importcpp: "D0", dynlib: tkg2d.}
 proc d1*(this: Geom2dParabola; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkernel.}
+    cdecl, importcpp: "D1", dynlib: tkg2d.}
 proc d2*(this: Geom2dParabola; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
 proc d3*(this: Geom2dParabola; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkernel.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
 proc dn*(this: Geom2dParabola; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkernel.}
+    importcpp: "DN", dynlib: tkg2d.}
 proc transform*(this: var Geom2dParabola; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc transformedParameter*(this: Geom2dParabola; u: cfloat; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg2d.}
 proc parametricTransformation*(this: Geom2dParabola; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg2d.}
 proc copy*(this: Geom2dParabola): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkernel.}
+    importcpp: "Copy", dynlib: tkg2d.}
 proc dumpJson*(this: Geom2dParabola; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 dynlib: tkg2d.}

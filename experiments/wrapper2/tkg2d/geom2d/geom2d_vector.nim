@@ -36,24 +36,22 @@ type
                                                                                                      ## <me>.
 
 
-proc reverse*(this: var Geom2dVector) {.cdecl, importcpp: "Reverse", dynlib: tkernel.}
+proc reverse*(this: var Geom2dVector) {.cdecl, importcpp: "Reverse", dynlib: tkg2d.}
 proc reversed*(this: Geom2dVector): Handle[Geom2dVector] {.noSideEffect, cdecl,
-    importcpp: "Reversed", dynlib: tkernel.}
+    importcpp: "Reversed", dynlib: tkg2d.}
 proc angle*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Angle", dynlib: tkernel.}
+    cdecl, importcpp: "Angle", dynlib: tkg2d.}
 proc coord*(this: Geom2dVector; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkernel.}
+    importcpp: "Coord", dynlib: tkg2d.}
 proc magnitude*(this: Geom2dVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkernel.}
+    importcpp: "Magnitude", dynlib: tkg2d.}
 proc squareMagnitude*(this: Geom2dVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkernel.}
-proc x*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "X",
-                                  dynlib: tkernel.}
-proc y*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "Y",
-                                  dynlib: tkernel.}
+    importcpp: "SquareMagnitude", dynlib: tkg2d.}
+proc x*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkg2d.}
+proc y*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkg2d.}
 proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Crossed", dynlib: tkernel.}
+    cdecl, importcpp: "Crossed", dynlib: tkg2d.}
 proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Dot", dynlib: tkernel.}
+    cdecl, importcpp: "Dot", dynlib: tkg2d.}
 proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, cdecl, importcpp: "Vec2d",
-                                     dynlib: tkernel.}
+                                     dynlib: tkg2d.}

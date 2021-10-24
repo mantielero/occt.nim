@@ -38,30 +38,30 @@ type
 
 
 proc newGeomCartesianPoint*(p: Pnt): GeomCartesianPoint {.cdecl, constructor,
-    importcpp: "Geom_CartesianPoint(@)", dynlib: tkmath.}
+    importcpp: "Geom_CartesianPoint(@)", dynlib: tkg3d.}
 proc newGeomCartesianPoint*(x: cfloat; y: cfloat; z: cfloat): GeomCartesianPoint {.
-    cdecl, constructor, importcpp: "Geom_CartesianPoint(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_CartesianPoint(@)", dynlib: tkg3d.}
 proc setCoord*(this: var GeomCartesianPoint; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkmath.}
+    importcpp: "SetCoord", dynlib: tkg3d.}
 proc setPnt*(this: var GeomCartesianPoint; p: Pnt) {.cdecl, importcpp: "SetPnt",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setX*(this: var GeomCartesianPoint; x: cfloat) {.cdecl, importcpp: "SetX",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setY*(this: var GeomCartesianPoint; y: cfloat) {.cdecl, importcpp: "SetY",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setZ*(this: var GeomCartesianPoint; z: cfloat) {.cdecl, importcpp: "SetZ",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc coord*(this: GeomCartesianPoint; x: var cfloat; y: var cfloat; z: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Coord", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Coord", dynlib: tkg3d.}
 proc pnt*(this: GeomCartesianPoint): Pnt {.noSideEffect, cdecl, importcpp: "Pnt",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc x*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "X",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc y*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc z*(this: GeomCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Z",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc transform*(this: var GeomCartesianPoint; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}

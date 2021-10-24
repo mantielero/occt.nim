@@ -74,59 +74,59 @@ type
 
 
 proc newGeomEllipse*(e: Elips): GeomEllipse {.cdecl, constructor,
-    importcpp: "Geom_Ellipse(@)", dynlib: tkmath.}
+    importcpp: "Geom_Ellipse(@)", dynlib: tkg3d.}
 proc newGeomEllipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GeomEllipse {.
-    cdecl, constructor, importcpp: "Geom_Ellipse(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_Ellipse(@)", dynlib: tkg3d.}
 proc setElips*(this: var GeomEllipse; e: Elips) {.cdecl, importcpp: "SetElips",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setMajorRadius*(this: var GeomEllipse; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkmath.}
+    importcpp: "SetMajorRadius", dynlib: tkg3d.}
 proc setMinorRadius*(this: var GeomEllipse; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkmath.}
+    importcpp: "SetMinorRadius", dynlib: tkg3d.}
 proc elips*(this: GeomEllipse): Elips {.noSideEffect, cdecl, importcpp: "Elips",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc reversedParameter*(this: GeomEllipse; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkmath.}
+    importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc directrix1*(this: GeomEllipse): Ax1 {.noSideEffect, cdecl,
-                                       importcpp: "Directrix1", dynlib: tkmath.}
+                                       importcpp: "Directrix1", dynlib: tkg3d.}
 proc directrix2*(this: GeomEllipse): Ax1 {.noSideEffect, cdecl,
-                                       importcpp: "Directrix2", dynlib: tkmath.}
+                                       importcpp: "Directrix2", dynlib: tkg3d.}
 proc eccentricity*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkmath.}
+    importcpp: "Eccentricity", dynlib: tkg3d.}
 proc focal*(this: GeomEllipse): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                                     dynlib: tkmath.}
+                                     dynlib: tkg3d.}
 proc focus1*(this: GeomEllipse): Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc focus2*(this: GeomEllipse): Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc majorRadius*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "MajorRadius", dynlib: tkmath.}
+    importcpp: "MajorRadius", dynlib: tkg3d.}
 proc minorRadius*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinorRadius", dynlib: tkmath.}
+    importcpp: "MinorRadius", dynlib: tkg3d.}
 proc parameter*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkmath.}
+    importcpp: "Parameter", dynlib: tkg3d.}
 proc firstParameter*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc isClosed*(this: GeomEllipse): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                      dynlib: tkmath.}
+                                      dynlib: tkg3d.}
 proc isPeriodic*(this: GeomEllipse): bool {.noSideEffect, cdecl,
-                                        importcpp: "IsPeriodic", dynlib: tkmath.}
+                                        importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc d0*(this: GeomEllipse; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc d1*(this: GeomEllipse; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomEllipse; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkmath.}
+    cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomEllipse; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomEllipse; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkmath.}
+    importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomEllipse; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc copy*(this: GeomEllipse): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomEllipse; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

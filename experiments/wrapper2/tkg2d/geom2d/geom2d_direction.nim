@@ -34,28 +34,28 @@ type
 
 
 proc newGeom2dDirection*(x: cfloat; y: cfloat): Geom2dDirection {.cdecl, constructor,
-    importcpp: "Geom2d_Direction(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Direction(@)", dynlib: tkg2d.}
 proc newGeom2dDirection*(v: Dir2d): Geom2dDirection {.cdecl, constructor,
-    importcpp: "Geom2d_Direction(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Direction(@)", dynlib: tkg2d.}
 proc setCoord*(this: var Geom2dDirection; x: cfloat; y: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkernel.}
+    importcpp: "SetCoord", dynlib: tkg2d.}
 proc setDir2d*(this: var Geom2dDirection; v: Dir2d) {.cdecl, importcpp: "SetDir2d",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setX*(this: var Geom2dDirection; x: cfloat) {.cdecl, importcpp: "SetX",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setY*(this: var Geom2dDirection; y: cfloat) {.cdecl, importcpp: "SetY",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc dir2d*(this: Geom2dDirection): Dir2d {.noSideEffect, cdecl, importcpp: "Dir2d",
-                                        dynlib: tkernel.}
+                                        dynlib: tkg2d.}
 proc magnitude*(this: Geom2dDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkernel.}
+    importcpp: "Magnitude", dynlib: tkg2d.}
 proc squareMagnitude*(this: Geom2dDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkernel.}
+    importcpp: "SquareMagnitude", dynlib: tkg2d.}
 proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.
-    noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkg2d.}
 proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "(# ^ #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# ^ #)", dynlib: tkg2d.}
 proc transform*(this: var Geom2dDirection; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkernel.}
+    importcpp: "Copy", dynlib: tkg2d.}

@@ -67,53 +67,53 @@ type
 
 
 proc newGeomLine*(a1: Ax1): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc newGeomLine*(L: Lin): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
-                                  dynlib: tkmath.}
+                                  dynlib: tkg3d.}
 proc newGeomLine*(p: Pnt; v: Dir): GeomLine {.cdecl, constructor,
-                                        importcpp: "Geom_Line(@)", dynlib: tkmath.}
-proc setLin*(this: var GeomLine; L: Lin) {.cdecl, importcpp: "SetLin", dynlib: tkmath.}
+                                        importcpp: "Geom_Line(@)", dynlib: tkg3d.}
+proc setLin*(this: var GeomLine; L: Lin) {.cdecl, importcpp: "SetLin", dynlib: tkg3d.}
 proc setDirection*(this: var GeomLine; v: Dir) {.cdecl, importcpp: "SetDirection",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setLocation*(this: var GeomLine; p: Pnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setPosition*(this: var GeomLine; a1: Ax1) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkmath.}
-proc lin*(this: GeomLine): Lin {.noSideEffect, cdecl, importcpp: "Lin", dynlib: tkmath.}
+    dynlib: tkg3d.}
+proc lin*(this: GeomLine): Lin {.noSideEffect, cdecl, importcpp: "Lin", dynlib: tkg3d.}
 proc position*(this: GeomLine): Ax1 {.noSideEffect, cdecl, importcpp: "Position",
-                                  dynlib: tkmath.}
-proc reverse*(this: var GeomLine) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+                                  dynlib: tkg3d.}
+proc reverse*(this: var GeomLine) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomLine; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkmath.}
+    importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc firstParameter*(this: GeomLine): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomLine): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc isClosed*(this: GeomLine): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc isPeriodic*(this: GeomLine): bool {.noSideEffect, cdecl, importcpp: "IsPeriodic",
-                                     dynlib: tkmath.}
+                                     dynlib: tkg3d.}
 proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc isCN*(this: GeomLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-                                      dynlib: tkmath.}
+                                      dynlib: tkg3d.}
 proc d0*(this: GeomLine; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc d1*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkmath.}
+    cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomLine; u: cfloat; n: cint): Vec {.noSideEffect, cdecl, importcpp: "DN",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc transform*(this: var GeomLine; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc transformedParameter*(this: GeomLine; u: cfloat; t: Trsf): cfloat {.noSideEffect,
-    cdecl, importcpp: "TransformedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "TransformedParameter", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomLine; t: Trsf): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParametricTransformation", dynlib: tkmath.}
+    importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomLine; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}

@@ -128,16 +128,16 @@ type
 
 
 proc setAxis*(this: var GeomAxisPlacement; a1: Ax1) {.cdecl, importcpp: "SetAxis",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setDirection*(this: var GeomAxisPlacement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkmath.}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setLocation*(this: var GeomAxisPlacement; p: Pnt) {.cdecl,
-    importcpp: "SetLocation", dynlib: tkmath.}
+    importcpp: "SetLocation", dynlib: tkg3d.}
 proc angle*(this: GeomAxisPlacement; other: Handle[GeomAxisPlacement]): cfloat {.
-    noSideEffect, cdecl, importcpp: "Angle", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Angle", dynlib: tkg3d.}
 proc axis*(this: GeomAxisPlacement): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc direction*(this: GeomAxisPlacement): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkmath.}
+    importcpp: "Direction", dynlib: tkg3d.}
 proc location*(this: GeomAxisPlacement): Pnt {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", dynlib: tkg3d.}

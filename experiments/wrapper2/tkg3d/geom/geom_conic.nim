@@ -88,29 +88,28 @@ type
 
 
 proc setAxis*(this: var GeomConic; theA1: Ax1) {.cdecl, importcpp: "SetAxis",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setLocation*(this: var GeomConic; theP: Pnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setPosition*(this: var GeomConic; theA2: Ax2) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkmath.}
-proc axis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
-                               dynlib: tkmath.}
+    dynlib: tkg3d.}
+proc axis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkg3d.}
 proc location*(this: GeomConic): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc position*(this: GeomConic): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc eccentricity*(this: GeomConic): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkmath.}
+    importcpp: "Eccentricity", dynlib: tkg3d.}
 proc xAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis",
-                                dynlib: tkmath.}
+                                dynlib: tkg3d.}
 proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis",
-                                dynlib: tkmath.}
-proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+                                dynlib: tkg3d.}
+proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomConic; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkmath.}
+    importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc isCN*(this: GeomConic; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}

@@ -22,10 +22,10 @@ type
 
 
 proc newGceMakeRotation2d*(point: Pnt2d; angle: cfloat): GceMakeRotation2d {.cdecl,
-    constructor, importcpp: "gce_MakeRotation2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeRotation2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 proc operator*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `trsf2d`*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeRotation2d::operator gp_Trsf2d", dynlib: tkmath.}
+    importcpp: "gce_MakeRotation2d::operator gp_Trsf2d", dynlib: tkgeombase.}

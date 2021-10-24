@@ -24,10 +24,10 @@ type
 
 
 proc newGceMakeScale2d*(point: Pnt2d; scale: cfloat): GceMakeScale2d {.cdecl,
-    constructor, importcpp: "gce_MakeScale2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeScale2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Value",
-                                        dynlib: tkmath.}
+                                        dynlib: tkgeombase.}
 proc operator*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `trsf2d`*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeScale2d::operator gp_Trsf2d", dynlib: tkmath.}
+    importcpp: "gce_MakeScale2d::operator gp_Trsf2d", dynlib: tkgeombase.}

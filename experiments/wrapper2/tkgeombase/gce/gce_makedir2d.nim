@@ -42,16 +42,16 @@ type
 
 
 proc newGceMakeDir2d*(v: Vec2d): GceMakeDir2d {.cdecl, constructor,
-    importcpp: "gce_MakeDir2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeDir2d(@)", dynlib: tkgeombase.}
 proc newGceMakeDir2d*(coord: Xy): GceMakeDir2d {.cdecl, constructor,
-    importcpp: "gce_MakeDir2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeDir2d(@)", dynlib: tkgeombase.}
 proc newGceMakeDir2d*(xv: cfloat; yv: cfloat): GceMakeDir2d {.cdecl, constructor,
-    importcpp: "gce_MakeDir2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeDir2d(@)", dynlib: tkgeombase.}
 proc newGceMakeDir2d*(p1: Pnt2d; p2: Pnt2d): GceMakeDir2d {.cdecl, constructor,
-    importcpp: "gce_MakeDir2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeDir2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeDir2d): Dir2d {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkmath.}
+                                     dynlib: tkgeombase.}
 proc operator*(this: GceMakeDir2d): Dir2d {.noSideEffect, cdecl,
-                                        importcpp: "Operator", dynlib: tkmath.}
+                                        importcpp: "Operator", dynlib: tkgeombase.}
 converter `dir2d`*(this: GceMakeDir2d): Dir2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeDir2d::operator gp_Dir2d", dynlib: tkmath.}
+    importcpp: "gce_MakeDir2d::operator gp_Dir2d", dynlib: tkgeombase.}

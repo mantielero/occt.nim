@@ -6,12 +6,12 @@
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#
 
-#[ when defined(windows):
-  const tkmath* = "TKMath.dll"
+when defined(windows):
+  const tkgeombase* = "TKGeomBase.dll"
 elif defined(macosx):
-  const tkmath* = "libTKMath.dylib"
+  const tkgeombase* = "libTKGeomBase.dylib"
 else:
-  const tkmath* = "libTKMath.so"  ]#
+  const tkgeombase* = "libTKGeomBase.so"
 
 include gc/gc_includes
 include gce/gce_includes

@@ -117,6 +117,9 @@ proc pp*(file:string,
 
 
 genFiles("TopoDS_AlertAttribute")
+pp("topods_alertattribute.nim",
+  replaceAll = @[("tCollectionAsciiString","TCollectionAsciiString")]
+)
 genFiles("TopoDS_AlertWithShape")
 genFiles("TopoDS_Builder")
 genFiles("TopoDS_Compound")
@@ -128,8 +131,14 @@ genFiles("TopoDS_HShape")
 genFiles("TopoDS_Iterator")
 genFiles("TopoDS_ListIteratorOfListOfShape")
 genFiles("TopoDS_ListOfShape")
+pp("topods_listofshape.nim",
+  replaceAll = @[("TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]","""TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object""")]
+)
 genFiles("TopoDS_LockedShape")
 genFiles("TopoDS_Shape")
+pp("topods_shape.nim",
+  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")]
+)
 genFiles("TopoDS_Shell")
 genFiles("TopoDS_Solid")
 genFiles("TopoDS_TCompound")

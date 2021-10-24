@@ -71,39 +71,37 @@ type
                                                                                                         ## symmetry.
 
 
-proc mirror*(this: var GeomGeometry; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
-proc mirror*(this: var GeomGeometry; a1: Ax1) {.cdecl, importcpp: "Mirror",
-    dynlib: tkmath.}
-proc mirror*(this: var GeomGeometry; a2: Ax2) {.cdecl, importcpp: "Mirror",
-    dynlib: tkmath.}
+proc mirror*(this: var GeomGeometry; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkg3d.}
+proc mirror*(this: var GeomGeometry; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkg3d.}
+proc mirror*(this: var GeomGeometry; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkg3d.}
 proc rotate*(this: var GeomGeometry; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc scale*(this: var GeomGeometry; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc translate*(this: var GeomGeometry; v: Vec) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc translate*(this: var GeomGeometry; p1: Pnt; p2: Pnt) {.cdecl,
-    importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Translate", dynlib: tkg3d.}
 proc transform*(this: var GeomGeometry; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc mirrored*(this: GeomGeometry; p: Pnt): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
+    importcpp: "Mirrored", dynlib: tkg3d.}
 proc mirrored*(this: GeomGeometry; a1: Ax1): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Mirrored", dynlib: tkmath.}
+    cdecl, importcpp: "Mirrored", dynlib: tkg3d.}
 proc mirrored*(this: GeomGeometry; a2: Ax2): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Mirrored", dynlib: tkmath.}
+    cdecl, importcpp: "Mirrored", dynlib: tkg3d.}
 proc rotated*(this: GeomGeometry; a1: Ax1; ang: cfloat): Handle[GeomGeometry] {.
-    noSideEffect, cdecl, importcpp: "Rotated", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Rotated", dynlib: tkg3d.}
 proc scaled*(this: GeomGeometry; p: Pnt; s: cfloat): Handle[GeomGeometry] {.
-    noSideEffect, cdecl, importcpp: "Scaled", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Scaled", dynlib: tkg3d.}
 proc transformed*(this: GeomGeometry; t: Trsf): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Transformed", dynlib: tkmath.}
+    cdecl, importcpp: "Transformed", dynlib: tkg3d.}
 proc translated*(this: GeomGeometry; v: Vec): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Translated", dynlib: tkmath.}
+    cdecl, importcpp: "Translated", dynlib: tkg3d.}
 proc translated*(this: GeomGeometry; p1: Pnt; p2: Pnt): Handle[GeomGeometry] {.
-    noSideEffect, cdecl, importcpp: "Translated", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Translated", dynlib: tkg3d.}
 proc copy*(this: GeomGeometry): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomGeometry; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

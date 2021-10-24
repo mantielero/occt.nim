@@ -169,15 +169,15 @@ type
 
 
 proc newGC_MakeConicalSurface*(a2: Ax2; ang: cfloat; radius: cfloat): GC_MakeConicalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkgeombase.}
 proc newGC_MakeConicalSurface*(c: Cone): GC_MakeConicalSurface {.cdecl, constructor,
-    importcpp: "GC_MakeConicalSurface(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeConicalSurface(@)", dynlib: tkgeombase.}
 proc newGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GC_MakeConicalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkgeombase.}
 proc newGC_MakeConicalSurface*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GC_MakeConicalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeConicalSurface): Handle[
     GeomConicalSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeConicalSurface::operator constopencascade",
-                         dynlib: tkmath.}
+                         dynlib: tkgeombase.}

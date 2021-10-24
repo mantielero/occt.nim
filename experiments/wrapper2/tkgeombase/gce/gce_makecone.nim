@@ -105,22 +105,22 @@ type
 
 
 proc newGceMakeCone*(a2: Ax2; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
-    constructor, importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(cone: Cone; point: Pnt): GceMakeCone {.cdecl, constructor,
-    importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(cone: Cone; dist: cfloat): GceMakeCone {.cdecl, constructor,
-    importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GceMakeCone {.cdecl, constructor,
-    importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(axis: Ax1; p1: Pnt; p2: Pnt): GceMakeCone {.cdecl, constructor,
-    importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(axis: Lin; p1: Pnt; p2: Pnt): GceMakeCone {.cdecl, constructor,
-    importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc newGceMakeCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
-    constructor, importcpp: "gce_MakeCone(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCone(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeCone): Cone {.noSideEffect, cdecl, importcpp: "Value",
-                                   dynlib: tkmath.}
+                                   dynlib: tkgeombase.}
 proc operator*(this: GceMakeCone): Cone {.noSideEffect, cdecl, importcpp: "Operator",
-                                      dynlib: tkmath.}
+                                      dynlib: tkgeombase.}
 converter `cone`*(this: GceMakeCone): Cone {.noSideEffect, cdecl,
-    importcpp: "gce_MakeCone::operator gp_Cone", dynlib: tkmath.}
+    importcpp: "gce_MakeCone::operator gp_Cone", dynlib: tkgeombase.}

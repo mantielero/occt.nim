@@ -73,63 +73,61 @@ type
 
 
 proc newGeom2dLine*(a: Ax2d): Geom2dLine {.cdecl, constructor,
-                                       importcpp: "Geom2d_Line(@)",
-                                       dynlib: tkernel.}
+                                       importcpp: "Geom2d_Line(@)", dynlib: tkg2d.}
 proc newGeom2dLine*(L: Lin2d): Geom2dLine {.cdecl, constructor,
-                                        importcpp: "Geom2d_Line(@)",
-                                        dynlib: tkernel.}
+                                        importcpp: "Geom2d_Line(@)", dynlib: tkg2d.}
 proc newGeom2dLine*(p: Pnt2d; v: Dir2d): Geom2dLine {.cdecl, constructor,
-    importcpp: "Geom2d_Line(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Line(@)", dynlib: tkg2d.}
 proc setLin2d*(this: var Geom2dLine; L: Lin2d) {.cdecl, importcpp: "SetLin2d",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setDirection*(this: var Geom2dLine; v: Dir2d) {.cdecl, importcpp: "SetDirection",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc direction*(this: Geom2dLine): Dir2d {.noSideEffect, cdecl,
-                                       importcpp: "Direction", dynlib: tkernel.}
+                                       importcpp: "Direction", dynlib: tkg2d.}
 proc setLocation*(this: var Geom2dLine; p: Pnt2d) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc location*(this: Geom2dLine): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
-                                      dynlib: tkernel.}
+                                      dynlib: tkg2d.}
 proc setPosition*(this: var Geom2dLine; a: Ax2d) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc position*(this: Geom2dLine): Ax2d {.noSideEffect, cdecl, importcpp: "Position",
-                                     dynlib: tkernel.}
+                                     dynlib: tkg2d.}
 proc lin2d*(this: Geom2dLine): Lin2d {.noSideEffect, cdecl, importcpp: "Lin2d",
-                                   dynlib: tkernel.}
-proc reverse*(this: var Geom2dLine) {.cdecl, importcpp: "Reverse", dynlib: tkernel.}
+                                   dynlib: tkg2d.}
+proc reverse*(this: var Geom2dLine) {.cdecl, importcpp: "Reverse", dynlib: tkg2d.}
 proc reversedParameter*(this: Geom2dLine; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkernel.}
+    importcpp: "ReversedParameter", dynlib: tkg2d.}
 proc firstParameter*(this: Geom2dLine): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkernel.}
+    importcpp: "FirstParameter", dynlib: tkg2d.}
 proc lastParameter*(this: Geom2dLine): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkernel.}
+    importcpp: "LastParameter", dynlib: tkg2d.}
 proc isClosed*(this: Geom2dLine): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                     dynlib: tkernel.}
+                                     dynlib: tkg2d.}
 proc isPeriodic*(this: Geom2dLine): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsPeriodic", dynlib: tkernel.}
+                                       importcpp: "IsPeriodic", dynlib: tkg2d.}
 proc continuity*(this: Geom2dLine): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkernel.}
+    importcpp: "Continuity", dynlib: tkg2d.}
 proc distance*(this: Geom2dLine; p: Pnt2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkernel.}
+    importcpp: "Distance", dynlib: tkg2d.}
 proc isCN*(this: Geom2dLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-                                        dynlib: tkernel.}
+                                        dynlib: tkg2d.}
 proc d0*(this: Geom2dLine; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkernel.}
+    importcpp: "D0", dynlib: tkg2d.}
 proc d1*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkernel.}
+    importcpp: "D1", dynlib: tkg2d.}
 proc d2*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
 proc d3*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkernel.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
 proc dn*(this: Geom2dLine; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkernel.}
+    importcpp: "DN", dynlib: tkg2d.}
 proc transform*(this: var Geom2dLine; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc transformedParameter*(this: Geom2dLine; u: cfloat; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg2d.}
 proc parametricTransformation*(this: Geom2dLine; t: Trsf2d): cfloat {.noSideEffect,
-    cdecl, importcpp: "ParametricTransformation", dynlib: tkernel.}
+    cdecl, importcpp: "ParametricTransformation", dynlib: tkg2d.}
 proc copy*(this: Geom2dLine): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkernel.}
+    importcpp: "Copy", dynlib: tkg2d.}
 proc dumpJson*(this: Geom2dLine; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg2d.}

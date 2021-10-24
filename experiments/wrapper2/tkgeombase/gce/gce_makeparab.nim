@@ -99,12 +99,12 @@ type
 
 
 proc newGceMakeParab*(a2: Ax2; focal: cfloat): GceMakeParab {.cdecl, constructor,
-    importcpp: "gce_MakeParab(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeParab(@)", dynlib: tkgeombase.}
 proc newGceMakeParab*(d: Ax1; f: Pnt): GceMakeParab {.cdecl, constructor,
-    importcpp: "gce_MakeParab(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeParab(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeParab): Parab {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkmath.}
+                                     dynlib: tkgeombase.}
 proc operator*(this: GceMakeParab): Parab {.noSideEffect, cdecl,
-                                        importcpp: "Operator", dynlib: tkmath.}
+                                        importcpp: "Operator", dynlib: tkgeombase.}
 converter `parab`*(this: GceMakeParab): Parab {.noSideEffect, cdecl,
-    importcpp: "gce_MakeParab::operator gp_Parab", dynlib: tkmath.}
+    importcpp: "gce_MakeParab::operator gp_Parab", dynlib: tkgeombase.}

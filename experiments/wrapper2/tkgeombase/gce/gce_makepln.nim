@@ -90,24 +90,25 @@ type
 
 
 proc newGceMakePln*(a2: Ax2): GceMakePln {.cdecl, constructor,
-                                       importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+                                       importcpp: "gce_MakePln(@)",
+                                       dynlib: tkgeombase.}
 proc newGceMakePln*(p: Pnt; v: Dir): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GceMakePln {.cdecl,
-    constructor, importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(pln: Pln; point: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(pln: Pln; dist: cfloat): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(p1: Pnt; p2: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc newGceMakePln*(axis: Ax1): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkmath.}
+    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "Value",
-                                 dynlib: tkmath.}
+                                 dynlib: tkgeombase.}
 proc operator*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "Operator",
-                                    dynlib: tkmath.}
+                                    dynlib: tkgeombase.}
 converter `pln`*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
-                                      dynlib: tkmath.}
+                                      dynlib: tkgeombase.}

@@ -116,11 +116,11 @@ type
 
 
 proc continuity*(this: GeomSweptSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc direction*(this: GeomSweptSurface): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkmath.}
+    importcpp: "Direction", dynlib: tkg3d.}
 proc basisCurve*(this: GeomSweptSurface): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "BasisCurve", dynlib: tkmath.}
+    importcpp: "BasisCurve", dynlib: tkg3d.}
 proc dumpJson*(this: GeomSweptSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

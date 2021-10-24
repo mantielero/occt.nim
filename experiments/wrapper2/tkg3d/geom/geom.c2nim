@@ -1,5 +1,5 @@
 #ifdef C2NIM
-#dynlib tkmath
+#dynlib tkg3d
 #cdecl
 #prefix gp_
 #assumendef _MSC_VER

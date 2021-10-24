@@ -31,7 +31,7 @@ type
                                                                                                     ## messenger
 
 
-proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = tCollectionAsciiString()): TopoDS_AlertAttribute {.
+proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = TCollectionAsciiString()): TopoDS_AlertAttribute {.
     cdecl, constructor, importcpp: "TopoDS_AlertAttribute(@)", dynlib: tkernel.}
 proc getShape*(this: TopoDS_AlertAttribute): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetShape", dynlib: tkernel.}

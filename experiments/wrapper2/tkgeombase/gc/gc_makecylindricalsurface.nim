@@ -119,21 +119,26 @@ type
 
 
 proc newGC_MakeCylindricalSurface*(a2: Ax2; radius: cfloat): GC_MakeCylindricalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
+    dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(c: Cylinder): GC_MakeCylindricalSurface {.cdecl,
-    constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(cyl: Cylinder; point: Pnt): GC_MakeCylindricalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
+    dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(cyl: Cylinder; dist: cfloat): GC_MakeCylindricalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
+    dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeCylindricalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
+    dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(axis: Ax1; radius: cfloat): GC_MakeCylindricalSurface {.
-    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
+    dynlib: tkgeombase.}
 proc newGC_MakeCylindricalSurface*(circ: Circ): GC_MakeCylindricalSurface {.cdecl,
-    constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeCylindricalSurface(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeCylindricalSurface): Handle[GeomCylindricalSurface] {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeCylindricalSurface): Handle[
     GeomCylindricalSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeCylindricalSurface::operator constopencascade",
-                             dynlib: tkmath.}
+                             dynlib: tkgeombase.}

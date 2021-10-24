@@ -82,15 +82,15 @@ type
 
 
 proc newGceMakeHypr2d*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GceMakeHypr2d {.cdecl,
-    constructor, importcpp: "gce_MakeHypr2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeHypr2d(@)", dynlib: tkgeombase.}
 proc newGceMakeHypr2d*(majorAxis: Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                       sense: bool): GceMakeHypr2d {.cdecl, constructor,
-    importcpp: "gce_MakeHypr2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeHypr2d(@)", dynlib: tkgeombase.}
 proc newGceMakeHypr2d*(a: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr2d {.
-    cdecl, constructor, importcpp: "gce_MakeHypr2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gce_MakeHypr2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeHypr2d): Hypr2d {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkmath.}
+                                       dynlib: tkgeombase.}
 proc operator*(this: GceMakeHypr2d): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `hypr2d`*(this: GceMakeHypr2d): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", dynlib: tkmath.}
+    importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", dynlib: tkgeombase.}

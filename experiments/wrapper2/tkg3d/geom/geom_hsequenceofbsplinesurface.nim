@@ -21,18 +21,18 @@ type
 
 
 proc newGeomHSequenceOfBSplineSurface*(): GeomHSequenceOfBSplineSurface {.cdecl,
-    constructor, importcpp: "Geom_HSequenceOfBSplineSurface(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_HSequenceOfBSplineSurface(@)", dynlib: tkg3d.}
 proc newGeomHSequenceOfBSplineSurface*(theOther: GeomSequenceOfBSplineSurface): GeomHSequenceOfBSplineSurface {.
     cdecl, constructor, importcpp: "Geom_HSequenceOfBSplineSurface(@)",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc sequence*(this: GeomHSequenceOfBSplineSurface): GeomSequenceOfBSplineSurface {.
-    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkg3d.}
 proc append*(this: var GeomHSequenceOfBSplineSurface; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkmath.}
+    importcpp: "Append", dynlib: tkg3d.}
 proc append*(this: var GeomHSequenceOfBSplineSurface;
             theSequence: var GeomSequenceOfBSplineSurface) {.cdecl,
-    importcpp: "Append", dynlib: tkmath.}
+    importcpp: "Append", dynlib: tkg3d.}
 proc changeSequence*(this: var GeomHSequenceOfBSplineSurface): var GeomSequenceOfBSplineSurface {.
-    cdecl, importcpp: "ChangeSequence", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeSequence", dynlib: tkg3d.}
 type
   HandleGeomHSequenceOfBSplineSurface* = Handle[GeomHSequenceOfBSplineSurface]

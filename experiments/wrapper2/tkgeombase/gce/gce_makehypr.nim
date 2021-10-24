@@ -110,12 +110,12 @@ type
 
 
 proc newGceMakeHypr*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
-    cdecl, constructor, importcpp: "gce_MakeHypr(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gce_MakeHypr(@)", dynlib: tkgeombase.}
 proc newGceMakeHypr*(s1: Pnt; s2: Pnt; center: Pnt): GceMakeHypr {.cdecl, constructor,
-    importcpp: "gce_MakeHypr(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeHypr(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl, importcpp: "Value",
-                                   dynlib: tkmath.}
+                                   dynlib: tkgeombase.}
 proc operator*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl, importcpp: "Operator",
-                                      dynlib: tkmath.}
+                                      dynlib: tkgeombase.}
 converter `hypr`*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl,
-    importcpp: "gce_MakeHypr::operator gp_Hypr", dynlib: tkmath.}
+    importcpp: "gce_MakeHypr::operator gp_Hypr", dynlib: tkgeombase.}

@@ -63,24 +63,24 @@ type
 
 
 proc newGeomAxis2Placement*(a2: Ax2): GeomAxis2Placement {.cdecl, constructor,
-    importcpp: "Geom_Axis2Placement(@)", dynlib: tkmath.}
+    importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
 proc newGeomAxis2Placement*(p: Pnt; n: Dir; vx: Dir): GeomAxis2Placement {.cdecl,
-    constructor, importcpp: "Geom_Axis2Placement(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
 proc setAx2*(this: var GeomAxis2Placement; a2: Ax2) {.cdecl, importcpp: "SetAx2",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setDirection*(this: var GeomAxis2Placement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkmath.}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setXDirection*(this: var GeomAxis2Placement; vx: Dir) {.cdecl,
-    importcpp: "SetXDirection", dynlib: tkmath.}
+    importcpp: "SetXDirection", dynlib: tkg3d.}
 proc setYDirection*(this: var GeomAxis2Placement; vy: Dir) {.cdecl,
-    importcpp: "SetYDirection", dynlib: tkmath.}
+    importcpp: "SetYDirection", dynlib: tkg3d.}
 proc ax2*(this: GeomAxis2Placement): Ax2 {.noSideEffect, cdecl, importcpp: "Ax2",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc xDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "XDirection", dynlib: tkmath.}
+    importcpp: "XDirection", dynlib: tkg3d.}
 proc yDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "YDirection", dynlib: tkmath.}
+    importcpp: "YDirection", dynlib: tkg3d.}
 proc transform*(this: var GeomAxis2Placement; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}

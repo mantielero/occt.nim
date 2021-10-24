@@ -49,17 +49,17 @@ type
 
 
 proc newGC_MakeLine*(a1: Ax1): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
 proc newGC_MakeLine*(L: Lin): GC_MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
-                                        dynlib: tkmath.}
+                                        dynlib: tkgeombase.}
 proc newGC_MakeLine*(p: Pnt; v: Dir): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
 proc newGC_MakeLine*(lin: Lin; point: Pnt): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
 proc newGC_MakeLine*(p1: Pnt; p2: Pnt): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect,
-    cdecl, importcpp: "GC_MakeLine::operator constopencascade", dynlib: tkmath.}
+    cdecl, importcpp: "GC_MakeLine::operator constopencascade", dynlib: tkgeombase.}

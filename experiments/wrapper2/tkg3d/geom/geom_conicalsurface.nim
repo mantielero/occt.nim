@@ -216,68 +216,68 @@ type
 
 
 proc newGeomConicalSurface*(a3: Ax3; ang: cfloat; radius: cfloat): GeomConicalSurface {.
-    cdecl, constructor, importcpp: "Geom_ConicalSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_ConicalSurface(@)", dynlib: tkg3d.}
 proc newGeomConicalSurface*(c: Cone): GeomConicalSurface {.cdecl, constructor,
-    importcpp: "Geom_ConicalSurface(@)", dynlib: tkmath.}
+    importcpp: "Geom_ConicalSurface(@)", dynlib: tkg3d.}
 proc setCone*(this: var GeomConicalSurface; c: Cone) {.cdecl, importcpp: "SetCone",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setRadius*(this: var GeomConicalSurface; r: cfloat) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkmath.}
+    importcpp: "SetRadius", dynlib: tkg3d.}
 proc setSemiAngle*(this: var GeomConicalSurface; ang: cfloat) {.cdecl,
-    importcpp: "SetSemiAngle", dynlib: tkmath.}
+    importcpp: "SetSemiAngle", dynlib: tkg3d.}
 proc cone*(this: GeomConicalSurface): Cone {.noSideEffect, cdecl, importcpp: "Cone",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomConicalSurface; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "UReversedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomConicalSurface; v: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "VReversedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc vReverse*(this: var GeomConicalSurface) {.cdecl, importcpp: "VReverse",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc transformParameters*(this: GeomConicalSurface; u: var cfloat; v: var cfloat; t: Trsf) {.
-    noSideEffect, cdecl, importcpp: "TransformParameters", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomConicalSurface; t: Trsf): GTrsf2d {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc apex*(this: GeomConicalSurface): Pnt {.noSideEffect, cdecl, importcpp: "Apex",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc bounds*(this: GeomConicalSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
-            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkmath.}
+            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
 proc coefficients*(this: GeomConicalSurface; a1: var cfloat; a2: var cfloat;
                   a3: var cfloat; b1: var cfloat; b2: var cfloat; b3: var cfloat;
                   c1: var cfloat; c2: var cfloat; c3: var cfloat; d: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkg3d.}
 proc refRadius*(this: GeomConicalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "RefRadius", dynlib: tkmath.}
+    importcpp: "RefRadius", dynlib: tkg3d.}
 proc semiAngle*(this: GeomConicalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "SemiAngle", dynlib: tkmath.}
+    importcpp: "SemiAngle", dynlib: tkg3d.}
 proc isUClosed*(this: GeomConicalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", dynlib: tkmath.}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomConicalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", dynlib: tkmath.}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomConicalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkmath.}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomConicalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkmath.}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomConicalSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "UIso", dynlib: tkmath.}
+    cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomConicalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "VIso", dynlib: tkmath.}
+    cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkmath.}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkmath.}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", dynlib: tkmath.}
+    importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomConicalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc dn*(this: GeomConicalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomConicalSurface; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc copy*(this: GeomConicalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomConicalSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

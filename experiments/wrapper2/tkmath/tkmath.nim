@@ -17,3 +17,4 @@ else:
 include gp/gp_includes
 include tcolgp/tcolgp_includes
 include geomabs/geomabs_includes
+include toploc/toploc_includes

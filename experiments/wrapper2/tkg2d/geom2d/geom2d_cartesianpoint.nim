@@ -38,29 +38,29 @@ type
 
 
 proc newGeom2dCartesianPoint*(p: Pnt2d): Geom2dCartesianPoint {.cdecl, constructor,
-    importcpp: "Geom2d_CartesianPoint(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_CartesianPoint(@)", dynlib: tkg2d.}
 proc newGeom2dCartesianPoint*(x: cfloat; y: cfloat): Geom2dCartesianPoint {.cdecl,
-    constructor, importcpp: "Geom2d_CartesianPoint(@)", dynlib: tkernel.}
+    constructor, importcpp: "Geom2d_CartesianPoint(@)", dynlib: tkg2d.}
 proc setCoord*(this: var Geom2dCartesianPoint; x: cfloat; y: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkernel.}
+    importcpp: "SetCoord", dynlib: tkg2d.}
 proc setPnt2d*(this: var Geom2dCartesianPoint; p: Pnt2d) {.cdecl,
-    importcpp: "SetPnt2d", dynlib: tkernel.}
+    importcpp: "SetPnt2d", dynlib: tkg2d.}
 proc setX*(this: var Geom2dCartesianPoint; x: cfloat) {.cdecl, importcpp: "SetX",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setY*(this: var Geom2dCartesianPoint; y: cfloat) {.cdecl, importcpp: "SetY",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc coord*(this: Geom2dCartesianPoint; x: var cfloat; y: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Coord", dynlib: tkernel.}
+    cdecl, importcpp: "Coord", dynlib: tkg2d.}
 proc pnt2d*(this: Geom2dCartesianPoint): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Pnt2d", dynlib: tkernel.}
+    importcpp: "Pnt2d", dynlib: tkg2d.}
 proc x*(this: Geom2dCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "X",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc y*(this: Geom2dCartesianPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc transform*(this: var Geom2dCartesianPoint; t: Trsf2d) {.cdecl,
-    importcpp: "Transform", dynlib: tkernel.}
+    importcpp: "Transform", dynlib: tkg2d.}
 proc copy*(this: Geom2dCartesianPoint): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkernel.}
+    importcpp: "Copy", dynlib: tkg2d.}
 proc dumpJson*(this: Geom2dCartesianPoint; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 dynlib: tkg2d.}

@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noGeomUndefinedDerivative):
   template geomUndefinedDerivativeRaiseIf*(condition, message: untyped): void =
     if condition:
       proc geomUndefinedDerivative*(a1: Message): Throw {.cdecl,
-          importcpp: "Geom_UndefinedDerivative(@)", dynlib: tkmath.}
+          importcpp: "Geom_UndefinedDerivative(@)", dynlib: tkg3d.}
 
 else:
   discard

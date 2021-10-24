@@ -75,55 +75,55 @@ type
 
 
 proc newGeomParabola*(prb: Parab): GeomParabola {.cdecl, constructor,
-    importcpp: "Geom_Parabola(@)", dynlib: tkmath.}
+    importcpp: "Geom_Parabola(@)", dynlib: tkg3d.}
 proc newGeomParabola*(a2: Ax2; focal: cfloat): GeomParabola {.cdecl, constructor,
-    importcpp: "Geom_Parabola(@)", dynlib: tkmath.}
+    importcpp: "Geom_Parabola(@)", dynlib: tkg3d.}
 proc newGeomParabola*(d: Ax1; f: Pnt): GeomParabola {.cdecl, constructor,
-    importcpp: "Geom_Parabola(@)", dynlib: tkmath.}
+    importcpp: "Geom_Parabola(@)", dynlib: tkg3d.}
 proc setFocal*(this: var GeomParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setParab*(this: var GeomParabola; prb: Parab) {.cdecl, importcpp: "SetParab",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc parab*(this: GeomParabola): Parab {.noSideEffect, cdecl, importcpp: "Parab",
-                                     dynlib: tkmath.}
+                                     dynlib: tkg3d.}
 proc reversedParameter*(this: GeomParabola; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkmath.}
+    importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc firstParameter*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc isClosed*(this: GeomParabola): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc isPeriodic*(this: GeomParabola): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkmath.}
+    importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc directrix*(this: GeomParabola): Ax1 {.noSideEffect, cdecl,
-                                       importcpp: "Directrix", dynlib: tkmath.}
+                                       importcpp: "Directrix", dynlib: tkg3d.}
 proc eccentricity*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkmath.}
+    importcpp: "Eccentricity", dynlib: tkg3d.}
 proc focus*(this: GeomParabola): Pnt {.noSideEffect, cdecl, importcpp: "Focus",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc focal*(this: GeomParabola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                                      dynlib: tkmath.}
+                                      dynlib: tkg3d.}
 proc parameter*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkmath.}
+    importcpp: "Parameter", dynlib: tkg3d.}
 proc d0*(this: GeomParabola; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkmath.}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkmath.}
+    cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomParabola; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkmath.}
+    importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomParabola; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc transformedParameter*(this: GeomParabola; u: cfloat; t: Trsf): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomParabola; t: Trsf): cfloat {.noSideEffect,
-    cdecl, importcpp: "ParametricTransformation", dynlib: tkmath.}
+    cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc copy*(this: GeomParabola): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomParabola; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

@@ -68,60 +68,59 @@ type
 
 
 proc newGeom2dTransformation*(): Geom2dTransformation {.cdecl, constructor,
-    importcpp: "Geom2d_Transformation(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Transformation(@)", dynlib: tkg2d.}
 proc newGeom2dTransformation*(t: Trsf2d): Geom2dTransformation {.cdecl, constructor,
-    importcpp: "Geom2d_Transformation(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Transformation(@)", dynlib: tkg2d.}
 proc setMirror*(this: var Geom2dTransformation; p: Pnt2d) {.cdecl,
-    importcpp: "SetMirror", dynlib: tkernel.}
+    importcpp: "SetMirror", dynlib: tkg2d.}
 proc setMirror*(this: var Geom2dTransformation; a: Ax2d) {.cdecl,
-    importcpp: "SetMirror", dynlib: tkernel.}
+    importcpp: "SetMirror", dynlib: tkg2d.}
 proc setRotation*(this: var Geom2dTransformation; p: Pnt2d; ang: cfloat) {.cdecl,
-    importcpp: "SetRotation", dynlib: tkernel.}
+    importcpp: "SetRotation", dynlib: tkg2d.}
 proc setScale*(this: var Geom2dTransformation; p: Pnt2d; s: cfloat) {.cdecl,
-    importcpp: "SetScale", dynlib: tkernel.}
+    importcpp: "SetScale", dynlib: tkg2d.}
 proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2d;
                        toSystem2: Ax2d) {.cdecl, importcpp: "SetTransformation",
-                                        dynlib: tkernel.}
+                                        dynlib: tkg2d.}
 proc setTransformation*(this: var Geom2dTransformation; toSystem: Ax2d) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkernel.}
+    importcpp: "SetTransformation", dynlib: tkg2d.}
 proc setTranslation*(this: var Geom2dTransformation; v: Vec2d) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkernel.}
+    importcpp: "SetTranslation", dynlib: tkg2d.}
 proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2d; p2: Pnt2d) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkernel.}
+    importcpp: "SetTranslation", dynlib: tkg2d.}
 proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2d) {.cdecl,
-    importcpp: "SetTrsf2d", dynlib: tkernel.}
+    importcpp: "SetTrsf2d", dynlib: tkg2d.}
 proc isNegative*(this: Geom2dTransformation): bool {.noSideEffect, cdecl,
-    importcpp: "IsNegative", dynlib: tkernel.}
+    importcpp: "IsNegative", dynlib: tkg2d.}
 proc form*(this: Geom2dTransformation): TrsfForm {.noSideEffect, cdecl,
-    importcpp: "Form", dynlib: tkernel.}
+    importcpp: "Form", dynlib: tkg2d.}
 proc scaleFactor*(this: Geom2dTransformation): cfloat {.noSideEffect, cdecl,
-    importcpp: "ScaleFactor", dynlib: tkernel.}
+    importcpp: "ScaleFactor", dynlib: tkg2d.}
 proc trsf2d*(this: Geom2dTransformation): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Trsf2d", dynlib: tkernel.}
+    importcpp: "Trsf2d", dynlib: tkg2d.}
 proc value*(this: Geom2dTransformation; row: cint; col: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkernel.}
+    cdecl, importcpp: "Value", dynlib: tkg2d.}
 proc invert*(this: var Geom2dTransformation) {.cdecl, importcpp: "Invert",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc inverted*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.
-    noSideEffect, cdecl, importcpp: "Inverted", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Inverted", dynlib: tkg2d.}
 proc multiplied*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
     Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "Multiplied",
-                           dynlib: tkernel.}
+                           dynlib: tkg2d.}
 proc `*`*(this: Geom2dTransformation; other: Handle[Geom2dTransformation]): Handle[
-    Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "(# * #)",
-                           dynlib: tkernel.}
+    Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkg2d.}
 proc multiply*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
-    cdecl, importcpp: "Multiply", dynlib: tkernel.}
+    cdecl, importcpp: "Multiply", dynlib: tkg2d.}
 proc `*=`*(this: var Geom2dTransformation; other: Handle[Geom2dTransformation]) {.
-    cdecl, importcpp: "(# *= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# *= #)", dynlib: tkg2d.}
 proc power*(this: var Geom2dTransformation; n: cint) {.cdecl, importcpp: "Power",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc powered*(this: Geom2dTransformation; n: cint): Handle[Geom2dTransformation] {.
-    noSideEffect, cdecl, importcpp: "Powered", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Powered", dynlib: tkg2d.}
 proc preMultiply*(this: var Geom2dTransformation;
                  other: Handle[Geom2dTransformation]) {.cdecl,
-    importcpp: "PreMultiply", dynlib: tkernel.}
+    importcpp: "PreMultiply", dynlib: tkg2d.}
 proc transforms*(this: Geom2dTransformation; x: var cfloat; y: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Transforms", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Transforms", dynlib: tkg2d.}
 proc copy*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkernel.}
+    cdecl, importcpp: "Copy", dynlib: tkg2d.}

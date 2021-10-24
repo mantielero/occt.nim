@@ -44,17 +44,17 @@ type
 
 
 proc newGC_MakeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeArcOfCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeArcOfCircle {.cdecl,
-    constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeArcOfCircle*(p1: Pnt; v: Vec; p2: Pnt): GC_MakeArcOfCircle {.cdecl,
-    constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeArcOfCircle::operator constopencascade", dynlib: tkmath.}
+    importcpp: "GC_MakeArcOfCircle::operator constopencascade", dynlib: tkgeombase.}

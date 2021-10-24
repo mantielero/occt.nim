@@ -34,21 +34,21 @@ type
 
 
 proc newGeomOsculatingSurface*(): GeomOsculatingSurface {.cdecl, constructor,
-    importcpp: "Geom_OsculatingSurface(@)", dynlib: tkmath.}
+    importcpp: "Geom_OsculatingSurface(@)", dynlib: tkg3d.}
 proc newGeomOsculatingSurface*(bs: Handle[GeomSurface]; tol: cfloat): GeomOsculatingSurface {.
-    cdecl, constructor, importcpp: "Geom_OsculatingSurface(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_OsculatingSurface(@)", dynlib: tkg3d.}
 proc init*(this: var GeomOsculatingSurface; bs: Handle[GeomSurface]; tol: cfloat) {.
-    cdecl, importcpp: "Init", dynlib: tkmath.}
+    cdecl, importcpp: "Init", dynlib: tkg3d.}
 proc basisSurface*(this: GeomOsculatingSurface): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "BasisSurface", dynlib: tkmath.}
+    cdecl, importcpp: "BasisSurface", dynlib: tkg3d.}
 proc tolerance*(this: GeomOsculatingSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkmath.}
+    importcpp: "Tolerance", dynlib: tkg3d.}
 proc uOscSurf*(this: GeomOsculatingSurface; u: cfloat; v: cfloat; t: var bool;
               L: var Handle[GeomBSplineSurface]): bool {.noSideEffect, cdecl,
-    importcpp: "UOscSurf", dynlib: tkmath.}
+    importcpp: "UOscSurf", dynlib: tkg3d.}
 proc vOscSurf*(this: GeomOsculatingSurface; u: cfloat; v: cfloat; t: var bool;
               L: var Handle[GeomBSplineSurface]): bool {.noSideEffect, cdecl,
-    importcpp: "VOscSurf", dynlib: tkmath.}
+    importcpp: "VOscSurf", dynlib: tkg3d.}
 proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

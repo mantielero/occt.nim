@@ -30,13 +30,13 @@ type
 
 
 proc newGC_MakeHyperbola*(h: Hypr): GC_MakeHyperbola {.cdecl, constructor,
-    importcpp: "GC_MakeHyperbola(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
 proc newGC_MakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeHyperbola {.
-    cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
 proc newGC_MakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.cdecl,
-    constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.
     noSideEffect, cdecl, importcpp: "GC_MakeHyperbola::operator constopencascade",
-    dynlib: tkmath.}
+    dynlib: tkgeombase.}

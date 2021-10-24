@@ -57,33 +57,32 @@ type
 
 
 proc newGeomDirection*(x: cfloat; y: cfloat; z: cfloat): GeomDirection {.cdecl,
-    constructor, importcpp: "Geom_Direction(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_Direction(@)", dynlib: tkg3d.}
 proc newGeomDirection*(v: Dir): GeomDirection {.cdecl, constructor,
-    importcpp: "Geom_Direction(@)", dynlib: tkmath.}
+    importcpp: "Geom_Direction(@)", dynlib: tkg3d.}
 proc setCoord*(this: var GeomDirection; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkmath.}
-proc setDir*(this: var GeomDirection; v: Dir) {.cdecl, importcpp: "SetDir",
-    dynlib: tkmath.}
-proc setX*(this: var GeomDirection; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
-proc setY*(this: var GeomDirection; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
-proc setZ*(this: var GeomDirection; z: cfloat) {.cdecl, importcpp: "SetZ", dynlib: tkmath.}
+    importcpp: "SetCoord", dynlib: tkg3d.}
+proc setDir*(this: var GeomDirection; v: Dir) {.cdecl, importcpp: "SetDir", dynlib: tkg3d.}
+proc setX*(this: var GeomDirection; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkg3d.}
+proc setY*(this: var GeomDirection; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkg3d.}
+proc setZ*(this: var GeomDirection; z: cfloat) {.cdecl, importcpp: "SetZ", dynlib: tkg3d.}
 proc dir*(this: GeomDirection): Dir {.noSideEffect, cdecl, importcpp: "Dir",
-                                  dynlib: tkmath.}
+                                  dynlib: tkg3d.}
 proc magnitude*(this: GeomDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkmath.}
+    importcpp: "Magnitude", dynlib: tkg3d.}
 proc squareMagnitude*(this: GeomDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkmath.}
+    importcpp: "SquareMagnitude", dynlib: tkg3d.}
 proc cross*(this: var GeomDirection; other: Handle[GeomVector]) {.cdecl,
-    importcpp: "Cross", dynlib: tkmath.}
+    importcpp: "Cross", dynlib: tkg3d.}
 proc crossCross*(this: var GeomDirection; v1: Handle[GeomVector];
                 v2: Handle[GeomVector]) {.cdecl, importcpp: "CrossCross",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc crossed*(this: GeomDirection; other: Handle[GeomVector]): Handle[GeomVector] {.
-    noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkg3d.}
 proc crossCrossed*(this: GeomDirection; v1: Handle[GeomVector];
                   v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect, cdecl,
-    importcpp: "CrossCrossed", dynlib: tkmath.}
+    importcpp: "CrossCrossed", dynlib: tkg3d.}
 proc transform*(this: var GeomDirection; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc copy*(this: GeomDirection): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}

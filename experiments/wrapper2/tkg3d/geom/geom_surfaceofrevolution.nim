@@ -239,70 +239,70 @@ type
 
 
 proc newGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1): GeomSurfaceOfRevolution {.
-    cdecl, constructor, importcpp: "Geom_SurfaceOfRevolution(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_SurfaceOfRevolution(@)", dynlib: tkg3d.}
 proc setAxis*(this: var GeomSurfaceOfRevolution; a1: Ax1) {.cdecl,
-    importcpp: "SetAxis", dynlib: tkmath.}
+    importcpp: "SetAxis", dynlib: tkg3d.}
 proc setDirection*(this: var GeomSurfaceOfRevolution; v: Dir) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkmath.}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setBasisCurve*(this: var GeomSurfaceOfRevolution; c: Handle[GeomCurve]) {.cdecl,
-    importcpp: "SetBasisCurve", dynlib: tkmath.}
+    importcpp: "SetBasisCurve", dynlib: tkg3d.}
 proc setLocation*(this: var GeomSurfaceOfRevolution; p: Pnt) {.cdecl,
-    importcpp: "SetLocation", dynlib: tkmath.}
+    importcpp: "SetLocation", dynlib: tkg3d.}
 proc axis*(this: GeomSurfaceOfRevolution): Ax1 {.noSideEffect, cdecl,
-    importcpp: "Axis", dynlib: tkmath.}
+    importcpp: "Axis", dynlib: tkg3d.}
 proc location*(this: GeomSurfaceOfRevolution): Pnt {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", dynlib: tkg3d.}
 proc referencePlane*(this: GeomSurfaceOfRevolution): Ax2 {.noSideEffect, cdecl,
-    importcpp: "ReferencePlane", dynlib: tkmath.}
+    importcpp: "ReferencePlane", dynlib: tkg3d.}
 proc uReverse*(this: var GeomSurfaceOfRevolution) {.cdecl, importcpp: "UReverse",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomSurfaceOfRevolution; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReverse*(this: var GeomSurfaceOfRevolution) {.cdecl, importcpp: "VReverse",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomSurfaceOfRevolution; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc transformParameters*(this: GeomSurfaceOfRevolution; u: var cfloat; v: var cfloat;
                          t: Trsf) {.noSideEffect, cdecl,
-                                  importcpp: "TransformParameters", dynlib: tkmath.}
+                                  importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomSurfaceOfRevolution; t: Trsf): GTrsf2d {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc bounds*(this: GeomSurfaceOfRevolution; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc isUClosed*(this: GeomSurfaceOfRevolution): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", dynlib: tkmath.}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomSurfaceOfRevolution): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", dynlib: tkmath.}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isCNu*(this: GeomSurfaceOfRevolution; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNu", dynlib: tkmath.}
+    importcpp: "IsCNu", dynlib: tkg3d.}
 proc isCNv*(this: GeomSurfaceOfRevolution; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNv", dynlib: tkmath.}
+    importcpp: "IsCNv", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomSurfaceOfRevolution): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkmath.}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomSurfaceOfRevolution): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkmath.}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomSurfaceOfRevolution; u: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "UIso", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomSurfaceOfRevolution; v: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "VIso", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
-    cdecl, importcpp: "D0", dynlib: tkmath.}
+    cdecl, importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkmath.}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", dynlib: tkmath.}
+    importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc dn*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomSurfaceOfRevolution; t: Trsf) {.cdecl,
-    importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc copy*(this: GeomSurfaceOfRevolution): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkmath.}
+    cdecl, importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomSurfaceOfRevolution; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

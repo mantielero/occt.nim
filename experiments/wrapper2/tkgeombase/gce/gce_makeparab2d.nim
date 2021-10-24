@@ -28,16 +28,16 @@ type
 
 
 proc newGceMakeParab2d*(mirrorAxis: Ax2d; focal: cfloat; sense: bool = true): GceMakeParab2d {.
-    cdecl, constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkgeombase.}
 proc newGceMakeParab2d*(a: Ax22d; focal: cfloat): GceMakeParab2d {.cdecl, constructor,
-    importcpp: "gce_MakeParab2d(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeParab2d(@)", dynlib: tkgeombase.}
 proc newGceMakeParab2d*(d: Ax2d; f: Pnt2d; sense: bool = true): GceMakeParab2d {.cdecl,
-    constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkgeombase.}
 proc newGceMakeParab2d*(s1: Pnt2d; center: Pnt2d; sense: bool = true): GceMakeParab2d {.
-    cdecl, constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gce_MakeParab2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeParab2d): Parab2d {.noSideEffect, cdecl, importcpp: "Value",
-    dynlib: tkmath.}
+    dynlib: tkgeombase.}
 proc operator*(this: GceMakeParab2d): Parab2d {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `parab2d`*(this: GceMakeParab2d): Parab2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeParab2d::operator gp_Parab2d", dynlib: tkmath.}
+    importcpp: "gce_MakeParab2d::operator gp_Parab2d", dynlib: tkgeombase.}

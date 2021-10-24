@@ -93,86 +93,86 @@ type
 
 
 proc newGeomBezierCurve*(curvePoles: TColgpArray1OfPnt): GeomBezierCurve {.cdecl,
-    constructor, importcpp: "Geom_BezierCurve(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_BezierCurve(@)", dynlib: tkg3d.}
 proc newGeomBezierCurve*(curvePoles: TColgpArray1OfPnt;
                         poleWeights: TColStdArray1OfReal): GeomBezierCurve {.cdecl,
-    constructor, importcpp: "Geom_BezierCurve(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_BezierCurve(@)", dynlib: tkg3d.}
 proc increase*(this: var GeomBezierCurve; degree: cint) {.cdecl, importcpp: "Increase",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc insertPoleAfter*(this: var GeomBezierCurve; index: cint; p: Pnt) {.cdecl,
-    importcpp: "InsertPoleAfter", dynlib: tkmath.}
+    importcpp: "InsertPoleAfter", dynlib: tkg3d.}
 proc insertPoleAfter*(this: var GeomBezierCurve; index: cint; p: Pnt; weight: cfloat) {.
-    cdecl, importcpp: "InsertPoleAfter", dynlib: tkmath.}
+    cdecl, importcpp: "InsertPoleAfter", dynlib: tkg3d.}
 proc insertPoleBefore*(this: var GeomBezierCurve; index: cint; p: Pnt) {.cdecl,
-    importcpp: "InsertPoleBefore", dynlib: tkmath.}
+    importcpp: "InsertPoleBefore", dynlib: tkg3d.}
 proc insertPoleBefore*(this: var GeomBezierCurve; index: cint; p: Pnt; weight: cfloat) {.
-    cdecl, importcpp: "InsertPoleBefore", dynlib: tkmath.}
+    cdecl, importcpp: "InsertPoleBefore", dynlib: tkg3d.}
 proc removePole*(this: var GeomBezierCurve; index: cint) {.cdecl,
-    importcpp: "RemovePole", dynlib: tkmath.}
-proc reverse*(this: var GeomBezierCurve) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+    importcpp: "RemovePole", dynlib: tkg3d.}
+proc reverse*(this: var GeomBezierCurve) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomBezierCurve; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc segment*(this: var GeomBezierCurve; u1: cfloat; u2: cfloat) {.cdecl,
-    importcpp: "Segment", dynlib: tkmath.}
+    importcpp: "Segment", dynlib: tkg3d.}
 proc setPole*(this: var GeomBezierCurve; index: cint; p: Pnt) {.cdecl,
-    importcpp: "SetPole", dynlib: tkmath.}
+    importcpp: "SetPole", dynlib: tkg3d.}
 proc setPole*(this: var GeomBezierCurve; index: cint; p: Pnt; weight: cfloat) {.cdecl,
-    importcpp: "SetPole", dynlib: tkmath.}
+    importcpp: "SetPole", dynlib: tkg3d.}
 proc setWeight*(this: var GeomBezierCurve; index: cint; weight: cfloat) {.cdecl,
-    importcpp: "SetWeight", dynlib: tkmath.}
+    importcpp: "SetWeight", dynlib: tkg3d.}
 proc isClosed*(this: GeomBezierCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkmath.}
+    importcpp: "IsClosed", dynlib: tkg3d.}
 proc isCN*(this: GeomBezierCurve; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCN", dynlib: tkmath.}
+    importcpp: "IsCN", dynlib: tkg3d.}
 proc isPeriodic*(this: GeomBezierCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkmath.}
+    importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc isRational*(this: GeomBezierCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkmath.}
+    importcpp: "IsRational", dynlib: tkg3d.}
 proc continuity*(this: GeomBezierCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc degree*(this: GeomBezierCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc d0*(this: GeomBezierCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkmath.}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomBezierCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomBezierCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomBezierCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomBezierCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkmath.}
+    importcpp: "DN", dynlib: tkg3d.}
 proc startPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "StartPoint", dynlib: tkmath.}
+    importcpp: "StartPoint", dynlib: tkg3d.}
 proc endPoint*(this: GeomBezierCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "EndPoint", dynlib: tkmath.}
+    importcpp: "EndPoint", dynlib: tkg3d.}
 proc firstParameter*(this: GeomBezierCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomBezierCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc nbPoles*(this: GeomBezierCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkmath.}
+    importcpp: "NbPoles", dynlib: tkg3d.}
 proc pole*(this: GeomBezierCurve; index: cint): Pnt {.noSideEffect, cdecl,
-    importcpp: "Pole", dynlib: tkmath.}
+    importcpp: "Pole", dynlib: tkg3d.}
 proc poles*(this: GeomBezierCurve; p: var TColgpArray1OfPnt) {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkmath.}
+    importcpp: "Poles", dynlib: tkg3d.}
 proc poles*(this: GeomBezierCurve): TColgpArray1OfPnt {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkmath.}
+    importcpp: "Poles", dynlib: tkg3d.}
 proc weight*(this: GeomBezierCurve; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Weight", dynlib: tkmath.}
+    importcpp: "Weight", dynlib: tkg3d.}
 proc weights*(this: GeomBezierCurve; w: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "Weights", dynlib: tkmath.}
+    importcpp: "Weights", dynlib: tkg3d.}
 proc weights*(this: GeomBezierCurve): ptr TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Weights", dynlib: tkmath.}
+    importcpp: "Weights", dynlib: tkg3d.}
 proc transform*(this: var GeomBezierCurve; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc maxDegreeBezierCurve*(): cint {.cdecl, importcpp: "Geom_BezierCurve::MaxDegree(@)",
-                       dynlib: tkmath.}
+                       dynlib: tkg3d.}
 proc resolution*(this: var GeomBezierCurve; tolerance3D: cfloat;
                 uTolerance: var cfloat) {.cdecl, importcpp: "Resolution",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc copy*(this: GeomBezierCurve): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomBezierCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

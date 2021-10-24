@@ -85,72 +85,72 @@ type
 
 
 proc newGeom2dHyperbola*(h: Hypr2d): Geom2dHyperbola {.cdecl, constructor,
-    importcpp: "Geom2d_Hyperbola(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Hyperbola(@)", dynlib: tkg2d.}
 proc newGeom2dHyperbola*(majorAxis: Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                         sense: bool = true): Geom2dHyperbola {.cdecl, constructor,
-    importcpp: "Geom2d_Hyperbola(@)", dynlib: tkernel.}
+    importcpp: "Geom2d_Hyperbola(@)", dynlib: tkg2d.}
 proc newGeom2dHyperbola*(axis: Ax22d; majorRadius: cfloat; minorRadius: cfloat): Geom2dHyperbola {.
-    cdecl, constructor, importcpp: "Geom2d_Hyperbola(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Geom2d_Hyperbola(@)", dynlib: tkg2d.}
 proc setHypr2d*(this: var Geom2dHyperbola; h: Hypr2d) {.cdecl, importcpp: "SetHypr2d",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc setMajorRadius*(this: var Geom2dHyperbola; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkernel.}
+    importcpp: "SetMajorRadius", dynlib: tkg2d.}
 proc setMinorRadius*(this: var Geom2dHyperbola; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkernel.}
+    importcpp: "SetMinorRadius", dynlib: tkg2d.}
 proc hypr2d*(this: Geom2dHyperbola): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "Hypr2d", dynlib: tkernel.}
+    importcpp: "Hypr2d", dynlib: tkg2d.}
 proc reversedParameter*(this: Geom2dHyperbola; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkernel.}
+    cdecl, importcpp: "ReversedParameter", dynlib: tkg2d.}
 proc firstParameter*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkernel.}
+    importcpp: "FirstParameter", dynlib: tkg2d.}
 proc lastParameter*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkernel.}
+    importcpp: "LastParameter", dynlib: tkg2d.}
 proc isClosed*(this: Geom2dHyperbola): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkernel.}
+    importcpp: "IsClosed", dynlib: tkg2d.}
 proc isPeriodic*(this: Geom2dHyperbola): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkernel.}
+    importcpp: "IsPeriodic", dynlib: tkg2d.}
 proc asymptote1*(this: Geom2dHyperbola): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Asymptote1", dynlib: tkernel.}
+    importcpp: "Asymptote1", dynlib: tkg2d.}
 proc asymptote2*(this: Geom2dHyperbola): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Asymptote2", dynlib: tkernel.}
+    importcpp: "Asymptote2", dynlib: tkg2d.}
 proc conjugateBranch1*(this: Geom2dHyperbola): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "ConjugateBranch1", dynlib: tkernel.}
+    importcpp: "ConjugateBranch1", dynlib: tkg2d.}
 proc conjugateBranch2*(this: Geom2dHyperbola): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "ConjugateBranch2", dynlib: tkernel.}
+    importcpp: "ConjugateBranch2", dynlib: tkg2d.}
 proc directrix1*(this: Geom2dHyperbola): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Directrix1", dynlib: tkernel.}
+    importcpp: "Directrix1", dynlib: tkg2d.}
 proc directrix2*(this: Geom2dHyperbola): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Directrix2", dynlib: tkernel.}
+    importcpp: "Directrix2", dynlib: tkg2d.}
 proc eccentricity*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkernel.}
+    importcpp: "Eccentricity", dynlib: tkg2d.}
 proc focal*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc focus1*(this: Geom2dHyperbola): Pnt2d {.noSideEffect, cdecl, importcpp: "Focus1",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc focus2*(this: Geom2dHyperbola): Pnt2d {.noSideEffect, cdecl, importcpp: "Focus2",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc majorRadius*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "MajorRadius", dynlib: tkernel.}
+    importcpp: "MajorRadius", dynlib: tkg2d.}
 proc minorRadius*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinorRadius", dynlib: tkernel.}
+    importcpp: "MinorRadius", dynlib: tkg2d.}
 proc otherBranch*(this: Geom2dHyperbola): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "OtherBranch", dynlib: tkernel.}
+    importcpp: "OtherBranch", dynlib: tkg2d.}
 proc parameter*(this: Geom2dHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkernel.}
+    importcpp: "Parameter", dynlib: tkg2d.}
 proc d0*(this: Geom2dHyperbola; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkernel.}
+    importcpp: "D0", dynlib: tkg2d.}
 proc d1*(this: Geom2dHyperbola; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkernel.}
+    cdecl, importcpp: "D1", dynlib: tkg2d.}
 proc d2*(this: Geom2dHyperbola; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
 proc d3*(this: Geom2dHyperbola; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkernel.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
 proc dn*(this: Geom2dHyperbola; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkernel.}
+    importcpp: "DN", dynlib: tkg2d.}
 proc transform*(this: var Geom2dHyperbola; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkernel.}
+    dynlib: tkg2d.}
 proc copy*(this: Geom2dHyperbola): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkernel.}
+    importcpp: "Copy", dynlib: tkg2d.}
 proc dumpJson*(this: Geom2dHyperbola; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 dynlib: tkg2d.}

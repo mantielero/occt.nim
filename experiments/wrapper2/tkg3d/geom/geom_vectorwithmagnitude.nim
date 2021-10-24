@@ -40,60 +40,59 @@ type
 
 
 proc newGeomVectorWithMagnitude*(v: Vec): GeomVectorWithMagnitude {.cdecl,
-    constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkg3d.}
 proc newGeomVectorWithMagnitude*(x: cfloat; y: cfloat; z: cfloat): GeomVectorWithMagnitude {.
-    cdecl, constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkg3d.}
 proc newGeomVectorWithMagnitude*(p1: Pnt; p2: Pnt): GeomVectorWithMagnitude {.cdecl,
-    constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_VectorWithMagnitude(@)", dynlib: tkg3d.}
 proc setCoord*(this: var GeomVectorWithMagnitude; x: cfloat; y: cfloat; z: cfloat) {.
-    cdecl, importcpp: "SetCoord", dynlib: tkmath.}
+    cdecl, importcpp: "SetCoord", dynlib: tkg3d.}
 proc setVec*(this: var GeomVectorWithMagnitude; v: Vec) {.cdecl, importcpp: "SetVec",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setX*(this: var GeomVectorWithMagnitude; x: cfloat) {.cdecl, importcpp: "SetX",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setY*(this: var GeomVectorWithMagnitude; y: cfloat) {.cdecl, importcpp: "SetY",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setZ*(this: var GeomVectorWithMagnitude; z: cfloat) {.cdecl, importcpp: "SetZ",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc magnitude*(this: GeomVectorWithMagnitude): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkmath.}
+    importcpp: "Magnitude", dynlib: tkg3d.}
 proc squareMagnitude*(this: GeomVectorWithMagnitude): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkmath.}
+    importcpp: "SquareMagnitude", dynlib: tkg3d.}
 proc add*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", dynlib: tkg3d.}
 proc added*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
-    GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Added",
-                              dynlib: tkmath.}
+    GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Added", dynlib: tkg3d.}
 proc cross*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.cdecl,
-    importcpp: "Cross", dynlib: tkmath.}
+    importcpp: "Cross", dynlib: tkg3d.}
 proc crossed*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
-    GeomVector] {.noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkmath.}
+    GeomVector] {.noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkg3d.}
 proc crossCross*(this: var GeomVectorWithMagnitude; v1: Handle[GeomVector];
                 v2: Handle[GeomVector]) {.cdecl, importcpp: "CrossCross",
-                                        dynlib: tkmath.}
+                                        dynlib: tkg3d.}
 proc crossCrossed*(this: GeomVectorWithMagnitude; v1: Handle[GeomVector];
                   v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect, cdecl,
-    importcpp: "CrossCrossed", dynlib: tkmath.}
+    importcpp: "CrossCrossed", dynlib: tkg3d.}
 proc divide*(this: var GeomVectorWithMagnitude; scalar: cfloat) {.cdecl,
-    importcpp: "Divide", dynlib: tkmath.}
+    importcpp: "Divide", dynlib: tkg3d.}
 proc divided*(this: GeomVectorWithMagnitude; scalar: cfloat): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Divided",
-                              dynlib: tkmath.}
+                              dynlib: tkg3d.}
 proc multiplied*(this: GeomVectorWithMagnitude; scalar: cfloat): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Multiplied",
-                              dynlib: tkmath.}
+                              dynlib: tkg3d.}
 proc multiply*(this: var GeomVectorWithMagnitude; scalar: cfloat) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", dynlib: tkg3d.}
 proc normalize*(this: var GeomVectorWithMagnitude) {.cdecl, importcpp: "Normalize",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc normalized*(this: GeomVectorWithMagnitude): Handle[GeomVectorWithMagnitude] {.
-    noSideEffect, cdecl, importcpp: "Normalized", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Normalized", dynlib: tkg3d.}
 proc subtract*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.cdecl,
-    importcpp: "Subtract", dynlib: tkmath.}
+    importcpp: "Subtract", dynlib: tkg3d.}
 proc subtracted*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Subtracted",
-                              dynlib: tkmath.}
+                              dynlib: tkg3d.}
 proc transform*(this: var GeomVectorWithMagnitude; t: Trsf) {.cdecl,
-    importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkmath.}
+    cdecl, importcpp: "Copy", dynlib: tkg3d.}

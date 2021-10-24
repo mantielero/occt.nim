@@ -66,24 +66,24 @@ type
 
 
 proc newGceMakeCirc*(a2: Ax2; radius: cfloat): GceMakeCirc {.cdecl, constructor,
-    importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(circ: Circ; dist: cfloat): GceMakeCirc {.cdecl, constructor,
-    importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(circ: Circ; point: Pnt): GceMakeCirc {.cdecl, constructor,
-    importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakeCirc {.cdecl, constructor,
-    importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(center: Pnt; norm: Dir; radius: cfloat): GceMakeCirc {.cdecl,
-    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(center: Pnt; plane: Pln; radius: cfloat): GceMakeCirc {.cdecl,
-    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(center: Pnt; ptaxis: Pnt; radius: cfloat): GceMakeCirc {.cdecl,
-    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc newGceMakeCirc*(axis: Ax1; radius: cfloat): GceMakeCirc {.cdecl, constructor,
-    importcpp: "gce_MakeCirc(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeCirc): Circ {.noSideEffect, cdecl, importcpp: "Value",
-                                   dynlib: tkmath.}
+                                   dynlib: tkgeombase.}
 proc operator*(this: GceMakeCirc): Circ {.noSideEffect, cdecl, importcpp: "Operator",
-                                      dynlib: tkmath.}
+                                      dynlib: tkgeombase.}
 converter `circ`*(this: GceMakeCirc): Circ {.noSideEffect, cdecl,
-    importcpp: "gce_MakeCirc::operator gp_Circ", dynlib: tkmath.}
+    importcpp: "gce_MakeCirc::operator gp_Circ", dynlib: tkgeombase.}

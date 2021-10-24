@@ -9,11 +9,11 @@ type
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#
 
-#[ when defined(windows):
-  const tkmath* = "TKMath.dll"
+when defined(windows):
+  const tkg2d* = "TKG2d.dll"
 elif defined(macosx):
-  const tkmath* = "libTKMath.dylib"
+  const tkg2d* = "libTKG2d.dylib"
 else:
-  const tkmath* = "libTKMath.so"  ]#
+  const tkg2d* = "libTKG2d.so"
 
 include geom2d/geom2d_includes

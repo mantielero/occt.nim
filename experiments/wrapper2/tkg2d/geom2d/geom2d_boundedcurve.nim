@@ -69,9 +69,9 @@ type
 
 
 proc endPoint*(this: Geom2dBoundedCurve): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "EndPoint", dynlib: tkernel.}
+    importcpp: "EndPoint", dynlib: tkg2d.}
 proc startPoint*(this: Geom2dBoundedCurve): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "StartPoint", dynlib: tkernel.}
+    importcpp: "StartPoint", dynlib: tkg2d.}
 proc dumpJson*(this: Geom2dBoundedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 dynlib: tkg2d.}

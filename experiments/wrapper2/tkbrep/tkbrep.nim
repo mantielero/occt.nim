@@ -1,19 +1,20 @@
-{.passL:"-lTKBrep".}
+{.passL:"-lTKBRep".}
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-#type
-#  Geom2dUndefinedDerivative* = object
-#  Geom2dUndefinedValue* = object
-#[ type
-  TColStdArray1OfReal* = object
-  VectorWithNullMagnitude* = object ]#
 
-#[ when defined(windows):
-  const tkmath* = "TKMath.dll"
+when defined(windows):
+  const tkbrep* = "TKBRep.dll"
 elif defined(macosx):
-  const tkmath* = "libTKMath.dylib"
+  const tkbrep* = "libTKBRep.dylib"
 else:
-  const tkmath* = "libTKMath.so"  ]#
+  const tkbrep* = "libTKBRep.so"
+
+
+type
+  TopoDS_FrozenShape* = object
+  TopoDS_LockedShape* = object
+  TopoDS_UnCompatibleShapes* = object
+
 
 include topods/topods_includes

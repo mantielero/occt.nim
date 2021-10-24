@@ -27,20 +27,20 @@ type
 
 
 proc newGceMakeCylinder*(a2: Ax2; radius: cfloat): GceMakeCylinder {.cdecl,
-    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc newGceMakeCylinder*(cyl: Cylinder; point: Pnt): GceMakeCylinder {.cdecl,
-    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc newGceMakeCylinder*(cyl: Cylinder; dist: cfloat): GceMakeCylinder {.cdecl,
-    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc newGceMakeCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakeCylinder {.cdecl,
-    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc newGceMakeCylinder*(axis: Ax1; radius: cfloat): GceMakeCylinder {.cdecl,
-    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc newGceMakeCylinder*(circ: Circ): GceMakeCylinder {.cdecl, constructor,
-    importcpp: "gce_MakeCylinder(@)", dynlib: tkmath.}
+    importcpp: "gce_MakeCylinder(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 proc operator*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `cylinder`*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
-    importcpp: "gce_MakeCylinder::operator gp_Cylinder", dynlib: tkmath.}
+    importcpp: "gce_MakeCylinder::operator gp_Cylinder", dynlib: tkgeombase.}

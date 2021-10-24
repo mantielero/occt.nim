@@ -1,4 +1,4 @@
-{.passL:"-l-lTKG3d".}
+{.passL:"-lTKG3d".}
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
@@ -9,11 +9,12 @@ type
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#
 
-#[ when defined(windows):
-  const tkmath* = "TKMath.dll"
+when defined(windows):
+  const tkg3d* = "TKG3d.dll"
 elif defined(macosx):
-  const tkmath* = "libTKMath.dylib"
+  const tkg3d* = "libTKG3d.dylib"
 else:
-  const tkmath* = "libTKMath.so"  ]#
+  const tkg3d* = "libTKG3d.so" 
 
 include geom/geom_includes
+include topabs/topabs_includes

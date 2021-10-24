@@ -149,162 +149,162 @@ type
 proc newGeomBSplineCurve*(poles: TColgpArray1OfPnt; knots: TColStdArray1OfReal;
                          multiplicities: TColStdArray1OfInteger; degree: cint;
                          periodic: bool = false): GeomBSplineCurve {.cdecl,
-    constructor, importcpp: "Geom_BSplineCurve(@)", dynlib: tkmath.}
+    constructor, importcpp: "Geom_BSplineCurve(@)", dynlib: tkg3d.}
 proc newGeomBSplineCurve*(poles: TColgpArray1OfPnt; weights: TColStdArray1OfReal;
                          knots: TColStdArray1OfReal;
                          multiplicities: TColStdArray1OfInteger; degree: cint;
                          periodic: bool = false; checkRational: bool = true): GeomBSplineCurve {.
-    cdecl, constructor, importcpp: "Geom_BSplineCurve(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Geom_BSplineCurve(@)", dynlib: tkg3d.}
 proc increaseDegree*(this: var GeomBSplineCurve; degree: cint) {.cdecl,
-    importcpp: "IncreaseDegree", dynlib: tkmath.}
+    importcpp: "IncreaseDegree", dynlib: tkg3d.}
 proc increaseMultiplicity*(this: var GeomBSplineCurve; index: cint; m: cint) {.cdecl,
-    importcpp: "IncreaseMultiplicity", dynlib: tkmath.}
+    importcpp: "IncreaseMultiplicity", dynlib: tkg3d.}
 proc increaseMultiplicity*(this: var GeomBSplineCurve; i1: cint; i2: cint; m: cint) {.
-    cdecl, importcpp: "IncreaseMultiplicity", dynlib: tkmath.}
+    cdecl, importcpp: "IncreaseMultiplicity", dynlib: tkg3d.}
 proc incrementMultiplicity*(this: var GeomBSplineCurve; i1: cint; i2: cint; m: cint) {.
-    cdecl, importcpp: "IncrementMultiplicity", dynlib: tkmath.}
+    cdecl, importcpp: "IncrementMultiplicity", dynlib: tkg3d.}
 proc insertKnot*(this: var GeomBSplineCurve; u: cfloat; m: cint = 1;
                 parametricTolerance: cfloat = 0.0; add: bool = true) {.cdecl,
-    importcpp: "InsertKnot", dynlib: tkmath.}
+    importcpp: "InsertKnot", dynlib: tkg3d.}
 proc insertKnots*(this: var GeomBSplineCurve; knots: TColStdArray1OfReal;
                  mults: TColStdArray1OfInteger; parametricTolerance: cfloat = 0.0;
-                 add: bool = false) {.cdecl, importcpp: "InsertKnots", dynlib: tkmath.}
+                 add: bool = false) {.cdecl, importcpp: "InsertKnots", dynlib: tkg3d.}
 proc removeKnot*(this: var GeomBSplineCurve; index: cint; m: cint; tolerance: cfloat): bool {.
-    cdecl, importcpp: "RemoveKnot", dynlib: tkmath.}
-proc reverse*(this: var GeomBSplineCurve) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+    cdecl, importcpp: "RemoveKnot", dynlib: tkg3d.}
+proc reverse*(this: var GeomBSplineCurve) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomBSplineCurve; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc segment*(this: var GeomBSplineCurve; u1: cfloat; u2: cfloat;
              theTolerance: cfloat = 1.0e-7) {.cdecl, importcpp: "Segment",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setKnot*(this: var GeomBSplineCurve; index: cint; k: cfloat) {.cdecl,
-    importcpp: "SetKnot", dynlib: tkmath.}
+    importcpp: "SetKnot", dynlib: tkg3d.}
 proc setKnots*(this: var GeomBSplineCurve; k: TColStdArray1OfReal) {.cdecl,
-    importcpp: "SetKnots", dynlib: tkmath.}
+    importcpp: "SetKnots", dynlib: tkg3d.}
 proc setKnot*(this: var GeomBSplineCurve; index: cint; k: cfloat; m: cint) {.cdecl,
-    importcpp: "SetKnot", dynlib: tkmath.}
+    importcpp: "SetKnot", dynlib: tkg3d.}
 proc periodicNormalization*(this: GeomBSplineCurve; u: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "PeriodicNormalization", dynlib: tkmath.}
+    cdecl, importcpp: "PeriodicNormalization", dynlib: tkg3d.}
 proc setPeriodic*(this: var GeomBSplineCurve) {.cdecl, importcpp: "SetPeriodic",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setOrigin*(this: var GeomBSplineCurve; index: cint) {.cdecl,
-    importcpp: "SetOrigin", dynlib: tkmath.}
+    importcpp: "SetOrigin", dynlib: tkg3d.}
 proc setOrigin*(this: var GeomBSplineCurve; u: cfloat; tol: cfloat) {.cdecl,
-    importcpp: "SetOrigin", dynlib: tkmath.}
+    importcpp: "SetOrigin", dynlib: tkg3d.}
 proc setNotPeriodic*(this: var GeomBSplineCurve) {.cdecl,
-    importcpp: "SetNotPeriodic", dynlib: tkmath.}
+    importcpp: "SetNotPeriodic", dynlib: tkg3d.}
 proc setPole*(this: var GeomBSplineCurve; index: cint; p: Pnt) {.cdecl,
-    importcpp: "SetPole", dynlib: tkmath.}
+    importcpp: "SetPole", dynlib: tkg3d.}
 proc setPole*(this: var GeomBSplineCurve; index: cint; p: Pnt; weight: cfloat) {.cdecl,
-    importcpp: "SetPole", dynlib: tkmath.}
+    importcpp: "SetPole", dynlib: tkg3d.}
 proc setWeight*(this: var GeomBSplineCurve; index: cint; weight: cfloat) {.cdecl,
-    importcpp: "SetWeight", dynlib: tkmath.}
+    importcpp: "SetWeight", dynlib: tkg3d.}
 proc movePoint*(this: var GeomBSplineCurve; u: cfloat; p: Pnt; index1: cint; index2: cint;
                firstModifiedPole: var cint; lastModifiedPole: var cint) {.cdecl,
-    importcpp: "MovePoint", dynlib: tkmath.}
+    importcpp: "MovePoint", dynlib: tkg3d.}
 proc movePointAndTangent*(this: var GeomBSplineCurve; u: cfloat; p: Pnt; tangent: Vec;
                          tolerance: cfloat; startingCondition: cint;
                          endingCondition: cint; errorStatus: var cint) {.cdecl,
-    importcpp: "MovePointAndTangent", dynlib: tkmath.}
+    importcpp: "MovePointAndTangent", dynlib: tkg3d.}
 proc isCN*(this: GeomBSplineCurve; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCN", dynlib: tkmath.}
+    importcpp: "IsCN", dynlib: tkg3d.}
 proc isG1*(this: GeomBSplineCurve; theTf: cfloat; theTl: cfloat; theAngTol: cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsG1", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsG1", dynlib: tkg3d.}
 proc isClosed*(this: GeomBSplineCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkmath.}
+    importcpp: "IsClosed", dynlib: tkg3d.}
 proc isPeriodic*(this: GeomBSplineCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkmath.}
+    importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc isRational*(this: GeomBSplineCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkmath.}
+    importcpp: "IsRational", dynlib: tkg3d.}
 proc continuity*(this: GeomBSplineCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc degree*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc d0*(this: GeomBSplineCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkmath.}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomBSplineCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomBSplineCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomBSplineCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomBSplineCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkmath.}
+    importcpp: "DN", dynlib: tkg3d.}
 proc localValue*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint): Pnt {.
-    noSideEffect, cdecl, importcpp: "LocalValue", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "LocalValue", dynlib: tkg3d.}
 proc localD0*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var Pnt) {.
-    noSideEffect, cdecl, importcpp: "LocalD0", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "LocalD0", dynlib: tkg3d.}
 proc localD1*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var Pnt;
-             v1: var Vec) {.noSideEffect, cdecl, importcpp: "LocalD1", dynlib: tkmath.}
+             v1: var Vec) {.noSideEffect, cdecl, importcpp: "LocalD1", dynlib: tkg3d.}
 proc localD2*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var Pnt;
              v1: var Vec; v2: var Vec) {.noSideEffect, cdecl, importcpp: "LocalD2",
-                                   dynlib: tkmath.}
+                                   dynlib: tkg3d.}
 proc localD3*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; p: var Pnt;
              v1: var Vec; v2: var Vec; v3: var Vec) {.noSideEffect, cdecl,
-    importcpp: "LocalD3", dynlib: tkmath.}
+    importcpp: "LocalD3", dynlib: tkg3d.}
 proc localDN*(this: GeomBSplineCurve; u: cfloat; fromK1: cint; toK2: cint; n: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "LocalDN", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "LocalDN", dynlib: tkg3d.}
 proc endPoint*(this: GeomBSplineCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "EndPoint", dynlib: tkmath.}
+    importcpp: "EndPoint", dynlib: tkg3d.}
 proc firstUKnotIndex*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
-    importcpp: "FirstUKnotIndex", dynlib: tkmath.}
+    importcpp: "FirstUKnotIndex", dynlib: tkg3d.}
 proc firstParameter*(this: GeomBSplineCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc knot*(this: GeomBSplineCurve; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Knot", dynlib: tkmath.}
+    importcpp: "Knot", dynlib: tkg3d.}
 proc knots*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "Knots", dynlib: tkmath.}
+    importcpp: "Knots", dynlib: tkg3d.}
 proc knots*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Knots", dynlib: tkmath.}
+    importcpp: "Knots", dynlib: tkg3d.}
 proc knotSequence*(this: GeomBSplineCurve; k: var TColStdArray1OfReal) {.noSideEffect,
-    cdecl, importcpp: "KnotSequence", dynlib: tkmath.}
+    cdecl, importcpp: "KnotSequence", dynlib: tkg3d.}
 proc knotSequence*(this: GeomBSplineCurve): TColStdArray1OfReal {.noSideEffect,
-    cdecl, importcpp: "KnotSequence", dynlib: tkmath.}
+    cdecl, importcpp: "KnotSequence", dynlib: tkg3d.}
 proc knotDistribution*(this: GeomBSplineCurve): GeomAbsBSplKnotDistribution {.
-    noSideEffect, cdecl, importcpp: "KnotDistribution", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "KnotDistribution", dynlib: tkg3d.}
 proc lastUKnotIndex*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
-    importcpp: "LastUKnotIndex", dynlib: tkmath.}
+    importcpp: "LastUKnotIndex", dynlib: tkg3d.}
 proc lastParameter*(this: GeomBSplineCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc locateU*(this: GeomBSplineCurve; u: cfloat; parametricTolerance: cfloat;
              i1: var cint; i2: var cint; withKnotRepetition: bool = false) {.noSideEffect,
-    cdecl, importcpp: "LocateU", dynlib: tkmath.}
+    cdecl, importcpp: "LocateU", dynlib: tkg3d.}
 proc multiplicity*(this: GeomBSplineCurve; index: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Multiplicity", dynlib: tkmath.}
+    importcpp: "Multiplicity", dynlib: tkg3d.}
 proc multiplicities*(this: GeomBSplineCurve; m: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Multiplicities", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Multiplicities", dynlib: tkg3d.}
 proc multiplicities*(this: GeomBSplineCurve): TColStdArray1OfInteger {.noSideEffect,
-    cdecl, importcpp: "Multiplicities", dynlib: tkmath.}
+    cdecl, importcpp: "Multiplicities", dynlib: tkg3d.}
 proc nbKnots*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbKnots", dynlib: tkmath.}
+    importcpp: "NbKnots", dynlib: tkg3d.}
 proc nbPoles*(this: GeomBSplineCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkmath.}
+    importcpp: "NbPoles", dynlib: tkg3d.}
 proc pole*(this: GeomBSplineCurve; index: cint): Pnt {.noSideEffect, cdecl,
-    importcpp: "Pole", dynlib: tkmath.}
+    importcpp: "Pole", dynlib: tkg3d.}
 proc poles*(this: GeomBSplineCurve; p: var TColgpArray1OfPnt) {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkmath.}
+    importcpp: "Poles", dynlib: tkg3d.}
 proc poles*(this: GeomBSplineCurve): TColgpArray1OfPnt {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkmath.}
+    importcpp: "Poles", dynlib: tkg3d.}
 proc startPoint*(this: GeomBSplineCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "StartPoint", dynlib: tkmath.}
+    importcpp: "StartPoint", dynlib: tkg3d.}
 proc weight*(this: GeomBSplineCurve; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Weight", dynlib: tkmath.}
+    importcpp: "Weight", dynlib: tkg3d.}
 proc weights*(this: GeomBSplineCurve; w: var TColStdArray1OfReal) {.noSideEffect,
-    cdecl, importcpp: "Weights", dynlib: tkmath.}
+    cdecl, importcpp: "Weights", dynlib: tkg3d.}
 proc weights*(this: GeomBSplineCurve): ptr TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Weights", dynlib: tkmath.}
+    importcpp: "Weights", dynlib: tkg3d.}
 proc transform*(this: var GeomBSplineCurve; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc maxDegreeBSplineCurve*(): cint {.cdecl, importcpp: "Geom_BSplineCurve::MaxDegree(@)",
-                       dynlib: tkmath.}
+                       dynlib: tkg3d.}
 proc resolution*(this: var GeomBSplineCurve; tolerance3D: cfloat;
                 uTolerance: var cfloat) {.cdecl, importcpp: "Resolution",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc copy*(this: GeomBSplineCurve): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc isEqual*(this: GeomBSplineCurve; theOther: Handle[GeomBSplineCurve];
              thePreci: cfloat): bool {.noSideEffect, cdecl, importcpp: "IsEqual",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc dumpJson*(this: GeomBSplineCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

@@ -39,13 +39,13 @@ type
 
 
 proc newGC_MakeEllipse*(e: Elips): GC_MakeEllipse {.cdecl, constructor,
-    importcpp: "GC_MakeEllipse(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
 proc newGC_MakeEllipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeEllipse(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
 proc newGC_MakeEllipse*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeEllipse {.cdecl,
-    constructor, importcpp: "GC_MakeEllipse(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeEllipse): Handle[GeomEllipse] {.
     noSideEffect, cdecl, importcpp: "GC_MakeEllipse::operator constopencascade",
-    dynlib: tkmath.}
+    dynlib: tkgeombase.}

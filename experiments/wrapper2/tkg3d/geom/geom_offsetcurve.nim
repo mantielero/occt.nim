@@ -94,57 +94,57 @@ type
 
 proc newGeomOffsetCurve*(c: Handle[GeomCurve]; offset: cfloat; v: Dir;
                         isNotCheckC0: bool = false): GeomOffsetCurve {.cdecl,
-    constructor, importcpp: "Geom_OffsetCurve(@)", dynlib: tkmath.}
-proc reverse*(this: var GeomOffsetCurve) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+    constructor, importcpp: "Geom_OffsetCurve(@)", dynlib: tkg3d.}
+proc reverse*(this: var GeomOffsetCurve) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomOffsetCurve; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc setBasisCurve*(this: var GeomOffsetCurve; c: Handle[GeomCurve];
                    isNotCheckC0: bool = false) {.cdecl, importcpp: "SetBasisCurve",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc setDirection*(this: var GeomOffsetCurve; v: Dir) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkmath.}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setOffsetValue*(this: var GeomOffsetCurve; d: cfloat) {.cdecl,
-    importcpp: "SetOffsetValue", dynlib: tkmath.}
+    importcpp: "SetOffsetValue", dynlib: tkg3d.}
 proc basisCurve*(this: GeomOffsetCurve): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "BasisCurve", dynlib: tkmath.}
+    importcpp: "BasisCurve", dynlib: tkg3d.}
 proc continuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc direction*(this: GeomOffsetCurve): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkmath.}
+    importcpp: "Direction", dynlib: tkg3d.}
 proc d0*(this: GeomOffsetCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkmath.}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomOffsetCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomOffsetCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomOffsetCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomOffsetCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkmath.}
+    importcpp: "DN", dynlib: tkg3d.}
 proc firstParameter*(this: GeomOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc offset*(this: GeomOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Offset", dynlib: tkmath.}
+    importcpp: "Offset", dynlib: tkg3d.}
 proc isClosed*(this: GeomOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkmath.}
+    importcpp: "IsClosed", dynlib: tkg3d.}
 proc isCN*(this: GeomOffsetCurve; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCN", dynlib: tkmath.}
+    importcpp: "IsCN", dynlib: tkg3d.}
 proc isPeriodic*(this: GeomOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkmath.}
+    importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc period*(this: GeomOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkmath.}
+    importcpp: "Period", dynlib: tkg3d.}
 proc transform*(this: var GeomOffsetCurve; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc transformedParameter*(this: GeomOffsetCurve; u: cfloat; t: Trsf): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomOffsetCurve; t: Trsf): cfloat {.noSideEffect,
-    cdecl, importcpp: "ParametricTransformation", dynlib: tkmath.}
+    cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc copy*(this: GeomOffsetCurve): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffect,
-    cdecl, importcpp: "GetBasisCurveContinuity", dynlib: tkmath.}
+    cdecl, importcpp: "GetBasisCurveContinuity", dynlib: tkg3d.}
 proc dumpJson*(this: GeomOffsetCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 dynlib: tkg3d.}

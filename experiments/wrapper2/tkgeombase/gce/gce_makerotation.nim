@@ -25,14 +25,14 @@ type
 
 
 proc newGceMakeRotation*(line: Lin; angle: cfloat): GceMakeRotation {.cdecl,
-    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
 proc newGceMakeRotation*(axis: Ax1; angle: cfloat): GceMakeRotation {.cdecl,
-    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkmath.}
+    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
 proc newGceMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GceMakeRotation {.
-    cdecl, constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkmath.}
+                                       dynlib: tkgeombase.}
 proc operator*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkmath.}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `trsf`*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
-    importcpp: "gce_MakeRotation::operator gp_Trsf", dynlib: tkmath.}
+    importcpp: "gce_MakeRotation::operator gp_Trsf", dynlib: tkgeombase.}

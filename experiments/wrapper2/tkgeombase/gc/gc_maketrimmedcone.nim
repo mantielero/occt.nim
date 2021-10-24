@@ -95,11 +95,11 @@ type
 
 
 proc newGC_MakeTrimmedCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GC_MakeTrimmedCone {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", dynlib: tkgeombase.}
 proc newGC_MakeTrimmedCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GC_MakeTrimmedCone {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeTrimmedCone): Handle[
     GeomRectangularTrimmedSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeTrimmedCone::operator constopencascade",
-                                    dynlib: tkmath.}
+                                    dynlib: tkgeombase.}

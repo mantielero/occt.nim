@@ -28,6 +28,6 @@ type
 
 
 proc isDone*(this: GceRoot): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                dynlib: tkmath.}
+                                dynlib: tkgeombase.}
 proc status*(this: GceRoot): GceErrorType {.noSideEffect, cdecl, importcpp: "Status",
-                                        dynlib: tkmath.}
+                                        dynlib: tkgeombase.}

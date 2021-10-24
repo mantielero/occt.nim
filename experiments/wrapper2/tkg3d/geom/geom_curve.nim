@@ -121,40 +121,40 @@ type
                                                                                           ## curve.
 
 
-proc reverse*(this: var GeomCurve) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+proc reverse*(this: var GeomCurve) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
 proc reversedParameter*(this: GeomCurve; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkmath.}
+    importcpp: "ReversedParameter", dynlib: tkg3d.}
 proc transformedParameter*(this: GeomCurve; u: cfloat; t: Trsf): cfloat {.noSideEffect,
-    cdecl, importcpp: "TransformedParameter", dynlib: tkmath.}
+    cdecl, importcpp: "TransformedParameter", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomCurve; t: Trsf): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParametricTransformation", dynlib: tkmath.}
+    importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc reversed*(this: GeomCurve): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "Reversed", dynlib: tkmath.}
+    importcpp: "Reversed", dynlib: tkg3d.}
 proc firstParameter*(this: GeomCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkmath.}
+    importcpp: "FirstParameter", dynlib: tkg3d.}
 proc lastParameter*(this: GeomCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkmath.}
+    importcpp: "LastParameter", dynlib: tkg3d.}
 proc isClosed*(this: GeomCurve): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc isPeriodic*(this: GeomCurve): bool {.noSideEffect, cdecl,
-                                      importcpp: "IsPeriodic", dynlib: tkmath.}
+                                      importcpp: "IsPeriodic", dynlib: tkg3d.}
 proc period*(this: GeomCurve): cfloat {.noSideEffect, cdecl, importcpp: "Period",
-                                    dynlib: tkmath.}
+                                    dynlib: tkg3d.}
 proc continuity*(this: GeomCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkmath.}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc isCN*(this: GeomCurve; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-                                       dynlib: tkmath.}
+                                       dynlib: tkg3d.}
 proc d0*(this: GeomCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc d1*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkmath.}
+    importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkmath.}
+    cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl, importcpp: "DN",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc value*(this: GeomCurve; u: cfloat): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-    dynlib: tkmath.}
+    dynlib: tkg3d.}
 proc dumpJson*(this: GeomCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}

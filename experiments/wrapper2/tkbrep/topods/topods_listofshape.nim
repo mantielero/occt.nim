@@ -17,4 +17,4 @@
 discard "forward decl of TopoDS_Shape"
 type
   TopoDS_ListOfShape* = NCollectionList[TopoDS_Shape]
-  TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]
+  TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object

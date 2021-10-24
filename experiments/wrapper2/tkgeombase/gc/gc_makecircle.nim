@@ -38,23 +38,23 @@ type
 
 
 proc newGC_MakeCircle*(c: Circ): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(a2: Ax2; radius: cfloat): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(circ: Circ; dist: cfloat): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(circ: Circ; point: Pnt): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(center: Pnt; norm: Dir; radius: cfloat): GC_MakeCircle {.cdecl,
-    constructor, importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(center: Pnt; ptAxis: Pnt; radius: cfloat): GC_MakeCircle {.cdecl,
-    constructor, importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    constructor, importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc newGC_MakeCircle*(axis: Ax1; radius: cfloat): GC_MakeCircle {.cdecl, constructor,
-    importcpp: "GC_MakeCircle(@)", dynlib: tkmath.}
+    importcpp: "GC_MakeCircle(@)", dynlib: tkgeombase.}
 proc value*(this: GC_MakeCircle): Handle[GeomCircle] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", dynlib: tkgeombase.}
 converter `constopencascade`*(this: GC_MakeCircle): Handle[GeomCircle] {.
     noSideEffect, cdecl, importcpp: "GC_MakeCircle::operator constopencascade",
-    dynlib: tkmath.}
+    dynlib: tkgeombase.}

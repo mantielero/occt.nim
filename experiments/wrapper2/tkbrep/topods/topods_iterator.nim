@@ -23,13 +23,13 @@ type
 
 
 proc newTopoDS_Iterator*(): TopoDS_Iterator {.cdecl, constructor,
-    importcpp: "TopoDS_Iterator(@)", dynlib: tkernel.}
+    importcpp: "TopoDS_Iterator(@)", dynlib: tkbrep.}
 proc newTopoDS_Iterator*(s: TopoDS_Shape; cumOri: bool = true; cumLoc: bool = true): TopoDS_Iterator {.
-    cdecl, constructor, importcpp: "TopoDS_Iterator(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TopoDS_Iterator(@)", dynlib: tkbrep.}
 proc initialize*(this: var TopoDS_Iterator; s: TopoDS_Shape; cumOri: bool = true;
-                cumLoc: bool = true) {.cdecl, importcpp: "Initialize", dynlib: tkernel.}
+                cumLoc: bool = true) {.cdecl, importcpp: "Initialize", dynlib: tkbrep.}
 proc more*(this: TopoDS_Iterator): bool {.noSideEffect, cdecl, importcpp: "More",
-                                      dynlib: tkernel.}
-proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", dynlib: tkernel.}
+                                      dynlib: tkbrep.}
+proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", dynlib: tkbrep.}
 proc value*(this: TopoDS_Iterator): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkernel.}
+    importcpp: "Value", dynlib: tkbrep.}

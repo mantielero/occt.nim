@@ -32,4 +32,4 @@ type
 
 
 proc newTopoDS_Shell*(): TopoDS_Shell {.cdecl, constructor,
-                                     importcpp: "TopoDS_Shell(@)", dynlib: tkernel.}
+                                     importcpp: "TopoDS_Shell(@)", dynlib: tkbrep.}

@@ -30,4 +30,4 @@ type
 
 
 proc newTopoDS_Face*(): TopoDS_Face {.cdecl, constructor,
-                                   importcpp: "TopoDS_Face(@)", dynlib: tkernel.}
+                                   importcpp: "TopoDS_Face(@)", dynlib: tkbrep.}

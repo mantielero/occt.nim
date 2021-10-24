@@ -36,4 +36,4 @@ type
 
 
 proc shapeType*(this: TopoDS_TVertex): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", dynlib: tkernel.}
+    importcpp: "ShapeType", dynlib: tkbrep.}

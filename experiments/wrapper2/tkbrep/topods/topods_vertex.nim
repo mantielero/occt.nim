@@ -32,4 +32,4 @@ type
 
 proc newTopoDS_Vertex*(): TopoDS_Vertex {.cdecl, constructor,
                                        importcpp: "TopoDS_Vertex(@)",
-                                       dynlib: tkernel.}
+                                       dynlib: tkbrep.}

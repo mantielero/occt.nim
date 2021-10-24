@@ -31,4 +31,4 @@ type
 
 
 proc newTopoDS_Edge*(): TopoDS_Edge {.cdecl, constructor,
-                                   importcpp: "TopoDS_Edge(@)", dynlib: tkernel.}
+                                   importcpp: "TopoDS_Edge(@)", dynlib: tkbrep.}

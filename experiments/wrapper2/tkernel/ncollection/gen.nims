@@ -156,7 +156,11 @@ genFiles("NCollection_CellFilter", remove= @[(235,237), (239,239), (304, 309), (
 pp("ncollection_cellfilter.nim",
   replaceAll = @[("NCollectionCellFilterTarget* = Target", "NCollectionCellFilterTarget* {.importcpp:\"typename Inspector::Target\".} = object"),
                  ("NCollectionCellFilterPoint* = Point", "NCollectionCellFilterPoint* {.importcpp:\"typename Inspector::Point\".} = object"),
-                 ("theAlloc: Handle[NCollectionIncAllocator] = 0","theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)")
+                 ("theAlloc: Handle[NCollectionIncAllocator] = 0","theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)"),
+                 ("""  NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
+                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##""", 
+                  """  NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
+                                      header: "NCollection_CellFilter.hxx", bycopy.} = object of RootObj##""")
   ]
 )
 

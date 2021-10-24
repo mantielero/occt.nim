@@ -279,7 +279,7 @@ proc inspect*[Inspector](this: var NCollectionCellFilter[Inspector];
 discard "forward decl of gp_XYZ"
 type
   NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
-                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##
+                                      header: "NCollection_CellFilter.hxx", bycopy.} = object of RootObj##
                                                                                          ## !
                                                                                          ## Points
                                                                                          ## dimension

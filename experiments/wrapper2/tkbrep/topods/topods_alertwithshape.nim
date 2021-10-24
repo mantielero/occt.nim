@@ -26,15 +26,15 @@ type
 
 
 proc newTopoDS_AlertWithShape*(theShape: TopoDS_Shape): TopoDS_AlertWithShape {.
-    cdecl, constructor, importcpp: "TopoDS_AlertWithShape(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TopoDS_AlertWithShape(@)", dynlib: tkbrep.}
 proc getShape*(this: TopoDS_AlertWithShape): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "GetShape", dynlib: tkernel.}
+    importcpp: "GetShape", dynlib: tkbrep.}
 proc setShape*(this: var TopoDS_AlertWithShape; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "SetShape", dynlib: tkernel.}
+    importcpp: "SetShape", dynlib: tkbrep.}
 proc supportsMerge*(this: TopoDS_AlertWithShape): bool {.noSideEffect, cdecl,
-    importcpp: "SupportsMerge", dynlib: tkernel.}
+    importcpp: "SupportsMerge", dynlib: tkbrep.}
 proc merge*(this: var TopoDS_AlertWithShape; theTarget: Handle[MessageAlert]): bool {.
-    cdecl, importcpp: "Merge", dynlib: tkernel.}
+    cdecl, importcpp: "Merge", dynlib: tkbrep.}
 ## ! Helper macro allowing to define alert with shape argument in one line of code
 
 template define_Alert_With_Shape*(alert: untyped): void =
@@ -42,6 +42,6 @@ template define_Alert_With_Shape*(alert: untyped): void =
     Alert* {.importcpp: "Alert", header: "TopoDS_AlertWithShape.hxx", bycopy.} = object of TopoDS_AlertWithShape
 
   proc newAlert*(theShape: TopoDS_Shape): Alert {.cdecl, constructor,
-      importcpp: "Alert(@)", dynlib: tkernel.}
+      importcpp: "Alert(@)", dynlib: tkbrep.}
   type
     AlertbaseType* = TopoDS_AlertWithShape

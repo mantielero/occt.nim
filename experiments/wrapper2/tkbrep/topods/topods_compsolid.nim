@@ -35,4 +35,4 @@ type
 
 
 proc newTopoDS_CompSolid*(): TopoDS_CompSolid {.cdecl, constructor,
-    importcpp: "TopoDS_CompSolid(@)", dynlib: tkernel.}
+    importcpp: "TopoDS_CompSolid(@)", dynlib: tkbrep.}

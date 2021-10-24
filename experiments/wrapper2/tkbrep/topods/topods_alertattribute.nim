@@ -32,13 +32,13 @@ type
 
 
 proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = TCollectionAsciiString()): TopoDS_AlertAttribute {.
-    cdecl, constructor, importcpp: "TopoDS_AlertAttribute(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TopoDS_AlertAttribute(@)", dynlib: tkbrep.}
 proc getShape*(this: TopoDS_AlertAttribute): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "GetShape", dynlib: tkernel.}
+    importcpp: "GetShape", dynlib: tkbrep.}
 proc send*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "TopoDS_AlertAttribute::Send(@)", dynlib: tkernel.}
+    importcpp: "TopoDS_AlertAttribute::Send(@)", dynlib: tkbrep.}
 proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 dynlib: tkbrep.}
 proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
-    MessageMessenger] {.cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    MessageMessenger] {.cdecl, importcpp: "(# << #)", dynlib: tkbrep.}

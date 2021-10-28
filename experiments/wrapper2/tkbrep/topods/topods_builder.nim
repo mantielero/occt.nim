@@ -25,7 +25,7 @@ discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_CompSolid"
 discard "forward decl of TopoDS_Compound"
 type
-  TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", bycopy.} = object ##
+  TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", bycopy.} = object of RootObj ##
                                                                                          ## !
                                                                                          ## Make
                                                                                          ## an

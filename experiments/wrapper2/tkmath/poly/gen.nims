@@ -1,7 +1,7 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let packageName = "topods"
+let packageName = "poly"
 let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
@@ -113,50 +113,51 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/TCollection*.hxx | cut -c 26-
+# ls /usr/include/opencascade/Poly*.hxx | cut -c 26-
 
-
-genFiles("TopoDS_AlertAttribute")
-pp("topods_alertattribute.nim",
-  replaceAll = @[("tCollectionAsciiString","TCollectionAsciiString")]
-)
-genFiles("TopoDS_AlertWithShape")
-genFiles("TopoDS_Builder")
-pp("topods_builder.nim",
-  replaceAll = @[("= object", "= object of RootObj")]
+genFiles("Poly_Array1OfTriangle")
+genFiles("Poly_CoherentLink")
+genFiles("Poly_CoherentNode")
+pp("poly_coherentnode.nim",
+  #insert = @[(25, """  PolyCoherentTriPtrIterator* {.importcpp:"Poly_CoherentTriPtr::Iterator", header:"Poly_CoherentNode.hxx", bycopy.} = object""")],
+  replaceAll = @[("""proc triangleIterator*(this: PolyCoherentNode): Iterator""","""proc triangleIterator*(this: PolyCoherentNode): PolyCoherentTriPtrIterator""")]
 )
 
-genFiles("TopoDS_Compound")
-genFiles("TopoDS_CompSolid")
-genFiles("TopoDS_Edge")
-genFiles("TopoDS_Face")
-genFiles("TopoDS_FrozenShape")
-genFiles("TopoDS_HShape")
-genFiles("TopoDS_Iterator")
-genFiles("TopoDS_ListIteratorOfListOfShape")
-genFiles("TopoDS_ListOfShape")
-pp("topods_listofshape.nim",
-  replaceAll = @[("TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]","""TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object""")]
+genFiles("Poly_CoherentTriangle")
+genFiles("Poly_CoherentTriangulation")
+pp("poly_coherenttriangulation.nim",
+  replaceAll = @[("0L'i64", "0"),
+  ("PolyBaseIteratorOfCoherentTriangle* = Iterator[PolyCoherentTriangle]", """PolyBaseIteratorOfCoherentTriangle* {.importcpp:"NCollection_Vector<Poly_CoherentTriangle>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj"""),
+  ("PolyBaseIteratorOfCoherentNode* = Iterator[PolyCoherentNode]", """PolyBaseIteratorOfCoherentNode* {.importcpp:"NCollection_Vector<PolyCoherentNode>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj"""),
+  ("PolyBaseIteratorOfCoherentLink* = Iterator[PolyCoherentLink]", """PolyBaseIteratorOfCoherentLink* {.importcpp:"NCollection_Vector<PolyCoherentLink>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj"""),
+  ("Handle[NCollectionBaseAllocator] = 0", "Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)"),
+  ("ptr NCollectionList[PolyCoherentTriangulationTwoIntegers] = 0", "ptr NCollectionList[PolyCoherentTriangulationTwoIntegers] = cast[ptr NCollectionList[PolyCoherentTriangulationTwoIntegers]](0)")  
+  ]
 )
-genFiles("TopoDS_LockedShape")
-genFiles("TopoDS_Shape")
-pp("topods_shape.nim",
-  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")]
+
+genFiles("Poly_CoherentTriPtr")
+genFiles("Poly_Connect")
+genFiles("Poly_HArray1OfTriangle")
+genFiles("Poly")
+genFiles("Poly_ListOfTriangulation")
+genFiles("Poly_MakeLoops")
+pp("poly_makeloops.nim",
+  replaceAll = @[("0L'i64", "0"),
+  ("""PolyMakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object """, """PolyMakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj"""),
+  ("Handle[NCollectionBaseAllocator] = 0", "Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)"),
+  ("""PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
+                        header: "Poly_MakeLoops.hxx", bycopy.} = object""", 
+  """PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
+                        header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj""")
+  
+  ]
 )
-genFiles("TopoDS_Shell")
-genFiles("TopoDS_Solid")
-genFiles("TopoDS_TCompound")
-genFiles("TopoDS_TCompSolid")
-genFiles("TopoDS_TEdge")
-genFiles("TopoDS_TFace")
-genFiles("TopoDS_TShape")
-genFiles("TopoDS_TShell")
-genFiles("TopoDS_TSolid")
-genFiles("TopoDS_TVertex")
-genFiles("TopoDS_TWire")
-genFiles("TopoDS_UnCompatibleShapes")
-genFiles("TopoDS_Vertex")
-genFiles("TopoDS_Wire")
+
+genFiles("Poly_Polygon2D")
+genFiles("Poly_Polygon3D")
+genFiles("Poly_PolygonOnTriangulation")
+genFiles("Poly_Triangle")
+genFiles("Poly_Triangulation")
 
 
 

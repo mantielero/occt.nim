@@ -11,3 +11,4 @@ include tkg3d/tkg3d
 include tkg2d/tkg2d
 include tkbrep/tkbrep
 include tktopalgo/tktopalgo
+include tkprim/tkprim

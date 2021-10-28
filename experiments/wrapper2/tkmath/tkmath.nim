@@ -6,6 +6,9 @@ type
   #TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object
   ValueType* = object
+  Link* = object
+  TShortHArray1OfShortReal* = object
+  TShortArray1OfShortReal* = object
 
 when defined(windows):
   const tkmath* = "TKMath.dll"
@@ -18,3 +21,4 @@ include gp/gp_includes
 include tcolgp/tcolgp_includes
 include geomabs/geomabs_includes
 include toploc/toploc_includes
+include poly/poly_includes

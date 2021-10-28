@@ -1,7 +1,7 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let packageName = "topods"
+let packageName = "brepprim"
 let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
@@ -113,50 +113,21 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/TCollection*.hxx | cut -c 26-
+# ls /usr/include/opencascade/BRepBuilderAPI*.hxx | cut -c 26-
+
+genFiles("BRepPrim_Builder")
+genFiles("BRepPrim_Cone")
+genFiles("BRepPrim_Cylinder")
+genFiles("BRepPrim_Direction")
+genFiles("BRepPrim_FaceBuilder")
+genFiles("BRepPrim_GWedge")
+genFiles("BRepPrim_OneAxis")
+genFiles("BRepPrim_Revolution")
+genFiles("BRepPrim_Sphere")
+genFiles("BRepPrim_Torus")
+genFiles("BRepPrim_Wedge")
 
 
-genFiles("TopoDS_AlertAttribute")
-pp("topods_alertattribute.nim",
-  replaceAll = @[("tCollectionAsciiString","TCollectionAsciiString")]
-)
-genFiles("TopoDS_AlertWithShape")
-genFiles("TopoDS_Builder")
-pp("topods_builder.nim",
-  replaceAll = @[("= object", "= object of RootObj")]
-)
-
-genFiles("TopoDS_Compound")
-genFiles("TopoDS_CompSolid")
-genFiles("TopoDS_Edge")
-genFiles("TopoDS_Face")
-genFiles("TopoDS_FrozenShape")
-genFiles("TopoDS_HShape")
-genFiles("TopoDS_Iterator")
-genFiles("TopoDS_ListIteratorOfListOfShape")
-genFiles("TopoDS_ListOfShape")
-pp("topods_listofshape.nim",
-  replaceAll = @[("TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]","""TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object""")]
-)
-genFiles("TopoDS_LockedShape")
-genFiles("TopoDS_Shape")
-pp("topods_shape.nim",
-  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")]
-)
-genFiles("TopoDS_Shell")
-genFiles("TopoDS_Solid")
-genFiles("TopoDS_TCompound")
-genFiles("TopoDS_TCompSolid")
-genFiles("TopoDS_TEdge")
-genFiles("TopoDS_TFace")
-genFiles("TopoDS_TShape")
-genFiles("TopoDS_TShell")
-genFiles("TopoDS_TSolid")
-genFiles("TopoDS_TVertex")
-genFiles("TopoDS_TWire")
-genFiles("TopoDS_UnCompatibleShapes")
-genFiles("TopoDS_Vertex")
-genFiles("TopoDS_Wire")
 
 
 

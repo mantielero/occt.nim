@@ -154,6 +154,10 @@ genFiles("gp_Vec")
 genFiles("gp_VectorWithNullMagnitude")
 genFiles("gp_XY")
 genFiles("gp_XYZ")
+pp("gp_xyz.nim",
+  replaceAll = @[("""Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy.} = object""",
+                  """Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy.} = object of RootObj""")]
+)
 
 
 # Create the import/export file (to be modified manually)

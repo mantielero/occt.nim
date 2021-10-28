@@ -1,7 +1,7 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let packageName = "topods"
+let packageName = "brep"
 let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
@@ -113,51 +113,33 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/TCollection*.hxx | cut -c 26-
+# ls /usr/include/opencascade/BRep_*.hxx | cut -c 26-
 
-
-genFiles("TopoDS_AlertAttribute")
-pp("topods_alertattribute.nim",
-  replaceAll = @[("tCollectionAsciiString","TCollectionAsciiString")]
-)
-genFiles("TopoDS_AlertWithShape")
-genFiles("TopoDS_Builder")
-pp("topods_builder.nim",
-  replaceAll = @[("= object", "= object of RootObj")]
-)
-
-genFiles("TopoDS_Compound")
-genFiles("TopoDS_CompSolid")
-genFiles("TopoDS_Edge")
-genFiles("TopoDS_Face")
-genFiles("TopoDS_FrozenShape")
-genFiles("TopoDS_HShape")
-genFiles("TopoDS_Iterator")
-genFiles("TopoDS_ListIteratorOfListOfShape")
-genFiles("TopoDS_ListOfShape")
-pp("topods_listofshape.nim",
-  replaceAll = @[("TopoDS_ListIteratorOfListOfShape* = Iterator[TopoDS_Shape]","""TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object""")]
-)
-genFiles("TopoDS_LockedShape")
-genFiles("TopoDS_Shape")
-pp("topods_shape.nim",
-  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")]
-)
-genFiles("TopoDS_Shell")
-genFiles("TopoDS_Solid")
-genFiles("TopoDS_TCompound")
-genFiles("TopoDS_TCompSolid")
-genFiles("TopoDS_TEdge")
-genFiles("TopoDS_TFace")
-genFiles("TopoDS_TShape")
-genFiles("TopoDS_TShell")
-genFiles("TopoDS_TSolid")
-genFiles("TopoDS_TVertex")
-genFiles("TopoDS_TWire")
-genFiles("TopoDS_UnCompatibleShapes")
-genFiles("TopoDS_Vertex")
-genFiles("TopoDS_Wire")
-
+genFiles("BRep_Builder")
+genFiles("BRep_Curve3D")
+genFiles("BRep_CurveOn2Surfaces")
+genFiles("BRep_CurveOnClosedSurface")
+genFiles("BRep_CurveOnSurface")
+genFiles("BRep_CurveRepresentation")
+genFiles("BRep_GCurve")
+genFiles("BRep_ListIteratorOfListOfCurveRepresentation")
+genFiles("BRep_ListIteratorOfListOfPointRepresentation")
+genFiles("BRep_ListOfCurveRepresentation")
+genFiles("BRep_ListOfPointRepresentation")
+genFiles("BRep_PointOnCurve")
+genFiles("BRep_PointOnCurveOnSurface")
+genFiles("BRep_PointOnSurface")
+genFiles("BRep_PointRepresentation")
+genFiles("BRep_PointsOnSurface")
+genFiles("BRep_Polygon3D")
+genFiles("BRep_PolygonOnClosedSurface")
+genFiles("BRep_PolygonOnClosedTriangulation")
+genFiles("BRep_PolygonOnSurface")
+genFiles("BRep_PolygonOnTriangulation")
+genFiles("BRep_TEdge")
+genFiles("BRep_TFace")
+genFiles("BRep_Tool")
+genFiles("BRep_TVertex")
 
 
 

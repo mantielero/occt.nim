@@ -225,20 +225,20 @@ pyOcct seem to cover:
 - [X] Geom/Geom_includes
 - [X] Geom2d/Geom2d_includes
 - [X] GC/GC_includes
-- [ ] TopoDS/TopoDS_includes
-- [ ] BRepBuilderAPI/BRepBuilderAPI_includes
-- [ ] BRepPrim/BRepPrim_includes
-- [ ] BRepPrimAPI/BRepPrimAPI_includes
+- [X] TopoDS/TopoDS_includes
+- [X] BRepBuilderAPI/BRepBuilderAPI_includes
+- [X] BRepPrim/BRepPrim_includes
+- [X] BRepPrimAPI/BRepPrimAPI_includes
 - [ ] BRepFilletAPI/BRepFilletAPI_includes
 - [ ] ChFi3d/ChFi3d_includes
-- [ ] BRep/BRep_includes
+- [X] BRep/BRep_includes
 #- [ ] BRepSweep/BRepSweep_includes
 - [ ] TopLoc/TopLoc_includes
-- [ ] TopAbs/TopAbs_includes
+- [X] TopAbs/TopAbs_includes
 - [ ] TopExp/TopExp_includes
-- [ ] TopTools/TopTools_includes
+- [X] TopTools/TopTools_includes
 - [ ] BRepAlgo/BRepAlgo_includes
-- [ ] GeomAbs/GeomAbs_includes
+- [X] GeomAbs/GeomAbs_includes
 - [ ] Adaptor2d/Adaptor2d_includes
 - [ ] Adaptor3d/Adaptor3d_includes
 

@@ -2,7 +2,6 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include brepprim_includes
 include brepprimapi_makebox
 include brepprimapi_makecone
 include brepprimapi_makecylinder

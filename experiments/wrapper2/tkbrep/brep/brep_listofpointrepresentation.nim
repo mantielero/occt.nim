@@ -16,5 +16,4 @@
 
 type
   BRepListOfPointRepresentation* = NCollectionList[Handle[BRepPointRepresentation]]
-  BRepListIteratorOfListOfPointRepresentation* = Iterator[
-      Handle[BRepPointRepresentation]]
+  BRepListIteratorOfListOfPointRepresentation* {.importcpp:"NCollection_List<Handle(BRep_PointRepresentation)>::Iterator", header:"BRep_ListOfPointRepresentation.hxx", bycopy.} = object

@@ -16,5 +16,4 @@
 
 type
   BRepListOfCurveRepresentation* = NCollectionList[Handle[BRepCurveRepresentation]]
-  BRepListIteratorOfListOfCurveRepresentation* = Iterator[
-      Handle[BRepCurveRepresentation]]
+  BRepListIteratorOfListOfCurveRepresentation* {.importcpp:"NCollection_List<Handle(BRep_CurveRepresentation)>::Iterator", header:"BRep_ListOfCurveRepresentation.hxx", bycopy.} = object

@@ -26,7 +26,7 @@ discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
 type
   BRepPrimOneAxis* {.importcpp: "BRepPrim_OneAxis", header: "BRepPrim_OneAxis.hxx",
-                    bycopy.} = object ## ! The MeridianOffset is added  to the  parameters on
+                    bycopy.} = object of RootObj ## ! The MeridianOffset is added  to the  parameters on
                                    ## ! the meridian curve and  to  the  V values  of  the
                                    ## ! pcurves. This is  used for the sphere for example,
                                    ## ! to give a range on the meridian  edge which is not

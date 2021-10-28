@@ -28,7 +28,7 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
 type
   BRepPrimGWedge* {.importcpp: "BRepPrim_GWedge", header: "BRepPrim_GWedge.hxx",
-                   bycopy.} = object ## ! Default constructor
+                   bycopy.} = object of RootObj ## ! Default constructor
 
 
 proc newBRepPrimGWedge*(): BRepPrimGWedge {.cdecl, constructor,

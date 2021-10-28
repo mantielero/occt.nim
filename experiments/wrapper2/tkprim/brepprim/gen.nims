@@ -121,7 +121,13 @@ genFiles("BRepPrim_Cylinder")
 genFiles("BRepPrim_Direction")
 genFiles("BRepPrim_FaceBuilder")
 genFiles("BRepPrim_GWedge")
+pp("brepprim_gwedge.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("BRepPrim_OneAxis")
+pp("brepprim_oneaxis.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("BRepPrim_Revolution")
 genFiles("BRepPrim_Sphere")
 genFiles("BRepPrim_Torus")

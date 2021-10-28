@@ -125,7 +125,17 @@ genFiles("BRep_GCurve")
 genFiles("BRep_ListIteratorOfListOfCurveRepresentation")
 genFiles("BRep_ListIteratorOfListOfPointRepresentation")
 genFiles("BRep_ListOfCurveRepresentation")
+pp("brep_listofcurverepresentation.nim",
+  replaceAll = @[("""BRepListIteratorOfListOfCurveRepresentation* = Iterator[
+      Handle[BRepCurveRepresentation]]""",
+  """BRepListIteratorOfListOfCurveRepresentation* {.importcpp:"NCollection_List<Handle(BRep_CurveRepresentation)>::Iterator", header:"BRep_ListOfCurveRepresentation.hxx", bycopy.} = object""")]
+)
 genFiles("BRep_ListOfPointRepresentation")
+pp("brep_listofpointrepresentation.nim",
+  replaceAll = @[("""BRepListIteratorOfListOfPointRepresentation* = Iterator[
+      Handle[BRepPointRepresentation]]""",
+  """BRepListIteratorOfListOfPointRepresentation* {.importcpp:"NCollection_List<Handle(BRep_PointRepresentation)>::Iterator", header:"BRep_ListOfPointRepresentation.hxx", bycopy.} = object""")]
+)
 genFiles("BRep_PointOnCurve")
 genFiles("BRep_PointOnCurveOnSurface")
 genFiles("BRep_PointOnSurface")

@@ -10,15 +10,10 @@ elif defined(macosx):
 else:
   const tkprim* = "libTKPrim.so"
 
-#[
+
 type
-  BRepPrimWedge* = object
-  BRepPrimCone* = object
-  BRepPrimCylinder* = object
   BRepSweepPrism* = object
   BRepSweepRevol* = object
-  BRepSweepRevol* = object
-]#
 
 include brepprim/brepprim_includes
 include brepprimapi/brepprimapi_includes

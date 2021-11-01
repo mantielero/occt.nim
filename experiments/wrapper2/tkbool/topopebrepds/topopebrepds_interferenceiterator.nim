@@ -17,7 +17,7 @@
 discard "forward decl of TopOpeBRepDS_Interference"
 type
   TopOpeBRepDS_InterferenceIterator* {.importcpp: "TopOpeBRepDS_InterferenceIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx",
-                                      bycopy.} = object
+                                      bycopy.} = object of RootObj
 
 
 proc newTopOpeBRepDS_InterferenceIterator*(): TopOpeBRepDS_InterferenceIterator {.

@@ -23,14 +23,14 @@ type
 
 proc newTopOpeBRepBuildSolidAreaBuilder*(): TopOpeBRepBuildSolidAreaBuilder {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_SolidAreaBuilder(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc newTopOpeBRepBuildSolidAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
                                         lc: var TopOpeBRepBuildLoopClassifier;
                                         forceClass: bool = false): TopOpeBRepBuildSolidAreaBuilder {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_SolidAreaBuilder(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc initSolidAreaBuilder*(this: var TopOpeBRepBuildSolidAreaBuilder;
                           ls: var TopOpeBRepBuildLoopSet;
                           lc: var TopOpeBRepBuildLoopClassifier;
                           forceClass: bool = false) {.cdecl,
-    importcpp: "InitSolidAreaBuilder", dynlib: tkfillet.}
+    importcpp: "InitSolidAreaBuilder", dynlib: tkbool.}

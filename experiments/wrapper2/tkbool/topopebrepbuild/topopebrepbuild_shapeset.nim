@@ -18,7 +18,7 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TCollection_AsciiString"
 type
   TopOpeBRepBuildShapeSet* {.importcpp: "TopOpeBRepBuild_ShapeSet",
-                            header: "TopOpeBRepBuild_ShapeSet.hxx", bycopy.} = object ##
+                            header: "TopOpeBRepBuild_ShapeSet.hxx", bycopy.} = object of RootObj ##
                                                                                  ## !
                                                                                  ## Creates
                                                                                  ## a
@@ -48,84 +48,84 @@ type
 
 proc newTopOpeBRepBuildShapeSet*(subShapeType: TopAbsShapeEnum;
                                 checkshape: bool = true): TopOpeBRepBuildShapeSet {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_ShapeSet(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_ShapeSet(@)", dynlib: tkbool.}
 proc destroyTopOpeBRepBuildShapeSet*(this: var TopOpeBRepBuildShapeSet) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_ShapeSet()", dynlib: tkfillet.}
+    importcpp: "#.~TopOpeBRepBuild_ShapeSet()", dynlib: tkbool.}
 proc addShape*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddShape", dynlib: tkfillet.}
+    importcpp: "AddShape", dynlib: tkbool.}
 proc addStartElement*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddStartElement", dynlib: tkfillet.}
+    importcpp: "AddStartElement", dynlib: tkbool.}
 proc addElement*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddElement", dynlib: tkfillet.}
+    importcpp: "AddElement", dynlib: tkbool.}
 proc startElements*(this: TopOpeBRepBuildShapeSet): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "StartElements", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "StartElements", dynlib: tkbool.}
 proc initShapes*(this: var TopOpeBRepBuildShapeSet) {.cdecl, importcpp: "InitShapes",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc moreShapes*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect, cdecl,
-    importcpp: "MoreShapes", dynlib: tkfillet.}
+    importcpp: "MoreShapes", dynlib: tkbool.}
 proc nextShape*(this: var TopOpeBRepBuildShapeSet) {.cdecl, importcpp: "NextShape",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc shape*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkfillet.}
+    importcpp: "Shape", dynlib: tkbool.}
 proc initStartElements*(this: var TopOpeBRepBuildShapeSet) {.cdecl,
-    importcpp: "InitStartElements", dynlib: tkfillet.}
+    importcpp: "InitStartElements", dynlib: tkbool.}
 proc moreStartElements*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect, cdecl,
-    importcpp: "MoreStartElements", dynlib: tkfillet.}
+    importcpp: "MoreStartElements", dynlib: tkbool.}
 proc nextStartElement*(this: var TopOpeBRepBuildShapeSet) {.cdecl,
-    importcpp: "NextStartElement", dynlib: tkfillet.}
+    importcpp: "NextStartElement", dynlib: tkbool.}
 proc startElement*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "StartElement", dynlib: tkfillet.}
+    cdecl, importcpp: "StartElement", dynlib: tkbool.}
 proc initNeighbours*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "InitNeighbours", dynlib: tkfillet.}
+    importcpp: "InitNeighbours", dynlib: tkbool.}
 proc moreNeighbours*(this: var TopOpeBRepBuildShapeSet): bool {.cdecl,
-    importcpp: "MoreNeighbours", dynlib: tkfillet.}
+    importcpp: "MoreNeighbours", dynlib: tkbool.}
 proc nextNeighbour*(this: var TopOpeBRepBuildShapeSet) {.cdecl,
-    importcpp: "NextNeighbour", dynlib: tkfillet.}
+    importcpp: "NextNeighbour", dynlib: tkbool.}
 proc neighbour*(this: TopOpeBRepBuildShapeSet): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Neighbour", dynlib: tkfillet.}
+    importcpp: "Neighbour", dynlib: tkbool.}
 proc changeStartShapes*(this: var TopOpeBRepBuildShapeSet): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeStartShapes", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangeStartShapes", dynlib: tkbool.}
 proc findNeighbours*(this: var TopOpeBRepBuildShapeSet) {.cdecl,
-    importcpp: "FindNeighbours", dynlib: tkfillet.}
+    importcpp: "FindNeighbours", dynlib: tkbool.}
 proc makeNeighboursList*(this: var TopOpeBRepBuildShapeSet; e: TopoDS_Shape;
                         v: TopoDS_Shape): TopToolsListOfShape {.cdecl,
-    importcpp: "MakeNeighboursList", dynlib: tkfillet.}
+    importcpp: "MakeNeighboursList", dynlib: tkbool.}
 proc maxNumberSubShape*(this: var TopOpeBRepBuildShapeSet; shape: TopoDS_Shape): cint {.
-    cdecl, importcpp: "MaxNumberSubShape", dynlib: tkfillet.}
+    cdecl, importcpp: "MaxNumberSubShape", dynlib: tkbool.}
 proc checkShape*(this: var TopOpeBRepBuildShapeSet; checkshape: bool) {.cdecl,
-    importcpp: "CheckShape", dynlib: tkfillet.}
+    importcpp: "CheckShape", dynlib: tkbool.}
 proc checkShape*(this: TopOpeBRepBuildShapeSet): bool {.noSideEffect, cdecl,
-    importcpp: "CheckShape", dynlib: tkfillet.}
+    importcpp: "CheckShape", dynlib: tkbool.}
 proc checkShape*(this: var TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
                 checkgeom: bool = false): bool {.cdecl, importcpp: "CheckShape",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc dumpName*(this: TopOpeBRepBuildShapeSet; os: var StandardOStream;
               str: TCollectionAsciiString) {.noSideEffect, cdecl,
-    importcpp: "DumpName", dynlib: tkfillet.}
+    importcpp: "DumpName", dynlib: tkbool.}
 proc dumpCheck*(this: TopOpeBRepBuildShapeSet; os: var StandardOStream;
                str: TCollectionAsciiString; s: TopoDS_Shape; chk: bool) {.
-    noSideEffect, cdecl, importcpp: "DumpCheck", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "DumpCheck", dynlib: tkbool.}
 proc dumpSS*(this: var TopOpeBRepBuildShapeSet) {.cdecl, importcpp: "DumpSS",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc dumpBB*(this: var TopOpeBRepBuildShapeSet) {.cdecl, importcpp: "DumpBB",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc dEBName*(this: var TopOpeBRepBuildShapeSet; n: TCollectionAsciiString) {.cdecl,
-    importcpp: "DEBName", dynlib: tkfillet.}
+    importcpp: "DEBName", dynlib: tkbool.}
 proc dEBName*(this: TopOpeBRepBuildShapeSet): TCollectionAsciiString {.noSideEffect,
-    cdecl, importcpp: "DEBName", dynlib: tkfillet.}
+    cdecl, importcpp: "DEBName", dynlib: tkbool.}
 proc dEBNumber*(this: var TopOpeBRepBuildShapeSet; i: cint) {.cdecl,
-    importcpp: "DEBNumber", dynlib: tkfillet.}
+    importcpp: "DEBNumber", dynlib: tkbool.}
 proc dEBNumber*(this: TopOpeBRepBuildShapeSet): cint {.noSideEffect, cdecl,
-    importcpp: "DEBNumber", dynlib: tkfillet.}
+    importcpp: "DEBNumber", dynlib: tkbool.}
 proc sName*(this: TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
-           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkfillet.}
+           sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
+    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
 proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopoDS_Shape;
-              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkfillet.}
+              sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
+    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}
 proc sName*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
-           sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkfillet.}
+           sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
+    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
 proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
-              sb: TCollectionAsciiString = ""; sa: TCollectionAsciiString = ""): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkfillet.}
+              sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
+    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}

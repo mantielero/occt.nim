@@ -22,11 +22,11 @@ type
 
 
 proc newTopOpeBRepBuildWireToFace*(): TopOpeBRepBuildWireToFace {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_WireToFace(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_WireToFace(@)", dynlib: tkbool.}
 proc init*(this: var TopOpeBRepBuildWireToFace) {.cdecl, importcpp: "Init",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.cdecl,
-    importcpp: "AddWire", dynlib: tkfillet.}
+    importcpp: "AddWire", dynlib: tkbool.}
 proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
                lf: var TopToolsListOfShape) {.cdecl, importcpp: "MakeFaces",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}

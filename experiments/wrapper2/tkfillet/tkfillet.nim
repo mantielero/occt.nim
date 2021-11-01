@@ -20,3 +20,5 @@ include chfids/chfids_includes
 include chfi3d/chfi3d_includes
 include chfi2d/chfi2d_includes
 include brepblend/brepblend_includes
+include blend/blend_includes
+include blendfunc/blendfunc_includes

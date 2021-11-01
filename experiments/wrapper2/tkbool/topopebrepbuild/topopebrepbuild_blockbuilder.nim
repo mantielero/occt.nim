@@ -23,38 +23,37 @@ type
 
 
 proc newTopOpeBRepBuildBlockBuilder*(): TopOpeBRepBuildBlockBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_BlockBuilder(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_BlockBuilder(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildBlockBuilder*(ss: var TopOpeBRepBuildShapeSet): TopOpeBRepBuildBlockBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_BlockBuilder(@)",
-    dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_BlockBuilder(@)", dynlib: tkbool.}
 proc makeBlock*(this: var TopOpeBRepBuildBlockBuilder;
                ss: var TopOpeBRepBuildShapeSet) {.cdecl, importcpp: "MakeBlock",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc initBlock*(this: var TopOpeBRepBuildBlockBuilder) {.cdecl,
-    importcpp: "InitBlock", dynlib: tkfillet.}
+    importcpp: "InitBlock", dynlib: tkbool.}
 proc moreBlock*(this: TopOpeBRepBuildBlockBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreBlock", dynlib: tkfillet.}
+    importcpp: "MoreBlock", dynlib: tkbool.}
 proc nextBlock*(this: var TopOpeBRepBuildBlockBuilder) {.cdecl,
-    importcpp: "NextBlock", dynlib: tkfillet.}
+    importcpp: "NextBlock", dynlib: tkbool.}
 proc blockIterator*(this: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildBlockIterator {.
-    noSideEffect, cdecl, importcpp: "BlockIterator", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "BlockIterator", dynlib: tkbool.}
 proc element*(this: TopOpeBRepBuildBlockBuilder; bi: TopOpeBRepBuildBlockIterator): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "Element", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Element", dynlib: tkbool.}
 proc element*(this: TopOpeBRepBuildBlockBuilder; i: cint): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "Element", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Element", dynlib: tkbool.}
 proc element*(this: TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): cint {.
-    noSideEffect, cdecl, importcpp: "Element", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Element", dynlib: tkbool.}
 proc elementIsValid*(this: TopOpeBRepBuildBlockBuilder;
                     bi: TopOpeBRepBuildBlockIterator): bool {.noSideEffect, cdecl,
-    importcpp: "ElementIsValid", dynlib: tkfillet.}
+    importcpp: "ElementIsValid", dynlib: tkbool.}
 proc elementIsValid*(this: TopOpeBRepBuildBlockBuilder; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "ElementIsValid", dynlib: tkfillet.}
+    cdecl, importcpp: "ElementIsValid", dynlib: tkbool.}
 proc addElement*(this: var TopOpeBRepBuildBlockBuilder; s: TopoDS_Shape): cint {.cdecl,
-    importcpp: "AddElement", dynlib: tkfillet.}
+    importcpp: "AddElement", dynlib: tkbool.}
 proc setValid*(this: var TopOpeBRepBuildBlockBuilder;
               bi: TopOpeBRepBuildBlockIterator; isvalid: bool) {.cdecl,
-    importcpp: "SetValid", dynlib: tkfillet.}
+    importcpp: "SetValid", dynlib: tkbool.}
 proc setValid*(this: var TopOpeBRepBuildBlockBuilder; i: cint; isvalid: bool) {.cdecl,
-    importcpp: "SetValid", dynlib: tkfillet.}
+    importcpp: "SetValid", dynlib: tkbool.}
 proc currentBlockIsRegular*(this: var TopOpeBRepBuildBlockBuilder): bool {.cdecl,
-    importcpp: "CurrentBlockIsRegular", dynlib: tkfillet.}
+    importcpp: "CurrentBlockIsRegular", dynlib: tkbool.}

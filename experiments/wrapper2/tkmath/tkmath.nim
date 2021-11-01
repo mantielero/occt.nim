@@ -26,3 +26,4 @@ include toploc/toploc_includes
 include poly/poly_includes
 include math/math_includes
 include precision/precision_includes
+include convert/convert_includes

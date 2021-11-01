@@ -21,16 +21,16 @@ type
 
 
 proc newTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildGIter*(g: TopOpeBRepBuildGTopo): TopOpeBRepBuildGIter {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkfillet.}
-proc init*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Init", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkbool.}
+proc init*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Init", dynlib: tkbool.}
 proc init*(this: var TopOpeBRepBuildGIter; g: TopOpeBRepBuildGTopo) {.cdecl,
-    importcpp: "Init", dynlib: tkfillet.}
+    importcpp: "Init", dynlib: tkbool.}
 proc more*(this: TopOpeBRepBuildGIter): bool {.noSideEffect, cdecl, importcpp: "More",
-    dynlib: tkfillet.}
-proc next*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Next", dynlib: tkfillet.}
+    dynlib: tkbool.}
+proc next*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Next", dynlib: tkbool.}
 proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsState) {.
-    noSideEffect, cdecl, importcpp: "Current", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Current", dynlib: tkbool.}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkfillet.}
+    importcpp: "Dump", dynlib: tkbool.}

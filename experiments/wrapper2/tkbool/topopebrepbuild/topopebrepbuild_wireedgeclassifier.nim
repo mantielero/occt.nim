@@ -43,25 +43,24 @@ type
 
 proc newTopOpeBRepBuildWireEdgeClassifier*(f: TopoDS_Shape;
     bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildWireEdgeClassifier {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)",
-    dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)", dynlib: tkbool.}
 proc compare*(this: var TopOpeBRepBuildWireEdgeClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkfillet.}
+    cdecl, importcpp: "Compare", dynlib: tkbool.}
 proc loopToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
                  L: Handle[TopOpeBRepBuildLoop]): TopoDS_Shape {.cdecl,
-    importcpp: "LoopToShape", dynlib: tkfillet.}
+    importcpp: "LoopToShape", dynlib: tkbool.}
 proc compareShapes*(this: var TopOpeBRepBuildWireEdgeClassifier; b1: TopoDS_Shape;
                    b2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareShapes", dynlib: tkfillet.}
+    importcpp: "CompareShapes", dynlib: tkbool.}
 proc compareElementToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
                            e: TopoDS_Shape; b: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareElementToShape", dynlib: tkfillet.}
+    importcpp: "CompareElementToShape", dynlib: tkbool.}
 proc resetShape*(this: var TopOpeBRepBuildWireEdgeClassifier; b: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetShape", dynlib: tkfillet.}
+    cdecl, importcpp: "ResetShape", dynlib: tkbool.}
 proc resetElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetElement", dynlib: tkfillet.}
+    cdecl, importcpp: "ResetElement", dynlib: tkbool.}
 proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape): bool {.
-    cdecl, importcpp: "CompareElement", dynlib: tkfillet.}
+    cdecl, importcpp: "CompareElement", dynlib: tkbool.}
 proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.cdecl,
-    importcpp: "State", dynlib: tkfillet.}
+    importcpp: "State", dynlib: tkbool.}

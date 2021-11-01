@@ -52,10 +52,10 @@ proc singularOnVMin*(s: Handle[Adaptor3dHSurface]): bool {.cdecl,
     importcpp: "BRepBlend_BlendTool::SingularOnVMin(@)", dynlib: tkfillet.}
 proc singularOnVMax*(s: Handle[Adaptor3dHSurface]): bool {.cdecl,
     importcpp: "BRepBlend_BlendTool::SingularOnVMax(@)", dynlib: tkfillet.}
-proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: cfloat; u2: cfloat): cint {.cdecl,
-    importcpp: "BRepBlend_BlendTool::NbSamplesU(@)", dynlib: tkfillet.}
-proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: cfloat; v2: cfloat): cint {.cdecl,
-    importcpp: "BRepBlend_BlendTool::NbSamplesV(@)", dynlib: tkfillet.}
+#proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: cfloat; u2: cfloat): cint {.cdecl,
+#    importcpp: "BRepBlend_BlendTool::NbSamplesU(@)", dynlib: tkfillet.}
+#proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: cfloat; v2: cfloat): cint {.cdecl,
+#    importcpp: "BRepBlend_BlendTool::NbSamplesV(@)", dynlib: tkfillet.}
 proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var cfloat; ulast: var cfloat) {.
     cdecl, importcpp: "BRepBlend_BlendTool::Bounds(@)", dynlib: tkfillet.}
 proc curveOnSurf*(c: Handle[Adaptor2dHCurve2d]; s: Handle[Adaptor3dHSurface]): Handle[

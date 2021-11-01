@@ -16,4 +16,4 @@
 
 type
   TopOpeBRepBuildListOfPave* = NCollectionList[Handle[TopOpeBRepBuildPave]]
-  TopOpeBRepBuildListIteratorOfListOfPave* = Iterator[Handle[TopOpeBRepBuildPave]]
+  TopOpeBRepBuildListIteratorOfListOfPave* {.importcpp:"NCollection_List<Handle(TopOpeBRepBuild_Pave)>::Iterator", header:"TopOpeBRepBuild_ListOfPave.hxx", bycopy.} = object

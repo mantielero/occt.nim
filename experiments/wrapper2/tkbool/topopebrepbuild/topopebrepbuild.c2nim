@@ -1,5 +1,5 @@
 #ifdef C2NIM
-#dynlib tkfillet
+#dynlib tkbool
 #cdecl
 #prefix gp_
 #assumendef _MSC_VER
@@ -217,4 +217,25 @@ DEFINE_STANDARD_HANDLE (_HUBTREE, _HPARENT)
 #def Adaptor3d_GenHCurve ChFiDS_HElSpine
 #def Adaptor3d_GenHCurve_hxx <ChFiDS_HElSpine.hxx>
 #def Handle_Adaptor3d_GenHCurve Handle(ChFiDS_HElSpine)
+
+#def MTBpwes TopOpeBRepBuild_PWireEdgeSet
+#def MTBwes TopOpeBRepBuild_WireEdgeSet
+#def MTBsfs TopOpeBRepBuild_ShellFaceSet
+#def MTBgt TopOpeBRepBuild_GTopo
+#def MTBpvc TopOpeBRepBuild_PaveClassifier
+#def MTBpvs TopOpeBRepBuild_PaveSet
+#def MTBhpv Handle(TopOpeBRepBuild_Pave)
+#def MTBpv TopOpeBRepBuild_Pave
+#def MTBsb TopOpeBRepBuild_SolidBuilder
+#def MTBfb TopOpeBRepBuild_FaceBuilder
+#def MTBeb TopOpeBRepBuild_EdgeBuilder
+#def MTBbON TopOpeBRepBuild_BuilderON
+#def MTBb TopOpeBRepBuild_Builder
+#def MTBpb TopOpeBRepBuild_PBuilder
+#def MTBdmiodmosloslos TopOpeBRepBuild_DataMapIteratorOfDataMapOfShapeListOfShapeListOfShape
+#def MTBdmosloslos TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape
+#def MTBlioloslos TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape
+#def MTBloslos TopOpeBRepBuild_ListOfShapeListOfShape
+#def MTBslos TopOpeBRepBuild_ShapeListOfShape
+#def MTBhb  Handle(TopOpeBRepBuild_HBuilder)
 #endif

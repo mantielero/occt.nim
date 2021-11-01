@@ -23,35 +23,34 @@ type
 
 
 proc newTopOpeBRepBuildSolidBuilder*(): TopOpeBRepBuildSolidBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildSolidBuilder*(fs: var TopOpeBRepBuildShellFaceSet;
                                     forceClass: bool = false): TopOpeBRepBuildSolidBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)",
-    dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_SolidBuilder(@)", dynlib: tkbool.}
 proc initSolidBuilder*(this: var TopOpeBRepBuildSolidBuilder;
                       fs: var TopOpeBRepBuildShellFaceSet; forceClass: bool) {.cdecl,
-    importcpp: "InitSolidBuilder", dynlib: tkfillet.}
+    importcpp: "InitSolidBuilder", dynlib: tkbool.}
 proc initSolid*(this: var TopOpeBRepBuildSolidBuilder): cint {.cdecl,
-    importcpp: "InitSolid", dynlib: tkfillet.}
+    importcpp: "InitSolid", dynlib: tkbool.}
 proc moreSolid*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreSolid", dynlib: tkfillet.}
+    importcpp: "MoreSolid", dynlib: tkbool.}
 proc nextSolid*(this: var TopOpeBRepBuildSolidBuilder) {.cdecl,
-    importcpp: "NextSolid", dynlib: tkfillet.}
+    importcpp: "NextSolid", dynlib: tkbool.}
 proc initShell*(this: var TopOpeBRepBuildSolidBuilder): cint {.cdecl,
-    importcpp: "InitShell", dynlib: tkfillet.}
+    importcpp: "InitShell", dynlib: tkbool.}
 proc moreShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreShell", dynlib: tkfillet.}
+    importcpp: "MoreShell", dynlib: tkbool.}
 proc nextShell*(this: var TopOpeBRepBuildSolidBuilder) {.cdecl,
-    importcpp: "NextShell", dynlib: tkfillet.}
+    importcpp: "NextShell", dynlib: tkbool.}
 proc isOldShell*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "IsOldShell", dynlib: tkfillet.}
+    importcpp: "IsOldShell", dynlib: tkbool.}
 proc oldShell*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "OldShell", dynlib: tkfillet.}
+    cdecl, importcpp: "OldShell", dynlib: tkbool.}
 proc initFace*(this: var TopOpeBRepBuildSolidBuilder): cint {.cdecl,
-    importcpp: "InitFace", dynlib: tkfillet.}
+    importcpp: "InitFace", dynlib: tkbool.}
 proc moreFace*(this: TopOpeBRepBuildSolidBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreFace", dynlib: tkfillet.}
+    importcpp: "MoreFace", dynlib: tkbool.}
 proc nextFace*(this: var TopOpeBRepBuildSolidBuilder) {.cdecl, importcpp: "NextFace",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc face*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkfillet.}
+    importcpp: "Face", dynlib: tkbool.}

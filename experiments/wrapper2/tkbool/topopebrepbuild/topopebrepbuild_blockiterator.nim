@@ -22,17 +22,17 @@ type
 
 
 proc newTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildBlockIterator*(lower: cint; upper: cint): TopOpeBRepBuildBlockIterator {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc initialize*(this: var TopOpeBRepBuildBlockIterator) {.cdecl,
-    importcpp: "Initialize", dynlib: tkfillet.}
+    importcpp: "Initialize", dynlib: tkbool.}
 proc more*(this: TopOpeBRepBuildBlockIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkfillet.}
+    importcpp: "More", dynlib: tkbool.}
 proc next*(this: var TopOpeBRepBuildBlockIterator) {.cdecl, importcpp: "Next",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc value*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", dynlib: tkbool.}
 proc extent*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", dynlib: tkfillet.}
+    importcpp: "Extent", dynlib: tkbool.}

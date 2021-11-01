@@ -21,23 +21,23 @@ type
 
 
 proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)", dynlib: tkbool.}
 proc gFusSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusSame(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusSame(@)", dynlib: tkbool.}
 proc gFusDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusDiff(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusDiff(@)", dynlib: tkbool.}
 proc gCutUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutUnsh(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutUnsh(@)", dynlib: tkbool.}
 proc gCutSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutSame(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutSame(@)", dynlib: tkbool.}
 proc gCutDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutDiff(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutDiff(@)", dynlib: tkbool.}
 proc gComUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComUnsh(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComUnsh(@)", dynlib: tkbool.}
 proc gComSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComSame(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComSame(@)", dynlib: tkbool.}
 proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComDiff(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComDiff(@)", dynlib: tkbool.}
 proc dump*(os: var StandardOStream) {.cdecl,
                                   importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
-                                  dynlib: tkfillet.}
+                                  dynlib: tkbool.}

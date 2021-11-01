@@ -30,87 +30,87 @@ type
 
 
 proc newTopOpeBRepBuildBuilder1*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder1 {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_Builder1(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_Builder1(@)", dynlib: tkbool.}
 proc destroyTopOpeBRepBuildBuilder1*(this: var TopOpeBRepBuildBuilder1) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_Builder1()", dynlib: tkfillet.}
+    importcpp: "#.~TopOpeBRepBuild_Builder1()", dynlib: tkbool.}
 proc clear*(this: var TopOpeBRepBuildBuilder1) {.cdecl, importcpp: "Clear",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc perform*(this: var TopOpeBRepBuildBuilder1;
              hds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "Perform", dynlib: tkfillet.}
+    importcpp: "Perform", dynlib: tkbool.}
 proc perform*(this: var TopOpeBRepBuildBuilder1;
              hds: Handle[TopOpeBRepDS_HDataStructure]; s1: TopoDS_Shape;
-             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", dynlib: tkfillet.}
+             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", dynlib: tkbool.}
 proc mergeKPart*(this: var TopOpeBRepBuildBuilder1) {.cdecl, importcpp: "MergeKPart",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc mergeKPart*(this: var TopOpeBRepBuildBuilder1; tb1: TopAbsState; tb2: TopAbsState) {.
-    cdecl, importcpp: "MergeKPart", dynlib: tkfillet.}
+    cdecl, importcpp: "MergeKPart", dynlib: tkbool.}
 proc gFillSolidSFS*(this: var TopOpeBRepBuildBuilder1; so1: TopoDS_Shape;
                    lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillSolidSFS", dynlib: tkfillet.}
+    importcpp: "GFillSolidSFS", dynlib: tkbool.}
 proc gFillShellSFS*(this: var TopOpeBRepBuildBuilder1; sh1: TopoDS_Shape;
                    lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillShellSFS", dynlib: tkfillet.}
+    importcpp: "GFillShellSFS", dynlib: tkbool.}
 proc gWESMakeFaces*(this: var TopOpeBRepBuildBuilder1; ff: TopoDS_Shape;
                    wes: var TopOpeBRepBuildWireEdgeSet;
                    lof: var TopToolsListOfShape) {.cdecl,
-    importcpp: "GWESMakeFaces", dynlib: tkfillet.}
+    importcpp: "GWESMakeFaces", dynlib: tkbool.}
 proc gFillSplitsPVS*(this: var TopOpeBRepBuildBuilder1; anEdge: TopoDS_Shape;
                     g1: TopOpeBRepBuildGTopo; pvs: var TopOpeBRepBuildPaveSet) {.
-    cdecl, importcpp: "GFillSplitsPVS", dynlib: tkfillet.}
+    cdecl, importcpp: "GFillSplitsPVS", dynlib: tkbool.}
 proc gFillFaceNotSameDomSFS*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
                             lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                             sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillFaceNotSameDomSFS", dynlib: tkfillet.}
+    importcpp: "GFillFaceNotSameDomSFS", dynlib: tkbool.}
 proc gFillFaceNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
                             lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                             wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillFaceNotSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillFaceNotSameDomWES", dynlib: tkbool.}
 proc gFillWireNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; w1: TopoDS_Shape;
                             lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                             wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillWireNotSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillWireNotSameDomWES", dynlib: tkbool.}
 proc gFillEdgeNotSameDomWES*(this: var TopOpeBRepBuildBuilder1; e1: TopoDS_Shape;
                             lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                             wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillEdgeNotSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillEdgeNotSameDomWES", dynlib: tkbool.}
 proc gFillFaceSameDomSFS*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
                          lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                          sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillFaceSameDomSFS", dynlib: tkfillet.}
+    importcpp: "GFillFaceSameDomSFS", dynlib: tkbool.}
 proc gFillFaceSameDomWES*(this: var TopOpeBRepBuildBuilder1; f1: TopoDS_Shape;
                          lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                          wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillFaceSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillFaceSameDomWES", dynlib: tkbool.}
 proc gFillWireSameDomWES*(this: var TopOpeBRepBuildBuilder1; w1: TopoDS_Shape;
                          lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                          wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillWireSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillWireSameDomWES", dynlib: tkbool.}
 proc gFillEdgeSameDomWES*(this: var TopOpeBRepBuildBuilder1; e1: TopoDS_Shape;
                          lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                          wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillEdgeSameDomWES", dynlib: tkfillet.}
+    importcpp: "GFillEdgeSameDomWES", dynlib: tkbool.}
 proc performONParts*(this: var TopOpeBRepBuildBuilder1; f: TopoDS_Shape;
                     sDfaces: TopToolsIndexedMapOfShape; g: TopOpeBRepBuildGTopo;
                     wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "PerformONParts", dynlib: tkfillet.}
+    importcpp: "PerformONParts", dynlib: tkbool.}
 proc performPieceIn2D*(this: var TopOpeBRepBuildBuilder1;
                       aPieceToPerform: TopoDS_Edge; aOriginalEdge: TopoDS_Edge;
                       edgeFace: TopoDS_Face; toFace: TopoDS_Face;
                       g: TopOpeBRepBuildGTopo; keep: var bool) {.cdecl,
-    importcpp: "PerformPieceIn2D", dynlib: tkfillet.}
+    importcpp: "PerformPieceIn2D", dynlib: tkbool.}
 proc performPieceOn2D*(this: var TopOpeBRepBuildBuilder1; aPieceObj: TopoDS_Shape;
                       aFaceObj: TopoDS_Shape; aEdgeObj: TopoDS_Shape;
                       aListOfPieces: var TopToolsListOfShape;
                       aListOfFaces: var TopToolsListOfShape;
                       aListOfPiecesOut2d: var TopToolsListOfShape): cint {.cdecl,
-    importcpp: "PerformPieceOn2D", dynlib: tkfillet.}
+    importcpp: "PerformPieceOn2D", dynlib: tkbool.}
 proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfShape;
                  aListOfPieces: var TopToolsListOfShape;
                  aListOfFaces: var TopToolsListOfShape;
                  aListOfPiecesOut2d: var TopToolsListOfShape): cint {.cdecl,
-    importcpp: "TwoPiecesON", dynlib: tkfillet.}
+    importcpp: "TwoPiecesON", dynlib: tkbool.}
 proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): cint {.
-    cdecl, importcpp: "CorrectResult2d", dynlib: tkfillet.}
+    cdecl, importcpp: "CorrectResult2d", dynlib: tkbool.}

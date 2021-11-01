@@ -22,9 +22,9 @@ type
 
 proc makeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
     cdecl, importcpp: "TopOpeBRepBuild_Tools2d::MakeMapOfShapeVertexInfo(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
     cdecl, importcpp: "TopOpeBRepBuild_Tools2d::DumpMapOfShapeVertexInfo(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.cdecl,
-    importcpp: "TopOpeBRepBuild_Tools2d::Path(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_Tools2d::Path(@)", dynlib: tkbool.}

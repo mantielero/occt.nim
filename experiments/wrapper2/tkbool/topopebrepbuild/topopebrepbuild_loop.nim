@@ -30,14 +30,14 @@ type
 
 
 proc newTopOpeBRepBuildLoop*(s: TopoDS_Shape): TopOpeBRepBuildLoop {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildLoop*(bi: TopOpeBRepBuildBlockIterator): TopOpeBRepBuildLoop {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkbool.}
 proc isShape*(this: TopOpeBRepBuildLoop): bool {.noSideEffect, cdecl,
-    importcpp: "IsShape", dynlib: tkfillet.}
+    importcpp: "IsShape", dynlib: tkbool.}
 proc shape*(this: TopOpeBRepBuildLoop): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkfillet.}
+    importcpp: "Shape", dynlib: tkbool.}
 proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
-    noSideEffect, cdecl, importcpp: "BlockIterator", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "BlockIterator", dynlib: tkbool.}
 proc dump*(this: TopOpeBRepBuildLoop) {.noSideEffect, cdecl, importcpp: "Dump",
-                                     dynlib: tkfillet.}
+                                     dynlib: tkbool.}

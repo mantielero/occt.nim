@@ -113,11 +113,18 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/TopLoc*.hxx | cut -c 26-
+# ls /usr/include/opencascade/TopAbs*.hxx | cut -c 26-
 
 genFiles("TopAbs")
 genFiles("TopAbs_Orientation")
 genFiles("TopAbs_ShapeEnum")
+pp("topabs_shapeenum.nim",
+  replaceAll = @[("""TopAbsCOMPOUND, TopAbsCOMPSOLID, TopAbsSOLID, TopAbsSHELL, TopAbsFACE,
+    TopAbsWIRE, TopAbsEDGE, TopAbsVERTEX, TopAbsSHAPE""",
+    """topAbsCOMPOUND, topAbsCOMPSOLID, topAbsSOLID, topAbsSHELL, topAbsFACE,
+    topAbsWIRE, topAbsEDGE, topAbsVERTEX, topAbsSHAPE"""
+    )]
+)
 genFiles("TopAbs_State")
 
 

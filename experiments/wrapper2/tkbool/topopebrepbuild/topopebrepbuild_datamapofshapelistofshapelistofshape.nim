@@ -17,5 +17,4 @@
 type
   TopOpeBRepBuildDataMapOfShapeListOfShapeListOfShape* = NCollectionDataMap[
       TopoDS_Shape, TopOpeBRepBuildListOfShapeListOfShape, TopToolsShapeMapHasher]
-  TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* = Iterator[
-      TopoDS_Shape, TopOpeBRepBuildListOfShapeListOfShape, TopToolsShapeMapHasher]
+  TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepBuild_ListOfShapeListOfShape,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape.hxx", bycopy.} = object

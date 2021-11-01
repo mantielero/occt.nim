@@ -17,5 +17,4 @@
 type
   TopOpeBRepBuildListOfShapeListOfShape* = NCollectionList[
       TopOpeBRepBuildShapeListOfShape]
-  TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* = Iterator[
-      TopOpeBRepBuildShapeListOfShape]
+  TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* {.importcpp:"NCollection_List<TopOpeBRepBuild_ShapeListOfShape>::Iterator", header:"TopOpeBRepBuild_ListOfShapeListOfShape.hxx", bycopy.} = object

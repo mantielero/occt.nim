@@ -18,3 +18,4 @@ else:
 include law/law_includes
 include geomfill/geomfill_includes
 include intsurf/intsurf_includes
+include appblend/appblend_includes

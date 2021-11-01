@@ -28,28 +28,27 @@ type
 
 
 proc newTopOpeBRepBuildCorrectFace2d*(): TopOpeBRepBuildCorrectFace2d {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_CorrectFace2d(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_CorrectFace2d(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildCorrectFace2d*(aFace: TopoDS_Face; anAvoidMap: TopToolsIndexedMapOfOrientedShape;
     aMap: var TopToolsIndexedDataMapOfShapeShape): TopOpeBRepBuildCorrectFace2d {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_CorrectFace2d(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc face*(this: TopOpeBRepBuildCorrectFace2d): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkfillet.}
+    importcpp: "Face", dynlib: tkbool.}
 proc perform*(this: var TopOpeBRepBuildCorrectFace2d) {.cdecl, importcpp: "Perform",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc isDone*(this: TopOpeBRepBuildCorrectFace2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkfillet.}
+    importcpp: "IsDone", dynlib: tkbool.}
 proc errorStatus*(this: TopOpeBRepBuildCorrectFace2d): cint {.noSideEffect, cdecl,
-    importcpp: "ErrorStatus", dynlib: tkfillet.}
+    importcpp: "ErrorStatus", dynlib: tkbool.}
 proc correctedFace*(this: TopOpeBRepBuildCorrectFace2d): TopoDS_Face {.noSideEffect,
-    cdecl, importcpp: "CorrectedFace", dynlib: tkfillet.}
+    cdecl, importcpp: "CorrectedFace", dynlib: tkbool.}
 proc setMapOfTrans2dInfo*(this: var TopOpeBRepBuildCorrectFace2d;
                          aMap: var TopToolsIndexedDataMapOfShapeShape) {.cdecl,
-    importcpp: "SetMapOfTrans2dInfo", dynlib: tkfillet.}
+    importcpp: "SetMapOfTrans2dInfo", dynlib: tkbool.}
 proc mapOfTrans2dInfo*(this: var TopOpeBRepBuildCorrectFace2d): var TopToolsIndexedDataMapOfShapeShape {.
-    cdecl, importcpp: "MapOfTrans2dInfo", dynlib: tkfillet.}
+    cdecl, importcpp: "MapOfTrans2dInfo", dynlib: tkbool.}
 proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var Pnt2d; p2dL: var Pnt2d) {.
-    cdecl, importcpp: "TopOpeBRepBuild_CorrectFace2d::GetP2dFL(@)",
-    dynlib: tkfillet.}
+    cdecl, importcpp: "TopOpeBRepBuild_CorrectFace2d::GetP2dFL(@)", dynlib: tkbool.}
 proc checkList*(aFace: TopoDS_Face; aHeadList: var TopToolsListOfShape) {.cdecl,
-    importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)", dynlib: tkbool.}

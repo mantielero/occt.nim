@@ -17,3 +17,4 @@ else:
 
 include topopebrepbuild/topopebrepbuild_includes
 include topopebrepds/topopebrepds_includes
+include topopebreptool/topopebreptool_includes

@@ -14,24 +14,23 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-const
-  MTBpwes* = topOpeBRepBuildPWireEdgeSet
-  MTBwes* = topOpeBRepBuildWireEdgeSet
-  MTBsfs* = topOpeBRepBuildShellFaceSet
-  MTBgt* = topOpeBRepBuildGTopo
-  MTBpvc* = topOpeBRepBuildPaveClassifier
-  MTBpvs* = topOpeBRepBuildPaveSet
-  MTBhpv* = handle[TopOpeBRepBuildPave]
-  MTBpv* = topOpeBRepBuildPave
-  MTBsb* = topOpeBRepBuildSolidBuilder
-  MTBfb* = topOpeBRepBuildFaceBuilder
-  MTBeb* = topOpeBRepBuildEdgeBuilder
-  MTBbON* = topOpeBRepBuildBuilderON
-  MTBb* = topOpeBRepBuildBuilder
-  MTBpb* = topOpeBRepBuildPBuilder
-  MTBdmiodmosloslos* = topOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape
-  MTBdmosloslos* = topOpeBRepBuildDataMapOfShapeListOfShapeListOfShape
-  MTBlioloslos* = topOpeBRepBuildListIteratorOfListOfShapeListOfShape
-  MTBloslos* = topOpeBRepBuildListOfShapeListOfShape
-  MTBslos* = topOpeBRepBuildShapeListOfShape
-  MTBhb* = handle[TopOpeBRepBuildHBuilder]
+##  #define MTBpwes TopOpeBRepBuild_PWireEdgeSet
+##  #define MTBwes TopOpeBRepBuild_WireEdgeSet
+##  #define MTBsfs TopOpeBRepBuild_ShellFaceSet
+##  #define MTBgt TopOpeBRepBuild_GTopo
+##  #define MTBpvc TopOpeBRepBuild_PaveClassifier
+##  #define MTBpvs TopOpeBRepBuild_PaveSet
+##  #define MTBhpv Handle(TopOpeBRepBuild_Pave)
+##  #define MTBpv TopOpeBRepBuild_Pave
+##  #define MTBsb TopOpeBRepBuild_SolidBuilder
+##  #define MTBfb TopOpeBRepBuild_FaceBuilder
+##  #define MTBeb TopOpeBRepBuild_EdgeBuilder
+##  #define MTBbON TopOpeBRepBuild_BuilderON
+##  #define MTBb TopOpeBRepBuild_Builder
+##  #define MTBpb TopOpeBRepBuild_PBuilder
+##  #define MTBdmiodmosloslos TopOpeBRepBuild_DataMapIteratorOfDataMapOfShapeListOfShapeListOfShape
+##  #define MTBdmosloslos TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape
+##  #define MTBlioloslos TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape
+##  #define MTBloslos TopOpeBRepBuild_ListOfShapeListOfShape
+##  #define MTBslos TopOpeBRepBuild_ShapeListOfShape
+##  #define MTBhb  Handle(TopOpeBRepBuild_HBuilder)

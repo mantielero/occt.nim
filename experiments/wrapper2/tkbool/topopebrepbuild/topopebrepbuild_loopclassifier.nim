@@ -18,12 +18,12 @@ discard "forward decl of TopOpeBRepBuild_Loop"
 type
   TopOpeBRepBuildLoopClassifier* {.importcpp: "TopOpeBRepBuild_LoopClassifier",
                                   header: "TopOpeBRepBuild_LoopClassifier.hxx",
-                                  bycopy.} = object
+                                  bycopy.} = object of RootObj
 
 
 proc destroyTopOpeBRepBuildLoopClassifier*(
     this: var TopOpeBRepBuildLoopClassifier) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_LoopClassifier()", dynlib: tkfillet.}
+    importcpp: "#.~TopOpeBRepBuild_LoopClassifier()", dynlib: tkbool.}
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkfillet.}
+    cdecl, importcpp: "Compare", dynlib: tkbool.}

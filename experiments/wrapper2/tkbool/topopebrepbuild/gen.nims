@@ -120,16 +120,32 @@ genFiles("TopOpeBRepBuild_Area1dBuilder")
 genFiles("TopOpeBRepBuild_Area2dBuilder")
 genFiles("TopOpeBRepBuild_Area3dBuilder")
 genFiles("TopOpeBRepBuild_AreaBuilder")
+pp("topopebrepbuild_areabuilder.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("TopOpeBRepBuild_BlockBuilder")
 genFiles("TopOpeBRepBuild_BlockIterator")
 genFiles("TopOpeBRepBuild_Builder1")
 genFiles("TopOpeBRepBuild_Builder")
+pp("topopebrepbuild_builder.nim",
+  replaceAll = @[("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")"""),
+  ("""TCollectionAsciiString = "\n"""", """TCollectionAsciiString = newTCollectionAsciiString("\n")"""),
+  ("= object", "= object of RootObj")
+  ]
+)
 genFiles("TopOpeBRepBuild_BuilderON")
 genFiles("TopOpeBRepBuild_CompositeClassifier")
 genFiles("TopOpeBRepBuild_CorrectFace2d")
 genFiles("TopOpeBRepBuild_DataMapIteratorOfDataMapOfShapeListOfShapeListOfShape")
 genFiles("TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape")
-genFiles("TopOpeBRepBuild_define")
+pp("topopebrepbuild_datamapofshapelistofshapelistofshape.nim",
+  replaceAll = @[("""TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* = Iterator[
+      TopoDS_Shape, TopOpeBRepBuildListOfShapeListOfShape, TopToolsShapeMapHasher]""",
+      """TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepBuild_ListOfShapeListOfShape,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape.hxx", bycopy.} = object""")]
+)
+genFiles("TopOpeBRepBuild_define",
+  comment = @[(41, 60)]
+)
 genFiles("TopOpeBRepBuild_EdgeBuilder")
 genFiles("TopOpeBRepBuild_FaceAreaBuilder")
 genFiles("TopOpeBRepBuild_FaceBuilder")
@@ -145,13 +161,45 @@ genFiles("TopOpeBRepBuild_ListIteratorOfListOfLoop")
 genFiles("TopOpeBRepBuild_ListIteratorOfListOfPave")
 genFiles("TopOpeBRepBuild_ListIteratorOfListOfShapeListOfShape")
 genFiles("TopOpeBRepBuild_ListOfListOfLoop")
+pp("topopebrepbuild_listoflistofloop.nim",
+  replaceAll = @[("""TopOpeBRepBuildListIteratorOfListOfListOfLoop* = Iterator[
+      TopOpeBRepBuildListOfLoop]""",
+      """TopOpeBRepBuildListIteratorOfListOfListOfLoop* {.importcpp:"NCollection_List<TopOpeBRepBuild_ListOfLoop>::Iterator", header:"TopOpeBRepBuild_ListOfListOfLoop.hxx", bycopy.} = object"""
+      )]
+)
+
 genFiles("TopOpeBRepBuild_ListOfLoop")
+pp("topopebrepbuild_listofloop.nim",
+  replaceAll = @[("TopOpeBRepBuildListIteratorOfListOfLoop* = Iterator[Handle[TopOpeBRepBuildLoop]]",
+    """TopOpeBRepBuildListIteratorOfListOfLoop* {.importcpp:"NCollection_List<Handle(TopOpeBRepBuild_Loop)>::Iterator", header:"TopOpeBRepBuild_ListOfLoop.hxx", bycopy.} = object"""
+  )]
+)
 genFiles("TopOpeBRepBuild_ListOfPave")
+pp("topopebrepbuild_listofpave.nim",
+  replaceAll = @[("TopOpeBRepBuildListIteratorOfListOfPave* = Iterator[Handle[TopOpeBRepBuildPave]]",
+    """TopOpeBRepBuildListIteratorOfListOfPave* {.importcpp:"NCollection_List<Handle(TopOpeBRepBuild_Pave)>::Iterator", header:"TopOpeBRepBuild_ListOfPave.hxx", bycopy.} = object"""
+  )]
+)
+
 genFiles("TopOpeBRepBuild_ListOfShapeListOfShape")
+pp("topopebrepbuild_listofshapelistofshape.nim",
+  replaceAll = @[("""TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* = Iterator[
+      TopOpeBRepBuildShapeListOfShape]""",
+      """TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* {.importcpp:"NCollection_List<TopOpeBRepBuild_ShapeListOfShape>::Iterator", header:"TopOpeBRepBuild_ListOfShapeListOfShape.hxx", bycopy.} = object"""
+      )]
+)
+
+
 genFiles("TopOpeBRepBuild_LoopClassifier")
+pp("topopebrepbuild_loopclassifier.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("TopOpeBRepBuild_LoopEnum")
 genFiles("TopOpeBRepBuild_Loop")
 genFiles("TopOpeBRepBuild_LoopSet")
+pp("topopebrepbuild_loopset.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("TopOpeBRepBuild_PaveClassifier")
 genFiles("TopOpeBRepBuild_Pave")
 genFiles("TopOpeBRepBuild_PaveSet")
@@ -160,8 +208,18 @@ genFiles("TopOpeBRepBuild_PGTopo")
 genFiles("TopOpeBRepBuild_PWireEdgeSet")
 genFiles("TopOpeBRepBuild_ShapeListOfShape")
 genFiles("TopOpeBRepBuild_ShapeSet")
+pp("topopebrepbuild_shapeset.nim",
+  replaceAll = @[("= object", "= object of RootObj"),
+  ("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")
+  ]
+)
 genFiles("TopOpeBRepBuild_ShellFaceClassifier")
 genFiles("TopOpeBRepBuild_ShellFaceSet")
+pp("topopebrepbuild_shellfaceset.nim",
+  replaceAll = @[
+  ("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")
+  ]
+)
 genFiles("TopOpeBRepBuild_ShellToSolid")
 genFiles("TopOpeBRepBuild_SolidAreaBuilder")
 genFiles("TopOpeBRepBuild_SolidBuilder")
@@ -170,6 +228,11 @@ genFiles("TopOpeBRepBuild_Tools")
 genFiles("TopOpeBRepBuild_VertexInfo")
 genFiles("TopOpeBRepBuild_WireEdgeClassifier")
 genFiles("TopOpeBRepBuild_WireEdgeSet")
+pp("topopebrepbuild_wireedgeset.nim",
+  replaceAll = @[
+  ("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")
+  ]
+)
 genFiles("TopOpeBRepBuild_WireToFace")
 
 

@@ -20,64 +20,62 @@ type
 
 
 proc newTopOpeBRepBuildGTopo*(): TopOpeBRepBuildGTopo {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_GTopo(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_GTopo(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildGTopo*(ii: bool; `in`: bool; io: bool; ni: bool; nn: bool; no: bool;
                              oi: bool; on: bool; oo: bool; t1: TopAbsShapeEnum;
                              t2: TopAbsShapeEnum; c1: TopOpeBRepDS_Config;
                              c2: TopOpeBRepDS_Config): TopOpeBRepBuildGTopo {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_GTopo(@)", dynlib: tkfillet.}
-proc reset*(this: var TopOpeBRepBuildGTopo) {.cdecl, importcpp: "Reset",
-    dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_GTopo(@)", dynlib: tkbool.}
+proc reset*(this: var TopOpeBRepBuildGTopo) {.cdecl, importcpp: "Reset", dynlib: tkbool.}
 proc set*(this: var TopOpeBRepBuildGTopo; ii: bool; `in`: bool; io: bool; ni: bool;
          nn: bool; no: bool; oi: bool; on: bool; oo: bool) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc `type`*(this: TopOpeBRepBuildGTopo; t1: var TopAbsShapeEnum;
             t2: var TopAbsShapeEnum) {.noSideEffect, cdecl, importcpp: "Type",
-                                    dynlib: tkfillet.}
+                                    dynlib: tkbool.}
 proc changeType*(this: var TopOpeBRepBuildGTopo; t1: TopAbsShapeEnum;
-                t2: TopAbsShapeEnum) {.cdecl, importcpp: "ChangeType",
-                                     dynlib: tkfillet.}
+                t2: TopAbsShapeEnum) {.cdecl, importcpp: "ChangeType", dynlib: tkbool.}
 proc config1*(this: TopOpeBRepBuildGTopo): TopOpeBRepDS_Config {.noSideEffect, cdecl,
-    importcpp: "Config1", dynlib: tkfillet.}
+    importcpp: "Config1", dynlib: tkbool.}
 proc config2*(this: TopOpeBRepBuildGTopo): TopOpeBRepDS_Config {.noSideEffect, cdecl,
-    importcpp: "Config2", dynlib: tkfillet.}
+    importcpp: "Config2", dynlib: tkbool.}
 proc changeConfig*(this: var TopOpeBRepBuildGTopo; c1: TopOpeBRepDS_Config;
                   c2: TopOpeBRepDS_Config) {.cdecl, importcpp: "ChangeConfig",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc value*(this: TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkbool.}
 proc value*(this: TopOpeBRepBuildGTopo; i1: cint; i2: cint): bool {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", dynlib: tkbool.}
 proc value*(this: TopOpeBRepBuildGTopo; ii: cint): bool {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", dynlib: tkbool.}
 proc changeValue*(this: var TopOpeBRepBuildGTopo; i1: cint; i2: cint; b: bool) {.cdecl,
-    importcpp: "ChangeValue", dynlib: tkfillet.}
+    importcpp: "ChangeValue", dynlib: tkbool.}
 proc changeValue*(this: var TopOpeBRepBuildGTopo; s1: TopAbsState; s2: TopAbsState;
-                 b: bool) {.cdecl, importcpp: "ChangeValue", dynlib: tkfillet.}
+                 b: bool) {.cdecl, importcpp: "ChangeValue", dynlib: tkbool.}
 proc gIndex*(this: TopOpeBRepBuildGTopo; s: TopAbsState): cint {.noSideEffect, cdecl,
-    importcpp: "GIndex", dynlib: tkfillet.}
+    importcpp: "GIndex", dynlib: tkbool.}
 proc gState*(this: TopOpeBRepBuildGTopo; i: cint): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "GState", dynlib: tkfillet.}
+    importcpp: "GState", dynlib: tkbool.}
 proc index*(this: TopOpeBRepBuildGTopo; ii: cint; i1: var cint; i2: var cint) {.
-    noSideEffect, cdecl, importcpp: "Index", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Index", dynlib: tkbool.}
 proc dumpVal*(this: TopOpeBRepBuildGTopo; os: var StandardOStream; s1: TopAbsState;
              s2: TopAbsState) {.noSideEffect, cdecl, importcpp: "DumpVal",
-                              dynlib: tkfillet.}
+                              dynlib: tkbool.}
 proc dumpType*(this: TopOpeBRepBuildGTopo; os: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "DumpType", dynlib: tkfillet.}
+    cdecl, importcpp: "DumpType", dynlib: tkbool.}
 proc dumpSSB*(os: var StandardOStream; s1: TopAbsState; s2: TopAbsState; b: bool) {.cdecl,
-    importcpp: "TopOpeBRepBuild_GTopo::DumpSSB(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_GTopo::DumpSSB(@)", dynlib: tkbool.}
 proc dump*(this: TopOpeBRepBuildGTopo; os: var StandardOStream; s: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "Dump", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Dump", dynlib: tkbool.}
 proc statesON*(this: TopOpeBRepBuildGTopo; s1: var TopAbsState; s2: var TopAbsState) {.
-    noSideEffect, cdecl, importcpp: "StatesON", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "StatesON", dynlib: tkbool.}
 proc isToReverse1*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, cdecl,
-    importcpp: "IsToReverse1", dynlib: tkfillet.}
+    importcpp: "IsToReverse1", dynlib: tkbool.}
 proc isToReverse2*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, cdecl,
-    importcpp: "IsToReverse2", dynlib: tkfillet.}
+    importcpp: "IsToReverse2", dynlib: tkbool.}
 proc setReverse*(this: var TopOpeBRepBuildGTopo; rev: bool) {.cdecl,
-    importcpp: "SetReverse", dynlib: tkfillet.}
+    importcpp: "SetReverse", dynlib: tkbool.}
 proc reverse*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, cdecl,
-    importcpp: "Reverse", dynlib: tkfillet.}
+    importcpp: "Reverse", dynlib: tkbool.}
 proc copyPermuted*(this: TopOpeBRepBuildGTopo): TopOpeBRepBuildGTopo {.noSideEffect,
-    cdecl, importcpp: "CopyPermuted", dynlib: tkfillet.}
+    cdecl, importcpp: "CopyPermuted", dynlib: tkbool.}

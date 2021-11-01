@@ -169,10 +169,17 @@ genFiles("TopOpeBRepDS_GeometryData")
 genFiles("TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference")
 genFiles("TopOpeBRepDS_HDataStructure")
 genFiles("TopOpeBRepDS")
+pp("topopebrepds.nim",
+  replaceAll = @[("""TCollectionAsciiString = """"",
+  """TCollectionAsciiString = newTCollectionAsciiString("")""")]
+)
 genFiles("TopOpeBRepDS_IndexedDataMapOfShapeWithState")
 genFiles("TopOpeBRepDS_IndexedDataMapOfVertexPoint")
 genFiles("TopOpeBRepDS_Interference")
 genFiles("TopOpeBRepDS_InterferenceIterator")
+pp("topopebrepds_interferenceiterator.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("TopOpeBRepDS_InterferenceTool")
 genFiles("TopOpeBRepDS_Kind")
 genFiles("TopOpeBRepDS_ListIteratorOfListOfInterference")

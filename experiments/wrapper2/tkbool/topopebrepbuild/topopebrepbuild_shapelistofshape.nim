@@ -22,18 +22,18 @@ type
 
 proc newTopOpeBRepBuildShapeListOfShape*(): TopOpeBRepBuildShapeListOfShape {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc newTopOpeBRepBuildShapeListOfShape*(s: TopoDS_Shape): TopOpeBRepBuildShapeListOfShape {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc newTopOpeBRepBuildShapeListOfShape*(s: TopoDS_Shape; L: TopToolsListOfShape): TopOpeBRepBuildShapeListOfShape {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_ShapeListOfShape(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc list*(this: TopOpeBRepBuildShapeListOfShape): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "List", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "List", dynlib: tkbool.}
 proc changeList*(this: var TopOpeBRepBuildShapeListOfShape): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeList", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangeList", dynlib: tkbool.}
 proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "Shape", dynlib: tkfillet.}
+    cdecl, importcpp: "Shape", dynlib: tkbool.}
 proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
-    cdecl, importcpp: "ChangeShape", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangeShape", dynlib: tkbool.}

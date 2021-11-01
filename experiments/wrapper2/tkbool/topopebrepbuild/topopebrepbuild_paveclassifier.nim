@@ -35,14 +35,14 @@ type
 
 proc newTopOpeBRepBuildPaveClassifier*(e: TopoDS_Shape): TopOpeBRepBuildPaveClassifier {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_PaveClassifier(@)",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc compare*(this: var TopOpeBRepBuildPaveClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkfillet.}
+    cdecl, importcpp: "Compare", dynlib: tkbool.}
 proc setFirstParameter*(this: var TopOpeBRepBuildPaveClassifier; p: cfloat) {.cdecl,
-    importcpp: "SetFirstParameter", dynlib: tkfillet.}
+    importcpp: "SetFirstParameter", dynlib: tkbool.}
 proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: bool) {.cdecl,
-    importcpp: "ClosedVertices", dynlib: tkfillet.}
+    importcpp: "ClosedVertices", dynlib: tkbool.}
 proc adjustCase*(p1: cfloat; o: TopAbsOrientation; first: cfloat; period: cfloat;
                 tol: cfloat; cas: var cint): cfloat {.cdecl,
-    importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)", dynlib: tkfillet.}
+    importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)", dynlib: tkbool.}

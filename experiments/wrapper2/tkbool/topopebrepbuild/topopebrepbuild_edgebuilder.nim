@@ -25,30 +25,29 @@ type
 
 
 proc newTopOpeBRepBuildEdgeBuilder*(): TopOpeBRepBuildEdgeBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)", dynlib: tkfillet.}
+    constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)", dynlib: tkbool.}
 proc newTopOpeBRepBuildEdgeBuilder*(ls: var TopOpeBRepBuildPaveSet;
                                    lc: var TopOpeBRepBuildPaveClassifier;
                                    forceClass: bool = false): TopOpeBRepBuildEdgeBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)",
-    dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_EdgeBuilder(@)", dynlib: tkbool.}
 proc initEdgeBuilder*(this: var TopOpeBRepBuildEdgeBuilder;
                      ls: var TopOpeBRepBuildLoopSet;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.cdecl, importcpp: "InitEdgeBuilder",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc initEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.cdecl, importcpp: "InitEdge",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc moreEdge*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreEdge", dynlib: tkfillet.}
+    importcpp: "MoreEdge", dynlib: tkbool.}
 proc nextEdge*(this: var TopOpeBRepBuildEdgeBuilder) {.cdecl, importcpp: "NextEdge",
-    dynlib: tkfillet.}
+    dynlib: tkbool.}
 proc initVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.cdecl,
-    importcpp: "InitVertex", dynlib: tkfillet.}
+    importcpp: "InitVertex", dynlib: tkbool.}
 proc moreVertex*(this: TopOpeBRepBuildEdgeBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreVertex", dynlib: tkfillet.}
+    importcpp: "MoreVertex", dynlib: tkbool.}
 proc nextVertex*(this: var TopOpeBRepBuildEdgeBuilder) {.cdecl,
-    importcpp: "NextVertex", dynlib: tkfillet.}
+    importcpp: "NextVertex", dynlib: tkbool.}
 proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkfillet.}
+    importcpp: "Vertex", dynlib: tkbool.}
 proc parameter*(this: TopOpeBRepBuildEdgeBuilder): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkfillet.}
+    importcpp: "Parameter", dynlib: tkbool.}

@@ -76,13 +76,13 @@ proc print*(s: TopAbsState; os: var StandardOStream): var StandardOStream {.cdec
     importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
 proc sPrint*(k: TopOpeBRepDS_Kind): TCollectionAsciiString {.cdecl,
     importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
-proc sPrint*(k: TopOpeBRepDS_Kind; i: cint; b: TCollectionAsciiString = "";
-            a: TCollectionAsciiString = ""): TCollectionAsciiString {.cdecl,
+proc sPrint*(k: TopOpeBRepDS_Kind; i: cint; b: TCollectionAsciiString = newTCollectionAsciiString("");
+            a: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.cdecl,
     importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
 proc print*(k: TopOpeBRepDS_Kind; s: var StandardOStream): var StandardOStream {.cdecl,
     importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
 proc print*(k: TopOpeBRepDS_Kind; i: cint; s: var StandardOStream;
-           b: TCollectionAsciiString = ""; a: TCollectionAsciiString = ""): var StandardOStream {.
+           b: TCollectionAsciiString = newTCollectionAsciiString(""); a: TCollectionAsciiString = newTCollectionAsciiString("")): var StandardOStream {.
     cdecl, importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
 proc sPrint*(t: TopAbsShapeEnum): TCollectionAsciiString {.cdecl,
     importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}

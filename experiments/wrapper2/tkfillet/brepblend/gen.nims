@@ -128,6 +128,10 @@ genFiles("BRepBlend_AppSurf",
   comment = @[(169,185)]
 )
 genFiles("BRepBlend_BlendTool")
+pp("brepblend_blendtool.nim",
+  commentRange = @[(55,58)]
+)
+
 genFiles("BRepBlend_Chamfer")
 genFiles("BRepBlend_ChamfInv")
 genFiles("BRepBlend_ChAsym")

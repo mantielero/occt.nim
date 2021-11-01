@@ -9,6 +9,8 @@ type
   Link* = object
   TShortHArray1OfShortReal* = object
   TShortArray1OfShortReal* = object
+  MathNotSquare* = object
+  MathSingularMatrix* = object
 
 when defined(windows):
   const tkmath* = "TKMath.dll"
@@ -22,3 +24,5 @@ include tcolgp/tcolgp_includes
 include geomabs/geomabs_includes
 include toploc/toploc_includes
 include poly/poly_includes
+include math/math_includes
+include precision/precision_includes

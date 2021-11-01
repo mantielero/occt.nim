@@ -1,0 +1,35 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include chfids_chamfmethod
+include chfids_chamfmode
+include chfids_chamfspine
+include chfids_circsection
+include chfids_commonpoint
+include chfids_elspine
+include chfids_errorstatus
+include chfids_faceinterference
+include chfids_filspine
+include chfids_hdata
+include chfids_helspine
+include chfids_indexeddatamapofvertexlistofstripe
+include chfids_listiteratoroflistofhelspine
+include chfids_listiteratoroflistofstripe
+include chfids_listiteratorofregularities
+include chfids_listofhelspine
+include chfids_listofstripe
+include chfids_map
+include chfids_regul
+include chfids_regularities
+include chfids_secarray1
+include chfids_secharray1
+include chfids_sequenceofspine
+include chfids_sequenceofsurfdata
+include chfids_spine
+include chfids_state
+include chfids_stripe
+include chfids_stripearray1
+include chfids_stripemap
+include chfids_surfdata
+include chfids_typeofconcavity

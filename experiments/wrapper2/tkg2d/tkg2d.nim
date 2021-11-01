@@ -17,3 +17,5 @@ else:
   const tkg2d* = "libTKG2d.so"
 
 include geom2d/geom2d_includes
+include adaptor2d/adaptor2d_includes
+include geom2dadaptor/geom2dadaptor_includes

@@ -20,3 +20,4 @@ type
 include topods/topods_includes
 include toptools/toptools_includes
 include brep/brep_includes
+include brepadaptor/brepadaptor_includes

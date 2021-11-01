@@ -15,3 +15,5 @@ else:
 
 include gc/gc_includes
 include gce/gce_includes
+include approx/approx_includes
+include appcont/appcont_includes

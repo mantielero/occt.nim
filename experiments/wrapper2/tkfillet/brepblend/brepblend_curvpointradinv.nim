@@ -1,0 +1,47 @@
+##  Created on: 1997-02-12
+##  Created by: Laurent BOURESCHE
+##  Copyright (c) 1997-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Adaptor3d_HCurve"
+discard "forward decl of math_Matrix"
+discard "forward decl of gp_Pnt"
+type
+  BRepBlendCurvPointRadInv* {.importcpp: "BRepBlend_CurvPointRadInv",
+                             header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of BlendCurvPointFuncInv
+
+
+proc newBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];
+                                 c2: Handle[Adaptor3dHCurve]): BRepBlendCurvPointRadInv {.
+    cdecl, constructor, importcpp: "BRepBlend_CurvPointRadInv(@)", dynlib: tkfillet.}
+proc set*(this: var BRepBlendCurvPointRadInv; choix: cint) {.cdecl, importcpp: "Set",
+    dynlib: tkfillet.}
+proc nbEquations*(this: BRepBlendCurvPointRadInv): cint {.noSideEffect, cdecl,
+    importcpp: "NbEquations", dynlib: tkfillet.}
+proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): bool {.
+    cdecl, importcpp: "Value", dynlib: tkfillet.}
+proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var MathMatrix): bool {.
+    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector;
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+proc set*(this: var BRepBlendCurvPointRadInv; p: Pnt) {.cdecl, importcpp: "Set",
+    dynlib: tkfillet.}
+proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
+                  tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",
+                               dynlib: tkfillet.}
+proc getBounds*(this: BRepBlendCurvPointRadInv; infBound: var MathVector;
+               supBound: var MathVector) {.noSideEffect, cdecl,
+                                        importcpp: "GetBounds", dynlib: tkfillet.}
+proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector; tol: cfloat): bool {.
+    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}

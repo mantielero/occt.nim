@@ -12,3 +12,6 @@ include tkg2d/tkg2d
 include tkbrep/tkbrep
 include tktopalgo/tktopalgo
 include tkprim/tkprim
+include tkfillet/tkfillet
+include tkbool/tkbool
+include tkgeomalgo/tkgeomalgo

@@ -19,8 +19,8 @@
 type
   TopOpeBRepDS_Kind* {.size: sizeof(cint), importcpp: "TopOpeBRepDS_Kind",
                       header: "TopOpeBRepDS_Kind.hxx".} = enum
-    TopOpeBRepDS_POINT, TopOpeBRepDS_CURVE, TopOpeBRepDS_SURFACE,
-    TopOpeBRepDS_VERTEX, TopOpeBRepDS_EDGE, TopOpeBRepDS_WIRE, TopOpeBRepDS_FACE,
-    TopOpeBRepDS_SHELL, TopOpeBRepDS_SOLID, TopOpeBRepDS_COMPSOLID,
-    TopOpeBRepDS_COMPOUND, TopOpeBRepDS_UNKNOWN
+    tobrdsPOINT, tobrdsCURVE, tobrdsSURFACE,
+    tobrdsVERTEX, tobrdsEDGE, tobrdsWIRE, tobrdsFACE,
+    tobrdsSHELL, tobrdsSOLID, tobrdsCOMPSOLID,
+    tobrdsCOMPOUND, tobrdsUNKNOWN
 

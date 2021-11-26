@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_ListOfInterference* = NCollectionList[
       Handle[TopOpeBRepDS_Interference]]
-  TopOpeBRepDS_ListIteratorOfListOfInterference* = Iterator[
-      Handle[TopOpeBRepDS_Interference]]
+  TopOpeBRepDS_ListIteratorOfListOfInterference* {.importcpp:"NCollection_List<Handle(TopOpeBRepDS_Interference)>::Iterator", header:"TopOpeBRepDS_ListOfInterference.hxx", bycopy.} = object

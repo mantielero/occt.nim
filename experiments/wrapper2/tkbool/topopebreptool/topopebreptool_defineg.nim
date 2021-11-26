@@ -14,12 +14,12 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-const
-  Mhgc* = handle[GeomCurve]
-  Mhgtc* = handle[GeomTrimmedCurve]
-  Mhg2c* = handle[Geom2dCurve]
-  Mhg2tc* = handle[Geom2dTrimmedCurve]
-  Mgc* = geomCurve
-  Mgtc* = geomTrimmedCurve
-  Mg2c* = geom2dCurve
-  Mg2tc* = geomTrimmedCurve
+##  #define Mhgc  Handle(Geom_Curve)
+##  #define Mhgtc Handle(Geom_TrimmedCurve)
+##  #define Mhg2c Handle(Geom2d_Curve)
+##  #define Mhg2tc Handle(Geom2d_TrimmedCurve)
+##
+##  #define Mgc  Geom_Curve
+##  #define Mgtc Geom_TrimmedCurve
+##  #define Mg2c Geom2d_Curve
+##  #define Mg2tc Geom_TrimmedCurve

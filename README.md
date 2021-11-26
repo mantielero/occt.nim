@@ -1,6 +1,38 @@
 # occt
 OpenCascade nim wrapper
 
+## Development
+Currently working on: `./experiments/wrapper2/`
+
+In particular in: `tkgeombase/extrema`:
+- `gen.nims`: 
+  - change: `let packageName = "..."`
+  - replace the `genFiles` with the appropriate files. Find out the files by means of `ls /usr/include/opencascade/Extrema*.hxx | cut -c 26-`
+
+- `extrema.c2nim`
+  - modify the `#dynlib ...` so that it refers to the toolkit.
+
+Run the `gen.nims` until it works. If it fails, you might need to comment lines in the header, by adding something like: `genFiles( "filename.hxx", comment = @[(25, 30)])`.
+
+In order to include all the new files created, just go to the corresponding *toolkit* file. For example, `./experiments/wrapper2/tkgeombase/tkgeombase.nim` and include `extrema` by adding: `include extrema/extrema_includes`
+
+Check that everything is fine by running for example:
+```bash
+$ nim cpp ex04_tkmath
+```
+
+If an error like `inheritance only works with non-final objects` appears, it means that the corresponding object needs to be defined as: `... = object of RootObj`. That modification is done by means of the `gen.nims` file. By means of something like this:
+```nim
+pp("extrema_ponsurf.nim",
+  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")])
+```
+
+> `pp` stands for Post Processing.
+
+
+
+
+
 ## OpenCascade overview
 OpenCascade is organized in different [modules](https://dev.opencascade.org/doc/refman/html/index.html) (alphabetic order):
 - [ApplicationFramework](https://dev.opencascade.org/doc/refman/html/module_applicationframework.html)

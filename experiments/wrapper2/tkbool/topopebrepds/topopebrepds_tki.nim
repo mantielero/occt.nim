@@ -40,8 +40,8 @@ proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint) {.cdecl,
 proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint;
          hi: Handle[TopOpeBRepDS_Interference]) {.cdecl, importcpp: "Add",
     dynlib: tkbool.}
-proc dumpTKIIterator*(this: var TopOpeBRepDS_TKI; s1: TCollectionAsciiString = "";
-                     s2: TCollectionAsciiString = "") {.cdecl,
+proc dumpTKIIterator*(this: var TopOpeBRepDS_TKI; s1: TCollectionAsciiString = newTCollectionAsciiString("");
+                     s2: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "DumpTKIIterator", dynlib: tkbool.}
 proc init*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Init", dynlib: tkbool.}
 proc more*(this: TopOpeBRepDS_TKI): bool {.noSideEffect, cdecl, importcpp: "More",

@@ -120,6 +120,9 @@ proc pp*(file:string,
 # ls /usr/include/opencascade/TopOpeBRepTool*.hxx | cut -c 26-
 
 genFiles("TopOpeBRepTool_2d")
+pp("topopebreptool_2d.nim",
+  replaceAll = @[("f: var cfloat", "f1: var cfloat"),("f: TopoDS_Face; f: cfloat;", "f: TopoDS_Face; f1: cfloat;")]
+)
 genFiles("TopOpeBRepTool_AncestorsTool")
 genFiles("TopOpeBRepTool_box")
 genFiles("TopOpeBRepTool_BoxSort")
@@ -132,9 +135,29 @@ genFiles("TopOpeBRepTool_DataMapIteratorOfDataMapOfOrientedShapeC2DF")
 genFiles("TopOpeBRepTool_DataMapIteratorOfDataMapOfShapeface")
 genFiles("TopOpeBRepTool_DataMapIteratorOfDataMapOfShapeListOfC2DF")
 genFiles("TopOpeBRepTool_DataMapOfOrientedShapeC2DF")
+pp("topopebreptool_datamapoforientedshapec2df.nim",
+  replaceAll = @[("""TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* = Iterator[
+      TopoDS_Shape, TopOpeBRepToolC2DF, TopToolsOrientedShapeMapHasher]""",
+      """TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_C2DF,TopTools_OrientedShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfOrientedShapeC2DF.hxx", bycopy.} = object"""
+      )]
+)
 genFiles("TopOpeBRepTool_DataMapOfShapeface")
+pp("topopebreptool_datamapofshapeface.nim",
+  replaceAll = @[("""TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* = Iterator[TopoDS_Shape,
+      TopOpeBRepToolFace, TopToolsShapeMapHasher]""",
+      """TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_face,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeface.hxx", bycopy.} = object"""
+      )]
+)
 genFiles("TopOpeBRepTool_DataMapOfShapeListOfC2DF")
-genFiles("TopOpeBRepTool_defineG")
+pp("topopebreptool_datamapofshapelistofc2df.nim",
+  replaceAll = @[("""TopOpeBRepToolDataMapIteratorOfDataMapOfShapeListOfC2DF* = Iterator[
+      TopoDS_Shape, TopOpeBRepToolListOfC2DF, TopToolsShapeMapHasher]""",
+      """TopOpeBRepToolDataMapIteratorOfDataMapOfShapeListOfC2DF* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_ListOfC2DF,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeListOfC2DF.hxx", bycopy.} = object"""
+      )]
+)
+genFiles("TopOpeBRepTool_defineG",
+  comment = @[(25,33)]
+)
 genFiles("TopOpeBRepTool_define")
 genFiles("TopOpeBRepTool_DRAW")
 genFiles("TopOpeBRepTool_EXPORT")
@@ -151,9 +174,17 @@ genFiles("TopOpeBRepTool_IndexedDataMapOfSolidClassifier")
 genFiles("TopOpeBRepTool_KRO")
 genFiles("TopOpeBRepTool_ListIteratorOfListOfC2DF")
 genFiles("TopOpeBRepTool_ListOfC2DF")
+pp("topopebreptool_listofc2df.nim",
+  replaceAll = @[("TopOpeBRepToolListIteratorOfListOfC2DF* = Iterator[TopOpeBRepToolC2DF]",
+  """TopOpeBRepToolListIteratorOfListOfC2DF* {.importcpp:"NCollection_List<TopOpeBRepTool_C2DF>::Iterator", header:"TopOpeBRepTool_ListOfC2DF.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepTool_makeTransition")
 genFiles("TopOpeBRepTool_mkTondgE")
 genFiles("TopOpeBRepTool_OutCurveType")
+pp("topopebreptool_outcurvetype.nim",
+  replaceAll = @[("TopOpeBRepToolBSPLINE1, TopOpeBRepToolAPPROX, TopOpeBRepToolINTERPOL",
+  "topOpeBRepToolBSPLINE1, topOpeBRepToolAPPROX, topOpeBRepToolINTERPOL")]
+)
 genFiles("TopOpeBRepTool_Plos")
 genFiles("TopOpeBRepTool_PROJECT")
 genFiles("TopOpeBRepTool_PShapeClassifier")

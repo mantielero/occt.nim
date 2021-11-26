@@ -21,7 +21,7 @@ type
 
 
 proc newTopOpeBRepDS_Filter*(hds: Handle[TopOpeBRepDS_HDataStructure];
-                            pClassif: TopOpeBRepToolPShapeClassifier = 0): TopOpeBRepDS_Filter {.
+                            pClassif: TopOpeBRepToolPShapeClassifier = cast[TopOpeBRepToolPShapeClassifier](0)): TopOpeBRepDS_Filter {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_Filter(@)", dynlib: tkbool.}
 proc processInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
     importcpp: "ProcessInterferences", dynlib: tkbool.}

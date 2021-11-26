@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State* = NCollectionDataMap[
       TopoDS_Shape, TopOpeBRepDS_ListOfShapeOn1State, TopToolsShapeMapHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeListOfShapeOn1State* = Iterator[
-      TopoDS_Shape, TopOpeBRepDS_ListOfShapeOn1State, TopToolsShapeMapHasher]
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeListOfShapeOn1State* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepDS_ListOfShapeOn1State,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State.hxx", bycopy.} = object

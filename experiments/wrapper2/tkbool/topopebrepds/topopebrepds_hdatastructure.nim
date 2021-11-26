@@ -127,29 +127,29 @@ proc getGeometry*(this: TopOpeBRepDS_HDataStructure;
 proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
                        i: Handle[TopOpeBRepDS_Interference];
                        li: var TopOpeBRepDS_ListOfInterference;
-                       str: TCollectionAsciiString = "") {.cdecl,
+                       str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "StoreInterference", dynlib: tkbool.}
 proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
                        i: Handle[TopOpeBRepDS_Interference]; s: TopoDS_Shape;
-                       str: TCollectionAsciiString = "") {.cdecl,
+                       str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "StoreInterference", dynlib: tkbool.}
 proc storeInterference*(this: var TopOpeBRepDS_HDataStructure;
                        i: Handle[TopOpeBRepDS_Interference]; `is`: cint;
-                       str: TCollectionAsciiString = "") {.cdecl,
+                       str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "StoreInterference", dynlib: tkbool.}
 proc storeInterferences*(this: var TopOpeBRepDS_HDataStructure;
                         li: TopOpeBRepDS_ListOfInterference; s: TopoDS_Shape;
-                        str: TCollectionAsciiString = "") {.cdecl,
+                        str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "StoreInterferences", dynlib: tkbool.}
 proc storeInterferences*(this: var TopOpeBRepDS_HDataStructure;
                         li: TopOpeBRepDS_ListOfInterference; `is`: cint;
-                        str: TCollectionAsciiString = "") {.cdecl,
+                        str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "StoreInterferences", dynlib: tkbool.}
 proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
                              li: TopOpeBRepDS_ListOfInterference; s: TopoDS_Shape;
-                             str: TCollectionAsciiString = "") {.cdecl,
+                             str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "ClearStoreInterferences", dynlib: tkbool.}
 proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
                              li: TopOpeBRepDS_ListOfInterference; `is`: cint;
-                             str: TCollectionAsciiString = "") {.cdecl,
+                             str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "ClearStoreInterferences", dynlib: tkbool.}

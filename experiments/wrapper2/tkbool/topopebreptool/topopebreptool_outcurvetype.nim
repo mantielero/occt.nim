@@ -18,5 +18,5 @@ type
   TopOpeBRepToolOutCurveType* {.size: sizeof(cint),
                                importcpp: "TopOpeBRepTool_OutCurveType",
                                header: "TopOpeBRepTool_OutCurveType.hxx".} = enum
-    TopOpeBRepToolBSPLINE1, TopOpeBRepToolAPPROX, TopOpeBRepToolINTERPOL
+    topOpeBRepToolBSPLINE1, topOpeBRepToolAPPROX, topOpeBRepToolINTERPOL
 

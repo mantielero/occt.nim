@@ -11,6 +11,11 @@ type
   TShortArray1OfShortReal* = object
   MathNotSquare* = object
   MathSingularMatrix* = object
+  BndArray1OfBox2d* = object
+  #BVH_Box* = object
+  BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",
+                                   header: "BVH_Tree.hxx", bycopy.} = object
+  Pair*[T:cuint; N:cint] = object
 
 when defined(windows):
   const tkmath* = "TKMath.dll"
@@ -27,3 +32,5 @@ include poly/poly_includes
 include math/math_includes
 include precision/precision_includes
 include convert/convert_includes
+include bnd/bnd_includes
+include bvh/bvh_includes

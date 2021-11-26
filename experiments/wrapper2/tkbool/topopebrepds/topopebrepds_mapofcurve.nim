@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[cint, TopOpeBRepDS_CurveData,
       TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[cint,
-      TopOpeBRepDS_CurveData, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfCurve* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_CurveData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfCurve.hxx", bycopy.} = object

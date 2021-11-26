@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_DataMapOfCheckStatus* = NCollectionDataMap[cint,
       TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[cint,
-      TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_CheckStatus,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfCheckStatus.hxx", bycopy.} = object

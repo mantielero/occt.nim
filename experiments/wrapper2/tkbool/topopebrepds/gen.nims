@@ -142,17 +142,65 @@ genFiles("TopOpeBRepDS_DataMapIteratorOfMapOfPoint")
 genFiles("TopOpeBRepDS_DataMapIteratorOfMapOfSurface")
 genFiles("TopOpeBRepDS_DataMapIteratorOfShapeSurface")
 genFiles("TopOpeBRepDS_DataMapOfCheckStatus")
+pp("topopebrepds_datamapofcheckstatus.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* = Iterator[cint,
+      TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]""",
+    """TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_CheckStatus,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfCheckStatus.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_DataMapOfIntegerListOfInterference")
+pp("topopebrepds_datamapofintegerlistofinterference.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* = Iterator[
+      cint, TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_ListOfInterference,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfIntegerListOfInterference.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_DataMapOfInterferenceListOfInterference")
+pp("topopebrepds_datamapofinterferencelistofinterference.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* = Iterator[
+      Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
+      TColStdMapTransientHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* {.importcpp:"NCollection_DataMap<Handle(TopOpeBRepDS_Interference),TopOpeBRepDS_ListOfInterference,TColStd_MapTransientHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfInterferenceListOfInterference.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_DataMapOfInterferenceShape")
+pp("topopebrepds_datamapofinterferenceshape.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceShape* = Iterator[
+      Handle[TopOpeBRepDS_Interference], TopoDS_Shape, TColStdMapTransientHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceShape* {.importcpp:"NCollection_DataMap<Handle(TopOpeBRepDS_Interference),TopoDS_Shape,TColStd_MapTransientHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfInterferenceShape.hxx", bycopy.} = object"""
+      )]
+)
+
 genFiles("TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State")
+pp("topopebrepds_datamapofshapelistofshapeon1state.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeListOfShapeOn1State* = Iterator[
+      TopoDS_Shape, TopOpeBRepDS_ListOfShapeOn1State, TopToolsShapeMapHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeListOfShapeOn1State* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepDS_ListOfShapeOn1State,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State.hxx", bycopy.} = object"""
+      )]
+)
+
 genFiles("TopOpeBRepDS_DataMapOfShapeState")
+pp("topopebrepds_datamapofshapestate.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeState* = Iterator[TopoDS_Shape,
+      TopAbsState, TopToolsShapeMapHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeState* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopAbs_State,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfShapeState.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_DataStructure")
-genFiles("TopOpeBRepDS_define")
+genFiles("TopOpeBRepDS_define",
+  comment = @[(37, 63)]
+)
 genFiles("TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape")
 genFiles("TopOpeBRepDS_DoubleMapOfIntegerShape")
+pp("topopebrepds_doublemapofintegershape.nim",
+  replaceAll = @[("""TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[cint,
+      TopoDS_Shape, TColStdMapIntegerHasher, TopToolsShapeMapHasher]""",
+      """TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* {.importcpp:"NCollection_DoubleMap<Standard_Integer,TopoDS_Shape,TColStd_MapIntegerHasher,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DoubleMapOfIntegerShape.hxx", bycopy.} = object"""
+      )]
+)
+
 genFiles("TopOpeBRepDS_DRAW")
 genFiles("TopOpeBRepDS_Dumper")
+pp("topopebrepds_dumper.nim",
+  replaceAll = @[("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")]
+)
+
 genFiles("TopOpeBRepDS_Edge3dInterferenceTool")
 genFiles("TopOpeBRepDS_EdgeInterferenceTool")
 genFiles("TopOpeBRepDS_EdgeVertexInterference")
@@ -162,12 +210,22 @@ genFiles("TopOpeBRepDS_EXPORT")
 genFiles("TopOpeBRepDS_FaceEdgeInterference")
 genFiles("TopOpeBRepDS_FaceInterferenceTool")
 genFiles("TopOpeBRepDS_Filter")
+pp("topopebrepds_filter.nim",
+  replaceAll = @[("TopOpeBRepToolPShapeClassifier = 0", "TopOpeBRepToolPShapeClassifier = cast[TopOpeBRepToolPShapeClassifier](0)")]
+)
+
 genFiles("TopOpeBRepDS_FIR")
 genFiles("TopOpeBRepDS_GapFiller")
 genFiles("TopOpeBRepDS_GapTool")
 genFiles("TopOpeBRepDS_GeometryData")
+pp("topopebrepds_geometrydata.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference")
 genFiles("TopOpeBRepDS_HDataStructure")
+pp("topopebrepds_hdatastructure.nim",
+  replaceAll = @[("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")]
+)
 genFiles("TopOpeBRepDS")
 pp("topopebrepds.nim",
   replaceAll = @[("""TCollectionAsciiString = """"",
@@ -182,14 +240,52 @@ pp("topopebrepds_interferenceiterator.nim",
 )
 genFiles("TopOpeBRepDS_InterferenceTool")
 genFiles("TopOpeBRepDS_Kind")
+pp("topopebrepds_kind.nim",
+  replaceAll = @[("""TopOpeBRepDS_POINT, TopOpeBRepDS_CURVE, TopOpeBRepDS_SURFACE,
+    TopOpeBRepDS_VERTEX, TopOpeBRepDS_EDGE, TopOpeBRepDS_WIRE, TopOpeBRepDS_FACE,
+    TopOpeBRepDS_SHELL, TopOpeBRepDS_SOLID, TopOpeBRepDS_COMPSOLID,
+    TopOpeBRepDS_COMPOUND, TopOpeBRepDS_UNKNOWN""",
+    """tobrdsPOINT, tobrdsCURVE, tobrdsSURFACE,
+    tobrdsVERTEX, tobrdsEDGE, tobrdsWIRE, tobrdsFACE,
+    tobrdsSHELL, tobrdsSOLID, tobrdsCOMPSOLID,
+    tobrdsCOMPOUND, tobrdsUNKNOWN""")]
+)
 genFiles("TopOpeBRepDS_ListIteratorOfListOfInterference")
 genFiles("TopOpeBRepDS_ListOfInterference")
+pp("topopebrepds_listofinterference.nim",
+  replaceAll = @[("""TopOpeBRepDS_ListIteratorOfListOfInterference* = Iterator[
+      Handle[TopOpeBRepDS_Interference]]""",
+      """TopOpeBRepDS_ListIteratorOfListOfInterference* {.importcpp:"NCollection_List<Handle(TopOpeBRepDS_Interference)>::Iterator", header:"TopOpeBRepDS_ListOfInterference.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_ListOfShapeOn1State")
 genFiles("TopOpeBRepDS_MapOfCurve")
+pp("topopebrepds_mapofcurve.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfMapOfCurve* = Iterator[cint,
+      TopOpeBRepDS_CurveData, TColStdMapIntegerHasher]""", 
+      """TopOpeBRepDS_DataMapIteratorOfMapOfCurve* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_CurveData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfCurve.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_MapOfIntegerShapeData")
+pp("topopebrepds_mapofintegershapedata.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* = Iterator[cint,
+      TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_ShapeData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfIntegerShapeData.hxx", bycopy.} = object"""
+      )]
+)
 genFiles("TopOpeBRepDS_MapOfPoint")
+pp("topopebrepds_mapofpoint.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfMapOfPoint* = Iterator[cint,
+      TopOpeBRepDS_PointData, TColStdMapIntegerHasher]""",
+  """TopOpeBRepDS_DataMapIteratorOfMapOfPoint* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_PointData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfPoint.hxx", bycopy.}  = object""")]
+)
 genFiles("TopOpeBRepDS_MapOfShapeData")
 genFiles("TopOpeBRepDS_MapOfSurface")
+pp("topopebrepds_mapofsurface.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfMapOfSurface* = Iterator[cint,
+      TopOpeBRepDS_SurfaceData, TColStdMapIntegerHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfMapOfSurface* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_SurfaceData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfSurface.hxx", bycopy.} = object"""
+      )]
+)
+
 genFiles("TopOpeBRepDS_Marker")
 genFiles("TopOpeBRepDS_PDataStructure")
 genFiles("TopOpeBRepDS_PointData")
@@ -203,6 +299,11 @@ genFiles("TopOpeBRepDS_samdom")
 genFiles("TopOpeBRepDS_ShapeData")
 genFiles("TopOpeBRepDS_ShapeShapeInterference")
 genFiles("TopOpeBRepDS_ShapeSurface")
+pp("topopebrepds_shapesurface.nim",
+  replaceAll = @[("""TopOpeBRepDS_DataMapIteratorOfShapeSurface* = Iterator[TopoDS_Shape,
+      Handle[GeomSurface], TopToolsShapeMapHasher]""",
+      """TopOpeBRepDS_DataMapIteratorOfShapeSurface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,Handle(Geom_Surface),TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_ShapeSurface.hxx", bycopy.} = object""")]
+)
 genFiles("TopOpeBRepDS_ShapeWithState")
 genFiles("TopOpeBRepDS_SolidSurfaceInterference")
 genFiles("TopOpeBRepDS_SurfaceCurveInterference")
@@ -211,6 +312,9 @@ genFiles("TopOpeBRepDS_SurfaceExplorer")
 genFiles("TopOpeBRepDS_Surface")
 genFiles("TopOpeBRepDS_SurfaceIterator")
 genFiles("TopOpeBRepDS_TKI")
+pp("topopebrepds_tki.nim",
+  replaceAll = @[("""TCollectionAsciiString = """"", """TCollectionAsciiString = newTCollectionAsciiString("")""")]
+)
 genFiles("TopOpeBRepDS_TOOL")
 genFiles("TopOpeBRepDS_Transition")
 

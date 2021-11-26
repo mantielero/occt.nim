@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[cint,
       TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* = Iterator[
-      cint, TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_ListOfInterference,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfIntegerListOfInterference.hxx", bycopy.} = object

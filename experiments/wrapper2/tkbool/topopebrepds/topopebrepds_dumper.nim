@@ -40,8 +40,8 @@ proc sPrintShape*(this: TopOpeBRepDS_Dumper; i: cint): TCollectionAsciiString {.
 proc sPrintShape*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SPrintShape", dynlib: tkbool.}
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape;
-                       b: TCollectionAsciiString = ""): TCollectionAsciiString {.
+                       b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", dynlib: tkbool.}
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopToolsListOfShape;
-                       b: TCollectionAsciiString = ""): TCollectionAsciiString {.
+                       b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", dynlib: tkbool.}

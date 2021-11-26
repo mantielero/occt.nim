@@ -14,30 +14,30 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-const
-  MDSlioloi* = topOpeBRepDS_ListIteratorOfListOfInterference
-  MDSloi* = topOpeBRepDS_ListOfInterference
-  MDShi* = handle[TopOpeBRepDS_Interference]
-  MDShssi* = handle[TopOpeBRepDS_ShapeShapeInterference]
-  MDShcpi* = handle[TopOpeBRepDS_CurvePointInterference]
-  MDScpi* = topOpeBRepDS_CurvePointInterference
-  MDShevi* = handle[TopOpeBRepDS_EdgeVertexInterference]
-  MDSevi* = topOpeBRepDS_EdgeVertexInterference
-  MDShfei* = handle[TopOpeBRepDS_FaceEdgeInterference]
-  MDShsci* = handle[TopOpeBRepDS_SurfaceCurveInterference]
-  MDScux* = topOpeBRepDS_CurveExplorer
-  MDScud* = topOpeBRepDS_CurveData
-  MDScu* = topOpeBRepDS_Curve
-  MDSpox* = topOpeBRepDS_PointExplorer
-  MDSpod* = topOpeBRepDS_PointData
-  MDSpo* = topOpeBRepDS_Point
-  MDSii* = topOpeBRepDS_InterferenceIterator
-  MDShds* = handle[TopOpeBRepDS_HDataStructure]
-  MDSds* = topOpeBRepDS_DataStructure
-  MDSpds* = topOpeBRepDS_PDataStructure
-  MDSk* = topOpeBRepDS_Kind
-  MDSc* = topOpeBRepDS_Config
-  MDSt* = topOpeBRepDS_Transition
-  MDSsd* = topOpeBRepDS_ShapeData
-  MDSmosd* = topOpeBRepDS_MapOfShapeData
-  MDSitl* = topOpeBRepDS_InterferenceTool
+##  #define MDSlioloi TopOpeBRepDS_ListIteratorOfListOfInterference
+##  #define MDSloi TopOpeBRepDS_ListOfInterference
+##  #define MDShi Handle(TopOpeBRepDS_Interference)
+##  #define MDShssi Handle(TopOpeBRepDS_ShapeShapeInterference)
+##  #define MDShcpi Handle(TopOpeBRepDS_CurvePointInterference)
+##  #define MDScpi TopOpeBRepDS_CurvePointInterference
+##  #define MDShevi Handle(TopOpeBRepDS_EdgeVertexInterference)
+##  #define MDSevi TopOpeBRepDS_EdgeVertexInterference
+##  #define MDShfei Handle(TopOpeBRepDS_FaceEdgeInterference)
+##  #define MDShsci Handle(TopOpeBRepDS_SurfaceCurveInterference)
+##  #define MDScux TopOpeBRepDS_CurveExplorer
+##  #define MDScud TopOpeBRepDS_CurveData
+##  #define MDScu TopOpeBRepDS_Curve
+##  #define MDSpox TopOpeBRepDS_PointExplorer
+##  #define MDSpod TopOpeBRepDS_PointData
+##  #define MDSpo TopOpeBRepDS_Point
+##  #define MDSii TopOpeBRepDS_InterferenceIterator
+##  #define MDShds Handle(TopOpeBRepDS_HDataStructure)
+##  #define MDSds TopOpeBRepDS_DataStructure
+##  #define MDSpds TopOpeBRepDS_PDataStructure
+##  #define MDSk TopOpeBRepDS_Kind
+##  #define MDSc TopOpeBRepDS_Config
+##  #define MDSt TopOpeBRepDS_Transition
+##
+##  #define MDSsd TopOpeBRepDS_ShapeData
+##  #define MDSmosd TopOpeBRepDS_MapOfShapeData
+##  #define MDSitl TopOpeBRepDS_InterferenceTool

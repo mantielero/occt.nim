@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_MapOfSurface* = NCollectionDataMap[cint, TopOpeBRepDS_SurfaceData,
       TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfSurface* = Iterator[cint,
-      TopOpeBRepDS_SurfaceData, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfSurface* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_SurfaceData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfSurface.hxx", bycopy.} = object

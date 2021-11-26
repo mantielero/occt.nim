@@ -11,7 +11,7 @@ else:
   const tktopalgo* = "libTKTopAlgo.so"
 
 type
-  BndBox* = object
+  #BndBox* = object
   Selector* = object of RootObj
   BRepToolsReShape* = object
 

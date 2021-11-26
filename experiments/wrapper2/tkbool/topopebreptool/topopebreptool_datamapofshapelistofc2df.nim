@@ -17,5 +17,4 @@
 type
   TopOpeBRepToolDataMapOfShapeListOfC2DF* = NCollectionDataMap[TopoDS_Shape,
       TopOpeBRepToolListOfC2DF, TopToolsShapeMapHasher]
-  TopOpeBRepToolDataMapIteratorOfDataMapOfShapeListOfC2DF* = Iterator[
-      TopoDS_Shape, TopOpeBRepToolListOfC2DF, TopToolsShapeMapHasher]
+  TopOpeBRepToolDataMapIteratorOfDataMapOfShapeListOfC2DF* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_ListOfC2DF,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeListOfC2DF.hxx", bycopy.} = object

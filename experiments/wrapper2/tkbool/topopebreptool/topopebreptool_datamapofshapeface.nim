@@ -17,5 +17,4 @@
 type
   TopOpeBRepToolDataMapOfShapeface* = NCollectionDataMap[TopoDS_Shape,
       TopOpeBRepToolFace, TopToolsShapeMapHasher]
-  TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* = Iterator[TopoDS_Shape,
-      TopOpeBRepToolFace, TopToolsShapeMapHasher]
+  TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_face,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeface.hxx", bycopy.} = object

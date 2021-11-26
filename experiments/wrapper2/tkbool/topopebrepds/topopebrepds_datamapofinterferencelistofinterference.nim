@@ -18,6 +18,4 @@ type
   TopOpeBRepDS_DataMapOfInterferenceListOfInterference* = NCollectionDataMap[
       Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
       TColStdMapTransientHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* = Iterator[
-      Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
-      TColStdMapTransientHasher]
+  TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* {.importcpp:"NCollection_DataMap<Handle(TopOpeBRepDS_Interference),TopOpeBRepDS_ListOfInterference,TColStd_MapTransientHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfInterferenceListOfInterference.hxx", bycopy.} = object

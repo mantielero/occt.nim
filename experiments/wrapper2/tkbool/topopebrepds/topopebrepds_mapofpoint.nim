@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_MapOfPoint* = NCollectionDataMap[cint, TopOpeBRepDS_PointData,
       TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfPoint* = Iterator[cint,
-      TopOpeBRepDS_PointData, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfPoint* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_PointData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfPoint.hxx", bycopy.}  = object

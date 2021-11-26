@@ -17,7 +17,7 @@
 discard "forward decl of TopOpeBRepDS_Interference"
 type
   TopOpeBRepDS_GeometryData* {.importcpp: "TopOpeBRepDS_GeometryData",
-                              header: "TopOpeBRepDS_GeometryData.hxx", bycopy.} = object
+                              header: "TopOpeBRepDS_GeometryData.hxx", bycopy.} = object of RootObj
 
 
 proc newTopOpeBRepDS_GeometryData*(): TopOpeBRepDS_GeometryData {.cdecl,

@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_ShapeSurface* = NCollectionDataMap[TopoDS_Shape,
       Handle[GeomSurface], TopToolsShapeMapHasher]
-  TopOpeBRepDS_DataMapIteratorOfShapeSurface* = Iterator[TopoDS_Shape,
-      Handle[GeomSurface], TopToolsShapeMapHasher]
+  TopOpeBRepDS_DataMapIteratorOfShapeSurface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,Handle(Geom_Surface),TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_ShapeSurface.hxx", bycopy.} = object

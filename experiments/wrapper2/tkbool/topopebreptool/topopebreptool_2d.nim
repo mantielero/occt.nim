@@ -21,35 +21,35 @@ proc fC2D_HasC3D*(e: TopoDS_Edge): bool {.cdecl, importcpp: "FC2D_HasC3D(@)",
 proc fC2D_HasCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face): bool {.cdecl,
     importcpp: "FC2D_HasCurveOnSurface(@)", dynlib: tkbool.}
 proc fC2D_HasOldCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]; f: var cfloat;
+                               c2d: var Handle[Geom2dCurve]; f1: var cfloat;
                                l: var cfloat; tol: var cfloat): bool {.cdecl,
     importcpp: "FC2D_HasOldCurveOnSurface(@)", dynlib: tkbool.}
 proc fC2D_HasOldCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
                                c2d: var Handle[Geom2dCurve]): bool {.cdecl,
     importcpp: "FC2D_HasOldCurveOnSurface(@)", dynlib: tkbool.}
 proc fC2D_HasNewCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
-                               c2d: var Handle[Geom2dCurve]; f: var cfloat;
+                               c2d: var Handle[Geom2dCurve]; f1: var cfloat;
                                l: var cfloat; tol: var cfloat): bool {.cdecl,
     importcpp: "FC2D_HasNewCurveOnSurface(@)", dynlib: tkbool.}
 proc fC2D_HasNewCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face;
                                c2d: var Handle[Geom2dCurve]): bool {.cdecl,
     importcpp: "FC2D_HasNewCurveOnSurface(@)", dynlib: tkbool.}
-proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat; l: var cfloat;
+proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f1: var cfloat; l: var cfloat;
                          tol: var cfloat; trim3d: bool = false): Handle[Geom2dCurve] {.
     cdecl, importcpp: "FC2D_CurveOnSurface(@)", dynlib: tkbool.}
 proc fC2D_CurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; ef: TopoDS_Edge;
-                         f: var cfloat; l: var cfloat; tol: var cfloat;
+                         f1: var cfloat; l: var cfloat; tol: var cfloat;
                          trim3d: bool = false): Handle[Geom2dCurve] {.cdecl,
     importcpp: "FC2D_CurveOnSurface(@)", dynlib: tkbool.}
 ## modified by NIZHNY-MZV
 
-proc fC2D_MakeCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat;
+proc fC2D_MakeCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f1: var cfloat;
                              l: var cfloat; tol: var cfloat; trim3d: bool = false): Handle[
     Geom2dCurve] {.cdecl, importcpp: "FC2D_MakeCurveOnSurface(@)", dynlib: tkbool.}
-proc fC2D_EditableCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f: var cfloat;
+proc fC2D_EditableCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f1: var cfloat;
                                  l: var cfloat; tol: var cfloat; trim3d: bool = false): Handle[
     Geom2dCurve] {.cdecl, importcpp: "FC2D_EditableCurveOnSurface(@)",
                   dynlib: tkbool.}
 proc fC2D_AddNewCurveOnSurface*(pc: Handle[Geom2dCurve]; e: TopoDS_Edge;
-                               f: TopoDS_Face; f: cfloat; l: cfloat; tol: cfloat): cint {.
+                               f: TopoDS_Face; f1: cfloat; l: cfloat; tol: cfloat): cint {.
     cdecl, importcpp: "FC2D_AddNewCurveOnSurface(@)", dynlib: tkbool.}

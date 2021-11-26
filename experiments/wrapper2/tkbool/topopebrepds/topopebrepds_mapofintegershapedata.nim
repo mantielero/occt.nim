@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_MapOfIntegerShapeData* = NCollectionDataMap[cint,
       TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* = Iterator[cint,
-      TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_ShapeData,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_MapOfIntegerShapeData.hxx", bycopy.} = object

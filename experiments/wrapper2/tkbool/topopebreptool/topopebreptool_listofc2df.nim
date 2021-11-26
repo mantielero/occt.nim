@@ -16,4 +16,4 @@
 
 type
   TopOpeBRepToolListOfC2DF* = NCollectionList[TopOpeBRepToolC2DF]
-  TopOpeBRepToolListIteratorOfListOfC2DF* = Iterator[TopOpeBRepToolC2DF]
+  TopOpeBRepToolListIteratorOfListOfC2DF* {.importcpp:"NCollection_List<TopOpeBRepTool_C2DF>::Iterator", header:"TopOpeBRepTool_ListOfC2DF.hxx", bycopy.} = object

@@ -17,5 +17,4 @@
 type
   TopOpeBRepDS_DoubleMapOfIntegerShape* = NCollectionDoubleMap[cint, TopoDS_Shape,
       TColStdMapIntegerHasher, TopToolsShapeMapHasher]
-  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* = Iterator[cint,
-      TopoDS_Shape, TColStdMapIntegerHasher, TopToolsShapeMapHasher]
+  TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape* {.importcpp:"NCollection_DoubleMap<Standard_Integer,TopoDS_Shape,TColStd_MapIntegerHasher,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DoubleMapOfIntegerShape.hxx", bycopy.} = object

@@ -10,6 +10,14 @@ elif defined(macosx):
 else:
   const tkbool* = "libTKBool.so"
 
+type
+  #BndHArray1OfBox* = object
+  #BndBox2d* = object
+  BRepClass3dSolidClassifier* = object
+  #ExtremaExtPC* = object
+  #ExtremaExtPC2d* = object
+  #ExtremaExtFlag* = object
+  #extremaExtFlagMINMAX* = object
 #[ type
   BndBox* = object
   Selector* = object of RootObj

@@ -18,3 +18,4 @@ include gce/gce_includes
 include approx/approx_includes
 include appcont/appcont_includes
 include appparcurves/appparcurves_includes
+include extrema/extrema_includes

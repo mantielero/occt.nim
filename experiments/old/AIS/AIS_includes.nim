@@ -1,0 +1,130 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include AIS
+include AIS_AngleDimension
+include AIS_Animation
+include AIS_AnimationCamera
+include AIS_AnimationObject
+include AIS_AnimationTimer
+include AIS_AttributeFilter
+include AIS_Axis
+include AIS_BadEdgeFilter
+include AIS_C0RegularityFilter
+include AIS_CameraFrustum
+include AIS_Chamf2dDimension
+include AIS_Chamf3dDimension
+include AIS_Circle
+include AIS_ClearMode
+include AIS_ColorScale
+include AIS_ColoredDrawer
+include AIS_ColoredShape
+include AIS_ConcentricRelation
+include AIS_ConnectStatus
+include AIS_ConnectedInteractive
+include AIS_DataMapIteratorOfDataMapOfIOStatus
+include AIS_DataMapIteratorOfDataMapOfSelStat
+include AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive
+include AIS_DataMapOfIOStatus
+include AIS_DataMapOfSelStat
+include AIS_DataMapOfShapeDrawer
+include AIS_DataMapofIntegerListOfinteractive
+include AIS_DiameterDimension
+include AIS_Dimension
+include AIS_DimensionOwner
+include AIS_DisplayMode
+include AIS_DisplayStatus
+include AIS_DragAction
+include AIS_EllipseRadiusDimension
+include AIS_EqualDistanceRelation
+include AIS_EqualRadiusRelation
+include AIS_ExclusionFilter
+include AIS_FixRelation
+include AIS_GlobalStatus
+include AIS_GraphicTool
+include AIS_IdenticRelation
+include AIS_IndexedDataMapOfOwnerPrs
+include AIS_InteractiveContext
+include AIS_InteractiveObject
+include AIS_KindOfInteractive
+include AIS_LengthDimension
+include AIS_Line
+include AIS_ListIteratorOfListOfInteractive
+include AIS_ListOfInteractive
+include AIS_Manipulator
+include AIS_ManipulatorMode
+include AIS_ManipulatorOwner
+include AIS_MapIteratorOfMapOfInteractive
+include AIS_MapOfInteractive
+include AIS_MaxRadiusDimension
+include AIS_MediaPlayer
+include AIS_MidPointRelation
+include AIS_MinRadiusDimension
+include AIS_MouseGesture
+include AIS_MultipleConnectedInteractive
+include AIS_NListOfEntityOwner
+include AIS_NavigationMode
+include AIS_OffsetDimension
+include AIS_ParallelRelation
+include AIS_PerpendicularRelation
+include AIS_Plane
+include AIS_PlaneTrihedron
+include AIS_Point
+include AIS_PointCloud
+include AIS_RadiusDimension
+include AIS_Relation
+include AIS_RotationMode
+include AIS_RubberBand
+include AIS_SelectStatus
+include AIS_Selection
+include AIS_SelectionModesConcurrency
+include AIS_SequenceOfInteractive
+include AIS_Shape
+include AIS_SignatureFilter
+include AIS_StatusOfDetection
+include AIS_StatusOfPick
+include AIS_SymmetricRelation
+include AIS_TangentRelation
+include AIS_TextLabel
+include AIS_TexturedShape
+include AIS_Triangulation
+include AIS_Trihedron
+include AIS_TrihedronOwner
+include AIS_TrihedronSelectionMode
+include AIS_TypeFilter
+include AIS_TypeOfAttribute
+include AIS_TypeOfAxis
+include AIS_TypeOfIso
+include AIS_TypeOfPlane
+include AIS_ViewController
+include AIS_ViewCube
+include AIS_ViewInputBuffer
+include AIS_WalkDelta
+include AIS_XRTrackedDevice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

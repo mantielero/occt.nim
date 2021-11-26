@@ -1,0 +1,94 @@
+{.passL:"-lTKernel".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+when defined(windows):
+  const tkernel* = "TKernel.dll"
+elif defined(macosx):
+  const tkernel* = "libTKernel.dylib"
+else:
+  const tkernel* = "libTKernel.so" 
+
+
+include standard
+#include standard_abortivetransaction
+include standard_address
+include standard_arraystreambuffer
+include standard_assert
+include standard_atomic
+include standard_boolean
+include standard_byte
+include standard_character
+include standard_clocalesentry
+include standard_condition
+#include standard_constructionerror
+include standard_cstring
+include standard_definealloc
+include standard_defineexception
+include standard_definehandle
+#include standard_dimensionerror
+#include standard_dimensionmismatch
+#include standard_dividebyzero
+#include standard_domainerror
+#include standard_dump
+include standard_errorhandler
+include standard_extcharacter
+include standard_extstring
+include standard_failure
+include standard_guid
+include standard_handle
+include standard_handlerstatus
+#include standard_immutableobject
+include standard_integer
+include standard_istream
+include standard_jmpbuf
+#include standard_licenseerror
+#include standard_licensenotfound
+include standard_macro
+include standard_math
+include standard_mmgropt
+include standard_mmgrraw
+include standard_mmgrroot
+include standard_mmgrtbballoc
+#include standard_multiplydefined
+include standard_mutex
+#include standard_negativevalue
+#include standard_nomoreobject
+#include standard_nosuchobject
+#include standard_notimplemented
+#include standard_nullobject
+#include standard_nullvalue
+#include standard_numericerror
+include standard_ostream
+#include standard_outofmemory
+#include standard_outofrange
+#include standard_overflow
+include standard_pbyte
+include standard_pcharacter
+include standard_perrorhandler
+include standard_persistent
+include standard_pextcharacter
+include standard_primitivetypes
+#include standard_programerror
+#include standard_rangeerror
+include standard_readbuffer
+include standard_readlinebuffer
+include standard_real
+include standard_shortreal
+include standard_size
+include standard_sstream
+include standard_std
+include standard_stream
+include standard_threadid
+include standard_time
+#include standard_toomanyusers
+include standard_transient
+include standard_type
+include standard_typedef
+#include standard_typemismatch
+#include standard_underflow
+include standard_uuid
+include standard_version
+#include standard_warningdisablefunctioncast
+#include standard_warningsdisable
+#include standard_warningsrestore

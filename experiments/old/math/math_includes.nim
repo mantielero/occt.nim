@@ -1,0 +1,84 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include math
+include math_Array1OfValueAndWeight
+include math_BFGS
+include math_BissecNewton
+include math_BracketMinimum
+include math_BracketedRoot
+include math_BrentMinimum
+include math_BullardGenerator
+include math_ComputeGaussPointsAndWeights
+include math_ComputeKronrodPointsAndWeights
+include math_Crout
+include math_DirectPolynomialRoots
+include math_DoubleTab
+include math_EigenValuesSearcher
+include math_FRPR
+include math_Function
+include math_FunctionAllRoots
+include math_FunctionRoot
+include math_FunctionRoots
+include math_FunctionSample
+include math_FunctionSet
+include math_FunctionSetRoot
+include math_FunctionSetWithDerivatives
+include math_FunctionWithDerivative
+include math_Gauss
+include math_GaussLeastSquare
+include math_GaussMultipleIntegration
+include math_GaussSetIntegration
+include math_GaussSingleIntegration
+include math_GlobOptMin
+include math_Householder
+include math_IntegerVector
+include math_Jacobi
+include math_KronrodSingleIntegration
+include math_Matrix
+include math_MultipleVarFunction
+include math_MultipleVarFunctionWithGradient
+include math_MultipleVarFunctionWithHessian
+include math_NewtonFunctionRoot
+include math_NewtonFunctionSetRoot
+include math_NewtonMinimum
+include math_NotSquare
+include math_PSO
+include math_PSOParticlesPool
+include math_Powell
+include math_Recipes
+include math_SVD
+include math_SingularMatrix
+include math_Status
+include math_TrigonometricEquationFunction
+include math_TrigonometricFunctionRoots
+include math_Uzawa
+include math_ValueAndWeight
+include math_Vector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

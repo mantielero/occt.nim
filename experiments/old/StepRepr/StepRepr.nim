@@ -1,0 +1,146 @@
+{{.experimental: "codeReordering".}}
+{{.experimental: "callOperator".}}
+
+include\n  StepRepr_AllAroundShapeAspect
+  StepRepr_Apex
+  StepRepr_Array1OfMaterialPropertyRepresentation
+  StepRepr_Array1OfPropertyDefinitionRepresentation
+  StepRepr_Array1OfRepresentationItem
+  StepRepr_Array1OfShapeAspect
+  StepRepr_AssemblyComponentUsage
+  StepRepr_AssemblyComponentUsageSubstitute
+  StepRepr_BetweenShapeAspect
+  StepRepr_CentreOfSymmetry
+  StepRepr_CharacterizedDefinition
+  StepRepr_CharacterizedRepresentation
+  StepRepr_CompGroupShAspAndCompShAspAndDatumFeatAndShAsp
+  StepRepr_CompShAspAndDatumFeatAndShAsp
+  StepRepr_CompositeGroupShapeAspect
+  StepRepr_CompositeShapeAspect
+  StepRepr_CompoundRepresentationItem
+  StepRepr_ConfigurationDesign
+  StepRepr_ConfigurationDesignItem
+  StepRepr_ConfigurationEffectivity
+  StepRepr_ConfigurationItem
+  StepRepr_ConstructiveGeometryRepresentation
+  StepRepr_ConstructiveGeometryRepresentationRelationship
+  StepRepr_ContinuosShapeAspect
+  StepRepr_DataEnvironment
+  StepRepr_DefinitionalRepresentation
+  StepRepr_DerivedShapeAspect
+  StepRepr_DescriptiveRepresentationItem
+  StepRepr_Extension
+  StepRepr_ExternallyDefinedRepresentation
+  StepRepr_FeatureForDatumTargetRelationship
+  StepRepr_FunctionallyDefinedTransformation
+  StepRepr_GeometricAlignment
+  StepRepr_GlobalUncertaintyAssignedContext
+  StepRepr_GlobalUnitAssignedContext
+  StepRepr_HArray1OfMaterialPropertyRepresentation
+  StepRepr_HArray1OfPropertyDefinitionRepresentation
+  StepRepr_HArray1OfRepresentationItem
+  StepRepr_HArray1OfShapeAspect
+  StepRepr_HSequenceOfMaterialPropertyRepresentation
+  StepRepr_HSequenceOfRepresentationItem
+  StepRepr_IntegerRepresentationItem
+  StepRepr_ItemDefinedTransformation
+  StepRepr_MakeFromUsageOption
+  StepRepr_MappedItem
+  StepRepr_MaterialDesignation
+  StepRepr_MaterialProperty
+  StepRepr_MaterialPropertyRepresentation
+  StepRepr_MeasureRepresentationItem
+  StepRepr_NextAssemblyUsageOccurrence
+  StepRepr_ParallelOffset
+  StepRepr_ParametricRepresentationContext
+  StepRepr_PerpendicularTo
+  StepRepr_ProductConcept
+  StepRepr_ProductDefinitionShape
+  StepRepr_ProductDefinitionUsage
+  StepRepr_PromissoryUsageOccurrence
+  StepRepr_PropertyDefinition
+  StepRepr_PropertyDefinitionRelationship
+  StepRepr_PropertyDefinitionRepresentation
+  StepRepr_QuantifiedAssemblyComponentUsage
+  StepRepr_ReprItemAndLengthMeasureWithUnit
+  StepRepr_ReprItemAndLengthMeasureWithUnitAndQRI
+  StepRepr_ReprItemAndMeasureWithUnit
+  StepRepr_ReprItemAndMeasureWithUnitAndQRI
+  StepRepr_ReprItemAndPlaneAngleMeasureWithUnit
+  StepRepr_ReprItemAndPlaneAngleMeasureWithUnitAndQRI
+  StepRepr_Representation
+  StepRepr_RepresentationContext
+  StepRepr_RepresentationItem
+  StepRepr_RepresentationMap
+  StepRepr_RepresentationRelationship
+  StepRepr_RepresentationRelationshipWithTransformation
+  StepRepr_RepresentedDefinition
+  StepRepr_SequenceOfMaterialPropertyRepresentation
+  StepRepr_SequenceOfRepresentationItem
+  StepRepr_ShapeAspect
+  StepRepr_ShapeAspectDerivingRelationship
+  StepRepr_ShapeAspectRelationship
+  StepRepr_ShapeAspectTransition
+  StepRepr_ShapeDefinition
+  StepRepr_ShapeRepresentationRelationship
+  StepRepr_ShapeRepresentationRelationshipWithTransformation
+  StepRepr_SpecifiedHigherUsageOccurrence
+  StepRepr_StructuralResponseProperty
+  StepRepr_StructuralResponsePropertyDefinitionRepresentation
+  StepRepr_SuppliedPartRelationship
+  StepRepr_Tangent
+  StepRepr_Transformation
+  StepRepr_ValueRange
+  StepRepr_ValueRepresentationItem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

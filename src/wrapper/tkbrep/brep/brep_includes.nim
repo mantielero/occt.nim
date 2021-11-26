@@ -1,0 +1,29 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include brep_builder
+include brep_curve3d
+include brep_curveon2surfaces
+include brep_curveonclosedsurface
+include brep_curveonsurface
+include brep_curverepresentation
+include brep_gcurve
+include brep_listiteratoroflistofcurverepresentation
+include brep_listiteratoroflistofpointrepresentation
+include brep_listofcurverepresentation
+include brep_listofpointrepresentation
+include brep_pointoncurve
+include brep_pointoncurveonsurface
+include brep_pointonsurface
+include brep_pointrepresentation
+include brep_pointsonsurface
+include brep_polygon3d
+include brep_polygononclosedsurface
+include brep_polygononclosedtriangulation
+include brep_polygononsurface
+include brep_polygonontriangulation
+include brep_tedge
+include brep_tface
+include brep_tool
+include brep_tvertex

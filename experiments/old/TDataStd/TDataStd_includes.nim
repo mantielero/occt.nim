@@ -1,0 +1,90 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include TDataStd
+include TDataStd_AsciiString
+include TDataStd_BooleanArray
+include TDataStd_BooleanList
+include TDataStd_ByteArray
+include TDataStd_ChildNodeIterator
+include TDataStd_Comment
+include TDataStd_Current
+include TDataStd_DataMapIteratorOfDataMapOfStringByte
+include TDataStd_DataMapIteratorOfDataMapOfStringHArray1OfInteger
+include TDataStd_DataMapIteratorOfDataMapOfStringHArray1OfReal
+include TDataStd_DataMapIteratorOfDataMapOfStringReal
+include TDataStd_DataMapIteratorOfDataMapOfStringString
+include TDataStd_DataMapOfStringByte
+include TDataStd_DataMapOfStringHArray1OfInteger
+include TDataStd_DataMapOfStringHArray1OfReal
+include TDataStd_DataMapOfStringReal
+include TDataStd_DataMapOfStringString
+include TDataStd_DeltaOnModificationOfByteArray
+include TDataStd_DeltaOnModificationOfExtStringArray
+include TDataStd_DeltaOnModificationOfIntArray
+include TDataStd_DeltaOnModificationOfIntPackedMap
+include TDataStd_DeltaOnModificationOfRealArray
+include TDataStd_Directory
+include TDataStd_Expression
+include TDataStd_ExtStringArray
+include TDataStd_ExtStringList
+include TDataStd_GenericEmpty
+include TDataStd_GenericExtString
+include TDataStd_HDataMapOfStringByte
+include TDataStd_HDataMapOfStringHArray1OfInteger
+include TDataStd_HDataMapOfStringHArray1OfReal
+include TDataStd_HDataMapOfStringInteger
+include TDataStd_HDataMapOfStringReal
+include TDataStd_HDataMapOfStringString
+include TDataStd_HLabelArray1
+include TDataStd_IntPackedMap
+include TDataStd_Integer
+include TDataStd_IntegerArray
+include TDataStd_IntegerList
+include TDataStd_LabelArray1
+include TDataStd_ListIteratorOfListOfByte
+include TDataStd_ListIteratorOfListOfExtendedString
+include TDataStd_ListOfByte
+include TDataStd_ListOfExtendedString
+include TDataStd_Name
+include TDataStd_NamedData
+include TDataStd_NoteBook
+include TDataStd_PtrTreeNode
+include TDataStd_Real
+include TDataStd_RealArray
+include TDataStd_RealEnum
+include TDataStd_RealList
+include TDataStd_ReferenceArray
+include TDataStd_ReferenceList
+include TDataStd_Relation
+include TDataStd_Tick
+include TDataStd_TreeNode
+include TDataStd_UAttribute
+include TDataStd_Variable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

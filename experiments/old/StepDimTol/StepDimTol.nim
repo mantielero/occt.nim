@@ -1,0 +1,131 @@
+{{.experimental: "codeReordering".}}
+{{.experimental: "callOperator".}}
+
+include\n  StepDimTol_AngularityTolerance
+  StepDimTol_AreaUnitType
+  StepDimTol_Array1OfDatumReference
+  StepDimTol_Array1OfDatumReferenceCompartment
+  StepDimTol_Array1OfDatumReferenceElement
+  StepDimTol_Array1OfDatumReferenceModifier
+  StepDimTol_Array1OfDatumSystemOrReference
+  StepDimTol_Array1OfGeometricToleranceModifier
+  StepDimTol_Array1OfToleranceZoneTarget
+  StepDimTol_CircularRunoutTolerance
+  StepDimTol_CoaxialityTolerance
+  StepDimTol_CommonDatum
+  StepDimTol_ConcentricityTolerance
+  StepDimTol_CylindricityTolerance
+  StepDimTol_Datum
+  StepDimTol_DatumFeature
+  StepDimTol_DatumOrCommonDatum
+  StepDimTol_DatumReference
+  StepDimTol_DatumReferenceCompartment
+  StepDimTol_DatumReferenceElement
+  StepDimTol_DatumReferenceModifier
+  StepDimTol_DatumReferenceModifierType
+  StepDimTol_DatumReferenceModifierWithValue
+  StepDimTol_DatumSystem
+  StepDimTol_DatumSystemOrReference
+  StepDimTol_DatumTarget
+  StepDimTol_FlatnessTolerance
+  StepDimTol_GeneralDatumReference
+  StepDimTol_GeoTolAndGeoTolWthDatRef
+  StepDimTol_GeoTolAndGeoTolWthDatRefAndGeoTolWthMaxTol
+  StepDimTol_GeoTolAndGeoTolWthDatRefAndGeoTolWthMod
+  StepDimTol_GeoTolAndGeoTolWthDatRefAndModGeoTolAndPosTol
+  StepDimTol_GeoTolAndGeoTolWthDatRefAndUneqDisGeoTol
+  StepDimTol_GeoTolAndGeoTolWthMaxTol
+  StepDimTol_GeoTolAndGeoTolWthMod
+  StepDimTol_GeometricTolerance
+  StepDimTol_GeometricToleranceModifier
+  StepDimTol_GeometricToleranceRelationship
+  StepDimTol_GeometricToleranceTarget
+  StepDimTol_GeometricToleranceType
+  StepDimTol_GeometricToleranceWithDatumReference
+  StepDimTol_GeometricToleranceWithDefinedAreaUnit
+  StepDimTol_GeometricToleranceWithDefinedUnit
+  StepDimTol_GeometricToleranceWithMaximumTolerance
+  StepDimTol_GeometricToleranceWithModifiers
+  StepDimTol_HArray1OfDatumReference
+  StepDimTol_HArray1OfDatumReferenceCompartment
+  StepDimTol_HArray1OfDatumReferenceElement
+  StepDimTol_HArray1OfDatumReferenceModifier
+  StepDimTol_HArray1OfDatumSystemOrReference
+  StepDimTol_HArray1OfGeometricToleranceModifier
+  StepDimTol_HArray1OfToleranceZoneTarget
+  StepDimTol_LimitCondition
+  StepDimTol_LineProfileTolerance
+  StepDimTol_ModifiedGeometricTolerance
+  StepDimTol_NonUniformZoneDefinition
+  StepDimTol_ParallelismTolerance
+  StepDimTol_PerpendicularityTolerance
+  StepDimTol_PlacedDatumTargetFeature
+  StepDimTol_PositionTolerance
+  StepDimTol_ProjectedZoneDefinition
+  StepDimTol_RoundnessTolerance
+  StepDimTol_RunoutZoneDefinition
+  StepDimTol_RunoutZoneOrientation
+  StepDimTol_ShapeToleranceSelect
+  StepDimTol_SimpleDatumReferenceModifier
+  StepDimTol_SimpleDatumReferenceModifierMember
+  StepDimTol_StraightnessTolerance
+  StepDimTol_SurfaceProfileTolerance
+  StepDimTol_SymmetryTolerance
+  StepDimTol_ToleranceZone
+  StepDimTol_ToleranceZoneDefinition
+  StepDimTol_ToleranceZoneForm
+  StepDimTol_ToleranceZoneTarget
+  StepDimTol_TotalRunoutTolerance
+  StepDimTol_UnequallyDisposedGeometricTolerance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include gce_errortype
+include gce_makecirc
+include gce_makecirc2d
+include gce_makecone
+include gce_makecylinder
+include gce_makedir
+include gce_makedir2d
+include gce_makeelips
+include gce_makeelips2d
+include gce_makehypr
+include gce_makehypr2d
+include gce_makelin
+include gce_makelin2d
+include gce_makemirror
+include gce_makemirror2d
+include gce_makeparab
+include gce_makeparab2d
+include gce_makepln
+include gce_makerotation
+include gce_makerotation2d
+include gce_makescale
+include gce_makescale2d
+include gce_maketranslation
+include gce_maketranslation2d
+include gce_root

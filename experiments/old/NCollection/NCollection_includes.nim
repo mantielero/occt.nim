@@ -1,0 +1,66 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+#include NCollection_AccAllocator
+include NCollection_AlignedAllocator
+include NCollection_Array1
+#include NCollection_Array2
+include NCollection_BaseAllocator
+include NCollection_BaseList
+include NCollection_BaseMap
+#include NCollection_BaseSequence
+#include NCollection_BaseVector
+#include NCollection_Buffer
+#include NCollection_CellFilter
+#include NCollection_DataMap
+include NCollection_DefaultHasher
+#include NCollection_DefineAlloc
+include NCollection_DefineArray1
+include NCollection_DefineArray2
+include NCollection_DefineDataMap
+include NCollection_DefineDoubleMap
+include NCollection_DefineHArray1
+#include NCollection_DefineHArray2
+#include NCollection_DefineHSequence
+include NCollection_DefineIndexedDataMap
+include NCollection_DefineIndexedMap
+include NCollection_DefineList
+include NCollection_DefineMap
+include NCollection_DefineSequence
+include NCollection_DefineVector
+#include NCollection_DoubleMap
+#include NCollection_EBTree
+include NCollection_HArray1
+include NCollection_HArray2
+#include NCollection_HSequence
+include NCollection_Handle
+include NCollection_HeapAllocator
+include NCollection_IncAllocator
+include NCollection_IndexedDataMap
+include NCollection_IndexedMap
+include NCollection_Lerp
+include NCollection_List              # Manual
+include NCollection_ListNode
+#include NCollection_LocalArray
+include NCollection_Map
+include NCollection_Mat4              # Manual
+#include NCollection_Sequence
+#include NCollection_Shared
+#include NCollection_SparseArray
+#include NCollection_SparseArrayBase
+#include NCollection_StdAllocator
+include NCollection_StlIterator
+include NCollection_String
+include NCollection_TListIterator
+include NCollection_TListNode
+include NCollection_TypeDef
+#include NCollection_UBTree
+#include NCollection_UBTreeFiller
+#include NCollection_UtfIterator
+#include NCollection_UtfString
+#include NCollection_Vec2
+#include NCollection_Vec3
+include NCollection_Vec4              # Manual
+include NCollection_Vector            # Manual
+include NCollection_WinHeapAllocator

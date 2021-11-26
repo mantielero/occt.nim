@@ -1,0 +1,59 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include RWStepAP214
+include RWStepAP214_GeneralModule
+include RWStepAP214_RWAppliedApprovalAssignment
+include RWStepAP214_RWAppliedDateAndTimeAssignment
+include RWStepAP214_RWAppliedDateAssignment
+include RWStepAP214_RWAppliedDocumentReference
+include RWStepAP214_RWAppliedExternalIdentificationAssignment
+include RWStepAP214_RWAppliedGroupAssignment
+include RWStepAP214_RWAppliedOrganizationAssignment
+include RWStepAP214_RWAppliedPersonAndOrganizationAssignment
+include RWStepAP214_RWAppliedPresentedItem
+include RWStepAP214_RWAppliedSecurityClassificationAssignment
+include RWStepAP214_RWAutoDesignActualDateAndTimeAssignment
+include RWStepAP214_RWAutoDesignActualDateAssignment
+include RWStepAP214_RWAutoDesignApprovalAssignment
+include RWStepAP214_RWAutoDesignDateAndPersonAssignment
+include RWStepAP214_RWAutoDesignDocumentReference
+include RWStepAP214_RWAutoDesignGroupAssignment
+include RWStepAP214_RWAutoDesignNominalDateAndTimeAssignment
+include RWStepAP214_RWAutoDesignNominalDateAssignment
+include RWStepAP214_RWAutoDesignOrganizationAssignment
+include RWStepAP214_RWAutoDesignPersonAndOrganizationAssignment
+include RWStepAP214_RWAutoDesignPresentedItem
+include RWStepAP214_RWAutoDesignSecurityClassificationAssignment
+include RWStepAP214_RWClass
+include RWStepAP214_RWExternallyDefinedClass
+include RWStepAP214_RWExternallyDefinedGeneralProperty
+include RWStepAP214_RWRepItemGroup
+include RWStepAP214_ReadWriteModule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

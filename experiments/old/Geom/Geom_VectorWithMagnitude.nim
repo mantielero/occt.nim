@@ -1,0 +1,118 @@
+##  Created on: 1993-03-10
+##  Created by: JCV
+##  Copyright (c) 1993-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of Standard_ConstructionError"
+discard "forward decl of gp_Vec"
+discard "forward decl of gp_Pnt"
+discard "forward decl of Geom_Vector"
+discard "forward decl of gp_Trsf"
+discard "forward decl of Geom_Geometry"
+discard "forward decl of Geom_VectorWithMagnitude"
+discard "forward decl of Geom_VectorWithMagnitude"
+
+type
+  GeomVectorWithMagnitude* {.importcpp: "Geom_VectorWithMagnitude",
+                            header: "Geom_VectorWithMagnitude.hxx", bycopy.} = object of GeomVector ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## transient
+                                                                                             ## copy
+                                                                                             ## of
+                                                                                             ## V.
+
+type
+  HandleGeomVectorWithMagnitude* = Handle[GeomVectorWithMagnitude]
+
+## ! Defines a vector with magnitude.
+## ! A vector with magnitude can have a zero length.
+
+type
+  GeomVectorWithMagnitudebaseType* = GeomVector
+
+proc constructGeomVectorWithMagnitude*(v: Vec): GeomVectorWithMagnitude {.
+    constructor, importcpp: "Geom_VectorWithMagnitude(@)",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc constructGeomVectorWithMagnitude*(x: StandardReal; y: StandardReal;
+                                      z: StandardReal): GeomVectorWithMagnitude {.
+    constructor, importcpp: "Geom_VectorWithMagnitude(@)",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc constructGeomVectorWithMagnitude*(p1: Pnt; p2: Pnt): GeomVectorWithMagnitude {.
+    constructor, importcpp: "Geom_VectorWithMagnitude(@)",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc setCoord*(this: var GeomVectorWithMagnitude; x: StandardReal; y: StandardReal;
+              z: StandardReal) {.importcpp: "SetCoord",
+                               header: "Geom_VectorWithMagnitude.hxx".}
+proc setVec*(this: var GeomVectorWithMagnitude; v: Vec) {.importcpp: "SetVec",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc setX*(this: var GeomVectorWithMagnitude; x: StandardReal) {.importcpp: "SetX",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc setY*(this: var GeomVectorWithMagnitude; y: StandardReal) {.importcpp: "SetY",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc setZ*(this: var GeomVectorWithMagnitude; z: StandardReal) {.importcpp: "SetZ",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc magnitude*(this: GeomVectorWithMagnitude): StandardReal {.noSideEffect,
+    importcpp: "Magnitude", header: "Geom_VectorWithMagnitude.hxx".}
+proc squareMagnitude*(this: GeomVectorWithMagnitude): StandardReal {.noSideEffect,
+    importcpp: "SquareMagnitude", header: "Geom_VectorWithMagnitude.hxx".}
+proc add*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.
+    importcpp: "Add", header: "Geom_VectorWithMagnitude.hxx".}
+proc added*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
+    GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Added",
+                              header: "Geom_VectorWithMagnitude.hxx".}
+proc cross*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.
+    importcpp: "Cross", header: "Geom_VectorWithMagnitude.hxx".}
+proc crossed*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
+    GeomVector] {.noSideEffect, importcpp: "Crossed",
+                 header: "Geom_VectorWithMagnitude.hxx".}
+proc crossCross*(this: var GeomVectorWithMagnitude; v1: Handle[GeomVector];
+                v2: Handle[GeomVector]) {.importcpp: "CrossCross",
+                                        header: "Geom_VectorWithMagnitude.hxx".}
+proc crossCrossed*(this: GeomVectorWithMagnitude; v1: Handle[GeomVector];
+                  v2: Handle[GeomVector]): Handle[GeomVector] {.noSideEffect,
+    importcpp: "CrossCrossed", header: "Geom_VectorWithMagnitude.hxx".}
+proc divide*(this: var GeomVectorWithMagnitude; scalar: StandardReal) {.
+    importcpp: "Divide", header: "Geom_VectorWithMagnitude.hxx".}
+proc divided*(this: GeomVectorWithMagnitude; scalar: StandardReal): Handle[
+    GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Divided",
+                              header: "Geom_VectorWithMagnitude.hxx".}
+proc multiplied*(this: GeomVectorWithMagnitude; scalar: StandardReal): Handle[
+    GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Multiplied",
+                              header: "Geom_VectorWithMagnitude.hxx".}
+proc multiply*(this: var GeomVectorWithMagnitude; scalar: StandardReal) {.
+    importcpp: "Multiply", header: "Geom_VectorWithMagnitude.hxx".}
+proc normalize*(this: var GeomVectorWithMagnitude) {.importcpp: "Normalize",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc normalized*(this: GeomVectorWithMagnitude): Handle[GeomVectorWithMagnitude] {.
+    noSideEffect, importcpp: "Normalized", header: "Geom_VectorWithMagnitude.hxx".}
+proc subtract*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.
+    importcpp: "Subtract", header: "Geom_VectorWithMagnitude.hxx".}
+proc subtracted*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
+    GeomVectorWithMagnitude] {.noSideEffect, importcpp: "Subtracted",
+                              header: "Geom_VectorWithMagnitude.hxx".}
+proc transform*(this: var GeomVectorWithMagnitude; t: Trsf) {.importcpp: "Transform",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
+    importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}
+
+
+#[ proc getTypeName*(): cstring {.importcpp: "Geom_VectorWithMagnitude::get_type_name(@)",
+                            header: "Geom_VectorWithMagnitude.hxx".}
+proc getTypeDescriptor*(): Handle[StandardType] {.
+    importcpp: "Geom_VectorWithMagnitude::get_type_descriptor(@)",
+    header: "Geom_VectorWithMagnitude.hxx".}
+proc dynamicType*(this: GeomVectorWithMagnitude): Handle[StandardType] {.
+    noSideEffect, importcpp: "DynamicType", header: "Geom_VectorWithMagnitude.hxx".} ]#

@@ -1,0 +1,51 @@
+##  Created on: 1995-05-04
+##  Created by: Dieter THIEMANN
+##  Copyright (c) 1995-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of StepGeom_Parabola"
+discard "forward decl of StdFail_NotDone"
+discard "forward decl of Geom2d_Parabola"
+discard "forward decl of Geom_Parabola"
+type
+  GeomToStepMakeParabola* {.importcpp: "GeomToStep_MakeParabola",
+                           header: "GeomToStep_MakeParabola.hxx", bycopy.} = object of GeomToStepRoot
+
+
+proc `new`*(this: var GeomToStepMakeParabola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete`*(this: var GeomToStepMakeParabola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `new[]`*(this: var GeomToStepMakeParabola; theSize: csize_t): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new[]",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete[]`*(this: var GeomToStepMakeParabola; theAddress: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete[]",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `new`*(this: var GeomToStepMakeParabola; a2: csize_t; theAddress: pointer): pointer {.
+    importcpp: "GeomToStep_MakeParabola::operator new",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc `delete`*(this: var GeomToStepMakeParabola; a2: pointer; a3: pointer) {.
+    importcpp: "GeomToStep_MakeParabola::operator delete",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc constructGeomToStepMakeParabola*(c: Handle[Geom2dParabola]): GeomToStepMakeParabola {.
+    constructor, importcpp: "GeomToStep_MakeParabola(@)",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc constructGeomToStepMakeParabola*(c: Handle[GeomParabola]): GeomToStepMakeParabola {.
+    constructor, importcpp: "GeomToStep_MakeParabola(@)",
+    header: "GeomToStep_MakeParabola.hxx".}
+proc value*(this: GeomToStepMakeParabola): Handle[StepGeomParabola] {.noSideEffect,
+    importcpp: "Value", header: "GeomToStep_MakeParabola.hxx".}

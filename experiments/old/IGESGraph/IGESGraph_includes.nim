@@ -1,0 +1,69 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include IGESGraph
+include IGESGraph_Array1OfColor
+include IGESGraph_Array1OfTextDisplayTemplate
+include IGESGraph_Array1OfTextFontDef
+include IGESGraph_Color
+include IGESGraph_DefinitionLevel
+include IGESGraph_DrawingSize
+include IGESGraph_DrawingUnits
+include IGESGraph_GeneralModule
+include IGESGraph_HArray1OfColor
+include IGESGraph_HArray1OfTextDisplayTemplate
+include IGESGraph_HArray1OfTextFontDef
+include IGESGraph_HighLight
+include IGESGraph_IntercharacterSpacing
+include IGESGraph_LineFontDefPattern
+include IGESGraph_LineFontDefTemplate
+include IGESGraph_LineFontPredefined
+include IGESGraph_NominalSize
+include IGESGraph_Pick
+include IGESGraph_Protocol
+include IGESGraph_ReadWriteModule
+include IGESGraph_SpecificModule
+include IGESGraph_TextDisplayTemplate
+include IGESGraph_TextFontDef
+include IGESGraph_ToolColor
+include IGESGraph_ToolDefinitionLevel
+include IGESGraph_ToolDrawingSize
+include IGESGraph_ToolDrawingUnits
+include IGESGraph_ToolHighLight
+include IGESGraph_ToolIntercharacterSpacing
+include IGESGraph_ToolLineFontDefPattern
+include IGESGraph_ToolLineFontDefTemplate
+include IGESGraph_ToolLineFontPredefined
+include IGESGraph_ToolNominalSize
+include IGESGraph_ToolPick
+include IGESGraph_ToolTextDisplayTemplate
+include IGESGraph_ToolTextFontDef
+include IGESGraph_ToolUniformRectGrid
+include IGESGraph_UniformRectGrid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

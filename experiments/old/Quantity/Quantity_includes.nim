@@ -1,0 +1,123 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include Quantity_AbsorbedDose
+include Quantity_Acceleration
+include Quantity_AcousticIntensity
+include Quantity_Activity
+include Quantity_Admittance
+include Quantity_AmountOfSubstance
+include Quantity_AngularVelocity
+include Quantity_Area
+include Quantity_Array1OfColor
+include Quantity_Array2OfColor
+include Quantity_Capacitance
+include Quantity_Coefficient
+include Quantity_CoefficientOfExpansion
+include Quantity_Color
+include Quantity_ColorHasher
+include Quantity_ColorRGBA
+include Quantity_ColorRGBAHasher
+include Quantity_Concentration
+include Quantity_Conductivity
+include Quantity_Constant
+include Quantity_Consumption
+include Quantity_Content
+include Quantity_Date
+include Quantity_DateDefinitionError
+include Quantity_Density
+include Quantity_DoseEquivalent
+include Quantity_ElectricCapacitance
+include Quantity_ElectricCharge
+include Quantity_ElectricCurrent
+include Quantity_ElectricFieldStrength
+include Quantity_ElectricPotential
+include Quantity_Energy
+include Quantity_Enthalpy
+include Quantity_Entropy
+include Quantity_Factor
+include Quantity_Force
+include Quantity_Frequency
+include Quantity_HArray1OfColor
+include Quantity_Illuminance
+include Quantity_Impedance
+include Quantity_Index
+include Quantity_Inductance
+include Quantity_KinematicViscosity
+include Quantity_KineticMoment
+include Quantity_Length
+include Quantity_Luminance
+include Quantity_LuminousEfficacity
+include Quantity_LuminousExposition
+include Quantity_LuminousFlux
+include Quantity_LuminousIntensity
+include Quantity_MagneticFieldStrength
+include Quantity_MagneticFlux
+include Quantity_MagneticFluxDensity
+include Quantity_Mass
+include Quantity_MassFlow
+include Quantity_MolarConcentration
+include Quantity_MolarMass
+include Quantity_MolarVolume
+include Quantity_Molarity
+include Quantity_MomentOfAForce
+include Quantity_MomentOfInertia
+include Quantity_Momentum
+include Quantity_NameOfColor
+include Quantity_Normality
+include Quantity_Parameter
+include Quantity_Period
+include Quantity_PeriodDefinitionError
+include Quantity_PhysicalQuantity
+include Quantity_PlaneAngle
+include Quantity_Power
+include Quantity_Pressure
+include Quantity_Quotient
+include Quantity_Rate
+include Quantity_Ratio
+include Quantity_Reluctance
+include Quantity_Resistance
+include Quantity_Resistivity
+include Quantity_Scalaire
+include Quantity_SolidAngle
+include Quantity_SoundIntensity
+include Quantity_SpecificHeatCapacity
+include Quantity_Speed
+include Quantity_SurfaceTension
+include Quantity_Temperature
+include Quantity_ThermalConductivity
+include Quantity_Torque
+include Quantity_TypeOfColor
+include Quantity_Velocity
+include Quantity_Viscosity
+include Quantity_Volume
+include Quantity_VolumeFlow
+include Quantity_Weight
+include Quantity_Work
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

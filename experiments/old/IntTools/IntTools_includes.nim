@@ -1,0 +1,78 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include IntTools
+include IntTools_Array1OfRange
+include IntTools_Array1OfRoots
+include IntTools_BaseRangeSample
+include IntTools_BeanFaceIntersector
+include IntTools_CArray1OfInteger
+include IntTools_CArray1OfReal
+include IntTools_CommonPrt
+include IntTools_Context
+include IntTools_Curve
+include IntTools_CurveRangeLocalizeData
+include IntTools_CurveRangeSample
+include IntTools_CurveRangeSampleMapHasher
+include IntTools_DataMapIteratorOfDataMapOfCurveSampleBox
+include IntTools_DataMapIteratorOfDataMapOfSurfaceSampleBox
+include IntTools_DataMapOfCurveSampleBox
+include IntTools_DataMapOfSurfaceSampleBox
+include IntTools_EdgeEdge
+include IntTools_EdgeFace
+include IntTools_FClass2d
+include IntTools_FaceFace
+include IntTools_ListIteratorOfListOfBox
+include IntTools_ListIteratorOfListOfCurveRangeSample
+include IntTools_ListIteratorOfListOfSurfaceRangeSample
+include IntTools_ListOfBox
+include IntTools_ListOfCurveRangeSample
+include IntTools_ListOfSurfaceRangeSample
+include IntTools_MapIteratorOfMapOfCurveSample
+include IntTools_MapIteratorOfMapOfSurfaceSample
+include IntTools_MapOfCurveSample
+include IntTools_MapOfSurfaceSample
+include IntTools_MarkedRangeSet
+include IntTools_PntOn2Faces
+include IntTools_PntOnFace
+include IntTools_Range
+include IntTools_Root
+include IntTools_SequenceOfCommonPrts
+include IntTools_SequenceOfCurves
+include IntTools_SequenceOfPntOn2Faces
+include IntTools_SequenceOfRanges
+include IntTools_SequenceOfRoots
+include IntTools_ShrunkRange
+include IntTools_SurfaceRangeLocalizeData
+include IntTools_SurfaceRangeSample
+include IntTools_SurfaceRangeSampleMapHasher
+include IntTools_Tools
+include IntTools_TopolTool
+include IntTools_WLineTool
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

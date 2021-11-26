@@ -1,0 +1,120 @@
+{{.experimental: "codeReordering".}}
+{{.experimental: "callOperator".}}
+
+include\n  RWStepRepr_RWAllAroundShapeAspect
+  RWStepRepr_RWApex
+  RWStepRepr_RWAssemblyComponentUsage
+  RWStepRepr_RWAssemblyComponentUsageSubstitute
+  RWStepRepr_RWBetweenShapeAspect
+  RWStepRepr_RWCentreOfSymmetry
+  RWStepRepr_RWCharacterizedRepresentation
+  RWStepRepr_RWCompGroupShAspAndCompShAspAndDatumFeatAndShAsp
+  RWStepRepr_RWCompShAspAndDatumFeatAndShAsp
+  RWStepRepr_RWCompositeGroupShapeAspect
+  RWStepRepr_RWCompositeShapeAspect
+  RWStepRepr_RWCompoundRepresentationItem
+  RWStepRepr_RWConfigurationDesign
+  RWStepRepr_RWConfigurationEffectivity
+  RWStepRepr_RWConfigurationItem
+  RWStepRepr_RWConstructiveGeometryRepresentation
+  RWStepRepr_RWConstructiveGeometryRepresentationRelationship
+  RWStepRepr_RWContinuosShapeAspect
+  RWStepRepr_RWDataEnvironment
+  RWStepRepr_RWDefinitionalRepresentation
+  RWStepRepr_RWDerivedShapeAspect
+  RWStepRepr_RWDescriptiveRepresentationItem
+  RWStepRepr_RWExtension
+  RWStepRepr_RWFeatureForDatumTargetRelationship
+  RWStepRepr_RWFunctionallyDefinedTransformation
+  RWStepRepr_RWGeometricAlignment
+  RWStepRepr_RWGlobalUncertaintyAssignedContext
+  RWStepRepr_RWGlobalUnitAssignedContext
+  RWStepRepr_RWIntegerRepresentationItem
+  RWStepRepr_RWItemDefinedTransformation
+  RWStepRepr_RWMakeFromUsageOption
+  RWStepRepr_RWMappedItem
+  RWStepRepr_RWMaterialDesignation
+  RWStepRepr_RWMaterialProperty
+  RWStepRepr_RWMaterialPropertyRepresentation
+  RWStepRepr_RWMeasureRepresentationItem
+  RWStepRepr_RWParallelOffset
+  RWStepRepr_RWParametricRepresentationContext
+  RWStepRepr_RWPerpendicularTo
+  RWStepRepr_RWProductConcept
+  RWStepRepr_RWProductDefinitionShape
+  RWStepRepr_RWPropertyDefinition
+  RWStepRepr_RWPropertyDefinitionRelationship
+  RWStepRepr_RWPropertyDefinitionRepresentation
+  RWStepRepr_RWQuantifiedAssemblyComponentUsage
+  RWStepRepr_RWReprItemAndLengthMeasureWithUnit
+  RWStepRepr_RWReprItemAndLengthMeasureWithUnitAndQRI
+  RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnit
+  RWStepRepr_RWReprItemAndPlaneAngleMeasureWithUnitAndQRI
+  RWStepRepr_RWRepresentation
+  RWStepRepr_RWRepresentationContext
+  RWStepRepr_RWRepresentationItem
+  RWStepRepr_RWRepresentationMap
+  RWStepRepr_RWRepresentationRelationship
+  RWStepRepr_RWRepresentationRelationshipWithTransformation
+  RWStepRepr_RWShapeAspect
+  RWStepRepr_RWShapeAspectDerivingRelationship
+  RWStepRepr_RWShapeAspectRelationship
+  RWStepRepr_RWShapeAspectTransition
+  RWStepRepr_RWShapeRepresentationRelationshipWithTransformation
+  RWStepRepr_RWSpecifiedHigherUsageOccurrence
+  RWStepRepr_RWStructuralResponseProperty
+  RWStepRepr_RWStructuralResponsePropertyDefinitionRepresentation
+  RWStepRepr_RWTangent
+  RWStepRepr_RWValueRepresentationItem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+{.experimental: "callOperator".}
+
+include IGESAppli
+include IGESAppli_Array1OfFiniteElement
+include IGESAppli_Array1OfFlow
+include IGESAppli_Array1OfNode
+include IGESAppli_DrilledHole
+include IGESAppli_ElementResults
+include IGESAppli_FiniteElement
+include IGESAppli_Flow
+include IGESAppli_FlowLineSpec
+include IGESAppli_GeneralModule
+include IGESAppli_HArray1OfFiniteElement
+include IGESAppli_HArray1OfFlow
+include IGESAppli_HArray1OfNode
+include IGESAppli_LevelFunction
+include IGESAppli_LevelToPWBLayerMap
+include IGESAppli_LineWidening
+include IGESAppli_NodalConstraint
+include IGESAppli_NodalDisplAndRot
+include IGESAppli_NodalResults
+include IGESAppli_Node
+include IGESAppli_PWBArtworkStackup
+include IGESAppli_PWBDrilledHole
+include IGESAppli_PartNumber
+include IGESAppli_PinNumber
+include IGESAppli_PipingFlow
+include IGESAppli_Protocol
+include IGESAppli_ReadWriteModule
+include IGESAppli_ReferenceDesignator
+include IGESAppli_RegionRestriction
+include IGESAppli_SpecificModule
+include IGESAppli_ToolDrilledHole
+include IGESAppli_ToolElementResults
+include IGESAppli_ToolFiniteElement
+include IGESAppli_ToolFlow
+include IGESAppli_ToolFlowLineSpec
+include IGESAppli_ToolLevelFunction
+include IGESAppli_ToolLevelToPWBLayerMap
+include IGESAppli_ToolLineWidening
+include IGESAppli_ToolNodalConstraint
+include IGESAppli_ToolNodalDisplAndRot
+include IGESAppli_ToolNodalResults
+include IGESAppli_ToolNode
+include IGESAppli_ToolPWBArtworkStackup
+include IGESAppli_ToolPWBDrilledHole
+include IGESAppli_ToolPartNumber
+include IGESAppli_ToolPinNumber
+include IGESAppli_ToolPipingFlow
+include IGESAppli_ToolReferenceDesignator
+include IGESAppli_ToolRegionRestriction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@ proc newPnt*[A,B,C:SomeNumber](x:A,y:B,z:C):Pnt =
   newPnt(x.cfloat, y.cfloat, z.cfloat)
 
 type
-  Point* = Pnt | XYZ | Dir  # | gp_Vec  
+  Point* = Pnt | XYZ | Dir  | Vec  
 
 
 #[ proc x*[T:Point](p:T):float =
@@ -32,6 +32,11 @@ proc `z=`*[T:Point, V:SomeNumber](pnt:var T,val:V) =
 proc `$`*(pnt:Pnt):string =
   &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
+proc `$`*(pnt:Vec):string =
+  &"Vec(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
+
+proc `$`*(pnt:Xyz):string =
+  &"Xyz(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"
 
 proc `[]`*[P:Point, I:SomeInteger](pnt:P, idx:I):float =
   pnt.coord(idx.cint + 1.cint)

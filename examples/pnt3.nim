@@ -1,10 +1,6 @@
 # https://github.com/lvk88/OccTutorial
 # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
-{.experimental: "codeReordering".}
-{.experimental: "callOperator".}
-
-include ../experiments/wrapper2/tkmath/tkmath #tkMath/tkmath
-include ../experiments/wrapper2/tkernel/tkernel 
+import occt
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates

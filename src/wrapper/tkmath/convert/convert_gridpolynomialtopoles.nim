@@ -34,7 +34,7 @@ proc newConvertGridPolynomialToPoles*(maxUDegree: cint; maxVDegree: cint;
     coefficients: Handle[TColStdHArray1OfReal]; polynomialUIntervals: Handle[
     TColStdHArray1OfReal]; polynomialVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     cdecl, constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
-    dynlib: tkmath.}
+    header: "Convert_GridPolynomialToPoles.hxx".}
 proc newConvertGridPolynomialToPoles*(nbUSurfaces: cint; nBVSurfaces: cint;
                                      uContinuity: cint; vContinuity: cint;
                                      maxUDegree: cint; maxVDegree: cint;
@@ -43,7 +43,7 @@ proc newConvertGridPolynomialToPoles*(nbUSurfaces: cint; nBVSurfaces: cint;
     polynomialVIntervals: Handle[TColStdHArray1OfReal]; trueUIntervals: Handle[
     TColStdHArray1OfReal]; trueVIntervals: Handle[TColStdHArray1OfReal]): ConvertGridPolynomialToPoles {.
     cdecl, constructor, importcpp: "Convert_GridPolynomialToPoles(@)",
-    dynlib: tkmath.}
+    header: "Convert_GridPolynomialToPoles.hxx".}
 proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: cint;
              vContinuity: cint; maxUDegree: cint; maxVDegree: cint;
              numCoeffPerSurface: Handle[TColStdHArray2OfInteger];
@@ -52,30 +52,30 @@ proc perform*(this: var ConvertGridPolynomialToPoles; uContinuity: cint;
              polynomialVIntervals: Handle[TColStdHArray1OfReal];
              trueUIntervals: Handle[TColStdHArray1OfReal];
              trueVIntervals: Handle[TColStdHArray1OfReal]) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "Convert_GridPolynomialToPoles.hxx".}
 proc nbUPoles*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbUPoles", dynlib: tkmath.}
+    importcpp: "NbUPoles", header: "Convert_GridPolynomialToPoles.hxx".}
 proc nbVPoles*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbVPoles", dynlib: tkmath.}
+    importcpp: "NbVPoles", header: "Convert_GridPolynomialToPoles.hxx".}
 proc poles*(this: ConvertGridPolynomialToPoles): Handle[TColgpHArray2OfPnt] {.
-    noSideEffect, cdecl, importcpp: "Poles", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Poles", header: "Convert_GridPolynomialToPoles.hxx".}
 proc uDegree*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkmath.}
+    importcpp: "UDegree", header: "Convert_GridPolynomialToPoles.hxx".}
 proc vDegree*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "VDegree", dynlib: tkmath.}
+    importcpp: "VDegree", header: "Convert_GridPolynomialToPoles.hxx".}
 proc nbUKnots*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbUKnots", dynlib: tkmath.}
+    importcpp: "NbUKnots", header: "Convert_GridPolynomialToPoles.hxx".}
 proc nbVKnots*(this: ConvertGridPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbVKnots", dynlib: tkmath.}
+    importcpp: "NbVKnots", header: "Convert_GridPolynomialToPoles.hxx".}
 proc uKnots*(this: ConvertGridPolynomialToPoles): Handle[TColStdHArray1OfReal] {.
-    noSideEffect, cdecl, importcpp: "UKnots", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "UKnots", header: "Convert_GridPolynomialToPoles.hxx".}
 proc vKnots*(this: ConvertGridPolynomialToPoles): Handle[TColStdHArray1OfReal] {.
-    noSideEffect, cdecl, importcpp: "VKnots", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VKnots", header: "Convert_GridPolynomialToPoles.hxx".}
 proc uMultiplicities*(this: ConvertGridPolynomialToPoles): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, cdecl, importcpp: "UMultiplicities",
-                              dynlib: tkmath.}
+                              header: "Convert_GridPolynomialToPoles.hxx".}
 proc vMultiplicities*(this: ConvertGridPolynomialToPoles): Handle[
     TColStdHArray1OfInteger] {.noSideEffect, cdecl, importcpp: "VMultiplicities",
-                              dynlib: tkmath.}
+                              header: "Convert_GridPolynomialToPoles.hxx".}
 proc isDone*(this: ConvertGridPolynomialToPoles): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "Convert_GridPolynomialToPoles.hxx".}

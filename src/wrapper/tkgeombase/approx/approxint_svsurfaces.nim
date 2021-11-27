@@ -27,20 +27,20 @@ type
 
 proc compute*(this: var ApproxIntSvSurfaces; u1: var cfloat; v1: var cfloat;
              u2: var cfloat; v2: var cfloat; pt: var Pnt; tg: var Vec; tguv1: var Vec2d;
-             tguv2: var Vec2d): bool {.cdecl, importcpp: "Compute", dynlib: tkgeombase.}
+             tguv2: var Vec2d): bool {.cdecl, importcpp: "Compute", header: "ApproxInt_SvSurfaces.hxx".}
 proc pnt*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-         p: var Pnt) {.cdecl, importcpp: "Pnt", dynlib: tkgeombase.}
+         p: var Pnt) {.cdecl, importcpp: "Pnt", header: "ApproxInt_SvSurfaces.hxx".}
 proc seekPoint*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
                v2: cfloat; point: var IntSurfPntOn2S): bool {.cdecl,
-    importcpp: "SeekPoint", dynlib: tkgeombase.}
+    importcpp: "SeekPoint", header: "ApproxInt_SvSurfaces.hxx".}
 proc tangency*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
               v2: cfloat; tg: var Vec): bool {.cdecl, importcpp: "Tangency",
-    dynlib: tkgeombase.}
+    header: "ApproxInt_SvSurfaces.hxx".}
 proc tangencyOnSurf1*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
                      v2: cfloat; tg: var Vec2d): bool {.cdecl,
-    importcpp: "TangencyOnSurf1", dynlib: tkgeombase.}
+    importcpp: "TangencyOnSurf1", header: "ApproxInt_SvSurfaces.hxx".}
 proc tangencyOnSurf2*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2: cfloat;
                      v2: cfloat; tg: var Vec2d): bool {.cdecl,
-    importcpp: "TangencyOnSurf2", dynlib: tkgeombase.}
+    importcpp: "TangencyOnSurf2", header: "ApproxInt_SvSurfaces.hxx".}
 proc destroyApproxIntSvSurfaces*(this: var ApproxIntSvSurfaces) {.cdecl,
-    importcpp: "#.~ApproxInt_SvSurfaces()", dynlib: tkgeombase.}
+    importcpp: "#.~ApproxInt_SvSurfaces()", header: "ApproxInt_SvSurfaces.hxx".}

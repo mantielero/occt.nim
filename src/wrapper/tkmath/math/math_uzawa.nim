@@ -73,24 +73,24 @@ type
 proc newMathUzawa*(cont: MathMatrix; secont: MathVector; startingPoint: MathVector;
                   epsLix: cfloat = 1.0e-06; epsLic: cfloat = 1.0e-06;
                   nbIterations: cint = 500): MathUzawa {.cdecl, constructor,
-    importcpp: "math_Uzawa(@)", dynlib: tkmath.}
+    importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
 proc newMathUzawa*(cont: MathMatrix; secont: MathVector; startingPoint: MathVector;
                   nci: cint; nce: cint; epsLix: cfloat = 1.0e-06;
                   epsLic: cfloat = 1.0e-06; nbIterations: cint = 500): MathUzawa {.cdecl,
-    constructor, importcpp: "math_Uzawa(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_Uzawa(@)", header: "math_Uzawa.hxx".}
 proc isDone*(this: MathUzawa): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                  dynlib: tkmath.}
+                                  header: "math_Uzawa.hxx".}
 proc value*(this: MathUzawa): MathVector {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkmath.}
+                                       header: "math_Uzawa.hxx".}
 proc initialError*(this: MathUzawa): MathVector {.noSideEffect, cdecl,
-    importcpp: "InitialError", dynlib: tkmath.}
+    importcpp: "InitialError", header: "math_Uzawa.hxx".}
 proc duale*(this: MathUzawa; v: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Duale", dynlib: tkmath.}
+    importcpp: "Duale", header: "math_Uzawa.hxx".}
 proc error*(this: MathUzawa): MathVector {.noSideEffect, cdecl, importcpp: "Error",
-                                       dynlib: tkmath.}
+                                       header: "math_Uzawa.hxx".}
 proc nbIterations*(this: MathUzawa): cint {.noSideEffect, cdecl,
-                                        importcpp: "NbIterations", dynlib: tkmath.}
+                                        importcpp: "NbIterations", header: "math_Uzawa.hxx".}
 proc inverseCont*(this: MathUzawa): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "InverseCont", dynlib: tkmath.}
+    importcpp: "InverseCont", header: "math_Uzawa.hxx".}
 proc dump*(this: MathUzawa; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Uzawa.hxx".}

@@ -56,16 +56,16 @@ type
 
 
 proc newMathCrout*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathCrout {.cdecl,
-    constructor, importcpp: "math_Crout(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_Crout(@)", header: "math_Crout.hxx".}
 proc isDone*(this: MathCrout): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                  dynlib: tkmath.}
+                                  header: "math_Crout.hxx".}
 proc solve*(this: MathCrout; b: MathVector; x: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Solve", dynlib: tkmath.}
+    importcpp: "Solve", header: "math_Crout.hxx".}
 proc inverse*(this: MathCrout): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Inverse", dynlib: tkmath.}
+    importcpp: "Inverse", header: "math_Crout.hxx".}
 proc invert*(this: MathCrout; inv: var MathMatrix) {.noSideEffect, cdecl,
-    importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "Invert", header: "math_Crout.hxx".}
 proc determinant*(this: MathCrout): cfloat {.noSideEffect, cdecl,
-    importcpp: "Determinant", dynlib: tkmath.}
+    importcpp: "Determinant", header: "math_Crout.hxx".}
 proc dump*(this: MathCrout; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Crout.hxx".}

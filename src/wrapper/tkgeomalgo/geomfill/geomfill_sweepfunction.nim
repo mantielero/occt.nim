@@ -34,53 +34,53 @@ proc newGeomFillSweepFunction*(section: Handle[GeomFillSectionLaw];
                               location: Handle[GeomFillLocationLaw];
                               firstParameter: cfloat; firstParameterOnS: cfloat;
                               ratioParameterOnS: cfloat): GeomFillSweepFunction {.
-    cdecl, constructor, importcpp: "GeomFill_SweepFunction(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_SweepFunction(@)", header: "GeomFill_SweepFunction.hxx".}
 proc d0*(this: var GeomFillSweepFunction; param: cfloat; first: cfloat; last: cfloat;
         poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
         weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepFunction.hxx".}
 proc d1*(this: var GeomFillSweepFunction; param: cfloat; first: cfloat; last: cfloat;
         poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_SweepFunction.hxx".}
 proc d2*(this: var GeomFillSweepFunction; param: cfloat; first: cfloat; last: cfloat;
         poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
         weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
         d2Weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "D2",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepFunction.hxx".}
 proc nb2dCurves*(this: GeomFillSweepFunction): cint {.noSideEffect, cdecl,
-    importcpp: "Nb2dCurves", dynlib: tkgeomalgo.}
+    importcpp: "Nb2dCurves", header: "GeomFill_SweepFunction.hxx".}
 proc sectionShape*(this: GeomFillSweepFunction; nbPoles: var cint; nbKnots: var cint;
                   degree: var cint) {.noSideEffect, cdecl, importcpp: "SectionShape",
-                                   dynlib: tkgeomalgo.}
+                                   header: "GeomFill_SweepFunction.hxx".}
 proc knots*(this: GeomFillSweepFunction; tKnots: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "GeomFill_SweepFunction.hxx".}
 proc mults*(this: GeomFillSweepFunction; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Mults", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Mults", header: "GeomFill_SweepFunction.hxx".}
 proc isRational*(this: GeomFillSweepFunction): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkgeomalgo.}
+    importcpp: "IsRational", header: "GeomFill_SweepFunction.hxx".}
 proc nbIntervals*(this: GeomFillSweepFunction; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_SweepFunction.hxx".}
 proc intervals*(this: GeomFillSweepFunction; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_SweepFunction.hxx".}
 proc setInterval*(this: var GeomFillSweepFunction; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    importcpp: "SetInterval", header: "GeomFill_SweepFunction.hxx".}
 proc resolution*(this: GeomFillSweepFunction; index: cint; tol: cfloat;
                 tolU: var cfloat; tolV: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkgeomalgo.}
+    importcpp: "Resolution", header: "GeomFill_SweepFunction.hxx".}
 proc getTolerance*(this: GeomFillSweepFunction; boundTol: cfloat; surfTol: cfloat;
                   angleTol: cfloat; tol3d: var TColStdArray1OfReal) {.noSideEffect,
-    cdecl, importcpp: "GetTolerance", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetTolerance", header: "GeomFill_SweepFunction.hxx".}
 proc setTolerance*(this: var GeomFillSweepFunction; tol3d: cfloat; tol2d: cfloat) {.
-    cdecl, importcpp: "SetTolerance", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetTolerance", header: "GeomFill_SweepFunction.hxx".}
 proc barycentreOfSurf*(this: GeomFillSweepFunction): Pnt {.noSideEffect, cdecl,
-    importcpp: "BarycentreOfSurf", dynlib: tkgeomalgo.}
+    importcpp: "BarycentreOfSurf", header: "GeomFill_SweepFunction.hxx".}
 proc maximalSection*(this: GeomFillSweepFunction): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaximalSection", dynlib: tkgeomalgo.}
+    importcpp: "MaximalSection", header: "GeomFill_SweepFunction.hxx".}
 proc getMinimalWeight*(this: GeomFillSweepFunction;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "GetMinimalWeight", dynlib: tkgeomalgo.}
+    importcpp: "GetMinimalWeight", header: "GeomFill_SweepFunction.hxx".}

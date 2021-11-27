@@ -22,19 +22,19 @@ type
 
 
 proc newChFiDS_StripeMap*(): ChFiDS_StripeMap {.cdecl, constructor,
-    importcpp: "ChFiDS_StripeMap(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_StripeMap(@)", header: "ChFiDS_StripeMap.hxx".}
 proc add*(this: var ChFiDS_StripeMap; v: TopoDS_Vertex; f: Handle[ChFiDS_Stripe]) {.
-    cdecl, importcpp: "Add", dynlib: tkfillet.}
+    cdecl, importcpp: "Add", header: "ChFiDS_StripeMap.hxx".}
 proc extent*(this: ChFiDS_StripeMap): cint {.noSideEffect, cdecl, importcpp: "Extent",
-    dynlib: tkfillet.}
+    header: "ChFiDS_StripeMap.hxx".}
 proc findFromKey*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
-    noSideEffect, cdecl, importcpp: "FindFromKey", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FindFromKey", header: "ChFiDS_StripeMap.hxx".}
 proc `()`*(this: ChFiDS_StripeMap; v: TopoDS_Vertex): ChFiDS_ListOfStripe {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
 proc findFromIndex*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.
-    noSideEffect, cdecl, importcpp: "FindFromIndex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FindFromIndex", header: "ChFiDS_StripeMap.hxx".}
 proc `()`*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkfillet.}
+    importcpp: "#(@)", header: "ChFiDS_StripeMap.hxx".}
 proc findKey*(this: ChFiDS_StripeMap; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "FindKey", dynlib: tkfillet.}
-proc clear*(this: var ChFiDS_StripeMap) {.cdecl, importcpp: "Clear", dynlib: tkfillet.}
+    importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
+proc clear*(this: var ChFiDS_StripeMap) {.cdecl, importcpp: "Clear", header: "ChFiDS_StripeMap.hxx".}

@@ -23,27 +23,27 @@ type
 
 
 proc newGeomFillProfiler*(): GeomFillProfiler {.cdecl, constructor,
-    importcpp: "GeomFill_Profiler(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Profiler(@)", header: "GeomFill_Profiler.hxx".}
 proc destroyGeomFillProfiler*(this: var GeomFillProfiler) {.cdecl,
-    importcpp: "#.~GeomFill_Profiler()", dynlib: tkgeomalgo.}
+    importcpp: "#.~GeomFill_Profiler()", header: "GeomFill_Profiler.hxx".}
 proc addCurve*(this: var GeomFillProfiler; curve: Handle[GeomCurve]) {.cdecl,
-    importcpp: "AddCurve", dynlib: tkgeomalgo.}
+    importcpp: "AddCurve", header: "GeomFill_Profiler.hxx".}
 proc perform*(this: var GeomFillProfiler; pTol: cfloat) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Profiler.hxx".}
 proc degree*(this: GeomFillProfiler): cint {.noSideEffect, cdecl, importcpp: "Degree",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Profiler.hxx".}
 proc isPeriodic*(this: GeomFillProfiler): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkgeomalgo.}
+    importcpp: "IsPeriodic", header: "GeomFill_Profiler.hxx".}
 proc nbPoles*(this: GeomFillProfiler): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkgeomalgo.}
+    importcpp: "NbPoles", header: "GeomFill_Profiler.hxx".}
 proc poles*(this: GeomFillProfiler; index: cint; poles: var TColgpArray1OfPnt) {.
-    noSideEffect, cdecl, importcpp: "Poles", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Poles", header: "GeomFill_Profiler.hxx".}
 proc weights*(this: GeomFillProfiler; index: cint; weights: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Weights", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Weights", header: "GeomFill_Profiler.hxx".}
 proc nbKnots*(this: GeomFillProfiler): cint {.noSideEffect, cdecl,
-    importcpp: "NbKnots", dynlib: tkgeomalgo.}
+    importcpp: "NbKnots", header: "GeomFill_Profiler.hxx".}
 proc knotsAndMults*(this: GeomFillProfiler; knots: var TColStdArray1OfReal;
                    mults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "KnotsAndMults", dynlib: tkgeomalgo.}
+    importcpp: "KnotsAndMults", header: "GeomFill_Profiler.hxx".}
 proc curve*(this: GeomFillProfiler; index: cint): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "Curve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Curve", header: "GeomFill_Profiler.hxx".}

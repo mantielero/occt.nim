@@ -121,4 +121,4 @@ type
 
 
 proc nextPrimeForMap*(i: cint): cint {.cdecl, importcpp: "TCollection::NextPrimeForMap(@)",
-                                   dynlib: tkernel.}
+                                   header: "TCollection.hxx".}

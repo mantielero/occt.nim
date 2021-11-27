@@ -23,19 +23,19 @@ type
 
 
 proc newTopToolsLocationSet*(): TopToolsLocationSet {.cdecl, constructor,
-    importcpp: "TopTools_LocationSet(@)", dynlib: tkbrep.}
-proc clear*(this: var TopToolsLocationSet) {.cdecl, importcpp: "Clear", dynlib: tkbrep.}
+    importcpp: "TopTools_LocationSet(@)", header: "TopTools_LocationSet.hxx".}
+proc clear*(this: var TopToolsLocationSet) {.cdecl, importcpp: "Clear", header: "TopTools_LocationSet.hxx".}
 proc add*(this: var TopToolsLocationSet; L: TopLocLocation): cint {.cdecl,
-    importcpp: "Add", dynlib: tkbrep.}
+    importcpp: "Add", header: "TopTools_LocationSet.hxx".}
 proc location*(this: TopToolsLocationSet; i: cint): TopLocLocation {.noSideEffect,
-    cdecl, importcpp: "Location", dynlib: tkbrep.}
+    cdecl, importcpp: "Location", header: "TopTools_LocationSet.hxx".}
 proc index*(this: TopToolsLocationSet; L: TopLocLocation): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbrep.}
+    importcpp: "Index", header: "TopTools_LocationSet.hxx".}
 proc dump*(this: TopToolsLocationSet; os: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkbrep.}
+    importcpp: "Dump", header: "TopTools_LocationSet.hxx".}
 proc write*(this: TopToolsLocationSet; os: var StandardOStream;
            theProgress: MessageProgressRange = newMessageProgressRange()) {.
-    noSideEffect, cdecl, importcpp: "Write", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Write", header: "TopTools_LocationSet.hxx".}
 proc read*(this: var TopToolsLocationSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = newMessageProgressRange()) {.cdecl,
-    importcpp: "Read", dynlib: tkbrep.}
+    importcpp: "Read", header: "TopTools_LocationSet.hxx".}

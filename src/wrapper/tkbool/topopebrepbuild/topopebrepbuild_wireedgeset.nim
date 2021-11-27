@@ -118,35 +118,35 @@ type
 
 
 proc newTopOpeBRepBuildWireEdgeSet*(f: TopoDS_Shape; `addr`: pointer = nil): TopOpeBRepBuildWireEdgeSet {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_WireEdgeSet(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_WireEdgeSet(@)", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc face*(this: TopOpeBRepBuildWireEdgeSet): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkbool.}
+    importcpp: "Face", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc addShape*(this: var TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddShape", dynlib: tkbool.}
+    importcpp: "AddShape", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc addStartElement*(this: var TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddStartElement", dynlib: tkbool.}
+    importcpp: "AddStartElement", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc addElement*(this: var TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddElement", dynlib: tkbool.}
+    importcpp: "AddElement", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc initNeighbours*(this: var TopOpeBRepBuildWireEdgeSet; e: TopoDS_Shape) {.cdecl,
-    importcpp: "InitNeighbours", dynlib: tkbool.}
+    importcpp: "InitNeighbours", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc findNeighbours*(this: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "FindNeighbours", dynlib: tkbool.}
+    importcpp: "FindNeighbours", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc makeNeighboursList*(this: var TopOpeBRepBuildWireEdgeSet; e: TopoDS_Shape;
                         v: TopoDS_Shape): TopToolsListOfShape {.cdecl,
-    importcpp: "MakeNeighboursList", dynlib: tkbool.}
+    importcpp: "MakeNeighboursList", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc isUVISO*(e: TopoDS_Edge; f: TopoDS_Face; uiso: var bool; viso: var bool) {.cdecl,
-    importcpp: "TopOpeBRepBuild_WireEdgeSet::IsUVISO(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_WireEdgeSet::IsUVISO(@)", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc dumpSS*(this: var TopOpeBRepBuildWireEdgeSet) {.cdecl, importcpp: "DumpSS",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc sName*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
            sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SName", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc sName*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
            sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SName", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}

@@ -30,29 +30,29 @@ type
 proc newMathFRPR*(theFunction: MathMultipleVarFunctionWithGradient;
                  theTolerance: cfloat; theNbIterations: cint = 200;
                  theZEPS: cfloat = 1.0e-12): MathFRPR {.cdecl, constructor,
-    importcpp: "math_FRPR(@)", dynlib: tkmath.}
+    importcpp: "math_FRPR(@)", header: "math_FRPR.hxx".}
 proc destroyMathFRPR*(this: var MathFRPR) {.cdecl, importcpp: "#.~math_FRPR()",
-                                        dynlib: tkmath.}
+                                        header: "math_FRPR.hxx".}
 proc perform*(this: var MathFRPR;
              theFunction: var MathMultipleVarFunctionWithGradient;
              theStartingPoint: MathVector) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "math_FRPR.hxx".}
 proc isSolutionReached*(this: var MathFRPR;
                        theFunction: var MathMultipleVarFunctionWithGradient): bool {.
-    cdecl, importcpp: "IsSolutionReached", dynlib: tkmath.}
+    cdecl, importcpp: "IsSolutionReached", header: "math_FRPR.hxx".}
 proc isDone*(this: MathFRPR): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                 dynlib: tkmath.}
+                                 header: "math_FRPR.hxx".}
 proc location*(this: MathFRPR): MathVector {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_FRPR.hxx".}
 proc location*(this: MathFRPR; loc: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_FRPR.hxx".}
 proc minimum*(this: MathFRPR): cfloat {.noSideEffect, cdecl, importcpp: "Minimum",
-                                    dynlib: tkmath.}
+                                    header: "math_FRPR.hxx".}
 proc gradient*(this: MathFRPR): MathVector {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_FRPR.hxx".}
 proc gradient*(this: MathFRPR; grad: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_FRPR.hxx".}
 proc nbIterations*(this: MathFRPR): cint {.noSideEffect, cdecl,
-                                       importcpp: "NbIterations", dynlib: tkmath.}
+                                       importcpp: "NbIterations", header: "math_FRPR.hxx".}
 proc dump*(this: MathFRPR; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_FRPR.hxx".}

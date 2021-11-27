@@ -29,15 +29,15 @@ type
 
 
 proc newBRepPolygon3D*(p: Handle[PolyPolygon3D]; L: TopLocLocation): BRepPolygon3D {.
-    cdecl, constructor, importcpp: "BRep_Polygon3D(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_Polygon3D(@)", header: "BRep_Polygon3D.hxx".}
 proc isPolygon3D*(this: BRepPolygon3D): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygon3D", dynlib: tkbrep.}
+    importcpp: "IsPolygon3D", header: "BRep_Polygon3D.hxx".}
 proc polygon3D*(this: BRepPolygon3D): Handle[PolyPolygon3D] {.noSideEffect, cdecl,
-    importcpp: "Polygon3D", dynlib: tkbrep.}
+    importcpp: "Polygon3D", header: "BRep_Polygon3D.hxx".}
 proc polygon3D*(this: var BRepPolygon3D; p: Handle[PolyPolygon3D]) {.cdecl,
-    importcpp: "Polygon3D", dynlib: tkbrep.}
+    importcpp: "Polygon3D", header: "BRep_Polygon3D.hxx".}
 proc copy*(this: BRepPolygon3D): Handle[BRepCurveRepresentation] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    cdecl, importcpp: "Copy", header: "BRep_Polygon3D.hxx".}
 proc dumpJson*(this: BRepPolygon3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_Polygon3D.hxx".}

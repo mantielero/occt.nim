@@ -109,9 +109,9 @@ type
 proc newPolyCoherentTriangulationIteratorOfTriangle*(
     theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfTriangle {.
     cdecl, constructor,
-    importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle(@)", header: "Poly_CoherentTriangulation.hxx".}
 proc next*(this: var PolyCoherentTriangulationIteratorOfTriangle) {.cdecl,
-    importcpp: "Next", dynlib: tkmath.}
+    importcpp: "Next", header: "Poly_CoherentTriangulation.hxx".}
 type
   PolyCoherentTriangulationIteratorOfNode* {.
       importcpp: "Poly_CoherentTriangulation::IteratorOfNode",
@@ -123,9 +123,9 @@ type
 proc newPolyCoherentTriangulationIteratorOfNode*(
     theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfNode {.
     cdecl, constructor,
-    importcpp: "Poly_CoherentTriangulation::IteratorOfNode(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentTriangulation::IteratorOfNode(@)", header: "Poly_CoherentTriangulation.hxx".}
 proc next*(this: var PolyCoherentTriangulationIteratorOfNode) {.cdecl,
-    importcpp: "Next", dynlib: tkmath.}
+    importcpp: "Next", header: "Poly_CoherentTriangulation.hxx".}
 type
   PolyCoherentTriangulationIteratorOfLink* {.
       importcpp: "Poly_CoherentTriangulation::IteratorOfLink",
@@ -137,9 +137,9 @@ type
 proc newPolyCoherentTriangulationIteratorOfLink*(
     theTri: Handle[PolyCoherentTriangulation]): PolyCoherentTriangulationIteratorOfLink {.
     cdecl, constructor,
-    importcpp: "Poly_CoherentTriangulation::IteratorOfLink(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentTriangulation::IteratorOfLink(@)", header: "Poly_CoherentTriangulation.hxx".}
 proc next*(this: var PolyCoherentTriangulationIteratorOfLink) {.cdecl,
-    importcpp: "Next", dynlib: tkmath.}
+    importcpp: "Next", header: "Poly_CoherentTriangulation.hxx".}
 type
   PolyCoherentTriangulationTwoIntegers* {.
       importcpp: "Poly_CoherentTriangulation::TwoIntegers",
@@ -149,74 +149,74 @@ type
 
 proc newPolyCoherentTriangulationTwoIntegers*(): PolyCoherentTriangulationTwoIntegers {.
     cdecl, constructor, importcpp: "Poly_CoherentTriangulation::TwoIntegers(@)",
-    dynlib: tkmath.}
+    header: "Poly_CoherentTriangulation.hxx".}
 proc newPolyCoherentTriangulationTwoIntegers*(i0: cint; i1: cint): PolyCoherentTriangulationTwoIntegers {.
     cdecl, constructor, importcpp: "Poly_CoherentTriangulation::TwoIntegers(@)",
-    dynlib: tkmath.}
+    header: "Poly_CoherentTriangulation.hxx".}
 proc newPolyCoherentTriangulation*(theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): PolyCoherentTriangulation {.
-    cdecl, constructor, importcpp: "Poly_CoherentTriangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_CoherentTriangulation(@)", header: "Poly_CoherentTriangulation.hxx".}
 proc newPolyCoherentTriangulation*(theTriangulation: Handle[PolyTriangulation];
     theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): PolyCoherentTriangulation {.
-    cdecl, constructor, importcpp: "Poly_CoherentTriangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_CoherentTriangulation(@)", header: "Poly_CoherentTriangulation.hxx".}
 proc destroyPolyCoherentTriangulation*(this: var PolyCoherentTriangulation) {.cdecl,
-    importcpp: "#.~Poly_CoherentTriangulation()", dynlib: tkmath.}
+    importcpp: "#.~Poly_CoherentTriangulation()", header: "Poly_CoherentTriangulation.hxx".}
 proc getTriangulation*(this: PolyCoherentTriangulation): Handle[PolyTriangulation] {.
-    noSideEffect, cdecl, importcpp: "GetTriangulation", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetTriangulation", header: "Poly_CoherentTriangulation.hxx".}
 proc removeDegenerated*(this: var PolyCoherentTriangulation; theTol: cfloat;
     pLstRemovedNode: ptr NCollectionList[PolyCoherentTriangulationTwoIntegers] = cast[ptr NCollectionList[PolyCoherentTriangulationTwoIntegers]](0)): bool {.
-    cdecl, importcpp: "RemoveDegenerated", dynlib: tkmath.}
+    cdecl, importcpp: "RemoveDegenerated", header: "Poly_CoherentTriangulation.hxx".}
 proc getFreeNodes*(this: PolyCoherentTriangulation;
                   lstNodes: var NCollectionList[cint]): bool {.noSideEffect, cdecl,
-    importcpp: "GetFreeNodes", dynlib: tkmath.}
+    importcpp: "GetFreeNodes", header: "Poly_CoherentTriangulation.hxx".}
 proc maxNode*(this: PolyCoherentTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "MaxNode", dynlib: tkmath.}
+    importcpp: "MaxNode", header: "Poly_CoherentTriangulation.hxx".}
 proc maxTriangle*(this: PolyCoherentTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "MaxTriangle", dynlib: tkmath.}
+    importcpp: "MaxTriangle", header: "Poly_CoherentTriangulation.hxx".}
 proc setDeflection*(this: var PolyCoherentTriangulation; theDefl: cfloat) {.cdecl,
-    importcpp: "SetDeflection", dynlib: tkmath.}
+    importcpp: "SetDeflection", header: "Poly_CoherentTriangulation.hxx".}
 proc deflection*(this: PolyCoherentTriangulation): cfloat {.noSideEffect, cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_CoherentTriangulation.hxx".}
 proc setNode*(this: var PolyCoherentTriangulation; thePnt: Xyz; `iN`: cint = -1): cint {.
-    cdecl, importcpp: "SetNode", dynlib: tkmath.}
+    cdecl, importcpp: "SetNode", header: "Poly_CoherentTriangulation.hxx".}
 proc node*(this: PolyCoherentTriangulation; i: cint): PolyCoherentNode {.noSideEffect,
-    cdecl, importcpp: "Node", dynlib: tkmath.}
+    cdecl, importcpp: "Node", header: "Poly_CoherentTriangulation.hxx".}
 proc changeNode*(this: var PolyCoherentTriangulation; i: cint): var PolyCoherentNode {.
-    cdecl, importcpp: "ChangeNode", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeNode", header: "Poly_CoherentTriangulation.hxx".}
 proc nNodes*(this: PolyCoherentTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NNodes", dynlib: tkmath.}
+    importcpp: "NNodes", header: "Poly_CoherentTriangulation.hxx".}
 proc triangle*(this: PolyCoherentTriangulation; i: cint): PolyCoherentTriangle {.
-    noSideEffect, cdecl, importcpp: "Triangle", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Triangle", header: "Poly_CoherentTriangulation.hxx".}
 proc nTriangles*(this: PolyCoherentTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NTriangles", dynlib: tkmath.}
+    importcpp: "NTriangles", header: "Poly_CoherentTriangulation.hxx".}
 proc nLinks*(this: PolyCoherentTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NLinks", dynlib: tkmath.}
+    importcpp: "NLinks", header: "Poly_CoherentTriangulation.hxx".}
 proc removeTriangle*(this: var PolyCoherentTriangulation;
                     theTr: var PolyCoherentTriangle): bool {.cdecl,
-    importcpp: "RemoveTriangle", dynlib: tkmath.}
+    importcpp: "RemoveTriangle", header: "Poly_CoherentTriangulation.hxx".}
 proc removeLink*(this: var PolyCoherentTriangulation; theLink: var PolyCoherentLink) {.
-    cdecl, importcpp: "RemoveLink", dynlib: tkmath.}
+    cdecl, importcpp: "RemoveLink", header: "Poly_CoherentTriangulation.hxx".}
 proc addTriangle*(this: var PolyCoherentTriangulation; iNode0: cint; iNode1: cint;
                  iNode2: cint): ptr PolyCoherentTriangle {.cdecl,
-    importcpp: "AddTriangle", dynlib: tkmath.}
+    importcpp: "AddTriangle", header: "Poly_CoherentTriangulation.hxx".}
 proc replaceNodes*(this: var PolyCoherentTriangulation;
                   theTriangle: var PolyCoherentTriangle; iNode0: cint; iNode1: cint;
                   iNode2: cint): bool {.cdecl, importcpp: "ReplaceNodes",
-                                     dynlib: tkmath.}
+                                     header: "Poly_CoherentTriangulation.hxx".}
 proc addLink*(this: var PolyCoherentTriangulation; theTri: PolyCoherentTriangle;
              theConn: cint): ptr PolyCoherentLink {.cdecl, importcpp: "AddLink",
-    dynlib: tkmath.}
+    header: "Poly_CoherentTriangulation.hxx".}
 proc findTriangle*(this: PolyCoherentTriangulation; theLink: PolyCoherentLink;
                   pTri: array[2, ptr PolyCoherentTriangle]): bool {.noSideEffect,
-    cdecl, importcpp: "FindTriangle", dynlib: tkmath.}
+    cdecl, importcpp: "FindTriangle", header: "Poly_CoherentTriangulation.hxx".}
 proc computeLinks*(this: var PolyCoherentTriangulation): cint {.cdecl,
-    importcpp: "ComputeLinks", dynlib: tkmath.}
+    importcpp: "ComputeLinks", header: "Poly_CoherentTriangulation.hxx".}
 proc clearLinks*(this: var PolyCoherentTriangulation) {.cdecl,
-    importcpp: "ClearLinks", dynlib: tkmath.}
+    importcpp: "ClearLinks", header: "Poly_CoherentTriangulation.hxx".}
 proc allocator*(this: PolyCoherentTriangulation): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Allocator", header: "Poly_CoherentTriangulation.hxx".}
 proc clone*(this: PolyCoherentTriangulation;
            theAlloc: Handle[NCollectionBaseAllocator]): Handle[
     PolyCoherentTriangulation] {.noSideEffect, cdecl, importcpp: "Clone",
-                                dynlib: tkmath.}
+                                header: "Poly_CoherentTriangulation.hxx".}
 proc dump*(this: PolyCoherentTriangulation; a2: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "Poly_CoherentTriangulation.hxx".}

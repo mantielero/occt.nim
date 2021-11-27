@@ -28,33 +28,33 @@ type
 proc newBlendFuncConstThroat*(s1: Handle[Adaptor3dHSurface];
                              s2: Handle[Adaptor3dHSurface];
                              c: Handle[Adaptor3dHCurve]): BlendFuncConstThroat {.
-    cdecl, constructor, importcpp: "BlendFunc_ConstThroat(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_ConstThroat(@)", header: "BlendFunc_ConstThroat.hxx".}
 proc value*(this: var BlendFuncConstThroat; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BlendFunc_ConstThroat.hxx".}
 proc derivatives*(this: var BlendFuncConstThroat; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_ConstThroat.hxx".}
 proc set*(this: var BlendFuncConstThroat; param: cfloat) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_ConstThroat.hxx".}
 proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroat.hxx".}
 proc pointOnS1*(this: BlendFuncConstThroat): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS1", dynlib: tkfillet.}
+    importcpp: "PointOnS1", header: "BlendFunc_ConstThroat.hxx".}
 proc pointOnS2*(this: BlendFuncConstThroat): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS2", dynlib: tkfillet.}
+    importcpp: "PointOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc isTangencyPoint*(this: BlendFuncConstThroat): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "BlendFunc_ConstThroat.hxx".}
 proc tangentOnS1*(this: BlendFuncConstThroat): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS1", dynlib: tkfillet.}
+    importcpp: "TangentOnS1", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent2dOnS1*(this: BlendFuncConstThroat): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS1", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstThroat.hxx".}
 proc tangentOnS2*(this: BlendFuncConstThroat): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS2", dynlib: tkfillet.}
+    importcpp: "TangentOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent2dOnS2*(this: BlendFuncConstThroat): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS2", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent*(this: BlendFuncConstThroat; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
-    noSideEffect, cdecl, importcpp: "Tangent", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
 proc set*(this: var BlendFuncConstThroat; aThroat: cfloat; a3: cfloat; choix: cint) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BlendFunc_ConstThroat.hxx".}
 proc getSectionSize*(this: BlendFuncConstThroat): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSectionSize", dynlib: tkfillet.}
+    importcpp: "GetSectionSize", header: "BlendFunc_ConstThroat.hxx".}

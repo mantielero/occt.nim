@@ -27,55 +27,55 @@ type
 
 
 proc newBndBox2d*(): BndBox2d {.cdecl, constructor, importcpp: "Bnd_Box2d(@)",
-                             dynlib: tkmath.}
-proc setWhole*(this: var BndBox2d) {.cdecl, importcpp: "SetWhole", dynlib: tkmath.}
-proc setVoid*(this: var BndBox2d) {.cdecl, importcpp: "SetVoid", dynlib: tkmath.}
-proc set*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Set", dynlib: tkmath.}
+                             header: "Bnd_Box2d.hxx".}
+proc setWhole*(this: var BndBox2d) {.cdecl, importcpp: "SetWhole", header: "Bnd_Box2d.hxx".}
+proc setVoid*(this: var BndBox2d) {.cdecl, importcpp: "SetVoid", header: "Bnd_Box2d.hxx".}
+proc set*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Set", header: "Bnd_Box2d.hxx".}
 proc set*(this: var BndBox2d; thePnt: Pnt2d; theDir: Dir2d) {.cdecl, importcpp: "Set",
-    dynlib: tkmath.}
+    header: "Bnd_Box2d.hxx".}
 proc update*(this: var BndBox2d; aXmin: cfloat; aYmin: cfloat; aXmax: cfloat;
-            aYmax: cfloat) {.cdecl, importcpp: "Update", dynlib: tkmath.}
+            aYmax: cfloat) {.cdecl, importcpp: "Update", header: "Bnd_Box2d.hxx".}
 proc update*(this: var BndBox2d; x: cfloat; y: cfloat) {.cdecl, importcpp: "Update",
-    dynlib: tkmath.}
+    header: "Bnd_Box2d.hxx".}
 proc getGap*(this: BndBox2d): cfloat {.noSideEffect, cdecl, importcpp: "GetGap",
-                                   dynlib: tkmath.}
+                                   header: "Bnd_Box2d.hxx".}
 proc setGap*(this: var BndBox2d; tol: cfloat) {.cdecl, importcpp: "SetGap",
-    dynlib: tkmath.}
+    header: "Bnd_Box2d.hxx".}
 proc enlarge*(this: var BndBox2d; theTol: cfloat) {.cdecl, importcpp: "Enlarge",
-    dynlib: tkmath.}
+    header: "Bnd_Box2d.hxx".}
 proc get*(this: BndBox2d; aXmin: var cfloat; aYmin: var cfloat; aXmax: var cfloat;
-         aYmax: var cfloat) {.noSideEffect, cdecl, importcpp: "Get", dynlib: tkmath.}
-proc openXmin*(this: var BndBox2d) {.cdecl, importcpp: "OpenXmin", dynlib: tkmath.}
-proc openXmax*(this: var BndBox2d) {.cdecl, importcpp: "OpenXmax", dynlib: tkmath.}
-proc openYmin*(this: var BndBox2d) {.cdecl, importcpp: "OpenYmin", dynlib: tkmath.}
-proc openYmax*(this: var BndBox2d) {.cdecl, importcpp: "OpenYmax", dynlib: tkmath.}
+         aYmax: var cfloat) {.noSideEffect, cdecl, importcpp: "Get", header: "Bnd_Box2d.hxx".}
+proc openXmin*(this: var BndBox2d) {.cdecl, importcpp: "OpenXmin", header: "Bnd_Box2d.hxx".}
+proc openXmax*(this: var BndBox2d) {.cdecl, importcpp: "OpenXmax", header: "Bnd_Box2d.hxx".}
+proc openYmin*(this: var BndBox2d) {.cdecl, importcpp: "OpenYmin", header: "Bnd_Box2d.hxx".}
+proc openYmax*(this: var BndBox2d) {.cdecl, importcpp: "OpenYmax", header: "Bnd_Box2d.hxx".}
 proc isOpenXmin*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsOpenXmin",
-                                     dynlib: tkmath.}
+                                     header: "Bnd_Box2d.hxx".}
 proc isOpenXmax*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsOpenXmax",
-                                     dynlib: tkmath.}
+                                     header: "Bnd_Box2d.hxx".}
 proc isOpenYmin*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsOpenYmin",
-                                     dynlib: tkmath.}
+                                     header: "Bnd_Box2d.hxx".}
 proc isOpenYmax*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsOpenYmax",
-                                     dynlib: tkmath.}
+                                     header: "Bnd_Box2d.hxx".}
 proc isWhole*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsWhole",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_Box2d.hxx".}
 proc isVoid*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_Box2d.hxx".}
 proc transformed*(this: BndBox2d; t: Trsf2d): BndBox2d {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc add*(this: var BndBox2d; other: BndBox2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Transformed", header: "Bnd_Box2d.hxx".}
+proc add*(this: var BndBox2d; other: BndBox2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
+proc add*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
 proc add*(this: var BndBox2d; thePnt: Pnt2d; theDir: Dir2d) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
-proc add*(this: var BndBox2d; d: Dir2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+    header: "Bnd_Box2d.hxx".}
+proc add*(this: var BndBox2d; d: Dir2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
 proc isOut*(this: BndBox2d; p: Pnt2d): bool {.noSideEffect, cdecl, importcpp: "IsOut",
-                                        dynlib: tkmath.}
+                                        header: "Bnd_Box2d.hxx".}
 proc isOut*(this: BndBox2d; other: BndBox2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
 proc isOut*(this: BndBox2d; theOther: BndBox2d; theTrsf: Trsf2d): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
 proc isOut*(this: BndBox2d; t1: Trsf2d; other: BndBox2d; t2: Trsf2d): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
-proc dump*(this: BndBox2d) {.noSideEffect, cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
+proc dump*(this: BndBox2d) {.noSideEffect, cdecl, importcpp: "Dump", header: "Bnd_Box2d.hxx".}
 proc squareExtent*(this: BndBox2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareExtent", dynlib: tkmath.}
+    importcpp: "SquareExtent", header: "Bnd_Box2d.hxx".}

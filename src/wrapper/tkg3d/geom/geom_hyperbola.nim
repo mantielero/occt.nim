@@ -95,69 +95,69 @@ type
 
 
 proc newGeomHyperbola*(h: Hypr): GeomHyperbola {.cdecl, constructor,
-    importcpp: "Geom_Hyperbola(@)", dynlib: tkg3d.}
+    importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
 proc newGeomHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GeomHyperbola {.
-    cdecl, constructor, importcpp: "Geom_Hyperbola(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "Geom_Hyperbola(@)", header: "Geom_Hyperbola.hxx".}
 proc setHypr*(this: var GeomHyperbola; h: Hypr) {.cdecl, importcpp: "SetHypr",
-    dynlib: tkg3d.}
+    header: "Geom_Hyperbola.hxx".}
 proc setMajorRadius*(this: var GeomHyperbola; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkg3d.}
+    importcpp: "SetMajorRadius", header: "Geom_Hyperbola.hxx".}
 proc setMinorRadius*(this: var GeomHyperbola; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkg3d.}
+    importcpp: "SetMinorRadius", header: "Geom_Hyperbola.hxx".}
 proc hypr*(this: GeomHyperbola): Hypr {.noSideEffect, cdecl, importcpp: "Hypr",
-                                    dynlib: tkg3d.}
+                                    header: "Geom_Hyperbola.hxx".}
 proc reversedParameter*(this: GeomHyperbola; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg3d.}
+    importcpp: "ReversedParameter", header: "Geom_Hyperbola.hxx".}
 proc firstParameter*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg3d.}
+    importcpp: "FirstParameter", header: "Geom_Hyperbola.hxx".}
 proc lastParameter*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg3d.}
+    importcpp: "LastParameter", header: "Geom_Hyperbola.hxx".}
 proc isClosed*(this: GeomHyperbola): bool {.noSideEffect, cdecl,
-                                        importcpp: "IsClosed", dynlib: tkg3d.}
+                                        importcpp: "IsClosed", header: "Geom_Hyperbola.hxx".}
 proc isPeriodic*(this: GeomHyperbola): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg3d.}
+    importcpp: "IsPeriodic", header: "Geom_Hyperbola.hxx".}
 proc asymptote1*(this: GeomHyperbola): Ax1 {.noSideEffect, cdecl,
-    importcpp: "Asymptote1", dynlib: tkg3d.}
+    importcpp: "Asymptote1", header: "Geom_Hyperbola.hxx".}
 proc asymptote2*(this: GeomHyperbola): Ax1 {.noSideEffect, cdecl,
-    importcpp: "Asymptote2", dynlib: tkg3d.}
+    importcpp: "Asymptote2", header: "Geom_Hyperbola.hxx".}
 proc conjugateBranch1*(this: GeomHyperbola): Hypr {.noSideEffect, cdecl,
-    importcpp: "ConjugateBranch1", dynlib: tkg3d.}
+    importcpp: "ConjugateBranch1", header: "Geom_Hyperbola.hxx".}
 proc conjugateBranch2*(this: GeomHyperbola): Hypr {.noSideEffect, cdecl,
-    importcpp: "ConjugateBranch2", dynlib: tkg3d.}
+    importcpp: "ConjugateBranch2", header: "Geom_Hyperbola.hxx".}
 proc directrix1*(this: GeomHyperbola): Ax1 {.noSideEffect, cdecl,
-    importcpp: "Directrix1", dynlib: tkg3d.}
+    importcpp: "Directrix1", header: "Geom_Hyperbola.hxx".}
 proc directrix2*(this: GeomHyperbola): Ax1 {.noSideEffect, cdecl,
-    importcpp: "Directrix2", dynlib: tkg3d.}
+    importcpp: "Directrix2", header: "Geom_Hyperbola.hxx".}
 proc eccentricity*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg3d.}
+    importcpp: "Eccentricity", header: "Geom_Hyperbola.hxx".}
 proc focal*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                                       dynlib: tkg3d.}
+                                       header: "Geom_Hyperbola.hxx".}
 proc focus1*(this: GeomHyperbola): Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
-                                     dynlib: tkg3d.}
+                                     header: "Geom_Hyperbola.hxx".}
 proc focus2*(this: GeomHyperbola): Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
-                                     dynlib: tkg3d.}
+                                     header: "Geom_Hyperbola.hxx".}
 proc majorRadius*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "MajorRadius", dynlib: tkg3d.}
+    importcpp: "MajorRadius", header: "Geom_Hyperbola.hxx".}
 proc minorRadius*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinorRadius", dynlib: tkg3d.}
+    importcpp: "MinorRadius", header: "Geom_Hyperbola.hxx".}
 proc otherBranch*(this: GeomHyperbola): Hypr {.noSideEffect, cdecl,
-    importcpp: "OtherBranch", dynlib: tkg3d.}
+    importcpp: "OtherBranch", header: "Geom_Hyperbola.hxx".}
 proc parameter*(this: GeomHyperbola): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkg3d.}
+    importcpp: "Parameter", header: "Geom_Hyperbola.hxx".}
 proc d0*(this: GeomHyperbola; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg3d.}
+    importcpp: "D0", header: "Geom_Hyperbola.hxx".}
 proc d1*(this: GeomHyperbola; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkg3d.}
+    importcpp: "D1", header: "Geom_Hyperbola.hxx".}
 proc d2*(this: GeomHyperbola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkg3d.}
+    cdecl, importcpp: "D2", header: "Geom_Hyperbola.hxx".}
 proc d3*(this: GeomHyperbola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "D3", header: "Geom_Hyperbola.hxx".}
 proc dn*(this: GeomHyperbola; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg3d.}
+    importcpp: "DN", header: "Geom_Hyperbola.hxx".}
 proc transform*(this: var GeomHyperbola; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkg3d.}
+    header: "Geom_Hyperbola.hxx".}
 proc copy*(this: GeomHyperbola): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg3d.}
+    importcpp: "Copy", header: "Geom_Hyperbola.hxx".}
 proc dumpJson*(this: GeomHyperbola; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_Hyperbola.hxx".}

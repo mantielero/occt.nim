@@ -49,10 +49,10 @@ type
 
 
 proc value*(this: var MathFunctionWithDerivative; x: cfloat; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_FunctionWithDerivative.hxx".}
 proc derivative*(this: var MathFunctionWithDerivative; x: cfloat; d: var cfloat): bool {.
-    cdecl, importcpp: "Derivative", dynlib: tkmath.}
+    cdecl, importcpp: "Derivative", header: "math_FunctionWithDerivative.hxx".}
 proc values*(this: var MathFunctionWithDerivative; x: cfloat; f: var cfloat;
-            d: var cfloat): bool {.cdecl, importcpp: "Values", dynlib: tkmath.}
+            d: var cfloat): bool {.cdecl, importcpp: "Values", header: "math_FunctionWithDerivative.hxx".}
 proc destroyMathFunctionWithDerivative*(this: var MathFunctionWithDerivative) {.
-    cdecl, importcpp: "#.~math_FunctionWithDerivative()", dynlib: tkmath.}
+    cdecl, importcpp: "#.~math_FunctionWithDerivative()", header: "math_FunctionWithDerivative.hxx".}

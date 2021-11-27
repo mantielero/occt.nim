@@ -24,23 +24,23 @@ type
 
 proc newMathBrentMinimum*(tolX: cfloat; nbIterations: cint = 100;
                          zeps: cfloat = 1.0e-12): MathBrentMinimum {.cdecl,
-    constructor, importcpp: "math_BrentMinimum(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
 proc newMathBrentMinimum*(tolX: cfloat; fbx: cfloat; nbIterations: cint = 100;
                          zeps: cfloat = 1.0e-12): MathBrentMinimum {.cdecl,
-    constructor, importcpp: "math_BrentMinimum(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BrentMinimum(@)", header: "math_BrentMinimum.hxx".}
 proc destroyMathBrentMinimum*(this: var MathBrentMinimum) {.cdecl,
-    importcpp: "#.~math_BrentMinimum()", dynlib: tkmath.}
+    importcpp: "#.~math_BrentMinimum()", header: "math_BrentMinimum.hxx".}
 proc perform*(this: var MathBrentMinimum; f: var MathFunction; ax: cfloat; bx: cfloat;
-             cx: cfloat) {.cdecl, importcpp: "Perform", dynlib: tkmath.}
+             cx: cfloat) {.cdecl, importcpp: "Perform", header: "math_BrentMinimum.hxx".}
 proc isSolutionReached*(this: var MathBrentMinimum; theFunction: var MathFunction): bool {.
-    cdecl, importcpp: "IsSolutionReached", dynlib: tkmath.}
+    cdecl, importcpp: "IsSolutionReached", header: "math_BrentMinimum.hxx".}
 proc isDone*(this: MathBrentMinimum): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-    dynlib: tkmath.}
+    header: "math_BrentMinimum.hxx".}
 proc location*(this: MathBrentMinimum): cfloat {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_BrentMinimum.hxx".}
 proc minimum*(this: MathBrentMinimum): cfloat {.noSideEffect, cdecl,
-    importcpp: "Minimum", dynlib: tkmath.}
+    importcpp: "Minimum", header: "math_BrentMinimum.hxx".}
 proc nbIterations*(this: MathBrentMinimum): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_BrentMinimum.hxx".}
 proc dump*(this: MathBrentMinimum; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_BrentMinimum.hxx".}

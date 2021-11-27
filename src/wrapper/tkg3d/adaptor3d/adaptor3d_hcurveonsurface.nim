@@ -32,17 +32,17 @@ type
 
 
 proc newAdaptor3dHCurveOnSurface*(): Adaptor3dHCurveOnSurface {.cdecl, constructor,
-    importcpp: "Adaptor3d_HCurveOnSurface(@)", dynlib: tkg3d.}
+    importcpp: "Adaptor3d_HCurveOnSurface(@)", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc newAdaptor3dHCurveOnSurface*(c: Adaptor3dCurveOnSurface): Adaptor3dHCurveOnSurface {.
-    cdecl, constructor, importcpp: "Adaptor3d_HCurveOnSurface(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "Adaptor3d_HCurveOnSurface(@)", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc set*(this: var Adaptor3dHCurveOnSurface; c: Adaptor3dCurveOnSurface) {.cdecl,
-    importcpp: "Set", dynlib: tkg3d.}
+    importcpp: "Set", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc curve*(this: Adaptor3dHCurveOnSurface): Adaptor3dCurve {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkg3d.}
+    importcpp: "Curve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc getCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurve {.cdecl,
-    importcpp: "GetCurve", dynlib: tkg3d.}
+    importcpp: "GetCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc changeCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurveOnSurface {.
-    cdecl, importcpp: "ChangeCurve", dynlib: tkg3d.}
+    cdecl, importcpp: "ChangeCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 type
   Adaptor3dHCurveOnSurfacebaseType* = Adaptor3dHCurve
 

@@ -21,23 +21,23 @@ type
 
 
 proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusUnsh(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gFusSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusSame(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusSame(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gFusDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusDiff(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GFusDiff(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gCutUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutUnsh(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutUnsh(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gCutSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutSame(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutSame(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gCutDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutDiff(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GCutDiff(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gComUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComUnsh(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComUnsh(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gComSame*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComSame(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComSame(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
-    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComDiff(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_GTool::GComDiff(@)", header: "TopOpeBRepBuild_GTool.hxx".}
 proc dump*(os: var StandardOStream) {.cdecl,
                                   importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
-                                  dynlib: tkbool.}
+                                  header: "TopOpeBRepBuild_GTool.hxx".}

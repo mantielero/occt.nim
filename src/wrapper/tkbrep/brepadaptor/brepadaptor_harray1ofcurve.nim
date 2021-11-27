@@ -20,11 +20,11 @@ type
 
 
 proc newBRepAdaptorHArray1OfCurve*(theLower: cint; theUpper: cint): BRepAdaptorHArray1OfCurve {.
-    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", header: "BRepAdaptor_HArray1OfCurve.hxx".}
 proc newBRepAdaptorHArray1OfCurve*(theLower: cint; theUpper: cint;
                                   theValue: ValueType): BRepAdaptorHArray1OfCurve {.
-    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", header: "BRepAdaptor_HArray1OfCurve.hxx".}
 proc newBRepAdaptorHArray1OfCurve*(theOther: BRepAdaptorArray1OfCurve): BRepAdaptorHArray1OfCurve {.
-    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", header: "BRepAdaptor_HArray1OfCurve.hxx".}
 proc array1*(this: BRepAdaptorHArray1OfCurve): BRepAdaptorArray1OfCurve {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "BRepAdaptor_HArray1OfCurve.hxx".}

@@ -53,10 +53,10 @@ type
 
 proc newMathGaussSetIntegration*(f: var MathFunctionSet; lower: MathVector;
                                 upper: MathVector; order: MathIntegerVector): MathGaussSetIntegration {.
-    cdecl, constructor, importcpp: "math_GaussSetIntegration(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_GaussSetIntegration(@)", header: "math_GaussSetIntegration.hxx".}
 proc isDone*(this: MathGaussSetIntegration): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_GaussSetIntegration.hxx".}
 proc value*(this: MathGaussSetIntegration): MathVector {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_GaussSetIntegration.hxx".}
 proc dump*(this: MathGaussSetIntegration; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "math_GaussSetIntegration.hxx".}

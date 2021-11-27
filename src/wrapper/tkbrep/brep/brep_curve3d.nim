@@ -29,17 +29,17 @@ type
 
 
 proc newBRepCurve3D*(c: Handle[GeomCurve]; L: TopLocLocation): BRepCurve3D {.cdecl,
-    constructor, importcpp: "BRep_Curve3D(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRep_Curve3D(@)", header: "BRep_Curve3D.hxx".}
 proc d0*(this: BRepCurve3D; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkbrep.}
+    header: "BRep_Curve3D.hxx".}
 proc isCurve3D*(this: BRepCurve3D): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsCurve3D", dynlib: tkbrep.}
+                                       importcpp: "IsCurve3D", header: "BRep_Curve3D.hxx".}
 proc curve3D*(this: BRepCurve3D): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve3D", dynlib: tkbrep.}
+    importcpp: "Curve3D", header: "BRep_Curve3D.hxx".}
 proc curve3D*(this: var BRepCurve3D; c: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Curve3D", dynlib: tkbrep.}
+    importcpp: "Curve3D", header: "BRep_Curve3D.hxx".}
 proc copy*(this: BRepCurve3D): Handle[BRepCurveRepresentation] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkbrep.}
+    importcpp: "Copy", header: "BRep_Curve3D.hxx".}
 proc dumpJson*(this: BRepCurve3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_Curve3D.hxx".}

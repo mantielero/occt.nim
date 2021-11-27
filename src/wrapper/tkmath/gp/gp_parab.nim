@@ -22,55 +22,55 @@ type
   Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object ## ! Creates an indefinite Parabola.
 
 
-proc newParab*(): Parab {.cdecl, constructor, importcpp: "gp_Parab(@)", dynlib: tkmath.}
+proc newParab*(): Parab {.cdecl, constructor, importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
 proc newParab*(a2: Ax2; focal: cfloat): Parab {.cdecl, constructor,
-    importcpp: "gp_Parab(@)", dynlib: tkmath.}
+    importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
 proc newParab*(d: Ax1; f: Pnt): Parab {.cdecl, constructor, importcpp: "gp_Parab(@)",
-                                  dynlib: tkmath.}
-proc setAxis*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+                                  header: "gp_Parab.hxx".}
+proc setAxis*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Parab.hxx".}
 proc setFocal*(this: var Parab; focal: cfloat) {.cdecl, importcpp: "SetFocal",
-    dynlib: tkmath.}
+    header: "gp_Parab.hxx".}
 proc setLocation*(this: var Parab; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                       dynlib: tkmath.}
+                                       header: "gp_Parab.hxx".}
 proc setPosition*(this: var Parab; a2: Ax2) {.cdecl, importcpp: "SetPosition",
-                                        dynlib: tkmath.}
-proc axis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+                                        header: "gp_Parab.hxx".}
+proc axis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Parab.hxx".}
 proc directrix*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix",
-                                dynlib: tkmath.}
+                                header: "gp_Parab.hxx".}
 proc focal*(this: Parab): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                               dynlib: tkmath.}
-proc focus*(this: Parab): Pnt {.noSideEffect, cdecl, importcpp: "Focus", dynlib: tkmath.}
+                               header: "gp_Parab.hxx".}
+proc focus*(this: Parab): Pnt {.noSideEffect, cdecl, importcpp: "Focus", header: "gp_Parab.hxx".}
 proc location*(this: Parab): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                               dynlib: tkmath.}
+                               header: "gp_Parab.hxx".}
 proc parameter*(this: Parab): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
-                                   dynlib: tkmath.}
+                                   header: "gp_Parab.hxx".}
 proc position*(this: Parab): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                               dynlib: tkmath.}
-proc xAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
-proc mirror*(this: var Parab; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                               header: "gp_Parab.hxx".}
+proc xAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Parab.hxx".}
+proc yAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
 proc mirrored*(this: Parab; p: Pnt): Parab {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                       dynlib: tkmath.}
-proc mirror*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                       header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
 proc mirrored*(this: Parab; a1: Ax1): Parab {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Parab; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Parab.hxx".}
+proc mirror*(this: var Parab; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
 proc mirrored*(this: Parab; a2: Ax2): Parab {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Parab.hxx".}
 proc rotate*(this: var Parab; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Parab.hxx".}
 proc rotated*(this: Parab; a1: Ax1; ang: cfloat): Parab {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Parab; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Parab.hxx".}
+proc scale*(this: var Parab; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Parab.hxx".}
 proc scaled*(this: Parab; p: Pnt; s: cfloat): Parab {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Parab; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Parab.hxx".}
+proc transform*(this: var Parab; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Parab.hxx".}
 proc transformed*(this: Parab; t: Trsf): Parab {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Parab; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Parab.hxx".}
+proc translate*(this: var Parab; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Parab.hxx".}
 proc translated*(this: Parab; v: Vec): Parab {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Parab.hxx".}
 proc translate*(this: var Parab; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Parab.hxx".}
 proc translated*(this: Parab; p1: Pnt; p2: Pnt): Parab {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Parab.hxx".}

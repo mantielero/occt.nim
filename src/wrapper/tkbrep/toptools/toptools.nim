@@ -27,5 +27,5 @@ type
 
 
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.cdecl,
-    importcpp: "TopTools::Dump(@)", dynlib: tkbrep.}
-proc dummy*(i: cint) {.cdecl, importcpp: "TopTools::Dummy(@)", dynlib: tkbrep.}
+    importcpp: "TopTools::Dump(@)", header: "TopTools.hxx".}
+proc dummy*(i: cint) {.cdecl, importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}

@@ -33,55 +33,55 @@ type
 
 
 proc newBRepPrimBuilder*(): BRepPrimBuilder {.cdecl, constructor,
-    importcpp: "BRepPrim_Builder(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Builder(@)", header: "BRepPrim_Builder.hxx".}
 proc newBRepPrimBuilder*(b: BRepBuilder): BRepPrimBuilder {.cdecl, constructor,
-    importcpp: "BRepPrim_Builder(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Builder(@)", header: "BRepPrim_Builder.hxx".}
 proc builder*(this: BRepPrimBuilder): BRepBuilder {.noSideEffect, cdecl,
-    importcpp: "Builder", dynlib: tkprim.}
+    importcpp: "Builder", header: "BRepPrim_Builder.hxx".}
 proc makeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
-    importcpp: "MakeShell", dynlib: tkprim.}
+    importcpp: "MakeShell", header: "BRepPrim_Builder.hxx".}
 proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: Pln) {.noSideEffect, cdecl,
-    importcpp: "MakeFace", dynlib: tkprim.}
+    importcpp: "MakeFace", header: "BRepPrim_Builder.hxx".}
 proc makeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
-    importcpp: "MakeWire", dynlib: tkprim.}
+    importcpp: "MakeWire", header: "BRepPrim_Builder.hxx".}
 proc makeDegeneratedEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge) {.noSideEffect,
-    cdecl, importcpp: "MakeDegeneratedEdge", dynlib: tkprim.}
+    cdecl, importcpp: "MakeDegeneratedEdge", header: "BRepPrim_Builder.hxx".}
 proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; L: Lin) {.noSideEffect, cdecl,
-    importcpp: "MakeEdge", dynlib: tkprim.}
+    importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
 proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; c: Circ) {.noSideEffect, cdecl,
-    importcpp: "MakeEdge", dynlib: tkprim.}
+    importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
 proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; L: Lin2d) {.
-    noSideEffect, cdecl, importcpp: "SetPCurve", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
 proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; l1: Lin2d;
                l2: Lin2d) {.noSideEffect, cdecl, importcpp: "SetPCurve",
-                          dynlib: tkprim.}
+                          header: "BRepPrim_Builder.hxx".}
 proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; c: Circ2d) {.
-    noSideEffect, cdecl, importcpp: "SetPCurve", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
 proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: Pnt) {.noSideEffect,
-    cdecl, importcpp: "MakeVertex", dynlib: tkprim.}
+    cdecl, importcpp: "MakeVertex", header: "BRepPrim_Builder.hxx".}
 proc reverseFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
-    importcpp: "ReverseFace", dynlib: tkprim.}
+    importcpp: "ReverseFace", header: "BRepPrim_Builder.hxx".}
 proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
                    p: cfloat; direct: bool) {.noSideEffect, cdecl,
-    importcpp: "AddEdgeVertex", dynlib: tkprim.}
+    importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
 proc addEdgeVertex*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
                    p1: cfloat; p2: cfloat) {.noSideEffect, cdecl,
-    importcpp: "AddEdgeVertex", dynlib: tkprim.}
+    importcpp: "AddEdgeVertex", header: "BRepPrim_Builder.hxx".}
 proc setParameters*(this: BRepPrimBuilder; e: var TopoDS_Edge; v: TopoDS_Vertex;
                    p1: cfloat; p2: cfloat) {.noSideEffect, cdecl,
-    importcpp: "SetParameters", dynlib: tkprim.}
+    importcpp: "SetParameters", header: "BRepPrim_Builder.hxx".}
 proc addWireEdge*(this: BRepPrimBuilder; w: var TopoDS_Wire; e: TopoDS_Edge;
                  direct: bool) {.noSideEffect, cdecl, importcpp: "AddWireEdge",
-                               dynlib: tkprim.}
+                               header: "BRepPrim_Builder.hxx".}
 proc addFaceWire*(this: BRepPrimBuilder; f: var TopoDS_Face; w: TopoDS_Wire) {.
-    noSideEffect, cdecl, importcpp: "AddFaceWire", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "AddFaceWire", header: "BRepPrim_Builder.hxx".}
 proc addShellFace*(this: BRepPrimBuilder; sh: var TopoDS_Shell; f: TopoDS_Face) {.
-    noSideEffect, cdecl, importcpp: "AddShellFace", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "AddShellFace", header: "BRepPrim_Builder.hxx".}
 proc completeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge) {.noSideEffect, cdecl,
-    importcpp: "CompleteEdge", dynlib: tkprim.}
+    importcpp: "CompleteEdge", header: "BRepPrim_Builder.hxx".}
 proc completeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
-    importcpp: "CompleteWire", dynlib: tkprim.}
+    importcpp: "CompleteWire", header: "BRepPrim_Builder.hxx".}
 proc completeFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
-    importcpp: "CompleteFace", dynlib: tkprim.}
+    importcpp: "CompleteFace", header: "BRepPrim_Builder.hxx".}
 proc completeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
-    importcpp: "CompleteShell", dynlib: tkprim.}
+    importcpp: "CompleteShell", header: "BRepPrim_Builder.hxx".}

@@ -21,19 +21,19 @@ type
 
 
 proc newTopOpeBRepDS_ShapeWithState*(): TopOpeBRepDS_ShapeWithState {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_ShapeWithState(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_ShapeWithState(@)", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc part*(this: TopOpeBRepDS_ShapeWithState; aState: TopAbsState): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "Part", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Part", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc addPart*(this: var TopOpeBRepDS_ShapeWithState; aShape: TopoDS_Shape;
-             aState: TopAbsState) {.cdecl, importcpp: "AddPart", dynlib: tkbool.}
+             aState: TopAbsState) {.cdecl, importcpp: "AddPart", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc addParts*(this: var TopOpeBRepDS_ShapeWithState;
               aListOfShape: TopToolsListOfShape; aState: TopAbsState) {.cdecl,
-    importcpp: "AddParts", dynlib: tkbool.}
+    importcpp: "AddParts", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc setState*(this: var TopOpeBRepDS_ShapeWithState; aState: TopAbsState) {.cdecl,
-    importcpp: "SetState", dynlib: tkbool.}
+    importcpp: "SetState", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc state*(this: TopOpeBRepDS_ShapeWithState): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState; anIsSplitted: bool) {.
-    cdecl, importcpp: "SetIsSplitted", dynlib: tkbool.}
+    cdecl, importcpp: "SetIsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): bool {.noSideEffect, cdecl,
-    importcpp: "IsSplitted", dynlib: tkbool.}
+    importcpp: "IsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}

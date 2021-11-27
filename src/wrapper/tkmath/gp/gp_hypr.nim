@@ -23,76 +23,76 @@ type
   Hypr* {.importcpp: "gp_Hypr", header: "gp_Hypr.hxx", bycopy.} = object ## ! Creates of an indefinite hyperbola.
 
 
-proc newHypr*(): Hypr {.cdecl, constructor, importcpp: "gp_Hypr(@)", dynlib: tkmath.}
+proc newHypr*(): Hypr {.cdecl, constructor, importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
 proc newHypr*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): Hypr {.cdecl,
-    constructor, importcpp: "gp_Hypr(@)", dynlib: tkmath.}
-proc setAxis*(this: var Hypr; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+    constructor, importcpp: "gp_Hypr(@)", header: "gp_Hypr.hxx".}
+proc setAxis*(this: var Hypr; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Hypr.hxx".}
 proc setLocation*(this: var Hypr; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                      dynlib: tkmath.}
+                                      header: "gp_Hypr.hxx".}
 proc setMajorRadius*(this: var Hypr; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkmath.}
+    importcpp: "SetMajorRadius", header: "gp_Hypr.hxx".}
 proc setMinorRadius*(this: var Hypr; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkmath.}
+    importcpp: "SetMinorRadius", header: "gp_Hypr.hxx".}
 proc setPosition*(this: var Hypr; a2: Ax2) {.cdecl, importcpp: "SetPosition",
-                                       dynlib: tkmath.}
+                                       header: "gp_Hypr.hxx".}
 proc asymptote1*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Asymptote1",
-                                dynlib: tkmath.}
+                                header: "gp_Hypr.hxx".}
 proc asymptote2*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Asymptote2",
-                                dynlib: tkmath.}
-proc axis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+                                header: "gp_Hypr.hxx".}
+proc axis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Hypr.hxx".}
 proc conjugateBranch1*(this: Hypr): Hypr {.noSideEffect, cdecl,
                                        importcpp: "ConjugateBranch1",
-                                       dynlib: tkmath.}
+                                       header: "gp_Hypr.hxx".}
 proc conjugateBranch2*(this: Hypr): Hypr {.noSideEffect, cdecl,
                                        importcpp: "ConjugateBranch2",
-                                       dynlib: tkmath.}
+                                       header: "gp_Hypr.hxx".}
 proc directrix1*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix1",
-                                dynlib: tkmath.}
+                                header: "gp_Hypr.hxx".}
 proc directrix2*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix2",
-                                dynlib: tkmath.}
+                                header: "gp_Hypr.hxx".}
 proc eccentricity*(this: Hypr): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "Eccentricity", dynlib: tkmath.}
+                                     importcpp: "Eccentricity", header: "gp_Hypr.hxx".}
 proc focal*(this: Hypr): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                              dynlib: tkmath.}
-proc focus1*(this: Hypr): Pnt {.noSideEffect, cdecl, importcpp: "Focus1", dynlib: tkmath.}
-proc focus2*(this: Hypr): Pnt {.noSideEffect, cdecl, importcpp: "Focus2", dynlib: tkmath.}
+                              header: "gp_Hypr.hxx".}
+proc focus1*(this: Hypr): Pnt {.noSideEffect, cdecl, importcpp: "Focus1", header: "gp_Hypr.hxx".}
+proc focus2*(this: Hypr): Pnt {.noSideEffect, cdecl, importcpp: "Focus2", header: "gp_Hypr.hxx".}
 proc location*(this: Hypr): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                              dynlib: tkmath.}
+                              header: "gp_Hypr.hxx".}
 proc majorRadius*(this: Hypr): cfloat {.noSideEffect, cdecl, importcpp: "MajorRadius",
-                                    dynlib: tkmath.}
+                                    header: "gp_Hypr.hxx".}
 proc minorRadius*(this: Hypr): cfloat {.noSideEffect, cdecl, importcpp: "MinorRadius",
-                                    dynlib: tkmath.}
+                                    header: "gp_Hypr.hxx".}
 proc otherBranch*(this: Hypr): Hypr {.noSideEffect, cdecl, importcpp: "OtherBranch",
-                                  dynlib: tkmath.}
+                                  header: "gp_Hypr.hxx".}
 proc parameter*(this: Hypr): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
-                                  dynlib: tkmath.}
+                                  header: "gp_Hypr.hxx".}
 proc position*(this: Hypr): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                              dynlib: tkmath.}
-proc xAxis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
-proc mirror*(this: var Hypr; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                              header: "gp_Hypr.hxx".}
+proc xAxis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Hypr.hxx".}
+proc yAxis*(this: Hypr): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
 proc mirrored*(this: Hypr; p: Pnt): Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                     dynlib: tkmath.}
-proc mirror*(this: var Hypr; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                     header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
 proc mirrored*(this: Hypr; a1: Ax1): Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                      dynlib: tkmath.}
-proc mirror*(this: var Hypr; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                      header: "gp_Hypr.hxx".}
+proc mirror*(this: var Hypr; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Hypr.hxx".}
 proc mirrored*(this: Hypr; a2: Ax2): Hypr {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                      dynlib: tkmath.}
+                                      header: "gp_Hypr.hxx".}
 proc rotate*(this: var Hypr; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Hypr.hxx".}
 proc rotated*(this: Hypr; a1: Ax1; ang: cfloat): Hypr {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Hypr; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Hypr.hxx".}
+proc scale*(this: var Hypr; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Hypr.hxx".}
 proc scaled*(this: Hypr; p: Pnt; s: cfloat): Hypr {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Hypr; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Hypr.hxx".}
+proc transform*(this: var Hypr; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Hypr.hxx".}
 proc transformed*(this: Hypr; t: Trsf): Hypr {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Hypr; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Hypr.hxx".}
+proc translate*(this: var Hypr; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Hypr.hxx".}
 proc translated*(this: Hypr; v: Vec): Hypr {.noSideEffect, cdecl,
-                                       importcpp: "Translated", dynlib: tkmath.}
+                                       importcpp: "Translated", header: "gp_Hypr.hxx".}
 proc translate*(this: var Hypr; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Hypr.hxx".}
 proc translated*(this: Hypr; p1: Pnt; p2: Pnt): Hypr {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Hypr.hxx".}

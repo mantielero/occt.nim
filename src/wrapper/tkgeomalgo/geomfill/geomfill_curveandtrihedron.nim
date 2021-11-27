@@ -40,47 +40,47 @@ type
 
 proc newGeomFillCurveAndTrihedron*(trihedron: Handle[GeomFillTrihedronLaw]): GeomFillCurveAndTrihedron {.
     cdecl, constructor, importcpp: "GeomFill_CurveAndTrihedron(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CurveAndTrihedron.hxx".}
 proc setCurve*(this: var GeomFillCurveAndTrihedron; c: Handle[Adaptor3dHCurve]) {.
-    cdecl, importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetCurve", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getCurve*(this: GeomFillCurveAndTrihedron): Handle[Adaptor3dHCurve] {.
-    noSideEffect, cdecl, importcpp: "GetCurve", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetCurve", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc setTrsf*(this: var GeomFillCurveAndTrihedron; transfo: Mat) {.cdecl,
-    importcpp: "SetTrsf", dynlib: tkgeomalgo.}
+    importcpp: "SetTrsf", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc copy*(this: GeomFillCurveAndTrihedron): Handle[GeomFillLocationLaw] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc d0*(this: var GeomFillCurveAndTrihedron; param: cfloat; m: var Mat; v: var Vec): bool {.
-    cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D0", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc d0*(this: var GeomFillCurveAndTrihedron; param: cfloat; m: var Mat; v: var Vec;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CurveAndTrihedron.hxx".}
 proc d1*(this: var GeomFillCurveAndTrihedron; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CurveAndTrihedron.hxx".}
 proc d2*(this: var GeomFillCurveAndTrihedron; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CurveAndTrihedron.hxx".}
 proc nbIntervals*(this: GeomFillCurveAndTrihedron; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc intervals*(this: GeomFillCurveAndTrihedron; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_CurveAndTrihedron.hxx".}
 proc setInterval*(this: var GeomFillCurveAndTrihedron; first: cfloat; last: cfloat) {.
-    cdecl, importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetInterval", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getInterval*(this: GeomFillCurveAndTrihedron; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getDomain*(this: GeomFillCurveAndTrihedron; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDomain", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetDomain", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getMaximalNorm*(this: var GeomFillCurveAndTrihedron): cfloat {.cdecl,
-    importcpp: "GetMaximalNorm", dynlib: tkgeomalgo.}
+    importcpp: "GetMaximalNorm", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc getAverageLaw*(this: var GeomFillCurveAndTrihedron; am: var Mat; av: var Vec) {.
-    cdecl, importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetAverageLaw", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc isTranslation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsTranslation", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc isRotation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsRotation", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "IsRotation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc rotation*(this: GeomFillCurveAndTrihedron; center: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "Rotation", dynlib: tkgeomalgo.}
+    importcpp: "Rotation", header: "GeomFill_CurveAndTrihedron.hxx".}

@@ -23,16 +23,16 @@ type
 
 
 proc newGeomFillTensor*(nbRow: cint; nbCol: cint; nbMat: cint): GeomFillTensor {.cdecl,
-    constructor, importcpp: "GeomFill_Tensor(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_Tensor(@)", header: "GeomFill_Tensor.hxx".}
 proc init*(this: var GeomFillTensor; initialValue: cfloat) {.cdecl, importcpp: "Init",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Tensor.hxx".}
 proc value*(this: GeomFillTensor; row: cint; col: cint; mat: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Value", header: "GeomFill_Tensor.hxx".}
 proc `()`*(this: GeomFillTensor; row: cint; col: cint; mat: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "#(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
 proc changeValue*(this: var GeomFillTensor; row: cint; col: cint; mat: cint): var cfloat {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ChangeValue", header: "GeomFill_Tensor.hxx".}
 proc `()`*(this: var GeomFillTensor; row: cint; col: cint; mat: cint): var cfloat {.cdecl,
-    importcpp: "#(@)", dynlib: tkgeomalgo.}
+    importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
 proc multiply*(this: GeomFillTensor; right: MathVector; product: var MathMatrix) {.
-    noSideEffect, cdecl, importcpp: "Multiply", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Multiply", header: "GeomFill_Tensor.hxx".}

@@ -72,24 +72,24 @@ proc newGeomFillCoonsAlgPatch*(b1: Handle[GeomFillBoundary];
                               b2: Handle[GeomFillBoundary];
                               b3: Handle[GeomFillBoundary];
                               b4: Handle[GeomFillBoundary]): GeomFillCoonsAlgPatch {.
-    cdecl, constructor, importcpp: "GeomFill_CoonsAlgPatch(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_CoonsAlgPatch(@)", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc `func`*(this: GeomFillCoonsAlgPatch; f1: var Handle[LawFunction];
             f2: var Handle[LawFunction]) {.noSideEffect, cdecl, importcpp: "Func",
-                                        dynlib: tkgeomalgo.}
+                                        header: "GeomFill_CoonsAlgPatch.hxx".}
 proc setFunc*(this: var GeomFillCoonsAlgPatch; f1: Handle[LawFunction];
              f2: Handle[LawFunction]) {.cdecl, importcpp: "SetFunc",
-                                      dynlib: tkgeomalgo.}
+                                      header: "GeomFill_CoonsAlgPatch.hxx".}
 proc value*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Pnt {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Value", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc d1u*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "D1U", dynlib: tkgeomalgo.}
+    importcpp: "D1U", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc d1v*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "D1V", dynlib: tkgeomalgo.}
+    importcpp: "D1V", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc duv*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "DUV", dynlib: tkgeomalgo.}
+    importcpp: "DUV", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc corner*(this: GeomFillCoonsAlgPatch; i: cint): Pnt {.noSideEffect, cdecl,
-    importcpp: "Corner", dynlib: tkgeomalgo.}
+    importcpp: "Corner", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc bound*(this: GeomFillCoonsAlgPatch; i: cint): Handle[GeomFillBoundary] {.
-    noSideEffect, cdecl, importcpp: "Bound", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Bound", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc `func`*(this: GeomFillCoonsAlgPatch; i: cint): Handle[LawFunction] {.
-    noSideEffect, cdecl, importcpp: "Func", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Func", header: "GeomFill_CoonsAlgPatch.hxx".}

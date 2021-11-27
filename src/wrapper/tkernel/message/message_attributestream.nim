@@ -25,11 +25,11 @@ type
 
 
 proc newMessageAttributeStream*(theStream: StandardSStream; theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttributeStream {.
-    cdecl, constructor, importcpp: "Message_AttributeStream(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_AttributeStream(@)", header: "Message_AttributeStream.hxx".}
 proc stream*(this: MessageAttributeStream): StandardSStream {.noSideEffect, cdecl,
-    importcpp: "Stream", dynlib: tkernel.}
+    importcpp: "Stream", header: "Message_AttributeStream.hxx".}
 proc setStream*(this: var MessageAttributeStream; theStream: StandardSStream) {.cdecl,
-    importcpp: "SetStream", dynlib: tkernel.}
+    importcpp: "SetStream", header: "Message_AttributeStream.hxx".}
 proc dumpJson*(this: MessageAttributeStream; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_AttributeStream.hxx".}

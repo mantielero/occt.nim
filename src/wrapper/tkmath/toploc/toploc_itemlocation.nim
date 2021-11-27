@@ -25,7 +25,7 @@ type
 
 
 proc newTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: cint): TopLocItemLocation {.
-    cdecl, constructor, importcpp: "TopLoc_ItemLocation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TopLoc_ItemLocation(@)", header: "TopLoc_ItemLocation.hxx".}
 proc dumpJson*(this: TopLocItemLocation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "TopLoc_ItemLocation.hxx".}

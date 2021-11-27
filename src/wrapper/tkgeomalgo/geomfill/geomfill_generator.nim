@@ -23,8 +23,8 @@ type
 
 
 proc newGeomFillGenerator*(): GeomFillGenerator {.cdecl, constructor,
-    importcpp: "GeomFill_Generator(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Generator(@)", header: "GeomFill_Generator.hxx".}
 proc perform*(this: var GeomFillGenerator; pTol: cfloat) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Generator.hxx".}
 proc surface*(this: GeomFillGenerator): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeomalgo.}
+    importcpp: "Surface", header: "GeomFill_Generator.hxx".}

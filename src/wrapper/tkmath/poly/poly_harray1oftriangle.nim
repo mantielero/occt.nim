@@ -20,10 +20,10 @@ type
 
 
 proc newPolyHArray1OfTriangle*(theLower: cint; theUpper: cint): PolyHArray1OfTriangle {.
-    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", header: "Poly_HArray1OfTriangle.hxx".}
 proc newPolyHArray1OfTriangle*(theLower: cint; theUpper: cint; theValue: ValueType): PolyHArray1OfTriangle {.
-    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", header: "Poly_HArray1OfTriangle.hxx".}
 proc newPolyHArray1OfTriangle*(theOther: PolyArray1OfTriangle): PolyHArray1OfTriangle {.
-    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_HArray1OfTriangle(@)", header: "Poly_HArray1OfTriangle.hxx".}
 proc array1*(this: PolyHArray1OfTriangle): PolyArray1OfTriangle {.noSideEffect,
-    cdecl, importcpp: "Array1", dynlib: tkmath.}
+    cdecl, importcpp: "Array1", header: "Poly_HArray1OfTriangle.hxx".}

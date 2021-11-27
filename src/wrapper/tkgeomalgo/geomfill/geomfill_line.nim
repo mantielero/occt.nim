@@ -26,10 +26,10 @@ type
 
 proc newGeomFillLine*(): GeomFillLine {.cdecl, constructor,
                                      importcpp: "GeomFill_Line(@)",
-                                     dynlib: tkgeomalgo.}
+                                     header: "GeomFill_Line.hxx".}
 proc newGeomFillLine*(nbPoints: cint): GeomFillLine {.cdecl, constructor,
-    importcpp: "GeomFill_Line(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Line(@)", header: "GeomFill_Line.hxx".}
 proc nbPoints*(this: GeomFillLine): cint {.noSideEffect, cdecl, importcpp: "NbPoints",
-                                       dynlib: tkgeomalgo.}
+                                       header: "GeomFill_Line.hxx".}
 proc point*(this: GeomFillLine; index: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeomalgo.}
+    importcpp: "Point", header: "GeomFill_Line.hxx".}

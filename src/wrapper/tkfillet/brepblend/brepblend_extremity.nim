@@ -28,47 +28,47 @@ type
 
 
 proc newBRepBlendExtremity*(): BRepBlendExtremity {.cdecl, constructor,
-    importcpp: "BRepBlend_Extremity(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
 proc newBRepBlendExtremity*(p: Pnt; u: cfloat; v: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
-    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
 proc newBRepBlendExtremity*(p: Pnt; u: cfloat; v: cfloat; param: cfloat; tol: cfloat;
                            vtx: Handle[Adaptor3dHVertex]): BRepBlendExtremity {.
-    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
 proc newBRepBlendExtremity*(p: Pnt; w: cfloat; param: cfloat; tol: cfloat): BRepBlendExtremity {.
-    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_Extremity(@)", header: "BRepBlend_Extremity.hxx".}
 proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: cfloat; v: cfloat; param: cfloat;
-              tol: cfloat) {.cdecl, importcpp: "SetValue", dynlib: tkfillet.}
+              tol: cfloat) {.cdecl, importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
 proc setValue*(this: var BRepBlendExtremity; p: Pnt; u: cfloat; v: cfloat; param: cfloat;
               tol: cfloat; vtx: Handle[Adaptor3dHVertex]) {.cdecl,
-    importcpp: "SetValue", dynlib: tkfillet.}
+    importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
 proc setValue*(this: var BRepBlendExtremity; p: Pnt; w: cfloat; param: cfloat; tol: cfloat) {.
-    cdecl, importcpp: "SetValue", dynlib: tkfillet.}
+    cdecl, importcpp: "SetValue", header: "BRepBlend_Extremity.hxx".}
 proc value*(this: BRepBlendExtremity): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Extremity.hxx".}
 proc setTangent*(this: var BRepBlendExtremity; tangent: Vec) {.cdecl,
-    importcpp: "SetTangent", dynlib: tkfillet.}
+    importcpp: "SetTangent", header: "BRepBlend_Extremity.hxx".}
 proc hasTangent*(this: BRepBlendExtremity): bool {.noSideEffect, cdecl,
-    importcpp: "HasTangent", dynlib: tkfillet.}
+    importcpp: "HasTangent", header: "BRepBlend_Extremity.hxx".}
 proc tangent*(this: BRepBlendExtremity): Vec {.noSideEffect, cdecl,
-    importcpp: "Tangent", dynlib: tkfillet.}
+    importcpp: "Tangent", header: "BRepBlend_Extremity.hxx".}
 proc tolerance*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkfillet.}
+    importcpp: "Tolerance", header: "BRepBlend_Extremity.hxx".}
 proc setVertex*(this: var BRepBlendExtremity; v: Handle[Adaptor3dHVertex]) {.cdecl,
-    importcpp: "SetVertex", dynlib: tkfillet.}
+    importcpp: "SetVertex", header: "BRepBlend_Extremity.hxx".}
 proc addArc*(this: var BRepBlendExtremity; a: Handle[Adaptor2dHCurve2d];
             param: cfloat; tLine: IntSurfTransition; tArc: IntSurfTransition) {.cdecl,
-    importcpp: "AddArc", dynlib: tkfillet.}
+    importcpp: "AddArc", header: "BRepBlend_Extremity.hxx".}
 proc parameters*(this: BRepBlendExtremity; u: var cfloat; v: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Parameters", dynlib: tkfillet.}
+    cdecl, importcpp: "Parameters", header: "BRepBlend_Extremity.hxx".}
 proc isVertex*(this: BRepBlendExtremity): bool {.noSideEffect, cdecl,
-    importcpp: "IsVertex", dynlib: tkfillet.}
+    importcpp: "IsVertex", header: "BRepBlend_Extremity.hxx".}
 proc vertex*(this: BRepBlendExtremity): Handle[Adaptor3dHVertex] {.noSideEffect,
-    cdecl, importcpp: "Vertex", dynlib: tkfillet.}
+    cdecl, importcpp: "Vertex", header: "BRepBlend_Extremity.hxx".}
 proc nbPointOnRst*(this: BRepBlendExtremity): cint {.noSideEffect, cdecl,
-    importcpp: "NbPointOnRst", dynlib: tkfillet.}
+    importcpp: "NbPointOnRst", header: "BRepBlend_Extremity.hxx".}
 proc pointOnRst*(this: BRepBlendExtremity; index: cint): BRepBlendPointOnRst {.
-    noSideEffect, cdecl, importcpp: "PointOnRst", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "PointOnRst", header: "BRepBlend_Extremity.hxx".}
 proc parameter*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkfillet.}
+    importcpp: "Parameter", header: "BRepBlend_Extremity.hxx".}
 proc parameterOnGuide*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParameterOnGuide", dynlib: tkfillet.}
+    importcpp: "ParameterOnGuide", header: "BRepBlend_Extremity.hxx".}

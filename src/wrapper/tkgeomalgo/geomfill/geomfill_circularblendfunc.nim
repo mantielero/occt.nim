@@ -107,50 +107,50 @@ proc newGeomFillCircularBlendFunc*(path: Handle[Adaptor3dHCurve];
                                   curve2: Handle[Adaptor3dHCurve]; radius: cfloat;
                                   polynomial: bool = false): GeomFillCircularBlendFunc {.
     cdecl, constructor, importcpp: "GeomFill_CircularBlendFunc(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CircularBlendFunc.hxx".}
 proc d0*(this: var GeomFillCircularBlendFunc; param: cfloat; first: cfloat;
         last: cfloat; poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
         weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CircularBlendFunc.hxx".}
 proc d1*(this: var GeomFillCircularBlendFunc; param: cfloat; first: cfloat;
         last: cfloat; poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_CircularBlendFunc.hxx".}
 proc d2*(this: var GeomFillCircularBlendFunc; param: cfloat; first: cfloat;
         last: cfloat; poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
         weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
         d2Weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "D2",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CircularBlendFunc.hxx".}
 proc nb2dCurves*(this: GeomFillCircularBlendFunc): cint {.noSideEffect, cdecl,
-    importcpp: "Nb2dCurves", dynlib: tkgeomalgo.}
+    importcpp: "Nb2dCurves", header: "GeomFill_CircularBlendFunc.hxx".}
 proc sectionShape*(this: GeomFillCircularBlendFunc; nbPoles: var cint;
                   nbKnots: var cint; degree: var cint) {.noSideEffect, cdecl,
-    importcpp: "SectionShape", dynlib: tkgeomalgo.}
+    importcpp: "SectionShape", header: "GeomFill_CircularBlendFunc.hxx".}
 proc knots*(this: GeomFillCircularBlendFunc; tKnots: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "GeomFill_CircularBlendFunc.hxx".}
 proc mults*(this: GeomFillCircularBlendFunc; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Mults", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Mults", header: "GeomFill_CircularBlendFunc.hxx".}
 proc isRational*(this: GeomFillCircularBlendFunc): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkgeomalgo.}
+    importcpp: "IsRational", header: "GeomFill_CircularBlendFunc.hxx".}
 proc nbIntervals*(this: GeomFillCircularBlendFunc; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_CircularBlendFunc.hxx".}
 proc intervals*(this: GeomFillCircularBlendFunc; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_CircularBlendFunc.hxx".}
 proc setInterval*(this: var GeomFillCircularBlendFunc; first: cfloat; last: cfloat) {.
-    cdecl, importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetInterval", header: "GeomFill_CircularBlendFunc.hxx".}
 proc getTolerance*(this: GeomFillCircularBlendFunc; boundTol: cfloat;
                   surfTol: cfloat; angleTol: cfloat; tol3d: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
 proc setTolerance*(this: var GeomFillCircularBlendFunc; tol3d: cfloat; tol2d: cfloat) {.
-    cdecl, importcpp: "SetTolerance", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetTolerance", header: "GeomFill_CircularBlendFunc.hxx".}
 proc barycentreOfSurf*(this: GeomFillCircularBlendFunc): Pnt {.noSideEffect, cdecl,
-    importcpp: "BarycentreOfSurf", dynlib: tkgeomalgo.}
+    importcpp: "BarycentreOfSurf", header: "GeomFill_CircularBlendFunc.hxx".}
 proc maximalSection*(this: GeomFillCircularBlendFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaximalSection", dynlib: tkgeomalgo.}
+    importcpp: "MaximalSection", header: "GeomFill_CircularBlendFunc.hxx".}
 proc getMinimalWeight*(this: GeomFillCircularBlendFunc;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "GetMinimalWeight", dynlib: tkgeomalgo.}
+    importcpp: "GetMinimalWeight", header: "GeomFill_CircularBlendFunc.hxx".}

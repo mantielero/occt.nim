@@ -29,16 +29,16 @@ type
 
 proc newGeomAdaptorHSurfaceOfRevolution*(): GeomAdaptorHSurfaceOfRevolution {.
     cdecl, constructor, importcpp: "GeomAdaptor_HSurfaceOfRevolution(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc newGeomAdaptorHSurfaceOfRevolution*(s: GeomAdaptorSurfaceOfRevolution): GeomAdaptorHSurfaceOfRevolution {.
     cdecl, constructor, importcpp: "GeomAdaptor_HSurfaceOfRevolution(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc set*(this: var GeomAdaptorHSurfaceOfRevolution;
-         s: GeomAdaptorSurfaceOfRevolution) {.cdecl, importcpp: "Set", dynlib: tkg3d.}
+         s: GeomAdaptorSurfaceOfRevolution) {.cdecl, importcpp: "Set", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc surface*(this: GeomAdaptorHSurfaceOfRevolution): Adaptor3dSurface {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfRevolution): var GeomAdaptorSurfaceOfRevolution {.
-    cdecl, importcpp: "ChangeSurface", dynlib: tkg3d.}
+    cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 type
   GeomAdaptorHSurfaceOfRevolutionbaseType* = Adaptor3dHSurface
 

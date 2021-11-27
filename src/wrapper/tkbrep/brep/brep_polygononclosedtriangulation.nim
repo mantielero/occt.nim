@@ -34,18 +34,18 @@ type
 proc newBRepPolygonOnClosedTriangulation*(p1: Handle[PolyPolygonOnTriangulation];
     p2: Handle[PolyPolygonOnTriangulation]; tr: Handle[PolyTriangulation];
     L: TopLocLocation): BRepPolygonOnClosedTriangulation {.cdecl, constructor,
-    importcpp: "BRep_PolygonOnClosedTriangulation(@)", dynlib: tkbrep.}
+    importcpp: "BRep_PolygonOnClosedTriangulation(@)", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc isPolygonOnClosedTriangulation*(this: BRepPolygonOnClosedTriangulation): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedTriangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedTriangulation", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc polygonOnTriangulation2*(this: var BRepPolygonOnClosedTriangulation;
                              p2: Handle[PolyPolygonOnTriangulation]) {.cdecl,
-    importcpp: "PolygonOnTriangulation2", dynlib: tkbrep.}
+    importcpp: "PolygonOnTriangulation2", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc polygonOnTriangulation2*(this: BRepPolygonOnClosedTriangulation): Handle[
     PolyPolygonOnTriangulation] {.noSideEffect, cdecl,
                                  importcpp: "PolygonOnTriangulation2",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc copy*(this: BRepPolygonOnClosedTriangulation): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_PolygonOnClosedTriangulation.hxx".}
 proc dumpJson*(this: BRepPolygonOnClosedTriangulation;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
-    cdecl, importcpp: "DumpJson", dynlib: tkbrep.}
+    cdecl, importcpp: "DumpJson", header: "BRep_PolygonOnClosedTriangulation.hxx".}

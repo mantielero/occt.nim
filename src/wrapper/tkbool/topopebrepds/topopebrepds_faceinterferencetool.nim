@@ -25,24 +25,24 @@ type
 
 proc newTopOpeBRepDS_FaceInterferenceTool*(p: TopOpeBRepDS_PDataStructure): TopOpeBRepDS_FaceInterferenceTool {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_FaceInterferenceTool(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc init*(this: var TopOpeBRepDS_FaceInterferenceTool; fi: TopoDS_Shape;
           e: TopoDS_Shape; eisnew: bool; i: Handle[TopOpeBRepDS_Interference]) {.
-    cdecl, importcpp: "Init", dynlib: tkbool.}
+    cdecl, importcpp: "Init", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; fi: TopoDS_Shape;
          f: TopoDS_Shape; e: TopoDS_Shape; eisnew: bool;
          i: Handle[TopOpeBRepDS_Interference]) {.cdecl, importcpp: "Add",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; e: TopoDS_Shape;
          c: TopOpeBRepDS_Curve; i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "Add", dynlib: tkbool.}
+    importcpp: "Add", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc setEdgePntPar*(this: var TopOpeBRepDS_FaceInterferenceTool; p: Pnt; par: cfloat) {.
-    cdecl, importcpp: "SetEdgePntPar", dynlib: tkbool.}
+    cdecl, importcpp: "SetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc getEdgePntPar*(this: TopOpeBRepDS_FaceInterferenceTool; p: var Pnt;
                    par: var cfloat) {.noSideEffect, cdecl,
-                                   importcpp: "GetEdgePntPar", dynlib: tkbool.}
+                                   importcpp: "GetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): bool {.noSideEffect,
-    cdecl, importcpp: "IsEdgePntParDef", dynlib: tkbool.}
+    cdecl, importcpp: "IsEdgePntParDef", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc transition*(this: TopOpeBRepDS_FaceInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
-    importcpp: "Transition", dynlib: tkbool.}
+    importcpp: "Transition", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}

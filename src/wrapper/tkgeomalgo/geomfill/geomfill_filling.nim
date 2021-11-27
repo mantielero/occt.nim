@@ -21,14 +21,14 @@ type
 
 
 proc newGeomFillFilling*(): GeomFillFilling {.cdecl, constructor,
-    importcpp: "GeomFill_Filling(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Filling(@)", header: "GeomFill_Filling.hxx".}
 proc nbUPoles*(this: GeomFillFilling): cint {.noSideEffect, cdecl,
-    importcpp: "NbUPoles", dynlib: tkgeomalgo.}
+    importcpp: "NbUPoles", header: "GeomFill_Filling.hxx".}
 proc nbVPoles*(this: GeomFillFilling): cint {.noSideEffect, cdecl,
-    importcpp: "NbVPoles", dynlib: tkgeomalgo.}
+    importcpp: "NbVPoles", header: "GeomFill_Filling.hxx".}
 proc poles*(this: GeomFillFilling; poles: var TColgpArray2OfPnt) {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkgeomalgo.}
+    importcpp: "Poles", header: "GeomFill_Filling.hxx".}
 proc isRational*(this: GeomFillFilling): bool {.noSideEffect, cdecl,
-    importcpp: "isRational", dynlib: tkgeomalgo.}
+    importcpp: "isRational", header: "GeomFill_Filling.hxx".}
 proc weights*(this: GeomFillFilling; weights: var TColStdArray2OfReal) {.noSideEffect,
-    cdecl, importcpp: "Weights", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Weights", header: "GeomFill_Filling.hxx".}

@@ -28,9 +28,9 @@ type
 
 
 proc newPSO_Particle*(): PSO_Particle {.cdecl, constructor,
-                                     importcpp: "PSO_Particle(@)", dynlib: tkmath.}
+                                     importcpp: "PSO_Particle(@)", header: "math_PSOParticlesPool.hxx".}
 proc `<`*(this: PSO_Particle; thePnt: PSO_Particle): bool {.noSideEffect, cdecl,
-    importcpp: "(# < #)", dynlib: tkmath.}
+    importcpp: "(# < #)", header: "math_PSOParticlesPool.hxx".}
 ##  Indexes:
 ##  1 <= aParticleIdx <= myParticlesCount
 
@@ -41,12 +41,12 @@ type
 
 
 proc newMathPSOParticlesPool*(theParticlesCount: cint; theDimensionCount: cint): MathPSOParticlesPool {.
-    cdecl, constructor, importcpp: "math_PSOParticlesPool(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_PSOParticlesPool(@)", header: "math_PSOParticlesPool.hxx".}
 proc getParticle*(this: var MathPSOParticlesPool; theIdx: cint): ptr PSO_Particle {.
-    cdecl, importcpp: "GetParticle", dynlib: tkmath.}
+    cdecl, importcpp: "GetParticle", header: "math_PSOParticlesPool.hxx".}
 proc getBestParticle*(this: var MathPSOParticlesPool): ptr PSO_Particle {.cdecl,
-    importcpp: "GetBestParticle", dynlib: tkmath.}
+    importcpp: "GetBestParticle", header: "math_PSOParticlesPool.hxx".}
 proc getWorstParticle*(this: var MathPSOParticlesPool): ptr PSO_Particle {.cdecl,
-    importcpp: "GetWorstParticle", dynlib: tkmath.}
+    importcpp: "GetWorstParticle", header: "math_PSOParticlesPool.hxx".}
 proc destroyMathPSOParticlesPool*(this: var MathPSOParticlesPool) {.cdecl,
-    importcpp: "#.~math_PSOParticlesPool()", dynlib: tkmath.}
+    importcpp: "#.~math_PSOParticlesPool()", header: "math_PSOParticlesPool.hxx".}

@@ -21,9 +21,9 @@ type
                                                                          ## !
                                                                          ## Converts the given
                                                                          ## Bnd_Box2d to BVH_Box
-  BVH_Box2 = BVH_Box[cfloat, 2] 
+
 
 proc bnd2BVH*(theBox: BndBox2d): BVH_Box[cfloat, 2] {.cdecl,
-    importcpp: "Bnd_Tools::Bnd2BVH(@)", dynlib: tkmath.}
+    importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}
 proc bnd2BVH*(theBox: BndBox): BVH_Box[cfloat, 3] {.cdecl,
-    importcpp: "Bnd_Tools::Bnd2BVH(@)", dynlib: tkmath.}
+    importcpp: "Bnd_Tools::Bnd2BVH(@)", header: "Bnd_Tools.hxx".}

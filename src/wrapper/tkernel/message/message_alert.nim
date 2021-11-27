@@ -82,14 +82,14 @@ type
 
 
 proc getMessageKey*(this: MessageAlert): cstring {.noSideEffect, cdecl,
-    importcpp: "GetMessageKey", dynlib: tkernel.}
+    importcpp: "GetMessageKey", header: "Message_Alert.hxx".}
 proc supportsMerge*(this: MessageAlert): bool {.noSideEffect, cdecl,
-    importcpp: "SupportsMerge", dynlib: tkernel.}
+    importcpp: "SupportsMerge", header: "Message_Alert.hxx".}
 proc merge*(this: var MessageAlert; theTarget: Handle[MessageAlert]): bool {.cdecl,
-    importcpp: "Merge", dynlib: tkernel.}
+    importcpp: "Merge", header: "Message_Alert.hxx".}
 proc dumpJson*(this: MessageAlert; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_Alert.hxx".}
 ## ! Macro allowing to define simple alert (without data) in single line of code
 
 template define_Simple_Alert*(alert: untyped): void =

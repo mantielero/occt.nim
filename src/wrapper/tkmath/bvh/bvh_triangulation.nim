@@ -31,22 +31,22 @@ type
   BVH_TriangulationBVH_VecNt*[T; N] = object
 
 proc newBVH_Triangulation*[T; N: static[cint]](): BVH_Triangulation[T, N] {.cdecl,
-    constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", dynlib: tkmath.}
+    constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", header: "BVH_Triangulation.hxx".}
 proc newBVH_Triangulation*[T; N: static[cint]](
     theBuilder: Handle[BVH_Builder[T, N]]): BVH_Triangulation[T, N] {.cdecl,
-    constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", dynlib: tkmath.}
+    constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", header: "BVH_Triangulation.hxx".}
 proc destroyBVH_Triangulation*[T; N: static[cint]](
     this: var BVH_Triangulation[T, N]) {.cdecl, importcpp: "#.~BVH_Triangulation()",
-                                     dynlib: tkmath.}
+                                     header: "BVH_Triangulation.hxx".}
 proc size*[T; N: static[cint]](this: BVH_Triangulation[T, N]): cint {.noSideEffect,
-    cdecl, importcpp: "Size", dynlib: tkmath.}
+    cdecl, importcpp: "Size", header: "BVH_Triangulation.hxx".}
 ## using statement
 
 proc box*[T; N: static[cint]](this: BVH_Triangulation[T, N]; theIndex: cint): BVH_Box[T,
-    N] {.noSideEffect, cdecl, importcpp: "Box", dynlib: tkmath.}
+    N] {.noSideEffect, cdecl, importcpp: "Box", header: "BVH_Triangulation.hxx".}
 proc center*[T; N: static[cint]](this: BVH_Triangulation[T, N]; theIndex: cint;
                               theAxis: cint): T {.noSideEffect, cdecl,
-    importcpp: "Center", dynlib: tkmath.}
+    importcpp: "Center", header: "BVH_Triangulation.hxx".}
 proc swap*[T; N: static[cint]](this: var BVH_Triangulation[T, N]; theIndex1: cint;
                             theIndex2: cint) {.cdecl, importcpp: "Swap",
-    dynlib: tkmath.}
+    header: "BVH_Triangulation.hxx".}

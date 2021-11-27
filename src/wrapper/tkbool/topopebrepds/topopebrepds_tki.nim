@@ -21,33 +21,33 @@ type
 
 
 proc newTopOpeBRepDS_TKI*(): TopOpeBRepDS_TKI {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_TKI(@)", dynlib: tkbool.}
-proc clear*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Clear", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_TKI(@)", header: "TopOpeBRepDS_TKI.hxx".}
+proc clear*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Clear", header: "TopOpeBRepDS_TKI.hxx".}
 proc fillOnGeometry*(this: var TopOpeBRepDS_TKI; L: TopOpeBRepDS_ListOfInterference) {.
-    cdecl, importcpp: "FillOnGeometry", dynlib: tkbool.}
+    cdecl, importcpp: "FillOnGeometry", header: "TopOpeBRepDS_TKI.hxx".}
 proc fillOnSupport*(this: var TopOpeBRepDS_TKI; L: TopOpeBRepDS_ListOfInterference) {.
-    cdecl, importcpp: "FillOnSupport", dynlib: tkbool.}
+    cdecl, importcpp: "FillOnSupport", header: "TopOpeBRepDS_TKI.hxx".}
 proc isBound*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IsBound", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsBound", header: "TopOpeBRepDS_TKI.hxx".}
 proc interferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Interferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Interferences", header: "TopOpeBRepDS_TKI.hxx".}
 proc changeInterferences*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeInterferences", header: "TopOpeBRepDS_TKI.hxx".}
 proc hasInterferences*(this: TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint): bool {.
-    noSideEffect, cdecl, importcpp: "HasInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HasInterferences", header: "TopOpeBRepDS_TKI.hxx".}
 proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint) {.cdecl,
-    importcpp: "Add", dynlib: tkbool.}
+    importcpp: "Add", header: "TopOpeBRepDS_TKI.hxx".}
 proc add*(this: var TopOpeBRepDS_TKI; k: TopOpeBRepDS_Kind; g: cint;
          hi: Handle[TopOpeBRepDS_Interference]) {.cdecl, importcpp: "Add",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_TKI.hxx".}
 proc dumpTKIIterator*(this: var TopOpeBRepDS_TKI; s1: TCollectionAsciiString = newTCollectionAsciiString("");
                      s2: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
-    importcpp: "DumpTKIIterator", dynlib: tkbool.}
-proc init*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Init", dynlib: tkbool.}
+    importcpp: "DumpTKIIterator", header: "TopOpeBRepDS_TKI.hxx".}
+proc init*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Init", header: "TopOpeBRepDS_TKI.hxx".}
 proc more*(this: TopOpeBRepDS_TKI): bool {.noSideEffect, cdecl, importcpp: "More",
-                                       dynlib: tkbool.}
-proc next*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Next", dynlib: tkbool.}
+                                       header: "TopOpeBRepDS_TKI.hxx".}
+proc next*(this: var TopOpeBRepDS_TKI) {.cdecl, importcpp: "Next", header: "TopOpeBRepDS_TKI.hxx".}
 proc value*(this: TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Value", header: "TopOpeBRepDS_TKI.hxx".}
 proc changeValue*(this: var TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeValue", header: "TopOpeBRepDS_TKI.hxx".}

@@ -20,16 +20,16 @@ type
 
 
 proc newTColgpHSequenceOfPnt*(): TColgpHSequenceOfPnt {.cdecl, constructor,
-    importcpp: "TColgp_HSequenceOfPnt(@)", dynlib: tkmath.}
+    importcpp: "TColgp_HSequenceOfPnt(@)", header: "TColgp_HSequenceOfPnt.hxx".}
 proc newTColgpHSequenceOfPnt*(theOther: TColgpSequenceOfPnt): TColgpHSequenceOfPnt {.
-    cdecl, constructor, importcpp: "TColgp_HSequenceOfPnt(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HSequenceOfPnt(@)", header: "TColgp_HSequenceOfPnt.hxx".}
 proc sequence*(this: TColgpHSequenceOfPnt): TColgpSequenceOfPnt {.noSideEffect,
-    cdecl, importcpp: "Sequence", dynlib: tkmath.}
+    cdecl, importcpp: "Sequence", header: "TColgp_HSequenceOfPnt.hxx".}
 proc append*(this: var TColgpHSequenceOfPnt; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkmath.}
+    importcpp: "Append", header: "TColgp_HSequenceOfPnt.hxx".}
 proc append*(this: var TColgpHSequenceOfPnt; theSequence: var TColgpSequenceOfPnt) {.
-    cdecl, importcpp: "Append", dynlib: tkmath.}
+    cdecl, importcpp: "Append", header: "TColgp_HSequenceOfPnt.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfPnt): var TColgpSequenceOfPnt {.cdecl,
-    importcpp: "ChangeSequence", dynlib: tkmath.}
+    importcpp: "ChangeSequence", header: "TColgp_HSequenceOfPnt.hxx".}
 type
   HandleTColgpHSequenceOfPnt* = Handle[TColgpHSequenceOfPnt]

@@ -18,11 +18,11 @@ type
 
 
 proc newTColStdHArray1OfCharacter*(theLower: cint; theUpper: cint): TColStdHArray1OfCharacter {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", header: "TColStd_HArray1OfCharacter.hxx".}
 proc newTColStdHArray1OfCharacter*(theLower: cint; theUpper: cint;
                                   theValue: ValueType): TColStdHArray1OfCharacter {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", header: "TColStd_HArray1OfCharacter.hxx".}
 proc newTColStdHArray1OfCharacter*(theOther: TColStdArray1OfCharacter): TColStdHArray1OfCharacter {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfCharacter(@)", header: "TColStd_HArray1OfCharacter.hxx".}
 proc array1*(this: TColStdHArray1OfCharacter): TColStdArray1OfCharacter {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TColStd_HArray1OfCharacter.hxx".}

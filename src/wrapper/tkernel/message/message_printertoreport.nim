@@ -46,18 +46,18 @@ type
 
 
 proc newMessagePrinterToReport*(): MessagePrinterToReport {.cdecl, constructor,
-    importcpp: "Message_PrinterToReport(@)", dynlib: tkernel.}
+    importcpp: "Message_PrinterToReport(@)", header: "Message_PrinterToReport.hxx".}
 proc destroyMessagePrinterToReport*(this: var MessagePrinterToReport) {.cdecl,
-    importcpp: "#.~Message_PrinterToReport()", dynlib: tkernel.}
+    importcpp: "#.~Message_PrinterToReport()", header: "Message_PrinterToReport.hxx".}
 proc report*(this: MessagePrinterToReport): Handle[MessageReport] {.noSideEffect,
-    cdecl, importcpp: "Report", dynlib: tkernel.}
+    cdecl, importcpp: "Report", header: "Message_PrinterToReport.hxx".}
 proc setReport*(this: var MessagePrinterToReport; theReport: Handle[MessageReport]) {.
-    cdecl, importcpp: "SetReport", dynlib: tkernel.}
+    cdecl, importcpp: "SetReport", header: "Message_PrinterToReport.hxx".}
 proc sendStringStream*(this: MessagePrinterToReport; theStream: StandardSStream;
                       theGravity: MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "SendStringStream", dynlib: tkernel.}
+    importcpp: "SendStringStream", header: "Message_PrinterToReport.hxx".}
 proc sendObject*(this: MessagePrinterToReport;
                 theObject: Handle[StandardTransient]; theGravity: MessageGravity) {.
-    noSideEffect, cdecl, importcpp: "SendObject", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "SendObject", header: "Message_PrinterToReport.hxx".}
 type
   HandleMessagePrinterToReport* = Handle[MessagePrinterToReport]

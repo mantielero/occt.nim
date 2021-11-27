@@ -18,12 +18,12 @@
 ##  et IBTMatrix (contraintes de tangence aux extremites).
 
 proc invMMatrix*(classe: cint; m: var MathMatrix) {.cdecl, importcpp: "InvMMatrix(@)",
-    dynlib: tkgeombase.}
+    header: "AppCont_ContMatrices.hxx".}
 proc mMatrix*(classe: cint; m: var MathMatrix) {.cdecl, importcpp: "MMatrix(@)",
-    dynlib: tkgeombase.}
+    header: "AppCont_ContMatrices.hxx".}
 proc iBPMatrix*(classe: cint; m: var MathMatrix) {.cdecl, importcpp: "IBPMatrix(@)",
-    dynlib: tkgeombase.}
+    header: "AppCont_ContMatrices.hxx".}
 proc iBTMatrix*(classe: cint; m: var MathMatrix) {.cdecl, importcpp: "IBTMatrix(@)",
-    dynlib: tkgeombase.}
+    header: "AppCont_ContMatrices.hxx".}
 proc vBernstein*(classe: cint; nbpoints: cint; m: var MathMatrix) {.cdecl,
-    importcpp: "VBernstein(@)", dynlib: tkgeombase.}
+    importcpp: "VBernstein(@)", header: "AppCont_ContMatrices.hxx".}

@@ -31,17 +31,17 @@ type
 
 proc newBRepPointOnCurveOnSurface*(p: cfloat; c: Handle[Geom2dCurve];
                                   s: Handle[GeomSurface]; L: TopLocLocation): BRepPointOnCurveOnSurface {.
-    cdecl, constructor, importcpp: "BRep_PointOnCurveOnSurface(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_PointOnCurveOnSurface(@)", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc isPointOnCurveOnSurface*(this: BRepPointOnCurveOnSurface): bool {.noSideEffect,
-    cdecl, importcpp: "IsPointOnCurveOnSurface", dynlib: tkbrep.}
+    cdecl, importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc isPointOnCurveOnSurface*(this: BRepPointOnCurveOnSurface;
                              pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                              L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc pCurve*(this: BRepPointOnCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve", dynlib: tkbrep.}
+    cdecl, importcpp: "PCurve", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc pCurve*(this: var BRepPointOnCurveOnSurface; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve", dynlib: tkbrep.}
+    importcpp: "PCurve", header: "BRep_PointOnCurveOnSurface.hxx".}
 proc dumpJson*(this: BRepPointOnCurveOnSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PointOnCurveOnSurface.hxx".}

@@ -35,18 +35,18 @@ type
 ## using statement
 
 proc newBVH_PrimitiveSet*[T; N: static[cint]](): BVH_PrimitiveSet[T, N] {.cdecl,
-    constructor, importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)", dynlib: tkmath.}
+    constructor, importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)", header: "BVH_PrimitiveSet.hxx".}
 proc newBVH_PrimitiveSet*[T; N: static[cint]](theBuilder: Handle[BVH_Builder[T, N]]): BVH_PrimitiveSet[
     T, N] {.cdecl, constructor, importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)",
-          dynlib: tkmath.}
+          header: "BVH_PrimitiveSet.hxx".}
 proc destroyBVH_PrimitiveSet*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N]) {.
-    cdecl, importcpp: "#.~BVH_PrimitiveSet()", dynlib: tkmath.}
+    cdecl, importcpp: "#.~BVH_PrimitiveSet()", header: "BVH_PrimitiveSet.hxx".}
 proc box*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): BVH_Box[T, N] {.
-    noSideEffect, cdecl, importcpp: "Box", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Box", header: "BVH_PrimitiveSet.hxx".}
 proc bvh*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N]): Handle[BVH_Tree[T, N]] {.
-    cdecl, importcpp: "BVH", dynlib: tkmath.}
+    cdecl, importcpp: "BVH", header: "BVH_PrimitiveSet.hxx".}
 proc builder*[T; N: static[cint]](this: BVH_PrimitiveSet[T, N]): Handle[
-    BVH_Builder[T, N]] {.noSideEffect, cdecl, importcpp: "Builder", dynlib: tkmath.}
+    BVH_Builder[T, N]] {.noSideEffect, cdecl, importcpp: "Builder", header: "BVH_PrimitiveSet.hxx".}
 proc setBuilder*[T; N: static[cint]](this: var BVH_PrimitiveSet[T, N];
                                   theBuilder: Handle[BVH_Builder[T, N]]) {.cdecl,
-    importcpp: "SetBuilder", dynlib: tkmath.}
+    importcpp: "SetBuilder", header: "BVH_PrimitiveSet.hxx".}

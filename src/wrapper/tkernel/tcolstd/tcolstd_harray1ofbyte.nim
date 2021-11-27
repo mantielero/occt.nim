@@ -18,10 +18,10 @@ type
 
 
 proc newTColStdHArray1OfByte*(theLower: cint; theUpper: cint): TColStdHArray1OfByte {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", header: "TColStd_HArray1OfByte.hxx".}
 proc newTColStdHArray1OfByte*(theLower: cint; theUpper: cint; theValue: ValueType): TColStdHArray1OfByte {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", header: "TColStd_HArray1OfByte.hxx".}
 proc newTColStdHArray1OfByte*(theOther: TColStdArray1OfByte): TColStdHArray1OfByte {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfByte(@)", header: "TColStd_HArray1OfByte.hxx".}
 proc array1*(this: TColStdHArray1OfByte): TColStdArray1OfByte {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkernel.}
+    importcpp: "Array1", header: "TColStd_HArray1OfByte.hxx".}

@@ -43,10 +43,10 @@ type
 
 
 proc plane*(p: Handle[GeomPlane]) {.cdecl, importcpp: "BRepBuilderAPI::Plane(@)",
-                                 dynlib: tktopalgo.}
+                                 header: "BRepBuilderAPI.hxx".}
 proc plane*(): Handle[GeomPlane] {.cdecl, importcpp: "BRepBuilderAPI::Plane(@)",
-                                dynlib: tktopalgo.}
+                                header: "BRepBuilderAPI.hxx".}
 proc precision*(p: cfloat) {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
-                          dynlib: tktopalgo.}
+                          header: "BRepBuilderAPI.hxx".}
 proc precision*(): cfloat {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
-                         dynlib: tktopalgo.}
+                         header: "BRepBuilderAPI.hxx".}

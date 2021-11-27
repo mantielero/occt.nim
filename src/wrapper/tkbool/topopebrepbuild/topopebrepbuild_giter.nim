@@ -21,16 +21,16 @@ type
 
 
 proc newTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_GIter(@)", header: "TopOpeBRepBuild_GIter.hxx".}
 proc newTopOpeBRepBuildGIter*(g: TopOpeBRepBuildGTopo): TopOpeBRepBuildGIter {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_GIter(@)", dynlib: tkbool.}
-proc init*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Init", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_GIter(@)", header: "TopOpeBRepBuild_GIter.hxx".}
+proc init*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Init", header: "TopOpeBRepBuild_GIter.hxx".}
 proc init*(this: var TopOpeBRepBuildGIter; g: TopOpeBRepBuildGTopo) {.cdecl,
-    importcpp: "Init", dynlib: tkbool.}
+    importcpp: "Init", header: "TopOpeBRepBuild_GIter.hxx".}
 proc more*(this: TopOpeBRepBuildGIter): bool {.noSideEffect, cdecl, importcpp: "More",
-    dynlib: tkbool.}
-proc next*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Next", dynlib: tkbool.}
+    header: "TopOpeBRepBuild_GIter.hxx".}
+proc next*(this: var TopOpeBRepBuildGIter) {.cdecl, importcpp: "Next", header: "TopOpeBRepBuild_GIter.hxx".}
 proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsState) {.
-    noSideEffect, cdecl, importcpp: "Current", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkbool.}
+    importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}

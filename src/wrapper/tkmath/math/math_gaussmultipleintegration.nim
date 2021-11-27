@@ -28,10 +28,10 @@ proc newMathGaussMultipleIntegration*(f: var MathMultipleVarFunction;
                                      lower: MathVector; upper: MathVector;
                                      order: MathIntegerVector): MathGaussMultipleIntegration {.
     cdecl, constructor, importcpp: "math_GaussMultipleIntegration(@)",
-    dynlib: tkmath.}
+    header: "math_GaussMultipleIntegration.hxx".}
 proc isDone*(this: MathGaussMultipleIntegration): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_GaussMultipleIntegration.hxx".}
 proc value*(this: MathGaussMultipleIntegration): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_GaussMultipleIntegration.hxx".}
 proc dump*(this: MathGaussMultipleIntegration; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "math_GaussMultipleIntegration.hxx".}

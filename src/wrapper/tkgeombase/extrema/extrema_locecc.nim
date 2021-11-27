@@ -75,10 +75,10 @@ type
 
 proc newExtremaLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: cfloat; v0: cfloat;
                       tolU: cfloat; tolV: cfloat): ExtremaLocECC {.cdecl, constructor,
-    importcpp: "Extrema_LocECC(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_LocECC(@)", header: "Extrema_LocECC.hxx".}
 proc isDone*(this: ExtremaLocECC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_LocECC.hxx".}
 proc squareDistance*(this: ExtremaLocECC): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_LocECC.hxx".}
 proc point*(this: ExtremaLocECC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
-    noSideEffect, cdecl, importcpp: "Point", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Point", header: "Extrema_LocECC.hxx".}

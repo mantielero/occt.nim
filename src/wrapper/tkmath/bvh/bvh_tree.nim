@@ -105,41 +105,41 @@ type
 #  BVH_TreeBaseBVH_VecNt*[T; N] = BVH_VecNt[T, N]
 
 proc newBVH_TreeBase*[T; N: static[cint]](): BVH_TreeBase[T, N] {.cdecl, constructor,
-    importcpp: "BVH_TreeBase<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_TreeBase<\'*0,\'*1>(@)", header: "BVH_Tree.hxx".}
 proc destroyBVH_TreeBase*[T; N: static[cint]](this: var BVH_TreeBase[T, N]) {.cdecl,
-    importcpp: "#.~BVH_TreeBase()", dynlib: tkmath.}
+    importcpp: "#.~BVH_TreeBase()", header: "BVH_Tree.hxx".}
 proc depth*[T; N: static[cint]](this: BVH_TreeBase[T, N]): cint {.noSideEffect, cdecl,
-    importcpp: "Depth", dynlib: tkmath.}
+    importcpp: "Depth", header: "BVH_Tree.hxx".}
 proc length*[T; N: static[cint]](this: BVH_TreeBase[T, N]): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkmath.}
+    importcpp: "Length", header: "BVH_Tree.hxx".}
 #proc minPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
-#    cdecl, importcpp: "MinPoint", dynlib: tkmath.}
+#    cdecl, importcpp: "MinPoint", header: "BVH_Tree.hxx".}
 #proc maxPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
-#    cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
+#    cdecl, importcpp: "MaxPoint", header: "BVH_Tree.hxx".}
 #proc minPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
-#    noSideEffect, cdecl, importcpp: "MinPoint", dynlib: tkmath.}
+#    noSideEffect, cdecl, importcpp: "MinPoint", header: "BVH_Tree.hxx".}
 #proc maxPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
-#    noSideEffect, cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
+#    noSideEffect, cdecl, importcpp: "MaxPoint", header: "BVH_Tree.hxx".}
 proc begPrimitive*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var cint {.
-    cdecl, importcpp: "BegPrimitive", dynlib: tkmath.}
+    cdecl, importcpp: "BegPrimitive", header: "BVH_Tree.hxx".}
 proc endPrimitive*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var cint {.
-    cdecl, importcpp: "EndPrimitive", dynlib: tkmath.}
+    cdecl, importcpp: "EndPrimitive", header: "BVH_Tree.hxx".}
 proc begPrimitive*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "BegPrimitive", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "BegPrimitive", header: "BVH_Tree.hxx".}
 proc endPrimitive*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "EndPrimitive", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "EndPrimitive", header: "BVH_Tree.hxx".}
 proc nbPrimitives*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "NbPrimitives", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "NbPrimitives", header: "BVH_Tree.hxx".}
 proc level*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var cint {.
-    cdecl, importcpp: "Level", dynlib: tkmath.}
+    cdecl, importcpp: "Level", header: "BVH_Tree.hxx".}
 proc level*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "Level", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Level", header: "BVH_Tree.hxx".}
 proc isOuter*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IsOuter", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsOuter", header: "BVH_Tree.hxx".}
 proc nodeInfoBuffer*[T; N: static[cint]](this: var BVH_TreeBase[T, N]): var BVH_Array4i {.
-    cdecl, importcpp: "NodeInfoBuffer", dynlib: tkmath.}
+    cdecl, importcpp: "NodeInfoBuffer", header: "BVH_Tree.hxx".}
 proc nodeInfoBuffer*[T; N: static[cint]](this: BVH_TreeBase[T, N]): BVH_Array4i {.
-    noSideEffect, cdecl, importcpp: "NodeInfoBuffer", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "NodeInfoBuffer", header: "BVH_Tree.hxx".}
 ## ! Type corresponding to quad BVH.
 
 type

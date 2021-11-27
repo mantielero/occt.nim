@@ -67,22 +67,22 @@ type
 
 proc newConvertCompBezierCurvesToBSplineCurve*(angularTolerance: cfloat = 1.0e-4): ConvertCompBezierCurvesToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_CompBezierCurvesToBSplineCurve(@)",
-    dynlib: tkmath.}
+    header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc addCurve*(this: var ConvertCompBezierCurvesToBSplineCurve;
               poles: TColgpArray1OfPnt) {.cdecl, importcpp: "AddCurve",
-                                        dynlib: tkmath.}
+                                        header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc perform*(this: var ConvertCompBezierCurvesToBSplineCurve) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc degree*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
-    cdecl, importcpp: "Degree", dynlib: tkmath.}
+    cdecl, importcpp: "Degree", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc nbPoles*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
-    cdecl, importcpp: "NbPoles", dynlib: tkmath.}
+    cdecl, importcpp: "NbPoles", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc poles*(this: ConvertCompBezierCurvesToBSplineCurve;
            poles: var TColgpArray1OfPnt) {.noSideEffect, cdecl, importcpp: "Poles",
-                                        dynlib: tkmath.}
+                                        header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc nbKnots*(this: ConvertCompBezierCurvesToBSplineCurve): cint {.noSideEffect,
-    cdecl, importcpp: "NbKnots", dynlib: tkmath.}
+    cdecl, importcpp: "NbKnots", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}
 proc knotsAndMults*(this: ConvertCompBezierCurvesToBSplineCurve;
                    knots: var TColStdArray1OfReal;
                    mults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "KnotsAndMults", dynlib: tkmath.}
+    importcpp: "KnotsAndMults", header: "Convert_CompBezierCurvesToBSplineCurve.hxx".}

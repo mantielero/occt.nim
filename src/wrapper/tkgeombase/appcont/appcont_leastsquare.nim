@@ -29,11 +29,11 @@ proc newAppContLeastSquare*(ssp: AppContFunction; u0: cfloat; u1: cfloat;
                            firstCons: AppParCurvesConstraint;
                            lastCons: AppParCurvesConstraint; deg: cint;
                            nbPoints: cint): AppContLeastSquare {.cdecl, constructor,
-    importcpp: "AppCont_LeastSquare(@)", dynlib: tkgeombase.}
+    importcpp: "AppCont_LeastSquare(@)", header: "AppCont_LeastSquare.hxx".}
 proc value*(this: var AppContLeastSquare): AppParCurvesMultiCurve {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "AppCont_LeastSquare.hxx".}
 proc error*(this: AppContLeastSquare; f: var cfloat; maxE3d: var cfloat;
            maxE2d: var cfloat) {.noSideEffect, cdecl, importcpp: "Error",
-                              dynlib: tkgeombase.}
+                              header: "AppCont_LeastSquare.hxx".}
 proc isDone*(this: AppContLeastSquare): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "AppCont_LeastSquare.hxx".}

@@ -88,28 +88,28 @@ type
 
 
 proc setAxis*(this: var GeomConic; theA1: Ax1) {.cdecl, importcpp: "SetAxis",
-    dynlib: tkg3d.}
+    header: "Geom_Conic.hxx".}
 proc setLocation*(this: var GeomConic; theP: Pnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkg3d.}
+    header: "Geom_Conic.hxx".}
 proc setPosition*(this: var GeomConic; theA2: Ax2) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkg3d.}
-proc axis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkg3d.}
+    header: "Geom_Conic.hxx".}
+proc axis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
 proc location*(this: GeomConic): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                                   dynlib: tkg3d.}
+                                   header: "Geom_Conic.hxx".}
 proc position*(this: GeomConic): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                                   dynlib: tkg3d.}
+                                   header: "Geom_Conic.hxx".}
 proc eccentricity*(this: GeomConic): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg3d.}
+    importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
 proc xAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis",
-                                dynlib: tkg3d.}
+                                header: "Geom_Conic.hxx".}
 proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis",
-                                dynlib: tkg3d.}
-proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", dynlib: tkg3d.}
+                                header: "Geom_Conic.hxx".}
+proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", header: "Geom_Conic.hxx".}
 proc reversedParameter*(this: GeomConic; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg3d.}
+    importcpp: "ReversedParameter", header: "Geom_Conic.hxx".}
 proc continuity*(this: GeomConic): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg3d.}
+    importcpp: "Continuity", header: "Geom_Conic.hxx".}
 proc isCN*(this: GeomConic; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-                                       dynlib: tkg3d.}
+                                       header: "Geom_Conic.hxx".}
 proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Conic.hxx".}

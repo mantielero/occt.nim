@@ -27,13 +27,13 @@ type
 
 
 proc newMessageAttribute*(theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttribute {.
-    cdecl, constructor, importcpp: "Message_Attribute(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_Attribute(@)", header: "Message_Attribute.hxx".}
 proc getMessageKey*(this: MessageAttribute): cstring {.noSideEffect, cdecl,
-    importcpp: "GetMessageKey", dynlib: tkernel.}
+    importcpp: "GetMessageKey", header: "Message_Attribute.hxx".}
 proc getName*(this: MessageAttribute): TCollectionAsciiString {.noSideEffect, cdecl,
-    importcpp: "GetName", dynlib: tkernel.}
+    importcpp: "GetName", header: "Message_Attribute.hxx".}
 proc setName*(this: var MessageAttribute; theName: TCollectionAsciiString) {.cdecl,
-    importcpp: "SetName", dynlib: tkernel.}
+    importcpp: "SetName", header: "Message_Attribute.hxx".}
 proc dumpJson*(this: MessageAttribute; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_Attribute.hxx".}

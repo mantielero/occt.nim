@@ -22,11 +22,11 @@ type
 
 
 proc newTopOpeBRepBuildShellToSolid*(): TopOpeBRepBuildShellToSolid {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_ShellToSolid(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_ShellToSolid(@)", header: "TopOpeBRepBuild_ShellToSolid.hxx".}
 proc init*(this: var TopOpeBRepBuildShellToSolid) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}
 proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.cdecl,
-    importcpp: "AddShell", dynlib: tkbool.}
+    importcpp: "AddShell", header: "TopOpeBRepBuild_ShellToSolid.hxx".}
 proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
                 lSo: var TopToolsListOfShape) {.cdecl, importcpp: "MakeSolids",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_ShellToSolid.hxx".}

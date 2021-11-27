@@ -73,62 +73,62 @@ type
 
 
 proc newGeom2dEllipse*(e: Elips2d): Geom2dEllipse {.cdecl, constructor,
-    importcpp: "Geom2d_Ellipse(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
 proc newGeom2dEllipse*(majorAxis: Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                       sense: bool = true): Geom2dEllipse {.cdecl, constructor,
-    importcpp: "Geom2d_Ellipse(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
 proc newGeom2dEllipse*(axis: Ax22d; majorRadius: cfloat; minorRadius: cfloat): Geom2dEllipse {.
-    cdecl, constructor, importcpp: "Geom2d_Ellipse(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Geom2d_Ellipse(@)", header: "Geom2d_Ellipse.hxx".}
 proc setElips2d*(this: var Geom2dEllipse; e: Elips2d) {.cdecl, importcpp: "SetElips2d",
-    dynlib: tkg2d.}
+    header: "Geom2d_Ellipse.hxx".}
 proc setMajorRadius*(this: var Geom2dEllipse; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkg2d.}
+    importcpp: "SetMajorRadius", header: "Geom2d_Ellipse.hxx".}
 proc setMinorRadius*(this: var Geom2dEllipse; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkg2d.}
+    importcpp: "SetMinorRadius", header: "Geom2d_Ellipse.hxx".}
 proc elips2d*(this: Geom2dEllipse): Elips2d {.noSideEffect, cdecl,
-    importcpp: "Elips2d", dynlib: tkg2d.}
+    importcpp: "Elips2d", header: "Geom2d_Ellipse.hxx".}
 proc reversedParameter*(this: Geom2dEllipse; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg2d.}
+    importcpp: "ReversedParameter", header: "Geom2d_Ellipse.hxx".}
 proc directrix1*(this: Geom2dEllipse): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Directrix1", dynlib: tkg2d.}
+    importcpp: "Directrix1", header: "Geom2d_Ellipse.hxx".}
 proc directrix2*(this: Geom2dEllipse): Ax2d {.noSideEffect, cdecl,
-    importcpp: "Directrix2", dynlib: tkg2d.}
+    importcpp: "Directrix2", header: "Geom2d_Ellipse.hxx".}
 proc eccentricity*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg2d.}
+    importcpp: "Eccentricity", header: "Geom2d_Ellipse.hxx".}
 proc focal*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Ellipse.hxx".}
 proc focus1*(this: Geom2dEllipse): Pnt2d {.noSideEffect, cdecl, importcpp: "Focus1",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Ellipse.hxx".}
 proc focus2*(this: Geom2dEllipse): Pnt2d {.noSideEffect, cdecl, importcpp: "Focus2",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Ellipse.hxx".}
 proc majorRadius*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "MajorRadius", dynlib: tkg2d.}
+    importcpp: "MajorRadius", header: "Geom2d_Ellipse.hxx".}
 proc minorRadius*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinorRadius", dynlib: tkg2d.}
+    importcpp: "MinorRadius", header: "Geom2d_Ellipse.hxx".}
 proc parameter*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkg2d.}
+    importcpp: "Parameter", header: "Geom2d_Ellipse.hxx".}
 proc firstParameter*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Geom2d_Ellipse.hxx".}
 proc lastParameter*(this: Geom2dEllipse): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Geom2d_Ellipse.hxx".}
 proc isClosed*(this: Geom2dEllipse): bool {.noSideEffect, cdecl,
-                                        importcpp: "IsClosed", dynlib: tkg2d.}
+                                        importcpp: "IsClosed", header: "Geom2d_Ellipse.hxx".}
 proc isPeriodic*(this: Geom2dEllipse): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Geom2d_Ellipse.hxx".}
 proc d0*(this: Geom2dEllipse; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Geom2d_Ellipse.hxx".}
 proc d1*(this: Geom2dEllipse; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkg2d.}
+    importcpp: "D1", header: "Geom2d_Ellipse.hxx".}
 proc d2*(this: Geom2dEllipse; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_Ellipse.hxx".}
 proc d3*(this: Geom2dEllipse; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Ellipse.hxx".}
 proc dn*(this: Geom2dEllipse; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Geom2d_Ellipse.hxx".}
 proc transform*(this: var Geom2dEllipse; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkg2d.}
+    header: "Geom2d_Ellipse.hxx".}
 proc copy*(this: Geom2dEllipse): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_Ellipse.hxx".}
 proc dumpJson*(this: Geom2dEllipse; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_Ellipse.hxx".}

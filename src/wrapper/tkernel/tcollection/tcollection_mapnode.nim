@@ -26,6 +26,6 @@ type
 
 
 proc newTCollectionMapNode*(n: TCollectionMapNodePtr): TCollectionMapNode {.cdecl,
-    constructor, importcpp: "TCollection_MapNode(@)", dynlib: tkernel.}
+    constructor, importcpp: "TCollection_MapNode(@)", header: "TCollection_MapNode.hxx".}
 proc next*(this: TCollectionMapNode): var TCollectionMapNodePtr {.noSideEffect, cdecl,
-    importcpp: "Next", dynlib: tkernel.}
+    importcpp: "Next", header: "TCollection_MapNode.hxx".}

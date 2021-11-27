@@ -21,13 +21,13 @@ type
 
 proc newTopToolsHArray2OfShape*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                theColUpp: cint): TopToolsHArray2OfShape {.cdecl,
-    constructor, importcpp: "TopTools_HArray2OfShape(@)", dynlib: tkbrep.}
+    constructor, importcpp: "TopTools_HArray2OfShape(@)", header: "TopTools_HArray2OfShape.hxx".}
 proc newTopToolsHArray2OfShape*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                theColUpp: cint; theValue: ValueType): TopToolsHArray2OfShape {.
-    cdecl, constructor, importcpp: "TopTools_HArray2OfShape(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "TopTools_HArray2OfShape(@)", header: "TopTools_HArray2OfShape.hxx".}
 proc newTopToolsHArray2OfShape*(theOther: TopToolsArray2OfShape): TopToolsHArray2OfShape {.
-    cdecl, constructor, importcpp: "TopTools_HArray2OfShape(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "TopTools_HArray2OfShape(@)", header: "TopTools_HArray2OfShape.hxx".}
 proc array2*(this: TopToolsHArray2OfShape): TopToolsArray2OfShape {.noSideEffect,
-    cdecl, importcpp: "Array2", dynlib: tkbrep.}
+    cdecl, importcpp: "Array2", header: "TopTools_HArray2OfShape.hxx".}
 proc changeArray2*(this: var TopToolsHArray2OfShape): var TopToolsArray2OfShape {.
-    cdecl, importcpp: "ChangeArray2", dynlib: tkbrep.}
+    cdecl, importcpp: "ChangeArray2", header: "TopTools_HArray2OfShape.hxx".}

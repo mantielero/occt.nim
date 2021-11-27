@@ -22,14 +22,14 @@ type
 
 
 proc newTopOpeBRepBuildFaceAreaBuilder*(): TopOpeBRepBuildFaceAreaBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)", header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
 proc newTopOpeBRepBuildFaceAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
                                        lc: var TopOpeBRepBuildLoopClassifier;
                                        forceClass: bool = false): TopOpeBRepBuildFaceAreaBuilder {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_FaceAreaBuilder(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
 proc initFaceAreaBuilder*(this: var TopOpeBRepBuildFaceAreaBuilder;
                          ls: var TopOpeBRepBuildLoopSet;
                          lc: var TopOpeBRepBuildLoopClassifier;
                          forceClass: bool = false) {.cdecl,
-    importcpp: "InitFaceAreaBuilder", dynlib: tkbool.}
+    importcpp: "InitFaceAreaBuilder", header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}

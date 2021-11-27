@@ -21,10 +21,10 @@ type
 
 
 proc newChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.
-    cdecl, constructor, importcpp: "ChFi3d_SearchSing(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi3d_SearchSing(@)", header: "ChFi3d_SearchSing.hxx".}
 proc value*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "ChFi3d_SearchSing.hxx".}
 proc derivative*(this: var ChFi3dSearchSing; x: cfloat; d: var cfloat): bool {.cdecl,
-    importcpp: "Derivative", dynlib: tkfillet.}
+    importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
 proc values*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat; d: var cfloat): bool {.
-    cdecl, importcpp: "Values", dynlib: tkfillet.}
+    cdecl, importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}

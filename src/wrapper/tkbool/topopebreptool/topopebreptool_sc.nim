@@ -15,16 +15,16 @@
 ##  commercial license or contractual agreement.
 
 proc fSC_GetPSC*(): var TopOpeBRepToolShapeClassifier {.cdecl,
-    importcpp: "FSC_GetPSC(@)", dynlib: tkbool.}
+    importcpp: "FSC_GetPSC(@)", header: "TopOpeBRepTool_SC.hxx".}
 proc fSC_GetPSC*(s: TopoDS_Shape): var TopOpeBRepToolShapeClassifier {.cdecl,
-    importcpp: "FSC_GetPSC(@)", dynlib: tkbool.}
+    importcpp: "FSC_GetPSC(@)", header: "TopOpeBRepTool_SC.hxx".}
 ##  ----------------------------------------------------------------------
 ##   state point <P> on/in shapes (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
 proc fSC_StatePonFace*(p: Pnt; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.cdecl,
-    importcpp: "FSC_StatePonFace(@)", dynlib: tkbool.}
+    importcpp: "FSC_StatePonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
 proc fSC_StateEonFace*(e: TopoDS_Shape; t: cfloat; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.cdecl,
-    importcpp: "FSC_StateEonFace(@)", dynlib: tkbool.}
+    importcpp: "FSC_StateEonFace(@)", header: "TopOpeBRepTool_SC.hxx".}

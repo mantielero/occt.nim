@@ -71,45 +71,45 @@ type
 
 
 proc newGeom2dCircle*(c: Circ2d): Geom2dCircle {.cdecl, constructor,
-    importcpp: "Geom2d_Circle(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
 proc newGeom2dCircle*(a: Ax2d; radius: cfloat; sense: bool = true): Geom2dCircle {.cdecl,
-    constructor, importcpp: "Geom2d_Circle(@)", dynlib: tkg2d.}
+    constructor, importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
 proc newGeom2dCircle*(a: Ax22d; radius: cfloat): Geom2dCircle {.cdecl, constructor,
-    importcpp: "Geom2d_Circle(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
 proc setCirc2d*(this: var Geom2dCircle; c: Circ2d) {.cdecl, importcpp: "SetCirc2d",
-    dynlib: tkg2d.}
+    header: "Geom2d_Circle.hxx".}
 proc setRadius*(this: var Geom2dCircle; r: cfloat) {.cdecl, importcpp: "SetRadius",
-    dynlib: tkg2d.}
+    header: "Geom2d_Circle.hxx".}
 proc circ2d*(this: Geom2dCircle): Circ2d {.noSideEffect, cdecl, importcpp: "Circ2d",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Circle.hxx".}
 proc radius*(this: Geom2dCircle): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Circle.hxx".}
 proc reversedParameter*(this: Geom2dCircle; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg2d.}
+    importcpp: "ReversedParameter", header: "Geom2d_Circle.hxx".}
 proc eccentricity*(this: Geom2dCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg2d.}
+    importcpp: "Eccentricity", header: "Geom2d_Circle.hxx".}
 proc firstParameter*(this: Geom2dCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Geom2d_Circle.hxx".}
 proc lastParameter*(this: Geom2dCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Geom2d_Circle.hxx".}
 proc isClosed*(this: Geom2dCircle): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Circle.hxx".}
 proc isPeriodic*(this: Geom2dCircle): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Geom2d_Circle.hxx".}
 proc d0*(this: Geom2dCircle; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Geom2d_Circle.hxx".}
 proc d1*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkg2d.}
+    importcpp: "D1", header: "Geom2d_Circle.hxx".}
 proc d2*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_Circle.hxx".}
 proc d3*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Circle.hxx".}
 proc dn*(this: Geom2dCircle; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Geom2d_Circle.hxx".}
 proc transform*(this: var Geom2dCircle; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkg2d.}
+    header: "Geom2d_Circle.hxx".}
 proc copy*(this: Geom2dCircle): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_Circle.hxx".}
 proc dumpJson*(this: Geom2dCircle; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_Circle.hxx".}

@@ -25,51 +25,51 @@ type
 
 
 proc newBndRange*(): BndRange {.cdecl, constructor, importcpp: "Bnd_Range(@)",
-                             dynlib: tkmath.}
+                             header: "Bnd_Range.hxx".}
 proc newBndRange*(theMin: cfloat; theMax: cfloat): BndRange {.cdecl, constructor,
-    importcpp: "Bnd_Range(@)", dynlib: tkmath.}
+    importcpp: "Bnd_Range(@)", header: "Bnd_Range.hxx".}
 proc common*(this: var BndRange; theOther: BndRange) {.cdecl, importcpp: "Common",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc union*(this: var BndRange; theOther: BndRange): bool {.cdecl, importcpp: "Union",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc split*(this: BndRange; theVal: cfloat; theList: var NCollectionList[BndRange];
            thePeriod: cfloat = 0.0) {.noSideEffect, cdecl, importcpp: "Split",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_Range.hxx".}
 proc isIntersected*(this: BndRange; theVal: cfloat; thePeriod: cfloat = 0.0): cint {.
-    noSideEffect, cdecl, importcpp: "IsIntersected", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsIntersected", header: "Bnd_Range.hxx".}
 proc add*(this: var BndRange; theParameter: cfloat) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc add*(this: var BndRange; theRange: BndRange) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc getMin*(this: BndRange; thePar: var cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "GetMin", dynlib: tkmath.}
+    importcpp: "GetMin", header: "Bnd_Range.hxx".}
 proc getMax*(this: BndRange; thePar: var cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "GetMax", dynlib: tkmath.}
+    importcpp: "GetMax", header: "Bnd_Range.hxx".}
 proc getBounds*(this: BndRange; theFirstPar: var cfloat; theLastPar: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "GetBounds", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetBounds", header: "Bnd_Range.hxx".}
 proc getIntermediatePoint*(this: BndRange; theLambda: cfloat;
                           theParameter: var cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "GetIntermediatePoint", dynlib: tkmath.}
+    importcpp: "GetIntermediatePoint", header: "Bnd_Range.hxx".}
 proc delta*(this: BndRange): cfloat {.noSideEffect, cdecl, importcpp: "Delta",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_Range.hxx".}
 proc isVoid*(this: BndRange): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
-                                 dynlib: tkmath.}
-proc setVoid*(this: var BndRange) {.cdecl, importcpp: "SetVoid", dynlib: tkmath.}
+                                 header: "Bnd_Range.hxx".}
+proc setVoid*(this: var BndRange) {.cdecl, importcpp: "SetVoid", header: "Bnd_Range.hxx".}
 proc enlarge*(this: var BndRange; theDelta: cfloat) {.cdecl, importcpp: "Enlarge",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc shifted*(this: BndRange; theVal: cfloat): BndRange {.noSideEffect, cdecl,
-    importcpp: "Shifted", dynlib: tkmath.}
+    importcpp: "Shifted", header: "Bnd_Range.hxx".}
 proc shift*(this: var BndRange; theVal: cfloat) {.cdecl, importcpp: "Shift",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc trimFrom*(this: var BndRange; theValLower: cfloat) {.cdecl, importcpp: "TrimFrom",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc trimTo*(this: var BndRange; theValUpper: cfloat) {.cdecl, importcpp: "TrimTo",
-    dynlib: tkmath.}
+    header: "Bnd_Range.hxx".}
 proc isOut*(this: BndRange; theValue: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_Range.hxx".}
 proc isOut*(this: BndRange; theRange: BndRange): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_Range.hxx".}
 proc `==`*(this: BndRange; theOther: BndRange): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkmath.}
+    importcpp: "(# == #)", header: "Bnd_Range.hxx".}
 proc dumpJson*(this: BndRange; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "Bnd_Range.hxx".}

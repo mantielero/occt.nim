@@ -44,30 +44,30 @@ type
 
 proc constructHandle*[T](): Handle[T] {.cdecl, constructor,
                                      importcpp: "opencascade::handle<\'*0>(@)",
-                                     dynlib: tkernel.}
+                                     header: "Standard_Handle.hxx".}
 proc constructHandle*[T](thePtr: ptr T): Handle[T] {.cdecl, constructor,
-    importcpp: "opencascade::handle<\'*0>(@)", dynlib: tkernel.}
+    importcpp: "opencascade::handle<\'*0>(@)", header: "Standard_Handle.hxx".}
 proc constructHandle*[T](theHandle: Handle): Handle[T] {.cdecl, constructor,
-    importcpp: "opencascade::handle<\'*0>(@)", dynlib: tkernel.}
+    importcpp: "opencascade::handle<\'*0>(@)", header: "Standard_Handle.hxx".}
 proc destroyHandle*[T](this: var Handle[T]) {.cdecl, importcpp: "#.~handle()",
-    dynlib: tkernel.}
-proc nullify*[T](this: var Handle[T]) {.cdecl, importcpp: "Nullify", dynlib: tkernel.}
+    header: "Standard_Handle.hxx".}
+proc nullify*[T](this: var Handle[T]) {.cdecl, importcpp: "Nullify", header: "Standard_Handle.hxx".}
 proc isNull*[T](this: Handle[T]): bool {.noSideEffect, cdecl, importcpp: "IsNull",
-                                     dynlib: tkernel.}
+                                     header: "Standard_Handle.hxx".}
 proc reset*[T](this: var Handle[T]; thePtr: ptr T) {.cdecl, importcpp: "reset",
-    dynlib: tkernel.}
+    header: "Standard_Handle.hxx".}
 proc get*[T](this: Handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "get",
-                                  dynlib: tkernel.}
+                                  header: "Standard_Handle.hxx".}
 proc `->`*[T](this: Handle[T]): ptr T {.noSideEffect, cdecl, importcpp: "(# -> #)",
-                                   dynlib: tkernel.}
+                                   header: "Standard_Handle.hxx".}
 proc `*`*[T](this: Handle[T]): var T {.noSideEffect, cdecl, importcpp: "(* #)",
-                                  dynlib: tkernel.}
+                                  header: "Standard_Handle.hxx".}
 proc `==`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkernel.}
+    importcpp: "(# == #)", header: "Standard_Handle.hxx".}
 proc `==`*[T; T2](this: Handle[T]; thePtr: ptr T2): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkernel.}
+    importcpp: "(# == #)", header: "Standard_Handle.hxx".}
 proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, cdecl,
-    importcpp: "(# < #)", dynlib: tkernel.}
+    importcpp: "(# < #)", header: "Standard_Handle.hxx".}
 ##  namespace opencascade
 ## ! Computes a hash code for the standard handle, in the range [1, theUpperBound]
 ## ! @param theHandle the handle which hash code is to be computed

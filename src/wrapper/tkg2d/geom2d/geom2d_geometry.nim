@@ -55,35 +55,35 @@ type
 
 
 proc mirror*(this: var Geom2dGeometry; p: Pnt2d) {.cdecl, importcpp: "Mirror",
-    dynlib: tkg2d.}
+    header: "Geom2d_Geometry.hxx".}
 proc mirror*(this: var Geom2dGeometry; a: Ax2d) {.cdecl, importcpp: "Mirror",
-    dynlib: tkg2d.}
+    header: "Geom2d_Geometry.hxx".}
 proc rotate*(this: var Geom2dGeometry; p: Pnt2d; ang: cfloat) {.cdecl,
-    importcpp: "Rotate", dynlib: tkg2d.}
+    importcpp: "Rotate", header: "Geom2d_Geometry.hxx".}
 proc scale*(this: var Geom2dGeometry; p: Pnt2d; s: cfloat) {.cdecl, importcpp: "Scale",
-    dynlib: tkg2d.}
+    header: "Geom2d_Geometry.hxx".}
 proc translate*(this: var Geom2dGeometry; v: Vec2d) {.cdecl, importcpp: "Translate",
-    dynlib: tkg2d.}
+    header: "Geom2d_Geometry.hxx".}
 proc translate*(this: var Geom2dGeometry; p1: Pnt2d; p2: Pnt2d) {.cdecl,
-    importcpp: "Translate", dynlib: tkg2d.}
+    importcpp: "Translate", header: "Geom2d_Geometry.hxx".}
 proc transform*(this: var Geom2dGeometry; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkg2d.}
+    header: "Geom2d_Geometry.hxx".}
 proc mirrored*(this: Geom2dGeometry; p: Pnt2d): Handle[Geom2dGeometry] {.noSideEffect,
-    cdecl, importcpp: "Mirrored", dynlib: tkg2d.}
+    cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
 proc mirrored*(this: Geom2dGeometry; a: Ax2d): Handle[Geom2dGeometry] {.noSideEffect,
-    cdecl, importcpp: "Mirrored", dynlib: tkg2d.}
+    cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
 proc rotated*(this: Geom2dGeometry; p: Pnt2d; ang: cfloat): Handle[Geom2dGeometry] {.
-    noSideEffect, cdecl, importcpp: "Rotated", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Rotated", header: "Geom2d_Geometry.hxx".}
 proc scaled*(this: Geom2dGeometry; p: Pnt2d; s: cfloat): Handle[Geom2dGeometry] {.
-    noSideEffect, cdecl, importcpp: "Scaled", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Scaled", header: "Geom2d_Geometry.hxx".}
 proc transformed*(this: Geom2dGeometry; t: Trsf2d): Handle[Geom2dGeometry] {.
-    noSideEffect, cdecl, importcpp: "Transformed", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Transformed", header: "Geom2d_Geometry.hxx".}
 proc translated*(this: Geom2dGeometry; v: Vec2d): Handle[Geom2dGeometry] {.
-    noSideEffect, cdecl, importcpp: "Translated", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Translated", header: "Geom2d_Geometry.hxx".}
 proc translated*(this: Geom2dGeometry; p1: Pnt2d; p2: Pnt2d): Handle[Geom2dGeometry] {.
-    noSideEffect, cdecl, importcpp: "Translated", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Translated", header: "Geom2d_Geometry.hxx".}
 proc copy*(this: Geom2dGeometry): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_Geometry.hxx".}
 proc dumpJson*(this: Geom2dGeometry; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_Geometry.hxx".}

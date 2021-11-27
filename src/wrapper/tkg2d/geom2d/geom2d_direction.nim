@@ -34,28 +34,28 @@ type
 
 
 proc newGeom2dDirection*(x: cfloat; y: cfloat): Geom2dDirection {.cdecl, constructor,
-    importcpp: "Geom2d_Direction(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
 proc newGeom2dDirection*(v: Dir2d): Geom2dDirection {.cdecl, constructor,
-    importcpp: "Geom2d_Direction(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_Direction(@)", header: "Geom2d_Direction.hxx".}
 proc setCoord*(this: var Geom2dDirection; x: cfloat; y: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkg2d.}
+    importcpp: "SetCoord", header: "Geom2d_Direction.hxx".}
 proc setDir2d*(this: var Geom2dDirection; v: Dir2d) {.cdecl, importcpp: "SetDir2d",
-    dynlib: tkg2d.}
+    header: "Geom2d_Direction.hxx".}
 proc setX*(this: var Geom2dDirection; x: cfloat) {.cdecl, importcpp: "SetX",
-    dynlib: tkg2d.}
+    header: "Geom2d_Direction.hxx".}
 proc setY*(this: var Geom2dDirection; y: cfloat) {.cdecl, importcpp: "SetY",
-    dynlib: tkg2d.}
+    header: "Geom2d_Direction.hxx".}
 proc dir2d*(this: Geom2dDirection): Dir2d {.noSideEffect, cdecl, importcpp: "Dir2d",
-                                        dynlib: tkg2d.}
+                                        header: "Geom2d_Direction.hxx".}
 proc magnitude*(this: Geom2dDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkg2d.}
+    importcpp: "Magnitude", header: "Geom2d_Direction.hxx".}
 proc squareMagnitude*(this: Geom2dDirection): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkg2d.}
+    importcpp: "SquareMagnitude", header: "Geom2d_Direction.hxx".}
 proc crossed*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.
-    noSideEffect, cdecl, importcpp: "Crossed", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Crossed", header: "Geom2d_Direction.hxx".}
 proc `^`*(this: Geom2dDirection; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "(# ^ #)", dynlib: tkg2d.}
+    cdecl, importcpp: "(# ^ #)", header: "Geom2d_Direction.hxx".}
 proc transform*(this: var Geom2dDirection; t: Trsf2d) {.cdecl, importcpp: "Transform",
-    dynlib: tkg2d.}
+    header: "Geom2d_Direction.hxx".}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_Direction.hxx".}

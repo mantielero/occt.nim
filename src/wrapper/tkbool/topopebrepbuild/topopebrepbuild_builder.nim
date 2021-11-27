@@ -62,505 +62,505 @@ type
 
 
 proc newTopOpeBRepBuildBuilder*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_Builder(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_Builder(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc destroyTopOpeBRepBuildBuilder*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_Builder()", dynlib: tkbool.}
+    importcpp: "#.~TopOpeBRepBuild_Builder()", header: "TopOpeBRepBuild_Builder.hxx".}
 proc changeBuildTool*(this: var TopOpeBRepBuildBuilder): var TopOpeBRepDS_BuildTool {.
-    cdecl, importcpp: "ChangeBuildTool", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeBuildTool", header: "TopOpeBRepBuild_Builder.hxx".}
 proc buildTool*(this: TopOpeBRepBuildBuilder): TopOpeBRepDS_BuildTool {.
-    noSideEffect, cdecl, importcpp: "BuildTool", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "BuildTool", header: "TopOpeBRepBuild_Builder.hxx".}
 proc perform*(this: var TopOpeBRepBuildBuilder;
              hds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "Perform", dynlib: tkbool.}
+    importcpp: "Perform", header: "TopOpeBRepBuild_Builder.hxx".}
 proc perform*(this: var TopOpeBRepBuildBuilder;
              hds: Handle[TopOpeBRepDS_HDataStructure]; s1: TopoDS_Shape;
-             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", dynlib: tkbool.}
+             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", header: "TopOpeBRepBuild_Builder.hxx".}
 proc dataStructure*(this: TopOpeBRepBuildBuilder): Handle[
     TopOpeBRepDS_HDataStructure] {.noSideEffect, cdecl, importcpp: "DataStructure",
-                                  dynlib: tkbool.}
+                                  header: "TopOpeBRepBuild_Builder.hxx".}
 proc clear*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeEdges*(this: var TopOpeBRepBuildBuilder; l1: TopToolsListOfShape;
                 tb1: TopAbsState; l2: TopToolsListOfShape; tb2: TopAbsState;
                 onA: bool = false; onB: bool = false; onAB: bool = false) {.cdecl,
-    importcpp: "MergeEdges", dynlib: tkbool.}
+    importcpp: "MergeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeFaces*(this: var TopOpeBRepBuildBuilder; s1: TopToolsListOfShape;
                 tb1: TopAbsState; s2: TopToolsListOfShape; tb2: TopAbsState;
                 onA: bool = false; onB: bool = false; onAB: bool = false) {.cdecl,
-    importcpp: "MergeFaces", dynlib: tkbool.}
+    importcpp: "MergeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeSolids*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
                  tb1: TopAbsState; s2: TopoDS_Shape; tb2: TopAbsState) {.cdecl,
-    importcpp: "MergeSolids", dynlib: tkbool.}
+    importcpp: "MergeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
                  tb1: TopAbsState; s2: TopoDS_Shape; tb2: TopAbsState) {.cdecl,
-    importcpp: "MergeShapes", dynlib: tkbool.}
-proc `end`*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "End", dynlib: tkbool.}
+    importcpp: "MergeShapes", header: "TopOpeBRepBuild_Builder.hxx".}
+proc `end`*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "End", header: "TopOpeBRepBuild_Builder.hxx".}
 proc classify*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "Classify", dynlib: tkbool.}
+    importcpp: "Classify", header: "TopOpeBRepBuild_Builder.hxx".}
 proc changeClassify*(this: var TopOpeBRepBuildBuilder; b: bool) {.cdecl,
-    importcpp: "ChangeClassify", dynlib: tkbool.}
+    importcpp: "ChangeClassify", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeSolid*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState) {.
-    cdecl, importcpp: "MergeSolid", dynlib: tkbool.}
+    cdecl, importcpp: "MergeSolid", header: "TopOpeBRepBuild_Builder.hxx".}
 proc newVertex*(this: TopOpeBRepBuildBuilder; i: cint): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "NewVertex", dynlib: tkbool.}
+    cdecl, importcpp: "NewVertex", header: "TopOpeBRepBuild_Builder.hxx".}
 proc newEdges*(this: TopOpeBRepBuildBuilder; i: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "NewEdges", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "NewEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc newFaces*(this: TopOpeBRepBuildBuilder; i: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "NewFaces", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "NewFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc isSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "IsSplit", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc splits*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "Splits", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Splits", header: "TopOpeBRepBuild_Builder.hxx".}
 proc isMerged*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "IsMerged", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsMerged", header: "TopOpeBRepBuild_Builder.hxx".}
 proc merged*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "Merged", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Merged", header: "TopOpeBRepBuild_Builder.hxx".}
 proc initSection*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "InitSection", dynlib: tkbool.}
+    importcpp: "InitSection", header: "TopOpeBRepBuild_Builder.hxx".}
 proc splitSectionEdges*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "SplitSectionEdges", dynlib: tkbool.}
+    importcpp: "SplitSectionEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc splitSectionEdge*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape) {.cdecl,
-    importcpp: "SplitSectionEdge", dynlib: tkbool.}
+    importcpp: "SplitSectionEdge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc sectionCurves*(this: var TopOpeBRepBuildBuilder; L: var TopToolsListOfShape) {.
-    cdecl, importcpp: "SectionCurves", dynlib: tkbool.}
+    cdecl, importcpp: "SectionCurves", header: "TopOpeBRepBuild_Builder.hxx".}
 proc sectionEdges*(this: var TopOpeBRepBuildBuilder; L: var TopToolsListOfShape) {.
-    cdecl, importcpp: "SectionEdges", dynlib: tkbool.}
+    cdecl, importcpp: "SectionEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc fillSecEdgeAncestorMap*(this: TopOpeBRepBuildBuilder; aShapeRank: cint;
                             aMapON: TopToolsMapOfShape;
                             anAncMap: var TopToolsDataMapOfShapeShape) {.
-    noSideEffect, cdecl, importcpp: "FillSecEdgeAncestorMap", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "FillSecEdgeAncestorMap", header: "TopOpeBRepBuild_Builder.hxx".}
 proc section*(this: var TopOpeBRepBuildBuilder; L: var TopToolsListOfShape) {.cdecl,
-    importcpp: "Section", dynlib: tkbool.}
+    importcpp: "Section", header: "TopOpeBRepBuild_Builder.hxx".}
 proc section*(this: var TopOpeBRepBuildBuilder): TopToolsListOfShape {.cdecl,
-    importcpp: "Section", dynlib: tkbool.}
+    importcpp: "Section", header: "TopOpeBRepBuild_Builder.hxx".}
 proc buildVertices*(this: var TopOpeBRepBuildBuilder;
                    ds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "BuildVertices", dynlib: tkbool.}
+    importcpp: "BuildVertices", header: "TopOpeBRepBuild_Builder.hxx".}
 proc buildEdges*(this: var TopOpeBRepBuildBuilder;
                 ds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "BuildEdges", dynlib: tkbool.}
+    importcpp: "BuildEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mSplit*(this: TopOpeBRepBuildBuilder; s: TopAbsState): TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State {.
-    noSideEffect, cdecl, importcpp: "MSplit", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "MSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc changeMSplit*(this: var TopOpeBRepBuildBuilder; s: TopAbsState): var TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State {.
-    cdecl, importcpp: "ChangeMSplit", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc makeEdges*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                b: var TopOpeBRepBuildEdgeBuilder; L: var TopToolsListOfShape) {.cdecl,
-    importcpp: "MakeEdges", dynlib: tkbool.}
+    importcpp: "MakeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc makeFaces*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                b: var TopOpeBRepBuildFaceBuilder; L: var TopToolsListOfShape) {.cdecl,
-    importcpp: "MakeFaces", dynlib: tkbool.}
+    importcpp: "MakeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc makeSolids*(this: var TopOpeBRepBuildBuilder;
                 b: var TopOpeBRepBuildSolidBuilder; L: var TopToolsListOfShape) {.
-    cdecl, importcpp: "MakeSolids", dynlib: tkbool.}
+    cdecl, importcpp: "MakeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc makeShells*(this: var TopOpeBRepBuildBuilder;
                 b: var TopOpeBRepBuildSolidBuilder; L: var TopToolsListOfShape) {.
-    cdecl, importcpp: "MakeShells", dynlib: tkbool.}
+    cdecl, importcpp: "MakeShells", header: "TopOpeBRepBuild_Builder.hxx".}
 proc changeSplit*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeSplit", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc opec12*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "Opec12", dynlib: tkbool.}
+    importcpp: "Opec12", header: "TopOpeBRepBuild_Builder.hxx".}
 proc opec21*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "Opec21", dynlib: tkbool.}
+    importcpp: "Opec21", header: "TopOpeBRepBuild_Builder.hxx".}
 proc opecom*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "Opecom", dynlib: tkbool.}
+    importcpp: "Opecom", header: "TopOpeBRepBuild_Builder.hxx".}
 proc opefus*(this: TopOpeBRepBuildBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "Opefus", dynlib: tkbool.}
+    importcpp: "Opefus", header: "TopOpeBRepBuild_Builder.hxx".}
 proc shapePosition*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                    ls: TopToolsListOfShape): TopAbsState {.cdecl,
-    importcpp: "ShapePosition", dynlib: tkbool.}
+    importcpp: "ShapePosition", header: "TopOpeBRepBuild_Builder.hxx".}
 proc keepShape*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                ls: TopToolsListOfShape; t: TopAbsState): bool {.cdecl,
-    importcpp: "KeepShape", dynlib: tkbool.}
+    importcpp: "KeepShape", header: "TopOpeBRepBuild_Builder.hxx".}
 proc topType*(s: TopoDS_Shape): TopAbsShapeEnum {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::TopType(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::TopType(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc reverse*(t1: TopAbsState; t2: TopAbsState): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::Reverse(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::Reverse(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc orient*(o: TopAbsOrientation; r: bool): TopAbsOrientation {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::Orient(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::Orient(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc findSameDomain*(this: TopOpeBRepBuildBuilder; l1: var TopToolsListOfShape;
                     l2: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "FindSameDomain", dynlib: tkbool.}
+    importcpp: "FindSameDomain", header: "TopOpeBRepBuild_Builder.hxx".}
 proc findSameDomainSameOrientation*(this: TopOpeBRepBuildBuilder;
                                    lso: var TopToolsListOfShape;
                                    ldo: var TopToolsListOfShape) {.noSideEffect,
-    cdecl, importcpp: "FindSameDomainSameOrientation", dynlib: tkbool.}
+    cdecl, importcpp: "FindSameDomainSameOrientation", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mapShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_Shape) {.
-    cdecl, importcpp: "MapShapes", dynlib: tkbool.}
+    cdecl, importcpp: "MapShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc clearMaps*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "ClearMaps",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc findSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: cint;
                   l2: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "FindSameRank", dynlib: tkbool.}
+    importcpp: "FindSameRank", header: "TopOpeBRepBuild_Builder.hxx".}
 proc shapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
-    cdecl, importcpp: "ShapeRank", dynlib: tkbool.}
+    cdecl, importcpp: "ShapeRank", header: "TopOpeBRepBuild_Builder.hxx".}
 proc isShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IsShapeOf", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsShapeOf", header: "TopOpeBRepBuild_Builder.hxx".}
 proc contains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::Contains(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::Contains(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc findIsKPart*(this: var TopOpeBRepBuildBuilder): cint {.cdecl,
-    importcpp: "FindIsKPart", dynlib: tkbool.}
+    importcpp: "FindIsKPart", header: "TopOpeBRepBuild_Builder.hxx".}
 proc isKPart*(this: TopOpeBRepBuildBuilder): cint {.noSideEffect, cdecl,
-    importcpp: "IsKPart", dynlib: tkbool.}
+    importcpp: "IsKPart", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPart*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "MergeKPart",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPart*(this: var TopOpeBRepBuildBuilder; tb1: TopAbsState; tb2: TopAbsState) {.
-    cdecl, importcpp: "MergeKPart", dynlib: tkbool.}
+    cdecl, importcpp: "MergeKPart", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartiskole*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "MergeKPartiskole", dynlib: tkbool.}
+    importcpp: "MergeKPartiskole", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartiskoletge*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "MergeKPartiskoletge", dynlib: tkbool.}
+    importcpp: "MergeKPartiskoletge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartisdisj*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "MergeKPartisdisj", dynlib: tkbool.}
+    importcpp: "MergeKPartisdisj", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartisfafa*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "MergeKPartisfafa", dynlib: tkbool.}
+    importcpp: "MergeKPartisfafa", header: "TopOpeBRepBuild_Builder.hxx".}
 proc mergeKPartissoso*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "MergeKPartissoso", dynlib: tkbool.}
+    importcpp: "MergeKPartissoso", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskole*(this: var TopOpeBRepBuildBuilder): cint {.cdecl, importcpp: "KPiskole",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoletge*(this: var TopOpeBRepBuildBuilder): cint {.cdecl,
-    importcpp: "KPiskoletge", dynlib: tkbool.}
+    importcpp: "KPiskoletge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisdisj*(this: var TopOpeBRepBuildBuilder): cint {.cdecl, importcpp: "KPisdisj",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisfafa*(this: var TopOpeBRepBuildBuilder): cint {.cdecl, importcpp: "KPisfafa",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPissoso*(this: var TopOpeBRepBuildBuilder): cint {.cdecl, importcpp: "KPissoso",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPClearMaps*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "KPClearMaps", dynlib: tkbool.}
+    importcpp: "KPClearMaps", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhg*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum;
            L: var TopToolsListOfShape): cint {.noSideEffect, cdecl,
-    importcpp: "KPlhg", dynlib: tkbool.}
+    importcpp: "KPlhg", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhg*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.
-    noSideEffect, cdecl, importcpp: "KPlhg", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPlhg", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhsd*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum;
             L: var TopToolsListOfShape): cint {.noSideEffect, cdecl,
-    importcpp: "KPlhsd", dynlib: tkbool.}
+    importcpp: "KPlhsd", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPlhsd*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.
-    noSideEffect, cdecl, importcpp: "KPlhsd", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPlhsd", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
               exceptLS1: TopToolsListOfShape; s2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "KPclasSS", dynlib: tkbool.}
+    importcpp: "KPclasSS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape;
               exceptS1: TopoDS_Shape; s2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "KPclasSS", dynlib: tkbool.}
+    importcpp: "KPclasSS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclasSS*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_Shape): TopAbsState {.
-    cdecl, importcpp: "KPclasSS", dynlib: tkbool.}
+    cdecl, importcpp: "KPclasSS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskolesh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                 ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): bool {.
-    noSideEffect, cdecl, importcpp: "KPiskolesh", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPiskolesh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoletgesh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                    ls: var TopToolsListOfShape; lf: var TopToolsListOfShape): bool {.
-    noSideEffect, cdecl, importcpp: "KPiskoletgesh", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPiskoletgesh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPSameDomain*(this: TopOpeBRepBuildBuilder; l1: var TopToolsListOfShape;
                   l2: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "KPSameDomain", dynlib: tkbool.}
+    importcpp: "KPSameDomain", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisdisjsh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
-    cdecl, importcpp: "KPisdisjsh", dynlib: tkbool.}
+    cdecl, importcpp: "KPisdisjsh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisfafash*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
-    cdecl, importcpp: "KPisfafash", dynlib: tkbool.}
+    cdecl, importcpp: "KPisfafash", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPissososh*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
-    cdecl, importcpp: "KPissososh", dynlib: tkbool.}
+    cdecl, importcpp: "KPissososh", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoleanalyse*(this: TopOpeBRepBuildBuilder; ft1: TopAbsState;
                      ft2: TopAbsState; st1: TopAbsState; st2: TopAbsState;
                      i: var cint; i1: var cint; i2: var cint) {.noSideEffect, cdecl,
-    importcpp: "KPiskoleanalyse", dynlib: tkbool.}
+    importcpp: "KPiskoleanalyse", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoletgeanalyse*(this: TopOpeBRepBuildBuilder; conf: TopOpeBRepDS_Config;
                         st1: TopAbsState; st2: TopAbsState; i: var cint) {.
-    noSideEffect, cdecl, importcpp: "KPiskoletgeanalyse", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPiskoletgeanalyse", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPisdisjanalyse*(this: TopOpeBRepBuildBuilder; st1: TopAbsState;
                      st2: TopAbsState; i: var cint; ic1: var cint; ic2: var cint) {.
-    noSideEffect, cdecl, importcpp: "KPisdisjanalyse", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KPisdisjanalyse", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum; L: var TopToolsListOfShape): cint {.
-    cdecl, importcpp: "TopOpeBRepBuild_Builder::KPls(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_Builder::KPls(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPls*(s: TopoDS_Shape; t: TopAbsShapeEnum): cint {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::KPls(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::KPls(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclassF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_Shape): TopAbsState {.
-    cdecl, importcpp: "KPclassF", dynlib: tkbool.}
+    cdecl, importcpp: "KPclassF", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPclassFF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_Shape;
                t1: var TopAbsState; t2: var TopAbsState) {.cdecl,
-    importcpp: "KPclassFF", dynlib: tkbool.}
+    importcpp: "KPclassFF", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPiskoleFF*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape; f2: TopoDS_Shape;
                 t1: var TopAbsState; t2: var TopAbsState): bool {.cdecl,
-    importcpp: "KPiskoleFF", dynlib: tkbool.}
+    importcpp: "KPiskoleFF", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPContains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::KPContains(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::KPContains(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPmakeface*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape;
                 lf2: TopToolsListOfShape; t1: TopAbsState; t2: TopAbsState; r1: bool;
                 r2: bool): TopoDS_Shape {.cdecl, importcpp: "KPmakeface",
-                                       dynlib: tkbool.}
+                                       header: "TopOpeBRepBuild_Builder.hxx".}
 proc kPreturn*(kp: cint): cint {.cdecl,
                              importcpp: "TopOpeBRepBuild_Builder::KPreturn(@)",
-                             dynlib: tkbool.}
+                             header: "TopOpeBRepBuild_Builder.hxx".}
 proc splitEvisoONperiodicF*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "SplitEvisoONperiodicF", dynlib: tkbool.}
+    importcpp: "SplitEvisoONperiodicF", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeSolids*(this: var TopOpeBRepBuildBuilder; lso1: TopToolsListOfShape;
                   lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo) {.cdecl,
-    importcpp: "GMergeSolids", dynlib: tkbool.}
+    importcpp: "GMergeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillSolidsSFS*(this: var TopOpeBRepBuildBuilder; lso1: TopToolsListOfShape;
                     lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                     sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillSolidsSFS", dynlib: tkbool.}
+    importcpp: "GFillSolidsSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillSolidSFS*(this: var TopOpeBRepBuildBuilder; so1: TopoDS_Shape;
                    lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillSolidSFS", dynlib: tkbool.}
+    importcpp: "GFillSolidSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillSurfaceTopologySFS*(this: var TopOpeBRepBuildBuilder; so1: TopoDS_Shape;
                              g: TopOpeBRepBuildGTopo;
                              sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillSurfaceTopologySFS", dynlib: tkbool.}
+    importcpp: "GFillSurfaceTopologySFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillSurfaceTopologySFS*(this: TopOpeBRepBuildBuilder;
                              it: TopOpeBRepDS_SurfaceIterator;
                              g: TopOpeBRepBuildGTopo;
                              sfs: var TopOpeBRepBuildShellFaceSet) {.noSideEffect,
-    cdecl, importcpp: "GFillSurfaceTopologySFS", dynlib: tkbool.}
+    cdecl, importcpp: "GFillSurfaceTopologySFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillShellSFS*(this: var TopOpeBRepBuildBuilder; sh1: TopoDS_Shape;
                    lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillShellSFS", dynlib: tkbool.}
+    importcpp: "GFillShellSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFaceSFS*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape;
                   lso2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                   sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GFillFaceSFS", dynlib: tkbool.}
+    importcpp: "GFillFaceSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSplitFaceSFS*(this: var TopOpeBRepBuildBuilder; f1: TopoDS_Shape;
                    lSclass: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "GSplitFaceSFS", dynlib: tkbool.}
+    importcpp: "GSplitFaceSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeFaceSFS*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                    g: TopOpeBRepBuildGTopo; sfs: var TopOpeBRepBuildShellFaceSet) {.
-    cdecl, importcpp: "GMergeFaceSFS", dynlib: tkbool.}
+    cdecl, importcpp: "GMergeFaceSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSplitFace*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                 g: TopOpeBRepBuildGTopo; lSclass: TopToolsListOfShape) {.cdecl,
-    importcpp: "GSplitFace", dynlib: tkbool.}
+    importcpp: "GSplitFace", header: "TopOpeBRepBuild_Builder.hxx".}
 proc addONPatchesSFS*(this: var TopOpeBRepBuildBuilder; g: TopOpeBRepBuildGTopo;
                      sfs: var TopOpeBRepBuildShellFaceSet) {.cdecl,
-    importcpp: "AddONPatchesSFS", dynlib: tkbool.}
+    importcpp: "AddONPatchesSFS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc fillOnPatches*(this: var TopOpeBRepBuildBuilder;
                    anEdgesON: TopToolsListOfShape; aBaseFace: TopoDS_Shape;
                    avoidMap: TopToolsIndexedMapOfOrientedShape) {.cdecl,
-    importcpp: "FillOnPatches", dynlib: tkbool.}
+    importcpp: "FillOnPatches", header: "TopOpeBRepBuild_Builder.hxx".}
 proc findFacesTouchingEdge*(this: TopOpeBRepBuildBuilder; aFace: TopoDS_Shape;
                            anEdge: TopoDS_Shape; aShRank: cint;
                            aFaces: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "FindFacesTouchingEdge", dynlib: tkbool.}
+    importcpp: "FindFacesTouchingEdge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeFaces*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
                  lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo) {.cdecl,
-    importcpp: "GMergeFaces", dynlib: tkbool.}
+    importcpp: "GMergeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFacesWES*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
                    lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillFacesWES", dynlib: tkbool.}
+    importcpp: "GFillFacesWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFacesWESK*(this: var TopOpeBRepBuildBuilder; lf1: TopToolsListOfShape;
                     lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                     wes: var TopOpeBRepBuildWireEdgeSet; k: cint) {.cdecl,
-    importcpp: "GFillFacesWESK", dynlib: tkbool.}
+    importcpp: "GFillFacesWESK", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFacesWESMakeFaces*(this: var TopOpeBRepBuildBuilder;
                             lf1: TopToolsListOfShape; lf2: TopToolsListOfShape;
                             lso: TopToolsListOfShape; g: TopOpeBRepBuildGTopo) {.
-    cdecl, importcpp: "GFillFacesWESMakeFaces", dynlib: tkbool.}
+    cdecl, importcpp: "GFillFacesWESMakeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillFaceWES*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                   lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                   wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillFaceWES", dynlib: tkbool.}
+    importcpp: "GFillFaceWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillCurveTopologyWES*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                            g: TopOpeBRepBuildGTopo;
                            wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillCurveTopologyWES", dynlib: tkbool.}
+    importcpp: "GFillCurveTopologyWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillCurveTopologyWES*(this: TopOpeBRepBuildBuilder;
                            it: TopOpeBRepDS_CurveIterator;
                            g: TopOpeBRepBuildGTopo;
                            wes: var TopOpeBRepBuildWireEdgeSet) {.noSideEffect,
-    cdecl, importcpp: "GFillCurveTopologyWES", dynlib: tkbool.}
+    cdecl, importcpp: "GFillCurveTopologyWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillONPartsWES*(this: var TopOpeBRepBuildBuilder; f: TopoDS_Shape;
                      g: TopOpeBRepBuildGTopo; lSclass: TopToolsListOfShape;
                      wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillONPartsWES", dynlib: tkbool.}
+    importcpp: "GFillONPartsWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillWireWES*(this: var TopOpeBRepBuildBuilder; w: TopoDS_Shape;
                   lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                   wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillWireWES", dynlib: tkbool.}
+    importcpp: "GFillWireWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillEdgeWES*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                   lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                   wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GFillEdgeWES", dynlib: tkbool.}
+    importcpp: "GFillEdgeWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSplitEdgeWES*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                    lf2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    wes: var TopOpeBRepBuildWireEdgeSet) {.cdecl,
-    importcpp: "GSplitEdgeWES", dynlib: tkbool.}
+    importcpp: "GSplitEdgeWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeEdgeWES*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                    g: TopOpeBRepBuildGTopo; wes: var TopOpeBRepBuildWireEdgeSet) {.
-    cdecl, importcpp: "GMergeEdgeWES", dynlib: tkbool.}
+    cdecl, importcpp: "GMergeEdgeWES", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSplitEdge*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                 g: TopOpeBRepBuildGTopo; lSclass: TopToolsListOfShape) {.cdecl,
-    importcpp: "GSplitEdge", dynlib: tkbool.}
+    importcpp: "GSplitEdge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMergeEdges*(this: var TopOpeBRepBuildBuilder; le1: TopToolsListOfShape;
                  le2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo) {.cdecl,
-    importcpp: "GMergeEdges", dynlib: tkbool.}
+    importcpp: "GMergeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillEdgesPVS*(this: var TopOpeBRepBuildBuilder; le1: TopToolsListOfShape;
                    le2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                    pvs: var TopOpeBRepBuildPaveSet) {.cdecl,
-    importcpp: "GFillEdgesPVS", dynlib: tkbool.}
+    importcpp: "GFillEdgesPVS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillEdgePVS*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                   le2: TopToolsListOfShape; g: TopOpeBRepBuildGTopo;
                   pvs: var TopOpeBRepBuildPaveSet) {.cdecl,
-    importcpp: "GFillEdgePVS", dynlib: tkbool.}
+    importcpp: "GFillEdgePVS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillPointTopologyPVS*(this: var TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                            g: TopOpeBRepBuildGTopo;
                            pvs: var TopOpeBRepBuildPaveSet) {.cdecl,
-    importcpp: "GFillPointTopologyPVS", dynlib: tkbool.}
+    importcpp: "GFillPointTopologyPVS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFillPointTopologyPVS*(this: TopOpeBRepBuildBuilder; e: TopoDS_Shape;
                            it: TopOpeBRepDS_PointIterator;
                            g: TopOpeBRepBuildGTopo;
                            pvs: var TopOpeBRepBuildPaveSet) {.noSideEffect, cdecl,
-    importcpp: "GFillPointTopologyPVS", dynlib: tkbool.}
+    importcpp: "GFillPointTopologyPVS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gParamOnReference*(this: TopOpeBRepBuildBuilder; v: TopoDS_Vertex;
                        e: TopoDS_Edge; p: var cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "GParamOnReference", dynlib: tkbool.}
+    importcpp: "GParamOnReference", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShape*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                 lref: TopToolsListOfShape; t: TopAbsState): bool {.cdecl,
-    importcpp: "GKeepShape", dynlib: tkbool.}
+    importcpp: "GKeepShape", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShape1*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                  lref: TopToolsListOfShape; t: TopAbsState; pos: var TopAbsState): bool {.
-    cdecl, importcpp: "GKeepShape1", dynlib: tkbool.}
+    cdecl, importcpp: "GKeepShape1", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gKeepShapes*(this: var TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                  lref: TopToolsListOfShape; t: TopAbsState;
                  lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.cdecl,
-    importcpp: "GKeepShapes", dynlib: tkbool.}
+    importcpp: "GKeepShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSFSMakeSolids*(this: var TopOpeBRepBuildBuilder; sof: TopoDS_Shape;
                     sfs: var TopOpeBRepBuildShellFaceSet;
                     loso: var TopToolsListOfShape) {.cdecl,
-    importcpp: "GSFSMakeSolids", dynlib: tkbool.}
+    importcpp: "GSFSMakeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gSOBUMakeSolids*(this: var TopOpeBRepBuildBuilder; sof: TopoDS_Shape;
                      sobu: var TopOpeBRepBuildSolidBuilder;
                      loso: var TopToolsListOfShape) {.cdecl,
-    importcpp: "GSOBUMakeSolids", dynlib: tkbool.}
+    importcpp: "GSOBUMakeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gWESMakeFaces*(this: var TopOpeBRepBuildBuilder; ff: TopoDS_Shape;
                    wes: var TopOpeBRepBuildWireEdgeSet;
                    lof: var TopToolsListOfShape) {.cdecl,
-    importcpp: "GWESMakeFaces", dynlib: tkbool.}
+    importcpp: "GWESMakeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFABUMakeFaces*(this: var TopOpeBRepBuildBuilder; ff: TopoDS_Shape;
                     fabu: var TopOpeBRepBuildFaceBuilder;
                     lof: var TopToolsListOfShape;
                     mWisOld: var TopToolsDataMapOfShapeInteger) {.cdecl,
-    importcpp: "GFABUMakeFaces", dynlib: tkbool.}
+    importcpp: "GFABUMakeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc regularizeFaces*(this: var TopOpeBRepBuildBuilder; ff: TopoDS_Shape;
                      lnewFace: TopToolsListOfShape; lof: var TopToolsListOfShape) {.
-    cdecl, importcpp: "RegularizeFaces", dynlib: tkbool.}
+    cdecl, importcpp: "RegularizeFaces", header: "TopOpeBRepBuild_Builder.hxx".}
 proc regularizeFace*(this: var TopOpeBRepBuildBuilder; ff: TopoDS_Shape;
                     newFace: TopoDS_Shape; lof: var TopToolsListOfShape) {.cdecl,
-    importcpp: "RegularizeFace", dynlib: tkbool.}
+    importcpp: "RegularizeFace", header: "TopOpeBRepBuild_Builder.hxx".}
 proc regularizeSolids*(this: var TopOpeBRepBuildBuilder; ss: TopoDS_Shape;
                       lnewSolid: TopToolsListOfShape; los: var TopToolsListOfShape) {.
-    cdecl, importcpp: "RegularizeSolids", dynlib: tkbool.}
+    cdecl, importcpp: "RegularizeSolids", header: "TopOpeBRepBuild_Builder.hxx".}
 proc regularizeSolid*(this: var TopOpeBRepBuildBuilder; ss: TopoDS_Shape;
                      newSolid: TopoDS_Shape; los: var TopToolsListOfShape) {.cdecl,
-    importcpp: "RegularizeSolid", dynlib: tkbool.}
+    importcpp: "RegularizeSolid", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gPVSMakeEdges*(this: TopOpeBRepBuildBuilder; ef: TopoDS_Shape;
                    pvs: var TopOpeBRepBuildPaveSet; loe: var TopToolsListOfShape) {.
-    noSideEffect, cdecl, importcpp: "GPVSMakeEdges", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GPVSMakeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gEDBUMakeEdges*(this: TopOpeBRepBuildBuilder; ef: TopoDS_Shape;
                     edbu: var TopOpeBRepBuildEdgeBuilder;
                     loe: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GEDBUMakeEdges", dynlib: tkbool.}
+    importcpp: "GEDBUMakeEdges", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gToSplit*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; tb: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "GToSplit", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GToSplit", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gToMerge*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): bool {.noSideEffect,
-    cdecl, importcpp: "GToMerge", dynlib: tkbool.}
+    cdecl, importcpp: "GToMerge", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gTakeCommonOfSame*(g: TopOpeBRepBuildGTopo): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfSame(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfSame(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gTakeCommonOfDiff*(g: TopOpeBRepBuildGTopo): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfDiff(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GTakeCommonOfDiff(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSamDom*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                  l1: var TopToolsListOfShape; l2: var TopToolsListOfShape) {.
-    noSideEffect, cdecl, importcpp: "GFindSamDom", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GFindSamDom", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSamDom*(this: TopOpeBRepBuildBuilder; l1: var TopToolsListOfShape;
                  l2: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GFindSamDom", dynlib: tkbool.}
+    importcpp: "GFindSamDom", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSamDomSODO*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                      lso: var TopToolsListOfShape; ldo: var TopToolsListOfShape) {.
-    noSideEffect, cdecl, importcpp: "GFindSamDomSODO", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GFindSamDomSODO", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSamDomSODO*(this: TopOpeBRepBuildBuilder; lso: var TopToolsListOfShape;
                      ldo: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GFindSamDomSODO", dynlib: tkbool.}
+    importcpp: "GFindSamDomSODO", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gMapShapes*(this: var TopOpeBRepBuildBuilder; s1: TopoDS_Shape; s2: TopoDS_Shape) {.
-    cdecl, importcpp: "GMapShapes", dynlib: tkbool.}
+    cdecl, importcpp: "GMapShapes", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gClearMaps*(this: var TopOpeBRepBuildBuilder) {.cdecl, importcpp: "GClearMaps",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Builder.hxx".}
 proc gFindSameRank*(this: TopOpeBRepBuildBuilder; l1: TopToolsListOfShape; r: cint;
                    l2: var TopToolsListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GFindSameRank", dynlib: tkbool.}
+    importcpp: "GFindSameRank", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gShapeRank*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): cint {.noSideEffect,
-    cdecl, importcpp: "GShapeRank", dynlib: tkbool.}
+    cdecl, importcpp: "GShapeRank", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gIsShapeOf*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; i12: cint): bool {.
-    noSideEffect, cdecl, importcpp: "GIsShapeOf", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GIsShapeOf", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gContains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GContains(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GContains(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gCopyList*(lin: TopToolsListOfShape; i1: cint; i2: cint;
                lou: var TopToolsListOfShape) {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gCopyList*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GCopyList(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpLS*(this: TopOpeBRepBuildBuilder; L: TopToolsListOfShape) {.noSideEffect,
-    cdecl, importcpp: "GdumpLS", dynlib: tkbool.}
+    cdecl, importcpp: "GdumpLS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpPNT*(p: Pnt) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::GdumpPNT(@)",
-                      dynlib: tkbool.}
+                      header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpORIPARPNT*(o: TopAbsOrientation; p: cfloat; pnt: Pnt) {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GdumpORIPARPNT(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GdumpORIPARPNT(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHA*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; str: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "GdumpSHA", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSHA", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHAORI*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; str: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "GdumpSHAORI", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSHAORI", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHAORIGEO*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape;
                     str: pointer = nil) {.noSideEffect, cdecl,
-                                      importcpp: "GdumpSHAORIGEO", dynlib: tkbool.}
+                                      importcpp: "GdumpSHAORIGEO", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: cint; t: TopAbsState;
                  a: TCollectionAsciiString = newTCollectionAsciiString(""); b: TCollectionAsciiString = newTCollectionAsciiString("")) {.
-    noSideEffect, cdecl, importcpp: "GdumpSHASTA", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; t: TopAbsState;
                  a: TCollectionAsciiString = newTCollectionAsciiString(""); b: TCollectionAsciiString = newTCollectionAsciiString("")) {.
-    noSideEffect, cdecl, importcpp: "GdumpSHASTA", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASTA*(this: TopOpeBRepBuildBuilder; `iS`: cint; t: TopAbsState;
                  ss: TopOpeBRepBuildShapeSet; a: TCollectionAsciiString = newTCollectionAsciiString("");
                  b: TCollectionAsciiString = newTCollectionAsciiString(""); c: TCollectionAsciiString = newTCollectionAsciiString("\n")) {.
-    noSideEffect, cdecl, importcpp: "GdumpSHASTA", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSHASTA", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpEDG*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; str: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "GdumpEDG", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpEDG", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpEDGVER*(this: TopOpeBRepBuildBuilder; e: TopoDS_Shape; v: TopoDS_Shape;
                  str: pointer = nil) {.noSideEffect, cdecl, importcpp: "GdumpEDGVER",
-                                   dynlib: tkbool.}
+                                   header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSAMDOM*(this: TopOpeBRepBuildBuilder; L: TopToolsListOfShape;
                  str: pointer = nil) {.noSideEffect, cdecl, importcpp: "GdumpSAMDOM",
-                                   dynlib: tkbool.}
+                                   header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpEXP*(this: TopOpeBRepBuildBuilder; e: TopOpeBRepToolShapeExplorer) {.
-    noSideEffect, cdecl, importcpp: "GdumpEXP", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpEXP", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSOBU*(this: TopOpeBRepBuildBuilder; sb: var TopOpeBRepBuildSolidBuilder) {.
-    noSideEffect, cdecl, importcpp: "GdumpSOBU", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpSOBU", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpFABU*(this: TopOpeBRepBuildBuilder; fb: var TopOpeBRepBuildFaceBuilder) {.
-    noSideEffect, cdecl, importcpp: "GdumpFABU", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpFABU", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpEDBU*(this: TopOpeBRepBuildBuilder; eb: var TopOpeBRepBuildEdgeBuilder) {.
-    noSideEffect, cdecl, importcpp: "GdumpEDBU", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GdumpEDBU", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: cint): bool {.noSideEffect, cdecl,
-    importcpp: "GtraceSPS", dynlib: tkbool.}
+    importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gtraceSPS*(this: TopOpeBRepBuildBuilder; `iS`: cint; jS: cint): bool {.
-    noSideEffect, cdecl, importcpp: "GtraceSPS", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape): bool {.noSideEffect,
-    cdecl, importcpp: "GtraceSPS", dynlib: tkbool.}
+    cdecl, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gtraceSPS*(this: TopOpeBRepBuildBuilder; s: TopoDS_Shape; `is`: var cint): bool {.
-    noSideEffect, cdecl, importcpp: "GtraceSPS", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GtraceSPS", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASETreset*(this: var TopOpeBRepBuildBuilder) {.cdecl,
-    importcpp: "GdumpSHASETreset", dynlib: tkbool.}
+    importcpp: "GdumpSHASETreset", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gdumpSHASETindex*(this: var TopOpeBRepBuildBuilder): cint {.cdecl,
-    importcpp: "GdumpSHASETindex", dynlib: tkbool.}
+    importcpp: "GdumpSHASETindex", header: "TopOpeBRepBuild_Builder.hxx".}
 proc printGeo*(s: TopoDS_Shape) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::PrintGeo(@)",
-                               dynlib: tkbool.}
+                               header: "TopOpeBRepBuild_Builder.hxx".}
 proc printSur*(f: TopoDS_Face) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::PrintSur(@)",
-                              dynlib: tkbool.}
+                              header: "TopOpeBRepBuild_Builder.hxx".}
 proc printCur*(e: TopoDS_Edge) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::PrintCur(@)",
-                              dynlib: tkbool.}
+                              header: "TopOpeBRepBuild_Builder.hxx".}
 proc printPnt*(v: TopoDS_Vertex) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::PrintPnt(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepBuild_Builder.hxx".}
 proc printOri*(s: TopoDS_Shape) {.cdecl, importcpp: "TopOpeBRepBuild_Builder::PrintOri(@)",
-                               dynlib: tkbool.}
+                               header: "TopOpeBRepBuild_Builder.hxx".}
 proc stringState*(s: TopAbsState): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::StringState(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::StringState(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gcheckNBOUNDS*(e: TopoDS_Shape): bool {.cdecl,
-    importcpp: "TopOpeBRepBuild_Builder::GcheckNBOUNDS(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Builder::GcheckNBOUNDS(@)", header: "TopOpeBRepBuild_Builder.hxx".}

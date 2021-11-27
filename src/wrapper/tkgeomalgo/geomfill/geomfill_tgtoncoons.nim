@@ -29,10 +29,10 @@ type
 
 
 proc newGeomFillTgtOnCoons*(k: Handle[GeomFillCoonsAlgPatch]; i: cint): GeomFillTgtOnCoons {.
-    cdecl, constructor, importcpp: "GeomFill_TgtOnCoons(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_TgtOnCoons(@)", header: "GeomFill_TgtOnCoons.hxx".}
 proc value*(this: GeomFillTgtOnCoons; w: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "GeomFill_TgtOnCoons.hxx".}
 proc d1*(this: GeomFillTgtOnCoons; w: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 proc d1*(this: GeomFillTgtOnCoons; w: cfloat; t: var Vec; dt: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}

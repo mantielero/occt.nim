@@ -34,34 +34,34 @@ type
 proc newBRepCurveOnClosedSurface*(pc1: Handle[Geom2dCurve];
                                  pc2: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                  L: TopLocLocation; c: GeomAbsShape): BRepCurveOnClosedSurface {.
-    cdecl, constructor, importcpp: "BRep_CurveOnClosedSurface(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_CurveOnClosedSurface(@)", header: "BRep_CurveOnClosedSurface.hxx".}
 proc setUVPoints2*(this: var BRepCurveOnClosedSurface; p1: Pnt2d; p2: Pnt2d) {.cdecl,
-    importcpp: "SetUVPoints2", dynlib: tkbrep.}
+    importcpp: "SetUVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc uVPoints2*(this: BRepCurveOnClosedSurface; p1: var Pnt2d; p2: var Pnt2d) {.
-    noSideEffect, cdecl, importcpp: "UVPoints2", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc isCurveOnClosedSurface*(this: BRepCurveOnClosedSurface): bool {.noSideEffect,
-    cdecl, importcpp: "IsCurveOnClosedSurface", dynlib: tkbrep.}
+    cdecl, importcpp: "IsCurveOnClosedSurface", header: "BRep_CurveOnClosedSurface.hxx".}
 proc isRegularity*(this: BRepCurveOnClosedSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsRegularity", dynlib: tkbrep.}
+    importcpp: "IsRegularity", header: "BRep_CurveOnClosedSurface.hxx".}
 proc isRegularity*(this: BRepCurveOnClosedSurface; s1: Handle[GeomSurface];
                   s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
-    noSideEffect, cdecl, importcpp: "IsRegularity", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsRegularity", header: "BRep_CurveOnClosedSurface.hxx".}
 proc pCurve2*(this: BRepCurveOnClosedSurface): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve2", dynlib: tkbrep.}
+    cdecl, importcpp: "PCurve2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc surface2*(this: BRepCurveOnClosedSurface): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface2", dynlib: tkbrep.}
+    cdecl, importcpp: "Surface2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc location2*(this: BRepCurveOnClosedSurface): TopLocLocation {.noSideEffect,
-    cdecl, importcpp: "Location2", dynlib: tkbrep.}
+    cdecl, importcpp: "Location2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc continuity*(this: BRepCurveOnClosedSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveOnClosedSurface.hxx".}
 proc continuity*(this: var BRepCurveOnClosedSurface; c: GeomAbsShape) {.cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveOnClosedSurface.hxx".}
 proc pCurve2*(this: var BRepCurveOnClosedSurface; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve2", dynlib: tkbrep.}
+    importcpp: "PCurve2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc copy*(this: BRepCurveOnClosedSurface): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_CurveOnClosedSurface.hxx".}
 proc update*(this: var BRepCurveOnClosedSurface) {.cdecl, importcpp: "Update",
-    dynlib: tkbrep.}
+    header: "BRep_CurveOnClosedSurface.hxx".}
 proc dumpJson*(this: BRepCurveOnClosedSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveOnClosedSurface.hxx".}

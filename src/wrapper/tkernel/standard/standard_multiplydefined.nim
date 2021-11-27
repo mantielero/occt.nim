@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardMultiplyDefined):
   template standardMultiplyDefinedRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardMultiplyDefined*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_MultiplyDefined(@)", dynlib: tkernel.}
+          importcpp: "Standard_MultiplyDefined(@)", header: "Standard_MultiplyDefined.hxx".}
 
 else:
   discard

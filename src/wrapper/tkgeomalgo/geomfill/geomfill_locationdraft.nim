@@ -32,64 +32,64 @@ type
 
 
 proc newGeomFillLocationDraft*(direction: Dir; angle: cfloat): GeomFillLocationDraft {.
-    cdecl, constructor, importcpp: "GeomFill_LocationDraft(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_LocationDraft(@)", header: "GeomFill_LocationDraft.hxx".}
 proc setStopSurf*(this: var GeomFillLocationDraft; surf: Handle[Adaptor3dHSurface]) {.
-    cdecl, importcpp: "SetStopSurf", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetStopSurf", header: "GeomFill_LocationDraft.hxx".}
 proc setAngle*(this: var GeomFillLocationDraft; angle: cfloat) {.cdecl,
-    importcpp: "SetAngle", dynlib: tkgeomalgo.}
+    importcpp: "SetAngle", header: "GeomFill_LocationDraft.hxx".}
 proc setCurve*(this: var GeomFillLocationDraft; c: Handle[Adaptor3dHCurve]) {.cdecl,
-    importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    importcpp: "SetCurve", header: "GeomFill_LocationDraft.hxx".}
 proc getCurve*(this: GeomFillLocationDraft): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "GetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetCurve", header: "GeomFill_LocationDraft.hxx".}
 proc setTrsf*(this: var GeomFillLocationDraft; transfo: Mat) {.cdecl,
-    importcpp: "SetTrsf", dynlib: tkgeomalgo.}
+    importcpp: "SetTrsf", header: "GeomFill_LocationDraft.hxx".}
 proc copy*(this: GeomFillLocationDraft): Handle[GeomFillLocationLaw] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Copy", header: "GeomFill_LocationDraft.hxx".}
 proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec): bool {.
-    cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D0", header: "GeomFill_LocationDraft.hxx".}
 proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationDraft.hxx".}
 proc d1*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationDraft.hxx".}
 proc d2*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationDraft.hxx".}
 proc hasFirstRestriction*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
-    importcpp: "HasFirstRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasFirstRestriction", header: "GeomFill_LocationDraft.hxx".}
 proc hasLastRestriction*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
-    importcpp: "HasLastRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasLastRestriction", header: "GeomFill_LocationDraft.hxx".}
 proc traceNumber*(this: GeomFillLocationDraft): cint {.noSideEffect, cdecl,
-    importcpp: "TraceNumber", dynlib: tkgeomalgo.}
+    importcpp: "TraceNumber", header: "GeomFill_LocationDraft.hxx".}
 proc nbIntervals*(this: GeomFillLocationDraft; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_LocationDraft.hxx".}
 proc intervals*(this: GeomFillLocationDraft; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_LocationDraft.hxx".}
 proc setInterval*(this: var GeomFillLocationDraft; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    importcpp: "SetInterval", header: "GeomFill_LocationDraft.hxx".}
 proc getInterval*(this: GeomFillLocationDraft; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "GeomFill_LocationDraft.hxx".}
 proc getDomain*(this: GeomFillLocationDraft; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDomain", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetDomain", header: "GeomFill_LocationDraft.hxx".}
 proc resolution*(this: GeomFillLocationDraft; index: cint; tol: cfloat;
                 tolU: var cfloat; tolV: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkgeomalgo.}
+    importcpp: "Resolution", header: "GeomFill_LocationDraft.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationDraft): cfloat {.cdecl,
-    importcpp: "GetMaximalNorm", dynlib: tkgeomalgo.}
+    importcpp: "GetMaximalNorm", header: "GeomFill_LocationDraft.hxx".}
 proc getAverageLaw*(this: var GeomFillLocationDraft; am: var Mat; av: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_LocationDraft.hxx".}
 proc isTranslation*(this: GeomFillLocationDraft; error: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsTranslation", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationDraft.hxx".}
 proc isRotation*(this: GeomFillLocationDraft; error: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsRotation", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IsRotation", header: "GeomFill_LocationDraft.hxx".}
 proc rotation*(this: GeomFillLocationDraft; center: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "Rotation", dynlib: tkgeomalgo.}
+    importcpp: "Rotation", header: "GeomFill_LocationDraft.hxx".}
 proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
-    importcpp: "IsIntersec", dynlib: tkgeomalgo.}
+    importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
 proc direction*(this: GeomFillLocationDraft): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkgeomalgo.}
+    importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}

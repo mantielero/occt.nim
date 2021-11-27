@@ -31,90 +31,90 @@ type
 proc newBlendFuncEvolRad*(s1: Handle[Adaptor3dHSurface];
                          s2: Handle[Adaptor3dHSurface];
                          c: Handle[Adaptor3dHCurve]; law: Handle[LawFunction]): BlendFuncEvolRad {.
-    cdecl, constructor, importcpp: "BlendFunc_EvolRad(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_EvolRad(@)", header: "BlendFunc_EvolRad.hxx".}
 proc nbEquations*(this: BlendFuncEvolRad): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BlendFunc_EvolRad.hxx".}
 proc value*(this: var BlendFuncEvolRad; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_EvolRad.hxx".}
 proc derivatives*(this: var BlendFuncEvolRad; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_EvolRad.hxx".}
 proc values*(this: var BlendFuncEvolRad; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_EvolRad.hxx".}
 proc set*(this: var BlendFuncEvolRad; param: cfloat) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRad.hxx".}
 proc set*(this: var BlendFuncEvolRad; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BlendFunc_EvolRad.hxx".}
 proc getTolerance*(this: BlendFuncEvolRad; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_EvolRad.hxx".}
 proc getBounds*(this: BlendFuncEvolRad; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BlendFunc_EvolRad.hxx".}
 proc isSolution*(this: var BlendFuncEvolRad; sol: MathVector; tol: cfloat): bool {.cdecl,
-    importcpp: "IsSolution", dynlib: tkfillet.}
+    importcpp: "IsSolution", header: "BlendFunc_EvolRad.hxx".}
 proc getMinimalDistance*(this: BlendFuncEvolRad): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetMinimalDistance", dynlib: tkfillet.}
+    importcpp: "GetMinimalDistance", header: "BlendFunc_EvolRad.hxx".}
 proc pointOnS1*(this: BlendFuncEvolRad): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS1", dynlib: tkfillet.}
+    importcpp: "PointOnS1", header: "BlendFunc_EvolRad.hxx".}
 proc pointOnS2*(this: BlendFuncEvolRad): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS2", dynlib: tkfillet.}
+    importcpp: "PointOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc isTangencyPoint*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "BlendFunc_EvolRad.hxx".}
 proc tangentOnS1*(this: BlendFuncEvolRad): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS1", dynlib: tkfillet.}
+    importcpp: "TangentOnS1", header: "BlendFunc_EvolRad.hxx".}
 proc tangent2dOnS1*(this: BlendFuncEvolRad): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS1", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS1", header: "BlendFunc_EvolRad.hxx".}
 proc tangentOnS2*(this: BlendFuncEvolRad): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS2", dynlib: tkfillet.}
+    importcpp: "TangentOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc tangent2dOnS2*(this: BlendFuncEvolRad): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS2", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc tangent*(this: BlendFuncEvolRad; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
-    noSideEffect, cdecl, importcpp: "Tangent", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_EvolRad.hxx".}
 proc twistOnS1*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS1", dynlib: tkfillet.}
+    importcpp: "TwistOnS1", header: "BlendFunc_EvolRad.hxx".}
 proc twistOnS2*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS2", dynlib: tkfillet.}
+    importcpp: "TwistOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc set*(this: var BlendFuncEvolRad; choix: cint) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRad.hxx".}
 proc set*(this: var BlendFuncEvolRad; typeSection: BlendFuncSectionShape) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BlendFunc_EvolRad.hxx".}
 proc section*(this: var BlendFuncEvolRad; param: cfloat; u1: cfloat; v1: cfloat;
              u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "BlendFunc_EvolRad.hxx".}
 proc isRational*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkfillet.}
+    importcpp: "IsRational", header: "BlendFunc_EvolRad.hxx".}
 proc getSectionSize*(this: BlendFuncEvolRad): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSectionSize", dynlib: tkfillet.}
+    importcpp: "GetSectionSize", header: "BlendFunc_EvolRad.hxx".}
 proc getMinimalWeight*(this: BlendFuncEvolRad; weigths: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "GetMinimalWeight", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetMinimalWeight", header: "BlendFunc_EvolRad.hxx".}
 proc nbIntervals*(this: BlendFuncEvolRad; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkfillet.}
+    importcpp: "NbIntervals", header: "BlendFunc_EvolRad.hxx".}
 proc intervals*(this: BlendFuncEvolRad; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "BlendFunc_EvolRad.hxx".}
 proc getShape*(this: var BlendFuncEvolRad; nbPoles: var cint; nbKnots: var cint;
               degree: var cint; nbPoles2d: var cint) {.cdecl, importcpp: "GetShape",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRad.hxx".}
 proc getTolerance*(this: BlendFuncEvolRad; boundTol: cfloat; surfTol: cfloat;
                   angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_EvolRad.hxx".}
 proc knots*(this: var BlendFuncEvolRad; tKnots: var TColStdArray1OfReal) {.cdecl,
-    importcpp: "Knots", dynlib: tkfillet.}
+    importcpp: "Knots", header: "BlendFunc_EvolRad.hxx".}
 proc mults*(this: var BlendFuncEvolRad; tMults: var TColStdArray1OfInteger) {.cdecl,
-    importcpp: "Mults", dynlib: tkfillet.}
+    importcpp: "Mults", header: "BlendFunc_EvolRad.hxx".}
 proc section*(this: var BlendFuncEvolRad; p: BlendPoint; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
              poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "BlendFunc_EvolRad.hxx".}
 proc section*(this: var BlendFuncEvolRad; p: BlendPoint; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
              dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "Section",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRad.hxx".}
 proc section*(this: var BlendFuncEvolRad; p: BlendPoint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "BlendFunc_EvolRad.hxx".}
 proc resolution*(this: BlendFuncEvolRad; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",
-                                 dynlib: tkfillet.}
+                                 header: "BlendFunc_EvolRad.hxx".}

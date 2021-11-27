@@ -23,20 +23,20 @@ type
 
 
 proc newTopOpeBRepToolMkTondgE*(): TopOpeBRepToolMkTondgE {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_mkTondgE(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_mkTondgE(@)", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc initialize*(this: var TopOpeBRepToolMkTondgE; dgE: TopoDS_Edge; f: TopoDS_Face;
                 uvi: Pnt2d; fi: TopoDS_Face): bool {.cdecl, importcpp: "Initialize",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc setclE*(this: var TopOpeBRepToolMkTondgE; clE: TopoDS_Edge): bool {.cdecl,
-    importcpp: "SetclE", dynlib: tkbool.}
+    importcpp: "SetclE", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc isT2d*(this: TopOpeBRepToolMkTondgE): bool {.noSideEffect, cdecl,
-    importcpp: "IsT2d", dynlib: tkbool.}
+    importcpp: "IsT2d", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc setRest*(this: var TopOpeBRepToolMkTondgE; pari: cfloat; ei: TopoDS_Edge): bool {.
-    cdecl, importcpp: "SetRest", dynlib: tkbool.}
+    cdecl, importcpp: "SetRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc getAllRest*(this: var TopOpeBRepToolMkTondgE; lEi: var TopToolsListOfShape): cint {.
-    cdecl, importcpp: "GetAllRest", dynlib: tkbool.}
+    cdecl, importcpp: "GetAllRest", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var cint; par1: var cfloat;
-            par2: var cfloat): bool {.cdecl, importcpp: "MkTonE", dynlib: tkbool.}
+            par2: var cfloat): bool {.cdecl, importcpp: "MkTonE", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var cint;
             par1: var cfloat; par2: var cfloat): bool {.cdecl, importcpp: "MkTonE",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_mkTondgE.hxx".}

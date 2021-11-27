@@ -24,6 +24,6 @@ type
 
 
 #proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl,
-#    importcpp: "TopTools_OrientedShapeMapHasher::HashCode(@)", dynlib: tkbrep.}
+#    importcpp: "TopTools_OrientedShapeMapHasher::HashCode(@)", header: "TopTools_OrientedShapeMapHasher.hxx".}
 proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.cdecl,
-    importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)", dynlib: tkbrep.}
+    importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)", header: "TopTools_OrientedShapeMapHasher.hxx".}

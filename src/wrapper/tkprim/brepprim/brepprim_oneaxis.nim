@@ -36,103 +36,103 @@ type
 
 
 proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.cdecl,
-    importcpp: "SetMeridianOffset", dynlib: tkprim.}
+    importcpp: "SetMeridianOffset", header: "BRepPrim_OneAxis.hxx".}
 proc axes*(this: BRepPrimOneAxis): Ax2 {.noSideEffect, cdecl, importcpp: "Axes",
-                                     dynlib: tkprim.}
-proc axes*(this: var BRepPrimOneAxis; a: Ax2) {.cdecl, importcpp: "Axes", dynlib: tkprim.}
+                                     header: "BRepPrim_OneAxis.hxx".}
+proc axes*(this: var BRepPrimOneAxis; a: Ax2) {.cdecl, importcpp: "Axes", header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: BRepPrimOneAxis): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: var BRepPrimOneAxis; a: cfloat) {.cdecl, importcpp: "Angle",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc vMin*(this: BRepPrimOneAxis): cfloat {.noSideEffect, cdecl, importcpp: "VMin",
-                                        dynlib: tkprim.}
+                                        header: "BRepPrim_OneAxis.hxx".}
 proc vMin*(this: var BRepPrimOneAxis; v: cfloat) {.cdecl, importcpp: "VMin",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc vMax*(this: BRepPrimOneAxis): cfloat {.noSideEffect, cdecl, importcpp: "VMax",
-                                        dynlib: tkprim.}
+                                        header: "BRepPrim_OneAxis.hxx".}
 proc vMax*(this: var BRepPrimOneAxis; v: cfloat) {.cdecl, importcpp: "VMax",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimOneAxis): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "MakeEmptyLateralFace", dynlib: tkprim.}
+    importcpp: "MakeEmptyLateralFace", header: "BRepPrim_OneAxis.hxx".}
 proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: cfloat): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", header: "BRepPrim_OneAxis.hxx".}
 proc setMeridianPCurve*(this: BRepPrimOneAxis; e: var TopoDS_Edge; f: TopoDS_Face) {.
-    noSideEffect, cdecl, importcpp: "SetMeridianPCurve", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_OneAxis.hxx".}
 proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "MeridianValue", dynlib: tkprim.}
+    importcpp: "MeridianValue", header: "BRepPrim_OneAxis.hxx".}
 proc meridianOnAxis*(this: BRepPrimOneAxis; v: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "MeridianOnAxis", dynlib: tkprim.}
+    importcpp: "MeridianOnAxis", header: "BRepPrim_OneAxis.hxx".}
 proc meridianClosed*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl,
-    importcpp: "MeridianClosed", dynlib: tkprim.}
+    importcpp: "MeridianClosed", header: "BRepPrim_OneAxis.hxx".}
 proc vMaxInfinite*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl,
-    importcpp: "VMaxInfinite", dynlib: tkprim.}
+    importcpp: "VMaxInfinite", header: "BRepPrim_OneAxis.hxx".}
 proc vMinInfinite*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl,
-    importcpp: "VMinInfinite", dynlib: tkprim.}
+    importcpp: "VMinInfinite", header: "BRepPrim_OneAxis.hxx".}
 proc hasTop*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl, importcpp: "HasTop",
-                                        dynlib: tkprim.}
+                                        header: "BRepPrim_OneAxis.hxx".}
 proc hasBottom*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl,
-    importcpp: "HasBottom", dynlib: tkprim.}
+    importcpp: "HasBottom", header: "BRepPrim_OneAxis.hxx".}
 proc hasSides*(this: BRepPrimOneAxis): bool {.noSideEffect, cdecl,
-    importcpp: "HasSides", dynlib: tkprim.}
+    importcpp: "HasSides", header: "BRepPrim_OneAxis.hxx".}
 proc shell*(this: var BRepPrimOneAxis): TopoDS_Shell {.cdecl, importcpp: "Shell",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc lateralFace*(this: var BRepPrimOneAxis): TopoDS_Face {.cdecl,
-    importcpp: "LateralFace", dynlib: tkprim.}
+    importcpp: "LateralFace", header: "BRepPrim_OneAxis.hxx".}
 proc topFace*(this: var BRepPrimOneAxis): TopoDS_Face {.cdecl, importcpp: "TopFace",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc bottomFace*(this: var BRepPrimOneAxis): TopoDS_Face {.cdecl,
-    importcpp: "BottomFace", dynlib: tkprim.}
+    importcpp: "BottomFace", header: "BRepPrim_OneAxis.hxx".}
 proc startFace*(this: var BRepPrimOneAxis): TopoDS_Face {.cdecl,
-    importcpp: "StartFace", dynlib: tkprim.}
+    importcpp: "StartFace", header: "BRepPrim_OneAxis.hxx".}
 proc endFace*(this: var BRepPrimOneAxis): TopoDS_Face {.cdecl, importcpp: "EndFace",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc lateralWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "LateralWire", dynlib: tkprim.}
+    importcpp: "LateralWire", header: "BRepPrim_OneAxis.hxx".}
 proc lateralStartWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "LateralStartWire", dynlib: tkprim.}
+    importcpp: "LateralStartWire", header: "BRepPrim_OneAxis.hxx".}
 proc lateralEndWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "LateralEndWire", dynlib: tkprim.}
+    importcpp: "LateralEndWire", header: "BRepPrim_OneAxis.hxx".}
 proc topWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl, importcpp: "TopWire",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc bottomWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "BottomWire", dynlib: tkprim.}
+    importcpp: "BottomWire", header: "BRepPrim_OneAxis.hxx".}
 proc startWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "StartWire", dynlib: tkprim.}
+    importcpp: "StartWire", header: "BRepPrim_OneAxis.hxx".}
 proc axisStartWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "AxisStartWire", dynlib: tkprim.}
+    importcpp: "AxisStartWire", header: "BRepPrim_OneAxis.hxx".}
 proc endWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl, importcpp: "EndWire",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc axisEndWire*(this: var BRepPrimOneAxis): TopoDS_Wire {.cdecl,
-    importcpp: "AxisEndWire", dynlib: tkprim.}
+    importcpp: "AxisEndWire", header: "BRepPrim_OneAxis.hxx".}
 proc axisEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl, importcpp: "AxisEdge",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc startEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "StartEdge", dynlib: tkprim.}
+    importcpp: "StartEdge", header: "BRepPrim_OneAxis.hxx".}
 proc endEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl, importcpp: "EndEdge",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc startTopEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "StartTopEdge", dynlib: tkprim.}
+    importcpp: "StartTopEdge", header: "BRepPrim_OneAxis.hxx".}
 proc startBottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "StartBottomEdge", dynlib: tkprim.}
+    importcpp: "StartBottomEdge", header: "BRepPrim_OneAxis.hxx".}
 proc endTopEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "EndTopEdge", dynlib: tkprim.}
+    importcpp: "EndTopEdge", header: "BRepPrim_OneAxis.hxx".}
 proc endBottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "EndBottomEdge", dynlib: tkprim.}
+    importcpp: "EndBottomEdge", header: "BRepPrim_OneAxis.hxx".}
 proc topEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl, importcpp: "TopEdge",
-    dynlib: tkprim.}
+    header: "BRepPrim_OneAxis.hxx".}
 proc bottomEdge*(this: var BRepPrimOneAxis): TopoDS_Edge {.cdecl,
-    importcpp: "BottomEdge", dynlib: tkprim.}
+    importcpp: "BottomEdge", header: "BRepPrim_OneAxis.hxx".}
 proc axisTopVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "AxisTopVertex", dynlib: tkprim.}
+    importcpp: "AxisTopVertex", header: "BRepPrim_OneAxis.hxx".}
 proc axisBottomVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "AxisBottomVertex", dynlib: tkprim.}
+    importcpp: "AxisBottomVertex", header: "BRepPrim_OneAxis.hxx".}
 proc topStartVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "TopStartVertex", dynlib: tkprim.}
+    importcpp: "TopStartVertex", header: "BRepPrim_OneAxis.hxx".}
 proc topEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "TopEndVertex", dynlib: tkprim.}
+    importcpp: "TopEndVertex", header: "BRepPrim_OneAxis.hxx".}
 proc bottomStartVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "BottomStartVertex", dynlib: tkprim.}
+    importcpp: "BottomStartVertex", header: "BRepPrim_OneAxis.hxx".}
 proc bottomEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
-    importcpp: "BottomEndVertex", dynlib: tkprim.}
+    importcpp: "BottomEndVertex", header: "BRepPrim_OneAxis.hxx".}
 proc destroyBRepPrimOneAxis*(this: var BRepPrimOneAxis) {.cdecl,
-    importcpp: "#.~BRepPrim_OneAxis()", dynlib: tkprim.}
+    importcpp: "#.~BRepPrim_OneAxis()", header: "BRepPrim_OneAxis.hxx".}

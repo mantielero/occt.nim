@@ -30,13 +30,13 @@ type
 proc newExtremaGenLocateExtPS*(theS: Adaptor3dSurface;
                               theTolU: cfloat = pConfusion();
                               theTolV: cfloat = pConfusion()): ExtremaGenLocateExtPS {.
-    cdecl, constructor, importcpp: "Extrema_GenLocateExtPS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GenLocateExtPS(@)", header: "Extrema_GenLocateExtPS.hxx".}
 proc perform*(this: var ExtremaGenLocateExtPS; theP: Pnt; theU0: cfloat; theV0: cfloat;
              isDistanceCriteria: bool = false) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_GenLocateExtPS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtPS): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_GenLocateExtPS.hxx".}
 proc squareDistance*(this: ExtremaGenLocateExtPS): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_GenLocateExtPS.hxx".}
 proc point*(this: ExtremaGenLocateExtPS): ExtremaPOnSurf {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_GenLocateExtPS.hxx".}

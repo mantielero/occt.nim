@@ -23,52 +23,52 @@ type
 
 
 proc isDone*(this: AppBlendApprox): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                       dynlib: tkgeomalgo.}
+                                       header: "AppBlend_Approx.hxx".}
 proc surfShape*(this: AppBlendApprox; uDegree: var cint; vDegree: var cint;
                nbUPoles: var cint; nbVPoles: var cint; nbUKnots: var cint;
                nbVKnots: var cint) {.noSideEffect, cdecl, importcpp: "SurfShape",
-                                  dynlib: tkgeomalgo.}
+                                  header: "AppBlend_Approx.hxx".}
 proc surface*(this: AppBlendApprox; tPoles: var TColgpArray2OfPnt;
              tWeights: var TColStdArray2OfReal; tUKnots: var TColStdArray1OfReal;
              tVKnots: var TColStdArray1OfReal; tUMults: var TColStdArray1OfInteger;
              tVMults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeomalgo.}
+    importcpp: "Surface", header: "AppBlend_Approx.hxx".}
 proc uDegree*(this: AppBlendApprox): cint {.noSideEffect, cdecl, importcpp: "UDegree",
-                                        dynlib: tkgeomalgo.}
+                                        header: "AppBlend_Approx.hxx".}
 proc vDegree*(this: AppBlendApprox): cint {.noSideEffect, cdecl, importcpp: "VDegree",
-                                        dynlib: tkgeomalgo.}
+                                        header: "AppBlend_Approx.hxx".}
 proc surfPoles*(this: AppBlendApprox): TColgpArray2OfPnt {.noSideEffect, cdecl,
-    importcpp: "SurfPoles", dynlib: tkgeomalgo.}
+    importcpp: "SurfPoles", header: "AppBlend_Approx.hxx".}
 proc surfWeights*(this: AppBlendApprox): TColStdArray2OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfWeights", dynlib: tkgeomalgo.}
+    importcpp: "SurfWeights", header: "AppBlend_Approx.hxx".}
 proc surfUKnots*(this: AppBlendApprox): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfUKnots", dynlib: tkgeomalgo.}
+    importcpp: "SurfUKnots", header: "AppBlend_Approx.hxx".}
 proc surfVKnots*(this: AppBlendApprox): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfVKnots", dynlib: tkgeomalgo.}
+    importcpp: "SurfVKnots", header: "AppBlend_Approx.hxx".}
 proc surfUMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect, cdecl,
-    importcpp: "SurfUMults", dynlib: tkgeomalgo.}
+    importcpp: "SurfUMults", header: "AppBlend_Approx.hxx".}
 proc surfVMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect, cdecl,
-    importcpp: "SurfVMults", dynlib: tkgeomalgo.}
+    importcpp: "SurfVMults", header: "AppBlend_Approx.hxx".}
 proc nbCurves2d*(this: AppBlendApprox): cint {.noSideEffect, cdecl,
-    importcpp: "NbCurves2d", dynlib: tkgeomalgo.}
+    importcpp: "NbCurves2d", header: "AppBlend_Approx.hxx".}
 proc curves2dShape*(this: AppBlendApprox; degree: var cint; nbPoles: var cint;
                    nbKnots: var cint) {.noSideEffect, cdecl,
                                      importcpp: "Curves2dShape",
-                                     dynlib: tkgeomalgo.}
+                                     header: "AppBlend_Approx.hxx".}
 proc curve2d*(this: AppBlendApprox; index: cint; tPoles: var TColgpArray1OfPnt2d;
              tKnots: var TColStdArray1OfReal; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Curve2d", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Curve2d", header: "AppBlend_Approx.hxx".}
 proc curves2dDegree*(this: AppBlendApprox): cint {.noSideEffect, cdecl,
-    importcpp: "Curves2dDegree", dynlib: tkgeomalgo.}
+    importcpp: "Curves2dDegree", header: "AppBlend_Approx.hxx".}
 proc curve2dPoles*(this: AppBlendApprox; index: cint): TColgpArray1OfPnt2d {.
-    noSideEffect, cdecl, importcpp: "Curve2dPoles", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Curve2dPoles", header: "AppBlend_Approx.hxx".}
 proc curves2dKnots*(this: AppBlendApprox): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Curves2dKnots", dynlib: tkgeomalgo.}
+    importcpp: "Curves2dKnots", header: "AppBlend_Approx.hxx".}
 proc curves2dMults*(this: AppBlendApprox): TColStdArray1OfInteger {.noSideEffect,
-    cdecl, importcpp: "Curves2dMults", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Curves2dMults", header: "AppBlend_Approx.hxx".}
 proc tolReached*(this: AppBlendApprox; tol3d: var cfloat; tol2d: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "TolReached", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "TolReached", header: "AppBlend_Approx.hxx".}
 proc tolCurveOnSurf*(this: AppBlendApprox; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "TolCurveOnSurf", dynlib: tkgeomalgo.}
+    importcpp: "TolCurveOnSurf", header: "AppBlend_Approx.hxx".}
 proc destroyAppBlendApprox*(this: var AppBlendApprox) {.cdecl,
-    importcpp: "#.~AppBlend_Approx()", dynlib: tkgeomalgo.}
+    importcpp: "#.~AppBlend_Approx()", header: "AppBlend_Approx.hxx".}

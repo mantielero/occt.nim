@@ -22,17 +22,17 @@ type
 
 
 proc newApproxMCurvesToBSpCurve*(): ApproxMCurvesToBSpCurve {.cdecl, constructor,
-    importcpp: "Approx_MCurvesToBSpCurve(@)", dynlib: tkgeombase.}
+    importcpp: "Approx_MCurvesToBSpCurve(@)", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc reset*(this: var ApproxMCurvesToBSpCurve) {.cdecl, importcpp: "Reset",
-    dynlib: tkgeombase.}
+    header: "Approx_MCurvesToBSpCurve.hxx".}
 proc append*(this: var ApproxMCurvesToBSpCurve; mc: AppParCurvesMultiCurve) {.cdecl,
-    importcpp: "Append", dynlib: tkgeombase.}
+    importcpp: "Append", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc perform*(this: var ApproxMCurvesToBSpCurve) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Approx_MCurvesToBSpCurve.hxx".}
 proc perform*(this: var ApproxMCurvesToBSpCurve;
              theSeq: AppParCurvesSequenceOfMultiCurve) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc value*(this: ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc changeValue*(this: var ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkgeombase.}
+    cdecl, importcpp: "ChangeValue", header: "Approx_MCurvesToBSpCurve.hxx".}

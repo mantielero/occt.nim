@@ -33,20 +33,20 @@ type
 
 proc newBRepPolygonOnSurface*(p: Handle[PolyPolygon2D]; s: Handle[GeomSurface];
                              L: TopLocLocation): BRepPolygonOnSurface {.cdecl,
-    constructor, importcpp: "BRep_PolygonOnSurface(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRep_PolygonOnSurface(@)", header: "BRep_PolygonOnSurface.hxx".}
 proc isPolygonOnSurface*(this: BRepPolygonOnSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygonOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPolygonOnSurface", header: "BRep_PolygonOnSurface.hxx".}
 proc isPolygonOnSurface*(this: BRepPolygonOnSurface; s: Handle[GeomSurface];
                         L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygonOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPolygonOnSurface", header: "BRep_PolygonOnSurface.hxx".}
 proc surface*(this: BRepPolygonOnSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_PolygonOnSurface.hxx".}
 proc polygon*(this: BRepPolygonOnSurface): Handle[PolyPolygon2D] {.noSideEffect,
-    cdecl, importcpp: "Polygon", dynlib: tkbrep.}
+    cdecl, importcpp: "Polygon", header: "BRep_PolygonOnSurface.hxx".}
 proc polygon*(this: var BRepPolygonOnSurface; p: Handle[PolyPolygon2D]) {.cdecl,
-    importcpp: "Polygon", dynlib: tkbrep.}
+    importcpp: "Polygon", header: "BRep_PolygonOnSurface.hxx".}
 proc copy*(this: BRepPolygonOnSurface): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_PolygonOnSurface.hxx".}
 proc dumpJson*(this: BRepPolygonOnSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PolygonOnSurface.hxx".}

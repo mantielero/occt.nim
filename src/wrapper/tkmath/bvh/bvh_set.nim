@@ -26,16 +26,16 @@ type
 #  BVH_SetBVH_BoxNt* = BVH_Box[T, N]
 
 proc newBVH_Set*[T; N: static[cint]](): BVH_Set[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Set<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Set<\'*0,\'*1>(@)", header: "BVH_Set.hxx".}
 proc destroyBVH_Set*[T; N: static[cint]](this: var BVH_Set[T, N]) {.cdecl,
-    importcpp: "#.~BVH_Set()", dynlib: tkmath.}
+    importcpp: "#.~BVH_Set()", header: "BVH_Set.hxx".}
 proc box*[T; N: static[cint]](this: BVH_Set[T, N]): BVH_Box[T, N] {.noSideEffect, cdecl,
-    importcpp: "Box", dynlib: tkmath.}
+    importcpp: "Box", header: "BVH_Set.hxx".}
 proc size*[T; N: static[cint]](this: BVH_Set[T, N]): cint {.noSideEffect, cdecl,
-    importcpp: "Size", dynlib: tkmath.}
+    importcpp: "Size", header: "BVH_Set.hxx".}
 proc box*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: cint): BVH_Box[T, N] {.
-    noSideEffect, cdecl, importcpp: "Box", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Box", header: "BVH_Set.hxx".}
 proc center*[T; N: static[cint]](this: BVH_Set[T, N]; theIndex: cint; theAxis: cint): T {.
-    noSideEffect, cdecl, importcpp: "Center", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Center", header: "BVH_Set.hxx".}
 proc swap*[T; N: static[cint]](this: var BVH_Set[T, N]; theIndex1: cint; theIndex2: cint) {.
-    cdecl, importcpp: "Swap", dynlib: tkmath.}
+    cdecl, importcpp: "Swap", header: "BVH_Set.hxx".}

@@ -41,29 +41,29 @@ type
 
 proc newMathBFGS*(nbVariables: cint; tolerance: cfloat = 1.0e-8;
                  nbIterations: cint = 200; zeps: cfloat = 1.0e-12): MathBFGS {.cdecl,
-    constructor, importcpp: "math_BFGS(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BFGS(@)", header: "math_BFGS.hxx".}
 proc destroyMathBFGS*(this: var MathBFGS) {.cdecl, importcpp: "#.~math_BFGS()",
-                                        dynlib: tkmath.}
+                                        header: "math_BFGS.hxx".}
 proc setBoundary*(this: var MathBFGS; theLeftBorder: MathVector;
                  theRightBorder: MathVector) {.cdecl, importcpp: "SetBoundary",
-    dynlib: tkmath.}
+    header: "math_BFGS.hxx".}
 proc perform*(this: var MathBFGS; f: var MathMultipleVarFunctionWithGradient;
-             startingPoint: MathVector) {.cdecl, importcpp: "Perform", dynlib: tkmath.}
+             startingPoint: MathVector) {.cdecl, importcpp: "Perform", header: "math_BFGS.hxx".}
 proc isSolutionReached*(this: MathBFGS; f: var MathMultipleVarFunctionWithGradient): bool {.
-    noSideEffect, cdecl, importcpp: "IsSolutionReached", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsSolutionReached", header: "math_BFGS.hxx".}
 proc isDone*(this: MathBFGS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                 dynlib: tkmath.}
+                                 header: "math_BFGS.hxx".}
 proc location*(this: MathBFGS): MathVector {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_BFGS.hxx".}
 proc location*(this: MathBFGS; loc: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_BFGS.hxx".}
 proc minimum*(this: MathBFGS): cfloat {.noSideEffect, cdecl, importcpp: "Minimum",
-                                    dynlib: tkmath.}
+                                    header: "math_BFGS.hxx".}
 proc gradient*(this: MathBFGS): MathVector {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_BFGS.hxx".}
 proc gradient*(this: MathBFGS; grad: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_BFGS.hxx".}
 proc nbIterations*(this: MathBFGS): cint {.noSideEffect, cdecl,
-                                       importcpp: "NbIterations", dynlib: tkmath.}
+                                       importcpp: "NbIterations", header: "math_BFGS.hxx".}
 proc dump*(this: MathBFGS; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_BFGS.hxx".}

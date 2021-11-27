@@ -37,28 +37,28 @@ type
 
 
 proc newTopOpeBRepBuildShellFaceSet*(): TopOpeBRepBuildShellFaceSet {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc newTopOpeBRepBuildShellFaceSet*(s: TopoDS_Shape; `addr`: pointer = nil): TopOpeBRepBuildShellFaceSet {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_ShellFaceSet(@)", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc solid*(this: TopOpeBRepBuildShellFaceSet): TopoDS_Solid {.noSideEffect, cdecl,
-    importcpp: "Solid", dynlib: tkbool.}
+    importcpp: "Solid", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc addShape*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddShape", dynlib: tkbool.}
+    importcpp: "AddShape", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc addStartElement*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddStartElement", dynlib: tkbool.}
+    importcpp: "AddStartElement", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc addElement*(this: var TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddElement", dynlib: tkbool.}
+    importcpp: "AddElement", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc dumpSS*(this: var TopOpeBRepBuildShellFaceSet) {.cdecl, importcpp: "DumpSS",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc sName*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
            sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SName", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc sName*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
            sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SName", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SName", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
 proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SNameori", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}

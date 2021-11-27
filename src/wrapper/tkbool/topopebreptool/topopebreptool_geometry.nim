@@ -15,41 +15,41 @@
 ##  commercial license or contractual agreement.
 
 proc basiscurve2d*(c: Handle[Geom2dCurve]): Handle[Geom2dCurve] {.cdecl,
-    importcpp: "BASISCURVE2D(@)", dynlib: tkbool.}
+    importcpp: "BASISCURVE2D(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 ## Standard_EXPORT Standard_Boolean FUN_tool_IsUViso(const Handle(Geom2d_Curve)& PC,Standard_Boolean& isoU,Standard_Boolean& isoV,gp_Dir2d& d2d,gp_Pnt2d& O2d);
 
 proc fUN_toolDirC*(par: cfloat; c: Handle[GeomCurve]): Dir {.cdecl,
-    importcpp: "FUN_tool_dirC(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_dirC(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolOnapex*(p2d: Pnt2d; s: Handle[GeomSurface]): bool {.cdecl,
-    importcpp: "FUN_tool_onapex(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_onapex(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolNgS*(p2d: Pnt2d; s: Handle[GeomSurface]): Dir {.cdecl,
-    importcpp: "FUN_tool_ngS(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_ngS(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 ##  ----------------------------------------------------------------------
 ##  curve type,surface type :
 ##  ----------------------------------------------------------------------
 
 proc fUN_toolLine*(c3d: Handle[GeomCurve]): bool {.cdecl,
-    importcpp: "FUN_tool_line(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolLine*(c2d: Handle[Geom2dCurve]): bool {.cdecl,
-    importcpp: "FUN_tool_line(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_quadCT*(ct: GeomAbsCurveType): bool {.cdecl, importcpp: "FUN_quadCT(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolQuad*(c3d: Handle[GeomCurve]): bool {.cdecl,
-    importcpp: "FUN_tool_quad(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolQuad*(pc: Handle[Geom2dCurve]): bool {.cdecl,
-    importcpp: "FUN_tool_quad(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolQuad*(s: Handle[GeomSurface]): bool {.cdecl,
-    importcpp: "FUN_tool_quad(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolClosed*(s: Handle[GeomSurface]; uclosed: var bool; uperiod: var cfloat;
                     vclosed: var bool; vperiod: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_closed(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_closed(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolUpdateBnd2d*(b2d: var BndBox2d; newB2d: BndBox2d) {.cdecl,
-    importcpp: "FUN_tool_UpdateBnd2d(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_UpdateBnd2d(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 ##  ----------------------------------------------------------------------
 ##  oriented vectors :
 ##  ----------------------------------------------------------------------
 
 proc fUN_toolNCinsideS*(tgC: Dir; ngS: Dir): Dir {.cdecl,
-    importcpp: "FUN_tool_nCinsideS(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_nCinsideS(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolNC2dINSIDES*(tgC2d: Dir2d): Dir2d {.cdecl,
-    importcpp: "FUN_tool_nC2dINSIDES(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_nC2dINSIDES(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}

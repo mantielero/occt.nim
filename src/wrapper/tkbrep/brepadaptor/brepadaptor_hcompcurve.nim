@@ -32,17 +32,17 @@ type
 
 
 proc newBRepAdaptorHCompCurve*(): BRepAdaptorHCompCurve {.cdecl, constructor,
-    importcpp: "BRepAdaptor_HCompCurve(@)", dynlib: tkbrep.}
+    importcpp: "BRepAdaptor_HCompCurve(@)", header: "BRepAdaptor_HCompCurve.hxx".}
 proc newBRepAdaptorHCompCurve*(c: BRepAdaptorCompCurve): BRepAdaptorHCompCurve {.
-    cdecl, constructor, importcpp: "BRepAdaptor_HCompCurve(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRepAdaptor_HCompCurve(@)", header: "BRepAdaptor_HCompCurve.hxx".}
 proc set*(this: var BRepAdaptorHCompCurve; c: BRepAdaptorCompCurve) {.cdecl,
-    importcpp: "Set", dynlib: tkbrep.}
+    importcpp: "Set", header: "BRepAdaptor_HCompCurve.hxx".}
 proc curve*(this: BRepAdaptorHCompCurve): Adaptor3dCurve {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkbrep.}
+    importcpp: "Curve", header: "BRepAdaptor_HCompCurve.hxx".}
 proc getCurve*(this: var BRepAdaptorHCompCurve): var Adaptor3dCurve {.cdecl,
-    importcpp: "GetCurve", dynlib: tkbrep.}
+    importcpp: "GetCurve", header: "BRepAdaptor_HCompCurve.hxx".}
 proc changeCurve*(this: var BRepAdaptorHCompCurve): var BRepAdaptorCompCurve {.cdecl,
-    importcpp: "ChangeCurve", dynlib: tkbrep.}
+    importcpp: "ChangeCurve", header: "BRepAdaptor_HCompCurve.hxx".}
 type
   BRepAdaptorHCompCurvebaseType* = Adaptor3dHCurve
 

@@ -17,8 +17,8 @@
 proc fDS_repvg*(bds: TopOpeBRepDS_DataStructure; eix: cint; gt: TopOpeBRepDS_Kind;
                li: var TopOpeBRepDS_ListOfInterference;
                reducedLI: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FDS_repvg(@)", dynlib: tkbool.}
+    importcpp: "FDS_repvg(@)", header: "TopOpeBRepDS_repvg.hxx".}
 proc fDS_repvg2*(bds: TopOpeBRepDS_DataStructure; eix: cint; gt: TopOpeBRepDS_Kind;
                 li: var TopOpeBRepDS_ListOfInterference;
                 reducedLI: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FDS_repvg2(@)", dynlib: tkbool.}
+    importcpp: "FDS_repvg2(@)", header: "TopOpeBRepDS_repvg.hxx".}

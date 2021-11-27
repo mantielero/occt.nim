@@ -47,9 +47,9 @@ type
 
 
 proc endPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "EndPoint", dynlib: tkg3d.}
+    importcpp: "EndPoint", header: "Geom_BoundedCurve.hxx".}
 proc startPoint*(this: GeomBoundedCurve): Pnt {.noSideEffect, cdecl,
-    importcpp: "StartPoint", dynlib: tkg3d.}
+    importcpp: "StartPoint", header: "Geom_BoundedCurve.hxx".}
 proc dumpJson*(this: GeomBoundedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_BoundedCurve.hxx".}

@@ -19,8 +19,8 @@ type
 
 
 proc newTopOpeBRepDS_EIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_EIR {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_EIR(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_EIR(@)", header: "TopOpeBRepDS_EIR.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.cdecl,
-    importcpp: "ProcessEdgeInterferences", dynlib: tkbool.}
+    importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: cint) {.cdecl,
-    importcpp: "ProcessEdgeInterferences", dynlib: tkbool.}
+    importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}

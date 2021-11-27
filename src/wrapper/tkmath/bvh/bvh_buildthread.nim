@@ -28,7 +28,7 @@ type
 
 
 proc perform*(this: var BVH_BuildTool; theNode: cint) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "BVH_BuildThread.hxx".}
 ## ! Wrapper for BVH build thread.
 
 type
@@ -42,8 +42,8 @@ type
 
 proc newBVH_BuildThread*(theBuildTool: var BVH_BuildTool;
                         theBuildQueue: var BVH_BuildQueue): BVH_BuildThread {.cdecl,
-    constructor, importcpp: "BVH_BuildThread(@)", dynlib: tkmath.}
-proc run*(this: var BVH_BuildThread) {.cdecl, importcpp: "Run", dynlib: tkmath.}
-proc wait*(this: var BVH_BuildThread) {.cdecl, importcpp: "Wait", dynlib: tkmath.}
+    constructor, importcpp: "BVH_BuildThread(@)", header: "BVH_BuildThread.hxx".}
+proc run*(this: var BVH_BuildThread) {.cdecl, importcpp: "Run", header: "BVH_BuildThread.hxx".}
+proc wait*(this: var BVH_BuildThread) {.cdecl, importcpp: "Wait", header: "BVH_BuildThread.hxx".}
 type
   HandleBVH_BuildThread* = Handle[BVH_BuildThread]

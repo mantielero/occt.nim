@@ -25,11 +25,11 @@ type
 proc newBlendFuncConstThroatWithPenetrationInv*(s1: Handle[Adaptor3dHSurface];
     s2: Handle[Adaptor3dHSurface]; c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatWithPenetrationInv {.
     cdecl, constructor, importcpp: "BlendFunc_ConstThroatWithPenetrationInv(@)",
-    dynlib: tkfillet.}
+    header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc isSolution*(this: var BlendFuncConstThroatWithPenetrationInv; sol: MathVector;
-                tol: cfloat): bool {.cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+                tol: cfloat): bool {.cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc value*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
-           f: var MathVector): bool {.cdecl, importcpp: "Value", dynlib: tkfillet.}
+           f: var MathVector): bool {.cdecl, importcpp: "Value", header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
 proc derivatives*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
                  d: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
-                                        dynlib: tkfillet.}
+                                        header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}

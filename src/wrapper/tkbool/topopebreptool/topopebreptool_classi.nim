@@ -24,22 +24,22 @@ type
 
 
 proc newTopOpeBRepToolCLASSI*(): TopOpeBRepToolCLASSI {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_CLASSI(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_CLASSI(@)", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc init2d*(this: var TopOpeBRepToolCLASSI; fref: TopoDS_Face) {.cdecl,
-    importcpp: "Init2d", dynlib: tkbool.}
+    importcpp: "Init2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc hasInit2d*(this: TopOpeBRepToolCLASSI): bool {.noSideEffect, cdecl,
-    importcpp: "HasInit2d", dynlib: tkbool.}
+    importcpp: "HasInit2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc add2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape): bool {.cdecl,
-    importcpp: "Add2d", dynlib: tkbool.}
+    importcpp: "Add2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc getBox2d*(this: var TopOpeBRepToolCLASSI; s: TopoDS_Shape; box2d: var BndBox2d): bool {.
-    cdecl, importcpp: "GetBox2d", dynlib: tkbool.}
+    cdecl, importcpp: "GetBox2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classiBnd2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
                  tol: cfloat; checklarge: bool): cint {.cdecl,
-    importcpp: "ClassiBnd2d", dynlib: tkbool.}
+    importcpp: "ClassiBnd2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classip2d*(this: var TopOpeBRepToolCLASSI; s1: TopoDS_Shape; s2: TopoDS_Shape;
-               stabnd2d12: cint): cint {.cdecl, importcpp: "Classip2d", dynlib: tkbool.}
+               stabnd2d12: cint): cint {.cdecl, importcpp: "Classip2d", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc getface*(this: TopOpeBRepToolCLASSI; s: TopoDS_Shape; fa: var TopOpeBRepToolFace): bool {.
-    noSideEffect, cdecl, importcpp: "Getface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Getface", header: "TopOpeBRepTool_CLASSI.hxx".}
 proc classilist*(this: var TopOpeBRepToolCLASSI; lS: TopToolsListOfShape;
                 mapgreasma: var TopToolsDataMapOfShapeListOfShape): bool {.cdecl,
-    importcpp: "Classilist", dynlib: tkbool.}
+    importcpp: "Classilist", header: "TopOpeBRepTool_CLASSI.hxx".}

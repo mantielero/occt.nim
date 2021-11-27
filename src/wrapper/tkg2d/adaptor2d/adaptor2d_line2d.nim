@@ -34,65 +34,65 @@ type
 
 
 proc newAdaptor2dLine2d*(): Adaptor2dLine2d {.cdecl, constructor,
-    importcpp: "Adaptor2d_Line2d(@)", dynlib: tkg2d.}
+    importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
 proc newAdaptor2dLine2d*(p: Pnt2d; d: Dir2d; uFirst: cfloat; uLast: cfloat): Adaptor2dLine2d {.
-    cdecl, constructor, importcpp: "Adaptor2d_Line2d(@)", dynlib: tkg2d.}
-proc load*(this: var Adaptor2dLine2d; L: Lin2d) {.cdecl, importcpp: "Load", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Adaptor2d_Line2d(@)", header: "Adaptor2d_Line2d.hxx".}
+proc load*(this: var Adaptor2dLine2d; L: Lin2d) {.cdecl, importcpp: "Load", header: "Adaptor2d_Line2d.hxx".}
 proc load*(this: var Adaptor2dLine2d; L: Lin2d; uFirst: cfloat; uLast: cfloat) {.cdecl,
-    importcpp: "Load", dynlib: tkg2d.}
+    importcpp: "Load", header: "Adaptor2d_Line2d.hxx".}
 proc firstParameter*(this: Adaptor2dLine2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Adaptor2d_Line2d.hxx".}
 proc lastParameter*(this: Adaptor2dLine2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Adaptor2d_Line2d.hxx".}
 proc continuity*(this: Adaptor2dLine2d): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg2d.}
+    importcpp: "Continuity", header: "Adaptor2d_Line2d.hxx".}
 proc nbIntervals*(this: Adaptor2dLine2d; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkg2d.}
+    importcpp: "NbIntervals", header: "Adaptor2d_Line2d.hxx".}
 proc intervals*(this: Adaptor2dLine2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Adaptor2d_Line2d.hxx".}
 proc trim*(this: Adaptor2dLine2d; first: cfloat; last: cfloat; tol: cfloat): Handle[
-    Adaptor2dHCurve2d] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkg2d.}
+    Adaptor2dHCurve2d] {.noSideEffect, cdecl, importcpp: "Trim", header: "Adaptor2d_Line2d.hxx".}
 proc isClosed*(this: Adaptor2dLine2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkg2d.}
+    importcpp: "IsClosed", header: "Adaptor2d_Line2d.hxx".}
 proc isPeriodic*(this: Adaptor2dLine2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Adaptor2d_Line2d.hxx".}
 proc period*(this: Adaptor2dLine2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkg2d.}
+    importcpp: "Period", header: "Adaptor2d_Line2d.hxx".}
 proc value*(this: Adaptor2dLine2d; x: cfloat): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkg2d.}
+    importcpp: "Value", header: "Adaptor2d_Line2d.hxx".}
 proc d0*(this: Adaptor2dLine2d; x: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Adaptor2d_Line2d.hxx".}
 proc d1*(this: Adaptor2dLine2d; x: cfloat; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkg2d.}
+    cdecl, importcpp: "D1", header: "Adaptor2d_Line2d.hxx".}
 proc d2*(this: Adaptor2dLine2d; x: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Adaptor2d_Line2d.hxx".}
 proc d3*(this: Adaptor2dLine2d; x: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor2d_Line2d.hxx".}
 proc dn*(this: Adaptor2dLine2d; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Adaptor2d_Line2d.hxx".}
 proc resolution*(this: Adaptor2dLine2d; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkg2d.}
+    importcpp: "Resolution", header: "Adaptor2d_Line2d.hxx".}
 proc getType*(this: Adaptor2dLine2d): GeomAbsCurveType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkg2d.}
+    importcpp: "GetType", header: "Adaptor2d_Line2d.hxx".}
 proc line*(this: Adaptor2dLine2d): Lin2d {.noSideEffect, cdecl, importcpp: "Line",
-                                       dynlib: tkg2d.}
+                                       header: "Adaptor2d_Line2d.hxx".}
 proc circle*(this: Adaptor2dLine2d): Circ2d {.noSideEffect, cdecl,
-    importcpp: "Circle", dynlib: tkg2d.}
+    importcpp: "Circle", header: "Adaptor2d_Line2d.hxx".}
 proc ellipse*(this: Adaptor2dLine2d): Elips2d {.noSideEffect, cdecl,
-    importcpp: "Ellipse", dynlib: tkg2d.}
+    importcpp: "Ellipse", header: "Adaptor2d_Line2d.hxx".}
 proc hyperbola*(this: Adaptor2dLine2d): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "Hyperbola", dynlib: tkg2d.}
+    importcpp: "Hyperbola", header: "Adaptor2d_Line2d.hxx".}
 proc parabola*(this: Adaptor2dLine2d): Parab2d {.noSideEffect, cdecl,
-    importcpp: "Parabola", dynlib: tkg2d.}
+    importcpp: "Parabola", header: "Adaptor2d_Line2d.hxx".}
 proc degree*(this: Adaptor2dLine2d): cint {.noSideEffect, cdecl, importcpp: "Degree",
-                                        dynlib: tkg2d.}
+                                        header: "Adaptor2d_Line2d.hxx".}
 proc isRational*(this: Adaptor2dLine2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkg2d.}
+    importcpp: "IsRational", header: "Adaptor2d_Line2d.hxx".}
 proc nbPoles*(this: Adaptor2dLine2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkg2d.}
+    importcpp: "NbPoles", header: "Adaptor2d_Line2d.hxx".}
 proc nbKnots*(this: Adaptor2dLine2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbKnots", dynlib: tkg2d.}
+    importcpp: "NbKnots", header: "Adaptor2d_Line2d.hxx".}
 proc bezier*(this: Adaptor2dLine2d): Handle[Geom2dBezierCurve] {.noSideEffect, cdecl,
-    importcpp: "Bezier", dynlib: tkg2d.}
+    importcpp: "Bezier", header: "Adaptor2d_Line2d.hxx".}
 proc bSpline*(this: Adaptor2dLine2d): Handle[Geom2dBSplineCurve] {.noSideEffect,
-    cdecl, importcpp: "BSpline", dynlib: tkg2d.}
+    cdecl, importcpp: "BSpline", header: "Adaptor2d_Line2d.hxx".}

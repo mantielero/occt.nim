@@ -22,13 +22,13 @@ type
 
 
 proc newExtremaGlobOptFuncCCC0*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC0 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc newExtremaGlobOptFuncCCC0*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC0 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC0(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc nbVariables*(this: ExtremaGlobOptFuncCCC0): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
 proc value*(this: var ExtremaGlobOptFuncCCC0; x: MathVector; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C1.
 
@@ -38,17 +38,17 @@ type
 
 
 proc newExtremaGlobOptFuncCCC1*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC1 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc newExtremaGlobOptFuncCCC1*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC1 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC1(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc nbVariables*(this: ExtremaGlobOptFuncCCC1): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
 proc value*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
 proc gradient*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; g: var MathVector): bool {.
-    cdecl, importcpp: "Gradient", dynlib: tkgeombase.}
+    cdecl, importcpp: "Gradient", header: "Extrema_GlobOptFuncCC.hxx".}
 proc values*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; f: var cfloat;
-            g: var MathVector): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            g: var MathVector): bool {.cdecl, importcpp: "Values", header: "Extrema_GlobOptFuncCC.hxx".}
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C2.
 
@@ -58,17 +58,17 @@ type
 
 
 proc newExtremaGlobOptFuncCCC2*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC2 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc newExtremaGlobOptFuncCCC2*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d): ExtremaGlobOptFuncCCC2 {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCCC2(@)", header: "Extrema_GlobOptFuncCC.hxx".}
 proc nbVariables*(this: ExtremaGlobOptFuncCCC2): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_GlobOptFuncCC.hxx".}
 proc value*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_GlobOptFuncCC.hxx".}
 proc gradient*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; g: var MathVector): bool {.
-    cdecl, importcpp: "Gradient", dynlib: tkgeombase.}
+    cdecl, importcpp: "Gradient", header: "Extrema_GlobOptFuncCC.hxx".}
 proc values*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var cfloat;
-            g: var MathVector): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            g: var MathVector): bool {.cdecl, importcpp: "Values", header: "Extrema_GlobOptFuncCC.hxx".}
 proc values*(this: var ExtremaGlobOptFuncCCC2; x: MathVector; f: var cfloat;
             g: var MathVector; h: var MathMatrix): bool {.cdecl, importcpp: "Values",
-    dynlib: tkgeombase.}
+    header: "Extrema_GlobOptFuncCC.hxx".}

@@ -35,15 +35,15 @@ type
 
 
 proc coord*(this: Geom2dPoint; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkg2d.}
+    importcpp: "Coord", header: "Geom2d_Point.hxx".}
 proc pnt2d*(this: Geom2dPoint): Pnt2d {.noSideEffect, cdecl, importcpp: "Pnt2d",
-                                    dynlib: tkg2d.}
-proc x*(this: Geom2dPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkg2d.}
-proc y*(this: Geom2dPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkg2d.}
+                                    header: "Geom2d_Point.hxx".}
+proc x*(this: Geom2dPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "Geom2d_Point.hxx".}
+proc y*(this: Geom2dPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "Geom2d_Point.hxx".}
 proc distance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Distance", dynlib: tkg2d.}
+    cdecl, importcpp: "Distance", header: "Geom2d_Point.hxx".}
 proc squareDistance*(this: Geom2dPoint; other: Handle[Geom2dPoint]): cfloat {.
-    noSideEffect, cdecl, importcpp: "SquareDistance", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "SquareDistance", header: "Geom2d_Point.hxx".}
 proc dumpJson*(this: Geom2dPoint; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_Point.hxx".}

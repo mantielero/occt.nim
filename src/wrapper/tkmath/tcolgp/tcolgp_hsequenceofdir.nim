@@ -20,16 +20,16 @@ type
 
 
 proc newTColgpHSequenceOfDir*(): TColgpHSequenceOfDir {.cdecl, constructor,
-    importcpp: "TColgp_HSequenceOfDir(@)", dynlib: tkmath.}
+    importcpp: "TColgp_HSequenceOfDir(@)", header: "TColgp_HSequenceOfDir.hxx".}
 proc newTColgpHSequenceOfDir*(theOther: TColgpSequenceOfDir): TColgpHSequenceOfDir {.
-    cdecl, constructor, importcpp: "TColgp_HSequenceOfDir(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HSequenceOfDir(@)", header: "TColgp_HSequenceOfDir.hxx".}
 proc sequence*(this: TColgpHSequenceOfDir): TColgpSequenceOfDir {.noSideEffect,
-    cdecl, importcpp: "Sequence", dynlib: tkmath.}
+    cdecl, importcpp: "Sequence", header: "TColgp_HSequenceOfDir.hxx".}
 proc append*(this: var TColgpHSequenceOfDir; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkmath.}
+    importcpp: "Append", header: "TColgp_HSequenceOfDir.hxx".}
 proc append*(this: var TColgpHSequenceOfDir; theSequence: var TColgpSequenceOfDir) {.
-    cdecl, importcpp: "Append", dynlib: tkmath.}
+    cdecl, importcpp: "Append", header: "TColgp_HSequenceOfDir.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfDir): var TColgpSequenceOfDir {.cdecl,
-    importcpp: "ChangeSequence", dynlib: tkmath.}
+    importcpp: "ChangeSequence", header: "TColgp_HSequenceOfDir.hxx".}
 type
   HandleTColgpHSequenceOfDir* = Handle[TColgpHSequenceOfDir]

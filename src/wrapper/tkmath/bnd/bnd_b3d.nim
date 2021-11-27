@@ -23,49 +23,49 @@ type
   BndB3d* {.importcpp: "Bnd_B3d", header: "Bnd_B3d.hxx", bycopy.} = object ## ! Empty constructor.
 
 
-proc newBndB3d*(): BndB3d {.cdecl, constructor, importcpp: "Bnd_B3d(@)", dynlib: tkmath.}
+proc newBndB3d*(): BndB3d {.cdecl, constructor, importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
 proc newBndB3d*(theCenter: Xyz; theHSize: Xyz): BndB3d {.cdecl, constructor,
-    importcpp: "Bnd_B3d(@)", dynlib: tkmath.}
+    importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
 proc isVoid*(this: BndB3d): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
-                               dynlib: tkmath.}
-proc clear*(this: var BndB3d) {.cdecl, importcpp: "Clear", dynlib: tkmath.}
-proc add*(this: var BndB3d; thePnt: Xyz) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndB3d; thePnt: Pnt) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndB3d; theBox: BndB3d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+                               header: "Bnd_B3d.hxx".}
+proc clear*(this: var BndB3d) {.cdecl, importcpp: "Clear", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; thePnt: Xyz) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; thePnt: Pnt) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
+proc add*(this: var BndB3d; theBox: BndB3d) {.cdecl, importcpp: "Add", header: "Bnd_B3d.hxx".}
 proc cornerMin*(this: BndB3d): Xyz {.noSideEffect, cdecl, importcpp: "CornerMin",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_B3d.hxx".}
 proc cornerMax*(this: BndB3d): Xyz {.noSideEffect, cdecl, importcpp: "CornerMax",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_B3d.hxx".}
 proc squareExtent*(this: BndB3d): cfloat {.noSideEffect, cdecl,
-                                       importcpp: "SquareExtent", dynlib: tkmath.}
+                                       importcpp: "SquareExtent", header: "Bnd_B3d.hxx".}
 proc enlarge*(this: var BndB3d; theDiff: cfloat) {.cdecl, importcpp: "Enlarge",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 proc limit*(this: var BndB3d; theOtherBox: BndB3d): bool {.cdecl, importcpp: "Limit",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 proc transformed*(this: BndB3d; theTrsf: Trsf): BndB3d {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
+    importcpp: "Transformed", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; thePnt: Xyz): bool {.noSideEffect, cdecl, importcpp: "IsOut",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theCenter: Xyz; theRadius: cfloat;
            isSphereHollow: bool = false): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theOtherBox: BndB3d): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theOtherBox: BndB3d; theTrsf: Trsf): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; theLine: Ax1; isRay: bool = false;
            theOverthickness: cfloat = 0.0): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isOut*(this: BndB3d; thePlane: Ax3): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B3d.hxx".}
 proc isIn*(this: BndB3d; theBox: BndB3d): bool {.noSideEffect, cdecl, importcpp: "IsIn",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 proc isIn*(this: BndB3d; theBox: BndB3d; theTrsf: Trsf): bool {.noSideEffect, cdecl,
-    importcpp: "IsIn", dynlib: tkmath.}
+    importcpp: "IsIn", header: "Bnd_B3d.hxx".}
 proc setCenter*(this: var BndB3d; theCenter: Xyz) {.cdecl, importcpp: "SetCenter",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 proc setHSize*(this: var BndB3d; theHSize: Xyz) {.cdecl, importcpp: "SetHSize",
-    dynlib: tkmath.}
+    header: "Bnd_B3d.hxx".}
 ##  #define RealType Standard_Real
 ##  #define RealType_hxx <Standard_Real.hxx>
 ##  #define Bnd_B3x Bnd_B3d

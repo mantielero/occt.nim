@@ -47,153 +47,153 @@ type
 
 
 proc newTCollectionHAsciiString*(): TCollectionHAsciiString {.cdecl, constructor,
-    importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(message: cstring): TCollectionHAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(aChar: cchar): TCollectionHAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(length: cint; filler: cchar): TCollectionHAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(value: cint): TCollectionHAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(value: cfloat): TCollectionHAsciiString {.cdecl,
-    constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(aString: TCollectionAsciiString): TCollectionHAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(aString: Handle[TCollectionHAsciiString]): TCollectionHAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc newTCollectionHAsciiString*(aString: Handle[TCollectionHExtendedString];
                                 replaceNonAscii: cchar): TCollectionHAsciiString {.
-    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TCollection_HAsciiString(@)", header: "TCollection_HAsciiString.hxx".}
 proc assignCat*(this: var TCollectionHAsciiString; other: cstring) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkernel.}
+    importcpp: "AssignCat", header: "TCollection_HAsciiString.hxx".}
 proc assignCat*(this: var TCollectionHAsciiString;
                other: Handle[TCollectionHAsciiString]) {.cdecl,
-    importcpp: "AssignCat", dynlib: tkernel.}
+    importcpp: "AssignCat", header: "TCollection_HAsciiString.hxx".}
 proc capitalize*(this: var TCollectionHAsciiString) {.cdecl, importcpp: "Capitalize",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc cat*(this: TCollectionHAsciiString; other: cstring): Handle[
-    TCollectionHAsciiString] {.noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
+    TCollectionHAsciiString] {.noSideEffect, cdecl, importcpp: "Cat", header: "TCollection_HAsciiString.hxx".}
 proc cat*(this: TCollectionHAsciiString; other: Handle[TCollectionHAsciiString]): Handle[
-    TCollectionHAsciiString] {.noSideEffect, cdecl, importcpp: "Cat", dynlib: tkernel.}
+    TCollectionHAsciiString] {.noSideEffect, cdecl, importcpp: "Cat", header: "TCollection_HAsciiString.hxx".}
 proc center*(this: var TCollectionHAsciiString; width: cint; filler: cchar) {.cdecl,
-    importcpp: "Center", dynlib: tkernel.}
+    importcpp: "Center", header: "TCollection_HAsciiString.hxx".}
 proc changeAll*(this: var TCollectionHAsciiString; aChar: cchar; newChar: cchar;
                caseSensitive: bool = true) {.cdecl, importcpp: "ChangeAll",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc clear*(this: var TCollectionHAsciiString) {.cdecl, importcpp: "Clear",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc firstLocationInSet*(this: TCollectionHAsciiString;
                         set: Handle[TCollectionHAsciiString]; fromIndex: cint;
                         toIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "FirstLocationInSet", dynlib: tkernel.}
+    importcpp: "FirstLocationInSet", header: "TCollection_HAsciiString.hxx".}
 proc firstLocationNotInSet*(this: TCollectionHAsciiString;
                            set: Handle[TCollectionHAsciiString]; fromIndex: cint;
                            toIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "FirstLocationNotInSet", dynlib: tkernel.}
+    importcpp: "FirstLocationNotInSet", header: "TCollection_HAsciiString.hxx".}
 proc insert*(this: var TCollectionHAsciiString; where: cint; what: cchar) {.cdecl,
-    importcpp: "Insert", dynlib: tkernel.}
+    importcpp: "Insert", header: "TCollection_HAsciiString.hxx".}
 proc insert*(this: var TCollectionHAsciiString; where: cint; what: cstring) {.cdecl,
-    importcpp: "Insert", dynlib: tkernel.}
+    importcpp: "Insert", header: "TCollection_HAsciiString.hxx".}
 proc insert*(this: var TCollectionHAsciiString; where: cint;
             what: Handle[TCollectionHAsciiString]) {.cdecl, importcpp: "Insert",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc insertAfter*(this: var TCollectionHAsciiString; index: cint;
                  other: Handle[TCollectionHAsciiString]) {.cdecl,
-    importcpp: "InsertAfter", dynlib: tkernel.}
+    importcpp: "InsertAfter", header: "TCollection_HAsciiString.hxx".}
 proc insertBefore*(this: var TCollectionHAsciiString; index: cint;
                   other: Handle[TCollectionHAsciiString]) {.cdecl,
-    importcpp: "InsertBefore", dynlib: tkernel.}
+    importcpp: "InsertBefore", header: "TCollection_HAsciiString.hxx".}
 proc isEmpty*(this: TCollectionHAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkernel.}
+    importcpp: "IsEmpty", header: "TCollection_HAsciiString.hxx".}
 proc isLess*(this: TCollectionHAsciiString; other: Handle[TCollectionHAsciiString]): bool {.
-    noSideEffect, cdecl, importcpp: "IsLess", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsLess", header: "TCollection_HAsciiString.hxx".}
 proc isGreater*(this: TCollectionHAsciiString;
                other: Handle[TCollectionHAsciiString]): bool {.noSideEffect, cdecl,
-    importcpp: "IsGreater", dynlib: tkernel.}
+    importcpp: "IsGreater", header: "TCollection_HAsciiString.hxx".}
 proc integerValue*(this: TCollectionHAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "IntegerValue", dynlib: tkernel.}
+    importcpp: "IntegerValue", header: "TCollection_HAsciiString.hxx".}
 proc isIntegerValue*(this: TCollectionHAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsIntegerValue", dynlib: tkernel.}
+    importcpp: "IsIntegerValue", header: "TCollection_HAsciiString.hxx".}
 proc isRealValue*(this: TCollectionHAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsRealValue", dynlib: tkernel.}
+    importcpp: "IsRealValue", header: "TCollection_HAsciiString.hxx".}
 proc isAscii*(this: TCollectionHAsciiString): bool {.noSideEffect, cdecl,
-    importcpp: "IsAscii", dynlib: tkernel.}
+    importcpp: "IsAscii", header: "TCollection_HAsciiString.hxx".}
 proc isDifferent*(this: TCollectionHAsciiString; s: Handle[TCollectionHAsciiString]): bool {.
-    noSideEffect, cdecl, importcpp: "IsDifferent", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsDifferent", header: "TCollection_HAsciiString.hxx".}
 proc isSameString*(this: TCollectionHAsciiString;
                   s: Handle[TCollectionHAsciiString]): bool {.noSideEffect, cdecl,
-    importcpp: "IsSameString", dynlib: tkernel.}
+    importcpp: "IsSameString", header: "TCollection_HAsciiString.hxx".}
 proc isSameString*(this: TCollectionHAsciiString;
                   s: Handle[TCollectionHAsciiString]; caseSensitive: bool): bool {.
-    noSideEffect, cdecl, importcpp: "IsSameString", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsSameString", header: "TCollection_HAsciiString.hxx".}
 proc leftAdjust*(this: var TCollectionHAsciiString) {.cdecl, importcpp: "LeftAdjust",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc leftJustify*(this: var TCollectionHAsciiString; width: cint; filler: cchar) {.
-    cdecl, importcpp: "LeftJustify", dynlib: tkernel.}
+    cdecl, importcpp: "LeftJustify", header: "TCollection_HAsciiString.hxx".}
 proc length*(this: TCollectionHAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkernel.}
+    importcpp: "Length", header: "TCollection_HAsciiString.hxx".}
 proc location*(this: TCollectionHAsciiString;
               other: Handle[TCollectionHAsciiString]; fromIndex: cint; toIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "Location", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Location", header: "TCollection_HAsciiString.hxx".}
 proc location*(this: TCollectionHAsciiString; n: cint; c: cchar; fromIndex: cint;
               toIndex: cint): cint {.noSideEffect, cdecl, importcpp: "Location",
-                                  dynlib: tkernel.}
+                                  header: "TCollection_HAsciiString.hxx".}
 proc lowerCase*(this: var TCollectionHAsciiString) {.cdecl, importcpp: "LowerCase",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc prepend*(this: var TCollectionHAsciiString;
              other: Handle[TCollectionHAsciiString]) {.cdecl, importcpp: "Prepend",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc print*(this: TCollectionHAsciiString; astream: var StandardOStream) {.
-    noSideEffect, cdecl, importcpp: "Print", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Print", header: "TCollection_HAsciiString.hxx".}
 proc realValue*(this: TCollectionHAsciiString): cfloat {.noSideEffect, cdecl,
-    importcpp: "RealValue", dynlib: tkernel.}
+    importcpp: "RealValue", header: "TCollection_HAsciiString.hxx".}
 proc removeAll*(this: var TCollectionHAsciiString; c: cchar; caseSensitive: bool) {.
-    cdecl, importcpp: "RemoveAll", dynlib: tkernel.}
+    cdecl, importcpp: "RemoveAll", header: "TCollection_HAsciiString.hxx".}
 proc removeAll*(this: var TCollectionHAsciiString; what: cchar) {.cdecl,
-    importcpp: "RemoveAll", dynlib: tkernel.}
+    importcpp: "RemoveAll", header: "TCollection_HAsciiString.hxx".}
 proc remove*(this: var TCollectionHAsciiString; where: cint; ahowmany: cint = 1) {.cdecl,
-    importcpp: "Remove", dynlib: tkernel.}
+    importcpp: "Remove", header: "TCollection_HAsciiString.hxx".}
 proc rightAdjust*(this: var TCollectionHAsciiString) {.cdecl,
-    importcpp: "RightAdjust", dynlib: tkernel.}
+    importcpp: "RightAdjust", header: "TCollection_HAsciiString.hxx".}
 proc rightJustify*(this: var TCollectionHAsciiString; width: cint; filler: cchar) {.
-    cdecl, importcpp: "RightJustify", dynlib: tkernel.}
+    cdecl, importcpp: "RightJustify", header: "TCollection_HAsciiString.hxx".}
 proc search*(this: TCollectionHAsciiString; what: cstring): cint {.noSideEffect, cdecl,
-    importcpp: "Search", dynlib: tkernel.}
+    importcpp: "Search", header: "TCollection_HAsciiString.hxx".}
 proc search*(this: TCollectionHAsciiString; what: Handle[TCollectionHAsciiString]): cint {.
-    noSideEffect, cdecl, importcpp: "Search", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Search", header: "TCollection_HAsciiString.hxx".}
 proc searchFromEnd*(this: TCollectionHAsciiString; what: cstring): cint {.
-    noSideEffect, cdecl, importcpp: "SearchFromEnd", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "SearchFromEnd", header: "TCollection_HAsciiString.hxx".}
 proc searchFromEnd*(this: TCollectionHAsciiString;
                    what: Handle[TCollectionHAsciiString]): cint {.noSideEffect,
-    cdecl, importcpp: "SearchFromEnd", dynlib: tkernel.}
+    cdecl, importcpp: "SearchFromEnd", header: "TCollection_HAsciiString.hxx".}
 proc setValue*(this: var TCollectionHAsciiString; where: cint; what: cchar) {.cdecl,
-    importcpp: "SetValue", dynlib: tkernel.}
+    importcpp: "SetValue", header: "TCollection_HAsciiString.hxx".}
 proc setValue*(this: var TCollectionHAsciiString; where: cint; what: cstring) {.cdecl,
-    importcpp: "SetValue", dynlib: tkernel.}
+    importcpp: "SetValue", header: "TCollection_HAsciiString.hxx".}
 proc setValue*(this: var TCollectionHAsciiString; where: cint;
               what: Handle[TCollectionHAsciiString]) {.cdecl,
-    importcpp: "SetValue", dynlib: tkernel.}
+    importcpp: "SetValue", header: "TCollection_HAsciiString.hxx".}
 proc split*(this: var TCollectionHAsciiString; where: cint): Handle[
-    TCollectionHAsciiString] {.cdecl, importcpp: "Split", dynlib: tkernel.}
+    TCollectionHAsciiString] {.cdecl, importcpp: "Split", header: "TCollection_HAsciiString.hxx".}
 proc subString*(this: TCollectionHAsciiString; fromIndex: cint; toIndex: cint): Handle[
     TCollectionHAsciiString] {.noSideEffect, cdecl, importcpp: "SubString",
-                              dynlib: tkernel.}
+                              header: "TCollection_HAsciiString.hxx".}
 proc toCString*(this: TCollectionHAsciiString): cstring {.noSideEffect, cdecl,
-    importcpp: "ToCString", dynlib: tkernel.}
+    importcpp: "ToCString", header: "TCollection_HAsciiString.hxx".}
 proc token*(this: TCollectionHAsciiString; separators: cstring = " \t";
            whichone: cint = 1): Handle[TCollectionHAsciiString] {.noSideEffect, cdecl,
-    importcpp: "Token", dynlib: tkernel.}
+    importcpp: "Token", header: "TCollection_HAsciiString.hxx".}
 proc trunc*(this: var TCollectionHAsciiString; ahowmany: cint) {.cdecl,
-    importcpp: "Trunc", dynlib: tkernel.}
+    importcpp: "Trunc", header: "TCollection_HAsciiString.hxx".}
 proc upperCase*(this: var TCollectionHAsciiString) {.cdecl, importcpp: "UpperCase",
-    dynlib: tkernel.}
+    header: "TCollection_HAsciiString.hxx".}
 proc usefullLength*(this: TCollectionHAsciiString): cint {.noSideEffect, cdecl,
-    importcpp: "UsefullLength", dynlib: tkernel.}
+    importcpp: "UsefullLength", header: "TCollection_HAsciiString.hxx".}
 proc value*(this: TCollectionHAsciiString; where: cint): cchar {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkernel.}
+    importcpp: "Value", header: "TCollection_HAsciiString.hxx".}
 proc string*(this: TCollectionHAsciiString): TCollectionAsciiString {.noSideEffect,
-    cdecl, importcpp: "String", dynlib: tkernel.}
+    cdecl, importcpp: "String", header: "TCollection_HAsciiString.hxx".}
 proc isSameState*(this: TCollectionHAsciiString;
                  other: Handle[TCollectionHAsciiString]): bool {.noSideEffect,
-    cdecl, importcpp: "IsSameState", dynlib: tkernel.}
+    cdecl, importcpp: "IsSameState", header: "TCollection_HAsciiString.hxx".}

@@ -34,62 +34,62 @@ type
 
 
 proc firstParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg3d.}
+    importcpp: "FirstParameter", header: "Adaptor3d_Curve.hxx".}
 proc lastParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg3d.}
+    importcpp: "LastParameter", header: "Adaptor3d_Curve.hxx".}
 proc continuity*(this: Adaptor3dCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg3d.}
+    importcpp: "Continuity", header: "Adaptor3d_Curve.hxx".}
 proc nbIntervals*(this: Adaptor3dCurve; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkg3d.}
+    importcpp: "NbIntervals", header: "Adaptor3d_Curve.hxx".}
 proc intervals*(this: Adaptor3dCurve; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Adaptor3d_Curve.hxx".}
 proc trim*(this: Adaptor3dCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
-    Adaptor3dHCurve] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkg3d.}
+    Adaptor3dHCurve] {.noSideEffect, cdecl, importcpp: "Trim", header: "Adaptor3d_Curve.hxx".}
 proc isClosed*(this: Adaptor3dCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkg3d.}
+    importcpp: "IsClosed", header: "Adaptor3d_Curve.hxx".}
 proc isPeriodic*(this: Adaptor3dCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg3d.}
+    importcpp: "IsPeriodic", header: "Adaptor3d_Curve.hxx".}
 proc period*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl, importcpp: "Period",
-    dynlib: tkg3d.}
+    header: "Adaptor3d_Curve.hxx".}
 proc value*(this: Adaptor3dCurve; u: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkg3d.}
+    importcpp: "Value", header: "Adaptor3d_Curve.hxx".}
 proc d0*(this: Adaptor3dCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg3d.}
+    importcpp: "D0", header: "Adaptor3d_Curve.hxx".}
 proc d1*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkg3d.}
+    importcpp: "D1", header: "Adaptor3d_Curve.hxx".}
 proc d2*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Adaptor3d_Curve.hxx".}
 proc d3*(this: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_Curve.hxx".}
 proc dn*(this: Adaptor3dCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg3d.}
+    importcpp: "DN", header: "Adaptor3d_Curve.hxx".}
 proc resolution*(this: Adaptor3dCurve; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkg3d.}
+    importcpp: "Resolution", header: "Adaptor3d_Curve.hxx".}
 proc getType*(this: Adaptor3dCurve): GeomAbsCurveType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkg3d.}
+    importcpp: "GetType", header: "Adaptor3d_Curve.hxx".}
 proc line*(this: Adaptor3dCurve): Lin {.noSideEffect, cdecl, importcpp: "Line",
-                                    dynlib: tkg3d.}
+                                    header: "Adaptor3d_Curve.hxx".}
 proc circle*(this: Adaptor3dCurve): Circ {.noSideEffect, cdecl, importcpp: "Circle",
-                                       dynlib: tkg3d.}
+                                       header: "Adaptor3d_Curve.hxx".}
 proc ellipse*(this: Adaptor3dCurve): Elips {.noSideEffect, cdecl,
-    importcpp: "Ellipse", dynlib: tkg3d.}
+    importcpp: "Ellipse", header: "Adaptor3d_Curve.hxx".}
 proc hyperbola*(this: Adaptor3dCurve): Hypr {.noSideEffect, cdecl,
-    importcpp: "Hyperbola", dynlib: tkg3d.}
+    importcpp: "Hyperbola", header: "Adaptor3d_Curve.hxx".}
 proc parabola*(this: Adaptor3dCurve): Parab {.noSideEffect, cdecl,
-    importcpp: "Parabola", dynlib: tkg3d.}
+    importcpp: "Parabola", header: "Adaptor3d_Curve.hxx".}
 proc degree*(this: Adaptor3dCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
-                                       dynlib: tkg3d.}
+                                       header: "Adaptor3d_Curve.hxx".}
 proc isRational*(this: Adaptor3dCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkg3d.}
+    importcpp: "IsRational", header: "Adaptor3d_Curve.hxx".}
 proc nbPoles*(this: Adaptor3dCurve): cint {.noSideEffect, cdecl, importcpp: "NbPoles",
-                                        dynlib: tkg3d.}
+                                        header: "Adaptor3d_Curve.hxx".}
 proc nbKnots*(this: Adaptor3dCurve): cint {.noSideEffect, cdecl, importcpp: "NbKnots",
-                                        dynlib: tkg3d.}
+                                        header: "Adaptor3d_Curve.hxx".}
 proc bezier*(this: Adaptor3dCurve): Handle[GeomBezierCurve] {.noSideEffect, cdecl,
-    importcpp: "Bezier", dynlib: tkg3d.}
+    importcpp: "Bezier", header: "Adaptor3d_Curve.hxx".}
 proc bSpline*(this: Adaptor3dCurve): Handle[GeomBSplineCurve] {.noSideEffect, cdecl,
-    importcpp: "BSpline", dynlib: tkg3d.}
+    importcpp: "BSpline", header: "Adaptor3d_Curve.hxx".}
 proc offsetCurve*(this: Adaptor3dCurve): Handle[GeomOffsetCurve] {.noSideEffect,
-    cdecl, importcpp: "OffsetCurve", dynlib: tkg3d.}
+    cdecl, importcpp: "OffsetCurve", header: "Adaptor3d_Curve.hxx".}
 proc destroyAdaptor3dCurve*(this: var Adaptor3dCurve) {.cdecl,
-    importcpp: "#.~Adaptor3d_Curve()", dynlib: tkg3d.}
+    importcpp: "#.~Adaptor3d_Curve()", header: "Adaptor3d_Curve.hxx".}

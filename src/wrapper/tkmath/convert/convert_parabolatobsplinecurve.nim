@@ -37,4 +37,4 @@ type
 
 proc newConvertParabolaToBSplineCurve*(prb: Parab2d; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_ParabolaToBSplineCurve(@)",
-    dynlib: tkmath.}
+    header: "Convert_ParabolaToBSplineCurve.hxx".}

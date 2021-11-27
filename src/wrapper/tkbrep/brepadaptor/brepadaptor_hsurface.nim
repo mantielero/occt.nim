@@ -32,15 +32,15 @@ type
 
 
 proc newBRepAdaptorHSurface*(): BRepAdaptorHSurface {.cdecl, constructor,
-    importcpp: "BRepAdaptor_HSurface(@)", dynlib: tkbrep.}
+    importcpp: "BRepAdaptor_HSurface(@)", header: "BRepAdaptor_HSurface.hxx".}
 proc newBRepAdaptorHSurface*(s: BRepAdaptorSurface): BRepAdaptorHSurface {.cdecl,
-    constructor, importcpp: "BRepAdaptor_HSurface(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRepAdaptor_HSurface(@)", header: "BRepAdaptor_HSurface.hxx".}
 proc set*(this: var BRepAdaptorHSurface; s: BRepAdaptorSurface) {.cdecl,
-    importcpp: "Set", dynlib: tkbrep.}
+    importcpp: "Set", header: "BRepAdaptor_HSurface.hxx".}
 proc surface*(this: BRepAdaptorHSurface): Adaptor3dSurface {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRepAdaptor_HSurface.hxx".}
 proc changeSurface*(this: var BRepAdaptorHSurface): var BRepAdaptorSurface {.cdecl,
-    importcpp: "ChangeSurface", dynlib: tkbrep.}
+    importcpp: "ChangeSurface", header: "BRepAdaptor_HSurface.hxx".}
 type
   BRepAdaptorHSurfacebaseType* = Adaptor3dHSurface
 

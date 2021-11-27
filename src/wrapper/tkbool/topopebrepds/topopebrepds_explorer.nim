@@ -27,27 +27,27 @@ type
 
 
 proc newTopOpeBRepDS_Explorer*(): TopOpeBRepDS_Explorer {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Explorer(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Explorer(@)", header: "TopOpeBRepDS_Explorer.hxx".}
 proc newTopOpeBRepDS_Explorer*(hds: Handle[TopOpeBRepDS_HDataStructure];
                               t: TopAbsShapeEnum = topAbsSHAPE;
                               findkeep: bool = true): TopOpeBRepDS_Explorer {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_Explorer(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_Explorer(@)", header: "TopOpeBRepDS_Explorer.hxx".}
 proc init*(this: var TopOpeBRepDS_Explorer;
           hds: Handle[TopOpeBRepDS_HDataStructure];
           t: TopAbsShapeEnum = topAbsSHAPE; findkeep: bool = true) {.cdecl,
-    importcpp: "Init", dynlib: tkbool.}
+    importcpp: "Init", header: "TopOpeBRepDS_Explorer.hxx".}
 proc `type`*(this: TopOpeBRepDS_Explorer): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "Type", dynlib: tkbool.}
+    importcpp: "Type", header: "TopOpeBRepDS_Explorer.hxx".}
 proc more*(this: TopOpeBRepDS_Explorer): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
-proc next*(this: var TopOpeBRepDS_Explorer) {.cdecl, importcpp: "Next", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepDS_Explorer.hxx".}
+proc next*(this: var TopOpeBRepDS_Explorer) {.cdecl, importcpp: "Next", header: "TopOpeBRepDS_Explorer.hxx".}
 proc current*(this: TopOpeBRepDS_Explorer): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Current", dynlib: tkbool.}
+    importcpp: "Current", header: "TopOpeBRepDS_Explorer.hxx".}
 proc index*(this: TopOpeBRepDS_Explorer): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepDS_Explorer.hxx".}
 proc face*(this: TopOpeBRepDS_Explorer): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkbool.}
+    importcpp: "Face", header: "TopOpeBRepDS_Explorer.hxx".}
 proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", dynlib: tkbool.}
+    importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
 proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkbool.}
+    importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}

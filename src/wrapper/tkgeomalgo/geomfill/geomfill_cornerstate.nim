@@ -25,24 +25,24 @@ type
 
 
 proc newGeomFillCornerState*(): GeomFillCornerState {.cdecl, constructor,
-    importcpp: "GeomFill_CornerState(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_CornerState(@)", header: "GeomFill_CornerState.hxx".}
 proc gap*(this: GeomFillCornerState): cfloat {.noSideEffect, cdecl, importcpp: "Gap",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}
 proc gap*(this: var GeomFillCornerState; g: cfloat) {.cdecl, importcpp: "Gap",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}
 proc tgtAng*(this: GeomFillCornerState): cfloat {.noSideEffect, cdecl,
-    importcpp: "TgtAng", dynlib: tkgeomalgo.}
+    importcpp: "TgtAng", header: "GeomFill_CornerState.hxx".}
 proc tgtAng*(this: var GeomFillCornerState; ang: cfloat) {.cdecl, importcpp: "TgtAng",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}
 proc hasConstraint*(this: GeomFillCornerState): bool {.noSideEffect, cdecl,
-    importcpp: "HasConstraint", dynlib: tkgeomalgo.}
+    importcpp: "HasConstraint", header: "GeomFill_CornerState.hxx".}
 proc constraint*(this: var GeomFillCornerState) {.cdecl, importcpp: "Constraint",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}
 proc norAng*(this: GeomFillCornerState): cfloat {.noSideEffect, cdecl,
-    importcpp: "NorAng", dynlib: tkgeomalgo.}
+    importcpp: "NorAng", header: "GeomFill_CornerState.hxx".}
 proc norAng*(this: var GeomFillCornerState; ang: cfloat) {.cdecl, importcpp: "NorAng",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}
 proc isToKill*(this: GeomFillCornerState; scal: var cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "IsToKill", dynlib: tkgeomalgo.}
+    importcpp: "IsToKill", header: "GeomFill_CornerState.hxx".}
 proc doKill*(this: var GeomFillCornerState; scal: cfloat) {.cdecl, importcpp: "DoKill",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CornerState.hxx".}

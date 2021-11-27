@@ -41,58 +41,58 @@ type
   BVH_BoxBVH_VecNt*[T; N] = object
 
 proc newBVH_Box*[T; N: static[cint]](): BVH_Box[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Box<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Box<\'*0,\'*1>(@)", header: "BVH_Box.hxx".}
 proc newBVH_Box*[T; N: static[cint]](thePoint: BVH_BoxBVH_VecNt): BVH_Box[T, N] {.
-    cdecl, constructor, importcpp: "BVH_Box<\'*0,\'*1>(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "BVH_Box<\'*0,\'*1>(@)", header: "BVH_Box.hxx".}
 proc newBVH_Box*[T; N: static[cint]](theMinPoint: BVH_BoxBVH_VecNt;
                                   theMaxPoint: BVH_BoxBVH_VecNt): BVH_Box[T, N] {.
-    cdecl, constructor, importcpp: "BVH_Box<\'*0,\'*1>(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "BVH_Box<\'*0,\'*1>(@)", header: "BVH_Box.hxx".}
 proc clear*[T; N: static[cint]](this: var BVH_Box[T, N]) {.cdecl, importcpp: "Clear",
-    dynlib: tkmath.}
+    header: "BVH_Box.hxx".}
 proc isValid*[T; N: static[cint]](this: BVH_Box[T, N]): bool {.noSideEffect, cdecl,
-    importcpp: "IsValid", dynlib: tkmath.}
+    importcpp: "IsValid", header: "BVH_Box.hxx".}
 proc add*[T; N: static[cint]](this: var BVH_Box[T, N]; thePoint: BVH_BoxBVH_VecNt) {.
-    cdecl, importcpp: "Add", dynlib: tkmath.}
+    cdecl, importcpp: "Add", header: "BVH_Box.hxx".}
 proc combine*[T; N: static[cint]](this: var BVH_Box[T, N]; theBox: BVH_Box) {.cdecl,
-    importcpp: "Combine", dynlib: tkmath.}
+    importcpp: "Combine", header: "BVH_Box.hxx".}
 proc cornerMin*[T; N: static[cint]](this: BVH_Box[T, N]): BVH_BoxBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "CornerMin", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "CornerMin", header: "BVH_Box.hxx".}
 proc cornerMax*[T; N: static[cint]](this: BVH_Box[T, N]): BVH_BoxBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "CornerMax", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "CornerMax", header: "BVH_Box.hxx".}
 proc cornerMin*[T; N: static[cint]](this: var BVH_Box[T, N]): var BVH_BoxBVH_VecNt {.
-    cdecl, importcpp: "CornerMin", dynlib: tkmath.}
+    cdecl, importcpp: "CornerMin", header: "BVH_Box.hxx".}
 proc cornerMax*[T; N: static[cint]](this: var BVH_Box[T, N]): var BVH_BoxBVH_VecNt {.
-    cdecl, importcpp: "CornerMax", dynlib: tkmath.}
+    cdecl, importcpp: "CornerMax", header: "BVH_Box.hxx".}
 proc area*[T; N: static[cint]](this: BVH_Box[T, N]): T {.noSideEffect, cdecl,
-    importcpp: "Area", dynlib: tkmath.}
+    importcpp: "Area", header: "BVH_Box.hxx".}
 proc size*[T; N: static[cint]](this: BVH_Box[T, N]): BVH_BoxBVH_VecNt {.noSideEffect,
-    cdecl, importcpp: "Size", dynlib: tkmath.}
+    cdecl, importcpp: "Size", header: "BVH_Box.hxx".}
 proc center*[T; N: static[cint]](this: BVH_Box[T, N]): BVH_BoxBVH_VecNt {.noSideEffect,
-    cdecl, importcpp: "Center", dynlib: tkmath.}
+    cdecl, importcpp: "Center", header: "BVH_Box.hxx".}
 proc center*[T; N: static[cint]](this: BVH_Box[T, N]; theAxis: cint): T {.noSideEffect,
-    cdecl, importcpp: "Center", dynlib: tkmath.}
+    cdecl, importcpp: "Center", header: "BVH_Box.hxx".}
 proc dumpJson*[T; N: static[cint]](this: BVH_Box[T, N];
                                 theOStream: var StandardOStream;
                                 theDepth: cint = -1) {.noSideEffect, cdecl,
-    importcpp: "DumpJson", dynlib: tkmath.}
+    importcpp: "DumpJson", header: "BVH_Box.hxx".}
 proc initFromJson*[T; N: static[cint]](this: var BVH_Box[T, N];
                                     theSStream: StandardSStream;
                                     theStreamPos: var cint): bool {.cdecl,
-    importcpp: "InitFromJson", dynlib: tkmath.}
+    importcpp: "InitFromJson", header: "BVH_Box.hxx".}
 proc isOut*[T; N: static[cint]](this: BVH_Box[T, N]; theOther: BVH_Box[T, N]): bool {.
-    noSideEffect, cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsOut", header: "BVH_Box.hxx".}
 proc isOut*[T; N: static[cint]](this: BVH_Box[T, N]; theMinPoint: BVH_BoxBVH_VecNt;
                              theMaxPoint: BVH_BoxBVH_VecNt): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "BVH_Box.hxx".}
 proc contains*[T; N: static[cint]](this: BVH_Box[T, N]; theOther: BVH_Box[T, N];
                                 hasOverlap: var bool): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkmath.}
+    importcpp: "Contains", header: "BVH_Box.hxx".}
 proc contains*[T; N: static[cint]](this: BVH_Box[T, N]; theMinPoint: BVH_BoxBVH_VecNt;
                                 theMaxPoint: BVH_BoxBVH_VecNt;
                                 hasOverlap: var bool): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkmath.}
+    importcpp: "Contains", header: "BVH_Box.hxx".}
 proc isOut*[T; N: static[cint]](this: BVH_Box[T, N]; thePoint: BVH_BoxBVH_VecNt): bool {.
-    noSideEffect, cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsOut", header: "BVH_Box.hxx".}
 ##  namespace BVH
 ##  {
 ##    //! Tool class for calculating box center along the given axis.
@@ -240,10 +240,10 @@ type
 
 proc cwiseMin*[T; N: static[cint]](theVec1: var BoxMinMaxBVH_VecNt;
                                 theVec2: BoxMinMaxBVH_VecNt) {.cdecl,
-    importcpp: "BoxMinMax::CwiseMin(@)", dynlib: tkmath.}
+    importcpp: "BoxMinMax::CwiseMin(@)", header: "BVH_Box.hxx".}
 proc cwiseMax*[T; N: static[cint]](theVec1: var BoxMinMaxBVH_VecNt;
                                 theVec2: BoxMinMaxBVH_VecNt) {.cdecl,
-    importcpp: "BoxMinMax::CwiseMax(@)", dynlib: tkmath.}
+    importcpp: "BoxMinMax::CwiseMax(@)", header: "BVH_Box.hxx".}
 ##    template<class T>
 ##    struct BoxMinMax<T, 2>
 ##    {

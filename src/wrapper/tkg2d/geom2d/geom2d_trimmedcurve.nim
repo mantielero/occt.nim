@@ -371,52 +371,52 @@ type
 
 proc newGeom2dTrimmedCurve*(c: Handle[Geom2dCurve]; u1: cfloat; u2: cfloat;
                            sense: bool = true; theAdjustPeriodic: bool = true): Geom2dTrimmedCurve {.
-    cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Geom2d_TrimmedCurve(@)", header: "Geom2d_TrimmedCurve.hxx".}
 proc reverse*(this: var Geom2dTrimmedCurve) {.cdecl, importcpp: "Reverse",
-    dynlib: tkg2d.}
+    header: "Geom2d_TrimmedCurve.hxx".}
 proc reversedParameter*(this: Geom2dTrimmedCurve; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkg2d.}
+    cdecl, importcpp: "ReversedParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc setTrim*(this: var Geom2dTrimmedCurve; u1: cfloat; u2: cfloat; sense: bool = true;
              theAdjustPeriodic: bool = true) {.cdecl, importcpp: "SetTrim",
-    dynlib: tkg2d.}
+    header: "Geom2d_TrimmedCurve.hxx".}
 proc basisCurve*(this: Geom2dTrimmedCurve): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "BasisCurve", dynlib: tkg2d.}
+    cdecl, importcpp: "BasisCurve", header: "Geom2d_TrimmedCurve.hxx".}
 proc continuity*(this: Geom2dTrimmedCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg2d.}
+    importcpp: "Continuity", header: "Geom2d_TrimmedCurve.hxx".}
 proc isCN*(this: Geom2dTrimmedCurve; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCN", dynlib: tkg2d.}
+    importcpp: "IsCN", header: "Geom2d_TrimmedCurve.hxx".}
 proc endPoint*(this: Geom2dTrimmedCurve): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "EndPoint", dynlib: tkg2d.}
+    importcpp: "EndPoint", header: "Geom2d_TrimmedCurve.hxx".}
 proc firstParameter*(this: Geom2dTrimmedCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc isClosed*(this: Geom2dTrimmedCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkg2d.}
+    importcpp: "IsClosed", header: "Geom2d_TrimmedCurve.hxx".}
 proc isPeriodic*(this: Geom2dTrimmedCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Geom2d_TrimmedCurve.hxx".}
 proc period*(this: Geom2dTrimmedCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkg2d.}
+    importcpp: "Period", header: "Geom2d_TrimmedCurve.hxx".}
 proc lastParameter*(this: Geom2dTrimmedCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc startPoint*(this: Geom2dTrimmedCurve): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "StartPoint", dynlib: tkg2d.}
+    importcpp: "StartPoint", header: "Geom2d_TrimmedCurve.hxx".}
 proc d0*(this: Geom2dTrimmedCurve; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Geom2d_TrimmedCurve.hxx".}
 proc d1*(this: Geom2dTrimmedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkg2d.}
+    cdecl, importcpp: "D1", header: "Geom2d_TrimmedCurve.hxx".}
 proc d2*(this: Geom2dTrimmedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_TrimmedCurve.hxx".}
 proc d3*(this: Geom2dTrimmedCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_TrimmedCurve.hxx".}
 proc dn*(this: Geom2dTrimmedCurve; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Geom2d_TrimmedCurve.hxx".}
 proc transform*(this: var Geom2dTrimmedCurve; t: Trsf2d) {.cdecl,
-    importcpp: "Transform", dynlib: tkg2d.}
+    importcpp: "Transform", header: "Geom2d_TrimmedCurve.hxx".}
 proc transformedParameter*(this: Geom2dTrimmedCurve; u: cfloat; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_TrimmedCurve.hxx".}
 proc parametricTransformation*(this: Geom2dTrimmedCurve; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom2d_TrimmedCurve.hxx".}
 proc copy*(this: Geom2dTrimmedCurve): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_TrimmedCurve.hxx".}
 proc dumpJson*(this: Geom2dTrimmedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_TrimmedCurve.hxx".}

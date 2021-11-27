@@ -20,8 +20,8 @@ when defined(OCCT_DEBUG):
     Topkro* {.importcpp: "TOPKRO", header: "TopOpeBRepTool_KRO.hxx", bycopy.} = object of OSD_Chronometer
 
   proc newTopkro*(n: TCollectionAsciiString): Topkro {.cdecl, constructor,
-      importcpp: "TOPKRO(@)", dynlib: tkbool.}
-  proc start*(this: var Topkro) {.cdecl, importcpp: "Start", dynlib: tkbool.}
-  proc stop*(this: var Topkro) {.cdecl, importcpp: "Stop", dynlib: tkbool.}
+      importcpp: "TOPKRO(@)", header: "TopOpeBRepTool_KRO.hxx".}
+  proc start*(this: var Topkro) {.cdecl, importcpp: "Start", header: "TopOpeBRepTool_KRO.hxx".}
+  proc stop*(this: var Topkro) {.cdecl, importcpp: "Stop", header: "TopOpeBRepTool_KRO.hxx".}
   proc print*(this: var Topkro; os: var StandardOStream) {.cdecl, importcpp: "Print",
-      dynlib: tkbool.}
+      header: "TopOpeBRepTool_KRO.hxx".}

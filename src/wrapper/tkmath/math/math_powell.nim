@@ -28,24 +28,24 @@ type
 
 proc newMathPowell*(theFunction: MathMultipleVarFunction; theTolerance: cfloat;
                    theNbIterations: cint = 200; theZEPS: cfloat = 1.0e-12): MathPowell {.
-    cdecl, constructor, importcpp: "math_Powell(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Powell(@)", header: "math_Powell.hxx".}
 proc destroyMathPowell*(this: var MathPowell) {.cdecl, importcpp: "#.~math_Powell()",
-    dynlib: tkmath.}
+    header: "math_Powell.hxx".}
 proc perform*(this: var MathPowell; theFunction: var MathMultipleVarFunction;
              theStartingPoint: MathVector; theStartingDirections: MathMatrix) {.
-    cdecl, importcpp: "Perform", dynlib: tkmath.}
+    cdecl, importcpp: "Perform", header: "math_Powell.hxx".}
 proc isSolutionReached*(this: var MathPowell;
                        theFunction: var MathMultipleVarFunction): bool {.cdecl,
-    importcpp: "IsSolutionReached", dynlib: tkmath.}
+    importcpp: "IsSolutionReached", header: "math_Powell.hxx".}
 proc isDone*(this: MathPowell): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                   dynlib: tkmath.}
+                                   header: "math_Powell.hxx".}
 proc location*(this: MathPowell): MathVector {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_Powell.hxx".}
 proc location*(this: MathPowell; loc: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_Powell.hxx".}
 proc minimum*(this: MathPowell): cfloat {.noSideEffect, cdecl, importcpp: "Minimum",
-                                      dynlib: tkmath.}
+                                      header: "math_Powell.hxx".}
 proc nbIterations*(this: MathPowell): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_Powell.hxx".}
 proc dump*(this: MathPowell; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Powell.hxx".}

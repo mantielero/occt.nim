@@ -34,27 +34,27 @@ type
 
 proc newBRepCurveOnSurface*(pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                            L: TopLocLocation): BRepCurveOnSurface {.cdecl,
-    constructor, importcpp: "BRep_CurveOnSurface(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRep_CurveOnSurface(@)", header: "BRep_CurveOnSurface.hxx".}
 proc setUVPoints*(this: var BRepCurveOnSurface; p1: Pnt2d; p2: Pnt2d) {.cdecl,
-    importcpp: "SetUVPoints", dynlib: tkbrep.}
+    importcpp: "SetUVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc uVPoints*(this: BRepCurveOnSurface; p1: var Pnt2d; p2: var Pnt2d) {.noSideEffect,
-    cdecl, importcpp: "UVPoints", dynlib: tkbrep.}
+    cdecl, importcpp: "UVPoints", header: "BRep_CurveOnSurface.hxx".}
 proc d0*(this: BRepCurveOnSurface; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkbrep.}
+    importcpp: "D0", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}
 proc isCurveOnSurface*(this: BRepCurveOnSurface; s: Handle[GeomSurface];
                       L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsCurveOnSurface", header: "BRep_CurveOnSurface.hxx".}
 proc surface*(this: BRepCurveOnSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_CurveOnSurface.hxx".}
 proc pCurve*(this: BRepCurveOnSurface): Handle[Geom2dCurve] {.noSideEffect, cdecl,
-    importcpp: "PCurve", dynlib: tkbrep.}
+    importcpp: "PCurve", header: "BRep_CurveOnSurface.hxx".}
 proc pCurve*(this: var BRepCurveOnSurface; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve", dynlib: tkbrep.}
+    importcpp: "PCurve", header: "BRep_CurveOnSurface.hxx".}
 proc copy*(this: BRepCurveOnSurface): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
-proc update*(this: var BRepCurveOnSurface) {.cdecl, importcpp: "Update", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_CurveOnSurface.hxx".}
+proc update*(this: var BRepCurveOnSurface) {.cdecl, importcpp: "Update", header: "BRep_CurveOnSurface.hxx".}
 proc dumpJson*(this: BRepCurveOnSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveOnSurface.hxx".}

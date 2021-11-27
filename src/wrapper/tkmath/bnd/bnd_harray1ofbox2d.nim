@@ -20,10 +20,10 @@ type
 
 
 proc newBndHArray1OfBox2d*(theLower: cint; theUpper: cint): BndHArray1OfBox2d {.cdecl,
-    constructor, importcpp: "Bnd_HArray1OfBox2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "Bnd_HArray1OfBox2d(@)", header: "Bnd_HArray1OfBox2d.hxx".}
 proc newBndHArray1OfBox2d*(theLower: cint; theUpper: cint; theValue: ValueType): BndHArray1OfBox2d {.
-    cdecl, constructor, importcpp: "Bnd_HArray1OfBox2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Bnd_HArray1OfBox2d(@)", header: "Bnd_HArray1OfBox2d.hxx".}
 proc newBndHArray1OfBox2d*(theOther: BndArray1OfBox2d): BndHArray1OfBox2d {.cdecl,
-    constructor, importcpp: "Bnd_HArray1OfBox2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "Bnd_HArray1OfBox2d(@)", header: "Bnd_HArray1OfBox2d.hxx".}
 proc array1*(this: BndHArray1OfBox2d): BndArray1OfBox2d {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkmath.}
+    importcpp: "Array1", header: "Bnd_HArray1OfBox2d.hxx".}

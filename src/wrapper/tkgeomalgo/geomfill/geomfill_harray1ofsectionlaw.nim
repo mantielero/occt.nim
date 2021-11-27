@@ -21,13 +21,13 @@ type
 
 proc newGeomFillHArray1OfSectionLaw*(theLower: cint; theUpper: cint): GeomFillHArray1OfSectionLaw {.
     cdecl, constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_HArray1OfSectionLaw.hxx".}
 proc newGeomFillHArray1OfSectionLaw*(theLower: cint; theUpper: cint;
                                     theValue: ValueType): GeomFillHArray1OfSectionLaw {.
     cdecl, constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_HArray1OfSectionLaw.hxx".}
 proc newGeomFillHArray1OfSectionLaw*(theOther: GeomFillArray1OfSectionLaw): GeomFillHArray1OfSectionLaw {.
     cdecl, constructor, importcpp: "GeomFill_HArray1OfSectionLaw(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_HArray1OfSectionLaw.hxx".}
 proc array1*(this: GeomFillHArray1OfSectionLaw): GeomFillArray1OfSectionLaw {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "GeomFill_HArray1OfSectionLaw.hxx".}

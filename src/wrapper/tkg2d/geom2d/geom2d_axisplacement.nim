@@ -54,28 +54,28 @@ type
 
 
 proc newGeom2dAxisPlacement*(a: Ax2d): Geom2dAxisPlacement {.cdecl, constructor,
-    importcpp: "Geom2d_AxisPlacement(@)", dynlib: tkg2d.}
+    importcpp: "Geom2d_AxisPlacement(@)", header: "Geom2d_AxisPlacement.hxx".}
 proc newGeom2dAxisPlacement*(p: Pnt2d; v: Dir2d): Geom2dAxisPlacement {.cdecl,
-    constructor, importcpp: "Geom2d_AxisPlacement(@)", dynlib: tkg2d.}
+    constructor, importcpp: "Geom2d_AxisPlacement(@)", header: "Geom2d_AxisPlacement.hxx".}
 proc reverse*(this: var Geom2dAxisPlacement) {.cdecl, importcpp: "Reverse",
-    dynlib: tkg2d.}
+    header: "Geom2d_AxisPlacement.hxx".}
 proc reversed*(this: Geom2dAxisPlacement): Handle[Geom2dAxisPlacement] {.
-    noSideEffect, cdecl, importcpp: "Reversed", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Reversed", header: "Geom2d_AxisPlacement.hxx".}
 proc setAxis*(this: var Geom2dAxisPlacement; a: Ax2d) {.cdecl, importcpp: "SetAxis",
-    dynlib: tkg2d.}
+    header: "Geom2d_AxisPlacement.hxx".}
 proc setDirection*(this: var Geom2dAxisPlacement; v: Dir2d) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkg2d.}
+    importcpp: "SetDirection", header: "Geom2d_AxisPlacement.hxx".}
 proc setLocation*(this: var Geom2dAxisPlacement; p: Pnt2d) {.cdecl,
-    importcpp: "SetLocation", dynlib: tkg2d.}
+    importcpp: "SetLocation", header: "Geom2d_AxisPlacement.hxx".}
 proc angle*(this: Geom2dAxisPlacement; other: Handle[Geom2dAxisPlacement]): cfloat {.
-    noSideEffect, cdecl, importcpp: "Angle", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "Angle", header: "Geom2d_AxisPlacement.hxx".}
 proc ax2d*(this: Geom2dAxisPlacement): Ax2d {.noSideEffect, cdecl, importcpp: "Ax2d",
-    dynlib: tkg2d.}
+    header: "Geom2d_AxisPlacement.hxx".}
 proc direction*(this: Geom2dAxisPlacement): Dir2d {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkg2d.}
+    importcpp: "Direction", header: "Geom2d_AxisPlacement.hxx".}
 proc location*(this: Geom2dAxisPlacement): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkg2d.}
+    importcpp: "Location", header: "Geom2d_AxisPlacement.hxx".}
 proc transform*(this: var Geom2dAxisPlacement; t: Trsf2d) {.cdecl,
-    importcpp: "Transform", dynlib: tkg2d.}
+    importcpp: "Transform", header: "Geom2d_AxisPlacement.hxx".}
 proc copy*(this: Geom2dAxisPlacement): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_AxisPlacement.hxx".}

@@ -26,33 +26,33 @@ type
 
 
 proc newExtremaExtElC2d*(): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Lin2d; c2: Lin2d; angTol: cfloat): ExtremaExtElC2d {.cdecl,
-    constructor, importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Lin2d; c2: Circ2d; tol: cfloat): ExtremaExtElC2d {.cdecl,
-    constructor, importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Lin2d; c2: Elips2d): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Lin2d; c2: Hypr2d): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Lin2d; c2: Parab2d): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Circ2d; c2: Circ2d): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Circ2d; c2: Elips2d): ExtremaExtElC2d {.cdecl,
-    constructor, importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Circ2d; c2: Hypr2d): ExtremaExtElC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc newExtremaExtElC2d*(c1: Circ2d; c2: Parab2d): ExtremaExtElC2d {.cdecl,
-    constructor, importcpp: "Extrema_ExtElC2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc isDone*(this: ExtremaExtElC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_ExtElC2d.hxx".}
 proc isParallel*(this: ExtremaExtElC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsParallel", dynlib: tkgeombase.}
+    importcpp: "IsParallel", header: "Extrema_ExtElC2d.hxx".}
 proc nbExt*(this: ExtremaExtElC2d): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_ExtElC2d.hxx".}
 proc squareDistance*(this: ExtremaExtElC2d; n: cint = 1): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_ExtElC2d.hxx".}
 proc points*(this: ExtremaExtElC2d; n: cint; p1: var ExtremaPOnCurv2d;
             p2: var ExtremaPOnCurv2d) {.noSideEffect, cdecl, importcpp: "Points",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_ExtElC2d.hxx".}

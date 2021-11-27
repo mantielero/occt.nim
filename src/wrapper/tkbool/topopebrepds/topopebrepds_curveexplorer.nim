@@ -22,25 +22,25 @@ type
 
 
 proc newTopOpeBRepDS_CurveExplorer*(): TopOpeBRepDS_CurveExplorer {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc newTopOpeBRepDS_CurveExplorer*(ds: TopOpeBRepDS_DataStructure;
                                    findOnlyKeep: bool = true): TopOpeBRepDS_CurveExplorer {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveExplorer(@)", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc init*(this: var TopOpeBRepDS_CurveExplorer; ds: TopOpeBRepDS_DataStructure;
-          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", dynlib: tkbool.}
+          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc more*(this: TopOpeBRepDS_CurveExplorer): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc next*(this: var TopOpeBRepDS_CurveExplorer) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc curve*(this: TopOpeBRepDS_CurveExplorer): TopOpeBRepDS_Curve {.noSideEffect,
-    cdecl, importcpp: "Curve", dynlib: tkbool.}
+    cdecl, importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc isCurve*(this: TopOpeBRepDS_CurveExplorer; i: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurve", dynlib: tkbool.}
+    importcpp: "IsCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc isCurveKeep*(this: TopOpeBRepDS_CurveExplorer; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsCurveKeep", dynlib: tkbool.}
+    cdecl, importcpp: "IsCurveKeep", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc curve*(this: TopOpeBRepDS_CurveExplorer; i: cint): TopOpeBRepDS_Curve {.
-    noSideEffect, cdecl, importcpp: "Curve", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Curve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc nbCurve*(this: var TopOpeBRepDS_CurveExplorer): cint {.cdecl,
-    importcpp: "NbCurve", dynlib: tkbool.}
+    importcpp: "NbCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_CurveExplorer): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepDS_CurveExplorer.hxx".}

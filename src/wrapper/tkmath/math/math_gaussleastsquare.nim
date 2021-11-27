@@ -48,10 +48,10 @@ type
 
 
 proc newMathGaussLeastSquare*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathGaussLeastSquare {.
-    cdecl, constructor, importcpp: "math_GaussLeastSquare(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_GaussLeastSquare(@)", header: "math_GaussLeastSquare.hxx".}
 proc isDone*(this: MathGaussLeastSquare): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_GaussLeastSquare.hxx".}
 proc solve*(this: MathGaussLeastSquare; b: MathVector; x: var MathVector) {.
-    noSideEffect, cdecl, importcpp: "Solve", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Solve", header: "math_GaussLeastSquare.hxx".}
 proc dump*(this: MathGaussLeastSquare; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_GaussLeastSquare.hxx".}

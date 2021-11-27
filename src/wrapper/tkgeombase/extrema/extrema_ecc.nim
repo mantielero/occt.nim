@@ -46,29 +46,29 @@ type
 
 
 proc newExtremaECC*(): ExtremaECC {.cdecl, constructor, importcpp: "Extrema_ECC(@)",
-                                 dynlib: tkgeombase.}
+                                 header: "Extrema_ECC.hxx".}
 proc newExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaECC {.cdecl,
-    constructor, importcpp: "Extrema_ECC(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
 proc newExtremaECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
                    vinf: cfloat; vsup: cfloat): ExtremaECC {.cdecl, constructor,
-    importcpp: "Extrema_ECC(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ECC(@)", header: "Extrema_ECC.hxx".}
 proc setParams*(this: var ExtremaECC; c1: Adaptor3dCurve; c2: Adaptor3dCurve;
                uinf: cfloat; usup: cfloat; vinf: cfloat; vsup: cfloat) {.cdecl,
-    importcpp: "SetParams", dynlib: tkgeombase.}
+    importcpp: "SetParams", header: "Extrema_ECC.hxx".}
 proc setTolerance*(this: var ExtremaECC; tol: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkgeombase.}
+    importcpp: "SetTolerance", header: "Extrema_ECC.hxx".}
 proc setSingleSolutionFlag*(this: var ExtremaECC; theSingleSolutionFlag: bool) {.
-    cdecl, importcpp: "SetSingleSolutionFlag", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
 proc getSingleSolutionFlag*(this: ExtremaECC): bool {.noSideEffect, cdecl,
-    importcpp: "GetSingleSolutionFlag", dynlib: tkgeombase.}
-proc perform*(this: var ExtremaECC) {.cdecl, importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "GetSingleSolutionFlag", header: "Extrema_ECC.hxx".}
+proc perform*(this: var ExtremaECC) {.cdecl, importcpp: "Perform", header: "Extrema_ECC.hxx".}
 proc isDone*(this: ExtremaECC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                   dynlib: tkgeombase.}
+                                   header: "Extrema_ECC.hxx".}
 proc isParallel*(this: ExtremaECC): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsParallel", dynlib: tkgeombase.}
+                                       importcpp: "IsParallel", header: "Extrema_ECC.hxx".}
 proc nbExt*(this: ExtremaECC): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                  dynlib: tkgeombase.}
+                                  header: "Extrema_ECC.hxx".}
 proc squareDistance*(this: ExtremaECC; n: cint = 1): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_ECC.hxx".}
 proc points*(this: ExtremaECC; n: cint; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
-    noSideEffect, cdecl, importcpp: "Points", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Points", header: "Extrema_ECC.hxx".}

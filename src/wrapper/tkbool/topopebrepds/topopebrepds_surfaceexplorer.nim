@@ -23,25 +23,25 @@ type
 
 
 proc newTopOpeBRepDS_SurfaceExplorer*(): TopOpeBRepDS_SurfaceExplorer {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc newTopOpeBRepDS_SurfaceExplorer*(ds: TopOpeBRepDS_DataStructure;
                                      findOnlyKeep: bool = true): TopOpeBRepDS_SurfaceExplorer {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceExplorer(@)", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc init*(this: var TopOpeBRepDS_SurfaceExplorer; ds: TopOpeBRepDS_DataStructure;
-          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", dynlib: tkbool.}
+          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc more*(this: TopOpeBRepDS_SurfaceExplorer): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc next*(this: var TopOpeBRepDS_SurfaceExplorer) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc surface*(this: TopOpeBRepDS_SurfaceExplorer): TopOpeBRepDS_Surface {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc isSurface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsSurface", dynlib: tkbool.}
+    cdecl, importcpp: "IsSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc isSurfaceKeep*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsSurfaceKeep", dynlib: tkbool.}
+    cdecl, importcpp: "IsSurfaceKeep", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc surface*(this: TopOpeBRepDS_SurfaceExplorer; i: cint): TopOpeBRepDS_Surface {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): cint {.cdecl,
-    importcpp: "NbSurface", dynlib: tkbool.}
+    importcpp: "NbSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_SurfaceExplorer): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}

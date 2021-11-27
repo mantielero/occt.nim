@@ -19,9 +19,9 @@ type
 
 
 proc newTopOpeBRepDS_Reducer*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Reducer {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Reducer(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Reducer(@)", header: "TopOpeBRepDS_Reducer.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_Reducer;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
-    cdecl, importcpp: "ProcessFaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.cdecl,
-    importcpp: "ProcessEdgeInterferences", dynlib: tkbool.}
+    importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Reducer.hxx".}

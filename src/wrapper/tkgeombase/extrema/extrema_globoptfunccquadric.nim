@@ -34,21 +34,21 @@ type
 
 proc newExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve): ExtremaGlobOptFuncCQuadric {.
     cdecl, constructor, importcpp: "Extrema_GlobOptFuncCQuadric(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc newExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve; theTf: cfloat;
                                    theTl: cfloat): ExtremaGlobOptFuncCQuadric {.
     cdecl, constructor, importcpp: "Extrema_GlobOptFuncCQuadric(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc newExtremaGlobOptFuncCQuadric*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncCQuadric {.
     cdecl, constructor, importcpp: "Extrema_GlobOptFuncCQuadric(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc loadQuad*(this: var ExtremaGlobOptFuncCQuadric; s: ptr Adaptor3dSurface;
               theUf: cfloat; theUl: cfloat; theVf: cfloat; theVl: cfloat) {.cdecl,
-    importcpp: "LoadQuad", dynlib: tkgeombase.}
+    importcpp: "LoadQuad", header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc nbVariables*(this: ExtremaGlobOptFuncCQuadric): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc value*(this: var ExtremaGlobOptFuncCQuadric; theX: MathVector; theF: var cfloat): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "Extrema_GlobOptFuncCQuadric.hxx".}
 proc quadricParameters*(this: ExtremaGlobOptFuncCQuadric; theCT: MathVector;
                        theUV: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "QuadricParameters", dynlib: tkgeombase.}
+    importcpp: "QuadricParameters", header: "Extrema_GlobOptFuncCQuadric.hxx".}

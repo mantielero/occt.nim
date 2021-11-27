@@ -31,20 +31,20 @@ type
   NCollectionHandleelementType*[T] = T
 
 proc newNCollectionHandle*[T](): NCollectionHandle[T] {.cdecl, constructor,
-    importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
+    importcpp: "NCollection_Handle<\'*0>(@)", header: "NCollection_Handle.hxx".}
 proc newNCollectionHandle*[T](theObject: ptr T): NCollectionHandle[T] {.cdecl,
-    constructor, importcpp: "NCollection_Handle<\'*0>(@)", dynlib: tkernel.}
+    constructor, importcpp: "NCollection_Handle<\'*0>(@)", header: "NCollection_Handle.hxx".}
 proc get*[T](this: var NCollectionHandle[T]): ptr T {.cdecl, importcpp: "get",
-    dynlib: tkernel.}
+    header: "NCollection_Handle.hxx".}
 proc get*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect, cdecl,
-    importcpp: "get", dynlib: tkernel.}
+    importcpp: "get", header: "NCollection_Handle.hxx".}
 proc `->`*[T](this: var NCollectionHandle[T]): ptr T {.cdecl, importcpp: "(# -> #)",
-    dynlib: tkernel.}
+    header: "NCollection_Handle.hxx".}
 proc `->`*[T](this: NCollectionHandle[T]): ptr T {.noSideEffect, cdecl,
-    importcpp: "(# -> #)", dynlib: tkernel.}
+    importcpp: "(# -> #)", header: "NCollection_Handle.hxx".}
 proc `*`*[T](this: var NCollectionHandle[T]): var T {.cdecl, importcpp: "(* #)",
-    dynlib: tkernel.}
+    header: "NCollection_Handle.hxx".}
 proc `*`*[T](this: NCollectionHandle[T]): T {.noSideEffect, cdecl, importcpp: "(* #)",
-    dynlib: tkernel.}
+    header: "NCollection_Handle.hxx".}
 proc downCast*[T](theOther: Handle[StandardTransient]): NCollectionHandle[T] {.
-    cdecl, importcpp: "NCollection_Handle::DownCast(@)", dynlib: tkernel.}
+    cdecl, importcpp: "NCollection_Handle::DownCast(@)", header: "NCollection_Handle.hxx".}

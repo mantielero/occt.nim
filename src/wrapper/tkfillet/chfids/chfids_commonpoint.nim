@@ -27,39 +27,39 @@ type
 
 
 proc newChFiDS_CommonPoint*(): ChFiDS_CommonPoint {.cdecl, constructor,
-    importcpp: "ChFiDS_CommonPoint(@)", dynlib: tkfillet.}
-proc reset*(this: var ChFiDS_CommonPoint) {.cdecl, importcpp: "Reset", dynlib: tkfillet.}
+    importcpp: "ChFiDS_CommonPoint(@)", header: "ChFiDS_CommonPoint.hxx".}
+proc reset*(this: var ChFiDS_CommonPoint) {.cdecl, importcpp: "Reset", header: "ChFiDS_CommonPoint.hxx".}
 proc setVertex*(this: var ChFiDS_CommonPoint; theVertex: TopoDS_Vertex) {.cdecl,
-    importcpp: "SetVertex", dynlib: tkfillet.}
+    importcpp: "SetVertex", header: "ChFiDS_CommonPoint.hxx".}
 proc setArc*(this: var ChFiDS_CommonPoint; tol: cfloat; a: TopoDS_Edge; param: cfloat;
-            tArc: TopAbsOrientation) {.cdecl, importcpp: "SetArc", dynlib: tkfillet.}
+            tArc: TopAbsOrientation) {.cdecl, importcpp: "SetArc", header: "ChFiDS_CommonPoint.hxx".}
 proc setParameter*(this: var ChFiDS_CommonPoint; param: cfloat) {.cdecl,
-    importcpp: "SetParameter", dynlib: tkfillet.}
+    importcpp: "SetParameter", header: "ChFiDS_CommonPoint.hxx".}
 proc setPoint*(this: var ChFiDS_CommonPoint; thePoint: Pnt) {.cdecl,
-    importcpp: "SetPoint", dynlib: tkfillet.}
+    importcpp: "SetPoint", header: "ChFiDS_CommonPoint.hxx".}
 proc setVector*(this: var ChFiDS_CommonPoint; theVector: Vec) {.cdecl,
-    importcpp: "SetVector", dynlib: tkfillet.}
+    importcpp: "SetVector", header: "ChFiDS_CommonPoint.hxx".}
 proc setTolerance*(this: var ChFiDS_CommonPoint; tol: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkfillet.}
+    importcpp: "SetTolerance", header: "ChFiDS_CommonPoint.hxx".}
 proc tolerance*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkfillet.}
+    importcpp: "Tolerance", header: "ChFiDS_CommonPoint.hxx".}
 proc isVertex*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
-    importcpp: "IsVertex", dynlib: tkfillet.}
+    importcpp: "IsVertex", header: "ChFiDS_CommonPoint.hxx".}
 proc vertex*(this: ChFiDS_CommonPoint): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkfillet.}
+    importcpp: "Vertex", header: "ChFiDS_CommonPoint.hxx".}
 proc isOnArc*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnArc", dynlib: tkfillet.}
+    importcpp: "IsOnArc", header: "ChFiDS_CommonPoint.hxx".}
 proc arc*(this: ChFiDS_CommonPoint): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Arc", dynlib: tkfillet.}
+    importcpp: "Arc", header: "ChFiDS_CommonPoint.hxx".}
 proc transitionOnArc*(this: ChFiDS_CommonPoint): TopAbsOrientation {.noSideEffect,
-    cdecl, importcpp: "TransitionOnArc", dynlib: tkfillet.}
+    cdecl, importcpp: "TransitionOnArc", header: "ChFiDS_CommonPoint.hxx".}
 proc parameterOnArc*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParameterOnArc", dynlib: tkfillet.}
+    importcpp: "ParameterOnArc", header: "ChFiDS_CommonPoint.hxx".}
 proc parameter*(this: ChFiDS_CommonPoint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkfillet.}
+    importcpp: "Parameter", header: "ChFiDS_CommonPoint.hxx".}
 proc point*(this: ChFiDS_CommonPoint): Pnt {.noSideEffect, cdecl, importcpp: "Point",
-    dynlib: tkfillet.}
+    header: "ChFiDS_CommonPoint.hxx".}
 proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
-    importcpp: "HasVector", dynlib: tkfillet.}
+    importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}
 proc vector*(this: ChFiDS_CommonPoint): Vec {.noSideEffect, cdecl,
-    importcpp: "Vector", dynlib: tkfillet.}
+    importcpp: "Vector", header: "ChFiDS_CommonPoint.hxx".}

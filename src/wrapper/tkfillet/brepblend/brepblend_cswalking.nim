@@ -41,17 +41,17 @@ type
 proc newBRepBlendCSWalking*(curv: Handle[Adaptor3dHCurve];
                            surf: Handle[Adaptor3dHSurface];
                            domain: Handle[Adaptor3dTopolTool]): BRepBlendCSWalking {.
-    cdecl, constructor, importcpp: "BRepBlend_CSWalking(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_CSWalking(@)", header: "BRepBlend_CSWalking.hxx".}
 proc perform*(this: var BRepBlendCSWalking; f: var BlendCSFunction; pdep: cfloat;
              pmax: cfloat; maxStep: cfloat; tolGuide: cfloat; soldep: MathVector;
              tolesp: cfloat; fleche: cfloat; appro: bool = false) {.cdecl,
-    importcpp: "Perform", dynlib: tkfillet.}
+    importcpp: "Perform", header: "BRepBlend_CSWalking.hxx".}
 proc complete*(this: var BRepBlendCSWalking; f: var BlendCSFunction; pmin: cfloat): bool {.
-    cdecl, importcpp: "Complete", dynlib: tkfillet.}
+    cdecl, importcpp: "Complete", header: "BRepBlend_CSWalking.hxx".}
 proc isDone*(this: BRepBlendCSWalking): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkfillet.}
+    importcpp: "IsDone", header: "BRepBlend_CSWalking.hxx".}
 proc line*(this: BRepBlendCSWalking): Handle[BRepBlendLine] {.noSideEffect, cdecl,
-    importcpp: "Line", dynlib: tkfillet.}
+    importcpp: "Line", header: "BRepBlend_CSWalking.hxx".}
 ##  #define TheVertex Handle(Adaptor3d_HVertex)
 ##  #define TheVertex_hxx <Adaptor3d_HVertex.hxx>
 ##  #define TheArc Handle(Adaptor2d_HCurve2d)

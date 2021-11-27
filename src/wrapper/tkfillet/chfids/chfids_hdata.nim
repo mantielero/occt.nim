@@ -20,16 +20,16 @@ type
 
 proc newChFiDS_HData*(): ChFiDS_HData {.cdecl, constructor,
                                      importcpp: "ChFiDS_HData(@)",
-                                     dynlib: tkfillet.}
+                                     header: "ChFiDS_HData.hxx".}
 proc newChFiDS_HData*(theOther: ChFiDS_SequenceOfSurfData): ChFiDS_HData {.cdecl,
-    constructor, importcpp: "ChFiDS_HData(@)", dynlib: tkfillet.}
+    constructor, importcpp: "ChFiDS_HData(@)", header: "ChFiDS_HData.hxx".}
 proc sequence*(this: ChFiDS_HData): ChFiDS_SequenceOfSurfData {.noSideEffect, cdecl,
-    importcpp: "Sequence", dynlib: tkfillet.}
+    importcpp: "Sequence", header: "ChFiDS_HData.hxx".}
 proc append*(this: var ChFiDS_HData; theItem: ValueType) {.cdecl, importcpp: "Append",
-    dynlib: tkfillet.}
+    header: "ChFiDS_HData.hxx".}
 proc append*(this: var ChFiDS_HData; theSequence: var ChFiDS_SequenceOfSurfData) {.
-    cdecl, importcpp: "Append", dynlib: tkfillet.}
+    cdecl, importcpp: "Append", header: "ChFiDS_HData.hxx".}
 proc changeSequence*(this: var ChFiDS_HData): var ChFiDS_SequenceOfSurfData {.cdecl,
-    importcpp: "ChangeSequence", dynlib: tkfillet.}
+    importcpp: "ChangeSequence", header: "ChFiDS_HData.hxx".}
 type
   HandleChFiDS_HData* = Handle[ChFiDS_HData]

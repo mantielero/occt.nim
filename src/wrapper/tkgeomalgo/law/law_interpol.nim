@@ -45,14 +45,14 @@ type
 
 proc newLawInterpol*(): LawInterpol {.cdecl, constructor,
                                    importcpp: "Law_Interpol(@)",
-                                   dynlib: tkgeomalgo.}
+                                   header: "Law_Interpol.hxx".}
 proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d;
-         periodic: bool = false) {.cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+         periodic: bool = false) {.cdecl, importcpp: "Set", header: "Law_Interpol.hxx".}
 proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
                    uf: cfloat; periodic: bool = false) {.cdecl,
-    importcpp: "SetInRelative", dynlib: tkgeomalgo.}
+    importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
 proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: cfloat; df: cfloat;
-         periodic: bool = false) {.cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+         periodic: bool = false) {.cdecl, importcpp: "Set", header: "Law_Interpol.hxx".}
 proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
                    uf: cfloat; dd: cfloat; df: cfloat; periodic: bool = false) {.cdecl,
-    importcpp: "SetInRelative", dynlib: tkgeomalgo.}
+    importcpp: "SetInRelative", header: "Law_Interpol.hxx".}

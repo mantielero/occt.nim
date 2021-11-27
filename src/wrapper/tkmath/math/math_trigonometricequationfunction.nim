@@ -25,10 +25,10 @@ type
 
 proc newMathTrigonometricEquationFunction*(a: cfloat; b: cfloat; c: cfloat; d: cfloat;
     e: cfloat): MathTrigonometricEquationFunction {.cdecl, constructor,
-    importcpp: "math_TrigonometricEquationFunction(@)", dynlib: tkmath.}
+    importcpp: "math_TrigonometricEquationFunction(@)", header: "math_TrigonometricEquationFunction.hxx".}
 proc value*(this: var MathTrigonometricEquationFunction; x: cfloat; f: var cfloat): bool {.
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_TrigonometricEquationFunction.hxx".}
 proc derivative*(this: var MathTrigonometricEquationFunction; x: cfloat; d: var cfloat): bool {.
-    cdecl, importcpp: "Derivative", dynlib: tkmath.}
+    cdecl, importcpp: "Derivative", header: "math_TrigonometricEquationFunction.hxx".}
 proc values*(this: var MathTrigonometricEquationFunction; x: cfloat; f: var cfloat;
-            d: var cfloat): bool {.cdecl, importcpp: "Values", dynlib: tkmath.}
+            d: var cfloat): bool {.cdecl, importcpp: "Values", header: "math_TrigonometricEquationFunction.hxx".}

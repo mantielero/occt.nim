@@ -34,36 +34,36 @@ type
 
 proc newGeomFillGuideTrihedronAC*(guide: Handle[Adaptor3dHCurve]): GeomFillGuideTrihedronAC {.
     cdecl, constructor, importcpp: "GeomFill_GuideTrihedronAC(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_GuideTrihedronAC.hxx".}
 proc setCurve*(this: var GeomFillGuideTrihedronAC; c: Handle[Adaptor3dHCurve]) {.
-    cdecl, importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetCurve", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc copy*(this: GeomFillGuideTrihedronAC): Handle[GeomFillTrihedronLaw] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc guide*(this: GeomFillGuideTrihedronAC): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "Guide", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Guide", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc d0*(this: var GeomFillGuideTrihedronAC; param: cfloat; tangent: var Vec;
         normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_GuideTrihedronAC.hxx".}
 proc d1*(this: var GeomFillGuideTrihedronAC; param: cfloat; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc d2*(this: var GeomFillGuideTrihedronAC; param: cfloat; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
         d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc nbIntervals*(this: GeomFillGuideTrihedronAC; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc intervals*(this: GeomFillGuideTrihedronAC; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_GuideTrihedronAC.hxx".}
 proc setInterval*(this: var GeomFillGuideTrihedronAC; first: cfloat; last: cfloat) {.
-    cdecl, importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetInterval", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc getAverageLaw*(this: var GeomFillGuideTrihedronAC; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc isConstant*(this: GeomFillGuideTrihedronAC): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillGuideTrihedronAC): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnlyBy3dCurve", dynlib: tkgeomalgo.}
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc origine*(this: var GeomFillGuideTrihedronAC; orACR1: cfloat; orACR2: cfloat) {.
-    cdecl, importcpp: "Origine", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Origine", header: "GeomFill_GuideTrihedronAC.hxx".}

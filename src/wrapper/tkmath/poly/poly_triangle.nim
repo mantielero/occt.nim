@@ -34,20 +34,20 @@ type
 
 
 proc newPolyTriangle*(): PolyTriangle {.cdecl, constructor,
-                                     importcpp: "Poly_Triangle(@)", dynlib: tkmath.}
+                                     importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
 proc newPolyTriangle*(theN1: cint; theN2: cint; theN3: cint): PolyTriangle {.cdecl,
-    constructor, importcpp: "Poly_Triangle(@)", dynlib: tkmath.}
+    constructor, importcpp: "Poly_Triangle(@)", header: "Poly_Triangle.hxx".}
 proc set*(this: var PolyTriangle; theN1: cint; theN2: cint; theN3: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkmath.}
+    importcpp: "Set", header: "Poly_Triangle.hxx".}
 proc set*(this: var PolyTriangle; theIndex: cint; theNode: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkmath.}
+    importcpp: "Set", header: "Poly_Triangle.hxx".}
 proc get*(this: PolyTriangle; theN1: var cint; theN2: var cint; theN3: var cint) {.
-    noSideEffect, cdecl, importcpp: "Get", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Get", header: "Poly_Triangle.hxx".}
 proc value*(this: PolyTriangle; theIndex: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "Poly_Triangle.hxx".}
 proc `()`*(this: PolyTriangle; index: cint): cint {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "Poly_Triangle.hxx".}
 proc changeValue*(this: var PolyTriangle; theIndex: cint): var cint {.cdecl,
-    importcpp: "ChangeValue", dynlib: tkmath.}
+    importcpp: "ChangeValue", header: "Poly_Triangle.hxx".}
 proc `()`*(this: var PolyTriangle; index: cint): var cint {.cdecl, importcpp: "#(@)",
-    dynlib: tkmath.}
+    header: "Poly_Triangle.hxx".}

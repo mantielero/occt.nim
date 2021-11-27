@@ -30,14 +30,14 @@ type
 
 
 proc newTopOpeBRepBuildLoop*(s: TopoDS_Shape): TopOpeBRepBuildLoop {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_Loop(@)", header: "TopOpeBRepBuild_Loop.hxx".}
 proc newTopOpeBRepBuildLoop*(bi: TopOpeBRepBuildBlockIterator): TopOpeBRepBuildLoop {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_Loop(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_Loop(@)", header: "TopOpeBRepBuild_Loop.hxx".}
 proc isShape*(this: TopOpeBRepBuildLoop): bool {.noSideEffect, cdecl,
-    importcpp: "IsShape", dynlib: tkbool.}
+    importcpp: "IsShape", header: "TopOpeBRepBuild_Loop.hxx".}
 proc shape*(this: TopOpeBRepBuildLoop): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbool.}
+    importcpp: "Shape", header: "TopOpeBRepBuild_Loop.hxx".}
 proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
-    noSideEffect, cdecl, importcpp: "BlockIterator", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "BlockIterator", header: "TopOpeBRepBuild_Loop.hxx".}
 proc dump*(this: TopOpeBRepBuildLoop) {.noSideEffect, cdecl, importcpp: "Dump",
-                                     dynlib: tkbool.}
+                                     header: "TopOpeBRepBuild_Loop.hxx".}

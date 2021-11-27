@@ -52,81 +52,81 @@ type
 
 
 proc newBRepFilletAPI_MakeChamfer*(s: TopoDS_Shape): BRepFilletAPI_MakeChamfer {.
-    cdecl, constructor, importcpp: "BRepFilletAPI_MakeChamfer(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepFilletAPI_MakeChamfer(@)", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc add*(this: var BRepFilletAPI_MakeChamfer; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", dynlib: tkfillet.}
+    importcpp: "Add", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc add*(this: var BRepFilletAPI_MakeChamfer; dis: cfloat; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", dynlib: tkfillet.}
+    importcpp: "Add", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc setDist*(this: var BRepFilletAPI_MakeChamfer; dis: cfloat; ic: cint; f: TopoDS_Face) {.
-    cdecl, importcpp: "SetDist", dynlib: tkfillet.}
+    cdecl, importcpp: "SetDist", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc getDist*(this: BRepFilletAPI_MakeChamfer; ic: cint; dis: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDist", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetDist", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc add*(this: var BRepFilletAPI_MakeChamfer; dis1: cfloat; dis2: cfloat;
-         e: TopoDS_Edge; f: TopoDS_Face) {.cdecl, importcpp: "Add", dynlib: tkfillet.}
+         e: TopoDS_Edge; f: TopoDS_Face) {.cdecl, importcpp: "Add", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc setDists*(this: var BRepFilletAPI_MakeChamfer; dis1: cfloat; dis2: cfloat;
               ic: cint; f: TopoDS_Face) {.cdecl, importcpp: "SetDists",
-                                      dynlib: tkfillet.}
+                                      header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc dists*(this: BRepFilletAPI_MakeChamfer; ic: cint; dis1: var cfloat;
            dis2: var cfloat) {.noSideEffect, cdecl, importcpp: "Dists",
-                            dynlib: tkfillet.}
+                            header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc addDA*(this: var BRepFilletAPI_MakeChamfer; dis: cfloat; angle: cfloat;
            e: TopoDS_Edge; f: TopoDS_Face) {.cdecl, importcpp: "AddDA",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc setDistAngle*(this: var BRepFilletAPI_MakeChamfer; dis: cfloat; angle: cfloat;
                   ic: cint; f: TopoDS_Face) {.cdecl, importcpp: "SetDistAngle",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc getDistAngle*(this: BRepFilletAPI_MakeChamfer; ic: cint; dis: var cfloat;
                   angle: var cfloat) {.noSideEffect, cdecl,
-                                    importcpp: "GetDistAngle", dynlib: tkfillet.}
+                                    importcpp: "GetDistAngle", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc setMode*(this: var BRepFilletAPI_MakeChamfer; theMode: ChFiDS_ChamfMode) {.cdecl,
-    importcpp: "SetMode", dynlib: tkfillet.}
+    importcpp: "SetMode", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc isSymetric*(this: BRepFilletAPI_MakeChamfer; ic: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsSymetric", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSymetric", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc isTwoDistances*(this: BRepFilletAPI_MakeChamfer; ic: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsTwoDistances", dynlib: tkfillet.}
+    cdecl, importcpp: "IsTwoDistances", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc isDistanceAngle*(this: BRepFilletAPI_MakeChamfer; ic: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsDistanceAngle", dynlib: tkfillet.}
+    cdecl, importcpp: "IsDistanceAngle", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc resetContour*(this: var BRepFilletAPI_MakeChamfer; ic: cint) {.cdecl,
-    importcpp: "ResetContour", dynlib: tkfillet.}
+    importcpp: "ResetContour", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc nbContours*(this: BRepFilletAPI_MakeChamfer): cint {.noSideEffect, cdecl,
-    importcpp: "NbContours", dynlib: tkfillet.}
+    importcpp: "NbContours", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc contour*(this: BRepFilletAPI_MakeChamfer; e: TopoDS_Edge): cint {.noSideEffect,
-    cdecl, importcpp: "Contour", dynlib: tkfillet.}
+    cdecl, importcpp: "Contour", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc nbEdges*(this: BRepFilletAPI_MakeChamfer; i: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbEdges", dynlib: tkfillet.}
+    importcpp: "NbEdges", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc edge*(this: BRepFilletAPI_MakeChamfer; i: cint; j: cint): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "Edge", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Edge", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc remove*(this: var BRepFilletAPI_MakeChamfer; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Remove", dynlib: tkfillet.}
+    importcpp: "Remove", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc length*(this: BRepFilletAPI_MakeChamfer; ic: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkfillet.}
+    importcpp: "Length", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc firstVertex*(this: BRepFilletAPI_MakeChamfer; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "FirstVertex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FirstVertex", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc lastVertex*(this: BRepFilletAPI_MakeChamfer; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "LastVertex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "LastVertex", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc abscissa*(this: BRepFilletAPI_MakeChamfer; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "Abscissa", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Abscissa", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc relativeAbscissa*(this: BRepFilletAPI_MakeChamfer; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "RelativeAbscissa", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "RelativeAbscissa", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc closedAndTangent*(this: BRepFilletAPI_MakeChamfer; ic: cint): bool {.
-    noSideEffect, cdecl, importcpp: "ClosedAndTangent", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "ClosedAndTangent", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc closed*(this: BRepFilletAPI_MakeChamfer; ic: cint): bool {.noSideEffect, cdecl,
-    importcpp: "Closed", dynlib: tkfillet.}
+    importcpp: "Closed", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc build*(this: var BRepFilletAPI_MakeChamfer) {.cdecl, importcpp: "Build",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc reset*(this: var BRepFilletAPI_MakeChamfer) {.cdecl, importcpp: "Reset",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc builder*(this: BRepFilletAPI_MakeChamfer): Handle[TopOpeBRepBuildHBuilder] {.
-    noSideEffect, cdecl, importcpp: "Builder", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Builder", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc generated*(this: var BRepFilletAPI_MakeChamfer; eorV: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkfillet.}
+    cdecl, importcpp: "Generated", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc modified*(this: var BRepFilletAPI_MakeChamfer; f: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tkfillet.}
+    cdecl, importcpp: "Modified", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc isDeleted*(this: var BRepFilletAPI_MakeChamfer; f: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkfillet.}
+    importcpp: "IsDeleted", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc simulate*(this: var BRepFilletAPI_MakeChamfer; ic: cint) {.cdecl,
-    importcpp: "Simulate", dynlib: tkfillet.}
+    importcpp: "Simulate", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc nbSurf*(this: BRepFilletAPI_MakeChamfer; ic: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurf", dynlib: tkfillet.}
+    importcpp: "NbSurf", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc sect*(this: BRepFilletAPI_MakeChamfer; ic: cint; `is`: cint): Handle[
-    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", dynlib: tkfillet.}
+    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_MakeChamfer.hxx".}

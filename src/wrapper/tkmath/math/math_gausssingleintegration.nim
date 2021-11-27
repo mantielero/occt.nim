@@ -26,16 +26,16 @@ type
 
 
 proc newMathGaussSingleIntegration*(): MathGaussSingleIntegration {.cdecl,
-    constructor, importcpp: "math_GaussSingleIntegration(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_GaussSingleIntegration(@)", header: "math_GaussSingleIntegration.hxx".}
 proc newMathGaussSingleIntegration*(f: var MathFunction; lower: cfloat; upper: cfloat;
                                    order: cint): MathGaussSingleIntegration {.
-    cdecl, constructor, importcpp: "math_GaussSingleIntegration(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_GaussSingleIntegration(@)", header: "math_GaussSingleIntegration.hxx".}
 proc newMathGaussSingleIntegration*(f: var MathFunction; lower: cfloat; upper: cfloat;
                                    order: cint; tol: cfloat): MathGaussSingleIntegration {.
-    cdecl, constructor, importcpp: "math_GaussSingleIntegration(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_GaussSingleIntegration(@)", header: "math_GaussSingleIntegration.hxx".}
 proc isDone*(this: MathGaussSingleIntegration): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_GaussSingleIntegration.hxx".}
 proc value*(this: MathGaussSingleIntegration): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_GaussSingleIntegration.hxx".}
 proc dump*(this: MathGaussSingleIntegration; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "math_GaussSingleIntegration.hxx".}

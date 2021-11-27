@@ -34,45 +34,45 @@ type
 
 
 proc newApproxCurvlinFunc*(c: Handle[Adaptor3dHCurve]; tol: cfloat): ApproxCurvlinFunc {.
-    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", header: "Approx_CurvlinFunc.hxx".}
 proc newApproxCurvlinFunc*(c2d: Handle[Adaptor2dHCurve2d];
                           s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxCurvlinFunc {.
-    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", header: "Approx_CurvlinFunc.hxx".}
 proc newApproxCurvlinFunc*(c2d1: Handle[Adaptor2dHCurve2d];
                           c2d2: Handle[Adaptor2dHCurve2d];
                           s1: Handle[Adaptor3dHSurface];
                           s2: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxCurvlinFunc {.
-    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_CurvlinFunc(@)", header: "Approx_CurvlinFunc.hxx".}
 proc setTol*(this: var ApproxCurvlinFunc; tol: cfloat) {.cdecl, importcpp: "SetTol",
-    dynlib: tkgeombase.}
+    header: "Approx_CurvlinFunc.hxx".}
 proc firstParameter*(this: ApproxCurvlinFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkgeombase.}
+    importcpp: "FirstParameter", header: "Approx_CurvlinFunc.hxx".}
 proc lastParameter*(this: ApproxCurvlinFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkgeombase.}
+    importcpp: "LastParameter", header: "Approx_CurvlinFunc.hxx".}
 proc nbIntervals*(this: ApproxCurvlinFunc; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeombase.}
+    cdecl, importcpp: "NbIntervals", header: "Approx_CurvlinFunc.hxx".}
 proc intervals*(this: ApproxCurvlinFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Approx_CurvlinFunc.hxx".}
 proc trim*(this: var ApproxCurvlinFunc; first: cfloat; last: cfloat; tol: cfloat) {.cdecl,
-    importcpp: "Trim", dynlib: tkgeombase.}
+    importcpp: "Trim", header: "Approx_CurvlinFunc.hxx".}
 proc length*(this: var ApproxCurvlinFunc) {.cdecl, importcpp: "Length",
-                                        dynlib: tkgeombase.}
+                                        header: "Approx_CurvlinFunc.hxx".}
 proc length*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; firstU: cfloat;
             lasrU: cfloat): cfloat {.noSideEffect, cdecl, importcpp: "Length",
-                                  dynlib: tkgeombase.}
+                                  header: "Approx_CurvlinFunc.hxx".}
 proc getLength*(this: ApproxCurvlinFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetLength", dynlib: tkgeombase.}
+    importcpp: "GetLength", header: "Approx_CurvlinFunc.hxx".}
 proc getUParameter*(this: ApproxCurvlinFunc; c: var Adaptor3dCurve; s: cfloat;
                    numberOfCurve: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetUParameter", dynlib: tkgeombase.}
+    importcpp: "GetUParameter", header: "Approx_CurvlinFunc.hxx".}
 proc getSParameter*(this: ApproxCurvlinFunc; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSParameter", dynlib: tkgeombase.}
+    importcpp: "GetSParameter", header: "Approx_CurvlinFunc.hxx".}
 proc evalCase1*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.noSideEffect, cdecl,
-    importcpp: "EvalCase1", dynlib: tkgeombase.}
+    importcpp: "EvalCase1", header: "Approx_CurvlinFunc.hxx".}
 proc evalCase2*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.noSideEffect, cdecl,
-    importcpp: "EvalCase2", dynlib: tkgeombase.}
+    importcpp: "EvalCase2", header: "Approx_CurvlinFunc.hxx".}
 proc evalCase3*(this: var ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.cdecl,
-    importcpp: "EvalCase3", dynlib: tkgeombase.}
+    importcpp: "EvalCase3", header: "Approx_CurvlinFunc.hxx".}

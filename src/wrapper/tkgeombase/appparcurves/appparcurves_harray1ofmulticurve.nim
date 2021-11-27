@@ -21,13 +21,13 @@ type
 
 proc newAppParCurvesHArray1OfMultiCurve*(theLower: cint; theUpper: cint): AppParCurvesHArray1OfMultiCurve {.
     cdecl, constructor, importcpp: "AppParCurves_HArray1OfMultiCurve(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfMultiCurve.hxx".}
 proc newAppParCurvesHArray1OfMultiCurve*(theLower: cint; theUpper: cint;
                                         theValue: ValueType): AppParCurvesHArray1OfMultiCurve {.
     cdecl, constructor, importcpp: "AppParCurves_HArray1OfMultiCurve(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfMultiCurve.hxx".}
 proc newAppParCurvesHArray1OfMultiCurve*(theOther: AppParCurvesArray1OfMultiCurve): AppParCurvesHArray1OfMultiCurve {.
     cdecl, constructor, importcpp: "AppParCurves_HArray1OfMultiCurve(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfMultiCurve.hxx".}
 proc array1*(this: AppParCurvesHArray1OfMultiCurve): AppParCurvesArray1OfMultiCurve {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "AppParCurves_HArray1OfMultiCurve.hxx".}

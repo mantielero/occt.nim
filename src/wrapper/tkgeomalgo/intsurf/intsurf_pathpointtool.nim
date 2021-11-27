@@ -27,18 +27,18 @@ type
 
 
 proc value3d*(pStart: IntSurfPathPoint): Pnt {.cdecl,
-    importcpp: "IntSurf_PathPointTool::Value3d(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::Value3d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc value2d*(pStart: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.cdecl,
-    importcpp: "IntSurf_PathPointTool::Value2d(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::Value2d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc isPassingPnt*(pStart: IntSurfPathPoint): bool {.cdecl,
-    importcpp: "IntSurf_PathPointTool::IsPassingPnt(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::IsPassingPnt(@)", header: "IntSurf_PathPointTool.hxx".}
 proc isTangent*(pStart: IntSurfPathPoint): bool {.cdecl,
-    importcpp: "IntSurf_PathPointTool::IsTangent(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::IsTangent(@)", header: "IntSurf_PathPointTool.hxx".}
 proc direction3d*(pStart: IntSurfPathPoint): Vec {.cdecl,
-    importcpp: "IntSurf_PathPointTool::Direction3d(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::Direction3d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc direction2d*(pStart: IntSurfPathPoint): Dir2d {.cdecl,
-    importcpp: "IntSurf_PathPointTool::Direction2d(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::Direction2d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc multiplicity*(pStart: IntSurfPathPoint): cint {.cdecl,
-    importcpp: "IntSurf_PathPointTool::Multiplicity(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPointTool::Multiplicity(@)", header: "IntSurf_PathPointTool.hxx".}
 proc parameters*(pStart: IntSurfPathPoint; mult: cint; u: var cfloat; v: var cfloat) {.
-    cdecl, importcpp: "IntSurf_PathPointTool::Parameters(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IntSurf_PathPointTool::Parameters(@)", header: "IntSurf_PathPointTool.hxx".}

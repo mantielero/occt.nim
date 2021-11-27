@@ -26,10 +26,10 @@ type
 
 
 proc newBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.cdecl, constructor,
-    importcpp: "BRepPrim_Sphere(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc newBRepPrimSphere*(center: Pnt; radius: cfloat): BRepPrimSphere {.cdecl,
-    constructor, importcpp: "BRepPrim_Sphere(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc newBRepPrimSphere*(axes: Ax2; radius: cfloat): BRepPrimSphere {.cdecl,
-    constructor, importcpp: "BRepPrim_Sphere(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "MakeEmptyLateralFace", dynlib: tkprim.}
+    importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}

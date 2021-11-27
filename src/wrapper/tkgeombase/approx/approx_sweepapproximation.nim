@@ -26,67 +26,67 @@ type
 
 proc newApproxSweepApproximation*(`func`: Handle[ApproxSweepFunction]): ApproxSweepApproximation {.
     cdecl, constructor, importcpp: "Approx_SweepApproximation(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_SweepApproximation.hxx".}
 proc perform*(this: var ApproxSweepApproximation; first: cfloat; last: cfloat;
              tol3d: cfloat; boundTol: cfloat; tol2d: cfloat; tolAngular: cfloat;
              continuity: GeomAbsShape = geomAbsC0; degmax: cint = 11; segmax: cint = 50) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeombase.}
+    cdecl, importcpp: "Perform", header: "Approx_SweepApproximation.hxx".}
 proc eval*(this: var ApproxSweepApproximation; parameter: cfloat;
           derivativeRequest: cint; first: cfloat; last: cfloat; result: var cfloat): cint {.
-    cdecl, importcpp: "Eval", dynlib: tkgeombase.}
+    cdecl, importcpp: "Eval", header: "Approx_SweepApproximation.hxx".}
 proc isDone*(this: ApproxSweepApproximation): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Approx_SweepApproximation.hxx".}
 proc surfShape*(this: ApproxSweepApproximation; uDegree: var cint; vDegree: var cint;
                nbUPoles: var cint; nbVPoles: var cint; nbUKnots: var cint;
                nbVKnots: var cint) {.noSideEffect, cdecl, importcpp: "SurfShape",
-                                  dynlib: tkgeombase.}
+                                  header: "Approx_SweepApproximation.hxx".}
 proc surface*(this: ApproxSweepApproximation; tPoles: var TColgpArray2OfPnt;
              tWeights: var TColStdArray2OfReal; tUKnots: var TColStdArray1OfReal;
              tVKnots: var TColStdArray1OfReal; tUMults: var TColStdArray1OfInteger;
              tVMults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeombase.}
+    importcpp: "Surface", header: "Approx_SweepApproximation.hxx".}
 proc uDegree*(this: ApproxSweepApproximation): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkgeombase.}
+    importcpp: "UDegree", header: "Approx_SweepApproximation.hxx".}
 proc vDegree*(this: ApproxSweepApproximation): cint {.noSideEffect, cdecl,
-    importcpp: "VDegree", dynlib: tkgeombase.}
+    importcpp: "VDegree", header: "Approx_SweepApproximation.hxx".}
 proc surfPoles*(this: ApproxSweepApproximation): TColgpArray2OfPnt {.noSideEffect,
-    cdecl, importcpp: "SurfPoles", dynlib: tkgeombase.}
+    cdecl, importcpp: "SurfPoles", header: "Approx_SweepApproximation.hxx".}
 proc surfWeights*(this: ApproxSweepApproximation): TColStdArray2OfReal {.
-    noSideEffect, cdecl, importcpp: "SurfWeights", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SurfWeights", header: "Approx_SweepApproximation.hxx".}
 proc surfUKnots*(this: ApproxSweepApproximation): TColStdArray1OfReal {.
-    noSideEffect, cdecl, importcpp: "SurfUKnots", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SurfUKnots", header: "Approx_SweepApproximation.hxx".}
 proc surfVKnots*(this: ApproxSweepApproximation): TColStdArray1OfReal {.
-    noSideEffect, cdecl, importcpp: "SurfVKnots", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SurfVKnots", header: "Approx_SweepApproximation.hxx".}
 proc surfUMults*(this: ApproxSweepApproximation): TColStdArray1OfInteger {.
-    noSideEffect, cdecl, importcpp: "SurfUMults", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SurfUMults", header: "Approx_SweepApproximation.hxx".}
 proc surfVMults*(this: ApproxSweepApproximation): TColStdArray1OfInteger {.
-    noSideEffect, cdecl, importcpp: "SurfVMults", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SurfVMults", header: "Approx_SweepApproximation.hxx".}
 proc maxErrorOnSurf*(this: ApproxSweepApproximation): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxErrorOnSurf", dynlib: tkgeombase.}
+    importcpp: "MaxErrorOnSurf", header: "Approx_SweepApproximation.hxx".}
 proc averageErrorOnSurf*(this: ApproxSweepApproximation): cfloat {.noSideEffect,
-    cdecl, importcpp: "AverageErrorOnSurf", dynlib: tkgeombase.}
+    cdecl, importcpp: "AverageErrorOnSurf", header: "Approx_SweepApproximation.hxx".}
 proc nbCurves2d*(this: ApproxSweepApproximation): cint {.noSideEffect, cdecl,
-    importcpp: "NbCurves2d", dynlib: tkgeombase.}
+    importcpp: "NbCurves2d", header: "Approx_SweepApproximation.hxx".}
 proc curves2dShape*(this: ApproxSweepApproximation; degree: var cint;
                    nbPoles: var cint; nbKnots: var cint) {.noSideEffect, cdecl,
-    importcpp: "Curves2dShape", dynlib: tkgeombase.}
+    importcpp: "Curves2dShape", header: "Approx_SweepApproximation.hxx".}
 proc curve2d*(this: ApproxSweepApproximation; index: cint;
              tPoles: var TColgpArray1OfPnt2d; tKnots: var TColStdArray1OfReal;
              tMults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkgeombase.}
+    importcpp: "Curve2d", header: "Approx_SweepApproximation.hxx".}
 proc curves2dDegree*(this: ApproxSweepApproximation): cint {.noSideEffect, cdecl,
-    importcpp: "Curves2dDegree", dynlib: tkgeombase.}
+    importcpp: "Curves2dDegree", header: "Approx_SweepApproximation.hxx".}
 proc curve2dPoles*(this: ApproxSweepApproximation; index: cint): TColgpArray1OfPnt2d {.
-    noSideEffect, cdecl, importcpp: "Curve2dPoles", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curve2dPoles", header: "Approx_SweepApproximation.hxx".}
 proc curves2dKnots*(this: ApproxSweepApproximation): TColStdArray1OfReal {.
-    noSideEffect, cdecl, importcpp: "Curves2dKnots", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curves2dKnots", header: "Approx_SweepApproximation.hxx".}
 proc curves2dMults*(this: ApproxSweepApproximation): TColStdArray1OfInteger {.
-    noSideEffect, cdecl, importcpp: "Curves2dMults", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curves2dMults", header: "Approx_SweepApproximation.hxx".}
 proc max2dError*(this: ApproxSweepApproximation; index: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Max2dError", dynlib: tkgeombase.}
+    cdecl, importcpp: "Max2dError", header: "Approx_SweepApproximation.hxx".}
 proc average2dError*(this: ApproxSweepApproximation; index: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "Average2dError", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Average2dError", header: "Approx_SweepApproximation.hxx".}
 proc tolCurveOnSurf*(this: ApproxSweepApproximation; index: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "TolCurveOnSurf", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "TolCurveOnSurf", header: "Approx_SweepApproximation.hxx".}
 proc dump*(this: ApproxSweepApproximation; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkgeombase.}
+    cdecl, importcpp: "Dump", header: "Approx_SweepApproximation.hxx".}

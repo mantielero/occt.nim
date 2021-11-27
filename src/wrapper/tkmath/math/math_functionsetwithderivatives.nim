@@ -21,14 +21,14 @@ type
 
 
 proc nbVariables*(this: MathFunctionSetWithDerivatives): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkmath.}
+    importcpp: "NbVariables", header: "math_FunctionSetWithDerivatives.hxx".}
 proc nbEquations*(this: MathFunctionSetWithDerivatives): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkmath.}
+    importcpp: "NbEquations", header: "math_FunctionSetWithDerivatives.hxx".}
 proc value*(this: var MathFunctionSetWithDerivatives; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_FunctionSetWithDerivatives.hxx".}
 proc derivatives*(this: var MathFunctionSetWithDerivatives; x: MathVector;
                  d: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
-                                        dynlib: tkmath.}
+                                        header: "math_FunctionSetWithDerivatives.hxx".}
 proc values*(this: var MathFunctionSetWithDerivatives; x: MathVector;
             f: var MathVector; d: var MathMatrix): bool {.cdecl, importcpp: "Values",
-    dynlib: tkmath.}
+    header: "math_FunctionSetWithDerivatives.hxx".}

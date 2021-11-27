@@ -40,13 +40,13 @@ type
 
 
 proc maxTreeDepth*(this: BVH_BuilderTransient): cint {.noSideEffect, cdecl,
-    importcpp: "MaxTreeDepth", dynlib: tkmath.}
+    importcpp: "MaxTreeDepth", header: "BVH_Builder.hxx".}
 proc leafNodeSize*(this: BVH_BuilderTransient): cint {.noSideEffect, cdecl,
-    importcpp: "LeafNodeSize", dynlib: tkmath.}
+    importcpp: "LeafNodeSize", header: "BVH_Builder.hxx".}
 proc isParallel*(this: BVH_BuilderTransient): bool {.noSideEffect, cdecl,
-    importcpp: "IsParallel", dynlib: tkmath.}
+    importcpp: "IsParallel", header: "BVH_Builder.hxx".}
 proc setParallel*(this: var BVH_BuilderTransient; isParallel: bool) {.cdecl,
-    importcpp: "SetParallel", dynlib: tkmath.}
+    importcpp: "SetParallel", header: "BVH_Builder.hxx".}
 ## ! Performs construction of BVH tree using bounding
 ## ! boxes (AABBs) of abstract objects.
 ## ! \tparam T Numeric data type
@@ -72,4 +72,4 @@ type
 
 proc build*[T; N: static[cint]](this: BVH_Builder[T, N]; theSet: ptr BVH_Set[T, N];
                              theBVH: ptr BVH_Tree[T, N]; theBox: BVH_Box[T, N]) {.
-    noSideEffect, cdecl, importcpp: "Build", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Build", header: "BVH_Builder.hxx".}

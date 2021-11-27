@@ -37,12 +37,12 @@ type
 
 
 proc bernsteinMatrix*(nbPoles: cint; u: MathVector; a: var MathMatrix) {.cdecl,
-    importcpp: "AppParCurves::BernsteinMatrix(@)", dynlib: tkgeombase.}
+    importcpp: "AppParCurves::BernsteinMatrix(@)", header: "AppParCurves.hxx".}
 proc bernstein*(nbPoles: cint; u: MathVector; a: var MathMatrix; da: var MathMatrix) {.
-    cdecl, importcpp: "AppParCurves::Bernstein(@)", dynlib: tkgeombase.}
+    cdecl, importcpp: "AppParCurves::Bernstein(@)", header: "AppParCurves.hxx".}
 proc secondDerivativeBernstein*(u: cfloat; dda: var MathVector) {.cdecl,
-    importcpp: "AppParCurves::SecondDerivativeBernstein(@)", dynlib: tkgeombase.}
+    importcpp: "AppParCurves::SecondDerivativeBernstein(@)", header: "AppParCurves.hxx".}
 proc splineFunction*(nbPoles: cint; degree: cint; parameters: MathVector;
                     flatKnots: MathVector; a: var MathMatrix; da: var MathMatrix;
                     index: var MathIntegerVector) {.cdecl,
-    importcpp: "AppParCurves::SplineFunction(@)", dynlib: tkgeombase.}
+    importcpp: "AppParCurves::SplineFunction(@)", header: "AppParCurves.hxx".}

@@ -30,4 +30,4 @@ type
 
 
 proc newTopoDS_Compound*(): TopoDS_Compound {.cdecl, constructor,
-    importcpp: "TopoDS_Compound(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS_Compound(@)", header: "TopoDS_Compound.hxx".}

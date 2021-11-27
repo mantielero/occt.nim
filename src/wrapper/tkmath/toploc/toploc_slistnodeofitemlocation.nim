@@ -27,8 +27,8 @@ type
 proc newTopLocSListNodeOfItemLocation*(i: TopLocItemLocation;
                                       aTail: TopLocSListOfItemLocation): TopLocSListNodeOfItemLocation {.
     cdecl, constructor, importcpp: "TopLoc_SListNodeOfItemLocation(@)",
-    dynlib: tkmath.}
+    header: "TopLoc_SListNodeOfItemLocation.hxx".}
 proc tail*(this: TopLocSListNodeOfItemLocation): var TopLocSListOfItemLocation {.
-    noSideEffect, cdecl, importcpp: "Tail", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Tail", header: "TopLoc_SListNodeOfItemLocation.hxx".}
 proc value*(this: TopLocSListNodeOfItemLocation): var TopLocItemLocation {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Value", header: "TopLoc_SListNodeOfItemLocation.hxx".}

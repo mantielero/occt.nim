@@ -47,56 +47,56 @@ type
 
 proc newGeomFillUniformSection*(c: Handle[GeomCurve]; firstParameter: cfloat = 0.0;
                                lastParameter: cfloat = 1.0): GeomFillUniformSection {.
-    cdecl, constructor, importcpp: "GeomFill_UniformSection(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_UniformSection(@)", header: "GeomFill_UniformSection.hxx".}
 proc d0*(this: var GeomFillUniformSection; param: cfloat;
         poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal): bool {.cdecl,
-    importcpp: "D0", dynlib: tkgeomalgo.}
+    importcpp: "D0", header: "GeomFill_UniformSection.hxx".}
 proc d1*(this: var GeomFillUniformSection; param: cfloat;
         poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_UniformSection.hxx".}
 proc d2*(this: var GeomFillUniformSection; param: cfloat;
         poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
         d2Poles: var TColgpArray1OfVec; weigths: var TColStdArray1OfReal;
         dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_UniformSection.hxx".}
 proc bSplineSurface*(this: GeomFillUniformSection): Handle[GeomBSplineSurface] {.
-    noSideEffect, cdecl, importcpp: "BSplineSurface", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "BSplineSurface", header: "GeomFill_UniformSection.hxx".}
 proc sectionShape*(this: GeomFillUniformSection; nbPoles: var cint; nbKnots: var cint;
                   degree: var cint) {.noSideEffect, cdecl, importcpp: "SectionShape",
-                                   dynlib: tkgeomalgo.}
+                                   header: "GeomFill_UniformSection.hxx".}
 proc knots*(this: GeomFillUniformSection; tKnots: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "GeomFill_UniformSection.hxx".}
 proc mults*(this: GeomFillUniformSection; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Mults", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Mults", header: "GeomFill_UniformSection.hxx".}
 proc isRational*(this: GeomFillUniformSection): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkgeomalgo.}
+    importcpp: "IsRational", header: "GeomFill_UniformSection.hxx".}
 proc isUPeriodic*(this: GeomFillUniformSection): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkgeomalgo.}
+    importcpp: "IsUPeriodic", header: "GeomFill_UniformSection.hxx".}
 proc isVPeriodic*(this: GeomFillUniformSection): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkgeomalgo.}
+    importcpp: "IsVPeriodic", header: "GeomFill_UniformSection.hxx".}
 proc nbIntervals*(this: GeomFillUniformSection; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_UniformSection.hxx".}
 proc intervals*(this: GeomFillUniformSection; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_UniformSection.hxx".}
 proc setInterval*(this: var GeomFillUniformSection; first: cfloat; last: cfloat) {.
-    cdecl, importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetInterval", header: "GeomFill_UniformSection.hxx".}
 proc getInterval*(this: GeomFillUniformSection; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "GeomFill_UniformSection.hxx".}
 proc getDomain*(this: GeomFillUniformSection; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDomain", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetDomain", header: "GeomFill_UniformSection.hxx".}
 proc getTolerance*(this: GeomFillUniformSection; boundTol: cfloat; surfTol: cfloat;
                   angleTol: cfloat; tol3d: var TColStdArray1OfReal) {.noSideEffect,
-    cdecl, importcpp: "GetTolerance", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetTolerance", header: "GeomFill_UniformSection.hxx".}
 proc barycentreOfSurf*(this: GeomFillUniformSection): Pnt {.noSideEffect, cdecl,
-    importcpp: "BarycentreOfSurf", dynlib: tkgeomalgo.}
+    importcpp: "BarycentreOfSurf", header: "GeomFill_UniformSection.hxx".}
 proc maximalSection*(this: GeomFillUniformSection): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaximalSection", dynlib: tkgeomalgo.}
+    importcpp: "MaximalSection", header: "GeomFill_UniformSection.hxx".}
 proc getMinimalWeight*(this: GeomFillUniformSection;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "GetMinimalWeight", dynlib: tkgeomalgo.}
+    importcpp: "GetMinimalWeight", header: "GeomFill_UniformSection.hxx".}
 proc isConstant*(this: GeomFillUniformSection; error: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IsConstant", header: "GeomFill_UniformSection.hxx".}
 proc constantSection*(this: GeomFillUniformSection): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "ConstantSection", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "ConstantSection", header: "GeomFill_UniformSection.hxx".}

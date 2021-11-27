@@ -32,14 +32,14 @@ type
 
 proc newBRepBuilderAPI_VertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: Xyz) {.cdecl,
-    importcpp: "Add", dynlib: tktopalgo.}
+    importcpp: "Add", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc clearResList*(this: var BRepBuilderAPI_VertexInspector) {.cdecl,
-    importcpp: "ClearResList", dynlib: tktopalgo.}
+    importcpp: "ClearResList", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: Xyz) {.cdecl,
-    importcpp: "SetCurrent", dynlib: tktopalgo.}
+    importcpp: "SetCurrent", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.cdecl,
-    importcpp: "ResInd", dynlib: tktopalgo.}
+    importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: cint): NCollectionCellFilterAction {.
-    cdecl, importcpp: "Inspect", dynlib: tktopalgo.}
+    cdecl, importcpp: "Inspect", header: "BRepBuilderAPI_VertexInspector.hxx".}

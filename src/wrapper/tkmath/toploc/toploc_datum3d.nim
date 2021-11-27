@@ -35,19 +35,19 @@ type
 
 proc newTopLocDatum3D*(): TopLocDatum3D {.cdecl, constructor,
                                        importcpp: "TopLoc_Datum3D(@)",
-                                       dynlib: tkmath.}
+                                       header: "TopLoc_Datum3D.hxx".}
 proc newTopLocDatum3D*(t: Trsf): TopLocDatum3D {.cdecl, constructor,
-    importcpp: "TopLoc_Datum3D(@)", dynlib: tkmath.}
+    importcpp: "TopLoc_Datum3D(@)", header: "TopLoc_Datum3D.hxx".}
 proc transformation*(this: TopLocDatum3D): Trsf {.noSideEffect, cdecl,
-    importcpp: "Transformation", dynlib: tkmath.}
+    importcpp: "Transformation", header: "TopLoc_Datum3D.hxx".}
 proc trsf*(this: TopLocDatum3D): Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
-                                    dynlib: tkmath.}
+                                    header: "TopLoc_Datum3D.hxx".}
 proc form*(this: TopLocDatum3D): TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
-                                        dynlib: tkmath.}
+                                        header: "TopLoc_Datum3D.hxx".}
 proc dumpJson*(this: TopLocDatum3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(this: TopLocDatum3D; s: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "ShallowDump", dynlib: tkmath.}
+    importcpp: "ShallowDump", header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(me: Handle[TopLocDatum3D]; s: var StandardOStream) {.cdecl.} =
   discard

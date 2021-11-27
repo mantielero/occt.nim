@@ -58,111 +58,111 @@ type
 
 
 proc newMathVector*(theLower: cint; theUpper: cint): MathVector {.cdecl, constructor,
-    importcpp: "math_Vector(@)", dynlib: tkmath.}
+    importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc newMathVector*(theLower: cint; theUpper: cint; theInitialValue: cfloat): MathVector {.
-    cdecl, constructor, importcpp: "math_Vector(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc newMathVector*(theTab: ptr cfloat; theLower: cint; theUpper: cint): MathVector {.
-    cdecl, constructor, importcpp: "math_Vector(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc newMathVector*(other: Xy): MathVector {.cdecl, constructor,
-    importcpp: "math_Vector(@)", dynlib: tkmath.}
+    importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc newMathVector*(other: Xyz): MathVector {.cdecl, constructor,
-    importcpp: "math_Vector(@)", dynlib: tkmath.}
+    importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc init*(this: var MathVector; theInitialValue: cfloat) {.cdecl, importcpp: "Init",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc newMathVector*(theOther: MathVector): MathVector {.cdecl, constructor,
-    importcpp: "math_Vector(@)", dynlib: tkmath.}
+    importcpp: "math_Vector(@)", header: "math_Vector.hxx".}
 proc length*(this: MathVector): cint {.noSideEffect, cdecl, importcpp: "Length",
-                                   dynlib: tkmath.}
+                                   header: "math_Vector.hxx".}
 proc lower*(this: MathVector): cint {.noSideEffect, cdecl, importcpp: "Lower",
-                                  dynlib: tkmath.}
+                                  header: "math_Vector.hxx".}
 proc upper*(this: MathVector): cint {.noSideEffect, cdecl, importcpp: "Upper",
-                                  dynlib: tkmath.}
+                                  header: "math_Vector.hxx".}
 proc norm*(this: MathVector): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
-                                   dynlib: tkmath.}
+                                   header: "math_Vector.hxx".}
 proc norm2*(this: MathVector): cfloat {.noSideEffect, cdecl, importcpp: "Norm2",
-                                    dynlib: tkmath.}
+                                    header: "math_Vector.hxx".}
 proc max*(this: MathVector): cint {.noSideEffect, cdecl, importcpp: "Max",
-                                dynlib: tkmath.}
+                                header: "math_Vector.hxx".}
 proc min*(this: MathVector): cint {.noSideEffect, cdecl, importcpp: "Min",
-                                dynlib: tkmath.}
-proc normalize*(this: var MathVector) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
+                                header: "math_Vector.hxx".}
+proc normalize*(this: var MathVector) {.cdecl, importcpp: "Normalize", header: "math_Vector.hxx".}
 proc normalized*(this: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "Normalized", dynlib: tkmath.}
-proc invert*(this: var MathVector) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "Normalized", header: "math_Vector.hxx".}
+proc invert*(this: var MathVector) {.cdecl, importcpp: "Invert", header: "math_Vector.hxx".}
 proc inverse*(this: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "Inverse", dynlib: tkmath.}
+    importcpp: "Inverse", header: "math_Vector.hxx".}
 proc set*(this: var MathVector; theI1: cint; theI2: cint; theV: MathVector) {.cdecl,
-    importcpp: "Set", dynlib: tkmath.}
+    importcpp: "Set", header: "math_Vector.hxx".}
 proc slice*(this: MathVector; theI1: cint; theI2: cint): MathVector {.noSideEffect,
-    cdecl, importcpp: "Slice", dynlib: tkmath.}
+    cdecl, importcpp: "Slice", header: "math_Vector.hxx".}
 proc multiply*(this: var MathVector; theRight: cfloat) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc `*=`*(this: var MathVector; theRight: cfloat) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc multiplied*(this: MathVector; theRight: cfloat): MathVector {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "math_Vector.hxx".}
 proc `*`*(this: MathVector; theRight: cfloat): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Vector.hxx".}
 proc tMultiplied*(this: MathVector; theRight: cfloat): MathVector {.noSideEffect,
-    cdecl, importcpp: "TMultiplied", dynlib: tkmath.}
+    cdecl, importcpp: "TMultiplied", header: "math_Vector.hxx".}
 proc divide*(this: var MathVector; theRight: cfloat) {.cdecl, importcpp: "Divide",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc `/=`*(this: var MathVector; theRight: cfloat) {.cdecl, importcpp: "(# /= #)",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc divided*(this: MathVector; theRight: cfloat): MathVector {.noSideEffect, cdecl,
-    importcpp: "Divided", dynlib: tkmath.}
+    importcpp: "Divided", header: "math_Vector.hxx".}
 proc `/`*(this: MathVector; theRight: cfloat): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# / #)", dynlib: tkmath.}
+    importcpp: "(# / #)", header: "math_Vector.hxx".}
 proc add*(this: var MathVector; theRight: MathVector) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc `+=`*(this: var MathVector; theRight: MathVector) {.cdecl, importcpp: "(# += #)",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc added*(this: MathVector; theRight: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "Added", dynlib: tkmath.}
+    importcpp: "Added", header: "math_Vector.hxx".}
 proc `+`*(this: MathVector; theRight: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# + #)", dynlib: tkmath.}
+    importcpp: "(# + #)", header: "math_Vector.hxx".}
 proc multiply*(this: var MathVector; theLeft: MathVector; theRight: MathMatrix) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_Vector.hxx".}
 proc multiply*(this: var MathVector; theLeft: MathMatrix; theRight: MathVector) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_Vector.hxx".}
 proc tMultiply*(this: var MathVector; theTLeft: MathMatrix; theRight: MathVector) {.
-    cdecl, importcpp: "TMultiply", dynlib: tkmath.}
+    cdecl, importcpp: "TMultiply", header: "math_Vector.hxx".}
 proc tMultiply*(this: var MathVector; theLeft: MathVector; theTRight: MathMatrix) {.
-    cdecl, importcpp: "TMultiply", dynlib: tkmath.}
+    cdecl, importcpp: "TMultiply", header: "math_Vector.hxx".}
 proc add*(this: var MathVector; theLeft: MathVector; theRight: MathVector) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "math_Vector.hxx".}
 proc subtract*(this: var MathVector; theLeft: MathVector; theRight: MathVector) {.cdecl,
-    importcpp: "Subtract", dynlib: tkmath.}
+    importcpp: "Subtract", header: "math_Vector.hxx".}
 proc value*(this: MathVector; theNum: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_Vector.hxx".}
 proc value*(this: var MathVector; theNum: cint): var cfloat {.cdecl, importcpp: "Value",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc `()`*(this: MathVector; theNum: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "math_Vector.hxx".}
 proc `()`*(this: var MathVector; theNum: cint): var cfloat {.cdecl, importcpp: "#(@)",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc initialized*(this: var MathVector; theOther: MathVector): var MathVector {.cdecl,
-    importcpp: "Initialized", dynlib: tkmath.}
+    importcpp: "Initialized", header: "math_Vector.hxx".}
 proc multiplied*(this: MathVector; theRight: MathVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "math_Vector.hxx".}
 proc `*`*(this: MathVector; theRight: MathVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Vector.hxx".}
 proc multiplied*(this: MathVector; theRight: MathMatrix): MathVector {.noSideEffect,
-    cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    cdecl, importcpp: "Multiplied", header: "math_Vector.hxx".}
 proc `*`*(this: MathVector; theRight: MathMatrix): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Vector.hxx".}
 proc opposite*(this: var MathVector): MathVector {.cdecl, importcpp: "Opposite",
-    dynlib: tkmath.}
-proc `-`*(this: var MathVector): MathVector {.cdecl, importcpp: "(- #)", dynlib: tkmath.}
+    header: "math_Vector.hxx".}
+proc `-`*(this: var MathVector): MathVector {.cdecl, importcpp: "(- #)", header: "math_Vector.hxx".}
 proc subtract*(this: var MathVector; theRight: MathVector) {.cdecl,
-    importcpp: "Subtract", dynlib: tkmath.}
+    importcpp: "Subtract", header: "math_Vector.hxx".}
 proc `-=`*(this: var MathVector; theRight: MathVector) {.cdecl, importcpp: "(# -= #)",
-    dynlib: tkmath.}
+    header: "math_Vector.hxx".}
 proc subtracted*(this: MathVector; theRight: MathVector): MathVector {.noSideEffect,
-    cdecl, importcpp: "Subtracted", dynlib: tkmath.}
+    cdecl, importcpp: "Subtracted", header: "math_Vector.hxx".}
 proc `-`*(this: MathVector; theRight: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# - #)", dynlib: tkmath.}
+    importcpp: "(# - #)", header: "math_Vector.hxx".}
 proc multiply*(this: var MathVector; theLeft: cfloat; theRight: MathVector) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_Vector.hxx".}
 proc dump*(this: MathVector; theO: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Vector.hxx".}

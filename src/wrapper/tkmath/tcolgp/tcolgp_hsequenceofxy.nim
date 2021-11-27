@@ -20,16 +20,16 @@ type
 
 
 proc newTColgpHSequenceOfXY*(): TColgpHSequenceOfXY {.cdecl, constructor,
-    importcpp: "TColgp_HSequenceOfXY(@)", dynlib: tkmath.}
+    importcpp: "TColgp_HSequenceOfXY(@)", header: "TColgp_HSequenceOfXY.hxx".}
 proc newTColgpHSequenceOfXY*(theOther: TColgpSequenceOfXY): TColgpHSequenceOfXY {.
-    cdecl, constructor, importcpp: "TColgp_HSequenceOfXY(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HSequenceOfXY(@)", header: "TColgp_HSequenceOfXY.hxx".}
 proc sequence*(this: TColgpHSequenceOfXY): TColgpSequenceOfXY {.noSideEffect, cdecl,
-    importcpp: "Sequence", dynlib: tkmath.}
+    importcpp: "Sequence", header: "TColgp_HSequenceOfXY.hxx".}
 proc append*(this: var TColgpHSequenceOfXY; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkmath.}
+    importcpp: "Append", header: "TColgp_HSequenceOfXY.hxx".}
 proc append*(this: var TColgpHSequenceOfXY; theSequence: var TColgpSequenceOfXY) {.
-    cdecl, importcpp: "Append", dynlib: tkmath.}
+    cdecl, importcpp: "Append", header: "TColgp_HSequenceOfXY.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfXY): var TColgpSequenceOfXY {.cdecl,
-    importcpp: "ChangeSequence", dynlib: tkmath.}
+    importcpp: "ChangeSequence", header: "TColgp_HSequenceOfXY.hxx".}
 type
   HandleTColgpHSequenceOfXY* = Handle[TColgpHSequenceOfXY]

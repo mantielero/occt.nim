@@ -23,7 +23,7 @@ type
 
 proc destroyTopOpeBRepBuildLoopClassifier*(
     this: var TopOpeBRepBuildLoopClassifier) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_LoopClassifier()", dynlib: tkbool.}
+    importcpp: "#.~TopOpeBRepBuild_LoopClassifier()", header: "TopOpeBRepBuild_LoopClassifier.hxx".}
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkbool.}
+    cdecl, importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}

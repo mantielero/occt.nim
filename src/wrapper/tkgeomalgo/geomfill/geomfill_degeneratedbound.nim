@@ -34,15 +34,15 @@ type
 proc newGeomFillDegeneratedBound*(point: Pnt; first: cfloat; last: cfloat;
                                  tol3d: cfloat; tolang: cfloat): GeomFillDegeneratedBound {.
     cdecl, constructor, importcpp: "GeomFill_DegeneratedBound(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_DegeneratedBound.hxx".}
 proc value*(this: GeomFillDegeneratedBound; u: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "GeomFill_DegeneratedBound.hxx".}
 proc d1*(this: GeomFillDegeneratedBound; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_DegeneratedBound.hxx".}
 proc reparametrize*(this: var GeomFillDegeneratedBound; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,
-    importcpp: "Reparametrize", dynlib: tkgeomalgo.}
+    importcpp: "Reparametrize", header: "GeomFill_DegeneratedBound.hxx".}
 proc bounds*(this: GeomFillDegeneratedBound; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_DegeneratedBound.hxx".}
 proc isDegenerated*(this: GeomFillDegeneratedBound): bool {.noSideEffect, cdecl,
-    importcpp: "IsDegenerated", dynlib: tkgeomalgo.}
+    importcpp: "IsDegenerated", header: "GeomFill_DegeneratedBound.hxx".}

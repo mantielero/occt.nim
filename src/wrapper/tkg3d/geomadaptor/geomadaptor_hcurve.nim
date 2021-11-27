@@ -31,10 +31,10 @@ type
 
 
 proc newGeomAdaptorHCurve*(): GeomAdaptorHCurve {.cdecl, constructor,
-    importcpp: "GeomAdaptor_HCurve(@)", dynlib: tkg3d.}
+    importcpp: "GeomAdaptor_HCurve(@)", header: "GeomAdaptor_HCurve.hxx".}
 proc newGeomAdaptorHCurve*(`as`: GeomAdaptorCurve): GeomAdaptorHCurve {.cdecl,
-    constructor, importcpp: "GeomAdaptor_HCurve(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_HCurve(@)", header: "GeomAdaptor_HCurve.hxx".}
 proc newGeomAdaptorHCurve*(s: Handle[GeomCurve]): GeomAdaptorHCurve {.cdecl,
-    constructor, importcpp: "GeomAdaptor_HCurve(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_HCurve(@)", header: "GeomAdaptor_HCurve.hxx".}
 proc newGeomAdaptorHCurve*(s: Handle[GeomCurve]; uFirst: cfloat; uLast: cfloat): GeomAdaptorHCurve {.
-    cdecl, constructor, importcpp: "GeomAdaptor_HCurve(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "GeomAdaptor_HCurve(@)", header: "GeomAdaptor_HCurve.hxx".}

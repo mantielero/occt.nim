@@ -28,29 +28,29 @@ type
 
 
 proc newTopLocSListOfItemLocation*(): TopLocSListOfItemLocation {.cdecl,
-    constructor, importcpp: "TopLoc_SListOfItemLocation(@)", dynlib: tkmath.}
+    constructor, importcpp: "TopLoc_SListOfItemLocation(@)", header: "TopLoc_SListOfItemLocation.hxx".}
 proc newTopLocSListOfItemLocation*(anItem: TopLocItemLocation;
                                   aTail: TopLocSListOfItemLocation): TopLocSListOfItemLocation {.
-    cdecl, constructor, importcpp: "TopLoc_SListOfItemLocation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TopLoc_SListOfItemLocation(@)", header: "TopLoc_SListOfItemLocation.hxx".}
 proc newTopLocSListOfItemLocation*(other: TopLocSListOfItemLocation): TopLocSListOfItemLocation {.
-    cdecl, constructor, importcpp: "TopLoc_SListOfItemLocation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TopLoc_SListOfItemLocation(@)", header: "TopLoc_SListOfItemLocation.hxx".}
 proc assign*(this: var TopLocSListOfItemLocation; other: TopLocSListOfItemLocation): var TopLocSListOfItemLocation {.
-    cdecl, importcpp: "Assign", dynlib: tkmath.}
+    cdecl, importcpp: "Assign", header: "TopLoc_SListOfItemLocation.hxx".}
 proc isEmpty*(this: TopLocSListOfItemLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
+    importcpp: "IsEmpty", header: "TopLoc_SListOfItemLocation.hxx".}
 proc clear*(this: var TopLocSListOfItemLocation) {.cdecl, importcpp: "Clear",
-    dynlib: tkmath.}
+    header: "TopLoc_SListOfItemLocation.hxx".}
 proc destroyTopLocSListOfItemLocation*(this: var TopLocSListOfItemLocation) {.cdecl,
-    importcpp: "#.~TopLoc_SListOfItemLocation()", dynlib: tkmath.}
+    importcpp: "#.~TopLoc_SListOfItemLocation()", header: "TopLoc_SListOfItemLocation.hxx".}
 proc value*(this: TopLocSListOfItemLocation): TopLocItemLocation {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "TopLoc_SListOfItemLocation.hxx".}
 proc tail*(this: TopLocSListOfItemLocation): TopLocSListOfItemLocation {.
-    noSideEffect, cdecl, importcpp: "Tail", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Tail", header: "TopLoc_SListOfItemLocation.hxx".}
 proc construct*(this: var TopLocSListOfItemLocation; anItem: TopLocItemLocation) {.
-    cdecl, importcpp: "Construct", dynlib: tkmath.}
+    cdecl, importcpp: "Construct", header: "TopLoc_SListOfItemLocation.hxx".}
 proc toTail*(this: var TopLocSListOfItemLocation) {.cdecl, importcpp: "ToTail",
-    dynlib: tkmath.}
+    header: "TopLoc_SListOfItemLocation.hxx".}
 proc more*(this: TopLocSListOfItemLocation): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkmath.}
+    importcpp: "More", header: "TopLoc_SListOfItemLocation.hxx".}
 proc next*(this: var TopLocSListOfItemLocation) {.cdecl, importcpp: "Next",
-    dynlib: tkmath.}
+    header: "TopLoc_SListOfItemLocation.hxx".}

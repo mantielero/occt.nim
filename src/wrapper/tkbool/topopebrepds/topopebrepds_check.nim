@@ -27,33 +27,33 @@ type
 
 
 proc newTopOpeBRepDS_Check*(): TopOpeBRepDS_Check {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Check(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Check(@)", header: "TopOpeBRepDS_Check.hxx".}
 proc newTopOpeBRepDS_Check*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Check {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Check(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Check(@)", header: "TopOpeBRepDS_Check.hxx".}
 proc chkIntg*(this: var TopOpeBRepDS_Check): bool {.cdecl, importcpp: "ChkIntg",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Check.hxx".}
 proc chkIntgInterf*(this: var TopOpeBRepDS_Check;
                    li: TopOpeBRepDS_ListOfInterference): bool {.cdecl,
-    importcpp: "ChkIntgInterf", dynlib: tkbool.}
+    importcpp: "ChkIntgInterf", header: "TopOpeBRepDS_Check.hxx".}
 proc checkDS*(this: var TopOpeBRepDS_Check; i: cint; k: TopOpeBRepDS_Kind): bool {.cdecl,
-    importcpp: "CheckDS", dynlib: tkbool.}
+    importcpp: "CheckDS", header: "TopOpeBRepDS_Check.hxx".}
 proc chkIntgSamDom*(this: var TopOpeBRepDS_Check): bool {.cdecl,
-    importcpp: "ChkIntgSamDom", dynlib: tkbool.}
+    importcpp: "ChkIntgSamDom", header: "TopOpeBRepDS_Check.hxx".}
 proc checkShapes*(this: TopOpeBRepDS_Check; ls: TopToolsListOfShape): bool {.
-    noSideEffect, cdecl, importcpp: "CheckShapes", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "CheckShapes", header: "TopOpeBRepDS_Check.hxx".}
 proc oneVertexOnPnt*(this: var TopOpeBRepDS_Check): bool {.cdecl,
-    importcpp: "OneVertexOnPnt", dynlib: tkbool.}
+    importcpp: "OneVertexOnPnt", header: "TopOpeBRepDS_Check.hxx".}
 proc hds*(this: TopOpeBRepDS_Check): Handle[TopOpeBRepDS_HDataStructure] {.
-    noSideEffect, cdecl, importcpp: "HDS", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HDS", header: "TopOpeBRepDS_Check.hxx".}
 proc changeHDS*(this: var TopOpeBRepDS_Check): var Handle[TopOpeBRepDS_HDataStructure] {.
-    cdecl, importcpp: "ChangeHDS", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeHDS", header: "TopOpeBRepDS_Check.hxx".}
 proc printIntg*(this: var TopOpeBRepDS_Check; s: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "PrintIntg", dynlib: tkbool.}
+    cdecl, importcpp: "PrintIntg", header: "TopOpeBRepDS_Check.hxx".}
 proc print*(this: var TopOpeBRepDS_Check; stat: TopOpeBRepDS_CheckStatus;
            s: var StandardOStream): var StandardOStream {.cdecl, importcpp: "Print",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Check.hxx".}
 proc printShape*(this: var TopOpeBRepDS_Check; se: TopAbsShapeEnum;
                 s: var StandardOStream): var StandardOStream {.cdecl,
-    importcpp: "PrintShape", dynlib: tkbool.}
+    importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
 proc printShape*(this: var TopOpeBRepDS_Check; index: cint; s: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "PrintShape", dynlib: tkbool.}
+    cdecl, importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}

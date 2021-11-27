@@ -22,13 +22,13 @@ type
 
 proc newTopToolsHArray1OfListOfShape*(theLower: cint; theUpper: cint): TopToolsHArray1OfListOfShape {.
     cdecl, constructor, importcpp: "TopTools_HArray1OfListOfShape(@)",
-    dynlib: tkbrep.}
+    header: "TopTools_HArray1OfListOfShape.hxx".}
 proc newTopToolsHArray1OfListOfShape*(theLower: cint; theUpper: cint;
                                      theValue: ValueType): TopToolsHArray1OfListOfShape {.
     cdecl, constructor, importcpp: "TopTools_HArray1OfListOfShape(@)",
-    dynlib: tkbrep.}
+    header: "TopTools_HArray1OfListOfShape.hxx".}
 proc newTopToolsHArray1OfListOfShape*(theOther: TopToolsArray1OfListOfShape): TopToolsHArray1OfListOfShape {.
     cdecl, constructor, importcpp: "TopTools_HArray1OfListOfShape(@)",
-    dynlib: tkbrep.}
+    header: "TopTools_HArray1OfListOfShape.hxx".}
 proc array1*(this: TopToolsHArray1OfListOfShape): TopToolsArray1OfListOfShape {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TopTools_HArray1OfListOfShape.hxx".}

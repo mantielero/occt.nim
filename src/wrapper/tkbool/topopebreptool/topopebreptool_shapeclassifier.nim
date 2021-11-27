@@ -25,44 +25,44 @@ type
 
 
 proc newTopOpeBRepToolShapeClassifier*(): TopOpeBRepToolShapeClassifier {.cdecl,
-    constructor, importcpp: "TopOpeBRepTool_ShapeClassifier(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepTool_ShapeClassifier(@)", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc newTopOpeBRepToolShapeClassifier*(sRef: TopoDS_Shape): TopOpeBRepToolShapeClassifier {.
     cdecl, constructor, importcpp: "TopOpeBRepTool_ShapeClassifier(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc clearAll*(this: var TopOpeBRepToolShapeClassifier) {.cdecl,
-    importcpp: "ClearAll", dynlib: tkbool.}
+    importcpp: "ClearAll", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc clearCurrent*(this: var TopOpeBRepToolShapeClassifier) {.cdecl,
-    importcpp: "ClearCurrent", dynlib: tkbool.}
+    importcpp: "ClearCurrent", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc setReference*(this: var TopOpeBRepToolShapeClassifier; sRef: TopoDS_Shape) {.
-    cdecl, importcpp: "SetReference", dynlib: tkbool.}
+    cdecl, importcpp: "SetReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
                      sRef: TopoDS_Shape; samedomain: cint = 0): TopAbsState {.cdecl,
-    importcpp: "StateShapeShape", dynlib: tkbool.}
+    importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc sameDomain*(this: TopOpeBRepToolShapeClassifier): cint {.noSideEffect, cdecl,
-    importcpp: "SameDomain", dynlib: tkbool.}
+    importcpp: "SameDomain", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc sameDomain*(this: var TopOpeBRepToolShapeClassifier; samedomain: cint) {.cdecl,
-    importcpp: "SameDomain", dynlib: tkbool.}
+    importcpp: "SameDomain", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
                      avoidS: TopoDS_Shape; sRef: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "StateShapeShape", dynlib: tkbool.}
+    importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateShapeShape*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
                      lAvoidS: TopToolsListOfShape; sRef: TopoDS_Shape): TopAbsState {.
-    cdecl, importcpp: "StateShapeShape", dynlib: tkbool.}
+    cdecl, importcpp: "StateShapeShape", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateShapeReference*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
                          avoidS: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "StateShapeReference", dynlib: tkbool.}
+    importcpp: "StateShapeReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateShapeReference*(this: var TopOpeBRepToolShapeClassifier; s: TopoDS_Shape;
                          lAvoidS: TopToolsListOfShape): TopAbsState {.cdecl,
-    importcpp: "StateShapeReference", dynlib: tkbool.}
+    importcpp: "StateShapeReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc changeSolidClassifier*(this: var TopOpeBRepToolShapeClassifier): var TopOpeBRepToolSolidClassifier {.
-    cdecl, importcpp: "ChangeSolidClassifier", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeSolidClassifier", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateP2DReference*(this: var TopOpeBRepToolShapeClassifier; p2d: Pnt2d) {.cdecl,
-    importcpp: "StateP2DReference", dynlib: tkbool.}
+    importcpp: "StateP2DReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc stateP3DReference*(this: var TopOpeBRepToolShapeClassifier; p3d: Pnt) {.cdecl,
-    importcpp: "StateP3DReference", dynlib: tkbool.}
+    importcpp: "StateP3DReference", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc state*(this: TopOpeBRepToolShapeClassifier): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc p2d*(this: TopOpeBRepToolShapeClassifier): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "P2D", dynlib: tkbool.}
+    importcpp: "P2D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc p3d*(this: TopOpeBRepToolShapeClassifier): Pnt {.noSideEffect, cdecl,
-    importcpp: "P3D", dynlib: tkbool.}
+    importcpp: "P3D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}

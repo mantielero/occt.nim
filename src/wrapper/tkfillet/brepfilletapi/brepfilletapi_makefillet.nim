@@ -89,118 +89,118 @@ type
 
 proc newBRepFilletAPI_MakeFillet*(s: TopoDS_Shape;
                                  fShape: ChFi3dFilletShape = chFi3dRational): BRepFilletAPI_MakeFillet {.
-    cdecl, constructor, importcpp: "BRepFilletAPI_MakeFillet(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepFilletAPI_MakeFillet(@)", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setParams*(this: var BRepFilletAPI_MakeFillet; tang: cfloat; tesp: cfloat;
                t2d: cfloat; tApp3d: cfloat; tolApp2d: cfloat; fleche: cfloat) {.cdecl,
-    importcpp: "SetParams", dynlib: tkfillet.}
+    importcpp: "SetParams", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setContinuity*(this: var BRepFilletAPI_MakeFillet;
                    internalContinuity: GeomAbsShape; angularTolerance: cfloat) {.
-    cdecl, importcpp: "SetContinuity", dynlib: tkfillet.}
+    cdecl, importcpp: "SetContinuity", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", dynlib: tkfillet.}
+    importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", dynlib: tkfillet.}
+    importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; r1: cfloat; r2: cfloat; e: TopoDS_Edge) {.
-    cdecl, importcpp: "Add", dynlib: tkfillet.}
+    cdecl, importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; e: TopoDS_Edge) {.
-    cdecl, importcpp: "Add", dynlib: tkfillet.}
+    cdecl, importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc add*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
-         e: TopoDS_Edge) {.cdecl, importcpp: "Add", dynlib: tkfillet.}
+         e: TopoDS_Edge) {.cdecl, importcpp: "Add", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint; iinC: cint) {.
-    cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+    cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; r1: cfloat; r2: cfloat; ic: cint;
-               iinC: cint) {.cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+               iinC: cint) {.cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; L: Handle[LawFunction]; ic: cint;
-               iinC: cint) {.cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+               iinC: cint) {.cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; uandR: TColgpArray1OfPnt2d;
-               ic: cint; iinC: cint) {.cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+               ic: cint; iinC: cint) {.cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc resetContour*(this: var BRepFilletAPI_MakeFillet; ic: cint) {.cdecl,
-    importcpp: "ResetContour", dynlib: tkfillet.}
+    importcpp: "ResetContour", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: cint): bool {.cdecl,
-    importcpp: "IsConstant", dynlib: tkfillet.}
+    importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc radius*(this: var BRepFilletAPI_MakeFillet; ic: cint): cfloat {.cdecl,
-    importcpp: "Radius", dynlib: tkfillet.}
+    importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc isConstant*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): bool {.
-    cdecl, importcpp: "IsConstant", dynlib: tkfillet.}
+    cdecl, importcpp: "IsConstant", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc radius*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): cfloat {.
-    cdecl, importcpp: "Radius", dynlib: tkfillet.}
+    cdecl, importcpp: "Radius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint;
-               e: TopoDS_Edge) {.cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+               e: TopoDS_Edge) {.cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setRadius*(this: var BRepFilletAPI_MakeFillet; radius: cfloat; ic: cint;
-               v: TopoDS_Vertex) {.cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+               v: TopoDS_Vertex) {.cdecl, importcpp: "SetRadius", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc getBounds*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge;
                f: var cfloat; L: var cfloat): bool {.cdecl, importcpp: "GetBounds",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeFillet.hxx".}
 proc getLaw*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge): Handle[
-    LawFunction] {.cdecl, importcpp: "GetLaw", dynlib: tkfillet.}
+    LawFunction] {.cdecl, importcpp: "GetLaw", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setLaw*(this: var BRepFilletAPI_MakeFillet; ic: cint; e: TopoDS_Edge;
-            L: Handle[LawFunction]) {.cdecl, importcpp: "SetLaw", dynlib: tkfillet.}
+            L: Handle[LawFunction]) {.cdecl, importcpp: "SetLaw", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc setFilletShape*(this: var BRepFilletAPI_MakeFillet; fShape: ChFi3dFilletShape) {.
-    cdecl, importcpp: "SetFilletShape", dynlib: tkfillet.}
+    cdecl, importcpp: "SetFilletShape", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc getFilletShape*(this: BRepFilletAPI_MakeFillet): ChFi3dFilletShape {.
-    noSideEffect, cdecl, importcpp: "GetFilletShape", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetFilletShape", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbContours*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect, cdecl,
-    importcpp: "NbContours", dynlib: tkfillet.}
+    importcpp: "NbContours", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc contour*(this: BRepFilletAPI_MakeFillet; e: TopoDS_Edge): cint {.noSideEffect,
-    cdecl, importcpp: "Contour", dynlib: tkfillet.}
+    cdecl, importcpp: "Contour", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbEdges*(this: BRepFilletAPI_MakeFillet; i: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbEdges", dynlib: tkfillet.}
+    importcpp: "NbEdges", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc edge*(this: BRepFilletAPI_MakeFillet; i: cint; j: cint): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "Edge", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Edge", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc remove*(this: var BRepFilletAPI_MakeFillet; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Remove", dynlib: tkfillet.}
+    importcpp: "Remove", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc length*(this: BRepFilletAPI_MakeFillet; ic: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkfillet.}
+    importcpp: "Length", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc firstVertex*(this: BRepFilletAPI_MakeFillet; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "FirstVertex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FirstVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc lastVertex*(this: BRepFilletAPI_MakeFillet; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "LastVertex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "LastVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc abscissa*(this: BRepFilletAPI_MakeFillet; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "Abscissa", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Abscissa", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc relativeAbscissa*(this: BRepFilletAPI_MakeFillet; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "RelativeAbscissa", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "RelativeAbscissa", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc closedAndTangent*(this: BRepFilletAPI_MakeFillet; ic: cint): bool {.noSideEffect,
-    cdecl, importcpp: "ClosedAndTangent", dynlib: tkfillet.}
+    cdecl, importcpp: "ClosedAndTangent", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc closed*(this: BRepFilletAPI_MakeFillet; ic: cint): bool {.noSideEffect, cdecl,
-    importcpp: "Closed", dynlib: tkfillet.}
+    importcpp: "Closed", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc build*(this: var BRepFilletAPI_MakeFillet) {.cdecl, importcpp: "Build",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeFillet.hxx".}
 proc reset*(this: var BRepFilletAPI_MakeFillet) {.cdecl, importcpp: "Reset",
-    dynlib: tkfillet.}
+    header: "BRepFilletAPI_MakeFillet.hxx".}
 proc builder*(this: BRepFilletAPI_MakeFillet): Handle[TopOpeBRepBuildHBuilder] {.
-    noSideEffect, cdecl, importcpp: "Builder", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Builder", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc generated*(this: var BRepFilletAPI_MakeFillet; eorV: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkfillet.}
+    cdecl, importcpp: "Generated", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc modified*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tkfillet.}
+    cdecl, importcpp: "Modified", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc isDeleted*(this: var BRepFilletAPI_MakeFillet; f: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkfillet.}
+    importcpp: "IsDeleted", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbSurfaces*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurfaces", dynlib: tkfillet.}
+    importcpp: "NbSurfaces", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc newFaces*(this: var BRepFilletAPI_MakeFillet; i: cint): TopToolsListOfShape {.
-    cdecl, importcpp: "NewFaces", dynlib: tkfillet.}
+    cdecl, importcpp: "NewFaces", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc simulate*(this: var BRepFilletAPI_MakeFillet; ic: cint) {.cdecl,
-    importcpp: "Simulate", dynlib: tkfillet.}
+    importcpp: "Simulate", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbSurf*(this: BRepFilletAPI_MakeFillet; ic: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurf", dynlib: tkfillet.}
+    importcpp: "NbSurf", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc sect*(this: BRepFilletAPI_MakeFillet; ic: cint; `is`: cint): Handle[
-    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", dynlib: tkfillet.}
+    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbFaultyContours*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect, cdecl,
-    importcpp: "NbFaultyContours", dynlib: tkfillet.}
+    importcpp: "NbFaultyContours", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc faultyContour*(this: BRepFilletAPI_MakeFillet; i: cint): cint {.noSideEffect,
-    cdecl, importcpp: "FaultyContour", dynlib: tkfillet.}
+    cdecl, importcpp: "FaultyContour", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbComputedSurfaces*(this: BRepFilletAPI_MakeFillet; ic: cint): cint {.
-    noSideEffect, cdecl, importcpp: "NbComputedSurfaces", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "NbComputedSurfaces", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc computedSurface*(this: BRepFilletAPI_MakeFillet; ic: cint; `is`: cint): Handle[
     GeomSurface] {.noSideEffect, cdecl, importcpp: "ComputedSurface",
-                  dynlib: tkfillet.}
+                  header: "BRepFilletAPI_MakeFillet.hxx".}
 proc nbFaultyVertices*(this: BRepFilletAPI_MakeFillet): cint {.noSideEffect, cdecl,
-    importcpp: "NbFaultyVertices", dynlib: tkfillet.}
+    importcpp: "NbFaultyVertices", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc faultyVertex*(this: BRepFilletAPI_MakeFillet; iv: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "FaultyVertex", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FaultyVertex", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc hasResult*(this: BRepFilletAPI_MakeFillet): bool {.noSideEffect, cdecl,
-    importcpp: "HasResult", dynlib: tkfillet.}
+    importcpp: "HasResult", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc badShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "BadShape", dynlib: tkfillet.}
+    importcpp: "BadShape", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: cint): ChFiDS_ErrorStatus {.
-    noSideEffect, cdecl, importcpp: "StripeStatus", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "StripeStatus", header: "BRepFilletAPI_MakeFillet.hxx".}

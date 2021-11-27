@@ -22,17 +22,17 @@ type
 
 
 proc newTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc newTopOpeBRepBuildBlockIterator*(lower: cint; upper: cint): TopOpeBRepBuildBlockIterator {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_BlockIterator(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc initialize*(this: var TopOpeBRepBuildBlockIterator) {.cdecl,
-    importcpp: "Initialize", dynlib: tkbool.}
+    importcpp: "Initialize", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc more*(this: TopOpeBRepBuildBlockIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc next*(this: var TopOpeBRepBuildBlockIterator) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc value*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkbool.}
+    importcpp: "Value", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc extent*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", dynlib: tkbool.}
+    importcpp: "Extent", header: "TopOpeBRepBuild_BlockIterator.hxx".}

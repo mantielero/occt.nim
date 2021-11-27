@@ -51,22 +51,22 @@ type
 
 
 proc newTopOpeBRepToolFuseEdges*(theShape: TopoDS_Shape; performNow: bool = false): TopOpeBRepToolFuseEdges {.
-    cdecl, constructor, importcpp: "TopOpeBRepTool_FuseEdges(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepTool_FuseEdges(@)", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc avoidEdges*(this: var TopOpeBRepToolFuseEdges;
                 theMapEdg: TopToolsIndexedMapOfShape) {.cdecl,
-    importcpp: "AvoidEdges", dynlib: tkbool.}
+    importcpp: "AvoidEdges", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc edges*(this: var TopOpeBRepToolFuseEdges;
            theMapLstEdg: var TopToolsDataMapOfIntegerListOfShape) {.cdecl,
-    importcpp: "Edges", dynlib: tkbool.}
+    importcpp: "Edges", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc resultEdges*(this: var TopOpeBRepToolFuseEdges;
                  theMapEdg: var TopToolsDataMapOfIntegerShape) {.cdecl,
-    importcpp: "ResultEdges", dynlib: tkbool.}
+    importcpp: "ResultEdges", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc faces*(this: var TopOpeBRepToolFuseEdges;
            theMapFac: var TopToolsDataMapOfShapeShape) {.cdecl, importcpp: "Faces",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolFuseEdges): var TopoDS_Shape {.cdecl,
-    importcpp: "Shape", dynlib: tkbool.}
+    importcpp: "Shape", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc nbVertices*(this: var TopOpeBRepToolFuseEdges): cint {.cdecl,
-    importcpp: "NbVertices", dynlib: tkbool.}
+    importcpp: "NbVertices", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolFuseEdges) {.cdecl, importcpp: "Perform",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_FuseEdges.hxx".}

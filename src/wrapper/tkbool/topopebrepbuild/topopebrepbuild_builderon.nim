@@ -22,29 +22,29 @@ type
 
 
 proc newTopOpeBRepBuildBuilderON*(): TopOpeBRepBuildBuilderON {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_BuilderON(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_BuilderON(@)", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc newTopOpeBRepBuildBuilderON*(pb: TopOpeBRepBuildPBuilder; f: TopoDS_Shape;
                                  pg: TopOpeBRepBuildPGTopo;
                                  pLSclass: TopOpeBRepToolPlos;
                                  pwes: TopOpeBRepBuildPWireEdgeSet): TopOpeBRepBuildBuilderON {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_BuilderON(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_BuilderON(@)", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc perform*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
              f: TopoDS_Shape; pg: TopOpeBRepBuildPGTopo;
              pLSclass: TopOpeBRepToolPlos; pwes: TopOpeBRepBuildPWireEdgeSet) {.
-    cdecl, importcpp: "Perform", dynlib: tkbool.}
+    cdecl, importcpp: "Perform", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONCheckI*(this: TopOpeBRepBuildBuilderON;
                    i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "GFillONCheckI", dynlib: tkbool.}
+    cdecl, importcpp: "GFillONCheckI", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONPartsWES1*(this: var TopOpeBRepBuildBuilderON;
                       i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "GFillONPartsWES1", dynlib: tkbool.}
+    importcpp: "GFillONPartsWES1", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONPartsWES2*(this: var TopOpeBRepBuildBuilderON;
                       i: Handle[TopOpeBRepDS_Interference]; espON: TopoDS_Shape) {.
-    cdecl, importcpp: "GFillONPartsWES2", dynlib: tkbool.}
+    cdecl, importcpp: "GFillONPartsWES2", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc perform2d*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
                f: TopoDS_Shape; pg: TopOpeBRepBuildPGTopo;
                pLSclass: TopOpeBRepToolPlos; pwes: TopOpeBRepBuildPWireEdgeSet) {.
-    cdecl, importcpp: "Perform2d", dynlib: tkbool.}
+    cdecl, importcpp: "Perform2d", header: "TopOpeBRepBuild_BuilderON.hxx".}
 proc gFillONParts2dWES2*(this: var TopOpeBRepBuildBuilderON;
                         i: Handle[TopOpeBRepDS_Interference]; espON: TopoDS_Shape) {.
-    cdecl, importcpp: "GFillONParts2dWES2", dynlib: tkbool.}
+    cdecl, importcpp: "GFillONParts2dWES2", header: "TopOpeBRepBuild_BuilderON.hxx".}

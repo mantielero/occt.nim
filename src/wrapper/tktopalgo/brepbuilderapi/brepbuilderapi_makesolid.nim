@@ -57,28 +57,28 @@ type
 
 
 proc newBRepBuilderAPI_MakeSolid*(): BRepBuilderAPI_MakeSolid {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(s: TopoDS_CompSolid): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell;
                                  s3: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc newBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid; s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc add*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shell) {.cdecl,
-    importcpp: "Add", dynlib: tktopalgo.}
+    importcpp: "Add", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc isDone*(this: BRepBuilderAPI_MakeSolid): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tktopalgo.}
+    importcpp: "IsDone", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc solid*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.cdecl,
-    importcpp: "Solid", dynlib: tktopalgo.}
+    importcpp: "Solid", header: "BRepBuilderAPI_MakeSolid.hxx".}
 converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.cdecl,
     importcpp: "BRepBuilderAPI_MakeSolid::operator TopoDS_Solid",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tktopalgo.}
+    importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}

@@ -52,4 +52,4 @@ type
 
 
 proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.cdecl,
-    importcpp: "Geom2dAdaptor::MakeCurve(@)", dynlib: tkg2d.}
+    importcpp: "Geom2dAdaptor::MakeCurve(@)", header: "Geom2dAdaptor.hxx".}

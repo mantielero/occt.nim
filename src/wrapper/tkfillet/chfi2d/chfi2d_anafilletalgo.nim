@@ -39,18 +39,18 @@ type
 
 
 proc newChFi2dAnaFilletAlgo*(): ChFi2dAnaFilletAlgo {.cdecl, constructor,
-    importcpp: "ChFi2d_AnaFilletAlgo(@)", dynlib: tkfillet.}
+    importcpp: "ChFi2d_AnaFilletAlgo(@)", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc newChFi2dAnaFilletAlgo*(theWire: TopoDS_Wire; thePlane: Pln): ChFi2dAnaFilletAlgo {.
-    cdecl, constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc newChFi2dAnaFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
                             thePlane: Pln): ChFi2dAnaFilletAlgo {.cdecl,
-    constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)", dynlib: tkfillet.}
+    constructor, importcpp: "ChFi2d_AnaFilletAlgo(@)", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc init*(this: var ChFi2dAnaFilletAlgo; theWire: TopoDS_Wire; thePlane: Pln) {.cdecl,
-    importcpp: "Init", dynlib: tkfillet.}
+    importcpp: "Init", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc init*(this: var ChFi2dAnaFilletAlgo; theEdge1: TopoDS_Edge;
           theEdge2: TopoDS_Edge; thePlane: Pln) {.cdecl, importcpp: "Init",
-    dynlib: tkfillet.}
+    header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc perform*(this: var ChFi2dAnaFilletAlgo; radius: cfloat): bool {.cdecl,
-    importcpp: "Perform", dynlib: tkfillet.}
+    importcpp: "Perform", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc result*(this: var ChFi2dAnaFilletAlgo; e1: var TopoDS_Edge; e2: var TopoDS_Edge): TopoDS_Edge {.
-    cdecl, importcpp: "Result", dynlib: tkfillet.}
+    cdecl, importcpp: "Result", header: "ChFi2d_AnaFilletAlgo.hxx".}

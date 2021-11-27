@@ -24,18 +24,18 @@ type
 proc newBlendFuncGenChamfInv*(s1: Handle[Adaptor3dHSurface];
                              s2: Handle[Adaptor3dHSurface];
                              c: Handle[Adaptor3dHCurve]): BlendFuncGenChamfInv {.
-    cdecl, constructor, importcpp: "BlendFunc_GenChamfInv(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_GenChamfInv(@)", header: "BlendFunc_GenChamfInv.hxx".}
 proc set*(this: var BlendFuncGenChamfInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_GenChamfInv.hxx".}
 proc getTolerance*(this: BlendFuncGenChamfInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_GenChamfInv.hxx".}
 proc getBounds*(this: BlendFuncGenChamfInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BlendFunc_GenChamfInv.hxx".}
 proc nbEquations*(this: BlendFuncGenChamfInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BlendFunc_GenChamfInv.hxx".}
 proc values*(this: var BlendFuncGenChamfInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_GenChamfInv.hxx".}
 proc set*(this: var BlendFuncGenChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BlendFunc_GenChamfInv.hxx".}

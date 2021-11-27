@@ -36,22 +36,22 @@ type
                                                                                                      ## <me>.
 
 
-proc reverse*(this: var Geom2dVector) {.cdecl, importcpp: "Reverse", dynlib: tkg2d.}
+proc reverse*(this: var Geom2dVector) {.cdecl, importcpp: "Reverse", header: "Geom2d_Vector.hxx".}
 proc reversed*(this: Geom2dVector): Handle[Geom2dVector] {.noSideEffect, cdecl,
-    importcpp: "Reversed", dynlib: tkg2d.}
+    importcpp: "Reversed", header: "Geom2d_Vector.hxx".}
 proc angle*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Angle", dynlib: tkg2d.}
+    cdecl, importcpp: "Angle", header: "Geom2d_Vector.hxx".}
 proc coord*(this: Geom2dVector; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkg2d.}
+    importcpp: "Coord", header: "Geom2d_Vector.hxx".}
 proc magnitude*(this: Geom2dVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "Magnitude", dynlib: tkg2d.}
+    importcpp: "Magnitude", header: "Geom2d_Vector.hxx".}
 proc squareMagnitude*(this: Geom2dVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareMagnitude", dynlib: tkg2d.}
-proc x*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkg2d.}
-proc y*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkg2d.}
+    importcpp: "SquareMagnitude", header: "Geom2d_Vector.hxx".}
+proc x*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "Geom2d_Vector.hxx".}
+proc y*(this: Geom2dVector): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "Geom2d_Vector.hxx".}
 proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Crossed", dynlib: tkg2d.}
+    cdecl, importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
 proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Dot", dynlib: tkg2d.}
+    cdecl, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
 proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, cdecl, importcpp: "Vec2d",
-                                     dynlib: tkg2d.}
+                                     header: "Geom2d_Vector.hxx".}

@@ -40,13 +40,13 @@ type
 
 proc newBVH_QueueBuilder*[T; N: static[cint]](theLeafNodeSize: cint;
     theMaxTreeDepth: cint; theNumOfThreads: cint = 1): BVH_QueueBuilder[T, N] {.cdecl,
-    constructor, importcpp: "BVH_QueueBuilder<\'*0,\'*1>(@)", dynlib: tkmath.}
+    constructor, importcpp: "BVH_QueueBuilder<\'*0,\'*1>(@)", header: "BVH_QueueBuilder.hxx".}
 proc destroyBVH_QueueBuilder*[T; N: static[cint]](this: var BVH_QueueBuilder[T, N]) {.
-    cdecl, importcpp: "#.~BVH_QueueBuilder()", dynlib: tkmath.}
+    cdecl, importcpp: "#.~BVH_QueueBuilder()", header: "BVH_QueueBuilder.hxx".}
 proc build*[T; N: static[cint]](this: BVH_QueueBuilder[T, N];
                              theSet: ptr BVH_Set[T, N]; theBVH: ptr BVH_Tree[T, N];
                              theBox: BVH_Box[T, N]) {.noSideEffect, cdecl,
-    importcpp: "Build", dynlib: tkmath.}
+    importcpp: "Build", header: "BVH_QueueBuilder.hxx".}
 ##  =======================================================================
 ##  function : addChildren
 ##  purpose  :

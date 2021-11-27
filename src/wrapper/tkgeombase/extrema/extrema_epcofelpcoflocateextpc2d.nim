@@ -30,36 +30,36 @@ type
 
 proc newExtremaEPCOfELPCOfLocateExtPC2d*(): ExtremaEPCOfELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc newExtremaEPCOfELPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; nbU: cint;
                                         tolU: cfloat; tolF: cfloat): ExtremaEPCOfELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc newExtremaEPCOfELPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; nbU: cint;
                                         umin: cfloat; usup: cfloat; tolU: cfloat;
                                         tolF: cfloat): ExtremaEPCOfELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
                 nbU: cint; tolU: cfloat; tolF: cfloat) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
                 nbU: cint; umin: cfloat; usup: cfloat; tolU: cfloat; tolF: cfloat) {.
-    cdecl, importcpp: "Initialize", dynlib: tkgeombase.}
+    cdecl, importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC2d; c: Adaptor2dCurve2d) {.
-    cdecl, importcpp: "Initialize", dynlib: tkgeombase.}
+    cdecl, importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC2d; nbU: cint; umin: cfloat;
                 usup: cfloat; tolU: cfloat; tolF: cfloat) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc perform*(this: var ExtremaEPCOfELPCOfLocateExtPC2d; p: Pnt2d) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc isDone*(this: ExtremaEPCOfELPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc nbExt*(this: ExtremaEPCOfELPCOfLocateExtPC2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbExt", dynlib: tkgeombase.}
+    importcpp: "NbExt", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc squareDistance*(this: ExtremaEPCOfELPCOfLocateExtPC2d; n: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "SquareDistance", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "SquareDistance", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc isMin*(this: ExtremaEPCOfELPCOfLocateExtPC2d; n: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsMin", dynlib: tkgeombase.}
+    cdecl, importcpp: "IsMin", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}
 proc point*(this: ExtremaEPCOfELPCOfLocateExtPC2d; n: cint): ExtremaPOnCurv2d {.
-    noSideEffect, cdecl, importcpp: "Point", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Point", header: "Extrema_EPCOfELPCOfLocateExtPC2d.hxx".}

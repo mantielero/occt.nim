@@ -27,17 +27,17 @@ type
 
 
 proc newBndBoundSortBox2d*(): BndBoundSortBox2d {.cdecl, constructor,
-    importcpp: "Bnd_BoundSortBox2d(@)", dynlib: tkmath.}
+    importcpp: "Bnd_BoundSortBox2d(@)", header: "Bnd_BoundSortBox2d.hxx".}
 proc initialize*(this: var BndBoundSortBox2d; completeBox: BndBox2d;
                 setOfBox: Handle[BndHArray1OfBox2d]) {.cdecl,
-    importcpp: "Initialize", dynlib: tkmath.}
+    importcpp: "Initialize", header: "Bnd_BoundSortBox2d.hxx".}
 proc initialize*(this: var BndBoundSortBox2d; setOfBox: Handle[BndHArray1OfBox2d]) {.
-    cdecl, importcpp: "Initialize", dynlib: tkmath.}
+    cdecl, importcpp: "Initialize", header: "Bnd_BoundSortBox2d.hxx".}
 proc initialize*(this: var BndBoundSortBox2d; completeBox: BndBox2d;
-                nbComponents: cint) {.cdecl, importcpp: "Initialize", dynlib: tkmath.}
+                nbComponents: cint) {.cdecl, importcpp: "Initialize", header: "Bnd_BoundSortBox2d.hxx".}
 proc add*(this: var BndBoundSortBox2d; theBox: BndBox2d; boxIndex: cint) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "Bnd_BoundSortBox2d.hxx".}
 proc compare*(this: var BndBoundSortBox2d; theBox: BndBox2d): TColStdListOfInteger {.
-    cdecl, importcpp: "Compare", dynlib: tkmath.}
+    cdecl, importcpp: "Compare", header: "Bnd_BoundSortBox2d.hxx".}
 proc dump*(this: BndBoundSortBox2d) {.noSideEffect, cdecl, importcpp: "Dump",
-                                   dynlib: tkmath.}
+                                   header: "Bnd_BoundSortBox2d.hxx".}

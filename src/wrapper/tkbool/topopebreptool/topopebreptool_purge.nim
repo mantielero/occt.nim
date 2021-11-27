@@ -15,7 +15,7 @@
 ##  commercial license or contractual agreement.
 
 when defined(OCCT_DEBUG):
-  proc fun_Reinit*() {.cdecl, importcpp: "FUN_REINIT(@)", dynlib: tkbool.}
+  proc fun_Reinit*() {.cdecl, importcpp: "FUN_REINIT(@)", header: "TopOpeBRepTool_PURGE.hxx".}
   ## extern Standard_Integer FUN_addepc(const TopoDS_Shape& ed,const TopoDS_Shape& f);
 ##  ----------------------------------------------------------------------
 ##  TopOpeBRepTool_faulty.cxx

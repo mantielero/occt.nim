@@ -26,8 +26,8 @@ type
                                                                          ## evolution law.
 
 
-proc newLawS*(): LawS {.cdecl, constructor, importcpp: "Law_S(@)", dynlib: tkgeomalgo.}
+proc newLawS*(): LawS {.cdecl, constructor, importcpp: "Law_S(@)", header: "Law_S.hxx".}
 proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; pfin: cfloat; valfin: cfloat) {.
-    cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Set", header: "Law_S.hxx".}
 proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; ddeb: cfloat; pfin: cfloat;
-         valfin: cfloat; dfin: cfloat) {.cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+         valfin: cfloat; dfin: cfloat) {.cdecl, importcpp: "Set", header: "Law_S.hxx".}

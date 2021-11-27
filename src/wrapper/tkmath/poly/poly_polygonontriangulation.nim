@@ -52,33 +52,33 @@ type
 
 
 proc newPolyPolygonOnTriangulation*(theNbNodes: cint; theHasParams: bool): PolyPolygonOnTriangulation {.
-    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", header: "Poly_PolygonOnTriangulation.hxx".}
 proc newPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger): PolyPolygonOnTriangulation {.
-    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", header: "Poly_PolygonOnTriangulation.hxx".}
 proc newPolyPolygonOnTriangulation*(nodes: TColStdArray1OfInteger;
                                    parameters: TColStdArray1OfReal): PolyPolygonOnTriangulation {.
-    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_PolygonOnTriangulation(@)", header: "Poly_PolygonOnTriangulation.hxx".}
 proc copy*(this: PolyPolygonOnTriangulation): Handle[PolyPolygonOnTriangulation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "Poly_PolygonOnTriangulation.hxx".}
 proc deflection*(this: PolyPolygonOnTriangulation): cfloat {.noSideEffect, cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
 proc deflection*(this: var PolyPolygonOnTriangulation; theDefl: cfloat) {.cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_PolygonOnTriangulation.hxx".}
 proc nbNodes*(this: PolyPolygonOnTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NbNodes", dynlib: tkmath.}
+    importcpp: "NbNodes", header: "Poly_PolygonOnTriangulation.hxx".}
 proc nodes*(this: PolyPolygonOnTriangulation): TColStdArray1OfInteger {.
-    noSideEffect, cdecl, importcpp: "Nodes", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Nodes", header: "Poly_PolygonOnTriangulation.hxx".}
 proc changeNodes*(this: var PolyPolygonOnTriangulation): var TColStdArray1OfInteger {.
-    cdecl, importcpp: "ChangeNodes", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeNodes", header: "Poly_PolygonOnTriangulation.hxx".}
 proc hasParameters*(this: PolyPolygonOnTriangulation): bool {.noSideEffect, cdecl,
-    importcpp: "HasParameters", dynlib: tkmath.}
+    importcpp: "HasParameters", header: "Poly_PolygonOnTriangulation.hxx".}
 proc parameters*(this: PolyPolygonOnTriangulation): Handle[TColStdHArray1OfReal] {.
-    noSideEffect, cdecl, importcpp: "Parameters", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Parameters", header: "Poly_PolygonOnTriangulation.hxx".}
 proc changeParameters*(this: var PolyPolygonOnTriangulation): var TColStdArray1OfReal {.
-    cdecl, importcpp: "ChangeParameters", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeParameters", header: "Poly_PolygonOnTriangulation.hxx".}
 proc setParameters*(this: var PolyPolygonOnTriangulation;
                    theParameters: Handle[TColStdHArray1OfReal]) {.cdecl,
-    importcpp: "SetParameters", dynlib: tkmath.}
+    importcpp: "SetParameters", header: "Poly_PolygonOnTriangulation.hxx".}
 proc dumpJson*(this: PolyPolygonOnTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "Poly_PolygonOnTriangulation.hxx".}

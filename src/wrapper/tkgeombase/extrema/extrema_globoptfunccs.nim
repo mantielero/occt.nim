@@ -34,16 +34,16 @@ type
 
 
 proc newExtremaGlobOptFuncCS*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncCS {.
-    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GlobOptFuncCS(@)", header: "Extrema_GlobOptFuncCS.hxx".}
 proc nbVariables*(this: ExtremaGlobOptFuncCS): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_GlobOptFuncCS.hxx".}
 proc value*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "Extrema_GlobOptFuncCS.hxx".}
 proc gradient*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theG: var MathVector): bool {.
-    cdecl, importcpp: "Gradient", dynlib: tkgeombase.}
+    cdecl, importcpp: "Gradient", header: "Extrema_GlobOptFuncCS.hxx".}
 proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector): bool {.cdecl, importcpp: "Values",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_GlobOptFuncCS.hxx".}
 proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector; theH: var MathMatrix): bool {.cdecl,
-    importcpp: "Values", dynlib: tkgeombase.}
+    importcpp: "Values", header: "Extrema_GlobOptFuncCS.hxx".}

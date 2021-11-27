@@ -29,17 +29,17 @@ type
 
 
 proc setRange*(this: var BRepGCurve; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetRange", dynlib: tkbrep.}
+    importcpp: "SetRange", header: "BRep_GCurve.hxx".}
 proc range*(this: BRepGCurve; first: var cfloat; last: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Range", dynlib: tkbrep.}
+    importcpp: "Range", header: "BRep_GCurve.hxx".}
 proc first*(this: BRepGCurve): cfloat {.noSideEffect, cdecl, importcpp: "First",
-                                    dynlib: tkbrep.}
+                                    header: "BRep_GCurve.hxx".}
 proc last*(this: BRepGCurve): cfloat {.noSideEffect, cdecl, importcpp: "Last",
-                                   dynlib: tkbrep.}
-proc first*(this: var BRepGCurve; f: cfloat) {.cdecl, importcpp: "First", dynlib: tkbrep.}
-proc last*(this: var BRepGCurve; L: cfloat) {.cdecl, importcpp: "Last", dynlib: tkbrep.}
+                                   header: "BRep_GCurve.hxx".}
+proc first*(this: var BRepGCurve; f: cfloat) {.cdecl, importcpp: "First", header: "BRep_GCurve.hxx".}
+proc last*(this: var BRepGCurve; L: cfloat) {.cdecl, importcpp: "Last", header: "BRep_GCurve.hxx".}
 proc d0*(this: BRepGCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkbrep.}
-proc update*(this: var BRepGCurve) {.cdecl, importcpp: "Update", dynlib: tkbrep.}
+    header: "BRep_GCurve.hxx".}
+proc update*(this: var BRepGCurve) {.cdecl, importcpp: "Update", header: "BRep_GCurve.hxx".}
 proc dumpJson*(this: BRepGCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_GCurve.hxx".}

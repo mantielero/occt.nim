@@ -40,4 +40,4 @@ type
 proc newTopOpeBRepDS_FaceEdgeInterference*(t: TopOpeBRepDS_Transition; s: cint;
     g: cint; gIsBound: bool; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_FaceEdgeInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}

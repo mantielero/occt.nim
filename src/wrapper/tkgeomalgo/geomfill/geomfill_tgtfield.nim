@@ -29,12 +29,12 @@ type
 
 
 proc isScalable*(this: GeomFillTgtField): bool {.noSideEffect, cdecl,
-    importcpp: "IsScalable", dynlib: tkgeomalgo.}
+    importcpp: "IsScalable", header: "GeomFill_TgtField.hxx".}
 proc scale*(this: var GeomFillTgtField; `func`: Handle[LawBSpline]) {.cdecl,
-    importcpp: "Scale", dynlib: tkgeomalgo.}
+    importcpp: "Scale", header: "GeomFill_TgtField.hxx".}
 proc value*(this: GeomFillTgtField; w: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "GeomFill_TgtField.hxx".}
 proc d1*(this: GeomFillTgtField; w: cfloat): Vec {.noSideEffect, cdecl, importcpp: "D1",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_TgtField.hxx".}
 proc d1*(this: GeomFillTgtField; w: cfloat; v: var Vec; dv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "GeomFill_TgtField.hxx".}

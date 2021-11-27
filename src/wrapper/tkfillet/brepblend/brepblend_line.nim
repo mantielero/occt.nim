@@ -25,41 +25,41 @@ type
 
 proc newBRepBlendLine*(): BRepBlendLine {.cdecl, constructor,
                                        importcpp: "BRepBlend_Line(@)",
-                                       dynlib: tkfillet.}
-proc clear*(this: var BRepBlendLine) {.cdecl, importcpp: "Clear", dynlib: tkfillet.}
+                                       header: "BRepBlend_Line.hxx".}
+proc clear*(this: var BRepBlendLine) {.cdecl, importcpp: "Clear", header: "BRepBlend_Line.hxx".}
 proc append*(this: var BRepBlendLine; p: BlendPoint) {.cdecl, importcpp: "Append",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Line.hxx".}
 proc prepend*(this: var BRepBlendLine; p: BlendPoint) {.cdecl, importcpp: "Prepend",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Line.hxx".}
 proc insertBefore*(this: var BRepBlendLine; index: cint; p: BlendPoint) {.cdecl,
-    importcpp: "InsertBefore", dynlib: tkfillet.}
+    importcpp: "InsertBefore", header: "BRepBlend_Line.hxx".}
 proc remove*(this: var BRepBlendLine; fromIndex: cint; toIndex: cint) {.cdecl,
-    importcpp: "Remove", dynlib: tkfillet.}
+    importcpp: "Remove", header: "BRepBlend_Line.hxx".}
 proc set*(this: var BRepBlendLine; tranS1: IntSurfTypeTrans; tranS2: IntSurfTypeTrans) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BRepBlend_Line.hxx".}
 proc set*(this: var BRepBlendLine; trans: IntSurfTypeTrans) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Line.hxx".}
 proc setStartPoints*(this: var BRepBlendLine; startPt1: BRepBlendExtremity;
                     startPt2: BRepBlendExtremity) {.cdecl,
-    importcpp: "SetStartPoints", dynlib: tkfillet.}
+    importcpp: "SetStartPoints", header: "BRepBlend_Line.hxx".}
 proc setEndPoints*(this: var BRepBlendLine; endPt1: BRepBlendExtremity;
                   endPt2: BRepBlendExtremity) {.cdecl, importcpp: "SetEndPoints",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Line.hxx".}
 proc nbPoints*(this: BRepBlendLine): cint {.noSideEffect, cdecl,
-                                        importcpp: "NbPoints", dynlib: tkfillet.}
+                                        importcpp: "NbPoints", header: "BRepBlend_Line.hxx".}
 proc point*(this: BRepBlendLine; index: cint): BlendPoint {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkfillet.}
+    importcpp: "Point", header: "BRepBlend_Line.hxx".}
 proc transitionOnS1*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect, cdecl,
-    importcpp: "TransitionOnS1", dynlib: tkfillet.}
+    importcpp: "TransitionOnS1", header: "BRepBlend_Line.hxx".}
 proc transitionOnS2*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect, cdecl,
-    importcpp: "TransitionOnS2", dynlib: tkfillet.}
+    importcpp: "TransitionOnS2", header: "BRepBlend_Line.hxx".}
 proc startPointOnFirst*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect,
-    cdecl, importcpp: "StartPointOnFirst", dynlib: tkfillet.}
+    cdecl, importcpp: "StartPointOnFirst", header: "BRepBlend_Line.hxx".}
 proc startPointOnSecond*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect,
-    cdecl, importcpp: "StartPointOnSecond", dynlib: tkfillet.}
+    cdecl, importcpp: "StartPointOnSecond", header: "BRepBlend_Line.hxx".}
 proc endPointOnFirst*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect, cdecl,
-    importcpp: "EndPointOnFirst", dynlib: tkfillet.}
+    importcpp: "EndPointOnFirst", header: "BRepBlend_Line.hxx".}
 proc endPointOnSecond*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect,
-    cdecl, importcpp: "EndPointOnSecond", dynlib: tkfillet.}
+    cdecl, importcpp: "EndPointOnSecond", header: "BRepBlend_Line.hxx".}
 proc transitionOnS*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect, cdecl,
-    importcpp: "TransitionOnS", dynlib: tkfillet.}
+    importcpp: "TransitionOnS", header: "BRepBlend_Line.hxx".}

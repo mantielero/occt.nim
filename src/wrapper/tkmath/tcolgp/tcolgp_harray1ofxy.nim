@@ -20,10 +20,10 @@ type
 
 
 proc newTColgpHArray1OfXY*(theLower: cint; theUpper: cint): TColgpHArray1OfXY {.cdecl,
-    constructor, importcpp: "TColgp_HArray1OfXY(@)", dynlib: tkmath.}
+    constructor, importcpp: "TColgp_HArray1OfXY(@)", header: "TColgp_HArray1OfXY.hxx".}
 proc newTColgpHArray1OfXY*(theLower: cint; theUpper: cint; theValue: ValueType): TColgpHArray1OfXY {.
-    cdecl, constructor, importcpp: "TColgp_HArray1OfXY(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HArray1OfXY(@)", header: "TColgp_HArray1OfXY.hxx".}
 proc newTColgpHArray1OfXY*(theOther: TColgpArray1OfXY): TColgpHArray1OfXY {.cdecl,
-    constructor, importcpp: "TColgp_HArray1OfXY(@)", dynlib: tkmath.}
+    constructor, importcpp: "TColgp_HArray1OfXY(@)", header: "TColgp_HArray1OfXY.hxx".}
 proc array1*(this: TColgpHArray1OfXY): TColgpArray1OfXY {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkmath.}
+    importcpp: "Array1", header: "TColgp_HArray1OfXY.hxx".}

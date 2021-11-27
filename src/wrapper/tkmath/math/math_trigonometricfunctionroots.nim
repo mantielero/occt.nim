@@ -29,22 +29,22 @@ type
 proc newMathTrigonometricFunctionRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat;
                                        e: cfloat; infBound: cfloat; supBound: cfloat): MathTrigonometricFunctionRoots {.
     cdecl, constructor, importcpp: "math_TrigonometricFunctionRoots(@)",
-    dynlib: tkmath.}
+    header: "math_TrigonometricFunctionRoots.hxx".}
 proc newMathTrigonometricFunctionRoots*(d: cfloat; e: cfloat; infBound: cfloat;
                                        supBound: cfloat): MathTrigonometricFunctionRoots {.
     cdecl, constructor, importcpp: "math_TrigonometricFunctionRoots(@)",
-    dynlib: tkmath.}
+    header: "math_TrigonometricFunctionRoots.hxx".}
 proc newMathTrigonometricFunctionRoots*(c: cfloat; d: cfloat; e: cfloat;
                                        infBound: cfloat; supBound: cfloat): MathTrigonometricFunctionRoots {.
     cdecl, constructor, importcpp: "math_TrigonometricFunctionRoots(@)",
-    dynlib: tkmath.}
+    header: "math_TrigonometricFunctionRoots.hxx".}
 proc isDone*(this: MathTrigonometricFunctionRoots): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_TrigonometricFunctionRoots.hxx".}
 proc infiniteRoots*(this: MathTrigonometricFunctionRoots): bool {.noSideEffect,
-    cdecl, importcpp: "InfiniteRoots", dynlib: tkmath.}
+    cdecl, importcpp: "InfiniteRoots", header: "math_TrigonometricFunctionRoots.hxx".}
 proc value*(this: MathTrigonometricFunctionRoots; index: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_TrigonometricFunctionRoots.hxx".}
 proc nbSolutions*(this: MathTrigonometricFunctionRoots): cint {.noSideEffect, cdecl,
-    importcpp: "NbSolutions", dynlib: tkmath.}
+    importcpp: "NbSolutions", header: "math_TrigonometricFunctionRoots.hxx".}
 proc dump*(this: MathTrigonometricFunctionRoots; o: var StandardOStream) {.
-    noSideEffect, cdecl, importcpp: "Dump", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Dump", header: "math_TrigonometricFunctionRoots.hxx".}

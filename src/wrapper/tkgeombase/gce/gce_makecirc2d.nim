@@ -88,22 +88,22 @@ type
 
 
 proc newGceMakeCirc2d*(xAxis: Ax2d; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
-    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(axis: Ax22d; radius: cfloat): GceMakeCirc2d {.cdecl,
-    constructor, importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(circ: Circ2d; dist: cfloat): GceMakeCirc2d {.cdecl, constructor,
-    importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(circ: Circ2d; point: Pnt2d): GceMakeCirc2d {.cdecl, constructor,
-    importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(p1: Pnt2d; p2: Pnt2d; p3: Pnt2d): GceMakeCirc2d {.cdecl,
-    constructor, importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(center: Pnt2d; radius: cfloat; sense: bool = true): GceMakeCirc2d {.
-    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc newGceMakeCirc2d*(center: Pnt2d; point: Pnt2d; sense: bool = true): GceMakeCirc2d {.
-    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "gce_MakeCirc2d(@)", header: "gce_MakeCirc2d.hxx".}
 proc value*(this: GceMakeCirc2d): Circ2d {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkgeombase.}
+                                       header: "gce_MakeCirc2d.hxx".}
 proc operator*(this: GceMakeCirc2d): Circ2d {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkgeombase.}
+    importcpp: "Operator", header: "gce_MakeCirc2d.hxx".}
 converter `circ2d`*(this: GceMakeCirc2d): Circ2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeCirc2d::operator gp_Circ2d", dynlib: tkgeombase.}
+    importcpp: "gce_MakeCirc2d::operator gp_Circ2d", header: "gce_MakeCirc2d.hxx".}

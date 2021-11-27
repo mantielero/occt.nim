@@ -24,28 +24,28 @@ type
 
 
 proc newTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.cdecl,
-    constructor, importcpp: "TopOpeBRepTool_makeTransition(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepTool_makeTransition(@)", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc initialize*(this: var TopOpeBRepToolMakeTransition; e: TopoDS_Edge; pbef: cfloat;
                 paft: cfloat; parE: cfloat; fs: TopoDS_Face; uv: Pnt2d; factor: cfloat): bool {.
-    cdecl, importcpp: "Initialize", dynlib: tkbool.}
+    cdecl, importcpp: "Initialize", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc setfactor*(this: var TopOpeBRepToolMakeTransition; factor: cfloat) {.cdecl,
-    importcpp: "Setfactor", dynlib: tkbool.}
+    importcpp: "Setfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc getfactor*(this: TopOpeBRepToolMakeTransition): cfloat {.noSideEffect, cdecl,
-    importcpp: "Getfactor", dynlib: tkbool.}
+    importcpp: "Getfactor", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc isT2d*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect, cdecl,
-    importcpp: "IsT2d", dynlib: tkbool.}
+    importcpp: "IsT2d", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc setRest*(this: var TopOpeBRepToolMakeTransition; es: TopoDS_Edge; parES: cfloat): bool {.
-    cdecl, importcpp: "SetRest", dynlib: tkbool.}
+    cdecl, importcpp: "SetRest", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc hasRest*(this: TopOpeBRepToolMakeTransition): bool {.noSideEffect, cdecl,
-    importcpp: "HasRest", dynlib: tkbool.}
+    importcpp: "HasRest", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkT2donE*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
               sta: var TopAbsState): bool {.noSideEffect, cdecl,
-                                        importcpp: "MkT2donE", dynlib: tkbool.}
+                                        importcpp: "MkT2donE", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkT3onE*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
              sta: var TopAbsState): bool {.noSideEffect, cdecl, importcpp: "MkT3onE",
-                                       dynlib: tkbool.}
+                                       header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkT3dproj*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
                sta: var TopAbsState): bool {.noSideEffect, cdecl,
-    importcpp: "MkT3dproj", dynlib: tkbool.}
+    importcpp: "MkT3dproj", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMakeTransition; stb: var TopAbsState;
-            sta: var TopAbsState): bool {.cdecl, importcpp: "MkTonE", dynlib: tkbool.}
+            sta: var TopAbsState): bool {.cdecl, importcpp: "MkTonE", header: "TopOpeBRepTool_makeTransition.hxx".}

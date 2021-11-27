@@ -22,57 +22,57 @@ type
   Circ* {.importcpp: "gp_Circ", header: "gp_Circ.hxx", bycopy.} = object ## ! Creates an indefinite circle.
 
 
-proc newCirc*(): Circ {.cdecl, constructor, importcpp: "gp_Circ(@)", dynlib: tkmath.}
+proc newCirc*(): Circ {.cdecl, constructor, importcpp: "gp_Circ(@)", header: "gp_Circ.hxx".}
 proc newCirc*(a2: Ax2; radius: cfloat): Circ {.cdecl, constructor,
-    importcpp: "gp_Circ(@)", dynlib: tkmath.}
-proc setAxis*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+    importcpp: "gp_Circ(@)", header: "gp_Circ.hxx".}
+proc setAxis*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Circ.hxx".}
 proc setLocation*(this: var Circ; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                      dynlib: tkmath.}
+                                      header: "gp_Circ.hxx".}
 proc setPosition*(this: var Circ; a2: Ax2) {.cdecl, importcpp: "SetPosition",
-                                       dynlib: tkmath.}
+                                       header: "gp_Circ.hxx".}
 proc setRadius*(this: var Circ; radius: cfloat) {.cdecl, importcpp: "SetRadius",
-    dynlib: tkmath.}
-proc area*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Area", dynlib: tkmath.}
-proc axis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+    header: "gp_Circ.hxx".}
+proc area*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Circ.hxx".}
+proc axis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Circ.hxx".}
 proc length*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Length",
-                               dynlib: tkmath.}
+                               header: "gp_Circ.hxx".}
 proc location*(this: Circ): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                              dynlib: tkmath.}
+                              header: "gp_Circ.hxx".}
 proc position*(this: Circ): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                              dynlib: tkmath.}
+                              header: "gp_Circ.hxx".}
 proc radius*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                               dynlib: tkmath.}
-proc xAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
+                               header: "gp_Circ.hxx".}
+proc xAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Circ.hxx".}
+proc yAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Circ.hxx".}
 proc distance*(this: Circ; p: Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
-                                       dynlib: tkmath.}
+                                       header: "gp_Circ.hxx".}
 proc squareDistance*(this: Circ; p: Pnt): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
+    importcpp: "SquareDistance", header: "gp_Circ.hxx".}
 proc contains*(this: Circ; p: Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkmath.}
-proc mirror*(this: var Circ; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+    importcpp: "Contains", header: "gp_Circ.hxx".}
+proc mirror*(this: var Circ; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
 proc mirrored*(this: Circ; p: Pnt): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                     dynlib: tkmath.}
-proc mirror*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                     header: "gp_Circ.hxx".}
+proc mirror*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
 proc mirrored*(this: Circ; a1: Ax1): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                      dynlib: tkmath.}
-proc mirror*(this: var Circ; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                      header: "gp_Circ.hxx".}
+proc mirror*(this: var Circ; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
 proc mirrored*(this: Circ; a2: Ax2): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                      dynlib: tkmath.}
+                                      header: "gp_Circ.hxx".}
 proc rotate*(this: var Circ; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Circ.hxx".}
 proc rotated*(this: Circ; a1: Ax1; ang: cfloat): Circ {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Circ; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Circ.hxx".}
+proc scale*(this: var Circ; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Circ.hxx".}
 proc scaled*(this: Circ; p: Pnt; s: cfloat): Circ {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Circ; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Circ.hxx".}
+proc transform*(this: var Circ; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Circ.hxx".}
 proc transformed*(this: Circ; t: Trsf): Circ {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Circ; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Circ.hxx".}
+proc translate*(this: var Circ; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Circ.hxx".}
 proc translated*(this: Circ; v: Vec): Circ {.noSideEffect, cdecl,
-                                       importcpp: "Translated", dynlib: tkmath.}
+                                       importcpp: "Translated", header: "gp_Circ.hxx".}
 proc translate*(this: var Circ; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Circ.hxx".}
 proc translated*(this: Circ; p1: Pnt; p2: Pnt): Circ {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Circ.hxx".}

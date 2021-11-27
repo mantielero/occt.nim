@@ -23,22 +23,22 @@ type
 
 
 proc newMathBissecNewton*(theXTolerance: cfloat): MathBissecNewton {.cdecl,
-    constructor, importcpp: "math_BissecNewton(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BissecNewton(@)", header: "math_BissecNewton.hxx".}
 proc perform*(this: var MathBissecNewton; f: var MathFunctionWithDerivative;
              bound1: cfloat; bound2: cfloat; nbIterations: cint = 100) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_BissecNewton.hxx".}
 proc isSolutionReached*(this: var MathBissecNewton;
                        theFunction: var MathFunctionWithDerivative): bool {.cdecl,
-    importcpp: "IsSolutionReached", dynlib: tkmath.}
+    importcpp: "IsSolutionReached", header: "math_BissecNewton.hxx".}
 proc isDone*(this: MathBissecNewton): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-    dynlib: tkmath.}
+    header: "math_BissecNewton.hxx".}
 proc root*(this: MathBissecNewton): cfloat {.noSideEffect, cdecl, importcpp: "Root",
-    dynlib: tkmath.}
+    header: "math_BissecNewton.hxx".}
 proc derivative*(this: MathBissecNewton): cfloat {.noSideEffect, cdecl,
-    importcpp: "Derivative", dynlib: tkmath.}
+    importcpp: "Derivative", header: "math_BissecNewton.hxx".}
 proc value*(this: MathBissecNewton): cfloat {.noSideEffect, cdecl, importcpp: "Value",
-    dynlib: tkmath.}
+    header: "math_BissecNewton.hxx".}
 proc dump*(this: MathBissecNewton; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_BissecNewton.hxx".}
 proc destroyMathBissecNewton*(this: var MathBissecNewton) {.cdecl,
-    importcpp: "#.~math_BissecNewton()", dynlib: tkmath.}
+    importcpp: "#.~math_BissecNewton()", header: "math_BissecNewton.hxx".}

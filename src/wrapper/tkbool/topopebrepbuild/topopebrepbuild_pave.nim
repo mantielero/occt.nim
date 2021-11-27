@@ -55,28 +55,28 @@ type
 
 
 proc newTopOpeBRepBuildPave*(v: TopoDS_Shape; p: cfloat; bound: bool): TopOpeBRepBuildPave {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_Pave(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_Pave(@)", header: "TopOpeBRepBuild_Pave.hxx".}
 proc hasSameDomain*(this: var TopOpeBRepBuildPave; b: bool) {.cdecl,
-    importcpp: "HasSameDomain", dynlib: tkbool.}
+    importcpp: "HasSameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc sameDomain*(this: var TopOpeBRepBuildPave; vsd: TopoDS_Shape) {.cdecl,
-    importcpp: "SameDomain", dynlib: tkbool.}
+    importcpp: "SameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc hasSameDomain*(this: TopOpeBRepBuildPave): bool {.noSideEffect, cdecl,
-    importcpp: "HasSameDomain", dynlib: tkbool.}
+    importcpp: "HasSameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc sameDomain*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "SameDomain", dynlib: tkbool.}
+    importcpp: "SameDomain", header: "TopOpeBRepBuild_Pave.hxx".}
 proc vertex*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkbool.}
+    importcpp: "Vertex", header: "TopOpeBRepBuild_Pave.hxx".}
 proc changeVertex*(this: var TopOpeBRepBuildPave): var TopoDS_Shape {.cdecl,
-    importcpp: "ChangeVertex", dynlib: tkbool.}
+    importcpp: "ChangeVertex", header: "TopOpeBRepBuild_Pave.hxx".}
 proc parameter*(this: TopOpeBRepBuildPave): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkbool.}
+    importcpp: "Parameter", header: "TopOpeBRepBuild_Pave.hxx".}
 proc parameter*(this: var TopOpeBRepBuildPave; par: cfloat) {.cdecl,
-    importcpp: "Parameter", dynlib: tkbool.}
+    importcpp: "Parameter", header: "TopOpeBRepBuild_Pave.hxx".}
 proc interferenceType*(this: var TopOpeBRepBuildPave): var TopOpeBRepDS_Kind {.cdecl,
-    importcpp: "InterferenceType", dynlib: tkbool.}
+    importcpp: "InterferenceType", header: "TopOpeBRepBuild_Pave.hxx".}
 proc isShape*(this: TopOpeBRepBuildPave): bool {.noSideEffect, cdecl,
-    importcpp: "IsShape", dynlib: tkbool.}
+    importcpp: "IsShape", header: "TopOpeBRepBuild_Pave.hxx".}
 proc shape*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbool.}
+    importcpp: "Shape", header: "TopOpeBRepBuild_Pave.hxx".}
 proc dump*(this: TopOpeBRepBuildPave) {.noSideEffect, cdecl, importcpp: "Dump",
-                                     dynlib: tkbool.}
+                                     header: "TopOpeBRepBuild_Pave.hxx".}

@@ -36,26 +36,26 @@ type
 
 
 proc newTopOpeBRepBuildPaveSet*(e: TopoDS_Shape): TopOpeBRepBuildPaveSet {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_PaveSet(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_PaveSet(@)", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc removePV*(this: var TopOpeBRepBuildPaveSet; b: bool) {.cdecl,
-    importcpp: "RemovePV", dynlib: tkbool.}
+    importcpp: "RemovePV", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc append*(this: var TopOpeBRepBuildPaveSet; pv: Handle[TopOpeBRepBuildPave]) {.
-    cdecl, importcpp: "Append", dynlib: tkbool.}
+    cdecl, importcpp: "Append", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc initLoop*(this: var TopOpeBRepBuildPaveSet) {.cdecl, importcpp: "InitLoop",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc moreLoop*(this: TopOpeBRepBuildPaveSet): bool {.noSideEffect, cdecl,
-    importcpp: "MoreLoop", dynlib: tkbool.}
+    importcpp: "MoreLoop", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc nextLoop*(this: var TopOpeBRepBuildPaveSet) {.cdecl, importcpp: "NextLoop",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc loop*(this: TopOpeBRepBuildPaveSet): Handle[TopOpeBRepBuildLoop] {.
-    noSideEffect, cdecl, importcpp: "Loop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Loop", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc edge*(this: TopOpeBRepBuildPaveSet): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", dynlib: tkbool.}
+    importcpp: "Edge", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc hasEqualParameters*(this: var TopOpeBRepBuildPaveSet): bool {.cdecl,
-    importcpp: "HasEqualParameters", dynlib: tkbool.}
+    importcpp: "HasEqualParameters", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc equalParameters*(this: TopOpeBRepBuildPaveSet): cfloat {.noSideEffect, cdecl,
-    importcpp: "EqualParameters", dynlib: tkbool.}
+    importcpp: "EqualParameters", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc closedVertices*(this: var TopOpeBRepBuildPaveSet): bool {.cdecl,
-    importcpp: "ClosedVertices", dynlib: tkbool.}
+    importcpp: "ClosedVertices", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc sortPave*(lin: TopOpeBRepBuildListOfPave; lout: var TopOpeBRepBuildListOfPave) {.
-    cdecl, importcpp: "TopOpeBRepBuild_PaveSet::SortPave(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepBuild_PaveSet::SortPave(@)", header: "TopOpeBRepBuild_PaveSet.hxx".}

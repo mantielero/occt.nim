@@ -22,18 +22,18 @@ type
 
 
 proc newBRepBuilderAPI_Collect*(): BRepBuilderAPI_Collect {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_Collect(@)", dynlib: tktopalgo.}
+    importcpp: "BRepBuilderAPI_Collect(@)", header: "BRepBuilderAPI_Collect.hxx".}
 proc add*(this: var BRepBuilderAPI_Collect; si: TopoDS_Shape;
          mks: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Add",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_Collect.hxx".}
 proc addGenerated*(this: var BRepBuilderAPI_Collect; s: TopoDS_Shape;
                   gen: TopoDS_Shape) {.cdecl, importcpp: "AddGenerated",
-                                     dynlib: tktopalgo.}
+                                     header: "BRepBuilderAPI_Collect.hxx".}
 proc addModif*(this: var BRepBuilderAPI_Collect; s: TopoDS_Shape; `mod`: TopoDS_Shape) {.
-    cdecl, importcpp: "AddModif", dynlib: tktopalgo.}
+    cdecl, importcpp: "AddModif", header: "BRepBuilderAPI_Collect.hxx".}
 proc filter*(this: var BRepBuilderAPI_Collect; sf: TopoDS_Shape) {.cdecl,
-    importcpp: "Filter", dynlib: tktopalgo.}
+    importcpp: "Filter", header: "BRepBuilderAPI_Collect.hxx".}
 proc modification*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
-    noSideEffect, cdecl, importcpp: "Modification", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "Modification", header: "BRepBuilderAPI_Collect.hxx".}
 proc generated*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
-    noSideEffect, cdecl, importcpp: "Generated", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "Generated", header: "BRepBuilderAPI_Collect.hxx".}

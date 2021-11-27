@@ -70,11 +70,11 @@ type
 proc newConvertSphereToBSplineSurface*(sph: Sphere; u1: cfloat; u2: cfloat; v1: cfloat;
                                       v2: cfloat): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_SphereToBSplineSurface.hxx".}
 proc newConvertSphereToBSplineSurface*(sph: Sphere; param1: cfloat; param2: cfloat;
                                       uTrim: bool = true): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_SphereToBSplineSurface.hxx".}
 proc newConvertSphereToBSplineSurface*(sph: Sphere): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_SphereToBSplineSurface.hxx".}

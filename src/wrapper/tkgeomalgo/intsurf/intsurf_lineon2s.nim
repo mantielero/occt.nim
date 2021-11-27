@@ -24,29 +24,29 @@ type
 
 
 proc newIntSurfLineOn2S*(theAllocator: IntSurfAllocator = cast[IntSurfAllocator](0)): IntSurfLineOn2S {.cdecl,
-    constructor, importcpp: "IntSurf_LineOn2S(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "IntSurf_LineOn2S(@)", header: "IntSurf_LineOn2S.hxx".}
 proc add*(this: var IntSurfLineOn2S; p: IntSurfPntOn2S) {.cdecl, importcpp: "Add",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_LineOn2S.hxx".}
 proc nbPoints*(this: IntSurfLineOn2S): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoints", dynlib: tkgeomalgo.}
+    importcpp: "NbPoints", header: "IntSurf_LineOn2S.hxx".}
 proc value*(this: IntSurfLineOn2S; index: cint): IntSurfPntOn2S {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
 proc reverse*(this: var IntSurfLineOn2S) {.cdecl, importcpp: "Reverse",
-                                       dynlib: tkgeomalgo.}
+                                       header: "IntSurf_LineOn2S.hxx".}
 proc split*(this: var IntSurfLineOn2S; index: cint): Handle[IntSurfLineOn2S] {.cdecl,
-    importcpp: "Split", dynlib: tkgeomalgo.}
+    importcpp: "Split", header: "IntSurf_LineOn2S.hxx".}
 proc value*(this: var IntSurfLineOn2S; index: cint; p: IntSurfPntOn2S) {.cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "IntSurf_LineOn2S.hxx".}
 proc setUV*(this: var IntSurfLineOn2S; index: cint; onFirst: bool; u: cfloat; v: cfloat) {.
-    cdecl, importcpp: "SetUV", dynlib: tkgeomalgo.}
-proc clear*(this: var IntSurfLineOn2S) {.cdecl, importcpp: "Clear", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetUV", header: "IntSurf_LineOn2S.hxx".}
+proc clear*(this: var IntSurfLineOn2S) {.cdecl, importcpp: "Clear", header: "IntSurf_LineOn2S.hxx".}
 proc insertBefore*(this: var IntSurfLineOn2S; i: cint; p: IntSurfPntOn2S) {.cdecl,
-    importcpp: "InsertBefore", dynlib: tkgeomalgo.}
+    importcpp: "InsertBefore", header: "IntSurf_LineOn2S.hxx".}
 proc removePoint*(this: var IntSurfLineOn2S; i: cint) {.cdecl,
-    importcpp: "RemovePoint", dynlib: tkgeomalgo.}
+    importcpp: "RemovePoint", header: "IntSurf_LineOn2S.hxx".}
 proc isOutSurf1Box*(this: var IntSurfLineOn2S; theP: Pnt2d): bool {.cdecl,
-    importcpp: "IsOutSurf1Box", dynlib: tkgeomalgo.}
+    importcpp: "IsOutSurf1Box", header: "IntSurf_LineOn2S.hxx".}
 proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: Pnt2d): bool {.cdecl,
-    importcpp: "IsOutSurf2Box", dynlib: tkgeomalgo.}
+    importcpp: "IsOutSurf2Box", header: "IntSurf_LineOn2S.hxx".}
 proc isOutBox*(this: var IntSurfLineOn2S; theP: Pnt): bool {.cdecl,
-    importcpp: "IsOutBox", dynlib: tkgeomalgo.}
+    importcpp: "IsOutBox", header: "IntSurf_LineOn2S.hxx".}

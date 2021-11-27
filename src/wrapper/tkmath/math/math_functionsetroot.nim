@@ -35,45 +35,45 @@ type
 
 proc newMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
                             tolerance: MathVector; nbIterations: cint = 100): MathFunctionSetRoot {.
-    cdecl, constructor, importcpp: "math_FunctionSetRoot(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_FunctionSetRoot(@)", header: "math_FunctionSetRoot.hxx".}
 proc newMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;
                             nbIterations: cint = 100): MathFunctionSetRoot {.cdecl,
-    constructor, importcpp: "math_FunctionSetRoot(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_FunctionSetRoot(@)", header: "math_FunctionSetRoot.hxx".}
 proc destroyMathFunctionSetRoot*(this: var MathFunctionSetRoot) {.cdecl,
-    importcpp: "#.~math_FunctionSetRoot()", dynlib: tkmath.}
+    importcpp: "#.~math_FunctionSetRoot()", header: "math_FunctionSetRoot.hxx".}
 proc setTolerance*(this: var MathFunctionSetRoot; tolerance: MathVector) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkmath.}
+    importcpp: "SetTolerance", header: "math_FunctionSetRoot.hxx".}
 proc isSolutionReached*(this: var MathFunctionSetRoot;
                        f: var MathFunctionSetWithDerivatives): bool {.cdecl,
-    importcpp: "IsSolutionReached", dynlib: tkmath.}
+    importcpp: "IsSolutionReached", header: "math_FunctionSetRoot.hxx".}
 proc perform*(this: var MathFunctionSetRoot;
              theFunction: var MathFunctionSetWithDerivatives;
              theStartingPoint: MathVector; theStopOnDivergent: bool = false) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_FunctionSetRoot.hxx".}
 proc perform*(this: var MathFunctionSetRoot;
              theFunction: var MathFunctionSetWithDerivatives;
              theStartingPoint: MathVector; theInfBound: MathVector;
              theSupBound: MathVector; theStopOnDivergent: bool = false) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_FunctionSetRoot.hxx".}
 proc isDone*(this: MathFunctionSetRoot): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_FunctionSetRoot.hxx".}
 proc nbIterations*(this: MathFunctionSetRoot): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_FunctionSetRoot.hxx".}
 proc stateNumber*(this: MathFunctionSetRoot): cint {.noSideEffect, cdecl,
-    importcpp: "StateNumber", dynlib: tkmath.}
+    importcpp: "StateNumber", header: "math_FunctionSetRoot.hxx".}
 proc root*(this: MathFunctionSetRoot): MathVector {.noSideEffect, cdecl,
-    importcpp: "Root", dynlib: tkmath.}
+    importcpp: "Root", header: "math_FunctionSetRoot.hxx".}
 proc root*(this: MathFunctionSetRoot; root: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Root", dynlib: tkmath.}
+    importcpp: "Root", header: "math_FunctionSetRoot.hxx".}
 proc derivative*(this: MathFunctionSetRoot): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Derivative", dynlib: tkmath.}
+    importcpp: "Derivative", header: "math_FunctionSetRoot.hxx".}
 proc derivative*(this: MathFunctionSetRoot; der: var MathMatrix) {.noSideEffect, cdecl,
-    importcpp: "Derivative", dynlib: tkmath.}
+    importcpp: "Derivative", header: "math_FunctionSetRoot.hxx".}
 proc functionSetErrors*(this: MathFunctionSetRoot): MathVector {.noSideEffect, cdecl,
-    importcpp: "FunctionSetErrors", dynlib: tkmath.}
+    importcpp: "FunctionSetErrors", header: "math_FunctionSetRoot.hxx".}
 proc functionSetErrors*(this: MathFunctionSetRoot; err: var MathVector) {.
-    noSideEffect, cdecl, importcpp: "FunctionSetErrors", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "FunctionSetErrors", header: "math_FunctionSetRoot.hxx".}
 proc dump*(this: MathFunctionSetRoot; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_FunctionSetRoot.hxx".}
 proc isDivergent*(this: MathFunctionSetRoot): bool {.noSideEffect, cdecl,
-    importcpp: "IsDivergent", dynlib: tkmath.}
+    importcpp: "IsDivergent", header: "math_FunctionSetRoot.hxx".}

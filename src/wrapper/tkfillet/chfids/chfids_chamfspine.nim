@@ -28,22 +28,22 @@ type
 
 
 proc newChFiDS_ChamfSpine*(): ChFiDS_ChamfSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_ChamfSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
 proc newChFiDS_ChamfSpine*(tol: cfloat): ChFiDS_ChamfSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_ChamfSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_ChamfSpine(@)", header: "ChFiDS_ChamfSpine.hxx".}
 proc setDist*(this: var ChFiDS_ChamfSpine; dis: cfloat) {.cdecl, importcpp: "SetDist",
-    dynlib: tkfillet.}
+    header: "ChFiDS_ChamfSpine.hxx".}
 proc getDist*(this: ChFiDS_ChamfSpine; dis: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "GetDist", dynlib: tkfillet.}
+    importcpp: "GetDist", header: "ChFiDS_ChamfSpine.hxx".}
 proc setDists*(this: var ChFiDS_ChamfSpine; dis1: cfloat; dis2: cfloat) {.cdecl,
-    importcpp: "SetDists", dynlib: tkfillet.}
+    importcpp: "SetDists", header: "ChFiDS_ChamfSpine.hxx".}
 proc dists*(this: ChFiDS_ChamfSpine; dis1: var cfloat; dis2: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Dists", dynlib: tkfillet.}
+    cdecl, importcpp: "Dists", header: "ChFiDS_ChamfSpine.hxx".}
 proc getDistAngle*(this: ChFiDS_ChamfSpine; dis: var cfloat; angle: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDistAngle", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
 proc setDistAngle*(this: var ChFiDS_ChamfSpine; dis: cfloat; angle: cfloat) {.cdecl,
-    importcpp: "SetDistAngle", dynlib: tkfillet.}
+    importcpp: "SetDistAngle", header: "ChFiDS_ChamfSpine.hxx".}
 proc setMode*(this: var ChFiDS_ChamfSpine; theMode: ChFiDS_ChamfMode) {.cdecl,
-    importcpp: "SetMode", dynlib: tkfillet.}
+    importcpp: "SetMode", header: "ChFiDS_ChamfSpine.hxx".}
 proc isChamfer*(this: ChFiDS_ChamfSpine): ChFiDS_ChamfMethod {.noSideEffect, cdecl,
-    importcpp: "IsChamfer", dynlib: tkfillet.}
+    importcpp: "IsChamfer", header: "ChFiDS_ChamfSpine.hxx".}

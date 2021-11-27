@@ -25,15 +25,15 @@ type
 
 
 proc interpolateSlerp*(theQStart: Quaternion; theQEnd: Quaternion; theT: cfloat): Quaternion {.
-    cdecl, importcpp: "gp_QuaternionSLerp::Interpolate(@)", dynlib: tkmath.}
+    cdecl, importcpp: "gp_QuaternionSLerp::Interpolate(@)", header: "gp_QuaternionSLerp.hxx".}
 proc newQuaternionSLerp*(): QuaternionSLerp {.cdecl, constructor,
-    importcpp: "gp_QuaternionSLerp(@)", dynlib: tkmath.}
+    importcpp: "gp_QuaternionSLerp(@)", header: "gp_QuaternionSLerp.hxx".}
 proc newQuaternionSLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionSLerp {.
-    cdecl, constructor, importcpp: "gp_QuaternionSLerp(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "gp_QuaternionSLerp(@)", header: "gp_QuaternionSLerp.hxx".}
 proc init*(this: var QuaternionSLerp; theQStart: Quaternion; theQEnd: Quaternion) {.
-    cdecl, importcpp: "Init", dynlib: tkmath.}
+    cdecl, importcpp: "Init", header: "gp_QuaternionSLerp.hxx".}
 proc initFromUnit*(this: var QuaternionSLerp; theQStart: Quaternion;
                   theQEnd: Quaternion) {.cdecl, importcpp: "InitFromUnit",
-                                       dynlib: tkmath.}
+                                       header: "gp_QuaternionSLerp.hxx".}
 proc interpolateSlerp*(this: QuaternionSLerp; theT: cfloat; theResultQ: var Quaternion) {.
-    noSideEffect, cdecl, importcpp: "Interpolate", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Interpolate", header: "gp_QuaternionSLerp.hxx".}

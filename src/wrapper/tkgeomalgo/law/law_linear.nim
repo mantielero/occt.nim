@@ -34,22 +34,22 @@ type
 
 
 proc newLawLinear*(): LawLinear {.cdecl, constructor, importcpp: "Law_Linear(@)",
-                               dynlib: tkgeomalgo.}
+                               header: "Law_Linear.hxx".}
 proc set*(this: var LawLinear; pdeb: cfloat; valdeb: cfloat; pfin: cfloat; valfin: cfloat) {.
-    cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Set", header: "Law_Linear.hxx".}
 proc continuity*(this: LawLinear): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkgeomalgo.}
+    importcpp: "Continuity", header: "Law_Linear.hxx".}
 proc nbIntervals*(this: LawLinear; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    importcpp: "NbIntervals", header: "Law_Linear.hxx".}
 proc intervals*(this: LawLinear; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Law_Linear.hxx".}
 proc value*(this: var LawLinear; x: cfloat): cfloat {.cdecl, importcpp: "Value",
-    dynlib: tkgeomalgo.}
+    header: "Law_Linear.hxx".}
 proc d1*(this: var LawLinear; x: cfloat; f: var cfloat; d: var cfloat) {.cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "Law_Linear.hxx".}
 proc d2*(this: var LawLinear; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.cdecl,
-    importcpp: "D2", dynlib: tkgeomalgo.}
+    importcpp: "D2", header: "Law_Linear.hxx".}
 proc trim*(this: LawLinear; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
-    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkgeomalgo.}
+    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_Linear.hxx".}
 proc bounds*(this: var LawLinear; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
-    importcpp: "Bounds", dynlib: tkgeomalgo.}
+    importcpp: "Bounds", header: "Law_Linear.hxx".}

@@ -22,6 +22,6 @@ type
 
 
 proc newTopOpeBRepDS_CurveData*(): TopOpeBRepDS_CurveData {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_CurveData(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}
 proc newTopOpeBRepDS_CurveData*(c: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveData(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}

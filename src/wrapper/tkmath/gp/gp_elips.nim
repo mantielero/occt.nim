@@ -22,67 +22,67 @@ type
   Elips* {.importcpp: "gp_Elips", header: "gp_Elips.hxx", bycopy.} = object ## ! Creates an indefinite ellipse.
 
 
-proc newElips*(): Elips {.cdecl, constructor, importcpp: "gp_Elips(@)", dynlib: tkmath.}
+proc newElips*(): Elips {.cdecl, constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
 proc newElips*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): Elips {.cdecl,
-    constructor, importcpp: "gp_Elips(@)", dynlib: tkmath.}
-proc setAxis*(this: var Elips; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+    constructor, importcpp: "gp_Elips(@)", header: "gp_Elips.hxx".}
+proc setAxis*(this: var Elips; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Elips.hxx".}
 proc setLocation*(this: var Elips; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                       dynlib: tkmath.}
+                                       header: "gp_Elips.hxx".}
 proc setMajorRadius*(this: var Elips; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkmath.}
+    importcpp: "SetMajorRadius", header: "gp_Elips.hxx".}
 proc setMinorRadius*(this: var Elips; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkmath.}
+    importcpp: "SetMinorRadius", header: "gp_Elips.hxx".}
 proc setPosition*(this: var Elips; a2: Ax2) {.cdecl, importcpp: "SetPosition",
-                                        dynlib: tkmath.}
-proc area*(this: Elips): cfloat {.noSideEffect, cdecl, importcpp: "Area", dynlib: tkmath.}
-proc axis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+                                        header: "gp_Elips.hxx".}
+proc area*(this: Elips): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Elips.hxx".}
+proc axis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Elips.hxx".}
 proc directrix1*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix1",
-                                 dynlib: tkmath.}
+                                 header: "gp_Elips.hxx".}
 proc directrix2*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix2",
-                                 dynlib: tkmath.}
+                                 header: "gp_Elips.hxx".}
 proc eccentricity*(this: Elips): cfloat {.noSideEffect, cdecl,
-                                      importcpp: "Eccentricity", dynlib: tkmath.}
+                                      importcpp: "Eccentricity", header: "gp_Elips.hxx".}
 proc focal*(this: Elips): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
-                               dynlib: tkmath.}
+                               header: "gp_Elips.hxx".}
 proc focus1*(this: Elips): Pnt {.noSideEffect, cdecl, importcpp: "Focus1",
-                             dynlib: tkmath.}
+                             header: "gp_Elips.hxx".}
 proc focus2*(this: Elips): Pnt {.noSideEffect, cdecl, importcpp: "Focus2",
-                             dynlib: tkmath.}
+                             header: "gp_Elips.hxx".}
 proc location*(this: Elips): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                               dynlib: tkmath.}
+                               header: "gp_Elips.hxx".}
 proc majorRadius*(this: Elips): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "MajorRadius", dynlib: tkmath.}
+                                     importcpp: "MajorRadius", header: "gp_Elips.hxx".}
 proc minorRadius*(this: Elips): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "MinorRadius", dynlib: tkmath.}
+                                     importcpp: "MinorRadius", header: "gp_Elips.hxx".}
 proc parameter*(this: Elips): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
-                                   dynlib: tkmath.}
+                                   header: "gp_Elips.hxx".}
 proc position*(this: Elips): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
-                               dynlib: tkmath.}
-proc xAxis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
-proc mirror*(this: var Elips; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                               header: "gp_Elips.hxx".}
+proc xAxis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Elips.hxx".}
+proc yAxis*(this: Elips): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Elips.hxx".}
+proc mirror*(this: var Elips; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
 proc mirrored*(this: Elips; p: Pnt): Elips {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                       dynlib: tkmath.}
-proc mirror*(this: var Elips; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                       header: "gp_Elips.hxx".}
+proc mirror*(this: var Elips; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
 proc mirrored*(this: Elips; a1: Ax1): Elips {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Elips; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Elips.hxx".}
+proc mirror*(this: var Elips; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Elips.hxx".}
 proc mirrored*(this: Elips; a2: Ax2): Elips {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Elips.hxx".}
 proc rotate*(this: var Elips; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Elips.hxx".}
 proc rotated*(this: Elips; a1: Ax1; ang: cfloat): Elips {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Elips; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Elips.hxx".}
+proc scale*(this: var Elips; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Elips.hxx".}
 proc scaled*(this: Elips; p: Pnt; s: cfloat): Elips {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Elips; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Elips.hxx".}
+proc transform*(this: var Elips; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Elips.hxx".}
 proc transformed*(this: Elips; t: Trsf): Elips {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Elips; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Elips.hxx".}
+proc translate*(this: var Elips; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Elips.hxx".}
 proc translated*(this: Elips; v: Vec): Elips {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Elips.hxx".}
 proc translate*(this: var Elips; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Elips.hxx".}
 proc translated*(this: Elips; p1: Pnt; p2: Pnt): Elips {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Elips.hxx".}

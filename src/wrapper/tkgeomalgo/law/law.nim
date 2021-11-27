@@ -38,19 +38,19 @@ type
 
 
 proc mixBnd*(lin: Handle[LawLinear]): Handle[LawBSpFunc] {.cdecl,
-    importcpp: "Law::MixBnd(@)", dynlib: tkgeomalgo.}
+    importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
 proc mixBnd*(degree: cint; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
             lin: Handle[LawLinear]): Handle[TColStdHArray1OfReal] {.cdecl,
-    importcpp: "Law::MixBnd(@)", dynlib: tkgeomalgo.}
+    importcpp: "Law::MixBnd(@)", header: "Law.hxx".}
 proc mixTgt*(degree: cint; knots: TColStdArray1OfReal; mults: TColStdArray1OfInteger;
             nulOnTheRight: bool; index: cint): Handle[TColStdHArray1OfReal] {.cdecl,
-    importcpp: "Law::MixTgt(@)", dynlib: tkgeomalgo.}
+    importcpp: "Law::MixTgt(@)", header: "Law.hxx".}
 proc reparametrize*(curve: Adaptor3dCurve; first: cfloat; last: cfloat; hasDF: bool;
                    hasDL: bool; dFirst: cfloat; dLast: cfloat; rev: bool; nbPoints: cint): Handle[
-    LawBSpline] {.cdecl, importcpp: "Law::Reparametrize(@)", dynlib: tkgeomalgo.}
+    LawBSpline] {.cdecl, importcpp: "Law::Reparametrize(@)", header: "Law.hxx".}
 proc scale*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
            vLast: cfloat): Handle[LawBSpline] {.cdecl, importcpp: "Law::Scale(@)",
-    dynlib: tkgeomalgo.}
+    header: "Law.hxx".}
 proc scaleCub*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
               vLast: cfloat): Handle[LawBSpline] {.cdecl,
-    importcpp: "Law::ScaleCub(@)", dynlib: tkgeomalgo.}
+    importcpp: "Law::ScaleCub(@)", header: "Law.hxx".}

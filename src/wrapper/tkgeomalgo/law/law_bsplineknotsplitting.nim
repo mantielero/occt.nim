@@ -60,11 +60,11 @@ type
 
 proc newLawBSplineKnotSplitting*(basisLaw: Handle[LawBSpline];
                                 continuityRange: cint): LawBSplineKnotSplitting {.
-    cdecl, constructor, importcpp: "Law_BSplineKnotSplitting(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "Law_BSplineKnotSplitting(@)", header: "Law_BSplineKnotSplitting.hxx".}
 proc nbSplits*(this: LawBSplineKnotSplitting): cint {.noSideEffect, cdecl,
-    importcpp: "NbSplits", dynlib: tkgeomalgo.}
+    importcpp: "NbSplits", header: "Law_BSplineKnotSplitting.hxx".}
 proc splitting*(this: LawBSplineKnotSplitting;
                splitValues: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "Splitting", dynlib: tkgeomalgo.}
+    importcpp: "Splitting", header: "Law_BSplineKnotSplitting.hxx".}
 proc splitValue*(this: LawBSplineKnotSplitting; index: cint): cint {.noSideEffect,
-    cdecl, importcpp: "SplitValue", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SplitValue", header: "Law_BSplineKnotSplitting.hxx".}

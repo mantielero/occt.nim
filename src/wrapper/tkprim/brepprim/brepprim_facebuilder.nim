@@ -27,22 +27,22 @@ type
 
 
 proc newBRepPrimFaceBuilder*(): BRepPrimFaceBuilder {.cdecl, constructor,
-    importcpp: "BRepPrim_FaceBuilder(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_FaceBuilder(@)", header: "BRepPrim_FaceBuilder.hxx".}
 proc newBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface]): BRepPrimFaceBuilder {.
-    cdecl, constructor, importcpp: "BRepPrim_FaceBuilder(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_FaceBuilder(@)", header: "BRepPrim_FaceBuilder.hxx".}
 proc newBRepPrimFaceBuilder*(b: BRepBuilder; s: Handle[GeomSurface]; uMin: cfloat;
                             uMax: cfloat; vMin: cfloat; vMax: cfloat): BRepPrimFaceBuilder {.
-    cdecl, constructor, importcpp: "BRepPrim_FaceBuilder(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_FaceBuilder(@)", header: "BRepPrim_FaceBuilder.hxx".}
 proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface]) {.
-    cdecl, importcpp: "Init", dynlib: tkprim.}
+    cdecl, importcpp: "Init", header: "BRepPrim_FaceBuilder.hxx".}
 proc init*(this: var BRepPrimFaceBuilder; b: BRepBuilder; s: Handle[GeomSurface];
           uMin: cfloat; uMax: cfloat; vMin: cfloat; vMax: cfloat) {.cdecl,
-    importcpp: "Init", dynlib: tkprim.}
+    importcpp: "Init", header: "BRepPrim_FaceBuilder.hxx".}
 proc face*(this: BRepPrimFaceBuilder): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkprim.}
+    importcpp: "Face", header: "BRepPrim_FaceBuilder.hxx".}
 converter `topoDS_Face`*(this: var BRepPrimFaceBuilder): TopoDS_Face {.cdecl,
-    importcpp: "BRepPrim_FaceBuilder::operator TopoDS_Face", dynlib: tkprim.}
+    importcpp: "BRepPrim_FaceBuilder::operator TopoDS_Face", header: "BRepPrim_FaceBuilder.hxx".}
 proc edge*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", dynlib: tkprim.}
+    importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
 proc vertex*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkprim.}
+    importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}

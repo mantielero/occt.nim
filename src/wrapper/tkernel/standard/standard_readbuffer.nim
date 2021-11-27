@@ -32,13 +32,13 @@ type
 
 proc constructStandardReadBuffer*(theDataLen: int; theChunkLen: csize_t;
                                  theIsPartialPayload: bool = false): StandardReadBuffer {.
-    cdecl, constructor, importcpp: "Standard_ReadBuffer(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Standard_ReadBuffer(@)", header: "Standard_ReadBuffer.hxx".}
 proc init*(this: var StandardReadBuffer; theDataLen: int; theChunkLen: csize_t;
           theIsPartialPayload: bool = false) {.cdecl, importcpp: "Init",
-    dynlib: tkernel.}
+    header: "Standard_ReadBuffer.hxx".}
 proc isDone*(this: StandardReadBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkernel.}
+    importcpp: "IsDone", header: "Standard_ReadBuffer.hxx".}
 proc readChunk*[ChunkT; StreamT](this: var StandardReadBuffer; theStream: var StreamT): ptr ChunkT {.
-    cdecl, importcpp: "ReadChunk", dynlib: tkernel.}
+    cdecl, importcpp: "ReadChunk", header: "Standard_ReadBuffer.hxx".}
 proc readDataChunk*[StreamT](this: var StandardReadBuffer; theStream: var StreamT): cstring {.
-    cdecl, importcpp: "ReadDataChunk", dynlib: tkernel.}
+    cdecl, importcpp: "ReadDataChunk", header: "Standard_ReadBuffer.hxx".}

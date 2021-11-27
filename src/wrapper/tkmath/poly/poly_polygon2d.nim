@@ -39,19 +39,19 @@ type
 
 
 proc newPolyPolygon2D*(theNbNodes: cint): PolyPolygon2D {.cdecl, constructor,
-    importcpp: "Poly_Polygon2D(@)", dynlib: tkmath.}
+    importcpp: "Poly_Polygon2D(@)", header: "Poly_Polygon2D.hxx".}
 proc newPolyPolygon2D*(nodes: TColgpArray1OfPnt2d): PolyPolygon2D {.cdecl,
-    constructor, importcpp: "Poly_Polygon2D(@)", dynlib: tkmath.}
+    constructor, importcpp: "Poly_Polygon2D(@)", header: "Poly_Polygon2D.hxx".}
 proc deflection*(this: PolyPolygon2D): cfloat {.noSideEffect, cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Polygon2D.hxx".}
 proc deflection*(this: var PolyPolygon2D; theDefl: cfloat) {.cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Polygon2D.hxx".}
 proc nbNodes*(this: PolyPolygon2D): cint {.noSideEffect, cdecl, importcpp: "NbNodes",
-                                       dynlib: tkmath.}
+                                       header: "Poly_Polygon2D.hxx".}
 proc nodes*(this: PolyPolygon2D): TColgpArray1OfPnt2d {.noSideEffect, cdecl,
-    importcpp: "Nodes", dynlib: tkmath.}
+    importcpp: "Nodes", header: "Poly_Polygon2D.hxx".}
 proc changeNodes*(this: var PolyPolygon2D): var TColgpArray1OfPnt2d {.cdecl,
-    importcpp: "ChangeNodes", dynlib: tkmath.}
+    importcpp: "ChangeNodes", header: "Poly_Polygon2D.hxx".}
 proc dumpJson*(this: PolyPolygon2D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "Poly_Polygon2D.hxx".}

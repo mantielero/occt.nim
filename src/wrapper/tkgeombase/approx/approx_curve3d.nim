@@ -35,14 +35,14 @@ type
 
 proc newApproxCurve3d*(curve: Handle[Adaptor3dHCurve]; tol3d: cfloat;
                       order: GeomAbsShape; maxSegments: cint; maxDegree: cint): ApproxCurve3d {.
-    cdecl, constructor, importcpp: "Approx_Curve3d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_Curve3d(@)", header: "Approx_Curve3d.hxx".}
 proc curve*(this: ApproxCurve3d): Handle[GeomBSplineCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkgeombase.}
+    importcpp: "Curve", header: "Approx_Curve3d.hxx".}
 proc isDone*(this: ApproxCurve3d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                      dynlib: tkgeombase.}
+                                      header: "Approx_Curve3d.hxx".}
 proc hasResult*(this: ApproxCurve3d): bool {.noSideEffect, cdecl,
-    importcpp: "HasResult", dynlib: tkgeombase.}
+    importcpp: "HasResult", header: "Approx_Curve3d.hxx".}
 proc maxError*(this: ApproxCurve3d): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError", dynlib: tkgeombase.}
+    importcpp: "MaxError", header: "Approx_Curve3d.hxx".}
 proc dump*(this: ApproxCurve3d; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkgeombase.}
+    importcpp: "Dump", header: "Approx_Curve3d.hxx".}

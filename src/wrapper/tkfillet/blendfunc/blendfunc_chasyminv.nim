@@ -26,26 +26,26 @@ type
 proc newBlendFuncChAsymInv*(s1: Handle[Adaptor3dHSurface];
                            s2: Handle[Adaptor3dHSurface];
                            c: Handle[Adaptor3dHCurve]): BlendFuncChAsymInv {.cdecl,
-    constructor, importcpp: "BlendFunc_ChAsymInv(@)", dynlib: tkfillet.}
+    constructor, importcpp: "BlendFunc_ChAsymInv(@)", header: "BlendFunc_ChAsymInv.hxx".}
 proc set*(this: var BlendFuncChAsymInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_ChAsymInv.hxx".}
 proc getTolerance*(this: BlendFuncChAsymInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_ChAsymInv.hxx".}
 proc getBounds*(this: BlendFuncChAsymInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BlendFunc_ChAsymInv.hxx".}
 proc isSolution*(this: var BlendFuncChAsymInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_ChAsymInv.hxx".}
 proc nbEquations*(this: BlendFuncChAsymInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BlendFunc_ChAsymInv.hxx".}
 proc computeValues*(this: var BlendFuncChAsymInv; x: MathVector; degF: cint; degL: cint): bool {.
-    cdecl, importcpp: "ComputeValues", dynlib: tkfillet.}
+    cdecl, importcpp: "ComputeValues", header: "BlendFunc_ChAsymInv.hxx".}
 proc value*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_ChAsymInv.hxx".}
 proc derivatives*(this: var BlendFuncChAsymInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_ChAsymInv.hxx".}
 proc values*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_ChAsymInv.hxx".}
 proc set*(this: var BlendFuncChAsymInv; dist1: cfloat; angle: cfloat; choix: cint) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BlendFunc_ChAsymInv.hxx".}

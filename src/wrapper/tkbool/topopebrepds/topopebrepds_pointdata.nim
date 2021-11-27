@@ -22,12 +22,12 @@ type
 
 
 proc newTopOpeBRepDS_PointData*(): TopOpeBRepDS_PointData {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_PointData(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_PointData(@)", header: "TopOpeBRepDS_PointData.hxx".}
 proc newTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point): TopOpeBRepDS_PointData {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_PointData(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_PointData(@)", header: "TopOpeBRepDS_PointData.hxx".}
 proc newTopOpeBRepDS_PointData*(p: TopOpeBRepDS_Point; i1: cint; i2: cint): TopOpeBRepDS_PointData {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_PointData(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_PointData(@)", header: "TopOpeBRepDS_PointData.hxx".}
 proc setShapes*(this: var TopOpeBRepDS_PointData; i1: cint; i2: cint) {.cdecl,
-    importcpp: "SetShapes", dynlib: tkbool.}
+    importcpp: "SetShapes", header: "TopOpeBRepDS_PointData.hxx".}
 proc getShapes*(this: TopOpeBRepDS_PointData; i1: var cint; i2: var cint) {.noSideEffect,
-    cdecl, importcpp: "GetShapes", dynlib: tkbool.}
+    cdecl, importcpp: "GetShapes", header: "TopOpeBRepDS_PointData.hxx".}

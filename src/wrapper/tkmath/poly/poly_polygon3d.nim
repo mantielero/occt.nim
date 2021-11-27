@@ -40,29 +40,29 @@ type
 
 
 proc newPolyPolygon3D*(theNbNodes: cint; theHasParams: bool): PolyPolygon3D {.cdecl,
-    constructor, importcpp: "Poly_Polygon3D(@)", dynlib: tkmath.}
+    constructor, importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
 proc newPolyPolygon3D*(nodes: TColgpArray1OfPnt): PolyPolygon3D {.cdecl, constructor,
-    importcpp: "Poly_Polygon3D(@)", dynlib: tkmath.}
+    importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
 proc newPolyPolygon3D*(nodes: TColgpArray1OfPnt; parameters: TColStdArray1OfReal): PolyPolygon3D {.
-    cdecl, constructor, importcpp: "Poly_Polygon3D(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Polygon3D(@)", header: "Poly_Polygon3D.hxx".}
 proc copy*(this: PolyPolygon3D): Handle[PolyPolygon3D] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", header: "Poly_Polygon3D.hxx".}
 proc deflection*(this: PolyPolygon3D): cfloat {.noSideEffect, cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Polygon3D.hxx".}
 proc deflection*(this: var PolyPolygon3D; theDefl: cfloat) {.cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Polygon3D.hxx".}
 proc nbNodes*(this: PolyPolygon3D): cint {.noSideEffect, cdecl, importcpp: "NbNodes",
-                                       dynlib: tkmath.}
+                                       header: "Poly_Polygon3D.hxx".}
 proc nodes*(this: PolyPolygon3D): TColgpArray1OfPnt {.noSideEffect, cdecl,
-    importcpp: "Nodes", dynlib: tkmath.}
+    importcpp: "Nodes", header: "Poly_Polygon3D.hxx".}
 proc changeNodes*(this: var PolyPolygon3D): var TColgpArray1OfPnt {.cdecl,
-    importcpp: "ChangeNodes", dynlib: tkmath.}
+    importcpp: "ChangeNodes", header: "Poly_Polygon3D.hxx".}
 proc hasParameters*(this: PolyPolygon3D): bool {.noSideEffect, cdecl,
-    importcpp: "HasParameters", dynlib: tkmath.}
+    importcpp: "HasParameters", header: "Poly_Polygon3D.hxx".}
 proc parameters*(this: PolyPolygon3D): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Parameters", dynlib: tkmath.}
+    importcpp: "Parameters", header: "Poly_Polygon3D.hxx".}
 proc changeParameters*(this: PolyPolygon3D): var TColStdArray1OfReal {.noSideEffect,
-    cdecl, importcpp: "ChangeParameters", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeParameters", header: "Poly_Polygon3D.hxx".}
 proc dumpJson*(this: PolyPolygon3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "Poly_Polygon3D.hxx".}

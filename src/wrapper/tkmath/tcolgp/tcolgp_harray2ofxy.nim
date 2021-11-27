@@ -21,13 +21,13 @@ type
 
 proc newTColgpHArray2OfXY*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                           theColUpp: cint): TColgpHArray2OfXY {.cdecl, constructor,
-    importcpp: "TColgp_HArray2OfXY(@)", dynlib: tkmath.}
+    importcpp: "TColgp_HArray2OfXY(@)", header: "TColgp_HArray2OfXY.hxx".}
 proc newTColgpHArray2OfXY*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                           theColUpp: cint; theValue: ValueType): TColgpHArray2OfXY {.
-    cdecl, constructor, importcpp: "TColgp_HArray2OfXY(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HArray2OfXY(@)", header: "TColgp_HArray2OfXY.hxx".}
 proc newTColgpHArray2OfXY*(theOther: TColgpArray2OfXY): TColgpHArray2OfXY {.cdecl,
-    constructor, importcpp: "TColgp_HArray2OfXY(@)", dynlib: tkmath.}
+    constructor, importcpp: "TColgp_HArray2OfXY(@)", header: "TColgp_HArray2OfXY.hxx".}
 proc array2*(this: TColgpHArray2OfXY): TColgpArray2OfXY {.noSideEffect, cdecl,
-    importcpp: "Array2", dynlib: tkmath.}
+    importcpp: "Array2", header: "TColgp_HArray2OfXY.hxx".}
 proc changeArray2*(this: var TColgpHArray2OfXY): var TColgpArray2OfXY {.cdecl,
-    importcpp: "ChangeArray2", dynlib: tkmath.}
+    importcpp: "ChangeArray2", header: "TColgp_HArray2OfXY.hxx".}

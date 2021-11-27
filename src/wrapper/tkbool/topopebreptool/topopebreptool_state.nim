@@ -23,16 +23,16 @@ when defined(OCCT_DEBUG):
                           header: "TopOpeBRepTool_STATE.hxx", bycopy.} = object
 
   proc newTopOpeBRepToolSTATE*(name: cstring; b: bool = false): TopOpeBRepToolSTATE {.
-      cdecl, constructor, importcpp: "TopOpeBRepTool_STATE(@)", dynlib: tkbool.}
+      cdecl, constructor, importcpp: "TopOpeBRepTool_STATE(@)", header: "TopOpeBRepTool_STATE.hxx".}
   proc set*(this: var TopOpeBRepToolSTATE; b: bool) {.cdecl, importcpp: "Set",
-      dynlib: tkbool.}
+      header: "TopOpeBRepTool_STATE.hxx".}
   proc set*(this: var TopOpeBRepToolSTATE; s: TopAbsState; b: bool) {.cdecl,
-      importcpp: "Set", dynlib: tkbool.}
+      importcpp: "Set", header: "TopOpeBRepTool_STATE.hxx".}
   proc set*(this: var TopOpeBRepToolSTATE; b: bool; n: cint; a: cstringArray) {.cdecl,
-      importcpp: "Set", dynlib: tkbool.}
+      importcpp: "Set", header: "TopOpeBRepTool_STATE.hxx".}
   proc get*(this: var TopOpeBRepToolSTATE; s: TopAbsState): bool {.cdecl,
-      importcpp: "Get", dynlib: tkbool.}
+      importcpp: "Get", header: "TopOpeBRepTool_STATE.hxx".}
   proc get*(this: var TopOpeBRepToolSTATE): bool {.cdecl, importcpp: "Get",
-      dynlib: tkbool.}
+      header: "TopOpeBRepTool_STATE.hxx".}
   proc print*(this: var TopOpeBRepToolSTATE) {.cdecl, importcpp: "Print",
-      dynlib: tkbool.}
+      header: "TopOpeBRepTool_STATE.hxx".}

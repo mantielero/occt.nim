@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noGeom2dUndefinedValue):
   template geom2dUndefinedValueRaiseIf*(condition, message: untyped): void =
     if condition:
       proc geom2dUndefinedValue*(a1: Message): Throw {.cdecl,
-          importcpp: "Geom2d_UndefinedValue(@)", dynlib: tkg2d.}
+          importcpp: "Geom2d_UndefinedValue(@)", header: "Geom2d_UndefinedValue.hxx".}
 
 else:
   discard

@@ -33,30 +33,30 @@ type
 
 
 proc newGeomFillConstantBiNormal*(biNormal: Dir): GeomFillConstantBiNormal {.cdecl,
-    constructor, importcpp: "GeomFill_ConstantBiNormal(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_ConstantBiNormal(@)", header: "GeomFill_ConstantBiNormal.hxx".}
 proc copy*(this: GeomFillConstantBiNormal): Handle[GeomFillTrihedronLaw] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_ConstantBiNormal.hxx".}
 proc setCurve*(this: var GeomFillConstantBiNormal; c: Handle[Adaptor3dHCurve]) {.
-    cdecl, importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetCurve", header: "GeomFill_ConstantBiNormal.hxx".}
 proc d0*(this: var GeomFillConstantBiNormal; param: cfloat; tangent: var Vec;
         normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_ConstantBiNormal.hxx".}
 proc d1*(this: var GeomFillConstantBiNormal; param: cfloat; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_ConstantBiNormal.hxx".}
 proc d2*(this: var GeomFillConstantBiNormal; param: cfloat; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
         d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_ConstantBiNormal.hxx".}
 proc nbIntervals*(this: GeomFillConstantBiNormal; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_ConstantBiNormal.hxx".}
 proc intervals*(this: GeomFillConstantBiNormal; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_ConstantBiNormal.hxx".}
 proc getAverageLaw*(this: var GeomFillConstantBiNormal; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_ConstantBiNormal.hxx".}
 proc isConstant*(this: GeomFillConstantBiNormal): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_ConstantBiNormal.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillConstantBiNormal): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnlyBy3dCurve", dynlib: tkgeomalgo.}
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_ConstantBiNormal.hxx".}

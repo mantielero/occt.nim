@@ -35,12 +35,12 @@ type
 
 
 proc coord*(this: GeomPoint; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Coord", dynlib: tkg3d.}
-proc pnt*(this: GeomPoint): Pnt {.noSideEffect, cdecl, importcpp: "Pnt", dynlib: tkg3d.}
-proc x*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkg3d.}
-proc y*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkg3d.}
-proc z*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Z", dynlib: tkg3d.}
+    cdecl, importcpp: "Coord", header: "Geom_Point.hxx".}
+proc pnt*(this: GeomPoint): Pnt {.noSideEffect, cdecl, importcpp: "Pnt", header: "Geom_Point.hxx".}
+proc x*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "Geom_Point.hxx".}
+proc y*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "Geom_Point.hxx".}
+proc z*(this: GeomPoint): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "Geom_Point.hxx".}
 proc distance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.noSideEffect,
-    cdecl, importcpp: "Distance", dynlib: tkg3d.}
+    cdecl, importcpp: "Distance", header: "Geom_Point.hxx".}
 proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.
-    noSideEffect, cdecl, importcpp: "SquareDistance", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "SquareDistance", header: "Geom_Point.hxx".}

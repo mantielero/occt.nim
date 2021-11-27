@@ -33,40 +33,40 @@ type
 
 
 proc newChFiDS_FilSpine*(): ChFiDS_FilSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_FilSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
 proc newChFiDS_FilSpine*(tol: cfloat): ChFiDS_FilSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_FilSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_FilSpine(@)", header: "ChFiDS_FilSpine.hxx".}
 proc reset*(this: var ChFiDS_FilSpine; allData: bool = false) {.cdecl,
-    importcpp: "Reset", dynlib: tkfillet.}
+    importcpp: "Reset", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat; e: TopoDS_Edge) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc unSetRadius*(this: var ChFiDS_FilSpine; e: TopoDS_Edge) {.cdecl,
-    importcpp: "UnSetRadius", dynlib: tkfillet.}
+    importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat; v: TopoDS_Vertex) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc unSetRadius*(this: var ChFiDS_FilSpine; v: TopoDS_Vertex) {.cdecl,
-    importcpp: "UnSetRadius", dynlib: tkfillet.}
+    importcpp: "UnSetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; uandR: Xy; iinC: cint) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; radius: cfloat) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc setRadius*(this: var ChFiDS_FilSpine; c: Handle[LawFunction]; iinC: cint) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFiDS_FilSpine.hxx".}
 proc isConstant*(this: ChFiDS_FilSpine): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkfillet.}
+    importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
 proc isConstant*(this: ChFiDS_FilSpine; ie: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkfillet.}
+    importcpp: "IsConstant", header: "ChFiDS_FilSpine.hxx".}
 proc radius*(this: ChFiDS_FilSpine): cfloat {.noSideEffect, cdecl,
-    importcpp: "Radius", dynlib: tkfillet.}
+    importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
 proc radius*(this: ChFiDS_FilSpine; ie: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Radius", dynlib: tkfillet.}
+    importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
 proc radius*(this: ChFiDS_FilSpine; e: TopoDS_Edge): cfloat {.noSideEffect, cdecl,
-    importcpp: "Radius", dynlib: tkfillet.}
+    importcpp: "Radius", header: "ChFiDS_FilSpine.hxx".}
 proc appendElSpine*(this: var ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]) {.cdecl,
-    importcpp: "AppendElSpine", dynlib: tkfillet.}
+    importcpp: "AppendElSpine", header: "ChFiDS_FilSpine.hxx".}
 proc law*(this: ChFiDS_FilSpine; els: Handle[ChFiDS_HElSpine]): Handle[LawComposite] {.
-    noSideEffect, cdecl, importcpp: "Law", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Law", header: "ChFiDS_FilSpine.hxx".}
 proc changeLaw*(this: var ChFiDS_FilSpine; e: TopoDS_Edge): var Handle[LawFunction] {.
-    cdecl, importcpp: "ChangeLaw", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangeLaw", header: "ChFiDS_FilSpine.hxx".}
 proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxRadFromSeqAndLaws", dynlib: tkfillet.}
+    importcpp: "MaxRadFromSeqAndLaws", header: "ChFiDS_FilSpine.hxx".}

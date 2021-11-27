@@ -32,14 +32,14 @@ type
 proc newMathBracketedRoot*(f: var MathFunction; bound1: cfloat; bound2: cfloat;
                           tolerance: cfloat; nbIterations: cint = 100;
                           zeps: cfloat = 1.0e-12): MathBracketedRoot {.cdecl,
-    constructor, importcpp: "math_BracketedRoot(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BracketedRoot(@)", header: "math_BracketedRoot.hxx".}
 proc isDone*(this: MathBracketedRoot): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_BracketedRoot.hxx".}
 proc root*(this: MathBracketedRoot): cfloat {.noSideEffect, cdecl, importcpp: "Root",
-    dynlib: tkmath.}
+    header: "math_BracketedRoot.hxx".}
 proc value*(this: MathBracketedRoot): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_BracketedRoot.hxx".}
 proc nbIterations*(this: MathBracketedRoot): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_BracketedRoot.hxx".}
 proc dump*(this: MathBracketedRoot; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_BracketedRoot.hxx".}

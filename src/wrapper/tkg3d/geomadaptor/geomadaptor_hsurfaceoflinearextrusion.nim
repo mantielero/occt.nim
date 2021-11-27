@@ -35,18 +35,18 @@ type
 
 proc newGeomAdaptorHSurfaceOfLinearExtrusion*(): GeomAdaptorHSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc newGeomAdaptorHSurfaceOfLinearExtrusion*(
     s: GeomAdaptorSurfaceOfLinearExtrusion): GeomAdaptorHSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc set*(this: var GeomAdaptorHSurfaceOfLinearExtrusion;
          s: GeomAdaptorSurfaceOfLinearExtrusion) {.cdecl, importcpp: "Set",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc surface*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Adaptor3dSurface {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfLinearExtrusion): var GeomAdaptorSurfaceOfLinearExtrusion {.
-    cdecl, importcpp: "ChangeSurface", dynlib: tkg3d.}
+    cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 type
   GeomAdaptorHSurfaceOfLinearExtrusionbaseType* = Adaptor3dHSurface
 

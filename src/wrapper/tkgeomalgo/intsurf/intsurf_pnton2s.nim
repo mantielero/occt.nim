@@ -22,32 +22,32 @@ type
 
 
 proc newIntSurfPntOn2S*(): IntSurfPntOn2S {.cdecl, constructor,
-    importcpp: "IntSurf_PntOn2S(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PntOn2S(@)", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; pt: Pnt) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; onFirst: bool; u: cfloat; v: cfloat) {.
-    cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; pt: Pnt; u1: cfloat; v1: cfloat; u2: cfloat;
-              v2: cfloat) {.cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+              v2: cfloat) {.cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; onFirst: bool; u: cfloat; v: cfloat) {.cdecl,
-    importcpp: "SetValue", dynlib: tkgeomalgo.}
+    importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc setValue*(this: var IntSurfPntOn2S; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat) {.
-    cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetValue", header: "IntSurf_PntOn2S.hxx".}
 proc value*(this: IntSurfPntOn2S): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkgeomalgo.}
+                                     header: "IntSurf_PntOn2S.hxx".}
 proc valueOnSurface*(this: IntSurfPntOn2S; onFirst: bool): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "ValueOnSurface", dynlib: tkgeomalgo.}
+    importcpp: "ValueOnSurface", header: "IntSurf_PntOn2S.hxx".}
 proc parametersOnS1*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "ParametersOnS1", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "ParametersOnS1", header: "IntSurf_PntOn2S.hxx".}
 proc parametersOnS2*(this: IntSurfPntOn2S; u2: var cfloat; v2: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "ParametersOnS2", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "ParametersOnS2", header: "IntSurf_PntOn2S.hxx".}
 proc parametersOnSurface*(this: IntSurfPntOn2S; onFirst: bool; u: var cfloat;
                          v: var cfloat) {.noSideEffect, cdecl,
                                        importcpp: "ParametersOnSurface",
-                                       dynlib: tkgeomalgo.}
+                                       header: "IntSurf_PntOn2S.hxx".}
 proc parameters*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat; u2: var cfloat;
                 v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Parameters",
-                               dynlib: tkgeomalgo.}
+                               header: "IntSurf_PntOn2S.hxx".}
 proc isSame*(this: IntSurfPntOn2S; theOtherPoint: IntSurfPntOn2S;
             theTol3D: cfloat = 0.0; theTol2D: cfloat = -1.0): bool {.noSideEffect, cdecl,
-    importcpp: "IsSame", dynlib: tkgeomalgo.}
+    importcpp: "IsSame", header: "IntSurf_PntOn2S.hxx".}

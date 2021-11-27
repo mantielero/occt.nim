@@ -21,13 +21,13 @@ type
 
 
 proc newGeomFillLocFunction*(law: Handle[GeomFillLocationLaw]): GeomFillLocFunction {.
-    cdecl, constructor, importcpp: "GeomFill_LocFunction(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_LocFunction(@)", header: "GeomFill_LocFunction.hxx".}
 proc d0*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat): bool {.
-    cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D0", header: "GeomFill_LocFunction.hxx".}
 proc d1*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_LocFunction.hxx".}
 proc d2*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_LocFunction.hxx".}
 proc dn*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat;
         order: cint; result: var cfloat; ier: var cint) {.cdecl, importcpp: "DN",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocFunction.hxx".}

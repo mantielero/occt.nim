@@ -28,15 +28,15 @@ type
 
 proc newTopOpeBRepToolPurgeInternalEdges*(theShape: TopoDS_Shape;
     performNow: bool = true): TopOpeBRepToolPurgeInternalEdges {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_PurgeInternalEdges(@)", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc faces*(this: var TopOpeBRepToolPurgeInternalEdges;
            theMapFacLstEdg: var TopToolsDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "Faces", dynlib: tkbool.}
+    importcpp: "Faces", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc shape*(this: var TopOpeBRepToolPurgeInternalEdges): var TopoDS_Shape {.cdecl,
-    importcpp: "Shape", dynlib: tkbool.}
+    importcpp: "Shape", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc nbEdges*(this: TopOpeBRepToolPurgeInternalEdges): cint {.noSideEffect, cdecl,
-    importcpp: "NbEdges", dynlib: tkbool.}
+    importcpp: "NbEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkbool.}
+    importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.cdecl,
-    importcpp: "Perform", dynlib: tkbool.}
+    importcpp: "Perform", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}

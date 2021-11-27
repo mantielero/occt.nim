@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noGpVectorWithNullMagnitude):
   template vectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
     if condition:
       proc vectorWithNullMagnitude*(a1: Message): Throw {.cdecl,
-          importcpp: "gp_VectorWithNullMagnitude(@)", dynlib: tkmath.}
+          importcpp: "gp_VectorWithNullMagnitude(@)", header: "gp_VectorWithNullMagnitude.hxx".}
 
 else:
   discard

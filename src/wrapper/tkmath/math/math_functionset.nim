@@ -23,12 +23,12 @@ type
 
 
 proc nbVariables*(this: MathFunctionSet): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkmath.}
+    importcpp: "NbVariables", header: "math_FunctionSet.hxx".}
 proc nbEquations*(this: MathFunctionSet): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkmath.}
+    importcpp: "NbEquations", header: "math_FunctionSet.hxx".}
 proc value*(this: var MathFunctionSet; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_FunctionSet.hxx".}
 proc getStateNumber*(this: var MathFunctionSet): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkmath.}
+    importcpp: "GetStateNumber", header: "math_FunctionSet.hxx".}
 proc destroyMathFunctionSet*(this: var MathFunctionSet) {.cdecl,
-    importcpp: "#.~math_FunctionSet()", dynlib: tkmath.}
+    importcpp: "#.~math_FunctionSet()", header: "math_FunctionSet.hxx".}

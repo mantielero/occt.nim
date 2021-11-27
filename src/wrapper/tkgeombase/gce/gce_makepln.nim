@@ -91,24 +91,24 @@ type
 
 proc newGceMakePln*(a2: Ax2): GceMakePln {.cdecl, constructor,
                                        importcpp: "gce_MakePln(@)",
-                                       dynlib: tkgeombase.}
+                                       header: "gce_MakePln.hxx".}
 proc newGceMakePln*(p: Pnt; v: Dir): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GceMakePln {.cdecl,
-    constructor, importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(pln: Pln; point: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(pln: Pln; dist: cfloat): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(p1: Pnt; p2: Pnt): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc newGceMakePln*(axis: Ax1): GceMakePln {.cdecl, constructor,
-    importcpp: "gce_MakePln(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakePln(@)", header: "gce_MakePln.hxx".}
 proc value*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "Value",
-                                 dynlib: tkgeombase.}
+                                 header: "gce_MakePln.hxx".}
 proc operator*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "Operator",
-                                    dynlib: tkgeombase.}
+                                    header: "gce_MakePln.hxx".}
 converter `pln`*(this: GceMakePln): Pln {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
-                                      dynlib: tkgeombase.}
+                                      header: "gce_MakePln.hxx".}

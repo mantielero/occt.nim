@@ -20,17 +20,17 @@ type
 
 
 proc newTopToolsHSequenceOfShape*(): TopToolsHSequenceOfShape {.cdecl, constructor,
-    importcpp: "TopTools_HSequenceOfShape(@)", dynlib: tkbrep.}
+    importcpp: "TopTools_HSequenceOfShape(@)", header: "TopTools_HSequenceOfShape.hxx".}
 proc newTopToolsHSequenceOfShape*(theOther: TopToolsSequenceOfShape): TopToolsHSequenceOfShape {.
-    cdecl, constructor, importcpp: "TopTools_HSequenceOfShape(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "TopTools_HSequenceOfShape(@)", header: "TopTools_HSequenceOfShape.hxx".}
 proc sequence*(this: TopToolsHSequenceOfShape): TopToolsSequenceOfShape {.
-    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Sequence", header: "TopTools_HSequenceOfShape.hxx".}
 proc append*(this: var TopToolsHSequenceOfShape; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkbrep.}
+    importcpp: "Append", header: "TopTools_HSequenceOfShape.hxx".}
 proc append*(this: var TopToolsHSequenceOfShape;
             theSequence: var TopToolsSequenceOfShape) {.cdecl, importcpp: "Append",
-    dynlib: tkbrep.}
+    header: "TopTools_HSequenceOfShape.hxx".}
 proc changeSequence*(this: var TopToolsHSequenceOfShape): var TopToolsSequenceOfShape {.
-    cdecl, importcpp: "ChangeSequence", dynlib: tkbrep.}
+    cdecl, importcpp: "ChangeSequence", header: "TopTools_HSequenceOfShape.hxx".}
 type
   HandleTopToolsHSequenceOfShape* = Handle[TopToolsHSequenceOfShape]

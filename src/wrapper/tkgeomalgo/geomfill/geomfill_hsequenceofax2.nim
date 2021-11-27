@@ -20,17 +20,17 @@ type
 
 
 proc newGeomFillHSequenceOfAx2*(): GeomFillHSequenceOfAx2 {.cdecl, constructor,
-    importcpp: "GeomFill_HSequenceOfAx2(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_HSequenceOfAx2(@)", header: "GeomFill_HSequenceOfAx2.hxx".}
 proc newGeomFillHSequenceOfAx2*(theOther: GeomFillSequenceOfAx2): GeomFillHSequenceOfAx2 {.
-    cdecl, constructor, importcpp: "GeomFill_HSequenceOfAx2(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_HSequenceOfAx2(@)", header: "GeomFill_HSequenceOfAx2.hxx".}
 proc sequence*(this: GeomFillHSequenceOfAx2): GeomFillSequenceOfAx2 {.noSideEffect,
-    cdecl, importcpp: "Sequence", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Sequence", header: "GeomFill_HSequenceOfAx2.hxx".}
 proc append*(this: var GeomFillHSequenceOfAx2; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkgeomalgo.}
+    importcpp: "Append", header: "GeomFill_HSequenceOfAx2.hxx".}
 proc append*(this: var GeomFillHSequenceOfAx2;
             theSequence: var GeomFillSequenceOfAx2) {.cdecl, importcpp: "Append",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_HSequenceOfAx2.hxx".}
 proc changeSequence*(this: var GeomFillHSequenceOfAx2): var GeomFillSequenceOfAx2 {.
-    cdecl, importcpp: "ChangeSequence", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ChangeSequence", header: "GeomFill_HSequenceOfAx2.hxx".}
 type
   HandleGeomFillHSequenceOfAx2* = Handle[GeomFillHSequenceOfAx2]

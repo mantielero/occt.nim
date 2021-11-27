@@ -30,18 +30,18 @@ type
 
 
 proc newTopOpeBRepDS_Dumper*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Dumper {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Dumper(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Dumper(@)", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sDumpRefOri*(this: TopOpeBRepDS_Dumper; k: TopOpeBRepDS_Kind; i: cint): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SDumpRefOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SDumpRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sDumpRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SDumpRefOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SDumpRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sPrintShape*(this: TopOpeBRepDS_Dumper; i: cint): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SPrintShape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SPrintShape", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sPrintShape*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SPrintShape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SPrintShape", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape;
                        b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopToolsListOfShape;
                        b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
-    noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}

@@ -80,17 +80,17 @@ type
 
 
 proc newMessageLevel*(theName: TCollectionAsciiString = TCollectionAsciiString()): MessageLevel {.
-    cdecl, constructor, importcpp: "Message_Level(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_Level(@)", header: "Message_Level.hxx".}
 proc destroyMessageLevel*(this: var MessageLevel) {.cdecl,
-    importcpp: "#.~Message_Level()", dynlib: tkernel.}
+    importcpp: "#.~Message_Level()", header: "Message_Level.hxx".}
 proc rootAlert*(this: MessageLevel): Handle[MessageAlertExtended] {.noSideEffect,
-    cdecl, importcpp: "RootAlert", dynlib: tkernel.}
+    cdecl, importcpp: "RootAlert", header: "Message_Level.hxx".}
 proc setRootAlert*(this: var MessageLevel; theAlert: Handle[MessageAlertExtended];
                   isRequiredToStart: bool) {.cdecl, importcpp: "SetRootAlert",
-    dynlib: tkernel.}
+    header: "Message_Level.hxx".}
 proc addAlert*(this: var MessageLevel; theGravity: MessageGravity;
               theAlert: Handle[MessageAlert]): bool {.cdecl, importcpp: "AddAlert",
-    dynlib: tkernel.}
+    header: "Message_Level.hxx".}
 ## ! @def MESSAGE_NEW_LEVEL
 ## ! Creates a new level instance of Sentry. This row should be inserted before messages using in the method.
 ##  #define OCCT_ADD_MESSAGE_LEVEL_SENTRY(theMessage) \

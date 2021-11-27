@@ -21,15 +21,15 @@ type
 
 
 proc newTopOpeBRepDS_GeometryData*(): TopOpeBRepDS_GeometryData {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_GeometryData(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_GeometryData(@)", header: "TopOpeBRepDS_GeometryData.hxx".}
 proc newTopOpeBRepDS_GeometryData*(other: TopOpeBRepDS_GeometryData): TopOpeBRepDS_GeometryData {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_GeometryData(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_GeometryData(@)", header: "TopOpeBRepDS_GeometryData.hxx".}
 proc assign*(this: var TopOpeBRepDS_GeometryData; other: TopOpeBRepDS_GeometryData) {.
-    cdecl, importcpp: "Assign", dynlib: tkbool.}
+    cdecl, importcpp: "Assign", header: "TopOpeBRepDS_GeometryData.hxx".}
 proc interferences*(this: TopOpeBRepDS_GeometryData): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Interferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Interferences", header: "TopOpeBRepDS_GeometryData.hxx".}
 proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeInterferences", header: "TopOpeBRepDS_GeometryData.hxx".}
 proc addInterference*(this: var TopOpeBRepDS_GeometryData;
                      i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "AddInterference", dynlib: tkbool.}
+    importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}

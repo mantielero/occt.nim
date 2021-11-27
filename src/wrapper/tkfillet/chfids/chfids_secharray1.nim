@@ -20,10 +20,10 @@ type
 
 
 proc newChFiDS_SecHArray1*(theLower: cint; theUpper: cint): ChFiDS_SecHArray1 {.cdecl,
-    constructor, importcpp: "ChFiDS_SecHArray1(@)", dynlib: tkfillet.}
+    constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
 proc newChFiDS_SecHArray1*(theLower: cint; theUpper: cint; theValue: ValueType): ChFiDS_SecHArray1 {.
-    cdecl, constructor, importcpp: "ChFiDS_SecHArray1(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
 proc newChFiDS_SecHArray1*(theOther: ChFiDS_SecArray1): ChFiDS_SecHArray1 {.cdecl,
-    constructor, importcpp: "ChFiDS_SecHArray1(@)", dynlib: tkfillet.}
+    constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
 proc array1*(this: ChFiDS_SecHArray1): ChFiDS_SecArray1 {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkfillet.}
+    importcpp: "Array1", header: "ChFiDS_SecHArray1.hxx".}

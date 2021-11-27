@@ -21,14 +21,14 @@ type
 
 
 proc newMathValueAndWeight*(): MathValueAndWeight {.cdecl, constructor,
-    importcpp: "math_ValueAndWeight(@)", dynlib: tkmath.}
+    importcpp: "math_ValueAndWeight(@)", header: "math_ValueAndWeight.hxx".}
 proc newMathValueAndWeight*(theValue: cfloat; theWeight: cfloat): MathValueAndWeight {.
-    cdecl, constructor, importcpp: "math_ValueAndWeight(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_ValueAndWeight(@)", header: "math_ValueAndWeight.hxx".}
 proc value*(this: MathValueAndWeight): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_ValueAndWeight.hxx".}
 proc weight*(this: MathValueAndWeight): cfloat {.noSideEffect, cdecl,
-    importcpp: "Weight", dynlib: tkmath.}
+    importcpp: "Weight", header: "math_ValueAndWeight.hxx".}
 ## ! Comparison operator for math_ValueAndWeight, needed for sorting algorithms
 
 proc `<`*(theLeft: MathValueAndWeight; theRight: MathValueAndWeight): bool {.cdecl,
-    importcpp: "(# < #)", dynlib: tkmath.}
+    importcpp: "(# < #)", header: "math_ValueAndWeight.hxx".}

@@ -24,10 +24,10 @@ type
 
 
 proc newMathBullardGenerator*(theSeed: cuint = 1): MathBullardGenerator {.cdecl,
-    constructor, importcpp: "math_BullardGenerator(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BullardGenerator(@)", header: "math_BullardGenerator.hxx".}
 proc setSeed*(this: var MathBullardGenerator; theSeed: cuint = 1) {.cdecl,
-    importcpp: "SetSeed", dynlib: tkmath.}
+    importcpp: "SetSeed", header: "math_BullardGenerator.hxx".}
 proc nextInt*(this: var MathBullardGenerator): cuint {.cdecl, importcpp: "NextInt",
-    dynlib: tkmath.}
+    header: "math_BullardGenerator.hxx".}
 proc nextReal*(this: var MathBullardGenerator): cfloat {.cdecl, importcpp: "NextReal",
-    dynlib: tkmath.}
+    header: "math_BullardGenerator.hxx".}

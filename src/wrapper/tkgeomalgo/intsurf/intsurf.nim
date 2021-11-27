@@ -32,8 +32,8 @@ type
 
 proc makeTransition*(tgFirst: Vec; tgSecond: Vec; normal: Dir;
                     tFirst: var IntSurfTransition; tSecond: var IntSurfTransition) {.
-    cdecl, importcpp: "IntSurf::MakeTransition(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IntSurf::MakeTransition(@)", header: "IntSurf.hxx".}
 proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];
                theSecondSurf: Handle[Adaptor3dHSurface];
                theArrOfPeriod: array[4, cfloat]) {.cdecl,
-    importcpp: "IntSurf::SetPeriod(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf::SetPeriod(@)", header: "IntSurf.hxx".}

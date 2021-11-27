@@ -22,40 +22,40 @@ type
 
 
 proc newTopOpeBRepBuildVertexInfo*(): TopOpeBRepBuildVertexInfo {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_VertexInfo(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_VertexInfo(@)", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc setVertex*(this: var TopOpeBRepBuildVertexInfo; aV: TopoDS_Vertex) {.cdecl,
-    importcpp: "SetVertex", dynlib: tkbool.}
+    importcpp: "SetVertex", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc vertex*(this: TopOpeBRepBuildVertexInfo): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex", dynlib: tkbool.}
+    importcpp: "Vertex", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc setSmart*(this: var TopOpeBRepBuildVertexInfo; aFlag: bool) {.cdecl,
-    importcpp: "SetSmart", dynlib: tkbool.}
+    importcpp: "SetSmart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc smart*(this: TopOpeBRepBuildVertexInfo): bool {.noSideEffect, cdecl,
-    importcpp: "Smart", dynlib: tkbool.}
+    importcpp: "Smart", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc nbCases*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect, cdecl,
-    importcpp: "NbCases", dynlib: tkbool.}
+    importcpp: "NbCases", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc foundOut*(this: TopOpeBRepBuildVertexInfo): cint {.noSideEffect, cdecl,
-    importcpp: "FoundOut", dynlib: tkbool.}
+    importcpp: "FoundOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc addIn*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.cdecl,
-    importcpp: "AddIn", dynlib: tkbool.}
+    importcpp: "AddIn", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc addOut*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.cdecl,
-    importcpp: "AddOut", dynlib: tkbool.}
+    importcpp: "AddOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc setCurrentIn*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.cdecl,
-    importcpp: "SetCurrentIn", dynlib: tkbool.}
+    importcpp: "SetCurrentIn", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc edgesIn*(this: TopOpeBRepBuildVertexInfo): TopToolsIndexedMapOfOrientedShape {.
-    noSideEffect, cdecl, importcpp: "EdgesIn", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "EdgesIn", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc edgesOut*(this: TopOpeBRepBuildVertexInfo): TopToolsIndexedMapOfOrientedShape {.
-    noSideEffect, cdecl, importcpp: "EdgesOut", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "EdgesOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc changeEdgesOut*(this: var TopOpeBRepBuildVertexInfo): var TopToolsIndexedMapOfOrientedShape {.
-    cdecl, importcpp: "ChangeEdgesOut", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeEdgesOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc dump*(this: TopOpeBRepBuildVertexInfo) {.noSideEffect, cdecl, importcpp: "Dump",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc currentOut*(this: var TopOpeBRepBuildVertexInfo): TopoDS_Edge {.cdecl,
-    importcpp: "CurrentOut", dynlib: tkbool.}
+    importcpp: "CurrentOut", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc appendPassed*(this: var TopOpeBRepBuildVertexInfo; anE: TopoDS_Edge) {.cdecl,
-    importcpp: "AppendPassed", dynlib: tkbool.}
+    importcpp: "AppendPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc removePassed*(this: var TopOpeBRepBuildVertexInfo) {.cdecl,
-    importcpp: "RemovePassed", dynlib: tkbool.}
+    importcpp: "RemovePassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc listPassed*(this: TopOpeBRepBuildVertexInfo): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "ListPassed", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ListPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc prepare*(this: var TopOpeBRepBuildVertexInfo; aL: TopToolsListOfShape) {.cdecl,
-    importcpp: "Prepare", dynlib: tkbool.}
+    importcpp: "Prepare", header: "TopOpeBRepBuild_VertexInfo.hxx".}

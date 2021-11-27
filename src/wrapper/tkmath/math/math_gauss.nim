@@ -57,18 +57,18 @@ type
 
 proc newMathGauss*(a: MathMatrix; minPivot: cfloat = 1.0e-20;
                   theProgress: MessageProgressRange = newMessageProgressRange()): MathGauss {.
-    cdecl, constructor, importcpp: "math_Gauss(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Gauss(@)", header: "math_Gauss.hxx".}
 proc isDone*(this: MathGauss): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                  dynlib: tkmath.}
+                                  header: "math_Gauss.hxx".}
 proc solve*(this: MathGauss; b: MathVector; x: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Solve", dynlib: tkmath.}
+    importcpp: "Solve", header: "math_Gauss.hxx".}
 proc solve*(this: MathGauss; b: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Solve", dynlib: tkmath.}
+    importcpp: "Solve", header: "math_Gauss.hxx".}
 proc determinant*(this: MathGauss): cfloat {.noSideEffect, cdecl,
-    importcpp: "Determinant", dynlib: tkmath.}
+    importcpp: "Determinant", header: "math_Gauss.hxx".}
 proc invert*(this: MathGauss; inv: var MathMatrix) {.noSideEffect, cdecl,
-    importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "Invert", header: "math_Gauss.hxx".}
 proc dump*(this: MathGauss; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Gauss.hxx".}
 proc `<<`*(o: var StandardOStream; mG: MathGauss): var StandardOStream {.cdecl,
-    importcpp: "(# << #)", dynlib: tkmath.}
+    importcpp: "(# << #)", header: "math_Gauss.hxx".}

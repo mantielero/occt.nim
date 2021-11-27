@@ -23,39 +23,39 @@ type
 
 
 proc newTopOpeBRepToolBoxSort*(): TopOpeBRepToolBoxSort {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_BoxSort(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_BoxSort(@)", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc newTopOpeBRepToolBoxSort*(t: Handle[TopOpeBRepToolHBoxTool]): TopOpeBRepToolBoxSort {.
-    cdecl, constructor, importcpp: "TopOpeBRepTool_BoxSort(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepTool_BoxSort(@)", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc setHBoxTool*(this: var TopOpeBRepToolBoxSort; t: Handle[TopOpeBRepToolHBoxTool]) {.
-    cdecl, importcpp: "SetHBoxTool", dynlib: tkbool.}
+    cdecl, importcpp: "SetHBoxTool", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc hBoxTool*(this: TopOpeBRepToolBoxSort): Handle[TopOpeBRepToolHBoxTool] {.
-    noSideEffect, cdecl, importcpp: "HBoxTool", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HBoxTool", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc clear*(this: var TopOpeBRepToolBoxSort) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_BoxSort.hxx".}
 proc addBoxes*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
               ta: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "AddBoxes",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_BoxSort.hxx".}
 proc makeHAB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
              ta: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "MakeHAB",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_BoxSort.hxx".}
 proc hab*(this: TopOpeBRepToolBoxSort): Handle[BndHArray1OfBox] {.noSideEffect,
-    cdecl, importcpp: "HAB", dynlib: tkbool.}
+    cdecl, importcpp: "HAB", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc makeHABCOB*(hab: Handle[BndHArray1OfBox]; cob: var BndBox) {.cdecl,
-    importcpp: "TopOpeBRepTool_BoxSort::MakeHABCOB(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_BoxSort::MakeHABCOB(@)", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc hABShape*(this: TopOpeBRepToolBoxSort; i: cint): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "HABShape", dynlib: tkbool.}
+    cdecl, importcpp: "HABShape", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc makeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape; ts: TopAbsShapeEnum;
              ta: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "MakeCOB",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_BoxSort.hxx".}
 proc addBoxesMakeCOB*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape;
                      ts: TopAbsShapeEnum; ta: TopAbsShapeEnum = topAbsSHAPE) {.cdecl,
-    importcpp: "AddBoxesMakeCOB", dynlib: tkbool.}
+    importcpp: "AddBoxesMakeCOB", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc compare*(this: var TopOpeBRepToolBoxSort; s: TopoDS_Shape): TColStdListIteratorOfListOfInteger {.
-    cdecl, importcpp: "Compare", dynlib: tkbool.}
+    cdecl, importcpp: "Compare", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc touchedShape*(this: TopOpeBRepToolBoxSort;
                   i: TColStdListIteratorOfListOfInteger): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "TouchedShape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "TouchedShape", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect, cdecl,
-    importcpp: "Box", dynlib: tkbool.}
+    importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.cdecl,
-    importcpp: "#.~TopOpeBRepTool_BoxSort()", dynlib: tkbool.}
+    importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}

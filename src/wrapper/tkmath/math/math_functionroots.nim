@@ -31,16 +31,16 @@ type
 proc newMathFunctionRoots*(f: var MathFunctionWithDerivative; a: cfloat; b: cfloat;
                           nbSample: cint; epsX: cfloat = 0.0; epsF: cfloat = 0.0;
                           epsNull: cfloat = 0.0; k: cfloat = 0.0): MathFunctionRoots {.
-    cdecl, constructor, importcpp: "math_FunctionRoots(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_FunctionRoots(@)", header: "math_FunctionRoots.hxx".}
 proc isDone*(this: MathFunctionRoots): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_FunctionRoots.hxx".}
 proc isAllNull*(this: MathFunctionRoots): bool {.noSideEffect, cdecl,
-    importcpp: "IsAllNull", dynlib: tkmath.}
+    importcpp: "IsAllNull", header: "math_FunctionRoots.hxx".}
 proc nbSolutions*(this: MathFunctionRoots): cint {.noSideEffect, cdecl,
-    importcpp: "NbSolutions", dynlib: tkmath.}
+    importcpp: "NbSolutions", header: "math_FunctionRoots.hxx".}
 proc value*(this: MathFunctionRoots; nieme: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_FunctionRoots.hxx".}
 proc stateNumber*(this: MathFunctionRoots; nieme: cint): cint {.noSideEffect, cdecl,
-    importcpp: "StateNumber", dynlib: tkmath.}
+    importcpp: "StateNumber", header: "math_FunctionRoots.hxx".}
 proc dump*(this: MathFunctionRoots; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_FunctionRoots.hxx".}

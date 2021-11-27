@@ -28,32 +28,32 @@ type
 
 
 proc newGeomFillBSplineCurves*(): GeomFillBSplineCurves {.cdecl, constructor,
-    importcpp: "GeomFill_BSplineCurves(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
 proc newGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
                               c2: Handle[GeomBSplineCurve];
                               c3: Handle[GeomBSplineCurve];
                               c4: Handle[GeomBSplineCurve];
                               `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
 proc newGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
                               c2: Handle[GeomBSplineCurve];
                               c3: Handle[GeomBSplineCurve];
                               `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
 proc newGeomFillBSplineCurves*(c1: Handle[GeomBSplineCurve];
                               c2: Handle[GeomBSplineCurve];
                               `type`: GeomFillFillingStyle): GeomFillBSplineCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BSplineCurves(@)", header: "GeomFill_BSplineCurves.hxx".}
 proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
           c2: Handle[GeomBSplineCurve]; c3: Handle[GeomBSplineCurve];
           c4: Handle[GeomBSplineCurve]; `type`: GeomFillFillingStyle) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
 proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
           c2: Handle[GeomBSplineCurve]; c3: Handle[GeomBSplineCurve];
           `type`: GeomFillFillingStyle) {.cdecl, importcpp: "Init",
-                                        dynlib: tkgeomalgo.}
+                                        header: "GeomFill_BSplineCurves.hxx".}
 proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
           c2: Handle[GeomBSplineCurve]; `type`: GeomFillFillingStyle) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
 proc surface*(this: GeomFillBSplineCurves): Handle[GeomBSplineSurface] {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "GeomFill_BSplineCurves.hxx".}

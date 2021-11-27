@@ -36,10 +36,10 @@ type
 
 
 proc newAdaptor3dInterFunc*(c: Handle[Adaptor2dHCurve2d]; fixVal: cfloat; fix: cint): Adaptor3dInterFunc {.
-    cdecl, constructor, importcpp: "Adaptor3d_InterFunc(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "Adaptor3d_InterFunc(@)", header: "Adaptor3d_InterFunc.hxx".}
 proc value*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkg3d.}
+    importcpp: "Value", header: "Adaptor3d_InterFunc.hxx".}
 proc derivative*(this: var Adaptor3dInterFunc; x: cfloat; d: var cfloat): bool {.cdecl,
-    importcpp: "Derivative", dynlib: tkg3d.}
+    importcpp: "Derivative", header: "Adaptor3d_InterFunc.hxx".}
 proc values*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat; d: var cfloat): bool {.
-    cdecl, importcpp: "Values", dynlib: tkg3d.}
+    cdecl, importcpp: "Values", header: "Adaptor3d_InterFunc.hxx".}

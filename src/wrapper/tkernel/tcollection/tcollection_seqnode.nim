@@ -22,8 +22,8 @@ type
 
 
 proc newTCollectionSeqNode*(n: TCollectionSeqNodePtr; p: TCollectionSeqNodePtr): TCollectionSeqNode {.
-    cdecl, constructor, importcpp: "TCollection_SeqNode(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TCollection_SeqNode(@)", header: "TCollection_SeqNode.hxx".}
 proc next*(this: TCollectionSeqNode): var TCollectionSeqNodePtr {.noSideEffect, cdecl,
-    importcpp: "Next", dynlib: tkernel.}
+    importcpp: "Next", header: "TCollection_SeqNode.hxx".}
 proc previous*(this: TCollectionSeqNode): var TCollectionSeqNodePtr {.noSideEffect,
-    cdecl, importcpp: "Previous", dynlib: tkernel.}
+    cdecl, importcpp: "Previous", header: "TCollection_SeqNode.hxx".}

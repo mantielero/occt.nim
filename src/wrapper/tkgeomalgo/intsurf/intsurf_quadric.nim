@@ -27,54 +27,54 @@ type
 
 
 proc newIntSurfQuadric*(): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(p: Pln): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(c: Cylinder): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(s: Sphere): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(c: Cone): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc newIntSurfQuadric*(t: Torus): IntSurfQuadric {.cdecl, constructor,
-    importcpp: "IntSurf_Quadric(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Quadric(@)", header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; p: Pln) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; c: Cylinder) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; s: Sphere) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; c: Cone) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc setValue*(this: var IntSurfQuadric; t: Torus) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc distance*(this: IntSurfQuadric; p: Pnt): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkgeomalgo.}
+    importcpp: "Distance", header: "IntSurf_Quadric.hxx".}
 proc gradient*(this: IntSurfQuadric; p: Pnt): Vec {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkgeomalgo.}
+    importcpp: "Gradient", header: "IntSurf_Quadric.hxx".}
 proc valAndGrad*(this: IntSurfQuadric; p: Pnt; dist: var cfloat; grad: var Vec) {.
-    noSideEffect, cdecl, importcpp: "ValAndGrad", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "ValAndGrad", header: "IntSurf_Quadric.hxx".}
 proc typeQuadric*(this: IntSurfQuadric): GeomAbsSurfaceType {.noSideEffect, cdecl,
-    importcpp: "TypeQuadric", dynlib: tkgeomalgo.}
+    importcpp: "TypeQuadric", header: "IntSurf_Quadric.hxx".}
 proc plane*(this: IntSurfQuadric): Pln {.noSideEffect, cdecl, importcpp: "Plane",
-                                     dynlib: tkgeomalgo.}
+                                     header: "IntSurf_Quadric.hxx".}
 proc sphere*(this: IntSurfQuadric): Sphere {.noSideEffect, cdecl, importcpp: "Sphere",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Quadric.hxx".}
 proc cylinder*(this: IntSurfQuadric): Cylinder {.noSideEffect, cdecl,
-    importcpp: "Cylinder", dynlib: tkgeomalgo.}
+    importcpp: "Cylinder", header: "IntSurf_Quadric.hxx".}
 proc cone*(this: IntSurfQuadric): Cone {.noSideEffect, cdecl, importcpp: "Cone",
-                                     dynlib: tkgeomalgo.}
+                                     header: "IntSurf_Quadric.hxx".}
 proc torus*(this: IntSurfQuadric): Torus {.noSideEffect, cdecl, importcpp: "Torus",
-                                       dynlib: tkgeomalgo.}
+                                       header: "IntSurf_Quadric.hxx".}
 proc value*(this: IntSurfQuadric; u: cfloat; v: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "IntSurf_Quadric.hxx".}
 proc d1*(this: IntSurfQuadric; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "D1", header: "IntSurf_Quadric.hxx".}
 proc dn*(this: IntSurfQuadric; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "DN", header: "IntSurf_Quadric.hxx".}
 proc normale*(this: IntSurfQuadric; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "Normale", dynlib: tkgeomalgo.}
+    importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
 proc parameters*(this: IntSurfQuadric; p: Pnt; u: var cfloat; v: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Parameters", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_Quadric.hxx".}
 proc normale*(this: IntSurfQuadric; p: Pnt): Vec {.noSideEffect, cdecl,
-    importcpp: "Normale", dynlib: tkgeomalgo.}
+    importcpp: "Normale", header: "IntSurf_Quadric.hxx".}

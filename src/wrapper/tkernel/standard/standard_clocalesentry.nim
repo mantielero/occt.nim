@@ -38,9 +38,9 @@ type
 
 
 proc constructStandardCLocaleSentry*(): StandardCLocaleSentry {.cdecl, constructor,
-    importcpp: "Standard_CLocaleSentry(@)", dynlib: tkernel.}
+    importcpp: "Standard_CLocaleSentry(@)", header: "Standard_CLocaleSentry.hxx".}
 proc destroyStandardCLocaleSentry*(this: var StandardCLocaleSentry) {.cdecl,
-    importcpp: "#.~Standard_CLocaleSentry()", dynlib: tkernel.}
+    importcpp: "#.~Standard_CLocaleSentry()", header: "Standard_CLocaleSentry.hxx".}
 #proc getCLocale*(): ClocaleT {.cdecl,
 #                            importcpp: "Standard_CLocaleSentry::GetCLocale(@)",
-#                            dynlib: tkernel.}
+#                            header: "Standard_CLocaleSentry.hxx".}

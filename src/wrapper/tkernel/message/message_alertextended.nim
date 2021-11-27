@@ -96,24 +96,24 @@ type
 proc addAlert*(theReport: Handle[MessageReport];
               theAttribute: Handle[MessageAttribute]; theGravity: MessageGravity): Handle[
     MessageAlert] {.cdecl, importcpp: "Message_AlertExtended::AddAlert(@)",
-                   dynlib: tkernel.}
+                   header: "Message_AlertExtended.hxx".}
 proc newMessageAlertExtended*(): MessageAlertExtended {.cdecl, constructor,
-    importcpp: "Message_AlertExtended(@)", dynlib: tkernel.}
+    importcpp: "Message_AlertExtended(@)", header: "Message_AlertExtended.hxx".}
 proc getMessageKey*(this: MessageAlertExtended): cstring {.noSideEffect, cdecl,
-    importcpp: "GetMessageKey", dynlib: tkernel.}
+    importcpp: "GetMessageKey", header: "Message_AlertExtended.hxx".}
 proc attribute*(this: MessageAlertExtended): Handle[MessageAttribute] {.
-    noSideEffect, cdecl, importcpp: "Attribute", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Attribute", header: "Message_AlertExtended.hxx".}
 proc setAttribute*(this: var MessageAlertExtended;
                   theAttribute: Handle[MessageAttribute]) {.cdecl,
-    importcpp: "SetAttribute", dynlib: tkernel.}
+    importcpp: "SetAttribute", header: "Message_AlertExtended.hxx".}
 proc compositeAlerts*(this: var MessageAlertExtended; theToCreate: bool = false): Handle[
-    MessageCompositeAlerts] {.cdecl, importcpp: "CompositeAlerts", dynlib: tkernel.}
+    MessageCompositeAlerts] {.cdecl, importcpp: "CompositeAlerts", header: "Message_AlertExtended.hxx".}
 proc supportsMerge*(this: MessageAlertExtended): bool {.noSideEffect, cdecl,
-    importcpp: "SupportsMerge", dynlib: tkernel.}
+    importcpp: "SupportsMerge", header: "Message_AlertExtended.hxx".}
 proc merge*(this: var MessageAlertExtended; theTarget: Handle[MessageAlert]): bool {.
-    cdecl, importcpp: "Merge", dynlib: tkernel.}
+    cdecl, importcpp: "Merge", header: "Message_AlertExtended.hxx".}
 proc dumpJson*(this: MessageAlertExtended; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_AlertExtended.hxx".}
 type
   HandleMessageAlertExtended* = Handle[MessageAlertExtended]

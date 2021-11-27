@@ -20,10 +20,10 @@ type
 
 proc newMathComputeGaussPointsAndWeights*(number: cint): MathComputeGaussPointsAndWeights {.
     cdecl, constructor, importcpp: "math_ComputeGaussPointsAndWeights(@)",
-    dynlib: tkmath.}
+    header: "math_ComputeGaussPointsAndWeights.hxx".}
 proc isDone*(this: MathComputeGaussPointsAndWeights): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_ComputeGaussPointsAndWeights.hxx".}
 proc points*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
-    cdecl, importcpp: "Points", dynlib: tkmath.}
+    cdecl, importcpp: "Points", header: "math_ComputeGaussPointsAndWeights.hxx".}
 proc weights*(this: MathComputeGaussPointsAndWeights): MathVector {.noSideEffect,
-    cdecl, importcpp: "Weights", dynlib: tkmath.}
+    cdecl, importcpp: "Weights", header: "math_ComputeGaussPointsAndWeights.hxx".}

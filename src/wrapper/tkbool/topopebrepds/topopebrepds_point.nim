@@ -22,22 +22,22 @@ type
 
 
 proc newTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Point(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
 proc newTopOpeBRepDS_Point*(p: Pnt; t: cfloat): TopOpeBRepDS_Point {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_Point(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
 proc newTopOpeBRepDS_Point*(s: TopoDS_Shape): TopOpeBRepDS_Point {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_Point(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_Point(@)", header: "TopOpeBRepDS_Point.hxx".}
 proc isEqual*(this: TopOpeBRepDS_Point; other: TopOpeBRepDS_Point): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsEqual", header: "TopOpeBRepDS_Point.hxx".}
 proc point*(this: TopOpeBRepDS_Point): Pnt {.noSideEffect, cdecl, importcpp: "Point",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Point.hxx".}
 proc changePoint*(this: var TopOpeBRepDS_Point): var Pnt {.cdecl,
-    importcpp: "ChangePoint", dynlib: tkbool.}
+    importcpp: "ChangePoint", header: "TopOpeBRepDS_Point.hxx".}
 proc tolerance*(this: TopOpeBRepDS_Point): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
 proc tolerance*(this: var TopOpeBRepDS_Point; tol: cfloat) {.cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Point.hxx".}
 proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, cdecl, importcpp: "Keep",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Point.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.cdecl,
-    importcpp: "ChangeKeep", dynlib: tkbool.}
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Point.hxx".}

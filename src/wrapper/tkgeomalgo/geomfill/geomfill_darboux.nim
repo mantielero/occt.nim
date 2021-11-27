@@ -30,26 +30,26 @@ type
 
 
 proc newGeomFillDarboux*(): GeomFillDarboux {.cdecl, constructor,
-    importcpp: "GeomFill_Darboux(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Darboux(@)", header: "GeomFill_Darboux.hxx".}
 proc copy*(this: GeomFillDarboux): Handle[GeomFillTrihedronLaw] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Copy", header: "GeomFill_Darboux.hxx".}
 proc d0*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+        biNormal: var Vec): bool {.cdecl, importcpp: "D0", header: "GeomFill_Darboux.hxx".}
 proc d1*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; dTangent: var Vec;
         normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_Darboux.hxx".}
 proc d2*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; dTangent: var Vec;
         d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
         biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.cdecl,
-    importcpp: "D2", dynlib: tkgeomalgo.}
+    importcpp: "D2", header: "GeomFill_Darboux.hxx".}
 proc nbIntervals*(this: GeomFillDarboux; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    importcpp: "NbIntervals", header: "GeomFill_Darboux.hxx".}
 proc intervals*(this: GeomFillDarboux; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_Darboux.hxx".}
 proc getAverageLaw*(this: var GeomFillDarboux; aTangent: var Vec; aNormal: var Vec;
                    aBiNormal: var Vec) {.cdecl, importcpp: "GetAverageLaw",
-                                      dynlib: tkgeomalgo.}
+                                      header: "GeomFill_Darboux.hxx".}
 proc isConstant*(this: GeomFillDarboux): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_Darboux.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillDarboux): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnlyBy3dCurve", dynlib: tkgeomalgo.}
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Darboux.hxx".}

@@ -177,10 +177,10 @@ proc newTopOpeBRepDS_ShapeShapeInterference*(t: TopOpeBRepDS_Transition;
     st: TopOpeBRepDS_Kind; s: cint; gt: TopOpeBRepDS_Kind; g: cint; gBound: bool;
     c: TopOpeBRepDS_Config): TopOpeBRepDS_ShapeShapeInterference {.cdecl,
     constructor, importcpp: "TopOpeBRepDS_ShapeShapeInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
 proc config*(this: TopOpeBRepDS_ShapeShapeInterference): TopOpeBRepDS_Config {.
-    noSideEffect, cdecl, importcpp: "Config", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Config", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
 proc gBound*(this: TopOpeBRepDS_ShapeShapeInterference): bool {.noSideEffect, cdecl,
-    importcpp: "GBound", dynlib: tkbool.}
+    importcpp: "GBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
 proc setGBound*(this: var TopOpeBRepDS_ShapeShapeInterference; b: bool) {.cdecl,
-    importcpp: "SetGBound", dynlib: tkbool.}
+    importcpp: "SetGBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}

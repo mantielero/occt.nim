@@ -21,16 +21,16 @@ type
 
 
 proc newTopOpeBRepBuildLoopSet*(): TopOpeBRepBuildLoopSet {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_LoopSet(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_LoopSet(@)", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc destroyTopOpeBRepBuildLoopSet*(this: var TopOpeBRepBuildLoopSet) {.cdecl,
-    importcpp: "#.~TopOpeBRepBuild_LoopSet()", dynlib: tkbool.}
+    importcpp: "#.~TopOpeBRepBuild_LoopSet()", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc changeListOfLoop*(this: var TopOpeBRepBuildLoopSet): var TopOpeBRepBuildListOfLoop {.
-    cdecl, importcpp: "ChangeListOfLoop", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeListOfLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc initLoop*(this: var TopOpeBRepBuildLoopSet) {.cdecl, importcpp: "InitLoop",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc moreLoop*(this: TopOpeBRepBuildLoopSet): bool {.noSideEffect, cdecl,
-    importcpp: "MoreLoop", dynlib: tkbool.}
+    importcpp: "MoreLoop", header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.cdecl, importcpp: "NextLoop",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
-    noSideEffect, cdecl, importcpp: "Loop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}

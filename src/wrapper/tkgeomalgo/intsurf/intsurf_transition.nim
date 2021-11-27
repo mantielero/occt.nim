@@ -22,22 +22,22 @@ type
 
 
 proc newIntSurfTransition*(): IntSurfTransition {.cdecl, constructor,
-    importcpp: "IntSurf_Transition(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Transition(@)", header: "IntSurf_Transition.hxx".}
 proc newIntSurfTransition*(tangent: bool; `type`: IntSurfTypeTrans): IntSurfTransition {.
-    cdecl, constructor, importcpp: "IntSurf_Transition(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "IntSurf_Transition(@)", header: "IntSurf_Transition.hxx".}
 proc newIntSurfTransition*(tangent: bool; situ: IntSurfSituation; oppos: bool): IntSurfTransition {.
-    cdecl, constructor, importcpp: "IntSurf_Transition(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "IntSurf_Transition(@)", header: "IntSurf_Transition.hxx".}
 proc setValue*(this: var IntSurfTransition; tangent: bool; `type`: IntSurfTypeTrans) {.
-    cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetValue", header: "IntSurf_Transition.hxx".}
 proc setValue*(this: var IntSurfTransition; tangent: bool; situ: IntSurfSituation;
-              oppos: bool) {.cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+              oppos: bool) {.cdecl, importcpp: "SetValue", header: "IntSurf_Transition.hxx".}
 proc setValue*(this: var IntSurfTransition) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeomalgo.}
+    header: "IntSurf_Transition.hxx".}
 proc transitionType*(this: IntSurfTransition): IntSurfTypeTrans {.noSideEffect,
-    cdecl, importcpp: "TransitionType", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "TransitionType", header: "IntSurf_Transition.hxx".}
 proc isTangent*(this: IntSurfTransition): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangent", dynlib: tkgeomalgo.}
+    importcpp: "IsTangent", header: "IntSurf_Transition.hxx".}
 proc situation*(this: IntSurfTransition): IntSurfSituation {.noSideEffect, cdecl,
-    importcpp: "Situation", dynlib: tkgeomalgo.}
+    importcpp: "Situation", header: "IntSurf_Transition.hxx".}
 proc isOpposite*(this: IntSurfTransition): bool {.noSideEffect, cdecl,
-    importcpp: "IsOpposite", dynlib: tkgeomalgo.}
+    importcpp: "IsOpposite", header: "IntSurf_Transition.hxx".}

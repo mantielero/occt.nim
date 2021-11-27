@@ -27,22 +27,22 @@ type
 
 
 proc newBndBoundSortBox*(): BndBoundSortBox {.cdecl, constructor,
-    importcpp: "Bnd_BoundSortBox(@)", dynlib: tkmath.}
+    importcpp: "Bnd_BoundSortBox(@)", header: "Bnd_BoundSortBox.hxx".}
 proc initialize*(this: var BndBoundSortBox; completeBox: BndBox;
                 setOfBox: Handle[BndHArray1OfBox]) {.cdecl,
-    importcpp: "Initialize", dynlib: tkmath.}
+    importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
 proc initialize*(this: var BndBoundSortBox; setOfBox: Handle[BndHArray1OfBox]) {.
-    cdecl, importcpp: "Initialize", dynlib: tkmath.}
+    cdecl, importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
 proc initialize*(this: var BndBoundSortBox; completeBox: BndBox; nbComponents: cint) {.
-    cdecl, importcpp: "Initialize", dynlib: tkmath.}
+    cdecl, importcpp: "Initialize", header: "Bnd_BoundSortBox.hxx".}
 proc add*(this: var BndBoundSortBox; theBox: BndBox; boxIndex: cint) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "Bnd_BoundSortBox.hxx".}
 proc compare*(this: var BndBoundSortBox; theBox: BndBox): TColStdListOfInteger {.cdecl,
-    importcpp: "Compare", dynlib: tkmath.}
+    importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
 proc compare*(this: var BndBoundSortBox; p: Pln): TColStdListOfInteger {.cdecl,
-    importcpp: "Compare", dynlib: tkmath.}
+    importcpp: "Compare", header: "Bnd_BoundSortBox.hxx".}
 proc dump*(this: BndBoundSortBox) {.noSideEffect, cdecl, importcpp: "Dump",
-                                 dynlib: tkmath.}
-proc destroy*(this: var BndBoundSortBox) {.cdecl, importcpp: "Destroy", dynlib: tkmath.}
+                                 header: "Bnd_BoundSortBox.hxx".}
+proc destroy*(this: var BndBoundSortBox) {.cdecl, importcpp: "Destroy", header: "Bnd_BoundSortBox.hxx".}
 proc destroyBndBoundSortBox*(this: var BndBoundSortBox) {.cdecl,
-    importcpp: "#.~Bnd_BoundSortBox()", dynlib: tkmath.}
+    importcpp: "#.~Bnd_BoundSortBox()", header: "Bnd_BoundSortBox.hxx".}

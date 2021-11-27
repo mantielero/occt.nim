@@ -23,14 +23,14 @@ type
 
 
 proc newTopOpeBRepBuildArea3dBuilder*(): TopOpeBRepBuildArea3dBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_Area3dBuilder(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_Area3dBuilder(@)", header: "TopOpeBRepBuild_Area3dBuilder.hxx".}
 proc newTopOpeBRepBuildArea3dBuilder*(ls: var TopOpeBRepBuildLoopSet;
                                      lc: var TopOpeBRepBuildLoopClassifier;
                                      forceClass: bool = false): TopOpeBRepBuildArea3dBuilder {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_Area3dBuilder(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Area3dBuilder.hxx".}
 proc initAreaBuilder*(this: var TopOpeBRepBuildArea3dBuilder;
                      ls: var TopOpeBRepBuildLoopSet;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.cdecl, importcpp: "InitAreaBuilder",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Area3dBuilder.hxx".}

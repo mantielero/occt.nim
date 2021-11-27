@@ -45,71 +45,71 @@ type
 
 proc newGeomFillPipe*(): GeomFillPipe {.cdecl, constructor,
                                      importcpp: "GeomFill_Pipe(@)",
-                                     dynlib: tkgeomalgo.}
+                                     header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; radius: cfloat): GeomFillPipe {.cdecl,
-    constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve];
                      option: GeomFillTrihedron = geomFillIsCorrectedFrenet): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[Geom2dCurve]; support: Handle[GeomSurface];
                      firstSect: Handle[GeomCurve]): GeomFillPipe {.cdecl,
-    constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve]; dir: Dir): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve];
                      lastSect: Handle[GeomCurve]): GeomFillPipe {.cdecl,
-    constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; nSections: TColGeomSequenceOfCurve): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; curve1: Handle[GeomCurve];
                      curve2: Handle[GeomCurve]; radius: cfloat): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[Adaptor3dHCurve];
                      curve1: Handle[Adaptor3dHCurve];
                      curve2: Handle[Adaptor3dHCurve]; radius: cfloat): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; guide: Handle[Adaptor3dHCurve];
                      firstSect: Handle[GeomCurve]; byACR: bool; rotat: bool): GeomFillPipe {.
-    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve]; radius: cfloat) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve];
           option: GeomFillTrihedron = geomFillIsCorrectedFrenet) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[Geom2dCurve];
           support: Handle[GeomSurface]; firstSect: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]; dir: Dir) {.cdecl, importcpp: "Init",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]; lastSect: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           nSections: TColGeomSequenceOfCurve) {.cdecl, importcpp: "Init",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[Adaptor3dHCurve];
           curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve];
-          radius: cfloat) {.cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+          radius: cfloat) {.cdecl, importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           guide: Handle[Adaptor3dHCurve]; firstSect: Handle[GeomCurve]; byACR: bool;
-          rotat: bool) {.cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+          rotat: bool) {.cdecl, importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc perform*(this: var GeomFillPipe; withParameters: bool = false;
              myPolynomial: bool = false) {.cdecl, importcpp: "Perform",
-                                       dynlib: tkgeomalgo.}
+                                       header: "GeomFill_Pipe.hxx".}
 proc perform*(this: var GeomFillPipe; tol: cfloat; polynomial: bool;
              conti: GeomAbsShape = geomAbsC1; maxDegree: cint = 11;
-             nbMaxSegment: cint = 30) {.cdecl, importcpp: "Perform", dynlib: tkgeomalgo.}
+             nbMaxSegment: cint = 30) {.cdecl, importcpp: "Perform", header: "GeomFill_Pipe.hxx".}
 proc surface*(this: GeomFillPipe): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeomalgo.}
+    importcpp: "Surface", header: "GeomFill_Pipe.hxx".}
 proc exchangeUV*(this: GeomFillPipe): bool {.noSideEffect, cdecl,
-    importcpp: "ExchangeUV", dynlib: tkgeomalgo.}
+    importcpp: "ExchangeUV", header: "GeomFill_Pipe.hxx".}
 proc generateParticularCase*(this: var GeomFillPipe; b: bool) {.cdecl,
-    importcpp: "GenerateParticularCase", dynlib: tkgeomalgo.}
+    importcpp: "GenerateParticularCase", header: "GeomFill_Pipe.hxx".}
 proc generateParticularCase*(this: GeomFillPipe): bool {.noSideEffect, cdecl,
-    importcpp: "GenerateParticularCase", dynlib: tkgeomalgo.}
+    importcpp: "GenerateParticularCase", header: "GeomFill_Pipe.hxx".}
 proc errorOnSurf*(this: GeomFillPipe): cfloat {.noSideEffect, cdecl,
-    importcpp: "ErrorOnSurf", dynlib: tkgeomalgo.}
+    importcpp: "ErrorOnSurf", header: "GeomFill_Pipe.hxx".}
 proc isDone*(this: GeomFillPipe): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                     dynlib: tkgeomalgo.}
+                                     header: "GeomFill_Pipe.hxx".}

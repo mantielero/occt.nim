@@ -24,33 +24,33 @@ type
 
 
 proc newTopOpeBRepToolHBoxTool*(): TopOpeBRepToolHBoxTool {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_HBoxTool(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_HBoxTool(@)", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc clear*(this: var TopOpeBRepToolHBoxTool) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc addBoxes*(this: var TopOpeBRepToolHBoxTool; s: TopoDS_Shape; ts: TopAbsShapeEnum;
               ta: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "AddBoxes",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc addBox*(this: var TopOpeBRepToolHBoxTool; s: TopoDS_Shape) {.cdecl,
-    importcpp: "AddBox", dynlib: tkbool.}
+    importcpp: "AddBox", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc computeBox*(s: TopoDS_Shape; b: var BndBox) {.cdecl,
-    importcpp: "TopOpeBRepTool_HBoxTool::ComputeBox(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_HBoxTool::ComputeBox(@)", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc computeBoxOnVertices*(s: TopoDS_Shape; b: var BndBox) {.cdecl,
-    importcpp: "TopOpeBRepTool_HBoxTool::ComputeBoxOnVertices(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_HBoxTool::ComputeBoxOnVertices(@)", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc dumpB*(b: BndBox) {.cdecl, importcpp: "TopOpeBRepTool_HBoxTool::DumpB(@)",
-                      dynlib: tkbool.}
+                      header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc box*(this: var TopOpeBRepToolHBoxTool; s: TopoDS_Shape): BndBox {.cdecl,
-    importcpp: "Box", dynlib: tkbool.}
+    importcpp: "Box", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc box*(this: TopOpeBRepToolHBoxTool; i: cint): BndBox {.noSideEffect, cdecl,
-    importcpp: "Box", dynlib: tkbool.}
+    importcpp: "Box", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc hasBox*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): bool {.noSideEffect,
-    cdecl, importcpp: "HasBox", dynlib: tkbool.}
+    cdecl, importcpp: "HasBox", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc shape*(this: TopOpeBRepToolHBoxTool; i: cint): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbool.}
+    importcpp: "Shape", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc index*(this: TopOpeBRepToolHBoxTool; s: TopoDS_Shape): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc extent*(this: TopOpeBRepToolHBoxTool): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", dynlib: tkbool.}
+    importcpp: "Extent", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc changeIMS*(this: var TopOpeBRepToolHBoxTool): var TopOpeBRepToolIndexedDataMapOfShapeBox {.
-    cdecl, importcpp: "ChangeIMS", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeIMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc ims*(this: TopOpeBRepToolHBoxTool): TopOpeBRepToolIndexedDataMapOfShapeBox {.
-    noSideEffect, cdecl, importcpp: "IMS", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IMS", header: "TopOpeBRepTool_HBoxTool.hxx".}

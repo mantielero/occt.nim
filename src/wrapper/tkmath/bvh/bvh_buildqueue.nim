@@ -52,13 +52,13 @@ type
 
 
 proc newBVH_BuildQueue*(): BVH_BuildQueue {.cdecl, constructor,
-    importcpp: "BVH_BuildQueue(@)", dynlib: tkmath.}
+    importcpp: "BVH_BuildQueue(@)", header: "BVH_BuildQueue.hxx".}
 proc destroyBVH_BuildQueue*(this: var BVH_BuildQueue) {.cdecl,
-    importcpp: "#.~BVH_BuildQueue()", dynlib: tkmath.}
-proc size*(this: var BVH_BuildQueue): cint {.cdecl, importcpp: "Size", dynlib: tkmath.}
+    importcpp: "#.~BVH_BuildQueue()", header: "BVH_BuildQueue.hxx".}
+proc size*(this: var BVH_BuildQueue): cint {.cdecl, importcpp: "Size", header: "BVH_BuildQueue.hxx".}
 proc enqueue*(this: var BVH_BuildQueue; theNode: cint) {.cdecl, importcpp: "Enqueue",
-    dynlib: tkmath.}
+    header: "BVH_BuildQueue.hxx".}
 proc fetch*(this: var BVH_BuildQueue; wasBusy: var bool): cint {.cdecl,
-    importcpp: "Fetch", dynlib: tkmath.}
+    importcpp: "Fetch", header: "BVH_BuildQueue.hxx".}
 proc hasBusyThreads*(this: var BVH_BuildQueue): bool {.cdecl,
-    importcpp: "HasBusyThreads", dynlib: tkmath.}
+    importcpp: "HasBusyThreads", header: "BVH_BuildQueue.hxx".}

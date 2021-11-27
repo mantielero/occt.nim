@@ -27,12 +27,12 @@
 ## ! and returns resulting incremented value.
 
 proc standardAtomicIncrement*(theValue: ptr cint): cint {.cdecl,
-    importcpp: "Standard_Atomic_Increment(@)", dynlib: tkernel.}
+    importcpp: "Standard_Atomic_Increment(@)", header: "Standard_Atomic.hxx".}
 ## ! Decrements atomically integer variable pointed by theValue
 ## ! and returns resulting decremented value.
 
 proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl,
-    importcpp: "Standard_Atomic_Decrement(@)", dynlib: tkernel.}
+    importcpp: "Standard_Atomic_Decrement(@)", header: "Standard_Atomic.hxx".}
 ## ! Perform an atomic compare and swap.
 ## ! That is, if the current value of *theValue is theOldValue, then write theNewValue into *theValue.
 ## ! @param theValue    pointer to variable to modify
@@ -42,7 +42,7 @@ proc standardAtomicDecrement*(theValue: ptr cint): cint {.cdecl,
 
 proc standardAtomicCompareAndSwap*(theValue: ptr cint; theOldValue: cint;
                                   theNewValue: cint): bool {.cdecl,
-    importcpp: "Standard_Atomic_CompareAndSwap(@)", dynlib: tkernel.}
+    importcpp: "Standard_Atomic_CompareAndSwap(@)", header: "Standard_Atomic.hxx".}
 ##  Platform-dependent implementation
 
 #when defined(gcc_Have_Sync_Compare_And_Swap_4) or defined(emscripten):

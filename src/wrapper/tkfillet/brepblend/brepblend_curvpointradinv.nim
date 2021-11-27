@@ -24,24 +24,24 @@ type
 
 proc newBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];
                                  c2: Handle[Adaptor3dHCurve]): BRepBlendCurvPointRadInv {.
-    cdecl, constructor, importcpp: "BRepBlend_CurvPointRadInv(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_CurvPointRadInv(@)", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc set*(this: var BRepBlendCurvPointRadInv; choix: cint) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BRepBlend_CurvPointRadInv.hxx".}
 proc nbEquations*(this: BRepBlendCurvPointRadInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc value*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc derivatives*(this: var BRepBlendCurvPointRadInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc values*(this: var BRepBlendCurvPointRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc set*(this: var BRepBlendCurvPointRadInv; p: Pnt) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getTolerance*(this: BRepBlendCurvPointRadInv; tolerance: var MathVector;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",
-                               dynlib: tkfillet.}
+                               header: "BRepBlend_CurvPointRadInv.hxx".}
 proc getBounds*(this: BRepBlendCurvPointRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BRepBlend_CurvPointRadInv.hxx".}
 proc isSolution*(this: var BRepBlendCurvPointRadInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BRepBlend_CurvPointRadInv.hxx".}

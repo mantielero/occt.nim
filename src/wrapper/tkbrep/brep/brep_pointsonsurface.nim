@@ -28,9 +28,9 @@ type
 
 
 proc surface*(this: BRepPointsOnSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
 proc surface*(this: var BRepPointsOnSurface; s: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_PointsOnSurface.hxx".}
 proc dumpJson*(this: BRepPointsOnSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PointsOnSurface.hxx".}

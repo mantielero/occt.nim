@@ -26,18 +26,18 @@ type
 
 
 proc newExtremaGenLocateExtCS*(): ExtremaGenLocateExtCS {.cdecl, constructor,
-    importcpp: "Extrema_GenLocateExtCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_GenLocateExtCS(@)", header: "Extrema_GenLocateExtCS.hxx".}
 proc newExtremaGenLocateExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; t: cfloat;
                               u: cfloat; v: cfloat; tol1: cfloat; tol2: cfloat): ExtremaGenLocateExtCS {.
-    cdecl, constructor, importcpp: "Extrema_GenLocateExtCS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GenLocateExtCS(@)", header: "Extrema_GenLocateExtCS.hxx".}
 proc perform*(this: var ExtremaGenLocateExtCS; c: Adaptor3dCurve; s: Adaptor3dSurface;
              t: cfloat; u: cfloat; v: cfloat; tol1: cfloat; tol2: cfloat) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_GenLocateExtCS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtCS): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_GenLocateExtCS.hxx".}
 proc squareDistance*(this: ExtremaGenLocateExtCS): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_GenLocateExtCS.hxx".}
 proc pointOnCurve*(this: ExtremaGenLocateExtCS): ExtremaPOnCurv {.noSideEffect,
-    cdecl, importcpp: "PointOnCurve", dynlib: tkgeombase.}
+    cdecl, importcpp: "PointOnCurve", header: "Extrema_GenLocateExtCS.hxx".}
 proc pointOnSurface*(this: ExtremaGenLocateExtCS): ExtremaPOnSurf {.noSideEffect,
-    cdecl, importcpp: "PointOnSurface", dynlib: tkgeombase.}
+    cdecl, importcpp: "PointOnSurface", header: "Extrema_GenLocateExtCS.hxx".}

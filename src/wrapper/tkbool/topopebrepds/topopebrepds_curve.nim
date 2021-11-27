@@ -24,68 +24,68 @@ type
 
 
 proc newTopOpeBRepDS_Curve*(): TopOpeBRepDS_Curve {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Curve(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Curve(@)", header: "TopOpeBRepDS_Curve.hxx".}
 proc newTopOpeBRepDS_Curve*(p: Handle[GeomCurve]; t: cfloat; isWalk: bool = false): TopOpeBRepDS_Curve {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Curve(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Curve(@)", header: "TopOpeBRepDS_Curve.hxx".}
 proc defineCurve*(this: var TopOpeBRepDS_Curve; p: Handle[GeomCurve]; t: cfloat;
-                 isWalk: bool) {.cdecl, importcpp: "DefineCurve", dynlib: tkbool.}
+                 isWalk: bool) {.cdecl, importcpp: "DefineCurve", header: "TopOpeBRepDS_Curve.hxx".}
 proc tolerance*(this: var TopOpeBRepDS_Curve; tol: cfloat) {.cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Curve.hxx".}
 proc setSCI*(this: var TopOpeBRepDS_Curve; i1: Handle[TopOpeBRepDS_Interference];
             i2: Handle[TopOpeBRepDS_Interference]) {.cdecl, importcpp: "SetSCI",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Curve.hxx".}
 proc getSCI1*(this: TopOpeBRepDS_Curve): Handle[TopOpeBRepDS_Interference] {.
-    noSideEffect, cdecl, importcpp: "GetSCI1", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GetSCI1", header: "TopOpeBRepDS_Curve.hxx".}
 proc getSCI2*(this: TopOpeBRepDS_Curve): Handle[TopOpeBRepDS_Interference] {.
-    noSideEffect, cdecl, importcpp: "GetSCI2", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GetSCI2", header: "TopOpeBRepDS_Curve.hxx".}
 proc getSCI*(this: TopOpeBRepDS_Curve; i1: var Handle[TopOpeBRepDS_Interference];
             i2: var Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
-    importcpp: "GetSCI", dynlib: tkbool.}
+    importcpp: "GetSCI", header: "TopOpeBRepDS_Curve.hxx".}
 proc setShapes*(this: var TopOpeBRepDS_Curve; s1: TopoDS_Shape; s2: TopoDS_Shape) {.
-    cdecl, importcpp: "SetShapes", dynlib: tkbool.}
+    cdecl, importcpp: "SetShapes", header: "TopOpeBRepDS_Curve.hxx".}
 proc getShapes*(this: TopOpeBRepDS_Curve; s1: var TopoDS_Shape; s2: var TopoDS_Shape) {.
-    noSideEffect, cdecl, importcpp: "GetShapes", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GetShapes", header: "TopOpeBRepDS_Curve.hxx".}
 proc shape1*(this: TopOpeBRepDS_Curve): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape1", dynlib: tkbool.}
+    importcpp: "Shape1", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeShape1*(this: var TopOpeBRepDS_Curve): var TopoDS_Shape {.cdecl,
-    importcpp: "ChangeShape1", dynlib: tkbool.}
+    importcpp: "ChangeShape1", header: "TopOpeBRepDS_Curve.hxx".}
 proc shape2*(this: TopOpeBRepDS_Curve): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape2", dynlib: tkbool.}
+    importcpp: "Shape2", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeShape2*(this: var TopOpeBRepDS_Curve): var TopoDS_Shape {.cdecl,
-    importcpp: "ChangeShape2", dynlib: tkbool.}
+    importcpp: "ChangeShape2", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve*(this: TopOpeBRepDS_Curve): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkbool.}
+    importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
 proc setRange*(this: var TopOpeBRepDS_Curve; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetRange", dynlib: tkbool.}
+    importcpp: "SetRange", header: "TopOpeBRepDS_Curve.hxx".}
 proc range*(this: TopOpeBRepDS_Curve; first: var cfloat; last: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "Range", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Range", header: "TopOpeBRepDS_Curve.hxx".}
 proc tolerance*(this: TopOpeBRepDS_Curve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeCurve*(this: var TopOpeBRepDS_Curve): var Handle[GeomCurve] {.cdecl,
-    importcpp: "ChangeCurve", dynlib: tkbool.}
+    importcpp: "ChangeCurve", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve*(this: var TopOpeBRepDS_Curve; c3d: Handle[GeomCurve]; tol: cfloat) {.cdecl,
-    importcpp: "Curve", dynlib: tkbool.}
+    importcpp: "Curve", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve1*(this: TopOpeBRepDS_Curve): Handle[Geom2dCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve1", dynlib: tkbool.}
+    importcpp: "Curve1", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve1*(this: var TopOpeBRepDS_Curve; pc1: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "Curve1", dynlib: tkbool.}
+    importcpp: "Curve1", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve2*(this: TopOpeBRepDS_Curve): Handle[Geom2dCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve2", dynlib: tkbool.}
+    importcpp: "Curve2", header: "TopOpeBRepDS_Curve.hxx".}
 proc curve2*(this: var TopOpeBRepDS_Curve; pc2: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "Curve2", dynlib: tkbool.}
+    importcpp: "Curve2", header: "TopOpeBRepDS_Curve.hxx".}
 proc isWalk*(this: TopOpeBRepDS_Curve): bool {.noSideEffect, cdecl,
-    importcpp: "IsWalk", dynlib: tkbool.}
+    importcpp: "IsWalk", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeIsWalk*(this: var TopOpeBRepDS_Curve; b: bool) {.cdecl,
-    importcpp: "ChangeIsWalk", dynlib: tkbool.}
+    importcpp: "ChangeIsWalk", header: "TopOpeBRepDS_Curve.hxx".}
 proc keep*(this: TopOpeBRepDS_Curve): bool {.noSideEffect, cdecl, importcpp: "Keep",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Curve.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Curve; b: bool) {.cdecl,
-    importcpp: "ChangeKeep", dynlib: tkbool.}
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Curve.hxx".}
 proc mother*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, cdecl,
-    importcpp: "Mother", dynlib: tkbool.}
+    importcpp: "Mother", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeMother*(this: var TopOpeBRepDS_Curve; i: cint) {.cdecl,
-    importcpp: "ChangeMother", dynlib: tkbool.}
+    importcpp: "ChangeMother", header: "TopOpeBRepDS_Curve.hxx".}
 proc dSIndex*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, cdecl,
-    importcpp: "DSIndex", dynlib: tkbool.}
+    importcpp: "DSIndex", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: cint) {.cdecl,
-    importcpp: "ChangeDSIndex", dynlib: tkbool.}
+    importcpp: "ChangeDSIndex", header: "TopOpeBRepDS_Curve.hxx".}

@@ -21,15 +21,15 @@ type
 
 
 proc newExtremaPOnCurv*(): ExtremaPOnCurv {.cdecl, constructor,
-    importcpp: "Extrema_POnCurv(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
 proc newExtremaPOnCurv*(u: cfloat; p: Pnt): ExtremaPOnCurv {.cdecl, constructor,
-    importcpp: "Extrema_POnCurv(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
 proc setValues*(this: var ExtremaPOnCurv; u: cfloat; p: Pnt) {.cdecl,
-    importcpp: "SetValues", dynlib: tkgeombase.}
+    importcpp: "SetValues", header: "Extrema_POnCurv.hxx".}
 proc value*(this: ExtremaPOnCurv): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_POnCurv.hxx".}
 proc parameter*(this: ExtremaPOnCurv): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkgeombase.}
+    importcpp: "Parameter", header: "Extrema_POnCurv.hxx".}
 ##  #define Pnt gp_Pnt
 ##  #define Pnt_hxx <gp_Pnt.hxx>
 ##  #define Extrema_Point Extrema_POnCurv

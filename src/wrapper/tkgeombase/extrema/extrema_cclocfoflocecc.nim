@@ -27,42 +27,42 @@ type
 
 
 proc newExtremaCCLocFOfLocECC*(thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC {.
-    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC(@)", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc newExtremaCCLocFOfLocECC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve;
                               thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC {.
-    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC(@)", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc setCurve*(this: var ExtremaCCLocFOfLocECC; theRank: cint; c1: Adaptor3dCurve) {.
-    cdecl, importcpp: "SetCurve", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetCurve", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc setTolerance*(this: var ExtremaCCLocFOfLocECC; theTol: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkgeombase.}
+    importcpp: "SetTolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc nbVariables*(this: ExtremaCCLocFOfLocECC): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc nbEquations*(this: ExtremaCCLocFOfLocECC): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeombase.}
+    importcpp: "NbEquations", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc value*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc derivatives*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; df: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkgeombase.}
+    cdecl, importcpp: "Derivatives", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc values*(this: var ExtremaCCLocFOfLocECC; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            df: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc getStateNumber*(this: var ExtremaCCLocFOfLocECC): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkgeombase.}
+    importcpp: "GetStateNumber", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc nbExt*(this: ExtremaCCLocFOfLocECC): cint {.noSideEffect, cdecl,
-    importcpp: "NbExt", dynlib: tkgeombase.}
+    importcpp: "NbExt", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc squareDistance*(this: ExtremaCCLocFOfLocECC; n: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "SquareDistance", dynlib: tkgeombase.}
+    cdecl, importcpp: "SquareDistance", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc points*(this: ExtremaCCLocFOfLocECC; n: cint; p1: var ExtremaPOnCurv;
             p2: var ExtremaPOnCurv) {.noSideEffect, cdecl, importcpp: "Points",
-                                   dynlib: tkgeombase.}
+                                   header: "Extrema_CCLocFOfLocECC.hxx".}
 proc curvePtr*(this: ExtremaCCLocFOfLocECC; theRank: cint): pointer {.noSideEffect,
-    cdecl, importcpp: "CurvePtr", dynlib: tkgeombase.}
+    cdecl, importcpp: "CurvePtr", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc tolerance*(this: ExtremaCCLocFOfLocECC): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkgeombase.}
+    importcpp: "Tolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc subIntervalInitialize*(this: var ExtremaCCLocFOfLocECC; theUfirst: MathVector;
                            theUlast: MathVector) {.cdecl,
-    importcpp: "SubIntervalInitialize", dynlib: tkgeombase.}
+    importcpp: "SubIntervalInitialize", header: "Extrema_CCLocFOfLocECC.hxx".}
 proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC; c: pointer): cfloat {.cdecl,
-    importcpp: "SearchOfTolerance", dynlib: tkgeombase.}
+    importcpp: "SearchOfTolerance", header: "Extrema_CCLocFOfLocECC.hxx".}
 ##  #define Curve1 Adaptor3d_Curve
 ##  #define Curve1_hxx <Adaptor3d_Curve.hxx>
 ##  #define Tool1 Extrema_CurveTool

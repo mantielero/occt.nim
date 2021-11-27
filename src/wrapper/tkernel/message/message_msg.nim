@@ -24,53 +24,53 @@ type
 
 
 proc newMessageMsg*(): MessageMsg {.cdecl, constructor, importcpp: "Message_Msg(@)",
-                                 dynlib: tkernel.}
+                                 header: "Message_Msg.hxx".}
 proc newMessageMsg*(theMsg: MessageMsg): MessageMsg {.cdecl, constructor,
-    importcpp: "Message_Msg(@)", dynlib: tkernel.}
+    importcpp: "Message_Msg(@)", header: "Message_Msg.hxx".}
 proc newMessageMsg*(theKey: cstring): MessageMsg {.cdecl, constructor,
-    importcpp: "Message_Msg(@)", dynlib: tkernel.}
+    importcpp: "Message_Msg(@)", header: "Message_Msg.hxx".}
 proc newMessageMsg*(theKey: TCollectionExtendedString): MessageMsg {.cdecl,
-    constructor, importcpp: "Message_Msg(@)", dynlib: tkernel.}
+    constructor, importcpp: "Message_Msg(@)", header: "Message_Msg.hxx".}
 proc set*(this: var MessageMsg; theMsg: cstring) {.cdecl, importcpp: "Set",
-    dynlib: tkernel.}
+    header: "Message_Msg.hxx".}
 proc set*(this: var MessageMsg; theMsg: TCollectionExtendedString) {.cdecl,
-    importcpp: "Set", dynlib: tkernel.}
+    importcpp: "Set", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theString: cstring): var MessageMsg {.cdecl,
-    importcpp: "Arg", dynlib: tkernel.}
+    importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: cstring): var MessageMsg {.cdecl,
-    importcpp: "(# << #)", dynlib: tkernel.}
+    importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theString: TCollectionAsciiString): var MessageMsg {.
-    cdecl, importcpp: "Arg", dynlib: tkernel.}
+    cdecl, importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: TCollectionAsciiString): var MessageMsg {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theString: Handle[TCollectionHAsciiString]): var MessageMsg {.
-    cdecl, importcpp: "Arg", dynlib: tkernel.}
+    cdecl, importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: Handle[TCollectionHAsciiString]): var MessageMsg {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theString: TCollectionExtendedString): var MessageMsg {.
-    cdecl, importcpp: "Arg", dynlib: tkernel.}
+    cdecl, importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: TCollectionExtendedString): var MessageMsg {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theString: Handle[TCollectionHExtendedString]): var MessageMsg {.
-    cdecl, importcpp: "Arg", dynlib: tkernel.}
+    cdecl, importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theString: Handle[TCollectionHExtendedString]): var MessageMsg {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theInt: cint): var MessageMsg {.cdecl, importcpp: "Arg",
-    dynlib: tkernel.}
+    header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theInt: cint): var MessageMsg {.cdecl,
-    importcpp: "(# << #)", dynlib: tkernel.}
+    importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc arg*(this: var MessageMsg; theReal: cfloat): var MessageMsg {.cdecl,
-    importcpp: "Arg", dynlib: tkernel.}
+    importcpp: "Arg", header: "Message_Msg.hxx".}
 proc `<<`*(this: var MessageMsg; theReal: cfloat): var MessageMsg {.cdecl,
-    importcpp: "(# << #)", dynlib: tkernel.}
+    importcpp: "(# << #)", header: "Message_Msg.hxx".}
 proc original*(this: MessageMsg): TCollectionExtendedString {.noSideEffect, cdecl,
-    importcpp: "Original", dynlib: tkernel.}
+    importcpp: "Original", header: "Message_Msg.hxx".}
 proc value*(this: MessageMsg): TCollectionExtendedString {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkernel.}
+    importcpp: "Value", header: "Message_Msg.hxx".}
 proc isEdited*(this: MessageMsg): bool {.noSideEffect, cdecl, importcpp: "IsEdited",
-                                     dynlib: tkernel.}
+                                     header: "Message_Msg.hxx".}
 proc get*(this: var MessageMsg): TCollectionExtendedString {.cdecl, importcpp: "Get",
-    dynlib: tkernel.}
+    header: "Message_Msg.hxx".}
 converter `constTCollectionExtendedString&`*(this: var MessageMsg): TCollectionExtendedString {.
     cdecl, importcpp: "Message_Msg::operator constTCollection_ExtendedString&",
-    dynlib: tkernel.}
+    header: "Message_Msg.hxx".}

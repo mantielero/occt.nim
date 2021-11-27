@@ -19,13 +19,13 @@ type
 
 proc newTColStdHArray1OfAsciiString*(theLower: cint; theUpper: cint): TColStdHArray1OfAsciiString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfAsciiString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfAsciiString.hxx".}
 proc newTColStdHArray1OfAsciiString*(theLower: cint; theUpper: cint;
                                     theValue: ValueType): TColStdHArray1OfAsciiString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfAsciiString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfAsciiString.hxx".}
 proc newTColStdHArray1OfAsciiString*(theOther: TColStdArray1OfAsciiString): TColStdHArray1OfAsciiString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfAsciiString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfAsciiString.hxx".}
 proc array1*(this: TColStdHArray1OfAsciiString): TColStdArray1OfAsciiString {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TColStd_HArray1OfAsciiString.hxx".}

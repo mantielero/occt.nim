@@ -48,80 +48,80 @@ type
                                                                  ## orthogonalization of "matrix"
 
 
-proc newTrsf*(): Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)", dynlib: tkmath.}
+proc newTrsf*(): Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)", header: "gp_Trsf.hxx".}
 proc newTrsf*(t: Trsf2d): Trsf {.cdecl, constructor, importcpp: "gp_Trsf(@)",
-                             dynlib: tkmath.}
-proc setMirror*(this: var Trsf; p: Pnt) {.cdecl, importcpp: "SetMirror", dynlib: tkmath.}
-proc setMirror*(this: var Trsf; a1: Ax1) {.cdecl, importcpp: "SetMirror", dynlib: tkmath.}
-proc setMirror*(this: var Trsf; a2: Ax2) {.cdecl, importcpp: "SetMirror", dynlib: tkmath.}
+                             header: "gp_Trsf.hxx".}
+proc setMirror*(this: var Trsf; p: Pnt) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
+proc setMirror*(this: var Trsf; a1: Ax1) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
+proc setMirror*(this: var Trsf; a2: Ax2) {.cdecl, importcpp: "SetMirror", header: "gp_Trsf.hxx".}
 proc setRotation*(this: var Trsf; a1: Ax1; ang: cfloat) {.cdecl,
-    importcpp: "SetRotation", dynlib: tkmath.}
+    importcpp: "SetRotation", header: "gp_Trsf.hxx".}
 proc setRotation*(this: var Trsf; r: Quaternion) {.cdecl, importcpp: "SetRotation",
-    dynlib: tkmath.}
+    header: "gp_Trsf.hxx".}
 proc setRotationPart*(this: var Trsf; r: Quaternion) {.cdecl,
-    importcpp: "SetRotationPart", dynlib: tkmath.}
+    importcpp: "SetRotationPart", header: "gp_Trsf.hxx".}
 proc setScale*(this: var Trsf; p: Pnt; s: cfloat) {.cdecl, importcpp: "SetScale",
-    dynlib: tkmath.}
+    header: "gp_Trsf.hxx".}
 proc setDisplacement*(this: var Trsf; fromSystem1: Ax3; toSystem2: Ax3) {.cdecl,
-    importcpp: "SetDisplacement", dynlib: tkmath.}
+    importcpp: "SetDisplacement", header: "gp_Trsf.hxx".}
 proc setTransformation*(this: var Trsf; fromSystem1: Ax3; toSystem2: Ax3) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkmath.}
+    importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTransformation*(this: var Trsf; toSystem: Ax3) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkmath.}
+    importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTransformation*(this: var Trsf; r: Quaternion; t: Vec) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkmath.}
+    importcpp: "SetTransformation", header: "gp_Trsf.hxx".}
 proc setTranslation*(this: var Trsf; v: Vec) {.cdecl, importcpp: "SetTranslation",
-    dynlib: tkmath.}
+    header: "gp_Trsf.hxx".}
 proc setTranslation*(this: var Trsf; p1: Pnt; p2: Pnt) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkmath.}
+    importcpp: "SetTranslation", header: "gp_Trsf.hxx".}
 proc setTranslationPart*(this: var Trsf; v: Vec) {.cdecl,
-    importcpp: "SetTranslationPart", dynlib: tkmath.}
+    importcpp: "SetTranslationPart", header: "gp_Trsf.hxx".}
 proc setScaleFactor*(this: var Trsf; s: cfloat) {.cdecl, importcpp: "SetScaleFactor",
-    dynlib: tkmath.}
-proc setForm*(this: var Trsf; p: TrsfForm) {.cdecl, importcpp: "SetForm", dynlib: tkmath.}
+    header: "gp_Trsf.hxx".}
+proc setForm*(this: var Trsf; p: TrsfForm) {.cdecl, importcpp: "SetForm", header: "gp_Trsf.hxx".}
 proc setValues*(this: var Trsf; a11: cfloat; a12: cfloat; a13: cfloat; a14: cfloat;
                a21: cfloat; a22: cfloat; a23: cfloat; a24: cfloat; a31: cfloat;
                a32: cfloat; a33: cfloat; a34: cfloat) {.cdecl, importcpp: "SetValues",
-    dynlib: tkmath.}
+    header: "gp_Trsf.hxx".}
 proc isNegative*(this: Trsf): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
-                                 dynlib: tkmath.}
+                                 header: "gp_Trsf.hxx".}
 proc form*(this: Trsf): TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
-                               dynlib: tkmath.}
+                               header: "gp_Trsf.hxx".}
 proc scaleFactor*(this: Trsf): cfloat {.noSideEffect, cdecl, importcpp: "ScaleFactor",
-                                    dynlib: tkmath.}
+                                    header: "gp_Trsf.hxx".}
 proc translationPart*(this: Trsf): Xyz {.noSideEffect, cdecl,
-                                     importcpp: "TranslationPart", dynlib: tkmath.}
+                                     importcpp: "TranslationPart", header: "gp_Trsf.hxx".}
 proc getRotation*(this: Trsf; theAxis: var Xyz; theAngle: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "GetRotation", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetRotation", header: "gp_Trsf.hxx".}
 proc getRotation*(this: Trsf): Quaternion {.noSideEffect, cdecl,
-                                        importcpp: "GetRotation", dynlib: tkmath.}
+                                        importcpp: "GetRotation", header: "gp_Trsf.hxx".}
 proc vectorialPart*(this: Trsf): Mat {.noSideEffect, cdecl,
-                                   importcpp: "VectorialPart", dynlib: tkmath.}
+                                   importcpp: "VectorialPart", header: "gp_Trsf.hxx".}
 proc hVectorialPart*(this: Trsf): Mat {.noSideEffect, cdecl,
-                                    importcpp: "HVectorialPart", dynlib: tkmath.}
+                                    importcpp: "HVectorialPart", header: "gp_Trsf.hxx".}
 proc value*(this: Trsf; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
-proc invert*(this: var Trsf) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "Value", header: "gp_Trsf.hxx".}
+proc invert*(this: var Trsf) {.cdecl, importcpp: "Invert", header: "gp_Trsf.hxx".}
 proc inverted*(this: Trsf): Trsf {.noSideEffect, cdecl, importcpp: "Inverted",
-                               dynlib: tkmath.}
+                               header: "gp_Trsf.hxx".}
 proc multiplied*(this: Trsf; t: Trsf): Trsf {.noSideEffect, cdecl,
-                                        importcpp: "Multiplied", dynlib: tkmath.}
+                                        importcpp: "Multiplied", header: "gp_Trsf.hxx".}
 proc `*`*(this: Trsf; t: Trsf): Trsf {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                 dynlib: tkmath.}
-proc multiply*(this: var Trsf; t: Trsf) {.cdecl, importcpp: "Multiply", dynlib: tkmath.}
-proc `*=`*(this: var Trsf; t: Trsf) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+                                 header: "gp_Trsf.hxx".}
+proc multiply*(this: var Trsf; t: Trsf) {.cdecl, importcpp: "Multiply", header: "gp_Trsf.hxx".}
+proc `*=`*(this: var Trsf; t: Trsf) {.cdecl, importcpp: "(# *= #)", header: "gp_Trsf.hxx".}
 proc preMultiply*(this: var Trsf; t: Trsf) {.cdecl, importcpp: "PreMultiply",
-                                       dynlib: tkmath.}
-proc power*(this: var Trsf; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
+                                       header: "gp_Trsf.hxx".}
+proc power*(this: var Trsf; n: cint) {.cdecl, importcpp: "Power", header: "gp_Trsf.hxx".}
 proc powered*(this: Trsf; n: cint): Trsf {.noSideEffect, cdecl, importcpp: "Powered",
-                                     dynlib: tkmath.}
+                                     header: "gp_Trsf.hxx".}
 proc transforms*(this: Trsf; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Transforms", dynlib: tkmath.}
+    cdecl, importcpp: "Transforms", header: "gp_Trsf.hxx".}
 proc transforms*(this: Trsf; coord: var Xyz) {.noSideEffect, cdecl,
-    importcpp: "Transforms", dynlib: tkmath.}
+    importcpp: "Transforms", header: "gp_Trsf.hxx".}
 proc getMat4*[T](this: Trsf; theMat: var NCollectionMat4[T]) {.noSideEffect, cdecl,
-    importcpp: "GetMat4", dynlib: tkmath.}
+    importcpp: "GetMat4", header: "gp_Trsf.hxx".}
 proc dumpJson*(this: Trsf; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Trsf.hxx".}
 proc initFromJson*(this: var Trsf; theSStream: StandardSStream; theStreamPos: var cint): bool {.
-    cdecl, importcpp: "InitFromJson", dynlib: tkmath.}
+    cdecl, importcpp: "InitFromJson", header: "gp_Trsf.hxx".}

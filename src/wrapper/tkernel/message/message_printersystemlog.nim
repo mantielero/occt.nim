@@ -39,6 +39,6 @@ type
 
 proc newMessagePrinterSystemLog*(theEventSourceName: TCollectionAsciiString;
                                 theTraceLevel: MessageGravity = 1.MessageGravity): MessagePrinterSystemLog {.
-    cdecl, constructor, importcpp: "Message_PrinterSystemLog(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_PrinterSystemLog(@)", header: "Message_PrinterSystemLog.hxx".}
 proc destroyMessagePrinterSystemLog*(this: var MessagePrinterSystemLog) {.cdecl,
-    importcpp: "#.~Message_PrinterSystemLog()", dynlib: tkernel.}
+    importcpp: "#.~Message_PrinterSystemLog()", header: "Message_PrinterSystemLog.hxx".}

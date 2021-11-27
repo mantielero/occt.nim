@@ -24,16 +24,16 @@ type
 
 
 proc newAppParCurvesConstraintCouple*(): AppParCurvesConstraintCouple {.cdecl,
-    constructor, importcpp: "AppParCurves_ConstraintCouple(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "AppParCurves_ConstraintCouple(@)", header: "AppParCurves_ConstraintCouple.hxx".}
 proc newAppParCurvesConstraintCouple*(theIndex: cint; cons: AppParCurvesConstraint): AppParCurvesConstraintCouple {.
     cdecl, constructor, importcpp: "AppParCurves_ConstraintCouple(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_ConstraintCouple.hxx".}
 proc index*(this: AppParCurvesConstraintCouple): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkgeombase.}
+    importcpp: "Index", header: "AppParCurves_ConstraintCouple.hxx".}
 proc constraint*(this: AppParCurvesConstraintCouple): AppParCurvesConstraint {.
-    noSideEffect, cdecl, importcpp: "Constraint", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Constraint", header: "AppParCurves_ConstraintCouple.hxx".}
 proc setIndex*(this: var AppParCurvesConstraintCouple; theIndex: cint) {.cdecl,
-    importcpp: "SetIndex", dynlib: tkgeombase.}
+    importcpp: "SetIndex", header: "AppParCurves_ConstraintCouple.hxx".}
 proc setConstraint*(this: var AppParCurvesConstraintCouple;
                    cons: AppParCurvesConstraint) {.cdecl,
-    importcpp: "SetConstraint", dynlib: tkgeombase.}
+    importcpp: "SetConstraint", header: "AppParCurves_ConstraintCouple.hxx".}

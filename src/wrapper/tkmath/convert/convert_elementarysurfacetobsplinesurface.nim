@@ -23,31 +23,31 @@ type
 
 
 proc uDegree*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "UDegree", dynlib: tkmath.}
+    cdecl, importcpp: "UDegree", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc vDegree*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "VDegree", dynlib: tkmath.}
+    cdecl, importcpp: "VDegree", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc nbUPoles*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "NbUPoles", dynlib: tkmath.}
+    cdecl, importcpp: "NbUPoles", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc nbVPoles*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "NbVPoles", dynlib: tkmath.}
+    cdecl, importcpp: "NbVPoles", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc nbUKnots*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "NbUKnots", dynlib: tkmath.}
+    cdecl, importcpp: "NbUKnots", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc nbVKnots*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,
-    cdecl, importcpp: "NbVKnots", dynlib: tkmath.}
+    cdecl, importcpp: "NbVKnots", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc isUPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
-    noSideEffect, cdecl, importcpp: "IsUPeriodic", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsUPeriodic", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc isVPeriodic*(this: ConvertElementarySurfaceToBSplineSurface): bool {.
-    noSideEffect, cdecl, importcpp: "IsVPeriodic", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsVPeriodic", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc pole*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint; vIndex: cint): Pnt {.
-    noSideEffect, cdecl, importcpp: "Pole", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Pole", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc weight*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint;
             vIndex: cint): cfloat {.noSideEffect, cdecl, importcpp: "Weight",
-                                 dynlib: tkmath.}
+                                 header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc uKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "UKnot", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "UKnot", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc vKnot*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "VKnot", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VKnot", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc uMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; uIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "UMultiplicity", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "UMultiplicity", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}
 proc vMultiplicity*(this: ConvertElementarySurfaceToBSplineSurface; vIndex: cint): cint {.
-    noSideEffect, cdecl, importcpp: "VMultiplicity", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VMultiplicity", header: "Convert_ElementarySurfaceToBSplineSurface.hxx".}

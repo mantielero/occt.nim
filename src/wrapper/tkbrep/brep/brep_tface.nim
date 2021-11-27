@@ -55,28 +55,28 @@ type
 
 
 proc newBRepTFace*(): BRepTFace {.cdecl, constructor, importcpp: "BRep_TFace(@)",
-                               dynlib: tkbrep.}
+                               header: "BRep_TFace.hxx".}
 proc surface*(this: BRepTFace): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_TFace.hxx".}
 proc triangulation*(this: BRepTFace): Handle[PolyTriangulation] {.noSideEffect,
-    cdecl, importcpp: "Triangulation", dynlib: tkbrep.}
+    cdecl, importcpp: "Triangulation", header: "BRep_TFace.hxx".}
 proc location*(this: BRepTFace): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkbrep.}
+    importcpp: "Location", header: "BRep_TFace.hxx".}
 proc tolerance*(this: BRepTFace): cfloat {.noSideEffect, cdecl,
-                                       importcpp: "Tolerance", dynlib: tkbrep.}
+                                       importcpp: "Tolerance", header: "BRep_TFace.hxx".}
 proc surface*(this: var BRepTFace; s: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_TFace.hxx".}
 proc triangulation*(this: var BRepTFace; t: Handle[PolyTriangulation]) {.cdecl,
-    importcpp: "Triangulation", dynlib: tkbrep.}
+    importcpp: "Triangulation", header: "BRep_TFace.hxx".}
 proc location*(this: var BRepTFace; L: TopLocLocation) {.cdecl, importcpp: "Location",
-    dynlib: tkbrep.}
+    header: "BRep_TFace.hxx".}
 proc tolerance*(this: var BRepTFace; t: cfloat) {.cdecl, importcpp: "Tolerance",
-    dynlib: tkbrep.}
+    header: "BRep_TFace.hxx".}
 proc naturalRestriction*(this: BRepTFace): bool {.noSideEffect, cdecl,
-    importcpp: "NaturalRestriction", dynlib: tkbrep.}
+    importcpp: "NaturalRestriction", header: "BRep_TFace.hxx".}
 proc naturalRestriction*(this: var BRepTFace; n: bool) {.cdecl,
-    importcpp: "NaturalRestriction", dynlib: tkbrep.}
+    importcpp: "NaturalRestriction", header: "BRep_TFace.hxx".}
 proc emptyCopy*(this: BRepTFace): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", dynlib: tkbrep.}
+    importcpp: "EmptyCopy", header: "BRep_TFace.hxx".}
 proc dumpJson*(this: BRepTFace; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TFace.hxx".}

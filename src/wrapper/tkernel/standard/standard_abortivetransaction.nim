@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardAbortiveTransaction):
   template standardAbortiveTransactionRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardAbortiveTransaction*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_AbortiveTransaction(@)", dynlib: tkernel.}
+          importcpp: "Standard_AbortiveTransaction(@)", header: "Standard_AbortiveTransaction.hxx".}
 
 else:
   discard

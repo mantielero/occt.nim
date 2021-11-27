@@ -28,8 +28,8 @@ type
 
 
 proc destroyMathFunction*(this: var MathFunction) {.cdecl,
-    importcpp: "#.~math_Function()", dynlib: tkmath.}
+    importcpp: "#.~math_Function()", header: "math_Function.hxx".}
 proc value*(this: var MathFunction; x: cfloat; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_Function.hxx".}
 proc getStateNumber*(this: var MathFunction): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkmath.}
+    importcpp: "GetStateNumber", header: "math_Function.hxx".}

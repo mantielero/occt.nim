@@ -77,17 +77,17 @@ type
 
 
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[
-    GeomSurface] {.cdecl, importcpp: "GeomFill::Surface(@)", dynlib: tkgeomalgo.}
+    GeomSurface] {.cdecl, importcpp: "GeomFill::Surface(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; nplan: Vec;
                pt1: Pnt; pt2: Pnt; rayon: cfloat; center: Pnt;
                poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal) {.
-    cdecl, importcpp: "GeomFill::GetCircle(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
                dn2w: Vec; nplan: Vec; dnplan: Vec; pts1: Pnt; pts2: Pnt; tang1: Vec;
                tang2: Vec; rayon: cfloat; dRayon: cfloat; center: Pnt; dCenter: Vec;
                poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "GeomFill::GetCircle(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
 proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
                dn2w: Vec; d2n1w: Vec; d2n2w: Vec; nplan: Vec; dnplan: Vec; d2nplan: Vec;
                pts1: Pnt; pts2: Pnt; tang1: Vec; tang2: Vec; dtang1: Vec; dtang2: Vec;
@@ -96,18 +96,18 @@ proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Ve
                dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
                d2Weigths: var TColStdArray1OfReal): bool {.cdecl,
-    importcpp: "GeomFill::GetCircle(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
 proc getShape*(maxAng: cfloat; nbPoles: var cint; nbKnots: var cint; degree: var cint;
               typeConv: var ConvertParameterisationType) {.cdecl,
-    importcpp: "GeomFill::GetShape(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill::GetShape(@)", header: "GeomFill.hxx".}
 proc knots*(typeConv: ConvertParameterisationType; tKnots: var TColStdArray1OfReal) {.
-    cdecl, importcpp: "GeomFill::Knots(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GeomFill::Knots(@)", header: "GeomFill.hxx".}
 proc mults*(typeConv: ConvertParameterisationType;
            tMults: var TColStdArray1OfInteger) {.cdecl,
-    importcpp: "GeomFill::Mults(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill::Mults(@)", header: "GeomFill.hxx".}
 proc getMinimalWeights*(tConv: ConvertParameterisationType; angleMin: cfloat;
                        angleMax: cfloat; weigths: var TColStdArray1OfReal) {.cdecl,
-    importcpp: "GeomFill::GetMinimalWeights(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill::GetMinimalWeights(@)", header: "GeomFill.hxx".}
 proc getTolerance*(tConv: ConvertParameterisationType; angleMin: cfloat;
                   radius: cfloat; angularTol: cfloat; spatialTol: cfloat): cfloat {.
-    cdecl, importcpp: "GeomFill::GetTolerance(@)", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GeomFill::GetTolerance(@)", header: "GeomFill.hxx".}

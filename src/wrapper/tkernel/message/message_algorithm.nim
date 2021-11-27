@@ -75,61 +75,61 @@ type
 
 
 proc newMessageAlgorithm*(): MessageAlgorithm {.cdecl, constructor,
-    importcpp: "Message_Algorithm(@)", dynlib: tkernel.}
+    importcpp: "Message_Algorithm(@)", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus) {.cdecl,
-    importcpp: "SetStatus", dynlib: tkernel.}
+    importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theInt: cint) {.
-    cdecl, importcpp: "SetStatus", dynlib: tkernel.}
+    cdecl, importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theStr: cstring;
                noRepetitions: bool = true) {.cdecl, importcpp: "SetStatus",
-    dynlib: tkernel.}
+    header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
                theStr: TCollectionAsciiString; noRepetitions: bool = true) {.cdecl,
-    importcpp: "SetStatus", dynlib: tkernel.}
+    importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
                theStr: Handle[TCollectionHAsciiString]; noRepetitions: bool = true) {.
-    cdecl, importcpp: "SetStatus", dynlib: tkernel.}
+    cdecl, importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
                theStr: TCollectionExtendedString; noRepetitions: bool = true) {.cdecl,
-    importcpp: "SetStatus", dynlib: tkernel.}
+    importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus;
                theStr: Handle[TCollectionHExtendedString];
                noRepetitions: bool = true) {.cdecl, importcpp: "SetStatus",
-    dynlib: tkernel.}
+    header: "Message_Algorithm.hxx".}
 proc setStatus*(this: var MessageAlgorithm; theStat: MessageStatus; theMsg: MessageMsg) {.
-    cdecl, importcpp: "SetStatus", dynlib: tkernel.}
+    cdecl, importcpp: "SetStatus", header: "Message_Algorithm.hxx".}
 proc getStatus*(this: MessageAlgorithm): MessageExecStatus {.noSideEffect, cdecl,
-    importcpp: "GetStatus", dynlib: tkernel.}
+    importcpp: "GetStatus", header: "Message_Algorithm.hxx".}
 proc changeStatus*(this: var MessageAlgorithm): var MessageExecStatus {.cdecl,
-    importcpp: "ChangeStatus", dynlib: tkernel.}
+    importcpp: "ChangeStatus", header: "Message_Algorithm.hxx".}
 proc clearStatus*(this: var MessageAlgorithm) {.cdecl, importcpp: "ClearStatus",
-    dynlib: tkernel.}
+    header: "Message_Algorithm.hxx".}
 proc setMessenger*(this: var MessageAlgorithm; theMsgr: Handle[MessageMessenger]) {.
-    cdecl, importcpp: "SetMessenger", dynlib: tkernel.}
+    cdecl, importcpp: "SetMessenger", header: "Message_Algorithm.hxx".}
 proc getMessenger*(this: MessageAlgorithm): Handle[MessageMessenger] {.noSideEffect,
-    cdecl, importcpp: "GetMessenger", dynlib: tkernel.}
+    cdecl, importcpp: "GetMessenger", header: "Message_Algorithm.hxx".}
 proc sendStatusMessages*(this: MessageAlgorithm; theFilter: MessageExecStatus;
                         theTraceLevel: MessageGravity = 2.MessageGravity;
                         theMaxCount: cint = 20) {.noSideEffect, cdecl,
-    importcpp: "SendStatusMessages", dynlib: tkernel.}
+    importcpp: "SendStatusMessages", header: "Message_Algorithm.hxx".}
 proc sendMessages*(this: MessageAlgorithm;
                   theTraceLevel: MessageGravity = 2.MessageGravity;
                   theMaxCount: cint = 20) {.noSideEffect, cdecl,
-                                        importcpp: "SendMessages", dynlib: tkernel.}
+                                        importcpp: "SendMessages", header: "Message_Algorithm.hxx".}
 proc addStatus*(this: var MessageAlgorithm; theOther: Handle[MessageAlgorithm]) {.
-    cdecl, importcpp: "AddStatus", dynlib: tkernel.}
+    cdecl, importcpp: "AddStatus", header: "Message_Algorithm.hxx".}
 proc addStatus*(this: var MessageAlgorithm; theStatus: MessageExecStatus;
                theOther: Handle[MessageAlgorithm]) {.cdecl, importcpp: "AddStatus",
-    dynlib: tkernel.}
+    header: "Message_Algorithm.hxx".}
 proc getMessageNumbers*(this: MessageAlgorithm; theStatus: MessageStatus): Handle[
     TColStdHPackedMapOfInteger] {.noSideEffect, cdecl,
-                                 importcpp: "GetMessageNumbers", dynlib: tkernel.}
+                                 importcpp: "GetMessageNumbers", header: "Message_Algorithm.hxx".}
 proc getMessageStrings*(this: MessageAlgorithm; theStatus: MessageStatus): Handle[
     TColStdHSequenceOfHExtendedString] {.noSideEffect, cdecl,
                                         importcpp: "GetMessageStrings",
-                                        dynlib: tkernel.}
+                                        header: "Message_Algorithm.hxx".}
 proc prepareReport*(theError: Handle[TColStdHPackedMapOfInteger]; theMaxCount: cint): TCollectionExtendedString {.
-    cdecl, importcpp: "Message_Algorithm::PrepareReport(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message_Algorithm::PrepareReport(@)", header: "Message_Algorithm.hxx".}
 proc prepareReport*(theReportSeq: TColStdSequenceOfHExtendedString;
                    theMaxCount: cint): TCollectionExtendedString {.cdecl,
-    importcpp: "Message_Algorithm::PrepareReport(@)", dynlib: tkernel.}
+    importcpp: "Message_Algorithm::PrepareReport(@)", header: "Message_Algorithm.hxx".}

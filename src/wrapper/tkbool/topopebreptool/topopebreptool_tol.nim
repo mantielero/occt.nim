@@ -18,18 +18,18 @@ proc fTOL_FaceTolerances*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                          myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
                          mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
                          myTol2: var cfloat; deflection: var cfloat; maxUV: var cfloat) {.
-    cdecl, importcpp: "FTOL_FaceTolerances(@)", dynlib: tkbool.}
+    cdecl, importcpp: "FTOL_FaceTolerances(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances3d*(myFace1: TopoDS_Face; myFace2: TopoDS_Face;
                            tol: var cfloat) {.cdecl,
-    importcpp: "FTOL_FaceTolerances3d(@)", dynlib: tkbool.}
+    importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances3d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                            myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
                            mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
                            myTol2: var cfloat; deflection: var cfloat;
                            maxUV: var cfloat) {.cdecl,
-    importcpp: "FTOL_FaceTolerances3d(@)", dynlib: tkbool.}
+    importcpp: "FTOL_FaceTolerances3d(@)", header: "TopOpeBRepTool_tol.hxx".}
 proc fTOL_FaceTolerances2d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                            myFace2: TopoDS_Face; mySurface1: BRepAdaptorSurface;
                            mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
                            myTol2: var cfloat) {.cdecl,
-    importcpp: "FTOL_FaceTolerances2d(@)", dynlib: tkbool.}
+    importcpp: "FTOL_FaceTolerances2d(@)", header: "TopOpeBRepTool_tol.hxx".}

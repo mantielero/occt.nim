@@ -21,13 +21,13 @@ type
 
 proc newTColgpHArray2OfCirc2d*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                               theColUpp: cint): TColgpHArray2OfCirc2d {.cdecl,
-    constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", dynlib: tkmath.}
+    constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", header: "TColgp_HArray2OfCirc2d.hxx".}
 proc newTColgpHArray2OfCirc2d*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                               theColUpp: cint; theValue: ValueType): TColgpHArray2OfCirc2d {.
-    cdecl, constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", header: "TColgp_HArray2OfCirc2d.hxx".}
 proc newTColgpHArray2OfCirc2d*(theOther: TColgpArray2OfCirc2d): TColgpHArray2OfCirc2d {.
-    cdecl, constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "TColgp_HArray2OfCirc2d(@)", header: "TColgp_HArray2OfCirc2d.hxx".}
 proc array2*(this: TColgpHArray2OfCirc2d): TColgpArray2OfCirc2d {.noSideEffect,
-    cdecl, importcpp: "Array2", dynlib: tkmath.}
+    cdecl, importcpp: "Array2", header: "TColgp_HArray2OfCirc2d.hxx".}
 proc changeArray2*(this: var TColgpHArray2OfCirc2d): var TColgpArray2OfCirc2d {.cdecl,
-    importcpp: "ChangeArray2", dynlib: tkmath.}
+    importcpp: "ChangeArray2", header: "TColgp_HArray2OfCirc2d.hxx".}

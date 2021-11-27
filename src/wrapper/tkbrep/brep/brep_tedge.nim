@@ -44,30 +44,30 @@ type
 
 
 proc newBRepTEdge*(): BRepTEdge {.cdecl, constructor, importcpp: "BRep_TEdge(@)",
-                               dynlib: tkbrep.}
+                               header: "BRep_TEdge.hxx".}
 proc tolerance*(this: BRepTEdge): cfloat {.noSideEffect, cdecl,
-                                       importcpp: "Tolerance", dynlib: tkbrep.}
+                                       importcpp: "Tolerance", header: "BRep_TEdge.hxx".}
 proc tolerance*(this: var BRepTEdge; t: cfloat) {.cdecl, importcpp: "Tolerance",
-    dynlib: tkbrep.}
+    header: "BRep_TEdge.hxx".}
 proc updateTolerance*(this: var BRepTEdge; t: cfloat) {.cdecl,
-    importcpp: "UpdateTolerance", dynlib: tkbrep.}
+    importcpp: "UpdateTolerance", header: "BRep_TEdge.hxx".}
 proc sameParameter*(this: BRepTEdge): bool {.noSideEffect, cdecl,
-    importcpp: "SameParameter", dynlib: tkbrep.}
+    importcpp: "SameParameter", header: "BRep_TEdge.hxx".}
 proc sameParameter*(this: var BRepTEdge; s: bool) {.cdecl, importcpp: "SameParameter",
-    dynlib: tkbrep.}
+    header: "BRep_TEdge.hxx".}
 proc sameRange*(this: BRepTEdge): bool {.noSideEffect, cdecl, importcpp: "SameRange",
-                                     dynlib: tkbrep.}
+                                     header: "BRep_TEdge.hxx".}
 proc sameRange*(this: var BRepTEdge; s: bool) {.cdecl, importcpp: "SameRange",
-    dynlib: tkbrep.}
+    header: "BRep_TEdge.hxx".}
 proc degenerated*(this: BRepTEdge): bool {.noSideEffect, cdecl,
-                                       importcpp: "Degenerated", dynlib: tkbrep.}
+                                       importcpp: "Degenerated", header: "BRep_TEdge.hxx".}
 proc degenerated*(this: var BRepTEdge; s: bool) {.cdecl, importcpp: "Degenerated",
-    dynlib: tkbrep.}
+    header: "BRep_TEdge.hxx".}
 proc curves*(this: BRepTEdge): BRepListOfCurveRepresentation {.noSideEffect, cdecl,
-    importcpp: "Curves", dynlib: tkbrep.}
+    importcpp: "Curves", header: "BRep_TEdge.hxx".}
 proc changeCurves*(this: var BRepTEdge): var BRepListOfCurveRepresentation {.cdecl,
-    importcpp: "ChangeCurves", dynlib: tkbrep.}
+    importcpp: "ChangeCurves", header: "BRep_TEdge.hxx".}
 proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", dynlib: tkbrep.}
+    importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
 proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TEdge.hxx".}

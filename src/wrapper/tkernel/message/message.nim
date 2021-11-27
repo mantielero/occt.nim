@@ -50,42 +50,42 @@ type
 
 
 proc defaultMessenger*(): Handle[MessageMessenger] {.cdecl,
-    importcpp: "Message::DefaultMessenger(@)", dynlib: tkernel.}
+    importcpp: "Message::DefaultMessenger(@)", header: "Message.hxx".}
 proc send*(theGravity: MessageGravity): StreamBuffer {.cdecl,
-    importcpp: "Message::Send(@)", dynlib: tkernel.}
+    importcpp: "Message::Send(@)", header: "Message.hxx".}
 proc send*(theMessage: TCollectionAsciiString; theGravity: MessageGravity) {.cdecl,
-    importcpp: "Message::Send(@)", dynlib: tkernel.}
+    importcpp: "Message::Send(@)", header: "Message.hxx".}
 proc sendFail*(): StreamBuffer {.cdecl, importcpp: "Message::SendFail(@)",
-                              dynlib: tkernel.}
+                              header: "Message.hxx".}
 proc sendAlarm*(): StreamBuffer {.cdecl, importcpp: "Message::SendAlarm(@)",
-                               dynlib: tkernel.}
+                               header: "Message.hxx".}
 proc sendWarning*(): StreamBuffer {.cdecl, importcpp: "Message::SendWarning(@)",
-                                 dynlib: tkernel.}
+                                 header: "Message.hxx".}
 proc sendInfo*(): StreamBuffer {.cdecl, importcpp: "Message::SendInfo(@)",
-                              dynlib: tkernel.}
+                              header: "Message.hxx".}
 proc sendTrace*(): StreamBuffer {.cdecl, importcpp: "Message::SendTrace(@)",
-                               dynlib: tkernel.}
+                               header: "Message.hxx".}
 proc sendFail*(theMessage: TCollectionAsciiString) {.cdecl,
-    importcpp: "Message::SendFail(@)", dynlib: tkernel.}
+    importcpp: "Message::SendFail(@)", header: "Message.hxx".}
 proc sendAlarm*(theMessage: TCollectionAsciiString) {.cdecl,
-    importcpp: "Message::SendAlarm(@)", dynlib: tkernel.}
+    importcpp: "Message::SendAlarm(@)", header: "Message.hxx".}
 proc sendWarning*(theMessage: TCollectionAsciiString) {.cdecl,
-    importcpp: "Message::SendWarning(@)", dynlib: tkernel.}
+    importcpp: "Message::SendWarning(@)", header: "Message.hxx".}
 proc sendInfo*(theMessage: TCollectionAsciiString) {.cdecl,
-    importcpp: "Message::SendInfo(@)", dynlib: tkernel.}
+    importcpp: "Message::SendInfo(@)", header: "Message.hxx".}
 proc sendTrace*(theMessage: TCollectionAsciiString) {.cdecl,
-    importcpp: "Message::SendTrace(@)", dynlib: tkernel.}
+    importcpp: "Message::SendTrace(@)", header: "Message.hxx".}
 proc fillTime*(hour: cint; minute: cint; second: cfloat): TCollectionAsciiString {.
-    cdecl, importcpp: "Message::FillTime(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message::FillTime(@)", header: "Message.hxx".}
 proc defaultReport*(theToCreate: bool = false): Handle[MessageReport] {.cdecl,
-    importcpp: "Message::DefaultReport(@)", dynlib: tkernel.}
+    importcpp: "Message::DefaultReport(@)", header: "Message.hxx".}
 proc metricFromString*(theString: cstring; theType: var MessageMetricType): bool {.
-    cdecl, importcpp: "Message::MetricFromString(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message::MetricFromString(@)", header: "Message.hxx".}
 proc metricToString*(theType: MessageMetricType): cstring {.cdecl,
-    importcpp: "Message::MetricToString(@)", dynlib: tkernel.}
+    importcpp: "Message::MetricToString(@)", header: "Message.hxx".}
 proc metricFromString*(theString: cstring): MessageMetricType {.cdecl,
-    importcpp: "Message::MetricFromString(@)", dynlib: tkernel.}
+    importcpp: "Message::MetricFromString(@)", header: "Message.hxx".}
 proc toOSDMetric*(theMetric: MessageMetricType; theMemInfo: var Counter): bool {.cdecl,
-    importcpp: "Message::ToOSDMetric(@)", dynlib: tkernel.}
+    importcpp: "Message::ToOSDMetric(@)", header: "Message.hxx".}
 proc toMessageMetric*(theMemInfo: Counter; theMetric: var MessageMetricType): bool {.
-    cdecl, importcpp: "Message::ToMessageMetric(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message::ToMessageMetric(@)", header: "Message.hxx".}

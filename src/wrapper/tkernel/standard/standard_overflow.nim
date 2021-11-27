@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardOverflow):
   template standardOverflowRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardOverflow*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_Overflow(@)", dynlib: tkernel.}
+          importcpp: "Standard_Overflow(@)", header: "Standard_Overflow.hxx".}
 
 else:
   discard

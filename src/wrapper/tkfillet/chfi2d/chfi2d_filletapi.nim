@@ -42,19 +42,19 @@ type
 
 
 proc newChFi2dFilletAPI*(): ChFi2dFilletAPI {.cdecl, constructor,
-    importcpp: "ChFi2d_FilletAPI(@)", dynlib: tkfillet.}
+    importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
 proc newChFi2dFilletAPI*(theWire: TopoDS_Wire; thePlane: Pln): ChFi2dFilletAPI {.
-    cdecl, constructor, importcpp: "ChFi2d_FilletAPI(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
 proc newChFi2dFilletAPI*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: Pln): ChFi2dFilletAPI {.
-    cdecl, constructor, importcpp: "ChFi2d_FilletAPI(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_FilletAPI(@)", header: "ChFi2d_FilletAPI.hxx".}
 proc init*(this: var ChFi2dFilletAPI; theWire: TopoDS_Wire; thePlane: Pln) {.cdecl,
-    importcpp: "Init", dynlib: tkfillet.}
+    importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
 proc init*(this: var ChFi2dFilletAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-          thePlane: Pln) {.cdecl, importcpp: "Init", dynlib: tkfillet.}
+          thePlane: Pln) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAPI.hxx".}
 proc perform*(this: var ChFi2dFilletAPI; theRadius: cfloat): bool {.cdecl,
-    importcpp: "Perform", dynlib: tkfillet.}
+    importcpp: "Perform", header: "ChFi2d_FilletAPI.hxx".}
 proc nbResults*(this: var ChFi2dFilletAPI; thePoint: Pnt): cint {.cdecl,
-    importcpp: "NbResults", dynlib: tkfillet.}
+    importcpp: "NbResults", header: "ChFi2d_FilletAPI.hxx".}
 proc result*(this: var ChFi2dFilletAPI; thePoint: Pnt; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
-    importcpp: "Result", dynlib: tkfillet.}
+    importcpp: "Result", header: "ChFi2d_FilletAPI.hxx".}

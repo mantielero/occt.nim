@@ -22,25 +22,25 @@ type
 
 
 proc newTopOpeBRepDS_PointExplorer*(): TopOpeBRepDS_PointExplorer {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_PointExplorer(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_PointExplorer(@)", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc newTopOpeBRepDS_PointExplorer*(ds: TopOpeBRepDS_DataStructure;
                                    findOnlyKeep: bool = true): TopOpeBRepDS_PointExplorer {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_PointExplorer(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_PointExplorer(@)", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc init*(this: var TopOpeBRepDS_PointExplorer; ds: TopOpeBRepDS_DataStructure;
-          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", dynlib: tkbool.}
+          findOnlyKeep: bool = true) {.cdecl, importcpp: "Init", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc more*(this: TopOpeBRepDS_PointExplorer): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc next*(this: var TopOpeBRepDS_PointExplorer) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc point*(this: TopOpeBRepDS_PointExplorer): TopOpeBRepDS_Point {.noSideEffect,
-    cdecl, importcpp: "Point", dynlib: tkbool.}
+    cdecl, importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc isPoint*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsPoint", dynlib: tkbool.}
+    importcpp: "IsPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc isPointKeep*(this: TopOpeBRepDS_PointExplorer; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "IsPointKeep", dynlib: tkbool.}
+    cdecl, importcpp: "IsPointKeep", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc point*(this: TopOpeBRepDS_PointExplorer; i: cint): TopOpeBRepDS_Point {.
-    noSideEffect, cdecl, importcpp: "Point", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Point", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): cint {.cdecl,
-    importcpp: "NbPoint", dynlib: tkbool.}
+    importcpp: "NbPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_PointExplorer): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepDS_PointExplorer.hxx".}

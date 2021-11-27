@@ -31,27 +31,27 @@ type
 
 proc newExtremaExtPC*(): ExtremaExtPC {.cdecl, constructor,
                                      importcpp: "Extrema_ExtPC(@)",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_ExtPC.hxx".}
 proc newExtremaExtPC*(p: Pnt; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
                      tolF: cfloat = 1.0e-10): ExtremaExtPC {.cdecl, constructor,
-    importcpp: "Extrema_ExtPC(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
 proc newExtremaExtPC*(p: Pnt; c: Adaptor3dCurve; tolF: cfloat = 1.0e-10): ExtremaExtPC {.
-    cdecl, constructor, importcpp: "Extrema_ExtPC(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
 proc initialize*(this: var ExtremaExtPC; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
                 tolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_ExtPC.hxx".}
 proc perform*(this: var ExtremaExtPC; p: Pnt) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtPC.hxx".}
 proc isDone*(this: ExtremaExtPC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_ExtPC.hxx".}
 proc squareDistance*(this: ExtremaExtPC; n: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_ExtPC.hxx".}
 proc nbExt*(this: ExtremaExtPC): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                    dynlib: tkgeombase.}
+                                    header: "Extrema_ExtPC.hxx".}
 proc isMin*(this: ExtremaExtPC; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsMin", dynlib: tkgeombase.}
+    importcpp: "IsMin", header: "Extrema_ExtPC.hxx".}
 proc point*(this: ExtremaExtPC; n: cint): ExtremaPOnCurv {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_ExtPC.hxx".}
 proc trimmedSquareDistances*(this: ExtremaExtPC; dist1: var cfloat; dist2: var cfloat;
                             p1: var Pnt; p2: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "TrimmedSquareDistances", dynlib: tkgeombase.}
+    importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPC.hxx".}

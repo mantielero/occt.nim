@@ -35,14 +35,14 @@ type
 proc newBVH_LinearBuilder*[T; N: static[cint]](
     theLeafNodeSize: cint = BVH_ConstantsLeafNodeSizeDefault;
     theMaxTreeDepth: cint = BVH_ConstantsMaxTreeDepth): BVH_LinearBuilder[T, N] {.
-    cdecl, constructor, importcpp: "BVH_LinearBuilder<\'*0,\'*1>(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "BVH_LinearBuilder<\'*0,\'*1>(@)", header: "BVH_LinearBuilder.hxx".}
 proc destroyBVH_LinearBuilder*[T; N: static[cint]](
     this: var BVH_LinearBuilder[T, N]) {.cdecl, importcpp: "#.~BVH_LinearBuilder()",
-                                     dynlib: tkmath.}
+                                     header: "BVH_LinearBuilder.hxx".}
 proc build*[T; N: static[cint]](this: BVH_LinearBuilder[T, N];
                              theSet: ptr BVH_Set[T, N]; theBVH: ptr BVH_Tree[T, N];
                              theBox: BVH_Box[T, N]) {.noSideEffect, cdecl,
-    importcpp: "Build", dynlib: tkmath.}
+    importcpp: "Build", header: "BVH_LinearBuilder.hxx".}
 ##  =======================================================================
 ##  function : BVH_LinearBuilder
 ##  purpose  :
@@ -161,9 +161,9 @@ type
 
 proc newUpdateBoundTask*[T; N: static[cint]](isParallel: bool): UpdateBoundTask[T, N] {.
     cdecl, constructor, importcpp: "BVH::UpdateBoundTask<\'*0,\'*1>(@)",
-    dynlib: tkmath.}
+    header: "BVH_LinearBuilder.hxx".}
 proc `()`*[T; N: static[cint]](this: UpdateBoundTask[T, N]; theData: BoundData[T, N]) {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "#(@)", header: "BVH_LinearBuilder.hxx".}
 ##  =======================================================================
 ##  function : Build
 ##  purpose  :

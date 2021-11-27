@@ -24,14 +24,14 @@ type
 proc newBlendFuncConstThroatInv*(s1: Handle[Adaptor3dHSurface];
                                 s2: Handle[Adaptor3dHSurface];
                                 c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatInv {.
-    cdecl, constructor, importcpp: "BlendFunc_ConstThroatInv(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_ConstThroatInv(@)", header: "BlendFunc_ConstThroatInv.hxx".}
 proc isSolution*(this: var BlendFuncConstThroatInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroatInv.hxx".}
 proc value*(this: var BlendFuncConstThroatInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BlendFunc_ConstThroatInv.hxx".}
 proc derivatives*(this: var BlendFuncConstThroatInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_ConstThroatInv.hxx".}
 ## using statement
 
 proc set*(this: var BlendFuncConstThroatInv; theThroat: cfloat; a3: cfloat; choix: cint) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BlendFunc_ConstThroatInv.hxx".}

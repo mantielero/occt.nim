@@ -114,119 +114,119 @@ type
 
 
 proc newMathMatrix*(lowerRow: cint; upperRow: cint; lowerCol: cint; upperCol: cint): MathMatrix {.
-    cdecl, constructor, importcpp: "math_Matrix(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
 proc newMathMatrix*(lowerRow: cint; upperRow: cint; lowerCol: cint; upperCol: cint;
                    initialValue: cfloat): MathMatrix {.cdecl, constructor,
-    importcpp: "math_Matrix(@)", dynlib: tkmath.}
+    importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
 proc newMathMatrix*(tab: pointer; lowerRow: cint; upperRow: cint; lowerCol: cint;
                    upperCol: cint): MathMatrix {.cdecl, constructor,
-    importcpp: "math_Matrix(@)", dynlib: tkmath.}
+    importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
 proc newMathMatrix*(other: MathMatrix): MathMatrix {.cdecl, constructor,
-    importcpp: "math_Matrix(@)", dynlib: tkmath.}
+    importcpp: "math_Matrix(@)", header: "math_Matrix.hxx".}
 proc init*(this: var MathMatrix; initialValue: cfloat) {.cdecl, importcpp: "Init",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc rowNumber*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "RowNumber",
-                                      dynlib: tkmath.}
+                                      header: "math_Matrix.hxx".}
 proc colNumber*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "ColNumber",
-                                      dynlib: tkmath.}
+                                      header: "math_Matrix.hxx".}
 proc lowerRow*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "LowerRow",
-                                     dynlib: tkmath.}
+                                     header: "math_Matrix.hxx".}
 proc upperRow*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "UpperRow",
-                                     dynlib: tkmath.}
+                                     header: "math_Matrix.hxx".}
 proc lowerCol*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "LowerCol",
-                                     dynlib: tkmath.}
+                                     header: "math_Matrix.hxx".}
 proc upperCol*(this: MathMatrix): cint {.noSideEffect, cdecl, importcpp: "UpperCol",
-                                     dynlib: tkmath.}
+                                     header: "math_Matrix.hxx".}
 proc determinant*(this: MathMatrix): cfloat {.noSideEffect, cdecl,
-    importcpp: "Determinant", dynlib: tkmath.}
-proc transpose*(this: var MathMatrix) {.cdecl, importcpp: "Transpose", dynlib: tkmath.}
-proc invert*(this: var MathMatrix) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "Determinant", header: "math_Matrix.hxx".}
+proc transpose*(this: var MathMatrix) {.cdecl, importcpp: "Transpose", header: "math_Matrix.hxx".}
+proc invert*(this: var MathMatrix) {.cdecl, importcpp: "Invert", header: "math_Matrix.hxx".}
 proc multiply*(this: var MathMatrix; right: cfloat) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc `*=`*(this: var MathMatrix; right: cfloat) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc multiplied*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "math_Matrix.hxx".}
 proc `*`*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
 proc tMultiplied*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "TMultiplied", dynlib: tkmath.}
+    importcpp: "TMultiplied", header: "math_Matrix.hxx".}
 proc divide*(this: var MathMatrix; right: cfloat) {.cdecl, importcpp: "Divide",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc `/=`*(this: var MathMatrix; right: cfloat) {.cdecl, importcpp: "(# /= #)",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc divided*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Divided", dynlib: tkmath.}
+    importcpp: "Divided", header: "math_Matrix.hxx".}
 proc `/`*(this: MathMatrix; right: cfloat): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "(# / #)", dynlib: tkmath.}
+    importcpp: "(# / #)", header: "math_Matrix.hxx".}
 proc add*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc `+=`*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "(# += #)",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc added*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Added", dynlib: tkmath.}
+    importcpp: "Added", header: "math_Matrix.hxx".}
 proc `+`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "(# + #)", dynlib: tkmath.}
+    importcpp: "(# + #)", header: "math_Matrix.hxx".}
 proc add*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "math_Matrix.hxx".}
 proc subtract*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "Subtract",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc `-=`*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "(# -= #)",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc subtracted*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
-    cdecl, importcpp: "Subtracted", dynlib: tkmath.}
+    cdecl, importcpp: "Subtracted", header: "math_Matrix.hxx".}
 proc `-`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "(# - #)", dynlib: tkmath.}
+    importcpp: "(# - #)", header: "math_Matrix.hxx".}
 proc set*(this: var MathMatrix; i1: cint; i2: cint; j1: cint; j2: cint; m: MathMatrix) {.
-    cdecl, importcpp: "Set", dynlib: tkmath.}
+    cdecl, importcpp: "Set", header: "math_Matrix.hxx".}
 proc setRow*(this: var MathMatrix; row: cint; v: MathVector) {.cdecl,
-    importcpp: "SetRow", dynlib: tkmath.}
+    importcpp: "SetRow", header: "math_Matrix.hxx".}
 proc setCol*(this: var MathMatrix; col: cint; v: MathVector) {.cdecl,
-    importcpp: "SetCol", dynlib: tkmath.}
+    importcpp: "SetCol", header: "math_Matrix.hxx".}
 proc setDiag*(this: var MathMatrix; value: cfloat) {.cdecl, importcpp: "SetDiag",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc row*(this: MathMatrix; row: cint): MathVector {.noSideEffect, cdecl,
-    importcpp: "Row", dynlib: tkmath.}
+    importcpp: "Row", header: "math_Matrix.hxx".}
 proc col*(this: MathMatrix; col: cint): MathVector {.noSideEffect, cdecl,
-    importcpp: "Col", dynlib: tkmath.}
+    importcpp: "Col", header: "math_Matrix.hxx".}
 proc swapRow*(this: var MathMatrix; row1: cint; row2: cint) {.cdecl,
-    importcpp: "SwapRow", dynlib: tkmath.}
+    importcpp: "SwapRow", header: "math_Matrix.hxx".}
 proc swapCol*(this: var MathMatrix; col1: cint; col2: cint) {.cdecl,
-    importcpp: "SwapCol", dynlib: tkmath.}
+    importcpp: "SwapCol", header: "math_Matrix.hxx".}
 proc transposed*(this: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Transposed", dynlib: tkmath.}
+    importcpp: "Transposed", header: "math_Matrix.hxx".}
 proc inverse*(this: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Inverse", dynlib: tkmath.}
+    importcpp: "Inverse", header: "math_Matrix.hxx".}
 proc tMultiply*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "TMultiply", dynlib: tkmath.}
+    importcpp: "TMultiply", header: "math_Matrix.hxx".}
 proc multiply*(this: var MathMatrix; left: MathVector; right: MathVector) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_Matrix.hxx".}
 proc multiply*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_Matrix.hxx".}
 proc tMultiply*(this: var MathMatrix; tLeft: MathMatrix; right: MathMatrix) {.cdecl,
-    importcpp: "TMultiply", dynlib: tkmath.}
+    importcpp: "TMultiply", header: "math_Matrix.hxx".}
 proc subtract*(this: var MathMatrix; left: MathMatrix; right: MathMatrix) {.cdecl,
-    importcpp: "Subtract", dynlib: tkmath.}
+    importcpp: "Subtract", header: "math_Matrix.hxx".}
 proc value*(this: MathMatrix; row: cint; col: cint): var cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_Matrix.hxx".}
 proc `()`*(this: MathMatrix; row: cint; col: cint): var cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "math_Matrix.hxx".}
 proc initialized*(this: var MathMatrix; other: MathMatrix): var MathMatrix {.cdecl,
-    importcpp: "Initialized", dynlib: tkmath.}
+    importcpp: "Initialized", header: "math_Matrix.hxx".}
 proc multiply*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc `*=`*(this: var MathMatrix; right: MathMatrix) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
 proc multiplied*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect,
-    cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    cdecl, importcpp: "Multiplied", header: "math_Matrix.hxx".}
 proc `*`*(this: MathMatrix; right: MathMatrix): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
 proc multiplied*(this: MathMatrix; right: MathVector): MathVector {.noSideEffect,
-    cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    cdecl, importcpp: "Multiplied", header: "math_Matrix.hxx".}
 proc `*`*(this: MathMatrix; right: MathVector): MathVector {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "math_Matrix.hxx".}
 proc opposite*(this: var MathMatrix): MathMatrix {.cdecl, importcpp: "Opposite",
-    dynlib: tkmath.}
-proc `-`*(this: var MathMatrix): MathMatrix {.cdecl, importcpp: "(- #)", dynlib: tkmath.}
+    header: "math_Matrix.hxx".}
+proc `-`*(this: var MathMatrix): MathMatrix {.cdecl, importcpp: "(- #)", header: "math_Matrix.hxx".}
 proc dump*(this: MathMatrix; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Matrix.hxx".}

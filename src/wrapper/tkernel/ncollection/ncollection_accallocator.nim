@@ -43,13 +43,13 @@ type
 
 
 proc newNCollectionAccAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionAccAllocator {.
-    cdecl, constructor, importcpp: "NCollection_AccAllocator(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_AccAllocator(@)", header: "NCollection_AccAllocator.hxx".}
 proc destroyNCollectionAccAllocator*(this: var NCollectionAccAllocator) {.cdecl,
-    importcpp: "#.~NCollection_AccAllocator()", dynlib: tkernel.}
+    importcpp: "#.~NCollection_AccAllocator()", header: "NCollection_AccAllocator.hxx".}
 proc allocate*(this: var NCollectionAccAllocator; theSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", dynlib: tkernel.}
+    importcpp: "Allocate", header: "NCollection_AccAllocator.hxx".}
 proc free*(this: var NCollectionAccAllocator; theAddress: pointer) {.cdecl,
-    importcpp: "Free", dynlib: tkernel.}
+    importcpp: "Free", header: "NCollection_AccAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type

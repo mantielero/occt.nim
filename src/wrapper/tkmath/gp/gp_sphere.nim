@@ -25,60 +25,60 @@ type
 
 
 proc newSphere*(): Sphere {.cdecl, constructor, importcpp: "gp_Sphere(@)",
-                         dynlib: tkmath.}
+                         header: "gp_Sphere.hxx".}
 proc newSphere*(a3: Ax3; radius: cfloat): Sphere {.cdecl, constructor,
-    importcpp: "gp_Sphere(@)", dynlib: tkmath.}
+    importcpp: "gp_Sphere(@)", header: "gp_Sphere.hxx".}
 proc setLocation*(this: var Sphere; loc: Pnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc setPosition*(this: var Sphere; a3: Ax3) {.cdecl, importcpp: "SetPosition",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc setRadius*(this: var Sphere; r: cfloat) {.cdecl, importcpp: "SetRadius",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc area*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Area",
-                               dynlib: tkmath.}
+                               header: "gp_Sphere.hxx".}
 proc coefficients*(this: Sphere; a1: var cfloat; a2: var cfloat; a3: var cfloat;
                   b1: var cfloat; b2: var cfloat; b3: var cfloat; c1: var cfloat;
                   c2: var cfloat; c3: var cfloat; d: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coefficients", dynlib: tkmath.}
-proc uReverse*(this: var Sphere) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
-proc vReverse*(this: var Sphere) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
+    importcpp: "Coefficients", header: "gp_Sphere.hxx".}
+proc uReverse*(this: var Sphere) {.cdecl, importcpp: "UReverse", header: "gp_Sphere.hxx".}
+proc vReverse*(this: var Sphere) {.cdecl, importcpp: "VReverse", header: "gp_Sphere.hxx".}
 proc direct*(this: Sphere): bool {.noSideEffect, cdecl, importcpp: "Direct",
-                               dynlib: tkmath.}
+                               header: "gp_Sphere.hxx".}
 proc location*(this: Sphere): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                                dynlib: tkmath.}
+                                header: "gp_Sphere.hxx".}
 proc position*(this: Sphere): Ax3 {.noSideEffect, cdecl, importcpp: "Position",
-                                dynlib: tkmath.}
+                                header: "gp_Sphere.hxx".}
 proc radius*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                                 dynlib: tkmath.}
+                                 header: "gp_Sphere.hxx".}
 proc volume*(this: Sphere): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
-                                 dynlib: tkmath.}
-proc xAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
-proc mirror*(this: var Sphere; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                 header: "gp_Sphere.hxx".}
+proc xAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Sphere.hxx".}
+proc yAxis*(this: Sphere): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Sphere.hxx".}
+proc mirror*(this: var Sphere; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
 proc mirrored*(this: Sphere; p: Pnt): Sphere {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Sphere; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+    importcpp: "Mirrored", header: "gp_Sphere.hxx".}
+proc mirror*(this: var Sphere; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
 proc mirrored*(this: Sphere; a1: Ax1): Sphere {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Sphere; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+    importcpp: "Mirrored", header: "gp_Sphere.hxx".}
+proc mirror*(this: var Sphere; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Sphere.hxx".}
 proc mirrored*(this: Sphere; a2: Ax2): Sphere {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
+    importcpp: "Mirrored", header: "gp_Sphere.hxx".}
 proc rotate*(this: var Sphere; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc rotated*(this: Sphere; a1: Ax1; ang: cfloat): Sphere {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Sphere.hxx".}
 proc scale*(this: var Sphere; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc scaled*(this: Sphere; p: Pnt; s: cfloat): Sphere {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Sphere.hxx".}
 proc transform*(this: var Sphere; t: Trsf) {.cdecl, importcpp: "Transform",
-                                       dynlib: tkmath.}
+                                       header: "gp_Sphere.hxx".}
 proc transformed*(this: Sphere; t: Trsf): Sphere {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Sphere; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Sphere.hxx".}
+proc translate*(this: var Sphere; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Sphere.hxx".}
 proc translated*(this: Sphere; v: Vec): Sphere {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Sphere.hxx".}
 proc translate*(this: var Sphere; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Sphere.hxx".}
 proc translated*(this: Sphere; p1: Pnt; p2: Pnt): Sphere {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Sphere.hxx".}

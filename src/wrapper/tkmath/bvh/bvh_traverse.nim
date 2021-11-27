@@ -162,11 +162,11 @@ type
 
 proc isMetricBetter*[MetricType](this: BVH_BaseTraverse[MetricType];
                                 a2: MetricType; a3: MetricType): bool {.noSideEffect,
-    cdecl, importcpp: "IsMetricBetter", dynlib: tkmath.}
+    cdecl, importcpp: "IsMetricBetter", header: "BVH_Traverse.hxx".}
 proc rejectMetric*[MetricType](this: BVH_BaseTraverse[MetricType]; a2: MetricType): bool {.
-    noSideEffect, cdecl, importcpp: "RejectMetric", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "RejectMetric", header: "BVH_Traverse.hxx".}
 proc stop*[MetricType](this: BVH_BaseTraverse[MetricType]): bool {.noSideEffect,
-    cdecl, importcpp: "Stop", dynlib: tkmath.}
+    cdecl, importcpp: "Stop", header: "BVH_Traverse.hxx".}
 ## ! Abstract class implementing the traverse of the single binary tree.
 ## ! Selection of the data from the tree is performed by the
 ## ! rules defined in the Accept/Reject methods.
@@ -200,29 +200,29 @@ type
 
 proc newBVH_Traverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_Traverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
-    importcpp: "BVH_Traverse<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Traverse<\'*0,\'*1,\'*2,\'*3>(@)", header: "BVH_Traverse.hxx".}
 proc setBVHSet*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_Traverse[NumType, Dimension, BVHSetType, MetricType];
-    theBVHSet: ptr BVHSetType) {.cdecl, importcpp: "SetBVHSet", dynlib: tkmath.}
+    theBVHSet: ptr BVHSetType) {.cdecl, importcpp: "SetBVHSet", header: "BVH_Traverse.hxx".}
 proc acceptMetric*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: BVH_Traverse[NumType, Dimension, BVHSetType, MetricType]; a2: MetricType): bool {.
-    noSideEffect, cdecl, importcpp: "AcceptMetric", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "AcceptMetric", header: "BVH_Traverse.hxx".}
 proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: BVH_Traverse[NumType, Dimension, BVHSetType, MetricType];
     theCornerMin: BVH_TraverseBVH_VecNt; theCornerMax: BVH_TraverseBVH_VecNt;
     theMetric: var MetricType): bool {.noSideEffect, cdecl, importcpp: "RejectNode",
-                                   dynlib: tkmath.}
+                                   header: "BVH_Traverse.hxx".}
 proc accept*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_Traverse[NumType, Dimension, BVHSetType, MetricType];
     theIndex: cint; theMetric: MetricType): bool {.cdecl, importcpp: "Accept",
-    dynlib: tkmath.}
+    header: "BVH_Traverse.hxx".}
 proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_Traverse[NumType, Dimension, BVHSetType, MetricType]): cint {.cdecl,
-    importcpp: "Select", dynlib: tkmath.}
+    importcpp: "Select", header: "BVH_Traverse.hxx".}
 proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_Traverse[NumType, Dimension, BVHSetType, MetricType];
     theBVH: Handle[BVH_Tree[NumType, Dimension]]): cint {.cdecl, importcpp: "Select",
-    dynlib: tkmath.}
+    header: "BVH_Traverse.hxx".}
 ## ! Abstract class implementing the parallel traverse of two binary trees.
 ## ! Selection of the data from the trees is performed by the
 ## ! rules defined in the Accept/Reject methods.
@@ -256,26 +256,26 @@ type
 
 proc newBVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_PairTraverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
-    importcpp: "BVH_PairTraverse<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkmath.}
+    importcpp: "BVH_PairTraverse<\'*0,\'*1,\'*2,\'*3>(@)", header: "BVH_Traverse.hxx".}
 proc setBVHSets*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
     theBVHSet1: ptr BVHSetType; theBVHSet2: ptr BVHSetType) {.cdecl,
-    importcpp: "SetBVHSets", dynlib: tkmath.}
+    importcpp: "SetBVHSets", header: "BVH_Traverse.hxx".}
 #proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
 #    this: BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
 #    theCornerMin1: BVH_PairTraverseBVH_VecNt;
 #    theCornerMax1: BVH_PairTraverseBVH_VecNt;
 #    theCornerMin2: BVH_PairTraverseBVH_VecNt;
 #    theCornerMax2: BVH_PairTraverseBVH_VecNt; theMetric: var MetricType): bool {.
-#    noSideEffect, cdecl, importcpp: "RejectNode", dynlib: tkmath.}
+#    noSideEffect, cdecl, importcpp: "RejectNode", header: "BVH_Traverse.hxx".}
 proc accept*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
-    theIndex1: cint; theIndex2: cint): bool {.cdecl, importcpp: "Accept", dynlib: tkmath.}
+    theIndex1: cint; theIndex2: cint): bool {.cdecl, importcpp: "Accept", header: "BVH_Traverse.hxx".}
 proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType]): cint {.
-    cdecl, importcpp: "Select", dynlib: tkmath.}
+    cdecl, importcpp: "Select", header: "BVH_Traverse.hxx".}
 proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
     theBVH1: Handle[BVH_Tree[NumType, Dimension]];
     theBVH2: Handle[BVH_Tree[NumType, Dimension]]): cint {.cdecl,
-    importcpp: "Select", dynlib: tkmath.}
+    importcpp: "Select", header: "BVH_Traverse.hxx".}

@@ -30,22 +30,22 @@ type
 
 
 proc newBRepTVertex*(): BRepTVertex {.cdecl, constructor,
-                                   importcpp: "BRep_TVertex(@)", dynlib: tkbrep.}
+                                   importcpp: "BRep_TVertex(@)", header: "BRep_TVertex.hxx".}
 proc tolerance*(this: BRepTVertex): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkbrep.}
+    importcpp: "Tolerance", header: "BRep_TVertex.hxx".}
 proc tolerance*(this: var BRepTVertex; t: cfloat) {.cdecl, importcpp: "Tolerance",
-    dynlib: tkbrep.}
+    header: "BRep_TVertex.hxx".}
 proc updateTolerance*(this: var BRepTVertex; t: cfloat) {.cdecl,
-    importcpp: "UpdateTolerance", dynlib: tkbrep.}
+    importcpp: "UpdateTolerance", header: "BRep_TVertex.hxx".}
 proc pnt*(this: BRepTVertex): Pnt {.noSideEffect, cdecl, importcpp: "Pnt",
-                                dynlib: tkbrep.}
-proc pnt*(this: var BRepTVertex; p: Pnt) {.cdecl, importcpp: "Pnt", dynlib: tkbrep.}
+                                header: "BRep_TVertex.hxx".}
+proc pnt*(this: var BRepTVertex; p: Pnt) {.cdecl, importcpp: "Pnt", header: "BRep_TVertex.hxx".}
 proc points*(this: BRepTVertex): BRepListOfPointRepresentation {.noSideEffect, cdecl,
-    importcpp: "Points", dynlib: tkbrep.}
+    importcpp: "Points", header: "BRep_TVertex.hxx".}
 proc changePoints*(this: var BRepTVertex): var BRepListOfPointRepresentation {.cdecl,
-    importcpp: "ChangePoints", dynlib: tkbrep.}
+    importcpp: "ChangePoints", header: "BRep_TVertex.hxx".}
 proc emptyCopy*(this: BRepTVertex): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", dynlib: tkbrep.}
+    importcpp: "EmptyCopy", header: "BRep_TVertex.hxx".}
 proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_TVertex.hxx".}

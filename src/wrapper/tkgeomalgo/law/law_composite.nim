@@ -47,30 +47,30 @@ type
 
 proc newLawComposite*(): LawComposite {.cdecl, constructor,
                                      importcpp: "Law_Composite(@)",
-                                     dynlib: tkgeomalgo.}
+                                     header: "Law_Composite.hxx".}
 proc newLawComposite*(first: cfloat; last: cfloat; tol: cfloat): LawComposite {.cdecl,
-    constructor, importcpp: "Law_Composite(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "Law_Composite(@)", header: "Law_Composite.hxx".}
 proc continuity*(this: LawComposite): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkgeomalgo.}
+    importcpp: "Continuity", header: "Law_Composite.hxx".}
 proc nbIntervals*(this: LawComposite; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    importcpp: "NbIntervals", header: "Law_Composite.hxx".}
 proc intervals*(this: LawComposite; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Law_Composite.hxx".}
 proc value*(this: var LawComposite; x: cfloat): cfloat {.cdecl, importcpp: "Value",
-    dynlib: tkgeomalgo.}
+    header: "Law_Composite.hxx".}
 proc d1*(this: var LawComposite; x: cfloat; f: var cfloat; d: var cfloat) {.cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "Law_Composite.hxx".}
 proc d2*(this: var LawComposite; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "Law_Composite.hxx".}
 proc trim*(this: LawComposite; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
-    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkgeomalgo.}
+    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_Composite.hxx".}
 proc bounds*(this: var LawComposite; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
-    importcpp: "Bounds", dynlib: tkgeomalgo.}
+    importcpp: "Bounds", header: "Law_Composite.hxx".}
 proc changeElementaryLaw*(this: var LawComposite; w: cfloat): var Handle[LawFunction] {.
-    cdecl, importcpp: "ChangeElementaryLaw", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ChangeElementaryLaw", header: "Law_Composite.hxx".}
 proc changeLaws*(this: var LawComposite): var LawLaws {.cdecl, importcpp: "ChangeLaws",
-    dynlib: tkgeomalgo.}
+    header: "Law_Composite.hxx".}
 proc isPeriodic*(this: LawComposite): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkgeomalgo.}
+    importcpp: "IsPeriodic", header: "Law_Composite.hxx".}
 proc setPeriodic*(this: var LawComposite) {.cdecl, importcpp: "SetPeriodic",
-                                        dynlib: tkgeomalgo.}
+                                        header: "Law_Composite.hxx".}

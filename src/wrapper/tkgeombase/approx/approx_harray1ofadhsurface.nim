@@ -21,13 +21,13 @@ type
 
 proc newApproxHArray1OfAdHSurface*(theLower: cint; theUpper: cint): ApproxHArray1OfAdHSurface {.
     cdecl, constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_HArray1OfAdHSurface.hxx".}
 proc newApproxHArray1OfAdHSurface*(theLower: cint; theUpper: cint;
                                   theValue: ValueType): ApproxHArray1OfAdHSurface {.
     cdecl, constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_HArray1OfAdHSurface.hxx".}
 proc newApproxHArray1OfAdHSurface*(theOther: ApproxArray1OfAdHSurface): ApproxHArray1OfAdHSurface {.
     cdecl, constructor, importcpp: "Approx_HArray1OfAdHSurface(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_HArray1OfAdHSurface.hxx".}
 proc array1*(this: ApproxHArray1OfAdHSurface): ApproxArray1OfAdHSurface {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "Approx_HArray1OfAdHSurface.hxx".}

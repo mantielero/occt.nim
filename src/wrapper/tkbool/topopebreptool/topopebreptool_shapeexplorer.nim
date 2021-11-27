@@ -32,16 +32,16 @@ type
 
 
 proc newTopOpeBRepToolShapeExplorer*(): TopOpeBRepToolShapeExplorer {.cdecl,
-    constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc newTopOpeBRepToolShapeExplorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
                                     toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopOpeBRepToolShapeExplorer {.
-    cdecl, constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepTool_ShapeExplorer(@)", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc init*(this: var TopOpeBRepToolShapeExplorer; s: TopoDS_Shape;
           toFind: TopAbsShapeEnum; toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.cdecl,
-    importcpp: "Init", dynlib: tkbool.}
+    importcpp: "Init", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc next*(this: var TopOpeBRepToolShapeExplorer) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc index*(this: TopOpeBRepToolShapeExplorer): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc dumpCurrent*(this: TopOpeBRepToolShapeExplorer; os: var StandardOStream): var StandardOStream {.
-    noSideEffect, cdecl, importcpp: "DumpCurrent", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "DumpCurrent", header: "TopOpeBRepTool_ShapeExplorer.hxx".}

@@ -17,23 +17,23 @@
 proc fDSCNX_EdgeConnexityShapeIndex*(e: TopoDS_Shape;
                                     hds: Handle[TopOpeBRepDS_HDataStructure];
                                     si: cint): var TopToolsListOfShape {.cdecl,
-    importcpp: "FDSCNX_EdgeConnexityShapeIndex(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_EdgeConnexityShapeIndex(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_EdgeConnexitySameShape*(e: TopoDS_Shape;
                                    hds: Handle[TopOpeBRepDS_HDataStructure]): var TopToolsListOfShape {.
-    cdecl, importcpp: "FDSCNX_EdgeConnexitySameShape(@)", dynlib: tkbool.}
+    cdecl, importcpp: "FDSCNX_EdgeConnexitySameShape(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_Prepare*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                     hds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "FDSCNX_Prepare(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_Prepare(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_HasConnexFace*(s: TopoDS_Shape;
                           hds: Handle[TopOpeBRepDS_HDataStructure]): bool {.cdecl,
-    importcpp: "FDSCNX_HasConnexFace(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_HasConnexFace(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_FaceEdgeConnexFaces*(f: TopoDS_Shape; e: TopoDS_Shape;
                                 hds: Handle[TopOpeBRepDS_HDataStructure];
                                 lf: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSCNX_FaceEdgeConnexFaces(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_FaceEdgeConnexFaces(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "FDSCNX_Dump(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_Dump(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.cdecl,
-    importcpp: "FDSCNX_Dump(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_Dump(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_DumpIndex*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.cdecl,
-    importcpp: "FDSCNX_DumpIndex(@)", dynlib: tkbool.}
+    importcpp: "FDSCNX_DumpIndex(@)", header: "TopOpeBRepDS_connex.hxx".}

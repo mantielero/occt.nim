@@ -27,41 +27,41 @@ type
 
 
 proc newTopOpeBRepDS_GapFiller*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapFiller {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_GapFiller(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_GapFiller(@)", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc perform*(this: var TopOpeBRepDS_GapFiller) {.cdecl, importcpp: "Perform",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_GapFiller.hxx".}
 proc findAssociatedPoints*(this: var TopOpeBRepDS_GapFiller;
                           i: Handle[TopOpeBRepDS_Interference];
                           li: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FindAssociatedPoints", dynlib: tkbool.}
+    importcpp: "FindAssociatedPoints", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc checkConnexity*(this: var TopOpeBRepDS_GapFiller;
                     li: var TopOpeBRepDS_ListOfInterference): bool {.cdecl,
-    importcpp: "CheckConnexity", dynlib: tkbool.}
+    importcpp: "CheckConnexity", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc addPointsOnShape*(this: var TopOpeBRepDS_GapFiller; s: TopoDS_Shape;
                       li: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "AddPointsOnShape", dynlib: tkbool.}
+    importcpp: "AddPointsOnShape", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc addPointsOnConnexShape*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Shape;
                             li: TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "AddPointsOnConnexShape", dynlib: tkbool.}
+    importcpp: "AddPointsOnConnexShape", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc filterByFace*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Face;
                   li: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FilterByFace", dynlib: tkbool.}
+    importcpp: "FilterByFace", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc filterByEdge*(this: var TopOpeBRepDS_GapFiller; e: TopoDS_Edge;
                   li: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FilterByEdge", dynlib: tkbool.}
+    importcpp: "FilterByEdge", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc filterByIncidentDistance*(this: var TopOpeBRepDS_GapFiller; f: TopoDS_Face;
                               i: Handle[TopOpeBRepDS_Interference];
                               li: var TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "FilterByIncidentDistance", dynlib: tkbool.}
+    importcpp: "FilterByIncidentDistance", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc isOnFace*(this: TopOpeBRepDS_GapFiller; i: Handle[TopOpeBRepDS_Interference];
               f: TopoDS_Face): bool {.noSideEffect, cdecl, importcpp: "IsOnFace",
-                                   dynlib: tkbool.}
+                                   header: "TopOpeBRepDS_GapFiller.hxx".}
 proc isOnEdge*(this: TopOpeBRepDS_GapFiller; i: Handle[TopOpeBRepDS_Interference];
               e: TopoDS_Edge): bool {.noSideEffect, cdecl, importcpp: "IsOnEdge",
-                                   dynlib: tkbool.}
+                                   header: "TopOpeBRepDS_GapFiller.hxx".}
 proc buildNewGeometries*(this: var TopOpeBRepDS_GapFiller) {.cdecl,
-    importcpp: "BuildNewGeometries", dynlib: tkbool.}
+    importcpp: "BuildNewGeometries", header: "TopOpeBRepDS_GapFiller.hxx".}
 proc reBuildGeom*(this: var TopOpeBRepDS_GapFiller;
                  i1: Handle[TopOpeBRepDS_Interference];
                  done: var TColStdMapOfInteger) {.cdecl, importcpp: "ReBuildGeom",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_GapFiller.hxx".}

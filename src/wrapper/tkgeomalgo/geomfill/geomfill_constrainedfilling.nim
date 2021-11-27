@@ -110,30 +110,30 @@ type
 
 proc newGeomFillConstrainedFilling*(maxDeg: cint; maxSeg: cint): GeomFillConstrainedFilling {.
     cdecl, constructor, importcpp: "GeomFill_ConstrainedFilling(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_ConstrainedFilling.hxx".}
 proc init*(this: var GeomFillConstrainedFilling; b1: Handle[GeomFillBoundary];
           b2: Handle[GeomFillBoundary]; b3: Handle[GeomFillBoundary];
-          noCheck: bool = false) {.cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+          noCheck: bool = false) {.cdecl, importcpp: "Init", header: "GeomFill_ConstrainedFilling.hxx".}
 proc init*(this: var GeomFillConstrainedFilling; b1: Handle[GeomFillBoundary];
           b2: Handle[GeomFillBoundary]; b3: Handle[GeomFillBoundary];
           b4: Handle[GeomFillBoundary]; noCheck: bool = false) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_ConstrainedFilling.hxx".}
 proc setDomain*(this: var GeomFillConstrainedFilling; l: cfloat;
                b: Handle[GeomFillBoundWithSurf]) {.cdecl, importcpp: "SetDomain",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_ConstrainedFilling.hxx".}
 proc reBuild*(this: var GeomFillConstrainedFilling) {.cdecl, importcpp: "ReBuild",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_ConstrainedFilling.hxx".}
 proc boundary*(this: GeomFillConstrainedFilling; i: cint): Handle[GeomFillBoundary] {.
-    noSideEffect, cdecl, importcpp: "Boundary", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Boundary", header: "GeomFill_ConstrainedFilling.hxx".}
 proc surface*(this: GeomFillConstrainedFilling): Handle[GeomBSplineSurface] {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "GeomFill_ConstrainedFilling.hxx".}
 proc eval*(this: GeomFillConstrainedFilling; w: cfloat; ord: cint; result: var cfloat): cint {.
-    noSideEffect, cdecl, importcpp: "Eval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Eval", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkCoonsAlgPatch*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
-    importcpp: "CheckCoonsAlgPatch", dynlib: tkgeomalgo.}
+    importcpp: "CheckCoonsAlgPatch", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkTgteField*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
-    importcpp: "CheckTgteField", dynlib: tkgeomalgo.}
+    importcpp: "CheckTgteField", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkApprox*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
-    importcpp: "CheckApprox", dynlib: tkgeomalgo.}
+    importcpp: "CheckApprox", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkResult*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
-    importcpp: "CheckResult", dynlib: tkgeomalgo.}
+    importcpp: "CheckResult", header: "GeomFill_ConstrainedFilling.hxx".}

@@ -38,29 +38,29 @@ type
 
 
 proc catenate*(lstTri: PolyListOfTriangulation): Handle[PolyTriangulation] {.cdecl,
-    importcpp: "Poly::Catenate(@)", dynlib: tkmath.}
+    importcpp: "Poly::Catenate(@)", header: "Poly.hxx".}
 proc write*(t: Handle[PolyTriangulation]; os: var StandardOStream;
-           compact: bool = true) {.cdecl, importcpp: "Poly::Write(@)", dynlib: tkmath.}
+           compact: bool = true) {.cdecl, importcpp: "Poly::Write(@)", header: "Poly.hxx".}
 proc write*(p: Handle[PolyPolygon3D]; os: var StandardOStream; compact: bool = true) {.
-    cdecl, importcpp: "Poly::Write(@)", dynlib: tkmath.}
+    cdecl, importcpp: "Poly::Write(@)", header: "Poly.hxx".}
 proc write*(p: Handle[PolyPolygon2D]; os: var StandardOStream; compact: bool = true) {.
-    cdecl, importcpp: "Poly::Write(@)", dynlib: tkmath.}
+    cdecl, importcpp: "Poly::Write(@)", header: "Poly.hxx".}
 proc dump*(t: Handle[PolyTriangulation]; os: var StandardOStream) {.cdecl,
-    importcpp: "Poly::Dump(@)", dynlib: tkmath.}
+    importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
 proc dump*(p: Handle[PolyPolygon3D]; os: var StandardOStream) {.cdecl,
-    importcpp: "Poly::Dump(@)", dynlib: tkmath.}
+    importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
 proc dump*(p: Handle[PolyPolygon2D]; os: var StandardOStream) {.cdecl,
-    importcpp: "Poly::Dump(@)", dynlib: tkmath.}
+    importcpp: "Poly::Dump(@)", header: "Poly.hxx".}
 proc readTriangulation*(`is`: var StandardIStream): Handle[PolyTriangulation] {.
-    cdecl, importcpp: "Poly::ReadTriangulation(@)", dynlib: tkmath.}
+    cdecl, importcpp: "Poly::ReadTriangulation(@)", header: "Poly.hxx".}
 proc readPolygon3D*(`is`: var StandardIStream): Handle[PolyPolygon3D] {.cdecl,
-    importcpp: "Poly::ReadPolygon3D(@)", dynlib: tkmath.}
+    importcpp: "Poly::ReadPolygon3D(@)", header: "Poly.hxx".}
 proc readPolygon2D*(`is`: var StandardIStream): Handle[PolyPolygon2D] {.cdecl,
-    importcpp: "Poly::ReadPolygon2D(@)", dynlib: tkmath.}
+    importcpp: "Poly::ReadPolygon2D(@)", header: "Poly.hxx".}
 proc computeNormals*(tri: Handle[PolyTriangulation]) {.cdecl,
-    importcpp: "Poly::ComputeNormals(@)", dynlib: tkmath.}
+    importcpp: "Poly::ComputeNormals(@)", header: "Poly.hxx".}
 proc pointOnTriangle*(p1: Xy; p2: Xy; p3: Xy; p: Xy; uv: var Xy): cfloat {.cdecl,
-    importcpp: "Poly::PointOnTriangle(@)", dynlib: tkmath.}
+    importcpp: "Poly::PointOnTriangle(@)", header: "Poly.hxx".}
 proc polygonProperties*[TypeSequencePnts](theSeqPnts: TypeSequencePnts;
     theArea: var cfloat; thePerimeter: var cfloat): bool {.cdecl,
-    importcpp: "Poly::PolygonProperties(@)", dynlib: tkmath.}
+    importcpp: "Poly::PolygonProperties(@)", header: "Poly.hxx".}

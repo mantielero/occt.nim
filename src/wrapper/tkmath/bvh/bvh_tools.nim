@@ -39,41 +39,41 @@ type
 proc boxBoxSquareDistance*[T; N: static[cint]](theBox1: BVH_Box[T, N];
     theBox2: BVH_Box[T, N]): T {.cdecl,
                              importcpp: "BVH_Tools::BoxBoxSquareDistance(@)",
-                             dynlib: tkmath.}
+                             header: "BVH_Tools.hxx".}
 proc boxBoxSquareDistance*[T; N: static[cint]](theCMin1: BVH_ToolsBVH_VecNt;
     theCMax1: BVH_ToolsBVH_VecNt; theCMin2: BVH_ToolsBVH_VecNt;
     theCMax2: BVH_ToolsBVH_VecNt): T {.cdecl, importcpp: "BVH_Tools::BoxBoxSquareDistance(@)",
-                                    dynlib: tkmath.}
+                                    header: "BVH_Tools.hxx".}
 proc pointBoxSquareDistance*[T; N: static[cint]](thePoint: BVH_ToolsBVH_VecNt;
     theBox: BVH_Box[T, N]): T {.cdecl,
                             importcpp: "BVH_Tools::PointBoxSquareDistance(@)",
-                            dynlib: tkmath.}
+                            header: "BVH_Tools.hxx".}
 proc pointBoxSquareDistance*[T; N: static[cint]](thePoint: BVH_ToolsBVH_VecNt;
     theCMin: BVH_ToolsBVH_VecNt; theCMax: BVH_ToolsBVH_VecNt): T {.cdecl,
-    importcpp: "BVH_Tools::PointBoxSquareDistance(@)", dynlib: tkmath.}
+    importcpp: "BVH_Tools::PointBoxSquareDistance(@)", header: "BVH_Tools.hxx".}
 proc pointBoxProjection*[T; N: static[cint]](thePoint: BVH_ToolsBVH_VecNt;
     theBox: BVH_Box[T, N]): BVH_ToolsBVH_VecNt {.cdecl,
-    importcpp: "BVH_Tools::PointBoxProjection(@)", dynlib: tkmath.}
+    importcpp: "BVH_Tools::PointBoxProjection(@)", header: "BVH_Tools.hxx".}
 proc pointBoxProjection*[T; N: static[cint]](thePoint: BVH_ToolsBVH_VecNt;
     theCMin: BVH_ToolsBVH_VecNt; theCMax: BVH_ToolsBVH_VecNt): BVH_ToolsBVH_VecNt {.
-    cdecl, importcpp: "BVH_Tools::PointBoxProjection(@)", dynlib: tkmath.}
+    cdecl, importcpp: "BVH_Tools::PointBoxProjection(@)", header: "BVH_Tools.hxx".}
 proc pointTriangleSquareDistance*[T; N: static[cint]](thePoint: BVH_ToolsBVH_VecNt;
     theNode0: BVH_ToolsBVH_VecNt; theNode1: BVH_ToolsBVH_VecNt;
     theNode2: BVH_ToolsBVH_VecNt): T {.cdecl, importcpp: "BVH_Tools::PointTriangleSquareDistance(@)",
-                                    dynlib: tkmath.}
+                                    header: "BVH_Tools.hxx".}
 proc rayBoxIntersection*[T; N: static[cint]](theRay: BVH_Ray[T, N];
     theBox: BVH_Box[T, N]; theTimeEnter: var T; theTimeLeave: var T): bool {.cdecl,
-    importcpp: "BVH_Tools::RayBoxIntersection(@)", dynlib: tkmath.}
+    importcpp: "BVH_Tools::RayBoxIntersection(@)", header: "BVH_Tools.hxx".}
 proc rayBoxIntersection*[T; N: static[cint]](theRay: BVH_Ray[T, N];
     theBoxCMin: BVH_ToolsBVH_VecNt; theBoxCMax: BVH_ToolsBVH_VecNt;
     theTimeEnter: var T; theTimeLeave: var T): bool {.cdecl,
-    importcpp: "BVH_Tools::RayBoxIntersection(@)", dynlib: tkmath.}
+    importcpp: "BVH_Tools::RayBoxIntersection(@)", header: "BVH_Tools.hxx".}
 proc rayBoxIntersection*[T; N: static[cint]](theRayOrigin: BVH_ToolsBVH_VecNt;
     theRayDirection: BVH_ToolsBVH_VecNt; theBox: BVH_Box[T, N]; theTimeEnter: var T;
     theTimeLeave: var T): bool {.cdecl,
                              importcpp: "BVH_Tools::RayBoxIntersection(@)",
-                             dynlib: tkmath.}
+                             header: "BVH_Tools.hxx".}
 proc rayBoxIntersection*[T; N: static[cint]](theRayOrigin: BVH_ToolsBVH_VecNt;
     theRayDirection: BVH_ToolsBVH_VecNt; theBoxCMin: BVH_ToolsBVH_VecNt;
     theBoxCMax: BVH_ToolsBVH_VecNt; theTimeEnter: var T; theTimeLeave: var T): bool {.
-    cdecl, importcpp: "BVH_Tools::RayBoxIntersection(@)", dynlib: tkmath.}
+    cdecl, importcpp: "BVH_Tools::RayBoxIntersection(@)", header: "BVH_Tools.hxx".}

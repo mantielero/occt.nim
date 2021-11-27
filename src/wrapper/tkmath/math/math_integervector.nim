@@ -56,86 +56,86 @@ type
 
 
 proc newMathIntegerVector*(theFirst: cint; theLast: cint): MathIntegerVector {.cdecl,
-    constructor, importcpp: "math_IntegerVector(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_IntegerVector(@)", header: "math_IntegerVector.hxx".}
 proc newMathIntegerVector*(theFirst: cint; theLast: cint; theInitialValue: cint): MathIntegerVector {.
-    cdecl, constructor, importcpp: "math_IntegerVector(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_IntegerVector(@)", header: "math_IntegerVector.hxx".}
 proc init*(this: var MathIntegerVector; theInitialValue: cint) {.cdecl,
-    importcpp: "Init", dynlib: tkmath.}
+    importcpp: "Init", header: "math_IntegerVector.hxx".}
 proc newMathIntegerVector*(theTab: ptr cint; theFirst: cint; theLast: cint): MathIntegerVector {.
-    cdecl, constructor, importcpp: "math_IntegerVector(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_IntegerVector(@)", header: "math_IntegerVector.hxx".}
 proc newMathIntegerVector*(theOther: MathIntegerVector): MathIntegerVector {.cdecl,
-    constructor, importcpp: "math_IntegerVector(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_IntegerVector(@)", header: "math_IntegerVector.hxx".}
 proc length*(this: MathIntegerVector): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkmath.}
+    importcpp: "Length", header: "math_IntegerVector.hxx".}
 proc lower*(this: MathIntegerVector): cint {.noSideEffect, cdecl, importcpp: "Lower",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc upper*(this: MathIntegerVector): cint {.noSideEffect, cdecl, importcpp: "Upper",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc norm*(this: MathIntegerVector): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc norm2*(this: MathIntegerVector): cfloat {.noSideEffect, cdecl,
-    importcpp: "Norm2", dynlib: tkmath.}
+    importcpp: "Norm2", header: "math_IntegerVector.hxx".}
 proc max*(this: MathIntegerVector): cint {.noSideEffect, cdecl, importcpp: "Max",
-                                       dynlib: tkmath.}
+                                       header: "math_IntegerVector.hxx".}
 proc min*(this: MathIntegerVector): cint {.noSideEffect, cdecl, importcpp: "Min",
-                                       dynlib: tkmath.}
-proc invert*(this: var MathIntegerVector) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+                                       header: "math_IntegerVector.hxx".}
+proc invert*(this: var MathIntegerVector) {.cdecl, importcpp: "Invert", header: "math_IntegerVector.hxx".}
 proc inverse*(this: MathIntegerVector): MathIntegerVector {.noSideEffect, cdecl,
-    importcpp: "Inverse", dynlib: tkmath.}
+    importcpp: "Inverse", header: "math_IntegerVector.hxx".}
 proc set*(this: var MathIntegerVector; theI1: cint; theI2: cint; theV: MathIntegerVector) {.
-    cdecl, importcpp: "Set", dynlib: tkmath.}
+    cdecl, importcpp: "Set", header: "math_IntegerVector.hxx".}
 proc slice*(this: MathIntegerVector; theI1: cint; theI2: cint): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "Slice", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Slice", header: "math_IntegerVector.hxx".}
 proc multiply*(this: var MathIntegerVector; theRight: cint) {.cdecl,
-    importcpp: "Multiply", dynlib: tkmath.}
+    importcpp: "Multiply", header: "math_IntegerVector.hxx".}
 proc `*=`*(this: var MathIntegerVector; theRight: cint) {.cdecl, importcpp: "(# *= #)",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc multiplied*(this: MathIntegerVector; theRight: cint): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Multiplied", header: "math_IntegerVector.hxx".}
 proc `*`*(this: MathIntegerVector; theRight: cint): MathIntegerVector {.noSideEffect,
-    cdecl, importcpp: "(# * #)", dynlib: tkmath.}
+    cdecl, importcpp: "(# * #)", header: "math_IntegerVector.hxx".}
 proc tMultiplied*(this: MathIntegerVector; theRight: cint): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "TMultiplied", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "TMultiplied", header: "math_IntegerVector.hxx".}
 proc add*(this: var MathIntegerVector; theRight: MathIntegerVector) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "math_IntegerVector.hxx".}
 proc `+=`*(this: var MathIntegerVector; theRight: MathIntegerVector) {.cdecl,
-    importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "(# += #)", header: "math_IntegerVector.hxx".}
 proc added*(this: MathIntegerVector; theRight: MathIntegerVector): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "Added", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Added", header: "math_IntegerVector.hxx".}
 proc `+`*(this: MathIntegerVector; theRight: MathIntegerVector): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "(# + #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# + #)", header: "math_IntegerVector.hxx".}
 proc add*(this: var MathIntegerVector; theLeft: MathIntegerVector;
-         theRight: MathIntegerVector) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+         theRight: MathIntegerVector) {.cdecl, importcpp: "Add", header: "math_IntegerVector.hxx".}
 proc subtract*(this: var MathIntegerVector; theLeft: MathIntegerVector;
               theRight: MathIntegerVector) {.cdecl, importcpp: "Subtract",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc value*(this: MathIntegerVector; theNum: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_IntegerVector.hxx".}
 proc value*(this: var MathIntegerVector; theNum: cint): var cint {.cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_IntegerVector.hxx".}
 proc `()`*(this: MathIntegerVector; theNum: cint): cint {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "math_IntegerVector.hxx".}
 proc `()`*(this: var MathIntegerVector; theNum: cint): var cint {.cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "math_IntegerVector.hxx".}
 proc initialized*(this: var MathIntegerVector; theOther: MathIntegerVector): var MathIntegerVector {.
-    cdecl, importcpp: "Initialized", dynlib: tkmath.}
+    cdecl, importcpp: "Initialized", header: "math_IntegerVector.hxx".}
 proc multiplied*(this: MathIntegerVector; theRight: MathIntegerVector): cint {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Multiplied", header: "math_IntegerVector.hxx".}
 proc `*`*(this: MathIntegerVector; theRight: MathIntegerVector): cint {.noSideEffect,
-    cdecl, importcpp: "(# * #)", dynlib: tkmath.}
+    cdecl, importcpp: "(# * #)", header: "math_IntegerVector.hxx".}
 proc opposite*(this: var MathIntegerVector): MathIntegerVector {.cdecl,
-    importcpp: "Opposite", dynlib: tkmath.}
+    importcpp: "Opposite", header: "math_IntegerVector.hxx".}
 proc `-`*(this: var MathIntegerVector): MathIntegerVector {.cdecl, importcpp: "(- #)",
-    dynlib: tkmath.}
+    header: "math_IntegerVector.hxx".}
 proc subtract*(this: var MathIntegerVector; theRight: MathIntegerVector) {.cdecl,
-    importcpp: "Subtract", dynlib: tkmath.}
+    importcpp: "Subtract", header: "math_IntegerVector.hxx".}
 proc `-=`*(this: var MathIntegerVector; theRight: MathIntegerVector) {.cdecl,
-    importcpp: "(# -= #)", dynlib: tkmath.}
+    importcpp: "(# -= #)", header: "math_IntegerVector.hxx".}
 proc subtracted*(this: MathIntegerVector; theRight: MathIntegerVector): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "Subtracted", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Subtracted", header: "math_IntegerVector.hxx".}
 proc `-`*(this: MathIntegerVector; theRight: MathIntegerVector): MathIntegerVector {.
-    noSideEffect, cdecl, importcpp: "(# - #)", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "(# - #)", header: "math_IntegerVector.hxx".}
 proc multiply*(this: var MathIntegerVector; theLeft: cint; theRight: MathIntegerVector) {.
-    cdecl, importcpp: "Multiply", dynlib: tkmath.}
+    cdecl, importcpp: "Multiply", header: "math_IntegerVector.hxx".}
 proc dump*(this: MathIntegerVector; theO: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_IntegerVector.hxx".}

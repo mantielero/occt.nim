@@ -31,24 +31,24 @@ type
 
 
 proc newBVH_Geometry*[T; N: static[cint]](): BVH_Geometry[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Geometry<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Geometry<\'*0,\'*1>(@)", header: "BVH_Geometry.hxx".}
 proc newBVH_Geometry*[T; N: static[cint]](theBuilder: Handle[BVH_Builder[T, N]]): BVH_Geometry[
     T, N] {.cdecl, constructor, importcpp: "BVH_Geometry<\'*0,\'*1>(@)",
-          dynlib: tkmath.}
+          header: "BVH_Geometry.hxx".}
 proc destroyBVH_Geometry*[T; N: static[cint]](this: var BVH_Geometry[T, N]) {.cdecl,
-    importcpp: "#.~BVH_Geometry()", dynlib: tkmath.}
+    importcpp: "#.~BVH_Geometry()", header: "BVH_Geometry.hxx".}
 proc isDirty*[T; N: static[cint]](this: BVH_Geometry[T, N]): bool {.noSideEffect, cdecl,
-    importcpp: "IsDirty", dynlib: tkmath.}
+    importcpp: "IsDirty", header: "BVH_Geometry.hxx".}
 proc markDirty*[T; N: static[cint]](this: var BVH_Geometry[T, N]) {.cdecl,
-    importcpp: "MarkDirty", dynlib: tkmath.}
+    importcpp: "MarkDirty", header: "BVH_Geometry.hxx".}
 ## using statement
 
 proc box*[T; N: static[cint]](this: BVH_Geometry[T, N]): BVH_Box[T, N] {.noSideEffect,
-    cdecl, importcpp: "Box", dynlib: tkmath.}
+    cdecl, importcpp: "Box", header: "BVH_Geometry.hxx".}
 proc bvh*[T; N: static[cint]](this: var BVH_Geometry[T, N]): Handle[BVH_Tree[T, N]] {.
-    cdecl, importcpp: "BVH", dynlib: tkmath.}
+    cdecl, importcpp: "BVH", header: "BVH_Geometry.hxx".}
 proc builder*[T; N: static[cint]](this: BVH_Geometry[T, N]): Handle[BVH_Builder[T, N]] {.
-    noSideEffect, cdecl, importcpp: "Builder", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Builder", header: "BVH_Geometry.hxx".}
 proc setBuilder*[T; N: static[cint]](this: var BVH_Geometry[T, N];
                                   theBuilder: Handle[BVH_Builder[T, N]]) {.cdecl,
-    importcpp: "SetBuilder", dynlib: tkmath.}
+    importcpp: "SetBuilder", header: "BVH_Geometry.hxx".}

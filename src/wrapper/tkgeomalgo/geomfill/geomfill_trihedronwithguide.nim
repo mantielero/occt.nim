@@ -30,8 +30,8 @@ type
 
 
 proc guide*(this: GeomFillTrihedronWithGuide): Handle[Adaptor3dHCurve] {.
-    noSideEffect, cdecl, importcpp: "Guide", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Guide", header: "GeomFill_TrihedronWithGuide.hxx".}
 proc origine*(this: var GeomFillTrihedronWithGuide; param1: cfloat; param2: cfloat) {.
-    cdecl, importcpp: "Origine", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
 proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): Pnt {.noSideEffect,
-    cdecl, importcpp: "CurrentPointOnGuide", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}

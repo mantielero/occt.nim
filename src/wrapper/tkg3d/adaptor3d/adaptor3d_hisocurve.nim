@@ -32,17 +32,17 @@ type
 
 
 proc newAdaptor3dHIsoCurve*(): Adaptor3dHIsoCurve {.cdecl, constructor,
-    importcpp: "Adaptor3d_HIsoCurve(@)", dynlib: tkg3d.}
+    importcpp: "Adaptor3d_HIsoCurve(@)", header: "Adaptor3d_HIsoCurve.hxx".}
 proc newAdaptor3dHIsoCurve*(c: Adaptor3dIsoCurve): Adaptor3dHIsoCurve {.cdecl,
-    constructor, importcpp: "Adaptor3d_HIsoCurve(@)", dynlib: tkg3d.}
+    constructor, importcpp: "Adaptor3d_HIsoCurve(@)", header: "Adaptor3d_HIsoCurve.hxx".}
 proc set*(this: var Adaptor3dHIsoCurve; c: Adaptor3dIsoCurve) {.cdecl,
-    importcpp: "Set", dynlib: tkg3d.}
+    importcpp: "Set", header: "Adaptor3d_HIsoCurve.hxx".}
 proc curve*(this: Adaptor3dHIsoCurve): Adaptor3dCurve {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkg3d.}
+    importcpp: "Curve", header: "Adaptor3d_HIsoCurve.hxx".}
 proc getCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dCurve {.cdecl,
-    importcpp: "GetCurve", dynlib: tkg3d.}
+    importcpp: "GetCurve", header: "Adaptor3d_HIsoCurve.hxx".}
 proc changeCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dIsoCurve {.cdecl,
-    importcpp: "ChangeCurve", dynlib: tkg3d.}
+    importcpp: "ChangeCurve", header: "Adaptor3d_HIsoCurve.hxx".}
 type
   Adaptor3dHIsoCurvebaseType* = Adaptor3dHCurve
 

@@ -29,13 +29,13 @@ type
 
 proc newBRepPointOnSurface*(p1: cfloat; p2: cfloat; s: Handle[GeomSurface];
                            L: TopLocLocation): BRepPointOnSurface {.cdecl,
-    constructor, importcpp: "BRep_PointOnSurface(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRep_PointOnSurface(@)", header: "BRep_PointOnSurface.hxx".}
 proc isPointOnSurface*(this: BRepPointOnSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnSurface", header: "BRep_PointOnSurface.hxx".}
 proc isPointOnSurface*(this: BRepPointOnSurface; s: Handle[GeomSurface];
                       L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnSurface", header: "BRep_PointOnSurface.hxx".}
 proc parameter2*(this: BRepPointOnSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter2", dynlib: tkbrep.}
+    importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
 proc parameter2*(this: var BRepPointOnSurface; p: cfloat) {.cdecl,
-    importcpp: "Parameter2", dynlib: tkbrep.}
+    importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}

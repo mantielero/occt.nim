@@ -39,13 +39,13 @@ type
 
 
 proc newTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_CurveIterator {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveIterator(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_CurveIterator(@)", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc matchInterference*(this: TopOpeBRepDS_CurveIterator;
                        i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "MatchInterference", dynlib: tkbool.}
+    cdecl, importcpp: "MatchInterference", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc current*(this: TopOpeBRepDS_CurveIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Current", dynlib: tkbool.}
+    importcpp: "Current", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrientation {.
-    noSideEffect, cdecl, importcpp: "Orientation", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve", dynlib: tkbool.}
+    cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}

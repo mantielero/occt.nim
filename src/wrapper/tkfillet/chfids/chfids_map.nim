@@ -22,16 +22,16 @@ type
 
 
 proc newChFiDS_Map*(): ChFiDS_Map {.cdecl, constructor, importcpp: "ChFiDS_Map(@)",
-                                 dynlib: tkfillet.}
+                                 header: "ChFiDS_Map.hxx".}
 proc fill*(this: var ChFiDS_Map; s: TopoDS_Shape; t1: TopAbsShapeEnum;
-          t2: TopAbsShapeEnum) {.cdecl, importcpp: "Fill", dynlib: tkfillet.}
+          t2: TopAbsShapeEnum) {.cdecl, importcpp: "Fill", header: "ChFiDS_Map.hxx".}
 proc contains*(this: ChFiDS_Map; s: TopoDS_Shape): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkfillet.}
+    importcpp: "Contains", header: "ChFiDS_Map.hxx".}
 proc findFromKey*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "FindFromKey", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "FindFromKey", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; s: TopoDS_Shape): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "#(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
 proc findFromIndex*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "FindFromIndex", dynlib: tkfillet.}
+    cdecl, importcpp: "FindFromIndex", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkfillet.}
+    importcpp: "#(@)", header: "ChFiDS_Map.hxx".}

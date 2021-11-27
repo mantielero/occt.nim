@@ -22,13 +22,13 @@ type
 
 
 proc newTopOpeBRepDS_Marker*(): TopOpeBRepDS_Marker {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Marker(@)", dynlib: tkbool.}
-proc reset*(this: var TopOpeBRepDS_Marker) {.cdecl, importcpp: "Reset", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Marker(@)", header: "TopOpeBRepDS_Marker.hxx".}
+proc reset*(this: var TopOpeBRepDS_Marker) {.cdecl, importcpp: "Reset", header: "TopOpeBRepDS_Marker.hxx".}
 proc set*(this: var TopOpeBRepDS_Marker; i: cint; b: bool) {.cdecl, importcpp: "Set",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Marker.hxx".}
 proc set*(this: var TopOpeBRepDS_Marker; b: bool; n: cint; a: pointer) {.cdecl,
-    importcpp: "Set", dynlib: tkbool.}
+    importcpp: "Set", header: "TopOpeBRepDS_Marker.hxx".}
 proc getI*(this: TopOpeBRepDS_Marker; i: cint): bool {.noSideEffect, cdecl,
-    importcpp: "GetI", dynlib: tkbool.}
+    importcpp: "GetI", header: "TopOpeBRepDS_Marker.hxx".}
 proc allocate*(this: var TopOpeBRepDS_Marker; n: cint) {.cdecl, importcpp: "Allocate",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Marker.hxx".}

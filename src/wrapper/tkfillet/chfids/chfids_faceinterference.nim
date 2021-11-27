@@ -21,36 +21,36 @@ type
 
 
 proc newChFiDS_FaceInterference*(): ChFiDS_FaceInterference {.cdecl, constructor,
-    importcpp: "ChFiDS_FaceInterference(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_FaceInterference(@)", header: "ChFiDS_FaceInterference.hxx".}
 proc setInterference*(this: var ChFiDS_FaceInterference; lineIndex: cint;
                      trans: TopAbsOrientation; pCurv1: Handle[Geom2dCurve];
                      pCurv2: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "SetInterference", dynlib: tkfillet.}
+    importcpp: "SetInterference", header: "ChFiDS_FaceInterference.hxx".}
 proc setTransition*(this: var ChFiDS_FaceInterference; trans: TopAbsOrientation) {.
-    cdecl, importcpp: "SetTransition", dynlib: tkfillet.}
+    cdecl, importcpp: "SetTransition", header: "ChFiDS_FaceInterference.hxx".}
 proc setFirstParameter*(this: var ChFiDS_FaceInterference; u1: cfloat) {.cdecl,
-    importcpp: "SetFirstParameter", dynlib: tkfillet.}
+    importcpp: "SetFirstParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc setLastParameter*(this: var ChFiDS_FaceInterference; u1: cfloat) {.cdecl,
-    importcpp: "SetLastParameter", dynlib: tkfillet.}
+    importcpp: "SetLastParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc setParameter*(this: var ChFiDS_FaceInterference; u1: cfloat; isFirst: bool) {.
-    cdecl, importcpp: "SetParameter", dynlib: tkfillet.}
+    cdecl, importcpp: "SetParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc lineIndex*(this: ChFiDS_FaceInterference): cint {.noSideEffect, cdecl,
-    importcpp: "LineIndex", dynlib: tkfillet.}
+    importcpp: "LineIndex", header: "ChFiDS_FaceInterference.hxx".}
 proc setLineIndex*(this: var ChFiDS_FaceInterference; i: cint) {.cdecl,
-    importcpp: "SetLineIndex", dynlib: tkfillet.}
+    importcpp: "SetLineIndex", header: "ChFiDS_FaceInterference.hxx".}
 proc transition*(this: ChFiDS_FaceInterference): TopAbsOrientation {.noSideEffect,
-    cdecl, importcpp: "Transition", dynlib: tkfillet.}
+    cdecl, importcpp: "Transition", header: "ChFiDS_FaceInterference.hxx".}
 proc pCurveOnFace*(this: ChFiDS_FaceInterference): Handle[Geom2dCurve] {.
-    noSideEffect, cdecl, importcpp: "PCurveOnFace", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "PCurveOnFace", header: "ChFiDS_FaceInterference.hxx".}
 proc pCurveOnSurf*(this: ChFiDS_FaceInterference): Handle[Geom2dCurve] {.
-    noSideEffect, cdecl, importcpp: "PCurveOnSurf", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "PCurveOnSurf", header: "ChFiDS_FaceInterference.hxx".}
 proc changePCurveOnFace*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCurve] {.
-    cdecl, importcpp: "ChangePCurveOnFace", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangePCurveOnFace", header: "ChFiDS_FaceInterference.hxx".}
 proc changePCurveOnSurf*(this: var ChFiDS_FaceInterference): var Handle[Geom2dCurve] {.
-    cdecl, importcpp: "ChangePCurveOnSurf", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangePCurveOnSurf", header: "ChFiDS_FaceInterference.hxx".}
 proc firstParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkfillet.}
+    importcpp: "FirstParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc lastParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkfillet.}
+    importcpp: "LastParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc parameter*(this: ChFiDS_FaceInterference; isFirst: bool): cfloat {.noSideEffect,
-    cdecl, importcpp: "Parameter", dynlib: tkfillet.}
+    cdecl, importcpp: "Parameter", header: "ChFiDS_FaceInterference.hxx".}

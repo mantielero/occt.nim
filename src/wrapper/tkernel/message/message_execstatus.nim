@@ -45,48 +45,48 @@ type
 
 
 proc newMessageExecStatus*(): MessageExecStatus {.cdecl, constructor,
-    importcpp: "Message_ExecStatus(@)", dynlib: tkernel.}
+    importcpp: "Message_ExecStatus(@)", header: "Message_ExecStatus.hxx".}
 proc newMessageExecStatus*(status: MessageStatus): MessageExecStatus {.cdecl,
-    constructor, importcpp: "Message_ExecStatus(@)", dynlib: tkernel.}
+    constructor, importcpp: "Message_ExecStatus(@)", header: "Message_ExecStatus.hxx".}
 proc set*(this: var MessageExecStatus; status: MessageStatus) {.cdecl,
-    importcpp: "Set", dynlib: tkernel.}
+    importcpp: "Set", header: "Message_ExecStatus.hxx".}
 proc isSet*(this: MessageExecStatus; status: MessageStatus): bool {.noSideEffect,
-    cdecl, importcpp: "IsSet", dynlib: tkernel.}
+    cdecl, importcpp: "IsSet", header: "Message_ExecStatus.hxx".}
 proc clear*(this: var MessageExecStatus; status: MessageStatus) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "Message_ExecStatus.hxx".}
 proc isDone*(this: MessageExecStatus): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkernel.}
+    importcpp: "IsDone", header: "Message_ExecStatus.hxx".}
 proc isFail*(this: MessageExecStatus): bool {.noSideEffect, cdecl,
-    importcpp: "IsFail", dynlib: tkernel.}
+    importcpp: "IsFail", header: "Message_ExecStatus.hxx".}
 proc isWarn*(this: MessageExecStatus): bool {.noSideEffect, cdecl,
-    importcpp: "IsWarn", dynlib: tkernel.}
+    importcpp: "IsWarn", header: "Message_ExecStatus.hxx".}
 proc isAlarm*(this: MessageExecStatus): bool {.noSideEffect, cdecl,
-    importcpp: "IsAlarm", dynlib: tkernel.}
+    importcpp: "IsAlarm", header: "Message_ExecStatus.hxx".}
 proc setAllDone*(this: var MessageExecStatus) {.cdecl, importcpp: "SetAllDone",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc setAllWarn*(this: var MessageExecStatus) {.cdecl, importcpp: "SetAllWarn",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc setAllAlarm*(this: var MessageExecStatus) {.cdecl, importcpp: "SetAllAlarm",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc setAllFail*(this: var MessageExecStatus) {.cdecl, importcpp: "SetAllFail",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc clearAllDone*(this: var MessageExecStatus) {.cdecl, importcpp: "ClearAllDone",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc clearAllWarn*(this: var MessageExecStatus) {.cdecl, importcpp: "ClearAllWarn",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc clearAllAlarm*(this: var MessageExecStatus) {.cdecl, importcpp: "ClearAllAlarm",
-    dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
 proc clearAllFail*(this: var MessageExecStatus) {.cdecl, importcpp: "ClearAllFail",
-    dynlib: tkernel.}
-proc clear*(this: var MessageExecStatus) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
+    header: "Message_ExecStatus.hxx".}
+proc clear*(this: var MessageExecStatus) {.cdecl, importcpp: "Clear", header: "Message_ExecStatus.hxx".}
 proc add*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
-    importcpp: "Add", dynlib: tkernel.}
+    importcpp: "Add", header: "Message_ExecStatus.hxx".}
 proc `|=`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
-    importcpp: "(# |= #)", dynlib: tkernel.}
+    importcpp: "(# |= #)", header: "Message_ExecStatus.hxx".}
 proc `and`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
-    importcpp: "And", dynlib: tkernel.}
+    importcpp: "And", header: "Message_ExecStatus.hxx".}
 proc `&=`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
-    importcpp: "(# &= #)", dynlib: tkernel.}
+    importcpp: "(# &= #)", header: "Message_ExecStatus.hxx".}
 type
   MessageExecStatusStatusRange* {.size: sizeof(cint),
                                  importcpp: "Message_ExecStatus::StatusRange",
@@ -95,10 +95,10 @@ type
 
 
 proc statusIndex*(status: MessageStatus): cint {.cdecl,
-    importcpp: "Message_ExecStatus::StatusIndex(@)", dynlib: tkernel.}
+    importcpp: "Message_ExecStatus::StatusIndex(@)", header: "Message_ExecStatus.hxx".}
 proc localStatusIndex*(status: MessageStatus): cint {.cdecl,
-    importcpp: "Message_ExecStatus::LocalStatusIndex(@)", dynlib: tkernel.}
+    importcpp: "Message_ExecStatus::LocalStatusIndex(@)", header: "Message_ExecStatus.hxx".}
 proc typeOfStatus*(status: MessageStatus): MessageStatusType {.cdecl,
-    importcpp: "Message_ExecStatus::TypeOfStatus(@)", dynlib: tkernel.}
+    importcpp: "Message_ExecStatus::TypeOfStatus(@)", header: "Message_ExecStatus.hxx".}
 proc statusByIndex*(theIndex: cint): MessageStatus {.cdecl,
-    importcpp: "Message_ExecStatus::StatusByIndex(@)", dynlib: tkernel.}
+    importcpp: "Message_ExecStatus::StatusByIndex(@)", header: "Message_ExecStatus.hxx".}

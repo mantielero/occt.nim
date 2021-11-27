@@ -79,26 +79,26 @@ proc newApproxCurveOnSurface*(c2d: Handle[Adaptor2dHCurve2d];
                              last: cfloat; tol: cfloat; continuity: GeomAbsShape;
                              maxDegree: cint; maxSegments: cint;
                              only3d: bool = false; only2d: bool = false): ApproxCurveOnSurface {.
-    cdecl, constructor, importcpp: "Approx_CurveOnSurface(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_CurveOnSurface(@)", header: "Approx_CurveOnSurface.hxx".}
 proc newApproxCurveOnSurface*(theC2D: Handle[Adaptor2dHCurve2d];
                              theSurf: Handle[Adaptor3dHSurface]; theFirst: cfloat;
                              theLast: cfloat; theTol: cfloat): ApproxCurveOnSurface {.
-    cdecl, constructor, importcpp: "Approx_CurveOnSurface(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_CurveOnSurface(@)", header: "Approx_CurveOnSurface.hxx".}
 proc isDone*(this: ApproxCurveOnSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Approx_CurveOnSurface.hxx".}
 proc hasResult*(this: ApproxCurveOnSurface): bool {.noSideEffect, cdecl,
-    importcpp: "HasResult", dynlib: tkgeombase.}
+    importcpp: "HasResult", header: "Approx_CurveOnSurface.hxx".}
 proc curve3d*(this: ApproxCurveOnSurface): Handle[GeomBSplineCurve] {.noSideEffect,
-    cdecl, importcpp: "Curve3d", dynlib: tkgeombase.}
+    cdecl, importcpp: "Curve3d", header: "Approx_CurveOnSurface.hxx".}
 proc maxError3d*(this: ApproxCurveOnSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError3d", dynlib: tkgeombase.}
+    importcpp: "MaxError3d", header: "Approx_CurveOnSurface.hxx".}
 proc curve2d*(this: ApproxCurveOnSurface): Handle[Geom2dBSplineCurve] {.
-    noSideEffect, cdecl, importcpp: "Curve2d", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curve2d", header: "Approx_CurveOnSurface.hxx".}
 proc maxError2dU*(this: ApproxCurveOnSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2dU", dynlib: tkgeombase.}
+    importcpp: "MaxError2dU", header: "Approx_CurveOnSurface.hxx".}
 proc maxError2dV*(this: ApproxCurveOnSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2dV", dynlib: tkgeombase.}
+    importcpp: "MaxError2dV", header: "Approx_CurveOnSurface.hxx".}
 proc perform*(this: var ApproxCurveOnSurface; theMaxSegments: cint;
              theMaxDegree: cint; theContinuity: GeomAbsShape;
              theOnly3d: bool = false; theOnly2d: bool = false) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Approx_CurveOnSurface.hxx".}

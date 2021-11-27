@@ -27,33 +27,33 @@ type
 
 
 proc newExtremaGenExtPS*(): ExtremaGenExtPS {.cdecl, constructor,
-    importcpp: "Extrema_GenExtPS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_GenExtPS(@)", header: "Extrema_GenExtPS.hxx".}
 proc newExtremaGenExtPS*(p: Pnt; s: Adaptor3dSurface; nbU: cint; nbV: cint; tolU: cfloat;
                         tolV: cfloat; f: ExtremaExtFlag = extremaExtFlagMINMAX;
                         a: ExtremaExtAlgo = extremaExtAlgoGrad): ExtremaGenExtPS {.
-    cdecl, constructor, importcpp: "Extrema_GenExtPS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GenExtPS(@)", header: "Extrema_GenExtPS.hxx".}
 proc newExtremaGenExtPS*(p: Pnt; s: Adaptor3dSurface; nbU: cint; nbV: cint; umin: cfloat;
                         usup: cfloat; vmin: cfloat; vsup: cfloat; tolU: cfloat;
                         tolV: cfloat; f: ExtremaExtFlag = extremaExtFlagMINMAX;
                         a: ExtremaExtAlgo = extremaExtAlgoGrad): ExtremaGenExtPS {.
-    cdecl, constructor, importcpp: "Extrema_GenExtPS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GenExtPS(@)", header: "Extrema_GenExtPS.hxx".}
 proc initialize*(this: var ExtremaGenExtPS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
                 tolU: cfloat; tolV: cfloat) {.cdecl, importcpp: "Initialize",
-    dynlib: tkgeombase.}
+    header: "Extrema_GenExtPS.hxx".}
 proc initialize*(this: var ExtremaGenExtPS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
                 umin: cfloat; usup: cfloat; vmin: cfloat; vsup: cfloat; tolU: cfloat;
-                tolV: cfloat) {.cdecl, importcpp: "Initialize", dynlib: tkgeombase.}
+                tolV: cfloat) {.cdecl, importcpp: "Initialize", header: "Extrema_GenExtPS.hxx".}
 proc perform*(this: var ExtremaGenExtPS; p: Pnt) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_GenExtPS.hxx".}
 proc setFlag*(this: var ExtremaGenExtPS; f: ExtremaExtFlag) {.cdecl,
-    importcpp: "SetFlag", dynlib: tkgeombase.}
+    importcpp: "SetFlag", header: "Extrema_GenExtPS.hxx".}
 proc setAlgo*(this: var ExtremaGenExtPS; a: ExtremaExtAlgo) {.cdecl,
-    importcpp: "SetAlgo", dynlib: tkgeombase.}
+    importcpp: "SetAlgo", header: "Extrema_GenExtPS.hxx".}
 proc isDone*(this: ExtremaGenExtPS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_GenExtPS.hxx".}
 proc nbExt*(this: ExtremaGenExtPS): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_GenExtPS.hxx".}
 proc squareDistance*(this: ExtremaGenExtPS; n: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_GenExtPS.hxx".}
 proc point*(this: ExtremaGenExtPS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_GenExtPS.hxx".}

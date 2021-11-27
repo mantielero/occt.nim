@@ -23,19 +23,19 @@ type
 
 
 proc newExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.cdecl, constructor,
-    importcpp: "Extrema_POnSurfParams(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
 proc newExtremaPOnSurfParams*(theU: cfloat; theV: cfloat; thePnt: Pnt): ExtremaPOnSurfParams {.
-    cdecl, constructor, importcpp: "Extrema_POnSurfParams(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
 proc setSqrDistance*(this: var ExtremaPOnSurfParams; theSqrDistance: cfloat) {.cdecl,
-    importcpp: "SetSqrDistance", dynlib: tkgeombase.}
+    importcpp: "SetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
 proc getSqrDistance*(this: ExtremaPOnSurfParams): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSqrDistance", dynlib: tkgeombase.}
+    importcpp: "GetSqrDistance", header: "Extrema_POnSurfParams.hxx".}
 proc setElementType*(this: var ExtremaPOnSurfParams;
                     theElementType: ExtremaElementType) {.cdecl,
-    importcpp: "SetElementType", dynlib: tkgeombase.}
+    importcpp: "SetElementType", header: "Extrema_POnSurfParams.hxx".}
 proc getElementType*(this: ExtremaPOnSurfParams): ExtremaElementType {.noSideEffect,
-    cdecl, importcpp: "GetElementType", dynlib: tkgeombase.}
+    cdecl, importcpp: "GetElementType", header: "Extrema_POnSurfParams.hxx".}
 proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: cint; theIndexV: cint) {.
-    cdecl, importcpp: "SetIndices", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetIndices", header: "Extrema_POnSurfParams.hxx".}
 proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var cint; theIndexV: var cint) {.
-    noSideEffect, cdecl, importcpp: "GetIndices", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "GetIndices", header: "Extrema_POnSurfParams.hxx".}

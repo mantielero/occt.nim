@@ -68,7 +68,7 @@ type
 proc newConvertCylinderToBSplineSurface*(cyl: Cylinder; u1: cfloat; u2: cfloat;
                                         v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_CylinderToBSplineSurface.hxx".}
 proc newConvertCylinderToBSplineSurface*(cyl: Cylinder; v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_CylinderToBSplineSurface.hxx".}

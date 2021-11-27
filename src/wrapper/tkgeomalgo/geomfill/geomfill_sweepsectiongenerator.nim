@@ -26,65 +26,65 @@ type
 
 
 proc newGeomFillSweepSectionGenerator*(): GeomFillSweepSectionGenerator {.cdecl,
-    constructor, importcpp: "GeomFill_SweepSectionGenerator(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_SweepSectionGenerator(@)", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc newGeomFillSweepSectionGenerator*(path: Handle[GeomCurve]; radius: cfloat): GeomFillSweepSectionGenerator {.
     cdecl, constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc newGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
                                       firstSect: Handle[GeomCurve]): GeomFillSweepSectionGenerator {.
     cdecl, constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc newGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
                                       firstSect: Handle[GeomCurve];
                                       lastSect: Handle[GeomCurve]): GeomFillSweepSectionGenerator {.
     cdecl, constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc newGeomFillSweepSectionGenerator*(path: Handle[GeomCurve];
                                       curve1: Handle[GeomCurve];
                                       curve2: Handle[GeomCurve]; radius: cfloat): GeomFillSweepSectionGenerator {.
     cdecl, constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc newGeomFillSweepSectionGenerator*(path: Handle[Adaptor3dHCurve];
                                       curve1: Handle[Adaptor3dHCurve];
                                       curve2: Handle[Adaptor3dHCurve];
                                       radius: cfloat): GeomFillSweepSectionGenerator {.
     cdecl, constructor, importcpp: "GeomFill_SweepSectionGenerator(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
-          radius: cfloat) {.cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+          radius: cfloat) {.cdecl, importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]) {.cdecl, importcpp: "Init",
-                                        dynlib: tkgeomalgo.}
+                                        header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]; lastSect: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[GeomCurve];
           curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]; radius: cfloat) {.
-    cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc init*(this: var GeomFillSweepSectionGenerator; path: Handle[Adaptor3dHCurve];
           curve1: Handle[Adaptor3dHCurve]; curve2: Handle[Adaptor3dHCurve];
-          radius: cfloat) {.cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+          radius: cfloat) {.cdecl, importcpp: "Init", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc perform*(this: var GeomFillSweepSectionGenerator; polynomial: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Perform", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc getShape*(this: GeomFillSweepSectionGenerator; nbPoles: var cint;
               nbKnots: var cint; degree: var cint; nbPoles2d: var cint) {.noSideEffect,
-    cdecl, importcpp: "GetShape", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetShape", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc knots*(this: GeomFillSweepSectionGenerator; tKnots: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc mults*(this: GeomFillSweepSectionGenerator; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Mults", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Mults", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc nbSections*(this: GeomFillSweepSectionGenerator): cint {.noSideEffect, cdecl,
-    importcpp: "NbSections", dynlib: tkgeomalgo.}
+    importcpp: "NbSections", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc section*(this: GeomFillSweepSectionGenerator; p: cint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    noSideEffect, cdecl, importcpp: "Section", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc section*(this: GeomFillSweepSectionGenerator; p: cint;
              poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
              weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc transformation*(this: GeomFillSweepSectionGenerator; index: cint): Trsf {.
-    noSideEffect, cdecl, importcpp: "Transformation", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Transformation", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc parameter*(this: GeomFillSweepSectionGenerator; p: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Parameter", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Parameter", header: "GeomFill_SweepSectionGenerator.hxx".}

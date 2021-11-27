@@ -68,30 +68,30 @@ type
 
 proc newBVH_PairDistance*[NumType; Dimension: static[cint]; BVHSetType](): BVH_PairDistance[
     NumType, Dimension, BVHSetType] {.cdecl, constructor, importcpp: "BVH_PairDistance<\'*0,\'*1,\'*2>(@)",
-                                   dynlib: tkmath.}
+                                   header: "BVH_PairDistance.hxx".}
 proc computeDistance*[NumType; Dimension: static[cint]; BVHSetType](
     this: var BVH_PairDistance[NumType, Dimension, BVHSetType]): NumType {.cdecl,
-    importcpp: "ComputeDistance", dynlib: tkmath.}
+    importcpp: "ComputeDistance", header: "BVH_PairDistance.hxx".}
 proc isDone*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]): bool {.noSideEffect,
-    cdecl, importcpp: "IsDone", dynlib: tkmath.}
+    cdecl, importcpp: "IsDone", header: "BVH_PairDistance.hxx".}
 proc distance*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]): NumType {.noSideEffect,
-    cdecl, importcpp: "Distance", dynlib: tkmath.}
+    cdecl, importcpp: "Distance", header: "BVH_PairDistance.hxx".}
 proc isMetricBetter*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]; theLeft: NumType;
     theRight: NumType): bool {.noSideEffect, cdecl, importcpp: "IsMetricBetter",
-                            dynlib: tkmath.}
+                            header: "BVH_PairDistance.hxx".}
 proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType];
     theCornerMin1: BVH_PairDistanceBVH_VecNt;
     theCornerMax1: BVH_PairDistanceBVH_VecNt;
     theCornerMin2: BVH_PairDistanceBVH_VecNt;
     theCornerMax2: BVH_PairDistanceBVH_VecNt; theMetric: var NumType): bool {.
-    noSideEffect, cdecl, importcpp: "RejectNode", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "RejectNode", header: "BVH_PairDistance.hxx".}
 proc rejectMetric*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]; theMetric: NumType): bool {.
-    noSideEffect, cdecl, importcpp: "RejectMetric", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "RejectMetric", header: "BVH_PairDistance.hxx".}
 proc stop*[NumType; Dimension: static[cint]; BVHSetType](
     this: BVH_PairDistance[NumType, Dimension, BVHSetType]): bool {.noSideEffect,
-    cdecl, importcpp: "Stop", dynlib: tkmath.}
+    cdecl, importcpp: "Stop", header: "BVH_PairDistance.hxx".}

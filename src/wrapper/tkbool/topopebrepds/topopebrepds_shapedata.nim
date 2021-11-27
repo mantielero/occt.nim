@@ -21,12 +21,12 @@ type
 
 
 proc newTopOpeBRepDS_ShapeData*(): TopOpeBRepDS_ShapeData {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_ShapeData(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_ShapeData(@)", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc interferences*(this: TopOpeBRepDS_ShapeData): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Interferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Interferences", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeInterferences*(this: var TopOpeBRepDS_ShapeData): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeInterferences", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, cdecl,
-    importcpp: "Keep", dynlib: tkbool.}
+    importcpp: "Keep", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.cdecl,
-    importcpp: "ChangeKeep", dynlib: tkbool.}
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_ShapeData.hxx".}

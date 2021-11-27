@@ -25,60 +25,60 @@ type
 
 
 proc firstParameter*(c: Adaptor2dCurve2d): cfloat {.cdecl,
-    importcpp: "Extrema_Curve2dTool::FirstParameter(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::FirstParameter(@)", header: "Extrema_Curve2dTool.hxx".}
 proc lastParameter*(c: Adaptor2dCurve2d): cfloat {.cdecl,
-    importcpp: "Extrema_Curve2dTool::LastParameter(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::LastParameter(@)", header: "Extrema_Curve2dTool.hxx".}
 proc continuity*(c: Adaptor2dCurve2d): GeomAbsShape {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Continuity(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Continuity(@)", header: "Extrema_Curve2dTool.hxx".}
 proc nbIntervals*(c: Adaptor2dCurve2d; s: GeomAbsShape): cint {.cdecl,
-    importcpp: "Extrema_Curve2dTool::NbIntervals(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::NbIntervals(@)", header: "Extrema_Curve2dTool.hxx".}
 proc intervals*(c: Adaptor2dCurve2d; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    cdecl, importcpp: "Extrema_Curve2dTool::Intervals(@)", dynlib: tkgeombase.}
+    cdecl, importcpp: "Extrema_Curve2dTool::Intervals(@)", header: "Extrema_Curve2dTool.hxx".}
 proc deflCurvIntervals*(c: Adaptor2dCurve2d): Handle[TColStdHArray1OfReal] {.cdecl,
-    importcpp: "Extrema_Curve2dTool::DeflCurvIntervals(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::DeflCurvIntervals(@)", header: "Extrema_Curve2dTool.hxx".}
 proc isClosed*(c: Adaptor2dCurve2d): bool {.cdecl, importcpp: "Extrema_Curve2dTool::IsClosed(@)",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_Curve2dTool.hxx".}
 proc isPeriodic*(c: Adaptor2dCurve2d): bool {.cdecl,
-    importcpp: "Extrema_Curve2dTool::IsPeriodic(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::IsPeriodic(@)", header: "Extrema_Curve2dTool.hxx".}
 proc period*(c: Adaptor2dCurve2d): cfloat {.cdecl, importcpp: "Extrema_Curve2dTool::Period(@)",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_Curve2dTool.hxx".}
 proc value*(c: Adaptor2dCurve2d; u: cfloat): Pnt2d {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Value(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Value(@)", header: "Extrema_Curve2dTool.hxx".}
 proc d0*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d) {.cdecl,
-    importcpp: "Extrema_Curve2dTool::D0(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::D0(@)", header: "Extrema_Curve2dTool.hxx".}
 proc d1*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v: var Vec2d) {.cdecl,
-    importcpp: "Extrema_Curve2dTool::D1(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::D1(@)", header: "Extrema_Curve2dTool.hxx".}
 proc d2*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.cdecl,
-    importcpp: "Extrema_Curve2dTool::D2(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::D2(@)", header: "Extrema_Curve2dTool.hxx".}
 proc d3*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
         v3: var Vec2d) {.cdecl, importcpp: "Extrema_Curve2dTool::D3(@)",
-                      dynlib: tkgeombase.}
+                      header: "Extrema_Curve2dTool.hxx".}
 proc dn*(c: Adaptor2dCurve2d; u: cfloat; n: cint): Vec2d {.cdecl,
-    importcpp: "Extrema_Curve2dTool::DN(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::DN(@)", header: "Extrema_Curve2dTool.hxx".}
 proc resolution*(c: Adaptor2dCurve2d; r3d: cfloat): cfloat {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Resolution(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Resolution(@)", header: "Extrema_Curve2dTool.hxx".}
 proc getType*(c: Adaptor2dCurve2d): GeomAbsCurveType {.cdecl,
-    importcpp: "Extrema_Curve2dTool::GetType(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::GetType(@)", header: "Extrema_Curve2dTool.hxx".}
 proc line*(c: Adaptor2dCurve2d): Lin2d {.cdecl,
                                      importcpp: "Extrema_Curve2dTool::Line(@)",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_Curve2dTool.hxx".}
 proc circle*(c: Adaptor2dCurve2d): Circ2d {.cdecl, importcpp: "Extrema_Curve2dTool::Circle(@)",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_Curve2dTool.hxx".}
 proc ellipse*(c: Adaptor2dCurve2d): Elips2d {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Ellipse(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Ellipse(@)", header: "Extrema_Curve2dTool.hxx".}
 proc hyperbola*(c: Adaptor2dCurve2d): Hypr2d {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Hyperbola(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Hyperbola(@)", header: "Extrema_Curve2dTool.hxx".}
 proc parabola*(c: Adaptor2dCurve2d): Parab2d {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Parabola(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Parabola(@)", header: "Extrema_Curve2dTool.hxx".}
 proc degree*(c: Adaptor2dCurve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTool::Degree(@)",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_Curve2dTool.hxx".}
 proc isRational*(c: Adaptor2dCurve2d): bool {.cdecl,
-    importcpp: "Extrema_Curve2dTool::IsRational(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::IsRational(@)", header: "Extrema_Curve2dTool.hxx".}
 proc nbPoles*(c: Adaptor2dCurve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTool::NbPoles(@)",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_Curve2dTool.hxx".}
 proc nbKnots*(c: Adaptor2dCurve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTool::NbKnots(@)",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_Curve2dTool.hxx".}
 proc bezier*(c: Adaptor2dCurve2d): Handle[Geom2dBezierCurve] {.cdecl,
-    importcpp: "Extrema_Curve2dTool::Bezier(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::Bezier(@)", header: "Extrema_Curve2dTool.hxx".}
 proc bSpline*(c: Adaptor2dCurve2d): Handle[Geom2dBSplineCurve] {.cdecl,
-    importcpp: "Extrema_Curve2dTool::BSpline(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_Curve2dTool::BSpline(@)", header: "Extrema_Curve2dTool.hxx".}

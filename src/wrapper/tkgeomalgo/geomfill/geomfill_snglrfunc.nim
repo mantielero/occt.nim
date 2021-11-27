@@ -25,34 +25,34 @@ type
 
 
 proc newGeomFillSnglrFunc*(hc: Handle[Adaptor3dHCurve]): GeomFillSnglrFunc {.cdecl,
-    constructor, importcpp: "GeomFill_SnglrFunc(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_SnglrFunc(@)", header: "GeomFill_SnglrFunc.hxx".}
 proc setRatio*(this: var GeomFillSnglrFunc; ratio: cfloat) {.cdecl,
-    importcpp: "SetRatio", dynlib: tkgeomalgo.}
+    importcpp: "SetRatio", header: "GeomFill_SnglrFunc.hxx".}
 proc firstParameter*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkgeomalgo.}
+    importcpp: "FirstParameter", header: "GeomFill_SnglrFunc.hxx".}
 proc lastParameter*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkgeomalgo.}
+    importcpp: "LastParameter", header: "GeomFill_SnglrFunc.hxx".}
 proc nbIntervals*(this: GeomFillSnglrFunc; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_SnglrFunc.hxx".}
 proc intervals*(this: GeomFillSnglrFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_SnglrFunc.hxx".}
 proc value*(this: GeomFillSnglrFunc; u: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "GeomFill_SnglrFunc.hxx".}
 proc isPeriodic*(this: GeomFillSnglrFunc): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkgeomalgo.}
+    importcpp: "IsPeriodic", header: "GeomFill_SnglrFunc.hxx".}
 proc period*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkgeomalgo.}
+    importcpp: "Period", header: "GeomFill_SnglrFunc.hxx".}
 proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkgeomalgo.}
+    importcpp: "D0", header: "GeomFill_SnglrFunc.hxx".}
 proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
 proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "D2", header: "GeomFill_SnglrFunc.hxx".}
 proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "D3", header: "GeomFill_SnglrFunc.hxx".}
 proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkgeomalgo.}
+    importcpp: "DN", header: "GeomFill_SnglrFunc.hxx".}
 proc resolution*(this: GeomFillSnglrFunc; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkgeomalgo.}
+    importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}
 proc getType*(this: GeomFillSnglrFunc): GeomAbsCurveType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkgeomalgo.}
+    importcpp: "GetType", header: "GeomFill_SnglrFunc.hxx".}

@@ -40,61 +40,61 @@ type
 
 
 proc newTopOpeBRepDS_Transition*(): TopOpeBRepDS_Transition {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Transition(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Transition(@)", header: "TopOpeBRepDS_Transition.hxx".}
 proc newTopOpeBRepDS_Transition*(stateBefore: TopAbsState; stateAfter: TopAbsState;
                                 shapeBefore: TopAbsShapeEnum = topAbsFACE;
                                 shapeAfter: TopAbsShapeEnum = topAbsFACE): TopOpeBRepDS_Transition {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Transition(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Transition(@)", header: "TopOpeBRepDS_Transition.hxx".}
 proc newTopOpeBRepDS_Transition*(o: TopAbsOrientation): TopOpeBRepDS_Transition {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Transition(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Transition(@)", header: "TopOpeBRepDS_Transition.hxx".}
 proc set*(this: var TopOpeBRepDS_Transition; stateBefore: TopAbsState;
          stateAfter: TopAbsState; shapeBefore: TopAbsShapeEnum = topAbsFACE;
          shapeAfter: TopAbsShapeEnum = topAbsFACE) {.cdecl, importcpp: "Set",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc stateBefore*(this: var TopOpeBRepDS_Transition; s: TopAbsState) {.cdecl,
-    importcpp: "StateBefore", dynlib: tkbool.}
+    importcpp: "StateBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc stateAfter*(this: var TopOpeBRepDS_Transition; s: TopAbsState) {.cdecl,
-    importcpp: "StateAfter", dynlib: tkbool.}
+    importcpp: "StateAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc shapeBefore*(this: var TopOpeBRepDS_Transition; se: TopAbsShapeEnum) {.cdecl,
-    importcpp: "ShapeBefore", dynlib: tkbool.}
+    importcpp: "ShapeBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc shapeAfter*(this: var TopOpeBRepDS_Transition; se: TopAbsShapeEnum) {.cdecl,
-    importcpp: "ShapeAfter", dynlib: tkbool.}
+    importcpp: "ShapeAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc before*(this: var TopOpeBRepDS_Transition; s: TopAbsState;
             shapeBefore: TopAbsShapeEnum = topAbsFACE) {.cdecl, importcpp: "Before",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc after*(this: var TopOpeBRepDS_Transition; s: TopAbsState;
            shapeAfter: TopAbsShapeEnum = topAbsFACE) {.cdecl, importcpp: "After",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc index*(this: var TopOpeBRepDS_Transition; i: cint) {.cdecl, importcpp: "Index",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Transition.hxx".}
 proc indexBefore*(this: var TopOpeBRepDS_Transition; i: cint) {.cdecl,
-    importcpp: "IndexBefore", dynlib: tkbool.}
+    importcpp: "IndexBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc indexAfter*(this: var TopOpeBRepDS_Transition; i: cint) {.cdecl,
-    importcpp: "IndexAfter", dynlib: tkbool.}
+    importcpp: "IndexAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc before*(this: TopOpeBRepDS_Transition): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "Before", dynlib: tkbool.}
+    importcpp: "Before", header: "TopOpeBRepDS_Transition.hxx".}
 proc oNBefore*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ONBefore", dynlib: tkbool.}
+    importcpp: "ONBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc after*(this: TopOpeBRepDS_Transition): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "After", dynlib: tkbool.}
+    importcpp: "After", header: "TopOpeBRepDS_Transition.hxx".}
 proc oNAfter*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ONAfter", dynlib: tkbool.}
+    importcpp: "ONAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc shapeBefore*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect,
-    cdecl, importcpp: "ShapeBefore", dynlib: tkbool.}
+    cdecl, importcpp: "ShapeBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc shapeAfter*(this: TopOpeBRepDS_Transition): TopAbsShapeEnum {.noSideEffect,
-    cdecl, importcpp: "ShapeAfter", dynlib: tkbool.}
+    cdecl, importcpp: "ShapeAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc index*(this: TopOpeBRepDS_Transition): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkbool.}
+    importcpp: "Index", header: "TopOpeBRepDS_Transition.hxx".}
 proc indexBefore*(this: TopOpeBRepDS_Transition): cint {.noSideEffect, cdecl,
-    importcpp: "IndexBefore", dynlib: tkbool.}
+    importcpp: "IndexBefore", header: "TopOpeBRepDS_Transition.hxx".}
 proc indexAfter*(this: TopOpeBRepDS_Transition): cint {.noSideEffect, cdecl,
-    importcpp: "IndexAfter", dynlib: tkbool.}
+    importcpp: "IndexAfter", header: "TopOpeBRepDS_Transition.hxx".}
 proc set*(this: var TopOpeBRepDS_Transition; o: TopAbsOrientation) {.cdecl,
-    importcpp: "Set", dynlib: tkbool.}
+    importcpp: "Set", header: "TopOpeBRepDS_Transition.hxx".}
 proc orientation*(this: TopOpeBRepDS_Transition; s: TopAbsState;
                  t: TopAbsShapeEnum = topAbsFACE): TopAbsOrientation {.noSideEffect,
-    cdecl, importcpp: "Orientation", dynlib: tkbool.}
+    cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_Transition.hxx".}
 proc complement*(this: TopOpeBRepDS_Transition): TopOpeBRepDS_Transition {.
-    noSideEffect, cdecl, importcpp: "Complement", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Complement", header: "TopOpeBRepDS_Transition.hxx".}
 proc isUnknown*(this: TopOpeBRepDS_Transition): bool {.noSideEffect, cdecl,
-    importcpp: "IsUnknown", dynlib: tkbool.}
+    importcpp: "IsUnknown", header: "TopOpeBRepDS_Transition.hxx".}

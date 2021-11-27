@@ -24,11 +24,11 @@ type
 
 
 proc newBVH_QuickSorter*[T; N: static[cint]](theAxis: cint = 0): BVH_QuickSorter[T, N] {.
-    cdecl, constructor, importcpp: "BVH_QuickSorter<\'*0,\'*1>(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "BVH_QuickSorter<\'*0,\'*1>(@)", header: "BVH_QuickSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
                                theSet: ptr BVH_Set[T, N]) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "BVH_QuickSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_QuickSorter[T, N];
                                theSet: ptr BVH_Set[T, N]; theStart: cint;
                                theFinal: cint) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "BVH_QuickSorter.hxx".}

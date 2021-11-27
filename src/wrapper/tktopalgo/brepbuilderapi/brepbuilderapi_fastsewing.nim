@@ -48,21 +48,21 @@ type
 
 
 proc newBRepBuilderAPI_FastSewing*(theTolerance: cfloat = 1.0e-06): BRepBuilderAPI_FastSewing {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_FastSewing(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_FastSewing(@)", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc add*(this: var BRepBuilderAPI_FastSewing; theShape: TopoDS_Shape): bool {.cdecl,
-    importcpp: "Add", dynlib: tktopalgo.}
+    importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc add*(this: var BRepBuilderAPI_FastSewing; theSurface: Handle[GeomSurface]): bool {.
-    cdecl, importcpp: "Add", dynlib: tktopalgo.}
+    cdecl, importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc perform*(this: var BRepBuilderAPI_FastSewing) {.cdecl, importcpp: "Perform",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_FastSewing.hxx".}
 proc setTolerance*(this: var BRepBuilderAPI_FastSewing; theToler: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tktopalgo.}
+    importcpp: "SetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc getTolerance*(this: BRepBuilderAPI_FastSewing): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetTolerance", dynlib: tktopalgo.}
+    importcpp: "GetTolerance", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "GetResult", dynlib: tktopalgo.}
+    importcpp: "GetResult", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
                  theOS: ptr StandardOStream = cast[ptr StandardOStream](0)): BRepBuilderAPI_FastSewingFS_VARStatuses {.
-    cdecl, importcpp: "GetStatuses", dynlib: tktopalgo.}
+    cdecl, importcpp: "GetStatuses", header: "BRepBuilderAPI_FastSewing.hxx".}
 type
   HandleBRepBuilderAPI_FastSewing* = Handle[BRepBuilderAPI_FastSewing]

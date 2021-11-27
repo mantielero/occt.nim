@@ -20,10 +20,10 @@ type
 
 
 proc newApproxHArray1OfGTrsf2d*(theLower: cint; theUpper: cint): ApproxHArray1OfGTrsf2d {.
-    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", header: "Approx_HArray1OfGTrsf2d.hxx".}
 proc newApproxHArray1OfGTrsf2d*(theLower: cint; theUpper: cint; theValue: ValueType): ApproxHArray1OfGTrsf2d {.
-    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", header: "Approx_HArray1OfGTrsf2d.hxx".}
 proc newApproxHArray1OfGTrsf2d*(theOther: ApproxArray1OfGTrsf2d): ApproxHArray1OfGTrsf2d {.
-    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", header: "Approx_HArray1OfGTrsf2d.hxx".}
 proc array1*(this: ApproxHArray1OfGTrsf2d): ApproxArray1OfGTrsf2d {.noSideEffect,
-    cdecl, importcpp: "Array1", dynlib: tkgeombase.}
+    cdecl, importcpp: "Array1", header: "Approx_HArray1OfGTrsf2d.hxx".}

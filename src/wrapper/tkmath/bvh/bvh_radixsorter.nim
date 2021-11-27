@@ -32,16 +32,16 @@ type
 
 proc newBVH_RadixSorter*[T; N: static[cint]](theBox: BVH_Box[T, N]): BVH_RadixSorter[
     T, N] {.cdecl, constructor, importcpp: "BVH_RadixSorter<\'*0,\'*1>(@)",
-          dynlib: tkmath.}
+          header: "BVH_RadixSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_RadixSorter[T, N];
                                theSet: ptr BVH_Set[T, N]) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "BVH_RadixSorter.hxx".}
 proc perform*[T; N: static[cint]](this: var BVH_RadixSorter[T, N];
                                theSet: ptr BVH_Set[T, N]; theStart: cint;
                                theFinal: cint) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "BVH_RadixSorter.hxx".}
 proc encodedLinks*[T; N: static[cint]](this: BVH_RadixSorter[T, N]): NCollectionArray1[
-    BVH_EncodedLink] {.noSideEffect, cdecl, importcpp: "EncodedLinks", dynlib: tkmath.}
+    BVH_EncodedLink] {.noSideEffect, cdecl, importcpp: "EncodedLinks", header: "BVH_RadixSorter.hxx".}
 ##  Radix sort STL predicate for 32-bit integer.
 
 type
@@ -51,9 +51,9 @@ type
 
 
 proc newBitPredicate*(theDigit: cint): BitPredicate {.cdecl, constructor,
-    importcpp: "BVH::BitPredicate(@)", dynlib: tkmath.}
+    importcpp: "BVH::BitPredicate(@)", header: "BVH_RadixSorter.hxx".}
 proc `()`*(this: BitPredicate; theLink: BVH_EncodedLink): bool {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "BVH_RadixSorter.hxx".}
 ## ! STL compare tool used in binary search algorithm.
 
 type
@@ -63,9 +63,9 @@ type
 
 
 proc newBitComparator*(theDigit: cint): BitComparator {.cdecl, constructor,
-    importcpp: "BVH::BitComparator(@)", dynlib: tkmath.}
+    importcpp: "BVH::BitComparator(@)", header: "BVH_RadixSorter.hxx".}
 proc `()`*(this: var BitComparator; theLink1: BVH_EncodedLink; a3: BVH_EncodedLink): bool {.
-    cdecl, importcpp: "#(@)", dynlib: tkmath.}
+    cdecl, importcpp: "#(@)", header: "BVH_RadixSorter.hxx".}
   ## theLink2
 ## ! Tool object for sorting link array using radix sort algorithm.
 
@@ -89,7 +89,7 @@ type
 #
 #proc sort*(theStart: RadixSorterLinkIterator; theFinal: RadixSorterLinkIterator;
 #          theDigit: cint; isParallel: bool) {.cdecl,
-#    importcpp: "BVH::RadixSorter::Sort(@)", dynlib: tkmath.}
+#    importcpp: "BVH::RadixSorter::Sort(@)", header: "BVH_RadixSorter.hxx".}
 ##  =======================================================================
 ##  function : Perform
 ##  purpose  :

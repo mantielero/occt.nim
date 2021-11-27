@@ -21,10 +21,10 @@ type
 
 
 proc newMathFunctionSample*(a: cfloat; b: cfloat; n: cint): MathFunctionSample {.cdecl,
-    constructor, importcpp: "math_FunctionSample(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_FunctionSample(@)", header: "math_FunctionSample.hxx".}
 proc bounds*(this: MathFunctionSample; a: var cfloat; b: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Bounds", dynlib: tkmath.}
+    cdecl, importcpp: "Bounds", header: "math_FunctionSample.hxx".}
 proc nbPoints*(this: MathFunctionSample): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoints", dynlib: tkmath.}
+    importcpp: "NbPoints", header: "math_FunctionSample.hxx".}
 proc getParameter*(this: MathFunctionSample; index: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "GetParameter", dynlib: tkmath.}
+    cdecl, importcpp: "GetParameter", header: "math_FunctionSample.hxx".}

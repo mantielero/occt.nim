@@ -38,13 +38,13 @@ proc newBRepBlendSurfRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
                                     rst: Handle[Adaptor2dHCurve2d];
                                     domain2: Handle[Adaptor3dTopolTool]): BRepBlendSurfRstLineBuilder {.
     cdecl, constructor, importcpp: "BRepBlend_SurfRstLineBuilder(@)",
-    dynlib: tkfillet.}
+    header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc perform*(this: var BRepBlendSurfRstLineBuilder;
              `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
              finvP: var BlendSurfPointFuncInv; finvC: var BlendSurfCurvFuncInv;
              pdep: cfloat; pmax: cfloat; maxStep: cfloat; tolGuide: cfloat;
              soldep: MathVector; tolesp: cfloat; fleche: cfloat; appro: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tkfillet.}
+    cdecl, importcpp: "Perform", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc performFirstSection*(this: var BRepBlendSurfRstLineBuilder;
                          `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
                          finvP: var BlendSurfPointFuncInv;
@@ -52,20 +52,20 @@ proc performFirstSection*(this: var BRepBlendSurfRstLineBuilder;
                          soldep: MathVector; tolesp: cfloat; tolGuide: cfloat;
                          recRst: bool; recP: bool; recS: bool; psol: var cfloat;
                          parSol: var MathVector): bool {.cdecl,
-    importcpp: "PerformFirstSection", dynlib: tkfillet.}
+    importcpp: "PerformFirstSection", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc complete*(this: var BRepBlendSurfRstLineBuilder;
               `func`: var BlendSurfRstFunction; finv: var BlendFuncInv;
               finvP: var BlendSurfPointFuncInv; finvC: var BlendSurfCurvFuncInv;
-              pmin: cfloat): bool {.cdecl, importcpp: "Complete", dynlib: tkfillet.}
+              pmin: cfloat): bool {.cdecl, importcpp: "Complete", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc arcToRecadre*(this: var BRepBlendSurfRstLineBuilder; sol: MathVector;
                   prevIndex: cint; pt2d: var Pnt2d; lastpt2d: var Pnt2d;
                   ponarc: var cfloat): cint {.cdecl, importcpp: "ArcToRecadre",
-    dynlib: tkfillet.}
+    header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc isDone*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkfillet.}
+    importcpp: "IsDone", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc line*(this: BRepBlendSurfRstLineBuilder): Handle[BRepBlendLine] {.noSideEffect,
-    cdecl, importcpp: "Line", dynlib: tkfillet.}
+    cdecl, importcpp: "Line", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc decrochStart*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "DecrochStart", dynlib: tkfillet.}
+    importcpp: "DecrochStart", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc decrochEnd*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "DecrochEnd", dynlib: tkfillet.}
+    importcpp: "DecrochEnd", header: "BRepBlend_SurfRstLineBuilder.hxx".}

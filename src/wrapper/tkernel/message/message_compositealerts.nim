@@ -47,28 +47,28 @@ type
 
 
 proc newMessageCompositeAlerts*(): MessageCompositeAlerts {.cdecl, constructor,
-    importcpp: "Message_CompositeAlerts(@)", dynlib: tkernel.}
+    importcpp: "Message_CompositeAlerts(@)", header: "Message_CompositeAlerts.hxx".}
 proc alerts*(this: MessageCompositeAlerts; theGravity: MessageGravity): MessageListOfAlert {.
-    noSideEffect, cdecl, importcpp: "Alerts", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Alerts", header: "Message_CompositeAlerts.hxx".}
 proc addAlert*(this: var MessageCompositeAlerts; theGravity: MessageGravity;
               theAlert: Handle[MessageAlert]): bool {.cdecl, importcpp: "AddAlert",
-    dynlib: tkernel.}
+    header: "Message_CompositeAlerts.hxx".}
 proc removeAlert*(this: var MessageCompositeAlerts; theGravity: MessageGravity;
                  theAlert: Handle[MessageAlert]): bool {.cdecl,
-    importcpp: "RemoveAlert", dynlib: tkernel.}
+    importcpp: "RemoveAlert", header: "Message_CompositeAlerts.hxx".}
 proc hasAlert*(this: var MessageCompositeAlerts; theAlert: Handle[MessageAlert]): bool {.
-    cdecl, importcpp: "HasAlert", dynlib: tkernel.}
+    cdecl, importcpp: "HasAlert", header: "Message_CompositeAlerts.hxx".}
 proc hasAlert*(this: var MessageCompositeAlerts; theType: Handle[StandardType];
               theGravity: MessageGravity): bool {.cdecl, importcpp: "HasAlert",
-    dynlib: tkernel.}
+    header: "Message_CompositeAlerts.hxx".}
 proc clear*(this: var MessageCompositeAlerts) {.cdecl, importcpp: "Clear",
-    dynlib: tkernel.}
+    header: "Message_CompositeAlerts.hxx".}
 proc clear*(this: var MessageCompositeAlerts; theGravity: MessageGravity) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "Message_CompositeAlerts.hxx".}
 proc clear*(this: var MessageCompositeAlerts; theType: Handle[StandardType]) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "Message_CompositeAlerts.hxx".}
 proc dumpJson*(this: MessageCompositeAlerts; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_CompositeAlerts.hxx".}
 type
   HandleMessageCompositeAlerts* = Handle[MessageCompositeAlerts]

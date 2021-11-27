@@ -37,13 +37,13 @@ proc newApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve]; tol: cfloat;
                                    order: GeomAbsShape; maxDegree: cint;
                                    maxSegments: cint): ApproxCurvilinearParameter {.
     cdecl, constructor, importcpp: "Approx_CurvilinearParameter(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_CurvilinearParameter.hxx".}
 proc newApproxCurvilinearParameter*(c2d: Handle[Adaptor2dHCurve2d];
                                    surf: Handle[Adaptor3dHSurface]; tol: cfloat;
                                    order: GeomAbsShape; maxDegree: cint;
                                    maxSegments: cint): ApproxCurvilinearParameter {.
     cdecl, constructor, importcpp: "Approx_CurvilinearParameter(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_CurvilinearParameter.hxx".}
 proc newApproxCurvilinearParameter*(c2d1: Handle[Adaptor2dHCurve2d];
                                    surf1: Handle[Adaptor3dHSurface];
                                    c2d2: Handle[Adaptor2dHCurve2d];
@@ -51,22 +51,22 @@ proc newApproxCurvilinearParameter*(c2d1: Handle[Adaptor2dHCurve2d];
                                    order: GeomAbsShape; maxDegree: cint;
                                    maxSegments: cint): ApproxCurvilinearParameter {.
     cdecl, constructor, importcpp: "Approx_CurvilinearParameter(@)",
-    dynlib: tkgeombase.}
+    header: "Approx_CurvilinearParameter.hxx".}
 proc isDone*(this: ApproxCurvilinearParameter): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Approx_CurvilinearParameter.hxx".}
 proc hasResult*(this: ApproxCurvilinearParameter): bool {.noSideEffect, cdecl,
-    importcpp: "HasResult", dynlib: tkgeombase.}
+    importcpp: "HasResult", header: "Approx_CurvilinearParameter.hxx".}
 proc curve3d*(this: ApproxCurvilinearParameter): Handle[GeomBSplineCurve] {.
-    noSideEffect, cdecl, importcpp: "Curve3d", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curve3d", header: "Approx_CurvilinearParameter.hxx".}
 proc maxError3d*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError3d", dynlib: tkgeombase.}
+    importcpp: "MaxError3d", header: "Approx_CurvilinearParameter.hxx".}
 proc curve2d1*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
-    noSideEffect, cdecl, importcpp: "Curve2d1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curve2d1", header: "Approx_CurvilinearParameter.hxx".}
 proc maxError2d1*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2d1", dynlib: tkgeombase.}
+    importcpp: "MaxError2d1", header: "Approx_CurvilinearParameter.hxx".}
 proc curve2d2*(this: ApproxCurvilinearParameter): Handle[Geom2dBSplineCurve] {.
-    noSideEffect, cdecl, importcpp: "Curve2d2", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Curve2d2", header: "Approx_CurvilinearParameter.hxx".}
 proc maxError2d2*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2d2", dynlib: tkgeombase.}
+    importcpp: "MaxError2d2", header: "Approx_CurvilinearParameter.hxx".}
 proc dump*(this: ApproxCurvilinearParameter; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkgeombase.}
+    cdecl, importcpp: "Dump", header: "Approx_CurvilinearParameter.hxx".}

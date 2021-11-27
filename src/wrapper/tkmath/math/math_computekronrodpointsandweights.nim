@@ -20,10 +20,10 @@ type
 
 proc newMathComputeKronrodPointsAndWeights*(number: cint): MathComputeKronrodPointsAndWeights {.
     cdecl, constructor, importcpp: "math_ComputeKronrodPointsAndWeights(@)",
-    dynlib: tkmath.}
+    header: "math_ComputeKronrodPointsAndWeights.hxx".}
 proc isDone*(this: MathComputeKronrodPointsAndWeights): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_ComputeKronrodPointsAndWeights.hxx".}
 proc points*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffect,
-    cdecl, importcpp: "Points", dynlib: tkmath.}
+    cdecl, importcpp: "Points", header: "math_ComputeKronrodPointsAndWeights.hxx".}
 proc weights*(this: MathComputeKronrodPointsAndWeights): MathVector {.noSideEffect,
-    cdecl, importcpp: "Weights", dynlib: tkmath.}
+    cdecl, importcpp: "Weights", header: "math_ComputeKronrodPointsAndWeights.hxx".}

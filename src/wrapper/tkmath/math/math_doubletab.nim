@@ -19,24 +19,24 @@ type
 
 
 proc newMathDoubleTab*(lowerRow: cint; upperRow: cint; lowerCol: cint; upperCol: cint): MathDoubleTab {.
-    cdecl, constructor, importcpp: "math_DoubleTab(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
 proc newMathDoubleTab*(tab: pointer; lowerRow: cint; upperRow: cint; lowerCol: cint;
                       upperCol: cint): MathDoubleTab {.cdecl, constructor,
-    importcpp: "math_DoubleTab(@)", dynlib: tkmath.}
+    importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
 proc init*(this: var MathDoubleTab; initValue: cfloat) {.cdecl, importcpp: "Init",
-    dynlib: tkmath.}
+    header: "math_DoubleTab.hxx".}
 proc newMathDoubleTab*(other: MathDoubleTab): MathDoubleTab {.cdecl, constructor,
-    importcpp: "math_DoubleTab(@)", dynlib: tkmath.}
+    importcpp: "math_DoubleTab(@)", header: "math_DoubleTab.hxx".}
 proc copy*(this: MathDoubleTab; other: var MathDoubleTab) {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", header: "math_DoubleTab.hxx".}
 proc setLowerRow*(this: var MathDoubleTab; lowerRow: cint) {.cdecl,
-    importcpp: "SetLowerRow", dynlib: tkmath.}
+    importcpp: "SetLowerRow", header: "math_DoubleTab.hxx".}
 proc setLowerCol*(this: var MathDoubleTab; lowerCol: cint) {.cdecl,
-    importcpp: "SetLowerCol", dynlib: tkmath.}
+    importcpp: "SetLowerCol", header: "math_DoubleTab.hxx".}
 proc value*(this: MathDoubleTab; rowIndex: cint; colIndex: cint): var cfloat {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Value", header: "math_DoubleTab.hxx".}
 proc `()`*(this: MathDoubleTab; rowIndex: cint; colIndex: cint): var cfloat {.
-    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkmath.}
-proc free*(this: var MathDoubleTab) {.cdecl, importcpp: "Free", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "#(@)", header: "math_DoubleTab.hxx".}
+proc free*(this: var MathDoubleTab) {.cdecl, importcpp: "Free", header: "math_DoubleTab.hxx".}
 proc destroyMathDoubleTab*(this: var MathDoubleTab) {.cdecl,
-    importcpp: "#.~math_DoubleTab()", dynlib: tkmath.}
+    importcpp: "#.~math_DoubleTab()", header: "math_DoubleTab.hxx".}

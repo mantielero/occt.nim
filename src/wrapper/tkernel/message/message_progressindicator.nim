@@ -49,13 +49,13 @@ type
 
 
 proc start*(this: var MessageProgressIndicator): MessageProgressRange {.cdecl,
-    importcpp: "Start", dynlib: tkernel.}
+    importcpp: "Start", header: "Message_ProgressIndicator.hxx".}
 proc start*(theProgress: Handle[MessageProgressIndicator]): MessageProgressRange {.
-    cdecl, importcpp: "Message_ProgressIndicator::Start(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message_ProgressIndicator::Start(@)", header: "Message_ProgressIndicator.hxx".}
 proc getPosition*(this: MessageProgressIndicator): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetPosition", dynlib: tkernel.}
+    importcpp: "GetPosition", header: "Message_ProgressIndicator.hxx".}
 proc destroyMessageProgressIndicator*(this: var MessageProgressIndicator) {.cdecl,
-    importcpp: "#.~Message_ProgressIndicator()", dynlib: tkernel.}
+    importcpp: "#.~Message_ProgressIndicator()", header: "Message_ProgressIndicator.hxx".}
 ## =======================================================================
 ## function : Increment
 ## purpose  :
@@ -63,4 +63,4 @@ proc destroyMessageProgressIndicator*(this: var MessageProgressIndicator) {.cdec
 
 proc increment*(this: var MessageProgressIndicator; theStep: cfloat;
                theScope: MessageProgressScope) {.cdecl, importcpp: "Increment",
-    dynlib: tkernel.}
+    header: "Message_ProgressIndicator.hxx".}

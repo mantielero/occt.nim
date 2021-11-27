@@ -43,24 +43,24 @@ type
 
 proc newTopOpeBRepBuildWireEdgeClassifier*(f: TopoDS_Shape;
     bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildWireEdgeClassifier {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_WireEdgeClassifier(@)", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc compare*(this: var TopOpeBRepBuildWireEdgeClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkbool.}
+    cdecl, importcpp: "Compare", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc loopToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
                  L: Handle[TopOpeBRepBuildLoop]): TopoDS_Shape {.cdecl,
-    importcpp: "LoopToShape", dynlib: tkbool.}
+    importcpp: "LoopToShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc compareShapes*(this: var TopOpeBRepBuildWireEdgeClassifier; b1: TopoDS_Shape;
                    b2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareShapes", dynlib: tkbool.}
+    importcpp: "CompareShapes", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc compareElementToShape*(this: var TopOpeBRepBuildWireEdgeClassifier;
                            e: TopoDS_Shape; b: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareElementToShape", dynlib: tkbool.}
+    importcpp: "CompareElementToShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc resetShape*(this: var TopOpeBRepBuildWireEdgeClassifier; b: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetShape", dynlib: tkbool.}
+    cdecl, importcpp: "ResetShape", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc resetElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetElement", dynlib: tkbool.}
+    cdecl, importcpp: "ResetElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shape): bool {.
-    cdecl, importcpp: "CompareElement", dynlib: tkbool.}
+    cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}

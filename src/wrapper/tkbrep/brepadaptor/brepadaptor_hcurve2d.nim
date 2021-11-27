@@ -32,15 +32,15 @@ type
 
 
 proc newBRepAdaptorHCurve2d*(): BRepAdaptorHCurve2d {.cdecl, constructor,
-    importcpp: "BRepAdaptor_HCurve2d(@)", dynlib: tkbrep.}
+    importcpp: "BRepAdaptor_HCurve2d(@)", header: "BRepAdaptor_HCurve2d.hxx".}
 proc newBRepAdaptorHCurve2d*(c: BRepAdaptorCurve2d): BRepAdaptorHCurve2d {.cdecl,
-    constructor, importcpp: "BRepAdaptor_HCurve2d(@)", dynlib: tkbrep.}
+    constructor, importcpp: "BRepAdaptor_HCurve2d(@)", header: "BRepAdaptor_HCurve2d.hxx".}
 proc set*(this: var BRepAdaptorHCurve2d; c: BRepAdaptorCurve2d) {.cdecl,
-    importcpp: "Set", dynlib: tkbrep.}
+    importcpp: "Set", header: "BRepAdaptor_HCurve2d.hxx".}
 proc curve2d*(this: BRepAdaptorHCurve2d): Adaptor2dCurve2d {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkbrep.}
+    importcpp: "Curve2d", header: "BRepAdaptor_HCurve2d.hxx".}
 proc changeCurve2d*(this: var BRepAdaptorHCurve2d): var BRepAdaptorCurve2d {.cdecl,
-    importcpp: "ChangeCurve2d", dynlib: tkbrep.}
+    importcpp: "ChangeCurve2d", header: "BRepAdaptor_HCurve2d.hxx".}
 type
   BRepAdaptorHCurve2dbaseType* = Adaptor2dHCurve2d
 

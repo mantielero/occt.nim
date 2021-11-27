@@ -59,35 +59,35 @@ type
 
 proc newBVH_DistanceField*[T; N: static[cint]](theMaximumSize: cint;
     theComputeSign: bool): BVH_DistanceField[T, N] {.cdecl, constructor,
-    importcpp: "BVH_DistanceField<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_DistanceField<\'*0,\'*1>(@)", header: "BVH_DistanceField.hxx".}
 proc destroyBVH_DistanceField*[T; N: static[cint]](
     this: var BVH_DistanceField[T, N]) {.cdecl, importcpp: "#.~BVH_DistanceField()",
-                                     dynlib: tkmath.}
+                                     header: "BVH_DistanceField.hxx".}
 proc build*[T; N: static[cint]](this: var BVH_DistanceField[T, N];
                              theGeometry: var BVH_Geometry[T, N]): bool {.cdecl,
-    importcpp: "Build", dynlib: tkmath.}
+    importcpp: "Build", header: "BVH_DistanceField.hxx".}
 proc isParallel*[T; N: static[cint]](this: BVH_DistanceField[T, N]): bool {.
-    noSideEffect, cdecl, importcpp: "IsParallel", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsParallel", header: "BVH_DistanceField.hxx".}
 proc setParallel*[T; N: static[cint]](this: var BVH_DistanceField[T, N];
                                    isParallel: bool) {.cdecl,
-    importcpp: "SetParallel", dynlib: tkmath.}
+    importcpp: "SetParallel", header: "BVH_DistanceField.hxx".}
 proc packedData*[T; N: static[cint]](this: BVH_DistanceField[T, N]): ptr T {.
-    noSideEffect, cdecl, importcpp: "PackedData", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "PackedData", header: "BVH_DistanceField.hxx".}
 proc voxel*[T; N: static[cint]](this: var BVH_DistanceField[T, N]; theX: cint;
                              theY: cint; theZ: cint): var T {.cdecl,
-    importcpp: "Voxel", dynlib: tkmath.}
+    importcpp: "Voxel", header: "BVH_DistanceField.hxx".}
 proc voxel*[T; N: static[cint]](this: BVH_DistanceField[T, N]; theX: cint; theY: cint;
                              theZ: cint): T {.noSideEffect, cdecl,
-    importcpp: "Voxel", dynlib: tkmath.}
+    importcpp: "Voxel", header: "BVH_DistanceField.hxx".}
 proc dimensionX*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
-    noSideEffect, cdecl, importcpp: "DimensionX", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DimensionX", header: "BVH_DistanceField.hxx".}
 proc dimensionY*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
-    noSideEffect, cdecl, importcpp: "DimensionY", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DimensionY", header: "BVH_DistanceField.hxx".}
 proc dimensionZ*[T; N: static[cint]](this: BVH_DistanceField[T, N]): cint {.
-    noSideEffect, cdecl, importcpp: "DimensionZ", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DimensionZ", header: "BVH_DistanceField.hxx".}
 proc voxelSize*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_DistanceFieldBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "VoxelSize", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "VoxelSize", header: "BVH_DistanceField.hxx".}
 proc cornerMin*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_DistanceFieldBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "CornerMin", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "CornerMin", header: "BVH_DistanceField.hxx".}
 proc cornerMax*[T; N: static[cint]](this: BVH_DistanceField[T, N]): BVH_DistanceFieldBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "CornerMax", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "CornerMax", header: "BVH_DistanceField.hxx".}

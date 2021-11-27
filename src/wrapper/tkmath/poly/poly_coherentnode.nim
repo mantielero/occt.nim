@@ -25,36 +25,36 @@ type
 
 
 proc newPolyCoherentNode*(): PolyCoherentNode {.cdecl, constructor,
-    importcpp: "Poly_CoherentNode(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
 proc newPolyCoherentNode*(thePnt: Xyz): PolyCoherentNode {.cdecl, constructor,
-    importcpp: "Poly_CoherentNode(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
 proc setUV*(this: var PolyCoherentNode; theU: cfloat; theV: cfloat) {.cdecl,
-    importcpp: "SetUV", dynlib: tkmath.}
+    importcpp: "SetUV", header: "Poly_CoherentNode.hxx".}
 proc getU*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "GetU",
-    dynlib: tkmath.}
+    header: "Poly_CoherentNode.hxx".}
 proc getV*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "GetV",
-    dynlib: tkmath.}
+    header: "Poly_CoherentNode.hxx".}
 proc setNormal*(this: var PolyCoherentNode; theVector: Xyz) {.cdecl,
-    importcpp: "SetNormal", dynlib: tkmath.}
+    importcpp: "SetNormal", header: "Poly_CoherentNode.hxx".}
 proc hasNormal*(this: PolyCoherentNode): bool {.noSideEffect, cdecl,
-    importcpp: "HasNormal", dynlib: tkmath.}
+    importcpp: "HasNormal", header: "Poly_CoherentNode.hxx".}
 proc getNormal*(this: PolyCoherentNode): Xyz {.noSideEffect, cdecl,
-    importcpp: "GetNormal", dynlib: tkmath.}
+    importcpp: "GetNormal", header: "Poly_CoherentNode.hxx".}
 proc setIndex*(this: var PolyCoherentNode; theIndex: cint) {.cdecl,
-    importcpp: "SetIndex", dynlib: tkmath.}
+    importcpp: "SetIndex", header: "Poly_CoherentNode.hxx".}
 proc getIndex*(this: PolyCoherentNode): cint {.noSideEffect, cdecl,
-    importcpp: "GetIndex", dynlib: tkmath.}
+    importcpp: "GetIndex", header: "Poly_CoherentNode.hxx".}
 proc isFreeNode*(this: PolyCoherentNode): bool {.noSideEffect, cdecl,
-    importcpp: "IsFreeNode", dynlib: tkmath.}
+    importcpp: "IsFreeNode", header: "Poly_CoherentNode.hxx".}
 proc clear*(this: var PolyCoherentNode; a2: Handle[NCollectionBaseAllocator]) {.cdecl,
-    importcpp: "Clear", dynlib: tkmath.}
+    importcpp: "Clear", header: "Poly_CoherentNode.hxx".}
 proc addTriangle*(this: var PolyCoherentNode; theTri: PolyCoherentTriangle;
                  theA: Handle[NCollectionBaseAllocator]) {.cdecl,
-    importcpp: "AddTriangle", dynlib: tkmath.}
+    importcpp: "AddTriangle", header: "Poly_CoherentNode.hxx".}
 proc removeTriangle*(this: var PolyCoherentNode; theTri: PolyCoherentTriangle;
                     theA: Handle[NCollectionBaseAllocator]): bool {.cdecl,
-    importcpp: "RemoveTriangle", dynlib: tkmath.}
+    importcpp: "RemoveTriangle", header: "Poly_CoherentNode.hxx".}
 proc triangleIterator*(this: PolyCoherentNode): PolyCoherentTriPtrIterator {.noSideEffect, cdecl,
-    importcpp: "TriangleIterator", dynlib: tkmath.}
+    importcpp: "TriangleIterator", header: "Poly_CoherentNode.hxx".}
 proc dump*(this: PolyCoherentNode; theStream: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "Poly_CoherentNode.hxx".}

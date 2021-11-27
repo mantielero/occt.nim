@@ -70,17 +70,17 @@ type
 
 
 proc newPolyMakeLoopsLink*(): PolyMakeLoopsLink {.cdecl, constructor,
-    importcpp: "Poly_MakeLoops::Link(@)", dynlib: tkmath.}
+    importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoopsLink*(theNode1: cint; theNode2: cint): PolyMakeLoopsLink {.cdecl,
-    constructor, importcpp: "Poly_MakeLoops::Link(@)", dynlib: tkmath.}
+    constructor, importcpp: "Poly_MakeLoops::Link(@)", header: "Poly_MakeLoops.hxx".}
 proc reverse*(this: var PolyMakeLoopsLink) {.cdecl, importcpp: "Reverse",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc isReversed*(this: PolyMakeLoopsLink): bool {.noSideEffect, cdecl,
-    importcpp: "IsReversed", dynlib: tkmath.}
+    importcpp: "IsReversed", header: "Poly_MakeLoops.hxx".}
 proc nullify*(this: var PolyMakeLoopsLink) {.cdecl, importcpp: "Nullify",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc isNull*(this: PolyMakeLoopsLink): bool {.noSideEffect, cdecl,
-    importcpp: "IsNull", dynlib: tkmath.}
+    importcpp: "IsNull", header: "Poly_MakeLoops.hxx".}
 type
   PolyMakeLoopsListOfLink* = NCollectionList[PolyMakeLoopsLink]
   PolyMakeLoopsLoop* = PolyMakeLoopsListOfLink
@@ -89,9 +89,9 @@ type
 
 
 proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: cint): PolyMakeLoopsListOfLink {.
-    noSideEffect, cdecl, importcpp: "GetAdjacentLinks", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetAdjacentLinks", header: "Poly_MakeLoops.hxx".}
 proc onAddLink*(this: PolyMakeLoopsHelper; a2: cint; a3: PolyMakeLoopsLink) {.
-    noSideEffect, cdecl, importcpp: "OnAddLink", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "OnAddLink", header: "Poly_MakeLoops.hxx".}
   ## theLink
 type
   PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
@@ -100,35 +100,35 @@ type
 
 proc newPolyMakeLoopsHeapOfInteger*(theNbPreAllocated: cint = 1): PolyMakeLoopsHeapOfInteger {.
     cdecl, constructor, importcpp: "Poly_MakeLoops::HeapOfInteger(@)",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc clear*(this: var PolyMakeLoopsHeapOfInteger) {.cdecl, importcpp: "Clear",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc add*(this: var PolyMakeLoopsHeapOfInteger; theValue: cint) {.cdecl,
-    importcpp: "Add", dynlib: tkmath.}
+    importcpp: "Add", header: "Poly_MakeLoops.hxx".}
 proc top*(this: var PolyMakeLoopsHeapOfInteger): cint {.cdecl, importcpp: "Top",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc contains*(this: PolyMakeLoopsHeapOfInteger; theValue: cint): bool {.noSideEffect,
-    cdecl, importcpp: "Contains", dynlib: tkmath.}
+    cdecl, importcpp: "Contains", header: "Poly_MakeLoops.hxx".}
 proc remove*(this: var PolyMakeLoopsHeapOfInteger; theValue: cint) {.cdecl,
-    importcpp: "Remove", dynlib: tkmath.}
+    importcpp: "Remove", header: "Poly_MakeLoops.hxx".}
 proc isEmpty*(this: var PolyMakeLoopsHeapOfInteger): bool {.cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
+    importcpp: "IsEmpty", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops*(theHelper: ptr PolyMakeLoopsHelper;
                       theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): PolyMakeLoops {.
-    cdecl, constructor, importcpp: "Poly_MakeLoops(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_MakeLoops(@)", header: "Poly_MakeLoops.hxx".}
 proc reset*(this: var PolyMakeLoops; theHelper: ptr PolyMakeLoopsHelper;
            theAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.cdecl,
-    importcpp: "Reset", dynlib: tkmath.}
+    importcpp: "Reset", header: "Poly_MakeLoops.hxx".}
 proc addLink*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink) {.cdecl,
-    importcpp: "AddLink", dynlib: tkmath.}
+    importcpp: "AddLink", header: "Poly_MakeLoops.hxx".}
 proc replaceLink*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink;
                  theNewLink: PolyMakeLoopsLink) {.cdecl, importcpp: "ReplaceLink",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc setLinkOrientation*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink;
                         theOrient: PolyMakeLoopsLinkFlag): PolyMakeLoopsLinkFlag {.
-    cdecl, importcpp: "SetLinkOrientation", dynlib: tkmath.}
+    cdecl, importcpp: "SetLinkOrientation", header: "Poly_MakeLoops.hxx".}
 proc findLink*(this: PolyMakeLoops; theLink: PolyMakeLoopsLink): PolyMakeLoopsLink {.
-    noSideEffect, cdecl, importcpp: "FindLink", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "FindLink", header: "Poly_MakeLoops.hxx".}
 type
   PolyMakeLoopsResultCode* {.size: sizeof(cint),
                             importcpp: "Poly_MakeLoops::ResultCode",
@@ -137,15 +137,15 @@ type
 
 
 proc perform*(this: var PolyMakeLoops): cint {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "Poly_MakeLoops.hxx".}
 proc getNbLoops*(this: PolyMakeLoops): cint {.noSideEffect, cdecl,
-    importcpp: "GetNbLoops", dynlib: tkmath.}
+    importcpp: "GetNbLoops", header: "Poly_MakeLoops.hxx".}
 proc getLoop*(this: PolyMakeLoops; theIndex: cint): PolyMakeLoopsLoop {.noSideEffect,
-    cdecl, importcpp: "GetLoop", dynlib: tkmath.}
+    cdecl, importcpp: "GetLoop", header: "Poly_MakeLoops.hxx".}
 proc getNbHanging*(this: PolyMakeLoops): cint {.noSideEffect, cdecl,
-    importcpp: "GetNbHanging", dynlib: tkmath.}
+    importcpp: "GetNbHanging", header: "Poly_MakeLoops.hxx".}
 proc getHangingLinks*(this: PolyMakeLoops; theLinks: var PolyMakeLoopsListOfLink) {.
-    noSideEffect, cdecl, importcpp: "GetHangingLinks", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetHangingLinks", header: "Poly_MakeLoops.hxx".}
 ## ! Computes a hash code for the given link, in the range [1, theUpperBound]
 ## ! @param theLink the link which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
@@ -177,14 +177,14 @@ type
 
 
 proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Dir): bool {.
-    noSideEffect, cdecl, importcpp: "GetFirstTangent", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
 proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Dir): bool {.
-    noSideEffect, cdecl, importcpp: "GetLastTangent", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
 proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var Dir): bool {.
-    noSideEffect, cdecl, importcpp: "GetNormal", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetNormal", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops3D {.
-    cdecl, constructor, importcpp: "Poly_MakeLoops3D(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_MakeLoops3D(@)", header: "Poly_MakeLoops.hxx".}
 ## *
 ##  Implementation for 2D space
 ##
@@ -202,9 +202,9 @@ type
 
 
 proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2d): bool {.
-    noSideEffect, cdecl, importcpp: "GetFirstTangent", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
 proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2d): bool {.
-    noSideEffect, cdecl, importcpp: "GetLastTangent", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops2D*(theLeftWay: bool; theHelper: ptr PolyMakeLoops2DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops2D {.
-    cdecl, constructor, importcpp: "Poly_MakeLoops2D(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_MakeLoops2D(@)", header: "Poly_MakeLoops.hxx".}

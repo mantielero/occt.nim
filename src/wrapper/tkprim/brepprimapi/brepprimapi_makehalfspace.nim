@@ -36,11 +36,11 @@ type
 
 
 proc newBRepPrimAPI_MakeHalfSpace*(face: TopoDS_Face; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 proc newBRepPrimAPI_MakeHalfSpace*(shell: TopoDS_Shell; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect, cdecl,
-    importcpp: "Solid", dynlib: tkprim.}
+    importcpp: "Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 converter `topoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
     noSideEffect, cdecl,
-    importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid", dynlib: tkprim.}
+    importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}

@@ -34,36 +34,36 @@ type
 
 
 proc newGeomFillCorrectedFrenet*(): GeomFillCorrectedFrenet {.cdecl, constructor,
-    importcpp: "GeomFill_CorrectedFrenet(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_CorrectedFrenet(@)", header: "GeomFill_CorrectedFrenet.hxx".}
 proc newGeomFillCorrectedFrenet*(forEvaluation: bool): GeomFillCorrectedFrenet {.
-    cdecl, constructor, importcpp: "GeomFill_CorrectedFrenet(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_CorrectedFrenet(@)", header: "GeomFill_CorrectedFrenet.hxx".}
 proc copy*(this: GeomFillCorrectedFrenet): Handle[GeomFillTrihedronLaw] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_CorrectedFrenet.hxx".}
 proc setCurve*(this: var GeomFillCorrectedFrenet; c: Handle[Adaptor3dHCurve]) {.cdecl,
-    importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    importcpp: "SetCurve", header: "GeomFill_CorrectedFrenet.hxx".}
 proc setInterval*(this: var GeomFillCorrectedFrenet; first: cfloat; last: cfloat) {.
-    cdecl, importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetInterval", header: "GeomFill_CorrectedFrenet.hxx".}
 proc d0*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
         normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_CorrectedFrenet.hxx".}
 proc d1*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_CorrectedFrenet.hxx".}
 proc d2*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
         d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_CorrectedFrenet.hxx".}
 proc nbIntervals*(this: GeomFillCorrectedFrenet; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_CorrectedFrenet.hxx".}
 proc intervals*(this: GeomFillCorrectedFrenet; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_CorrectedFrenet.hxx".}
 proc evaluateBestMode*(this: var GeomFillCorrectedFrenet): GeomFillTrihedron {.cdecl,
-    importcpp: "EvaluateBestMode", dynlib: tkgeomalgo.}
+    importcpp: "EvaluateBestMode", header: "GeomFill_CorrectedFrenet.hxx".}
 proc getAverageLaw*(this: var GeomFillCorrectedFrenet; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_CorrectedFrenet.hxx".}
 proc isConstant*(this: GeomFillCorrectedFrenet): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_CorrectedFrenet.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillCorrectedFrenet): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnlyBy3dCurve", dynlib: tkgeomalgo.}
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_CorrectedFrenet.hxx".}

@@ -26,14 +26,14 @@ type
 proc newBlendFuncChamfInv*(s1: Handle[Adaptor3dHSurface];
                           s2: Handle[Adaptor3dHSurface];
                           c: Handle[Adaptor3dHCurve]): BlendFuncChamfInv {.cdecl,
-    constructor, importcpp: "BlendFunc_ChamfInv(@)", dynlib: tkfillet.}
+    constructor, importcpp: "BlendFunc_ChamfInv(@)", header: "BlendFunc_ChamfInv.hxx".}
 proc isSolution*(this: var BlendFuncChamfInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_ChamfInv.hxx".}
 proc value*(this: var BlendFuncChamfInv; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_ChamfInv.hxx".}
 proc derivatives*(this: var BlendFuncChamfInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_ChamfInv.hxx".}
 ## using statement
 
 proc set*(this: var BlendFuncChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BlendFunc_ChamfInv.hxx".}

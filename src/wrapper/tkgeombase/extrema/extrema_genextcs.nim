@@ -27,32 +27,32 @@ type
 
 
 proc newExtremaGenExtCS*(): ExtremaGenExtCS {.cdecl, constructor,
-    importcpp: "Extrema_GenExtCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
 proc newExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: cint; nbU: cint;
                         nbV: cint; tol1: cfloat; tol2: cfloat): ExtremaGenExtCS {.
-    cdecl, constructor, importcpp: "Extrema_GenExtCS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
 proc newExtremaGenExtCS*(c: Adaptor3dCurve; s: Adaptor3dSurface; nbT: cint; nbU: cint;
                         nbV: cint; tmin: cfloat; tsup: cfloat; umin: cfloat;
                         usup: cfloat; vmin: cfloat; vsup: cfloat; tol1: cfloat;
                         tol2: cfloat): ExtremaGenExtCS {.cdecl, constructor,
-    importcpp: "Extrema_GenExtCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_GenExtCS(@)", header: "Extrema_GenExtCS.hxx".}
 proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
-                tol2: cfloat) {.cdecl, importcpp: "Initialize", dynlib: tkgeombase.}
+                tol2: cfloat) {.cdecl, importcpp: "Initialize", header: "Extrema_GenExtCS.hxx".}
 proc initialize*(this: var ExtremaGenExtCS; s: Adaptor3dSurface; nbU: cint; nbV: cint;
                 umin: cfloat; usup: cfloat; vmin: cfloat; vsup: cfloat; tol2: cfloat) {.
-    cdecl, importcpp: "Initialize", dynlib: tkgeombase.}
+    cdecl, importcpp: "Initialize", header: "Extrema_GenExtCS.hxx".}
 proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: cint; tol1: cfloat) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeombase.}
+    cdecl, importcpp: "Perform", header: "Extrema_GenExtCS.hxx".}
 proc perform*(this: var ExtremaGenExtCS; c: Adaptor3dCurve; nbT: cint; tmin: cfloat;
              tsup: cfloat; tol1: cfloat) {.cdecl, importcpp: "Perform",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_GenExtCS.hxx".}
 proc isDone*(this: ExtremaGenExtCS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_GenExtCS.hxx".}
 proc nbExt*(this: ExtremaGenExtCS): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_GenExtCS.hxx".}
 proc squareDistance*(this: ExtremaGenExtCS; n: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_GenExtCS.hxx".}
 proc pointOnCurve*(this: ExtremaGenExtCS; n: cint): ExtremaPOnCurv {.noSideEffect,
-    cdecl, importcpp: "PointOnCurve", dynlib: tkgeombase.}
+    cdecl, importcpp: "PointOnCurve", header: "Extrema_GenExtCS.hxx".}
 proc pointOnSurface*(this: ExtremaGenExtCS; n: cint): ExtremaPOnSurf {.noSideEffect,
-    cdecl, importcpp: "PointOnSurface", dynlib: tkgeombase.}
+    cdecl, importcpp: "PointOnSurface", header: "Extrema_GenExtCS.hxx".}

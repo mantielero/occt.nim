@@ -23,38 +23,38 @@ type
 
 
 proc newTopOpeBRepToolREGUS*(): TopOpeBRepToolREGUS {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_REGUS(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_REGUS(@)", header: "TopOpeBRepTool_REGUS.hxx".}
 proc init*(this: var TopOpeBRepToolREGUS; s: TopoDS_Shape) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUS.hxx".}
 proc s*(this: TopOpeBRepToolREGUS): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "S", dynlib: tkbool.}
+    importcpp: "S", header: "TopOpeBRepTool_REGUS.hxx".}
 proc mapS*(this: var TopOpeBRepToolREGUS): bool {.cdecl, importcpp: "MapS",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUS.hxx".}
 proc wireToFace*(fanc: TopoDS_Face; nWs: TopToolsListOfShape;
                 nFs: var TopToolsListOfShape): bool {.cdecl,
-    importcpp: "TopOpeBRepTool_REGUS::WireToFace(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_REGUS::WireToFace(@)", header: "TopOpeBRepTool_REGUS.hxx".}
 proc splitF*(fanc: TopoDS_Face; fSplits: var TopToolsListOfShape): bool {.cdecl,
-    importcpp: "TopOpeBRepTool_REGUS::SplitF(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_REGUS::SplitF(@)", header: "TopOpeBRepTool_REGUS.hxx".}
 proc splitFaces*(this: var TopOpeBRepToolREGUS): bool {.cdecl,
-    importcpp: "SplitFaces", dynlib: tkbool.}
+    importcpp: "SplitFaces", header: "TopOpeBRepTool_REGUS.hxx".}
 proc regu*(this: var TopOpeBRepToolREGUS): bool {.cdecl, importcpp: "REGU",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUS.hxx".}
 proc setFsplits*(this: var TopOpeBRepToolREGUS;
                 fsplits: var TopToolsDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "SetFsplits", dynlib: tkbool.}
+    importcpp: "SetFsplits", header: "TopOpeBRepTool_REGUS.hxx".}
 proc getFsplits*(this: TopOpeBRepToolREGUS;
                 fsplits: var TopToolsDataMapOfShapeListOfShape) {.noSideEffect,
-    cdecl, importcpp: "GetFsplits", dynlib: tkbool.}
+    cdecl, importcpp: "GetFsplits", header: "TopOpeBRepTool_REGUS.hxx".}
 proc setOshNsh*(this: var TopOpeBRepToolREGUS;
                oshNsh: var TopToolsDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "SetOshNsh", dynlib: tkbool.}
+    importcpp: "SetOshNsh", header: "TopOpeBRepTool_REGUS.hxx".}
 proc getOshNsh*(this: TopOpeBRepToolREGUS;
                oshNsh: var TopToolsDataMapOfShapeListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GetOshNsh", dynlib: tkbool.}
+    importcpp: "GetOshNsh", header: "TopOpeBRepTool_REGUS.hxx".}
 proc initBlock*(this: var TopOpeBRepToolREGUS): bool {.cdecl, importcpp: "InitBlock",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUS.hxx".}
 proc nextinBlock*(this: var TopOpeBRepToolREGUS): bool {.cdecl,
-    importcpp: "NextinBlock", dynlib: tkbool.}
+    importcpp: "NextinBlock", header: "TopOpeBRepTool_REGUS.hxx".}
 proc nearestF*(this: TopOpeBRepToolREGUS; e: TopoDS_Edge; lof: TopToolsListOfShape;
               ffound: var TopoDS_Face): bool {.noSideEffect, cdecl,
-    importcpp: "NearestF", dynlib: tkbool.}
+    importcpp: "NearestF", header: "TopOpeBRepTool_REGUS.hxx".}

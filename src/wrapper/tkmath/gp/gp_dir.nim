@@ -24,77 +24,77 @@ type
   Dir* {.importcpp: "gp_Dir", header: "gp_Dir.hxx", bycopy.} = object ## ! Creates a direction corresponding to X axis.
 
 
-proc newDir*(): Dir {.cdecl, constructor, importcpp: "gp_Dir(@)", dynlib: tkmath.}
-proc newDir*(v: Vec): Dir {.cdecl, constructor, importcpp: "gp_Dir(@)", dynlib: tkmath.}
+proc newDir*(): Dir {.cdecl, constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
+proc newDir*(v: Vec): Dir {.cdecl, constructor, importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
 proc newDir*(coord: Xyz): Dir {.cdecl, constructor, importcpp: "gp_Dir(@)",
-                            dynlib: tkmath.}
+                            header: "gp_Dir.hxx".}
 proc newDir*(xv: cfloat; yv: cfloat; zv: cfloat): Dir {.cdecl, constructor,
-    importcpp: "gp_Dir(@)", dynlib: tkmath.}
+    importcpp: "gp_Dir(@)", header: "gp_Dir.hxx".}
 proc setCoord*(this: var Dir; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
-    dynlib: tkmath.}
+    header: "gp_Dir.hxx".}
 proc setCoord*(this: var Dir; xv: cfloat; yv: cfloat; zv: cfloat) {.cdecl,
-    importcpp: "SetCoord", dynlib: tkmath.}
-proc setX*(this: var Dir; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
-proc setY*(this: var Dir; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
-proc setZ*(this: var Dir; z: cfloat) {.cdecl, importcpp: "SetZ", dynlib: tkmath.}
-proc setXYZ*(this: var Dir; coord: Xyz) {.cdecl, importcpp: "SetXYZ", dynlib: tkmath.}
+    importcpp: "SetCoord", header: "gp_Dir.hxx".}
+proc setX*(this: var Dir; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_Dir.hxx".}
+proc setY*(this: var Dir; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_Dir.hxx".}
+proc setZ*(this: var Dir; z: cfloat) {.cdecl, importcpp: "SetZ", header: "gp_Dir.hxx".}
+proc setXYZ*(this: var Dir; coord: Xyz) {.cdecl, importcpp: "SetXYZ", header: "gp_Dir.hxx".}
 proc coord*(this: Dir; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
-                                        dynlib: tkmath.}
+                                        header: "gp_Dir.hxx".}
 proc coord*(this: Dir; xv: var cfloat; yv: var cfloat; zv: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkmath.}
-proc x*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
-proc y*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
-proc z*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Z", dynlib: tkmath.}
-proc xyz*(this: Dir): Xyz {.noSideEffect, cdecl, importcpp: "XYZ", dynlib: tkmath.}
+    importcpp: "Coord", header: "gp_Dir.hxx".}
+proc x*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Dir.hxx".}
+proc y*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Dir.hxx".}
+proc z*(this: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "gp_Dir.hxx".}
+proc xyz*(this: Dir): Xyz {.noSideEffect, cdecl, importcpp: "XYZ", header: "gp_Dir.hxx".}
 proc isEqual*(this: Dir; other: Dir; angularTolerance: cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsEqual", dynlib: tkmath.}
+    cdecl, importcpp: "IsEqual", header: "gp_Dir.hxx".}
 proc isNormal*(this: Dir; other: Dir; angularTolerance: cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsNormal", dynlib: tkmath.}
+    cdecl, importcpp: "IsNormal", header: "gp_Dir.hxx".}
 proc isOpposite*(this: Dir; other: Dir; angularTolerance: cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsOpposite", dynlib: tkmath.}
+    cdecl, importcpp: "IsOpposite", header: "gp_Dir.hxx".}
 proc isParallel*(this: Dir; other: Dir; angularTolerance: cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsParallel", dynlib: tkmath.}
+    cdecl, importcpp: "IsParallel", header: "gp_Dir.hxx".}
 proc angle*(this: Dir; other: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
-                                       dynlib: tkmath.}
+                                       header: "gp_Dir.hxx".}
 proc angleWithRef*(this: Dir; other: Dir; vRef: Dir): cfloat {.noSideEffect, cdecl,
-    importcpp: "AngleWithRef", dynlib: tkmath.}
-proc cross*(this: var Dir; right: Dir) {.cdecl, importcpp: "Cross", dynlib: tkmath.}
-proc `^=`*(this: var Dir; right: Dir) {.cdecl, importcpp: "(# ^= #)", dynlib: tkmath.}
+    importcpp: "AngleWithRef", header: "gp_Dir.hxx".}
+proc cross*(this: var Dir; right: Dir) {.cdecl, importcpp: "Cross", header: "gp_Dir.hxx".}
+proc `^=`*(this: var Dir; right: Dir) {.cdecl, importcpp: "(# ^= #)", header: "gp_Dir.hxx".}
 proc crossed*(this: Dir; right: Dir): Dir {.noSideEffect, cdecl, importcpp: "Crossed",
-                                      dynlib: tkmath.}
+                                      header: "gp_Dir.hxx".}
 proc `^`*(this: Dir; right: Dir): Dir {.noSideEffect, cdecl, importcpp: "(# ^ #)",
-                                  dynlib: tkmath.}
+                                  header: "gp_Dir.hxx".}
 proc crossCross*(this: var Dir; v1: Dir; v2: Dir) {.cdecl, importcpp: "CrossCross",
-    dynlib: tkmath.}
+    header: "gp_Dir.hxx".}
 proc crossCrossed*(this: Dir; v1: Dir; v2: Dir): Dir {.noSideEffect, cdecl,
-    importcpp: "CrossCrossed", dynlib: tkmath.}
+    importcpp: "CrossCrossed", header: "gp_Dir.hxx".}
 proc dot*(this: Dir; other: Dir): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
-                                     dynlib: tkmath.}
+                                     header: "gp_Dir.hxx".}
 proc `*`*(this: Dir; other: Dir): cfloat {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                     dynlib: tkmath.}
+                                     header: "gp_Dir.hxx".}
 proc dotCross*(this: Dir; v1: Dir; v2: Dir): cfloat {.noSideEffect, cdecl,
-    importcpp: "DotCross", dynlib: tkmath.}
-proc reverse*(this: var Dir) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+    importcpp: "DotCross", header: "gp_Dir.hxx".}
+proc reverse*(this: var Dir) {.cdecl, importcpp: "Reverse", header: "gp_Dir.hxx".}
 proc reversed*(this: Dir): Dir {.noSideEffect, cdecl, importcpp: "Reversed",
-                             dynlib: tkmath.}
-proc `-`*(this: Dir): Dir {.noSideEffect, cdecl, importcpp: "(- #)", dynlib: tkmath.}
-proc mirror*(this: var Dir; v: Dir) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                             header: "gp_Dir.hxx".}
+proc `-`*(this: Dir): Dir {.noSideEffect, cdecl, importcpp: "(- #)", header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; v: Dir) {.cdecl, importcpp: "Mirror", header: "gp_Dir.hxx".}
 proc mirrored*(this: Dir; v: Dir): Dir {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                   dynlib: tkmath.}
-proc mirror*(this: var Dir; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                   header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Dir.hxx".}
 proc mirrored*(this: Dir; a1: Ax1): Dir {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
-proc mirror*(this: var Dir; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                    header: "gp_Dir.hxx".}
+proc mirror*(this: var Dir; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Dir.hxx".}
 proc mirrored*(this: Dir; a2: Ax2): Dir {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
+                                    header: "gp_Dir.hxx".}
 proc rotate*(this: var Dir; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Dir.hxx".}
 proc rotated*(this: Dir; a1: Ax1; ang: cfloat): Dir {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc transform*(this: var Dir; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Dir.hxx".}
+proc transform*(this: var Dir; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Dir.hxx".}
 proc transformed*(this: Dir; t: Trsf): Dir {.noSideEffect, cdecl,
-                                       importcpp: "Transformed", dynlib: tkmath.}
+                                       importcpp: "Transformed", header: "gp_Dir.hxx".}
 proc dumpJson*(this: Dir; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Dir.hxx".}
 proc initFromJson*(this: var Dir; theSStream: StandardSStream; theStreamPos: var cint): bool {.
-    cdecl, importcpp: "InitFromJson", dynlib: tkmath.}
+    cdecl, importcpp: "InitFromJson", header: "gp_Dir.hxx".}

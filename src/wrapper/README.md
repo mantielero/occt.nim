@@ -22,9 +22,6 @@ Modify the file `occt.c2nim` until we have a working wrapper.
 3. Geom
 4. GC
 
-## Standard_Handle.hxx
-Sandly this is problematic with c2nim.
-
 
 # Libraries (toolkits)
 TKBinL

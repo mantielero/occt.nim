@@ -23,20 +23,20 @@ type
 
 
 proc newIntSurfInteriorPoint*(): IntSurfInteriorPoint {.cdecl, constructor,
-    importcpp: "IntSurf_InteriorPoint(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_InteriorPoint(@)", header: "IntSurf_InteriorPoint.hxx".}
 proc newIntSurfInteriorPoint*(p: Pnt; u: cfloat; v: cfloat; direc: Vec; direc2d: Vec2d): IntSurfInteriorPoint {.
-    cdecl, constructor, importcpp: "IntSurf_InteriorPoint(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "IntSurf_InteriorPoint(@)", header: "IntSurf_InteriorPoint.hxx".}
 proc setValue*(this: var IntSurfInteriorPoint; p: Pnt; u: cfloat; v: cfloat; direc: Vec;
-              direc2d: Vec2d) {.cdecl, importcpp: "SetValue", dynlib: tkgeomalgo.}
+              direc2d: Vec2d) {.cdecl, importcpp: "SetValue", header: "IntSurf_InteriorPoint.hxx".}
 proc value*(this: IntSurfInteriorPoint): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "IntSurf_InteriorPoint.hxx".}
 proc parameters*(this: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Parameters", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_InteriorPoint.hxx".}
 proc uParameter*(this: IntSurfInteriorPoint): cfloat {.noSideEffect, cdecl,
-    importcpp: "UParameter", dynlib: tkgeomalgo.}
+    importcpp: "UParameter", header: "IntSurf_InteriorPoint.hxx".}
 proc vParameter*(this: IntSurfInteriorPoint): cfloat {.noSideEffect, cdecl,
-    importcpp: "VParameter", dynlib: tkgeomalgo.}
+    importcpp: "VParameter", header: "IntSurf_InteriorPoint.hxx".}
 proc direction*(this: IntSurfInteriorPoint): Vec {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkgeomalgo.}
+    importcpp: "Direction", header: "IntSurf_InteriorPoint.hxx".}
 proc direction2d*(this: IntSurfInteriorPoint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Direction2d", dynlib: tkgeomalgo.}
+    importcpp: "Direction2d", header: "IntSurf_InteriorPoint.hxx".}

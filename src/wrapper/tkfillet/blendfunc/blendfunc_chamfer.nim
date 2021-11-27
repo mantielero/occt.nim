@@ -30,33 +30,33 @@ type
 proc newBlendFuncChamfer*(s1: Handle[Adaptor3dHSurface];
                          s2: Handle[Adaptor3dHSurface];
                          cg: Handle[Adaptor3dHCurve]): BlendFuncChamfer {.cdecl,
-    constructor, importcpp: "BlendFunc_Chamfer(@)", dynlib: tkfillet.}
+    constructor, importcpp: "BlendFunc_Chamfer(@)", header: "BlendFunc_Chamfer.hxx".}
 proc value*(this: var BlendFuncChamfer; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_Chamfer.hxx".}
 proc derivatives*(this: var BlendFuncChamfer; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_Chamfer.hxx".}
 proc set*(this: var BlendFuncChamfer; param: cfloat) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_Chamfer.hxx".}
 proc isSolution*(this: var BlendFuncChamfer; sol: MathVector; tol: cfloat): bool {.cdecl,
-    importcpp: "IsSolution", dynlib: tkfillet.}
+    importcpp: "IsSolution", header: "BlendFunc_Chamfer.hxx".}
 proc pointOnS1*(this: BlendFuncChamfer): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS1", dynlib: tkfillet.}
+    importcpp: "PointOnS1", header: "BlendFunc_Chamfer.hxx".}
 proc pointOnS2*(this: BlendFuncChamfer): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnS2", dynlib: tkfillet.}
+    importcpp: "PointOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc isTangencyPoint*(this: BlendFuncChamfer): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "BlendFunc_Chamfer.hxx".}
 proc tangentOnS1*(this: BlendFuncChamfer): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS1", dynlib: tkfillet.}
+    importcpp: "TangentOnS1", header: "BlendFunc_Chamfer.hxx".}
 proc tangent2dOnS1*(this: BlendFuncChamfer): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS1", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS1", header: "BlendFunc_Chamfer.hxx".}
 proc tangentOnS2*(this: BlendFuncChamfer): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS2", dynlib: tkfillet.}
+    importcpp: "TangentOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc tangent2dOnS2*(this: BlendFuncChamfer): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS2", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc tangent*(this: BlendFuncChamfer; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
-    noSideEffect, cdecl, importcpp: "Tangent", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_Chamfer.hxx".}
 proc set*(this: var BlendFuncChamfer; dist1: cfloat; dist2: cfloat; choix: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BlendFunc_Chamfer.hxx".}
 proc getSectionSize*(this: BlendFuncChamfer): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSectionSize", dynlib: tkfillet.}
+    importcpp: "GetSectionSize", header: "BlendFunc_Chamfer.hxx".}

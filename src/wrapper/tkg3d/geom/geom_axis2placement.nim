@@ -63,24 +63,24 @@ type
 
 
 proc newGeomAxis2Placement*(a2: Ax2): GeomAxis2Placement {.cdecl, constructor,
-    importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
+    importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
 proc newGeomAxis2Placement*(p: Pnt; n: Dir; vx: Dir): GeomAxis2Placement {.cdecl,
-    constructor, importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
+    constructor, importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
 proc setAx2*(this: var GeomAxis2Placement; a2: Ax2) {.cdecl, importcpp: "SetAx2",
-    dynlib: tkg3d.}
+    header: "Geom_Axis2Placement.hxx".}
 proc setDirection*(this: var GeomAxis2Placement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", dynlib: tkg3d.}
+    importcpp: "SetDirection", header: "Geom_Axis2Placement.hxx".}
 proc setXDirection*(this: var GeomAxis2Placement; vx: Dir) {.cdecl,
-    importcpp: "SetXDirection", dynlib: tkg3d.}
+    importcpp: "SetXDirection", header: "Geom_Axis2Placement.hxx".}
 proc setYDirection*(this: var GeomAxis2Placement; vy: Dir) {.cdecl,
-    importcpp: "SetYDirection", dynlib: tkg3d.}
+    importcpp: "SetYDirection", header: "Geom_Axis2Placement.hxx".}
 proc ax2*(this: GeomAxis2Placement): Ax2 {.noSideEffect, cdecl, importcpp: "Ax2",
-                                       dynlib: tkg3d.}
+                                       header: "Geom_Axis2Placement.hxx".}
 proc xDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "XDirection", dynlib: tkg3d.}
+    importcpp: "XDirection", header: "Geom_Axis2Placement.hxx".}
 proc yDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "YDirection", dynlib: tkg3d.}
+    importcpp: "YDirection", header: "Geom_Axis2Placement.hxx".}
 proc transform*(this: var GeomAxis2Placement; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkg3d.}
+    header: "Geom_Axis2Placement.hxx".}
 proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg3d.}
+    importcpp: "Copy", header: "Geom_Axis2Placement.hxx".}

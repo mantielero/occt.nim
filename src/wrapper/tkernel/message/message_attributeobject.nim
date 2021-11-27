@@ -24,12 +24,12 @@ type
 
 
 proc newMessageAttributeObject*(theObject: Handle[StandardTransient]; theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttributeObject {.
-    cdecl, constructor, importcpp: "Message_AttributeObject(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_AttributeObject(@)", header: "Message_AttributeObject.hxx".}
 proc `object`*(this: MessageAttributeObject): Handle[StandardTransient] {.
-    noSideEffect, cdecl, importcpp: "Object", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Object", header: "Message_AttributeObject.hxx".}
 proc setObject*(this: var MessageAttributeObject;
                theObject: Handle[StandardTransient]) {.cdecl,
-    importcpp: "SetObject", dynlib: tkernel.}
+    importcpp: "SetObject", header: "Message_AttributeObject.hxx".}
 proc dumpJson*(this: MessageAttributeObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_AttributeObject.hxx".}

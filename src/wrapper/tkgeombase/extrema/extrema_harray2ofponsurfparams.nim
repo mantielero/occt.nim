@@ -23,16 +23,16 @@ type
 proc newExtremaHArray2OfPOnSurfParams*(theRowLow: cint; theRowUpp: cint;
                                       theColLow: cint; theColUpp: cint): ExtremaHArray2OfPOnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnSurfParams(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnSurfParams.hxx".}
 proc newExtremaHArray2OfPOnSurfParams*(theRowLow: cint; theRowUpp: cint;
                                       theColLow: cint; theColUpp: cint;
                                       theValue: ValueType): ExtremaHArray2OfPOnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnSurfParams(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnSurfParams.hxx".}
 proc newExtremaHArray2OfPOnSurfParams*(theOther: ExtremaArray2OfPOnSurfParams): ExtremaHArray2OfPOnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnSurfParams(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnSurfParams.hxx".}
 proc array2*(this: ExtremaHArray2OfPOnSurfParams): ExtremaArray2OfPOnSurfParams {.
-    noSideEffect, cdecl, importcpp: "Array2", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array2", header: "Extrema_HArray2OfPOnSurfParams.hxx".}
 proc changeArray2*(this: var ExtremaHArray2OfPOnSurfParams): var ExtremaArray2OfPOnSurfParams {.
-    cdecl, importcpp: "ChangeArray2", dynlib: tkgeombase.}
+    cdecl, importcpp: "ChangeArray2", header: "Extrema_HArray2OfPOnSurfParams.hxx".}

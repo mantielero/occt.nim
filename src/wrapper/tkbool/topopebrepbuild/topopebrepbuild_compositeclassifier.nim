@@ -24,18 +24,18 @@ type
 
 proc compare*(this: var TopOpeBRepBuildCompositeClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
-    cdecl, importcpp: "Compare", dynlib: tkbool.}
+    cdecl, importcpp: "Compare", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc compareShapes*(this: var TopOpeBRepBuildCompositeClassifier; b1: TopoDS_Shape;
                    b2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareShapes", dynlib: tkbool.}
+    importcpp: "CompareShapes", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc compareElementToShape*(this: var TopOpeBRepBuildCompositeClassifier;
                            e: TopoDS_Shape; b: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareElementToShape", dynlib: tkbool.}
+    importcpp: "CompareElementToShape", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc resetShape*(this: var TopOpeBRepBuildCompositeClassifier; b: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetShape", dynlib: tkbool.}
+    cdecl, importcpp: "ResetShape", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc resetElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetElement", dynlib: tkbool.}
+    cdecl, importcpp: "ResetElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc compareElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Shape): bool {.
-    cdecl, importcpp: "CompareElement", dynlib: tkbool.}
+    cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildCompositeClassifier): TopAbsState {.cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}

@@ -28,54 +28,54 @@ type
 
 
 proc firstParameter*(c: Handle[Adaptor2dHCurve2d]): cfloat {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::FirstParameter(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::FirstParameter(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc lastParameter*(c: Handle[Adaptor2dHCurve2d]): cfloat {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::LastParameter(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::LastParameter(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc continuity*(c: Handle[Adaptor2dHCurve2d]): GeomAbsShape {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Continuity(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Continuity(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc nbIntervals*(c: Handle[Adaptor2dHCurve2d]; s: GeomAbsShape): cint {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::NbIntervals(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::NbIntervals(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc intervals*(c: Handle[Adaptor2dHCurve2d]; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.cdecl, importcpp: "BRepBlend_HCurve2dTool::Intervals(@)",
-                                dynlib: tkfillet.}
+                                header: "BRepBlend_HCurve2dTool.hxx".}
 proc isClosed*(c: Handle[Adaptor2dHCurve2d]): bool {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::IsClosed(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::IsClosed(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc isPeriodic*(c: Handle[Adaptor2dHCurve2d]): bool {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::IsPeriodic(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::IsPeriodic(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc period*(c: Handle[Adaptor2dHCurve2d]): cfloat {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Period(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Period(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc value*(c: Handle[Adaptor2dHCurve2d]; u: cfloat): Pnt2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Value(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Value(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc d0*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d) {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::D0(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::D0(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc d1*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v: var Vec2d) {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::D1(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::D1(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc d2*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v1: var Vec2d;
         v2: var Vec2d) {.cdecl, importcpp: "BRepBlend_HCurve2dTool::D2(@)",
-                      dynlib: tkfillet.}
+                      header: "BRepBlend_HCurve2dTool.hxx".}
 proc d3*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; p: var Pnt2d; v1: var Vec2d;
         v2: var Vec2d; v3: var Vec2d) {.cdecl,
                                   importcpp: "BRepBlend_HCurve2dTool::D3(@)",
-                                  dynlib: tkfillet.}
+                                  header: "BRepBlend_HCurve2dTool.hxx".}
 proc dn*(c: Handle[Adaptor2dHCurve2d]; u: cfloat; n: cint): Vec2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::DN(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::DN(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc resolution*(c: Handle[Adaptor2dHCurve2d]; r3d: cfloat): cfloat {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Resolution(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Resolution(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc getType*(c: Handle[Adaptor2dHCurve2d]): GeomAbsCurveType {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::GetType(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::GetType(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc line*(c: Handle[Adaptor2dHCurve2d]): Lin2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Line(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Line(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc circle*(c: Handle[Adaptor2dHCurve2d]): Circ2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Circle(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Circle(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc ellipse*(c: Handle[Adaptor2dHCurve2d]): Elips2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Ellipse(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Ellipse(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc hyperbola*(c: Handle[Adaptor2dHCurve2d]): Hypr2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Hyperbola(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Hyperbola(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc parabola*(c: Handle[Adaptor2dHCurve2d]): Parab2d {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Parabola(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Parabola(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc bezier*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBezierCurve] {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::Bezier(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::Bezier(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc bSpline*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBSplineCurve] {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::BSpline(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::BSpline(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc nbSamples*(c: Handle[Adaptor2dHCurve2d]; u0: cfloat; u1: cfloat): cint {.cdecl,
-    importcpp: "BRepBlend_HCurve2dTool::NbSamples(@)", dynlib: tkfillet.}
+    importcpp: "BRepBlend_HCurve2dTool::NbSamples(@)", header: "BRepBlend_HCurve2dTool.hxx".}

@@ -21,20 +21,20 @@ type
 
 
 proc newTopOpeBRepDS_Surface*(): TopOpeBRepDS_Surface {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Surface(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Surface(@)", header: "TopOpeBRepDS_Surface.hxx".}
 proc newTopOpeBRepDS_Surface*(p: Handle[GeomSurface]; t: cfloat): TopOpeBRepDS_Surface {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Surface(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Surface(@)", header: "TopOpeBRepDS_Surface.hxx".}
 proc newTopOpeBRepDS_Surface*(other: TopOpeBRepDS_Surface): TopOpeBRepDS_Surface {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Surface(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Surface(@)", header: "TopOpeBRepDS_Surface.hxx".}
 proc assign*(this: var TopOpeBRepDS_Surface; other: TopOpeBRepDS_Surface) {.cdecl,
-    importcpp: "Assign", dynlib: tkbool.}
+    importcpp: "Assign", header: "TopOpeBRepDS_Surface.hxx".}
 proc surface*(this: TopOpeBRepDS_Surface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbool.}
+    importcpp: "Surface", header: "TopOpeBRepDS_Surface.hxx".}
 proc tolerance*(this: TopOpeBRepDS_Surface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Surface.hxx".}
 proc tolerance*(this: var TopOpeBRepDS_Surface; theTol: cfloat) {.cdecl,
-    importcpp: "Tolerance", dynlib: tkbool.}
+    importcpp: "Tolerance", header: "TopOpeBRepDS_Surface.hxx".}
 proc keep*(this: TopOpeBRepDS_Surface): bool {.noSideEffect, cdecl, importcpp: "Keep",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Surface.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Surface; theToKeep: bool) {.cdecl,
-    importcpp: "ChangeKeep", dynlib: tkbool.}
+    importcpp: "ChangeKeep", header: "TopOpeBRepDS_Surface.hxx".}

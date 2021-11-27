@@ -25,84 +25,84 @@ type
 
 
 proc newGeomFillAppSweep*(): GeomFillAppSweep {.cdecl, constructor,
-    importcpp: "GeomFill_AppSweep(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_AppSweep(@)", header: "GeomFill_AppSweep.hxx".}
 proc newGeomFillAppSweep*(degmin: cint; degmax: cint; tol3d: cfloat; tol2d: cfloat;
                          nbIt: cint; knownParameters: bool = false): GeomFillAppSweep {.
-    cdecl, constructor, importcpp: "GeomFill_AppSweep(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_AppSweep(@)", header: "GeomFill_AppSweep.hxx".}
 proc init*(this: var GeomFillAppSweep; degmin: cint; degmax: cint; tol3d: cfloat;
           tol2d: cfloat; nbIt: cint; knownParameters: bool = false) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_AppSweep.hxx".}
 proc setParType*(this: var GeomFillAppSweep; parType: ApproxParametrizationType) {.
-    cdecl, importcpp: "SetParType", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetParType", header: "GeomFill_AppSweep.hxx".}
 proc setContinuity*(this: var GeomFillAppSweep; c: GeomAbsShape) {.cdecl,
-    importcpp: "SetContinuity", dynlib: tkgeomalgo.}
+    importcpp: "SetContinuity", header: "GeomFill_AppSweep.hxx".}
 proc setCriteriumWeight*(this: var GeomFillAppSweep; w1: cfloat; w2: cfloat; w3: cfloat) {.
-    cdecl, importcpp: "SetCriteriumWeight", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetCriteriumWeight", header: "GeomFill_AppSweep.hxx".}
 proc parType*(this: GeomFillAppSweep): ApproxParametrizationType {.noSideEffect,
-    cdecl, importcpp: "ParType", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ParType", header: "GeomFill_AppSweep.hxx".}
 proc continuity*(this: GeomFillAppSweep): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkgeomalgo.}
+    importcpp: "Continuity", header: "GeomFill_AppSweep.hxx".}
 proc criteriumWeight*(this: GeomFillAppSweep; w1: var cfloat; w2: var cfloat;
                      w3: var cfloat) {.noSideEffect, cdecl,
                                     importcpp: "CriteriumWeight",
-                                    dynlib: tkgeomalgo.}
+                                    header: "GeomFill_AppSweep.hxx".}
 proc perform*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
              secGen: var GeomFillSweepSectionGenerator; spApprox: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Perform", header: "GeomFill_AppSweep.hxx".}
 proc performSmoothing*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
                       secGen: var GeomFillSweepSectionGenerator) {.cdecl,
-    importcpp: "PerformSmoothing", dynlib: tkgeomalgo.}
+    importcpp: "PerformSmoothing", header: "GeomFill_AppSweep.hxx".}
 proc perform*(this: var GeomFillAppSweep; lin: Handle[GeomFillLine];
              secGen: var GeomFillSweepSectionGenerator; nbMaxP: cint) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeomalgo.}
+    importcpp: "Perform", header: "GeomFill_AppSweep.hxx".}
 proc isDone*(this: GeomFillAppSweep): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_AppSweep.hxx".}
 proc surfShape*(this: GeomFillAppSweep; uDegree: var cint; vDegree: var cint;
                nbUPoles: var cint; nbVPoles: var cint; nbUKnots: var cint;
                nbVKnots: var cint) {.noSideEffect, cdecl, importcpp: "SurfShape",
-                                  dynlib: tkgeomalgo.}
+                                  header: "GeomFill_AppSweep.hxx".}
 proc surface*(this: GeomFillAppSweep; tPoles: var TColgpArray2OfPnt;
              tWeights: var TColStdArray2OfReal; tUKnots: var TColStdArray1OfReal;
              tVKnots: var TColStdArray1OfReal; tUMults: var TColStdArray1OfInteger;
              tVMults: var TColStdArray1OfInteger) {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeomalgo.}
+    importcpp: "Surface", header: "GeomFill_AppSweep.hxx".}
 proc uDegree*(this: GeomFillAppSweep): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkgeomalgo.}
+    importcpp: "UDegree", header: "GeomFill_AppSweep.hxx".}
 proc vDegree*(this: GeomFillAppSweep): cint {.noSideEffect, cdecl,
-    importcpp: "VDegree", dynlib: tkgeomalgo.}
+    importcpp: "VDegree", header: "GeomFill_AppSweep.hxx".}
 proc surfPoles*(this: GeomFillAppSweep): TColgpArray2OfPnt {.noSideEffect, cdecl,
-    importcpp: "SurfPoles", dynlib: tkgeomalgo.}
+    importcpp: "SurfPoles", header: "GeomFill_AppSweep.hxx".}
 proc surfWeights*(this: GeomFillAppSweep): TColStdArray2OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfWeights", dynlib: tkgeomalgo.}
+    importcpp: "SurfWeights", header: "GeomFill_AppSweep.hxx".}
 proc surfUKnots*(this: GeomFillAppSweep): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfUKnots", dynlib: tkgeomalgo.}
+    importcpp: "SurfUKnots", header: "GeomFill_AppSweep.hxx".}
 proc surfVKnots*(this: GeomFillAppSweep): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "SurfVKnots", dynlib: tkgeomalgo.}
+    importcpp: "SurfVKnots", header: "GeomFill_AppSweep.hxx".}
 proc surfUMults*(this: GeomFillAppSweep): TColStdArray1OfInteger {.noSideEffect,
-    cdecl, importcpp: "SurfUMults", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SurfUMults", header: "GeomFill_AppSweep.hxx".}
 proc surfVMults*(this: GeomFillAppSweep): TColStdArray1OfInteger {.noSideEffect,
-    cdecl, importcpp: "SurfVMults", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SurfVMults", header: "GeomFill_AppSweep.hxx".}
 proc nbCurves2d*(this: GeomFillAppSweep): cint {.noSideEffect, cdecl,
-    importcpp: "NbCurves2d", dynlib: tkgeomalgo.}
+    importcpp: "NbCurves2d", header: "GeomFill_AppSweep.hxx".}
 proc curves2dShape*(this: GeomFillAppSweep; degree: var cint; nbPoles: var cint;
                    nbKnots: var cint) {.noSideEffect, cdecl,
                                      importcpp: "Curves2dShape",
-                                     dynlib: tkgeomalgo.}
+                                     header: "GeomFill_AppSweep.hxx".}
 proc curve2d*(this: GeomFillAppSweep; index: cint; tPoles: var TColgpArray1OfPnt2d;
              tKnots: var TColStdArray1OfReal; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Curve2d", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Curve2d", header: "GeomFill_AppSweep.hxx".}
 proc curves2dDegree*(this: GeomFillAppSweep): cint {.noSideEffect, cdecl,
-    importcpp: "Curves2dDegree", dynlib: tkgeomalgo.}
+    importcpp: "Curves2dDegree", header: "GeomFill_AppSweep.hxx".}
 proc curve2dPoles*(this: GeomFillAppSweep; index: cint): TColgpArray1OfPnt2d {.
-    noSideEffect, cdecl, importcpp: "Curve2dPoles", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Curve2dPoles", header: "GeomFill_AppSweep.hxx".}
 proc curves2dKnots*(this: GeomFillAppSweep): TColStdArray1OfReal {.noSideEffect,
-    cdecl, importcpp: "Curves2dKnots", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Curves2dKnots", header: "GeomFill_AppSweep.hxx".}
 proc curves2dMults*(this: GeomFillAppSweep): TColStdArray1OfInteger {.noSideEffect,
-    cdecl, importcpp: "Curves2dMults", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Curves2dMults", header: "GeomFill_AppSweep.hxx".}
 proc tolReached*(this: GeomFillAppSweep; tol3d: var cfloat; tol2d: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "TolReached", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "TolReached", header: "GeomFill_AppSweep.hxx".}
 proc tolCurveOnSurf*(this: GeomFillAppSweep; index: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "TolCurveOnSurf", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "TolCurveOnSurf", header: "GeomFill_AppSweep.hxx".}
 ##  #define TheSectionGenerator GeomFill_SweepSectionGenerator
 ##  #define TheSectionGenerator_hxx <GeomFill_SweepSectionGenerator.hxx>
 ##  #define Handle_TheLine Handle(GeomFill_Line)

@@ -27,7 +27,7 @@ const
 proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat;
                   tiny: cfloat = 1.0e-20;
                   theProgress: MessageProgressRange = newMessageProgressRange()): cint {.
-    cdecl, importcpp: "LU_Decompose(@)", dynlib: tkmath.}
+    cdecl, importcpp: "LU_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..n, 1..n), this routine computes its LU decomposition,
 ##  The matrix a is replaced by this LU decomposition and the vector indx(1..n)
 ##  is an output which records the row permutation effected by the partial
@@ -37,12 +37,12 @@ proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat
 proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat;
                   vv: var MathVector; tiny: cfloat = 1.0e-30;
                   theProgress: MessageProgressRange = newMessageProgressRange()): cint {.
-    cdecl, importcpp: "LU_Decompose(@)", dynlib: tkmath.}
+    cdecl, importcpp: "LU_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Idem to the previous LU_Decompose function. But the input Vector vv(1..n) is
 ##  used internally as a scratch area.
 
 proc lU_Solve*(a: MathMatrix; indx: MathIntegerVector; b: var MathVector) {.cdecl,
-    importcpp: "LU_Solve(@)", dynlib: tkmath.}
+    importcpp: "LU_Solve(@)", header: "math_Recipes.hxx".}
 ##  Solves a * x = b for a vector x, where x is specified by a(1..n, 1..n),
 ##  indx(1..n) as returned by LU_Decompose. n is the dimension of the
 ##  square matrix A. b(1..n) is the input right-hand side and will be
@@ -50,12 +50,12 @@ proc lU_Solve*(a: MathMatrix; indx: MathIntegerVector; b: var MathVector) {.cdec
 ##  the routine may be called sequentially with different b's.
 
 proc lU_Invert*(a: var MathMatrix): cint {.cdecl, importcpp: "LU_Invert(@)",
-                                      dynlib: tkmath.}
+                                      header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..n, 1..n) this routine computes its inverse. The matrix
 ##  a is replaced by its inverse.
 
 proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix): cint {.cdecl,
-    importcpp: "SVD_Decompose(@)", dynlib: tkmath.}
+    importcpp: "SVD_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a matrix a(1..m, 1..n), this routine computes its singular value
 ##  decomposition, a = u * w * transposed(v). The matrix u replaces a on
 ##  output. The diagonal matrix of singular values w is output as a vector
@@ -65,12 +65,12 @@ proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix): ci
 
 proc sVD_Decompose*(a: var MathMatrix; w: var MathVector; v: var MathMatrix;
                    rv1: var MathVector): cint {.cdecl, importcpp: "SVD_Decompose(@)",
-    dynlib: tkmath.}
+    header: "math_Recipes.hxx".}
 ##  Idem to the previous LU_Decompose function. But the input Vector vv(1..m)
 ##  (the number of rows a(1..m, 1..n)) is used internally as a scratch area.
 
 proc sVD_Solve*(u: MathMatrix; w: MathVector; v: MathMatrix; b: MathVector;
-               x: var MathVector) {.cdecl, importcpp: "SVD_Solve(@)", dynlib: tkmath.}
+               x: var MathVector) {.cdecl, importcpp: "SVD_Solve(@)", header: "math_Recipes.hxx".}
 ##  Solves a * x = b for a vector x, where x is specified by u(1..m, 1..n),
 ##  w(1..n), v(1..n, 1..n) as returned by SVD_Decompose. m and n are the
 ##  dimensions of A, and will be equal for square matrices. b(1..m) is the
@@ -80,7 +80,7 @@ proc sVD_Solve*(u: MathMatrix; w: MathVector; v: MathMatrix; b: MathVector;
 
 proc dACTCL_Decompose*(a: var MathVector; indx: MathIntegerVector;
                       minPivot: cfloat = 1.0e-20): cint {.cdecl,
-    importcpp: "DACTCL_Decompose(@)", dynlib: tkmath.}
+    importcpp: "DACTCL_Decompose(@)", header: "math_Recipes.hxx".}
 ##  Given a SYMMETRIC matrix a, this routine computes its
 ##  LU decomposition.
 ##  a is given through a vector of its non zero components of the upper
@@ -92,13 +92,13 @@ proc dACTCL_Decompose*(a: var MathVector; indx: MathIntegerVector;
 
 proc dACTCL_Solve*(a: MathVector; b: var MathVector; indx: MathIntegerVector;
                   minPivot: cfloat = 1.0e-20): cint {.cdecl,
-    importcpp: "DACTCL_Solve(@)", dynlib: tkmath.}
+    importcpp: "DACTCL_Solve(@)", header: "math_Recipes.hxx".}
 ##  Solves a * x = b for a vector x and a matrix a coming from DACTCL_Decompose.
 ##  indx is the same vector as in DACTCL_Decompose.
 ##  the vector b is replaced by the vector solution x.
 
 proc jacobi*(a: var MathMatrix; d: var MathVector; v: var MathMatrix; nrot: var cint): cint {.
-    cdecl, importcpp: "Jacobi(@)", dynlib: tkmath.}
+    cdecl, importcpp: "Jacobi(@)", header: "math_Recipes.hxx".}
 ##  Computes all eigenvalues and eigenvectors of a real symmetric matrix
 ##  a(1..n, 1..n). On output, elements of a above the diagonal are destroyed.
 ##  d(1..n) returns the eigenvalues of a. v(1..n, 1..n) is a matrix whose

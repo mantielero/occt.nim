@@ -25,51 +25,51 @@ type
 
 
 proc newTopLocLocation*(): TopLocLocation {.cdecl, constructor,
-    importcpp: "TopLoc_Location(@)", dynlib: tkmath.}
+    importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc newTopLocLocation*(t: Trsf): TopLocLocation {.cdecl, constructor,
-    importcpp: "TopLoc_Location(@)", dynlib: tkmath.}
+    importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc newTopLocLocation*(d: Handle[TopLocDatum3D]): TopLocLocation {.cdecl,
-    constructor, importcpp: "TopLoc_Location(@)", dynlib: tkmath.}
+    constructor, importcpp: "TopLoc_Location(@)", header: "TopLoc_Location.hxx".}
 proc isIdentity*(this: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsIdentity", dynlib: tkmath.}
-proc identity*(this: var TopLocLocation) {.cdecl, importcpp: "Identity", dynlib: tkmath.}
+    importcpp: "IsIdentity", header: "TopLoc_Location.hxx".}
+proc identity*(this: var TopLocLocation) {.cdecl, importcpp: "Identity", header: "TopLoc_Location.hxx".}
 proc firstDatum*(this: TopLocLocation): Handle[TopLocDatum3D] {.noSideEffect, cdecl,
-    importcpp: "FirstDatum", dynlib: tkmath.}
+    importcpp: "FirstDatum", header: "TopLoc_Location.hxx".}
 proc firstPower*(this: TopLocLocation): cint {.noSideEffect, cdecl,
-    importcpp: "FirstPower", dynlib: tkmath.}
+    importcpp: "FirstPower", header: "TopLoc_Location.hxx".}
 proc nextLocation*(this: TopLocLocation): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "NextLocation", dynlib: tkmath.}
+    importcpp: "NextLocation", header: "TopLoc_Location.hxx".}
 proc transformation*(this: TopLocLocation): Trsf {.noSideEffect, cdecl,
-    importcpp: "Transformation", dynlib: tkmath.}
+    importcpp: "Transformation", header: "TopLoc_Location.hxx".}
 converter `trsf`*(this: TopLocLocation): Trsf {.noSideEffect, cdecl,
-    importcpp: "TopLoc_Location::operator gp_Trsf", dynlib: tkmath.}
+    importcpp: "TopLoc_Location::operator gp_Trsf", header: "TopLoc_Location.hxx".}
 proc inverted*(this: TopLocLocation): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Inverted", dynlib: tkmath.}
+    importcpp: "Inverted", header: "TopLoc_Location.hxx".}
 proc multiplied*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Multiplied", header: "TopLoc_Location.hxx".}
 proc `*`*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.noSideEffect,
-    cdecl, importcpp: "(# * #)", dynlib: tkmath.}
+    cdecl, importcpp: "(# * #)", header: "TopLoc_Location.hxx".}
 proc divided*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.
-    noSideEffect, cdecl, importcpp: "Divided", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Divided", header: "TopLoc_Location.hxx".}
 proc `/`*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.noSideEffect,
-    cdecl, importcpp: "(# / #)", dynlib: tkmath.}
+    cdecl, importcpp: "(# / #)", header: "TopLoc_Location.hxx".}
 proc predivided*(this: TopLocLocation; other: TopLocLocation): TopLocLocation {.
-    noSideEffect, cdecl, importcpp: "Predivided", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Predivided", header: "TopLoc_Location.hxx".}
 proc powered*(this: TopLocLocation; pwr: cint): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Powered", dynlib: tkmath.}
+    importcpp: "Powered", header: "TopLoc_Location.hxx".}
 proc hashCode*(this: TopLocLocation; theUpperBound: cint): cint {.noSideEffect, cdecl,
-    importcpp: "HashCode", dynlib: tkmath.}
+    importcpp: "HashCode", header: "TopLoc_Location.hxx".}
 proc isEqual*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", dynlib: tkmath.}
+    importcpp: "IsEqual", header: "TopLoc_Location.hxx".}
 proc `==`*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkmath.}
+    importcpp: "(# == #)", header: "TopLoc_Location.hxx".}
 proc isDifferent*(this: TopLocLocation; other: TopLocLocation): bool {.noSideEffect,
-    cdecl, importcpp: "IsDifferent", dynlib: tkmath.}
+    cdecl, importcpp: "IsDifferent", header: "TopLoc_Location.hxx".}
 proc dumpJson*(this: TopLocLocation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "TopLoc_Location.hxx".}
 proc shallowDump*(this: TopLocLocation; s: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "ShallowDump", dynlib: tkmath.}
+    importcpp: "ShallowDump", header: "TopLoc_Location.hxx".}
 ## ! Computes a hash code for the given location, in the range [1, theUpperBound]
 ## ! @param theLocation the location which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within

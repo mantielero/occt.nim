@@ -32,23 +32,23 @@ type
 
 proc newBRepPolygonOnTriangulation*(p: Handle[PolyPolygonOnTriangulation];
                                    t: Handle[PolyTriangulation]; L: TopLocLocation): BRepPolygonOnTriangulation {.
-    cdecl, constructor, importcpp: "BRep_PolygonOnTriangulation(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_PolygonOnTriangulation(@)", header: "BRep_PolygonOnTriangulation.hxx".}
 proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", header: "BRep_PolygonOnTriangulation.hxx".}
 proc isPolygonOnTriangulation*(this: BRepPolygonOnTriangulation;
                               t: Handle[PolyTriangulation]; L: TopLocLocation): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", header: "BRep_PolygonOnTriangulation.hxx".}
 proc polygonOnTriangulation*(this: var BRepPolygonOnTriangulation;
                             p: Handle[PolyPolygonOnTriangulation]) {.cdecl,
-    importcpp: "PolygonOnTriangulation", dynlib: tkbrep.}
+    importcpp: "PolygonOnTriangulation", header: "BRep_PolygonOnTriangulation.hxx".}
 proc triangulation*(this: BRepPolygonOnTriangulation): Handle[PolyTriangulation] {.
-    noSideEffect, cdecl, importcpp: "Triangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Triangulation", header: "BRep_PolygonOnTriangulation.hxx".}
 proc polygonOnTriangulation*(this: BRepPolygonOnTriangulation): Handle[
     PolyPolygonOnTriangulation] {.noSideEffect, cdecl,
                                  importcpp: "PolygonOnTriangulation",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PolygonOnTriangulation.hxx".}
 proc copy*(this: BRepPolygonOnTriangulation): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_PolygonOnTriangulation.hxx".}
 proc dumpJson*(this: BRepPolygonOnTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PolygonOnTriangulation.hxx".}

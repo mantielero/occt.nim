@@ -26,7 +26,7 @@ type
 
 
 proc newBVH_Bin*[T; N: static[cint]](): BVH_Bin[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Bin<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Bin<\'*0,\'*1>(@)", header: "BVH_BinnedBuilder.hxx".}
 ## ! Performs construction of BVH tree using binned SAH algorithm. Number
 ## ! of bins controls BVH quality in cost of construction time (greater -
 ## ! better). For optimal results, use 32 - 48 bins. However, reasonable
@@ -131,7 +131,7 @@ type
   BVH_AxisSelectorBVH_VecNt*[T; N] = object
 
 proc mainAxis*[T; N: static[cint]](theSize: BVH_AxisSelectorBVH_VecNt): cint {.cdecl,
-    importcpp: "BVH::BVH_AxisSelector::MainAxis(@)", dynlib: tkmath.}
+    importcpp: "BVH::BVH_AxisSelector::MainAxis(@)", header: "BVH_BinnedBuilder.hxx".}
 ##    template<class T>
 ##    struct BVH_AxisSelector<T, 2>
 ##    {

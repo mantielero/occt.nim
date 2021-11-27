@@ -31,26 +31,26 @@ type
 
 
 proc newLawBSpFunc*(): LawBSpFunc {.cdecl, constructor, importcpp: "Law_BSpFunc(@)",
-                                 dynlib: tkgeomalgo.}
+                                 header: "Law_BSpFunc.hxx".}
 proc newLawBSpFunc*(c: Handle[LawBSpline]; first: cfloat; last: cfloat): LawBSpFunc {.
-    cdecl, constructor, importcpp: "Law_BSpFunc(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "Law_BSpFunc(@)", header: "Law_BSpFunc.hxx".}
 proc continuity*(this: LawBSpFunc): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkgeomalgo.}
+    importcpp: "Continuity", header: "Law_BSpFunc.hxx".}
 proc nbIntervals*(this: LawBSpFunc; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    importcpp: "NbIntervals", header: "Law_BSpFunc.hxx".}
 proc intervals*(this: LawBSpFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "Law_BSpFunc.hxx".}
 proc value*(this: var LawBSpFunc; x: cfloat): cfloat {.cdecl, importcpp: "Value",
-    dynlib: tkgeomalgo.}
+    header: "Law_BSpFunc.hxx".}
 proc d1*(this: var LawBSpFunc; x: cfloat; f: var cfloat; d: var cfloat) {.cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "Law_BSpFunc.hxx".}
 proc d2*(this: var LawBSpFunc; x: cfloat; f: var cfloat; d: var cfloat; d2: var cfloat) {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "Law_BSpFunc.hxx".}
 proc trim*(this: LawBSpFunc; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handle[
-    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkgeomalgo.}
+    LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_BSpFunc.hxx".}
 proc bounds*(this: var LawBSpFunc; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
-    importcpp: "Bounds", dynlib: tkgeomalgo.}
+    importcpp: "Bounds", header: "Law_BSpFunc.hxx".}
 proc curve*(this: LawBSpFunc): Handle[LawBSpline] {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkgeomalgo.}
+    importcpp: "Curve", header: "Law_BSpFunc.hxx".}
 proc setCurve*(this: var LawBSpFunc; c: Handle[LawBSpline]) {.cdecl,
-    importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    importcpp: "SetCurve", header: "Law_BSpFunc.hxx".}

@@ -41,39 +41,39 @@ proc newApproxFitAndDivide2d*(line: AppContFunction; degreemin: cint = 3;
                              degreemax: cint = 8; tolerance3d: cfloat = 1.0e-5;
                              tolerance2d: cfloat = 1.0e-5; cutting: bool = false; firstC: AppParCurvesConstraint = appParCurvesTangencyPoint;
     lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
-    cdecl, constructor, importcpp: "Approx_FitAndDivide2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_FitAndDivide2d(@)", header: "Approx_FitAndDivide2d.hxx".}
 proc newApproxFitAndDivide2d*(degreemin: cint = 3; degreemax: cint = 8;
                              tolerance3d: cfloat = 1.0e-05;
                              tolerance2d: cfloat = 1.0e-05; cutting: bool = false;
     firstC: AppParCurvesConstraint = appParCurvesTangencyPoint; lastC: AppParCurvesConstraint = appParCurvesTangencyPoint): ApproxFitAndDivide2d {.
-    cdecl, constructor, importcpp: "Approx_FitAndDivide2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_FitAndDivide2d(@)", header: "Approx_FitAndDivide2d.hxx".}
 proc perform*(this: var ApproxFitAndDivide2d; line: AppContFunction) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Approx_FitAndDivide2d.hxx".}
 proc setDegrees*(this: var ApproxFitAndDivide2d; degreemin: cint; degreemax: cint) {.
-    cdecl, importcpp: "SetDegrees", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetDegrees", header: "Approx_FitAndDivide2d.hxx".}
 proc setTolerances*(this: var ApproxFitAndDivide2d; tolerance3d: cfloat;
                    tolerance2d: cfloat) {.cdecl, importcpp: "SetTolerances",
-                                        dynlib: tkgeombase.}
+                                        header: "Approx_FitAndDivide2d.hxx".}
 proc setConstraints*(this: var ApproxFitAndDivide2d; firstC: AppParCurvesConstraint;
                     lastC: AppParCurvesConstraint) {.cdecl,
-    importcpp: "SetConstraints", dynlib: tkgeombase.}
+    importcpp: "SetConstraints", header: "Approx_FitAndDivide2d.hxx".}
 proc setMaxSegments*(this: var ApproxFitAndDivide2d; theMaxSegments: cint) {.cdecl,
-    importcpp: "SetMaxSegments", dynlib: tkgeombase.}
+    importcpp: "SetMaxSegments", header: "Approx_FitAndDivide2d.hxx".}
 proc setInvOrder*(this: var ApproxFitAndDivide2d; theInvOrder: bool) {.cdecl,
-    importcpp: "SetInvOrder", dynlib: tkgeombase.}
+    importcpp: "SetInvOrder", header: "Approx_FitAndDivide2d.hxx".}
 proc setHangChecking*(this: var ApproxFitAndDivide2d; theHangChecking: bool) {.cdecl,
-    importcpp: "SetHangChecking", dynlib: tkgeombase.}
+    importcpp: "SetHangChecking", header: "Approx_FitAndDivide2d.hxx".}
 proc isAllApproximated*(this: ApproxFitAndDivide2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsAllApproximated", dynlib: tkgeombase.}
+    importcpp: "IsAllApproximated", header: "Approx_FitAndDivide2d.hxx".}
 proc isToleranceReached*(this: ApproxFitAndDivide2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsToleranceReached", dynlib: tkgeombase.}
+    importcpp: "IsToleranceReached", header: "Approx_FitAndDivide2d.hxx".}
 proc error*(this: ApproxFitAndDivide2d; index: cint; tol3d: var cfloat;
            tol2d: var cfloat) {.noSideEffect, cdecl, importcpp: "Error",
-                             dynlib: tkgeombase.}
+                             header: "Approx_FitAndDivide2d.hxx".}
 proc nbMultiCurves*(this: ApproxFitAndDivide2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbMultiCurves", dynlib: tkgeombase.}
+    importcpp: "NbMultiCurves", header: "Approx_FitAndDivide2d.hxx".}
 proc value*(this: ApproxFitAndDivide2d; index: cint = 1): AppParCurvesMultiCurve {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "Approx_FitAndDivide2d.hxx".}
 proc parameters*(this: ApproxFitAndDivide2d; index: cint; firstp: var cfloat;
                 lastp: var cfloat) {.noSideEffect, cdecl, importcpp: "Parameters",
-                                  dynlib: tkgeombase.}
+                                  header: "Approx_FitAndDivide2d.hxx".}

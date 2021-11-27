@@ -26,28 +26,28 @@ type
 
 
 proc newTopOpeBRepBuildArea1dBuilder*(): TopOpeBRepBuildArea1dBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_Area1dBuilder(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_Area1dBuilder(@)", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc newTopOpeBRepBuildArea1dBuilder*(ls: var TopOpeBRepBuildPaveSet;
                                      lc: var TopOpeBRepBuildPaveClassifier;
                                      forceClass: bool = false): TopOpeBRepBuildArea1dBuilder {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_Area1dBuilder(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc initAreaBuilder*(this: var TopOpeBRepBuildArea1dBuilder;
                      ls: var TopOpeBRepBuildLoopSet;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.cdecl, importcpp: "InitAreaBuilder",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc aDD_LoopTO_LISTOFLoop*(this: TopOpeBRepBuildArea1dBuilder;
                            L: Handle[TopOpeBRepBuildLoop];
                            lol: var TopOpeBRepBuildListOfLoop; s: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "ADD_Loop_TO_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ADD_Loop_TO_LISTOFLoop", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc rEM_LoopFROM_LISTOFLoop*(this: TopOpeBRepBuildArea1dBuilder; itlol: var TopOpeBRepBuildListIteratorOfListOfLoop;
                              lol: var TopOpeBRepBuildListOfLoop; s: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "REM_Loop_FROM_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "REM_Loop_FROM_LISTOFLoop", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildArea1dBuilder;
                                  lol1: var TopOpeBRepBuildListOfLoop;
                                  lol2: var TopOpeBRepBuildListOfLoop;
                                  s: pointer = nil; s1: pointer = nil; s2: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc dumpList*(L: TopOpeBRepBuildListOfLoop) {.cdecl,
-    importcpp: "TopOpeBRepBuild_Area1dBuilder::DumpList(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_Area1dBuilder::DumpList(@)", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}

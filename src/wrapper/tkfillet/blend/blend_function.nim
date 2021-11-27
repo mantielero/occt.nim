@@ -28,38 +28,38 @@ type
 
 
 proc nbVariables*(this: BlendFunction): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "Blend_Function.hxx".}
 proc pnt1*(this: BlendFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt1",
-                                   dynlib: tkfillet.}
+                                   header: "Blend_Function.hxx".}
 proc pnt2*(this: BlendFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt2",
-                                   dynlib: tkfillet.}
+                                   header: "Blend_Function.hxx".}
 proc pointOnS1*(this: BlendFunction): Pnt {.noSideEffect, cdecl,
-                                        importcpp: "PointOnS1", dynlib: tkfillet.}
+                                        importcpp: "PointOnS1", header: "Blend_Function.hxx".}
 proc pointOnS2*(this: BlendFunction): Pnt {.noSideEffect, cdecl,
-                                        importcpp: "PointOnS2", dynlib: tkfillet.}
+                                        importcpp: "PointOnS2", header: "Blend_Function.hxx".}
 proc isTangencyPoint*(this: BlendFunction): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "Blend_Function.hxx".}
 proc tangentOnS1*(this: BlendFunction): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS1", dynlib: tkfillet.}
+    importcpp: "TangentOnS1", header: "Blend_Function.hxx".}
 proc tangent2dOnS1*(this: BlendFunction): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS1", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS1", header: "Blend_Function.hxx".}
 proc tangentOnS2*(this: BlendFunction): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS2", dynlib: tkfillet.}
+    importcpp: "TangentOnS2", header: "Blend_Function.hxx".}
 proc tangent2dOnS2*(this: BlendFunction): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS2", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS2", header: "Blend_Function.hxx".}
 proc tangent*(this: BlendFunction; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
              tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
-    noSideEffect, cdecl, importcpp: "Tangent", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent", header: "Blend_Function.hxx".}
 proc twistOnS1*(this: BlendFunction): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS1", dynlib: tkfillet.}
+    importcpp: "TwistOnS1", header: "Blend_Function.hxx".}
 proc twistOnS2*(this: BlendFunction): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS2", dynlib: tkfillet.}
+    importcpp: "TwistOnS2", header: "Blend_Function.hxx".}
 proc section*(this: var BlendFunction; p: BlendPoint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "Blend_Function.hxx".}
 proc section*(this: var BlendFunction; p: BlendPoint; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
              poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "Blend_Function.hxx".}

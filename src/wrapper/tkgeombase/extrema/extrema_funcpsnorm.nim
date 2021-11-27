@@ -25,28 +25,28 @@ type
 
 
 proc newExtremaFuncPSNorm*(): ExtremaFuncPSNorm {.cdecl, constructor,
-    importcpp: "Extrema_FuncPSNorm(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
 proc newExtremaFuncPSNorm*(p: Pnt; s: Adaptor3dSurface): ExtremaFuncPSNorm {.cdecl,
-    constructor, importcpp: "Extrema_FuncPSNorm(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
 proc initialize*(this: var ExtremaFuncPSNorm; s: Adaptor3dSurface) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_FuncPSNorm.hxx".}
 proc setPoint*(this: var ExtremaFuncPSNorm; p: Pnt) {.cdecl, importcpp: "SetPoint",
-    dynlib: tkgeombase.}
+    header: "Extrema_FuncPSNorm.hxx".}
 proc nbVariables*(this: ExtremaFuncPSNorm): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_FuncPSNorm.hxx".}
 proc nbEquations*(this: ExtremaFuncPSNorm): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeombase.}
+    importcpp: "NbEquations", header: "Extrema_FuncPSNorm.hxx".}
 proc value*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_FuncPSNorm.hxx".}
 proc derivatives*(this: var ExtremaFuncPSNorm; uv: MathVector; df: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkgeombase.}
+    cdecl, importcpp: "Derivatives", header: "Extrema_FuncPSNorm.hxx".}
 proc values*(this: var ExtremaFuncPSNorm; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            df: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Extrema_FuncPSNorm.hxx".}
 proc getStateNumber*(this: var ExtremaFuncPSNorm): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkgeombase.}
+    importcpp: "GetStateNumber", header: "Extrema_FuncPSNorm.hxx".}
 proc nbExt*(this: ExtremaFuncPSNorm): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-    dynlib: tkgeombase.}
+    header: "Extrema_FuncPSNorm.hxx".}
 proc squareDistance*(this: ExtremaFuncPSNorm; n: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_FuncPSNorm.hxx".}
 proc point*(this: ExtremaFuncPSNorm; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_FuncPSNorm.hxx".}

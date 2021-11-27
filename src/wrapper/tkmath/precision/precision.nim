@@ -145,39 +145,39 @@ type
                                                                           ## exist).
 
 
-proc angular*(): cfloat {.cdecl, importcpp: "Precision::Angular(@)", dynlib: tkmath.}
+proc angular*(): cfloat {.cdecl, importcpp: "Precision::Angular(@)", header: "Precision.hxx".}
 proc confusion*(): cfloat {.cdecl, importcpp: "Precision::Confusion(@)",
-                         dynlib: tkmath.}
+                         header: "Precision.hxx".}
 proc squareConfusion*(): cfloat {.cdecl, importcpp: "Precision::SquareConfusion(@)",
-                               dynlib: tkmath.}
+                               header: "Precision.hxx".}
 proc intersection*(): cfloat {.cdecl, importcpp: "Precision::Intersection(@)",
-                            dynlib: tkmath.}
+                            header: "Precision.hxx".}
 proc approximation*(): cfloat {.cdecl, importcpp: "Precision::Approximation(@)",
-                             dynlib: tkmath.}
+                             header: "Precision.hxx".}
 proc parametric*(p: cfloat; t: cfloat): cfloat {.cdecl,
-    importcpp: "Precision::Parametric(@)", dynlib: tkmath.}
+    importcpp: "Precision::Parametric(@)", header: "Precision.hxx".}
 proc pConfusion*(t: cfloat): cfloat {.cdecl, importcpp: "Precision::PConfusion(@)",
-                                  dynlib: tkmath.}
+                                  header: "Precision.hxx".}
 proc squarePConfusion*(): cfloat {.cdecl,
                                 importcpp: "Precision::SquarePConfusion(@)",
-                                dynlib: tkmath.}
+                                header: "Precision.hxx".}
 proc pIntersection*(t: cfloat): cfloat {.cdecl,
                                      importcpp: "Precision::PIntersection(@)",
-                                     dynlib: tkmath.}
+                                     header: "Precision.hxx".}
 proc pApproximation*(t: cfloat): cfloat {.cdecl, importcpp: "Precision::PApproximation(@)",
-                                      dynlib: tkmath.}
+                                      header: "Precision.hxx".}
 proc parametric*(p: cfloat): cfloat {.cdecl, importcpp: "Precision::Parametric(@)",
-                                  dynlib: tkmath.}
+                                  header: "Precision.hxx".}
 proc pConfusion*(): cfloat {.cdecl, importcpp: "Precision::PConfusion(@)",
-                          dynlib: tkmath.}
+                          header: "Precision.hxx".}
 proc pIntersection*(): cfloat {.cdecl, importcpp: "Precision::PIntersection(@)",
-                             dynlib: tkmath.}
+                             header: "Precision.hxx".}
 proc pApproximation*(): cfloat {.cdecl, importcpp: "Precision::PApproximation(@)",
-                              dynlib: tkmath.}
+                              header: "Precision.hxx".}
 proc isInfinite*(r: cfloat): bool {.cdecl, importcpp: "Precision::IsInfinite(@)",
-                                dynlib: tkmath.}
+                                header: "Precision.hxx".}
 proc isPositiveInfinite*(r: cfloat): bool {.cdecl, importcpp: "Precision::IsPositiveInfinite(@)",
-                                        dynlib: tkmath.}
+                                        header: "Precision.hxx".}
 proc isNegativeInfinite*(r: cfloat): bool {.cdecl, importcpp: "Precision::IsNegativeInfinite(@)",
-                                        dynlib: tkmath.}
-proc infinite*(): cfloat {.cdecl, importcpp: "Precision::Infinite(@)", dynlib: tkmath.}
+                                        header: "Precision.hxx".}
+proc infinite*(): cfloat {.cdecl, importcpp: "Precision::Infinite(@)", header: "Precision.hxx".}

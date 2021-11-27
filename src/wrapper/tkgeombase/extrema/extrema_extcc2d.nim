@@ -26,36 +26,36 @@ type
 
 
 proc newExtremaExtCC2d*(): ExtremaExtCC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtCC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtCC2d(@)", header: "Extrema_ExtCC2d.hxx".}
 proc newExtremaExtCC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
                        tolC1: cfloat = 1.0e-10; tolC2: cfloat = 1.0e-10): ExtremaExtCC2d {.
-    cdecl, constructor, importcpp: "Extrema_ExtCC2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_ExtCC2d(@)", header: "Extrema_ExtCC2d.hxx".}
 proc newExtremaExtCC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; u1: cfloat;
                        u2: cfloat; v1: cfloat; v2: cfloat; tolC1: cfloat = 1.0e-10;
                        tolC2: cfloat = 1.0e-10): ExtremaExtCC2d {.cdecl, constructor,
-    importcpp: "Extrema_ExtCC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtCC2d(@)", header: "Extrema_ExtCC2d.hxx".}
 proc initialize*(this: var ExtremaExtCC2d; c2: Adaptor2dCurve2d; v1: cfloat; v2: cfloat;
                 tolC1: cfloat = 1.0e-10; tolC2: cfloat = 1.0e-10) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_ExtCC2d.hxx".}
 proc perform*(this: var ExtremaExtCC2d; c1: Adaptor2dCurve2d; u1: cfloat; u2: cfloat) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeombase.}
+    cdecl, importcpp: "Perform", header: "Extrema_ExtCC2d.hxx".}
 proc isDone*(this: ExtremaExtCC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_ExtCC2d.hxx".}
 proc nbExt*(this: ExtremaExtCC2d): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_ExtCC2d.hxx".}
 proc isParallel*(this: ExtremaExtCC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsParallel", dynlib: tkgeombase.}
+    importcpp: "IsParallel", header: "Extrema_ExtCC2d.hxx".}
 proc squareDistance*(this: ExtremaExtCC2d; n: cint = 1): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_ExtCC2d.hxx".}
 proc points*(this: ExtremaExtCC2d; n: cint; p1: var ExtremaPOnCurv2d;
             p2: var ExtremaPOnCurv2d) {.noSideEffect, cdecl, importcpp: "Points",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_ExtCC2d.hxx".}
 proc trimmedSquareDistances*(this: ExtremaExtCC2d; dist11: var cfloat;
                             distP12: var cfloat; distP21: var cfloat;
                             distP22: var cfloat; p11: var Pnt2d; p12: var Pnt2d;
                             p21: var Pnt2d; p22: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "TrimmedSquareDistances", dynlib: tkgeombase.}
+    importcpp: "TrimmedSquareDistances", header: "Extrema_ExtCC2d.hxx".}
 proc setSingleSolutionFlag*(this: var ExtremaExtCC2d; theSingleSolutionFlag: bool) {.
-    cdecl, importcpp: "SetSingleSolutionFlag", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ExtCC2d.hxx".}
 proc getSingleSolutionFlag*(this: ExtremaExtCC2d): bool {.noSideEffect, cdecl,
-    importcpp: "GetSingleSolutionFlag", dynlib: tkgeombase.}
+    importcpp: "GetSingleSolutionFlag", header: "Extrema_ExtCC2d.hxx".}

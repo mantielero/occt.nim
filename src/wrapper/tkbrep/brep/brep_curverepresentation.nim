@@ -41,91 +41,91 @@ type
 
 
 proc isCurve3D*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurve3D", dynlib: tkbrep.}
+    importcpp: "IsCurve3D", header: "BRep_CurveRepresentation.hxx".}
 proc isCurveOnSurface*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsCurveOnSurface", header: "BRep_CurveRepresentation.hxx".}
 proc isRegularity*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsRegularity", dynlib: tkbrep.}
+    importcpp: "IsRegularity", header: "BRep_CurveRepresentation.hxx".}
 proc isCurveOnClosedSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
-    cdecl, importcpp: "IsCurveOnClosedSurface", dynlib: tkbrep.}
+    cdecl, importcpp: "IsCurveOnClosedSurface", header: "BRep_CurveRepresentation.hxx".}
 proc isCurveOnSurface*(this: BRepCurveRepresentation; s: Handle[GeomSurface];
                       L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsCurveOnSurface", header: "BRep_CurveRepresentation.hxx".}
 proc isRegularity*(this: BRepCurveRepresentation; s1: Handle[GeomSurface];
                   s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
-    noSideEffect, cdecl, importcpp: "IsRegularity", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsRegularity", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygon3D*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygon3D", dynlib: tkbrep.}
+    importcpp: "IsPolygon3D", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnTriangulation*(this: BRepCurveRepresentation): bool {.noSideEffect,
-    cdecl, importcpp: "IsPolygonOnTriangulation", dynlib: tkbrep.}
+    cdecl, importcpp: "IsPolygonOnTriangulation", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnTriangulation*(this: BRepCurveRepresentation;
                               t: Handle[PolyTriangulation]; L: TopLocLocation): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnTriangulation", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnClosedTriangulation*(this: BRepCurveRepresentation): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedTriangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedTriangulation", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnSurface*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygonOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPolygonOnSurface", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnSurface*(this: BRepCurveRepresentation; s: Handle[GeomSurface];
                         L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPolygonOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPolygonOnSurface", header: "BRep_CurveRepresentation.hxx".}
 proc isPolygonOnClosedSurface*(this: BRepCurveRepresentation): bool {.noSideEffect,
-    cdecl, importcpp: "IsPolygonOnClosedSurface", dynlib: tkbrep.}
+    cdecl, importcpp: "IsPolygonOnClosedSurface", header: "BRep_CurveRepresentation.hxx".}
 proc location*(this: BRepCurveRepresentation): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkbrep.}
+    importcpp: "Location", header: "BRep_CurveRepresentation.hxx".}
 proc location*(this: var BRepCurveRepresentation; L: TopLocLocation) {.cdecl,
-    importcpp: "Location", dynlib: tkbrep.}
+    importcpp: "Location", header: "BRep_CurveRepresentation.hxx".}
 proc curve3D*(this: BRepCurveRepresentation): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "Curve3D", dynlib: tkbrep.}
+    cdecl, importcpp: "Curve3D", header: "BRep_CurveRepresentation.hxx".}
 proc curve3D*(this: var BRepCurveRepresentation; c: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Curve3D", dynlib: tkbrep.}
+    importcpp: "Curve3D", header: "BRep_CurveRepresentation.hxx".}
 proc surface*(this: BRepCurveRepresentation): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface", dynlib: tkbrep.}
+    cdecl, importcpp: "Surface", header: "BRep_CurveRepresentation.hxx".}
 proc pCurve*(this: BRepCurveRepresentation): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve", dynlib: tkbrep.}
+    cdecl, importcpp: "PCurve", header: "BRep_CurveRepresentation.hxx".}
 proc pCurve*(this: var BRepCurveRepresentation; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve", dynlib: tkbrep.}
+    importcpp: "PCurve", header: "BRep_CurveRepresentation.hxx".}
 proc pCurve2*(this: BRepCurveRepresentation): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve2", dynlib: tkbrep.}
+    cdecl, importcpp: "PCurve2", header: "BRep_CurveRepresentation.hxx".}
 proc pCurve2*(this: var BRepCurveRepresentation; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve2", dynlib: tkbrep.}
+    importcpp: "PCurve2", header: "BRep_CurveRepresentation.hxx".}
 proc polygon3D*(this: BRepCurveRepresentation): Handle[PolyPolygon3D] {.
-    noSideEffect, cdecl, importcpp: "Polygon3D", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Polygon3D", header: "BRep_CurveRepresentation.hxx".}
 proc polygon3D*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon3D]) {.cdecl,
-    importcpp: "Polygon3D", dynlib: tkbrep.}
+    importcpp: "Polygon3D", header: "BRep_CurveRepresentation.hxx".}
 proc polygon*(this: BRepCurveRepresentation): Handle[PolyPolygon2D] {.noSideEffect,
-    cdecl, importcpp: "Polygon", dynlib: tkbrep.}
+    cdecl, importcpp: "Polygon", header: "BRep_CurveRepresentation.hxx".}
 proc polygon*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon2D]) {.cdecl,
-    importcpp: "Polygon", dynlib: tkbrep.}
+    importcpp: "Polygon", header: "BRep_CurveRepresentation.hxx".}
 proc polygon2*(this: BRepCurveRepresentation): Handle[PolyPolygon2D] {.noSideEffect,
-    cdecl, importcpp: "Polygon2", dynlib: tkbrep.}
+    cdecl, importcpp: "Polygon2", header: "BRep_CurveRepresentation.hxx".}
 proc polygon2*(this: var BRepCurveRepresentation; p: Handle[PolyPolygon2D]) {.cdecl,
-    importcpp: "Polygon2", dynlib: tkbrep.}
+    importcpp: "Polygon2", header: "BRep_CurveRepresentation.hxx".}
 proc triangulation*(this: BRepCurveRepresentation): Handle[PolyTriangulation] {.
-    noSideEffect, cdecl, importcpp: "Triangulation", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Triangulation", header: "BRep_CurveRepresentation.hxx".}
 proc polygonOnTriangulation*(this: BRepCurveRepresentation): Handle[
     PolyPolygonOnTriangulation] {.noSideEffect, cdecl,
                                  importcpp: "PolygonOnTriangulation",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveRepresentation.hxx".}
 proc polygonOnTriangulation*(this: var BRepCurveRepresentation;
                             p: Handle[PolyPolygonOnTriangulation]) {.cdecl,
-    importcpp: "PolygonOnTriangulation", dynlib: tkbrep.}
+    importcpp: "PolygonOnTriangulation", header: "BRep_CurveRepresentation.hxx".}
 proc polygonOnTriangulation2*(this: BRepCurveRepresentation): Handle[
     PolyPolygonOnTriangulation] {.noSideEffect, cdecl,
                                  importcpp: "PolygonOnTriangulation2",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveRepresentation.hxx".}
 proc polygonOnTriangulation2*(this: var BRepCurveRepresentation;
                              p2: Handle[PolyPolygonOnTriangulation]) {.cdecl,
-    importcpp: "PolygonOnTriangulation2", dynlib: tkbrep.}
+    importcpp: "PolygonOnTriangulation2", header: "BRep_CurveRepresentation.hxx".}
 proc surface2*(this: BRepCurveRepresentation): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface2", dynlib: tkbrep.}
+    cdecl, importcpp: "Surface2", header: "BRep_CurveRepresentation.hxx".}
 proc location2*(this: BRepCurveRepresentation): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Location2", dynlib: tkbrep.}
+    importcpp: "Location2", header: "BRep_CurveRepresentation.hxx".}
 proc continuity*(this: BRepCurveRepresentation): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveRepresentation.hxx".}
 proc continuity*(this: var BRepCurveRepresentation; c: GeomAbsShape) {.cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveRepresentation.hxx".}
 proc copy*(this: BRepCurveRepresentation): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_CurveRepresentation.hxx".}
 proc dumpJson*(this: BRepCurveRepresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveRepresentation.hxx".}

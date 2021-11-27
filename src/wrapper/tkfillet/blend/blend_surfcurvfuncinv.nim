@@ -25,21 +25,21 @@ type
 
 
 proc nbVariables*(this: BlendSurfCurvFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "Blend_SurfCurvFuncInv.hxx".}
 proc nbEquations*(this: BlendSurfCurvFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "Blend_SurfCurvFuncInv.hxx".}
 proc value*(this: var BlendSurfCurvFuncInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "Blend_SurfCurvFuncInv.hxx".}
 proc derivatives*(this: var BlendSurfCurvFuncInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "Blend_SurfCurvFuncInv.hxx".}
 proc values*(this: var BlendSurfCurvFuncInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Blend_SurfCurvFuncInv.hxx".}
 proc set*(this: var BlendSurfCurvFuncInv; rst: Handle[Adaptor2dHCurve2d]) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "Blend_SurfCurvFuncInv.hxx".}
 proc getTolerance*(this: BlendSurfCurvFuncInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_SurfCurvFuncInv.hxx".}
 proc getBounds*(this: BlendSurfCurvFuncInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "Blend_SurfCurvFuncInv.hxx".}
 proc isSolution*(this: var BlendSurfCurvFuncInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "Blend_SurfCurvFuncInv.hxx".}

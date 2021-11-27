@@ -26,22 +26,22 @@ type
 proc newBlendFuncRuledInv*(s1: Handle[Adaptor3dHSurface];
                           s2: Handle[Adaptor3dHSurface];
                           c: Handle[Adaptor3dHCurve]): BlendFuncRuledInv {.cdecl,
-    constructor, importcpp: "BlendFunc_RuledInv(@)", dynlib: tkfillet.}
+    constructor, importcpp: "BlendFunc_RuledInv(@)", header: "BlendFunc_RuledInv.hxx".}
 proc set*(this: var BlendFuncRuledInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_RuledInv.hxx".}
 proc getTolerance*(this: BlendFuncRuledInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_RuledInv.hxx".}
 proc getBounds*(this: BlendFuncRuledInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BlendFunc_RuledInv.hxx".}
 proc isSolution*(this: var BlendFuncRuledInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_RuledInv.hxx".}
 proc nbEquations*(this: BlendFuncRuledInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BlendFunc_RuledInv.hxx".}
 proc value*(this: var BlendFuncRuledInv; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_RuledInv.hxx".}
 proc derivatives*(this: var BlendFuncRuledInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_RuledInv.hxx".}
 proc values*(this: var BlendFuncRuledInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_RuledInv.hxx".}

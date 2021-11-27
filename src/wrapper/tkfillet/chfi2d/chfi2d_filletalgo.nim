@@ -33,22 +33,22 @@ type
 
 
 proc newChFi2dFilletAlgo*(): ChFi2dFilletAlgo {.cdecl, constructor,
-    importcpp: "ChFi2d_FilletAlgo(@)", dynlib: tkfillet.}
+    importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
 proc newChFi2dFilletAlgo*(theWire: TopoDS_Wire; thePlane: Pln): ChFi2dFilletAlgo {.
-    cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
 proc newChFi2dFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: Pln): ChFi2dFilletAlgo {.
-    cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
 proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: Pln) {.cdecl,
-    importcpp: "Init", dynlib: tkfillet.}
+    importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc init*(this: var ChFi2dFilletAlgo; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-          thePlane: Pln) {.cdecl, importcpp: "Init", dynlib: tkfillet.}
+          thePlane: Pln) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc perform*(this: var ChFi2dFilletAlgo; theRadius: cfloat): bool {.cdecl,
-    importcpp: "Perform", dynlib: tkfillet.}
+    importcpp: "Perform", header: "ChFi2d_FilletAlgo.hxx".}
 proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: Pnt): cint {.cdecl,
-    importcpp: "NbResults", dynlib: tkfillet.}
+    importcpp: "NbResults", header: "ChFi2d_FilletAlgo.hxx".}
 proc result*(this: var ChFi2dFilletAlgo; thePoint: Pnt; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
-    importcpp: "Result", dynlib: tkfillet.}
+    importcpp: "Result", header: "ChFi2d_FilletAlgo.hxx".}
 ## ! Private class. Corresponds to the point on the first curve, computed
 ## ! fillet function and derivative on it.
 
@@ -86,40 +86,40 @@ type
 
 
 proc newFilletPoint*(theParam: cfloat): FilletPoint {.cdecl, constructor,
-    importcpp: "FilletPoint(@)", dynlib: tkfillet.}
+    importcpp: "FilletPoint(@)", header: "ChFi2d_FilletAlgo.hxx".}
 proc setParam*(this: var FilletPoint; theParam: cfloat) {.cdecl, importcpp: "setParam",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc getParam*(this: FilletPoint): cfloat {.noSideEffect, cdecl,
-                                        importcpp: "getParam", dynlib: tkfillet.}
+                                        importcpp: "getParam", header: "ChFi2d_FilletAlgo.hxx".}
 proc getNBValues*(this: var FilletPoint): cint {.cdecl, importcpp: "getNBValues",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc getValue*(this: var FilletPoint; theIndex: cint): cfloat {.cdecl,
-    importcpp: "getValue", dynlib: tkfillet.}
+    importcpp: "getValue", header: "ChFi2d_FilletAlgo.hxx".}
 proc getDiff*(this: var FilletPoint; theIndex: cint): cfloat {.cdecl,
-    importcpp: "getDiff", dynlib: tkfillet.}
+    importcpp: "getDiff", header: "ChFi2d_FilletAlgo.hxx".}
 proc isValid*(this: var FilletPoint; theIndex: cint): bool {.cdecl,
-    importcpp: "isValid", dynlib: tkfillet.}
+    importcpp: "isValid", header: "ChFi2d_FilletAlgo.hxx".}
 proc getNear*(this: var FilletPoint; theIndex: cint): cint {.cdecl,
-    importcpp: "getNear", dynlib: tkfillet.}
+    importcpp: "getNear", header: "ChFi2d_FilletAlgo.hxx".}
 proc setParam2*(this: var FilletPoint; theParam2: cfloat) {.cdecl,
-    importcpp: "setParam2", dynlib: tkfillet.}
+    importcpp: "setParam2", header: "ChFi2d_FilletAlgo.hxx".}
 proc getParam2*(this: var FilletPoint): cfloat {.cdecl, importcpp: "getParam2",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc setCenter*(this: var FilletPoint; thePoint: Pnt2d) {.cdecl,
-    importcpp: "setCenter", dynlib: tkfillet.}
+    importcpp: "setCenter", header: "ChFi2d_FilletAlgo.hxx".}
 proc getCenter*(this: var FilletPoint): Pnt2d {.cdecl, importcpp: "getCenter",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc appendValue*(this: var FilletPoint; theValue: cfloat; theValid: bool) {.cdecl,
-    importcpp: "appendValue", dynlib: tkfillet.}
+    importcpp: "appendValue", header: "ChFi2d_FilletAlgo.hxx".}
 proc calculateDiff*(this: var FilletPoint; a2: ptr FilletPoint): bool {.cdecl,
-    importcpp: "calculateDiff", dynlib: tkfillet.}
+    importcpp: "calculateDiff", header: "ChFi2d_FilletAlgo.hxx".}
 proc filterPoints*(this: var FilletPoint; a2: ptr FilletPoint) {.cdecl,
-    importcpp: "FilterPoints", dynlib: tkfillet.}
+    importcpp: "FilterPoints", header: "ChFi2d_FilletAlgo.hxx".}
 proc copy*(this: var FilletPoint): ptr FilletPoint {.cdecl, importcpp: "Copy",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc hasSolution*(this: var FilletPoint; theRadius: cfloat): cint {.cdecl,
-    importcpp: "hasSolution", dynlib: tkfillet.}
+    importcpp: "hasSolution", header: "ChFi2d_FilletAlgo.hxx".}
 proc lowerValue*(this: var FilletPoint): cfloat {.cdecl, importcpp: "LowerValue",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}
 proc remove*(this: var FilletPoint; theIndex: cint) {.cdecl, importcpp: "remove",
-    dynlib: tkfillet.}
+    header: "ChFi2d_FilletAlgo.hxx".}

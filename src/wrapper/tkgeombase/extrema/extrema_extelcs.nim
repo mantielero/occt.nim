@@ -30,59 +30,59 @@ type
 
 
 proc newExtremaExtElCS*(): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Lin; s: Pln): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Lin; s: Pln) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Lin; s: Cylinder): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Lin; s: Cylinder) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Lin; s: Cone): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Lin; s: Cone) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Lin; s: Sphere): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Lin; s: Sphere) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Lin; s: Torus): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Lin; s: Torus) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Circ; s: Pln): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Circ; s: Pln) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Circ; s: Cylinder): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Circ; s: Cylinder) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Circ; s: Cone): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Circ; s: Cone) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Circ; s: Sphere): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Circ; s: Sphere) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Circ; s: Torus): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Circ; s: Torus) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc newExtremaExtElCS*(c: Hypr; s: Pln): ExtremaExtElCS {.cdecl, constructor,
-    importcpp: "Extrema_ExtElCS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_ExtElCS(@)", header: "Extrema_ExtElCS.hxx".}
 proc perform*(this: var ExtremaExtElCS; c: Hypr; s: Pln) {.cdecl, importcpp: "Perform",
-    dynlib: tkgeombase.}
+    header: "Extrema_ExtElCS.hxx".}
 proc isDone*(this: ExtremaExtElCS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                       dynlib: tkgeombase.}
+                                       header: "Extrema_ExtElCS.hxx".}
 proc isParallel*(this: ExtremaExtElCS): bool {.noSideEffect, cdecl,
-    importcpp: "IsParallel", dynlib: tkgeombase.}
+    importcpp: "IsParallel", header: "Extrema_ExtElCS.hxx".}
 proc nbExt*(this: ExtremaExtElCS): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_ExtElCS.hxx".}
 proc squareDistance*(this: ExtremaExtElCS; n: cint = 1): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_ExtElCS.hxx".}
 proc points*(this: ExtremaExtElCS; n: cint; p1: var ExtremaPOnCurv;
             p2: var ExtremaPOnSurf) {.noSideEffect, cdecl, importcpp: "Points",
-                                   dynlib: tkgeombase.}
+                                   header: "Extrema_ExtElCS.hxx".}

@@ -47,28 +47,28 @@ type
 
 proc newBVH_IndexedBoxSet*[NumType; Dimension: static[cint]; DataType](): BVH_IndexedBoxSet[
     NumType, Dimension, DataType] {.cdecl, constructor, importcpp: "BVH_IndexedBoxSet<\'*0,\'*1,\'*2>(@)",
-                                 dynlib: tkmath.}
+                                 header: "BVH_IndexedBoxSet.hxx".}
 proc newBVH_IndexedBoxSet*[NumType; Dimension: static[cint]; DataType](
     theBuilder: Handle[BVH_Builder[NumType, Dimension]]): BVH_IndexedBoxSet[
     NumType, Dimension, DataType] {.cdecl, constructor, importcpp: "BVH_IndexedBoxSet<\'*0,\'*1,\'*2>(@)",
-                                 dynlib: tkmath.}
+                                 header: "BVH_IndexedBoxSet.hxx".}
 proc setSize*[NumType; Dimension: static[cint]; DataType](
     this: var BVH_IndexedBoxSet[NumType, Dimension, DataType]; theSize: csize_t) {.
-    cdecl, importcpp: "SetSize", dynlib: tkmath.}
+    cdecl, importcpp: "SetSize", header: "BVH_IndexedBoxSet.hxx".}
 proc add*[NumType; Dimension: static[cint]; DataType](
     this: var BVH_IndexedBoxSet[NumType, Dimension, DataType]; theElement: DataType;
-    theBox: BVH_Box[NumType, Dimension]) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+    theBox: BVH_Box[NumType, Dimension]) {.cdecl, importcpp: "Add", header: "BVH_IndexedBoxSet.hxx".}
 proc clear*[NumType; Dimension: static[cint]; DataType](
     this: var BVH_IndexedBoxSet[NumType, Dimension, DataType]) {.cdecl,
-    importcpp: "Clear", dynlib: tkmath.}
+    importcpp: "Clear", header: "BVH_IndexedBoxSet.hxx".}
 ## using statement
 
 proc box*[NumType; Dimension: static[cint]; DataType](
     this: BVH_IndexedBoxSet[NumType, Dimension, DataType]; theIndex: cint): BVH_Box[
-    NumType, Dimension] {.noSideEffect, cdecl, importcpp: "Box", dynlib: tkmath.}
+    NumType, Dimension] {.noSideEffect, cdecl, importcpp: "Box", header: "BVH_IndexedBoxSet.hxx".}
 proc swap*[NumType; Dimension: static[cint]; DataType](
     this: var BVH_IndexedBoxSet[NumType, Dimension, DataType]; theIndex1: cint;
-    theIndex2: cint) {.cdecl, importcpp: "Swap", dynlib: tkmath.}
+    theIndex2: cint) {.cdecl, importcpp: "Swap", header: "BVH_IndexedBoxSet.hxx".}
 proc element*[NumType; Dimension: static[cint]; DataType](
     this: BVH_IndexedBoxSet[NumType, Dimension, DataType]; theIndex: cint): DataType {.
-    noSideEffect, cdecl, importcpp: "Element", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Element", header: "BVH_IndexedBoxSet.hxx".}

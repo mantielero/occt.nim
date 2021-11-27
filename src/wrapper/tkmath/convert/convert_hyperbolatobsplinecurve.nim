@@ -43,4 +43,4 @@ type
 
 proc newConvertHyperbolaToBSplineCurve*(h: Hypr2d; u1: cfloat; u2: cfloat): ConvertHyperbolaToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_HyperbolaToBSplineCurve(@)",
-    dynlib: tkmath.}
+    header: "Convert_HyperbolaToBSplineCurve.hxx".}

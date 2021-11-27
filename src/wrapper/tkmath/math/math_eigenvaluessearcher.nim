@@ -21,12 +21,12 @@ type
 
 proc newMathEigenValuesSearcher*(diagonal: TColStdArray1OfReal;
                                 subdiagonal: TColStdArray1OfReal): MathEigenValuesSearcher {.
-    cdecl, constructor, importcpp: "math_EigenValuesSearcher(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_EigenValuesSearcher(@)", header: "math_EigenValuesSearcher.hxx".}
 proc isDone*(this: MathEigenValuesSearcher): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_EigenValuesSearcher.hxx".}
 proc dimension*(this: MathEigenValuesSearcher): cint {.noSideEffect, cdecl,
-    importcpp: "Dimension", dynlib: tkmath.}
+    importcpp: "Dimension", header: "math_EigenValuesSearcher.hxx".}
 proc eigenValue*(this: MathEigenValuesSearcher; index: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "EigenValue", dynlib: tkmath.}
+    cdecl, importcpp: "EigenValue", header: "math_EigenValuesSearcher.hxx".}
 proc eigenVector*(this: MathEigenValuesSearcher; index: cint): MathVector {.
-    noSideEffect, cdecl, importcpp: "EigenVector", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "EigenVector", header: "math_EigenValuesSearcher.hxx".}

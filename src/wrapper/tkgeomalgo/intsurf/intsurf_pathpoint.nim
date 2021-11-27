@@ -25,32 +25,32 @@ type
 
 
 proc newIntSurfPathPoint*(): IntSurfPathPoint {.cdecl, constructor,
-    importcpp: "IntSurf_PathPoint(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
 proc newIntSurfPathPoint*(p: Pnt; u: cfloat; v: cfloat): IntSurfPathPoint {.cdecl,
-    constructor, importcpp: "IntSurf_PathPoint(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
 proc setValue*(this: var IntSurfPathPoint; p: Pnt; u: cfloat; v: cfloat) {.cdecl,
-    importcpp: "SetValue", dynlib: tkgeomalgo.}
+    importcpp: "SetValue", header: "IntSurf_PathPoint.hxx".}
 proc addUV*(this: var IntSurfPathPoint; u: cfloat; v: cfloat) {.cdecl,
-    importcpp: "AddUV", dynlib: tkgeomalgo.}
+    importcpp: "AddUV", header: "IntSurf_PathPoint.hxx".}
 proc setDirections*(this: var IntSurfPathPoint; v: Vec; d: Dir2d) {.cdecl,
-    importcpp: "SetDirections", dynlib: tkgeomalgo.}
+    importcpp: "SetDirections", header: "IntSurf_PathPoint.hxx".}
 proc setTangency*(this: var IntSurfPathPoint; tang: bool) {.cdecl,
-    importcpp: "SetTangency", dynlib: tkgeomalgo.}
+    importcpp: "SetTangency", header: "IntSurf_PathPoint.hxx".}
 proc setPassing*(this: var IntSurfPathPoint; pass: bool) {.cdecl,
-    importcpp: "SetPassing", dynlib: tkgeomalgo.}
+    importcpp: "SetPassing", header: "IntSurf_PathPoint.hxx".}
 proc value*(this: IntSurfPathPoint): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkgeomalgo.}
+                                       header: "IntSurf_PathPoint.hxx".}
 proc value2d*(this: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Value2d", dynlib: tkgeomalgo.}
+    importcpp: "Value2d", header: "IntSurf_PathPoint.hxx".}
 proc isPassingPnt*(this: IntSurfPathPoint): bool {.noSideEffect, cdecl,
-    importcpp: "IsPassingPnt", dynlib: tkgeomalgo.}
+    importcpp: "IsPassingPnt", header: "IntSurf_PathPoint.hxx".}
 proc isTangent*(this: IntSurfPathPoint): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangent", dynlib: tkgeomalgo.}
+    importcpp: "IsTangent", header: "IntSurf_PathPoint.hxx".}
 proc direction3d*(this: IntSurfPathPoint): Vec {.noSideEffect, cdecl,
-    importcpp: "Direction3d", dynlib: tkgeomalgo.}
+    importcpp: "Direction3d", header: "IntSurf_PathPoint.hxx".}
 proc direction2d*(this: IntSurfPathPoint): Dir2d {.noSideEffect, cdecl,
-    importcpp: "Direction2d", dynlib: tkgeomalgo.}
+    importcpp: "Direction2d", header: "IntSurf_PathPoint.hxx".}
 proc multiplicity*(this: IntSurfPathPoint): cint {.noSideEffect, cdecl,
-    importcpp: "Multiplicity", dynlib: tkgeomalgo.}
+    importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}
 proc parameters*(this: IntSurfPathPoint; index: cint; u: var cfloat; v: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Parameters", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_PathPoint.hxx".}

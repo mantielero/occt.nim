@@ -123,9 +123,9 @@ proc isUpperCase*(me: cchar): bool {.cdecl.} =
 ##  LowerCase : Returns a lowercase character
 ##  ==================================================================
 
-proc lowerCase*(me: cchar): cchar {.cdecl, importcpp: "LowerCase(@)", dynlib: tkernel.}
+proc lowerCase*(me: cchar): cchar {.cdecl, importcpp: "LowerCase(@)", header: "Standard_Character.hxx".}
 ##  ==================================================================
 ##  UpperCase : Returns a uppercase character
 ##  ==================================================================
 
-proc upperCase*(me: cchar): cchar {.cdecl, importcpp: "UpperCase(@)", dynlib: tkernel.}
+proc upperCase*(me: cchar): cchar {.cdecl, importcpp: "UpperCase(@)", header: "Standard_Character.hxx".}

@@ -54,25 +54,25 @@ type
 
 
 proc newBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeTorus {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(r1: cfloat; r2: cfloat; angle1: cfloat; angle2: cfloat;
                               angle: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
                               angle2: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc newBRepPrimAPI_MakeTorus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
                               angle2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeTorus): pointer {.cdecl, importcpp: "OneAxis",
-    dynlib: tkprim.}
+    header: "BRepPrimAPI_MakeTorus.hxx".}
 proc torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrimTorus {.cdecl,
-    importcpp: "Torus", dynlib: tkprim.}
+    importcpp: "Torus", header: "BRepPrimAPI_MakeTorus.hxx".}

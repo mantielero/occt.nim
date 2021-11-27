@@ -15,24 +15,24 @@
 ##  commercial license or contractual agreement.
 
 proc fDSSDM_prepare*(a1: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "FDSSDM_prepare(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_prepare(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_makes1s2*(s: TopoDS_Shape; l1: var TopToolsListOfShape;
                      l2: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSSDM_makes1s2(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_makes1s2(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_s1s2makesordor*(l1: TopToolsListOfShape; l2: TopToolsListOfShape;
                            s: TopoDS_Shape; lso: var TopToolsListOfShape;
                            ldo: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSSDM_s1s2makesordor(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_s1s2makesordor(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_s1s2*(s: TopoDS_Shape; ls1: var TopToolsListOfShape;
                  ls2: var TopToolsListOfShape) {.cdecl, importcpp: "FDSSDM_s1s2(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_sordor*(s: TopoDS_Shape; lso: var TopToolsListOfShape;
                    ldo: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSSDM_sordor(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_sordor(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_contains*(s: TopoDS_Shape; L: TopToolsListOfShape): bool {.cdecl,
-    importcpp: "FDSSDM_contains(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_contains(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_copylist*(lin: TopToolsListOfShape; i1: cint; i2: cint;
                      lou: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSSDM_copylist(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_copylist*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.cdecl,
-    importcpp: "FDSSDM_copylist(@)", dynlib: tkbool.}
+    importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}

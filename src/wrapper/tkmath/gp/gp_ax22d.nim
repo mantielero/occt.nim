@@ -23,55 +23,55 @@ type
                                                                     ## ! co-ordinate system (OXY).
 
 
-proc newAx22d*(): Ax22d {.cdecl, constructor, importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
+proc newAx22d*(): Ax22d {.cdecl, constructor, importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
 proc newAx22d*(p: Pnt2d; vx: Dir2d; vy: Dir2d): Ax22d {.cdecl, constructor,
-    importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
+    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
 proc newAx22d*(p: Pnt2d; v: Dir2d; sense: bool = true): Ax22d {.cdecl, constructor,
-    importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
+    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
 proc newAx22d*(a: Ax2d; sense: bool = true): Ax22d {.cdecl, constructor,
-    importcpp: "gp_Ax22d(@)", dynlib: tkmath.}
-proc setAxis*(this: var Ax22d; a1: Ax22d) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
-proc setXAxis*(this: var Ax22d; a1: Ax2d) {.cdecl, importcpp: "SetXAxis", dynlib: tkmath.}
-proc setYAxis*(this: var Ax22d; a1: Ax2d) {.cdecl, importcpp: "SetYAxis", dynlib: tkmath.}
+    importcpp: "gp_Ax22d(@)", header: "gp_Ax22d.hxx".}
+proc setAxis*(this: var Ax22d; a1: Ax22d) {.cdecl, importcpp: "SetAxis", header: "gp_Ax22d.hxx".}
+proc setXAxis*(this: var Ax22d; a1: Ax2d) {.cdecl, importcpp: "SetXAxis", header: "gp_Ax22d.hxx".}
+proc setYAxis*(this: var Ax22d; a1: Ax2d) {.cdecl, importcpp: "SetYAxis", header: "gp_Ax22d.hxx".}
 proc setLocation*(this: var Ax22d; p: Pnt2d) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
 proc setXDirection*(this: var Ax22d; vx: Dir2d) {.cdecl, importcpp: "SetXDirection",
-    dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
 proc setYDirection*(this: var Ax22d; vy: Dir2d) {.cdecl, importcpp: "SetYDirection",
-    dynlib: tkmath.}
-proc xAxis*(this: Ax22d): Ax2d {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Ax22d): Ax2d {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
+proc xAxis*(this: Ax22d): Ax2d {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Ax22d.hxx".}
+proc yAxis*(this: Ax22d): Ax2d {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Ax22d.hxx".}
 proc location*(this: Ax22d): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
-                                 dynlib: tkmath.}
+                                 header: "gp_Ax22d.hxx".}
 proc xDirection*(this: Ax22d): Dir2d {.noSideEffect, cdecl, importcpp: "XDirection",
-                                   dynlib: tkmath.}
+                                   header: "gp_Ax22d.hxx".}
 proc yDirection*(this: Ax22d): Dir2d {.noSideEffect, cdecl, importcpp: "YDirection",
-                                   dynlib: tkmath.}
-proc mirror*(this: var Ax22d; p: Pnt2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                   header: "gp_Ax22d.hxx".}
+proc mirror*(this: var Ax22d; p: Pnt2d) {.cdecl, importcpp: "Mirror", header: "gp_Ax22d.hxx".}
 proc mirrored*(this: Ax22d; p: Pnt2d): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Ax22d; a: Ax2d) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+    importcpp: "Mirrored", header: "gp_Ax22d.hxx".}
+proc mirror*(this: var Ax22d; a: Ax2d) {.cdecl, importcpp: "Mirror", header: "gp_Ax22d.hxx".}
 proc mirrored*(this: Ax22d; a: Ax2d): Ax22d {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Ax22d.hxx".}
 proc rotate*(this: var Ax22d; p: Pnt2d; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
 proc rotated*(this: Ax22d; p: Pnt2d; ang: cfloat): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Ax22d.hxx".}
 proc scale*(this: var Ax22d; p: Pnt2d; s: cfloat) {.cdecl, importcpp: "Scale",
-    dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
 proc scaled*(this: Ax22d; p: Pnt2d; s: cfloat): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Ax22d.hxx".}
 proc transform*(this: var Ax22d; t: Trsf2d) {.cdecl, importcpp: "Transform",
-                                        dynlib: tkmath.}
+                                        header: "gp_Ax22d.hxx".}
 proc transformed*(this: Ax22d; t: Trsf2d): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Ax22d.hxx".}
 proc translate*(this: var Ax22d; v: Vec2d) {.cdecl, importcpp: "Translate",
-                                       dynlib: tkmath.}
+                                       header: "gp_Ax22d.hxx".}
 proc translated*(this: Ax22d; v: Vec2d): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Ax22d.hxx".}
 proc translate*(this: var Ax22d; p1: Pnt2d; p2: Pnt2d) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Ax22d.hxx".}
 proc translated*(this: Ax22d; p1: Pnt2d; p2: Pnt2d): Ax22d {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Ax22d.hxx".}
 proc dumpJson*(this: Ax22d; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Ax22d.hxx".}

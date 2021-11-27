@@ -74,12 +74,12 @@ type
 
 proc newBRepPrimRevolution*(a: Ax2; vMin: cfloat; vMax: cfloat; m: Handle[GeomCurve];
                            pm: Handle[Geom2dCurve]): BRepPrimRevolution {.cdecl,
-    constructor, importcpp: "BRepPrim_Revolution(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Revolution(@)", header: "BRepPrim_Revolution.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimRevolution): TopoDS_Face {.noSideEffect,
-    cdecl, importcpp: "MakeEmptyLateralFace", dynlib: tkprim.}
+    cdecl, importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Revolution.hxx".}
 proc makeEmptyMeridianEdge*(this: BRepPrimRevolution; ang: cfloat): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", header: "BRepPrim_Revolution.hxx".}
 proc meridianValue*(this: BRepPrimRevolution; v: cfloat): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "MeridianValue", dynlib: tkprim.}
+    importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
 proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
-    noSideEffect, cdecl, importcpp: "SetMeridianPCurve", dynlib: tkprim.}
+    noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}

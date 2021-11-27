@@ -28,12 +28,12 @@ type
 
 
 proc newBRepAdaptorCurve2d*(): BRepAdaptorCurve2d {.cdecl, constructor,
-    importcpp: "BRepAdaptor_Curve2d(@)", dynlib: tkbrep.}
+    importcpp: "BRepAdaptor_Curve2d(@)", header: "BRepAdaptor_Curve2d.hxx".}
 proc newBRepAdaptorCurve2d*(e: TopoDS_Edge; f: TopoDS_Face): BRepAdaptorCurve2d {.
-    cdecl, constructor, importcpp: "BRepAdaptor_Curve2d(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRepAdaptor_Curve2d(@)", header: "BRepAdaptor_Curve2d.hxx".}
 proc initialize*(this: var BRepAdaptorCurve2d; e: TopoDS_Edge; f: TopoDS_Face) {.cdecl,
-    importcpp: "Initialize", dynlib: tkbrep.}
+    importcpp: "Initialize", header: "BRepAdaptor_Curve2d.hxx".}
 proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", dynlib: tkbrep.}
+    importcpp: "Edge", header: "BRepAdaptor_Curve2d.hxx".}
 proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkbrep.}
+    importcpp: "Face", header: "BRepAdaptor_Curve2d.hxx".}

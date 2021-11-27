@@ -33,12 +33,12 @@ type
 
 proc newTopoDS_HShape*(): TopoDS_HShape {.cdecl, constructor,
                                        importcpp: "TopoDS_HShape(@)",
-                                       dynlib: tkbrep.}
+                                       header: "TopoDS_HShape.hxx".}
 proc newTopoDS_HShape*(aShape: TopoDS_Shape): TopoDS_HShape {.cdecl, constructor,
-    importcpp: "TopoDS_HShape(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS_HShape(@)", header: "TopoDS_HShape.hxx".}
 proc shape*(this: var TopoDS_HShape; aShape: TopoDS_Shape) {.cdecl, importcpp: "Shape",
-    dynlib: tkbrep.}
+    header: "TopoDS_HShape.hxx".}
 proc shape*(this: TopoDS_HShape): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbrep.}
+    importcpp: "Shape", header: "TopoDS_HShape.hxx".}
 proc changeShape*(this: var TopoDS_HShape): var TopoDS_Shape {.cdecl,
-    importcpp: "ChangeShape", dynlib: tkbrep.}
+    importcpp: "ChangeShape", header: "TopoDS_HShape.hxx".}

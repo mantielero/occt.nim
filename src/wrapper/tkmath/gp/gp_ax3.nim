@@ -26,69 +26,69 @@ type
                                                               ## ! coordinate system (OXYZ).
 
 
-proc newAx3*(): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)", dynlib: tkmath.}
-proc newAx3*(a: Ax2): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)", dynlib: tkmath.}
+proc newAx3*(): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)", header: "gp_Ax3.hxx".}
+proc newAx3*(a: Ax2): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)", header: "gp_Ax3.hxx".}
 proc newAx3*(p: Pnt; n: Dir; vx: Dir): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)",
-                                     dynlib: tkmath.}
+                                     header: "gp_Ax3.hxx".}
 proc newAx3*(p: Pnt; v: Dir): Ax3 {.cdecl, constructor, importcpp: "gp_Ax3(@)",
-                              dynlib: tkmath.}
-proc xReverse*(this: var Ax3) {.cdecl, importcpp: "XReverse", dynlib: tkmath.}
-proc yReverse*(this: var Ax3) {.cdecl, importcpp: "YReverse", dynlib: tkmath.}
-proc zReverse*(this: var Ax3) {.cdecl, importcpp: "ZReverse", dynlib: tkmath.}
-proc setAxis*(this: var Ax3; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+                              header: "gp_Ax3.hxx".}
+proc xReverse*(this: var Ax3) {.cdecl, importcpp: "XReverse", header: "gp_Ax3.hxx".}
+proc yReverse*(this: var Ax3) {.cdecl, importcpp: "YReverse", header: "gp_Ax3.hxx".}
+proc zReverse*(this: var Ax3) {.cdecl, importcpp: "ZReverse", header: "gp_Ax3.hxx".}
+proc setAxis*(this: var Ax3; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Ax3.hxx".}
 proc setDirection*(this: var Ax3; v: Dir) {.cdecl, importcpp: "SetDirection",
-                                      dynlib: tkmath.}
+                                      header: "gp_Ax3.hxx".}
 proc setLocation*(this: var Ax3; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                     dynlib: tkmath.}
+                                     header: "gp_Ax3.hxx".}
 proc setXDirection*(this: var Ax3; vx: Dir) {.cdecl, importcpp: "SetXDirection",
-                                        dynlib: tkmath.}
+                                        header: "gp_Ax3.hxx".}
 proc setYDirection*(this: var Ax3; vy: Dir) {.cdecl, importcpp: "SetYDirection",
-                                        dynlib: tkmath.}
+                                        header: "gp_Ax3.hxx".}
 proc angle*(this: Ax3; other: Ax3): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
-                                       dynlib: tkmath.}
-proc axis*(this: Ax3): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
-proc ax2*(this: Ax3): Ax2 {.noSideEffect, cdecl, importcpp: "Ax2", dynlib: tkmath.}
+                                       header: "gp_Ax3.hxx".}
+proc axis*(this: Ax3): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Ax3.hxx".}
+proc ax2*(this: Ax3): Ax2 {.noSideEffect, cdecl, importcpp: "Ax2", header: "gp_Ax3.hxx".}
 proc direction*(this: Ax3): Dir {.noSideEffect, cdecl, importcpp: "Direction",
-                              dynlib: tkmath.}
+                              header: "gp_Ax3.hxx".}
 proc location*(this: Ax3): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                             dynlib: tkmath.}
+                             header: "gp_Ax3.hxx".}
 proc xDirection*(this: Ax3): Dir {.noSideEffect, cdecl, importcpp: "XDirection",
-                               dynlib: tkmath.}
+                               header: "gp_Ax3.hxx".}
 proc yDirection*(this: Ax3): Dir {.noSideEffect, cdecl, importcpp: "YDirection",
-                               dynlib: tkmath.}
-proc direct*(this: Ax3): bool {.noSideEffect, cdecl, importcpp: "Direct", dynlib: tkmath.}
+                               header: "gp_Ax3.hxx".}
+proc direct*(this: Ax3): bool {.noSideEffect, cdecl, importcpp: "Direct", header: "gp_Ax3.hxx".}
 proc isCoplanar*(this: Ax3; other: Ax3; linearTolerance: cfloat;
                 angularTolerance: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "IsCoplanar", dynlib: tkmath.}
+    importcpp: "IsCoplanar", header: "gp_Ax3.hxx".}
 proc isCoplanar*(this: Ax3; a1: Ax1; linearTolerance: cfloat; angularTolerance: cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsCoplanar", dynlib: tkmath.}
-proc mirror*(this: var Ax3; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsCoplanar", header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Ax3.hxx".}
 proc mirrored*(this: Ax3; p: Pnt): Ax3 {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                   dynlib: tkmath.}
-proc mirror*(this: var Ax3; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                   header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Ax3.hxx".}
 proc mirrored*(this: Ax3; a1: Ax1): Ax3 {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
-proc mirror*(this: var Ax3; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                    header: "gp_Ax3.hxx".}
+proc mirror*(this: var Ax3; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Ax3.hxx".}
 proc mirrored*(this: Ax3; a2: Ax2): Ax3 {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
+                                    header: "gp_Ax3.hxx".}
 proc rotate*(this: var Ax3; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Ax3.hxx".}
 proc rotated*(this: Ax3; a1: Ax1; ang: cfloat): Ax3 {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Ax3; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Ax3.hxx".}
+proc scale*(this: var Ax3; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Ax3.hxx".}
 proc scaled*(this: Ax3; p: Pnt; s: cfloat): Ax3 {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Ax3; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Ax3.hxx".}
+proc transform*(this: var Ax3; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Ax3.hxx".}
 proc transformed*(this: Ax3; t: Trsf): Ax3 {.noSideEffect, cdecl,
-                                       importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Ax3; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+                                       importcpp: "Transformed", header: "gp_Ax3.hxx".}
+proc translate*(this: var Ax3; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Ax3.hxx".}
 proc translated*(this: Ax3; v: Vec): Ax3 {.noSideEffect, cdecl, importcpp: "Translated",
-                                     dynlib: tkmath.}
+                                     header: "gp_Ax3.hxx".}
 proc translate*(this: var Ax3; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Ax3.hxx".}
 proc translated*(this: Ax3; p1: Pnt; p2: Pnt): Ax3 {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Ax3.hxx".}
 proc dumpJson*(this: Ax3; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Ax3.hxx".}
 proc initFromJson*(this: var Ax3; theSStream: StandardSStream; theStreamPos: var cint): bool {.
-    cdecl, importcpp: "InitFromJson", dynlib: tkmath.}
+    cdecl, importcpp: "InitFromJson", header: "gp_Ax3.hxx".}

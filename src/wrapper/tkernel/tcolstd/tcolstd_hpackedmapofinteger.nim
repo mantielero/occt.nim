@@ -25,10 +25,10 @@ type
 
 
 proc newTColStdHPackedMapOfInteger*(nbBuckets: cint = 1): TColStdHPackedMapOfInteger {.
-    cdecl, constructor, importcpp: "TColStd_HPackedMapOfInteger(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HPackedMapOfInteger(@)", header: "TColStd_HPackedMapOfInteger.hxx".}
 proc newTColStdHPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): TColStdHPackedMapOfInteger {.
-    cdecl, constructor, importcpp: "TColStd_HPackedMapOfInteger(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HPackedMapOfInteger(@)", header: "TColStd_HPackedMapOfInteger.hxx".}
 proc map*(this: TColStdHPackedMapOfInteger): TColStdPackedMapOfInteger {.
-    noSideEffect, cdecl, importcpp: "Map", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Map", header: "TColStd_HPackedMapOfInteger.hxx".}
 proc changeMap*(this: var TColStdHPackedMapOfInteger): var TColStdPackedMapOfInteger {.
-    cdecl, importcpp: "ChangeMap", dynlib: tkernel.}
+    cdecl, importcpp: "ChangeMap", header: "TColStd_HPackedMapOfInteger.hxx".}

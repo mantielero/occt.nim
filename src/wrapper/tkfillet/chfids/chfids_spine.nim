@@ -55,141 +55,141 @@ type
 
 proc newChFiDS_Spine*(): ChFiDS_Spine {.cdecl, constructor,
                                      importcpp: "ChFiDS_Spine(@)",
-                                     dynlib: tkfillet.}
+                                     header: "ChFiDS_Spine.hxx".}
 proc newChFiDS_Spine*(tol: cfloat): ChFiDS_Spine {.cdecl, constructor,
-    importcpp: "ChFiDS_Spine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_Spine(@)", header: "ChFiDS_Spine.hxx".}
 proc setEdges*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.cdecl, importcpp: "SetEdges",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc setOffsetEdges*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.cdecl,
-    importcpp: "SetOffsetEdges", dynlib: tkfillet.}
+    importcpp: "SetOffsetEdges", header: "ChFiDS_Spine.hxx".}
 proc putInFirst*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.cdecl,
-    importcpp: "PutInFirst", dynlib: tkfillet.}
+    importcpp: "PutInFirst", header: "ChFiDS_Spine.hxx".}
 proc putInFirstOffset*(this: var ChFiDS_Spine; e: TopoDS_Edge) {.cdecl,
-    importcpp: "PutInFirstOffset", dynlib: tkfillet.}
+    importcpp: "PutInFirstOffset", header: "ChFiDS_Spine.hxx".}
 proc nbEdges*(this: ChFiDS_Spine): cint {.noSideEffect, cdecl, importcpp: "NbEdges",
-                                      dynlib: tkfillet.}
+                                      header: "ChFiDS_Spine.hxx".}
 proc edges*(this: ChFiDS_Spine; i: cint): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edges", dynlib: tkfillet.}
+    importcpp: "Edges", header: "ChFiDS_Spine.hxx".}
 proc offsetEdges*(this: ChFiDS_Spine; i: cint): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "OffsetEdges", dynlib: tkfillet.}
+    importcpp: "OffsetEdges", header: "ChFiDS_Spine.hxx".}
 proc setFirstStatus*(this: var ChFiDS_Spine; s: ChFiDS_State) {.cdecl,
-    importcpp: "SetFirstStatus", dynlib: tkfillet.}
+    importcpp: "SetFirstStatus", header: "ChFiDS_Spine.hxx".}
 proc setLastStatus*(this: var ChFiDS_Spine; s: ChFiDS_State) {.cdecl,
-    importcpp: "SetLastStatus", dynlib: tkfillet.}
+    importcpp: "SetLastStatus", header: "ChFiDS_Spine.hxx".}
 proc appendElSpine*(this: var ChFiDS_Spine; els: Handle[ChFiDS_HElSpine]) {.cdecl,
-    importcpp: "AppendElSpine", dynlib: tkfillet.}
+    importcpp: "AppendElSpine", header: "ChFiDS_Spine.hxx".}
 proc appendOffsetElSpine*(this: var ChFiDS_Spine; els: Handle[ChFiDS_HElSpine]) {.
-    cdecl, importcpp: "AppendOffsetElSpine", dynlib: tkfillet.}
+    cdecl, importcpp: "AppendOffsetElSpine", header: "ChFiDS_Spine.hxx".}
 proc elSpine*(this: ChFiDS_Spine; ie: cint): Handle[ChFiDS_HElSpine] {.noSideEffect,
-    cdecl, importcpp: "ElSpine", dynlib: tkfillet.}
+    cdecl, importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
 proc elSpine*(this: ChFiDS_Spine; e: TopoDS_Edge): Handle[ChFiDS_HElSpine] {.
-    noSideEffect, cdecl, importcpp: "ElSpine", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
 proc elSpine*(this: ChFiDS_Spine; w: cfloat): Handle[ChFiDS_HElSpine] {.noSideEffect,
-    cdecl, importcpp: "ElSpine", dynlib: tkfillet.}
+    cdecl, importcpp: "ElSpine", header: "ChFiDS_Spine.hxx".}
 proc changeElSpines*(this: var ChFiDS_Spine): var ChFiDS_ListOfHElSpine {.cdecl,
-    importcpp: "ChangeElSpines", dynlib: tkfillet.}
+    importcpp: "ChangeElSpines", header: "ChFiDS_Spine.hxx".}
 proc changeOffsetElSpines*(this: var ChFiDS_Spine): var ChFiDS_ListOfHElSpine {.cdecl,
-    importcpp: "ChangeOffsetElSpines", dynlib: tkfillet.}
+    importcpp: "ChangeOffsetElSpines", header: "ChFiDS_Spine.hxx".}
 proc reset*(this: var ChFiDS_Spine; allData: bool = false) {.cdecl, importcpp: "Reset",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc splitDone*(this: ChFiDS_Spine): bool {.noSideEffect, cdecl,
-                                        importcpp: "SplitDone", dynlib: tkfillet.}
+                                        importcpp: "SplitDone", header: "ChFiDS_Spine.hxx".}
 proc splitDone*(this: var ChFiDS_Spine; b: bool) {.cdecl, importcpp: "SplitDone",
-    dynlib: tkfillet.}
-proc load*(this: var ChFiDS_Spine) {.cdecl, importcpp: "Load", dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
+proc load*(this: var ChFiDS_Spine) {.cdecl, importcpp: "Load", header: "ChFiDS_Spine.hxx".}
 proc resolution*(this: ChFiDS_Spine; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkfillet.}
+    importcpp: "Resolution", header: "ChFiDS_Spine.hxx".}
 proc isClosed*(this: ChFiDS_Spine): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                       dynlib: tkfillet.}
+                                       header: "ChFiDS_Spine.hxx".}
 proc firstParameter*(this: ChFiDS_Spine): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkfillet.}
+    importcpp: "FirstParameter", header: "ChFiDS_Spine.hxx".}
 proc lastParameter*(this: ChFiDS_Spine): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkfillet.}
+    importcpp: "LastParameter", header: "ChFiDS_Spine.hxx".}
 proc setFirstParameter*(this: var ChFiDS_Spine; par: cfloat) {.cdecl,
-    importcpp: "SetFirstParameter", dynlib: tkfillet.}
+    importcpp: "SetFirstParameter", header: "ChFiDS_Spine.hxx".}
 proc setLastParameter*(this: var ChFiDS_Spine; par: cfloat) {.cdecl,
-    importcpp: "SetLastParameter", dynlib: tkfillet.}
+    importcpp: "SetLastParameter", header: "ChFiDS_Spine.hxx".}
 proc firstParameter*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "FirstParameter", dynlib: tkfillet.}
+    cdecl, importcpp: "FirstParameter", header: "ChFiDS_Spine.hxx".}
 proc lastParameter*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "LastParameter", dynlib: tkfillet.}
+    cdecl, importcpp: "LastParameter", header: "ChFiDS_Spine.hxx".}
 proc length*(this: ChFiDS_Spine; indexSpine: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkfillet.}
+    importcpp: "Length", header: "ChFiDS_Spine.hxx".}
 proc isPeriodic*(this: ChFiDS_Spine): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkfillet.}
+    importcpp: "IsPeriodic", header: "ChFiDS_Spine.hxx".}
 proc period*(this: ChFiDS_Spine): cfloat {.noSideEffect, cdecl, importcpp: "Period",
-                                       dynlib: tkfillet.}
+                                       header: "ChFiDS_Spine.hxx".}
 proc absc*(this: var ChFiDS_Spine; u: cfloat): cfloat {.cdecl, importcpp: "Absc",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc absc*(this: var ChFiDS_Spine; u: cfloat; i: cint): cfloat {.cdecl, importcpp: "Absc",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc parameter*(this: var ChFiDS_Spine; absC: cfloat; u: var cfloat;
-               oriented: bool = true) {.cdecl, importcpp: "Parameter", dynlib: tkfillet.}
+               oriented: bool = true) {.cdecl, importcpp: "Parameter", header: "ChFiDS_Spine.hxx".}
 proc parameter*(this: var ChFiDS_Spine; index: cint; absC: cfloat; u: var cfloat;
-               oriented: bool = true) {.cdecl, importcpp: "Parameter", dynlib: tkfillet.}
+               oriented: bool = true) {.cdecl, importcpp: "Parameter", header: "ChFiDS_Spine.hxx".}
 proc value*(this: var ChFiDS_Spine; absC: cfloat): Pnt {.cdecl, importcpp: "Value",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc d0*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt) {.cdecl, importcpp: "D0",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc d1*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt; v1: var Vec) {.cdecl,
-    importcpp: "D1", dynlib: tkfillet.}
+    importcpp: "D1", header: "ChFiDS_Spine.hxx".}
 proc d2*(this: var ChFiDS_Spine; absC: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.cdecl,
-    importcpp: "D2", dynlib: tkfillet.}
+    importcpp: "D2", header: "ChFiDS_Spine.hxx".}
 proc setCurrent*(this: var ChFiDS_Spine; index: cint) {.cdecl, importcpp: "SetCurrent",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc currentElementarySpine*(this: var ChFiDS_Spine; index: cint): BRepAdaptorCurve {.
-    cdecl, importcpp: "CurrentElementarySpine", dynlib: tkfillet.}
+    cdecl, importcpp: "CurrentElementarySpine", header: "ChFiDS_Spine.hxx".}
 proc currentIndexOfElementarySpine*(this: ChFiDS_Spine): cint {.noSideEffect, cdecl,
-    importcpp: "CurrentIndexOfElementarySpine", dynlib: tkfillet.}
+    importcpp: "CurrentIndexOfElementarySpine", header: "ChFiDS_Spine.hxx".}
 proc getType*(this: ChFiDS_Spine): GeomAbsCurveType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkfillet.}
+    importcpp: "GetType", header: "ChFiDS_Spine.hxx".}
 proc line*(this: ChFiDS_Spine): Lin {.noSideEffect, cdecl, importcpp: "Line",
-                                  dynlib: tkfillet.}
+                                  header: "ChFiDS_Spine.hxx".}
 proc circle*(this: ChFiDS_Spine): Circ {.noSideEffect, cdecl, importcpp: "Circle",
-                                     dynlib: tkfillet.}
+                                     header: "ChFiDS_Spine.hxx".}
 proc firstStatus*(this: ChFiDS_Spine): ChFiDS_State {.noSideEffect, cdecl,
-    importcpp: "FirstStatus", dynlib: tkfillet.}
+    importcpp: "FirstStatus", header: "ChFiDS_Spine.hxx".}
 proc lastStatus*(this: ChFiDS_Spine): ChFiDS_State {.noSideEffect, cdecl,
-    importcpp: "LastStatus", dynlib: tkfillet.}
+    importcpp: "LastStatus", header: "ChFiDS_Spine.hxx".}
 proc status*(this: ChFiDS_Spine; isFirst: bool): ChFiDS_State {.noSideEffect, cdecl,
-    importcpp: "Status", dynlib: tkfillet.}
+    importcpp: "Status", header: "ChFiDS_Spine.hxx".}
 proc getTypeOfConcavity*(this: ChFiDS_Spine): ChFiDS_TypeOfConcavity {.noSideEffect,
-    cdecl, importcpp: "GetTypeOfConcavity", dynlib: tkfillet.}
+    cdecl, importcpp: "GetTypeOfConcavity", header: "ChFiDS_Spine.hxx".}
 proc setStatus*(this: var ChFiDS_Spine; s: ChFiDS_State; isFirst: bool) {.cdecl,
-    importcpp: "SetStatus", dynlib: tkfillet.}
+    importcpp: "SetStatus", header: "ChFiDS_Spine.hxx".}
 proc setTypeOfConcavity*(this: var ChFiDS_Spine; theType: ChFiDS_TypeOfConcavity) {.
-    cdecl, importcpp: "SetTypeOfConcavity", dynlib: tkfillet.}
+    cdecl, importcpp: "SetTypeOfConcavity", header: "ChFiDS_Spine.hxx".}
 proc isTangencyExtremity*(this: ChFiDS_Spine; isFirst: bool): bool {.noSideEffect,
-    cdecl, importcpp: "IsTangencyExtremity", dynlib: tkfillet.}
+    cdecl, importcpp: "IsTangencyExtremity", header: "ChFiDS_Spine.hxx".}
 proc setTangencyExtremity*(this: var ChFiDS_Spine; isTangency: bool; isFirst: bool) {.
-    cdecl, importcpp: "SetTangencyExtremity", dynlib: tkfillet.}
+    cdecl, importcpp: "SetTangencyExtremity", header: "ChFiDS_Spine.hxx".}
 proc absc*(this: ChFiDS_Spine; v: TopoDS_Vertex): cfloat {.noSideEffect, cdecl,
-    importcpp: "Absc", dynlib: tkfillet.}
+    importcpp: "Absc", header: "ChFiDS_Spine.hxx".}
 proc firstVertex*(this: ChFiDS_Spine): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "FirstVertex", dynlib: tkfillet.}
+    importcpp: "FirstVertex", header: "ChFiDS_Spine.hxx".}
 proc lastVertex*(this: ChFiDS_Spine): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "LastVertex", dynlib: tkfillet.}
+    importcpp: "LastVertex", header: "ChFiDS_Spine.hxx".}
 proc setFirstTgt*(this: var ChFiDS_Spine; w: cfloat) {.cdecl, importcpp: "SetFirstTgt",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc setLastTgt*(this: var ChFiDS_Spine; w: cfloat) {.cdecl, importcpp: "SetLastTgt",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc hasFirstTgt*(this: ChFiDS_Spine): bool {.noSideEffect, cdecl,
-    importcpp: "HasFirstTgt", dynlib: tkfillet.}
+    importcpp: "HasFirstTgt", header: "ChFiDS_Spine.hxx".}
 proc hasLastTgt*(this: ChFiDS_Spine): bool {.noSideEffect, cdecl,
-    importcpp: "HasLastTgt", dynlib: tkfillet.}
+    importcpp: "HasLastTgt", header: "ChFiDS_Spine.hxx".}
 proc setReference*(this: var ChFiDS_Spine; w: cfloat) {.cdecl,
-    importcpp: "SetReference", dynlib: tkfillet.}
+    importcpp: "SetReference", header: "ChFiDS_Spine.hxx".}
 proc setReference*(this: var ChFiDS_Spine; i: cint) {.cdecl, importcpp: "SetReference",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc index*(this: ChFiDS_Spine; w: cfloat; forward: bool = true): cint {.noSideEffect,
-    cdecl, importcpp: "Index", dynlib: tkfillet.}
+    cdecl, importcpp: "Index", header: "ChFiDS_Spine.hxx".}
 proc index*(this: ChFiDS_Spine; e: TopoDS_Edge): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkfillet.}
+    importcpp: "Index", header: "ChFiDS_Spine.hxx".}
 proc unsetReference*(this: var ChFiDS_Spine) {.cdecl, importcpp: "UnsetReference",
-    dynlib: tkfillet.}
+    header: "ChFiDS_Spine.hxx".}
 proc setErrorStatus*(this: var ChFiDS_Spine; state: ChFiDS_ErrorStatus) {.cdecl,
-    importcpp: "SetErrorStatus", dynlib: tkfillet.}
+    importcpp: "SetErrorStatus", header: "ChFiDS_Spine.hxx".}
 proc errorStatus*(this: ChFiDS_Spine): ChFiDS_ErrorStatus {.noSideEffect, cdecl,
-    importcpp: "ErrorStatus", dynlib: tkfillet.}
+    importcpp: "ErrorStatus", header: "ChFiDS_Spine.hxx".}
 proc mode*(this: ChFiDS_Spine): ChFiDS_ChamfMode {.noSideEffect, cdecl,
-    importcpp: "Mode", dynlib: tkfillet.}
+    importcpp: "Mode", header: "ChFiDS_Spine.hxx".}

@@ -27,17 +27,17 @@ type
 
 
 proc newChFiDS_HElSpine*(): ChFiDS_HElSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_HElSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_HElSpine(@)", header: "ChFiDS_HElSpine.hxx".}
 proc newChFiDS_HElSpine*(c: ChFiDS_ElSpine): ChFiDS_HElSpine {.cdecl, constructor,
-    importcpp: "ChFiDS_HElSpine(@)", dynlib: tkfillet.}
+    importcpp: "ChFiDS_HElSpine(@)", header: "ChFiDS_HElSpine.hxx".}
 proc set*(this: var ChFiDS_HElSpine; c: ChFiDS_ElSpine) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "ChFiDS_HElSpine.hxx".}
 proc curve*(this: ChFiDS_HElSpine): Adaptor3dCurve {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkfillet.}
+    importcpp: "Curve", header: "ChFiDS_HElSpine.hxx".}
 proc getCurve*(this: var ChFiDS_HElSpine): var Adaptor3dCurve {.cdecl,
-    importcpp: "GetCurve", dynlib: tkfillet.}
+    importcpp: "GetCurve", header: "ChFiDS_HElSpine.hxx".}
 proc changeCurve*(this: var ChFiDS_HElSpine): var ChFiDS_ElSpine {.cdecl,
-    importcpp: "ChangeCurve", dynlib: tkfillet.}
+    importcpp: "ChangeCurve", header: "ChFiDS_HElSpine.hxx".}
 type
   ChFiDS_HElSpinebaseType* = Adaptor3dHCurve
 

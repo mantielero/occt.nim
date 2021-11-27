@@ -28,25 +28,25 @@ proc newBRepBlendSurfCurvConstRadInv*(s: Handle[Adaptor3dHSurface];
                                      c: Handle[Adaptor3dHCurve];
                                      cg: Handle[Adaptor3dHCurve]): BRepBlendSurfCurvConstRadInv {.
     cdecl, constructor, importcpp: "BRepBlend_SurfCurvConstRadInv(@)",
-    dynlib: tkfillet.}
+    header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc set*(this: var BRepBlendSurfCurvConstRadInv; r: cfloat; choix: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc nbEquations*(this: BRepBlendSurfCurvConstRadInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc value*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc derivatives*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector;
                  d: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
-                                        dynlib: tkfillet.}
+                                        header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc values*(this: var BRepBlendSurfCurvConstRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc set*(this: var BRepBlendSurfCurvConstRadInv; rst: Handle[Adaptor2dHCurve2d]) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfCurvConstRadInv; tolerance: var MathVector;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",
-                               dynlib: tkfillet.}
+                               header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc getBounds*(this: BRepBlendSurfCurvConstRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BRepBlend_SurfCurvConstRadInv.hxx".}
 proc isSolution*(this: var BRepBlendSurfCurvConstRadInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfCurvConstRadInv.hxx".}

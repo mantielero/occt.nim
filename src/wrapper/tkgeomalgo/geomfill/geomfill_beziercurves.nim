@@ -37,32 +37,32 @@ type
 
 
 proc newGeomFillBezierCurves*(): GeomFillBezierCurves {.cdecl, constructor,
-    importcpp: "GeomFill_BezierCurves(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
 proc newGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
                              c2: Handle[GeomBezierCurve];
                              c3: Handle[GeomBezierCurve];
                              c4: Handle[GeomBezierCurve];
                              `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
 proc newGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
                              c2: Handle[GeomBezierCurve];
                              c3: Handle[GeomBezierCurve];
                              `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
 proc newGeomFillBezierCurves*(c1: Handle[GeomBezierCurve];
                              c2: Handle[GeomBezierCurve];
                              `type`: GeomFillFillingStyle): GeomFillBezierCurves {.
-    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_BezierCurves(@)", header: "GeomFill_BezierCurves.hxx".}
 proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
           c2: Handle[GeomBezierCurve]; c3: Handle[GeomBezierCurve];
           c4: Handle[GeomBezierCurve]; `type`: GeomFillFillingStyle) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_BezierCurves.hxx".}
 proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
           c2: Handle[GeomBezierCurve]; c3: Handle[GeomBezierCurve];
           `type`: GeomFillFillingStyle) {.cdecl, importcpp: "Init",
-                                        dynlib: tkgeomalgo.}
+                                        header: "GeomFill_BezierCurves.hxx".}
 proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
           c2: Handle[GeomBezierCurve]; `type`: GeomFillFillingStyle) {.cdecl,
-    importcpp: "Init", dynlib: tkgeomalgo.}
+    importcpp: "Init", header: "GeomFill_BezierCurves.hxx".}
 proc surface*(this: GeomFillBezierCurves): Handle[GeomBezierSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Surface", header: "GeomFill_BezierCurves.hxx".}

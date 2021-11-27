@@ -21,27 +21,27 @@ type
 
 
 proc newAppContFunction*(): AppContFunction {.cdecl, constructor,
-    importcpp: "AppCont_Function(@)", dynlib: tkgeombase.}
+    importcpp: "AppCont_Function(@)", header: "AppCont_Function.hxx".}
 proc getNumberOfPoints*(this: AppContFunction; theNbPnt: var cint;
                        theNbPnt2d: var cint) {.noSideEffect, cdecl,
-    importcpp: "GetNumberOfPoints", dynlib: tkgeombase.}
+    importcpp: "GetNumberOfPoints", header: "AppCont_Function.hxx".}
 proc getNbOf3dPoints*(this: AppContFunction): cint {.noSideEffect, cdecl,
-    importcpp: "GetNbOf3dPoints", dynlib: tkgeombase.}
+    importcpp: "GetNbOf3dPoints", header: "AppCont_Function.hxx".}
 proc getNbOf2dPoints*(this: AppContFunction): cint {.noSideEffect, cdecl,
-    importcpp: "GetNbOf2dPoints", dynlib: tkgeombase.}
+    importcpp: "GetNbOf2dPoints", header: "AppCont_Function.hxx".}
 proc destroyAppContFunction*(this: var AppContFunction) {.cdecl,
-    importcpp: "#.~AppCont_Function()", dynlib: tkgeombase.}
+    importcpp: "#.~AppCont_Function()", header: "AppCont_Function.hxx".}
 proc firstParameter*(this: AppContFunction): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkgeombase.}
+    importcpp: "FirstParameter", header: "AppCont_Function.hxx".}
 proc lastParameter*(this: AppContFunction): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkgeombase.}
+    importcpp: "LastParameter", header: "AppCont_Function.hxx".}
 proc value*(this: AppContFunction; theU: cfloat;
            thePnt2d: var NCollectionArray1[Pnt2d];
            thePnt: var NCollectionArray1[Pnt]): bool {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "AppCont_Function.hxx".}
 proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Vec2d];
         theVec: var NCollectionArray1[Vec]): bool {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkgeombase.}
+    importcpp: "D1", header: "AppCont_Function.hxx".}
 proc periodInformation*(this: AppContFunction; a2: cint; isPeriodic: var bool;
                        thePeriod: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "PeriodInformation", dynlib: tkgeombase.}
+    importcpp: "PeriodInformation", header: "AppCont_Function.hxx".}

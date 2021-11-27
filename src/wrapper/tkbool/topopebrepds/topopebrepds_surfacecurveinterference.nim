@@ -32,18 +32,18 @@ type
 
 proc newTopOpeBRepDS_SurfaceCurveInterference*(): TopOpeBRepDS_SurfaceCurveInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc newTopOpeBRepDS_SurfaceCurveInterference*(
     transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
     support: cint; geometryType: TopOpeBRepDS_Kind; geometry: cint;
     pc: Handle[Geom2dCurve]): TopOpeBRepDS_SurfaceCurveInterference {.cdecl,
     constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc newTopOpeBRepDS_SurfaceCurveInterference*(
     i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_SurfaceCurveInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceCurveInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc pCurve*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[Geom2dCurve] {.
-    noSideEffect, cdecl, importcpp: "PCurve", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc pCurve*(this: var TopOpeBRepDS_SurfaceCurveInterference;
-            pc: Handle[Geom2dCurve]) {.cdecl, importcpp: "PCurve", dynlib: tkbool.}
+            pc: Handle[Geom2dCurve]) {.cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}

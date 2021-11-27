@@ -23,22 +23,22 @@ type
 
 
 proc newGeomFillPolynomialConvertor*(): GeomFillPolynomialConvertor {.cdecl,
-    constructor, importcpp: "GeomFill_PolynomialConvertor(@)", dynlib: tkgeomalgo.}
+    constructor, importcpp: "GeomFill_PolynomialConvertor(@)", header: "GeomFill_PolynomialConvertor.hxx".}
 proc initialized*(this: GeomFillPolynomialConvertor): bool {.noSideEffect, cdecl,
-    importcpp: "Initialized", dynlib: tkgeomalgo.}
+    importcpp: "Initialized", header: "GeomFill_PolynomialConvertor.hxx".}
 proc init*(this: var GeomFillPolynomialConvertor) {.cdecl, importcpp: "Init",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_PolynomialConvertor.hxx".}
 proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; center: Pnt; dir: Vec;
              angle: cfloat; poles: var TColgpArray1OfPnt) {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
 proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; dFirstPnt: Vec;
              center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: cfloat;
              dAngle: cfloat; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec) {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
 proc section*(this: GeomFillPolynomialConvertor; firstPnt: Pnt; dFirstPnt: Vec;
              d2FirstPnt: Vec; center: Pnt; dCenter: Vec; d2Center: Vec; dir: Vec;
              dDir: Vec; d2Dir: Vec; angle: cfloat; dAngle: cfloat; d2Angle: cfloat;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec) {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}

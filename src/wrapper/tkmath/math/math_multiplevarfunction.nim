@@ -31,10 +31,10 @@ type
 
 
 proc nbVariables*(this: MathMultipleVarFunction): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkmath.}
+    importcpp: "NbVariables", header: "math_MultipleVarFunction.hxx".}
 proc value*(this: var MathMultipleVarFunction; x: MathVector; f: var cfloat): bool {.
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_MultipleVarFunction.hxx".}
 proc getStateNumber*(this: var MathMultipleVarFunction): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkmath.}
+    importcpp: "GetStateNumber", header: "math_MultipleVarFunction.hxx".}
 proc destroyMathMultipleVarFunction*(this: var MathMultipleVarFunction) {.cdecl,
-    importcpp: "#.~math_MultipleVarFunction()", dynlib: tkmath.}
+    importcpp: "#.~math_MultipleVarFunction()", header: "math_MultipleVarFunction.hxx".}

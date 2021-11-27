@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardDomainError):
   template standardDomainErrorRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardDomainError*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_DomainError(@)", dynlib: tkernel.}
+          importcpp: "Standard_DomainError(@)", header: "Standard_DomainError.hxx".}
 
 else:
   discard

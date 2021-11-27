@@ -77,25 +77,25 @@ type
 
 proc newMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
                                epsX: cfloat; epsF: cfloat; nbIterations: cint = 100): MathNewtonFunctionRoot {.
-    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", header: "math_NewtonFunctionRoot.hxx".}
 proc newMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
                                epsX: cfloat; epsF: cfloat; a: cfloat; b: cfloat;
                                nbIterations: cint = 100): MathNewtonFunctionRoot {.
-    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", header: "math_NewtonFunctionRoot.hxx".}
 proc newMathNewtonFunctionRoot*(a: cfloat; b: cfloat; epsX: cfloat; epsF: cfloat;
                                nbIterations: cint = 100): MathNewtonFunctionRoot {.
-    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_NewtonFunctionRoot(@)", header: "math_NewtonFunctionRoot.hxx".}
 proc perform*(this: var MathNewtonFunctionRoot; f: var MathFunctionWithDerivative;
-             guess: cfloat) {.cdecl, importcpp: "Perform", dynlib: tkmath.}
+             guess: cfloat) {.cdecl, importcpp: "Perform", header: "math_NewtonFunctionRoot.hxx".}
 proc isDone*(this: MathNewtonFunctionRoot): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_NewtonFunctionRoot.hxx".}
 proc root*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect, cdecl,
-    importcpp: "Root", dynlib: tkmath.}
+    importcpp: "Root", header: "math_NewtonFunctionRoot.hxx".}
 proc derivative*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect, cdecl,
-    importcpp: "Derivative", dynlib: tkmath.}
+    importcpp: "Derivative", header: "math_NewtonFunctionRoot.hxx".}
 proc value*(this: MathNewtonFunctionRoot): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_NewtonFunctionRoot.hxx".}
 proc nbIterations*(this: MathNewtonFunctionRoot): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_NewtonFunctionRoot.hxx".}
 proc dump*(this: MathNewtonFunctionRoot; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_NewtonFunctionRoot.hxx".}

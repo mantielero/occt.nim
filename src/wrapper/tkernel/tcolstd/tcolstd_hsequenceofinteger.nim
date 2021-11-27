@@ -18,17 +18,17 @@ type
 
 
 proc newTColStdHSequenceOfInteger*(): TColStdHSequenceOfInteger {.cdecl,
-    constructor, importcpp: "TColStd_HSequenceOfInteger(@)", dynlib: tkernel.}
+    constructor, importcpp: "TColStd_HSequenceOfInteger(@)", header: "TColStd_HSequenceOfInteger.hxx".}
 proc newTColStdHSequenceOfInteger*(theOther: TColStdSequenceOfInteger): TColStdHSequenceOfInteger {.
-    cdecl, constructor, importcpp: "TColStd_HSequenceOfInteger(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HSequenceOfInteger(@)", header: "TColStd_HSequenceOfInteger.hxx".}
 proc sequence*(this: TColStdHSequenceOfInteger): TColStdSequenceOfInteger {.
-    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Sequence", header: "TColStd_HSequenceOfInteger.hxx".}
 proc append*(this: var TColStdHSequenceOfInteger; theItem: ValueType) {.cdecl,
-    importcpp: "Append", dynlib: tkernel.}
+    importcpp: "Append", header: "TColStd_HSequenceOfInteger.hxx".}
 proc append*(this: var TColStdHSequenceOfInteger;
             theSequence: var TColStdSequenceOfInteger) {.cdecl, importcpp: "Append",
-    dynlib: tkernel.}
+    header: "TColStd_HSequenceOfInteger.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfInteger): var TColStdSequenceOfInteger {.
-    cdecl, importcpp: "ChangeSequence", dynlib: tkernel.}
+    cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfInteger.hxx".}
 type
   HandleTColStdHSequenceOfInteger* = Handle[TColStdHSequenceOfInteger]

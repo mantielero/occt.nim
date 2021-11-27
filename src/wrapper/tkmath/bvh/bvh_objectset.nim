@@ -29,24 +29,24 @@ type
   
 
 proc newBVH_ObjectSet*[T; N: static[cint]](): BVH_ObjectSet[T, N] {.cdecl, constructor,
-    importcpp: "BVH_ObjectSet<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_ObjectSet<\'*0,\'*1>(@)", header: "BVH_ObjectSet.hxx".}
 proc destroyBVH_ObjectSet*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]) {.cdecl,
-    importcpp: "#.~BVH_ObjectSet()", dynlib: tkmath.}
+    importcpp: "#.~BVH_ObjectSet()", header: "BVH_ObjectSet.hxx".}
 proc clear*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]) {.cdecl,
-    importcpp: "Clear", dynlib: tkmath.}
+    importcpp: "Clear", header: "BVH_ObjectSet.hxx".}
 proc objects*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]): var NCollectionVector[Handle[BVH_Object[T, N]]] {.
-    cdecl, importcpp: "Objects", dynlib: tkmath.}
+    cdecl, importcpp: "Objects", header: "BVH_ObjectSet.hxx".}
 proc objects*[T; N: static[cint]](this: BVH_ObjectSet[T, N]): NCollectionVector[Handle[BVH_Object[T, N]]] {.
-    noSideEffect, cdecl, importcpp: "Objects", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Objects", header: "BVH_ObjectSet.hxx".}
 proc size*[T; N: static[cint]](this: BVH_ObjectSet[T, N]): cint {.noSideEffect, cdecl,
-    importcpp: "Size", dynlib: tkmath.}
+    importcpp: "Size", header: "BVH_ObjectSet.hxx".}
 ## using statement
 
 proc box*[T; N: static[cint]](this: BVH_ObjectSet[T, N]; theIndex: cint): BVH_Box[T, N] {.
-    noSideEffect, cdecl, importcpp: "Box", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Box", header: "BVH_ObjectSet.hxx".}
 proc center*[T; N: static[cint]](this: BVH_ObjectSet[T, N]; theIndex: cint;
                               theAxis: cint): T {.noSideEffect, cdecl,
-    importcpp: "Center", dynlib: tkmath.}
+    importcpp: "Center", header: "BVH_ObjectSet.hxx".}
 proc swap*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]; theIndex1: cint;
                             theIndex2: cint) {.cdecl, importcpp: "Swap",
-    dynlib: tkmath.}
+    header: "BVH_ObjectSet.hxx".}

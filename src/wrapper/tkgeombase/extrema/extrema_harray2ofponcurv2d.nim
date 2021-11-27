@@ -22,15 +22,15 @@ type
 proc newExtremaHArray2OfPOnCurv2d*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                   theColUpp: cint): ExtremaHArray2OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc newExtremaHArray2OfPOnCurv2d*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                   theColUpp: cint; theValue: ValueType): ExtremaHArray2OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc newExtremaHArray2OfPOnCurv2d*(theOther: ExtremaArray2OfPOnCurv2d): ExtremaHArray2OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray2OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc array2*(this: ExtremaHArray2OfPOnCurv2d): ExtremaArray2OfPOnCurv2d {.
-    noSideEffect, cdecl, importcpp: "Array2", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array2", header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc changeArray2*(this: var ExtremaHArray2OfPOnCurv2d): var ExtremaArray2OfPOnCurv2d {.
-    cdecl, importcpp: "ChangeArray2", dynlib: tkgeombase.}
+    cdecl, importcpp: "ChangeArray2", header: "Extrema_HArray2OfPOnCurv2d.hxx".}

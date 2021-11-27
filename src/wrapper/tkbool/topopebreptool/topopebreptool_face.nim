@@ -22,16 +22,16 @@ type
 
 
 proc newTopOpeBRepToolFace*(): TopOpeBRepToolFace {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_face(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_face(@)", header: "TopOpeBRepTool_face.hxx".}
 proc init*(this: var TopOpeBRepToolFace; w: TopoDS_Wire; fref: TopoDS_Face): bool {.
-    cdecl, importcpp: "Init", dynlib: tkbool.}
+    cdecl, importcpp: "Init", header: "TopOpeBRepTool_face.hxx".}
 proc w*(this: TopOpeBRepToolFace): TopoDS_Wire {.noSideEffect, cdecl, importcpp: "W",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_face.hxx".}
 proc isDone*(this: TopOpeBRepToolFace): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkbool.}
+    importcpp: "IsDone", header: "TopOpeBRepTool_face.hxx".}
 proc finite*(this: TopOpeBRepToolFace): bool {.noSideEffect, cdecl,
-    importcpp: "Finite", dynlib: tkbool.}
+    importcpp: "Finite", header: "TopOpeBRepTool_face.hxx".}
 proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Ffinite", dynlib: tkbool.}
+    importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
 proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "RealF", dynlib: tkbool.}
+    importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}

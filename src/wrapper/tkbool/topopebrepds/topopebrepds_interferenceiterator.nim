@@ -22,33 +22,33 @@ type
 
 proc newTopOpeBRepDS_InterferenceIterator*(): TopOpeBRepDS_InterferenceIterator {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_InterferenceIterator(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc newTopOpeBRepDS_InterferenceIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_InterferenceIterator {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_InterferenceIterator(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc init*(this: var TopOpeBRepDS_InterferenceIterator;
           L: TopOpeBRepDS_ListOfInterference) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc geometryKind*(this: var TopOpeBRepDS_InterferenceIterator;
                   gk: TopOpeBRepDS_Kind) {.cdecl, importcpp: "GeometryKind",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc geometry*(this: var TopOpeBRepDS_InterferenceIterator; g: cint) {.cdecl,
-    importcpp: "Geometry", dynlib: tkbool.}
+    importcpp: "Geometry", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc supportKind*(this: var TopOpeBRepDS_InterferenceIterator; st: TopOpeBRepDS_Kind) {.
-    cdecl, importcpp: "SupportKind", dynlib: tkbool.}
+    cdecl, importcpp: "SupportKind", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc support*(this: var TopOpeBRepDS_InterferenceIterator; s: cint) {.cdecl,
-    importcpp: "Support", dynlib: tkbool.}
+    importcpp: "Support", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc match*(this: var TopOpeBRepDS_InterferenceIterator) {.cdecl, importcpp: "Match",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc matchInterference*(this: TopOpeBRepDS_InterferenceIterator;
                        i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "MatchInterference", dynlib: tkbool.}
+    cdecl, importcpp: "MatchInterference", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc more*(this: TopOpeBRepDS_InterferenceIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkbool.}
+    importcpp: "More", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc next*(this: var TopOpeBRepDS_InterferenceIterator) {.cdecl, importcpp: "Next",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc value*(this: TopOpeBRepDS_InterferenceIterator): Handle[
     TopOpeBRepDS_Interference] {.noSideEffect, cdecl, importcpp: "Value",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc changeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
-    cdecl, importcpp: "ChangeIterator", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx".}

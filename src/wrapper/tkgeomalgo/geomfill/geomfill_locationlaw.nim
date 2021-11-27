@@ -34,58 +34,58 @@ type
 
 
 proc setCurve*(this: var GeomFillLocationLaw; c: Handle[Adaptor3dHCurve]) {.cdecl,
-    importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    importcpp: "SetCurve", header: "GeomFill_LocationLaw.hxx".}
 proc getCurve*(this: GeomFillLocationLaw): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "GetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetCurve", header: "GeomFill_LocationLaw.hxx".}
 proc setTrsf*(this: var GeomFillLocationLaw; transfo: Mat) {.cdecl,
-    importcpp: "SetTrsf", dynlib: tkgeomalgo.}
+    importcpp: "SetTrsf", header: "GeomFill_LocationLaw.hxx".}
 proc copy*(this: GeomFillLocationLaw): Handle[GeomFillLocationLaw] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Copy", header: "GeomFill_LocationLaw.hxx".}
 proc d0*(this: var GeomFillLocationLaw; param: cfloat; m: var Mat; v: var Vec): bool {.cdecl,
-    importcpp: "D0", dynlib: tkgeomalgo.}
+    importcpp: "D0", header: "GeomFill_LocationLaw.hxx".}
 proc d0*(this: var GeomFillLocationLaw; param: cfloat; m: var Mat; v: var Vec;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationLaw.hxx".}
 proc d1*(this: var GeomFillLocationLaw; param: cfloat; m: var Mat; v: var Vec; dm: var Mat;
         dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationLaw.hxx".}
 proc d2*(this: var GeomFillLocationLaw; param: cfloat; m: var Mat; v: var Vec; dm: var Mat;
         dv: var Vec; d2m: var Mat; d2v: var Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_LocationLaw.hxx".}
 proc nb2dCurves*(this: GeomFillLocationLaw): cint {.noSideEffect, cdecl,
-    importcpp: "Nb2dCurves", dynlib: tkgeomalgo.}
+    importcpp: "Nb2dCurves", header: "GeomFill_LocationLaw.hxx".}
 proc hasFirstRestriction*(this: GeomFillLocationLaw): bool {.noSideEffect, cdecl,
-    importcpp: "HasFirstRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasFirstRestriction", header: "GeomFill_LocationLaw.hxx".}
 proc hasLastRestriction*(this: GeomFillLocationLaw): bool {.noSideEffect, cdecl,
-    importcpp: "HasLastRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasLastRestriction", header: "GeomFill_LocationLaw.hxx".}
 proc traceNumber*(this: GeomFillLocationLaw): cint {.noSideEffect, cdecl,
-    importcpp: "TraceNumber", dynlib: tkgeomalgo.}
+    importcpp: "TraceNumber", header: "GeomFill_LocationLaw.hxx".}
 proc errorStatus*(this: GeomFillLocationLaw): GeomFillPipeError {.noSideEffect,
-    cdecl, importcpp: "ErrorStatus", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ErrorStatus", header: "GeomFill_LocationLaw.hxx".}
 proc nbIntervals*(this: GeomFillLocationLaw; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_LocationLaw.hxx".}
 proc intervals*(this: GeomFillLocationLaw; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_LocationLaw.hxx".}
 proc setInterval*(this: var GeomFillLocationLaw; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    importcpp: "SetInterval", header: "GeomFill_LocationLaw.hxx".}
 proc getInterval*(this: GeomFillLocationLaw; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "GeomFill_LocationLaw.hxx".}
 proc getDomain*(this: GeomFillLocationLaw; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDomain", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetDomain", header: "GeomFill_LocationLaw.hxx".}
 proc resolution*(this: GeomFillLocationLaw; index: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",
-                                 dynlib: tkgeomalgo.}
+                                 header: "GeomFill_LocationLaw.hxx".}
 proc setTolerance*(this: var GeomFillLocationLaw; tol3d: cfloat; tol2d: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkgeomalgo.}
+    importcpp: "SetTolerance", header: "GeomFill_LocationLaw.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationLaw): cfloat {.cdecl,
-    importcpp: "GetMaximalNorm", dynlib: tkgeomalgo.}
+    importcpp: "GetMaximalNorm", header: "GeomFill_LocationLaw.hxx".}
 proc getAverageLaw*(this: var GeomFillLocationLaw; am: var Mat; av: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_LocationLaw.hxx".}
 proc isTranslation*(this: GeomFillLocationLaw; error: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsTranslation", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationLaw.hxx".}
 proc isRotation*(this: GeomFillLocationLaw; error: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsRotation", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IsRotation", header: "GeomFill_LocationLaw.hxx".}
 proc rotation*(this: GeomFillLocationLaw; center: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "Rotation", dynlib: tkgeomalgo.}
+    importcpp: "Rotation", header: "GeomFill_LocationLaw.hxx".}

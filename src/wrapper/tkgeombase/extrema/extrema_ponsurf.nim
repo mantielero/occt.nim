@@ -21,12 +21,12 @@ type
 
 
 proc newExtremaPOnSurf*(): ExtremaPOnSurf {.cdecl, constructor,
-    importcpp: "Extrema_POnSurf(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
 proc newExtremaPOnSurf*(u: cfloat; v: cfloat; p: Pnt): ExtremaPOnSurf {.cdecl,
-    constructor, importcpp: "Extrema_POnSurf(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_POnSurf(@)", header: "Extrema_POnSurf.hxx".}
 proc value*(this: ExtremaPOnSurf): Pnt {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_POnSurf.hxx".}
 proc setParameters*(this: var ExtremaPOnSurf; theU: cfloat; theV: cfloat; thePnt: Pnt) {.
-    cdecl, importcpp: "SetParameters", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetParameters", header: "Extrema_POnSurf.hxx".}
 proc parameter*(this: ExtremaPOnSurf; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkgeombase.}
+    importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}

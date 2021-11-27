@@ -21,13 +21,13 @@ type
 
 proc newExtremaHArray1OfPOnCurv2d*(theLower: cint; theUpper: cint): ExtremaHArray1OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
 proc newExtremaHArray1OfPOnCurv2d*(theLower: cint; theUpper: cint;
                                   theValue: ValueType): ExtremaHArray1OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
 proc newExtremaHArray1OfPOnCurv2d*(theOther: ExtremaArray1OfPOnCurv2d): ExtremaHArray1OfPOnCurv2d {.
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_HArray1OfPOnCurv2d.hxx".}
 proc array1*(this: ExtremaHArray1OfPOnCurv2d): ExtremaArray1OfPOnCurv2d {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}

@@ -419,7 +419,7 @@ proc newBVH_SweepPlaneBuilder*[T; N: static[cint]](
     theLeafNodeSize: cint = BVH_ConstantsLeafNodeSizeDefault;
     theMaxTreeDepth: cint = BVH_ConstantsMaxTreeDepth; theNumOfThreads: cint = 1): BVH_SweepPlaneBuilder[
     T, N] {.cdecl, constructor, importcpp: "BVH_SweepPlaneBuilder<\'*0,\'*1>(@)",
-          dynlib: tkmath.}
+          header: "BVH_SweepPlaneBuilder.hxx".}
 proc destroyBVH_SweepPlaneBuilder*[T; N: static[cint]](
     this: var BVH_SweepPlaneBuilder[T, N]) {.cdecl,
-    importcpp: "#.~BVH_SweepPlaneBuilder()", dynlib: tkmath.}
+    importcpp: "#.~BVH_SweepPlaneBuilder()", header: "BVH_SweepPlaneBuilder.hxx".}

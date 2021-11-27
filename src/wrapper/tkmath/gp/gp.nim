@@ -67,19 +67,19 @@ type
                                                      ## ! always referred to as gp::Resolution().
 
 
-proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", dynlib: tkmath.}
-proc origin*(): Pnt {.cdecl, importcpp: "gp::Origin(@)", dynlib: tkmath.}
-proc dxAsDir*(): Dir {.cdecl, importcpp: "gp::DX(@)", dynlib: tkmath.}
-proc dyAsDir*(): Dir {.cdecl, importcpp: "gp::DY(@)", dynlib: tkmath.}
-proc dzAsDir*(): Dir {.cdecl, importcpp: "gp::DZ(@)", dynlib: tkmath.}
-proc ox*(): Ax1 {.cdecl, importcpp: "gp::OX(@)", dynlib: tkmath.}
-proc oy*(): Ax1 {.cdecl, importcpp: "gp::OY(@)", dynlib: tkmath.}
-proc oz*(): Ax1 {.cdecl, importcpp: "gp::OZ(@)", dynlib: tkmath.}
-proc xoy*(): Ax2 {.cdecl, importcpp: "gp::XOY(@)", dynlib: tkmath.}
-proc zox*(): Ax2 {.cdecl, importcpp: "gp::ZOX(@)", dynlib: tkmath.}
-proc yoz*(): Ax2 {.cdecl, importcpp: "gp::YOZ(@)", dynlib: tkmath.}
-proc origin2d*(): Pnt2d {.cdecl, importcpp: "gp::Origin2d(@)", dynlib: tkmath.}
-proc dX2d*(): Dir2d {.cdecl, importcpp: "gp::DX2d(@)", dynlib: tkmath.}
-proc dY2d*(): Dir2d {.cdecl, importcpp: "gp::DY2d(@)", dynlib: tkmath.}
-proc oX2d*(): Ax2d {.cdecl, importcpp: "gp::OX2d(@)", dynlib: tkmath.}
-proc oY2d*(): Ax2d {.cdecl, importcpp: "gp::OY2d(@)", dynlib: tkmath.}
+proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", header: "gp.hxx".}
+proc origin*(): Pnt {.cdecl, importcpp: "gp::Origin(@)", header: "gp.hxx".}
+proc dxAsDir*(): Dir {.cdecl, importcpp: "gp::DX(@)", header: "gp.hxx".}
+proc dyAsDir*(): Dir {.cdecl, importcpp: "gp::DY(@)", header: "gp.hxx".}
+proc dzAsDir*(): Dir {.cdecl, importcpp: "gp::DZ(@)", header: "gp.hxx".}
+proc ox*(): Ax1 {.cdecl, importcpp: "gp::OX(@)", header: "gp.hxx".}
+proc oy*(): Ax1 {.cdecl, importcpp: "gp::OY(@)", header: "gp.hxx".}
+proc oz*(): Ax1 {.cdecl, importcpp: "gp::OZ(@)", header: "gp.hxx".}
+proc xoy*(): Ax2 {.cdecl, importcpp: "gp::XOY(@)", header: "gp.hxx".}
+proc zox*(): Ax2 {.cdecl, importcpp: "gp::ZOX(@)", header: "gp.hxx".}
+proc yoz*(): Ax2 {.cdecl, importcpp: "gp::YOZ(@)", header: "gp.hxx".}
+proc origin2d*(): Pnt2d {.cdecl, importcpp: "gp::Origin2d(@)", header: "gp.hxx".}
+proc dX2d*(): Dir2d {.cdecl, importcpp: "gp::DX2d(@)", header: "gp.hxx".}
+proc dY2d*(): Dir2d {.cdecl, importcpp: "gp::DY2d(@)", header: "gp.hxx".}
+proc oX2d*(): Ax2d {.cdecl, importcpp: "gp::OX2d(@)", header: "gp.hxx".}
+proc oY2d*(): Ax2d {.cdecl, importcpp: "gp::OY2d(@)", header: "gp.hxx".}

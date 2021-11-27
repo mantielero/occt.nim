@@ -25,21 +25,21 @@ type
 
 
 proc nbVariables*(this: BlendSurfPointFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "Blend_SurfPointFuncInv.hxx".}
 proc nbEquations*(this: BlendSurfPointFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "Blend_SurfPointFuncInv.hxx".}
 proc value*(this: var BlendSurfPointFuncInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "Blend_SurfPointFuncInv.hxx".}
 proc derivatives*(this: var BlendSurfPointFuncInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "Blend_SurfPointFuncInv.hxx".}
 proc values*(this: var BlendSurfPointFuncInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Blend_SurfPointFuncInv.hxx".}
 proc set*(this: var BlendSurfPointFuncInv; p: Pnt) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "Blend_SurfPointFuncInv.hxx".}
 proc getTolerance*(this: BlendSurfPointFuncInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_SurfPointFuncInv.hxx".}
 proc getBounds*(this: BlendSurfPointFuncInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "Blend_SurfPointFuncInv.hxx".}
 proc isSolution*(this: var BlendSurfPointFuncInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "Blend_SurfPointFuncInv.hxx".}

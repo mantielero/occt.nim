@@ -27,40 +27,40 @@ type
 
 proc newGeomFillSweep*(location: Handle[GeomFillLocationLaw];
                       withKpart: bool = true): GeomFillSweep {.cdecl, constructor,
-    importcpp: "GeomFill_Sweep(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Sweep(@)", header: "GeomFill_Sweep.hxx".}
 proc setDomain*(this: var GeomFillSweep; first: cfloat; last: cfloat;
                sectionFirst: cfloat; sectionLast: cfloat) {.cdecl,
-    importcpp: "SetDomain", dynlib: tkgeomalgo.}
+    importcpp: "SetDomain", header: "GeomFill_Sweep.hxx".}
 proc setTolerance*(this: var GeomFillSweep; tol3d: cfloat; boundTol: cfloat = 1.0;
                   tol2d: cfloat = 1.0e-5; tolAngular: cfloat = 1.0) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkgeomalgo.}
+    importcpp: "SetTolerance", header: "GeomFill_Sweep.hxx".}
 proc setForceApproxC1*(this: var GeomFillSweep; forceApproxC1: bool) {.cdecl,
-    importcpp: "SetForceApproxC1", dynlib: tkgeomalgo.}
+    importcpp: "SetForceApproxC1", header: "GeomFill_Sweep.hxx".}
 proc exchangeUV*(this: GeomFillSweep): bool {.noSideEffect, cdecl,
-    importcpp: "ExchangeUV", dynlib: tkgeomalgo.}
+    importcpp: "ExchangeUV", header: "GeomFill_Sweep.hxx".}
 proc uReversed*(this: GeomFillSweep): bool {.noSideEffect, cdecl,
-    importcpp: "UReversed", dynlib: tkgeomalgo.}
+    importcpp: "UReversed", header: "GeomFill_Sweep.hxx".}
 proc vReversed*(this: GeomFillSweep): bool {.noSideEffect, cdecl,
-    importcpp: "VReversed", dynlib: tkgeomalgo.}
+    importcpp: "VReversed", header: "GeomFill_Sweep.hxx".}
 proc build*(this: var GeomFillSweep; section: Handle[GeomFillSectionLaw];
            methode: GeomFillApproxStyle = geomFillLocation;
            continuity: GeomAbsShape = geomAbsC2; degmax: cint = 10; segmax: cint = 30) {.
-    cdecl, importcpp: "Build", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Build", header: "GeomFill_Sweep.hxx".}
 proc isDone*(this: GeomFillSweep): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                      dynlib: tkgeomalgo.}
+                                      header: "GeomFill_Sweep.hxx".}
 proc errorOnSurface*(this: GeomFillSweep): cfloat {.noSideEffect, cdecl,
-    importcpp: "ErrorOnSurface", dynlib: tkgeomalgo.}
+    importcpp: "ErrorOnSurface", header: "GeomFill_Sweep.hxx".}
 proc errorOnRestriction*(this: GeomFillSweep; isFirst: bool; uError: var cfloat;
                         vError: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "ErrorOnRestriction", dynlib: tkgeomalgo.}
+    importcpp: "ErrorOnRestriction", header: "GeomFill_Sweep.hxx".}
 proc errorOnTrace*(this: GeomFillSweep; indexOfTrace: cint; uError: var cfloat;
                   vError: var cfloat) {.noSideEffect, cdecl,
-                                     importcpp: "ErrorOnTrace", dynlib: tkgeomalgo.}
+                                     importcpp: "ErrorOnTrace", header: "GeomFill_Sweep.hxx".}
 proc surface*(this: GeomFillSweep): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkgeomalgo.}
+    importcpp: "Surface", header: "GeomFill_Sweep.hxx".}
 proc restriction*(this: GeomFillSweep; isFirst: bool): Handle[Geom2dCurve] {.
-    noSideEffect, cdecl, importcpp: "Restriction", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Restriction", header: "GeomFill_Sweep.hxx".}
 proc numberOfTrace*(this: GeomFillSweep): cint {.noSideEffect, cdecl,
-    importcpp: "NumberOfTrace", dynlib: tkgeomalgo.}
+    importcpp: "NumberOfTrace", header: "GeomFill_Sweep.hxx".}
 proc trace*(this: GeomFillSweep; indexOfTrace: cint): Handle[Geom2dCurve] {.
-    noSideEffect, cdecl, importcpp: "Trace", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Trace", header: "GeomFill_Sweep.hxx".}

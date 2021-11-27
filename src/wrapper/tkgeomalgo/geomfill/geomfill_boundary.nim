@@ -35,29 +35,29 @@ type
 
 
 proc value*(this: GeomFillBoundary; u: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeomalgo.}
+    importcpp: "Value", header: "GeomFill_Boundary.hxx".}
 proc d1*(this: GeomFillBoundary; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkgeomalgo.}
+    importcpp: "D1", header: "GeomFill_Boundary.hxx".}
 proc hasNormals*(this: GeomFillBoundary): bool {.noSideEffect, cdecl,
-    importcpp: "HasNormals", dynlib: tkgeomalgo.}
+    importcpp: "HasNormals", header: "GeomFill_Boundary.hxx".}
 proc norm*(this: GeomFillBoundary; u: cfloat): Vec {.noSideEffect, cdecl,
-    importcpp: "Norm", dynlib: tkgeomalgo.}
+    importcpp: "Norm", header: "GeomFill_Boundary.hxx".}
 proc d1Norm*(this: GeomFillBoundary; u: cfloat; n: var Vec; dn: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D1Norm", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1Norm", header: "GeomFill_Boundary.hxx".}
 proc reparametrize*(this: var GeomFillBoundary; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,
-    importcpp: "Reparametrize", dynlib: tkgeomalgo.}
+    importcpp: "Reparametrize", header: "GeomFill_Boundary.hxx".}
 proc points*(this: GeomFillBoundary; pFirst: var Pnt; pLast: var Pnt) {.noSideEffect,
-    cdecl, importcpp: "Points", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Points", header: "GeomFill_Boundary.hxx".}
 proc bounds*(this: GeomFillBoundary; first: var cfloat; last: var cfloat) {.noSideEffect,
-    cdecl, importcpp: "Bounds", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Bounds", header: "GeomFill_Boundary.hxx".}
 proc isDegenerated*(this: GeomFillBoundary): bool {.noSideEffect, cdecl,
-    importcpp: "IsDegenerated", dynlib: tkgeomalgo.}
+    importcpp: "IsDegenerated", header: "GeomFill_Boundary.hxx".}
 proc tol3d*(this: GeomFillBoundary): cfloat {.noSideEffect, cdecl, importcpp: "Tol3d",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Boundary.hxx".}
 proc tol3d*(this: var GeomFillBoundary; tol: cfloat) {.cdecl, importcpp: "Tol3d",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Boundary.hxx".}
 proc tolang*(this: GeomFillBoundary): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolang", dynlib: tkgeomalgo.}
+    importcpp: "Tolang", header: "GeomFill_Boundary.hxx".}
 proc tolang*(this: var GeomFillBoundary; tol: cfloat) {.cdecl, importcpp: "Tolang",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Boundary.hxx".}

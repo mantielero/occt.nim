@@ -59,16 +59,16 @@ type
 
 
 proc gaussPointsMax*(): cint {.cdecl, importcpp: "math::GaussPointsMax(@)",
-                            dynlib: tkmath.}
+                            header: "math.hxx".}
 proc gaussPoints*(index: cint; points: var MathVector) {.cdecl,
-    importcpp: "math::GaussPoints(@)", dynlib: tkmath.}
+    importcpp: "math::GaussPoints(@)", header: "math.hxx".}
 proc gaussWeights*(index: cint; weights: var MathVector) {.cdecl,
-    importcpp: "math::GaussWeights(@)", dynlib: tkmath.}
+    importcpp: "math::GaussWeights(@)", header: "math.hxx".}
 proc kronrodPointsMax*(): cint {.cdecl, importcpp: "math::KronrodPointsMax(@)",
-                              dynlib: tkmath.}
+                              header: "math.hxx".}
 proc orderedGaussPointsAndWeights*(index: cint; points: var MathVector;
                                   weights: var MathVector): bool {.cdecl,
-    importcpp: "math::OrderedGaussPointsAndWeights(@)", dynlib: tkmath.}
+    importcpp: "math::OrderedGaussPointsAndWeights(@)", header: "math.hxx".}
 proc kronrodPointsAndWeights*(index: cint; points: var MathVector;
                              weights: var MathVector): bool {.cdecl,
-    importcpp: "math::KronrodPointsAndWeights(@)", dynlib: tkmath.}
+    importcpp: "math::KronrodPointsAndWeights(@)", header: "math.hxx".}

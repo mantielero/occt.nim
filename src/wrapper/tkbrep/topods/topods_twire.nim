@@ -31,8 +31,8 @@ type
 
 
 proc newTopoDS_TWire*(): TopoDS_TWire {.cdecl, constructor,
-                                     importcpp: "TopoDS_TWire(@)", dynlib: tkbrep.}
+                                     importcpp: "TopoDS_TWire(@)", header: "TopoDS_TWire.hxx".}
 proc shapeType*(this: TopoDS_TWire): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", dynlib: tkbrep.}
+    importcpp: "ShapeType", header: "TopoDS_TWire.hxx".}
 proc emptyCopy*(this: TopoDS_TWire): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", dynlib: tkbrep.}
+    importcpp: "EmptyCopy", header: "TopoDS_TWire.hxx".}

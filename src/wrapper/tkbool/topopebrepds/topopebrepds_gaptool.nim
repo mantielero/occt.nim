@@ -26,37 +26,37 @@ type
 
 
 proc newTopOpeBRepDS_GapTool*(): TopOpeBRepDS_GapTool {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_GapTool(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_GapTool(@)", header: "TopOpeBRepDS_GapTool.hxx".}
 proc newTopOpeBRepDS_GapTool*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapTool {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_GapTool(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_GapTool(@)", header: "TopOpeBRepDS_GapTool.hxx".}
 proc init*(this: var TopOpeBRepDS_GapTool; hds: Handle[TopOpeBRepDS_HDataStructure]) {.
-    cdecl, importcpp: "Init", dynlib: tkbool.}
+    cdecl, importcpp: "Init", header: "TopOpeBRepDS_GapTool.hxx".}
 proc interferences*(this: TopOpeBRepDS_GapTool; indexPoint: cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Interferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Interferences", header: "TopOpeBRepDS_GapTool.hxx".}
 proc sameInterferences*(this: TopOpeBRepDS_GapTool;
                        i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "SameInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SameInterferences", header: "TopOpeBRepDS_GapTool.hxx".}
 proc changeSameInterferences*(this: var TopOpeBRepDS_GapTool;
                              i: Handle[TopOpeBRepDS_Interference]): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeSameInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeSameInterferences", header: "TopOpeBRepDS_GapTool.hxx".}
 proc curve*(this: TopOpeBRepDS_GapTool; i: Handle[TopOpeBRepDS_Interference];
            c: var TopOpeBRepDS_Curve): bool {.noSideEffect, cdecl, importcpp: "Curve",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_GapTool.hxx".}
 proc edgeSupport*(this: TopOpeBRepDS_GapTool; i: Handle[TopOpeBRepDS_Interference];
                  e: var TopoDS_Shape): bool {.noSideEffect, cdecl,
-    importcpp: "EdgeSupport", dynlib: tkbool.}
+    importcpp: "EdgeSupport", header: "TopOpeBRepDS_GapTool.hxx".}
 proc facesSupport*(this: TopOpeBRepDS_GapTool;
                   i: Handle[TopOpeBRepDS_Interference]; f1: var TopoDS_Shape;
                   f2: var TopoDS_Shape): bool {.noSideEffect, cdecl,
-    importcpp: "FacesSupport", dynlib: tkbool.}
+    importcpp: "FacesSupport", header: "TopOpeBRepDS_GapTool.hxx".}
 proc parameterOnEdge*(this: TopOpeBRepDS_GapTool;
                      i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
                      u: var cfloat): bool {.noSideEffect, cdecl,
                                         importcpp: "ParameterOnEdge",
-                                        dynlib: tkbool.}
+                                        header: "TopOpeBRepDS_GapTool.hxx".}
 proc setPoint*(this: var TopOpeBRepDS_GapTool; i: Handle[TopOpeBRepDS_Interference];
-              indexPoint: cint) {.cdecl, importcpp: "SetPoint", dynlib: tkbool.}
+              indexPoint: cint) {.cdecl, importcpp: "SetPoint", header: "TopOpeBRepDS_GapTool.hxx".}
 proc setParameterOnEdge*(this: var TopOpeBRepDS_GapTool;
                         i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
                         u: cfloat) {.cdecl, importcpp: "SetParameterOnEdge",
-                                   dynlib: tkbool.}
+                                   header: "TopOpeBRepDS_GapTool.hxx".}

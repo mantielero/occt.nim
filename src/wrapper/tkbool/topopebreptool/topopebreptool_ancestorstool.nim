@@ -28,4 +28,4 @@ type
 
 proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;
                    m: var TopToolsIndexedDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)", header: "TopOpeBRepTool_AncestorsTool.hxx".}

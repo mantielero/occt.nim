@@ -40,20 +40,20 @@ type
 
 proc newApproxSameParameter*(c3d: Handle[GeomCurve]; c2d: Handle[Geom2dCurve];
                             s: Handle[GeomSurface]; tol: cfloat): ApproxSameParameter {.
-    cdecl, constructor, importcpp: "Approx_SameParameter(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_SameParameter(@)", header: "Approx_SameParameter.hxx".}
 proc newApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
                             c2d: Handle[Geom2dCurve];
                             s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxSameParameter {.
-    cdecl, constructor, importcpp: "Approx_SameParameter(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_SameParameter(@)", header: "Approx_SameParameter.hxx".}
 proc newApproxSameParameter*(c3d: Handle[Adaptor3dHCurve];
                             c2d: Handle[Adaptor2dHCurve2d];
                             s: Handle[Adaptor3dHSurface]; tol: cfloat): ApproxSameParameter {.
-    cdecl, constructor, importcpp: "Approx_SameParameter(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Approx_SameParameter(@)", header: "Approx_SameParameter.hxx".}
 proc isDone*(this: ApproxSameParameter): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Approx_SameParameter.hxx".}
 proc tolReached*(this: ApproxSameParameter): cfloat {.noSideEffect, cdecl,
-    importcpp: "TolReached", dynlib: tkgeombase.}
+    importcpp: "TolReached", header: "Approx_SameParameter.hxx".}
 proc isSameParameter*(this: ApproxSameParameter): bool {.noSideEffect, cdecl,
-    importcpp: "IsSameParameter", dynlib: tkgeombase.}
+    importcpp: "IsSameParameter", header: "Approx_SameParameter.hxx".}
 proc curve2d*(this: ApproxSameParameter): Handle[Geom2dCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkgeombase.}
+    importcpp: "Curve2d", header: "Approx_SameParameter.hxx".}

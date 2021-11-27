@@ -25,14 +25,14 @@ type
 
 
 proc newGceMakeRotation*(line: Lin; angle: cfloat): GceMakeRotation {.cdecl,
-    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc newGceMakeRotation*(axis: Ax1; angle: cfloat): GceMakeRotation {.cdecl,
-    constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc newGceMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GceMakeRotation {.
-    cdecl, constructor, importcpp: "gce_MakeRotation(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
 proc value*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl, importcpp: "Value",
-                                       dynlib: tkgeombase.}
+                                       header: "gce_MakeRotation.hxx".}
 proc operator*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
-    importcpp: "Operator", dynlib: tkgeombase.}
+    importcpp: "Operator", header: "gce_MakeRotation.hxx".}
 converter `trsf`*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
-    importcpp: "gce_MakeRotation::operator gp_Trsf", dynlib: tkgeombase.}
+    importcpp: "gce_MakeRotation::operator gp_Trsf", header: "gce_MakeRotation.hxx".}

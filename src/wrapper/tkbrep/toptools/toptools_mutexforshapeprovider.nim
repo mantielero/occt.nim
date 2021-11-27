@@ -23,17 +23,17 @@ type
 
 
 proc newTopToolsMutexForShapeProvider*(): TopToolsMutexForShapeProvider {.cdecl,
-    constructor, importcpp: "TopTools_MutexForShapeProvider(@)", dynlib: tkbrep.}
+    constructor, importcpp: "TopTools_MutexForShapeProvider(@)", header: "TopTools_MutexForShapeProvider.hxx".}
 proc destroyTopToolsMutexForShapeProvider*(
     this: var TopToolsMutexForShapeProvider) {.cdecl,
-    importcpp: "#.~TopTools_MutexForShapeProvider()", dynlib: tkbrep.}
+    importcpp: "#.~TopTools_MutexForShapeProvider()", header: "TopTools_MutexForShapeProvider.hxx".}
 proc createMutexesForSubShapes*(this: var TopToolsMutexForShapeProvider;
                                theShape: TopoDS_Shape; theType: TopAbsShapeEnum) {.
-    cdecl, importcpp: "CreateMutexesForSubShapes", dynlib: tkbrep.}
+    cdecl, importcpp: "CreateMutexesForSubShapes", header: "TopTools_MutexForShapeProvider.hxx".}
 proc createMutexForShape*(this: var TopToolsMutexForShapeProvider;
                          theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "CreateMutexForShape", dynlib: tkbrep.}
+    importcpp: "CreateMutexForShape", header: "TopTools_MutexForShapeProvider.hxx".}
 proc getMutex*(this: TopToolsMutexForShapeProvider; theShape: TopoDS_Shape): ptr StandardMutex {.
-    noSideEffect, cdecl, importcpp: "GetMutex", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "GetMutex", header: "TopTools_MutexForShapeProvider.hxx".}
 proc removeAllMutexes*(this: var TopToolsMutexForShapeProvider) {.cdecl,
-    importcpp: "RemoveAllMutexes", dynlib: tkbrep.}
+    importcpp: "RemoveAllMutexes", header: "TopTools_MutexForShapeProvider.hxx".}

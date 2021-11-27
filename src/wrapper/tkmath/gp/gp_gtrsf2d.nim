@@ -26,56 +26,56 @@ type
 
 
 proc newGTrsf2d*(): GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
-                           dynlib: tkmath.}
+                           header: "gp_GTrsf2d.hxx".}
 proc newGTrsf2d*(t: Trsf2d): GTrsf2d {.cdecl, constructor, importcpp: "gp_GTrsf2d(@)",
-                                   dynlib: tkmath.}
+                                   header: "gp_GTrsf2d.hxx".}
 proc newGTrsf2d*(m: Mat2d; v: Xy): GTrsf2d {.cdecl, constructor,
-                                       importcpp: "gp_GTrsf2d(@)", dynlib: tkmath.}
+                                       importcpp: "gp_GTrsf2d(@)", header: "gp_GTrsf2d.hxx".}
 proc setAffinity*(this: var GTrsf2d; a: Ax2d; ratio: cfloat) {.cdecl,
-    importcpp: "SetAffinity", dynlib: tkmath.}
+    importcpp: "SetAffinity", header: "gp_GTrsf2d.hxx".}
 proc setValue*(this: var GTrsf2d; row: cint; col: cint; value: cfloat) {.cdecl,
-    importcpp: "SetValue", dynlib: tkmath.}
+    importcpp: "SetValue", header: "gp_GTrsf2d.hxx".}
 proc setTranslationPart*(this: var GTrsf2d; coord: Xy) {.cdecl,
-    importcpp: "SetTranslationPart", dynlib: tkmath.}
+    importcpp: "SetTranslationPart", header: "gp_GTrsf2d.hxx".}
 proc setTrsf2d*(this: var GTrsf2d; t: Trsf2d) {.cdecl, importcpp: "SetTrsf2d",
-    dynlib: tkmath.}
+    header: "gp_GTrsf2d.hxx".}
 proc setVectorialPart*(this: var GTrsf2d; matrix: Mat2d) {.cdecl,
-    importcpp: "SetVectorialPart", dynlib: tkmath.}
+    importcpp: "SetVectorialPart", header: "gp_GTrsf2d.hxx".}
 proc isNegative*(this: GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsNegative",
-                                    dynlib: tkmath.}
+                                    header: "gp_GTrsf2d.hxx".}
 proc isSingular*(this: GTrsf2d): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
-                                    dynlib: tkmath.}
+                                    header: "gp_GTrsf2d.hxx".}
 proc form*(this: GTrsf2d): TrsfForm {.noSideEffect, cdecl, importcpp: "Form",
-                                  dynlib: tkmath.}
+                                  header: "gp_GTrsf2d.hxx".}
 proc translationPart*(this: GTrsf2d): Xy {.noSideEffect, cdecl,
                                        importcpp: "TranslationPart",
-                                       dynlib: tkmath.}
+                                       header: "gp_GTrsf2d.hxx".}
 proc vectorialPart*(this: GTrsf2d): Mat2d {.noSideEffect, cdecl,
-                                        importcpp: "VectorialPart", dynlib: tkmath.}
+                                        importcpp: "VectorialPart", header: "gp_GTrsf2d.hxx".}
 proc value*(this: GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "gp_GTrsf2d.hxx".}
 proc `()`*(this: GTrsf2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
-proc invert*(this: var GTrsf2d) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "#(@)", header: "gp_GTrsf2d.hxx".}
+proc invert*(this: var GTrsf2d) {.cdecl, importcpp: "Invert", header: "gp_GTrsf2d.hxx".}
 proc inverted*(this: GTrsf2d): GTrsf2d {.noSideEffect, cdecl, importcpp: "Inverted",
-                                     dynlib: tkmath.}
+                                     header: "gp_GTrsf2d.hxx".}
 proc multiplied*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "gp_GTrsf2d.hxx".}
 proc `*`*(this: GTrsf2d; t: GTrsf2d): GTrsf2d {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "gp_GTrsf2d.hxx".}
 proc multiply*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
-proc `*=`*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+    header: "gp_GTrsf2d.hxx".}
+proc `*=`*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "(# *= #)", header: "gp_GTrsf2d.hxx".}
 proc preMultiply*(this: var GTrsf2d; t: GTrsf2d) {.cdecl, importcpp: "PreMultiply",
-    dynlib: tkmath.}
-proc power*(this: var GTrsf2d; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
+    header: "gp_GTrsf2d.hxx".}
+proc power*(this: var GTrsf2d; n: cint) {.cdecl, importcpp: "Power", header: "gp_GTrsf2d.hxx".}
 proc powered*(this: GTrsf2d; n: cint): GTrsf2d {.noSideEffect, cdecl,
-    importcpp: "Powered", dynlib: tkmath.}
+    importcpp: "Powered", header: "gp_GTrsf2d.hxx".}
 proc transforms*(this: GTrsf2d; coord: var Xy) {.noSideEffect, cdecl,
-    importcpp: "Transforms", dynlib: tkmath.}
+    importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
 proc transformed*(this: GTrsf2d; coord: Xy): Xy {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_GTrsf2d.hxx".}
 proc transforms*(this: GTrsf2d; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Transforms", dynlib: tkmath.}
+    importcpp: "Transforms", header: "gp_GTrsf2d.hxx".}
 proc trsf2d*(this: GTrsf2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Trsf2d",
-                                  dynlib: tkmath.}
+                                  header: "gp_GTrsf2d.hxx".}

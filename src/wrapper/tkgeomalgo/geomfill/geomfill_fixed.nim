@@ -29,24 +29,24 @@ type
 
 
 proc newGeomFillFixed*(tangent: Vec; normal: Vec): GeomFillFixed {.cdecl, constructor,
-    importcpp: "GeomFill_Fixed(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Fixed(@)", header: "GeomFill_Fixed.hxx".}
 proc copy*(this: GeomFillFixed): Handle[GeomFillTrihedronLaw] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkgeomalgo.}
+    importcpp: "Copy", header: "GeomFill_Fixed.hxx".}
 proc d0*(this: var GeomFillFixed; param: cfloat; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+        biNormal: var Vec): bool {.cdecl, importcpp: "D0", header: "GeomFill_Fixed.hxx".}
 proc d1*(this: var GeomFillFixed; param: cfloat; tangent: var Vec; dTangent: var Vec;
         normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
-    cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D1", header: "GeomFill_Fixed.hxx".}
 proc d2*(this: var GeomFillFixed; param: cfloat; tangent: var Vec; dTangent: var Vec;
         d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
         biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.cdecl,
-    importcpp: "D2", dynlib: tkgeomalgo.}
+    importcpp: "D2", header: "GeomFill_Fixed.hxx".}
 proc nbIntervals*(this: GeomFillFixed; s: GeomAbsShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    importcpp: "NbIntervals", header: "GeomFill_Fixed.hxx".}
 proc intervals*(this: GeomFillFixed; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "Intervals", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_Fixed.hxx".}
 proc getAverageLaw*(this: var GeomFillFixed; aTangent: var Vec; aNormal: var Vec;
                    aBiNormal: var Vec) {.cdecl, importcpp: "GetAverageLaw",
-                                      dynlib: tkgeomalgo.}
+                                      header: "GeomFill_Fixed.hxx".}
 proc isConstant*(this: GeomFillFixed): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_Fixed.hxx".}

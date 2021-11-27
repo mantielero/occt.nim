@@ -46,10 +46,10 @@ type
 
 
 proc newGceMakeScale*(point: Pnt; scale: cfloat): GceMakeScale {.cdecl, constructor,
-    importcpp: "gce_MakeScale(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
 proc value*(this: GceMakeScale): Trsf {.noSideEffect, cdecl, importcpp: "Value",
-                                    dynlib: tkgeombase.}
+                                    header: "gce_MakeScale.hxx".}
 proc operator*(this: GceMakeScale): Trsf {.noSideEffect, cdecl, importcpp: "Operator",
-                                       dynlib: tkgeombase.}
+                                       header: "gce_MakeScale.hxx".}
 converter `trsf`*(this: GceMakeScale): Trsf {.noSideEffect, cdecl,
-    importcpp: "gce_MakeScale::operator gp_Trsf", dynlib: tkgeombase.}
+    importcpp: "gce_MakeScale::operator gp_Trsf", header: "gce_MakeScale.hxx".}

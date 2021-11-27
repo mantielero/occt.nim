@@ -33,74 +33,74 @@ type
 
 
 proc newGeomFillLocationGuide*(triedre: Handle[GeomFillTrihedronWithGuide]): GeomFillLocationGuide {.
-    cdecl, constructor, importcpp: "GeomFill_LocationGuide(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_LocationGuide(@)", header: "GeomFill_LocationGuide.hxx".}
 proc set*(this: var GeomFillLocationGuide; section: Handle[GeomFillSectionLaw];
          rotat: bool; sFirst: cfloat; sLast: cfloat; precAngle: cfloat;
-         lastAngle: var cfloat) {.cdecl, importcpp: "Set", dynlib: tkgeomalgo.}
+         lastAngle: var cfloat) {.cdecl, importcpp: "Set", header: "GeomFill_LocationGuide.hxx".}
 proc eraseRotation*(this: var GeomFillLocationGuide) {.cdecl,
-    importcpp: "EraseRotation", dynlib: tkgeomalgo.}
+    importcpp: "EraseRotation", header: "GeomFill_LocationGuide.hxx".}
 proc setCurve*(this: var GeomFillLocationGuide; c: Handle[Adaptor3dHCurve]) {.cdecl,
-    importcpp: "SetCurve", dynlib: tkgeomalgo.}
+    importcpp: "SetCurve", header: "GeomFill_LocationGuide.hxx".}
 proc getCurve*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "GetCurve", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "GetCurve", header: "GeomFill_LocationGuide.hxx".}
 proc setTrsf*(this: var GeomFillLocationGuide; transfo: Mat) {.cdecl,
-    importcpp: "SetTrsf", dynlib: tkgeomalgo.}
+    importcpp: "SetTrsf", header: "GeomFill_LocationGuide.hxx".}
 proc copy*(this: GeomFillLocationGuide): Handle[GeomFillLocationLaw] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Copy", header: "GeomFill_LocationGuide.hxx".}
 proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec): bool {.
-    cdecl, importcpp: "D0", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D0", header: "GeomFill_LocationGuide.hxx".}
 proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationGuide.hxx".}
 proc d1*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationGuide.hxx".}
 proc d2*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
         dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_LocationGuide.hxx".}
 proc hasFirstRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect, cdecl,
-    importcpp: "HasFirstRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasFirstRestriction", header: "GeomFill_LocationGuide.hxx".}
 proc hasLastRestriction*(this: GeomFillLocationGuide): bool {.noSideEffect, cdecl,
-    importcpp: "HasLastRestriction", dynlib: tkgeomalgo.}
+    importcpp: "HasLastRestriction", header: "GeomFill_LocationGuide.hxx".}
 proc traceNumber*(this: GeomFillLocationGuide): cint {.noSideEffect, cdecl,
-    importcpp: "TraceNumber", dynlib: tkgeomalgo.}
+    importcpp: "TraceNumber", header: "GeomFill_LocationGuide.hxx".}
 proc errorStatus*(this: GeomFillLocationGuide): GeomFillPipeError {.noSideEffect,
-    cdecl, importcpp: "ErrorStatus", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ErrorStatus", header: "GeomFill_LocationGuide.hxx".}
 proc nbIntervals*(this: GeomFillLocationGuide; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_LocationGuide.hxx".}
 proc intervals*(this: GeomFillLocationGuide; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_LocationGuide.hxx".}
 proc setInterval*(this: var GeomFillLocationGuide; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "SetInterval", dynlib: tkgeomalgo.}
+    importcpp: "SetInterval", header: "GeomFill_LocationGuide.hxx".}
 proc getInterval*(this: GeomFillLocationGuide; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "GeomFill_LocationGuide.hxx".}
 proc getDomain*(this: GeomFillLocationGuide; first: var cfloat; last: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetDomain", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "GetDomain", header: "GeomFill_LocationGuide.hxx".}
 proc setTolerance*(this: var GeomFillLocationGuide; tol3d: cfloat; tol2d: cfloat) {.
-    cdecl, importcpp: "SetTolerance", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetTolerance", header: "GeomFill_LocationGuide.hxx".}
 proc resolution*(this: GeomFillLocationGuide; index: cint; tol: cfloat;
                 tolU: var cfloat; tolV: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkgeomalgo.}
+    importcpp: "Resolution", header: "GeomFill_LocationGuide.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationGuide): cfloat {.cdecl,
-    importcpp: "GetMaximalNorm", dynlib: tkgeomalgo.}
+    importcpp: "GetMaximalNorm", header: "GeomFill_LocationGuide.hxx".}
 proc getAverageLaw*(this: var GeomFillLocationGuide; am: var Mat; av: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_LocationGuide.hxx".}
 proc isTranslation*(this: GeomFillLocationGuide; error: var cfloat): bool {.
-    noSideEffect, cdecl, importcpp: "IsTranslation", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationGuide.hxx".}
 proc isRotation*(this: GeomFillLocationGuide; error: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsRotation", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
 proc rotation*(this: GeomFillLocationGuide; center: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "Rotation", dynlib: tkgeomalgo.}
+    importcpp: "Rotation", header: "GeomFill_LocationGuide.hxx".}
 proc section*(this: GeomFillLocationGuide): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_LocationGuide.hxx".}
 proc guide*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "Guide", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Guide", header: "GeomFill_LocationGuide.hxx".}
 proc setOrigine*(this: var GeomFillLocationGuide; param1: cfloat; param2: cfloat) {.
-    cdecl, importcpp: "SetOrigine", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetOrigine", header: "GeomFill_LocationGuide.hxx".}
 proc computeAutomaticLaw*(this: GeomFillLocationGuide;
                          parAndRad: var Handle[TColgpHArray1OfPnt2d]): GeomFillPipeError {.
-    noSideEffect, cdecl, importcpp: "ComputeAutomaticLaw", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "ComputeAutomaticLaw", header: "GeomFill_LocationGuide.hxx".}

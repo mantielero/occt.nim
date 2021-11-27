@@ -24,11 +24,11 @@ type
 
 
 proc newGC_MakeTranslation*(vect: Vec): GC_MakeTranslation {.cdecl, constructor,
-    importcpp: "GC_MakeTranslation(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
 proc newGC_MakeTranslation*(point1: Pnt; point2: Pnt): GC_MakeTranslation {.cdecl,
-    constructor, importcpp: "GC_MakeTranslation(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
 proc value*(this: GC_MakeTranslation): Handle[GeomTransformation] {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "GC_MakeTranslation.hxx".}
 converter `constopencascade`*(this: GC_MakeTranslation): Handle[GeomTransformation] {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeTranslation::operator constopencascade", dynlib: tkgeombase.}
+    importcpp: "GC_MakeTranslation::operator constopencascade", header: "GC_MakeTranslation.hxx".}

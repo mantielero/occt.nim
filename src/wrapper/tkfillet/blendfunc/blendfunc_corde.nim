@@ -28,28 +28,28 @@ type
 
 proc newBlendFuncCorde*(s: Handle[Adaptor3dHSurface];
                        cGuide: Handle[Adaptor3dHCurve]): BlendFuncCorde {.cdecl,
-    constructor, importcpp: "BlendFunc_Corde(@)", dynlib: tkfillet.}
+    constructor, importcpp: "BlendFunc_Corde(@)", header: "BlendFunc_Corde.hxx".}
 proc setParam*(this: var BlendFuncCorde; param: cfloat) {.cdecl, importcpp: "SetParam",
-    dynlib: tkfillet.}
+    header: "BlendFunc_Corde.hxx".}
 proc setDist*(this: var BlendFuncCorde; dist: cfloat) {.cdecl, importcpp: "SetDist",
-    dynlib: tkfillet.}
+    header: "BlendFunc_Corde.hxx".}
 proc value*(this: var BlendFuncCorde; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "BlendFunc_Corde.hxx".}
 proc derivatives*(this: var BlendFuncCorde; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_Corde.hxx".}
 proc pointOnS*(this: BlendFuncCorde): Pnt {.noSideEffect, cdecl,
-                                        importcpp: "PointOnS", dynlib: tkfillet.}
+                                        importcpp: "PointOnS", header: "BlendFunc_Corde.hxx".}
 proc pointOnGuide*(this: BlendFuncCorde): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnGuide", dynlib: tkfillet.}
+    importcpp: "PointOnGuide", header: "BlendFunc_Corde.hxx".}
 proc nPlan*(this: BlendFuncCorde): Vec {.noSideEffect, cdecl, importcpp: "NPlan",
-                                     dynlib: tkfillet.}
+                                     header: "BlendFunc_Corde.hxx".}
 proc isTangencyPoint*(this: BlendFuncCorde): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "BlendFunc_Corde.hxx".}
 proc tangentOnS*(this: BlendFuncCorde): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnS", dynlib: tkfillet.}
+    importcpp: "TangentOnS", header: "BlendFunc_Corde.hxx".}
 proc tangent2dOnS*(this: BlendFuncCorde): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnS", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}
 proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2d) {.cdecl,
-    importcpp: "DerFguide", dynlib: tkfillet.}
+    importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
 proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.cdecl,
-    importcpp: "IsSolution", dynlib: tkfillet.}
+    importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}

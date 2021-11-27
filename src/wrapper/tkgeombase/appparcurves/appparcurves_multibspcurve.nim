@@ -33,43 +33,43 @@ type
 
 
 proc newAppParCurvesMultiBSpCurve*(): AppParCurvesMultiBSpCurve {.cdecl,
-    constructor, importcpp: "AppParCurves_MultiBSpCurve(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "AppParCurves_MultiBSpCurve(@)", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc newAppParCurvesMultiBSpCurve*(nbPol: cint): AppParCurvesMultiBSpCurve {.cdecl,
-    constructor, importcpp: "AppParCurves_MultiBSpCurve(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "AppParCurves_MultiBSpCurve(@)", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc newAppParCurvesMultiBSpCurve*(tabMU: AppParCurvesArray1OfMultiPoint;
                                   knots: TColStdArray1OfReal;
                                   mults: TColStdArray1OfInteger): AppParCurvesMultiBSpCurve {.
     cdecl, constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_MultiBSpCurve.hxx".}
 proc newAppParCurvesMultiBSpCurve*(sc: AppParCurvesMultiCurve;
                                   knots: TColStdArray1OfReal;
                                   mults: TColStdArray1OfInteger): AppParCurvesMultiBSpCurve {.
     cdecl, constructor, importcpp: "AppParCurves_MultiBSpCurve(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_MultiBSpCurve.hxx".}
 proc setKnots*(this: var AppParCurvesMultiBSpCurve; theKnots: TColStdArray1OfReal) {.
-    cdecl, importcpp: "SetKnots", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetKnots", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc setMultiplicities*(this: var AppParCurvesMultiBSpCurve;
                        theMults: TColStdArray1OfInteger) {.cdecl,
-    importcpp: "SetMultiplicities", dynlib: tkgeombase.}
+    importcpp: "SetMultiplicities", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc knots*(this: AppParCurvesMultiBSpCurve): TColStdArray1OfReal {.noSideEffect,
-    cdecl, importcpp: "Knots", dynlib: tkgeombase.}
+    cdecl, importcpp: "Knots", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc multiplicities*(this: AppParCurvesMultiBSpCurve): TColStdArray1OfInteger {.
-    noSideEffect, cdecl, importcpp: "Multiplicities", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Multiplicities", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc degree*(this: AppParCurvesMultiBSpCurve): cint {.noSideEffect, cdecl,
-    importcpp: "Degree", dynlib: tkgeombase.}
+    importcpp: "Degree", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt) {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d) {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt;
-        v1: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkgeombase.}
+        v1: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
-        v1: var Vec2d) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkgeombase.}
+        v1: var Vec2d) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt;
         v1: var Vec; v2: var Vec) {.noSideEffect, cdecl, importcpp: "D2",
-                              dynlib: tkgeombase.}
+                              header: "AppParCurves_MultiBSpCurve.hxx".}
 proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
         v1: var Vec2d; v2: var Vec2d) {.noSideEffect, cdecl, importcpp: "D2",
-                                  dynlib: tkgeombase.}
+                                  header: "AppParCurves_MultiBSpCurve.hxx".}
 proc dump*(this: AppParCurvesMultiBSpCurve; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkgeombase.}
+    cdecl, importcpp: "Dump", header: "AppParCurves_MultiBSpCurve.hxx".}

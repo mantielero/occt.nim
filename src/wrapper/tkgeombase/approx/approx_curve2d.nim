@@ -22,14 +22,14 @@ type
 proc newApproxCurve2d*(c2d: Handle[Adaptor2dHCurve2d]; first: cfloat; last: cfloat;
                       tolU: cfloat; tolV: cfloat; continuity: GeomAbsShape;
                       maxDegree: cint; maxSegments: cint): ApproxCurve2d {.cdecl,
-    constructor, importcpp: "Approx_Curve2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Approx_Curve2d(@)", header: "Approx_Curve2d.hxx".}
 proc isDone*(this: ApproxCurve2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                      dynlib: tkgeombase.}
+                                      header: "Approx_Curve2d.hxx".}
 proc hasResult*(this: ApproxCurve2d): bool {.noSideEffect, cdecl,
-    importcpp: "HasResult", dynlib: tkgeombase.}
+    importcpp: "HasResult", header: "Approx_Curve2d.hxx".}
 proc curve*(this: ApproxCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkgeombase.}
+    importcpp: "Curve", header: "Approx_Curve2d.hxx".}
 proc maxError2dU*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2dU", dynlib: tkgeombase.}
+    importcpp: "MaxError2dU", header: "Approx_Curve2d.hxx".}
 proc maxError2dV*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxError2dV", dynlib: tkgeombase.}
+    importcpp: "MaxError2dV", header: "Approx_Curve2d.hxx".}

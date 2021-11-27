@@ -46,20 +46,20 @@ type
 
 
 proc newMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat; e: cfloat): MathDirectPolynomialRoots {.
-    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", header: "math_DirectPolynomialRoots.hxx".}
 proc newMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): MathDirectPolynomialRoots {.
-    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", header: "math_DirectPolynomialRoots.hxx".}
 proc newMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat): MathDirectPolynomialRoots {.
-    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", header: "math_DirectPolynomialRoots.hxx".}
 proc newMathDirectPolynomialRoots*(a: cfloat; b: cfloat): MathDirectPolynomialRoots {.
-    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_DirectPolynomialRoots(@)", header: "math_DirectPolynomialRoots.hxx".}
 proc isDone*(this: MathDirectPolynomialRoots): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_DirectPolynomialRoots.hxx".}
 proc infiniteRoots*(this: MathDirectPolynomialRoots): bool {.noSideEffect, cdecl,
-    importcpp: "InfiniteRoots", dynlib: tkmath.}
+    importcpp: "InfiniteRoots", header: "math_DirectPolynomialRoots.hxx".}
 proc nbSolutions*(this: MathDirectPolynomialRoots): cint {.noSideEffect, cdecl,
-    importcpp: "NbSolutions", dynlib: tkmath.}
+    importcpp: "NbSolutions", header: "math_DirectPolynomialRoots.hxx".}
 proc value*(this: MathDirectPolynomialRoots; nieme: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_DirectPolynomialRoots.hxx".}
 proc dump*(this: MathDirectPolynomialRoots; o: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Dump", dynlib: tkmath.}
+    cdecl, importcpp: "Dump", header: "math_DirectPolynomialRoots.hxx".}

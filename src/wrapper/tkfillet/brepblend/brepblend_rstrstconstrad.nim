@@ -34,108 +34,108 @@ proc newBRepBlendRstRstConstRad*(surf1: Handle[Adaptor3dHSurface];
                                 surf2: Handle[Adaptor3dHSurface];
                                 rst2: Handle[Adaptor2dHCurve2d];
                                 cGuide: Handle[Adaptor3dHCurve]): BRepBlendRstRstConstRad {.
-    cdecl, constructor, importcpp: "BRepBlend_RstRstConstRad(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_RstRstConstRad(@)", header: "BRepBlend_RstRstConstRad.hxx".}
 proc nbVariables*(this: BRepBlendRstRstConstRad): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "BRepBlend_RstRstConstRad.hxx".}
 proc nbEquations*(this: BRepBlendRstRstConstRad): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BRepBlend_RstRstConstRad.hxx".}
 proc value*(this: var BRepBlendRstRstConstRad; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BRepBlend_RstRstConstRad.hxx".}
 proc derivatives*(this: var BRepBlendRstRstConstRad; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BRepBlend_RstRstConstRad.hxx".}
 proc values*(this: var BRepBlendRstRstConstRad; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; surfRef1: Handle[Adaptor3dHSurface];
          rstRef1: Handle[Adaptor2dHCurve2d]; surfRef2: Handle[Adaptor3dHSurface];
          rstRef2: Handle[Adaptor2dHCurve2d]) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; param: cfloat) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; first: cfloat; last: cfloat) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getTolerance*(this: BRepBlendRstRstConstRad; tolerance: var MathVector;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",
-                               dynlib: tkfillet.}
+                               header: "BRepBlend_RstRstConstRad.hxx".}
 proc getBounds*(this: BRepBlendRstRstConstRad; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BRepBlend_RstRstConstRad.hxx".}
 proc isSolution*(this: var BRepBlendRstRstConstRad; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getMinimalDistance*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect,
-    cdecl, importcpp: "GetMinimalDistance", dynlib: tkfillet.}
+    cdecl, importcpp: "GetMinimalDistance", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pointOnRst1*(this: BRepBlendRstRstConstRad): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnRst1", dynlib: tkfillet.}
+    importcpp: "PointOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pointOnRst2*(this: BRepBlendRstRstConstRad): Pnt {.noSideEffect, cdecl,
-    importcpp: "PointOnRst2", dynlib: tkfillet.}
+    importcpp: "PointOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pnt2dOnRst1*(this: BRepBlendRstRstConstRad): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Pnt2dOnRst1", dynlib: tkfillet.}
+    importcpp: "Pnt2dOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc pnt2dOnRst2*(this: BRepBlendRstRstConstRad): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Pnt2dOnRst2", dynlib: tkfillet.}
+    importcpp: "Pnt2dOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc parameterOnRst1*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParameterOnRst1", dynlib: tkfillet.}
+    importcpp: "ParameterOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc parameterOnRst2*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParameterOnRst2", dynlib: tkfillet.}
+    importcpp: "ParameterOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc isTangencyPoint*(this: BRepBlendRstRstConstRad): bool {.noSideEffect, cdecl,
-    importcpp: "IsTangencyPoint", dynlib: tkfillet.}
+    importcpp: "IsTangencyPoint", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangentOnRst1*(this: BRepBlendRstRstConstRad): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnRst1", dynlib: tkfillet.}
+    importcpp: "TangentOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangent2dOnRst1*(this: BRepBlendRstRstConstRad): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnRst1", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnRst1", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangentOnRst2*(this: BRepBlendRstRstConstRad): Vec {.noSideEffect, cdecl,
-    importcpp: "TangentOnRst2", dynlib: tkfillet.}
+    importcpp: "TangentOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc tangent2dOnRst2*(this: BRepBlendRstRstConstRad): Vec2d {.noSideEffect, cdecl,
-    importcpp: "Tangent2dOnRst2", dynlib: tkfillet.}
+    importcpp: "Tangent2dOnRst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc decroch*(this: BRepBlendRstRstConstRad; sol: MathVector; nRst1: var Vec;
              tgRst1: var Vec; nRst2: var Vec; tgRst2: var Vec): BlendDecrochStatus {.
-    noSideEffect, cdecl, importcpp: "Decroch", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Decroch", header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; radius: cfloat; choix: cint) {.cdecl,
-    importcpp: "Set", dynlib: tkfillet.}
+    importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc set*(this: var BRepBlendRstRstConstRad; typeSection: BlendFuncSectionShape) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "BRepBlend_RstRstConstRad.hxx".}
 proc centerCircleRst1Rst2*(this: BRepBlendRstRstConstRad; ptRst1: Pnt; ptRst2: Pnt;
                           np: Vec; center: var Pnt; vdMed: var Vec): bool {.noSideEffect,
-    cdecl, importcpp: "CenterCircleRst1Rst2", dynlib: tkfillet.}
+    cdecl, importcpp: "CenterCircleRst1Rst2", header: "BRepBlend_RstRstConstRad.hxx".}
 proc section*(this: var BRepBlendRstRstConstRad; param: cfloat; u: cfloat; v: cfloat;
              pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.cdecl,
-    importcpp: "Section", dynlib: tkfillet.}
+    importcpp: "Section", header: "BRepBlend_RstRstConstRad.hxx".}
 proc isRational*(this: BRepBlendRstRstConstRad): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkfillet.}
+    importcpp: "IsRational", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getSectionSize*(this: BRepBlendRstRstConstRad): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetSectionSize", dynlib: tkfillet.}
+    importcpp: "GetSectionSize", header: "BRepBlend_RstRstConstRad.hxx".}
 proc getMinimalWeight*(this: BRepBlendRstRstConstRad;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "GetMinimalWeight", dynlib: tkfillet.}
+    importcpp: "GetMinimalWeight", header: "BRepBlend_RstRstConstRad.hxx".}
 proc nbIntervals*(this: BRepBlendRstRstConstRad; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbIntervals", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "NbIntervals", header: "BRepBlend_RstRstConstRad.hxx".}
 proc intervals*(this: BRepBlendRstRstConstRad; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkfillet.}
+                                header: "BRepBlend_RstRstConstRad.hxx".}
 proc getShape*(this: var BRepBlendRstRstConstRad; nbPoles: var cint; nbKnots: var cint;
               degree: var cint; nbPoles2d: var cint) {.cdecl, importcpp: "GetShape",
-    dynlib: tkfillet.}
+    header: "BRepBlend_RstRstConstRad.hxx".}
 proc getTolerance*(this: BRepBlendRstRstConstRad; boundTol: cfloat; surfTol: cfloat;
                   angleTol: cfloat; tol3d: var MathVector; tol1D: var MathVector) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BRepBlend_RstRstConstRad.hxx".}
 proc knots*(this: var BRepBlendRstRstConstRad; tKnots: var TColStdArray1OfReal) {.
-    cdecl, importcpp: "Knots", dynlib: tkfillet.}
+    cdecl, importcpp: "Knots", header: "BRepBlend_RstRstConstRad.hxx".}
 proc mults*(this: var BRepBlendRstRstConstRad; tMults: var TColStdArray1OfInteger) {.
-    cdecl, importcpp: "Mults", dynlib: tkfillet.}
+    cdecl, importcpp: "Mults", header: "BRepBlend_RstRstConstRad.hxx".}
 proc section*(this: var BRepBlendRstRstConstRad; p: BlendPoint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
-    cdecl, importcpp: "Section", dynlib: tkfillet.}
+    cdecl, importcpp: "Section", header: "BRepBlend_RstRstConstRad.hxx".}
 proc section*(this: var BRepBlendRstRstConstRad; p: BlendPoint;
              poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
              weigths: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
-    dynlib: tkfillet.}
+    header: "BRepBlend_RstRstConstRad.hxx".}
 proc section*(this: var BRepBlendRstRstConstRad; p: BlendPoint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
              dPoles2d: var TColgpArray1OfVec2d; d2Poles2d: var TColgpArray1OfVec2d;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
              d2Weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "Section",
-    dynlib: tkfillet.}
+    header: "BRepBlend_RstRstConstRad.hxx".}
 proc resolution*(this: BRepBlendRstRstConstRad; iC2d: cint; tol: cfloat;
                 tolU: var cfloat; tolV: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Resolution", dynlib: tkfillet.}
+    importcpp: "Resolution", header: "BRepBlend_RstRstConstRad.hxx".}

@@ -20,36 +20,36 @@ type
 
 
 proc newTopOpeBRepBuildFuseFace*(): TopOpeBRepBuildFuseFace {.cdecl, constructor,
-    importcpp: "TopOpeBRepBuild_FuseFace(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepBuild_FuseFace(@)", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc newTopOpeBRepBuildFuseFace*(lif: TopToolsListOfShape;
                                 lrf: TopToolsListOfShape; cxm: cint): TopOpeBRepBuildFuseFace {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_FuseFace(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_FuseFace(@)", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc init*(this: var TopOpeBRepBuildFuseFace; lif: TopToolsListOfShape;
           lrf: TopToolsListOfShape; cxm: cint) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc performFace*(this: var TopOpeBRepBuildFuseFace) {.cdecl,
-    importcpp: "PerformFace", dynlib: tkbool.}
+    importcpp: "PerformFace", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc performEdge*(this: var TopOpeBRepBuildFuseFace) {.cdecl,
-    importcpp: "PerformEdge", dynlib: tkbool.}
+    importcpp: "PerformEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc clearEdge*(this: var TopOpeBRepBuildFuseFace) {.cdecl, importcpp: "ClearEdge",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc clearVertex*(this: var TopOpeBRepBuildFuseFace) {.cdecl,
-    importcpp: "ClearVertex", dynlib: tkbool.}
+    importcpp: "ClearVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc isDone*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkbool.}
+    importcpp: "IsDone", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc isModified*(this: TopOpeBRepBuildFuseFace): bool {.noSideEffect, cdecl,
-    importcpp: "IsModified", dynlib: tkbool.}
+    importcpp: "IsModified", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lFuseFace*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "LFuseFace", dynlib: tkbool.}
+    cdecl, importcpp: "LFuseFace", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lInternEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "LInternEdge", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "LInternEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lExternEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "LExternEdge", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "LExternEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lModifEdge*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "LModifEdge", dynlib: tkbool.}
+    cdecl, importcpp: "LModifEdge", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lInternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "LInternVertex", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "LInternVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lExternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "LExternVertex", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "LExternVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lModifVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "LModifVertex", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "LModifVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}

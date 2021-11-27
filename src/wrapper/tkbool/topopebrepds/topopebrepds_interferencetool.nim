@@ -26,33 +26,33 @@ type
 proc makeEdgeInterference*(t: TopOpeBRepDS_Transition; sk: TopOpeBRepDS_Kind;
                           si: cint; gk: TopOpeBRepDS_Kind; gi: cint; p: cfloat): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeEdgeInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeCurveInterference*(t: TopOpeBRepDS_Transition; sk: TopOpeBRepDS_Kind;
                            si: cint; gk: TopOpeBRepDS_Kind; gi: cint; p: cfloat): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeCurveInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc duplicateCurvePointInterference*(i: Handle[TopOpeBRepDS_Interference]): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::DuplicateCurvePointInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeFaceCurveInterference*(transition: TopOpeBRepDS_Transition; faceI: cint;
                                curveI: cint; pc: Handle[Geom2dCurve]): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeFaceCurveInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeSolidSurfaceInterference*(transition: TopOpeBRepDS_Transition;
                                   solidI: cint; surfaceI: cint): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeSolidSurfaceInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeEdgeVertexInterference*(transition: TopOpeBRepDS_Transition; edgeI: cint;
                                 vertexI: cint; vertexIsBound: bool;
                                 config: TopOpeBRepDS_Config; param: cfloat): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeEdgeVertexInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc makeFaceEdgeInterference*(transition: TopOpeBRepDS_Transition; faceI: cint;
                               edgeI: cint; edgeIsBound: bool;
                               config: TopOpeBRepDS_Config): Handle[
     TopOpeBRepDS_Interference] {.cdecl, importcpp: "TopOpeBRepDS_InterferenceTool::MakeFaceEdgeInterference(@)",
-                                dynlib: tkbool.}
+                                header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]): cfloat {.cdecl,
-    importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]; par: cfloat) {.cdecl,
-    importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}

@@ -143,19 +143,19 @@ type
 proc setConsoleTextColor*(theOStream: ptr StandardOStream;
                          theTextColor: MessageConsoleColor;
                          theIsIntenseText: bool = false) {.cdecl,
-    importcpp: "Message_PrinterOStream::SetConsoleTextColor(@)", dynlib: tkernel.}
+    importcpp: "Message_PrinterOStream::SetConsoleTextColor(@)", header: "Message_PrinterOStream.hxx".}
 proc newMessagePrinterOStream*(theTraceLevel: MessageGravity = 1.MessageGravity): MessagePrinterOStream {.
-    cdecl, constructor, importcpp: "Message_PrinterOStream(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_PrinterOStream(@)", header: "Message_PrinterOStream.hxx".}
 proc newMessagePrinterOStream*(theFileName: cstring; theDoAppend: bool;
                               theTraceLevel: MessageGravity = 1.MessageGravity): MessagePrinterOStream {.
-    cdecl, constructor, importcpp: "Message_PrinterOStream(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_PrinterOStream(@)", header: "Message_PrinterOStream.hxx".}
 proc close*(this: var MessagePrinterOStream) {.cdecl, importcpp: "Close",
-    dynlib: tkernel.}
+    header: "Message_PrinterOStream.hxx".}
 proc destroyMessagePrinterOStream*(this: var MessagePrinterOStream) {.cdecl,
-    importcpp: "#.~Message_PrinterOStream()", dynlib: tkernel.}
+    importcpp: "#.~Message_PrinterOStream()", header: "Message_PrinterOStream.hxx".}
 proc getStream*(this: MessagePrinterOStream): var StandardOStream {.noSideEffect,
-    cdecl, importcpp: "GetStream", dynlib: tkernel.}
+    cdecl, importcpp: "GetStream", header: "Message_PrinterOStream.hxx".}
 proc toColorize*(this: MessagePrinterOStream): bool {.noSideEffect, cdecl,
-    importcpp: "ToColorize", dynlib: tkernel.}
+    importcpp: "ToColorize", header: "Message_PrinterOStream.hxx".}
 proc setToColorize*(this: var MessagePrinterOStream; theToColorize: bool) {.cdecl,
-    importcpp: "SetToColorize", dynlib: tkernel.}
+    importcpp: "SetToColorize", header: "Message_PrinterOStream.hxx".}

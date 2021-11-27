@@ -32,15 +32,15 @@ type
 
 
 proc newGeom2dAdaptorGHCurve*(): Geom2dAdaptorGHCurve {.cdecl, constructor,
-    importcpp: "Geom2dAdaptor_GHCurve(@)", dynlib: tkg2d.}
+    importcpp: "Geom2dAdaptor_GHCurve(@)", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc newGeom2dAdaptorGHCurve*(c: Geom2dAdaptorCurve): Geom2dAdaptorGHCurve {.cdecl,
-    constructor, importcpp: "Geom2dAdaptor_GHCurve(@)", dynlib: tkg2d.}
+    constructor, importcpp: "Geom2dAdaptor_GHCurve(@)", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc set*(this: var Geom2dAdaptorGHCurve; c: Geom2dAdaptorCurve) {.cdecl,
-    importcpp: "Set", dynlib: tkg2d.}
+    importcpp: "Set", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc curve2d*(this: Geom2dAdaptorGHCurve): Adaptor2dCurve2d {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkg2d.}
+    importcpp: "Curve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc changeCurve2d*(this: var Geom2dAdaptorGHCurve): var Geom2dAdaptorCurve {.cdecl,
-    importcpp: "ChangeCurve2d", dynlib: tkg2d.}
+    importcpp: "ChangeCurve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
 type
   Geom2dAdaptorGHCurvebaseType* = Adaptor2dHCurve2d
 

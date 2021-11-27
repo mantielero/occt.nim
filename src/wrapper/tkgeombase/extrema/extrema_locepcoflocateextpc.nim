@@ -29,24 +29,24 @@ type
 
 
 proc newExtremaLocEPCOfLocateExtPC*(): ExtremaLocEPCOfLocateExtPC {.cdecl,
-    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc newExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc newExtremaLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; u0: cfloat;
                                    umin: cfloat; usup: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc initialize*(this: var ExtremaLocEPCOfLocateExtPC; c: Adaptor3dCurve;
                 umin: cfloat; usup: cfloat; tolU: cfloat) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc perform*(this: var ExtremaLocEPCOfLocateExtPC; p: Pnt; u0: cfloat) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc isDone*(this: ExtremaLocEPCOfLocateExtPC): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc isMin*(this: ExtremaLocEPCOfLocateExtPC): bool {.noSideEffect, cdecl,
-    importcpp: "IsMin", dynlib: tkgeombase.}
+    importcpp: "IsMin", header: "Extrema_LocEPCOfLocateExtPC.hxx".}
 proc point*(this: ExtremaLocEPCOfLocateExtPC): ExtremaPOnCurv {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_LocEPCOfLocateExtPC.hxx".}

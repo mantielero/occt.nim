@@ -32,11 +32,11 @@ type
 
 
 proc nbVariables*(this: MathMultipleVarFunctionWithGradient): cint {.noSideEffect,
-    cdecl, importcpp: "NbVariables", dynlib: tkmath.}
+    cdecl, importcpp: "NbVariables", header: "math_MultipleVarFunctionWithGradient.hxx".}
 proc value*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
-           f: var cfloat): bool {.cdecl, importcpp: "Value", dynlib: tkmath.}
+           f: var cfloat): bool {.cdecl, importcpp: "Value", header: "math_MultipleVarFunctionWithGradient.hxx".}
 proc gradient*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
-              g: var MathVector): bool {.cdecl, importcpp: "Gradient", dynlib: tkmath.}
+              g: var MathVector): bool {.cdecl, importcpp: "Gradient", header: "math_MultipleVarFunctionWithGradient.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithGradient; x: MathVector;
             f: var cfloat; g: var MathVector): bool {.cdecl, importcpp: "Values",
-    dynlib: tkmath.}
+    header: "math_MultipleVarFunctionWithGradient.hxx".}

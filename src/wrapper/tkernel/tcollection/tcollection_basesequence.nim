@@ -65,10 +65,10 @@ type
 
 
 proc isEmpty*(this: TCollectionBaseSequence): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkernel.}
+    importcpp: "IsEmpty", header: "TCollection_BaseSequence.hxx".}
 proc length*(this: TCollectionBaseSequence): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkernel.}
+    importcpp: "Length", header: "TCollection_BaseSequence.hxx".}
 proc reverse*(this: var TCollectionBaseSequence) {.cdecl, importcpp: "Reverse",
-    dynlib: tkernel.}
+    header: "TCollection_BaseSequence.hxx".}
 proc exchange*(this: var TCollectionBaseSequence; i: cint; j: cint) {.cdecl,
-    importcpp: "Exchange", dynlib: tkernel.}
+    importcpp: "Exchange", header: "TCollection_BaseSequence.hxx".}

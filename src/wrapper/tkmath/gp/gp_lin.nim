@@ -24,62 +24,62 @@ type
                                                               ## ! reference coordinate system.
 
 
-proc newLin*(): Lin {.cdecl, constructor, importcpp: "gp_Lin(@)", dynlib: tkmath.}
-proc newLin*(a1: Ax1): Lin {.cdecl, constructor, importcpp: "gp_Lin(@)", dynlib: tkmath.}
+proc newLin*(): Lin {.cdecl, constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
+proc newLin*(a1: Ax1): Lin {.cdecl, constructor, importcpp: "gp_Lin(@)", header: "gp_Lin.hxx".}
 proc newLin*(p: Pnt; v: Dir): Lin {.cdecl, constructor, importcpp: "gp_Lin(@)",
-                              dynlib: tkmath.}
-proc reverse*(this: var Lin) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+                              header: "gp_Lin.hxx".}
+proc reverse*(this: var Lin) {.cdecl, importcpp: "Reverse", header: "gp_Lin.hxx".}
 proc reversed*(this: Lin): Lin {.noSideEffect, cdecl, importcpp: "Reversed",
-                             dynlib: tkmath.}
+                             header: "gp_Lin.hxx".}
 proc setDirection*(this: var Lin; v: Dir) {.cdecl, importcpp: "SetDirection",
-                                      dynlib: tkmath.}
+                                      header: "gp_Lin.hxx".}
 proc setLocation*(this: var Lin; p: Pnt) {.cdecl, importcpp: "SetLocation",
-                                     dynlib: tkmath.}
+                                     header: "gp_Lin.hxx".}
 proc setPosition*(this: var Lin; a1: Ax1) {.cdecl, importcpp: "SetPosition",
-                                      dynlib: tkmath.}
+                                      header: "gp_Lin.hxx".}
 proc direction*(this: Lin): Dir {.noSideEffect, cdecl, importcpp: "Direction",
-                              dynlib: tkmath.}
+                              header: "gp_Lin.hxx".}
 proc location*(this: Lin): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                             dynlib: tkmath.}
+                             header: "gp_Lin.hxx".}
 proc position*(this: Lin): Ax1 {.noSideEffect, cdecl, importcpp: "Position",
-                             dynlib: tkmath.}
+                             header: "gp_Lin.hxx".}
 proc angle*(this: Lin; other: Lin): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
-                                       dynlib: tkmath.}
+                                       header: "gp_Lin.hxx".}
 proc contains*(this: Lin; p: Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkmath.}
+    importcpp: "Contains", header: "gp_Lin.hxx".}
 proc distance*(this: Lin; p: Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
-                                      dynlib: tkmath.}
+                                      header: "gp_Lin.hxx".}
 proc distance*(this: Lin; other: Lin): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkmath.}
+    importcpp: "Distance", header: "gp_Lin.hxx".}
 proc squareDistance*(this: Lin; p: Pnt): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
+    importcpp: "SquareDistance", header: "gp_Lin.hxx".}
 proc squareDistance*(this: Lin; other: Lin): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
+    importcpp: "SquareDistance", header: "gp_Lin.hxx".}
 proc normal*(this: Lin; p: Pnt): Lin {.noSideEffect, cdecl, importcpp: "Normal",
-                                 dynlib: tkmath.}
-proc mirror*(this: var Lin; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                 header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
 proc mirrored*(this: Lin; p: Pnt): Lin {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                   dynlib: tkmath.}
-proc mirror*(this: var Lin; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                   header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
 proc mirrored*(this: Lin; a1: Ax1): Lin {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
-proc mirror*(this: var Lin; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                    header: "gp_Lin.hxx".}
+proc mirror*(this: var Lin; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Lin.hxx".}
 proc mirrored*(this: Lin; a2: Ax2): Lin {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                    dynlib: tkmath.}
+                                    header: "gp_Lin.hxx".}
 proc rotate*(this: var Lin; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Lin.hxx".}
 proc rotated*(this: Lin; a1: Ax1; ang: cfloat): Lin {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Lin; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Lin.hxx".}
+proc scale*(this: var Lin; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Lin.hxx".}
 proc scaled*(this: Lin; p: Pnt; s: cfloat): Lin {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Lin; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Lin.hxx".}
+proc transform*(this: var Lin; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Lin.hxx".}
 proc transformed*(this: Lin; t: Trsf): Lin {.noSideEffect, cdecl,
-                                       importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Lin; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+                                       importcpp: "Transformed", header: "gp_Lin.hxx".}
+proc translate*(this: var Lin; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Lin.hxx".}
 proc translated*(this: Lin; v: Vec): Lin {.noSideEffect, cdecl, importcpp: "Translated",
-                                     dynlib: tkmath.}
+                                     header: "gp_Lin.hxx".}
 proc translate*(this: var Lin; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Lin.hxx".}
 proc translated*(this: Lin; p1: Pnt; p2: Pnt): Lin {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Lin.hxx".}

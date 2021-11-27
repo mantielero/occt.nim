@@ -24,61 +24,61 @@ type
   Torus* {.importcpp: "gp_Torus", header: "gp_Torus.hxx", bycopy.} = object ## ! creates an indefinite Torus.
 
 
-proc newTorus*(): Torus {.cdecl, constructor, importcpp: "gp_Torus(@)", dynlib: tkmath.}
+proc newTorus*(): Torus {.cdecl, constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
 proc newTorus*(a3: Ax3; majorRadius: cfloat; minorRadius: cfloat): Torus {.cdecl,
-    constructor, importcpp: "gp_Torus(@)", dynlib: tkmath.}
-proc setAxis*(this: var Torus; a1: Ax1) {.cdecl, importcpp: "SetAxis", dynlib: tkmath.}
+    constructor, importcpp: "gp_Torus(@)", header: "gp_Torus.hxx".}
+proc setAxis*(this: var Torus; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Torus.hxx".}
 proc setLocation*(this: var Torus; loc: Pnt) {.cdecl, importcpp: "SetLocation",
-    dynlib: tkmath.}
+    header: "gp_Torus.hxx".}
 proc setMajorRadius*(this: var Torus; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", dynlib: tkmath.}
+    importcpp: "SetMajorRadius", header: "gp_Torus.hxx".}
 proc setMinorRadius*(this: var Torus; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", dynlib: tkmath.}
+    importcpp: "SetMinorRadius", header: "gp_Torus.hxx".}
 proc setPosition*(this: var Torus; a3: Ax3) {.cdecl, importcpp: "SetPosition",
-                                        dynlib: tkmath.}
-proc area*(this: Torus): cfloat {.noSideEffect, cdecl, importcpp: "Area", dynlib: tkmath.}
-proc uReverse*(this: var Torus) {.cdecl, importcpp: "UReverse", dynlib: tkmath.}
-proc vReverse*(this: var Torus) {.cdecl, importcpp: "VReverse", dynlib: tkmath.}
+                                        header: "gp_Torus.hxx".}
+proc area*(this: Torus): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Torus.hxx".}
+proc uReverse*(this: var Torus) {.cdecl, importcpp: "UReverse", header: "gp_Torus.hxx".}
+proc vReverse*(this: var Torus) {.cdecl, importcpp: "VReverse", header: "gp_Torus.hxx".}
 proc direct*(this: Torus): bool {.noSideEffect, cdecl, importcpp: "Direct",
-                              dynlib: tkmath.}
-proc axis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", dynlib: tkmath.}
+                              header: "gp_Torus.hxx".}
+proc axis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Torus.hxx".}
 proc coefficients*(this: Torus; coef: var TColStdArray1OfReal) {.noSideEffect, cdecl,
-    importcpp: "Coefficients", dynlib: tkmath.}
+    importcpp: "Coefficients", header: "gp_Torus.hxx".}
 proc location*(this: Torus): Pnt {.noSideEffect, cdecl, importcpp: "Location",
-                               dynlib: tkmath.}
+                               header: "gp_Torus.hxx".}
 proc position*(this: Torus): Ax3 {.noSideEffect, cdecl, importcpp: "Position",
-                               dynlib: tkmath.}
+                               header: "gp_Torus.hxx".}
 proc majorRadius*(this: Torus): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "MajorRadius", dynlib: tkmath.}
+                                     importcpp: "MajorRadius", header: "gp_Torus.hxx".}
 proc minorRadius*(this: Torus): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "MinorRadius", dynlib: tkmath.}
+                                     importcpp: "MinorRadius", header: "gp_Torus.hxx".}
 proc volume*(this: Torus): cfloat {.noSideEffect, cdecl, importcpp: "Volume",
-                                dynlib: tkmath.}
-proc xAxis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", dynlib: tkmath.}
-proc yAxis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", dynlib: tkmath.}
-proc mirror*(this: var Torus; p: Pnt) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                header: "gp_Torus.hxx".}
+proc xAxis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Torus.hxx".}
+proc yAxis*(this: Torus): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Torus.hxx".}
+proc mirror*(this: var Torus; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
 proc mirrored*(this: Torus; p: Pnt): Torus {.noSideEffect, cdecl, importcpp: "Mirrored",
-                                       dynlib: tkmath.}
-proc mirror*(this: var Torus; a1: Ax1) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                       header: "gp_Torus.hxx".}
+proc mirror*(this: var Torus; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
 proc mirrored*(this: Torus; a1: Ax1): Torus {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
-proc mirror*(this: var Torus; a2: Ax2) {.cdecl, importcpp: "Mirror", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Torus.hxx".}
+proc mirror*(this: var Torus; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Torus.hxx".}
 proc mirrored*(this: Torus; a2: Ax2): Torus {.noSideEffect, cdecl,
-                                        importcpp: "Mirrored", dynlib: tkmath.}
+                                        importcpp: "Mirrored", header: "gp_Torus.hxx".}
 proc rotate*(this: var Torus; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
-    dynlib: tkmath.}
+    header: "gp_Torus.hxx".}
 proc rotated*(this: Torus; a1: Ax1; ang: cfloat): Torus {.noSideEffect, cdecl,
-    importcpp: "Rotated", dynlib: tkmath.}
-proc scale*(this: var Torus; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", dynlib: tkmath.}
+    importcpp: "Rotated", header: "gp_Torus.hxx".}
+proc scale*(this: var Torus; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Torus.hxx".}
 proc scaled*(this: Torus; p: Pnt; s: cfloat): Torus {.noSideEffect, cdecl,
-    importcpp: "Scaled", dynlib: tkmath.}
-proc transform*(this: var Torus; t: Trsf) {.cdecl, importcpp: "Transform", dynlib: tkmath.}
+    importcpp: "Scaled", header: "gp_Torus.hxx".}
+proc transform*(this: var Torus; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Torus.hxx".}
 proc transformed*(this: Torus; t: Trsf): Torus {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
-proc translate*(this: var Torus; v: Vec) {.cdecl, importcpp: "Translate", dynlib: tkmath.}
+    importcpp: "Transformed", header: "gp_Torus.hxx".}
+proc translate*(this: var Torus; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Torus.hxx".}
 proc translated*(this: Torus; v: Vec): Torus {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Torus.hxx".}
 proc translate*(this: var Torus; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
-    dynlib: tkmath.}
+    header: "gp_Torus.hxx".}
 proc translated*(this: Torus; p1: Pnt; p2: Pnt): Torus {.noSideEffect, cdecl,
-    importcpp: "Translated", dynlib: tkmath.}
+    importcpp: "Translated", header: "gp_Torus.hxx".}

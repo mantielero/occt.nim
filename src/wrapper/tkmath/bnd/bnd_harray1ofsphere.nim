@@ -20,10 +20,10 @@ type
 
 
 proc newBndHArray1OfSphere*(theLower: cint; theUpper: cint): BndHArray1OfSphere {.
-    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", header: "Bnd_HArray1OfSphere.hxx".}
 proc newBndHArray1OfSphere*(theLower: cint; theUpper: cint; theValue: ValueType): BndHArray1OfSphere {.
-    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", header: "Bnd_HArray1OfSphere.hxx".}
 proc newBndHArray1OfSphere*(theOther: BndArray1OfSphere): BndHArray1OfSphere {.
-    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Bnd_HArray1OfSphere(@)", header: "Bnd_HArray1OfSphere.hxx".}
 proc array1*(this: BndHArray1OfSphere): BndArray1OfSphere {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkmath.}
+    importcpp: "Array1", header: "Bnd_HArray1OfSphere.hxx".}

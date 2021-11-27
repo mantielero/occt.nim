@@ -38,14 +38,14 @@ type
 
 
 proc properties*(this: BVH_ObjectTransient): Handle[BVH_Properties] {.noSideEffect,
-    cdecl, importcpp: "Properties", dynlib: tkmath.}
+    cdecl, importcpp: "Properties", header: "BVH_Object.hxx".}
 proc setProperties*(this: var BVH_ObjectTransient;
                    theProperties: Handle[BVH_Properties]) {.cdecl,
-    importcpp: "SetProperties", dynlib: tkmath.}
+    importcpp: "SetProperties", header: "BVH_Object.hxx".}
 proc isDirty*(this: BVH_ObjectTransient): bool {.noSideEffect, cdecl,
-    importcpp: "IsDirty", dynlib: tkmath.}
+    importcpp: "IsDirty", header: "BVH_Object.hxx".}
 proc markDirty*(this: var BVH_ObjectTransient) {.cdecl, importcpp: "MarkDirty",
-    dynlib: tkmath.}
+    header: "BVH_Object.hxx".}
 ## ! Abstract geometric object bounded by BVH box.
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
@@ -70,8 +70,8 @@ type
 
 
 proc newBVH_Object*[T; N: static[cint]](): BVH_Object[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Object<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Object<\'*0,\'*1>(@)", header: "BVH_Object.hxx".}
 proc destroyBVH_Object*[T; N: static[cint]](this: var BVH_Object[T, N]) {.cdecl,
-    importcpp: "#.~BVH_Object()", dynlib: tkmath.}
+    importcpp: "#.~BVH_Object()", header: "BVH_Object.hxx".}
 proc box*[T; N: static[cint]](this: BVH_Object[T, N]): BVH_Box[T, N] {.noSideEffect,
-    cdecl, importcpp: "Box", dynlib: tkmath.}
+    cdecl, importcpp: "Box", header: "BVH_Object.hxx".}

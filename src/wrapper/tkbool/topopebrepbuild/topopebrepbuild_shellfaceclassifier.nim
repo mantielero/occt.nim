@@ -58,20 +58,20 @@ type
 
 proc newTopOpeBRepBuildShellFaceClassifier*(bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildShellFaceClassifier {.
     cdecl, constructor, importcpp: "TopOpeBRepBuild_ShellFaceClassifier(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc clear*(this: var TopOpeBRepBuildShellFaceClassifier) {.cdecl,
-    importcpp: "Clear", dynlib: tkbool.}
+    importcpp: "Clear", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc compareShapes*(this: var TopOpeBRepBuildShellFaceClassifier; b1: TopoDS_Shape;
                    b2: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareShapes", dynlib: tkbool.}
+    importcpp: "CompareShapes", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc compareElementToShape*(this: var TopOpeBRepBuildShellFaceClassifier;
                            f: TopoDS_Shape; s: TopoDS_Shape): TopAbsState {.cdecl,
-    importcpp: "CompareElementToShape", dynlib: tkbool.}
+    importcpp: "CompareElementToShape", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc resetShape*(this: var TopOpeBRepBuildShellFaceClassifier; s: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetShape", dynlib: tkbool.}
+    cdecl, importcpp: "ResetShape", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc resetElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Shape) {.
-    cdecl, importcpp: "ResetElement", dynlib: tkbool.}
+    cdecl, importcpp: "ResetElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc compareElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Shape): bool {.
-    cdecl, importcpp: "CompareElement", dynlib: tkbool.}
+    cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildShellFaceClassifier): TopAbsState {.cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}

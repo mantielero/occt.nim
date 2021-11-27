@@ -16,9 +16,9 @@
 
 when defined(OCCT_DEBUG):
   proc topOpeBRepToolGettraceBOX*(): bool {.cdecl,
-      importcpp: "TopOpeBRepTool_GettraceBOX(@)", dynlib: tkbool.}
-proc fBOX_Prepare*() {.cdecl, importcpp: "FBOX_Prepare(@)", dynlib: tkbool.}
+      importcpp: "TopOpeBRepTool_GettraceBOX(@)", header: "TopOpeBRepTool_box.hxx".}
+proc fBOX_Prepare*() {.cdecl, importcpp: "FBOX_Prepare(@)", header: "TopOpeBRepTool_box.hxx".}
 proc fBOX_GetHBoxTool*(): Handle[TopOpeBRepToolHBoxTool] {.cdecl,
-    importcpp: "FBOX_GetHBoxTool(@)", dynlib: tkbool.}
+    importcpp: "FBOX_GetHBoxTool(@)", header: "TopOpeBRepTool_box.hxx".}
 proc fBOX_Box*(s: TopoDS_Shape): var BndBox {.cdecl, importcpp: "FBOX_Box(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_box.hxx".}

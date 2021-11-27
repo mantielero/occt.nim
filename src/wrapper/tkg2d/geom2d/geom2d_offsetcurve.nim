@@ -283,53 +283,53 @@ type
 
 proc newGeom2dOffsetCurve*(c: Handle[Geom2dCurve]; offset: cfloat;
                           isNotCheckC0: bool = false): Geom2dOffsetCurve {.cdecl,
-    constructor, importcpp: "Geom2d_OffsetCurve(@)", dynlib: tkg2d.}
-proc reverse*(this: var Geom2dOffsetCurve) {.cdecl, importcpp: "Reverse", dynlib: tkg2d.}
+    constructor, importcpp: "Geom2d_OffsetCurve(@)", header: "Geom2d_OffsetCurve.hxx".}
+proc reverse*(this: var Geom2dOffsetCurve) {.cdecl, importcpp: "Reverse", header: "Geom2d_OffsetCurve.hxx".}
 proc reversedParameter*(this: Geom2dOffsetCurve; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "ReversedParameter", dynlib: tkg2d.}
+    cdecl, importcpp: "ReversedParameter", header: "Geom2d_OffsetCurve.hxx".}
 proc setBasisCurve*(this: var Geom2dOffsetCurve; c: Handle[Geom2dCurve];
                    isNotCheckC0: bool = false) {.cdecl, importcpp: "SetBasisCurve",
-    dynlib: tkg2d.}
+    header: "Geom2d_OffsetCurve.hxx".}
 proc setOffsetValue*(this: var Geom2dOffsetCurve; d: cfloat) {.cdecl,
-    importcpp: "SetOffsetValue", dynlib: tkg2d.}
+    importcpp: "SetOffsetValue", header: "Geom2d_OffsetCurve.hxx".}
 proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect, cdecl,
-    importcpp: "BasisCurve", dynlib: tkg2d.}
+    importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
 proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg2d.}
+    importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
 proc d0*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
 proc d1*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkg2d.}
+    cdecl, importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
 proc d2*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_OffsetCurve.hxx".}
 proc d3*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_OffsetCurve.hxx".}
 proc dn*(this: Geom2dOffsetCurve; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
 proc firstParameter*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Geom2d_OffsetCurve.hxx".}
 proc lastParameter*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Geom2d_OffsetCurve.hxx".}
 proc offset*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Offset", dynlib: tkg2d.}
+    importcpp: "Offset", header: "Geom2d_OffsetCurve.hxx".}
 proc isClosed*(this: Geom2dOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkg2d.}
+    importcpp: "IsClosed", header: "Geom2d_OffsetCurve.hxx".}
 proc isCN*(this: Geom2dOffsetCurve; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCN", dynlib: tkg2d.}
+    importcpp: "IsCN", header: "Geom2d_OffsetCurve.hxx".}
 proc isPeriodic*(this: Geom2dOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Geom2d_OffsetCurve.hxx".}
 proc period*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkg2d.}
+    importcpp: "Period", header: "Geom2d_OffsetCurve.hxx".}
 proc transform*(this: var Geom2dOffsetCurve; t: Trsf2d) {.cdecl,
-    importcpp: "Transform", dynlib: tkg2d.}
+    importcpp: "Transform", header: "Geom2d_OffsetCurve.hxx".}
 proc transformedParameter*(this: Geom2dOffsetCurve; u: cfloat; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "TransformedParameter", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_OffsetCurve.hxx".}
 proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): cfloat {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom2d_OffsetCurve.hxx".}
 proc copy*(this: Geom2dOffsetCurve): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg2d.}
+    importcpp: "Copy", header: "Geom2d_OffsetCurve.hxx".}
 proc getBasisCurveContinuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect,
-    cdecl, importcpp: "GetBasisCurveContinuity", dynlib: tkg2d.}
+    cdecl, importcpp: "GetBasisCurveContinuity", header: "Geom2d_OffsetCurve.hxx".}
 proc dumpJson*(this: Geom2dOffsetCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_OffsetCurve.hxx".}

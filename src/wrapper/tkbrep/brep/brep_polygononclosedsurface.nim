@@ -33,15 +33,15 @@ type
 proc newBRepPolygonOnClosedSurface*(p1: Handle[PolyPolygon2D];
                                    p2: Handle[PolyPolygon2D];
                                    s: Handle[GeomSurface]; L: TopLocLocation): BRepPolygonOnClosedSurface {.
-    cdecl, constructor, importcpp: "BRep_PolygonOnClosedSurface(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_PolygonOnClosedSurface(@)", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc isPolygonOnClosedSurface*(this: BRepPolygonOnClosedSurface): bool {.
-    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedSurface", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsPolygonOnClosedSurface", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc polygon2*(this: BRepPolygonOnClosedSurface): Handle[PolyPolygon2D] {.
-    noSideEffect, cdecl, importcpp: "Polygon2", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Polygon2", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc polygon2*(this: var BRepPolygonOnClosedSurface; p: Handle[PolyPolygon2D]) {.
-    cdecl, importcpp: "Polygon2", dynlib: tkbrep.}
+    cdecl, importcpp: "Polygon2", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc copy*(this: BRepPolygonOnClosedSurface): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_PolygonOnClosedSurface.hxx".}
 proc dumpJson*(this: BRepPolygonOnClosedSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PolygonOnClosedSurface.hxx".}

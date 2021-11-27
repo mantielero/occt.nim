@@ -56,10 +56,10 @@ type
 
 
 proc newBRepPrimTorus*(position: Ax2; major: cfloat; minor: cfloat): BRepPrimTorus {.
-    cdecl, constructor, importcpp: "BRepPrim_Torus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc newBRepPrimTorus*(major: cfloat; minor: cfloat): BRepPrimTorus {.cdecl,
-    constructor, importcpp: "BRepPrim_Torus(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc newBRepPrimTorus*(center: Pnt; major: cfloat; minor: cfloat): BRepPrimTorus {.
-    cdecl, constructor, importcpp: "BRepPrim_Torus(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "MakeEmptyLateralFace", dynlib: tkprim.}
+    importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}

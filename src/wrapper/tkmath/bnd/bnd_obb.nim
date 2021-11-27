@@ -29,60 +29,60 @@ type
     ## ! To be set if the OBB is axis aligned box;
 
 
-proc newBndOBB*(): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)", dynlib: tkmath.}
+proc newBndOBB*(): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
 proc newBndOBB*(theCenter: Pnt; theXDirection: Dir; theYDirection: Dir;
                theZDirection: Dir; theHXSize: cfloat; theHYSize: cfloat;
                theHZSize: cfloat): BndOBB {.cdecl, constructor,
-    importcpp: "Bnd_OBB(@)", dynlib: tkmath.}
+    importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}
 proc newBndOBB*(theBox: BndBox): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)",
-                                      dynlib: tkmath.}
+                                      header: "Bnd_OBB.hxx".}
 proc reBuild*(this: var BndOBB; theListOfPoints: TColgpArray1OfPnt;
              theListOfTolerances: ptr TColStdArray1OfReal = cast[ptr TColStdArray1OfReal](0);
-             theIsOptimal: bool = false) {.cdecl, importcpp: "ReBuild", dynlib: tkmath.}
+             theIsOptimal: bool = false) {.cdecl, importcpp: "ReBuild", header: "Bnd_OBB.hxx".}
 proc setCenter*(this: var BndOBB; theCenter: Pnt) {.cdecl, importcpp: "SetCenter",
-    dynlib: tkmath.}
+    header: "Bnd_OBB.hxx".}
 proc setXComponent*(this: var BndOBB; theXDirection: Dir; theHXSize: cfloat) {.cdecl,
-    importcpp: "SetXComponent", dynlib: tkmath.}
+    importcpp: "SetXComponent", header: "Bnd_OBB.hxx".}
 proc setYComponent*(this: var BndOBB; theYDirection: Dir; theHYSize: cfloat) {.cdecl,
-    importcpp: "SetYComponent", dynlib: tkmath.}
+    importcpp: "SetYComponent", header: "Bnd_OBB.hxx".}
 proc setZComponent*(this: var BndOBB; theZDirection: Dir; theHZSize: cfloat) {.cdecl,
-    importcpp: "SetZComponent", dynlib: tkmath.}
+    importcpp: "SetZComponent", header: "Bnd_OBB.hxx".}
 proc position*(this: BndOBB): Ax3 {.noSideEffect, cdecl, importcpp: "Position",
-                                dynlib: tkmath.}
+                                header: "Bnd_OBB.hxx".}
 proc center*(this: BndOBB): Xyz {.noSideEffect, cdecl, importcpp: "Center",
-                              dynlib: tkmath.}
+                              header: "Bnd_OBB.hxx".}
 proc xDirection*(this: BndOBB): Xyz {.noSideEffect, cdecl, importcpp: "XDirection",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_OBB.hxx".}
 proc yDirection*(this: BndOBB): Xyz {.noSideEffect, cdecl, importcpp: "YDirection",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_OBB.hxx".}
 proc zDirection*(this: BndOBB): Xyz {.noSideEffect, cdecl, importcpp: "ZDirection",
-                                  dynlib: tkmath.}
+                                  header: "Bnd_OBB.hxx".}
 proc xHSize*(this: BndOBB): cfloat {.noSideEffect, cdecl, importcpp: "XHSize",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_OBB.hxx".}
 proc yHSize*(this: BndOBB): cfloat {.noSideEffect, cdecl, importcpp: "YHSize",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_OBB.hxx".}
 proc zHSize*(this: BndOBB): cfloat {.noSideEffect, cdecl, importcpp: "ZHSize",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_OBB.hxx".}
 proc isVoid*(this: BndOBB): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
-                               dynlib: tkmath.}
-proc setVoid*(this: var BndOBB) {.cdecl, importcpp: "SetVoid", dynlib: tkmath.}
+                               header: "Bnd_OBB.hxx".}
+proc setVoid*(this: var BndOBB) {.cdecl, importcpp: "SetVoid", header: "Bnd_OBB.hxx".}
 proc setAABox*(this: var BndOBB; theFlag: bool) {.cdecl, importcpp: "SetAABox",
-    dynlib: tkmath.}
+    header: "Bnd_OBB.hxx".}
 proc isAABox*(this: BndOBB): bool {.noSideEffect, cdecl, importcpp: "IsAABox",
-                                dynlib: tkmath.}
+                                header: "Bnd_OBB.hxx".}
 proc enlarge*(this: var BndOBB; theGapAdd: cfloat) {.cdecl, importcpp: "Enlarge",
-    dynlib: tkmath.}
+    header: "Bnd_OBB.hxx".}
 proc getVertex*(this: BndOBB; theP: array[8, Pnt]): bool {.noSideEffect, cdecl,
-    importcpp: "GetVertex", dynlib: tkmath.}
+    importcpp: "GetVertex", header: "Bnd_OBB.hxx".}
 proc squareExtent*(this: BndOBB): cfloat {.noSideEffect, cdecl,
-                                       importcpp: "SquareExtent", dynlib: tkmath.}
+                                       importcpp: "SquareExtent", header: "Bnd_OBB.hxx".}
 proc isOut*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_OBB.hxx".}
 proc isOut*(this: BndOBB; theP: Pnt): bool {.noSideEffect, cdecl, importcpp: "IsOut",
-                                       dynlib: tkmath.}
+                                       header: "Bnd_OBB.hxx".}
 proc isCompletelyInside*(this: BndOBB; theOther: BndOBB): bool {.noSideEffect, cdecl,
-    importcpp: "IsCompletelyInside", dynlib: tkmath.}
-proc add*(this: var BndOBB; theOther: BndOBB) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndOBB; theP: Pnt) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+    importcpp: "IsCompletelyInside", header: "Bnd_OBB.hxx".}
+proc add*(this: var BndOBB; theOther: BndOBB) {.cdecl, importcpp: "Add", header: "Bnd_OBB.hxx".}
+proc add*(this: var BndOBB; theP: Pnt) {.cdecl, importcpp: "Add", header: "Bnd_OBB.hxx".}
 proc dumpJson*(this: BndOBB; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "Bnd_OBB.hxx".}

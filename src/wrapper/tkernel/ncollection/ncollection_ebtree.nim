@@ -39,22 +39,22 @@ proc newNCollectionEBTree*[TheObjType; TheBndType](
     theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionEBTree[
     TheObjType, TheBndType] {.cdecl, constructor,
                             importcpp: "NCollection_EBTree<\'*0,\'*1>(@)",
-                            dynlib: tkernel.}
+                            header: "NCollection_EBTree.hxx".}
 proc add*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType, TheBndType];
                                 theObj: TheObjType; theBnd: TheBndType): bool {.
-    cdecl, importcpp: "Add", dynlib: tkernel.}
+    cdecl, importcpp: "Add", header: "NCollection_EBTree.hxx".}
 proc remove*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): bool {.cdecl, importcpp: "Remove",
-    dynlib: tkernel.}
+    header: "NCollection_EBTree.hxx".}
 proc contains*[TheObjType; TheBndType](this: NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkernel.}
+    importcpp: "Contains", header: "NCollection_EBTree.hxx".}
 proc findNode*[TheObjType; TheBndType](this: NCollectionEBTree[TheObjType,
     TheBndType]; theObj: TheObjType): NCollectionEBTreeTreeNode {.noSideEffect,
-    cdecl, importcpp: "FindNode", dynlib: tkernel.}
+    cdecl, importcpp: "FindNode", header: "NCollection_EBTree.hxx".}
 proc clear*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
     TheBndType]; aNewAlloc: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "NCollection_EBTree.hxx".}
 ##  ================== METHODS TEMPLATES =====================
 ## =======================================================================
 ## function : Remove

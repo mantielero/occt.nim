@@ -43,12 +43,12 @@ type
 
 
 proc newExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: Pnt): ExtremaFuncPSDist {.
-    cdecl, constructor, importcpp: "Extrema_FuncPSDist(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_FuncPSDist(@)", header: "Extrema_FuncPSDist.hxx".}
 proc nbVariables*(this: ExtremaFuncPSDist): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_FuncPSDist.hxx".}
 proc value*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_FuncPSDist.hxx".}
 proc gradient*(this: var ExtremaFuncPSDist; x: MathVector; g: var MathVector): bool {.
-    cdecl, importcpp: "Gradient", dynlib: tkgeombase.}
+    cdecl, importcpp: "Gradient", header: "Extrema_FuncPSDist.hxx".}
 proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat; g: var MathVector): bool {.
-    cdecl, importcpp: "Values", dynlib: tkgeombase.}
+    cdecl, importcpp: "Values", header: "Extrema_FuncPSDist.hxx".}

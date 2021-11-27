@@ -23,16 +23,16 @@ type
 
 proc newTopOpeBRepDS_Edge3dInterferenceTool*(): TopOpeBRepDS_Edge3dInterferenceTool {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_Edge3dInterferenceTool(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
 proc initPointVertex*(this: var TopOpeBRepDS_Edge3dInterferenceTool; isVertex: cint;
                      vonOO: TopoDS_Shape) {.cdecl, importcpp: "InitPointVertex",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
 proc init*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
           e: TopoDS_Shape; f: TopoDS_Shape; i: Handle[TopOpeBRepDS_Interference]) {.
-    cdecl, importcpp: "Init", dynlib: tkbool.}
+    cdecl, importcpp: "Init", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
 proc add*(this: var TopOpeBRepDS_Edge3dInterferenceTool; eref: TopoDS_Shape;
          e: TopoDS_Shape; f: TopoDS_Shape; i: Handle[TopOpeBRepDS_Interference]) {.
-    cdecl, importcpp: "Add", dynlib: tkbool.}
+    cdecl, importcpp: "Add", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}
 proc transition*(this: TopOpeBRepDS_Edge3dInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
-    importcpp: "Transition", dynlib: tkbool.}
+    importcpp: "Transition", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx".}

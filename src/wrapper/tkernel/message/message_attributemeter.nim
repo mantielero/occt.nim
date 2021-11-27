@@ -61,29 +61,29 @@ type
 
 
 proc undefinedMetricValue*(): cfloat {.cdecl, importcpp: "Message_AttributeMeter::UndefinedMetricValue(@)",
-                                    dynlib: tkernel.}
+                                    header: "Message_AttributeMeter.hxx".}
 proc newMessageAttributeMeter*(theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttributeMeter {.
-    cdecl, constructor, importcpp: "Message_AttributeMeter(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_AttributeMeter(@)", header: "Message_AttributeMeter.hxx".}
 proc hasMetric*(this: MessageAttributeMeter; theMetric: MessageMetricType): bool {.
-    noSideEffect, cdecl, importcpp: "HasMetric", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "HasMetric", header: "Message_AttributeMeter.hxx".}
 proc isMetricValid*(this: MessageAttributeMeter; theMetric: MessageMetricType): bool {.
-    noSideEffect, cdecl, importcpp: "IsMetricValid", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsMetricValid", header: "Message_AttributeMeter.hxx".}
 proc startValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): cfloat {.
-    noSideEffect, cdecl, importcpp: "StartValue", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "StartValue", header: "Message_AttributeMeter.hxx".}
 proc setStartValue*(this: var MessageAttributeMeter; theMetric: MessageMetricType;
                    theValue: cfloat) {.cdecl, importcpp: "SetStartValue",
-                                     dynlib: tkernel.}
+                                     header: "Message_AttributeMeter.hxx".}
 proc stopValue*(this: MessageAttributeMeter; theMetric: MessageMetricType): cfloat {.
-    noSideEffect, cdecl, importcpp: "StopValue", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "StopValue", header: "Message_AttributeMeter.hxx".}
 proc setStopValue*(this: var MessageAttributeMeter; theMetric: MessageMetricType;
                   theValue: cfloat) {.cdecl, importcpp: "SetStopValue",
-                                    dynlib: tkernel.}
+                                    header: "Message_AttributeMeter.hxx".}
 proc startAlert*(theAlert: Handle[MessageAlertExtended]) {.cdecl,
-    importcpp: "Message_AttributeMeter::StartAlert(@)", dynlib: tkernel.}
+    importcpp: "Message_AttributeMeter::StartAlert(@)", header: "Message_AttributeMeter.hxx".}
 proc stopAlert*(theAlert: Handle[MessageAlertExtended]) {.cdecl,
-    importcpp: "Message_AttributeMeter::StopAlert(@)", dynlib: tkernel.}
+    importcpp: "Message_AttributeMeter::StopAlert(@)", header: "Message_AttributeMeter.hxx".}
 proc setAlertMetrics*(theAlert: Handle[MessageAlertExtended]; theStartValue: bool) {.
-    cdecl, importcpp: "Message_AttributeMeter::SetAlertMetrics(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message_AttributeMeter::SetAlertMetrics(@)", header: "Message_AttributeMeter.hxx".}
 proc dumpJson*(this: MessageAttributeMeter; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_AttributeMeter.hxx".}

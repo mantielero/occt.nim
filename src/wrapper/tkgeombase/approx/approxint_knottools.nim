@@ -62,4 +62,4 @@ proc buildKnots*(thePntsXYZ: TColgpArray1OfPnt; thePntsU1V1: TColgpArray1OfPnt2d
                 thePntsU2V2: TColgpArray1OfPnt2d; thePars: MathVector;
                 theApproxXYZ: bool; theApproxU1V1: bool; theApproxU2V2: bool;
                 theMinNbPnts: cint; theKnots: var NCollectionVector[cint]) {.cdecl,
-    importcpp: "ApproxInt_KnotTools::BuildKnots(@)", dynlib: tkgeombase.}
+    importcpp: "ApproxInt_KnotTools::BuildKnots(@)", header: "ApproxInt_KnotTools.hxx".}

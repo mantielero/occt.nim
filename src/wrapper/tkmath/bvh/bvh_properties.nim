@@ -26,7 +26,7 @@ type
 
 
 proc destroyBVH_Properties*(this: var BVH_Properties) {.cdecl,
-    importcpp: "#.~BVH_Properties()", dynlib: tkmath.}
+    importcpp: "#.~BVH_Properties()", header: "BVH_Properties.hxx".}
 ## ! Stores transform properties of geometric object.
 
 type
@@ -49,21 +49,21 @@ type
   BVH_TransformBVH_MatNt*[T; N] = object
 
 proc newBVH_Transform*[T; N: static[cint]](): BVH_Transform[T, N] {.cdecl, constructor,
-    importcpp: "BVH_Transform<\'*0,\'*1>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Transform<\'*0,\'*1>(@)", header: "BVH_Properties.hxx".}
 proc newBVH_Transform*[T; N: static[cint]](theTransform: BVH_TransformBVH_MatNt): BVH_Transform[
     T, N] {.cdecl, constructor, importcpp: "BVH_Transform<\'*0,\'*1>(@)",
-          dynlib: tkmath.}
+          header: "BVH_Properties.hxx".}
 proc destroyBVH_Transform*[T; N: static[cint]](this: var BVH_Transform[T, N]) {.cdecl,
-    importcpp: "#.~BVH_Transform()", dynlib: tkmath.}
+    importcpp: "#.~BVH_Transform()", header: "BVH_Properties.hxx".}
 proc transform*[T; N: static[cint]](this: BVH_Transform[T, N]): BVH_TransformBVH_MatNt {.
-    noSideEffect, cdecl, importcpp: "Transform", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Transform", header: "BVH_Properties.hxx".}
 proc setTransform*[T; N: static[cint]](this: var BVH_Transform[T, N];
                                     theTransform: BVH_TransformBVH_MatNt) {.cdecl,
-    importcpp: "SetTransform", dynlib: tkmath.}
+    importcpp: "SetTransform", header: "BVH_Properties.hxx".}
 proc inversed*[T; N: static[cint]](this: BVH_Transform[T, N]): BVH_TransformBVH_MatNt {.
-    noSideEffect, cdecl, importcpp: "Inversed", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Inversed", header: "BVH_Properties.hxx".}
 proc apply*[T; N: static[cint]](this: BVH_Transform[T, N]; theBox: BVH_Box[T, N]): BVH_Box[
-    T, N] {.noSideEffect, cdecl, importcpp: "Apply", dynlib: tkmath.}
+    T, N] {.noSideEffect, cdecl, importcpp: "Apply", header: "BVH_Properties.hxx".}
 type
   MatrixOp*[T; N: static[cint]] {.importcpp: "BVH::MatrixOp<\'0,\'1>",
                                header: "BVH_Properties.hxx", bycopy.} = object ##  Not implemented

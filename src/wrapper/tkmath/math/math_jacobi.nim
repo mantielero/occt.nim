@@ -61,16 +61,16 @@ type
 
 
 proc newMathJacobi*(a: MathMatrix): MathJacobi {.cdecl, constructor,
-    importcpp: "math_Jacobi(@)", dynlib: tkmath.}
+    importcpp: "math_Jacobi(@)", header: "math_Jacobi.hxx".}
 proc isDone*(this: MathJacobi): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                   dynlib: tkmath.}
+                                   header: "math_Jacobi.hxx".}
 proc values*(this: MathJacobi): MathVector {.noSideEffect, cdecl, importcpp: "Values",
-    dynlib: tkmath.}
+    header: "math_Jacobi.hxx".}
 proc value*(this: MathJacobi; num: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_Jacobi.hxx".}
 proc vectors*(this: MathJacobi): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "Vectors", dynlib: tkmath.}
+    importcpp: "Vectors", header: "math_Jacobi.hxx".}
 proc vector*(this: MathJacobi; num: cint; v: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Vector", dynlib: tkmath.}
+    importcpp: "Vector", header: "math_Jacobi.hxx".}
 proc dump*(this: MathJacobi; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Jacobi.hxx".}

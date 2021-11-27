@@ -30,8 +30,8 @@ type
 proc newTopOpeBRepDS_CurvePointInterference*(t: TopOpeBRepDS_Transition;
     st: TopOpeBRepDS_Kind; s: cint; gt: TopOpeBRepDS_Kind; g: cint; p: cfloat): TopOpeBRepDS_CurvePointInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_CurvePointInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_CurvePointInterference.hxx".}
 proc parameter*(this: TopOpeBRepDS_CurvePointInterference): cfloat {.noSideEffect,
-    cdecl, importcpp: "Parameter", dynlib: tkbool.}
+    cdecl, importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
 proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: cfloat) {.cdecl,
-    importcpp: "Parameter", dynlib: tkbool.}
+    importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}

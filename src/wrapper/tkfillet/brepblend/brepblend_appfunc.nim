@@ -33,9 +33,9 @@ type
 
 proc newBRepBlendAppFunc*(line: var Handle[BRepBlendLine];
                          `func`: var BlendFunction; tol3d: cfloat; tol2d: cfloat): BRepBlendAppFunc {.
-    cdecl, constructor, importcpp: "BRepBlend_AppFunc(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_AppFunc(@)", header: "BRepBlend_AppFunc.hxx".}
 proc point*(this: BRepBlendAppFunc; `func`: BlendAppFunction; param: cfloat;
            sol: MathVector; pnt: var BlendPoint) {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkfillet.}
+    importcpp: "Point", header: "BRepBlend_AppFunc.hxx".}
 proc vec*(this: BRepBlendAppFunc; sol: var MathVector; pnt: BlendPoint) {.noSideEffect,
-    cdecl, importcpp: "Vec", dynlib: tkfillet.}
+    cdecl, importcpp: "Vec", header: "BRepBlend_AppFunc.hxx".}

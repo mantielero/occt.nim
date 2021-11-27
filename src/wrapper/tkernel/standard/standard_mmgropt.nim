@@ -78,21 +78,21 @@ type
 proc constructStandardMMgrOpt*(aClear: bool = true;
                               aMMap: bool = true; aCellSize: csize_t = 200;
                               aNbPages: cint = 10000; aThreshold: csize_t = 40000): StandardMMgrOpt {.
-    cdecl, constructor, importcpp: "Standard_MMgrOpt(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Standard_MMgrOpt(@)", header: "Standard_MMgrOpt.hxx".}
 proc destroyStandardMMgrOpt*(this: var StandardMMgrOpt) {.cdecl,
-    importcpp: "#.~Standard_MMgrOpt()", dynlib: tkernel.}
+    importcpp: "#.~Standard_MMgrOpt()", header: "Standard_MMgrOpt.hxx".}
 proc allocate*(this: var StandardMMgrOpt; aSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", dynlib: tkernel.}
+    importcpp: "Allocate", header: "Standard_MMgrOpt.hxx".}
 proc reallocate*(this: var StandardMMgrOpt; thePtr: pointer; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Reallocate", dynlib: tkernel.}
+    cdecl, importcpp: "Reallocate", header: "Standard_MMgrOpt.hxx".}
 proc free*(this: var StandardMMgrOpt; thePtr: pointer) {.cdecl, importcpp: "Free",
-    dynlib: tkernel.}
+    header: "Standard_MMgrOpt.hxx".}
 proc purge*(this: var StandardMMgrOpt; isDestroyed: bool): cint {.cdecl,
-    importcpp: "Purge", dynlib: tkernel.}
+    importcpp: "Purge", header: "Standard_MMgrOpt.hxx".}
 type
   StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: bool; theStorage: pointer;
                                       theRoundSize: csize_t; theSize: csize_t) {.
       cdecl.}
 
 proc setCallBackFunction*(pFunc: StandardMMgrOptTPCallBackFunc) {.cdecl,
-    importcpp: "Standard_MMgrOpt::SetCallBackFunction(@)", dynlib: tkernel.}
+    importcpp: "Standard_MMgrOpt::SetCallBackFunction(@)", header: "Standard_MMgrOpt.hxx".}

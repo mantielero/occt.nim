@@ -35,8 +35,8 @@ type
 
 
 proc reset*(this: var TCollectionBasicMapIterator) {.cdecl, importcpp: "Reset",
-    dynlib: tkernel.}
+    header: "TCollection_BasicMapIterator.hxx".}
 proc more*(this: TCollectionBasicMapIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", dynlib: tkernel.}
+    importcpp: "More", header: "TCollection_BasicMapIterator.hxx".}
 proc next*(this: var TCollectionBasicMapIterator) {.cdecl, importcpp: "Next",
-    dynlib: tkernel.}
+    header: "TCollection_BasicMapIterator.hxx".}

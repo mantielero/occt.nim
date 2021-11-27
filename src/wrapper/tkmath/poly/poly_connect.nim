@@ -161,23 +161,23 @@ type
 
 
 proc newPolyConnect*(): PolyConnect {.cdecl, constructor,
-                                   importcpp: "Poly_Connect(@)", dynlib: tkmath.}
+                                   importcpp: "Poly_Connect(@)", header: "Poly_Connect.hxx".}
 proc newPolyConnect*(theTriangulation: Handle[PolyTriangulation]): PolyConnect {.
-    cdecl, constructor, importcpp: "Poly_Connect(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Connect(@)", header: "Poly_Connect.hxx".}
 proc load*(this: var PolyConnect; theTriangulation: Handle[PolyTriangulation]) {.
-    cdecl, importcpp: "Load", dynlib: tkmath.}
+    cdecl, importcpp: "Load", header: "Poly_Connect.hxx".}
 proc triangulation*(this: PolyConnect): Handle[PolyTriangulation] {.noSideEffect,
-    cdecl, importcpp: "Triangulation", dynlib: tkmath.}
+    cdecl, importcpp: "Triangulation", header: "Poly_Connect.hxx".}
 proc triangle*(this: PolyConnect; n: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Triangle", dynlib: tkmath.}
+    importcpp: "Triangle", header: "Poly_Connect.hxx".}
 proc triangles*(this: PolyConnect; t: cint; t1: var cint; t2: var cint; t3: var cint) {.
-    noSideEffect, cdecl, importcpp: "Triangles", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Triangles", header: "Poly_Connect.hxx".}
 proc nodes*(this: PolyConnect; t: cint; n1: var cint; n2: var cint; n3: var cint) {.
-    noSideEffect, cdecl, importcpp: "Nodes", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Nodes", header: "Poly_Connect.hxx".}
 proc initialize*(this: var PolyConnect; n: cint) {.cdecl, importcpp: "Initialize",
-    dynlib: tkmath.}
+    header: "Poly_Connect.hxx".}
 proc more*(this: PolyConnect): bool {.noSideEffect, cdecl, importcpp: "More",
-                                  dynlib: tkmath.}
-proc next*(this: var PolyConnect) {.cdecl, importcpp: "Next", dynlib: tkmath.}
+                                  header: "Poly_Connect.hxx".}
+proc next*(this: var PolyConnect) {.cdecl, importcpp: "Next", header: "Poly_Connect.hxx".}
 proc value*(this: PolyConnect): cint {.noSideEffect, cdecl, importcpp: "Value",
-                                   dynlib: tkmath.}
+                                   header: "Poly_Connect.hxx".}

@@ -21,30 +21,30 @@ type
 
 
 proc newTopOpeBRepToolConnexity*(): TopOpeBRepToolConnexity {.cdecl, constructor,
-    importcpp: "TopOpeBRepTool_connexity(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepTool_connexity(@)", header: "TopOpeBRepTool_connexity.hxx".}
 proc newTopOpeBRepToolConnexity*(key: TopoDS_Shape): TopOpeBRepToolConnexity {.
-    cdecl, constructor, importcpp: "TopOpeBRepTool_connexity(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepTool_connexity(@)", header: "TopOpeBRepTool_connexity.hxx".}
 proc setKey*(this: var TopOpeBRepToolConnexity; key: TopoDS_Shape) {.cdecl,
-    importcpp: "SetKey", dynlib: tkbool.}
+    importcpp: "SetKey", header: "TopOpeBRepTool_connexity.hxx".}
 proc key*(this: TopOpeBRepToolConnexity): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Key", dynlib: tkbool.}
+    importcpp: "Key", header: "TopOpeBRepTool_connexity.hxx".}
 proc item*(this: TopOpeBRepToolConnexity; oriKey: cint; item: var TopToolsListOfShape): cint {.
-    noSideEffect, cdecl, importcpp: "Item", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Item", header: "TopOpeBRepTool_connexity.hxx".}
 proc allItems*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
-    noSideEffect, cdecl, importcpp: "AllItems", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "AllItems", header: "TopOpeBRepTool_connexity.hxx".}
 proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: cint;
-             item: TopToolsListOfShape) {.cdecl, importcpp: "AddItem", dynlib: tkbool.}
+             item: TopToolsListOfShape) {.cdecl, importcpp: "AddItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc addItem*(this: var TopOpeBRepToolConnexity; oriKey: cint; item: TopoDS_Shape) {.
-    cdecl, importcpp: "AddItem", dynlib: tkbool.}
+    cdecl, importcpp: "AddItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc removeItem*(this: var TopOpeBRepToolConnexity; oriKey: cint; item: TopoDS_Shape): bool {.
-    cdecl, importcpp: "RemoveItem", dynlib: tkbool.}
+    cdecl, importcpp: "RemoveItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc removeItem*(this: var TopOpeBRepToolConnexity; item: TopoDS_Shape): bool {.cdecl,
-    importcpp: "RemoveItem", dynlib: tkbool.}
+    importcpp: "RemoveItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc changeItem*(this: var TopOpeBRepToolConnexity; oriKey: cint): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeItem", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeItem", header: "TopOpeBRepTool_connexity.hxx".}
 proc isMultiple*(this: TopOpeBRepToolConnexity): bool {.noSideEffect, cdecl,
-    importcpp: "IsMultiple", dynlib: tkbool.}
+    importcpp: "IsMultiple", header: "TopOpeBRepTool_connexity.hxx".}
 proc isFaulty*(this: TopOpeBRepToolConnexity): bool {.noSideEffect, cdecl,
-    importcpp: "IsFaulty", dynlib: tkbool.}
+    importcpp: "IsFaulty", header: "TopOpeBRepTool_connexity.hxx".}
 proc isInternal*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
-    noSideEffect, cdecl, importcpp: "IsInternal", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsInternal", header: "TopOpeBRepTool_connexity.hxx".}

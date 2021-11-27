@@ -37,7 +37,7 @@ type
 
 
 proc newConvertCircleToBSplineCurve*(c: Circ2d; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
-    cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", header: "Convert_CircleToBSplineCurve.hxx".}
 proc newConvertCircleToBSplineCurve*(c: Circ2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.
-    cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Convert_CircleToBSplineCurve(@)", header: "Convert_CircleToBSplineCurve.hxx".}

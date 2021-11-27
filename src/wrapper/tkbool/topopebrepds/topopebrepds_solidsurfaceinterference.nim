@@ -32,4 +32,4 @@ proc newTopOpeBRepDS_SolidSurfaceInterference*(
     transition: TopOpeBRepDS_Transition; supportType: TopOpeBRepDS_Kind;
     support: cint; geometryType: TopOpeBRepDS_Kind; geometry: cint): TopOpeBRepDS_SolidSurfaceInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_SolidSurfaceInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}

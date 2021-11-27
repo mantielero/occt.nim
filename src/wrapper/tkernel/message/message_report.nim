@@ -98,60 +98,60 @@ type
 
 proc newMessageReport*(): MessageReport {.cdecl, constructor,
                                        importcpp: "Message_Report(@)",
-                                       dynlib: tkernel.}
+                                       header: "Message_Report.hxx".}
 proc addAlert*(this: var MessageReport; theGravity: MessageGravity;
               theAlert: Handle[MessageAlert]) {.cdecl, importcpp: "AddAlert",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc getAlerts*(this: MessageReport; theGravity: MessageGravity): MessageListOfAlert {.
-    noSideEffect, cdecl, importcpp: "GetAlerts", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetAlerts", header: "Message_Report.hxx".}
 proc hasAlert*(this: var MessageReport; theType: Handle[StandardType]): bool {.cdecl,
-    importcpp: "HasAlert", dynlib: tkernel.}
+    importcpp: "HasAlert", header: "Message_Report.hxx".}
 proc hasAlert*(this: var MessageReport; theType: Handle[StandardType];
               theGravity: MessageGravity): bool {.cdecl, importcpp: "HasAlert",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc isActiveInMessenger*(this: MessageReport;
                          theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)): bool {.
-    noSideEffect, cdecl, importcpp: "IsActiveInMessenger", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsActiveInMessenger", header: "Message_Report.hxx".}
 proc activateInMessenger*(this: var MessageReport; toActivate: bool;
                          theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)) {.cdecl,
-    importcpp: "ActivateInMessenger", dynlib: tkernel.}
+    importcpp: "ActivateInMessenger", header: "Message_Report.hxx".}
 proc updateActiveInMessenger*(this: var MessageReport;
                              theMessenger: Handle[MessageMessenger] = cast[Handle[MessageMessenger]](nil)) {.cdecl,
-    importcpp: "UpdateActiveInMessenger", dynlib: tkernel.}
+    importcpp: "UpdateActiveInMessenger", header: "Message_Report.hxx".}
 proc addLevel*(this: var MessageReport; theLevel: ptr MessageLevel;
               theName: TCollectionAsciiString) {.cdecl, importcpp: "AddLevel",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc removeLevel*(this: var MessageReport; theLevel: ptr MessageLevel) {.cdecl,
-    importcpp: "RemoveLevel", dynlib: tkernel.}
-proc clear*(this: var MessageReport) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "RemoveLevel", header: "Message_Report.hxx".}
+proc clear*(this: var MessageReport) {.cdecl, importcpp: "Clear", header: "Message_Report.hxx".}
 proc clear*(this: var MessageReport; theGravity: MessageGravity) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "Message_Report.hxx".}
 proc clear*(this: var MessageReport; theType: Handle[StandardType]) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "Message_Report.hxx".}
 #proc activeMetrics*(this: MessageReport): NCollectionIndexedMap[MessageMetricType] {.
-#    noSideEffect, cdecl, importcpp: "ActiveMetrics", dynlib: tkernel.}
+#    noSideEffect, cdecl, importcpp: "ActiveMetrics", header: "Message_Report.hxx".}
 proc setActiveMetric*(this: var MessageReport; theMetricType: MessageMetricType;
                      theActivate: bool) {.cdecl, importcpp: "SetActiveMetric",
-                                        dynlib: tkernel.}
+                                        header: "Message_Report.hxx".}
 proc clearMetrics*(this: var MessageReport) {.cdecl, importcpp: "ClearMetrics",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc limit*(this: MessageReport): cint {.noSideEffect, cdecl, importcpp: "Limit",
-                                     dynlib: tkernel.}
+                                     header: "Message_Report.hxx".}
 proc setLimit*(this: var MessageReport; theLimit: cint) {.cdecl, importcpp: "SetLimit",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc dump*(this: var MessageReport; theOS: var StandardOStream) {.cdecl,
-    importcpp: "Dump", dynlib: tkernel.}
+    importcpp: "Dump", header: "Message_Report.hxx".}
 proc dump*(this: var MessageReport; theOS: var StandardOStream;
-          theGravity: MessageGravity) {.cdecl, importcpp: "Dump", dynlib: tkernel.}
+          theGravity: MessageGravity) {.cdecl, importcpp: "Dump", header: "Message_Report.hxx".}
 proc sendMessages*(this: var MessageReport; theMessenger: Handle[MessageMessenger]) {.
-    cdecl, importcpp: "SendMessages", dynlib: tkernel.}
+    cdecl, importcpp: "SendMessages", header: "Message_Report.hxx".}
 proc sendMessages*(this: var MessageReport; theMessenger: Handle[MessageMessenger];
                   theGravity: MessageGravity) {.cdecl, importcpp: "SendMessages",
-    dynlib: tkernel.}
+    header: "Message_Report.hxx".}
 proc merge*(this: var MessageReport; theOther: Handle[MessageReport]) {.cdecl,
-    importcpp: "Merge", dynlib: tkernel.}
+    importcpp: "Merge", header: "Message_Report.hxx".}
 proc merge*(this: var MessageReport; theOther: Handle[MessageReport];
-           theGravity: MessageGravity) {.cdecl, importcpp: "Merge", dynlib: tkernel.}
+           theGravity: MessageGravity) {.cdecl, importcpp: "Merge", header: "Message_Report.hxx".}
 proc dumpJson*(this: MessageReport; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_Report.hxx".}

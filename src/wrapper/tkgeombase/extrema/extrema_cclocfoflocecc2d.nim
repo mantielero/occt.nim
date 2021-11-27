@@ -27,43 +27,43 @@ type
 
 
 proc newExtremaCCLocFOfLocECC2d*(thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC2d {.
-    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC2d(@)", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc newExtremaCCLocFOfLocECC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d;
                                 thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC2d {.
-    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_CCLocFOfLocECC2d(@)", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc setCurve*(this: var ExtremaCCLocFOfLocECC2d; theRank: cint; c1: Adaptor2dCurve2d) {.
-    cdecl, importcpp: "SetCurve", dynlib: tkgeombase.}
+    cdecl, importcpp: "SetCurve", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc setTolerance*(this: var ExtremaCCLocFOfLocECC2d; theTol: cfloat) {.cdecl,
-    importcpp: "SetTolerance", dynlib: tkgeombase.}
+    importcpp: "SetTolerance", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc nbVariables*(this: ExtremaCCLocFOfLocECC2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc nbEquations*(this: ExtremaCCLocFOfLocECC2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeombase.}
+    importcpp: "NbEquations", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc value*(this: var ExtremaCCLocFOfLocECC2d; uv: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc derivatives*(this: var ExtremaCCLocFOfLocECC2d; uv: MathVector;
                  df: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
-    dynlib: tkgeombase.}
+    header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc values*(this: var ExtremaCCLocFOfLocECC2d; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            df: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc getStateNumber*(this: var ExtremaCCLocFOfLocECC2d): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkgeombase.}
+    importcpp: "GetStateNumber", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc nbExt*(this: ExtremaCCLocFOfLocECC2d): cint {.noSideEffect, cdecl,
-    importcpp: "NbExt", dynlib: tkgeombase.}
+    importcpp: "NbExt", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc squareDistance*(this: ExtremaCCLocFOfLocECC2d; n: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "SquareDistance", dynlib: tkgeombase.}
+    cdecl, importcpp: "SquareDistance", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc points*(this: ExtremaCCLocFOfLocECC2d; n: cint; p1: var ExtremaPOnCurv2d;
             p2: var ExtremaPOnCurv2d) {.noSideEffect, cdecl, importcpp: "Points",
-                                     dynlib: tkgeombase.}
+                                     header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc curvePtr*(this: ExtremaCCLocFOfLocECC2d; theRank: cint): pointer {.noSideEffect,
-    cdecl, importcpp: "CurvePtr", dynlib: tkgeombase.}
+    cdecl, importcpp: "CurvePtr", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc tolerance*(this: ExtremaCCLocFOfLocECC2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", dynlib: tkgeombase.}
+    importcpp: "Tolerance", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc subIntervalInitialize*(this: var ExtremaCCLocFOfLocECC2d;
                            theUfirst: MathVector; theUlast: MathVector) {.cdecl,
-    importcpp: "SubIntervalInitialize", dynlib: tkgeombase.}
+    importcpp: "SubIntervalInitialize", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC2d; c: pointer): cfloat {.cdecl,
-    importcpp: "SearchOfTolerance", dynlib: tkgeombase.}
+    importcpp: "SearchOfTolerance", header: "Extrema_CCLocFOfLocECC2d.hxx".}
 ##  #define Curve1 Adaptor2d_Curve2d
 ##  #define Curve1_hxx <Adaptor2d_Curve2d.hxx>
 ##  #define Tool1 Extrema_Curve2dTool

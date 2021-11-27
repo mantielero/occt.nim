@@ -26,19 +26,19 @@ type
 
 
 proc newPolyCoherentLink*(): PolyCoherentLink {.cdecl, constructor,
-    importcpp: "Poly_CoherentLink(@)", dynlib: tkmath.}
+    importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
 proc newPolyCoherentLink*(iNode0: cint; iNode1: cint): PolyCoherentLink {.cdecl,
-    constructor, importcpp: "Poly_CoherentLink(@)", dynlib: tkmath.}
+    constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
 proc newPolyCoherentLink*(theTri: PolyCoherentTriangle; iSide: cint): PolyCoherentLink {.
-    cdecl, constructor, importcpp: "Poly_CoherentLink(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_CoherentLink(@)", header: "Poly_CoherentLink.hxx".}
 proc node*(this: PolyCoherentLink; ind: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Node", dynlib: tkmath.}
+    importcpp: "Node", header: "Poly_CoherentLink.hxx".}
 proc oppositeNode*(this: PolyCoherentLink; ind: cint): cint {.noSideEffect, cdecl,
-    importcpp: "OppositeNode", dynlib: tkmath.}
+    importcpp: "OppositeNode", header: "Poly_CoherentLink.hxx".}
 proc getAttribute*(this: PolyCoherentLink): pointer {.noSideEffect, cdecl,
-    importcpp: "GetAttribute", dynlib: tkmath.}
+    importcpp: "GetAttribute", header: "Poly_CoherentLink.hxx".}
 proc setAttribute*(this: var PolyCoherentLink; theAtt: pointer) {.cdecl,
-    importcpp: "SetAttribute", dynlib: tkmath.}
+    importcpp: "SetAttribute", header: "Poly_CoherentLink.hxx".}
 proc isEmpty*(this: PolyCoherentLink): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkmath.}
-proc nullify*(this: var PolyCoherentLink) {.cdecl, importcpp: "Nullify", dynlib: tkmath.}
+    importcpp: "IsEmpty", header: "Poly_CoherentLink.hxx".}
+proc nullify*(this: var PolyCoherentLink) {.cdecl, importcpp: "Nullify", header: "Poly_CoherentLink.hxx".}

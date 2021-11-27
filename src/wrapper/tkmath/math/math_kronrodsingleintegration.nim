@@ -22,38 +22,38 @@ type
 
 
 proc newMathKronrodSingleIntegration*(): MathKronrodSingleIntegration {.cdecl,
-    constructor, importcpp: "math_KronrodSingleIntegration(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_KronrodSingleIntegration(@)", header: "math_KronrodSingleIntegration.hxx".}
 proc newMathKronrodSingleIntegration*(theFunction: var MathFunction;
                                      theLower: cfloat; theUpper: cfloat;
                                      theNbPnts: cint): MathKronrodSingleIntegration {.
     cdecl, constructor, importcpp: "math_KronrodSingleIntegration(@)",
-    dynlib: tkmath.}
+    header: "math_KronrodSingleIntegration.hxx".}
 proc newMathKronrodSingleIntegration*(theFunction: var MathFunction;
                                      theLower: cfloat; theUpper: cfloat;
                                      theNbPnts: cint; theTolerance: cfloat;
                                      theMaxNbIter: cint): MathKronrodSingleIntegration {.
     cdecl, constructor, importcpp: "math_KronrodSingleIntegration(@)",
-    dynlib: tkmath.}
+    header: "math_KronrodSingleIntegration.hxx".}
 proc perform*(this: var MathKronrodSingleIntegration; theFunction: var MathFunction;
              theLower: cfloat; theUpper: cfloat; theNbPnts: cint) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_KronrodSingleIntegration.hxx".}
 proc perform*(this: var MathKronrodSingleIntegration; theFunction: var MathFunction;
              theLower: cfloat; theUpper: cfloat; theNbPnts: cint;
              theTolerance: cfloat; theMaxNbIter: cint) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "math_KronrodSingleIntegration.hxx".}
 proc isDone*(this: MathKronrodSingleIntegration): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_KronrodSingleIntegration.hxx".}
 proc value*(this: MathKronrodSingleIntegration): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "math_KronrodSingleIntegration.hxx".}
 proc errorReached*(this: MathKronrodSingleIntegration): cfloat {.noSideEffect, cdecl,
-    importcpp: "ErrorReached", dynlib: tkmath.}
+    importcpp: "ErrorReached", header: "math_KronrodSingleIntegration.hxx".}
 proc absolutError*(this: MathKronrodSingleIntegration): cfloat {.noSideEffect, cdecl,
-    importcpp: "AbsolutError", dynlib: tkmath.}
+    importcpp: "AbsolutError", header: "math_KronrodSingleIntegration.hxx".}
 proc orderReached*(this: MathKronrodSingleIntegration): cint {.noSideEffect, cdecl,
-    importcpp: "OrderReached", dynlib: tkmath.}
+    importcpp: "OrderReached", header: "math_KronrodSingleIntegration.hxx".}
 proc nbIterReached*(this: MathKronrodSingleIntegration): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterReached", dynlib: tkmath.}
+    importcpp: "NbIterReached", header: "math_KronrodSingleIntegration.hxx".}
 proc gKRule*(theFunction: var MathFunction; theLower: cfloat; theUpper: cfloat;
             theGaussP: MathVector; theGaussW: MathVector; theKronrodP: MathVector;
             theKronrodW: MathVector; theValue: var cfloat; theError: var cfloat): bool {.
-    cdecl, importcpp: "math_KronrodSingleIntegration::GKRule(@)", dynlib: tkmath.}
+    cdecl, importcpp: "math_KronrodSingleIntegration::GKRule(@)", header: "math_KronrodSingleIntegration.hxx".}

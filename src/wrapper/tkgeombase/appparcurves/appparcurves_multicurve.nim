@@ -32,56 +32,56 @@ type
 
 
 proc newAppParCurvesMultiCurve*(): AppParCurvesMultiCurve {.cdecl, constructor,
-    importcpp: "AppParCurves_MultiCurve(@)", dynlib: tkgeombase.}
+    importcpp: "AppParCurves_MultiCurve(@)", header: "AppParCurves_MultiCurve.hxx".}
 proc newAppParCurvesMultiCurve*(nbPol: cint): AppParCurvesMultiCurve {.cdecl,
-    constructor, importcpp: "AppParCurves_MultiCurve(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "AppParCurves_MultiCurve(@)", header: "AppParCurves_MultiCurve.hxx".}
 proc newAppParCurvesMultiCurve*(tabMU: AppParCurvesArray1OfMultiPoint): AppParCurvesMultiCurve {.
-    cdecl, constructor, importcpp: "AppParCurves_MultiCurve(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "AppParCurves_MultiCurve(@)", header: "AppParCurves_MultiCurve.hxx".}
 proc destroyAppParCurvesMultiCurve*(this: var AppParCurvesMultiCurve) {.cdecl,
-    importcpp: "#.~AppParCurves_MultiCurve()", dynlib: tkgeombase.}
+    importcpp: "#.~AppParCurves_MultiCurve()", header: "AppParCurves_MultiCurve.hxx".}
 proc setNbPoles*(this: var AppParCurvesMultiCurve; nbPoles: cint) {.cdecl,
-    importcpp: "SetNbPoles", dynlib: tkgeombase.}
+    importcpp: "SetNbPoles", header: "AppParCurves_MultiCurve.hxx".}
 proc setValue*(this: var AppParCurvesMultiCurve; index: cint;
               mPoint: AppParCurvesMultiPoint) {.cdecl, importcpp: "SetValue",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_MultiCurve.hxx".}
 proc nbCurves*(this: AppParCurvesMultiCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbCurves", dynlib: tkgeombase.}
+    importcpp: "NbCurves", header: "AppParCurves_MultiCurve.hxx".}
 proc nbPoles*(this: AppParCurvesMultiCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkgeombase.}
+    importcpp: "NbPoles", header: "AppParCurves_MultiCurve.hxx".}
 proc degree*(this: AppParCurvesMultiCurve): cint {.noSideEffect, cdecl,
-    importcpp: "Degree", dynlib: tkgeombase.}
+    importcpp: "Degree", header: "AppParCurves_MultiCurve.hxx".}
 proc dimension*(this: AppParCurvesMultiCurve; cuIndex: cint): cint {.noSideEffect,
-    cdecl, importcpp: "Dimension", dynlib: tkgeombase.}
+    cdecl, importcpp: "Dimension", header: "AppParCurves_MultiCurve.hxx".}
 proc curve*(this: AppParCurvesMultiCurve; cuIndex: cint;
            tabPnt: var TColgpArray1OfPnt) {.noSideEffect, cdecl, importcpp: "Curve",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_MultiCurve.hxx".}
 proc curve*(this: AppParCurvesMultiCurve; cuIndex: cint;
            tabPnt: var TColgpArray1OfPnt2d) {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkgeombase.}
+    importcpp: "Curve", header: "AppParCurves_MultiCurve.hxx".}
 proc value*(this: AppParCurvesMultiCurve; index: cint): AppParCurvesMultiPoint {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
 proc pole*(this: AppParCurvesMultiCurve; cuIndex: cint; nieme: cint): Pnt {.
-    noSideEffect, cdecl, importcpp: "Pole", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Pole", header: "AppParCurves_MultiCurve.hxx".}
 proc pole2d*(this: AppParCurvesMultiCurve; cuIndex: cint; nieme: cint): Pnt2d {.
-    noSideEffect, cdecl, importcpp: "Pole2d", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Pole2d", header: "AppParCurves_MultiCurve.hxx".}
 proc transform*(this: var AppParCurvesMultiCurve; cuIndex: cint; x: cfloat; dx: cfloat;
                y: cfloat; dy: cfloat; z: cfloat; dz: cfloat) {.cdecl,
-    importcpp: "Transform", dynlib: tkgeombase.}
+    importcpp: "Transform", header: "AppParCurves_MultiCurve.hxx".}
 proc transform2d*(this: var AppParCurvesMultiCurve; cuIndex: cint; x: cfloat;
                  dx: cfloat; y: cfloat; dy: cfloat) {.cdecl, importcpp: "Transform2d",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_MultiCurve.hxx".}
 proc value*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt) {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
 proc value*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d) {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiCurve.hxx".}
 proc d1*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt; v1: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiCurve.hxx".}
 proc d1*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
-        v1: var Vec2d) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkgeombase.}
+        v1: var Vec2d) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiCurve.hxx".}
 proc d2*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt; v1: var Vec;
-        v2: var Vec) {.noSideEffect, cdecl, importcpp: "D2", dynlib: tkgeombase.}
+        v2: var Vec) {.noSideEffect, cdecl, importcpp: "D2", header: "AppParCurves_MultiCurve.hxx".}
 proc d2*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
         v1: var Vec2d; v2: var Vec2d) {.noSideEffect, cdecl, importcpp: "D2",
-                                  dynlib: tkgeombase.}
+                                  header: "AppParCurves_MultiCurve.hxx".}
 proc dump*(this: AppParCurvesMultiCurve; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkgeombase.}
+    importcpp: "Dump", header: "AppParCurves_MultiCurve.hxx".}

@@ -23,16 +23,16 @@ type
 
 
 proc newBlendFuncTensor*(nbRow: cint; nbCol: cint; nbMat: cint): BlendFuncTensor {.
-    cdecl, constructor, importcpp: "BlendFunc_Tensor(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_Tensor(@)", header: "BlendFunc_Tensor.hxx".}
 proc init*(this: var BlendFuncTensor; initialValue: cfloat) {.cdecl, importcpp: "Init",
-    dynlib: tkfillet.}
+    header: "BlendFunc_Tensor.hxx".}
 proc value*(this: BlendFuncTensor; row: cint; col: cint; mat: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Value", header: "BlendFunc_Tensor.hxx".}
 proc `()`*(this: BlendFuncTensor; row: cint; col: cint; mat: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "#(@)", dynlib: tkfillet.}
+    cdecl, importcpp: "#(@)", header: "BlendFunc_Tensor.hxx".}
 proc changeValue*(this: var BlendFuncTensor; row: cint; col: cint; mat: cint): var cfloat {.
-    cdecl, importcpp: "ChangeValue", dynlib: tkfillet.}
+    cdecl, importcpp: "ChangeValue", header: "BlendFunc_Tensor.hxx".}
 proc `()`*(this: var BlendFuncTensor; row: cint; col: cint; mat: cint): var cfloat {.cdecl,
-    importcpp: "#(@)", dynlib: tkfillet.}
+    importcpp: "#(@)", header: "BlendFunc_Tensor.hxx".}
 proc multiply*(this: BlendFuncTensor; right: MathVector; product: var MathMatrix) {.
-    noSideEffect, cdecl, importcpp: "Multiply", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Multiply", header: "BlendFunc_Tensor.hxx".}

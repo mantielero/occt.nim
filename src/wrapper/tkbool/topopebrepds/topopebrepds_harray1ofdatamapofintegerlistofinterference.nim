@@ -25,16 +25,16 @@ proc newTopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference*(theLower: cint
     theUpper: cint): TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference {.
     cdecl, constructor,
     importcpp: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}
 proc newTopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference*(theLower: cint;
     theUpper: cint; theValue: ValueType): TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference {.
     cdecl, constructor,
     importcpp: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}
 proc newTopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference*(
     theOther: TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference): TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference {.
     cdecl, constructor,
     importcpp: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}
 proc array1*(this: TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference): TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}

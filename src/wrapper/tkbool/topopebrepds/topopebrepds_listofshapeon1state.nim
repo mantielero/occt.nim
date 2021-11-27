@@ -23,14 +23,14 @@ type
 
 proc newTopOpeBRepDS_ListOfShapeOn1State*(): TopOpeBRepDS_ListOfShapeOn1State {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_ListOfShapeOn1State(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc listOnState*(this: TopOpeBRepDS_ListOfShapeOn1State): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "ListOnState", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ListOnState", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc changeListOnState*(this: var TopOpeBRepDS_ListOfShapeOn1State): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeListOnState", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeListOnState", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc isSplit*(this: TopOpeBRepDS_ListOfShapeOn1State): bool {.noSideEffect, cdecl,
-    importcpp: "IsSplit", dynlib: tkbool.}
+    importcpp: "IsSplit", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: bool = true) {.cdecl,
-    importcpp: "Split", dynlib: tkbool.}
+    importcpp: "Split", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}

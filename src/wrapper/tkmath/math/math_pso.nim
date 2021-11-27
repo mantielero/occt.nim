@@ -36,10 +36,10 @@ type
 proc newMathPSO*(theFunc: ptr MathMultipleVarFunction; theLowBorder: MathVector;
                 theUppBorder: MathVector; theSteps: MathVector;
                 theNbParticles: cint = 32; theNbIter: cint = 100): MathPSO {.cdecl,
-    constructor, importcpp: "math_PSO(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_PSO(@)", header: "math_PSO.hxx".}
 proc perform*(this: var MathPSO; theSteps: MathVector; theValue: var cfloat;
              theOutPnt: var MathVector; theNbIter: cint = 100) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_PSO.hxx".}
 proc perform*(this: var MathPSO; theParticles: var MathPSOParticlesPool;
              theNbParticles: cint; theValue: var cfloat; theOutPnt: var MathVector;
-             theNbIter: cint = 100) {.cdecl, importcpp: "Perform", dynlib: tkmath.}
+             theNbIter: cint = 100) {.cdecl, importcpp: "Perform", header: "math_PSO.hxx".}

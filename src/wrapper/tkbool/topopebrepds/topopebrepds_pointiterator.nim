@@ -38,23 +38,23 @@ type
 
 
 proc newTopOpeBRepDS_PointIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_PointIterator {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_PointIterator(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_PointIterator(@)", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc matchInterference*(this: TopOpeBRepDS_PointIterator;
                        i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "MatchInterference", dynlib: tkbool.}
+    cdecl, importcpp: "MatchInterference", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc current*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Current", dynlib: tkbool.}
+    importcpp: "Current", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_PointIterator; s: TopAbsState): TopAbsOrientation {.
-    noSideEffect, cdecl, importcpp: "Orientation", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc parameter*(this: TopOpeBRepDS_PointIterator): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkbool.}
+    importcpp: "Parameter", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc isVertex*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl,
-    importcpp: "IsVertex", dynlib: tkbool.}
+    importcpp: "IsVertex", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc isPoint*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl,
-    importcpp: "IsPoint", dynlib: tkbool.}
+    importcpp: "IsPoint", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc diffOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl,
-    importcpp: "DiffOriented", dynlib: tkbool.}
+    importcpp: "DiffOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc sameOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl,
-    importcpp: "SameOriented", dynlib: tkbool.}
+    importcpp: "SameOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc support*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Support", dynlib: tkbool.}
+    importcpp: "Support", header: "TopOpeBRepDS_PointIterator.hxx".}

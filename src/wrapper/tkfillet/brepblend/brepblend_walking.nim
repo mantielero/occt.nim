@@ -44,52 +44,52 @@ proc newBRepBlendWalking*(surf1: Handle[Adaptor3dHSurface];
                          domain1: Handle[Adaptor3dTopolTool];
                          domain2: Handle[Adaptor3dTopolTool];
                          hGuide: Handle[ChFiDS_HElSpine]): BRepBlendWalking {.
-    cdecl, constructor, importcpp: "BRepBlend_Walking(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BRepBlend_Walking(@)", header: "BRepBlend_Walking.hxx".}
 proc setDomainsToRecadre*(this: var BRepBlendWalking;
                          recDomain1: Handle[Adaptor3dTopolTool];
                          recDomain2: Handle[Adaptor3dTopolTool]) {.cdecl,
-    importcpp: "SetDomainsToRecadre", dynlib: tkfillet.}
+    importcpp: "SetDomainsToRecadre", header: "BRepBlend_Walking.hxx".}
 proc addSingularPoint*(this: var BRepBlendWalking; p: BlendPoint) {.cdecl,
-    importcpp: "AddSingularPoint", dynlib: tkfillet.}
+    importcpp: "AddSingularPoint", header: "BRepBlend_Walking.hxx".}
 proc perform*(this: var BRepBlendWalking; f: var BlendFunction; fInv: var BlendFuncInv;
              pdep: cfloat; pmax: cfloat; maxStep: cfloat; tolGuide: cfloat;
              soldep: MathVector; tolesp: cfloat; fleche: cfloat; appro: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tkfillet.}
+    cdecl, importcpp: "Perform", header: "BRepBlend_Walking.hxx".}
 proc performFirstSection*(this: var BRepBlendWalking; f: var BlendFunction;
                          pdep: cfloat; parDep: var MathVector; tolesp: cfloat;
                          tolGuide: cfloat; pos1: var TopAbsState;
                          pos2: var TopAbsState): bool {.cdecl,
-    importcpp: "PerformFirstSection", dynlib: tkfillet.}
+    importcpp: "PerformFirstSection", header: "BRepBlend_Walking.hxx".}
 proc performFirstSection*(this: var BRepBlendWalking; f: var BlendFunction;
                          fInv: var BlendFuncInv; pdep: cfloat; pmax: cfloat;
                          parDep: MathVector; tolesp: cfloat; tolGuide: cfloat;
                          recOnS1: bool; recOnS2: bool; psol: var cfloat;
                          parSol: var MathVector): bool {.cdecl,
-    importcpp: "PerformFirstSection", dynlib: tkfillet.}
+    importcpp: "PerformFirstSection", header: "BRepBlend_Walking.hxx".}
 proc continu*(this: var BRepBlendWalking; f: var BlendFunction; fInv: var BlendFuncInv;
-             p: cfloat): bool {.cdecl, importcpp: "Continu", dynlib: tkfillet.}
+             p: cfloat): bool {.cdecl, importcpp: "Continu", header: "BRepBlend_Walking.hxx".}
 proc continu*(this: var BRepBlendWalking; f: var BlendFunction; fInv: var BlendFuncInv;
              p: cfloat; onS1: bool): bool {.cdecl, importcpp: "Continu",
-                                       dynlib: tkfillet.}
+                                       header: "BRepBlend_Walking.hxx".}
 proc complete*(this: var BRepBlendWalking; f: var BlendFunction;
               fInv: var BlendFuncInv; pmin: cfloat): bool {.cdecl,
-    importcpp: "Complete", dynlib: tkfillet.}
+    importcpp: "Complete", header: "BRepBlend_Walking.hxx".}
 proc classificationOnS1*(this: var BRepBlendWalking; c: bool) {.cdecl,
-    importcpp: "ClassificationOnS1", dynlib: tkfillet.}
+    importcpp: "ClassificationOnS1", header: "BRepBlend_Walking.hxx".}
 proc classificationOnS2*(this: var BRepBlendWalking; c: bool) {.cdecl,
-    importcpp: "ClassificationOnS2", dynlib: tkfillet.}
+    importcpp: "ClassificationOnS2", header: "BRepBlend_Walking.hxx".}
 proc check2d*(this: var BRepBlendWalking; c: bool) {.cdecl, importcpp: "Check2d",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Walking.hxx".}
 proc check*(this: var BRepBlendWalking; c: bool) {.cdecl, importcpp: "Check",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Walking.hxx".}
 proc twistOnS1*(this: BRepBlendWalking): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS1", dynlib: tkfillet.}
+    importcpp: "TwistOnS1", header: "BRepBlend_Walking.hxx".}
 proc twistOnS2*(this: BRepBlendWalking): bool {.noSideEffect, cdecl,
-    importcpp: "TwistOnS2", dynlib: tkfillet.}
+    importcpp: "TwistOnS2", header: "BRepBlend_Walking.hxx".}
 proc isDone*(this: BRepBlendWalking): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-    dynlib: tkfillet.}
+    header: "BRepBlend_Walking.hxx".}
 proc line*(this: BRepBlendWalking): Handle[BRepBlendLine] {.noSideEffect, cdecl,
-    importcpp: "Line", dynlib: tkfillet.}
+    importcpp: "Line", header: "BRepBlend_Walking.hxx".}
 ##  #define TheVertex Handle(Adaptor3d_HVertex)
 ##  #define TheVertex_hxx <Adaptor3d_HVertex.hxx>
 ##  #define TheArc Handle(Adaptor2d_HCurve2d)

@@ -39,146 +39,146 @@ type
 
 
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
-    importcpp: "MakeFace", dynlib: tkbrep.}
+    importcpp: "MakeFace", header: "BRep_Builder.hxx".}
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; s: Handle[GeomSurface];
               tol: cfloat) {.noSideEffect, cdecl, importcpp: "MakeFace",
-                           dynlib: tkbrep.}
+                           header: "BRep_Builder.hxx".}
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; s: Handle[GeomSurface];
               L: TopLocLocation; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "MakeFace", dynlib: tkbrep.}
+    importcpp: "MakeFace", header: "BRep_Builder.hxx".}
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face; t: Handle[PolyTriangulation]) {.
-    noSideEffect, cdecl, importcpp: "MakeFace", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "MakeFace", header: "BRep_Builder.hxx".}
 proc updateFace*(this: BRepBuilder; f: TopoDS_Face; s: Handle[GeomSurface];
                 L: TopLocLocation; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateFace", dynlib: tkbrep.}
+    importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
 proc updateFace*(this: BRepBuilder; f: TopoDS_Face; t: Handle[PolyTriangulation]) {.
-    noSideEffect, cdecl, importcpp: "UpdateFace", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
 proc updateFace*(this: BRepBuilder; f: TopoDS_Face; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateFace", dynlib: tkbrep.}
+    importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
 proc naturalRestriction*(this: BRepBuilder; f: TopoDS_Face; n: bool) {.noSideEffect,
-    cdecl, importcpp: "NaturalRestriction", dynlib: tkbrep.}
+    cdecl, importcpp: "NaturalRestriction", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge) {.noSideEffect, cdecl,
-    importcpp: "MakeEdge", dynlib: tkbrep.}
+    importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "MakeEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve];
               L: TopLocLocation; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "MakeEdge", dynlib: tkbrep.}
+    importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
-    noSideEffect, cdecl, importcpp: "MakeEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge;
               n: Handle[PolyPolygonOnTriangulation]; t: Handle[PolyTriangulation]) {.
-    noSideEffect, cdecl, importcpp: "MakeEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge;
               n: Handle[PolyPolygonOnTriangulation]; t: Handle[PolyTriangulation];
               L: TopLocLocation) {.noSideEffect, cdecl, importcpp: "MakeEdge",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve];
                 L: TopLocLocation; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
                 f: TopoDS_Face; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; f: TopoDS_Face; tol: cfloat) {.noSideEffect,
-    cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
                 s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
                 s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: Pnt2d;
                 pl: Pnt2d) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
-                           dynlib: tkbrep.}
+                           header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
                 tol: cfloat) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
-                             dynlib: tkbrep.}
+                             header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
                 tol: cfloat; pf: Pnt2d; pl: Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
-    noSideEffect, cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon3D];
                 L: TopLocLocation) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
-                                   dynlib: tkbrep.}
+                                   header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge;
                 n: Handle[PolyPolygonOnTriangulation];
                 t: Handle[PolyTriangulation]) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge;
                 n: Handle[PolyPolygonOnTriangulation];
                 t: Handle[PolyTriangulation]; L: TopLocLocation) {.noSideEffect,
-    cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge;
                 n1: Handle[PolyPolygonOnTriangulation];
                 n2: Handle[PolyPolygonOnTriangulation];
                 t: Handle[PolyTriangulation]) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge;
                 n1: Handle[PolyPolygonOnTriangulation];
                 n2: Handle[PolyPolygonOnTriangulation];
                 t: Handle[PolyTriangulation]; L: TopLocLocation) {.noSideEffect,
-    cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon2D];
                 s: TopoDS_Face) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
-                                dynlib: tkbrep.}
+                                header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon2D];
                 s: Handle[GeomSurface]; t: TopLocLocation) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p1: Handle[PolyPolygon2D];
                 p2: Handle[PolyPolygon2D]; s: TopoDS_Face) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p1: Handle[PolyPolygon2D];
                 p2: Handle[PolyPolygon2D]; s: Handle[GeomSurface]; L: TopLocLocation) {.
-    noSideEffect, cdecl, importcpp: "UpdateEdge", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateEdge", dynlib: tkbrep.}
+    importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc continuity*(this: BRepBuilder; e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
                 c: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Continuity",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_Builder.hxx".}
 proc continuity*(this: BRepBuilder; e: TopoDS_Edge; s1: Handle[GeomSurface];
                 s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation;
                 c: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Continuity",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_Builder.hxx".}
 proc sameParameter*(this: BRepBuilder; e: TopoDS_Edge; s: bool) {.noSideEffect, cdecl,
-    importcpp: "SameParameter", dynlib: tkbrep.}
+    importcpp: "SameParameter", header: "BRep_Builder.hxx".}
 proc sameRange*(this: BRepBuilder; e: TopoDS_Edge; s: bool) {.noSideEffect, cdecl,
-    importcpp: "SameRange", dynlib: tkbrep.}
+    importcpp: "SameRange", header: "BRep_Builder.hxx".}
 proc degenerated*(this: BRepBuilder; e: TopoDS_Edge; d: bool) {.noSideEffect, cdecl,
-    importcpp: "Degenerated", dynlib: tkbrep.}
+    importcpp: "Degenerated", header: "BRep_Builder.hxx".}
 proc range*(this: BRepBuilder; e: TopoDS_Edge; first: cfloat; last: cfloat;
            only3d: bool = false) {.noSideEffect, cdecl, importcpp: "Range",
-                               dynlib: tkbrep.}
+                               header: "BRep_Builder.hxx".}
 proc range*(this: BRepBuilder; e: TopoDS_Edge; s: Handle[GeomSurface];
            L: TopLocLocation; first: cfloat; last: cfloat) {.noSideEffect, cdecl,
-    importcpp: "Range", dynlib: tkbrep.}
+    importcpp: "Range", header: "BRep_Builder.hxx".}
 proc range*(this: BRepBuilder; e: TopoDS_Edge; f: TopoDS_Face; first: cfloat;
-           last: cfloat) {.noSideEffect, cdecl, importcpp: "Range", dynlib: tkbrep.}
+           last: cfloat) {.noSideEffect, cdecl, importcpp: "Range", header: "BRep_Builder.hxx".}
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge) {.noSideEffect,
-    cdecl, importcpp: "Transfert", dynlib: tkbrep.}
+    cdecl, importcpp: "Transfert", header: "BRep_Builder.hxx".}
 proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex) {.noSideEffect, cdecl,
-    importcpp: "MakeVertex", dynlib: tkbrep.}
+    importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
 proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: Pnt; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "MakeVertex", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: Pnt; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "UpdateVertex", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "UpdateVertex",
-                               dynlib: tkbrep.}
+                               header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
                   f: TopoDS_Face; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateVertex", dynlib: tkbrep.}
+    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
                   s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "UpdateVertex", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; ve: TopoDS_Vertex; u: cfloat; v: cfloat;
                   f: TopoDS_Face; tol: cfloat) {.noSideEffect, cdecl,
-    importcpp: "UpdateVertex", dynlib: tkbrep.}
+    importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; tol: cfloat) {.noSideEffect,
-    cdecl, importcpp: "UpdateVertex", dynlib: tkbrep.}
+    cdecl, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge;
                vin: TopoDS_Vertex; vout: TopoDS_Vertex) {.noSideEffect, cdecl,
-    importcpp: "Transfert", dynlib: tkbrep.}
+    importcpp: "Transfert", header: "BRep_Builder.hxx".}

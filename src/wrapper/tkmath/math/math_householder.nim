@@ -33,18 +33,18 @@ type
 
 
 proc newMathHouseholder*(a: MathMatrix; b: MathMatrix; eps: cfloat = 1.0e-20): MathHouseholder {.
-    cdecl, constructor, importcpp: "math_Householder(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
 proc newMathHouseholder*(a: MathMatrix; b: MathMatrix; lowerArow: cint;
                         upperArow: cint; lowerAcol: cint; upperAcol: cint;
                         eps: cfloat = 1.0e-20): MathHouseholder {.cdecl, constructor,
-    importcpp: "math_Householder(@)", dynlib: tkmath.}
+    importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
 proc newMathHouseholder*(a: MathMatrix; b: MathVector; eps: cfloat = 1.0e-20): MathHouseholder {.
-    cdecl, constructor, importcpp: "math_Householder(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_Householder(@)", header: "math_Householder.hxx".}
 proc isDone*(this: MathHouseholder): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                        dynlib: tkmath.}
+                                        header: "math_Householder.hxx".}
 proc value*(this: MathHouseholder; sol: var MathVector; index: cint = 1) {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_Householder.hxx".}
 proc allValues*(this: MathHouseholder): MathMatrix {.noSideEffect, cdecl,
-    importcpp: "AllValues", dynlib: tkmath.}
+    importcpp: "AllValues", header: "math_Householder.hxx".}
 proc dump*(this: MathHouseholder; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_Householder.hxx".}

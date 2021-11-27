@@ -24,24 +24,24 @@ type
 
 
 proc newGeomFillSectionGenerator*(): GeomFillSectionGenerator {.cdecl, constructor,
-    importcpp: "GeomFill_SectionGenerator(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_SectionGenerator(@)", header: "GeomFill_SectionGenerator.hxx".}
 proc setParam*(this: var GeomFillSectionGenerator;
               params: Handle[TColStdHArray1OfReal]) {.cdecl, importcpp: "SetParam",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SectionGenerator.hxx".}
 proc getShape*(this: GeomFillSectionGenerator; nbPoles: var cint; nbKnots: var cint;
               degree: var cint; nbPoles2d: var cint) {.noSideEffect, cdecl,
-    importcpp: "GetShape", dynlib: tkgeomalgo.}
+    importcpp: "GetShape", header: "GeomFill_SectionGenerator.hxx".}
 proc knots*(this: GeomFillSectionGenerator; tKnots: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "GeomFill_SectionGenerator.hxx".}
 proc mults*(this: GeomFillSectionGenerator; tMults: var TColStdArray1OfInteger) {.
-    noSideEffect, cdecl, importcpp: "Mults", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Mults", header: "GeomFill_SectionGenerator.hxx".}
 proc section*(this: GeomFillSectionGenerator; p: cint; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; poles2d: var TColgpArray1OfPnt2d;
              dPoles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal): bool {.noSideEffect, cdecl,
-    importcpp: "Section", dynlib: tkgeomalgo.}
+    importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
 proc section*(this: GeomFillSectionGenerator; p: cint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Section", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
 proc parameter*(this: GeomFillSectionGenerator; p: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkgeomalgo.}
+    importcpp: "Parameter", header: "GeomFill_SectionGenerator.hxx".}

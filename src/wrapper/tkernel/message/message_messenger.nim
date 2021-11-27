@@ -158,74 +158,74 @@ type
 
 
 proc destroyMessageMessengerStreamBuffer*(this: var MessageMessengerStreamBuffer) {.
-    cdecl, importcpp: "#.~StreamBuffer()", dynlib: tkernel.}
+    cdecl, importcpp: "#.~StreamBuffer()", header: "Message_Messenger.hxx".}
 proc flush*(this: var MessageMessengerStreamBuffer; doForce: bool = false) {.cdecl,
-    importcpp: "Flush", dynlib: tkernel.}
+    importcpp: "Flush", header: "Message_Messenger.hxx".}
 proc newMessageMessengerStreamBuffer*(theOther: MessageMessengerStreamBuffer): MessageMessengerStreamBuffer {.
     cdecl, constructor, importcpp: "Message_Messenger::StreamBuffer(@)",
-    dynlib: tkernel.}
+    header: "Message_Messenger.hxx".}
 proc `<<`*[T](this: var MessageMessengerStreamBuffer; theArg: T): var MessageMessengerStreamBuffer {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Messenger.hxx".}
 proc `<<`*(this: var MessageMessengerStreamBuffer;
           a2: proc (a1: var Ostream): var Ostream {.cdecl.}): var MessageMessengerStreamBuffer {.
-    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# << #)", header: "Message_Messenger.hxx".}
 proc stream*(this: var MessageMessengerStreamBuffer): var StandardSStream {.cdecl,
-    importcpp: "Stream", dynlib: tkernel.}
+    importcpp: "Stream", header: "Message_Messenger.hxx".}
 converter `standardOStream&`*(this: var MessageMessengerStreamBuffer): var StandardOStream {.
-    cdecl, importcpp: "StreamBuffer::operator Standard_OStream&", dynlib: tkernel.}
+    cdecl, importcpp: "StreamBuffer::operator Standard_OStream&", header: "Message_Messenger.hxx".}
 proc messenger*(this: var MessageMessengerStreamBuffer): ptr MessageMessenger {.cdecl,
-    importcpp: "Messenger", dynlib: tkernel.}
+    importcpp: "Messenger", header: "Message_Messenger.hxx".}
 proc newMessageMessenger*(): MessageMessenger {.cdecl, constructor,
-    importcpp: "Message_Messenger(@)", dynlib: tkernel.}
+    importcpp: "Message_Messenger(@)", header: "Message_Messenger.hxx".}
 proc newMessageMessenger*(thePrinter: Handle[MessagePrinter]): MessageMessenger {.
-    cdecl, constructor, importcpp: "Message_Messenger(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_Messenger(@)", header: "Message_Messenger.hxx".}
 proc addPrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter]): bool {.
-    cdecl, importcpp: "AddPrinter", dynlib: tkernel.}
+    cdecl, importcpp: "AddPrinter", header: "Message_Messenger.hxx".}
 proc removePrinter*(this: var MessageMessenger; thePrinter: Handle[MessagePrinter]): bool {.
-    cdecl, importcpp: "RemovePrinter", dynlib: tkernel.}
+    cdecl, importcpp: "RemovePrinter", header: "Message_Messenger.hxx".}
 proc removePrinters*(this: var MessageMessenger; theType: Handle[StandardType]): cint {.
-    cdecl, importcpp: "RemovePrinters", dynlib: tkernel.}
+    cdecl, importcpp: "RemovePrinters", header: "Message_Messenger.hxx".}
 proc printers*(this: MessageMessenger): MessageSequenceOfPrinters {.noSideEffect,
-    cdecl, importcpp: "Printers", dynlib: tkernel.}
+    cdecl, importcpp: "Printers", header: "Message_Messenger.hxx".}
 proc changePrinters*(this: var MessageMessenger): var MessageSequenceOfPrinters {.
-    cdecl, importcpp: "ChangePrinters", dynlib: tkernel.}
+    cdecl, importcpp: "ChangePrinters", header: "Message_Messenger.hxx".}
 proc send*(this: MessageMessenger; theString: cstring;
           theGravity: MessageGravity = 2.MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "Send", dynlib: tkernel.}
+    importcpp: "Send", header: "Message_Messenger.hxx".}
 proc send*(this: MessageMessenger; theStream: StandardSStream;
           theGravity: MessageGravity = 2.MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "Send", dynlib: tkernel.}
+    importcpp: "Send", header: "Message_Messenger.hxx".}
 proc send*(this: MessageMessenger; theString: TCollectionAsciiString;
           theGravity: MessageGravity = 2.MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "Send", dynlib: tkernel.}
+    importcpp: "Send", header: "Message_Messenger.hxx".}
 proc send*(this: MessageMessenger; theString: TCollectionExtendedString;
           theGravity: MessageGravity = 2.MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "Send", dynlib: tkernel.}
+    importcpp: "Send", header: "Message_Messenger.hxx".}
 proc send*(this: var MessageMessenger; theGravity: MessageGravity): MessageMessengerStreamBuffer {.
-    cdecl, importcpp: "Send", dynlib: tkernel.}
+    cdecl, importcpp: "Send", header: "Message_Messenger.hxx".}
 proc send*(this: MessageMessenger; theObject: Handle[StandardTransient];
           theGravity: MessageGravity = 2.MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "Send", dynlib: tkernel.}
+    importcpp: "Send", header: "Message_Messenger.hxx".}
 proc sendFail*(this: var MessageMessenger): MessageMessengerStreamBuffer {.cdecl,
-    importcpp: "SendFail", dynlib: tkernel.}
+    importcpp: "SendFail", header: "Message_Messenger.hxx".}
 proc sendAlarm*(this: var MessageMessenger): MessageMessengerStreamBuffer {.cdecl,
-    importcpp: "SendAlarm", dynlib: tkernel.}
+    importcpp: "SendAlarm", header: "Message_Messenger.hxx".}
 proc sendWarning*(this: var MessageMessenger): MessageMessengerStreamBuffer {.cdecl,
-    importcpp: "SendWarning", dynlib: tkernel.}
+    importcpp: "SendWarning", header: "Message_Messenger.hxx".}
 proc sendInfo*(this: var MessageMessenger): MessageMessengerStreamBuffer {.cdecl,
-    importcpp: "SendInfo", dynlib: tkernel.}
+    importcpp: "SendInfo", header: "Message_Messenger.hxx".}
 proc sendTrace*(this: var MessageMessenger): MessageMessengerStreamBuffer {.cdecl,
-    importcpp: "SendTrace", dynlib: tkernel.}
+    importcpp: "SendTrace", header: "Message_Messenger.hxx".}
 proc sendFail*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
-    cdecl, importcpp: "SendFail", dynlib: tkernel.}
+    cdecl, importcpp: "SendFail", header: "Message_Messenger.hxx".}
 proc sendAlarm*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
-    cdecl, importcpp: "SendAlarm", dynlib: tkernel.}
+    cdecl, importcpp: "SendAlarm", header: "Message_Messenger.hxx".}
 proc sendWarning*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
-    cdecl, importcpp: "SendWarning", dynlib: tkernel.}
+    cdecl, importcpp: "SendWarning", header: "Message_Messenger.hxx".}
 proc sendInfo*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
-    cdecl, importcpp: "SendInfo", dynlib: tkernel.}
+    cdecl, importcpp: "SendInfo", header: "Message_Messenger.hxx".}
 proc sendTrace*(this: var MessageMessenger; theMessage: TCollectionAsciiString) {.
-    cdecl, importcpp: "SendTrace", dynlib: tkernel.}
+    cdecl, importcpp: "SendTrace", header: "Message_Messenger.hxx".}
 proc dumpJson*(this: MessageMessenger; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkernel.}
+                                 header: "Message_Messenger.hxx".}

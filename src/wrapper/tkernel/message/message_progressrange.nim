@@ -27,37 +27,37 @@ type
 
 
 proc newMessageProgressRange*(): MessageProgressRange {.cdecl, constructor,
-    importcpp: "Message_ProgressRange(@)", dynlib: tkernel.}
+    importcpp: "Message_ProgressRange(@)", header: "Message_ProgressRange.hxx".}
 proc newMessageProgressRange*(theOther: MessageProgressRange): MessageProgressRange {.
-    cdecl, constructor, importcpp: "Message_ProgressRange(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_ProgressRange(@)", header: "Message_ProgressRange.hxx".}
 proc userBreak*(this: MessageProgressRange): bool {.noSideEffect, cdecl,
-    importcpp: "UserBreak", dynlib: tkernel.}
+    importcpp: "UserBreak", header: "Message_ProgressRange.hxx".}
 proc more*(this: MessageProgressRange): bool {.noSideEffect, cdecl, importcpp: "More",
-    dynlib: tkernel.}
+    header: "Message_ProgressRange.hxx".}
 proc isActive*(this: MessageProgressRange): bool {.noSideEffect, cdecl,
-    importcpp: "IsActive", dynlib: tkernel.}
+    importcpp: "IsActive", header: "Message_ProgressRange.hxx".}
 proc close*(this: var MessageProgressRange) {.cdecl, importcpp: "Close",
-    dynlib: tkernel.}
+    header: "Message_ProgressRange.hxx".}
 proc destroyMessageProgressRange*(this: var MessageProgressRange) {.cdecl,
-    importcpp: "#.~Message_ProgressRange()", dynlib: tkernel.}
+    importcpp: "#.~Message_ProgressRange()", header: "Message_ProgressRange.hxx".}
 ## =======================================================================
 ## function : IsActive
 ## purpose  :
 ## =======================================================================
 
 #proc isActive*(this: MessageProgressRange): bool {.noSideEffect, cdecl,
-#    importcpp: "IsActive", dynlib: tkernel.}
+#    importcpp: "IsActive", header: "Message_ProgressRange.hxx".}
 ## =======================================================================
 ## function : UserBreak
 ## purpose  :
 ## =======================================================================
 
 #proc userBreak*(this: MessageProgressRange): bool {.noSideEffect, cdecl,
-#    importcpp: "UserBreak", dynlib: tkernel.}
+#    importcpp: "UserBreak", header: "Message_ProgressRange.hxx".}
 ## =======================================================================
 ## function : Close
 ## purpose  :
 ## =======================================================================
 
 #proc close*(this: var MessageProgressRange) {.cdecl, importcpp: "Close",
-#    dynlib: tkernel.}
+#    header: "Message_ProgressRange.hxx".}

@@ -22,10 +22,10 @@ type
 
 proc newIntSurfCouple*(): IntSurfCouple {.cdecl, constructor,
                                        importcpp: "IntSurf_Couple(@)",
-                                       dynlib: tkgeomalgo.}
+                                       header: "IntSurf_Couple.hxx".}
 proc newIntSurfCouple*(index1: cint; index2: cint): IntSurfCouple {.cdecl, constructor,
-    importcpp: "IntSurf_Couple(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_Couple(@)", header: "IntSurf_Couple.hxx".}
 proc first*(this: IntSurfCouple): cint {.noSideEffect, cdecl, importcpp: "First",
-                                     dynlib: tkgeomalgo.}
+                                     header: "IntSurf_Couple.hxx".}
 proc second*(this: IntSurfCouple): cint {.noSideEffect, cdecl, importcpp: "Second",
-                                      dynlib: tkgeomalgo.}
+                                      header: "IntSurf_Couple.hxx".}

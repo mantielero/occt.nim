@@ -39,45 +39,45 @@ type
 
 
 proc isPointOnCurve*(this: BRepPointRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnCurve", dynlib: tkbrep.}
+    importcpp: "IsPointOnCurve", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnCurveOnSurface*(this: BRepPointRepresentation): bool {.noSideEffect,
-    cdecl, importcpp: "IsPointOnCurveOnSurface", dynlib: tkbrep.}
+    cdecl, importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnSurface*(this: BRepPointRepresentation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnCurve*(this: BRepPointRepresentation; c: Handle[GeomCurve];
                     L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnCurve", dynlib: tkbrep.}
+    importcpp: "IsPointOnCurve", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnCurveOnSurface*(this: BRepPointRepresentation;
                              pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                              L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnCurveOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnCurveOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc isPointOnSurface*(this: BRepPointRepresentation; s: Handle[GeomSurface];
                       L: TopLocLocation): bool {.noSideEffect, cdecl,
-    importcpp: "IsPointOnSurface", dynlib: tkbrep.}
+    importcpp: "IsPointOnSurface", header: "BRep_PointRepresentation.hxx".}
 proc location*(this: BRepPointRepresentation): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkbrep.}
+    importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
 proc location*(this: var BRepPointRepresentation; L: TopLocLocation) {.cdecl,
-    importcpp: "Location", dynlib: tkbrep.}
+    importcpp: "Location", header: "BRep_PointRepresentation.hxx".}
 proc parameter*(this: BRepPointRepresentation): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter", dynlib: tkbrep.}
+    importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
 proc parameter*(this: var BRepPointRepresentation; p: cfloat) {.cdecl,
-    importcpp: "Parameter", dynlib: tkbrep.}
+    importcpp: "Parameter", header: "BRep_PointRepresentation.hxx".}
 proc parameter2*(this: BRepPointRepresentation): cfloat {.noSideEffect, cdecl,
-    importcpp: "Parameter2", dynlib: tkbrep.}
+    importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
 proc parameter2*(this: var BRepPointRepresentation; p: cfloat) {.cdecl,
-    importcpp: "Parameter2", dynlib: tkbrep.}
+    importcpp: "Parameter2", header: "BRep_PointRepresentation.hxx".}
 proc curve*(this: BRepPointRepresentation): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkbrep.}
+    importcpp: "Curve", header: "BRep_PointRepresentation.hxx".}
 proc curve*(this: var BRepPointRepresentation; c: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Curve", dynlib: tkbrep.}
+    importcpp: "Curve", header: "BRep_PointRepresentation.hxx".}
 proc pCurve*(this: BRepPointRepresentation): Handle[Geom2dCurve] {.noSideEffect,
-    cdecl, importcpp: "PCurve", dynlib: tkbrep.}
+    cdecl, importcpp: "PCurve", header: "BRep_PointRepresentation.hxx".}
 proc pCurve*(this: var BRepPointRepresentation; c: Handle[Geom2dCurve]) {.cdecl,
-    importcpp: "PCurve", dynlib: tkbrep.}
+    importcpp: "PCurve", header: "BRep_PointRepresentation.hxx".}
 proc surface*(this: BRepPointRepresentation): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface", dynlib: tkbrep.}
+    cdecl, importcpp: "Surface", header: "BRep_PointRepresentation.hxx".}
 proc surface*(this: var BRepPointRepresentation; s: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_PointRepresentation.hxx".}
 proc dumpJson*(this: BRepPointRepresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_PointRepresentation.hxx".}

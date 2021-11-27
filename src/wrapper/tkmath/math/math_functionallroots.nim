@@ -55,22 +55,22 @@ type
 proc newMathFunctionAllRoots*(f: var MathFunctionWithDerivative;
                              s: MathFunctionSample; epsX: cfloat; epsF: cfloat;
                              epsNul: cfloat): MathFunctionAllRoots {.cdecl,
-    constructor, importcpp: "math_FunctionAllRoots(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_FunctionAllRoots(@)", header: "math_FunctionAllRoots.hxx".}
 proc isDone*(this: MathFunctionAllRoots): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_FunctionAllRoots.hxx".}
 proc nbIntervals*(this: MathFunctionAllRoots): cint {.noSideEffect, cdecl,
-    importcpp: "NbIntervals", dynlib: tkmath.}
+    importcpp: "NbIntervals", header: "math_FunctionAllRoots.hxx".}
 proc getInterval*(this: MathFunctionAllRoots; index: cint; a: var cfloat; b: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetInterval", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "GetInterval", header: "math_FunctionAllRoots.hxx".}
 proc getIntervalState*(this: MathFunctionAllRoots; index: cint; iFirst: var cint;
                       iLast: var cint) {.noSideEffect, cdecl,
                                       importcpp: "GetIntervalState",
-                                      dynlib: tkmath.}
+                                      header: "math_FunctionAllRoots.hxx".}
 proc nbPoints*(this: MathFunctionAllRoots): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoints", dynlib: tkmath.}
+    importcpp: "NbPoints", header: "math_FunctionAllRoots.hxx".}
 proc getPoint*(this: MathFunctionAllRoots; index: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetPoint", dynlib: tkmath.}
+    importcpp: "GetPoint", header: "math_FunctionAllRoots.hxx".}
 proc getPointState*(this: MathFunctionAllRoots; index: cint): cint {.noSideEffect,
-    cdecl, importcpp: "GetPointState", dynlib: tkmath.}
+    cdecl, importcpp: "GetPointState", header: "math_FunctionAllRoots.hxx".}
 proc dump*(this: MathFunctionAllRoots; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_FunctionAllRoots.hxx".}

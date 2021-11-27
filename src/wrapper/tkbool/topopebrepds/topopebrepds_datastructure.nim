@@ -31,219 +31,219 @@ type
 
 
 proc newTopOpeBRepDS_DataStructure*(): TopOpeBRepDS_DataStructure {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_DataStructure(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_DataStructure(@)", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc init*(this: var TopOpeBRepDS_DataStructure) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addSurface*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Surface): cint {.
-    cdecl, importcpp: "AddSurface", dynlib: tkbool.}
+    cdecl, importcpp: "AddSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc removeSurface*(this: var TopOpeBRepDS_DataStructure; i: cint) {.cdecl,
-    importcpp: "RemoveSurface", dynlib: tkbool.}
+    importcpp: "RemoveSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepSurface*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect,
-    cdecl, importcpp: "KeepSurface", dynlib: tkbool.}
+    cdecl, importcpp: "KeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepSurface*(this: TopOpeBRepDS_DataStructure; s: var TopOpeBRepDS_Surface): bool {.
-    noSideEffect, cdecl, importcpp: "KeepSurface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepSurface*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
-    cdecl, importcpp: "ChangeKeepSurface", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeKeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepSurface*(this: var TopOpeBRepDS_DataStructure;
                        s: var TopOpeBRepDS_Surface; findKeep: bool) {.cdecl,
-    importcpp: "ChangeKeepSurface", dynlib: tkbool.}
+    importcpp: "ChangeKeepSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addCurve*(this: var TopOpeBRepDS_DataStructure; s: TopOpeBRepDS_Curve): cint {.
-    cdecl, importcpp: "AddCurve", dynlib: tkbool.}
+    cdecl, importcpp: "AddCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc removeCurve*(this: var TopOpeBRepDS_DataStructure; i: cint) {.cdecl,
-    importcpp: "RemoveCurve", dynlib: tkbool.}
+    importcpp: "RemoveCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepCurve*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect, cdecl,
-    importcpp: "KeepCurve", dynlib: tkbool.}
+    importcpp: "KeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepCurve*(this: TopOpeBRepDS_DataStructure; c: TopOpeBRepDS_Curve): bool {.
-    noSideEffect, cdecl, importcpp: "KeepCurve", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepCurve*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
-    cdecl, importcpp: "ChangeKeepCurve", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeKeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepCurve*(this: var TopOpeBRepDS_DataStructure;
                      c: var TopOpeBRepDS_Curve; findKeep: bool) {.cdecl,
-    importcpp: "ChangeKeepCurve", dynlib: tkbool.}
+    importcpp: "ChangeKeepCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addPoint*(this: var TopOpeBRepDS_DataStructure; pds: TopOpeBRepDS_Point): cint {.
-    cdecl, importcpp: "AddPoint", dynlib: tkbool.}
+    cdecl, importcpp: "AddPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addPointSS*(this: var TopOpeBRepDS_DataStructure; pds: TopOpeBRepDS_Point;
                 s1: TopoDS_Shape; s2: TopoDS_Shape): cint {.cdecl,
-    importcpp: "AddPointSS", dynlib: tkbool.}
+    importcpp: "AddPointSS", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc removePoint*(this: var TopOpeBRepDS_DataStructure; i: cint) {.cdecl,
-    importcpp: "RemovePoint", dynlib: tkbool.}
+    importcpp: "RemovePoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepPoint*(this: TopOpeBRepDS_DataStructure; i: cint): bool {.noSideEffect, cdecl,
-    importcpp: "KeepPoint", dynlib: tkbool.}
+    importcpp: "KeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepPoint*(this: TopOpeBRepDS_DataStructure; p: TopOpeBRepDS_Point): bool {.
-    noSideEffect, cdecl, importcpp: "KeepPoint", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepPoint*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
-    cdecl, importcpp: "ChangeKeepPoint", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeKeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepPoint*(this: var TopOpeBRepDS_DataStructure;
                      p: var TopOpeBRepDS_Point; findKeep: bool) {.cdecl,
-    importcpp: "ChangeKeepPoint", dynlib: tkbool.}
+    importcpp: "ChangeKeepPoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.cdecl,
-    importcpp: "AddShape", dynlib: tkbool.}
+    importcpp: "AddShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; i: cint): cint {.
-    cdecl, importcpp: "AddShape", dynlib: tkbool.}
+    cdecl, importcpp: "AddShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepShape*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): bool {.
-    noSideEffect, cdecl, importcpp: "KeepShape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "KeepShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc keepShape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                findKeep: bool = true): bool {.noSideEffect, cdecl,
-    importcpp: "KeepShape", dynlib: tkbool.}
+    importcpp: "KeepShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepShape*(this: var TopOpeBRepDS_DataStructure; i: cint; findKeep: bool) {.
-    cdecl, importcpp: "ChangeKeepShape", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeKeepShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeKeepShape*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                      findKeep: bool) {.cdecl, importcpp: "ChangeKeepShape",
-                                     dynlib: tkbool.}
+                                     header: "TopOpeBRepDS_DataStructure.hxx".}
 proc initSectionEdges*(this: var TopOpeBRepDS_DataStructure) {.cdecl,
-    importcpp: "InitSectionEdges", dynlib: tkbool.}
+    importcpp: "InitSectionEdges", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addSectionEdge*(this: var TopOpeBRepDS_DataStructure; e: TopoDS_Edge): cint {.
-    cdecl, importcpp: "AddSectionEdge", dynlib: tkbool.}
+    cdecl, importcpp: "AddSectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc surfaceInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "SurfaceInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SurfaceInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeSurfaceInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeSurfaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeSurfaceInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc curveInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "CurveInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "CurveInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeCurveInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeCurveInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeCurveInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc pointInterferences*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "PointInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "PointInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changePointInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangePointInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangePointInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                         findKeep: bool = true): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "ShapeInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ShapeInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapeInterferences*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeShapeInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeShapeInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeInterferences*(this: TopOpeBRepDS_DataStructure; i: cint;
                         findKeep: bool = true): TopOpeBRepDS_ListOfInterference {.
-    noSideEffect, cdecl, importcpp: "ShapeInterferences", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ShapeInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapeInterferences*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "ChangeShapeInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeShapeInterferences", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "ShapeSameDomain", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeShapeSameDomain", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shapeSameDomain*(this: TopOpeBRepDS_DataStructure; i: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "ShapeSameDomain", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeShapeSameDomain", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeShapes*(this: var TopOpeBRepDS_DataStructure): var TopOpeBRepDS_MapOfShapeData {.
-    cdecl, importcpp: "ChangeShapes", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeShapes", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                         ssd: TopoDS_Shape) {.cdecl,
-    importcpp: "AddShapeSameDomain", dynlib: tkbool.}
+    importcpp: "AddShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc removeShapeSameDomain*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                            ssd: TopoDS_Shape) {.cdecl,
-    importcpp: "RemoveShapeSameDomain", dynlib: tkbool.}
+    importcpp: "RemoveShapeSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
-    cdecl, importcpp: "SameDomainRef", dynlib: tkbool.}
+    cdecl, importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainRef*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
-    noSideEffect, cdecl, importcpp: "SameDomainRef", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; i: cint; `ref`: cint) {.cdecl,
-    importcpp: "SameDomainRef", dynlib: tkbool.}
+    importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainRef*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; `ref`: cint) {.
-    cdecl, importcpp: "SameDomainRef", dynlib: tkbool.}
+    cdecl, importcpp: "SameDomainRef", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Config {.
-    noSideEffect, cdecl, importcpp: "SameDomainOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SameDomainOri", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): TopOpeBRepDS_Config {.
-    noSideEffect, cdecl, importcpp: "SameDomainOri", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SameDomainOri", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: var TopOpeBRepDS_DataStructure; i: cint;
                    ori: TopOpeBRepDS_Config) {.cdecl, importcpp: "SameDomainOri",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainOri*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                    ori: TopOpeBRepDS_Config) {.cdecl, importcpp: "SameDomainOri",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
-    cdecl, importcpp: "SameDomainInd", dynlib: tkbool.}
+    cdecl, importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainInd*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
-    noSideEffect, cdecl, importcpp: "SameDomainInd", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; i: cint; ind: cint) {.cdecl,
-    importcpp: "SameDomainInd", dynlib: tkbool.}
+    importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sameDomainInd*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ind: cint) {.
-    cdecl, importcpp: "SameDomainInd", dynlib: tkbool.}
+    cdecl, importcpp: "SameDomainInd", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc ancestorRank*(this: TopOpeBRepDS_DataStructure; i: cint): cint {.noSideEffect,
-    cdecl, importcpp: "AncestorRank", dynlib: tkbool.}
+    cdecl, importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc ancestorRank*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): cint {.
-    noSideEffect, cdecl, importcpp: "AncestorRank", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; i: cint; ianc: cint) {.cdecl,
-    importcpp: "AncestorRank", dynlib: tkbool.}
+    importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc ancestorRank*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape; ianc: cint) {.
-    cdecl, importcpp: "AncestorRank", dynlib: tkbool.}
+    cdecl, importcpp: "AncestorRank", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc addShapeInterference*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                           i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "AddShapeInterference", dynlib: tkbool.}
+    importcpp: "AddShapeInterference", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc removeShapeInterference*(this: var TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
                              i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "RemoveShapeInterference", dynlib: tkbool.}
+    importcpp: "RemoveShapeInterference", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc fillShapesSameDomain*(this: var TopOpeBRepDS_DataStructure; s1: TopoDS_Shape;
                           s2: TopoDS_Shape; refFirst: bool = true) {.cdecl,
-    importcpp: "FillShapesSameDomain", dynlib: tkbool.}
+    importcpp: "FillShapesSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc fillShapesSameDomain*(this: var TopOpeBRepDS_DataStructure; s1: TopoDS_Shape;
                           s2: TopoDS_Shape; c1: TopOpeBRepDS_Config;
                           c2: TopOpeBRepDS_Config; refFirst: bool = true) {.cdecl,
-    importcpp: "FillShapesSameDomain", dynlib: tkbool.}
+    importcpp: "FillShapesSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc unfillShapesSameDomain*(this: var TopOpeBRepDS_DataStructure; s1: TopoDS_Shape;
                             s2: TopoDS_Shape) {.cdecl,
-    importcpp: "UnfillShapesSameDomain", dynlib: tkbool.}
+    importcpp: "UnfillShapesSameDomain", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc nbSurfaces*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurfaces", dynlib: tkbool.}
+    importcpp: "NbSurfaces", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc nbCurves*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect, cdecl,
-    importcpp: "NbCurves", dynlib: tkbool.}
+    importcpp: "NbCurves", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeNbCurves*(this: var TopOpeBRepDS_DataStructure; n: cint) {.cdecl,
-    importcpp: "ChangeNbCurves", dynlib: tkbool.}
+    importcpp: "ChangeNbCurves", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc nbPoints*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoints", dynlib: tkbool.}
+    importcpp: "NbPoints", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc nbShapes*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect, cdecl,
-    importcpp: "NbShapes", dynlib: tkbool.}
+    importcpp: "NbShapes", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc nbSectionEdges*(this: TopOpeBRepDS_DataStructure): cint {.noSideEffect, cdecl,
-    importcpp: "NbSectionEdges", dynlib: tkbool.}
+    importcpp: "NbSectionEdges", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc surface*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Surface {.
-    noSideEffect, cdecl, importcpp: "Surface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Surface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeSurface*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Surface {.
-    cdecl, importcpp: "ChangeSurface", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc curve*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Curve {.
-    noSideEffect, cdecl, importcpp: "Curve", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Curve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeCurve*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Curve {.
-    cdecl, importcpp: "ChangeCurve", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeCurve", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc point*(this: TopOpeBRepDS_DataStructure; i: cint): TopOpeBRepDS_Point {.
-    noSideEffect, cdecl, importcpp: "Point", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Point", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changePoint*(this: var TopOpeBRepDS_DataStructure; i: cint): var TopOpeBRepDS_Point {.
-    cdecl, importcpp: "ChangePoint", dynlib: tkbool.}
+    cdecl, importcpp: "ChangePoint", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shape*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "Shape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Shape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc shape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape; findKeep: bool = true): cint {.
-    noSideEffect, cdecl, importcpp: "Shape", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Shape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sectionEdge*(this: TopOpeBRepDS_DataStructure; i: cint; findKeep: bool = true): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "SectionEdge", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc sectionEdge*(this: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
                  findKeep: bool = true): cint {.noSideEffect, cdecl,
-    importcpp: "SectionEdge", dynlib: tkbool.}
+    importcpp: "SectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc isSectionEdge*(this: TopOpeBRepDS_DataStructure; e: TopoDS_Edge;
                    findKeep: bool = true): bool {.noSideEffect, cdecl,
-    importcpp: "IsSectionEdge", dynlib: tkbool.}
+    importcpp: "IsSectionEdge", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc hasGeometry*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape): bool {.
-    noSideEffect, cdecl, importcpp: "HasGeometry", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HasGeometry", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc hasShape*(this: TopOpeBRepDS_DataStructure; s: TopoDS_Shape;
               findKeep: bool = true): bool {.noSideEffect, cdecl,
-                                        importcpp: "HasShape", dynlib: tkbool.}
+                                        importcpp: "HasShape", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc setNewSurface*(this: var TopOpeBRepDS_DataStructure; f: TopoDS_Shape;
                    s: Handle[GeomSurface]) {.cdecl, importcpp: "SetNewSurface",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_DataStructure.hxx".}
 proc hasNewSurface*(this: TopOpeBRepDS_DataStructure; f: TopoDS_Shape): bool {.
-    noSideEffect, cdecl, importcpp: "HasNewSurface", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HasNewSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc newSurface*(this: TopOpeBRepDS_DataStructure; f: TopoDS_Shape): Handle[
-    GeomSurface] {.noSideEffect, cdecl, importcpp: "NewSurface", dynlib: tkbool.}
+    GeomSurface] {.noSideEffect, cdecl, importcpp: "NewSurface", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc isfafa*(this: var TopOpeBRepDS_DataStructure; isfafa: bool) {.cdecl,
-    importcpp: "Isfafa", dynlib: tkbool.}
+    importcpp: "Isfafa", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc isfafa*(this: TopOpeBRepDS_DataStructure): bool {.noSideEffect, cdecl,
-    importcpp: "Isfafa", dynlib: tkbool.}
+    importcpp: "Isfafa", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfShapeWithStateObj*(this: var TopOpeBRepDS_DataStructure): var TopOpeBRepDS_IndexedDataMapOfShapeWithState {.
-    cdecl, importcpp: "ChangeMapOfShapeWithStateObj", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMapOfShapeWithStateObj", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfShapeWithStateTool*(this: var TopOpeBRepDS_DataStructure): var TopOpeBRepDS_IndexedDataMapOfShapeWithState {.
-    cdecl, importcpp: "ChangeMapOfShapeWithStateTool", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMapOfShapeWithStateTool", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfShapeWithState*(this: var TopOpeBRepDS_DataStructure;
                                aShape: TopoDS_Shape; aFlag: var bool): var TopOpeBRepDS_IndexedDataMapOfShapeWithState {.
-    cdecl, importcpp: "ChangeMapOfShapeWithState", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMapOfShapeWithState", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc getShapeWithState*(this: TopOpeBRepDS_DataStructure; aShape: TopoDS_Shape): TopOpeBRepDS_ShapeWithState {.
-    noSideEffect, cdecl, importcpp: "GetShapeWithState", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GetShapeWithState", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfRejectedShapesObj*(this: var TopOpeBRepDS_DataStructure): var TopToolsIndexedMapOfShape {.
-    cdecl, importcpp: "ChangeMapOfRejectedShapesObj", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMapOfRejectedShapesObj", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfRejectedShapesTool*(this: var TopOpeBRepDS_DataStructure): var TopToolsIndexedMapOfShape {.
-    cdecl, importcpp: "ChangeMapOfRejectedShapesTool", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeMapOfRejectedShapesTool", header: "TopOpeBRepDS_DataStructure.hxx".}

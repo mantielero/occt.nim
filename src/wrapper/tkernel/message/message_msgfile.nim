@@ -22,18 +22,18 @@ type
 
 
 proc load*(theDirName: cstring; theFileName: cstring): bool {.cdecl,
-    importcpp: "Message_MsgFile::Load(@)", dynlib: tkernel.}
+    importcpp: "Message_MsgFile::Load(@)", header: "Message_MsgFile.hxx".}
 proc loadFile*(theFName: cstring): bool {.cdecl, importcpp: "Message_MsgFile::LoadFile(@)",
-                                      dynlib: tkernel.}
+                                      header: "Message_MsgFile.hxx".}
 proc loadFromEnv*(theEnvName: cstring; theFileName: cstring; theLangExt: cstring = ""): bool {.
-    cdecl, importcpp: "Message_MsgFile::LoadFromEnv(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message_MsgFile::LoadFromEnv(@)", header: "Message_MsgFile.hxx".}
 proc loadFromString*(theContent: cstring; theLength: cint = -1): bool {.cdecl,
-    importcpp: "Message_MsgFile::LoadFromString(@)", dynlib: tkernel.}
+    importcpp: "Message_MsgFile::LoadFromString(@)", header: "Message_MsgFile.hxx".}
 proc addMsg*(key: TCollectionAsciiString; text: TCollectionExtendedString): bool {.
-    cdecl, importcpp: "Message_MsgFile::AddMsg(@)", dynlib: tkernel.}
+    cdecl, importcpp: "Message_MsgFile::AddMsg(@)", header: "Message_MsgFile.hxx".}
 proc hasMsg*(key: TCollectionAsciiString): bool {.cdecl,
-    importcpp: "Message_MsgFile::HasMsg(@)", dynlib: tkernel.}
+    importcpp: "Message_MsgFile::HasMsg(@)", header: "Message_MsgFile.hxx".}
 proc msg*(key: cstring): TCollectionExtendedString {.cdecl,
-    importcpp: "Message_MsgFile::Msg(@)", dynlib: tkernel.}
+    importcpp: "Message_MsgFile::Msg(@)", header: "Message_MsgFile.hxx".}
 proc msg*(key: TCollectionAsciiString): TCollectionExtendedString {.cdecl,
-    importcpp: "Message_MsgFile::Msg(@)", dynlib: tkernel.}
+    importcpp: "Message_MsgFile::Msg(@)", header: "Message_MsgFile.hxx".}

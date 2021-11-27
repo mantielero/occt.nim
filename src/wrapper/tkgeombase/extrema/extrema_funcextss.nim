@@ -24,29 +24,29 @@ type
 
 
 proc newExtremaFuncExtSS*(): ExtremaFuncExtSS {.cdecl, constructor,
-    importcpp: "Extrema_FuncExtSS(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_FuncExtSS(@)", header: "Extrema_FuncExtSS.hxx".}
 proc newExtremaFuncExtSS*(s1: Adaptor3dSurface; s2: Adaptor3dSurface): ExtremaFuncExtSS {.
-    cdecl, constructor, importcpp: "Extrema_FuncExtSS(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_FuncExtSS(@)", header: "Extrema_FuncExtSS.hxx".}
 proc initialize*(this: var ExtremaFuncExtSS; s1: Adaptor3dSurface;
                 s2: Adaptor3dSurface) {.cdecl, importcpp: "Initialize",
-                                      dynlib: tkgeombase.}
+                                      header: "Extrema_FuncExtSS.hxx".}
 proc nbVariables*(this: ExtremaFuncExtSS): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeombase.}
+    importcpp: "NbVariables", header: "Extrema_FuncExtSS.hxx".}
 proc nbEquations*(this: ExtremaFuncExtSS): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeombase.}
+    importcpp: "NbEquations", header: "Extrema_FuncExtSS.hxx".}
 proc value*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "Extrema_FuncExtSS.hxx".}
 proc derivatives*(this: var ExtremaFuncExtSS; uv: MathVector; df: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkgeombase.}
+    cdecl, importcpp: "Derivatives", header: "Extrema_FuncExtSS.hxx".}
 proc values*(this: var ExtremaFuncExtSS; uv: MathVector; f: var MathVector;
-            df: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeombase.}
+            df: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Extrema_FuncExtSS.hxx".}
 proc getStateNumber*(this: var ExtremaFuncExtSS): cint {.cdecl,
-    importcpp: "GetStateNumber", dynlib: tkgeombase.}
+    importcpp: "GetStateNumber", header: "Extrema_FuncExtSS.hxx".}
 proc nbExt*(this: ExtremaFuncExtSS): cint {.noSideEffect, cdecl, importcpp: "NbExt",
-                                        dynlib: tkgeombase.}
+                                        header: "Extrema_FuncExtSS.hxx".}
 proc squareDistance*(this: ExtremaFuncExtSS; n: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_FuncExtSS.hxx".}
 proc pointOnS1*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
-    importcpp: "PointOnS1", dynlib: tkgeombase.}
+    importcpp: "PointOnS1", header: "Extrema_FuncExtSS.hxx".}
 proc pointOnS2*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
-    importcpp: "PointOnS2", dynlib: tkgeombase.}
+    importcpp: "PointOnS2", header: "Extrema_FuncExtSS.hxx".}

@@ -24,19 +24,19 @@ type
 
 
 proc newTopOpeBRepToolSolidClassifier*(): TopOpeBRepToolSolidClassifier {.cdecl,
-    constructor, importcpp: "TopOpeBRepTool_SolidClassifier(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepTool_SolidClassifier(@)", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc clear*(this: var TopOpeBRepToolSolidClassifier) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc destroyTopOpeBRepToolSolidClassifier*(
     this: var TopOpeBRepToolSolidClassifier) {.cdecl,
-    importcpp: "#.~TopOpeBRepTool_SolidClassifier()", dynlib: tkbool.}
+    importcpp: "#.~TopOpeBRepTool_SolidClassifier()", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadSolid*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid) {.cdecl,
-    importcpp: "LoadSolid", dynlib: tkbool.}
+    importcpp: "LoadSolid", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: Pnt;
-              tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", dynlib: tkbool.}
+              tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadShell*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell) {.cdecl,
-    importcpp: "LoadShell", dynlib: tkbool.}
+    importcpp: "LoadShell", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: Pnt;
-              tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", dynlib: tkbool.}
+              tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect, cdecl,
-    importcpp: "State", dynlib: tkbool.}
+    importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}

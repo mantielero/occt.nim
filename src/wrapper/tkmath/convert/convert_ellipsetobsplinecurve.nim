@@ -30,8 +30,8 @@ type
 
 proc newConvertEllipseToBSplineCurve*(e: Elips2d; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
-    dynlib: tkmath.}
+    header: "Convert_EllipseToBSplineCurve.hxx".}
 proc newConvertEllipseToBSplineCurve*(e: Elips2d; u1: cfloat; u2: cfloat;
     parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_EllipseToBSplineCurve(@)",
-    dynlib: tkmath.}
+    header: "Convert_EllipseToBSplineCurve.hxx".}

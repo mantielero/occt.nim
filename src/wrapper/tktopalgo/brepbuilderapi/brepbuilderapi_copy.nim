@@ -36,9 +36,9 @@ type
 
 
 proc newBRepBuilderAPI_Copy*(): BRepBuilderAPI_Copy {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_Copy(@)", dynlib: tktopalgo.}
+    importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
 proc newBRepBuilderAPI_Copy*(s: TopoDS_Shape; copyGeom: bool = true;
                             copyMesh: bool = false): BRepBuilderAPI_Copy {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_Copy(@)", dynlib: tktopalgo.}
+    constructor, importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
 proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape; copyGeom: bool = true;
-             copyMesh: bool = false) {.cdecl, importcpp: "Perform", dynlib: tktopalgo.}
+             copyMesh: bool = false) {.cdecl, importcpp: "Perform", header: "BRepBuilderAPI_Copy.hxx".}

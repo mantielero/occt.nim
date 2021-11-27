@@ -25,12 +25,12 @@ type
 
 
 proc newMathSVD*(a: MathMatrix): MathSVD {.cdecl, constructor,
-                                       importcpp: "math_SVD(@)", dynlib: tkmath.}
+                                       importcpp: "math_SVD(@)", header: "math_SVD.hxx".}
 proc isDone*(this: MathSVD): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-                                dynlib: tkmath.}
+                                header: "math_SVD.hxx".}
 proc solve*(this: var MathSVD; b: MathVector; x: var MathVector; eps: cfloat = 1.0e-6) {.
-    cdecl, importcpp: "Solve", dynlib: tkmath.}
+    cdecl, importcpp: "Solve", header: "math_SVD.hxx".}
 proc pseudoInverse*(this: var MathSVD; inv: var MathMatrix; eps: cfloat = 1.0e-6) {.cdecl,
-    importcpp: "PseudoInverse", dynlib: tkmath.}
+    importcpp: "PseudoInverse", header: "math_SVD.hxx".}
 proc dump*(this: MathSVD; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_SVD.hxx".}

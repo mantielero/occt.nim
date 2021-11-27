@@ -51,7 +51,7 @@ proc newConvertCompPolynomialToPoles*(numCurves: cint; continuity: cint;
     TColStdHArray1OfReal]; polynomialIntervals: Handle[TColStdHArray2OfReal];
     trueIntervals: Handle[TColStdHArray1OfReal]): ConvertCompPolynomialToPoles {.
     cdecl, constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
-    dynlib: tkmath.}
+    header: "Convert_CompPolynomialToPoles.hxx".}
 proc newConvertCompPolynomialToPoles*(numCurves: cint; dimension: cint;
                                      maxDegree: cint;
                                      continuity: TColStdArray1OfInteger;
@@ -60,26 +60,26 @@ proc newConvertCompPolynomialToPoles*(numCurves: cint; dimension: cint;
                                      polynomialIntervals: TColStdArray2OfReal;
                                      trueIntervals: TColStdArray1OfReal): ConvertCompPolynomialToPoles {.
     cdecl, constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
-    dynlib: tkmath.}
+    header: "Convert_CompPolynomialToPoles.hxx".}
 proc newConvertCompPolynomialToPoles*(dimension: cint; maxDegree: cint; degree: cint;
                                      coefficients: TColStdArray1OfReal;
                                      polynomialIntervals: TColStdArray1OfReal;
                                      trueIntervals: TColStdArray1OfReal): ConvertCompPolynomialToPoles {.
     cdecl, constructor, importcpp: "Convert_CompPolynomialToPoles(@)",
-    dynlib: tkmath.}
+    header: "Convert_CompPolynomialToPoles.hxx".}
 proc nbPoles*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkmath.}
+    importcpp: "NbPoles", header: "Convert_CompPolynomialToPoles.hxx".}
 proc poles*(this: ConvertCompPolynomialToPoles;
            poles: var Handle[TColStdHArray2OfReal]) {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkmath.}
+    importcpp: "Poles", header: "Convert_CompPolynomialToPoles.hxx".}
 proc degree*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "Degree", dynlib: tkmath.}
+    importcpp: "Degree", header: "Convert_CompPolynomialToPoles.hxx".}
 proc nbKnots*(this: ConvertCompPolynomialToPoles): cint {.noSideEffect, cdecl,
-    importcpp: "NbKnots", dynlib: tkmath.}
+    importcpp: "NbKnots", header: "Convert_CompPolynomialToPoles.hxx".}
 proc knots*(this: ConvertCompPolynomialToPoles; k: var Handle[TColStdHArray1OfReal]) {.
-    noSideEffect, cdecl, importcpp: "Knots", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Knots", header: "Convert_CompPolynomialToPoles.hxx".}
 proc multiplicities*(this: ConvertCompPolynomialToPoles;
                     m: var Handle[TColStdHArray1OfInteger]) {.noSideEffect, cdecl,
-    importcpp: "Multiplicities", dynlib: tkmath.}
+    importcpp: "Multiplicities", header: "Convert_CompPolynomialToPoles.hxx".}
 proc isDone*(this: ConvertCompPolynomialToPoles): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "Convert_CompPolynomialToPoles.hxx".}

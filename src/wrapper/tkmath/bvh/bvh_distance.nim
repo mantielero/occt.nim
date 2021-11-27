@@ -45,27 +45,27 @@ type
 
 proc newBVH_Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](): BVH_Distance[
     NumType, Dimension, ObjectType, BVHSetType] {.cdecl, constructor,
-    importcpp: "BVH_Distance<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkmath.}
+    importcpp: "BVH_Distance<\'*0,\'*1,\'*2,\'*3>(@)", header: "BVH_Distance.hxx".}
 proc setObject*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: var BVH_Distance[NumType, Dimension, ObjectType, BVHSetType];
-    theObject: ObjectType) {.cdecl, importcpp: "SetObject", dynlib: tkmath.}
+    theObject: ObjectType) {.cdecl, importcpp: "SetObject", header: "BVH_Distance.hxx".}
 proc computeDistance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: var BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): NumType {.
-    cdecl, importcpp: "ComputeDistance", dynlib: tkmath.}
+    cdecl, importcpp: "ComputeDistance", header: "BVH_Distance.hxx".}
 proc isDone*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): bool {.
-    noSideEffect, cdecl, importcpp: "IsDone", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "IsDone", header: "BVH_Distance.hxx".}
 proc distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): NumType {.
-    noSideEffect, cdecl, importcpp: "Distance", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Distance", header: "BVH_Distance.hxx".}
 proc isMetricBetter*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]; theLeft: NumType;
     theRight: NumType): bool {.noSideEffect, cdecl, importcpp: "IsMetricBetter",
-                            dynlib: tkmath.}
+                            header: "BVH_Distance.hxx".}
 proc rejectMetric*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType];
     theMetric: NumType): bool {.noSideEffect, cdecl, importcpp: "RejectMetric",
-                             dynlib: tkmath.}
+                             header: "BVH_Distance.hxx".}
 proc stop*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](
     this: BVH_Distance[NumType, Dimension, ObjectType, BVHSetType]): bool {.
-    noSideEffect, cdecl, importcpp: "Stop", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Stop", header: "BVH_Distance.hxx".}

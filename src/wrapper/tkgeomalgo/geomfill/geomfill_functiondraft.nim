@@ -26,24 +26,24 @@ type
 
 proc newGeomFillFunctionDraft*(s: Handle[Adaptor3dHSurface];
                               c: Handle[Adaptor3dHCurve]): GeomFillFunctionDraft {.
-    cdecl, constructor, importcpp: "GeomFill_FunctionDraft(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_FunctionDraft(@)", header: "GeomFill_FunctionDraft.hxx".}
 proc nbVariables*(this: GeomFillFunctionDraft): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeomalgo.}
+    importcpp: "NbVariables", header: "GeomFill_FunctionDraft.hxx".}
 proc nbEquations*(this: GeomFillFunctionDraft): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeomalgo.}
+    importcpp: "NbEquations", header: "GeomFill_FunctionDraft.hxx".}
 proc value*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Value", header: "GeomFill_FunctionDraft.hxx".}
 proc derivatives*(this: var GeomFillFunctionDraft; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Derivatives", header: "GeomFill_FunctionDraft.hxx".}
 proc values*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeomalgo.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "GeomFill_FunctionDraft.hxx".}
 proc derivT*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
             param: cfloat; w: cfloat; dN: Vec; teta: cfloat; f: var MathVector): bool {.
-    cdecl, importcpp: "DerivT", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "DerivT", header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2T*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
              param: cfloat; w: cfloat; d2N: Vec; teta: cfloat; f: var MathVector): bool {.
-    cdecl, importcpp: "Deriv2T", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Deriv2T", header: "GeomFill_FunctionDraft.hxx".}
 proc derivTX*(this: var GeomFillFunctionDraft; dN: Vec; teta: cfloat; d: var MathMatrix): bool {.
-    cdecl, importcpp: "DerivTX", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "DerivTX", header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2X*(this: var GeomFillFunctionDraft; x: MathVector; t: var GeomFillTensor): bool {.
-    cdecl, importcpp: "Deriv2X", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Deriv2X", header: "GeomFill_FunctionDraft.hxx".}

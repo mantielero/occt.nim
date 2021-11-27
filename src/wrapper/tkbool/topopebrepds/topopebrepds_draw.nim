@@ -15,27 +15,27 @@
 ##  commercial license or contractual agreement.
 
 when defined(DRAW):
-  proc fUN_draw*(s: TopoDS_Shape) {.cdecl, importcpp: "FUN_draw(@)", dynlib: tkbool.}
-  proc fUN_draw*(p: Pnt) {.cdecl, importcpp: "FUN_draw(@)", dynlib: tkbool.}
-  proc fUN_draw*(p: Pnt2d) {.cdecl, importcpp: "FUN_draw(@)", dynlib: tkbool.}
+  proc fUN_draw*(s: TopoDS_Shape) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: Pnt) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: Pnt2d) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw*(c: Handle[Geom2dCurve]; dpar: cfloat) {.cdecl,
-      importcpp: "FUN_draw(@)", dynlib: tkbool.}
-  proc fUN_draw*(p: Pnt; v: Dir) {.cdecl, importcpp: "FUN_draw(@)", dynlib: tkbool.}
-  proc fUN_draw*(p: Pnt; v: Vec) {.cdecl, importcpp: "FUN_draw(@)", dynlib: tkbool.}
+      importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: Pnt; v: Dir) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
+  proc fUN_draw*(p: Pnt; v: Vec) {.cdecl, importcpp: "FUN_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; p: Pnt) {.cdecl,
-      importcpp: "FUN_brep_draw(@)", dynlib: tkbool.}
+      importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; p: Pnt; d: Dir) {.cdecl,
-      importcpp: "FUN_brep_draw(@)", dynlib: tkbool.}
+      importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; s: TopoDS_Shape) {.cdecl,
-      importcpp: "FUN_brep_draw(@)", dynlib: tkbool.}
+      importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]; f: cfloat;
-                    l: cfloat) {.cdecl, importcpp: "FUN_brep_draw(@)", dynlib: tkbool.}
+                    l: cfloat) {.cdecl, importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_brepDraw*(aa: TCollectionAsciiString; c: Handle[GeomCurve]) {.cdecl,
-      importcpp: "FUN_brep_draw(@)", dynlib: tkbool.}
+      importcpp: "FUN_brep_draw(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_DrawMap*(dataforDegenEd: TopToolsDataMapOfShapeListOfShape) {.cdecl,
-      importcpp: "FUN_DrawMap(@)", dynlib: tkbool.}
+      importcpp: "FUN_DrawMap(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw2de*(ed: TopoDS_Shape; fa: TopoDS_Shape) {.cdecl,
-      importcpp: "FUN_draw2de(@)", dynlib: tkbool.}
+      importcpp: "FUN_draw2de(@)", header: "TopOpeBRepDS_DRAW.hxx".}
   proc fUN_draw2d*(par: cfloat; e: TopoDS_Edge; eref: TopoDS_Edge; fref: TopoDS_Face) {.
-      cdecl, importcpp: "FUN_draw2d(@)", dynlib: tkbool.}
+      cdecl, importcpp: "FUN_draw2d(@)", header: "TopOpeBRepDS_DRAW.hxx".}
 ##  DRAW

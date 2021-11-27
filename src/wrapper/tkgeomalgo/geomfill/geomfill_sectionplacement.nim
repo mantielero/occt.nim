@@ -30,30 +30,30 @@ type
 proc newGeomFillSectionPlacement*(L: Handle[GeomFillLocationLaw];
                                  section: Handle[GeomGeometry]): GeomFillSectionPlacement {.
     cdecl, constructor, importcpp: "GeomFill_SectionPlacement(@)",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_SectionPlacement.hxx".}
 proc setLocation*(this: var GeomFillSectionPlacement; L: Handle[GeomFillLocationLaw]) {.
-    cdecl, importcpp: "SetLocation", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "SetLocation", header: "GeomFill_SectionPlacement.hxx".}
 proc perform*(this: var GeomFillSectionPlacement; tol: cfloat) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeomalgo.}
+    importcpp: "Perform", header: "GeomFill_SectionPlacement.hxx".}
 proc perform*(this: var GeomFillSectionPlacement; path: Handle[Adaptor3dHCurve];
-             tol: cfloat) {.cdecl, importcpp: "Perform", dynlib: tkgeomalgo.}
+             tol: cfloat) {.cdecl, importcpp: "Perform", header: "GeomFill_SectionPlacement.hxx".}
 proc perform*(this: var GeomFillSectionPlacement; paramOnPath: cfloat; tol: cfloat) {.
-    cdecl, importcpp: "Perform", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Perform", header: "GeomFill_SectionPlacement.hxx".}
 proc isDone*(this: GeomFillSectionPlacement): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeomalgo.}
+    importcpp: "IsDone", header: "GeomFill_SectionPlacement.hxx".}
 proc parameterOnPath*(this: GeomFillSectionPlacement): cfloat {.noSideEffect, cdecl,
-    importcpp: "ParameterOnPath", dynlib: tkgeomalgo.}
+    importcpp: "ParameterOnPath", header: "GeomFill_SectionPlacement.hxx".}
 proc parameterOnSection*(this: GeomFillSectionPlacement): cfloat {.noSideEffect,
-    cdecl, importcpp: "ParameterOnSection", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "ParameterOnSection", header: "GeomFill_SectionPlacement.hxx".}
 proc distance*(this: GeomFillSectionPlacement): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkgeomalgo.}
+    importcpp: "Distance", header: "GeomFill_SectionPlacement.hxx".}
 proc angle*(this: GeomFillSectionPlacement): cfloat {.noSideEffect, cdecl,
-    importcpp: "Angle", dynlib: tkgeomalgo.}
+    importcpp: "Angle", header: "GeomFill_SectionPlacement.hxx".}
 proc transformation*(this: GeomFillSectionPlacement; withTranslation: bool;
                     withCorrection: bool = false): Trsf {.noSideEffect, cdecl,
-    importcpp: "Transformation", dynlib: tkgeomalgo.}
+    importcpp: "Transformation", header: "GeomFill_SectionPlacement.hxx".}
 proc section*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
-    GeomCurve] {.noSideEffect, cdecl, importcpp: "Section", dynlib: tkgeomalgo.}
+    GeomCurve] {.noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SectionPlacement.hxx".}
 proc modifiedSection*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
     GeomCurve] {.noSideEffect, cdecl, importcpp: "ModifiedSection",
-                dynlib: tkgeomalgo.}
+                header: "GeomFill_SectionPlacement.hxx".}

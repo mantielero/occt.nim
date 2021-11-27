@@ -25,21 +25,21 @@ type
 
 
 proc nbVariables*(this: BlendCurvPointFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "Blend_CurvPointFuncInv.hxx".}
 proc nbEquations*(this: BlendCurvPointFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "Blend_CurvPointFuncInv.hxx".}
 proc value*(this: var BlendCurvPointFuncInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "Blend_CurvPointFuncInv.hxx".}
 proc derivatives*(this: var BlendCurvPointFuncInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "Blend_CurvPointFuncInv.hxx".}
 proc values*(this: var BlendCurvPointFuncInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "Blend_CurvPointFuncInv.hxx".}
 proc set*(this: var BlendCurvPointFuncInv; p: Pnt) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "Blend_CurvPointFuncInv.hxx".}
 proc getTolerance*(this: BlendCurvPointFuncInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_CurvPointFuncInv.hxx".}
 proc getBounds*(this: BlendCurvPointFuncInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "Blend_CurvPointFuncInv.hxx".}
 proc isSolution*(this: var BlendCurvPointFuncInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "Blend_CurvPointFuncInv.hxx".}

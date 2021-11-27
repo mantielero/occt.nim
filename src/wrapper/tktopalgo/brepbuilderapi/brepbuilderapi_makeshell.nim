@@ -62,22 +62,22 @@ type
 
 
 proc newBRepBuilderAPI_MakeShell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
+    importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; segment: bool = false): BRepBuilderAPI_MakeShell {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
                                  vMin: cfloat; vMax: cfloat; segment: bool = false): BRepBuilderAPI_MakeShell {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: cfloat;
           uMax: cfloat; vMin: cfloat; vMax: cfloat; segment: bool = false) {.cdecl,
-    importcpp: "Init", dynlib: tktopalgo.}
+    importcpp: "Init", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc isDone*(this: BRepBuilderAPI_MakeShell): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tktopalgo.}
+    importcpp: "IsDone", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc error*(this: BRepBuilderAPI_MakeShell): BRepBuilderAPI_ShellError {.
-    noSideEffect, cdecl, importcpp: "Error", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "Error", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect, cdecl,
-    importcpp: "Shell", dynlib: tktopalgo.}
+    importcpp: "Shell", header: "BRepBuilderAPI_MakeShell.hxx".}
 converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, cdecl,
     importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_MakeShell.hxx".}

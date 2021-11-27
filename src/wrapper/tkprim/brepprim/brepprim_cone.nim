@@ -98,18 +98,18 @@ type
 
 
 proc newBRepPrimCone*(angle: cfloat; position: Ax2; height: cfloat; radius: cfloat = 0): BRepPrimCone {.
-    cdecl, constructor, importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat): BRepPrimCone {.cdecl, constructor,
-    importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat; apex: Pnt): BRepPrimCone {.cdecl, constructor,
-    importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(angle: cfloat; axes: Ax2): BRepPrimCone {.cdecl, constructor,
-    importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
-    constructor, importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(center: Pnt; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.
-    cdecl, constructor, importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc newBRepPrimCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimCone {.cdecl,
-    constructor, importcpp: "BRepPrim_Cone(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrim_Cone(@)", header: "BRepPrim_Cone.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCone): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "MakeEmptyLateralFace", dynlib: tkprim.}
+    importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cone.hxx".}

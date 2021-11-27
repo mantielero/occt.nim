@@ -32,15 +32,15 @@ type
 
 
 proc newAdaptor2dHOffsetCurve*(): Adaptor2dHOffsetCurve {.cdecl, constructor,
-    importcpp: "Adaptor2d_HOffsetCurve(@)", dynlib: tkg2d.}
+    importcpp: "Adaptor2d_HOffsetCurve(@)", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc newAdaptor2dHOffsetCurve*(c: Adaptor2dOffsetCurve): Adaptor2dHOffsetCurve {.
-    cdecl, constructor, importcpp: "Adaptor2d_HOffsetCurve(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Adaptor2d_HOffsetCurve(@)", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc set*(this: var Adaptor2dHOffsetCurve; c: Adaptor2dOffsetCurve) {.cdecl,
-    importcpp: "Set", dynlib: tkg2d.}
+    importcpp: "Set", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc curve2d*(this: Adaptor2dHOffsetCurve): Adaptor2dCurve2d {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkg2d.}
+    importcpp: "Curve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc changeCurve2d*(this: var Adaptor2dHOffsetCurve): var Adaptor2dOffsetCurve {.
-    cdecl, importcpp: "ChangeCurve2d", dynlib: tkg2d.}
+    cdecl, importcpp: "ChangeCurve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
 type
   Adaptor2dHOffsetCurvebaseType* = Adaptor2dHCurve2d
 

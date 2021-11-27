@@ -19,45 +19,45 @@
 ##  ----------------------------------------------------------------------
 
 proc fUN_toolBounds*(e: TopoDS_Edge; f: var cfloat; l: var cfloat) {.cdecl,
-    importcpp: "FUN_tool_bounds(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_bounds(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolGetindex*(ponc: ExtremaExtPC): cint {.cdecl,
-    importcpp: "FUN_tool_getindex(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolGetindex*(ponc: ExtremaExtPC2d): cint {.cdecl,
-    importcpp: "FUN_tool_getindex(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC*(p: Pnt; tole: cfloat; bac: BRepAdaptorCurve; pmin: cfloat;
                       pmax: cfloat; param: var cfloat; dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; pmin: cfloat; pmax: cfloat;
                       param: var cfloat; dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; param: var cfloat;
                       dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC2D*(p: Pnt; tole: cfloat; bac2d: BRepAdaptorCurve2d; pmin: cfloat;
                         pmax: cfloat; param: var cfloat; dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC2D(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; pmin: cfloat; pmax: cfloat;
                         param: var cfloat; dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC2D(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; param: var cfloat;
                         dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonC2D(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonS*(p: Pnt; s: Handle[GeomSurface]; uv: var Pnt2d; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
-    importcpp: "FUN_tool_projPonS(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonS(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 ##  ----------------------------------------------------------------------
 ##   project point <P> on topologies (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
 proc fUN_toolProjPonE*(p: Pnt; tole: cfloat; e: TopoDS_Edge; param: var cfloat;
                       dist: var cfloat): bool {.cdecl,
-    importcpp: "FUN_tool_projPonE(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonE*(p: Pnt; e: TopoDS_Edge; param: var cfloat; dist: var cfloat): bool {.
-    cdecl, importcpp: "FUN_tool_projPonE(@)", dynlib: tkbool.}
+    cdecl, importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonboundedF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var cfloat): bool {.
-    cdecl, importcpp: "FUN_tool_projPonboundedF(@)", dynlib: tkbool.}
+    cdecl, importcpp: "FUN_tool_projPonboundedF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolProjPonF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
-    importcpp: "FUN_tool_projPonF(@)", dynlib: tkbool.}
+    importcpp: "FUN_tool_projPonF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}

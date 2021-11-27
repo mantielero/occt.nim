@@ -19,89 +19,89 @@ type
   Xy* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object ## ! Creates XY object with zero coordinates (0,0).
 
 
-proc newXy*(): Xy {.cdecl, constructor, importcpp: "gp_XY(@)", dynlib: tkmath.}
+proc newXy*(): Xy {.cdecl, constructor, importcpp: "gp_XY(@)", header: "gp_XY.hxx".}
 proc newXy*(x: cfloat; y: cfloat): Xy {.cdecl, constructor, importcpp: "gp_XY(@)",
-                                  dynlib: tkmath.}
+                                  header: "gp_XY.hxx".}
 proc setCoord*(this: var Xy; index: cint; xi: cfloat) {.cdecl, importcpp: "SetCoord",
-    dynlib: tkmath.}
+    header: "gp_XY.hxx".}
 proc setCoord*(this: var Xy; x: cfloat; y: cfloat) {.cdecl, importcpp: "SetCoord",
-    dynlib: tkmath.}
-proc setX*(this: var Xy; x: cfloat) {.cdecl, importcpp: "SetX", dynlib: tkmath.}
-proc setY*(this: var Xy; y: cfloat) {.cdecl, importcpp: "SetY", dynlib: tkmath.}
+    header: "gp_XY.hxx".}
+proc setX*(this: var Xy; x: cfloat) {.cdecl, importcpp: "SetX", header: "gp_XY.hxx".}
+proc setY*(this: var Xy; y: cfloat) {.cdecl, importcpp: "SetY", header: "gp_XY.hxx".}
 proc coord*(this: Xy; index: cint): cfloat {.noSideEffect, cdecl, importcpp: "Coord",
-                                       dynlib: tkmath.}
+                                       header: "gp_XY.hxx".}
 proc changeCoord*(this: var Xy; theIndex: cint): var cfloat {.cdecl,
-    importcpp: "ChangeCoord", dynlib: tkmath.}
+    importcpp: "ChangeCoord", header: "gp_XY.hxx".}
 proc coord*(this: Xy; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,
-    importcpp: "Coord", dynlib: tkmath.}
-proc x*(this: Xy): cfloat {.noSideEffect, cdecl, importcpp: "X", dynlib: tkmath.}
-proc y*(this: Xy): cfloat {.noSideEffect, cdecl, importcpp: "Y", dynlib: tkmath.}
+    importcpp: "Coord", header: "gp_XY.hxx".}
+proc x*(this: Xy): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_XY.hxx".}
+proc y*(this: Xy): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_XY.hxx".}
 proc modulus*(this: Xy): cfloat {.noSideEffect, cdecl, importcpp: "Modulus",
-                              dynlib: tkmath.}
+                              header: "gp_XY.hxx".}
 proc squareModulus*(this: Xy): cfloat {.noSideEffect, cdecl,
-                                    importcpp: "SquareModulus", dynlib: tkmath.}
+                                    importcpp: "SquareModulus", header: "gp_XY.hxx".}
 proc isEqual*(this: Xy; other: Xy; tolerance: cfloat): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", dynlib: tkmath.}
-proc add*(this: var Xy; other: Xy) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc `+=`*(this: var Xy; other: Xy) {.cdecl, importcpp: "(# += #)", dynlib: tkmath.}
+    importcpp: "IsEqual", header: "gp_XY.hxx".}
+proc add*(this: var Xy; other: Xy) {.cdecl, importcpp: "Add", header: "gp_XY.hxx".}
+proc `+=`*(this: var Xy; other: Xy) {.cdecl, importcpp: "(# += #)", header: "gp_XY.hxx".}
 proc added*(this: Xy; other: Xy): Xy {.noSideEffect, cdecl, importcpp: "Added",
-                                 dynlib: tkmath.}
+                                 header: "gp_XY.hxx".}
 proc `+`*(this: Xy; other: Xy): Xy {.noSideEffect, cdecl, importcpp: "(# + #)",
-                               dynlib: tkmath.}
+                               header: "gp_XY.hxx".}
 proc crossed*(this: Xy; right: Xy): cfloat {.noSideEffect, cdecl, importcpp: "Crossed",
-                                       dynlib: tkmath.}
+                                       header: "gp_XY.hxx".}
 proc `^`*(this: Xy; right: Xy): cfloat {.noSideEffect, cdecl, importcpp: "(# ^ #)",
-                                   dynlib: tkmath.}
+                                   header: "gp_XY.hxx".}
 proc crossMagnitude*(this: Xy; right: Xy): cfloat {.noSideEffect, cdecl,
-    importcpp: "CrossMagnitude", dynlib: tkmath.}
+    importcpp: "CrossMagnitude", header: "gp_XY.hxx".}
 proc crossSquareMagnitude*(this: Xy; right: Xy): cfloat {.noSideEffect, cdecl,
-    importcpp: "CrossSquareMagnitude", dynlib: tkmath.}
-proc divide*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "Divide", dynlib: tkmath.}
-proc `/=`*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", dynlib: tkmath.}
+    importcpp: "CrossSquareMagnitude", header: "gp_XY.hxx".}
+proc divide*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "Divide", header: "gp_XY.hxx".}
+proc `/=`*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", header: "gp_XY.hxx".}
 proc divided*(this: Xy; scalar: cfloat): Xy {.noSideEffect, cdecl, importcpp: "Divided",
-                                        dynlib: tkmath.}
+                                        header: "gp_XY.hxx".}
 proc `/`*(this: Xy; scalar: cfloat): Xy {.noSideEffect, cdecl, importcpp: "(# / #)",
-                                    dynlib: tkmath.}
+                                    header: "gp_XY.hxx".}
 proc dot*(this: Xy; other: Xy): cfloat {.noSideEffect, cdecl, importcpp: "Dot",
-                                   dynlib: tkmath.}
+                                   header: "gp_XY.hxx".}
 proc `*`*(this: Xy; other: Xy): cfloat {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                   dynlib: tkmath.}
+                                   header: "gp_XY.hxx".}
 proc multiply*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
-proc `*=`*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
-proc multiply*(this: var Xy; other: Xy) {.cdecl, importcpp: "Multiply", dynlib: tkmath.}
-proc `*=`*(this: var Xy; other: Xy) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+    header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
+proc multiply*(this: var Xy; other: Xy) {.cdecl, importcpp: "Multiply", header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; other: Xy) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
 proc multiply*(this: var Xy; matrix: Mat2d) {.cdecl, importcpp: "Multiply",
-                                        dynlib: tkmath.}
-proc `*=`*(this: var Xy; matrix: Mat2d) {.cdecl, importcpp: "(# *= #)", dynlib: tkmath.}
+                                        header: "gp_XY.hxx".}
+proc `*=`*(this: var Xy; matrix: Mat2d) {.cdecl, importcpp: "(# *= #)", header: "gp_XY.hxx".}
 proc multiplied*(this: Xy; scalar: cfloat): Xy {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "gp_XY.hxx".}
 proc `*`*(this: Xy; scalar: cfloat): Xy {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                    dynlib: tkmath.}
+                                    header: "gp_XY.hxx".}
 proc multiplied*(this: Xy; other: Xy): Xy {.noSideEffect, cdecl,
-                                      importcpp: "Multiplied", dynlib: tkmath.}
+                                      importcpp: "Multiplied", header: "gp_XY.hxx".}
 proc multiplied*(this: Xy; matrix: Mat2d): Xy {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "gp_XY.hxx".}
 proc `*`*(this: Xy; matrix: Mat2d): Xy {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                   dynlib: tkmath.}
-proc normalize*(this: var Xy) {.cdecl, importcpp: "Normalize", dynlib: tkmath.}
+                                   header: "gp_XY.hxx".}
+proc normalize*(this: var Xy) {.cdecl, importcpp: "Normalize", header: "gp_XY.hxx".}
 proc normalized*(this: Xy): Xy {.noSideEffect, cdecl, importcpp: "Normalized",
-                             dynlib: tkmath.}
-proc reverse*(this: var Xy) {.cdecl, importcpp: "Reverse", dynlib: tkmath.}
+                             header: "gp_XY.hxx".}
+proc reverse*(this: var Xy) {.cdecl, importcpp: "Reverse", header: "gp_XY.hxx".}
 proc reversed*(this: Xy): Xy {.noSideEffect, cdecl, importcpp: "Reversed",
-                           dynlib: tkmath.}
-proc `-`*(this: Xy): Xy {.noSideEffect, cdecl, importcpp: "(- #)", dynlib: tkmath.}
+                           header: "gp_XY.hxx".}
+proc `-`*(this: Xy): Xy {.noSideEffect, cdecl, importcpp: "(- #)", header: "gp_XY.hxx".}
 proc setLinearForm*(this: var Xy; a1: cfloat; xy1: Xy; a2: cfloat; xy2: Xy) {.cdecl,
-    importcpp: "SetLinearForm", dynlib: tkmath.}
+    importcpp: "SetLinearForm", header: "gp_XY.hxx".}
 proc setLinearForm*(this: var Xy; a1: cfloat; xy1: Xy; a2: cfloat; xy2: Xy; xy3: Xy) {.cdecl,
-    importcpp: "SetLinearForm", dynlib: tkmath.}
+    importcpp: "SetLinearForm", header: "gp_XY.hxx".}
 proc setLinearForm*(this: var Xy; a1: cfloat; xy1: Xy; xy2: Xy) {.cdecl,
-    importcpp: "SetLinearForm", dynlib: tkmath.}
+    importcpp: "SetLinearForm", header: "gp_XY.hxx".}
 proc setLinearForm*(this: var Xy; xy1: Xy; xy2: Xy) {.cdecl, importcpp: "SetLinearForm",
-    dynlib: tkmath.}
-proc subtract*(this: var Xy; right: Xy) {.cdecl, importcpp: "Subtract", dynlib: tkmath.}
-proc `-=`*(this: var Xy; right: Xy) {.cdecl, importcpp: "(# -= #)", dynlib: tkmath.}
+    header: "gp_XY.hxx".}
+proc subtract*(this: var Xy; right: Xy) {.cdecl, importcpp: "Subtract", header: "gp_XY.hxx".}
+proc `-=`*(this: var Xy; right: Xy) {.cdecl, importcpp: "(# -= #)", header: "gp_XY.hxx".}
 proc subtracted*(this: Xy; right: Xy): Xy {.noSideEffect, cdecl,
-                                      importcpp: "Subtracted", dynlib: tkmath.}
+                                      importcpp: "Subtracted", header: "gp_XY.hxx".}
 proc `-`*(this: Xy; right: Xy): Xy {.noSideEffect, cdecl, importcpp: "(# - #)",
-                               dynlib: tkmath.}
+                               header: "gp_XY.hxx".}

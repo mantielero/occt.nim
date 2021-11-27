@@ -22,14 +22,14 @@ type
 
 proc newAppParCurvesHArray1OfConstraintCouple*(theLower: cint; theUpper: cint): AppParCurvesHArray1OfConstraintCouple {.
     cdecl, constructor, importcpp: "AppParCurves_HArray1OfConstraintCouple(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfConstraintCouple.hxx".}
 proc newAppParCurvesHArray1OfConstraintCouple*(theLower: cint; theUpper: cint;
     theValue: ValueType): AppParCurvesHArray1OfConstraintCouple {.cdecl,
     constructor, importcpp: "AppParCurves_HArray1OfConstraintCouple(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfConstraintCouple.hxx".}
 proc newAppParCurvesHArray1OfConstraintCouple*(
     theOther: AppParCurvesArray1OfConstraintCouple): AppParCurvesHArray1OfConstraintCouple {.
     cdecl, constructor, importcpp: "AppParCurves_HArray1OfConstraintCouple(@)",
-    dynlib: tkgeombase.}
+    header: "AppParCurves_HArray1OfConstraintCouple.hxx".}
 proc array1*(this: AppParCurvesHArray1OfConstraintCouple): AppParCurvesArray1OfConstraintCouple {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "AppParCurves_HArray1OfConstraintCouple.hxx".}

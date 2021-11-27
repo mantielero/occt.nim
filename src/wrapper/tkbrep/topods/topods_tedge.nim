@@ -34,4 +34,4 @@ type
 
 
 proc shapeType*(this: TopoDS_TEdge): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", dynlib: tkbrep.}
+    importcpp: "ShapeType", header: "TopoDS_TEdge.hxx".}

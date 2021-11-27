@@ -35,47 +35,47 @@ type
 proc newChFi3dFilBuilder*(s: TopoDS_Shape;
                          fShape: ChFi3dFilletShape = chFi3dRational;
                          ta: cfloat = 1.0e-2): ChFi3dFilBuilder {.cdecl, constructor,
-    importcpp: "ChFi3d_FilBuilder(@)", dynlib: tkfillet.}
+    importcpp: "ChFi3d_FilBuilder(@)", header: "ChFi3d_FilBuilder.hxx".}
 proc setFilletShape*(this: var ChFi3dFilBuilder; fShape: ChFi3dFilletShape) {.cdecl,
-    importcpp: "SetFilletShape", dynlib: tkfillet.}
+    importcpp: "SetFilletShape", header: "ChFi3d_FilBuilder.hxx".}
 proc getFilletShape*(this: ChFi3dFilBuilder): ChFi3dFilletShape {.noSideEffect,
-    cdecl, importcpp: "GetFilletShape", dynlib: tkfillet.}
+    cdecl, importcpp: "GetFilletShape", header: "ChFi3d_FilBuilder.hxx".}
 proc add*(this: var ChFi3dFilBuilder; e: TopoDS_Edge) {.cdecl, importcpp: "Add",
-    dynlib: tkfillet.}
+    header: "ChFi3d_FilBuilder.hxx".}
 proc add*(this: var ChFi3dFilBuilder; radius: cfloat; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", dynlib: tkfillet.}
+    importcpp: "Add", header: "ChFi3d_FilBuilder.hxx".}
 proc setRadius*(this: var ChFi3dFilBuilder; c: Handle[LawFunction]; ic: cint; iinC: cint) {.
-    cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+    cdecl, importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc isConstant*(this: var ChFi3dFilBuilder; ic: cint): bool {.cdecl,
-    importcpp: "IsConstant", dynlib: tkfillet.}
+    importcpp: "IsConstant", header: "ChFi3d_FilBuilder.hxx".}
 proc radius*(this: var ChFi3dFilBuilder; ic: cint): cfloat {.cdecl, importcpp: "Radius",
-    dynlib: tkfillet.}
+    header: "ChFi3d_FilBuilder.hxx".}
 proc resetContour*(this: var ChFi3dFilBuilder; ic: cint) {.cdecl,
-    importcpp: "ResetContour", dynlib: tkfillet.}
+    importcpp: "ResetContour", header: "ChFi3d_FilBuilder.hxx".}
 proc setRadius*(this: var ChFi3dFilBuilder; radius: cfloat; ic: cint; e: TopoDS_Edge) {.
-    cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+    cdecl, importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc unSet*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge) {.cdecl,
-    importcpp: "UnSet", dynlib: tkfillet.}
+    importcpp: "UnSet", header: "ChFi3d_FilBuilder.hxx".}
 proc setRadius*(this: var ChFi3dFilBuilder; radius: cfloat; ic: cint; v: TopoDS_Vertex) {.
-    cdecl, importcpp: "SetRadius", dynlib: tkfillet.}
+    cdecl, importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc unSet*(this: var ChFi3dFilBuilder; ic: cint; v: TopoDS_Vertex) {.cdecl,
-    importcpp: "UnSet", dynlib: tkfillet.}
+    importcpp: "UnSet", header: "ChFi3d_FilBuilder.hxx".}
 proc setRadius*(this: var ChFi3dFilBuilder; uandR: Xy; ic: cint; iinC: cint) {.cdecl,
-    importcpp: "SetRadius", dynlib: tkfillet.}
+    importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc isConstant*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge): bool {.cdecl,
-    importcpp: "IsConstant", dynlib: tkfillet.}
+    importcpp: "IsConstant", header: "ChFi3d_FilBuilder.hxx".}
 proc radius*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge): cfloat {.cdecl,
-    importcpp: "Radius", dynlib: tkfillet.}
+    importcpp: "Radius", header: "ChFi3d_FilBuilder.hxx".}
 proc getBounds*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge; first: var cfloat;
                last: var cfloat): bool {.cdecl, importcpp: "GetBounds",
-                                     dynlib: tkfillet.}
+                                     header: "ChFi3d_FilBuilder.hxx".}
 proc getLaw*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge): Handle[LawFunction] {.
-    cdecl, importcpp: "GetLaw", dynlib: tkfillet.}
+    cdecl, importcpp: "GetLaw", header: "ChFi3d_FilBuilder.hxx".}
 proc setLaw*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge;
-            L: Handle[LawFunction]) {.cdecl, importcpp: "SetLaw", dynlib: tkfillet.}
+            L: Handle[LawFunction]) {.cdecl, importcpp: "SetLaw", header: "ChFi3d_FilBuilder.hxx".}
 proc simulate*(this: var ChFi3dFilBuilder; ic: cint) {.cdecl, importcpp: "Simulate",
-    dynlib: tkfillet.}
+    header: "ChFi3d_FilBuilder.hxx".}
 proc nbSurf*(this: ChFi3dFilBuilder; ic: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurf", dynlib: tkfillet.}
+    importcpp: "NbSurf", header: "ChFi3d_FilBuilder.hxx".}
 proc sect*(this: ChFi3dFilBuilder; ic: cint; `is`: cint): Handle[ChFiDS_SecHArray1] {.
-    noSideEffect, cdecl, importcpp: "Sect", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Sect", header: "ChFi3d_FilBuilder.hxx".}

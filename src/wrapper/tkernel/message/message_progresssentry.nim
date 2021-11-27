@@ -41,6 +41,6 @@ type
 proc newMessageProgressSentry*(theRange: MessageProgressRange; theName: cstring;
                               theMin: cfloat; theMax: cfloat; theStep: cfloat;
                               theIsInf: bool = false; theNewScopeSpan: cfloat = 0.0): MessageProgressSentry {.
-    cdecl, constructor, importcpp: "Message_ProgressSentry(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Message_ProgressSentry(@)", header: "Message_ProgressSentry.hxx".}
 proc relieve*(this: var MessageProgressSentry) {.cdecl, importcpp: "Relieve",
-    dynlib: tkernel.}
+    header: "Message_ProgressSentry.hxx".}

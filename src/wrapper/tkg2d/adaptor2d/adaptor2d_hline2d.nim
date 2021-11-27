@@ -32,15 +32,15 @@ type
 
 
 proc newAdaptor2dHLine2d*(): Adaptor2dHLine2d {.cdecl, constructor,
-    importcpp: "Adaptor2d_HLine2d(@)", dynlib: tkg2d.}
+    importcpp: "Adaptor2d_HLine2d(@)", header: "Adaptor2d_HLine2d.hxx".}
 proc newAdaptor2dHLine2d*(c: Adaptor2dLine2d): Adaptor2dHLine2d {.cdecl, constructor,
-    importcpp: "Adaptor2d_HLine2d(@)", dynlib: tkg2d.}
+    importcpp: "Adaptor2d_HLine2d(@)", header: "Adaptor2d_HLine2d.hxx".}
 proc set*(this: var Adaptor2dHLine2d; c: Adaptor2dLine2d) {.cdecl, importcpp: "Set",
-    dynlib: tkg2d.}
+    header: "Adaptor2d_HLine2d.hxx".}
 proc curve2d*(this: Adaptor2dHLine2d): Adaptor2dCurve2d {.noSideEffect, cdecl,
-    importcpp: "Curve2d", dynlib: tkg2d.}
+    importcpp: "Curve2d", header: "Adaptor2d_HLine2d.hxx".}
 proc changeCurve2d*(this: var Adaptor2dHLine2d): var Adaptor2dLine2d {.cdecl,
-    importcpp: "ChangeCurve2d", dynlib: tkg2d.}
+    importcpp: "ChangeCurve2d", header: "Adaptor2d_HLine2d.hxx".}
 type
   Adaptor2dHLine2dbaseType* = Adaptor2dHCurve2d
 

@@ -19,10 +19,10 @@ type
 
 
 proc newTopOpeBRepDS_FIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_FIR {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_FIR(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_FIR(@)", header: "TopOpeBRepDS_FIR.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_FIR;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
-    cdecl, importcpp: "ProcessFaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: cint;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
-    cdecl, importcpp: "ProcessFaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}

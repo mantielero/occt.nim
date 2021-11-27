@@ -110,66 +110,66 @@ type
 
 
 proc newPolyTriangulation*(nbNodes: cint; nbTriangles: cint; uVNodes: bool): PolyTriangulation {.
-    cdecl, constructor, importcpp: "Poly_Triangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Triangulation(@)", header: "Poly_Triangulation.hxx".}
 proc newPolyTriangulation*(nodes: TColgpArray1OfPnt;
                           triangles: PolyArray1OfTriangle): PolyTriangulation {.
-    cdecl, constructor, importcpp: "Poly_Triangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Triangulation(@)", header: "Poly_Triangulation.hxx".}
 proc newPolyTriangulation*(nodes: TColgpArray1OfPnt; uVNodes: TColgpArray1OfPnt2d;
                           triangles: PolyArray1OfTriangle): PolyTriangulation {.
-    cdecl, constructor, importcpp: "Poly_Triangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Triangulation(@)", header: "Poly_Triangulation.hxx".}
 proc copy*(this: PolyTriangulation): Handle[PolyTriangulation] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkmath.}
+    importcpp: "Copy", header: "Poly_Triangulation.hxx".}
 proc newPolyTriangulation*(theTriangulation: Handle[PolyTriangulation]): PolyTriangulation {.
-    cdecl, constructor, importcpp: "Poly_Triangulation(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Poly_Triangulation(@)", header: "Poly_Triangulation.hxx".}
 proc deflection*(this: PolyTriangulation): cfloat {.noSideEffect, cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Triangulation.hxx".}
 proc deflection*(this: var PolyTriangulation; theDeflection: cfloat) {.cdecl,
-    importcpp: "Deflection", dynlib: tkmath.}
+    importcpp: "Deflection", header: "Poly_Triangulation.hxx".}
 proc removeUVNodes*(this: var PolyTriangulation) {.cdecl, importcpp: "RemoveUVNodes",
-    dynlib: tkmath.}
+    header: "Poly_Triangulation.hxx".}
 proc nbNodes*(this: PolyTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NbNodes", dynlib: tkmath.}
+    importcpp: "NbNodes", header: "Poly_Triangulation.hxx".}
 proc nbTriangles*(this: PolyTriangulation): cint {.noSideEffect, cdecl,
-    importcpp: "NbTriangles", dynlib: tkmath.}
+    importcpp: "NbTriangles", header: "Poly_Triangulation.hxx".}
 proc hasUVNodes*(this: PolyTriangulation): bool {.noSideEffect, cdecl,
-    importcpp: "HasUVNodes", dynlib: tkmath.}
+    importcpp: "HasUVNodes", header: "Poly_Triangulation.hxx".}
 proc nodes*(this: PolyTriangulation): TColgpArray1OfPnt {.noSideEffect, cdecl,
-    importcpp: "Nodes", dynlib: tkmath.}
+    importcpp: "Nodes", header: "Poly_Triangulation.hxx".}
 proc changeNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt {.cdecl,
-    importcpp: "ChangeNodes", dynlib: tkmath.}
+    importcpp: "ChangeNodes", header: "Poly_Triangulation.hxx".}
 proc node*(this: PolyTriangulation; theIndex: cint): Pnt {.noSideEffect, cdecl,
-    importcpp: "Node", dynlib: tkmath.}
+    importcpp: "Node", header: "Poly_Triangulation.hxx".}
 proc changeNode*(this: var PolyTriangulation; theIndex: cint): var Pnt {.cdecl,
-    importcpp: "ChangeNode", dynlib: tkmath.}
+    importcpp: "ChangeNode", header: "Poly_Triangulation.hxx".}
 proc uVNodes*(this: PolyTriangulation): TColgpArray1OfPnt2d {.noSideEffect, cdecl,
-    importcpp: "UVNodes", dynlib: tkmath.}
+    importcpp: "UVNodes", header: "Poly_Triangulation.hxx".}
 proc changeUVNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt2d {.cdecl,
-    importcpp: "ChangeUVNodes", dynlib: tkmath.}
+    importcpp: "ChangeUVNodes", header: "Poly_Triangulation.hxx".}
 proc uVNode*(this: PolyTriangulation; theIndex: cint): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "UVNode", dynlib: tkmath.}
+    importcpp: "UVNode", header: "Poly_Triangulation.hxx".}
 proc changeUVNode*(this: var PolyTriangulation; theIndex: cint): var Pnt2d {.cdecl,
-    importcpp: "ChangeUVNode", dynlib: tkmath.}
+    importcpp: "ChangeUVNode", header: "Poly_Triangulation.hxx".}
 proc triangles*(this: PolyTriangulation): PolyArray1OfTriangle {.noSideEffect, cdecl,
-    importcpp: "Triangles", dynlib: tkmath.}
+    importcpp: "Triangles", header: "Poly_Triangulation.hxx".}
 proc changeTriangles*(this: var PolyTriangulation): var PolyArray1OfTriangle {.cdecl,
-    importcpp: "ChangeTriangles", dynlib: tkmath.}
+    importcpp: "ChangeTriangles", header: "Poly_Triangulation.hxx".}
 proc triangle*(this: PolyTriangulation; theIndex: cint): PolyTriangle {.noSideEffect,
-    cdecl, importcpp: "Triangle", dynlib: tkmath.}
+    cdecl, importcpp: "Triangle", header: "Poly_Triangulation.hxx".}
 proc changeTriangle*(this: var PolyTriangulation; theIndex: cint): var PolyTriangle {.
-    cdecl, importcpp: "ChangeTriangle", dynlib: tkmath.}
+    cdecl, importcpp: "ChangeTriangle", header: "Poly_Triangulation.hxx".}
 proc setNormals*(this: var PolyTriangulation;
                 theNormals: Handle[TShortHArray1OfShortReal]) {.cdecl,
-    importcpp: "SetNormals", dynlib: tkmath.}
+    importcpp: "SetNormals", header: "Poly_Triangulation.hxx".}
 proc normals*(this: PolyTriangulation): TShortArray1OfShortReal {.noSideEffect,
-    cdecl, importcpp: "Normals", dynlib: tkmath.}
+    cdecl, importcpp: "Normals", header: "Poly_Triangulation.hxx".}
 proc changeNormals*(this: var PolyTriangulation): var TShortArray1OfShortReal {.cdecl,
-    importcpp: "ChangeNormals", dynlib: tkmath.}
+    importcpp: "ChangeNormals", header: "Poly_Triangulation.hxx".}
 proc hasNormals*(this: PolyTriangulation): bool {.noSideEffect, cdecl,
-    importcpp: "HasNormals", dynlib: tkmath.}
+    importcpp: "HasNormals", header: "Poly_Triangulation.hxx".}
 proc normal*(this: PolyTriangulation; theIndex: cint): Dir {.noSideEffect, cdecl,
-    importcpp: "Normal", dynlib: tkmath.}
+    importcpp: "Normal", header: "Poly_Triangulation.hxx".}
 proc setNormal*(this: var PolyTriangulation; theIndex: cint; theNormal: Dir) {.cdecl,
-    importcpp: "SetNormal", dynlib: tkmath.}
+    importcpp: "SetNormal", header: "Poly_Triangulation.hxx".}
 proc dumpJson*(this: PolyTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkmath.}
+                                 header: "Poly_Triangulation.hxx".}

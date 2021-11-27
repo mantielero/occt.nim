@@ -24,20 +24,20 @@ type
 
 
 proc nbVariables*(this: BlendFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkfillet.}
+    importcpp: "NbVariables", header: "Blend_FuncInv.hxx".}
 proc nbEquations*(this: BlendFuncInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "Blend_FuncInv.hxx".}
 proc value*(this: var BlendFuncInv; x: MathVector; f: var MathVector): bool {.cdecl,
-    importcpp: "Value", dynlib: tkfillet.}
+    importcpp: "Value", header: "Blend_FuncInv.hxx".}
 proc derivatives*(this: var BlendFuncInv; x: MathVector; d: var MathMatrix): bool {.cdecl,
-    importcpp: "Derivatives", dynlib: tkfillet.}
+    importcpp: "Derivatives", header: "Blend_FuncInv.hxx".}
 proc values*(this: var BlendFuncInv; x: MathVector; f: var MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Values", dynlib: tkfillet.}
+    cdecl, importcpp: "Values", header: "Blend_FuncInv.hxx".}
 proc set*(this: var BlendFuncInv; onFirst: bool; cOnSurf: Handle[Adaptor2dHCurve2d]) {.
-    cdecl, importcpp: "Set", dynlib: tkfillet.}
+    cdecl, importcpp: "Set", header: "Blend_FuncInv.hxx".}
 proc getTolerance*(this: BlendFuncInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "Blend_FuncInv.hxx".}
 proc getBounds*(this: BlendFuncInv; infBound: var MathVector; supBound: var MathVector) {.
-    noSideEffect, cdecl, importcpp: "GetBounds", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetBounds", header: "Blend_FuncInv.hxx".}
 proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: cfloat): bool {.cdecl,
-    importcpp: "IsSolution", dynlib: tkfillet.}
+    importcpp: "IsSolution", header: "Blend_FuncInv.hxx".}

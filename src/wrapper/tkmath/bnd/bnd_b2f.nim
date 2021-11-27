@@ -22,48 +22,48 @@ type
   BndB2f* {.importcpp: "Bnd_B2f", header: "Bnd_B2f.hxx", bycopy.} = object ## ! Empty constructor.
 
 
-proc newBndB2f*(): BndB2f {.cdecl, constructor, importcpp: "Bnd_B2f(@)", dynlib: tkmath.}
+proc newBndB2f*(): BndB2f {.cdecl, constructor, importcpp: "Bnd_B2f(@)", header: "Bnd_B2f.hxx".}
 proc newBndB2f*(theCenter: Xy; theHSize: Xy): BndB2f {.cdecl, constructor,
-    importcpp: "Bnd_B2f(@)", dynlib: tkmath.}
+    importcpp: "Bnd_B2f(@)", header: "Bnd_B2f.hxx".}
 proc isVoid*(this: BndB2f): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
-                               dynlib: tkmath.}
-proc clear*(this: var BndB2f) {.cdecl, importcpp: "Clear", dynlib: tkmath.}
-proc add*(this: var BndB2f; thePnt: Xy) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndB2f; thePnt: Pnt2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc add*(this: var BndB2f; theBox: BndB2f) {.cdecl, importcpp: "Add", dynlib: tkmath.}
+                               header: "Bnd_B2f.hxx".}
+proc clear*(this: var BndB2f) {.cdecl, importcpp: "Clear", header: "Bnd_B2f.hxx".}
+proc add*(this: var BndB2f; thePnt: Xy) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
+proc add*(this: var BndB2f; thePnt: Pnt2d) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
+proc add*(this: var BndB2f; theBox: BndB2f) {.cdecl, importcpp: "Add", header: "Bnd_B2f.hxx".}
 proc cornerMin*(this: BndB2f): Xy {.noSideEffect, cdecl, importcpp: "CornerMin",
-                                dynlib: tkmath.}
+                                header: "Bnd_B2f.hxx".}
 proc cornerMax*(this: BndB2f): Xy {.noSideEffect, cdecl, importcpp: "CornerMax",
-                                dynlib: tkmath.}
+                                header: "Bnd_B2f.hxx".}
 proc squareExtent*(this: BndB2f): cfloat {.noSideEffect, cdecl,
-                                       importcpp: "SquareExtent", dynlib: tkmath.}
+                                       importcpp: "SquareExtent", header: "Bnd_B2f.hxx".}
 proc enlarge*(this: var BndB2f; theDiff: cfloat) {.cdecl, importcpp: "Enlarge",
-    dynlib: tkmath.}
+    header: "Bnd_B2f.hxx".}
 proc limit*(this: var BndB2f; theOtherBox: BndB2f): bool {.cdecl, importcpp: "Limit",
-    dynlib: tkmath.}
+    header: "Bnd_B2f.hxx".}
 proc transformed*(this: BndB2f; theTrsf: Trsf2d): BndB2f {.noSideEffect, cdecl,
-    importcpp: "Transformed", dynlib: tkmath.}
+    importcpp: "Transformed", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; thePnt: Xy): bool {.noSideEffect, cdecl, importcpp: "IsOut",
-                                        dynlib: tkmath.}
+                                        header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theCenter: Xy; theRadius: cfloat;
            isCircleHollow: bool = false): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theOtherBox: BndB2f): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theOtherBox: BndB2f; theTrsf: Trsf2d): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theLine: Ax2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isOut*(this: BndB2f; theP0: Xy; theP1: Xy): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_B2f.hxx".}
 proc isIn*(this: BndB2f; theBox: BndB2f): bool {.noSideEffect, cdecl, importcpp: "IsIn",
-    dynlib: tkmath.}
+    header: "Bnd_B2f.hxx".}
 proc isIn*(this: BndB2f; theBox: BndB2f; theTrsf: Trsf2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsIn", dynlib: tkmath.}
+    importcpp: "IsIn", header: "Bnd_B2f.hxx".}
 proc setCenter*(this: var BndB2f; theCenter: Xy) {.cdecl, importcpp: "SetCenter",
-    dynlib: tkmath.}
+    header: "Bnd_B2f.hxx".}
 proc setHSize*(this: var BndB2f; theHSize: Xy) {.cdecl, importcpp: "SetHSize",
-    dynlib: tkmath.}
+    header: "Bnd_B2f.hxx".}
 ##  #define RealType Standard_ShortReal
 ##  #define RealType_hxx <Standard_ShortReal.hxx>
 ##  #define Bnd_B2x Bnd_B2f

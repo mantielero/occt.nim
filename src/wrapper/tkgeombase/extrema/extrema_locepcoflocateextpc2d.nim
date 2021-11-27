@@ -30,25 +30,25 @@ type
 
 
 proc newExtremaLocEPCOfLocateExtPC2d*(): ExtremaLocEPCOfLocateExtPC2d {.cdecl,
-    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc newExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: cfloat;
                                      tolU: cfloat): ExtremaLocEPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc newExtremaLocEPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: cfloat;
                                      umin: cfloat; usup: cfloat; tolU: cfloat): ExtremaLocEPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_LocEPCOfLocateExtPC2d(@)",
-    dynlib: tkgeombase.}
+    header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaLocEPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
                 umin: cfloat; usup: cfloat; tolU: cfloat) {.cdecl,
-    importcpp: "Initialize", dynlib: tkgeombase.}
+    importcpp: "Initialize", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc perform*(this: var ExtremaLocEPCOfLocateExtPC2d; p: Pnt2d; u0: cfloat) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc isDone*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc squareDistance*(this: ExtremaLocEPCOfLocateExtPC2d): cfloat {.noSideEffect,
-    cdecl, importcpp: "SquareDistance", dynlib: tkgeombase.}
+    cdecl, importcpp: "SquareDistance", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc isMin*(this: ExtremaLocEPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsMin", dynlib: tkgeombase.}
+    importcpp: "IsMin", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}
 proc point*(this: ExtremaLocEPCOfLocateExtPC2d): ExtremaPOnCurv2d {.noSideEffect,
-    cdecl, importcpp: "Point", dynlib: tkgeombase.}
+    cdecl, importcpp: "Point", header: "Extrema_LocEPCOfLocateExtPC2d.hxx".}

@@ -22,11 +22,11 @@ type
 
 
 proc value*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat): cfloat {.cdecl,
-    importcpp: "IntSurf_QuadricTool::Value(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_QuadricTool::Value(@)", header: "IntSurf_QuadricTool.hxx".}
 proc gradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat; v: var Vec) {.cdecl,
-    importcpp: "IntSurf_QuadricTool::Gradient(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_QuadricTool::Gradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc valueAndGradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat;
                       val: var cfloat; grad: var Vec) {.cdecl,
-    importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc tolerance*(quad: IntSurfQuadric): cfloat {.cdecl,
-    importcpp: "IntSurf_QuadricTool::Tolerance(@)", dynlib: tkgeomalgo.}
+    importcpp: "IntSurf_QuadricTool::Tolerance(@)", header: "IntSurf_QuadricTool.hxx".}

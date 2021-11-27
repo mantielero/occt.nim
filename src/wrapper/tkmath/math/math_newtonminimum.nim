@@ -33,35 +33,35 @@ proc newMathNewtonMinimum*(theFunction: MathMultipleVarFunctionWithHessian;
                           theTolerance: cfloat = confusion();
                           theNbIterations: cint = 40; theConvexity: cfloat = 1.0e-6;
                           theWithSingularity: bool = true): MathNewtonMinimum {.
-    cdecl, constructor, importcpp: "math_NewtonMinimum(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_NewtonMinimum(@)", header: "math_NewtonMinimum.hxx".}
 proc perform*(this: var MathNewtonMinimum;
              theFunction: var MathMultipleVarFunctionWithHessian;
              theStartingPoint: MathVector) {.cdecl, importcpp: "Perform",
-    dynlib: tkmath.}
+    header: "math_NewtonMinimum.hxx".}
 proc destroyMathNewtonMinimum*(this: var MathNewtonMinimum) {.cdecl,
-    importcpp: "#.~math_NewtonMinimum()", dynlib: tkmath.}
+    importcpp: "#.~math_NewtonMinimum()", header: "math_NewtonMinimum.hxx".}
 proc isConverged*(this: MathNewtonMinimum): bool {.noSideEffect, cdecl,
-    importcpp: "IsConverged", dynlib: tkmath.}
+    importcpp: "IsConverged", header: "math_NewtonMinimum.hxx".}
 proc isDone*(this: MathNewtonMinimum): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_NewtonMinimum.hxx".}
 proc isConvex*(this: MathNewtonMinimum): bool {.noSideEffect, cdecl,
-    importcpp: "IsConvex", dynlib: tkmath.}
+    importcpp: "IsConvex", header: "math_NewtonMinimum.hxx".}
 proc location*(this: MathNewtonMinimum): MathVector {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
 proc location*(this: MathNewtonMinimum; loc: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Location", dynlib: tkmath.}
+    importcpp: "Location", header: "math_NewtonMinimum.hxx".}
 proc setBoundary*(this: var MathNewtonMinimum; theLeftBorder: MathVector;
                  theRightBorder: MathVector) {.cdecl, importcpp: "SetBoundary",
-    dynlib: tkmath.}
+    header: "math_NewtonMinimum.hxx".}
 proc minimum*(this: MathNewtonMinimum): cfloat {.noSideEffect, cdecl,
-    importcpp: "Minimum", dynlib: tkmath.}
+    importcpp: "Minimum", header: "math_NewtonMinimum.hxx".}
 proc gradient*(this: MathNewtonMinimum): MathVector {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
 proc gradient*(this: MathNewtonMinimum; grad: var MathVector) {.noSideEffect, cdecl,
-    importcpp: "Gradient", dynlib: tkmath.}
+    importcpp: "Gradient", header: "math_NewtonMinimum.hxx".}
 proc nbIterations*(this: MathNewtonMinimum): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_NewtonMinimum.hxx".}
 proc getStatus*(this: MathNewtonMinimum): MathStatus {.noSideEffect, cdecl,
-    importcpp: "GetStatus", dynlib: tkmath.}
+    importcpp: "GetStatus", header: "math_NewtonMinimum.hxx".}
 proc dump*(this: MathNewtonMinimum; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_NewtonMinimum.hxx".}

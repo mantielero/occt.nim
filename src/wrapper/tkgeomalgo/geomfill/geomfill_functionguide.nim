@@ -30,22 +30,22 @@ type
 proc newGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];
                               guide: Handle[Adaptor3dHCurve];
                               paramOnLaw: cfloat = 0.0): GeomFillFunctionGuide {.
-    cdecl, constructor, importcpp: "GeomFill_FunctionGuide(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_FunctionGuide(@)", header: "GeomFill_FunctionGuide.hxx".}
 proc setParam*(this: var GeomFillFunctionGuide; param: cfloat; centre: Pnt; dir: Xyz;
-              xDir: Xyz) {.cdecl, importcpp: "SetParam", dynlib: tkgeomalgo.}
+              xDir: Xyz) {.cdecl, importcpp: "SetParam", header: "GeomFill_FunctionGuide.hxx".}
 proc nbVariables*(this: GeomFillFunctionGuide): cint {.noSideEffect, cdecl,
-    importcpp: "NbVariables", dynlib: tkgeomalgo.}
+    importcpp: "NbVariables", header: "GeomFill_FunctionGuide.hxx".}
 proc nbEquations*(this: GeomFillFunctionGuide): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkgeomalgo.}
+    importcpp: "NbEquations", header: "GeomFill_FunctionGuide.hxx".}
 proc value*(this: var GeomFillFunctionGuide; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Value", header: "GeomFill_FunctionGuide.hxx".}
 proc derivatives*(this: var GeomFillFunctionGuide; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Derivatives", header: "GeomFill_FunctionGuide.hxx".}
 proc values*(this: var GeomFillFunctionGuide; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkgeomalgo.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "GeomFill_FunctionGuide.hxx".}
 proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: Xyz; dDir: Xyz;
             dfdt: var MathVector): bool {.cdecl, importcpp: "DerivT",
-                                      dynlib: tkgeomalgo.}
+                                      header: "GeomFill_FunctionGuide.hxx".}
 proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: Xyz; dDir: Xyz;
              dfdt: var MathVector; d2ft: var MathVector): bool {.cdecl,
-    importcpp: "Deriv2T", dynlib: tkgeomalgo.}
+    importcpp: "Deriv2T", header: "GeomFill_FunctionGuide.hxx".}

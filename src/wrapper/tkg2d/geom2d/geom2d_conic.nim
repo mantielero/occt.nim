@@ -57,30 +57,30 @@ type
 
 
 proc setAxis*(this: var Geom2dConic; theA: Ax22d) {.cdecl, importcpp: "SetAxis",
-    dynlib: tkg2d.}
+    header: "Geom2d_Conic.hxx".}
 proc setXAxis*(this: var Geom2dConic; theAX: Ax2d) {.cdecl, importcpp: "SetXAxis",
-    dynlib: tkg2d.}
+    header: "Geom2d_Conic.hxx".}
 proc setYAxis*(this: var Geom2dConic; theAY: Ax2d) {.cdecl, importcpp: "SetYAxis",
-    dynlib: tkg2d.}
+    header: "Geom2d_Conic.hxx".}
 proc setLocation*(this: var Geom2dConic; theP: Pnt2d) {.cdecl,
-    importcpp: "SetLocation", dynlib: tkg2d.}
+    importcpp: "SetLocation", header: "Geom2d_Conic.hxx".}
 proc xAxis*(this: Geom2dConic): Ax2d {.noSideEffect, cdecl, importcpp: "XAxis",
-                                   dynlib: tkg2d.}
+                                   header: "Geom2d_Conic.hxx".}
 proc yAxis*(this: Geom2dConic): Ax2d {.noSideEffect, cdecl, importcpp: "YAxis",
-                                   dynlib: tkg2d.}
+                                   header: "Geom2d_Conic.hxx".}
 proc eccentricity*(this: Geom2dConic): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg2d.}
+    importcpp: "Eccentricity", header: "Geom2d_Conic.hxx".}
 proc location*(this: Geom2dConic): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
-                                       dynlib: tkg2d.}
+                                       header: "Geom2d_Conic.hxx".}
 proc position*(this: Geom2dConic): Ax22d {.noSideEffect, cdecl, importcpp: "Position",
-                                       dynlib: tkg2d.}
-proc reverse*(this: var Geom2dConic) {.cdecl, importcpp: "Reverse", dynlib: tkg2d.}
+                                       header: "Geom2d_Conic.hxx".}
+proc reverse*(this: var Geom2dConic) {.cdecl, importcpp: "Reverse", header: "Geom2d_Conic.hxx".}
 proc reversedParameter*(this: Geom2dConic; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg2d.}
+    importcpp: "ReversedParameter", header: "Geom2d_Conic.hxx".}
 proc continuity*(this: Geom2dConic): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg2d.}
+    importcpp: "Continuity", header: "Geom2d_Conic.hxx".}
 proc isCN*(this: Geom2dConic; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
-    dynlib: tkg2d.}
+    header: "Geom2d_Conic.hxx".}
 proc dumpJson*(this: Geom2dConic; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg2d.}
+                                 header: "Geom2d_Conic.hxx".}

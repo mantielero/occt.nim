@@ -71,36 +71,36 @@ type
 
 
 proc sPrint*(s: TopAbsState): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(s: TopAbsState; os: var StandardOStream): var StandardOStream {.cdecl,
-    importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(k: TopOpeBRepDS_Kind): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(k: TopOpeBRepDS_Kind; i: cint; b: TCollectionAsciiString = newTCollectionAsciiString("");
             a: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(k: TopOpeBRepDS_Kind; s: var StandardOStream): var StandardOStream {.cdecl,
-    importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(k: TopOpeBRepDS_Kind; i: cint; s: var StandardOStream;
            b: TCollectionAsciiString = newTCollectionAsciiString(""); a: TCollectionAsciiString = newTCollectionAsciiString("")): var StandardOStream {.
-    cdecl, importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(t: TopAbsShapeEnum): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(t: TopAbsShapeEnum; i: cint): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(t: TopAbsShapeEnum; i: cint; s: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(o: TopAbsOrientation): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc sPrint*(c: TopOpeBRepDS_Config): TCollectionAsciiString {.cdecl,
-    importcpp: "TopOpeBRepDS::SPrint(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::SPrint(@)", header: "TopOpeBRepDS.hxx".}
 proc print*(c: TopOpeBRepDS_Config; s: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "TopOpeBRepDS::Print(@)", dynlib: tkbool.}
+    cdecl, importcpp: "TopOpeBRepDS::Print(@)", header: "TopOpeBRepDS.hxx".}
 proc isGeometry*(k: TopOpeBRepDS_Kind): bool {.cdecl,
-    importcpp: "TopOpeBRepDS::IsGeometry(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::IsGeometry(@)", header: "TopOpeBRepDS.hxx".}
 proc isTopology*(k: TopOpeBRepDS_Kind): bool {.cdecl,
-    importcpp: "TopOpeBRepDS::IsTopology(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::IsTopology(@)", header: "TopOpeBRepDS.hxx".}
 proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.cdecl,
-    importcpp: "TopOpeBRepDS::KindToShape(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
 proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.cdecl,
-    importcpp: "TopOpeBRepDS::ShapeToKind(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}

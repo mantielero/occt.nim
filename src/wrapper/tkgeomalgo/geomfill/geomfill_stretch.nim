@@ -20,19 +20,19 @@ type
 
 
 proc newGeomFillStretch*(): GeomFillStretch {.cdecl, constructor,
-    importcpp: "GeomFill_Stretch(@)", dynlib: tkgeomalgo.}
+    importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
 proc newGeomFillStretch*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
                         p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt): GeomFillStretch {.
-    cdecl, constructor, importcpp: "GeomFill_Stretch(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
 proc newGeomFillStretch*(p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
                         p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt;
                         w1: TColStdArray1OfReal; w2: TColStdArray1OfReal;
                         w3: TColStdArray1OfReal; w4: TColStdArray1OfReal): GeomFillStretch {.
-    cdecl, constructor, importcpp: "GeomFill_Stretch(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_Stretch(@)", header: "GeomFill_Stretch.hxx".}
 proc init*(this: var GeomFillStretch; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
           p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt) {.cdecl, importcpp: "Init",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_Stretch.hxx".}
 proc init*(this: var GeomFillStretch; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt;
           p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt; w1: TColStdArray1OfReal;
           w2: TColStdArray1OfReal; w3: TColStdArray1OfReal; w4: TColStdArray1OfReal) {.
-    cdecl, importcpp: "Init", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "Init", header: "GeomFill_Stretch.hxx".}

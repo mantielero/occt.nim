@@ -28,21 +28,21 @@ type
 proc newBlendFuncConstThroatWithPenetration*(s1: Handle[Adaptor3dHSurface];
     s2: Handle[Adaptor3dHSurface]; c: Handle[Adaptor3dHCurve]): BlendFuncConstThroatWithPenetration {.
     cdecl, constructor, importcpp: "BlendFunc_ConstThroatWithPenetration(@)",
-    dynlib: tkfillet.}
+    header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc value*(this: var BlendFuncConstThroatWithPenetration; x: MathVector;
-           f: var MathVector): bool {.cdecl, importcpp: "Value", dynlib: tkfillet.}
+           f: var MathVector): bool {.cdecl, importcpp: "Value", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc derivatives*(this: var BlendFuncConstThroatWithPenetration; x: MathVector;
                  d: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
-                                        dynlib: tkfillet.}
+                                        header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc isSolution*(this: var BlendFuncConstThroatWithPenetration; sol: MathVector;
-                tol: cfloat): bool {.cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+                tol: cfloat): bool {.cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangentOnS1*(this: BlendFuncConstThroatWithPenetration): Vec {.noSideEffect,
-    cdecl, importcpp: "TangentOnS1", dynlib: tkfillet.}
+    cdecl, importcpp: "TangentOnS1", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangent2dOnS1*(this: BlendFuncConstThroatWithPenetration): Vec2d {.
-    noSideEffect, cdecl, importcpp: "Tangent2dOnS1", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangentOnS2*(this: BlendFuncConstThroatWithPenetration): Vec {.noSideEffect,
-    cdecl, importcpp: "TangentOnS2", dynlib: tkfillet.}
+    cdecl, importcpp: "TangentOnS2", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc tangent2dOnS2*(this: BlendFuncConstThroatWithPenetration): Vec2d {.
-    noSideEffect, cdecl, importcpp: "Tangent2dOnS2", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc getSectionSize*(this: BlendFuncConstThroatWithPenetration): cfloat {.
-    noSideEffect, cdecl, importcpp: "GetSectionSize", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetSectionSize", header: "BlendFunc_ConstThroatWithPenetration.hxx".}

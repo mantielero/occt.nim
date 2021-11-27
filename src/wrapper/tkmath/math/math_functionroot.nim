@@ -29,20 +29,20 @@ type
 
 proc newMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
                          tolerance: cfloat; nbIterations: cint = 100): MathFunctionRoot {.
-    cdecl, constructor, importcpp: "math_FunctionRoot(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_FunctionRoot(@)", header: "math_FunctionRoot.hxx".}
 proc newMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;
                          tolerance: cfloat; a: cfloat; b: cfloat;
                          nbIterations: cint = 100): MathFunctionRoot {.cdecl,
-    constructor, importcpp: "math_FunctionRoot(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_FunctionRoot(@)", header: "math_FunctionRoot.hxx".}
 proc isDone*(this: MathFunctionRoot): bool {.noSideEffect, cdecl, importcpp: "IsDone",
-    dynlib: tkmath.}
+    header: "math_FunctionRoot.hxx".}
 proc root*(this: MathFunctionRoot): cfloat {.noSideEffect, cdecl, importcpp: "Root",
-    dynlib: tkmath.}
+    header: "math_FunctionRoot.hxx".}
 proc derivative*(this: MathFunctionRoot): cfloat {.noSideEffect, cdecl,
-    importcpp: "Derivative", dynlib: tkmath.}
+    importcpp: "Derivative", header: "math_FunctionRoot.hxx".}
 proc value*(this: MathFunctionRoot): cfloat {.noSideEffect, cdecl, importcpp: "Value",
-    dynlib: tkmath.}
+    header: "math_FunctionRoot.hxx".}
 proc nbIterations*(this: MathFunctionRoot): cint {.noSideEffect, cdecl,
-    importcpp: "NbIterations", dynlib: tkmath.}
+    importcpp: "NbIterations", header: "math_FunctionRoot.hxx".}
 proc dump*(this: MathFunctionRoot; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_FunctionRoot.hxx".}

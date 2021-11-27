@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noMathNotSquare):
   template mathNotSquareRaiseIf*(condition, message: untyped): void =
     if condition:
       proc mathNotSquare*(a1: Message): Throw {.cdecl,
-          importcpp: "math_NotSquare(@)", dynlib: tkmath.}
+          importcpp: "math_NotSquare(@)", header: "math_NotSquare.hxx".}
 
 else:
   discard

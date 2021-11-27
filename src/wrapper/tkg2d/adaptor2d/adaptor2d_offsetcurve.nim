@@ -41,80 +41,80 @@ type
 
 
 proc newAdaptor2dOffsetCurve*(): Adaptor2dOffsetCurve {.cdecl, constructor,
-    importcpp: "Adaptor2d_OffsetCurve(@)", dynlib: tkg2d.}
+    importcpp: "Adaptor2d_OffsetCurve(@)", header: "Adaptor2d_OffsetCurve.hxx".}
 proc newAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]): Adaptor2dOffsetCurve {.
-    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", header: "Adaptor2d_OffsetCurve.hxx".}
 proc newAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]; offset: cfloat): Adaptor2dOffsetCurve {.
-    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", header: "Adaptor2d_OffsetCurve.hxx".}
 proc newAdaptor2dOffsetCurve*(c: Handle[Adaptor2dHCurve2d]; offset: cfloat;
                              wFirst: cfloat; wLast: cfloat): Adaptor2dOffsetCurve {.
-    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", dynlib: tkg2d.}
+    cdecl, constructor, importcpp: "Adaptor2d_OffsetCurve(@)", header: "Adaptor2d_OffsetCurve.hxx".}
 proc load*(this: var Adaptor2dOffsetCurve; s: Handle[Adaptor2dHCurve2d]) {.cdecl,
-    importcpp: "Load", dynlib: tkg2d.}
+    importcpp: "Load", header: "Adaptor2d_OffsetCurve.hxx".}
 proc load*(this: var Adaptor2dOffsetCurve; offset: cfloat) {.cdecl, importcpp: "Load",
-    dynlib: tkg2d.}
+    header: "Adaptor2d_OffsetCurve.hxx".}
 proc load*(this: var Adaptor2dOffsetCurve; offset: cfloat; wFirst: cfloat; wLast: cfloat) {.
-    cdecl, importcpp: "Load", dynlib: tkg2d.}
+    cdecl, importcpp: "Load", header: "Adaptor2d_OffsetCurve.hxx".}
 proc curve*(this: Adaptor2dOffsetCurve): Handle[Adaptor2dHCurve2d] {.noSideEffect,
-    cdecl, importcpp: "Curve", dynlib: tkg2d.}
+    cdecl, importcpp: "Curve", header: "Adaptor2d_OffsetCurve.hxx".}
 proc offset*(this: Adaptor2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Offset", dynlib: tkg2d.}
+    importcpp: "Offset", header: "Adaptor2d_OffsetCurve.hxx".}
 proc firstParameter*(this: Adaptor2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg2d.}
+    importcpp: "FirstParameter", header: "Adaptor2d_OffsetCurve.hxx".}
 proc lastParameter*(this: Adaptor2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg2d.}
+    importcpp: "LastParameter", header: "Adaptor2d_OffsetCurve.hxx".}
 proc continuity*(this: Adaptor2dOffsetCurve): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg2d.}
+    importcpp: "Continuity", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbIntervals*(this: Adaptor2dOffsetCurve; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkg2d.}
+    cdecl, importcpp: "NbIntervals", header: "Adaptor2d_OffsetCurve.hxx".}
 proc intervals*(this: Adaptor2dOffsetCurve; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkg2d.}
+                                header: "Adaptor2d_OffsetCurve.hxx".}
 proc trim*(this: Adaptor2dOffsetCurve; first: cfloat; last: cfloat; tol: cfloat): Handle[
-    Adaptor2dHCurve2d] {.noSideEffect, cdecl, importcpp: "Trim", dynlib: tkg2d.}
+    Adaptor2dHCurve2d] {.noSideEffect, cdecl, importcpp: "Trim", header: "Adaptor2d_OffsetCurve.hxx".}
 proc isClosed*(this: Adaptor2dOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsClosed", dynlib: tkg2d.}
+    importcpp: "IsClosed", header: "Adaptor2d_OffsetCurve.hxx".}
 proc isPeriodic*(this: Adaptor2dOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsPeriodic", dynlib: tkg2d.}
+    importcpp: "IsPeriodic", header: "Adaptor2d_OffsetCurve.hxx".}
 proc period*(this: Adaptor2dOffsetCurve): cfloat {.noSideEffect, cdecl,
-    importcpp: "Period", dynlib: tkg2d.}
+    importcpp: "Period", header: "Adaptor2d_OffsetCurve.hxx".}
 proc value*(this: Adaptor2dOffsetCurve; u: cfloat): Pnt2d {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkg2d.}
+    importcpp: "Value", header: "Adaptor2d_OffsetCurve.hxx".}
 proc d0*(this: Adaptor2dOffsetCurve; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg2d.}
+    importcpp: "D0", header: "Adaptor2d_OffsetCurve.hxx".}
 proc d1*(this: Adaptor2dOffsetCurve; u: cfloat; p: var Pnt2d; v: var Vec2d) {.noSideEffect,
-    cdecl, importcpp: "D1", dynlib: tkg2d.}
+    cdecl, importcpp: "D1", header: "Adaptor2d_OffsetCurve.hxx".}
 proc d2*(this: Adaptor2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
-    noSideEffect, cdecl, importcpp: "D2", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "D2", header: "Adaptor2d_OffsetCurve.hxx".}
 proc d3*(this: Adaptor2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg2d.}
+        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor2d_OffsetCurve.hxx".}
 proc dn*(this: Adaptor2dOffsetCurve; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg2d.}
+    importcpp: "DN", header: "Adaptor2d_OffsetCurve.hxx".}
 proc resolution*(this: Adaptor2dOffsetCurve; r3d: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "Resolution", dynlib: tkg2d.}
+    cdecl, importcpp: "Resolution", header: "Adaptor2d_OffsetCurve.hxx".}
 proc getType*(this: Adaptor2dOffsetCurve): GeomAbsCurveType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkg2d.}
+    importcpp: "GetType", header: "Adaptor2d_OffsetCurve.hxx".}
 proc line*(this: Adaptor2dOffsetCurve): Lin2d {.noSideEffect, cdecl,
-    importcpp: "Line", dynlib: tkg2d.}
+    importcpp: "Line", header: "Adaptor2d_OffsetCurve.hxx".}
 proc circle*(this: Adaptor2dOffsetCurve): Circ2d {.noSideEffect, cdecl,
-    importcpp: "Circle", dynlib: tkg2d.}
+    importcpp: "Circle", header: "Adaptor2d_OffsetCurve.hxx".}
 proc ellipse*(this: Adaptor2dOffsetCurve): Elips2d {.noSideEffect, cdecl,
-    importcpp: "Ellipse", dynlib: tkg2d.}
+    importcpp: "Ellipse", header: "Adaptor2d_OffsetCurve.hxx".}
 proc hyperbola*(this: Adaptor2dOffsetCurve): Hypr2d {.noSideEffect, cdecl,
-    importcpp: "Hyperbola", dynlib: tkg2d.}
+    importcpp: "Hyperbola", header: "Adaptor2d_OffsetCurve.hxx".}
 proc parabola*(this: Adaptor2dOffsetCurve): Parab2d {.noSideEffect, cdecl,
-    importcpp: "Parabola", dynlib: tkg2d.}
+    importcpp: "Parabola", header: "Adaptor2d_OffsetCurve.hxx".}
 proc degree*(this: Adaptor2dOffsetCurve): cint {.noSideEffect, cdecl,
-    importcpp: "Degree", dynlib: tkg2d.}
+    importcpp: "Degree", header: "Adaptor2d_OffsetCurve.hxx".}
 proc isRational*(this: Adaptor2dOffsetCurve): bool {.noSideEffect, cdecl,
-    importcpp: "IsRational", dynlib: tkg2d.}
+    importcpp: "IsRational", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbPoles*(this: Adaptor2dOffsetCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbPoles", dynlib: tkg2d.}
+    importcpp: "NbPoles", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbKnots*(this: Adaptor2dOffsetCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbKnots", dynlib: tkg2d.}
+    importcpp: "NbKnots", header: "Adaptor2d_OffsetCurve.hxx".}
 proc bezier*(this: Adaptor2dOffsetCurve): Handle[Geom2dBezierCurve] {.noSideEffect,
-    cdecl, importcpp: "Bezier", dynlib: tkg2d.}
+    cdecl, importcpp: "Bezier", header: "Adaptor2d_OffsetCurve.hxx".}
 proc bSpline*(this: Adaptor2dOffsetCurve): Handle[Geom2dBSplineCurve] {.
-    noSideEffect, cdecl, importcpp: "BSpline", dynlib: tkg2d.}
+    noSideEffect, cdecl, importcpp: "BSpline", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbSamples*(this: Adaptor2dOffsetCurve): cint {.noSideEffect, cdecl,
-    importcpp: "NbSamples", dynlib: tkg2d.}
+    importcpp: "NbSamples", header: "Adaptor2d_OffsetCurve.hxx".}

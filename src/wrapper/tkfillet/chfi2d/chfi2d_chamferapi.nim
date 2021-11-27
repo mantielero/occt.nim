@@ -21,17 +21,17 @@ type
 
 
 proc newChFi2dChamferAPI*(): ChFi2dChamferAPI {.cdecl, constructor,
-    importcpp: "ChFi2d_ChamferAPI(@)", dynlib: tkfillet.}
+    importcpp: "ChFi2d_ChamferAPI(@)", header: "ChFi2d_ChamferAPI.hxx".}
 proc newChFi2dChamferAPI*(theWire: TopoDS_Wire): ChFi2dChamferAPI {.cdecl,
-    constructor, importcpp: "ChFi2d_ChamferAPI(@)", dynlib: tkfillet.}
+    constructor, importcpp: "ChFi2d_ChamferAPI(@)", header: "ChFi2d_ChamferAPI.hxx".}
 proc newChFi2dChamferAPI*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge): ChFi2dChamferAPI {.
-    cdecl, constructor, importcpp: "ChFi2d_ChamferAPI(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "ChFi2d_ChamferAPI(@)", header: "ChFi2d_ChamferAPI.hxx".}
 proc init*(this: var ChFi2dChamferAPI; theWire: TopoDS_Wire) {.cdecl,
-    importcpp: "Init", dynlib: tkfillet.}
+    importcpp: "Init", header: "ChFi2d_ChamferAPI.hxx".}
 proc init*(this: var ChFi2dChamferAPI; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge) {.
-    cdecl, importcpp: "Init", dynlib: tkfillet.}
+    cdecl, importcpp: "Init", header: "ChFi2d_ChamferAPI.hxx".}
 proc perform*(this: var ChFi2dChamferAPI): bool {.cdecl, importcpp: "Perform",
-    dynlib: tkfillet.}
+    header: "ChFi2d_ChamferAPI.hxx".}
 proc result*(this: var ChFi2dChamferAPI; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; theLength1: cfloat; theLength2: cfloat): TopoDS_Edge {.
-    cdecl, importcpp: "Result", dynlib: tkfillet.}
+    cdecl, importcpp: "Result", header: "ChFi2d_ChamferAPI.hxx".}

@@ -18,10 +18,10 @@ type
 
 
 proc newTColStdHArray1OfReal*(theLower: cint; theUpper: cint): TColStdHArray1OfReal {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", header: "TColStd_HArray1OfReal.hxx".}
 proc newTColStdHArray1OfReal*(theLower: cint; theUpper: cint; theValue: ValueType): TColStdHArray1OfReal {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", header: "TColStd_HArray1OfReal.hxx".}
 proc newTColStdHArray1OfReal*(theOther: TColStdArray1OfReal): TColStdHArray1OfReal {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfReal(@)", header: "TColStd_HArray1OfReal.hxx".}
 proc array1*(this: TColStdHArray1OfReal): TColStdArray1OfReal {.noSideEffect, cdecl,
-    importcpp: "Array1", dynlib: tkernel.}
+    importcpp: "Array1", header: "TColStd_HArray1OfReal.hxx".}

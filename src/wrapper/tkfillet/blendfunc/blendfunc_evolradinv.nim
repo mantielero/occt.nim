@@ -27,24 +27,24 @@ type
 proc newBlendFuncEvolRadInv*(s1: Handle[Adaptor3dHSurface];
                             s2: Handle[Adaptor3dHSurface];
                             c: Handle[Adaptor3dHCurve]; law: Handle[LawFunction]): BlendFuncEvolRadInv {.
-    cdecl, constructor, importcpp: "BlendFunc_EvolRadInv(@)", dynlib: tkfillet.}
+    cdecl, constructor, importcpp: "BlendFunc_EvolRadInv(@)", header: "BlendFunc_EvolRadInv.hxx".}
 proc set*(this: var BlendFuncEvolRadInv; onFirst: bool;
          cOnSurf: Handle[Adaptor2dHCurve2d]) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRadInv.hxx".}
 proc getTolerance*(this: BlendFuncEvolRadInv; tolerance: var MathVector; tol: cfloat) {.
-    noSideEffect, cdecl, importcpp: "GetTolerance", dynlib: tkfillet.}
+    noSideEffect, cdecl, importcpp: "GetTolerance", header: "BlendFunc_EvolRadInv.hxx".}
 proc getBounds*(this: BlendFuncEvolRadInv; infBound: var MathVector;
                supBound: var MathVector) {.noSideEffect, cdecl,
-                                        importcpp: "GetBounds", dynlib: tkfillet.}
+                                        importcpp: "GetBounds", header: "BlendFunc_EvolRadInv.hxx".}
 proc isSolution*(this: var BlendFuncEvolRadInv; sol: MathVector; tol: cfloat): bool {.
-    cdecl, importcpp: "IsSolution", dynlib: tkfillet.}
+    cdecl, importcpp: "IsSolution", header: "BlendFunc_EvolRadInv.hxx".}
 proc nbEquations*(this: BlendFuncEvolRadInv): cint {.noSideEffect, cdecl,
-    importcpp: "NbEquations", dynlib: tkfillet.}
+    importcpp: "NbEquations", header: "BlendFunc_EvolRadInv.hxx".}
 proc value*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector): bool {.
-    cdecl, importcpp: "Value", dynlib: tkfillet.}
+    cdecl, importcpp: "Value", header: "BlendFunc_EvolRadInv.hxx".}
 proc derivatives*(this: var BlendFuncEvolRadInv; x: MathVector; d: var MathMatrix): bool {.
-    cdecl, importcpp: "Derivatives", dynlib: tkfillet.}
+    cdecl, importcpp: "Derivatives", header: "BlendFunc_EvolRadInv.hxx".}
 proc values*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector;
-            d: var MathMatrix): bool {.cdecl, importcpp: "Values", dynlib: tkfillet.}
+            d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_EvolRadInv.hxx".}
 proc set*(this: var BlendFuncEvolRadInv; choix: cint) {.cdecl, importcpp: "Set",
-    dynlib: tkfillet.}
+    header: "BlendFunc_EvolRadInv.hxx".}

@@ -78,11 +78,11 @@ type
 proc newConvertTorusToBSplineSurface*(t: Torus; u1: cfloat; u2: cfloat; v1: cfloat;
                                      v2: cfloat): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_TorusToBSplineSurface.hxx".}
 proc newConvertTorusToBSplineSurface*(t: Torus; param1: cfloat; param2: cfloat;
                                      uTrim: bool = true): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_TorusToBSplineSurface.hxx".}
 proc newConvertTorusToBSplineSurface*(t: Torus): ConvertTorusToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_TorusToBSplineSurface(@)",
-    dynlib: tkmath.}
+    header: "Convert_TorusToBSplineSurface.hxx".}

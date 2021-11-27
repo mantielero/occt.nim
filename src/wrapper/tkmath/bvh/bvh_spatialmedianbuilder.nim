@@ -26,7 +26,7 @@ proc newBVH_SpatialMedianBuilder*[T; N: static[cint]](
     theMaxTreeDepth: cint = BVH_ConstantsMaxTreeDepth;
     theToUseMainAxis: bool = false): BVH_SpatialMedianBuilder[T, N] {.cdecl,
     constructor, importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
-    dynlib: tkmath.}
+    header: "BVH_SpatialMedianBuilder.hxx".}
 proc destroyBVH_SpatialMedianBuilder*[T; N: static[cint]](
     this: var BVH_SpatialMedianBuilder[T, N]) {.cdecl,
-    importcpp: "#.~BVH_SpatialMedianBuilder()", dynlib: tkmath.}
+    importcpp: "#.~BVH_SpatialMedianBuilder()", header: "BVH_SpatialMedianBuilder.hxx".}

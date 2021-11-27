@@ -48,43 +48,43 @@ type
 
 
 proc newTopOpeBRepDS_Interference*(): TopOpeBRepDS_Interference {.cdecl,
-    constructor, importcpp: "TopOpeBRepDS_Interference(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepDS_Interference(@)", header: "TopOpeBRepDS_Interference.hxx".}
 proc newTopOpeBRepDS_Interference*(transition: TopOpeBRepDS_Transition;
                                   supportType: TopOpeBRepDS_Kind; support: cint;
                                   geometryType: TopOpeBRepDS_Kind; geometry: cint): TopOpeBRepDS_Interference {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Interference(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Interference(@)", header: "TopOpeBRepDS_Interference.hxx".}
 proc newTopOpeBRepDS_Interference*(i: Handle[TopOpeBRepDS_Interference]): TopOpeBRepDS_Interference {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Interference(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Interference(@)", header: "TopOpeBRepDS_Interference.hxx".}
 proc transition*(this: TopOpeBRepDS_Interference): TopOpeBRepDS_Transition {.
-    noSideEffect, cdecl, importcpp: "Transition", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Transition", header: "TopOpeBRepDS_Interference.hxx".}
 proc changeTransition*(this: var TopOpeBRepDS_Interference): var TopOpeBRepDS_Transition {.
-    cdecl, importcpp: "ChangeTransition", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeTransition", header: "TopOpeBRepDS_Interference.hxx".}
 proc transition*(this: var TopOpeBRepDS_Interference; t: TopOpeBRepDS_Transition) {.
-    cdecl, importcpp: "Transition", dynlib: tkbool.}
+    cdecl, importcpp: "Transition", header: "TopOpeBRepDS_Interference.hxx".}
 proc gkgsks*(this: TopOpeBRepDS_Interference; gk: var TopOpeBRepDS_Kind; g: var cint;
             sk: var TopOpeBRepDS_Kind; s: var cint) {.noSideEffect, cdecl,
-    importcpp: "GKGSKS", dynlib: tkbool.}
+    importcpp: "GKGSKS", header: "TopOpeBRepDS_Interference.hxx".}
 proc supportType*(this: TopOpeBRepDS_Interference): TopOpeBRepDS_Kind {.
-    noSideEffect, cdecl, importcpp: "SupportType", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "SupportType", header: "TopOpeBRepDS_Interference.hxx".}
 proc support*(this: TopOpeBRepDS_Interference): cint {.noSideEffect, cdecl,
-    importcpp: "Support", dynlib: tkbool.}
+    importcpp: "Support", header: "TopOpeBRepDS_Interference.hxx".}
 proc geometryType*(this: TopOpeBRepDS_Interference): TopOpeBRepDS_Kind {.
-    noSideEffect, cdecl, importcpp: "GeometryType", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GeometryType", header: "TopOpeBRepDS_Interference.hxx".}
 proc geometry*(this: TopOpeBRepDS_Interference): cint {.noSideEffect, cdecl,
-    importcpp: "Geometry", dynlib: tkbool.}
+    importcpp: "Geometry", header: "TopOpeBRepDS_Interference.hxx".}
 proc setGeometry*(this: var TopOpeBRepDS_Interference; gi: cint) {.cdecl,
-    importcpp: "SetGeometry", dynlib: tkbool.}
+    importcpp: "SetGeometry", header: "TopOpeBRepDS_Interference.hxx".}
 proc supportType*(this: var TopOpeBRepDS_Interference; st: TopOpeBRepDS_Kind) {.cdecl,
-    importcpp: "SupportType", dynlib: tkbool.}
+    importcpp: "SupportType", header: "TopOpeBRepDS_Interference.hxx".}
 proc support*(this: var TopOpeBRepDS_Interference; s: cint) {.cdecl,
-    importcpp: "Support", dynlib: tkbool.}
+    importcpp: "Support", header: "TopOpeBRepDS_Interference.hxx".}
 proc geometryType*(this: var TopOpeBRepDS_Interference; gt: TopOpeBRepDS_Kind) {.
-    cdecl, importcpp: "GeometryType", dynlib: tkbool.}
+    cdecl, importcpp: "GeometryType", header: "TopOpeBRepDS_Interference.hxx".}
 proc geometry*(this: var TopOpeBRepDS_Interference; g: cint) {.cdecl,
-    importcpp: "Geometry", dynlib: tkbool.}
+    importcpp: "Geometry", header: "TopOpeBRepDS_Interference.hxx".}
 proc hasSameSupport*(this: TopOpeBRepDS_Interference;
                     other: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "HasSameSupport", dynlib: tkbool.}
+    cdecl, importcpp: "HasSameSupport", header: "TopOpeBRepDS_Interference.hxx".}
 proc hasSameGeometry*(this: TopOpeBRepDS_Interference;
                      other: Handle[TopOpeBRepDS_Interference]): bool {.
-    noSideEffect, cdecl, importcpp: "HasSameGeometry", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "HasSameGeometry", header: "TopOpeBRepDS_Interference.hxx".}

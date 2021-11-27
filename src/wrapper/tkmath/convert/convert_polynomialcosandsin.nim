@@ -18,4 +18,4 @@ proc buildPolynomialCosAndSin*(a1: cfloat; a2: cfloat; a3: cint;
                               a4: var Handle[TColStdHArray1OfReal];
                               a5: var Handle[TColStdHArray1OfReal];
                               a6: var Handle[TColStdHArray1OfReal]) {.cdecl,
-    importcpp: "BuildPolynomialCosAndSin(@)", dynlib: tkmath.}
+    importcpp: "BuildPolynomialCosAndSin(@)", header: "Convert_PolynomialCosAndSin.hxx".}

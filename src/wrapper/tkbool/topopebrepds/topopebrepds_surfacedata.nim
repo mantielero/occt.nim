@@ -22,6 +22,6 @@ type
 
 
 proc newTopOpeBRepDS_SurfaceData*(): TopOpeBRepDS_SurfaceData {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_SurfaceData(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_SurfaceData(@)", header: "TopOpeBRepDS_SurfaceData.hxx".}
 proc newTopOpeBRepDS_SurfaceData*(s: TopOpeBRepDS_Surface): TopOpeBRepDS_SurfaceData {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceData(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceData(@)", header: "TopOpeBRepDS_SurfaceData.hxx".}

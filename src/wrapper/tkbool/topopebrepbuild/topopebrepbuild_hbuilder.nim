@@ -37,85 +37,85 @@ type
 
 
 proc newTopOpeBRepBuildHBuilder*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildHBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_HBuilder(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_HBuilder(@)", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc buildTool*(this: TopOpeBRepBuildHBuilder): TopOpeBRepDS_BuildTool {.
-    noSideEffect, cdecl, importcpp: "BuildTool", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "BuildTool", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc perform*(this: var TopOpeBRepBuildHBuilder;
              hds: Handle[TopOpeBRepDS_HDataStructure]) {.cdecl,
-    importcpp: "Perform", dynlib: tkbool.}
+    importcpp: "Perform", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc perform*(this: var TopOpeBRepBuildHBuilder;
              hds: Handle[TopOpeBRepDS_HDataStructure]; s1: TopoDS_Shape;
-             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", dynlib: tkbool.}
+             s2: TopoDS_Shape) {.cdecl, importcpp: "Perform", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc clear*(this: var TopOpeBRepBuildHBuilder) {.cdecl, importcpp: "Clear",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc dataStructure*(this: TopOpeBRepBuildHBuilder): Handle[
     TopOpeBRepDS_HDataStructure] {.noSideEffect, cdecl, importcpp: "DataStructure",
-                                  dynlib: tkbool.}
+                                  header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc changeBuildTool*(this: var TopOpeBRepBuildHBuilder): var TopOpeBRepDS_BuildTool {.
-    cdecl, importcpp: "ChangeBuildTool", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeBuildTool", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc mergeShapes*(this: var TopOpeBRepBuildHBuilder; s1: TopoDS_Shape;
                  tb1: TopAbsState; s2: TopoDS_Shape; tb2: TopAbsState) {.cdecl,
-    importcpp: "MergeShapes", dynlib: tkbool.}
+    importcpp: "MergeShapes", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc mergeSolids*(this: var TopOpeBRepBuildHBuilder; s1: TopoDS_Shape;
                  tb1: TopAbsState; s2: TopoDS_Shape; tb2: TopAbsState) {.cdecl,
-    importcpp: "MergeSolids", dynlib: tkbool.}
+    importcpp: "MergeSolids", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc mergeSolid*(this: var TopOpeBRepBuildHBuilder; s: TopoDS_Shape; tb: TopAbsState) {.
-    cdecl, importcpp: "MergeSolid", dynlib: tkbool.}
+    cdecl, importcpp: "MergeSolid", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc isSplit*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "IsSplit", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsSplit", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc splits*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsState): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "Splits", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Splits", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc isMerged*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsState): bool {.
-    noSideEffect, cdecl, importcpp: "IsMerged", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "IsMerged", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc merged*(this: TopOpeBRepBuildHBuilder; s: TopoDS_Shape; toBuild: TopAbsState): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "Merged", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Merged", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc newVertex*(this: TopOpeBRepBuildHBuilder; i: cint): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "NewVertex", dynlib: tkbool.}
+    cdecl, importcpp: "NewVertex", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc newEdges*(this: TopOpeBRepBuildHBuilder; i: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "NewEdges", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "NewEdges", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc changeNewEdges*(this: var TopOpeBRepBuildHBuilder; i: cint): var TopToolsListOfShape {.
-    cdecl, importcpp: "ChangeNewEdges", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeNewEdges", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc newFaces*(this: TopOpeBRepBuildHBuilder; i: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "NewFaces", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "NewFaces", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc section*(this: var TopOpeBRepBuildHBuilder): TopToolsListOfShape {.cdecl,
-    importcpp: "Section", dynlib: tkbool.}
+    importcpp: "Section", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc initExtendedSectionDS*(this: var TopOpeBRepBuildHBuilder; k: cint = 3) {.cdecl,
-    importcpp: "InitExtendedSectionDS", dynlib: tkbool.}
+    importcpp: "InitExtendedSectionDS", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc initSection*(this: var TopOpeBRepBuildHBuilder; k: cint = 3) {.cdecl,
-    importcpp: "InitSection", dynlib: tkbool.}
+    importcpp: "InitSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc moreSection*(this: TopOpeBRepBuildHBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreSection", dynlib: tkbool.}
+    importcpp: "MoreSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc nextSection*(this: var TopOpeBRepBuildHBuilder) {.cdecl,
-    importcpp: "NextSection", dynlib: tkbool.}
+    importcpp: "NextSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc currentSection*(this: TopOpeBRepBuildHBuilder): TopoDS_Shape {.noSideEffect,
-    cdecl, importcpp: "CurrentSection", dynlib: tkbool.}
+    cdecl, importcpp: "CurrentSection", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSEdgeFromSectEdge*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
                            rank: cint): cint {.cdecl,
-    importcpp: "GetDSEdgeFromSectEdge", dynlib: tkbool.}
+    importcpp: "GetDSEdgeFromSectEdge", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSFaceFromDSEdge*(this: var TopOpeBRepBuildHBuilder; indexEdg: cint;
                          rank: cint): var TColStdListOfInteger {.cdecl,
-    importcpp: "GetDSFaceFromDSEdge", dynlib: tkbool.}
+    importcpp: "GetDSFaceFromDSEdge", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSCurveFromSectEdge*(this: var TopOpeBRepBuildHBuilder;
                             sectEdge: TopoDS_Shape): cint {.cdecl,
-    importcpp: "GetDSCurveFromSectEdge", dynlib: tkbool.}
+    importcpp: "GetDSCurveFromSectEdge", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSFaceFromDSCurve*(this: var TopOpeBRepBuildHBuilder; indexCur: cint;
                           rank: cint): cint {.cdecl,
-    importcpp: "GetDSFaceFromDSCurve", dynlib: tkbool.}
+    importcpp: "GetDSFaceFromDSCurve", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc getDSPointFromNewVertex*(this: var TopOpeBRepBuildHBuilder;
                              newVert: TopoDS_Shape): cint {.cdecl,
-    importcpp: "GetDSPointFromNewVertex", dynlib: tkbool.}
+    importcpp: "GetDSPointFromNewVertex", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc edgeCurveAncestors*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
                         f1: var TopoDS_Shape; f2: var TopoDS_Shape; ic: var cint): bool {.
-    cdecl, importcpp: "EdgeCurveAncestors", dynlib: tkbool.}
+    cdecl, importcpp: "EdgeCurveAncestors", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc edgeSectionAncestors*(this: var TopOpeBRepBuildHBuilder; e: TopoDS_Shape;
                           lf1: var TopToolsListOfShape;
                           lf2: var TopToolsListOfShape;
                           le1: var TopToolsListOfShape;
                           le2: var TopToolsListOfShape): bool {.cdecl,
-    importcpp: "EdgeSectionAncestors", dynlib: tkbool.}
+    importcpp: "EdgeSectionAncestors", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc isKPart*(this: var TopOpeBRepBuildHBuilder): cint {.cdecl, importcpp: "IsKPart",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc mergeKPart*(this: var TopOpeBRepBuildHBuilder; tb1: TopAbsState; tb2: TopAbsState) {.
-    cdecl, importcpp: "MergeKPart", dynlib: tkbool.}
+    cdecl, importcpp: "MergeKPart", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc changeBuilder*(this: var TopOpeBRepBuildHBuilder): var TopOpeBRepBuildBuilder {.
-    cdecl, importcpp: "ChangeBuilder", dynlib: tkbool.}
+    cdecl, importcpp: "ChangeBuilder", header: "TopOpeBRepBuild_HBuilder.hxx".}

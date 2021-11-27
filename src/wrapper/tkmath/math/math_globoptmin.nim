@@ -82,39 +82,39 @@ proc newMathGlobOptMin*(theFunc: ptr MathMultipleVarFunction;
                        theLowerBorder: MathVector; theUpperBorder: MathVector;
                        theC: cfloat = 9; theDiscretizationTol: cfloat = 1.0e-2;
                        theSameTol: cfloat = 1.0e-7): MathGlobOptMin {.cdecl,
-    constructor, importcpp: "math_GlobOptMin(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_GlobOptMin(@)", header: "math_GlobOptMin.hxx".}
 proc setGlobalParams*(this: var MathGlobOptMin;
                      theFunc: ptr MathMultipleVarFunction;
                      theLowerBorder: MathVector; theUpperBorder: MathVector;
                      theC: cfloat = 9; theDiscretizationTol: cfloat = 1.0e-2;
                      theSameTol: cfloat = 1.0e-7) {.cdecl,
-    importcpp: "SetGlobalParams", dynlib: tkmath.}
+    importcpp: "SetGlobalParams", header: "math_GlobOptMin.hxx".}
 proc setLocalParams*(this: var MathGlobOptMin; theLocalA: MathVector;
                     theLocalB: MathVector) {.cdecl, importcpp: "SetLocalParams",
-    dynlib: tkmath.}
+    header: "math_GlobOptMin.hxx".}
 proc setTol*(this: var MathGlobOptMin; theDiscretizationTol: cfloat;
-            theSameTol: cfloat) {.cdecl, importcpp: "SetTol", dynlib: tkmath.}
+            theSameTol: cfloat) {.cdecl, importcpp: "SetTol", header: "math_GlobOptMin.hxx".}
 proc getTol*(this: var MathGlobOptMin; theDiscretizationTol: var cfloat;
-            theSameTol: var cfloat) {.cdecl, importcpp: "GetTol", dynlib: tkmath.}
+            theSameTol: var cfloat) {.cdecl, importcpp: "GetTol", header: "math_GlobOptMin.hxx".}
 proc perform*(this: var MathGlobOptMin; isFindSingleSolution: bool = false) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_GlobOptMin.hxx".}
 proc points*(this: var MathGlobOptMin; theIndex: cint; theSol: var MathVector) {.cdecl,
-    importcpp: "Points", dynlib: tkmath.}
+    importcpp: "Points", header: "math_GlobOptMin.hxx".}
 proc setContinuity*(this: var MathGlobOptMin; theCont: cint) {.cdecl,
-    importcpp: "SetContinuity", dynlib: tkmath.}
+    importcpp: "SetContinuity", header: "math_GlobOptMin.hxx".}
 proc getContinuity*(this: MathGlobOptMin): cint {.noSideEffect, cdecl,
-    importcpp: "GetContinuity", dynlib: tkmath.}
+    importcpp: "GetContinuity", header: "math_GlobOptMin.hxx".}
 proc setFunctionalMinimalValue*(this: var MathGlobOptMin; theMinimalValue: cfloat) {.
-    cdecl, importcpp: "SetFunctionalMinimalValue", dynlib: tkmath.}
+    cdecl, importcpp: "SetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
 proc getFunctionalMinimalValue*(this: MathGlobOptMin): cfloat {.noSideEffect, cdecl,
-    importcpp: "GetFunctionalMinimalValue", dynlib: tkmath.}
+    importcpp: "GetFunctionalMinimalValue", header: "math_GlobOptMin.hxx".}
 proc setLipConstState*(this: var MathGlobOptMin; theFlag: bool) {.cdecl,
-    importcpp: "SetLipConstState", dynlib: tkmath.}
+    importcpp: "SetLipConstState", header: "math_GlobOptMin.hxx".}
 proc getLipConstState*(this: MathGlobOptMin): bool {.noSideEffect, cdecl,
-    importcpp: "GetLipConstState", dynlib: tkmath.}
+    importcpp: "GetLipConstState", header: "math_GlobOptMin.hxx".}
 proc isDone*(this: MathGlobOptMin): bool {.noSideEffect, cdecl, importcpp: "isDone",
-                                       dynlib: tkmath.}
+                                       header: "math_GlobOptMin.hxx".}
 proc getF*(this: MathGlobOptMin): cfloat {.noSideEffect, cdecl, importcpp: "GetF",
-                                       dynlib: tkmath.}
+                                       header: "math_GlobOptMin.hxx".}
 proc nbExtrema*(this: MathGlobOptMin): cint {.noSideEffect, cdecl,
-    importcpp: "NbExtrema", dynlib: tkmath.}
+    importcpp: "NbExtrema", header: "math_GlobOptMin.hxx".}

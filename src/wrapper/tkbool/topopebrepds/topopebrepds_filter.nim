@@ -22,18 +22,18 @@ type
 
 proc newTopOpeBRepDS_Filter*(hds: Handle[TopOpeBRepDS_HDataStructure];
                             pClassif: TopOpeBRepToolPShapeClassifier = cast[TopOpeBRepToolPShapeClassifier](0)): TopOpeBRepDS_Filter {.
-    cdecl, constructor, importcpp: "TopOpeBRepDS_Filter(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepDS_Filter(@)", header: "TopOpeBRepDS_Filter.hxx".}
 proc processInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
-    importcpp: "ProcessInterferences", dynlib: tkbool.}
+    importcpp: "ProcessInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_Filter; mEsp: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
-    cdecl, importcpp: "ProcessFaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processFaceInterferences*(this: var TopOpeBRepDS_Filter; i: cint; mEsp: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
-    cdecl, importcpp: "ProcessFaceInterferences", dynlib: tkbool.}
+    cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
-    importcpp: "ProcessEdgeInterferences", dynlib: tkbool.}
+    importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.cdecl,
-    importcpp: "ProcessEdgeInterferences", dynlib: tkbool.}
+    importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processCurveInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
-    importcpp: "ProcessCurveInterferences", dynlib: tkbool.}
+    importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processCurveInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.cdecl,
-    importcpp: "ProcessCurveInterferences", dynlib: tkbool.}
+    importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}

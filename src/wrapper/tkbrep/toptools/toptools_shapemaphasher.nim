@@ -70,6 +70,6 @@ type
 
 
 #proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl,
-#    importcpp: "TopTools_ShapeMapHasher::HashCode(@)", dynlib: tkbrep.}
+#    importcpp: "TopTools_ShapeMapHasher::HashCode(@)", header: "TopTools_ShapeMapHasher.hxx".}
 #proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.cdecl,
-#    importcpp: "TopTools_ShapeMapHasher::IsEqual(@)", dynlib: tkbrep.}
+#    importcpp: "TopTools_ShapeMapHasher::IsEqual(@)", header: "TopTools_ShapeMapHasher.hxx".}

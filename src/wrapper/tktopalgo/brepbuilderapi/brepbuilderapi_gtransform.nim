@@ -50,12 +50,12 @@ type
 
 
 proc newBRepBuilderAPI_GTransform*(t: GTrsf): BRepBuilderAPI_GTransform {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_GTransform(@)", dynlib: tktopalgo.}
+    constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
 proc newBRepBuilderAPI_GTransform*(s: TopoDS_Shape; t: GTrsf; copy: bool = false): BRepBuilderAPI_GTransform {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_GTransform(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
 proc perform*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape; copy: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tktopalgo.}
+    cdecl, importcpp: "Perform", header: "BRepBuilderAPI_GTransform.hxx".}
 proc modified*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tktopalgo.}
+    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_GTransform.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_GTransform; s: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedShape", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_GTransform.hxx".}

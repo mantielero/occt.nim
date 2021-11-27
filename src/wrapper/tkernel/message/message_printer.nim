@@ -32,20 +32,20 @@ type
 
 
 proc getTraceLevel*(this: MessagePrinter): MessageGravity {.noSideEffect, cdecl,
-    importcpp: "GetTraceLevel", dynlib: tkernel.}
+    importcpp: "GetTraceLevel", header: "Message_Printer.hxx".}
 proc setTraceLevel*(this: var MessagePrinter; theTraceLevel: MessageGravity) {.cdecl,
-    importcpp: "SetTraceLevel", dynlib: tkernel.}
+    importcpp: "SetTraceLevel", header: "Message_Printer.hxx".}
 proc send*(this: MessagePrinter; theString: TCollectionExtendedString;
           theGravity: MessageGravity) {.noSideEffect, cdecl, importcpp: "Send",
-                                      dynlib: tkernel.}
+                                      header: "Message_Printer.hxx".}
 proc send*(this: MessagePrinter; theString: cstring; theGravity: MessageGravity) {.
-    noSideEffect, cdecl, importcpp: "Send", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Send", header: "Message_Printer.hxx".}
 proc send*(this: MessagePrinter; theString: TCollectionAsciiString;
           theGravity: MessageGravity) {.noSideEffect, cdecl, importcpp: "Send",
-                                      dynlib: tkernel.}
+                                      header: "Message_Printer.hxx".}
 proc sendStringStream*(this: MessagePrinter; theStream: StandardSStream;
                       theGravity: MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "SendStringStream", dynlib: tkernel.}
+    importcpp: "SendStringStream", header: "Message_Printer.hxx".}
 proc sendObject*(this: MessagePrinter; theObject: Handle[StandardTransient];
                 theGravity: MessageGravity) {.noSideEffect, cdecl,
-    importcpp: "SendObject", dynlib: tkernel.}
+    importcpp: "SendObject", header: "Message_Printer.hxx".}

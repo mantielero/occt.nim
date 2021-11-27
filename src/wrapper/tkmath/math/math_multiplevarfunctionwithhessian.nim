@@ -30,14 +30,14 @@ type
 
 
 proc nbVariables*(this: MathMultipleVarFunctionWithHessian): cint {.noSideEffect,
-    cdecl, importcpp: "NbVariables", dynlib: tkmath.}
+    cdecl, importcpp: "NbVariables", header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc value*(this: var MathMultipleVarFunctionWithHessian; x: MathVector; f: var cfloat): bool {.
-    cdecl, importcpp: "Value", dynlib: tkmath.}
+    cdecl, importcpp: "Value", header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc gradient*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
-              g: var MathVector): bool {.cdecl, importcpp: "Gradient", dynlib: tkmath.}
+              g: var MathVector): bool {.cdecl, importcpp: "Gradient", header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
             f: var cfloat; g: var MathVector): bool {.cdecl, importcpp: "Values",
-    dynlib: tkmath.}
+    header: "math_MultipleVarFunctionWithHessian.hxx".}
 proc values*(this: var MathMultipleVarFunctionWithHessian; x: MathVector;
             f: var cfloat; g: var MathVector; h: var MathMatrix): bool {.cdecl,
-    importcpp: "Values", dynlib: tkmath.}
+    importcpp: "Values", header: "math_MultipleVarFunctionWithHessian.hxx".}

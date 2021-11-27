@@ -21,37 +21,37 @@ type
 
 
 proc newBndSphere*(): BndSphere {.cdecl, constructor, importcpp: "Bnd_Sphere(@)",
-                               dynlib: tkmath.}
+                               header: "Bnd_Sphere.hxx".}
 proc newBndSphere*(theCntr: Xyz; theRad: cfloat; theU: cint; theV: cint): BndSphere {.
-    cdecl, constructor, importcpp: "Bnd_Sphere(@)", dynlib: tkmath.}
-proc u*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "U", dynlib: tkmath.}
-proc v*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "V", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "Bnd_Sphere(@)", header: "Bnd_Sphere.hxx".}
+proc u*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "U", header: "Bnd_Sphere.hxx".}
+proc v*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "V", header: "Bnd_Sphere.hxx".}
 proc isValid*(this: BndSphere): bool {.noSideEffect, cdecl, importcpp: "IsValid",
-                                   dynlib: tkmath.}
+                                   header: "Bnd_Sphere.hxx".}
 proc setValid*(this: var BndSphere; isValid: bool) {.cdecl, importcpp: "SetValid",
-    dynlib: tkmath.}
+    header: "Bnd_Sphere.hxx".}
 proc center*(this: BndSphere): Xyz {.noSideEffect, cdecl, importcpp: "Center",
-                                 dynlib: tkmath.}
+                                 header: "Bnd_Sphere.hxx".}
 proc radius*(this: BndSphere): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                                    dynlib: tkmath.}
+                                    header: "Bnd_Sphere.hxx".}
 proc distances*(this: BndSphere; theXYZ: Xyz; theMin: var cfloat; theMax: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Distances", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Distances", header: "Bnd_Sphere.hxx".}
 proc squareDistances*(this: BndSphere; theXYZ: Xyz; theMin: var cfloat;
                      theMax: var cfloat) {.noSideEffect, cdecl,
                                         importcpp: "SquareDistances",
-                                        dynlib: tkmath.}
+                                        header: "Bnd_Sphere.hxx".}
 proc project*(this: BndSphere; theNode: Xyz; theProjNode: var Xyz; theDist: var cfloat;
              theInside: var bool): bool {.noSideEffect, cdecl, importcpp: "Project",
-                                      dynlib: tkmath.}
+                                      header: "Bnd_Sphere.hxx".}
 proc distance*(this: BndSphere; theNode: Xyz): cfloat {.noSideEffect, cdecl,
-    importcpp: "Distance", dynlib: tkmath.}
+    importcpp: "Distance", header: "Bnd_Sphere.hxx".}
 proc squareDistance*(this: BndSphere; theNode: Xyz): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkmath.}
+    importcpp: "SquareDistance", header: "Bnd_Sphere.hxx".}
 proc add*(this: var BndSphere; theOther: BndSphere) {.cdecl, importcpp: "Add",
-    dynlib: tkmath.}
+    header: "Bnd_Sphere.hxx".}
 proc isOut*(this: BndSphere; theOther: BndSphere): bool {.noSideEffect, cdecl,
-    importcpp: "IsOut", dynlib: tkmath.}
+    importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
 proc isOut*(this: BndSphere; thePnt: Xyz; theMaxDist: var cfloat): bool {.noSideEffect,
-    cdecl, importcpp: "IsOut", dynlib: tkmath.}
+    cdecl, importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
 proc squareExtent*(this: BndSphere): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareExtent", dynlib: tkmath.}
+    importcpp: "SquareExtent", header: "Bnd_Sphere.hxx".}

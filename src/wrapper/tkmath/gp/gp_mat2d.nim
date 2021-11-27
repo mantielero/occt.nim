@@ -22,86 +22,86 @@ type
                                                                     ## coefficients.
 
 
-proc newMat2d*(): Mat2d {.cdecl, constructor, importcpp: "gp_Mat2d(@)", dynlib: tkmath.}
+proc newMat2d*(): Mat2d {.cdecl, constructor, importcpp: "gp_Mat2d(@)", header: "gp_Mat2d.hxx".}
 proc newMat2d*(col1: Xy; col2: Xy): Mat2d {.cdecl, constructor,
-                                      importcpp: "gp_Mat2d(@)", dynlib: tkmath.}
+                                      importcpp: "gp_Mat2d(@)", header: "gp_Mat2d.hxx".}
 proc setCol*(this: var Mat2d; col: cint; value: Xy) {.cdecl, importcpp: "SetCol",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc setCols*(this: var Mat2d; col1: Xy; col2: Xy) {.cdecl, importcpp: "SetCols",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc setDiagonal*(this: var Mat2d; x1: cfloat; x2: cfloat) {.cdecl,
-    importcpp: "SetDiagonal", dynlib: tkmath.}
-proc setIdentity*(this: var Mat2d) {.cdecl, importcpp: "SetIdentity", dynlib: tkmath.}
+    importcpp: "SetDiagonal", header: "gp_Mat2d.hxx".}
+proc setIdentity*(this: var Mat2d) {.cdecl, importcpp: "SetIdentity", header: "gp_Mat2d.hxx".}
 proc setRotation*(this: var Mat2d; ang: cfloat) {.cdecl, importcpp: "SetRotation",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc setRow*(this: var Mat2d; row: cint; value: Xy) {.cdecl, importcpp: "SetRow",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc setRows*(this: var Mat2d; row1: Xy; row2: Xy) {.cdecl, importcpp: "SetRows",
-    dynlib: tkmath.}
-proc setScale*(this: var Mat2d; s: cfloat) {.cdecl, importcpp: "SetScale", dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
+proc setScale*(this: var Mat2d; s: cfloat) {.cdecl, importcpp: "SetScale", header: "gp_Mat2d.hxx".}
 proc setValue*(this: var Mat2d; row: cint; col: cint; value: cfloat) {.cdecl,
-    importcpp: "SetValue", dynlib: tkmath.}
+    importcpp: "SetValue", header: "gp_Mat2d.hxx".}
 proc column*(this: Mat2d; col: cint): Xy {.noSideEffect, cdecl, importcpp: "Column",
-                                     dynlib: tkmath.}
+                                     header: "gp_Mat2d.hxx".}
 proc determinant*(this: Mat2d): cfloat {.noSideEffect, cdecl,
-                                     importcpp: "Determinant", dynlib: tkmath.}
+                                     importcpp: "Determinant", header: "gp_Mat2d.hxx".}
 proc diagonal*(this: Mat2d): Xy {.noSideEffect, cdecl, importcpp: "Diagonal",
-                              dynlib: tkmath.}
+                              header: "gp_Mat2d.hxx".}
 proc row*(this: Mat2d; row: cint): Xy {.noSideEffect, cdecl, importcpp: "Row",
-                                  dynlib: tkmath.}
+                                  header: "gp_Mat2d.hxx".}
 proc value*(this: Mat2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkmath.}
+    importcpp: "Value", header: "gp_Mat2d.hxx".}
 proc `()`*(this: Mat2d; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
-    importcpp: "#(@)", dynlib: tkmath.}
+    importcpp: "#(@)", header: "gp_Mat2d.hxx".}
 proc changeValue*(this: var Mat2d; row: cint; col: cint): var cfloat {.cdecl,
-    importcpp: "ChangeValue", dynlib: tkmath.}
+    importcpp: "ChangeValue", header: "gp_Mat2d.hxx".}
 proc `()`*(this: var Mat2d; row: cint; col: cint): var cfloat {.cdecl, importcpp: "#(@)",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc isSingular*(this: Mat2d): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
-                                  dynlib: tkmath.}
-proc add*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "Add", dynlib: tkmath.}
-proc `+=`*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "(# += #)", dynlib: tkmath.}
+                                  header: "gp_Mat2d.hxx".}
+proc add*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "Add", header: "gp_Mat2d.hxx".}
+proc `+=`*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "(# += #)", header: "gp_Mat2d.hxx".}
 proc added*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "Added",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc `+`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "(# + #)",
-                                        dynlib: tkmath.}
+                                        header: "gp_Mat2d.hxx".}
 proc divide*(this: var Mat2d; scalar: cfloat) {.cdecl, importcpp: "Divide",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc `/=`*(this: var Mat2d; scalar: cfloat) {.cdecl, importcpp: "(# /= #)",
-                                        dynlib: tkmath.}
+                                        header: "gp_Mat2d.hxx".}
 proc divided*(this: Mat2d; scalar: cfloat): Mat2d {.noSideEffect, cdecl,
-    importcpp: "Divided", dynlib: tkmath.}
+    importcpp: "Divided", header: "gp_Mat2d.hxx".}
 proc `/`*(this: Mat2d; scalar: cfloat): Mat2d {.noSideEffect, cdecl,
-    importcpp: "(# / #)", dynlib: tkmath.}
-proc invert*(this: var Mat2d) {.cdecl, importcpp: "Invert", dynlib: tkmath.}
+    importcpp: "(# / #)", header: "gp_Mat2d.hxx".}
+proc invert*(this: var Mat2d) {.cdecl, importcpp: "Invert", header: "gp_Mat2d.hxx".}
 proc inverted*(this: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "Inverted",
-                                 dynlib: tkmath.}
+                                 header: "gp_Mat2d.hxx".}
 proc multiplied*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "gp_Mat2d.hxx".}
 proc `*`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "(# * #)",
-                                        dynlib: tkmath.}
+                                        header: "gp_Mat2d.hxx".}
 proc multiply*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc preMultiply*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "PreMultiply",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc multiplied*(this: Mat2d; scalar: cfloat): Mat2d {.noSideEffect, cdecl,
-    importcpp: "Multiplied", dynlib: tkmath.}
+    importcpp: "Multiplied", header: "gp_Mat2d.hxx".}
 proc `*`*(this: Mat2d; scalar: cfloat): Mat2d {.noSideEffect, cdecl,
-    importcpp: "(# * #)", dynlib: tkmath.}
+    importcpp: "(# * #)", header: "gp_Mat2d.hxx".}
 proc multiply*(this: var Mat2d; scalar: cfloat) {.cdecl, importcpp: "Multiply",
-    dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
 proc `*=`*(this: var Mat2d; scalar: cfloat) {.cdecl, importcpp: "(# *= #)",
-                                        dynlib: tkmath.}
-proc power*(this: var Mat2d; n: cint) {.cdecl, importcpp: "Power", dynlib: tkmath.}
+                                        header: "gp_Mat2d.hxx".}
+proc power*(this: var Mat2d; n: cint) {.cdecl, importcpp: "Power", header: "gp_Mat2d.hxx".}
 proc powered*(this: Mat2d; n: cint): Mat2d {.noSideEffect, cdecl, importcpp: "Powered",
-                                       dynlib: tkmath.}
+                                       header: "gp_Mat2d.hxx".}
 proc subtract*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "Subtract",
-    dynlib: tkmath.}
-proc `-=`*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "(# -= #)", dynlib: tkmath.}
+    header: "gp_Mat2d.hxx".}
+proc `-=`*(this: var Mat2d; other: Mat2d) {.cdecl, importcpp: "(# -= #)", header: "gp_Mat2d.hxx".}
 proc subtracted*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl,
-    importcpp: "Subtracted", dynlib: tkmath.}
+    importcpp: "Subtracted", header: "gp_Mat2d.hxx".}
 proc `-`*(this: Mat2d; other: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "(# - #)",
-                                        dynlib: tkmath.}
-proc transpose*(this: var Mat2d) {.cdecl, importcpp: "Transpose", dynlib: tkmath.}
+                                        header: "gp_Mat2d.hxx".}
+proc transpose*(this: var Mat2d) {.cdecl, importcpp: "Transpose", header: "gp_Mat2d.hxx".}
 proc transposed*(this: Mat2d): Mat2d {.noSideEffect, cdecl, importcpp: "Transposed",
-                                   dynlib: tkmath.}
+                                   header: "gp_Mat2d.hxx".}

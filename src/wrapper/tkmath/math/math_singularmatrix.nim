@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noMathSingularMatrix):
   template mathSingularMatrixRaiseIf*(condition, message: untyped): void =
     if condition:
       proc mathSingularMatrix*(a1: Message): Throw {.cdecl,
-          importcpp: "math_SingularMatrix(@)", dynlib: tkmath.}
+          importcpp: "math_SingularMatrix(@)", header: "math_SingularMatrix.hxx".}
 
 else:
   discard

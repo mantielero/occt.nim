@@ -25,53 +25,53 @@ type
 
 
 proc newTopOpeBRepToolREGUW*(fRef: TopoDS_Face): TopOpeBRepToolREGUW {.cdecl,
-    constructor, importcpp: "TopOpeBRepTool_REGUW(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepTool_REGUW(@)", header: "TopOpeBRepTool_REGUW.hxx".}
 proc fref*(this: TopOpeBRepToolREGUW): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Fref", dynlib: tkbool.}
+    importcpp: "Fref", header: "TopOpeBRepTool_REGUW.hxx".}
 proc setEsplits*(this: var TopOpeBRepToolREGUW;
                 esplits: var TopToolsDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "SetEsplits", dynlib: tkbool.}
+    importcpp: "SetEsplits", header: "TopOpeBRepTool_REGUW.hxx".}
 proc getEsplits*(this: TopOpeBRepToolREGUW;
                 esplits: var TopToolsDataMapOfShapeListOfShape) {.noSideEffect,
-    cdecl, importcpp: "GetEsplits", dynlib: tkbool.}
+    cdecl, importcpp: "GetEsplits", header: "TopOpeBRepTool_REGUW.hxx".}
 proc setOwNw*(this: var TopOpeBRepToolREGUW;
              owNw: var TopToolsDataMapOfShapeListOfShape) {.cdecl,
-    importcpp: "SetOwNw", dynlib: tkbool.}
+    importcpp: "SetOwNw", header: "TopOpeBRepTool_REGUW.hxx".}
 proc getOwNw*(this: TopOpeBRepToolREGUW;
              owNw: var TopToolsDataMapOfShapeListOfShape) {.noSideEffect, cdecl,
-    importcpp: "GetOwNw", dynlib: tkbool.}
+    importcpp: "GetOwNw", header: "TopOpeBRepTool_REGUW.hxx".}
 proc splitEds*(this: var TopOpeBRepToolREGUW): bool {.cdecl, importcpp: "SplitEds",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc init*(this: var TopOpeBRepToolREGUW; s: TopoDS_Shape) {.cdecl, importcpp: "Init",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc s*(this: TopOpeBRepToolREGUW): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "S", dynlib: tkbool.}
+    importcpp: "S", header: "TopOpeBRepTool_REGUW.hxx".}
 proc hasInit*(this: TopOpeBRepToolREGUW): bool {.noSideEffect, cdecl,
-    importcpp: "HasInit", dynlib: tkbool.}
+    importcpp: "HasInit", header: "TopOpeBRepTool_REGUW.hxx".}
 proc mapS*(this: var TopOpeBRepToolREGUW): bool {.cdecl, importcpp: "MapS",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc regu*(this: var TopOpeBRepToolREGUW; istep: cint; scur: TopoDS_Shape;
           splits: var TopToolsListOfShape): bool {.cdecl, importcpp: "REGU",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc regu*(this: var TopOpeBRepToolREGUW): bool {.cdecl, importcpp: "REGU",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc getSplits*(this: TopOpeBRepToolREGUW; splits: var TopToolsListOfShape): bool {.
-    noSideEffect, cdecl, importcpp: "GetSplits", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "GetSplits", header: "TopOpeBRepTool_REGUW.hxx".}
 proc initBlock*(this: var TopOpeBRepToolREGUW): bool {.cdecl, importcpp: "InitBlock",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc nextinBlock*(this: var TopOpeBRepToolREGUW): bool {.cdecl,
-    importcpp: "NextinBlock", dynlib: tkbool.}
+    importcpp: "NextinBlock", header: "TopOpeBRepTool_REGUW.hxx".}
 proc nearestE*(this: TopOpeBRepToolREGUW; loe: TopToolsListOfShape;
               efound: var TopoDS_Edge): bool {.noSideEffect, cdecl,
-    importcpp: "NearestE", dynlib: tkbool.}
+    importcpp: "NearestE", header: "TopOpeBRepTool_REGUW.hxx".}
 proc connexity*(this: TopOpeBRepToolREGUW; v: TopoDS_Vertex;
                co: var TopOpeBRepToolConnexity): bool {.noSideEffect, cdecl,
-    importcpp: "Connexity", dynlib: tkbool.}
+    importcpp: "Connexity", header: "TopOpeBRepTool_REGUW.hxx".}
 proc addNewConnexity*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex; oriKey: cint;
                      e: TopoDS_Edge): bool {.cdecl, importcpp: "AddNewConnexity",
-    dynlib: tkbool.}
+    header: "TopOpeBRepTool_REGUW.hxx".}
 proc removeOldConnexity*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex;
                         oriKey: cint; e: TopoDS_Edge): bool {.cdecl,
-    importcpp: "RemoveOldConnexity", dynlib: tkbool.}
+    importcpp: "RemoveOldConnexity", header: "TopOpeBRepTool_REGUW.hxx".}
 proc updateMultiple*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex): bool {.cdecl,
-    importcpp: "UpdateMultiple", dynlib: tkbool.}
+    importcpp: "UpdateMultiple", header: "TopOpeBRepTool_REGUW.hxx".}

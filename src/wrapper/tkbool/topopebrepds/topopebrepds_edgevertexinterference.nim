@@ -126,12 +126,12 @@ type
 proc newTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition;
     st: TopOpeBRepDS_Kind; s: cint; g: cint; gIsBound: bool; c: TopOpeBRepDS_Config;
     p: cfloat): TopOpeBRepDS_EdgeVertexInterference {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 proc newTopOpeBRepDS_EdgeVertexInterference*(t: TopOpeBRepDS_Transition; s: cint;
     g: cint; gIsBound: bool; c: TopOpeBRepDS_Config; p: cfloat): TopOpeBRepDS_EdgeVertexInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_EdgeVertexInterference(@)",
-    dynlib: tkbool.}
+    header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 proc parameter*(this: TopOpeBRepDS_EdgeVertexInterference): cfloat {.noSideEffect,
-    cdecl, importcpp: "Parameter", dynlib: tkbool.}
+    cdecl, importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 proc parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; p: cfloat) {.cdecl,
-    importcpp: "Parameter", dynlib: tkbool.}
+    importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}

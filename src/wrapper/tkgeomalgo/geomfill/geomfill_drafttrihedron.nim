@@ -26,30 +26,30 @@ type
 
 
 proc newGeomFillDraftTrihedron*(biNormal: Vec; angle: cfloat): GeomFillDraftTrihedron {.
-    cdecl, constructor, importcpp: "GeomFill_DraftTrihedron(@)", dynlib: tkgeomalgo.}
+    cdecl, constructor, importcpp: "GeomFill_DraftTrihedron(@)", header: "GeomFill_DraftTrihedron.hxx".}
 proc setAngle*(this: var GeomFillDraftTrihedron; angle: cfloat) {.cdecl,
-    importcpp: "SetAngle", dynlib: tkgeomalgo.}
+    importcpp: "SetAngle", header: "GeomFill_DraftTrihedron.hxx".}
 proc copy*(this: GeomFillDraftTrihedron): Handle[GeomFillTrihedronLaw] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkgeomalgo.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "GeomFill_DraftTrihedron.hxx".}
 proc d0*(this: var GeomFillDraftTrihedron; param: cfloat; tangent: var Vec;
         normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
-    dynlib: tkgeomalgo.}
+    header: "GeomFill_DraftTrihedron.hxx".}
 proc d1*(this: var GeomFillDraftTrihedron; param: cfloat; tangent: var Vec;
         dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", dynlib: tkgeomalgo.}
+        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_DraftTrihedron.hxx".}
 proc d2*(this: var GeomFillDraftTrihedron; param: cfloat; tangent: var Vec;
         dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
         d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
-    cdecl, importcpp: "D2", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "D2", header: "GeomFill_DraftTrihedron.hxx".}
 proc nbIntervals*(this: GeomFillDraftTrihedron; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbIntervals", dynlib: tkgeomalgo.}
+    cdecl, importcpp: "NbIntervals", header: "GeomFill_DraftTrihedron.hxx".}
 proc intervals*(this: GeomFillDraftTrihedron; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
-                                dynlib: tkgeomalgo.}
+                                header: "GeomFill_DraftTrihedron.hxx".}
 proc getAverageLaw*(this: var GeomFillDraftTrihedron; aTangent: var Vec;
                    aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
-    importcpp: "GetAverageLaw", dynlib: tkgeomalgo.}
+    importcpp: "GetAverageLaw", header: "GeomFill_DraftTrihedron.hxx".}
 proc isConstant*(this: GeomFillDraftTrihedron): bool {.noSideEffect, cdecl,
-    importcpp: "IsConstant", dynlib: tkgeomalgo.}
+    importcpp: "IsConstant", header: "GeomFill_DraftTrihedron.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillDraftTrihedron): bool {.noSideEffect, cdecl,
-    importcpp: "IsOnlyBy3dCurve", dynlib: tkgeomalgo.}
+    importcpp: "IsOnlyBy3dCurve", header: "GeomFill_DraftTrihedron.hxx".}

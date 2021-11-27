@@ -23,41 +23,41 @@ type
 
 
 proc newTopOpeBRepBuildAreaBuilder*(): TopOpeBRepBuildAreaBuilder {.cdecl,
-    constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)", dynlib: tkbool.}
+    constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc newTopOpeBRepBuildAreaBuilder*(ls: var TopOpeBRepBuildLoopSet;
                                    lc: var TopOpeBRepBuildLoopClassifier;
                                    forceClass: bool = false): TopOpeBRepBuildAreaBuilder {.
-    cdecl, constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)", dynlib: tkbool.}
+    cdecl, constructor, importcpp: "TopOpeBRepBuild_AreaBuilder(@)", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc destroyTopOpeBRepBuildAreaBuilder*(this: var TopOpeBRepBuildAreaBuilder) {.
-    cdecl, importcpp: "#.~TopOpeBRepBuild_AreaBuilder()", dynlib: tkbool.}
+    cdecl, importcpp: "#.~TopOpeBRepBuild_AreaBuilder()", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc initAreaBuilder*(this: var TopOpeBRepBuildAreaBuilder;
                      ls: var TopOpeBRepBuildLoopSet;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.cdecl, importcpp: "InitAreaBuilder",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc initArea*(this: var TopOpeBRepBuildAreaBuilder): cint {.cdecl,
-    importcpp: "InitArea", dynlib: tkbool.}
+    importcpp: "InitArea", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc moreArea*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreArea", dynlib: tkbool.}
+    importcpp: "MoreArea", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc nextArea*(this: var TopOpeBRepBuildAreaBuilder) {.cdecl, importcpp: "NextArea",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc initLoop*(this: var TopOpeBRepBuildAreaBuilder): cint {.cdecl,
-    importcpp: "InitLoop", dynlib: tkbool.}
+    importcpp: "InitLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc moreLoop*(this: TopOpeBRepBuildAreaBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "MoreLoop", dynlib: tkbool.}
+    importcpp: "MoreLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc nextLoop*(this: var TopOpeBRepBuildAreaBuilder) {.cdecl, importcpp: "NextLoop",
-    dynlib: tkbool.}
+    header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc loop*(this: TopOpeBRepBuildAreaBuilder): Handle[TopOpeBRepBuildLoop] {.
-    noSideEffect, cdecl, importcpp: "Loop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "Loop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc aDD_LoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
                            L: Handle[TopOpeBRepBuildLoop];
                            lol: var TopOpeBRepBuildListOfLoop; s: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "ADD_Loop_TO_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ADD_Loop_TO_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc rEM_LoopFROM_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder; itlol: var TopOpeBRepBuildListIteratorOfListOfLoop;
                              lol: var TopOpeBRepBuildListOfLoop; s: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "REM_Loop_FROM_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "REM_Loop_FROM_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
 proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
                                  lol1: var TopOpeBRepBuildListOfLoop;
                                  lol2: var TopOpeBRepBuildListOfLoop;
                                  s: pointer = nil; s1: pointer = nil; s2: pointer = nil) {.
-    noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", dynlib: tkbool.}
+    noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}

@@ -23,22 +23,22 @@ type
 
 
 proc newTopOpeBRepDS_Association*(): TopOpeBRepDS_Association {.cdecl, constructor,
-    importcpp: "TopOpeBRepDS_Association(@)", dynlib: tkbool.}
+    importcpp: "TopOpeBRepDS_Association(@)", header: "TopOpeBRepDS_Association.hxx".}
 proc associate*(this: var TopOpeBRepDS_Association;
                i: Handle[TopOpeBRepDS_Interference];
                k: Handle[TopOpeBRepDS_Interference]) {.cdecl,
-    importcpp: "Associate", dynlib: tkbool.}
+    importcpp: "Associate", header: "TopOpeBRepDS_Association.hxx".}
 proc associate*(this: var TopOpeBRepDS_Association;
                i: Handle[TopOpeBRepDS_Interference];
                li: TopOpeBRepDS_ListOfInterference) {.cdecl,
-    importcpp: "Associate", dynlib: tkbool.}
+    importcpp: "Associate", header: "TopOpeBRepDS_Association.hxx".}
 proc hasAssociation*(this: TopOpeBRepDS_Association;
                     i: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "HasAssociation", dynlib: tkbool.}
+    cdecl, importcpp: "HasAssociation", header: "TopOpeBRepDS_Association.hxx".}
 proc associated*(this: var TopOpeBRepDS_Association;
                 i: Handle[TopOpeBRepDS_Interference]): var TopOpeBRepDS_ListOfInterference {.
-    cdecl, importcpp: "Associated", dynlib: tkbool.}
+    cdecl, importcpp: "Associated", header: "TopOpeBRepDS_Association.hxx".}
 proc areAssociated*(this: TopOpeBRepDS_Association;
                    i: Handle[TopOpeBRepDS_Interference];
                    k: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
-    cdecl, importcpp: "AreAssociated", dynlib: tkbool.}
+    cdecl, importcpp: "AreAssociated", header: "TopOpeBRepDS_Association.hxx".}

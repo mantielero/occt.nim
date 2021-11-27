@@ -32,26 +32,26 @@ type
 
 proc newBRepCurveOn2Surfaces*(s1: Handle[GeomSurface]; s2: Handle[GeomSurface];
                              l1: TopLocLocation; l2: TopLocLocation; c: GeomAbsShape): BRepCurveOn2Surfaces {.
-    cdecl, constructor, importcpp: "BRep_CurveOn2Surfaces(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "BRep_CurveOn2Surfaces(@)", header: "BRep_CurveOn2Surfaces.hxx".}
 proc isRegularity*(this: BRepCurveOn2Surfaces): bool {.noSideEffect, cdecl,
-    importcpp: "IsRegularity", dynlib: tkbrep.}
+    importcpp: "IsRegularity", header: "BRep_CurveOn2Surfaces.hxx".}
 proc isRegularity*(this: BRepCurveOn2Surfaces; s1: Handle[GeomSurface];
                   s2: Handle[GeomSurface]; l1: TopLocLocation; l2: TopLocLocation): bool {.
-    noSideEffect, cdecl, importcpp: "IsRegularity", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "IsRegularity", header: "BRep_CurveOn2Surfaces.hxx".}
 proc d0*(this: BRepCurveOn2Surfaces; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkbrep.}
+    importcpp: "D0", header: "BRep_CurveOn2Surfaces.hxx".}
 proc surface*(this: BRepCurveOn2Surfaces): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkbrep.}
+    importcpp: "Surface", header: "BRep_CurveOn2Surfaces.hxx".}
 proc surface2*(this: BRepCurveOn2Surfaces): Handle[GeomSurface] {.noSideEffect,
-    cdecl, importcpp: "Surface2", dynlib: tkbrep.}
+    cdecl, importcpp: "Surface2", header: "BRep_CurveOn2Surfaces.hxx".}
 proc location2*(this: BRepCurveOn2Surfaces): TopLocLocation {.noSideEffect, cdecl,
-    importcpp: "Location2", dynlib: tkbrep.}
+    importcpp: "Location2", header: "BRep_CurveOn2Surfaces.hxx".}
 proc continuity*(this: BRepCurveOn2Surfaces): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveOn2Surfaces.hxx".}
 proc continuity*(this: var BRepCurveOn2Surfaces; c: GeomAbsShape) {.cdecl,
-    importcpp: "Continuity", dynlib: tkbrep.}
+    importcpp: "Continuity", header: "BRep_CurveOn2Surfaces.hxx".}
 proc copy*(this: BRepCurveOn2Surfaces): Handle[BRepCurveRepresentation] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkbrep.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "BRep_CurveOn2Surfaces.hxx".}
 proc dumpJson*(this: BRepCurveOn2Surfaces; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkbrep.}
+                                 header: "BRep_CurveOn2Surfaces.hxx".}

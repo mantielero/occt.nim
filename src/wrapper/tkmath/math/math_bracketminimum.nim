@@ -25,28 +25,28 @@ type
 
 
 proc newMathBracketMinimum*(a: cfloat; b: cfloat): MathBracketMinimum {.cdecl,
-    constructor, importcpp: "math_BracketMinimum(@)", dynlib: tkmath.}
+    constructor, importcpp: "math_BracketMinimum(@)", header: "math_BracketMinimum.hxx".}
 proc newMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat): MathBracketMinimum {.
-    cdecl, constructor, importcpp: "math_BracketMinimum(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_BracketMinimum(@)", header: "math_BracketMinimum.hxx".}
 proc newMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat; fa: cfloat): MathBracketMinimum {.
-    cdecl, constructor, importcpp: "math_BracketMinimum(@)", dynlib: tkmath.}
+    cdecl, constructor, importcpp: "math_BracketMinimum(@)", header: "math_BracketMinimum.hxx".}
 proc newMathBracketMinimum*(f: var MathFunction; a: cfloat; b: cfloat; fa: cfloat;
                            fb: cfloat): MathBracketMinimum {.cdecl, constructor,
-    importcpp: "math_BracketMinimum(@)", dynlib: tkmath.}
+    importcpp: "math_BracketMinimum(@)", header: "math_BracketMinimum.hxx".}
 proc setLimits*(this: var MathBracketMinimum; theLeft: cfloat; theRight: cfloat) {.
-    cdecl, importcpp: "SetLimits", dynlib: tkmath.}
+    cdecl, importcpp: "SetLimits", header: "math_BracketMinimum.hxx".}
 proc setFA*(this: var MathBracketMinimum; theValue: cfloat) {.cdecl,
-    importcpp: "SetFA", dynlib: tkmath.}
+    importcpp: "SetFA", header: "math_BracketMinimum.hxx".}
 proc setFB*(this: var MathBracketMinimum; theValue: cfloat) {.cdecl,
-    importcpp: "SetFB", dynlib: tkmath.}
+    importcpp: "SetFB", header: "math_BracketMinimum.hxx".}
 proc perform*(this: var MathBracketMinimum; f: var MathFunction) {.cdecl,
-    importcpp: "Perform", dynlib: tkmath.}
+    importcpp: "Perform", header: "math_BracketMinimum.hxx".}
 proc isDone*(this: MathBracketMinimum): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkmath.}
+    importcpp: "IsDone", header: "math_BracketMinimum.hxx".}
 proc values*(this: MathBracketMinimum; a: var cfloat; b: var cfloat; c: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Values", dynlib: tkmath.}
+    noSideEffect, cdecl, importcpp: "Values", header: "math_BracketMinimum.hxx".}
 proc functionValues*(this: MathBracketMinimum; fa: var cfloat; fb: var cfloat;
                     fc: var cfloat) {.noSideEffect, cdecl,
-                                   importcpp: "FunctionValues", dynlib: tkmath.}
+                                   importcpp: "FunctionValues", header: "math_BracketMinimum.hxx".}
 proc dump*(this: MathBracketMinimum; o: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Dump", dynlib: tkmath.}
+    importcpp: "Dump", header: "math_BracketMinimum.hxx".}

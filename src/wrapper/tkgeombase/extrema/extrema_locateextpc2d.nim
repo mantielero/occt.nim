@@ -32,22 +32,22 @@ type
 
 
 proc newExtremaLocateExtPC2d*(): ExtremaLocateExtPC2d {.cdecl, constructor,
-    importcpp: "Extrema_LocateExtPC2d(@)", dynlib: tkgeombase.}
+    importcpp: "Extrema_LocateExtPC2d(@)", header: "Extrema_LocateExtPC2d.hxx".}
 proc newExtremaLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: cfloat; tolF: cfloat): ExtremaLocateExtPC2d {.
-    cdecl, constructor, importcpp: "Extrema_LocateExtPC2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_LocateExtPC2d(@)", header: "Extrema_LocateExtPC2d.hxx".}
 proc newExtremaLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; u0: cfloat; umin: cfloat;
                              usup: cfloat; tolF: cfloat): ExtremaLocateExtPC2d {.
-    cdecl, constructor, importcpp: "Extrema_LocateExtPC2d(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "Extrema_LocateExtPC2d(@)", header: "Extrema_LocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaLocateExtPC2d; c: Adaptor2dCurve2d; umin: cfloat;
                 usup: cfloat; tolF: cfloat) {.cdecl, importcpp: "Initialize",
-    dynlib: tkgeombase.}
+    header: "Extrema_LocateExtPC2d.hxx".}
 proc perform*(this: var ExtremaLocateExtPC2d; p: Pnt2d; u0: cfloat) {.cdecl,
-    importcpp: "Perform", dynlib: tkgeombase.}
+    importcpp: "Perform", header: "Extrema_LocateExtPC2d.hxx".}
 proc isDone*(this: ExtremaLocateExtPC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tkgeombase.}
+    importcpp: "IsDone", header: "Extrema_LocateExtPC2d.hxx".}
 proc squareDistance*(this: ExtremaLocateExtPC2d): cfloat {.noSideEffect, cdecl,
-    importcpp: "SquareDistance", dynlib: tkgeombase.}
+    importcpp: "SquareDistance", header: "Extrema_LocateExtPC2d.hxx".}
 proc isMin*(this: ExtremaLocateExtPC2d): bool {.noSideEffect, cdecl,
-    importcpp: "IsMin", dynlib: tkgeombase.}
+    importcpp: "IsMin", header: "Extrema_LocateExtPC2d.hxx".}
 proc point*(this: ExtremaLocateExtPC2d): ExtremaPOnCurv2d {.noSideEffect, cdecl,
-    importcpp: "Point", dynlib: tkgeombase.}
+    importcpp: "Point", header: "Extrema_LocateExtPC2d.hxx".}

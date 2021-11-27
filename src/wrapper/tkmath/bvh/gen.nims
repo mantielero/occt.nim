@@ -146,7 +146,12 @@ genFiles("BVH_Builder")
 genFiles("BVH_BuildQueue")
 genFiles("BVH_BuildThread")
 genFiles("BVH_Constants")
+pp("bvh_constants.nim",
+  replaceAll = @[("dynlib: tkmath", "header: \"BVH_Constants.hxx\"")]
+)
 genFiles("BVH_DistanceField")
+pp("bvh_distancefield.nim",
+  replaceAll = @[("= Type[T, N]", "= object")])
 genFiles("BVH_Distance")
 genFiles("BVH_Geometry",
   comment = @[(100,104)])
@@ -156,15 +161,27 @@ genFiles("BVH_IndexedBoxSet",
 genFiles("BVH_LinearBuilder",
   comment = @[(79, 165), (172,212), (278,281), (303, 337 )]
 )
+pp("bvh_linearbuilder.nim",
+  replaceAll = @[("= Type[T, N]", "= object"),
+    ("bVH_ConstantsLeafNodeSizeDefault", "BVH_ConstantsLeafNodeSizeDefault"),
+    ("bVH_ConstantsMaxTreeDepth", "BVH_ConstantsMaxTreeDepth")])
 genFiles("BVH_Object")
 genFiles("BVH_ObjectSet",
   comment = @[(46,50)] )
+pp("bvh_objectset.nim",
+  replaceAll = @[("""BVH_ObjectSetBVH_ObjectList* = NCollectionVector[Handle[BVH_Object[T, N]]]""", ""),
+  ("BVH_ObjectSetBVH_ObjectList", "NCollectionVector[Handle[BVH_Object[T, N]]]")]
+)
 genFiles("BVH_PairDistance")
+pp("bvh_pairdistance.nim",
+  replaceAll = @[("= BVH_VecNt[NumType, Dimension]", "= object")])
 genFiles("BVH_PrimitiveSet3d")
 genFiles("BVH_PrimitiveSet",
   comment = @[(98,102)] )
 genFiles("BVH_Properties",
   comment = @[(80, 98), (106, 131), (138,143), (149,172)])
+pp("bvh_properties.nim",
+  replaceAll = @[("= Type[T, N]", "= object")])
 genFiles("BVH_QuadTree",
   comment = @[(22,38)] ) 
 genFiles("BVH_QueueBuilder",
@@ -172,22 +189,79 @@ genFiles("BVH_QueueBuilder",
 genFiles("BVH_QuickSorter")
 genFiles("BVH_RadixSorter",
   comment = @[(132, 134), (176, 243)])
+pp("bvh_radixsorter.nim",
+  replaceAll = @[("= Type[T, N]", "= object")],
+  commentRange = @[(88, 92)])
 genFiles("BVH_Ray")
+pp("bvh_ray.nim",
+  replaceAll = @[("= Type[T, N]", "= object")])
 genFiles("BVH_Set")
+pp("bvh_set.nim",
+  replaceAll = @[("""header: "BVH_Set.hxx", bycopy.} = object""", """header: "BVH_Set.hxx", bycopy.} = object of RootObj""")],
+  commentRange = @[(26,26)]
+)
 genFiles("BVH_Sorter")
+pp("bvh_sorter.nim",
+  replaceAll = @[("""header: "BVH_Sorter.hxx", bycopy.} = object """, """header: "BVH_Sorter.hxx", bycopy.} = object of RootObj""")]
+)
 genFiles("BVH_SpatialMedianBuilder")
+pp("bvh_spatialmedianbuilder.nim",
+  replaceAll = @[("""      header: "BVH_SpatialMedianBuilder.hxx", bycopy.} = object of BVH_BinnedBuilder[
+      T, N, 2]                  ## ! Creates spatial median split builder.""",
+      """      header: "BVH_SpatialMedianBuilder.hxx", bycopy.} = object"""),
+      ("bVH_ConstantsLeafNodeSizeDefault", "BVH_ConstantsLeafNodeSizeDefault"),
+      ("bVH_ConstantsMaxTreeDepth", "BVH_ConstantsMaxTreeDepth")]
+
+)
 genFiles("BVH_SweepPlaneBuilder",
   comment = @[(43,139)])
+pp("bvh_sweepplanebuilder.nim",
+  replaceAll = @[("bVH_ConstantsLeafNodeSizeDefault", "BVH_ConstantsLeafNodeSizeDefault"),
+      ("bVH_ConstantsMaxTreeDepth", "BVH_ConstantsMaxTreeDepth")]
+)
 genFiles("BVH_Tools")
+pp("bvh_tools.nim",
+  replaceAll = @[("= Type[T, N]", "= object")])
 genFiles("BVH_Traverse",
   replaceAll = @[("class BVHSetType = void, class MetricType = NumType", "class BVHSetType, class MetricType")] )
+pp("bvh_traverse.nim",
+  replaceAll = @[("""header: "BVH_Traverse.hxx", bycopy.} = object ## ! @name""", """header: "BVH_Traverse.hxx", bycopy.} = object of RootObj  ## ! @name""")],
+  commentRange = @[(199,199), (255,255), (264, 270)]
+)
 genFiles("BVH_Tree",
   comment = @[(165,168), (171, 174), (177,187), (189,199), (202, 216), (224,227), (241,245)] )
+pp("bvh_tree.nim",
+  commentRange = @[(105, 105), (115, 122)]
+)
 genFiles("BVH_Triangulation",
   comment = @[(49,52), (68,80)] )
+pp("bvh_triangulation.nim",
+  replaceAll = @[("= Type[T, N]", "= object")])
+  #commentRange = @[(88, 92)])
 genFiles("BVH_Types",
   comment = @[(47, 60), (88,91), (101,104), (109,116), (177,206), (212, 296)] )
-
+pp("bvh_types.nim",
+  replaceAll = @[("Type[cint, 2]", "object"),
+    ("Type[cint, 3]", "object"),
+    ("Type[cint, 4]", "object"),
+    ("= VectorTypeobject", "= object"),
+    ("= VectorTypeType[StandardShortReal, 2]", "= object"),
+    ("= VectorTypeType[StandardShortReal, 3]", "= object"),
+    ("= VectorTypeType[StandardShortReal, 4]", "= object"),
+    ("= Type[StandardShortReal, 2]", "= object"),
+    ("= Type[StandardShortReal, 3]", "= object"),
+    ("= Type[StandardShortReal, 4]", "= object"),        
+    ("= VectorTypeobject", "= object"),
+    ("= VectorTypeType[cfloat, 2]", "= object"),
+    ("= VectorTypeType[cfloat, 3]", "= object"),
+    ("= VectorTypeType[cfloat, 4]", "= object"),    
+    ("= Type[cfloat, 2]", "= object"),
+    ("= Type[cfloat, 3]", "= object"),
+    ("= Type[cfloat, 4]", "= object"),  
+    ("= MatrixTypeType[StandardShortReal, 4]", "= object"),
+    ("= MatrixTypeType[cfloat, 4]", "= object"),           
+  ]
+)
 
 
 

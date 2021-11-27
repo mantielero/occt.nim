@@ -179,7 +179,30 @@ genFiles("math_PSO")
 genFiles("math_PSOParticlesPool")
 genFiles("math_Recipes")
 pp("math_recipes.nim",
-  replaceAll = @[("messageProgressRange()", "newMessageProgressRange()"), ("1.e-20", "1.0e-20")]
+  replaceAll = @[("messageProgressRange()", "newMessageProgressRange()"), ("1.e-20", "1.0e-20"),
+    ("""var mathStatusUserAborted* {.importcpp: "math_Status_UserAborted", dynlib: tkmath.}: cint
+
+var mathStatusOK* {.importcpp: "math_Status_OK", dynlib: tkmath.}: cint
+
+var mathStatusSingularMatrix* {.importcpp: "math_Status_SingularMatrix",
+                              dynlib: tkmath.}: cint
+
+var mathStatusArgumentError* {.importcpp: "math_Status_ArgumentError",
+                             dynlib: tkmath.}: cint
+
+var mathStatusNoConvergence* {.importcpp: "math_Status_NoConvergence",
+                             dynlib: tkmath.}: cint""",
+    """const
+  mathStatusUserAborted*    = -1
+  mathStatusOK*             = 0
+  mathStatusSingularMatrix* = 1
+  mathStatusArgumentError*  = 2
+  mathStatusNoConvergence*  = 3  
+
+"""
+                             )
+
+  ]
 )
 genFiles("math_SingularMatrix")
 genFiles("math_Status")

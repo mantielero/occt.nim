@@ -34,7 +34,7 @@ type
                                                                       ## ! Computes hit time of ray-box
                                                                       ## intersection
 
-  BVH_ToolsBVH_VecNt*[T; N] = Type[T, N]
+  BVH_ToolsBVH_VecNt*[T; N] = object
 
 proc boxBoxSquareDistance*[T; N: static[cint]](theBox1: BVH_Box[T, N];
     theBox2: BVH_Box[T, N]): T {.cdecl,

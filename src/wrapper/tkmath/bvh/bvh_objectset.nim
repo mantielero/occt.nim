@@ -26,7 +26,7 @@ type
           ## ! Return total number of objects.
     ## !< Array of geometric objects
 
-  BVH_ObjectSetBVH_ObjectList* = NCollectionVector[Handle[BVH_Object[T, N]]]
+  
 
 proc newBVH_ObjectSet*[T; N: static[cint]](): BVH_ObjectSet[T, N] {.cdecl, constructor,
     importcpp: "BVH_ObjectSet<\'*0,\'*1>(@)", dynlib: tkmath.}
@@ -34,9 +34,9 @@ proc destroyBVH_ObjectSet*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]) {.
     importcpp: "#.~BVH_ObjectSet()", dynlib: tkmath.}
 proc clear*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]) {.cdecl,
     importcpp: "Clear", dynlib: tkmath.}
-proc objects*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]): var BVH_ObjectSetBVH_ObjectList {.
+proc objects*[T; N: static[cint]](this: var BVH_ObjectSet[T, N]): var NCollectionVector[Handle[BVH_Object[T, N]]] {.
     cdecl, importcpp: "Objects", dynlib: tkmath.}
-proc objects*[T; N: static[cint]](this: BVH_ObjectSet[T, N]): BVH_ObjectSetBVH_ObjectList {.
+proc objects*[T; N: static[cint]](this: BVH_ObjectSet[T, N]): NCollectionVector[Handle[BVH_Object[T, N]]] {.
     noSideEffect, cdecl, importcpp: "Objects", dynlib: tkmath.}
 proc size*[T; N: static[cint]](this: BVH_ObjectSet[T, N]): cint {.noSideEffect, cdecl,
     importcpp: "Size", dynlib: tkmath.}

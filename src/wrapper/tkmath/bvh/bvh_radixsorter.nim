@@ -28,7 +28,7 @@ type
           ## ! Axis-aligned bounding box (AABB) to perform sorting.
     ## ! Morton codes assigned to BVH primitives.
 
-  BVH_RadixSorterBVH_VecNt*[T; N] = Type[T, N]
+  BVH_RadixSorterBVH_VecNt*[T; N] = object
 
 proc newBVH_RadixSorter*[T; N: static[cint]](theBox: BVH_Box[T, N]): BVH_RadixSorter[
     T, N] {.cdecl, constructor, importcpp: "BVH_RadixSorter<\'*0,\'*1>(@)",
@@ -85,11 +85,11 @@ type
                                                                                          ## radix
                                                                                          ## sort.
 
-  RadixSorterLinkIterator* = Iterator[BVH_EncodedLink]
-
-proc sort*(theStart: RadixSorterLinkIterator; theFinal: RadixSorterLinkIterator;
-          theDigit: cint; isParallel: bool) {.cdecl,
-    importcpp: "BVH::RadixSorter::Sort(@)", dynlib: tkmath.}
+#  RadixSorterLinkIterator* = Iterator[BVH_EncodedLink]
+#
+#proc sort*(theStart: RadixSorterLinkIterator; theFinal: RadixSorterLinkIterator;
+#          theDigit: cint; isParallel: bool) {.cdecl,
+#    importcpp: "BVH::RadixSorter::Sort(@)", dynlib: tkmath.}
 ##  =======================================================================
 ##  function : Perform
 ##  purpose  :

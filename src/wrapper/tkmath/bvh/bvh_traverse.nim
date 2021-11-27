@@ -126,7 +126,7 @@
 
 type
   BVH_BaseTraverse*[MetricType] {.importcpp: "BVH_BaseTraverse<\'0>",
-                                 header: "BVH_Traverse.hxx", bycopy.} = object ## ! @name
+                                 header: "BVH_Traverse.hxx", bycopy.} = object of RootObj  ## ! @name
                                                                           ## Metrics
                                                                           ## comparison for
                                                                           ## choosing the best branch
@@ -196,7 +196,7 @@ type
                  ## ! Returns the number of accepted elements.
                  ## ! @name Fields
 
-  BVH_TraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
+#  BVH_TraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
 
 proc newBVH_Traverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_Traverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
@@ -252,7 +252,7 @@ type
                                                    ## ! Returns the number of accepted pairs of elements.
                                                    ## ! @name Fields
 
-  BVH_PairTraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
+#  BVH_PairTraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
 
 proc newBVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_PairTraverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
@@ -261,13 +261,13 @@ proc setBVHSets*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
     theBVHSet1: ptr BVHSetType; theBVHSet2: ptr BVHSetType) {.cdecl,
     importcpp: "SetBVHSets", dynlib: tkmath.}
-proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
-    this: BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
-    theCornerMin1: BVH_PairTraverseBVH_VecNt;
-    theCornerMax1: BVH_PairTraverseBVH_VecNt;
-    theCornerMin2: BVH_PairTraverseBVH_VecNt;
-    theCornerMax2: BVH_PairTraverseBVH_VecNt; theMetric: var MetricType): bool {.
-    noSideEffect, cdecl, importcpp: "RejectNode", dynlib: tkmath.}
+#proc rejectNode*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
+#    this: BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
+#    theCornerMin1: BVH_PairTraverseBVH_VecNt;
+#    theCornerMax1: BVH_PairTraverseBVH_VecNt;
+#    theCornerMin2: BVH_PairTraverseBVH_VecNt;
+#    theCornerMax2: BVH_PairTraverseBVH_VecNt; theMetric: var MetricType): bool {.
+#    noSideEffect, cdecl, importcpp: "RejectNode", dynlib: tkmath.}
 proc accept*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
     this: var BVH_PairTraverse[NumType, Dimension, BVHSetType, MetricType];
     theIndex1: cint; theIndex2: cint): bool {.cdecl, importcpp: "Accept", dynlib: tkmath.}

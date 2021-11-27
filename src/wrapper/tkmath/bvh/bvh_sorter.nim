@@ -17,7 +17,7 @@
 
 type
   BVH_Sorter*[T; N: static[cint]] {.importcpp: "BVH_Sorter<\'0,\'1>",
-                                 header: "BVH_Sorter.hxx", bycopy.} = object ## ! Performs default
+                                 header: "BVH_Sorter.hxx", bycopy.} = object of RootObj## ! Performs default
                                                                         ## initialization.
 
 

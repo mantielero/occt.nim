@@ -24,4 +24,4 @@ const                         ## ! The optimal tree depth.
 
 ## ! Minimum node size to split.
 
-var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE", dynlib: tkmath.}: cdouble
+var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE", header: "BVH_Constants.hxx".}: cdouble

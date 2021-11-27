@@ -55,7 +55,8 @@ proc genFiles*( infile:string;
                 edit &= ";"
         exec "sed -e '" & edit & "' -i " & name & ".hxx"
 
-
+    let tmp = "c2nim --cpp --header --strict --nep1 --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
+    echo "Executing: ", tmp
     exec "c2nim --cpp --header --strict --nep1 --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
     let txt = readFile(name.toLower & ".nim")
     writeFile(name.toLower & ".nim", txt ) #beg & txt)

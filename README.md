@@ -2,7 +2,7 @@
 OpenCascade nim wrapper
 
 ## Development
-Currently working on: `./experiments/wrapper2/`
+Currently working on: `./src/wrapper/`
 
 In particular in: `tkgeombase/extrema`:
 - `gen.nims`: 

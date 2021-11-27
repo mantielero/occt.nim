@@ -20,10 +20,10 @@
 
 type
   BVH_Set*[T; N: static[cint]] {.importcpp: "BVH_Set<\'0,\'1>",
-                              header: "BVH_Set.hxx", bycopy.} = object ## ! Creates new abstract set of objects.
+                              header: "BVH_Set.hxx", bycopy.} = object of RootObj ## ! Creates new abstract set of objects.
                                                                   ## ! Returns total number of objects.
 
-  BVH_SetBVH_BoxNt* = BVH_Box[T, N]
+#  BVH_SetBVH_BoxNt* = BVH_Box[T, N]
 
 proc newBVH_Set*[T; N: static[cint]](): BVH_Set[T, N] {.cdecl, constructor,
     importcpp: "BVH_Set<\'*0,\'*1>(@)", dynlib: tkmath.}

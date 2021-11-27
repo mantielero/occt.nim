@@ -64,7 +64,7 @@ type
     ## !< Square distance
     ## !< State of the algorithm
 
-  BVH_PairDistanceBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
+  BVH_PairDistanceBVH_VecNt*[NumType; Dimension] = object
 
 proc newBVH_PairDistance*[NumType; Dimension: static[cint]; BVHSetType](): BVH_PairDistance[
     NumType, Dimension, BVHSetType] {.cdecl, constructor, importcpp: "BVH_PairDistance<\'*0,\'*1,\'*2>(@)",

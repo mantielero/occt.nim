@@ -55,7 +55,7 @@ type
     ## ! Size of voxel grid in maximum dimension.
     ## ! Enables/disables signing of distance field.
 
-  BVH_DistanceFieldBVH_VecNt*[T; N] = Type[T, N]
+  BVH_DistanceFieldBVH_VecNt*[T; N] = object
 
 proc newBVH_DistanceField*[T; N: static[cint]](theMaximumSize: cint;
     theComputeSign: bool): BVH_DistanceField[T, N] {.cdecl, constructor,

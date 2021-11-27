@@ -18,13 +18,12 @@
 type
   BVH_SpatialMedianBuilder*[T; N: static[cint]] {.
       importcpp: "BVH_SpatialMedianBuilder<\'0,\'1>",
-      header: "BVH_SpatialMedianBuilder.hxx", bycopy.} = object of BVH_BinnedBuilder[
-      T, N, 2]                  ## ! Creates spatial median split builder.
+      header: "BVH_SpatialMedianBuilder.hxx", bycopy.} = object
 
 
 proc newBVH_SpatialMedianBuilder*[T; N: static[cint]](
-    theLeafNodeSize: cint = bVH_ConstantsLeafNodeSizeDefault;
-    theMaxTreeDepth: cint = bVH_ConstantsMaxTreeDepth;
+    theLeafNodeSize: cint = BVH_ConstantsLeafNodeSizeDefault;
+    theMaxTreeDepth: cint = BVH_ConstantsMaxTreeDepth;
     theToUseMainAxis: bool = false): BVH_SpatialMedianBuilder[T, N] {.cdecl,
     constructor, importcpp: "BVH_SpatialMedianBuilder<\'*0,\'*1>(@)",
     dynlib: tkmath.}

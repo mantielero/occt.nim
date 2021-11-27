@@ -28,7 +28,7 @@ type
           ##    BVH_Array4i Elements;
           ## ! Returns total number of triangles.
 
-  BVH_TriangulationBVH_VecNt*[T; N] = Type[T, N]
+  BVH_TriangulationBVH_VecNt*[T; N] = object
 
 proc newBVH_Triangulation*[T; N: static[cint]](): BVH_Triangulation[T, N] {.cdecl,
     constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", dynlib: tkmath.}

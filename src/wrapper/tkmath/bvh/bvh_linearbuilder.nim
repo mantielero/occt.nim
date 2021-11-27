@@ -30,11 +30,11 @@ type
       T, N]                    ## ! Creates binned LBVH builder.
           ## ! Emits hierarchy from sorted Morton codes.
 
-  BVH_LinearBuilderBVH_VecNt*[T; N] = Type[T, N]
+  BVH_LinearBuilderBVH_VecNt*[T; N] = object
 
 proc newBVH_LinearBuilder*[T; N: static[cint]](
-    theLeafNodeSize: cint = bVH_ConstantsLeafNodeSizeDefault;
-    theMaxTreeDepth: cint = bVH_ConstantsMaxTreeDepth): BVH_LinearBuilder[T, N] {.
+    theLeafNodeSize: cint = BVH_ConstantsLeafNodeSizeDefault;
+    theMaxTreeDepth: cint = BVH_ConstantsMaxTreeDepth): BVH_LinearBuilder[T, N] {.
     cdecl, constructor, importcpp: "BVH_LinearBuilder<\'*0,\'*1>(@)", dynlib: tkmath.}
 proc destroyBVH_LinearBuilder*[T; N: static[cint]](
     this: var BVH_LinearBuilder[T, N]) {.cdecl, importcpp: "#.~BVH_LinearBuilder()",

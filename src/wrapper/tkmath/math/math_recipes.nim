@@ -15,18 +15,14 @@
 discard "forward decl of math_IntegerVector"
 discard "forward decl of math_Vector"
 discard "forward decl of math_Matrix"
-var mathStatusUserAborted* {.importcpp: "math_Status_UserAborted", dynlib: tkmath.}: cint
+const
+  mathStatusUserAborted*    = -1
+  mathStatusOK*             = 0
+  mathStatusSingularMatrix* = 1
+  mathStatusArgumentError*  = 2
+  mathStatusNoConvergence*  = 3  
 
-var mathStatusOK* {.importcpp: "math_Status_OK", dynlib: tkmath.}: cint
 
-var mathStatusSingularMatrix* {.importcpp: "math_Status_SingularMatrix",
-                              dynlib: tkmath.}: cint
-
-var mathStatusArgumentError* {.importcpp: "math_Status_ArgumentError",
-                             dynlib: tkmath.}: cint
-
-var mathStatusNoConvergence* {.importcpp: "math_Status_NoConvergence",
-                             dynlib: tkmath.}: cint
 
 proc lU_Decompose*(a: var MathMatrix; indx: var MathIntegerVector; d: var cfloat;
                   tiny: cfloat = 1.0e-20;

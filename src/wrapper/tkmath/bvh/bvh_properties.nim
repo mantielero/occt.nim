@@ -46,7 +46,7 @@ type
     ## !< Transformation matrix
     ## !< Inversed transformation matrix
 
-  BVH_TransformBVH_MatNt*[T; N] = Type[T, N]
+  BVH_TransformBVH_MatNt*[T; N] = object
 
 proc newBVH_Transform*[T; N: static[cint]](): BVH_Transform[T, N] {.cdecl, constructor,
     importcpp: "BVH_Transform<\'*0,\'*1>(@)", dynlib: tkmath.}

@@ -91,102 +91,102 @@ type
 ## ! 2D vector of integers.
 
 type
-  BVH_Vec2i* = VectorTypeType[cint, 2]
+  BVH_Vec2i* = object
 
 ## ! 3D vector of integers.
 
 type
-  BVH_Vec3i* = VectorTypeType[cint, 3]
+  BVH_Vec3i* = object
 
 ## ! 4D vector of integers.
 
 type
-  BVH_Vec4i* = VectorTypeType[cint, 4]
+  BVH_Vec4i* = object
 
 ## ! Array of 2D vectors of integers.
 
 type
-  BVH_Array2i* = Type[cint, 2]
+  BVH_Array2i* = object
 
 ## ! Array of 3D vectors of integers.
 
 type
-  BVH_Array3i* = Type[cint, 3]
+  BVH_Array3i* = object
 
 ## ! Array of 4D vectors of integers.
 
 type
-  BVH_Array4i* = Type[cint, 4]
+  BVH_Array4i* = object
 
 ## ! 2D vector of single precision reals.
 
 type
-  BVH_Vec2f* = VectorTypeType[StandardShortReal, 2]
+  BVH_Vec2f* = object
 
 ## ! 3D vector of single precision reals.
 
 type
-  BVH_Vec3f* = VectorTypeType[StandardShortReal, 3]
+  BVH_Vec3f* = object
 
 ## ! 4D vector of single precision reals.
 
 type
-  BVH_Vec4f* = VectorTypeType[StandardShortReal, 4]
+  BVH_Vec4f* = object
 
 ## ! Array of 2D vectors of single precision reals.
 
 type
-  BVH_Array2f* = Type[StandardShortReal, 2]
+  BVH_Array2f* = object
 
 ## ! Array of 3D vectors of single precision reals.
 
 type
-  BVH_Array3f* = Type[StandardShortReal, 3]
+  BVH_Array3f* = object
 
 ## ! Array of 4D vectors of single precision reals.
 
 type
-  BVH_Array4f* = Type[StandardShortReal, 4]
+  BVH_Array4f* = object
 
 ## ! 2D vector of double precision reals.
 
 type
-  BVH_Vec2d* = VectorTypeType[cfloat, 2]
+  BVH_Vec2d* = object
 
 ## ! 3D vector of double precision reals.
 
 type
-  BVH_Vec3d* = VectorTypeType[cfloat, 3]
+  BVH_Vec3d* = object
 
 ## ! 4D vector of double precision reals.
 
 type
-  BVH_Vec4d* = VectorTypeType[cfloat, 4]
+  BVH_Vec4d* = object
 
 ## ! Array of 2D vectors of double precision reals.
 
 type
-  BVH_Array2d* = Type[cfloat, 2]
+  BVH_Array2d* = object
 
 ## ! Array of 3D vectors of double precision reals.
 
 type
-  BVH_Array3d* = Type[cfloat, 3]
+  BVH_Array3d* = object
 
 ## ! Array of 4D vectors of double precision reals.
 
 type
-  BVH_Array4d* = Type[cfloat, 4]
+  BVH_Array4d* = object
 
 ## ! 4x4 matrix of single precision reals.
 
 type
-  BVH_Mat4f* = MatrixTypeType[StandardShortReal, 4]
+  BVH_Mat4f* = object
 
 ## ! 4x4 matrix of double precision reals.
 
 type
-  BVH_Mat4d* = MatrixTypeType[cfloat, 4]
+  BVH_Mat4d* = object
 
 ## ! Tool class for accessing specific vector component (by index).
 ## ! \tparam T Numeric data type

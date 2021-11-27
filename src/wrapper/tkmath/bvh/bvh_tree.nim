@@ -102,7 +102,7 @@ type
                                                                ## ! Current depth of BVH tree (set by builder).
     myDepth* {.importc: "myDepth".}: cint
 
-  BVH_TreeBaseBVH_VecNt*[T; N] = BVH_VecNt[T, N]
+#  BVH_TreeBaseBVH_VecNt*[T; N] = BVH_VecNt[T, N]
 
 proc newBVH_TreeBase*[T; N: static[cint]](): BVH_TreeBase[T, N] {.cdecl, constructor,
     importcpp: "BVH_TreeBase<\'*0,\'*1>(@)", dynlib: tkmath.}
@@ -112,14 +112,14 @@ proc depth*[T; N: static[cint]](this: BVH_TreeBase[T, N]): cint {.noSideEffect, 
     importcpp: "Depth", dynlib: tkmath.}
 proc length*[T; N: static[cint]](this: BVH_TreeBase[T, N]): cint {.noSideEffect, cdecl,
     importcpp: "Length", dynlib: tkmath.}
-proc minPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
-    cdecl, importcpp: "MinPoint", dynlib: tkmath.}
-proc maxPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
-    cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
-proc minPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "MinPoint", dynlib: tkmath.}
-proc maxPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
-    noSideEffect, cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
+#proc minPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
+#    cdecl, importcpp: "MinPoint", dynlib: tkmath.}
+#proc maxPoint*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var BVH_TreeBaseBVH_VecNt {.
+#    cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
+#proc minPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
+#    noSideEffect, cdecl, importcpp: "MinPoint", dynlib: tkmath.}
+#proc maxPoint*[T; N: static[cint]](this: BVH_TreeBase[T, N]; theNodeIndex: cint): BVH_TreeBaseBVH_VecNt {.
+#    noSideEffect, cdecl, importcpp: "MaxPoint", dynlib: tkmath.}
 proc begPrimitive*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var cint {.
     cdecl, importcpp: "BegPrimitive", dynlib: tkmath.}
 proc endPrimitive*[T; N: static[cint]](this: var BVH_TreeBase[T, N]; theNodeIndex: cint): var cint {.

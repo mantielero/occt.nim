@@ -21,7 +21,7 @@ type
     origin* {.importc: "Origin".}: BVH_RayBVH_VecNt
     direct* {.importc: "Direct".}: BVH_RayBVH_VecNt
 
-  BVH_RayBVH_VecNt*[T; N] = Type[T, N]
+  BVH_RayBVH_VecNt*[T; N] = object
 
 proc newBVH_Ray*[T; N: static[cint]](theOrigin: BVH_RayBVH_VecNt;
                                   theDirect: BVH_RayBVH_VecNt): BVH_Ray[T, N] {.

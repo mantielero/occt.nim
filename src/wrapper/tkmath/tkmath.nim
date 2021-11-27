@@ -19,6 +19,8 @@ type
   BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",
                                    header: "BVH_Tree.hxx", bycopy.} = object
   Pair*[T:cuint; N:cint] = object
+  BVH_TraverseBVH_VecNt* = object
+  BVH_VecNt* = object
 
 when defined(windows):
   const tkmath* = "TKMath.dll"

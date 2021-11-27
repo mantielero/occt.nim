@@ -17,5 +17,5 @@
 type
   GeomFillApproxStyle* {.size: sizeof(cint), importcpp: "GeomFill_ApproxStyle",
                         header: "GeomFill_ApproxStyle.hxx".} = enum
-    GeomFillSection, GeomFillLocation
+    geomFillSection, geomFillLocation
 

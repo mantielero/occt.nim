@@ -17,7 +17,7 @@
 discard "forward decl of Standard_NoSuchObject"
 type
   GeomFillFilling* {.importcpp: "GeomFill_Filling", header: "GeomFill_Filling.hxx",
-                    bycopy.} = object
+                    bycopy.} = object of RootObj
 
 
 proc newGeomFillFilling*(): GeomFillFilling {.cdecl, constructor,

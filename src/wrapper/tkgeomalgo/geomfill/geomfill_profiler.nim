@@ -19,7 +19,7 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Geom_Curve"
 type
   GeomFillProfiler* {.importcpp: "GeomFill_Profiler",
-                     header: "GeomFill_Profiler.hxx", bycopy.} = object
+                     header: "GeomFill_Profiler.hxx", bycopy.} = object of RootObj
 
 
 proc newGeomFillProfiler*(): GeomFillProfiler {.cdecl, constructor,

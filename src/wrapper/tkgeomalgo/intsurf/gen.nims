@@ -126,6 +126,9 @@ genFiles("IntSurf")
 genFiles("IntSurf_InteriorPoint")
 genFiles("IntSurf_InteriorPointTool")
 genFiles("IntSurf_LineOn2S")
+pp("intsurf_lineon2s.nim",
+  replaceAll = @[("IntSurfAllocator = 0", "IntSurfAllocator = cast[IntSurfAllocator](0)")]
+)
 genFiles("IntSurf_ListIteratorOfListOfPntOn2S")
 genFiles("IntSurf_ListOfPntOn2S")
 genFiles("IntSurf_PathPoint")

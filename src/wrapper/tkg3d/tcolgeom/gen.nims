@@ -1,7 +1,7 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let packageName = "law"
+let packageName = "tcolgeom"
 let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
@@ -113,33 +113,25 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/Law*.hxx | cut -c 26-
+# ls /usr/include/opencascade/TColGeom_*.hxx | cut -c 26-
 
-genFiles("Law_BSpFunc")
-genFiles("Law_BSpline")
-pp("law_bspline.nim",
-  replaceAll = @[("maxDegree", "lawBSplinemaxDegree")]
-)
-genFiles("Law_BSplineKnotSplitting")
-genFiles("Law_Composite")
-genFiles("Law_Constant")
-genFiles("Law_Function")
-genFiles("Law")
-genFiles("Law_Interpolate")
-genFiles("Law_Interpol")
-genFiles("Law_Laws")
-pp("law_laws.nim",
-  replaceAll = @[
-    ( """LawLaws* = NCollectionList[Handle[LawFunction]]""", 
-      """LawLaws* {.importcpp:"NCollection_List<Handle(Law_Function)>", header:"Law_Laws.hxx",bycopy.} = object"""),
-    ("""LawListIteratorOfLaws* = Iterator[Handle[LawFunction]]""",
-     """LawListIteratorOfLaws* {.importcpp:"NCollection_List<Handle(Law_Function)>::Iterator", header:"Law_Laws.hxx",bycopy.} = object""")
-    ]
-)
-#  NCollection_List<Handle(Law_Function)>::Iterator
-genFiles("Law_Linear")
-genFiles("Law_ListIteratorOfLaws")
-genFiles("Law_S")
+genFIles("TColGeom_Array1OfBezierCurve")
+genFIles("TColGeom_Array1OfBSplineCurve")
+genFIles("TColGeom_Array1OfCurve")
+genFIles("TColGeom_Array1OfSurface")
+genFIles("TColGeom_Array2OfBezierSurface")
+genFIles("TColGeom_Array2OfSurface")
+genFIles("TColGeom_HArray1OfBezierCurve")
+genFIles("TColGeom_HArray1OfBSplineCurve")
+genFIles("TColGeom_HArray1OfCurve")
+genFIles("TColGeom_HArray1OfSurface")
+genFIles("TColGeom_HArray2OfSurface")
+genFIles("TColGeom_HSequenceOfBoundedCurve")
+genFIles("TColGeom_HSequenceOfCurve")
+genFIles("TColGeom_SequenceOfBoundedCurve")
+genFIles("TColGeom_SequenceOfCurve")
+genFIles("TColGeom_SequenceOfSurface")
+
 
 
 

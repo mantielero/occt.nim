@@ -267,7 +267,7 @@ proc weight*(this: LawBSpline; index: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Weight", dynlib: tkgeomalgo.}
 proc weights*(this: LawBSpline; w: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "Weights", dynlib: tkgeomalgo.}
-proc maxDegree*(): cint {.cdecl, importcpp: "Law_BSpline::MaxDegree(@)",
+proc lawBSplinemaxDegree*(): cint {.cdecl, importcpp: "Law_BSpline::MaxDegree(@)",
                        dynlib: tkgeomalgo.}
 proc movePointAndTangent*(this: var LawBSpline; u: cfloat; newValue: cfloat;
                          derivative: cfloat; tolerance: cfloat;

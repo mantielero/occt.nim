@@ -119,6 +119,10 @@ proc pp*(file:string,
 # ls /usr/include/opencascade/GeomFill*.hxx | cut -c 26-
 
 genFiles("GeomFill_ApproxStyle")
+pp("geomfill_approxstyle.nim",
+  replaceAll = @[("GeomFillSection", "geomFillSection"),
+  ("GeomFillLocation", "geomFillLocation")]
+)
 genFiles("GeomFill_AppSurf",
   comment = @[(170, 186)]
 )
@@ -146,6 +150,9 @@ genFiles("GeomFill_DiscreteTrihedron")
 genFiles("GeomFill_DraftTrihedron")
 genFiles("GeomFill_EvolvedSection")
 genFiles("GeomFill_Filling")
+pp("geomfill_filling.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("GeomFill_FillingStyle")
 genFiles("GeomFill_Fixed")
 genFiles("GeomFill_Frenet")
@@ -169,6 +176,9 @@ genFiles("GeomFill_Pipe")
 genFiles("GeomFill_PlanFunc")
 genFiles("GeomFill_PolynomialConvertor")
 genFiles("GeomFill_Profiler")
+pp("geomfill_profiler.nim",
+  replaceAll = @[("= object", "= object of RootObj")]
+)
 genFiles("GeomFill_QuasiAngularConvertor")
 genFiles("GeomFill_SectionGenerator")
 genFiles("GeomFill_SectionLaw")
@@ -185,6 +195,9 @@ genFiles("GeomFill_Tensor")
 genFiles("GeomFill_TgtField")
 genFiles("GeomFill_TgtOnCoons")
 genFiles("GeomFill_Trihedron")
+pp("geomfill_trihedron.nim",
+  replaceAll = @[("GeomFillIs", "geomFillIs")]
+)
 genFiles("GeomFill_TrihedronLaw")
 genFiles("GeomFill_TrihedronWithGuide")
 genFiles("GeomFill_UniformSection")

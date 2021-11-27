@@ -1,0 +1,20 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include tcolgeom_array1ofbeziercurve
+include tcolgeom_array1ofbsplinecurve
+include tcolgeom_array1ofcurve
+include tcolgeom_array1ofsurface
+include tcolgeom_array2ofbeziersurface
+include tcolgeom_array2ofsurface
+include tcolgeom_harray1ofbeziercurve
+include tcolgeom_harray1ofbsplinecurve
+include tcolgeom_harray1ofcurve
+include tcolgeom_harray1ofsurface
+include tcolgeom_harray2ofsurface
+include tcolgeom_hsequenceofboundedcurve
+include tcolgeom_hsequenceofcurve
+include tcolgeom_sequenceofboundedcurve
+include tcolgeom_sequenceofcurve
+include tcolgeom_sequenceofsurface

@@ -1,6 +1,6 @@
-##  Created on: 1994-04-07
-##  Created by: Isabelle GRIGNON
-##  Copyright (c) 1994-1999 Matra Datavision
+##  Created on: 1993-03-09
+##  Created by: Philippe DAUTRY
+##  Copyright (c) 1993-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,5 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  LawLaws* {.importcpp:"NCollection_List<Handle(Law_Function)>", header:"Law_Laws.hxx",bycopy.} = object
-  LawListIteratorOfLaws* {.importcpp:"NCollection_List<Handle(Law_Function)>::Iterator", header:"Law_Laws.hxx",bycopy.} = object
+  TColGeomArray2OfBezierSurface* = NCollectionArray2[Handle[GeomBezierSurface]]

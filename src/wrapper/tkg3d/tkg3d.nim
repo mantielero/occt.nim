@@ -20,3 +20,4 @@ include geom/geom_includes
 include topabs/topabs_includes
 include adaptor3d/adaptor3d_includes
 include geomadaptor/geomadaptor_includes
+include tcolgeom/tcolgeom_includes

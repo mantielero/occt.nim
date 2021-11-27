@@ -23,7 +23,7 @@ type
                     bycopy.} = object of StandardTransient
 
 
-proc newIntSurfLineOn2S*(theAllocator: IntSurfAllocator = 0): IntSurfLineOn2S {.cdecl,
+proc newIntSurfLineOn2S*(theAllocator: IntSurfAllocator = cast[IntSurfAllocator](0)): IntSurfLineOn2S {.cdecl,
     constructor, importcpp: "IntSurf_LineOn2S(@)", dynlib: tkgeomalgo.}
 proc add*(this: var IntSurfLineOn2S; p: IntSurfPntOn2S) {.cdecl, importcpp: "Add",
     dynlib: tkgeomalgo.}

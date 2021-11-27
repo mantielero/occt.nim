@@ -17,8 +17,8 @@
 type
   GeomFillTrihedron* {.size: sizeof(cint), importcpp: "GeomFill_Trihedron",
                       header: "GeomFill_Trihedron.hxx".} = enum
-    GeomFillIsCorrectedFrenet, GeomFillIsFixed, GeomFillIsFrenet,
-    GeomFillIsConstantNormal, GeomFillIsDarboux, GeomFillIsGuideAC,
-    GeomFillIsGuidePlan, GeomFillIsGuideACWithContact,
-    GeomFillIsGuidePlanWithContact, GeomFillIsDiscreteTrihedron
+    geomFillIsCorrectedFrenet, geomFillIsFixed, geomFillIsFrenet,
+    geomFillIsConstantNormal, geomFillIsDarboux, geomFillIsGuideAC,
+    geomFillIsGuidePlan, geomFillIsGuideACWithContact,
+    geomFillIsGuidePlanWithContact, geomFillIsDiscreteTrihedron
 

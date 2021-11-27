@@ -1,11 +1,11 @@
 # https://github.com/lvk88/OccTutorial
 # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/runners/chapter1_1.cpp
-import occt #tkMath/tkmath
+import occt
 import sugar
 
 # Create two point classes, with (x,y,z) coordinates
-var pnt1 = Pnt(1.0, 0.2, 2.3)
-var pnt2 = Pnt(1, 0.2, -3)
+var pnt1 = newPnt(1.0, 0.2, 2.3)
+var pnt2 = newPnt(1, 0.2, -3)
 echo "PNT1: ", pnt1
 echo "PNT2: ", pnt2
 

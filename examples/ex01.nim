@@ -1,6 +1,6 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
-include tkmath/tkmath, tkernel/tkernel
+include occt #tkmath/tkmath, tkernel/tkernel
 
 let
   myWidth = 50.0

@@ -15,5 +15,5 @@
 ##  commercial license or contractual agreement.
 
 type
-  IntSurfListOfPntOn2S* = NCollectionList[IntSurfPntOn2S]
-  IntSurfListIteratorOfListOfPntOn2S* = Iterator[IntSurfPntOn2S]
+  IntSurfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object
+  IntSurfListIteratorOfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>::Iterator", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object

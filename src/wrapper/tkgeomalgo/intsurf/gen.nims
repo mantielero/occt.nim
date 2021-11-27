@@ -131,6 +131,14 @@ pp("intsurf_lineon2s.nim",
 )
 genFiles("IntSurf_ListIteratorOfListOfPntOn2S")
 genFiles("IntSurf_ListOfPntOn2S")
+pp("intsurf_listofpnton2s.nim",
+  replaceAll = @[
+    ( "IntSurfListOfPntOn2S* = NCollectionList[IntSurfPntOn2S]", 
+    """IntSurfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object"""),
+    ("IntSurfListIteratorOfListOfPntOn2S* = Iterator[IntSurfPntOn2S]", 
+    """IntSurfListIteratorOfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>::Iterator", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object""")
+  ]
+)
 genFiles("IntSurf_PathPoint")
 genFiles("IntSurf_PathPointTool")
 genFiles("IntSurf_PntOn2S")

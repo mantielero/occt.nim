@@ -13,4 +13,4 @@ include tkprim/tkprim
 include tkfillet/tkfillet
 include tkbool/tkbool
 include tkgeomalgo/tkgeomalgo
-
+include tkbo/tkbo

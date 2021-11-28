@@ -26,7 +26,7 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_TrimmedCurve"
 type
-  HandleGeomTrimmedCurve* {.importcpp:"opencascade::handle<GeomTrimmedCurve>", header: "Standard_Handle.hxx", bycopy.} = object of HandleGeomCurve
+  HandleGeomTrimmedCurve* {.importcpp:"opencascade::handle<Geom_TrimmedCurve>", header: "Standard_Handle.hxx", bycopy.} = object of HandleGeomCurve
 
 ## ! Describes a portion of a curve (termed the "basis
 ## ! curve") limited by two parameter values inside the

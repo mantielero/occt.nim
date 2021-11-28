@@ -23,7 +23,7 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Curve"
 type
-  HandleGeomCurve* {.importcpp:"opencascade::handle<GeomCurve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj
+  HandleGeomCurve* {.importcpp:"opencascade::handle<Geom_Curve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj
 
 ## ! The abstract class Curve describes the common
 ## ! behavior of curves in 3D space. The Geom package

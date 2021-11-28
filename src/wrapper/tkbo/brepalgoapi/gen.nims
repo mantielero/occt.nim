@@ -1,7 +1,8 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let c2nimFile = "geom.c2nim"
+let packageName = "brepalgoapi"
+let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
   const tkernel* = "TKernel.dll"
@@ -13,6 +14,7 @@ else:
 """ ]#
 proc genFiles*( infile:string;
                remove:seq[tuple[a,b:int]] = @[]; 
+               comment:seq[tuple[a,b:int]] = @[]; 
                addSemiColon:seq[int] = @[];
                replaceAll:seq[tuple[sub,by:string]] = @[];
                removeFuncBody:seq[tuple[a,b:int]] = @[]) =
@@ -54,6 +56,17 @@ proc genFiles*( infile:string;
             if n != rem.len:
                 edit &= ";"
         exec "sed -e '" & edit & "' -i " & name & ".hxx"
+
+    # Comment lines
+    if comment.len > 0:
+      var txt = readFile(name & ".hxx") 
+      var lines = txt.splitLines()
+      for rng in comment:
+        for i in (rng.a - 1) .. (rng.b - 1):
+          lines[i] = "// " & lines[i]
+      writeFile(name & ".hxx", lines.join("\n"))
+        
+    # Search and comment
 
 
     exec "c2nim --cpp --header --strict --nep1 --out:" & name.toLower & ".nim " & c2nimFile & " " & name & ".hxx"
@@ -100,86 +113,31 @@ proc pp*(file:string,
 
 #=====================================================
 
+# ls /usr/include/opencascade/BRepAlgoAPI*.hxx | cut -c 26-
 
-# ls /usr/include/opencascade/GC_*.hxx | cut -c 26-
-
-genFiles("Geom_Axis1Placement")
-genFiles("Geom_Axis2Placement")
-genFiles("Geom_AxisPlacement")
-genFiles("Geom_BezierCurve")
-pp("geom_beziercurve.nim",
-  replaceAll = @[("""proc maxDegree*()""", """proc maxDegreeBezierCurve*()""")]
+genFiles("BRepAlgoAPI_Algo")
+genFiles("BRepAlgoAPI_BooleanOperation")
+genFiles("BRepAlgoAPI_BuilderAlgo")
+pp("brepalgoapi_builderalgo.nim",
+  commentRange = @[(575,576)]
 )
-genFiles("Geom_BezierSurface")
-pp("geom_beziersurface.nim",
-  replaceAll = @[("""proc maxDegree*()""", """proc maxDegreeBezierSurface*()""")]
+genFiles("BRepAlgoAPI_Check")
+genFiles("BRepAlgoAPI_Common")
+genFiles("BRepAlgoAPI_Cut")
+genFiles("BRepAlgoAPI_Defeaturing")
+pp("brepalgoapi_defeaturing.nim",
+  commentRange = @[(222,223)]
 )
-genFiles("Geom_BoundedCurve")
-genFiles("Geom_BoundedSurface")
-genFiles("Geom_BSplineCurve")
-pp("geom_bsplinecurve.nim",
-  replaceAll = @[("""cfloat = pConfusion()""", """cfloat = 1.0e-7"""),
-                 ("""proc maxDegree*()""", """proc maxDegreeBSplineCurve*()""")]
+genFiles("BRepAlgoAPI_Fuse")
+pp("brepalgoapi_fuse.nim",
+  replaceAll = @[("newBRepAlgoAPI_F", "f")]
 )
-
-genFiles("Geom_BSplineSurface")
-pp("geom_bsplinesurface.nim",
-  replaceAll = @[("""cfloat = pConfusion()""", """cfloat = 1.0e-7"""),
-                 ("""proc maxDegree*()""", """proc maxDegreeBSplineSurface*()""")]
-)
-
-genFiles("Geom_CartesianPoint")
-genFiles("Geom_Circle")
-genFiles("Geom_ConicalSurface")
-genFiles("Geom_Conic")
-genFiles("Geom_Curve")
-pp("geom_curve.nim",
-  replaceAll = @[("HandleGeomCurve* = Handle[GeomCurve]", 
-    """HandleGeomCurve* {.importcpp:"opencascade::handle<Geom_Curve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj""")]
-)
-genFiles("Geom_CylindricalSurface")
-genFiles("Geom_Direction")
-genFiles("Geom_ElementarySurface")
-genFiles("Geom_Ellipse")
-genFiles("Geom_Geometry")
-genFiles("Geom_HSequenceOfBSplineSurface")
-genFiles("Geom_Hyperbola")
-genFiles("Geom_Line")
-genFiles("Geom_OffsetCurve")
-genFiles("Geom_OffsetSurface")
-genFiles("Geom_OsculatingSurface")
-genFiles("Geom_Parabola")
-genFiles("Geom_Plane")
-genFiles("Geom_Point")
-genFiles("Geom_RectangularTrimmedSurface")
-genFiles("Geom_SequenceOfBSplineSurface")
-genFiles("Geom_SphericalSurface")
-genFiles("Geom_Surface")
-genFiles("Geom_SurfaceOfLinearExtrusion")
-genFiles("Geom_SurfaceOfRevolution")
-genFiles("Geom_SweptSurface")
-genFiles("Geom_ToroidalSurface")
-genFiles("Geom_Transformation")
-genFiles("Geom_TrimmedCurve")
-pp("geom_trimmedcurve.nim",
-  replaceAll = @[("HandleGeomTrimmedCurve* = Handle[GeomTrimmedCurve]", 
-    """HandleGeomTrimmedCurve* {.importcpp:"opencascade::handle<Geom_TrimmedCurve>", header: "Standard_Handle.hxx", bycopy.} = object of HandleGeomCurve""")]
-)
-genFiles("Geom_UndefinedDerivative")
-genFiles("Geom_UndefinedValue")
-genFiles("Geom_Vector")
-genFiles("Geom_VectorWithMagnitude")
+genFiles("BRepAlgoAPI_Section")
+genFiles("BRepAlgoAPI_Splitter")
 
 
 
 
-
-
-
-#[ pp("gp.nim",
-  replaceAll = @[("dx*", "dxAsDir*"),("dy*", "dyAsDir*"),("dz*", "dzAsDir*")
-  ]
-) ]#
 
 
 
@@ -191,7 +149,7 @@ for path in files:
   var (dir, name, ext) = splitFile(path)
 
 
-  if ext == ".nim" and name != "gen" and name != "geom_includes":
+  if ext == ".nim" and name != "gen" and name != packageName & "_includes":
     txt &= "include " & name & "\n"
     #exp &= name & ", "
   #txt &= exp
@@ -200,6 +158,16 @@ for path in files:
 var beggining = "{.passL:\"-lTKMath\".}\n"
 beggining &= "{.passC:\"-I" & lib & "\" .}\n"
 beggining &= "{.experimental: \"codeReordering\".}\n\n"
+#[ beggining &= """
+when defined(windows):
+  const tkmath* = "TKMath.dll"
+elif defined(macosx):
+  const tkmath* = "libTKMath.dylib"
+else:
+  const tkmath* = "libTKMath.so" 
 
-writeFile("geom_includes.nim", beggining & txt )#& exp)
-#pp("gc_includes.nim")
+
+""" ]#
+
+writeFile(packageName & "_includes.nim", beggining & txt )#& exp)
+pp(packageName & "_includes.nim")

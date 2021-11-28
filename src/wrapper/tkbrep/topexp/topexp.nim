@@ -28,27 +28,27 @@ type
 
 
 proc mapShapes*(s: TopoDS_Shape; t: TopAbsShapeEnum; m: var TopToolsIndexedMapOfShape) {.
-    cdecl, importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
+    cdecl, importcpp: "TopExp::MapShapes(@)", dynlib: tkbrep.}
 proc mapShapes*(s: TopoDS_Shape; m: var TopToolsIndexedMapOfShape) {.cdecl,
-    importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::MapShapes(@)", dynlib: tkbrep.}
 proc mapShapes*(s: TopoDS_Shape; m: var TopToolsMapOfShape) {.cdecl,
-    importcpp: "TopExp::MapShapes(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::MapShapes(@)", dynlib: tkbrep.}
 proc mapShapesAndAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
                            ta: TopAbsShapeEnum;
                            m: var TopToolsIndexedDataMapOfShapeListOfShape) {.
-    cdecl, importcpp: "TopExp::MapShapesAndAncestors(@)", header: "TopExp.hxx".}
+    cdecl, importcpp: "TopExp::MapShapesAndAncestors(@)", dynlib: tkbrep.}
 proc mapShapesAndUniqueAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum;
                                  ta: TopAbsShapeEnum; m: var TopToolsIndexedDataMapOfShapeListOfShape;
                                  useOrientation: bool = false) {.cdecl,
-    importcpp: "TopExp::MapShapesAndUniqueAncestors(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::MapShapesAndUniqueAncestors(@)", dynlib: tkbrep.}
 proc firstVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.cdecl,
-    importcpp: "TopExp::FirstVertex(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::FirstVertex(@)", dynlib: tkbrep.}
 proc lastVertex*(e: TopoDS_Edge; cumOri: bool = false): TopoDS_Vertex {.cdecl,
-    importcpp: "TopExp::LastVertex(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::LastVertex(@)", dynlib: tkbrep.}
 proc vertices*(e: TopoDS_Edge; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex;
               cumOri: bool = false) {.cdecl, importcpp: "TopExp::Vertices(@)",
-                                  header: "TopExp.hxx".}
+                                  dynlib: tkbrep.}
 proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vertex) {.
-    cdecl, importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
+    cdecl, importcpp: "TopExp::Vertices(@)", dynlib: tkbrep.}
 proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.cdecl,
-    importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}
+    importcpp: "TopExp::CommonVertex(@)", dynlib: tkbrep.}

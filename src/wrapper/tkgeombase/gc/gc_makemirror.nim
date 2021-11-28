@@ -22,23 +22,23 @@ discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Ax2"
 type
-  GC_MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
+  MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
 
 
-proc newGC_MakeMirror*(point: Pnt): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newGC_MakeMirror*(axis: Ax1): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newGC_MakeMirror*(line: Lin): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newGC_MakeMirror*(point: Pnt; direc: Dir): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newGC_MakeMirror*(plane: Pln): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newGC_MakeMirror*(plane: Ax2): GC_MakeMirror {.cdecl, constructor,
-    importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc value*(this: GC_MakeMirror): Handle[GeomTransformation] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeMirror.hxx".}
-converter `constopencascade`*(this: GC_MakeMirror): Handle[GeomTransformation] {.
+proc newMakeMirror*(point: Pnt): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc newMakeMirror*(axis: Ax1): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc newMakeMirror*(line: Lin): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc newMakeMirror*(point: Pnt; direc: Dir): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc newMakeMirror*(plane: Pln): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc newMakeMirror*(plane: Ax2): MakeMirror {.cdecl, constructor,
+    importcpp: "GC_MakeMirror(@)", dynlib: tkgeombase.}
+proc value*(this: MakeMirror): Handle[GeomTransformation] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeMirror): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "GC_MakeMirror::operator constopencascade",
-    header: "GC_MakeMirror.hxx".}
+    dynlib: tkgeombase.}

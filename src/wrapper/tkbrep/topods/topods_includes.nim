@@ -2,6 +2,7 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
+include topods
 include topods_alertattribute
 include topods_alertwithshape
 include topods_builder

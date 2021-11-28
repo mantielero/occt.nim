@@ -49,9 +49,9 @@ type
 
 
 proc newBRepBuilderAPI_MakeVertex*(p: Pnt): BRepBuilderAPI_MakeVertex {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)", header: "BRepBuilderAPI_MakeVertex.hxx".}
+    constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)", dynlib: tktopalgo.}
 proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.cdecl,
-    importcpp: "Vertex", header: "BRepBuilderAPI_MakeVertex.hxx".}
+    importcpp: "Vertex", dynlib: tktopalgo.}
 converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     cdecl, importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
-    header: "BRepBuilderAPI_MakeVertex.hxx".}
+    dynlib: tktopalgo.}

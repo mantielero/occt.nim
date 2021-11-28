@@ -23,13 +23,13 @@ type
 
 
 proc newTopoDS_Iterator*(): TopoDS_Iterator {.cdecl, constructor,
-    importcpp: "TopoDS_Iterator(@)", header: "TopoDS_Iterator.hxx".}
+    importcpp: "TopoDS_Iterator(@)", dynlib: tkbrep.}
 proc newTopoDS_Iterator*(s: TopoDS_Shape; cumOri: bool = true; cumLoc: bool = true): TopoDS_Iterator {.
-    cdecl, constructor, importcpp: "TopoDS_Iterator(@)", header: "TopoDS_Iterator.hxx".}
+    cdecl, constructor, importcpp: "TopoDS_Iterator(@)", dynlib: tkbrep.}
 proc initialize*(this: var TopoDS_Iterator; s: TopoDS_Shape; cumOri: bool = true;
-                cumLoc: bool = true) {.cdecl, importcpp: "Initialize", header: "TopoDS_Iterator.hxx".}
+                cumLoc: bool = true) {.cdecl, importcpp: "Initialize", dynlib: tkbrep.}
 proc more*(this: TopoDS_Iterator): bool {.noSideEffect, cdecl, importcpp: "More",
-                                      header: "TopoDS_Iterator.hxx".}
-proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", header: "TopoDS_Iterator.hxx".}
+                                      dynlib: tkbrep.}
+proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", dynlib: tkbrep.}
 proc value*(this: TopoDS_Iterator): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Value", header: "TopoDS_Iterator.hxx".}
+    importcpp: "Value", dynlib: tkbrep.}

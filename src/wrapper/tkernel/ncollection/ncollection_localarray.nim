@@ -23,21 +23,21 @@ type
 
 proc newNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](
     theSize: csize_t): NCollectionLocalArray[TheItem, Max_Array_Size] {.cdecl,
-    constructor, importcpp: "NCollection_LocalArray<\'*0,\'*1>(@)", header: "NCollection_LocalArray.hxx".}
+    constructor, importcpp: "NCollection_LocalArray<\'*0,\'*1>(@)", dynlib: tkernel.}
 proc newNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](): NCollectionLocalArray[
     TheItem, Max_Array_Size] {.cdecl, constructor,
                              importcpp: "NCollection_LocalArray<\'*0,\'*1>(@)",
-                             header: "NCollection_LocalArray.hxx".}
+                             dynlib: tkernel.}
 proc destroyNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](
     this: var NCollectionLocalArray[TheItem, Max_Array_Size]) {.cdecl,
-    importcpp: "#.~NCollection_LocalArray()", header: "NCollection_LocalArray.hxx".}
+    importcpp: "#.~NCollection_LocalArray()", dynlib: tkernel.}
 proc allocate*[TheItem; Max_Array_Size: static[cint]](
     this: var NCollectionLocalArray[TheItem, Max_Array_Size]; theSize: csize_t) {.
-    cdecl, importcpp: "Allocate", header: "NCollection_LocalArray.hxx".}
+    cdecl, importcpp: "Allocate", dynlib: tkernel.}
 proc size*[TheItem; Max_Array_Size: static[cint]](
     this: NCollectionLocalArray[TheItem, Max_Array_Size]): csize_t {.noSideEffect,
-    cdecl, importcpp: "Size", header: "NCollection_LocalArray.hxx".}
+    cdecl, importcpp: "Size", dynlib: tkernel.}
 converter `theItem*`*[TheItem; Max_Array_Size: static[cint]](
     this: NCollectionLocalArray[TheItem, Max_Array_Size]): ptr TheItem {.
     noSideEffect, cdecl, importcpp: "NCollection_LocalArray::operator theItem*",
-    header: "NCollection_LocalArray.hxx".}
+    dynlib: tkernel.}

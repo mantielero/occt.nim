@@ -54,19 +54,19 @@ type
 
 
 proc constructStandardReadLineBuffer*(theMaxBufferSizeBytes: csize_t): StandardReadLineBuffer {.
-    cdecl, constructor, importcpp: "Standard_ReadLineBuffer(@)", header: "Standard_ReadLineBuffer.hxx".}
+    cdecl, constructor, importcpp: "Standard_ReadLineBuffer(@)", dynlib: tkernel.}
 proc destroyStandardReadLineBuffer*(this: var StandardReadLineBuffer) {.cdecl,
-    importcpp: "#.~Standard_ReadLineBuffer()", header: "Standard_ReadLineBuffer.hxx".}
+    importcpp: "#.~Standard_ReadLineBuffer()", dynlib: tkernel.}
 proc clear*(this: var StandardReadLineBuffer) {.cdecl, importcpp: "Clear",
-    header: "Standard_ReadLineBuffer.hxx".}
+    dynlib: tkernel.}
 proc readLine*[StreamT](this: var StandardReadLineBuffer; theStream: var StreamT;
                        theLineLength: var csize_t): cstring {.cdecl,
-    importcpp: "ReadLine", header: "Standard_ReadLineBuffer.hxx".}
+    importcpp: "ReadLine", dynlib: tkernel.}
 proc readLine*[StreamT](this: var StandardReadLineBuffer; theStream: var StreamT;
                        theLineLength: var csize_t; theReadData: var int): cstring {.
-    cdecl, importcpp: "ReadLine", header: "Standard_ReadLineBuffer.hxx".}
+    cdecl, importcpp: "ReadLine", dynlib: tkernel.}
 proc toPutGapInMultiline*(this: StandardReadLineBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "ToPutGapInMultiline", header: "Standard_ReadLineBuffer.hxx".}
+    importcpp: "ToPutGapInMultiline", dynlib: tkernel.}
 proc setMultilineMode*(this: var StandardReadLineBuffer; theMultilineMode: bool;
                       theToPutGap: bool = true) {.cdecl,
-    importcpp: "SetMultilineMode", header: "Standard_ReadLineBuffer.hxx".}
+    importcpp: "SetMultilineMode", dynlib: tkernel.}

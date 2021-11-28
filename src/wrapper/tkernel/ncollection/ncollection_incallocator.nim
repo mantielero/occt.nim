@@ -27,22 +27,22 @@ type
   NCollectionIncAllocatoralignedT* = pointer
 
 proc newNCollectionIncAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionIncAllocator {.
-    cdecl, constructor, importcpp: "NCollection_IncAllocator(@)", header: "NCollection_IncAllocator.hxx".}
+    cdecl, constructor, importcpp: "NCollection_IncAllocator(@)", dynlib: tkernel.}
 proc setThreadSafe*(this: var NCollectionIncAllocator; theIsThreadSafe: bool = true) {.
-    cdecl, importcpp: "SetThreadSafe", header: "NCollection_IncAllocator.hxx".}
+    cdecl, importcpp: "SetThreadSafe", dynlib: tkernel.}
 proc allocate*(this: var NCollectionIncAllocator; size: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", header: "NCollection_IncAllocator.hxx".}
+    importcpp: "Allocate", dynlib: tkernel.}
 proc free*(this: var NCollectionIncAllocator; anAddress: pointer) {.cdecl,
-    importcpp: "Free", header: "NCollection_IncAllocator.hxx".}
+    importcpp: "Free", dynlib: tkernel.}
 proc getMemSize*(this: NCollectionIncAllocator): csize_t {.noSideEffect, cdecl,
-    importcpp: "GetMemSize", header: "NCollection_IncAllocator.hxx".}
+    importcpp: "GetMemSize", dynlib: tkernel.}
 proc destroyNCollectionIncAllocator*(this: var NCollectionIncAllocator) {.cdecl,
-    importcpp: "#.~NCollection_IncAllocator()", header: "NCollection_IncAllocator.hxx".}
+    importcpp: "#.~NCollection_IncAllocator()", dynlib: tkernel.}
 proc reallocate*(this: var NCollectionIncAllocator; anAddress: pointer;
                 oldSize: csize_t; newSize: csize_t): pointer {.cdecl,
-    importcpp: "Reallocate", header: "NCollection_IncAllocator.hxx".}
+    importcpp: "Reallocate", dynlib: tkernel.}
 proc reset*(this: var NCollectionIncAllocator; doReleaseMem: bool = true) {.
-    cdecl, importcpp: "Reset", header: "NCollection_IncAllocator.hxx".}
+    cdecl, importcpp: "Reset", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type

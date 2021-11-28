@@ -60,6 +60,6 @@ type
 
 
 proc hashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.cdecl,
-    importcpp: "NCollection_DefaultHasher::HashCode(@)", header: "NCollection_DefaultHasher.hxx".}
+    importcpp: "NCollection_DefaultHasher::HashCode(@)", dynlib: tkernel.}
 proc isEqual*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {.cdecl,
-    importcpp: "NCollection_DefaultHasher::IsEqual(@)", header: "NCollection_DefaultHasher.hxx".}
+    importcpp: "NCollection_DefaultHasher::IsEqual(@)", dynlib: tkernel.}

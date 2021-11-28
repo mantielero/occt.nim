@@ -68,28 +68,28 @@ type
 
 proc newNCollectionBuffer*(theAlloc: Handle[NCollectionBaseAllocator];
                           theSize: csize_t = 0; theData: ptr StandardByte = nil): NCollectionBuffer {.
-    cdecl, constructor, importcpp: "NCollection_Buffer(@)", header: "NCollection_Buffer.hxx".}
+    cdecl, constructor, importcpp: "NCollection_Buffer(@)", dynlib: tkernel.}
 proc destroyNCollectionBuffer*(this: var NCollectionBuffer) {.cdecl,
-    importcpp: "#.~NCollection_Buffer()", header: "NCollection_Buffer.hxx".}
+    importcpp: "#.~NCollection_Buffer()", dynlib: tkernel.}
 proc data*(this: NCollectionBuffer): ptr StandardByte {.noSideEffect, cdecl,
-    importcpp: "Data", header: "NCollection_Buffer.hxx".}
+    importcpp: "Data", dynlib: tkernel.}
 proc changeData*(this: var NCollectionBuffer): ptr StandardByte {.cdecl,
-    importcpp: "ChangeData", header: "NCollection_Buffer.hxx".}
+    importcpp: "ChangeData", dynlib: tkernel.}
 proc isEmpty*(this: NCollectionBuffer): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", header: "NCollection_Buffer.hxx".}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc size*(this: NCollectionBuffer): csize_t {.noSideEffect, cdecl, importcpp: "Size",
-    header: "NCollection_Buffer.hxx".}
+    dynlib: tkernel.}
 proc allocator*(this: NCollectionBuffer): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", header: "NCollection_Buffer.hxx".}
+    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}
 proc setAllocator*(this: var NCollectionBuffer;
                   theAlloc: Handle[NCollectionBaseAllocator]) {.cdecl,
-    importcpp: "SetAllocator", header: "NCollection_Buffer.hxx".}
+    importcpp: "SetAllocator", dynlib: tkernel.}
 proc allocate*(this: var NCollectionBuffer; theSize: csize_t): bool {.cdecl,
-    importcpp: "Allocate", header: "NCollection_Buffer.hxx".}
-proc free*(this: var NCollectionBuffer) {.cdecl, importcpp: "Free", header: "NCollection_Buffer.hxx".}
+    importcpp: "Allocate", dynlib: tkernel.}
+proc free*(this: var NCollectionBuffer) {.cdecl, importcpp: "Free", dynlib: tkernel.}
 proc dumpJson*(this: NCollectionBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "NCollection_Buffer.hxx".}
+                                 dynlib: tkernel.}
 type
   NCollectionBufferbaseType* = StandardTransient
   HandleNCollectionBuffer* = Handle[NCollectionBuffer]

@@ -128,16 +128,16 @@ type
 
 
 proc setAxis*(this: var GeomAxisPlacement; a1: Ax1) {.cdecl, importcpp: "SetAxis",
-    header: "Geom_AxisPlacement.hxx".}
+    dynlib: tkg3d.}
 proc setDirection*(this: var GeomAxisPlacement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", header: "Geom_AxisPlacement.hxx".}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setLocation*(this: var GeomAxisPlacement; p: Pnt) {.cdecl,
-    importcpp: "SetLocation", header: "Geom_AxisPlacement.hxx".}
+    importcpp: "SetLocation", dynlib: tkg3d.}
 proc angle*(this: GeomAxisPlacement; other: Handle[GeomAxisPlacement]): cfloat {.
-    noSideEffect, cdecl, importcpp: "Angle", header: "Geom_AxisPlacement.hxx".}
+    noSideEffect, cdecl, importcpp: "Angle", dynlib: tkg3d.}
 proc axis*(this: GeomAxisPlacement): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
-                                       header: "Geom_AxisPlacement.hxx".}
+                                       dynlib: tkg3d.}
 proc direction*(this: GeomAxisPlacement): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
+    importcpp: "Direction", dynlib: tkg3d.}
 proc location*(this: GeomAxisPlacement): Pnt {.noSideEffect, cdecl,
-    importcpp: "Location", header: "Geom_AxisPlacement.hxx".}
+    importcpp: "Location", dynlib: tkg3d.}

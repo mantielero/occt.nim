@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardLicenseNotFound):
   template standardLicenseNotFoundRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardLicenseNotFound*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_LicenseNotFound(@)", header: "Standard_LicenseNotFound.hxx".}
+          importcpp: "Standard_LicenseNotFound(@)", dynlib: tkernel.}
 
 else:
   discard

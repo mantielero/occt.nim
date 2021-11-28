@@ -20,13 +20,13 @@ type
 
 proc newTColStdHArray1OfListOfInteger*(theLower: cint; theUpper: cint): TColStdHArray1OfListOfInteger {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfListOfInteger(@)",
-    header: "TColStd_HArray1OfListOfInteger.hxx".}
+    dynlib: tkernel.}
 proc newTColStdHArray1OfListOfInteger*(theLower: cint; theUpper: cint;
                                       theValue: ValueType): TColStdHArray1OfListOfInteger {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfListOfInteger(@)",
-    header: "TColStd_HArray1OfListOfInteger.hxx".}
+    dynlib: tkernel.}
 proc newTColStdHArray1OfListOfInteger*(theOther: TColStdArray1OfListOfInteger): TColStdHArray1OfListOfInteger {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfListOfInteger(@)",
-    header: "TColStd_HArray1OfListOfInteger.hxx".}
+    dynlib: tkernel.}
 proc array1*(this: TColStdHArray1OfListOfInteger): TColStdArray1OfListOfInteger {.
-    noSideEffect, cdecl, importcpp: "Array1", header: "TColStd_HArray1OfListOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkernel.}

@@ -153,62 +153,62 @@ type
 
 
 proc newGeomCylindricalSurface*(a3: Ax3; radius: cfloat): GeomCylindricalSurface {.
-    cdecl, constructor, importcpp: "Geom_CylindricalSurface(@)", header: "Geom_CylindricalSurface.hxx".}
+    cdecl, constructor, importcpp: "Geom_CylindricalSurface(@)", dynlib: tkg3d.}
 proc newGeomCylindricalSurface*(c: Cylinder): GeomCylindricalSurface {.cdecl,
-    constructor, importcpp: "Geom_CylindricalSurface(@)", header: "Geom_CylindricalSurface.hxx".}
+    constructor, importcpp: "Geom_CylindricalSurface(@)", dynlib: tkg3d.}
 proc setCylinder*(this: var GeomCylindricalSurface; c: Cylinder) {.cdecl,
-    importcpp: "SetCylinder", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "SetCylinder", dynlib: tkg3d.}
 proc setRadius*(this: var GeomCylindricalSurface; r: cfloat) {.cdecl,
-    importcpp: "SetRadius", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "SetRadius", dynlib: tkg3d.}
 proc cylinder*(this: GeomCylindricalSurface): Cylinder {.noSideEffect, cdecl,
-    importcpp: "Cylinder", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "Cylinder", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomCylindricalSurface; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomCylindricalSurface; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc transformParameters*(this: GeomCylindricalSurface; u: var cfloat; v: var cfloat;
                          t: Trsf) {.noSideEffect, cdecl,
-                                  importcpp: "TransformParameters", header: "Geom_CylindricalSurface.hxx".}
+                                  importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomCylindricalSurface; t: Trsf): GTrsf2d {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc bounds*(this: GeomCylindricalSurface; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
-                                        header: "Geom_CylindricalSurface.hxx".}
+                                        dynlib: tkg3d.}
 proc coefficients*(this: GeomCylindricalSurface; a1: var cfloat; a2: var cfloat;
                   a3: var cfloat; b1: var cfloat; b2: var cfloat; b3: var cfloat;
                   c1: var cfloat; c2: var cfloat; c3: var cfloat; d: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Coefficients", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkg3d.}
 proc radius*(this: GeomCylindricalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Radius", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "Radius", dynlib: tkg3d.}
 proc isUClosed*(this: GeomCylindricalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomCylindricalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomCylindricalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomCylindricalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomCylindricalSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "UIso", header: "Geom_CylindricalSurface.hxx".}
+    cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomCylindricalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "VIso", header: "Geom_CylindricalSurface.hxx".}
+    cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
-    cdecl, importcpp: "D0", header: "Geom_CylindricalSurface.hxx".}
+    cdecl, importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_CylindricalSurface.hxx".}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    header: "Geom_CylindricalSurface.hxx".}
+                                    dynlib: tkg3d.}
 proc dn*(this: GeomCylindricalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", header: "Geom_CylindricalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomCylindricalSurface; t: Trsf) {.cdecl,
-    importcpp: "Transform", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc copy*(this: GeomCylindricalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_CylindricalSurface.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomCylindricalSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_CylindricalSurface.hxx".}
+                                 dynlib: tkg3d.}

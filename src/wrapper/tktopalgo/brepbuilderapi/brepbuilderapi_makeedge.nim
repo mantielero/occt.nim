@@ -31,124 +31,124 @@ type
                             header: "BRepBuilderAPI_MakeEdge.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
-proc newBRepBuilderAPI_MakeEdge*(): BRepBuilderAPI_MakeEdge {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Lin): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Lin; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Lin; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Lin; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Circ): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Circ; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Circ; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Circ; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Elips): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Elips; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Elips; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Elips; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Hypr): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Hypr; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Hypr; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Hypr; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Parab): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Parab; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Parab; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Parab; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
+proc newEdge*(): BRepBuilderAPI_MakeEdge {.cdecl, constructor,
+    importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Lin): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Lin; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Lin; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Lin; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Circ): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Circ; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Circ; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Circ; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Elips): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Elips; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Elips; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Elips; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Hypr): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Hypr; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Hypr; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Hypr; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Parab): BRepBuilderAPI_MakeEdge {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Parab; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Parab; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Parab; v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve; p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve; v1: TopoDS_Vertex;
                                 v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p3: cfloat;
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve; p1: Pnt; p2: Pnt; p3: cfloat;
                                 p4: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; v1: TopoDS_Vertex;
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: HandleGeomCurve; v1: TopoDS_Vertex;
                                 v2: TopoDS_Vertex; p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface]): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface]): BRepBuilderAPI_MakeEdge {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 p1: cfloat; p2: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 p1: Pnt; p2: Pnt): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat): BRepBuilderAPI_MakeEdge {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc newBRepBuilderAPI_MakeEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc newEdge*(L: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                 v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;
                                 p2: cfloat): BRepBuilderAPI_MakeEdge {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: cfloat;
-          p2: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt) {.
-    cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
-          v2: TopoDS_Vertex) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt;
-          p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
-proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; v1: TopoDS_Vertex;
+    constructor, importcpp: "BRepBuilderAPI_MakeEdge(@)", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve) {.cdecl,
+    importcpp: "Init", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve; p1: cfloat;
+          p2: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve; p1: Pnt; p2: Pnt) {.
+    cdecl, importcpp: "Init", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve; v1: TopoDS_Vertex;
+          v2: TopoDS_Vertex) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve; p1: Pnt; p2: Pnt;
+          p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
+proc init*(this: var BRepBuilderAPI_MakeEdge; c: HandleGeomCurve; v1: TopoDS_Vertex;
           v2: TopoDS_Vertex; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
+    dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
-          s: Handle[GeomSurface]) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+          s: Handle[GeomSurface]) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
+    dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Init",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
+    dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[Geom2dCurve];
           s: Handle[GeomSurface]; v1: TopoDS_Vertex; v2: TopoDS_Vertex; p1: cfloat;
-          p2: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeEdge.hxx".}
+          p2: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc isDone*(this: BRepBuilderAPI_MakeEdge): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "IsDone", dynlib: tktopalgo.}
 proc error*(this: BRepBuilderAPI_MakeEdge): BRepBuilderAPI_EdgeError {.noSideEffect,
-    cdecl, importcpp: "Error", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    cdecl, importcpp: "Error", dynlib: tktopalgo.}
 proc edge*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.cdecl, importcpp: "Edge",
-    header: "BRepBuilderAPI_MakeEdge.hxx".}
+    dynlib: tktopalgo.}
 converter `topoDS_Edge`*(this: var BRepBuilderAPI_MakeEdge): TopoDS_Edge {.cdecl,
-    importcpp: "BRepBuilderAPI_MakeEdge::operator TopoDS_Edge", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "BRepBuilderAPI_MakeEdge::operator TopoDS_Edge", dynlib: tktopalgo.}
 proc vertex1*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex1", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "Vertex1", dynlib: tktopalgo.}
 proc vertex2*(this: BRepBuilderAPI_MakeEdge): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex2", header: "BRepBuilderAPI_MakeEdge.hxx".}
+    importcpp: "Vertex2", dynlib: tktopalgo.}

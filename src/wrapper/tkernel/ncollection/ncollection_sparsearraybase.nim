@@ -61,13 +61,13 @@ type
 
 
 proc clear*(this: var NCollectionSparseArrayBase) {.cdecl, importcpp: "Clear",
-    header: "NCollection_SparseArrayBase.hxx".}
+    dynlib: tkernel.}
 proc size*(this: NCollectionSparseArrayBase): csize_t {.noSideEffect, cdecl,
-    importcpp: "Size", header: "NCollection_SparseArrayBase.hxx".}
+    importcpp: "Size", dynlib: tkernel.}
 proc hasValue*(this: NCollectionSparseArrayBase; theIndex: csize_t): bool {.
-    noSideEffect, cdecl, importcpp: "HasValue", header: "NCollection_SparseArrayBase.hxx".}
+    noSideEffect, cdecl, importcpp: "HasValue", dynlib: tkernel.}
 proc unsetValue*(this: var NCollectionSparseArrayBase; theIndex: csize_t): bool {.
-    cdecl, importcpp: "UnsetValue", header: "NCollection_SparseArrayBase.hxx".}
+    cdecl, importcpp: "UnsetValue", dynlib: tkernel.}
 type
   NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
                                        bycopy.} = object of RootObj ##  Public interface
@@ -77,10 +77,10 @@ type
 
 
 proc restart*(this: var NCollectionSparseArrayBaseIterator) {.cdecl,
-    importcpp: "Restart", header: "NCollection_SparseArrayBase.hxx".}
+    importcpp: "Restart", dynlib: tkernel.}
 proc more*(this: NCollectionSparseArrayBaseIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", header: "NCollection_SparseArrayBase.hxx".}
+    importcpp: "More", dynlib: tkernel.}
 proc next*(this: var NCollectionSparseArrayBaseIterator) {.cdecl, importcpp: "Next",
-    header: "NCollection_SparseArrayBase.hxx".}
+    dynlib: tkernel.}
 proc index*(this: NCollectionSparseArrayBaseIterator): csize_t {.noSideEffect, cdecl,
-    importcpp: "Index", header: "NCollection_SparseArrayBase.hxx".}
+    importcpp: "Index", dynlib: tkernel.}

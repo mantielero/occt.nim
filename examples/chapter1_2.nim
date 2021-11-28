@@ -1,5 +1,5 @@
 # https://occtutorials.wordpress.com/2015/12/07/chapter-1-2-curves-from-the-gp-package/
-import ../src/tkMath/tkmath
+import occt
 import math  # For Pi
 import strformat  # For fmt"Hello {name}" like formatting
 
@@ -11,20 +11,20 @@ proc main() =
   its orientation (lies on the xy plane, i.e. its normal is the z axis)
   its radius (2.5)
   ]# 
-  let centerPoint = Pnt(2.5, 2.5, 0)
-  let normalDirection = Dir(0,0,1)
-  let xDirection = DIr(1,0,0)
-  let axis = Ax2(centerPoint, normalDirection, xDirection)
+  let centerPoint = newPnt(2.5, 2.5, 0)
+  let normalDirection = newDir(0,0,1)
+  let xDirection = newDir(1,0,0)
+  let axis = newAx2(centerPoint, normalDirection, xDirection)
 
   # Creating the circle
-  let circle = Circ(axis, 2.5)
+  let circle = newCirc(axis, 2.5)
 
   # Some convenience functions provided by the circle class
   echo "Circle area is: ", circle.area
   echo "Circle circumference is: ", circle.length
 
   # Create a scaled copy of the circle
-  let circle2 = circle.scaled( Pnt(2.5,2.5,0.0), 2.0)
+  let circle2 = circle.scaled( newPnt(2.5,2.5,0.0), 2.0)
   echo "Scaled circle area is: ", circle2.area
   echo "Scaled circle circumference is: ", circle2.length
   #[
@@ -51,8 +51,8 @@ proc main() =
 
   for i in 0..<numberOfSamplePoints:
     let delta = (i.float * deltaU).cdouble
-    var pointOnCircle:gp_Pnt
-    var tangentVector:gp_Vec
+    var pointOnCircle:Pnt
+    var tangentVector:Vec
     lib.d1(delta, circle2, pointOnCircle, tangentVector)
     f1.writeLine( fmt"{pointOnCircle.x} {pointOnCircle.y} {pointOnCircle.z} {tangentVector.x} {tangentVector.y} {tangentVector.z}" )
   

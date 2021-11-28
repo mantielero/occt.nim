@@ -31,72 +31,72 @@ type
                                                                                                           ## done.
 
 
-proc newBRepBuilderAPI_MakeFace*(): BRepBuilderAPI_MakeFace {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(f: TopoDS_Face): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(p: Pln): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cylinder): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cone): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Sphere): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Torus): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface]; tolDegen: cfloat): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(p: Pln; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+proc newFace*(): BRepBuilderAPI_MakeFace {.cdecl, constructor,
+    importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(f: TopoDS_Face): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(p: Pln): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cylinder): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cone): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Sphere): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Torus): BRepBuilderAPI_MakeFace {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Handle[GeomSurface]; tolDegen: cfloat): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(p: Pln; uMin: cfloat; uMax: cfloat; vMin: cfloat;
                                 vMax: cfloat): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cylinder; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cylinder; uMin: cfloat; uMax: cfloat; vMin: cfloat;
                                 vMax: cfloat): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cone; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cone; uMin: cfloat; uMax: cfloat; vMin: cfloat;
                                 vMax: cfloat): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Sphere; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Sphere; uMin: cfloat; uMax: cfloat; vMin: cfloat;
                                 vMax: cfloat): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Torus; uMin: cfloat; uMax: cfloat; vMin: cfloat;
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Torus; uMin: cfloat; uMax: cfloat; vMin: cfloat;
                                 vMax: cfloat): BRepBuilderAPI_MakeFace {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
+    constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
                                 vMin: cfloat; vMax: cfloat; tolDegen: cfloat): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(w: TopoDS_Wire; onlyPlane: bool = false): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(p: Pln; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cylinder; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Cone; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Sphere; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(c: Torus; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(s: Handle[GeomSurface]; w: TopoDS_Wire;
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(w: TopoDS_Wire; onlyPlane: bool = false): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(p: Pln; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cylinder; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Cone; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Sphere; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(c: Torus; w: TopoDS_Wire; inside: bool = true): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(s: Handle[GeomSurface]; w: TopoDS_Wire;
                                 inside: bool = true): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
-proc newBRepBuilderAPI_MakeFace*(f: TopoDS_Face; w: TopoDS_Wire): BRepBuilderAPI_MakeFace {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", header: "BRepBuilderAPI_MakeFace.hxx".}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
+proc newFace*(f: TopoDS_Face; w: TopoDS_Wire): BRepBuilderAPI_MakeFace {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeFace(@)", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeFace; f: TopoDS_Face) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeFace.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeFace; s: Handle[GeomSurface]; bound: bool;
-          tolDegen: cfloat) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_MakeFace.hxx".}
+          tolDegen: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeFace; s: Handle[GeomSurface]; uMin: cfloat;
           uMax: cfloat; vMin: cfloat; vMax: cfloat; tolDegen: cfloat) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeFace.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakeFace; w: TopoDS_Wire) {.cdecl, importcpp: "Add",
-    header: "BRepBuilderAPI_MakeFace.hxx".}
+    dynlib: tktopalgo.}
 proc isDone*(this: BRepBuilderAPI_MakeFace): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", header: "BRepBuilderAPI_MakeFace.hxx".}
+    importcpp: "IsDone", dynlib: tktopalgo.}
 proc error*(this: BRepBuilderAPI_MakeFace): BRepBuilderAPI_FaceError {.noSideEffect,
-    cdecl, importcpp: "Error", header: "BRepBuilderAPI_MakeFace.hxx".}
+    cdecl, importcpp: "Error", dynlib: tktopalgo.}
 proc face*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", header: "BRepBuilderAPI_MakeFace.hxx".}
+    importcpp: "Face", dynlib: tktopalgo.}
 converter `topoDS_Face`*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect,
     cdecl, importcpp: "BRepBuilderAPI_MakeFace::operator TopoDS_Face",
-    header: "BRepBuilderAPI_MakeFace.hxx".}
+    dynlib: tktopalgo.}

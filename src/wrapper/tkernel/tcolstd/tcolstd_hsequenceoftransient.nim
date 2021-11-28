@@ -18,18 +18,18 @@ type
 
 
 proc newTColStdHSequenceOfTransient*(): TColStdHSequenceOfTransient {.cdecl,
-    constructor, importcpp: "TColStd_HSequenceOfTransient(@)", header: "TColStd_HSequenceOfTransient.hxx".}
+    constructor, importcpp: "TColStd_HSequenceOfTransient(@)", dynlib: tkernel.}
 proc newTColStdHSequenceOfTransient*(theOther: TColStdSequenceOfTransient): TColStdHSequenceOfTransient {.
     cdecl, constructor, importcpp: "TColStd_HSequenceOfTransient(@)",
-    header: "TColStd_HSequenceOfTransient.hxx".}
+    dynlib: tkernel.}
 proc sequence*(this: TColStdHSequenceOfTransient): TColStdSequenceOfTransient {.
-    noSideEffect, cdecl, importcpp: "Sequence", header: "TColStd_HSequenceOfTransient.hxx".}
+    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfTransient; theItem: ValueType) {.cdecl,
-    importcpp: "Append", header: "TColStd_HSequenceOfTransient.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfTransient;
             theSequence: var TColStdSequenceOfTransient) {.cdecl,
-    importcpp: "Append", header: "TColStd_HSequenceOfTransient.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc changeSequence*(this: var TColStdHSequenceOfTransient): var TColStdSequenceOfTransient {.
-    cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfTransient.hxx".}
+    cdecl, importcpp: "ChangeSequence", dynlib: tkernel.}
 type
   HandleTColStdHSequenceOfTransient* = Handle[TColStdHSequenceOfTransient]

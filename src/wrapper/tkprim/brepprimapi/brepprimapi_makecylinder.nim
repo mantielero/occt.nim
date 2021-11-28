@@ -40,15 +40,15 @@ type
                                                                                                            ## height
 
 
-proc newBRepPrimAPI_MakeCylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc newBRepPrimAPI_MakeCylinder*(r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc newBRepPrimAPI_MakeCylinder*(axes: Ax2; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc newBRepPrimAPI_MakeCylinder*(axes: Ax2; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
+proc newCylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", dynlib: tkprim.}
+proc newCylinder*(r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", dynlib: tkprim.}
+proc newCylinder*(axes: Ax2; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", dynlib: tkprim.}
+proc newCylinder*(axes: Ax2; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", dynlib: tkprim.}
 proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): pointer {.cdecl,
-    importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    importcpp: "OneAxis", dynlib: tkprim.}
 proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.cdecl,
-    importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}
+    importcpp: "Cylinder", dynlib: tkprim.}

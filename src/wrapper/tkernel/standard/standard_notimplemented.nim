@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardNotImplemented):
   template standardNotImplementedRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardNotImplemented*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_NotImplemented(@)", header: "Standard_NotImplemented.hxx".}
+          importcpp: "Standard_NotImplemented(@)", dynlib: tkernel.}
 
 else:
   discard

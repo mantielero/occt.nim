@@ -26,12 +26,12 @@ type
 
 
 proc allocate*(this: var NCollectionHeapAllocator; theSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", header: "NCollection_HeapAllocator.hxx".}
+    importcpp: "Allocate", dynlib: tkernel.}
 proc free*(this: var NCollectionHeapAllocator; anAddress: pointer) {.cdecl,
-    importcpp: "Free", header: "NCollection_HeapAllocator.hxx".}
+    importcpp: "Free", dynlib: tkernel.}
 proc globalHeapAllocator*(): Handle[NCollectionHeapAllocator] {.cdecl,
     importcpp: "NCollection_HeapAllocator::GlobalHeapAllocator(@)",
-    header: "NCollection_HeapAllocator.hxx".}
+    dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type

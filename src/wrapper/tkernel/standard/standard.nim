@@ -24,17 +24,17 @@ type
 
 
 proc allocate*(aSize: csize_t): pointer {.cdecl, importcpp: "Standard::Allocate(@)",
-                                      header: "Standard.hxx".}
-proc free*(thePtr: pointer) {.cdecl, importcpp: "Standard::Free(@)", header: "Standard.hxx".}
-proc free*[T](thePtr: ptr T) {.cdecl, importcpp: "Standard::Free(@)", header: "Standard.hxx".}
+                                      dynlib: tkernel.}
+proc free*(thePtr: pointer) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
+proc free*[T](thePtr: ptr T) {.cdecl, importcpp: "Standard::Free(@)", dynlib: tkernel.}
 proc reallocate*(aStorage: pointer; aNewSize: csize_t): pointer {.cdecl,
-    importcpp: "Standard::Reallocate(@)", header: "Standard.hxx".}
+    importcpp: "Standard::Reallocate(@)", dynlib: tkernel.}
 proc allocateAligned*(theSize: csize_t; theAlign: csize_t): pointer {.cdecl,
-    importcpp: "Standard::AllocateAligned(@)", header: "Standard.hxx".}
+    importcpp: "Standard::AllocateAligned(@)", dynlib: tkernel.}
 proc freeAligned*(thePtrAligned: pointer) {.cdecl,
-    importcpp: "Standard::FreeAligned(@)", header: "Standard.hxx".}
+    importcpp: "Standard::FreeAligned(@)", dynlib: tkernel.}
 proc freeAligned*[T](thePtrAligned: ptr T) {.cdecl,
-    importcpp: "Standard::FreeAligned(@)", header: "Standard.hxx".}
-proc purge*(): cint {.cdecl, importcpp: "Standard::Purge(@)", header: "Standard.hxx".}
+    importcpp: "Standard::FreeAligned(@)", dynlib: tkernel.}
+proc purge*(): cint {.cdecl, importcpp: "Standard::Purge(@)", dynlib: tkernel.}
 ##  include definition of handle to make it always visible
 ##  (put at the and of the file due to cyclic dependency between headers)

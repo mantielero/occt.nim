@@ -19,20 +19,20 @@ type
 
 proc newTColStdHSequenceOfHExtendedString*(): TColStdHSequenceOfHExtendedString {.
     cdecl, constructor, importcpp: "TColStd_HSequenceOfHExtendedString(@)",
-    header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    dynlib: tkernel.}
 proc newTColStdHSequenceOfHExtendedString*(
     theOther: TColStdSequenceOfHExtendedString): TColStdHSequenceOfHExtendedString {.
     cdecl, constructor, importcpp: "TColStd_HSequenceOfHExtendedString(@)",
-    header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    dynlib: tkernel.}
 proc sequence*(this: TColStdHSequenceOfHExtendedString): TColStdSequenceOfHExtendedString {.
-    noSideEffect, cdecl, importcpp: "Sequence", header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    noSideEffect, cdecl, importcpp: "Sequence", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfHExtendedString; theItem: ValueType) {.cdecl,
-    importcpp: "Append", header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfHExtendedString;
             theSequence: var TColStdSequenceOfHExtendedString) {.cdecl,
-    importcpp: "Append", header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc changeSequence*(this: var TColStdHSequenceOfHExtendedString): var TColStdSequenceOfHExtendedString {.
-    cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfHExtendedString.hxx".}
+    cdecl, importcpp: "ChangeSequence", dynlib: tkernel.}
 type
   HandleTColStdHSequenceOfHExtendedString* = Handle[
       TColStdHSequenceOfHExtendedString]

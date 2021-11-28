@@ -61,26 +61,26 @@ type
 
 
 proc newBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; d: cfloat; copy: bool = false): BRepPrimAPI_MakeRevol {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeRevol*(s: TopoDS_Shape; a: Ax1; copy: bool = false): BRepPrimAPI_MakeRevol {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevol(@)", dynlib: tkprim.}
 proc revol*(this: BRepPrimAPI_MakeRevol): BRepSweepRevol {.noSideEffect, cdecl,
-    importcpp: "Revol", header: "BRepPrimAPI_MakeRevol.hxx".}
+    importcpp: "Revol", dynlib: tkprim.}
 proc build*(this: var BRepPrimAPI_MakeRevol) {.cdecl, importcpp: "Build",
-    header: "BRepPrimAPI_MakeRevol.hxx".}
+    dynlib: tkprim.}
 proc firstShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.cdecl,
-    importcpp: "FirstShape", header: "BRepPrimAPI_MakeRevol.hxx".}
+    importcpp: "FirstShape", dynlib: tkprim.}
 proc lastShape*(this: var BRepPrimAPI_MakeRevol): TopoDS_Shape {.cdecl,
-    importcpp: "LastShape", header: "BRepPrimAPI_MakeRevol.hxx".}
+    importcpp: "LastShape", dynlib: tkprim.}
 proc generated*(this: var BRepPrimAPI_MakeRevol; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, importcpp: "Generated", dynlib: tkprim.}
 proc isDeleted*(this: var BRepPrimAPI_MakeRevol; s: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", header: "BRepPrimAPI_MakeRevol.hxx".}
+    importcpp: "IsDeleted", dynlib: tkprim.}
 proc firstShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
-    cdecl, importcpp: "FirstShape", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, importcpp: "FirstShape", dynlib: tkprim.}
 proc lastShape*(this: var BRepPrimAPI_MakeRevol; theShape: TopoDS_Shape): TopoDS_Shape {.
-    cdecl, importcpp: "LastShape", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, importcpp: "LastShape", dynlib: tkprim.}
 proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool {.noSideEffect, cdecl,
-    importcpp: "HasDegenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
+    importcpp: "HasDegenerated", dynlib: tkprim.}
 proc degenerated*(this: BRepPrimAPI_MakeRevol): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "Degenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
+    cdecl, importcpp: "Degenerated", dynlib: tkprim.}

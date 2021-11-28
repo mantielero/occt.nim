@@ -51,16 +51,16 @@ type
 
 
 proc makeWire*(this: TopoDS_Builder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
-    importcpp: "MakeWire", header: "TopoDS_Builder.hxx".}
+    importcpp: "MakeWire", dynlib: tkbrep.}
 proc makeShell*(this: TopoDS_Builder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
-    importcpp: "MakeShell", header: "TopoDS_Builder.hxx".}
+    importcpp: "MakeShell", dynlib: tkbrep.}
 proc makeSolid*(this: TopoDS_Builder; s: var TopoDS_Solid) {.noSideEffect, cdecl,
-    importcpp: "MakeSolid", header: "TopoDS_Builder.hxx".}
+    importcpp: "MakeSolid", dynlib: tkbrep.}
 proc makeCompSolid*(this: TopoDS_Builder; c: var TopoDS_CompSolid) {.noSideEffect,
-    cdecl, importcpp: "MakeCompSolid", header: "TopoDS_Builder.hxx".}
+    cdecl, importcpp: "MakeCompSolid", dynlib: tkbrep.}
 proc makeCompound*(this: TopoDS_Builder; c: var TopoDS_Compound) {.noSideEffect, cdecl,
-    importcpp: "MakeCompound", header: "TopoDS_Builder.hxx".}
+    importcpp: "MakeCompound", dynlib: tkbrep.}
 proc add*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
-    cdecl, importcpp: "Add", header: "TopoDS_Builder.hxx".}
+    cdecl, importcpp: "Add", dynlib: tkbrep.}
 proc remove*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
-    cdecl, importcpp: "Remove", header: "TopoDS_Builder.hxx".}
+    cdecl, importcpp: "Remove", dynlib: tkbrep.}

@@ -63,24 +63,24 @@ type
 
 
 proc newGeomAxis2Placement*(a2: Ax2): GeomAxis2Placement {.cdecl, constructor,
-    importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
 proc newGeomAxis2Placement*(p: Pnt; n: Dir; vx: Dir): GeomAxis2Placement {.cdecl,
-    constructor, importcpp: "Geom_Axis2Placement(@)", header: "Geom_Axis2Placement.hxx".}
+    constructor, importcpp: "Geom_Axis2Placement(@)", dynlib: tkg3d.}
 proc setAx2*(this: var GeomAxis2Placement; a2: Ax2) {.cdecl, importcpp: "SetAx2",
-    header: "Geom_Axis2Placement.hxx".}
+    dynlib: tkg3d.}
 proc setDirection*(this: var GeomAxis2Placement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setXDirection*(this: var GeomAxis2Placement; vx: Dir) {.cdecl,
-    importcpp: "SetXDirection", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "SetXDirection", dynlib: tkg3d.}
 proc setYDirection*(this: var GeomAxis2Placement; vy: Dir) {.cdecl,
-    importcpp: "SetYDirection", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "SetYDirection", dynlib: tkg3d.}
 proc ax2*(this: GeomAxis2Placement): Ax2 {.noSideEffect, cdecl, importcpp: "Ax2",
-                                       header: "Geom_Axis2Placement.hxx".}
+                                       dynlib: tkg3d.}
 proc xDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "XDirection", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "XDirection", dynlib: tkg3d.}
 proc yDirection*(this: GeomAxis2Placement): Dir {.noSideEffect, cdecl,
-    importcpp: "YDirection", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "YDirection", dynlib: tkg3d.}
 proc transform*(this: var GeomAxis2Placement; t: Trsf) {.cdecl, importcpp: "Transform",
-    header: "Geom_Axis2Placement.hxx".}
+    dynlib: tkg3d.}
 proc copy*(this: GeomAxis2Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_Axis2Placement.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}

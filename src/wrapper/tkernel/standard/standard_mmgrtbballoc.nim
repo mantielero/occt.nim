@@ -42,10 +42,10 @@ type
 
 
 proc constructStandardMMgrTBBalloc*(aClear: bool = false): StandardMMgrTBBalloc {.
-    cdecl, constructor, importcpp: "Standard_MMgrTBBalloc(@)", header: "Standard_MMgrTBBalloc.hxx".}
+    cdecl, constructor, importcpp: "Standard_MMgrTBBalloc(@)", dynlib: tkernel.}
 proc allocate*(this: var StandardMMgrTBBalloc; aSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", header: "Standard_MMgrTBBalloc.hxx".}
+    importcpp: "Allocate", dynlib: tkernel.}
 proc reallocate*(this: var StandardMMgrTBBalloc; thePtr: pointer; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Reallocate", header: "Standard_MMgrTBBalloc.hxx".}
+    cdecl, importcpp: "Reallocate", dynlib: tkernel.}
 proc free*(this: var StandardMMgrTBBalloc; thePtr: pointer) {.cdecl, importcpp: "Free",
-    header: "Standard_MMgrTBBalloc.hxx".}
+    dynlib: tkernel.}

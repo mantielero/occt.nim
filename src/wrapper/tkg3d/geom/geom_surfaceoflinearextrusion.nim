@@ -75,60 +75,60 @@ type
 
 
 proc newGeomSurfaceOfLinearExtrusion*(c: Handle[GeomCurve]; v: Dir): GeomSurfaceOfLinearExtrusion {.
-    cdecl, constructor, importcpp: "Geom_SurfaceOfLinearExtrusion(@)", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    cdecl, constructor, importcpp: "Geom_SurfaceOfLinearExtrusion(@)", dynlib: tkg3d.}
 proc setDirection*(this: var GeomSurfaceOfLinearExtrusion; v: Dir) {.cdecl,
-    importcpp: "SetDirection", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc setBasisCurve*(this: var GeomSurfaceOfLinearExtrusion; c: Handle[GeomCurve]) {.
-    cdecl, importcpp: "SetBasisCurve", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    cdecl, importcpp: "SetBasisCurve", dynlib: tkg3d.}
 proc uReverse*(this: var GeomSurfaceOfLinearExtrusion) {.cdecl,
-    importcpp: "UReverse", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "UReverse", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomSurfaceOfLinearExtrusion; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReverse*(this: var GeomSurfaceOfLinearExtrusion) {.cdecl,
-    importcpp: "VReverse", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "VReverse", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomSurfaceOfLinearExtrusion; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc bounds*(this: GeomSurfaceOfLinearExtrusion; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
-                                        header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+                                        dynlib: tkg3d.}
 proc isUClosed*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isCNu*(this: GeomSurfaceOfLinearExtrusion; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNu", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsCNu", dynlib: tkg3d.}
 proc isCNv*(this: GeomSurfaceOfLinearExtrusion; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNv", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsCNv", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomSurfaceOfLinearExtrusion): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomSurfaceOfLinearExtrusion; u: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "UIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomSurfaceOfLinearExtrusion; v: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "VIso", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; p: var Pnt) {.
-    noSideEffect, cdecl, importcpp: "D0", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; p: var Pnt;
-        d1u: var Vec; d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; p: var Pnt;
         d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    cdecl, importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; p: var Pnt;
         d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
         d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D3", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomSurfaceOfLinearExtrusion; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomSurfaceOfLinearExtrusion; t: Trsf) {.cdecl,
-    importcpp: "Transform", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc transformParameters*(this: GeomSurfaceOfLinearExtrusion; u: var cfloat;
                          v: var cfloat; t: Trsf) {.noSideEffect, cdecl,
-    importcpp: "TransformParameters", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomSurfaceOfLinearExtrusion; t: Trsf): GTrsf2d {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc copy*(this: GeomSurfaceOfLinearExtrusion): Handle[GeomGeometry] {.noSideEffect,
-    cdecl, importcpp: "Copy", header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+    cdecl, importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomSurfaceOfLinearExtrusion; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_SurfaceOfLinearExtrusion.hxx".}
+                                 dynlib: tkg3d.}

@@ -52,3 +52,18 @@ proc `[]=`*[P:Point, I:SomeInteger, X:SomeNumber](pnt:var P, idx:I, val:X) =
 
 proc set*[P:Point, X,Y,Z:SomeNumber](pnt:var P, x:X, y:Y, z:Z) =
   pnt.setCoord(x.cfloat, y.cfloat, z.cfloat)
+
+#------
+proc newDir*[A,B,C:SomeNumber](x:A,y:B,z:C):Dir = 
+  newDir(x.cfloat, y.cfloat, z.cfloat)
+
+
+#-------
+# Inheritance
+#type
+#  H_GeomCurve* = HandleGeomCurve | HandleGeomTrimmedCurve  # Use this instead of: HandleGeomCurve or Handle[Geomcurve]
+
+
+#type
+#  HandleGeomCurve* {.importcpp:"opencascade::handle<GeomCurve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj
+#  #HandleGeomTrimmedCurve* {.importcpp:"opencascade::handle<GeomTrimmedCurve>", header: "Standard_Handle.hxx", bycopy.} = object of HandleGeomCurve

@@ -25,36 +25,36 @@ type
 
 
 proc constructStandardFailure*(): StandardFailure {.cdecl, constructor,
-    importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+    importcpp: "Standard_Failure(@)", dynlib: tkernel.}
 proc constructStandardFailure*(f: StandardFailure): StandardFailure {.cdecl,
-    constructor, importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+    constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
 proc constructStandardFailure*(aString: cstring): StandardFailure {.cdecl,
-    constructor, importcpp: "Standard_Failure(@)", header: "Standard_Failure.hxx".}
+    constructor, importcpp: "Standard_Failure(@)", dynlib: tkernel.}
 proc destroyStandardFailure*(this: var StandardFailure) {.cdecl,
-    importcpp: "#.~Standard_Failure()", header: "Standard_Failure.hxx".}
+    importcpp: "#.~Standard_Failure()", dynlib: tkernel.}
 proc print*(this: StandardFailure; theStream: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Print", header: "Standard_Failure.hxx".}
+    cdecl, importcpp: "Print", dynlib: tkernel.}
 proc getMessageString*(this: StandardFailure): cstring {.noSideEffect, cdecl,
-    importcpp: "GetMessageString", header: "Standard_Failure.hxx".}
+    importcpp: "GetMessageString", dynlib: tkernel.}
 proc setMessageString*(this: var StandardFailure; aMessage: cstring) {.cdecl,
-    importcpp: "SetMessageString", header: "Standard_Failure.hxx".}
-proc reraise*(this: var StandardFailure) {.cdecl, importcpp: "Reraise", header: "Standard_Failure.hxx".}
+    importcpp: "SetMessageString", dynlib: tkernel.}
+proc reraise*(this: var StandardFailure) {.cdecl, importcpp: "Reraise", dynlib: tkernel.}
 proc reraise*(this: var StandardFailure; aMessage: cstring) {.cdecl,
-    importcpp: "Reraise", header: "Standard_Failure.hxx".}
+    importcpp: "Reraise", dynlib: tkernel.}
 proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.cdecl,
-    importcpp: "Reraise", header: "Standard_Failure.hxx".}
+    importcpp: "Reraise", dynlib: tkernel.}
 proc `raise`*(aMessage: cstring = cstring("")) {.cdecl,
                                    importcpp: "Standard_Failure::Raise(@)",
-                                   header: "Standard_Failure.hxx".}
+                                   dynlib: tkernel.}
 proc `raise`*(aReason: StandardSStream) {.cdecl,
                                        importcpp: "Standard_Failure::Raise(@)",
-                                       header: "Standard_Failure.hxx".}
+                                       dynlib: tkernel.}
 proc newInstance*(aMessage: cstring): Handle[StandardFailure] {.cdecl,
-    importcpp: "Standard_Failure::NewInstance(@)", header: "Standard_Failure.hxx".}
-proc jump*(this: var StandardFailure) {.cdecl, importcpp: "Jump", header: "Standard_Failure.hxx".}
+    importcpp: "Standard_Failure::NewInstance(@)", dynlib: tkernel.}
+proc jump*(this: var StandardFailure) {.cdecl, importcpp: "Jump", dynlib: tkernel.}
 proc caught*(): Handle[StandardFailure] {.cdecl, importcpp: "Standard_Failure::Caught(@)",
-                                       header: "Standard_Failure.hxx".}
+                                       dynlib: tkernel.}
 proc `<<`*(aStream: var StandardOStream; aFailure: Handle[StandardFailure]): var StandardOStream {.
-    cdecl, importcpp: "(# << #)", header: "Standard_Failure.hxx".}
+    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
 proc `<<`*(aStream: var StandardOStream; aFailure: StandardFailure): var StandardOStream {.
-    cdecl, importcpp: "(# << #)", header: "Standard_Failure.hxx".}
+    cdecl, importcpp: "(# << #)", dynlib: tkernel.}

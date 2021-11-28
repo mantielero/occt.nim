@@ -25,16 +25,16 @@ type
 
 
 proc newGceMakeMirror2d*(point: Pnt2d): GceMakeMirror2d {.cdecl, constructor,
-    importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
+    importcpp: "gce_MakeMirror2d(@)", dynlib: tkgeombase.}
 proc newGceMakeMirror2d*(axis: Ax2d): GceMakeMirror2d {.cdecl, constructor,
-    importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
+    importcpp: "gce_MakeMirror2d(@)", dynlib: tkgeombase.}
 proc newGceMakeMirror2d*(line: Lin2d): GceMakeMirror2d {.cdecl, constructor,
-    importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
+    importcpp: "gce_MakeMirror2d(@)", dynlib: tkgeombase.}
 proc newGceMakeMirror2d*(point: Pnt2d; direc: Dir2d): GceMakeMirror2d {.cdecl,
-    constructor, importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
+    constructor, importcpp: "gce_MakeMirror2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Value",
-    header: "gce_MakeMirror2d.hxx".}
+    dynlib: tkgeombase.}
 proc operator*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Operator", header: "gce_MakeMirror2d.hxx".}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `trsf2d`*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeMirror2d::operator gp_Trsf2d", header: "gce_MakeMirror2d.hxx".}
+    importcpp: "gce_MakeMirror2d::operator gp_Trsf2d", dynlib: tkgeombase.}

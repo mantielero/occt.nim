@@ -19,13 +19,13 @@ type
 
 proc newTColStdHArray2OfTransient*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                   theColUpp: cint): TColStdHArray2OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", header: "TColStd_HArray2OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", dynlib: tkernel.}
 proc newTColStdHArray2OfTransient*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                   theColUpp: cint; theValue: ValueType): TColStdHArray2OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", header: "TColStd_HArray2OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", dynlib: tkernel.}
 proc newTColStdHArray2OfTransient*(theOther: TColStdArray2OfTransient): TColStdHArray2OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", header: "TColStd_HArray2OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray2OfTransient(@)", dynlib: tkernel.}
 proc array2*(this: TColStdHArray2OfTransient): TColStdArray2OfTransient {.
-    noSideEffect, cdecl, importcpp: "Array2", header: "TColStd_HArray2OfTransient.hxx".}
+    noSideEffect, cdecl, importcpp: "Array2", dynlib: tkernel.}
 proc changeArray2*(this: var TColStdHArray2OfTransient): var TColStdArray2OfTransient {.
-    cdecl, importcpp: "ChangeArray2", header: "TColStd_HArray2OfTransient.hxx".}
+    cdecl, importcpp: "ChangeArray2", dynlib: tkernel.}

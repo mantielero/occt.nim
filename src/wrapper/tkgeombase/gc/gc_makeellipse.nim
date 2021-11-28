@@ -19,33 +19,33 @@ discard "forward decl of gp_Elips"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 type
-  GC_MakeEllipse* {.importcpp: "GC_MakeEllipse", header: "GC_MakeEllipse.hxx", bycopy.} = object of GC_Root ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## ellipse
-                                                                                                  ## from
-                                                                                                  ## a
-                                                                                                  ## non
-                                                                                                  ## persistent
-                                                                                                  ## ellipse
-                                                                                                  ## E
-                                                                                                  ## from
-                                                                                                  ## package
-                                                                                                  ## gp
-                                                                                                  ## by
-                                                                                                  ## its
-                                                                                                  ## conversion.
+  MakeEllipse* {.importcpp: "GC_MakeEllipse", header: "GC_MakeEllipse.hxx", bycopy.} = object of Root ##
+                                                                                            ## !
+                                                                                            ## Creates
+                                                                                            ## an
+                                                                                            ## ellipse
+                                                                                            ## from
+                                                                                            ## a
+                                                                                            ## non
+                                                                                            ## persistent
+                                                                                            ## ellipse
+                                                                                            ## E
+                                                                                            ## from
+                                                                                            ## package
+                                                                                            ## gp
+                                                                                            ## by
+                                                                                            ## its
+                                                                                            ## conversion.
 
 
-proc newGC_MakeEllipse*(e: Elips): GC_MakeEllipse {.cdecl, constructor,
-    importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc newGC_MakeEllipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc newGC_MakeEllipse*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeEllipse {.cdecl,
-    constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc value*(this: GC_MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeEllipse.hxx".}
-converter `constopencascade`*(this: GC_MakeEllipse): Handle[GeomEllipse] {.
+proc newMakeEllipse*(e: Elips): MakeEllipse {.cdecl, constructor,
+    importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
+proc newMakeEllipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
+    cdecl, constructor, importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
+proc newMakeEllipse*(s1: Pnt; s2: Pnt; center: Pnt): MakeEllipse {.cdecl, constructor,
+    importcpp: "GC_MakeEllipse(@)", dynlib: tkgeombase.}
+proc value*(this: MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeEllipse): Handle[GeomEllipse] {.
     noSideEffect, cdecl, importcpp: "GC_MakeEllipse::operator constopencascade",
-    header: "GC_MakeEllipse.hxx".}
+    dynlib: tkgeombase.}

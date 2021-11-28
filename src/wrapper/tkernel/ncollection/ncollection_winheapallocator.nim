@@ -45,13 +45,13 @@ type
 
 proc newNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
     cdecl, constructor, importcpp: "NCollection_WinHeapAllocator(@)",
-    header: "NCollection_WinHeapAllocator.hxx".}
+    dynlib: tkernel.}
 proc destroyNCollectionWinHeapAllocator*(this: var NCollectionWinHeapAllocator) {.
-    cdecl, importcpp: "#.~NCollection_WinHeapAllocator()", header: "NCollection_WinHeapAllocator.hxx".}
+    cdecl, importcpp: "#.~NCollection_WinHeapAllocator()", dynlib: tkernel.}
 proc allocate*(this: var NCollectionWinHeapAllocator; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Allocate", header: "NCollection_WinHeapAllocator.hxx".}
+    cdecl, importcpp: "Allocate", dynlib: tkernel.}
 proc free*(this: var NCollectionWinHeapAllocator; theAddress: pointer) {.cdecl,
-    importcpp: "Free", header: "NCollection_WinHeapAllocator.hxx".}
+    importcpp: "Free", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type

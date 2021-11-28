@@ -26,12 +26,12 @@ type
 
 
 proc newGceMakeTranslation2d*(vect: Vec2d): GceMakeTranslation2d {.cdecl,
-    constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
+    constructor, importcpp: "gce_MakeTranslation2d(@)", dynlib: tkgeombase.}
 proc newGceMakeTranslation2d*(point1: Pnt2d; point2: Pnt2d): GceMakeTranslation2d {.
-    cdecl, constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
+    cdecl, constructor, importcpp: "gce_MakeTranslation2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Value", header: "gce_MakeTranslation2d.hxx".}
+    importcpp: "Value", dynlib: tkgeombase.}
 proc operator*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "Operator", header: "gce_MakeTranslation2d.hxx".}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d", header: "gce_MakeTranslation2d.hxx".}
+    importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d", dynlib: tkgeombase.}

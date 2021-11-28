@@ -54,27 +54,27 @@ type
 
 
 proc compose*(or1: TopAbsOrientation; or2: TopAbsOrientation): TopAbsOrientation {.
-    cdecl, importcpp: "TopAbs::Compose(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::Compose(@)", dynlib: tkg3d.}
 proc reverse*(`or`: TopAbsOrientation): TopAbsOrientation {.cdecl,
-    importcpp: "TopAbs::Reverse(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::Reverse(@)", dynlib: tkg3d.}
 proc complement*(`or`: TopAbsOrientation): TopAbsOrientation {.cdecl,
-    importcpp: "TopAbs::Complement(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::Complement(@)", dynlib: tkg3d.}
 proc print*(theShapeType: TopAbsShapeEnum; theStream: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::Print(@)", dynlib: tkg3d.}
 proc print*(theOrientation: TopAbsOrientation; theStream: var StandardOStream): var StandardOStream {.
-    cdecl, importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::Print(@)", dynlib: tkg3d.}
 proc print*(st: TopAbsState; s: var StandardOStream): var StandardOStream {.cdecl,
-    importcpp: "TopAbs::Print(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::Print(@)", dynlib: tkg3d.}
 proc shapeTypeToString*(theType: TopAbsShapeEnum): cstring {.cdecl,
-    importcpp: "TopAbs::ShapeTypeToString(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::ShapeTypeToString(@)", dynlib: tkg3d.}
 proc shapeTypeFromString*(theTypeString: cstring): TopAbsShapeEnum {.cdecl,
-    importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::ShapeTypeFromString(@)", dynlib: tkg3d.}
 proc shapeTypeFromString*(theTypeString: cstring; theType: var TopAbsShapeEnum): bool {.
-    cdecl, importcpp: "TopAbs::ShapeTypeFromString(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::ShapeTypeFromString(@)", dynlib: tkg3d.}
 proc shapeOrientationToString*(theOrientation: TopAbsOrientation): cstring {.cdecl,
-    importcpp: "TopAbs::ShapeOrientationToString(@)", header: "TopAbs.hxx".}
+    importcpp: "TopAbs::ShapeOrientationToString(@)", dynlib: tkg3d.}
 proc shapeOrientationFromString*(theOrientationString: cstring): TopAbsOrientation {.
-    cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", dynlib: tkg3d.}
 proc shapeOrientationFromString*(theOrientationString: cstring;
                                 theOrientation: var TopAbsOrientation): bool {.
-    cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
+    cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", dynlib: tkg3d.}

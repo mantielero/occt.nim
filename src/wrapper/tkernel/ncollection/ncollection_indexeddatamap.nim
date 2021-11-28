@@ -84,29 +84,29 @@ type
 
 proc newNCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher](): NCollectionIndexedDataMapIterator[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedDataMap<\'*0,\'*1,\'*2>::Iterator(@)",
-                                    header: "NCollection_IndexedDataMap.hxx".}
+                                    dynlib: tkernel.}
 proc newNCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher](
     theMap: NCollectionIndexedDataMap): NCollectionIndexedDataMapIterator[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedDataMap<\'*0,\'*1,\'*2>::Iterator(@)",
-                                    header: "NCollection_IndexedDataMap.hxx".}
+                                    dynlib: tkernel.}
 proc more*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMapIterator[TheKeyType, TheItemType, Hasher]): bool {.
-    noSideEffect, cdecl, importcpp: "More", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
 proc next*[TheKeyType; TheItemType; Hasher](this: var NCollectionIndexedDataMapIterator[
-    TheKeyType, TheItemType, Hasher]) {.cdecl, importcpp: "Next", header: "NCollection_IndexedDataMap.hxx".}
+    TheKeyType, TheItemType, Hasher]) {.cdecl, importcpp: "Next", dynlib: tkernel.}
 proc value*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMapIterator[TheKeyType, TheItemType, Hasher]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMapIterator[TheKeyType, TheItemType, Hasher]): var TheItemType {.
-    noSideEffect, cdecl, importcpp: "ChangeValue", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
 proc key*[TheKeyType; TheItemType; Hasher](this: NCollectionIndexedDataMapIterator[
     TheKeyType, TheItemType, Hasher]): TheKeyType {.noSideEffect, cdecl,
-    importcpp: "Key", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "Key", dynlib: tkernel.}
 proc isEqual*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMapIterator[TheKeyType, TheItemType, Hasher];
     theOther: NCollectionIndexedDataMapIterator): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "IsEqual", dynlib: tkernel.}
 type
 #  NCollectionIndexedDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
 #      NCollectionIndexedDataMapIterator, TheItemType, False]
@@ -115,111 +115,111 @@ type
 
 proc begin*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): NCollectionIndexedDataMapiterator {.
-    noSideEffect, cdecl, importcpp: "begin", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
 proc `end`*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): NCollectionIndexedDataMapiterator {.
-    noSideEffect, cdecl, importcpp: "end", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "end", dynlib: tkernel.}
 proc cbegin*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): NCollectionIndexedDataMapconstIterator {.
-    noSideEffect, cdecl, importcpp: "cbegin", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
 proc cend*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): NCollectionIndexedDataMapconstIterator {.
-    noSideEffect, cdecl, importcpp: "cend", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
 proc newNCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher](): NCollectionIndexedDataMap[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedDataMap<\'*0,\'*1,\'*2>(@)",
-                                    header: "NCollection_IndexedDataMap.hxx".}
+                                    dynlib: tkernel.}
 proc newNCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher](
     theNbBuckets: cint; theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionIndexedDataMap[
     TheKeyType, TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedDataMap<\'*0,\'*1,\'*2>(@)",
-                                    header: "NCollection_IndexedDataMap.hxx".}
+                                    dynlib: tkernel.}
 proc newNCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher](
     theOther: NCollectionIndexedDataMap): NCollectionIndexedDataMap[TheKeyType,
     TheItemType, Hasher] {.cdecl, constructor, importcpp: "NCollection_IndexedDataMap<\'*0,\'*1,\'*2>(@)",
-                         header: "NCollection_IndexedDataMap.hxx".}
+                         dynlib: tkernel.}
 proc exchange*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theOther: var NCollectionIndexedDataMap) {.cdecl, importcpp: "Exchange",
-    header: "NCollection_IndexedDataMap.hxx".}
+    dynlib: tkernel.}
 proc assign*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theOther: NCollectionIndexedDataMap): var NCollectionIndexedDataMap {.cdecl,
-    importcpp: "Assign", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "Assign", dynlib: tkernel.}
 proc reSize*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]; n: cint) {.
-    cdecl, importcpp: "ReSize", header: "NCollection_IndexedDataMap.hxx".}
+    cdecl, importcpp: "ReSize", dynlib: tkernel.}
 proc add*[TheKeyType; TheItemType; Hasher](this: var NCollectionIndexedDataMap[
     TheKeyType, TheItemType, Hasher]; theKey1: TheKeyType; theItem: TheItemType): cint {.
-    cdecl, importcpp: "Add", header: "NCollection_IndexedDataMap.hxx".}
+    cdecl, importcpp: "Add", dynlib: tkernel.}
 proc contains*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): bool {.noSideEffect, cdecl, importcpp: "Contains",
-                              header: "NCollection_IndexedDataMap.hxx".}
+                              dynlib: tkernel.}
 proc substitute*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theIndex: cint; theKey1: TheKeyType; theItem: TheItemType) {.cdecl,
-    importcpp: "Substitute", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "Substitute", dynlib: tkernel.}
 proc swap*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
-    theIndex1: cint; theIndex2: cint) {.cdecl, importcpp: "Swap", header: "NCollection_IndexedDataMap.hxx".}
+    theIndex1: cint; theIndex2: cint) {.cdecl, importcpp: "Swap", dynlib: tkernel.}
 proc removeLast*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]) {.cdecl,
-    importcpp: "RemoveLast", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "RemoveLast", dynlib: tkernel.}
 proc removeFromIndex*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
-    theIndex: cint) {.cdecl, importcpp: "RemoveFromIndex", header: "NCollection_IndexedDataMap.hxx".}
+    theIndex: cint) {.cdecl, importcpp: "RemoveFromIndex", dynlib: tkernel.}
 proc removeKey*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
-    theKey1: TheKeyType) {.cdecl, importcpp: "RemoveKey", header: "NCollection_IndexedDataMap.hxx".}
+    theKey1: TheKeyType) {.cdecl, importcpp: "RemoveKey", dynlib: tkernel.}
 proc findKey*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]; theIndex: cint): TheKeyType {.
-    noSideEffect, cdecl, importcpp: "FindKey", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "FindKey", dynlib: tkernel.}
 proc findFromIndex*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]; theIndex: cint): TheItemType {.
-    noSideEffect, cdecl, importcpp: "FindFromIndex", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "FindFromIndex", dynlib: tkernel.}
 #proc `()`*[TheKeyType; TheItemType; Hasher](
 #    this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]; theIndex: cint): TheItemType {.
-#    noSideEffect, cdecl, importcpp: "#(@)", header: "NCollection_IndexedDataMap.hxx".}
+#    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc changeFromIndex*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theIndex: cint): var TheItemType {.cdecl, importcpp: "ChangeFromIndex",
-                                   header: "NCollection_IndexedDataMap.hxx".}
+                                   dynlib: tkernel.}
 #proc `()`*[TheKeyType; TheItemType; Hasher](
 #    this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
-#    theIndex: cint): var TheItemType {.cdecl, importcpp: "#(@)", header: "NCollection_IndexedDataMap.hxx".}
+#    theIndex: cint): var TheItemType {.cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc findIndex*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): cint {.noSideEffect, cdecl, importcpp: "FindIndex",
-                              header: "NCollection_IndexedDataMap.hxx".}
+                              dynlib: tkernel.}
 proc findFromKey*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): TheItemType {.noSideEffect, cdecl,
-                                     importcpp: "FindFromKey", header: "NCollection_IndexedDataMap.hxx".}
+                                     importcpp: "FindFromKey", dynlib: tkernel.}
 proc changeFromKey*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): var TheItemType {.cdecl, importcpp: "ChangeFromKey",
-                                        header: "NCollection_IndexedDataMap.hxx".}
+                                        dynlib: tkernel.}
 proc seek*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): ptr TheItemType {.noSideEffect, cdecl, importcpp: "Seek",
-                                        header: "NCollection_IndexedDataMap.hxx".}
+                                        dynlib: tkernel.}
 proc changeSeek*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType): ptr TheItemType {.cdecl, importcpp: "ChangeSeek",
-                                        header: "NCollection_IndexedDataMap.hxx".}
+                                        dynlib: tkernel.}
 proc findFromKey*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theKey1: TheKeyType; theValue: var TheItemType): bool {.noSideEffect, cdecl,
-    importcpp: "FindFromKey", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "FindFromKey", dynlib: tkernel.}
 proc clear*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
-    doReleaseMemory: bool = true) {.cdecl, importcpp: "Clear", header: "NCollection_IndexedDataMap.hxx".}
+    doReleaseMemory: bool = true) {.cdecl, importcpp: "Clear", dynlib: tkernel.}
 proc clear*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher];
     theAllocator: Handle[NCollectionBaseAllocator]) {.cdecl, importcpp: "Clear",
-    header: "NCollection_IndexedDataMap.hxx".}
+    dynlib: tkernel.}
 proc destroyNCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher](
     this: var NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]) {.cdecl,
-    importcpp: "#.~NCollection_IndexedDataMap()", header: "NCollection_IndexedDataMap.hxx".}
+    importcpp: "#.~NCollection_IndexedDataMap()", dynlib: tkernel.}
 proc size*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): cint {.
-    noSideEffect, cdecl, importcpp: "Size", header: "NCollection_IndexedDataMap.hxx".}
+    noSideEffect, cdecl, importcpp: "Size", dynlib: tkernel.}

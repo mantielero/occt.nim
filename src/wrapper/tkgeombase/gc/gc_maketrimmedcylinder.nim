@@ -20,55 +20,55 @@ discard "forward decl of gp_Circ"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Cylinder"
 type
-  GC_MakeTrimmedCylinder* {.importcpp: "GC_MakeTrimmedCylinder",
-                           header: "GC_MakeTrimmedCylinder.hxx", bycopy.} = object of GC_Root ##
-                                                                                       ## !
-                                                                                       ## Make
-                                                                                       ## a
-                                                                                       ## cylindricalSurface
-                                                                                       ## <Cyl>
-                                                                                       ## from
-                                                                                       ## Geom
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Its
-                                                                                       ## axis
-                                                                                       ## is
-                                                                                       ## is
-                                                                                       ## <P1P2>
-                                                                                       ## and
-                                                                                       ## its
-                                                                                       ## radius
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## distance
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## between
-                                                                                       ## <P3>
-                                                                                       ## and
-                                                                                       ## <P1P2>.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## height
-                                                                                       ## is
-                                                                                       ## the
-                                                                                       ## distance
-                                                                                       ## between
-                                                                                       ## P1
-                                                                                       ## and
-                                                                                       ## P2.
+  MakeTrimmedCylinder* {.importcpp: "GC_MakeTrimmedCylinder",
+                        header: "GC_MakeTrimmedCylinder.hxx", bycopy.} = object of Root ##
+                                                                                 ## !
+                                                                                 ## Make
+                                                                                 ## a
+                                                                                 ## cylindricalSurface
+                                                                                 ## <Cyl>
+                                                                                 ## from
+                                                                                 ## Geom
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Its
+                                                                                 ## axis
+                                                                                 ## is
+                                                                                 ## is
+                                                                                 ## <P1P2>
+                                                                                 ## and
+                                                                                 ## its
+                                                                                 ## radius
+                                                                                 ## is
+                                                                                 ## the
+                                                                                 ## distance
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## between
+                                                                                 ## <P3>
+                                                                                 ## and
+                                                                                 ## <P1P2>.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## The
+                                                                                 ## height
+                                                                                 ## is
+                                                                                 ## the
+                                                                                 ## distance
+                                                                                 ## between
+                                                                                 ## P1
+                                                                                 ## and
+                                                                                 ## P2.
 
 
-proc newGC_MakeTrimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeTrimmedCylinder {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc newGC_MakeTrimmedCylinder*(circ: Circ; height: cfloat): GC_MakeTrimmedCylinder {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc newGC_MakeTrimmedCylinder*(a1: Ax1; radius: cfloat; height: cfloat): GC_MakeTrimmedCylinder {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc value*(this: GC_MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
-    noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCylinder.hxx".}
-converter `constopencascade`*(this: GC_MakeTrimmedCylinder): Handle[
+proc newMakeTrimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): MakeTrimmedCylinder {.cdecl,
+    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+proc newMakeTrimmedCylinder*(circ: Circ; height: cfloat): MakeTrimmedCylinder {.cdecl,
+    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+proc newMakeTrimmedCylinder*(a1: Ax1; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
+    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+proc value*(this: MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeTrimmedCylinder): Handle[
     GeomRectangularTrimmedSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeTrimmedCylinder::operator constopencascade",
-                                    header: "GC_MakeTrimmedCylinder.hxx".}
+                                    dynlib: tkgeombase.}

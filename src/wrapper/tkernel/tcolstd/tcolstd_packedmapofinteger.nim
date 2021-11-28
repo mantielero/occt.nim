@@ -50,85 +50,85 @@ type
 
 proc newTColStdPackedMapOfIntegerIterator*(): TColStdPackedMapOfIntegerIterator {.
     cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger::Iterator(@)",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc newTColStdPackedMapOfIntegerIterator*(theMap: TColStdPackedMapOfInteger): TColStdPackedMapOfIntegerIterator {.
     cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger::Iterator(@)",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc initialize*(this: var TColStdPackedMapOfIntegerIterator;
                 theMap: TColStdPackedMapOfInteger) {.cdecl,
-    importcpp: "Initialize", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "Initialize", dynlib: tkernel.}
 proc reset*(this: var TColStdPackedMapOfIntegerIterator) {.cdecl, importcpp: "Reset",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc key*(this: TColStdPackedMapOfIntegerIterator): cint {.noSideEffect, cdecl,
-    importcpp: "Key", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "Key", dynlib: tkernel.}
 proc next*(this: var TColStdPackedMapOfIntegerIterator) {.cdecl, importcpp: "Next",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc newTColStdPackedMapOfInteger*(nbBuckets: cint = 1): TColStdPackedMapOfInteger {.
-    cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger(@)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger(@)", dynlib: tkernel.}
 proc newTColStdPackedMapOfInteger*(theOther: TColStdPackedMapOfInteger): TColStdPackedMapOfInteger {.
-    cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger(@)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, constructor, importcpp: "TColStd_PackedMapOfInteger(@)", dynlib: tkernel.}
 proc assign*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): var TColStdPackedMapOfInteger {.
-    cdecl, importcpp: "Assign", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Assign", dynlib: tkernel.}
 proc reSize*(this: var TColStdPackedMapOfInteger; nbBuckets: cint) {.cdecl,
-    importcpp: "ReSize", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "ReSize", dynlib: tkernel.}
 proc clear*(this: var TColStdPackedMapOfInteger) {.cdecl, importcpp: "Clear",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc destroyTColStdPackedMapOfInteger*(this: var TColStdPackedMapOfInteger) {.cdecl,
-    importcpp: "#.~TColStd_PackedMapOfInteger()", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "#.~TColStd_PackedMapOfInteger()", dynlib: tkernel.}
 proc add*(this: var TColStdPackedMapOfInteger; aKey: cint): bool {.cdecl,
-    importcpp: "Add", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "Add", dynlib: tkernel.}
 proc contains*(this: TColStdPackedMapOfInteger; aKey: cint): bool {.noSideEffect,
-    cdecl, importcpp: "Contains", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Contains", dynlib: tkernel.}
 proc remove*(this: var TColStdPackedMapOfInteger; aKey: cint): bool {.cdecl,
-    importcpp: "Remove", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "Remove", dynlib: tkernel.}
 proc nbBuckets*(this: TColStdPackedMapOfInteger): cint {.noSideEffect, cdecl,
-    importcpp: "NbBuckets", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "NbBuckets", dynlib: tkernel.}
 proc extent*(this: TColStdPackedMapOfInteger): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "Extent", dynlib: tkernel.}
 proc isEmpty*(this: TColStdPackedMapOfInteger): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc statistics*(this: TColStdPackedMapOfInteger; outStream: var StandardOStream) {.
-    noSideEffect, cdecl, importcpp: "Statistics", header: "TColStd_PackedMapOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "Statistics", dynlib: tkernel.}
 proc getMinimalMapped*(this: TColStdPackedMapOfInteger): cint {.noSideEffect, cdecl,
-    importcpp: "GetMinimalMapped", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "GetMinimalMapped", dynlib: tkernel.}
 proc getMaximalMapped*(this: TColStdPackedMapOfInteger): cint {.noSideEffect, cdecl,
-    importcpp: "GetMaximalMapped", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "GetMaximalMapped", dynlib: tkernel.}
 proc union*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger;
            a3: TColStdPackedMapOfInteger) {.cdecl, importcpp: "Union",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc unite*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    cdecl, importcpp: "Unite", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Unite", dynlib: tkernel.}
 proc `|=`*(this: var TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "(# |= #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "(# |= #)", dynlib: tkernel.}
 proc intersection*(this: var TColStdPackedMapOfInteger;
                   a2: TColStdPackedMapOfInteger; a3: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "Intersection", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Intersection", dynlib: tkernel.}
 proc intersect*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    cdecl, importcpp: "Intersect", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Intersect", dynlib: tkernel.}
 proc `&=`*(this: var TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "(# &= #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "(# &= #)", dynlib: tkernel.}
 proc subtraction*(this: var TColStdPackedMapOfInteger;
                  a2: TColStdPackedMapOfInteger; a3: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "Subtraction", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Subtraction", dynlib: tkernel.}
 proc subtract*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    cdecl, importcpp: "Subtract", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Subtract", dynlib: tkernel.}
 proc `-=`*(this: var TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "(# -= #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "(# -= #)", dynlib: tkernel.}
 proc difference*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger;
                 a3: TColStdPackedMapOfInteger) {.cdecl, importcpp: "Difference",
-    header: "TColStd_PackedMapOfInteger.hxx".}
+    dynlib: tkernel.}
 proc differ*(this: var TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    cdecl, importcpp: "Differ", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "Differ", dynlib: tkernel.}
 proc `^=`*(this: var TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger) {.
-    cdecl, importcpp: "(# ^= #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    cdecl, importcpp: "(# ^= #)", dynlib: tkernel.}
 proc isEqual*(this: TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", header: "TColStd_PackedMapOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 proc `==`*(this: TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger): bool {.
-    noSideEffect, cdecl, importcpp: "(# == #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
 proc isSubset*(this: TColStdPackedMapOfInteger; a2: TColStdPackedMapOfInteger): bool {.
-    noSideEffect, cdecl, importcpp: "IsSubset", header: "TColStd_PackedMapOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "IsSubset", dynlib: tkernel.}
 proc `<=`*(this: TColStdPackedMapOfInteger; mm: TColStdPackedMapOfInteger): bool {.
-    noSideEffect, cdecl, importcpp: "(# <= #)", header: "TColStd_PackedMapOfInteger.hxx".}
+    noSideEffect, cdecl, importcpp: "(# <= #)", dynlib: tkernel.}
 proc hasIntersection*(this: TColStdPackedMapOfInteger;
                      a2: TColStdPackedMapOfInteger): bool {.noSideEffect, cdecl,
-    importcpp: "HasIntersection", header: "TColStd_PackedMapOfInteger.hxx".}
+    importcpp: "HasIntersection", dynlib: tkernel.}

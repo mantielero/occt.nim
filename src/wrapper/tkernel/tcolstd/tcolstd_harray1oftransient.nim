@@ -18,11 +18,11 @@ type
 
 
 proc newTColStdHArray1OfTransient*(theLower: cint; theUpper: cint): TColStdHArray1OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", header: "TColStd_HArray1OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", dynlib: tkernel.}
 proc newTColStdHArray1OfTransient*(theLower: cint; theUpper: cint;
                                   theValue: ValueType): TColStdHArray1OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", header: "TColStd_HArray1OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", dynlib: tkernel.}
 proc newTColStdHArray1OfTransient*(theOther: TColStdArray1OfTransient): TColStdHArray1OfTransient {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", header: "TColStd_HArray1OfTransient.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfTransient(@)", dynlib: tkernel.}
 proc array1*(this: TColStdHArray1OfTransient): TColStdArray1OfTransient {.
-    noSideEffect, cdecl, importcpp: "Array1", header: "TColStd_HArray1OfTransient.hxx".}
+    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkernel.}

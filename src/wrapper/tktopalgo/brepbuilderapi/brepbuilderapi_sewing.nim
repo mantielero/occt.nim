@@ -115,95 +115,95 @@ type
 proc newBRepBuilderAPI_Sewing*(tolerance: cfloat = 1.0e-06; option1: bool = true;
                               option2: bool = true; option3: bool = true;
                               option4: bool = false): BRepBuilderAPI_Sewing {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_Sewing(@)", header: "BRepBuilderAPI_Sewing.hxx".}
+    constructor, importcpp: "BRepBuilderAPI_Sewing(@)", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_Sewing; tolerance: cfloat = 1.0e-06;
           option1: bool = true; option2: bool = true; option3: bool = true;
-          option4: bool = false) {.cdecl, importcpp: "Init", header: "BRepBuilderAPI_Sewing.hxx".}
+          option4: bool = false) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}
 proc load*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.cdecl,
-    importcpp: "Load", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "Load", dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_Sewing; shape: TopoDS_Shape) {.cdecl,
-    importcpp: "Add", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "Add", dynlib: tktopalgo.}
 proc perform*(this: var BRepBuilderAPI_Sewing;
              theProgress: MessageProgressRange = newMessageProgressRange()) {.cdecl,
-    importcpp: "Perform", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "Perform", dynlib: tktopalgo.}
 proc sewedShape*(this: BRepBuilderAPI_Sewing): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "SewedShape", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SewedShape", dynlib: tktopalgo.}
 proc setContext*(this: var BRepBuilderAPI_Sewing;
                 theContext: Handle[BRepToolsReShape]) {.cdecl,
-    importcpp: "SetContext", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetContext", dynlib: tktopalgo.}
 proc getContext*(this: BRepBuilderAPI_Sewing): Handle[BRepToolsReShape] {.
-    noSideEffect, cdecl, importcpp: "GetContext", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "GetContext", dynlib: tktopalgo.}
 proc nbFreeEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect, cdecl,
-    importcpp: "NbFreeEdges", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NbFreeEdges", dynlib: tktopalgo.}
 proc freeEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.noSideEffect,
-    cdecl, importcpp: "FreeEdge", header: "BRepBuilderAPI_Sewing.hxx".}
+    cdecl, importcpp: "FreeEdge", dynlib: tktopalgo.}
 proc nbMultipleEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect, cdecl,
-    importcpp: "NbMultipleEdges", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NbMultipleEdges", dynlib: tktopalgo.}
 proc multipleEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "MultipleEdge", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "MultipleEdge", dynlib: tktopalgo.}
 proc nbContigousEdges*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect, cdecl,
-    importcpp: "NbContigousEdges", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NbContigousEdges", dynlib: tktopalgo.}
 proc contigousEdge*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "ContigousEdge", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "ContigousEdge", dynlib: tktopalgo.}
 proc contigousEdgeCouple*(this: BRepBuilderAPI_Sewing; index: cint): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "ContigousEdgeCouple", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "ContigousEdgeCouple", dynlib: tktopalgo.}
 proc isSectionBound*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): bool {.
-    noSideEffect, cdecl, importcpp: "IsSectionBound", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "IsSectionBound", dynlib: tktopalgo.}
 proc sectionToBoundary*(this: BRepBuilderAPI_Sewing; section: TopoDS_Edge): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "SectionToBoundary", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "SectionToBoundary", dynlib: tktopalgo.}
 proc nbDegeneratedShapes*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect, cdecl,
-    importcpp: "NbDegeneratedShapes", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NbDegeneratedShapes", dynlib: tktopalgo.}
 proc degeneratedShape*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "DegeneratedShape", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "DegeneratedShape", dynlib: tktopalgo.}
 proc isDegenerated*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): bool {.
-    noSideEffect, cdecl, importcpp: "IsDegenerated", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "IsDegenerated", dynlib: tktopalgo.}
 proc isModified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): bool {.
-    noSideEffect, cdecl, importcpp: "IsModified", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "IsModified", dynlib: tktopalgo.}
 proc modified*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "Modified", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "Modified", dynlib: tktopalgo.}
 proc isModifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): bool {.
-    noSideEffect, cdecl, importcpp: "IsModifiedSubShape", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "IsModifiedSubShape", dynlib: tktopalgo.}
 proc modifiedSubShape*(this: BRepBuilderAPI_Sewing; shape: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedSubShape", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "ModifiedSubShape", dynlib: tktopalgo.}
 proc dump*(this: BRepBuilderAPI_Sewing) {.noSideEffect, cdecl, importcpp: "Dump",
-                                       header: "BRepBuilderAPI_Sewing.hxx".}
+                                       dynlib: tktopalgo.}
 proc nbDeletedFaces*(this: BRepBuilderAPI_Sewing): cint {.noSideEffect, cdecl,
-    importcpp: "NbDeletedFaces", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NbDeletedFaces", dynlib: tktopalgo.}
 proc deletedFace*(this: BRepBuilderAPI_Sewing; index: cint): TopoDS_Face {.
-    noSideEffect, cdecl, importcpp: "DeletedFace", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "DeletedFace", dynlib: tktopalgo.}
 proc whichFace*(this: BRepBuilderAPI_Sewing; theEdg: TopoDS_Edge; index: cint = 1): TopoDS_Face {.
-    noSideEffect, cdecl, importcpp: "WhichFace", header: "BRepBuilderAPI_Sewing.hxx".}
+    noSideEffect, cdecl, importcpp: "WhichFace", dynlib: tktopalgo.}
 proc sameParameterMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
-    importcpp: "SameParameterMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SameParameterMode", dynlib: tktopalgo.}
 proc setSameParameterMode*(this: var BRepBuilderAPI_Sewing; sameParameterMode: bool) {.
-    cdecl, importcpp: "SetSameParameterMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    cdecl, importcpp: "SetSameParameterMode", dynlib: tktopalgo.}
 proc tolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect, cdecl,
-    importcpp: "Tolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "Tolerance", dynlib: tktopalgo.}
 proc setTolerance*(this: var BRepBuilderAPI_Sewing; theToler: cfloat) {.cdecl,
-    importcpp: "SetTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetTolerance", dynlib: tktopalgo.}
 proc minTolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "MinTolerance", dynlib: tktopalgo.}
 proc setMinTolerance*(this: var BRepBuilderAPI_Sewing; theMinToler: cfloat) {.cdecl,
-    importcpp: "SetMinTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetMinTolerance", dynlib: tktopalgo.}
 proc maxTolerance*(this: BRepBuilderAPI_Sewing): cfloat {.noSideEffect, cdecl,
-    importcpp: "MaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "MaxTolerance", dynlib: tktopalgo.}
 proc setMaxTolerance*(this: var BRepBuilderAPI_Sewing; theMaxToler: cfloat) {.cdecl,
-    importcpp: "SetMaxTolerance", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetMaxTolerance", dynlib: tktopalgo.}
 proc faceMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
-    importcpp: "FaceMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "FaceMode", dynlib: tktopalgo.}
 proc setFaceMode*(this: var BRepBuilderAPI_Sewing; theFaceMode: bool) {.cdecl,
-    importcpp: "SetFaceMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetFaceMode", dynlib: tktopalgo.}
 proc floatingEdgesMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
-    importcpp: "FloatingEdgesMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "FloatingEdgesMode", dynlib: tktopalgo.}
 proc setFloatingEdgesMode*(this: var BRepBuilderAPI_Sewing;
                           theFloatingEdgesMode: bool) {.cdecl,
-    importcpp: "SetFloatingEdgesMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetFloatingEdgesMode", dynlib: tktopalgo.}
 proc localTolerancesMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
-    importcpp: "LocalTolerancesMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "LocalTolerancesMode", dynlib: tktopalgo.}
 proc setLocalTolerancesMode*(this: var BRepBuilderAPI_Sewing;
                             theLocalTolerancesMode: bool) {.cdecl,
-    importcpp: "SetLocalTolerancesMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "SetLocalTolerancesMode", dynlib: tktopalgo.}
 proc setNonManifoldMode*(this: var BRepBuilderAPI_Sewing; theNonManifoldMode: bool) {.
-    cdecl, importcpp: "SetNonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    cdecl, importcpp: "SetNonManifoldMode", dynlib: tktopalgo.}
 proc nonManifoldMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
-    importcpp: "NonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
+    importcpp: "NonManifoldMode", dynlib: tktopalgo.}

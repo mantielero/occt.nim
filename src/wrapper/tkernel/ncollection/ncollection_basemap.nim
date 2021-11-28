@@ -69,19 +69,19 @@ type
 
 
 proc initialize*(this: var NCollectionBaseMapIterator; theMap: NCollectionBaseMap) {.
-    cdecl, importcpp: "Initialize", header: "NCollection_BaseMap.hxx".}
+    cdecl, importcpp: "Initialize", dynlib: tkernel.}
 proc reset*(this: var NCollectionBaseMapIterator) {.cdecl, importcpp: "Reset",
-    header: "NCollection_BaseMap.hxx".}
+    dynlib: tkernel.}
 proc isEqual*(this: NCollectionBaseMapIterator;
              theOther: NCollectionBaseMapIterator): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", header: "NCollection_BaseMap.hxx".}
+    importcpp: "IsEqual", dynlib: tkernel.}
 proc nbBuckets*(this: NCollectionBaseMap): cint {.noSideEffect, cdecl,
-    importcpp: "NbBuckets", header: "NCollection_BaseMap.hxx".}
+    importcpp: "NbBuckets", dynlib: tkernel.}
 proc extent*(this: NCollectionBaseMap): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", header: "NCollection_BaseMap.hxx".}
+    importcpp: "Extent", dynlib: tkernel.}
 proc isEmpty*(this: NCollectionBaseMap): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", header: "NCollection_BaseMap.hxx".}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc statistics*(this: NCollectionBaseMap; s: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "Statistics", header: "NCollection_BaseMap.hxx".}
+    cdecl, importcpp: "Statistics", dynlib: tkernel.}
 proc allocator*(this: NCollectionBaseMap): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", header: "NCollection_BaseMap.hxx".}
+    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}

@@ -28,11 +28,11 @@ type
 
 proc newNCollectionTListNode*[TheItemType](theItem: TheItemType;
     theNext: ptr NCollectionListNode = nil): NCollectionTListNode[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_TListNode<\'*0>(@)", header: "NCollection_TListNode.hxx".}
+    cdecl, constructor, importcpp: "NCollection_TListNode<\'*0>(@)", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionTListNode[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_TListNode.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionTListNode[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "ChangeValue", header: "NCollection_TListNode.hxx".}
+    cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
 #proc delNode*[TheItemType](theNode: ptr NCollectionListNode;
 #                          theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
-#    importcpp: "NCollection_TListNode::delNode(@)", header: "NCollection_TListNode.hxx".}
+#    importcpp: "NCollection_TListNode::delNode(@)", dynlib: tkernel.}

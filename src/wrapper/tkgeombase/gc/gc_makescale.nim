@@ -17,38 +17,38 @@
 discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Pnt"
 type
-  GC_MakeScale* {.importcpp: "GC_MakeScale", header: "GC_MakeScale.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Constructs
-                                                                                   ## a
-                                                                                   ## scaling
-                                                                                   ## transformation
-                                                                                   ## with
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## Point
-                                                                                   ## as
-                                                                                   ## the
-                                                                                   ## center
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## transformation,
-                                                                                   ## and
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## -
-                                                                                   ## Scale
-                                                                                   ## as
-                                                                                   ## the
-                                                                                   ## scale
-                                                                                   ## factor.
+  MakeScale* {.importcpp: "GC_MakeScale", header: "GC_MakeScale.hxx", bycopy.} = object ##
+                                                                                ## !
+                                                                                ## Constructs
+                                                                                ## a
+                                                                                ## scaling
+                                                                                ## transformation
+                                                                                ## with
+                                                                                ##
+                                                                                ## !
+                                                                                ## -
+                                                                                ## Point
+                                                                                ## as
+                                                                                ## the
+                                                                                ## center
+                                                                                ## of
+                                                                                ## the
+                                                                                ## transformation,
+                                                                                ## and
+                                                                                ##
+                                                                                ## !
+                                                                                ## -
+                                                                                ## Scale
+                                                                                ## as
+                                                                                ## the
+                                                                                ## scale
+                                                                                ## factor.
 
 
-proc newGC_MakeScale*(point: Pnt; scale: cfloat): GC_MakeScale {.cdecl, constructor,
-    importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
-proc value*(this: GC_MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeScale.hxx".}
-converter `constopencascade`*(this: GC_MakeScale): Handle[GeomTransformation] {.
+proc newMakeScale*(point: Pnt; scale: cfloat): MakeScale {.cdecl, constructor,
+    importcpp: "GC_MakeScale(@)", dynlib: tkgeombase.}
+proc value*(this: MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeScale): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "GC_MakeScale::operator constopencascade",
-    header: "GC_MakeScale.hxx".}
+    dynlib: tkgeombase.}

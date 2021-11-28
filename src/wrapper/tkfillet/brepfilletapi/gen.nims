@@ -119,6 +119,9 @@ genFiles("BRepFilletAPI_LocalOperation")
 genFiles("BRepFilletAPI_MakeChamfer")
 genFiles("BRepFilletAPI_MakeFillet2d")
 genFiles("BRepFilletAPI_MakeFillet")
+pp("brepfilletapi_makefillet.nim",
+  replaceAll = @[("newBRepFilletAPI_Make", "new")]
+)
 
 
 

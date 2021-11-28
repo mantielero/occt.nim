@@ -50,18 +50,18 @@ type
 
 
 proc newGeomAxis1Placement*(a1: Ax1): GeomAxis1Placement {.cdecl, constructor,
-    importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
+    importcpp: "Geom_Axis1Placement(@)", dynlib: tkg3d.}
 proc newGeomAxis1Placement*(p: Pnt; v: Dir): GeomAxis1Placement {.cdecl, constructor,
-    importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
+    importcpp: "Geom_Axis1Placement(@)", dynlib: tkg3d.}
 proc ax1*(this: GeomAxis1Placement): Ax1 {.noSideEffect, cdecl, importcpp: "Ax1",
-                                       header: "Geom_Axis1Placement.hxx".}
+                                       dynlib: tkg3d.}
 proc reverse*(this: var GeomAxis1Placement) {.cdecl, importcpp: "Reverse",
-    header: "Geom_Axis1Placement.hxx".}
+    dynlib: tkg3d.}
 proc reversed*(this: GeomAxis1Placement): Handle[GeomAxis1Placement] {.noSideEffect,
-    cdecl, importcpp: "Reversed", header: "Geom_Axis1Placement.hxx".}
+    cdecl, importcpp: "Reversed", dynlib: tkg3d.}
 proc setDirection*(this: var GeomAxis1Placement; v: Dir) {.cdecl,
-    importcpp: "SetDirection", header: "Geom_Axis1Placement.hxx".}
+    importcpp: "SetDirection", dynlib: tkg3d.}
 proc transform*(this: var GeomAxis1Placement; t: Trsf) {.cdecl, importcpp: "Transform",
-    header: "Geom_Axis1Placement.hxx".}
+    dynlib: tkg3d.}
 proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}

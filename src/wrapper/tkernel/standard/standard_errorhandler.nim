@@ -131,24 +131,24 @@ type
 
 
 proc constructStandardErrorHandler*(): StandardErrorHandler {.cdecl, constructor,
-    importcpp: "Standard_ErrorHandler(@)", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "Standard_ErrorHandler(@)", dynlib: tkernel.}
 proc destroy*(this: var StandardErrorHandler) {.cdecl, importcpp: "Destroy",
-    header: "Standard_ErrorHandler.hxx".}
+    dynlib: tkernel.}
 proc destroyStandardErrorHandler*(this: var StandardErrorHandler) {.cdecl,
-    importcpp: "#.~Standard_ErrorHandler()", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "#.~Standard_ErrorHandler()", dynlib: tkernel.}
 proc unlink*(this: var StandardErrorHandler) {.cdecl, importcpp: "Unlink",
-    header: "Standard_ErrorHandler.hxx".}
+    dynlib: tkernel.}
 proc catches*(this: var StandardErrorHandler; aType: Handle[StandardType]): bool {.
-    cdecl, importcpp: "Catches", header: "Standard_ErrorHandler.hxx".}
+    cdecl, importcpp: "Catches", dynlib: tkernel.}
 proc label*(this: var StandardErrorHandler): var StandardJmpBuf {.cdecl,
-    importcpp: "Label", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "Label", dynlib: tkernel.}
 proc error*(this: StandardErrorHandler): Handle[StandardFailure] {.noSideEffect,
-    cdecl, importcpp: "Error", header: "Standard_ErrorHandler.hxx".}
+    cdecl, importcpp: "Error", dynlib: tkernel.}
 proc lastCaughtError*(): Handle[StandardFailure] {.cdecl,
-    importcpp: "Standard_ErrorHandler::LastCaughtError(@)", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "Standard_ErrorHandler::LastCaughtError(@)", dynlib: tkernel.}
 proc isInTryBlock*(): bool {.cdecl,
                           importcpp: "Standard_ErrorHandler::IsInTryBlock(@)",
-                          header: "Standard_ErrorHandler.hxx".}
+                          dynlib: tkernel.}
 type
   StandardErrorHandlerCallback* {.importcpp: "Standard_ErrorHandler::Callback",
                                  header: "Standard_ErrorHandler.hxx", bycopy.} = object ##
@@ -171,13 +171,13 @@ type
 
 
 proc registerCallback*(this: var StandardErrorHandlerCallback) {.cdecl,
-    importcpp: "RegisterCallback", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "RegisterCallback", dynlib: tkernel.}
 proc unregisterCallback*(this: var StandardErrorHandlerCallback) {.cdecl,
-    importcpp: "UnregisterCallback", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "UnregisterCallback", dynlib: tkernel.}
 proc destroyStandardErrorHandlerCallback*(this: var StandardErrorHandlerCallback) {.
-    cdecl, importcpp: "#.~Callback()", header: "Standard_ErrorHandler.hxx".}
+    cdecl, importcpp: "#.~Callback()", dynlib: tkernel.}
 proc destroyCallback*(this: var StandardErrorHandlerCallback) {.cdecl,
-    importcpp: "DestroyCallback", header: "Standard_ErrorHandler.hxx".}
+    importcpp: "DestroyCallback", dynlib: tkernel.}
 ##  If OCC_CONVERT_SIGNALS is not defined,
 ##  provide empty inline implementation
 ##  Definition of the old name "Standard_ErrorHandlerCallback" was kept for compatibility

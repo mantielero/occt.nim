@@ -1,5 +1,9 @@
 import occt
 
+#type
+#  HandleGeomCurve = Handle[GeomCurve]
+
+
 proc main() =
   let
     myWidth = 50.0
@@ -16,10 +20,11 @@ proc main() =
   echo aPnt4.z ]#
 
   let 
-    aArcOfCircle = makeArcOfCircle(aPnt2,aPnt3,aPnt4) # Handle_Geom_TrimmedCurve
-    aSegment1    = makeSegment(aPnt1, aPnt2)
-    aSegment2    = makeSegment(aPnt4, aPnt5)
-
+    aArcOfCircle:HandleGeomTrimmedCurve = newMakeArcOfCircle(aPnt2,aPnt3,aPnt4) # MakeCircle --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment1:HandleGeomTrimmedCurve    = newMakeSegment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment2:HandleGeomTrimmedCurve    = newMakeSegment(aPnt4, aPnt5)
+    # Note: HandleGeomCurve = Handle[GeomCurve] 
+    # Note: HandleGeomTrimmedCurve should inherit from HandleGeomCurve
 
   # Profile: Defining the Topology
   # Converting suporting geometry
@@ -27,13 +32,13 @@ proc main() =
     #aEdge1:TopoDS_Edge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
     #aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
     #aEdge3:TopoDS_Edge = makeEdge(aSegment2)
-    aEdge1:BRepBuilderAPI_MakeEdge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
-    aEdge2:BRepBuilderAPI_MakeEdge = makeEdge(aArcOfCircle)
-    aEdge3:BRepBuilderAPI_MakeEdge = makeEdge(aSegment2)
+    aEdge1:BRepBuilderAPI_MakeEdge = newEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    aEdge2:BRepBuilderAPI_MakeEdge = newEdge(aArcOfCircle)
+    aEdge3:BRepBuilderAPI_MakeEdge = newEdge(aSegment2)
 
     #aEdge1 = makeEdge(aPnt1, aPnt3)
     #aEdge3 = makeEdge(aPnt4, aPnt5)
-    aWire:BRepBuilderAPI_MakeWire = makeWire(aEdge1, aEdge2, aEdge3)
+    aWire:BRepBuilderAPI_MakeWire = newWire(aEdge1, aEdge2, aEdge3)
 
 
     # Profile: Completing the Profile
@@ -49,7 +54,7 @@ proc main() =
   # apply the transformation 
   var aBRepTrsf:BRepBuilderAPI_Transform = transform(aWire, aTrsf)
   
-  var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape  #cexpr[TopoDS_Shape]^aBRepTrsf.Shape()
+  var aMirroredShape:TopoDS_Shape  = aBRepTrsf.shape
 
 
   # Get the wire from the shape
@@ -57,7 +62,7 @@ proc main() =
 
 
   # Join the wires into a shape
-  var mkWire = makeWire() #:BRepBuilderAPI_MakeWire
+  var mkWire = newWire() #:BRepBuilderAPI_MakeWire
   mkWire.add(aWire)
   mkWire.add(aMirroredWire)
   let myWireProfile:TopoDS_Wire = mkWire.wire 
@@ -65,15 +70,15 @@ proc main() =
 
   # Building the body
   #   let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
-  let myFaceProfile:TopoDS_Face = makeFace(myWireProfile)
+  let myFaceProfile:TopoDS_Face = newFace(myWireProfile)
   let aPrismVec = newVec(0.0, 0.0, myHeight)
-  var myBody:BRepPrimAPI_MakePrism = makePrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
+  var myBody:BRepPrimAPI_MakePrism = newPrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
 
 
   # - Applying fillets
-  var mkFillet = makeFillet(myBody)
+  var mkFillet = newFillet(myBody)
 
-  var anEdgeExplorer = explorer(myBody, TopAbsEDGE)
+  var anEdgeExplorer = newExplorer(myBody, topAbsEDGE)
   while anEdgeExplorer.more():
     var anEdge = anEdgeExplorer.current.edge
     # Add edge to fillet algorithm
@@ -84,13 +89,13 @@ proc main() =
 
   # Adding the Neck
   let neckLocation = newPnt(0, 0, myHeight)
-  let neckAxis:Dir = dz()
+  let neckAxis:Dir = dzAsDir()
   let neckAx2 = newAx2(neckLocation, neckAxis)
 
   let myNeckRadius = myThickness / 4.0
   let myNeckHeight = myHeight / 10.0
 
-  var mkCylinder:BRepBuilderAPI_MakeShape = makeCylinder(neckAx2, myNeckRadius, myNeckHeight)
+  var mkCylinder:BRepBuilderAPI_MakeShape = newCylinder(neckAx2, myNeckRadius, myNeckHeight)
   var myNeck:TopoDS_Shape = mkCylinder.shape()
    
 

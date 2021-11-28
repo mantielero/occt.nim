@@ -31,22 +31,22 @@ type
 proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
                                IsConstant: static[bool]](): NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant] {.cdecl, constructor,
-    importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)", header: "NCollection_StlIterator.hxx".}
+    importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)", dynlib: tkernel.}
 proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
                                IsConstant: static[bool]](
     theIterator: BaseIterator): NCollectionStlIterator[Category, BaseIterator,
     ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
-                          header: "NCollection_StlIterator.hxx".}
+                          dynlib: tkernel.}
 proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;
                                IsConstant: static[bool]](theIterator: NCollectionStlIterator[
     Category, BaseIterator, ItemType, false]): NCollectionStlIterator[Category,
     BaseIterator, ItemType, IsConstant] {.cdecl, constructor, importcpp: "NCollection_StlIterator<\'*0,\'*1,\'*2,\'*3>(@)",
-                                       header: "NCollection_StlIterator.hxx".}
+                                       dynlib: tkernel.}
 proc `iterator`*[Category; BaseIterator; ItemType; IsConstant: static[bool]](
     this: NCollectionStlIterator[Category, BaseIterator, ItemType, IsConstant]): BaseIterator {.
-    noSideEffect, cdecl, importcpp: "Iterator", header: "NCollection_StlIterator.hxx".}
+    noSideEffect, cdecl, importcpp: "Iterator", dynlib: tkernel.}
 proc changeIterator*[Category; BaseIterator; ItemType; IsConstant: static[bool]](this: var NCollectionStlIterator[
     Category, BaseIterator, ItemType, IsConstant]): var BaseIterator {.cdecl,
-    importcpp: "ChangeIterator", header: "NCollection_StlIterator.hxx".}
+    importcpp: "ChangeIterator", dynlib: tkernel.}
   ##  Note: Here we use SFINAE (Substitution failure is not an error) to choose
   ## ! Test for equality

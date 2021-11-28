@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardProgramError):
   template standardProgramErrorRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardProgramError*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_ProgramError(@)", header: "Standard_ProgramError.hxx".}
+          importcpp: "Standard_ProgramError(@)", dynlib: tkernel.}
 
 else:
   discard

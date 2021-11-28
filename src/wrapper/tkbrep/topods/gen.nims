@@ -157,6 +157,7 @@ genFiles("TopoDS_TWire")
 genFiles("TopoDS_UnCompatibleShapes")
 genFiles("TopoDS_Vertex")
 genFiles("TopoDS_Wire")
+genFiles("TopoDS")
 
 
 

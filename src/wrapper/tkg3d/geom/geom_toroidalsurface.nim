@@ -187,62 +187,62 @@ type
 
 
 proc newGeomToroidalSurface*(a3: Ax3; majorRadius: cfloat; minorRadius: cfloat): GeomToroidalSurface {.
-    cdecl, constructor, importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, constructor, importcpp: "Geom_ToroidalSurface(@)", dynlib: tkg3d.}
 proc newGeomToroidalSurface*(t: Torus): GeomToroidalSurface {.cdecl, constructor,
-    importcpp: "Geom_ToroidalSurface(@)", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Geom_ToroidalSurface(@)", dynlib: tkg3d.}
 proc setMajorRadius*(this: var GeomToroidalSurface; majorRadius: cfloat) {.cdecl,
-    importcpp: "SetMajorRadius", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "SetMajorRadius", dynlib: tkg3d.}
 proc setMinorRadius*(this: var GeomToroidalSurface; minorRadius: cfloat) {.cdecl,
-    importcpp: "SetMinorRadius", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "SetMinorRadius", dynlib: tkg3d.}
 proc setTorus*(this: var GeomToroidalSurface; t: Torus) {.cdecl, importcpp: "SetTorus",
-    header: "Geom_ToroidalSurface.hxx".}
+    dynlib: tkg3d.}
 proc torus*(this: GeomToroidalSurface): Torus {.noSideEffect, cdecl,
-    importcpp: "Torus", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Torus", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomToroidalSurface; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "UReversedParameter", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomToroidalSurface; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "VReversedParameter", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc area*(this: GeomToroidalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Area", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Area", dynlib: tkg3d.}
 proc bounds*(this: GeomToroidalSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
-            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_ToroidalSurface.hxx".}
+            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
 proc coefficients*(this: GeomToroidalSurface; coef: var TColStdArray1OfReal) {.
-    noSideEffect, cdecl, importcpp: "Coefficients", header: "Geom_ToroidalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkg3d.}
 proc majorRadius*(this: GeomToroidalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "MajorRadius", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "MajorRadius", dynlib: tkg3d.}
 proc minorRadius*(this: GeomToroidalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "MinorRadius", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "MinorRadius", dynlib: tkg3d.}
 proc volume*(this: GeomToroidalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Volume", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Volume", dynlib: tkg3d.}
 proc isUClosed*(this: GeomToroidalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomToroidalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomToroidalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomToroidalSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "UIso", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomToroidalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "VIso", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomToroidalSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
-    cdecl, importcpp: "D0", header: "Geom_ToroidalSurface.hxx".}
+    cdecl, importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomToroidalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_ToroidalSurface.hxx".}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomToroidalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomToroidalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    header: "Geom_ToroidalSurface.hxx".}
+                                    dynlib: tkg3d.}
 proc dn*(this: GeomToroidalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", header: "Geom_ToroidalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomToroidalSurface; t: Trsf) {.cdecl,
-    importcpp: "Transform", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc copy*(this: GeomToroidalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_ToroidalSurface.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomToroidalSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_ToroidalSurface.hxx".}
+                                 dynlib: tkg3d.}

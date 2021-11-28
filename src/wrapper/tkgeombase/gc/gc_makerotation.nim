@@ -20,18 +20,32 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 type
-  GC_MakeRotation* {.importcpp: "GC_MakeRotation", header: "GC_MakeRotation.hxx",
-                    bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
+  MakeRotation* {.importcpp: "GC_MakeRotation", header: "GC_MakeRotation.hxx", bycopy.} = object ##
+                                                                                         ## !
+                                                                                         ## Constructs
+                                                                                         ## a
+                                                                                         ## rotation
+                                                                                         ## through
+                                                                                         ## angle
+                                                                                         ## Angle
+                                                                                         ## about
+                                                                                         ## the
+                                                                                         ## axis
+                                                                                         ## defined
+                                                                                         ## by
+                                                                                         ## the
+                                                                                         ## line
+                                                                                         ## Line.
 
 
-proc newGC_MakeRotation*(line: Lin; angle: cfloat): GC_MakeRotation {.cdecl,
-    constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc newGC_MakeRotation*(axis: Ax1; angle: cfloat): GC_MakeRotation {.cdecl,
-    constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc newGC_MakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GC_MakeRotation {.
-    cdecl, constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc value*(this: GC_MakeRotation): Handle[GeomTransformation] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeRotation.hxx".}
-converter `constopencascade`*(this: GC_MakeRotation): Handle[GeomTransformation] {.
+proc newMakeRotation*(line: Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
+    importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+proc newMakeRotation*(axis: Ax1; angle: cfloat): MakeRotation {.cdecl, constructor,
+    importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+proc newMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): MakeRotation {.cdecl,
+    constructor, importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+proc value*(this: MakeRotation): Handle[GeomTransformation] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeRotation): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "GC_MakeRotation::operator constopencascade",
-    header: "GC_MakeRotation.hxx".}
+    dynlib: tkgeombase.}

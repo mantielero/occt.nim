@@ -56,8 +56,8 @@ type
 
 
 proc clear*(this: var NCollectionBaseVector) {.cdecl, importcpp: "Clear",
-    header: "NCollection_BaseVector.hxx".}
+    dynlib: tkernel.}
 proc setIncrement*(this: var NCollectionBaseVector; aIncrement: cint) {.cdecl,
-    importcpp: "SetIncrement", header: "NCollection_BaseVector.hxx".}
+    importcpp: "SetIncrement", dynlib: tkernel.}
 proc allocator*(this: NCollectionBaseVector): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", header: "NCollection_BaseVector.hxx".}
+    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}

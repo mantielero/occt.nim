@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardNoMoreObject):
   template standardNoMoreObjectRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardNoMoreObject*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_NoMoreObject(@)", header: "Standard_NoMoreObject.hxx".}
+          importcpp: "Standard_NoMoreObject(@)", dynlib: tkernel.}
 
 else:
   discard

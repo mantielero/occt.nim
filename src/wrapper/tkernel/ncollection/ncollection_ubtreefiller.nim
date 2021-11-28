@@ -43,10 +43,10 @@ type
 proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](theObj: TheObjType;
     theBnd: TheBndType): NCollectionUBTreeFillerObjBnd[TheObjType, TheBndType] {.
     cdecl, constructor,
-    importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)", header: "NCollection_UBTreeFiller.hxx".}
+    importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)", dynlib: tkernel.}
 proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollectionUBTreeFillerObjBnd[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
-                            header: "NCollection_UBTreeFiller.hxx".}
+                            dynlib: tkernel.}
 type
   NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
   NCollectionUBTreeFillerUBTreeNode* = TreeNode
@@ -57,17 +57,17 @@ proc newNCollectionUBTreeFiller*[TheObjType; TheBndType](
     isFullRandom: bool = true): NCollectionUBTreeFiller[TheObjType,
     TheBndType] {.cdecl, constructor,
                  importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>(@)",
-                 header: "NCollection_UBTreeFiller.hxx".}
+                 dynlib: tkernel.}
 proc add*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
     TheBndType]; theObj: TheObjType; theBnd: TheBndType) {.cdecl, importcpp: "Add",
-    header: "NCollection_UBTreeFiller.hxx".}
+    dynlib: tkernel.}
 proc fill*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
-    TheBndType]): cint {.cdecl, importcpp: "Fill", header: "NCollection_UBTreeFiller.hxx".}
+    TheBndType]): cint {.cdecl, importcpp: "Fill", dynlib: tkernel.}
 proc reset*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[TheObjType,
-    TheBndType]) {.cdecl, importcpp: "Reset", header: "NCollection_UBTreeFiller.hxx".}
+    TheBndType]) {.cdecl, importcpp: "Reset", dynlib: tkernel.}
 proc checkTree*[TheObjType; TheBndType](this: var NCollectionUBTreeFiller[
     TheObjType, TheBndType]; theStream: var StandardOStream): cint {.cdecl,
-    importcpp: "CheckTree", header: "NCollection_UBTreeFiller.hxx".}
+    importcpp: "CheckTree", dynlib: tkernel.}
 proc destroyNCollectionUBTreeFiller*[TheObjType; TheBndType](
     this: var NCollectionUBTreeFiller[TheObjType, TheBndType]) {.cdecl,
-    importcpp: "#.~NCollection_UBTreeFiller()", header: "NCollection_UBTreeFiller.hxx".}
+    importcpp: "#.~NCollection_UBTreeFiller()", dynlib: tkernel.}

@@ -231,46 +231,46 @@ type
 proc newNCollectionCellFilter*[Inspector](theDim: cint;
     theCellSize: StandardReal = 0; theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[
     Inspector] {.cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
-                header: "NCollection_CellFilter.hxx".}
+                dynlib: tkernel.}
 proc newNCollectionCellFilter*[Inspector](theCellSize: StandardReal = 0;
     theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)): NCollectionCellFilter[Inspector] {.
     cdecl, constructor, importcpp: "NCollection_CellFilter<\'*0>(@)",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
                       theCellSize: StandardReal;
                       theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)) {.cdecl,
-    importcpp: "Reset", header: "NCollection_CellFilter.hxx".}
+    importcpp: "Reset", dynlib: tkernel.}
 proc reset*[Inspector](this: var NCollectionCellFilter[Inspector];
                       theCellSize: var NCollectionArray1[StandardReal];
                       theAlloc: Handle[NCollectionIncAllocator] = cast[Handle[NCollectionIncAllocator]](0)) {.cdecl,
-    importcpp: "Reset", header: "NCollection_CellFilter.hxx".}
+    importcpp: "Reset", dynlib: tkernel.}
 proc add*[Inspector](this: var NCollectionCellFilter[Inspector];
                     theTarget: NCollectionCellFilterTarget;
                     thePnt: NCollectionCellFilterPoint) {.cdecl, importcpp: "Add",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 proc add*[Inspector](this: var NCollectionCellFilter[Inspector];
                     theTarget: NCollectionCellFilterTarget;
                     thePntMin: NCollectionCellFilterPoint;
                     thePntMax: NCollectionCellFilterPoint) {.cdecl,
-    importcpp: "Add", header: "NCollection_CellFilter.hxx".}
+    importcpp: "Add", dynlib: tkernel.}
 proc remove*[Inspector](this: var NCollectionCellFilter[Inspector];
                        theTarget: NCollectionCellFilterTarget;
                        thePnt: NCollectionCellFilterPoint) {.cdecl,
-    importcpp: "Remove", header: "NCollection_CellFilter.hxx".}
+    importcpp: "Remove", dynlib: tkernel.}
 proc remove*[Inspector](this: var NCollectionCellFilter[Inspector];
                        theTarget: NCollectionCellFilterTarget;
                        thePntMin: NCollectionCellFilterPoint;
                        thePntMax: NCollectionCellFilterPoint) {.cdecl,
-    importcpp: "Remove", header: "NCollection_CellFilter.hxx".}
+    importcpp: "Remove", dynlib: tkernel.}
 proc inspect*[Inspector](this: var NCollectionCellFilter[Inspector];
                         thePnt: NCollectionCellFilterPoint;
                         theInspector: var Inspector) {.cdecl, importcpp: "Inspect",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 proc inspect*[Inspector](this: var NCollectionCellFilter[Inspector];
                         thePntMin: NCollectionCellFilterPoint;
                         thePntMax: NCollectionCellFilterPoint;
                         theInspector: var Inspector) {.cdecl, importcpp: "Inspect",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 ## *
 ##  Base class defining part of the Inspector interface
 ##  for CellFilter algorithm, working with gp_XYZ points in 3d space
@@ -293,10 +293,10 @@ type
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYZPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXYZ::Coord(@)",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 proc shift*(this: NCollectionCellFilterInspectorXYZ;
            thePnt: NCollectionCellFilterInspectorXYZPoint; theTol: StandardReal): NCollectionCellFilterInspectorXYZPoint {.
-    noSideEffect, cdecl, importcpp: "Shift", header: "NCollection_CellFilter.hxx".}
+    noSideEffect, cdecl, importcpp: "Shift", dynlib: tkernel.}
 ## *
 ##  Base class defining part of the Inspector interface
 ##  for CellFilter algorithm, working with gp_XY points in 2d space
@@ -319,7 +319,7 @@ type
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXY::Coord(@)",
-    header: "NCollection_CellFilter.hxx".}
+    dynlib: tkernel.}
 proc shift*(this: NCollectionCellFilterInspectorXY;
            thePnt: NCollectionCellFilterInspectorXYPoint; theTol: StandardReal): NCollectionCellFilterInspectorXYPoint {.
-    noSideEffect, cdecl, importcpp: "Shift", header: "NCollection_CellFilter.hxx".}
+    noSideEffect, cdecl, importcpp: "Shift", dynlib: tkernel.}

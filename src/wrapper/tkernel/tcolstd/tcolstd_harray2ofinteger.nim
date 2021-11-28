@@ -19,13 +19,13 @@ type
 
 proc newTColStdHArray2OfInteger*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                 theColUpp: cint): TColStdHArray2OfInteger {.cdecl,
-    constructor, importcpp: "TColStd_HArray2OfInteger(@)", header: "TColStd_HArray2OfInteger.hxx".}
+    constructor, importcpp: "TColStd_HArray2OfInteger(@)", dynlib: tkernel.}
 proc newTColStdHArray2OfInteger*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                                 theColUpp: cint; theValue: ValueType): TColStdHArray2OfInteger {.
-    cdecl, constructor, importcpp: "TColStd_HArray2OfInteger(@)", header: "TColStd_HArray2OfInteger.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray2OfInteger(@)", dynlib: tkernel.}
 proc newTColStdHArray2OfInteger*(theOther: TColStdArray2OfInteger): TColStdHArray2OfInteger {.
-    cdecl, constructor, importcpp: "TColStd_HArray2OfInteger(@)", header: "TColStd_HArray2OfInteger.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HArray2OfInteger(@)", dynlib: tkernel.}
 proc array2*(this: TColStdHArray2OfInteger): TColStdArray2OfInteger {.noSideEffect,
-    cdecl, importcpp: "Array2", header: "TColStd_HArray2OfInteger.hxx".}
+    cdecl, importcpp: "Array2", dynlib: tkernel.}
 proc changeArray2*(this: var TColStdHArray2OfInteger): var TColStdArray2OfInteger {.
-    cdecl, importcpp: "ChangeArray2", header: "TColStd_HArray2OfInteger.hxx".}
+    cdecl, importcpp: "ChangeArray2", dynlib: tkernel.}

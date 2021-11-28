@@ -120,7 +120,9 @@ proc pp*(file:string,
 
 genFiles("TopExp_Explorer")
 pp("topexp_explorer.nim",
-  replaceAll = @[("= object", "= object of RootObj")]
+  replaceAll = @[("= object", "= object of RootObj"),
+    ("newTopExp", "new")
+  ]
 )
 genFiles("TopExp")
 genFiles("TopExp_Stack")

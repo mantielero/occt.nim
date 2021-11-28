@@ -31,14 +31,14 @@ type
 
 proc newBRepBuilderAPI_BndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_BndBoxTreeSelector(@)",
-    header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    dynlib: tktopalgo.}
 proc reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox): bool {.
-    noSideEffect, cdecl, importcpp: "Reject", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    noSideEffect, cdecl, importcpp: "Reject", dynlib: tktopalgo.}
 proc accept*(this: var BRepBuilderAPI_BndBoxTreeSelector; theObj: cint): bool {.cdecl,
-    importcpp: "Accept", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    importcpp: "Accept", dynlib: tktopalgo.}
 proc clearResList*(this: var BRepBuilderAPI_BndBoxTreeSelector) {.cdecl,
-    importcpp: "ClearResList", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    importcpp: "ClearResList", dynlib: tktopalgo.}
 proc setCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox) {.cdecl,
-    importcpp: "SetCurrent", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    importcpp: "SetCurrent", dynlib: tktopalgo.}
 proc resInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStdListOfInteger {.
-    cdecl, importcpp: "ResInd", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+    cdecl, importcpp: "ResInd", dynlib: tktopalgo.}

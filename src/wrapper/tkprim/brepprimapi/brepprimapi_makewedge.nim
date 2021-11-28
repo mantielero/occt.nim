@@ -36,24 +36,24 @@ type
 
 
 proc newBRepPrimAPI_MakeWedge*(dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeWedge*(dx: cfloat; dy: cfloat; dz: cfloat; xmin: cfloat;
                               zmin: cfloat; xmax: cfloat; zmax: cfloat): BRepPrimAPI_MakeWedge {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat;
                               xmin: cfloat; zmin: cfloat; xmax: cfloat; zmax: cfloat): BRepPrimAPI_MakeWedge {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", dynlib: tkprim.}
 proc wedge*(this: var BRepPrimAPI_MakeWedge): var BRepPrimWedge {.cdecl,
-    importcpp: "Wedge", header: "BRepPrimAPI_MakeWedge.hxx".}
+    importcpp: "Wedge", dynlib: tkprim.}
 proc build*(this: var BRepPrimAPI_MakeWedge) {.cdecl, importcpp: "Build",
-    header: "BRepPrimAPI_MakeWedge.hxx".}
+    dynlib: tkprim.}
 proc shell*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.cdecl,
-    importcpp: "Shell", header: "BRepPrimAPI_MakeWedge.hxx".}
+    importcpp: "Shell", dynlib: tkprim.}
 converter `topoDS_Shell`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Shell {.cdecl,
-    importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Shell", header: "BRepPrimAPI_MakeWedge.hxx".}
+    importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Shell", dynlib: tkprim.}
 proc solid*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.cdecl,
-    importcpp: "Solid", header: "BRepPrimAPI_MakeWedge.hxx".}
+    importcpp: "Solid", dynlib: tkprim.}
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeWedge): TopoDS_Solid {.cdecl,
-    importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Solid", header: "BRepPrimAPI_MakeWedge.hxx".}
+    importcpp: "BRepPrimAPI_MakeWedge::operator TopoDS_Solid", dynlib: tkprim.}

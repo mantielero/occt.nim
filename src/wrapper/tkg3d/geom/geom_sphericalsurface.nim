@@ -200,60 +200,60 @@ type
 
 
 proc newGeomSphericalSurface*(a3: Ax3; radius: cfloat): GeomSphericalSurface {.cdecl,
-    constructor, importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
+    constructor, importcpp: "Geom_SphericalSurface(@)", dynlib: tkg3d.}
 proc newGeomSphericalSurface*(s: Sphere): GeomSphericalSurface {.cdecl, constructor,
-    importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Geom_SphericalSurface(@)", dynlib: tkg3d.}
 proc setRadius*(this: var GeomSphericalSurface; r: cfloat) {.cdecl,
-    importcpp: "SetRadius", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "SetRadius", dynlib: tkg3d.}
 proc setSphere*(this: var GeomSphericalSurface; s: Sphere) {.cdecl,
-    importcpp: "SetSphere", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "SetSphere", dynlib: tkg3d.}
 proc sphere*(this: GeomSphericalSurface): Sphere {.noSideEffect, cdecl,
-    importcpp: "Sphere", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Sphere", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomSphericalSurface; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_SphericalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomSphericalSurface; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_SphericalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc area*(this: GeomSphericalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Area", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Area", dynlib: tkg3d.}
 proc bounds*(this: GeomSphericalSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
-            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_SphericalSurface.hxx".}
+            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
 proc coefficients*(this: GeomSphericalSurface; a1: var cfloat; a2: var cfloat;
                   a3: var cfloat; b1: var cfloat; b2: var cfloat; b3: var cfloat;
                   c1: var cfloat; c2: var cfloat; c3: var cfloat; d: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Coefficients", header: "Geom_SphericalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "Coefficients", dynlib: tkg3d.}
 proc radius*(this: GeomSphericalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Radius", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Radius", dynlib: tkg3d.}
 proc volume*(this: GeomSphericalSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "Volume", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Volume", dynlib: tkg3d.}
 proc isUClosed*(this: GeomSphericalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomSphericalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomSphericalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomSphericalSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomSphericalSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "UIso", header: "Geom_SphericalSurface.hxx".}
+    cdecl, importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomSphericalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "VIso", header: "Geom_SphericalSurface.hxx".}
+    cdecl, importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
-    cdecl, importcpp: "D0", header: "Geom_SphericalSurface.hxx".}
+    cdecl, importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SphericalSurface.hxx".}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "D2", dynlib: tkg3d.}
 proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    header: "Geom_SphericalSurface.hxx".}
+                                    dynlib: tkg3d.}
 proc dn*(this: GeomSphericalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", header: "Geom_SphericalSurface.hxx".}
+    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomSphericalSurface; t: Trsf) {.cdecl,
-    importcpp: "Transform", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Transform", dynlib: tkg3d.}
 proc copy*(this: GeomSphericalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_SphericalSurface.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomSphericalSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_SphericalSurface.hxx".}
+                                 dynlib: tkg3d.}

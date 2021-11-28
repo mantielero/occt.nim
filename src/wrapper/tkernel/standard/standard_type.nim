@@ -71,26 +71,26 @@ type
 
 
 proc systemName*(this: StandardType): cstring {.noSideEffect, cdecl,
-    importcpp: "SystemName", header: "Standard_Type.hxx".}
+    importcpp: "SystemName", dynlib: tkernel.}
 proc name*(this: StandardType): cstring {.noSideEffect, cdecl, importcpp: "Name",
-                                      header: "Standard_Type.hxx".}
+                                      dynlib: tkernel.}
 proc size*(this: StandardType): csize_t {.noSideEffect, cdecl, importcpp: "Size",
-                                      header: "Standard_Type.hxx".}
+                                      dynlib: tkernel.}
 proc parent*(this: StandardType): Handle[StandardType] {.noSideEffect, cdecl,
-    importcpp: "Parent", header: "Standard_Type.hxx".}
+    importcpp: "Parent", dynlib: tkernel.}
 proc subType*(this: StandardType; theOther: Handle[StandardType]): bool {.
-    noSideEffect, cdecl, importcpp: "SubType", header: "Standard_Type.hxx".}
+    noSideEffect, cdecl, importcpp: "SubType", dynlib: tkernel.}
 proc subType*(this: StandardType; theOther: cstring): bool {.noSideEffect, cdecl,
-    importcpp: "SubType", header: "Standard_Type.hxx".}
+    importcpp: "SubType", dynlib: tkernel.}
 proc print*(this: StandardType; theStream: var StandardOStream) {.noSideEffect, cdecl,
-    importcpp: "Print", header: "Standard_Type.hxx".}
+    importcpp: "Print", dynlib: tkernel.}
 proc instance*[T](): Handle[StandardType] {.cdecl,
-    importcpp: "Standard_Type::Instance(@)", header: "Standard_Type.hxx".}
+    importcpp: "Standard_Type::Instance(@)", dynlib: tkernel.}
 proc register*(theSystemName: cstring; theName: cstring; theSize: csize_t;
               theParent: Handle[StandardType]): ptr StandardType {.cdecl,
-    importcpp: "Standard_Type::Register(@)", header: "Standard_Type.hxx".}
+    importcpp: "Standard_Type::Register(@)", dynlib: tkernel.}
 proc destroyStandardType*(this: var StandardType) {.cdecl,
-    importcpp: "#.~Standard_Type()", header: "Standard_Type.hxx".}
+    importcpp: "#.~Standard_Type()", dynlib: tkernel.}
 ## ! Template class providing instantiation of type descriptors as singletons.
 ## ! The descriptors are defined as static variables in function get(), which
 ## ! is essential to ensure that they are initialized in correct sequence.
@@ -107,7 +107,7 @@ type
 
 
 proc get*[T](): Handle[StandardType] {.cdecl, importcpp: "opencascade::type_instance::get(@)",
-                                    header: "Standard_Type.hxx".}
+                                    dynlib: tkernel.}
 ## ! Specialization of type descriptor instance for void; returns null handle
 ##  Implementation of static function returning instance of the
 ##  type descriptor
@@ -123,7 +123,7 @@ proc get*[T](): Handle[StandardType] {.cdecl, importcpp: "opencascade::type_inst
 ## ! Operator printing type descriptor to stream
 
 proc `<<`*(theStream: var StandardOStream; theType: Handle[StandardType]): var StandardOStream {.
-    cdecl, importcpp: "(# << #)", header: "Standard_Type.hxx".}
+    cdecl, importcpp: "(# << #)", dynlib: tkernel.}
 ## ! Definition of Handle_Standard_Type as typedef for compatibility
 
 type

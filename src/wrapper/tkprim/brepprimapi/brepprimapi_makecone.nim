@@ -62,14 +62,14 @@ type
 
 
 proc newBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeCone*(r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeCone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", dynlib: tkprim.}
 proc oneAxis*(this: var BRepPrimAPI_MakeCone): pointer {.cdecl, importcpp: "OneAxis",
-    header: "BRepPrimAPI_MakeCone.hxx".}
+    dynlib: tkprim.}
 proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.cdecl,
-    importcpp: "Cone", header: "BRepPrimAPI_MakeCone.hxx".}
+    importcpp: "Cone", dynlib: tkprim.}

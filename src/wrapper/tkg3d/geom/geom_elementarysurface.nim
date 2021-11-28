@@ -96,31 +96,31 @@ type
 
 
 proc setAxis*(this: var GeomElementarySurface; theA1: Ax1) {.cdecl,
-    importcpp: "SetAxis", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "SetAxis", dynlib: tkg3d.}
 proc setLocation*(this: var GeomElementarySurface; theLoc: Pnt) {.cdecl,
-    importcpp: "SetLocation", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "SetLocation", dynlib: tkg3d.}
 proc setPosition*(this: var GeomElementarySurface; theAx3: Ax3) {.cdecl,
-    importcpp: "SetPosition", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "SetPosition", dynlib: tkg3d.}
 proc axis*(this: GeomElementarySurface): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
-    header: "Geom_ElementarySurface.hxx".}
+    dynlib: tkg3d.}
 proc location*(this: GeomElementarySurface): Pnt {.noSideEffect, cdecl,
-    importcpp: "Location", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "Location", dynlib: tkg3d.}
 proc position*(this: GeomElementarySurface): Ax3 {.noSideEffect, cdecl,
-    importcpp: "Position", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "Position", dynlib: tkg3d.}
 proc uReverse*(this: var GeomElementarySurface) {.cdecl, importcpp: "UReverse",
-    header: "Geom_ElementarySurface.hxx".}
+    dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomElementarySurface; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_ElementarySurface.hxx".}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
 proc vReverse*(this: var GeomElementarySurface) {.cdecl, importcpp: "VReverse",
-    header: "Geom_ElementarySurface.hxx".}
+    dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomElementarySurface; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_ElementarySurface.hxx".}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc continuity*(this: GeomElementarySurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc isCNu*(this: GeomElementarySurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNu", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "IsCNu", dynlib: tkg3d.}
 proc isCNv*(this: GeomElementarySurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNv", header: "Geom_ElementarySurface.hxx".}
+    importcpp: "IsCNv", dynlib: tkg3d.}
 proc dumpJson*(this: GeomElementarySurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_ElementarySurface.hxx".}
+                                 dynlib: tkg3d.}

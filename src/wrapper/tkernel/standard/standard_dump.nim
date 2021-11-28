@@ -36,10 +36,10 @@ type
 
 
 proc constructStandardDumpValue*(): StandardDumpValue {.cdecl, constructor,
-    importcpp: "Standard_DumpValue(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_DumpValue(@)", dynlib: tkernel.}
 proc constructStandardDumpValue*(theValue: TCollectionAsciiString;
                                 theStartPos: cint): StandardDumpValue {.cdecl,
-    constructor, importcpp: "Standard_DumpValue(@)", header: "Standard_Dump.hxx".}
+    constructor, importcpp: "Standard_DumpValue(@)", dynlib: tkernel.}
 ## ! This interface has some tool methods for stream (in JSON format) processing.
 
 type
@@ -151,49 +151,49 @@ type
 
 
 proc text*(theStream: StandardSStream): TCollectionAsciiString {.cdecl,
-    importcpp: "Standard_Dump::Text(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::Text(@)", dynlib: tkernel.}
 proc formatJson*(theStream: StandardSStream; theIndent: cint = 3): TCollectionAsciiString {.
-    cdecl, importcpp: "Standard_Dump::FormatJson(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::FormatJson(@)", dynlib: tkernel.}
 proc splitJson*(theStreamStr: TCollectionAsciiString; theKeyToValues: var NCollectionIndexedDataMap[
     TCollectionAsciiString, StandardDumpValue]): bool {.cdecl,
-    importcpp: "Standard_Dump::SplitJson(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::SplitJson(@)", dynlib: tkernel.}
 proc hierarchicalValueIndices*(theValues: NCollectionIndexedDataMap[
     TCollectionAsciiString, TCollectionAsciiString]): NCollectionList[cint] {.
-    cdecl, importcpp: "Standard_Dump::HierarchicalValueIndices(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::HierarchicalValueIndices(@)", dynlib: tkernel.}
 proc hasChildKey*(theSourceValue: TCollectionAsciiString): bool {.cdecl,
-    importcpp: "Standard_Dump::HasChildKey(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::HasChildKey(@)", dynlib: tkernel.}
 proc jsonKeyToString*(theKey: StandardJsonKey): cstring {.cdecl,
-    importcpp: "Standard_Dump::JsonKeyToString(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::JsonKeyToString(@)", dynlib: tkernel.}
 proc jsonKeyLength*(theKey: StandardJsonKey): cint {.cdecl,
-    importcpp: "Standard_Dump::JsonKeyLength(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::JsonKeyLength(@)", dynlib: tkernel.}
 proc addValuesSeparator*(theOStream: var StandardOStream) {.cdecl,
-    importcpp: "Standard_Dump::AddValuesSeparator(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::AddValuesSeparator(@)", dynlib: tkernel.}
 proc getPointerPrefix*(): TCollectionAsciiString {.cdecl,
-    importcpp: "Standard_Dump::GetPointerPrefix(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::GetPointerPrefix(@)", dynlib: tkernel.}
 proc getPointerInfo*(thePointer: Handle[StandardTransient];
                     isShortInfo: bool = true): TCollectionAsciiString {.cdecl,
-    importcpp: "Standard_Dump::GetPointerInfo(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::GetPointerInfo(@)", dynlib: tkernel.}
 proc getPointerInfo*(thePointer: pointer; isShortInfo: bool = true): TCollectionAsciiString {.
-    cdecl, importcpp: "Standard_Dump::GetPointerInfo(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::GetPointerInfo(@)", dynlib: tkernel.}
 proc dumpKeyToClass*(theOStream: var StandardOStream;
                     theKey: TCollectionAsciiString;
                     theField: TCollectionAsciiString) {.cdecl,
-    importcpp: "Standard_Dump::DumpKeyToClass(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::DumpKeyToClass(@)", dynlib: tkernel.}
 proc dumpCharacterValues*(theOStream: var StandardOStream; theCount: cint) {.varargs,
-    cdecl, importcpp: "Standard_Dump::DumpCharacterValues(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::DumpCharacterValues(@)", dynlib: tkernel.}
 proc dumpRealValues*(theOStream: var StandardOStream; theCount: cint) {.varargs, cdecl,
-    importcpp: "Standard_Dump::DumpRealValues(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::DumpRealValues(@)", dynlib: tkernel.}
 proc processStreamName*(theStreamStr: TCollectionAsciiString;
                        theName: TCollectionAsciiString; theStreamPos: var cint): bool {.
-    cdecl, importcpp: "Standard_Dump::ProcessStreamName(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::ProcessStreamName(@)", dynlib: tkernel.}
 proc processFieldName*(theStreamStr: TCollectionAsciiString;
                       theName: TCollectionAsciiString; theStreamPos: var cint): bool {.
-    cdecl, importcpp: "Standard_Dump::ProcessFieldName(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::ProcessFieldName(@)", dynlib: tkernel.}
 proc initRealValues*(theStreamStr: TCollectionAsciiString; theStreamPos: var cint;
                     theCount: cint): bool {.varargs, cdecl,
-    importcpp: "Standard_Dump::InitRealValues(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::InitRealValues(@)", dynlib: tkernel.}
 proc initValue*(theStreamStr: TCollectionAsciiString; theStreamPos: var cint;
                theValue: var TCollectionAsciiString): bool {.cdecl,
-    importcpp: "Standard_Dump::InitValue(@)", header: "Standard_Dump.hxx".}
+    importcpp: "Standard_Dump::InitValue(@)", dynlib: tkernel.}
 proc dumpFieldToName*(theField: TCollectionAsciiString): TCollectionAsciiString {.
-    cdecl, importcpp: "Standard_Dump::DumpFieldToName(@)", header: "Standard_Dump.hxx".}
+    cdecl, importcpp: "Standard_Dump::DumpFieldToName(@)", dynlib: tkernel.}

@@ -76,20 +76,20 @@ type
 
 
 proc constructStandardMutexSentry*(theMutex: var StandardMutex): StandardMutexSentry {.
-    cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", header: "Standard_Mutex.hxx".}
+    cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", dynlib: tkernel.}
 proc constructStandardMutexSentry*(theMutex: ptr StandardMutex): StandardMutexSentry {.
-    cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", header: "Standard_Mutex.hxx".}
+    cdecl, constructor, importcpp: "Standard_Mutex::Sentry(@)", dynlib: tkernel.}
 proc destroyStandardMutexSentry*(this: var StandardMutexSentry) {.cdecl,
-    importcpp: "#.~Sentry()", header: "Standard_Mutex.hxx".}
+    importcpp: "#.~Sentry()", dynlib: tkernel.}
 proc constructStandardMutex*(): StandardMutex {.cdecl, constructor,
-    importcpp: "Standard_Mutex(@)", header: "Standard_Mutex.hxx".}
+    importcpp: "Standard_Mutex(@)", dynlib: tkernel.}
 proc destroyStandardMutex*(this: var StandardMutex) {.cdecl,
-    importcpp: "#.~Standard_Mutex()", header: "Standard_Mutex.hxx".}
-proc lock*(this: var StandardMutex) {.cdecl, importcpp: "Lock", header: "Standard_Mutex.hxx".}
+    importcpp: "#.~Standard_Mutex()", dynlib: tkernel.}
+proc lock*(this: var StandardMutex) {.cdecl, importcpp: "Lock", dynlib: tkernel.}
 proc tryLock*(this: var StandardMutex): bool {.cdecl, importcpp: "TryLock",
-    header: "Standard_Mutex.hxx".}
-proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", header: "Standard_Mutex.hxx".}
+    dynlib: tkernel.}
+proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}
 ##  Implementation of the method Unlock is inline, since it is
 ##  just a shortcut to system function
 
-#proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", header: "Standard_Mutex.hxx".}
+#proc unlock*(this: var StandardMutex) {.cdecl, importcpp: "Unlock", dynlib: tkernel.}

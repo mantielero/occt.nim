@@ -21,6 +21,6 @@ type
 
 
 proc constructStandardPersistent*(): StandardPersistent {.cdecl, constructor,
-    importcpp: "Standard_Persistent(@)", header: "Standard_Persistent.hxx".}
+    importcpp: "Standard_Persistent(@)", dynlib: tkernel.}
 proc typeNum*(this: var StandardPersistent): var cint {.cdecl, importcpp: "TypeNum",
-    header: "Standard_Persistent.hxx".}
+    dynlib: tkernel.}

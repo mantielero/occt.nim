@@ -36,16 +36,16 @@ type
 
 
 proc newNCollectionShared*[T](): NCollectionShared[T] {.cdecl, constructor,
-    importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1](arg1: T1): NCollectionShared[T] {.cdecl,
-    constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1](arg1: var T1): NCollectionShared[T] {.cdecl,
-    constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1; T2](arg1: T1; arg2: T2): NCollectionShared[T] {.cdecl,
-    constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1; T2](arg1: var T1; arg2: T2): NCollectionShared[T] {.
-    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1; T2](arg1: T1; arg2: var T2): NCollectionShared[T] {.
-    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionShared*[T; T1; T2](arg1: var T1; arg2: var T2): NCollectionShared[T] {.
-    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", header: "NCollection_Shared.hxx".}
+    cdecl, constructor, importcpp: "NCollection_Shared<\'*0>(@)", dynlib: tkernel.}

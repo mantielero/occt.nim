@@ -20,46 +20,46 @@ discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 type
-  GC_MakeLine* {.importcpp: "GC_MakeLine", header: "GC_MakeLine.hxx", bycopy.} = object of GC_Root ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## line
-                                                                                         ## located
-                                                                                         ## in
-                                                                                         ## 3D
-                                                                                         ## space
-                                                                                         ## with
-                                                                                         ## the
-                                                                                         ## axis
-                                                                                         ## placement
-                                                                                         ## A1.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## Location
-                                                                                         ## of
-                                                                                         ## A1
-                                                                                         ## is
-                                                                                         ## the
-                                                                                         ## origin
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## line.
+  MakeLine* {.importcpp: "GC_MakeLine", header: "GC_MakeLine.hxx", bycopy.} = object of Root ##
+                                                                                   ## !
+                                                                                   ## Creates
+                                                                                   ## a
+                                                                                   ## line
+                                                                                   ## located
+                                                                                   ## in
+                                                                                   ## 3D
+                                                                                   ## space
+                                                                                   ## with
+                                                                                   ## the
+                                                                                   ## axis
+                                                                                   ## placement
+                                                                                   ## A1.
+                                                                                   ##
+                                                                                   ## !
+                                                                                   ## The
+                                                                                   ## Location
+                                                                                   ## of
+                                                                                   ## A1
+                                                                                   ## is
+                                                                                   ## the
+                                                                                   ## origin
+                                                                                   ## of
+                                                                                   ## the
+                                                                                   ## line.
 
 
-proc newGC_MakeLine*(a1: Ax1): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc newGC_MakeLine*(L: Lin): GC_MakeLine {.cdecl, constructor,
+proc newMakeLine*(a1: Ax1): MakeLine {.cdecl, constructor,
+                                   importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+proc newMakeLine*(L: Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
+                                  dynlib: tkgeombase.}
+proc newMakeLine*(p: Pnt; v: Dir): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
-                                        header: "GC_MakeLine.hxx".}
-proc newGC_MakeLine*(p: Pnt; v: Dir): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc newGC_MakeLine*(lin: Lin; point: Pnt): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc newGC_MakeLine*(p1: Pnt; p2: Pnt): GC_MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc value*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeLine.hxx".}
-converter `constopencascade`*(this: GC_MakeLine): Handle[GeomLine] {.noSideEffect,
-    cdecl, importcpp: "GC_MakeLine::operator constopencascade", header: "GC_MakeLine.hxx".}
+                                        dynlib: tkgeombase.}
+proc newMakeLine*(lin: Lin; point: Pnt): MakeLine {.cdecl, constructor,
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+proc newMakeLine*(p1: Pnt; p2: Pnt): MakeLine {.cdecl, constructor,
+    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeLine): Handle[GeomLine] {.noSideEffect,
+    cdecl, importcpp: "GC_MakeLine::operator constopencascade", dynlib: tkgeombase.}

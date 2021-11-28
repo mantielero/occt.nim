@@ -133,6 +133,10 @@ genFiles("Geom_Circle")
 genFiles("Geom_ConicalSurface")
 genFiles("Geom_Conic")
 genFiles("Geom_Curve")
+pp("geom_curve.nim",
+  replaceAll = @[("HandleGeomCurve* = Handle[GeomCurve]", 
+    """HandleGeomCurve* {.importcpp:"opencascade::handle<GeomCurve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj""")]
+)
 genFiles("Geom_CylindricalSurface")
 genFiles("Geom_Direction")
 genFiles("Geom_ElementarySurface")
@@ -157,6 +161,10 @@ genFiles("Geom_SweptSurface")
 genFiles("Geom_ToroidalSurface")
 genFiles("Geom_Transformation")
 genFiles("Geom_TrimmedCurve")
+pp("geom_trimmedcurve.nim",
+  replaceAll = @[("HandleGeomTrimmedCurve* = Handle[GeomTrimmedCurve]", 
+    """HandleGeomTrimmedCurve* {.importcpp:"opencascade::handle<GeomTrimmedCurve>", header: "Standard_Handle.hxx", bycopy.} = object of HandleGeomCurve""")]
+)
 genFiles("Geom_UndefinedDerivative")
 genFiles("Geom_UndefinedValue")
 genFiles("Geom_Vector")

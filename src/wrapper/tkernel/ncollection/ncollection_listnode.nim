@@ -27,8 +27,8 @@ type
 
 
 proc newNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.
-    cdecl, constructor, importcpp: "NCollection_ListNode(@)", header: "NCollection_ListNode.hxx".}
+    cdecl, constructor, importcpp: "NCollection_ListNode(@)", dynlib: tkernel.}
 proc next*(this: var NCollectionListNode): ptr NCollectionListNode {.cdecl,
-    importcpp: "Next", header: "NCollection_ListNode.hxx".}
+    importcpp: "Next", dynlib: tkernel.}
 proc next*(this: NCollectionListNode): ptr NCollectionListNode {.noSideEffect, cdecl,
-    importcpp: "Next", header: "NCollection_ListNode.hxx".}
+    importcpp: "Next", dynlib: tkernel.}

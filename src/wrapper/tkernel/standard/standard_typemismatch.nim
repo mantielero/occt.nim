@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardTypeMismatch):
   template standardTypeMismatchRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardTypeMismatch*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_TypeMismatch(@)", header: "Standard_TypeMismatch.hxx".}
+          importcpp: "Standard_TypeMismatch(@)", dynlib: tkernel.}
 
 else:
   discard

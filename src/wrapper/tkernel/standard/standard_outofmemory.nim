@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardOutOfMemory):
   template standardOutOfMemoryRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardOutOfMemory*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_OutOfMemory(@)", header: "Standard_OutOfMemory.hxx".}
+          importcpp: "Standard_OutOfMemory(@)", dynlib: tkernel.}
 
 else:
   discard
@@ -54,14 +54,14 @@ type
 
 
 proc constructStandardOutOfMemory*(theMessage: cstring = 0): StandardOutOfMemory {.
-    cdecl, constructor, importcpp: "Standard_OutOfMemory(@)", header: "Standard_OutOfMemory.hxx".}
+    cdecl, constructor, importcpp: "Standard_OutOfMemory(@)", dynlib: tkernel.}
 proc getMessageString*(this: StandardOutOfMemory): cstring {.noSideEffect, cdecl,
-    importcpp: "GetMessageString", header: "Standard_OutOfMemory.hxx".}
+    importcpp: "GetMessageString", dynlib: tkernel.}
 proc setMessageString*(this: var StandardOutOfMemory; aMessage: cstring) {.cdecl,
-    importcpp: "SetMessageString", header: "Standard_OutOfMemory.hxx".}
+    importcpp: "SetMessageString", dynlib: tkernel.}
 proc `raise`*(theMessage: cstring = "") {.cdecl, importcpp: "Standard_OutOfMemory::Raise(@)",
-                                     header: "Standard_OutOfMemory.hxx".}
+                                     dynlib: tkernel.}
 proc `raise`*(theMessage: var StandardSStream) {.cdecl,
-    importcpp: "Standard_OutOfMemory::Raise(@)", header: "Standard_OutOfMemory.hxx".}
+    importcpp: "Standard_OutOfMemory::Raise(@)", dynlib: tkernel.}
 proc newInstance*(theMessage: cstring = ""): Handle[StandardOutOfMemory] {.cdecl,
-    importcpp: "Standard_OutOfMemory::NewInstance(@)", header: "Standard_OutOfMemory.hxx".}
+    importcpp: "Standard_OutOfMemory::NewInstance(@)", dynlib: tkernel.}

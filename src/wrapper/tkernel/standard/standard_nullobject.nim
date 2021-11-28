@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardNullObject):
   template standardNullObjectRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardNullObject*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_NullObject(@)", header: "Standard_NullObject.hxx".}
+          importcpp: "Standard_NullObject(@)", dynlib: tkernel.}
 
 else:
   discard

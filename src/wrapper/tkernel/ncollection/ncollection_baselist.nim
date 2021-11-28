@@ -64,26 +64,26 @@ type
 
 
 proc newNCollectionBaseListIterator*(): NCollectionBaseListIterator {.cdecl,
-    constructor, importcpp: "NCollection_BaseList::Iterator(@)", header: "NCollection_BaseList.hxx".}
+    constructor, importcpp: "NCollection_BaseList::Iterator(@)", dynlib: tkernel.}
 proc newNCollectionBaseListIterator*(theList: NCollectionBaseList): NCollectionBaseListIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseList::Iterator(@)",
-    header: "NCollection_BaseList.hxx".}
+    dynlib: tkernel.}
 proc init*(this: var NCollectionBaseListIterator; theList: NCollectionBaseList) {.
-    cdecl, importcpp: "Init", header: "NCollection_BaseList.hxx".}
+    cdecl, importcpp: "Init", dynlib: tkernel.}
 proc initialize*(this: var NCollectionBaseListIterator; theList: NCollectionBaseList) {.
-    cdecl, importcpp: "Initialize", header: "NCollection_BaseList.hxx".}
+    cdecl, importcpp: "Initialize", dynlib: tkernel.}
 proc more*(this: NCollectionBaseListIterator): bool {.noSideEffect, cdecl,
-    importcpp: "More", header: "NCollection_BaseList.hxx".}
+    importcpp: "More", dynlib: tkernel.}
 proc `==`*(this: NCollectionBaseListIterator; theIt: NCollectionBaseListIterator): bool {.
-    noSideEffect, cdecl, importcpp: "(# == #)", header: "NCollection_BaseList.hxx".}
+    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
 proc isEqual*(this: NCollectionBaseListIterator;
              theOther: NCollectionBaseListIterator): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", header: "NCollection_BaseList.hxx".}
+    importcpp: "IsEqual", dynlib: tkernel.}
 proc extent*(this: NCollectionBaseList): cint {.noSideEffect, cdecl,
-    importcpp: "Extent", header: "NCollection_BaseList.hxx".}
+    importcpp: "Extent", dynlib: tkernel.}
 proc isEmpty*(this: NCollectionBaseList): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", header: "NCollection_BaseList.hxx".}
+    importcpp: "IsEmpty", dynlib: tkernel.}
 proc allocator*(this: NCollectionBaseList): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", header: "NCollection_BaseList.hxx".}
+    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}
 proc destroyNCollectionBaseList*(this: var NCollectionBaseList) {.cdecl,
-    importcpp: "#.~NCollection_BaseList()", header: "NCollection_BaseList.hxx".}
+    importcpp: "#.~NCollection_BaseList()", dynlib: tkernel.}

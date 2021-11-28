@@ -49,13 +49,13 @@ type
                                                                                                               ## transform.
 
 
-proc newBRepBuilderAPI_Transform*(t: Trsf): BRepBuilderAPI_Transform {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
-proc newBRepBuilderAPI_Transform*(s: TopoDS_Shape; t: Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
+proc transform*(t: Trsf): BRepBuilderAPI_Transform {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_Transform(@)", dynlib: tktopalgo.}
+proc transform*(s: TopoDS_Shape; t: Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_Transform(@)", dynlib: tktopalgo.}
 proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape; copy: bool = false) {.
-    cdecl, importcpp: "Perform", header: "BRepBuilderAPI_Transform.hxx".}
+    cdecl, importcpp: "Perform", dynlib: tktopalgo.}
 proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_Transform.hxx".}
+    noSideEffect, cdecl, importcpp: "ModifiedShape", dynlib: tktopalgo.}
 proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}
+    cdecl, importcpp: "Modified", dynlib: tktopalgo.}

@@ -67,11 +67,11 @@ type
 proc newNCollectionSequenceNode*[TheItemType](theItem: TheItemType): NCollectionSequenceNode[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Sequence<\'*0>::Node(@)",
-                  header: "NCollection_Sequence.hxx".}
+                  dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionSequenceNode[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionSequenceNode[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
 type
   NCollectionSequenceIterator*[TheItemType] {.
       importcpp: "NCollection_Sequence<\'0>::Iterator",
@@ -88,22 +88,22 @@ type
 proc newNCollectionSequenceIterator*[TheItemType](): NCollectionSequenceIterator[
     TheItemType] {.cdecl, constructor,
                   importcpp: "NCollection_Sequence<\'*0>::Iterator(@)",
-                  header: "NCollection_Sequence.hxx".}
+                  dynlib: tkernel.}
 proc newNCollectionSequenceIterator*[TheItemType](theSeq: NCollectionSequence;
     isStart: bool = true): NCollectionSequenceIterator[TheItemType] {.cdecl,
     constructor, importcpp: "NCollection_Sequence<\'*0>::Iterator(@)",
-    header: "NCollection_Sequence.hxx".}
+    dynlib: tkernel.}
 proc more*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): bool {.
-    noSideEffect, cdecl, importcpp: "More", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
 proc next*[TheItemType](this: var NCollectionSequenceIterator[TheItemType]) {.cdecl,
-    importcpp: "Next", header: "NCollection_Sequence.hxx".}
+    importcpp: "Next", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): var TheItemType {.
-    noSideEffect, cdecl, importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}
 proc isEqual*[TheItemType](this: NCollectionSequenceIterator[TheItemType];
                           theOther: NCollectionSequenceIterator): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
 type
 #  NCollectionSequenceiterator* = NCollectionStlIterator[BidirectionalIteratorTag,
 #      NCollectionSequenceIterator, TheItemType, False]
@@ -111,101 +111,101 @@ type
       BidirectionalIteratorTag, NCollectionSequenceIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceiterator {.
-    noSideEffect, cdecl, importcpp: "begin", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
 proc `end`*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceiterator {.
-    noSideEffect, cdecl, importcpp: "end", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "end", dynlib: tkernel.}
 proc cbegin*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceconstIterator {.
-    noSideEffect, cdecl, importcpp: "cbegin", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
 proc cend*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceconstIterator {.
-    noSideEffect, cdecl, importcpp: "cend", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
 proc newNCollectionSequence*[TheItemType](): NCollectionSequence[TheItemType] {.
-    cdecl, constructor, importcpp: "NCollection_Sequence<\'*0>(@)", header: "NCollection_Sequence.hxx".}
+    cdecl, constructor, importcpp: "NCollection_Sequence<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionSequence*[TheItemType](
     theAllocator: Handle[NCollectionBaseAllocator]): NCollectionSequence[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
-                  header: "NCollection_Sequence.hxx".}
+                  dynlib: tkernel.}
 proc newNCollectionSequence*[TheItemType](theOther: NCollectionSequence): NCollectionSequence[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_Sequence<\'*0>(@)",
-                  header: "NCollection_Sequence.hxx".}
+                  dynlib: tkernel.}
 proc size*[TheItemType](this: NCollectionSequence[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Size", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Size", dynlib: tkernel.}
 proc length*[TheItemType](this: NCollectionSequence[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Length", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Length", dynlib: tkernel.}
 proc lower*[TheItemType](this: NCollectionSequence[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Lower", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Lower", dynlib: tkernel.}
 proc upper*[TheItemType](this: NCollectionSequence[TheItemType]): cint {.
-    noSideEffect, cdecl, importcpp: "Upper", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Upper", dynlib: tkernel.}
 proc isEmpty*[TheItemType](this: NCollectionSequence[TheItemType]): bool {.
-    noSideEffect, cdecl, importcpp: "IsEmpty", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "IsEmpty", dynlib: tkernel.}
 proc reverse*[TheItemType](this: var NCollectionSequence[TheItemType]) {.cdecl,
-    importcpp: "Reverse", header: "NCollection_Sequence.hxx".}
+    importcpp: "Reverse", dynlib: tkernel.}
 proc exchange*[TheItemType](this: var NCollectionSequence[TheItemType]; i: cint;
-                           j: cint) {.cdecl, importcpp: "Exchange", header: "NCollection_Sequence.hxx".}
+                           j: cint) {.cdecl, importcpp: "Exchange", dynlib: tkernel.}
 proc delNode*[TheItemType](theNode: ptr NCollectionSeqNode;
                           theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
-    importcpp: "NCollection_Sequence::delNode(@)", header: "NCollection_Sequence.hxx".}
+    importcpp: "NCollection_Sequence::delNode(@)", dynlib: tkernel.}
 proc clear*[TheItemType](this: var NCollectionSequence[TheItemType];
                         theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.
-    cdecl, importcpp: "Clear", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "Clear", dynlib: tkernel.}
 proc assign*[TheItemType](this: var NCollectionSequence[TheItemType];
                          theOther: NCollectionSequence): var NCollectionSequence {.
-    cdecl, importcpp: "Assign", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "Assign", dynlib: tkernel.}
 proc remove*[TheItemType](this: var NCollectionSequence[TheItemType];
                          thePosition: var NCollectionSequenceIterator) {.cdecl,
-    importcpp: "Remove", header: "NCollection_Sequence.hxx".}
+    importcpp: "Remove", dynlib: tkernel.}
 proc remove*[TheItemType](this: var NCollectionSequence[TheItemType]; theIndex: cint) {.
-    cdecl, importcpp: "Remove", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "Remove", dynlib: tkernel.}
 proc remove*[TheItemType](this: var NCollectionSequence[TheItemType];
                          theFromIndex: cint; theToIndex: cint) {.cdecl,
-    importcpp: "Remove", header: "NCollection_Sequence.hxx".}
+    importcpp: "Remove", dynlib: tkernel.}
 proc append*[TheItemType](this: var NCollectionSequence[TheItemType];
                          theItem: TheItemType) {.cdecl, importcpp: "Append",
-    header: "NCollection_Sequence.hxx".}
+    dynlib: tkernel.}
 proc append*[TheItemType](this: var NCollectionSequence[TheItemType];
                          theSeq: var NCollectionSequence) {.cdecl,
-    importcpp: "Append", header: "NCollection_Sequence.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc prepend*[TheItemType](this: var NCollectionSequence[TheItemType];
                           theItem: TheItemType) {.cdecl, importcpp: "Prepend",
-    header: "NCollection_Sequence.hxx".}
+    dynlib: tkernel.}
 proc prepend*[TheItemType](this: var NCollectionSequence[TheItemType];
                           theSeq: var NCollectionSequence) {.cdecl,
-    importcpp: "Prepend", header: "NCollection_Sequence.hxx".}
+    importcpp: "Prepend", dynlib: tkernel.}
 proc insertBefore*[TheItemType](this: var NCollectionSequence[TheItemType];
                                theIndex: cint; theItem: TheItemType) {.cdecl,
-    importcpp: "InsertBefore", header: "NCollection_Sequence.hxx".}
+    importcpp: "InsertBefore", dynlib: tkernel.}
 proc insertBefore*[TheItemType](this: var NCollectionSequence[TheItemType];
                                theIndex: cint; theSeq: var NCollectionSequence) {.
-    cdecl, importcpp: "InsertBefore", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "InsertBefore", dynlib: tkernel.}
 proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
                               thePosition: var NCollectionSequenceIterator;
                               theItem: TheItemType) {.cdecl,
-    importcpp: "InsertAfter", header: "NCollection_Sequence.hxx".}
+    importcpp: "InsertAfter", dynlib: tkernel.}
 proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
                               theIndex: cint; theSeq: var NCollectionSequence) {.
-    cdecl, importcpp: "InsertAfter", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "InsertAfter", dynlib: tkernel.}
 proc insertAfter*[TheItemType](this: var NCollectionSequence[TheItemType];
                               theIndex: cint; theItem: TheItemType) {.cdecl,
-    importcpp: "InsertAfter", header: "NCollection_Sequence.hxx".}
+    importcpp: "InsertAfter", dynlib: tkernel.}
 proc split*[TheItemType](this: var NCollectionSequence[TheItemType]; theIndex: cint;
                         theSeq: var NCollectionSequence) {.cdecl,
-    importcpp: "Split", header: "NCollection_Sequence.hxx".}
+    importcpp: "Split", dynlib: tkernel.}
 proc first*[TheItemType](this: NCollectionSequence[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "First", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "First", dynlib: tkernel.}
 proc changeFirst*[TheItemType](this: var NCollectionSequence[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "ChangeFirst", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "ChangeFirst", dynlib: tkernel.}
 proc last*[TheItemType](this: NCollectionSequence[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Last", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Last", dynlib: tkernel.}
 proc changeLast*[TheItemType](this: var NCollectionSequence[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "ChangeLast", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "ChangeLast", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionSequence[TheItemType]; theIndex: cint): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc `()`*[TheItemType](this: NCollectionSequence[TheItemType]; theIndex: cint): TheItemType {.
-    noSideEffect, cdecl, importcpp: "#(@)", header: "NCollection_Sequence.hxx".}
+    noSideEffect, cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: var NCollectionSequence[TheItemType];
                               theIndex: cint): var TheItemType {.cdecl,
-    importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
+    importcpp: "ChangeValue", dynlib: tkernel.}
 proc `()`*[TheItemType](this: var NCollectionSequence[TheItemType]; theIndex: cint): var TheItemType {.
-    cdecl, importcpp: "#(@)", header: "NCollection_Sequence.hxx".}
+    cdecl, importcpp: "#(@)", dynlib: tkernel.}
 proc setValue*[TheItemType](this: var NCollectionSequence[TheItemType];
                            theIndex: cint; theItem: TheItemType) {.cdecl,
-    importcpp: "SetValue", header: "NCollection_Sequence.hxx".}
+    importcpp: "SetValue", dynlib: tkernel.}

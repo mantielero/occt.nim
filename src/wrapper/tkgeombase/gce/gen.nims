@@ -108,6 +108,9 @@ genFiles("gce_MakeCirc2d")
 genFiles("gce_MakeCirc")
 genFiles("gce_MakeCone")
 genFiles("gce_MakeCylinder")
+pp("gce_makecylinder.nim",
+  replaceAll = @[("newGceMake","new")]
+)
 genFiles("gce_MakeDir2d")
 genFiles("gce_MakeDir")
 genFiles("gce_MakeElips2d")

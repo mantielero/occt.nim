@@ -66,51 +66,51 @@ type
 
 
 proc newBRepBuilderAPI_MakePolygon*(): BRepBuilderAPI_MakePolygon {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                    v3: TopoDS_Vertex; close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                    v3: TopoDS_Vertex; v4: TopoDS_Vertex;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakePolygon; p: Pnt) {.cdecl, importcpp: "Add",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakePolygon; v: TopoDS_Vertex) {.cdecl,
-    importcpp: "Add", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    importcpp: "Add", dynlib: tktopalgo.}
 proc added*(this: BRepBuilderAPI_MakePolygon): bool {.noSideEffect, cdecl,
-    importcpp: "Added", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    importcpp: "Added", dynlib: tktopalgo.}
 proc close*(this: var BRepBuilderAPI_MakePolygon) {.cdecl, importcpp: "Close",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc firstVertex*(this: BRepBuilderAPI_MakePolygon): TopoDS_Vertex {.noSideEffect,
-    cdecl, importcpp: "FirstVertex", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    cdecl, importcpp: "FirstVertex", dynlib: tktopalgo.}
 proc lastVertex*(this: BRepBuilderAPI_MakePolygon): TopoDS_Vertex {.noSideEffect,
-    cdecl, importcpp: "LastVertex", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    cdecl, importcpp: "LastVertex", dynlib: tktopalgo.}
 proc isDone*(this: BRepBuilderAPI_MakePolygon): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    importcpp: "IsDone", dynlib: tktopalgo.}
 proc edge*(this: BRepBuilderAPI_MakePolygon): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    importcpp: "Edge", dynlib: tktopalgo.}
 converter `topoDS_Edge`*(this: BRepBuilderAPI_MakePolygon): TopoDS_Edge {.
     noSideEffect, cdecl,
     importcpp: "BRepBuilderAPI_MakePolygon::operator TopoDS_Edge",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}
 proc wire*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
-    importcpp: "Wire", header: "BRepBuilderAPI_MakePolygon.hxx".}
+    importcpp: "Wire", dynlib: tktopalgo.}
 converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
     importcpp: "BRepBuilderAPI_MakePolygon::operator TopoDS_Wire",
-    header: "BRepBuilderAPI_MakePolygon.hxx".}
+    dynlib: tktopalgo.}

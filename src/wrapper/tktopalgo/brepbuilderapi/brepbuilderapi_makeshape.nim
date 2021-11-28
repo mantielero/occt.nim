@@ -37,15 +37,15 @@ type
 
 
 proc build*(this: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Build",
-    header: "BRepBuilderAPI_MakeShape.hxx".}
+    dynlib: tktopalgo.}
 proc shape*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
-    importcpp: "Shape", header: "BRepBuilderAPI_MakeShape.hxx".}
+    importcpp: "Shape", dynlib: tktopalgo.}
 converter `topoDS_Shape`*(this: var BRepBuilderAPI_MakeShape): TopoDS_Shape {.cdecl,
     importcpp: "BRepBuilderAPI_MakeShape::operator TopoDS_Shape",
-    header: "BRepBuilderAPI_MakeShape.hxx".}
+    dynlib: tktopalgo.}
 proc generated*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", header: "BRepBuilderAPI_MakeShape.hxx".}
+    cdecl, importcpp: "Generated", dynlib: tktopalgo.}
 proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
+    cdecl, importcpp: "Modified", dynlib: tktopalgo.}
 proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
+    importcpp: "IsDeleted", dynlib: tktopalgo.}

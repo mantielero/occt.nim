@@ -72,58 +72,58 @@ type
                                                                                                 ## modified.
 
 
-proc uReverse*(this: var GeomSurface) {.cdecl, importcpp: "UReverse", header: "Geom_Surface.hxx".}
+proc uReverse*(this: var GeomSurface) {.cdecl, importcpp: "UReverse", dynlib: tkg3d.}
 proc uReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "UReversed", header: "Geom_Surface.hxx".}
+    importcpp: "UReversed", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomSurface; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "UReversedParameter", header: "Geom_Surface.hxx".}
-proc vReverse*(this: var GeomSurface) {.cdecl, importcpp: "VReverse", header: "Geom_Surface.hxx".}
+    importcpp: "UReversedParameter", dynlib: tkg3d.}
+proc vReverse*(this: var GeomSurface) {.cdecl, importcpp: "VReverse", dynlib: tkg3d.}
 proc vReversed*(this: GeomSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "VReversed", header: "Geom_Surface.hxx".}
+    importcpp: "VReversed", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomSurface; v: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "VReversedParameter", header: "Geom_Surface.hxx".}
+    importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc transformParameters*(this: GeomSurface; u: var cfloat; v: var cfloat; t: Trsf) {.
-    noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_Surface.hxx".}
+    noSideEffect, cdecl, importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomSurface; t: Trsf): GTrsf2d {.noSideEffect,
-    cdecl, importcpp: "ParametricTransformation", header: "Geom_Surface.hxx".}
+    cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc bounds*(this: GeomSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
-            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_Surface.hxx".}
+            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
 proc isUClosed*(this: GeomSurface): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsUClosed", header: "Geom_Surface.hxx".}
+                                       importcpp: "IsUClosed", dynlib: tkg3d.}
 proc isVClosed*(this: GeomSurface): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsVClosed", header: "Geom_Surface.hxx".}
+                                       importcpp: "IsVClosed", dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", header: "Geom_Surface.hxx".}
+    importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc uPeriod*(this: GeomSurface): cfloat {.noSideEffect, cdecl, importcpp: "UPeriod",
-                                       header: "Geom_Surface.hxx".}
+                                       dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", header: "Geom_Surface.hxx".}
+    importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc vPeriod*(this: GeomSurface): cfloat {.noSideEffect, cdecl, importcpp: "VPeriod",
-                                       header: "Geom_Surface.hxx".}
+                                       dynlib: tkg3d.}
 proc uIso*(this: GeomSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "UIso", header: "Geom_Surface.hxx".}
+    importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "VIso", header: "Geom_Surface.hxx".}
+    importcpp: "VIso", dynlib: tkg3d.}
 proc continuity*(this: GeomSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", header: "Geom_Surface.hxx".}
+    importcpp: "Continuity", dynlib: tkg3d.}
 proc isCNu*(this: GeomSurface; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCNu",
-    header: "Geom_Surface.hxx".}
+    dynlib: tkg3d.}
 proc isCNv*(this: GeomSurface; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCNv",
-    header: "Geom_Surface.hxx".}
+    dynlib: tkg3d.}
 proc d0*(this: GeomSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", header: "Geom_Surface.hxx".}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D1", header: "Geom_Surface.hxx".}
+    noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl, importcpp: "D2",
-    header: "Geom_Surface.hxx".}
+    dynlib: tkg3d.}
 proc d3*(this: GeomSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Surface.hxx".}
+        d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.noSideEffect,
-    cdecl, importcpp: "DN", header: "Geom_Surface.hxx".}
+    cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc value*(this: GeomSurface; u: cfloat; v: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", header: "Geom_Surface.hxx".}
+    importcpp: "Value", dynlib: tkg3d.}
 proc dumpJson*(this: GeomSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "Geom_Surface.hxx".}
+                                 dynlib: tkg3d.}

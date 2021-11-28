@@ -45,11 +45,11 @@ type
 
 proc newNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
     cdecl, constructor, importcpp: "NCollection_AlignedAllocator(@)",
-    header: "NCollection_AlignedAllocator.hxx".}
+    dynlib: tkernel.}
 proc allocate*(this: var NCollectionAlignedAllocator; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Allocate", header: "NCollection_AlignedAllocator.hxx".}
+    cdecl, importcpp: "Allocate", dynlib: tkernel.}
 proc free*(this: var NCollectionAlignedAllocator; thePtr: pointer) {.cdecl,
-    importcpp: "Free", header: "NCollection_AlignedAllocator.hxx".}
+    importcpp: "Free", dynlib: tkernel.}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
 type

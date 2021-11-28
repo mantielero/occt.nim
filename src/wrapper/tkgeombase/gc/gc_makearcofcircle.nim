@@ -18,43 +18,26 @@ discard "forward decl of gp_Circ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 type
-  GC_MakeArcOfCircle* {.importcpp: "GC_MakeArcOfCircle",
-                       header: "GC_MakeArcOfCircle.hxx", bycopy.} = object of GC_Root ## !
-                                                                               ## Make
-                                                                               ## an
-                                                                               ## arc
-                                                                               ## of
-                                                                               ## circle
-                                                                               ## (TrimmedCurve
-                                                                               ## from
-                                                                               ## Geom)
-                                                                               ## from
-                                                                               ## ! a
-                                                                               ## circle
-                                                                               ## between
-                                                                               ## two
-                                                                               ## angles
-                                                                               ## Alpha1
-                                                                               ## and
-                                                                               ## Alpha2
-                                                                               ## !
-                                                                               ## given
-                                                                               ## in
-                                                                               ## radiians.
+  MakeArcOfCircle* {.importcpp: "GC_MakeArcOfCircle",
+                    header: "GC_MakeArcOfCircle.hxx", bycopy.} = object of Root ## ! Make an arc of circle
+                                                                         ## (TrimmedCurve from Geom) from
+                                                                         ## ! a circle between two angles Alpha1 and Alpha2
+                                                                         ## ! given in
+                                                                         ## radiians.
 
 
-proc newGC_MakeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc newGC_MakeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc newGC_MakeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfCircle {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc newGC_MakeArcOfCircle*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakeArcOfCircle {.cdecl,
-    constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc newGC_MakeArcOfCircle*(p1: Pnt; v: Vec; p2: Pnt): GC_MakeArcOfCircle {.cdecl,
-    constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc value*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.noSideEffect,
-    cdecl, importcpp: "Value", header: "GC_MakeArcOfCircle.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfCircle): Handle[GeomTrimmedCurve] {.
+proc newMakeArcOfCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
+proc newMakeArcOfCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfCircle {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
+proc newMakeArcOfCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfCircle {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
+proc newMakeArcOfCircle*(p1: Pnt; p2: Pnt; p3: Pnt): MakeArcOfCircle {.cdecl,
+    constructor, importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
+proc newMakeArcOfCircle*(p1: Pnt; v: Vec; p2: Pnt): MakeArcOfCircle {.cdecl, constructor,
+    importcpp: "GC_MakeArcOfCircle(@)", dynlib: tkgeombase.}
+proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeArcOfCircle::operator constopencascade", header: "GC_MakeArcOfCircle.hxx".}
+    importcpp: "GC_MakeArcOfCircle::operator constopencascade", dynlib: tkgeombase.}

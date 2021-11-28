@@ -32,14 +32,14 @@ type
 
 proc newGceMakeElips2d*(majorAxis: Ax2d; majorRadius: cfloat; minorRadius: cfloat;
                        sense: bool = true): GceMakeElips2d {.cdecl, constructor,
-    importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
+    importcpp: "gce_MakeElips2d(@)", dynlib: tkgeombase.}
 proc newGceMakeElips2d*(a: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
-    cdecl, constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
+    cdecl, constructor, importcpp: "gce_MakeElips2d(@)", dynlib: tkgeombase.}
 proc newGceMakeElips2d*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GceMakeElips2d {.cdecl,
-    constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
+    constructor, importcpp: "gce_MakeElips2d(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl, importcpp: "Value",
-    header: "gce_MakeElips2d.hxx".}
+    dynlib: tkgeombase.}
 proc operator*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl,
-    importcpp: "Operator", header: "gce_MakeElips2d.hxx".}
+    importcpp: "Operator", dynlib: tkgeombase.}
 converter `elips2d`*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl,
-    importcpp: "gce_MakeElips2d::operator gp_Elips2d", header: "gce_MakeElips2d.hxx".}
+    importcpp: "gce_MakeElips2d::operator gp_Elips2d", dynlib: tkgeombase.}

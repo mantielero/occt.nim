@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardImmutableObject):
   template standardImmutableObjectRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardImmutableObject*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_ImmutableObject(@)", header: "Standard_ImmutableObject.hxx".}
+          importcpp: "Standard_ImmutableObject(@)", dynlib: tkernel.}
 
 else:
   discard

@@ -18,39 +18,28 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips"
 discard "forward decl of gp_Pnt"
 type
-  GC_MakeArcOfEllipse* {.importcpp: "GC_MakeArcOfEllipse",
-                        header: "GC_MakeArcOfEllipse.hxx", bycopy.} = object of GC_Root ##
-                                                                                 ## !
-                                                                                 ## Constructs
-                                                                                 ## an
-                                                                                 ## arc
-                                                                                 ## of
-                                                                                 ## Ellipse
-                                                                                 ## (TrimmedCurve
-                                                                                 ## from
-                                                                                 ## Geom)
-                                                                                 ## from
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## a
-                                                                                 ## Ellipse
-                                                                                 ## between
-                                                                                 ## two
-                                                                                 ## parameters
-                                                                                 ## Alpha1
-                                                                                 ## and
-                                                                                 ## Alpha2.
+  MakeArcOfEllipse* {.importcpp: "GC_MakeArcOfEllipse",
+                     header: "GC_MakeArcOfEllipse.hxx", bycopy.} = object of Root ## !
+                                                                           ## Constructs an arc of
+                                                                           ## Ellipse
+                                                                           ## (TrimmedCurve from Geom) from
+                                                                           ## ! a
+                                                                           ## Ellipse
+                                                                           ## between two
+                                                                           ## parameters
+                                                                           ## Alpha1 and
+                                                                           ## Alpha2.
 
 
-proc newGC_MakeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat; sense: bool): GC_MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc newGC_MakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): GC_MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc newGC_MakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): GC_MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc value*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect,
-    cdecl, importcpp: "Value", header: "GC_MakeArcOfEllipse.hxx".}
-converter `constopencascade`*(this: GC_MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.
+proc newMakeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfEllipse {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+proc newMakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+proc newMakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfEllipse {.
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+proc value*(this: MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.
     noSideEffect, cdecl,
     importcpp: "GC_MakeArcOfEllipse::operator constopencascade",
-    header: "GC_MakeArcOfEllipse.hxx".}
+    dynlib: tkgeombase.}

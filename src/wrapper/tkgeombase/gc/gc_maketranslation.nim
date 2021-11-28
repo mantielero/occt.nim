@@ -18,17 +18,16 @@ discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 type
-  GC_MakeTranslation* {.importcpp: "GC_MakeTranslation",
-                       header: "GC_MakeTranslation.hxx", bycopy.} = object ## ! Constructs a
-                                                                      ## translation along the vector " Vect "
+  MakeTranslation* {.importcpp: "GC_MakeTranslation",
+                    header: "GC_MakeTranslation.hxx", bycopy.} = object ## ! Constructs a translation along the vector " Vect "
 
 
-proc newGC_MakeTranslation*(vect: Vec): GC_MakeTranslation {.cdecl, constructor,
-    importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc newGC_MakeTranslation*(point1: Pnt; point2: Pnt): GC_MakeTranslation {.cdecl,
-    constructor, importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc value*(this: GC_MakeTranslation): Handle[GeomTransformation] {.noSideEffect,
-    cdecl, importcpp: "Value", header: "GC_MakeTranslation.hxx".}
-converter `constopencascade`*(this: GC_MakeTranslation): Handle[GeomTransformation] {.
+proc newMakeTranslation*(vect: Vec): MakeTranslation {.cdecl, constructor,
+    importcpp: "GC_MakeTranslation(@)", dynlib: tkgeombase.}
+proc newMakeTranslation*(point1: Pnt; point2: Pnt): MakeTranslation {.cdecl,
+    constructor, importcpp: "GC_MakeTranslation(@)", dynlib: tkgeombase.}
+proc value*(this: MakeTranslation): Handle[GeomTransformation] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeTranslation): Handle[GeomTransformation] {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeTranslation::operator constopencascade", header: "GC_MakeTranslation.hxx".}
+    importcpp: "GC_MakeTranslation::operator constopencascade", dynlib: tkgeombase.}

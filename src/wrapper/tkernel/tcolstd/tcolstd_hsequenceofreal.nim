@@ -18,17 +18,17 @@ type
 
 
 proc newTColStdHSequenceOfReal*(): TColStdHSequenceOfReal {.cdecl, constructor,
-    importcpp: "TColStd_HSequenceOfReal(@)", header: "TColStd_HSequenceOfReal.hxx".}
+    importcpp: "TColStd_HSequenceOfReal(@)", dynlib: tkernel.}
 proc newTColStdHSequenceOfReal*(theOther: TColStdSequenceOfReal): TColStdHSequenceOfReal {.
-    cdecl, constructor, importcpp: "TColStd_HSequenceOfReal(@)", header: "TColStd_HSequenceOfReal.hxx".}
+    cdecl, constructor, importcpp: "TColStd_HSequenceOfReal(@)", dynlib: tkernel.}
 proc sequence*(this: TColStdHSequenceOfReal): TColStdSequenceOfReal {.noSideEffect,
-    cdecl, importcpp: "Sequence", header: "TColStd_HSequenceOfReal.hxx".}
+    cdecl, importcpp: "Sequence", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfReal; theItem: ValueType) {.cdecl,
-    importcpp: "Append", header: "TColStd_HSequenceOfReal.hxx".}
+    importcpp: "Append", dynlib: tkernel.}
 proc append*(this: var TColStdHSequenceOfReal;
             theSequence: var TColStdSequenceOfReal) {.cdecl, importcpp: "Append",
-    header: "TColStd_HSequenceOfReal.hxx".}
+    dynlib: tkernel.}
 proc changeSequence*(this: var TColStdHSequenceOfReal): var TColStdSequenceOfReal {.
-    cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfReal.hxx".}
+    cdecl, importcpp: "ChangeSequence", dynlib: tkernel.}
 type
   HandleTColStdHSequenceOfReal* = Handle[TColStdHSequenceOfReal]

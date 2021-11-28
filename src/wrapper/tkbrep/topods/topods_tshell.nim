@@ -32,8 +32,8 @@ type
 
 proc newTopoDS_TShell*(): TopoDS_TShell {.cdecl, constructor,
                                        importcpp: "TopoDS_TShell(@)",
-                                       header: "TopoDS_TShell.hxx".}
+                                       dynlib: tkbrep.}
 proc shapeType*(this: TopoDS_TShell): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", header: "TopoDS_TShell.hxx".}
+    importcpp: "ShapeType", dynlib: tkbrep.}
 proc emptyCopy*(this: TopoDS_TShell): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", header: "TopoDS_TShell.hxx".}
+    importcpp: "EmptyCopy", dynlib: tkbrep.}

@@ -24,7 +24,7 @@ when not defined(noException) and not defined(noTopoDS_UnCompatibleShapes):
   template topoDS_UnCompatibleShapesRaiseIf*(condition, message: untyped): void =
     if condition:
       proc topoDS_UnCompatibleShapes*(a1: Message): Throw {.cdecl,
-          importcpp: "TopoDS_UnCompatibleShapes(@)", header: "TopoDS_UnCompatibleShapes.hxx".}
+          importcpp: "TopoDS_UnCompatibleShapes(@)", dynlib: tkbrep.}
 
 else:
   discard

@@ -24,16 +24,16 @@ type
 
 
 proc newAdaptor3dHVertex*(): Adaptor3dHVertex {.cdecl, constructor,
-    importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
+    importcpp: "Adaptor3d_HVertex(@)", dynlib: tkg3d.}
 proc newAdaptor3dHVertex*(p: Pnt2d; ori: TopAbsOrientation; resolution: cfloat): Adaptor3dHVertex {.
-    cdecl, constructor, importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
+    cdecl, constructor, importcpp: "Adaptor3d_HVertex(@)", dynlib: tkg3d.}
 proc value*(this: var Adaptor3dHVertex): Pnt2d {.cdecl, importcpp: "Value",
-    header: "Adaptor3d_HVertex.hxx".}
+    dynlib: tkg3d.}
 proc parameter*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
-    cdecl, importcpp: "Parameter", header: "Adaptor3d_HVertex.hxx".}
+    cdecl, importcpp: "Parameter", dynlib: tkg3d.}
 proc resolution*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
-    cdecl, importcpp: "Resolution", header: "Adaptor3d_HVertex.hxx".}
+    cdecl, importcpp: "Resolution", dynlib: tkg3d.}
 proc orientation*(this: var Adaptor3dHVertex): TopAbsOrientation {.cdecl,
-    importcpp: "Orientation", header: "Adaptor3d_HVertex.hxx".}
+    importcpp: "Orientation", dynlib: tkg3d.}
 proc isSame*(this: var Adaptor3dHVertex; other: Handle[Adaptor3dHVertex]): bool {.
-    cdecl, importcpp: "IsSame", header: "Adaptor3d_HVertex.hxx".}
+    cdecl, importcpp: "IsSame", dynlib: tkg3d.}

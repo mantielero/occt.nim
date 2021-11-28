@@ -104,6 +104,9 @@ proc pp*(file:string,
 # ls /usr/include/opencascade/GC_*.hxx | cut -c 26-
 
 genFiles("GC_MakeArcOfCircle")
+pp("gc_makearcofcircle.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve")]
+)
 genFiles("GC_MakeArcOfEllipse")
 genFiles("GC_MakeArcOfHyperbola")
 genFiles("GC_MakeArcOfParabola")
@@ -118,6 +121,9 @@ genFiles("GC_MakePlane")
 genFiles("GC_MakeRotation")
 genFiles("GC_MakeScale")
 genFiles("GC_MakeSegment")
+pp("gc_makesegment.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve")]
+)
 genFiles("GC_MakeTranslation")
 genFiles("GC_MakeTrimmedCone")
 genFiles("GC_MakeTrimmedCylinder")

@@ -99,45 +99,45 @@ type
 
 
 proc free*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Free",
-                                    header: "TopoDS_TShape.hxx".}
+                                    dynlib: tkbrep.}
 proc free*(this: var TopoDS_TShape; theIsFree: bool) {.cdecl, importcpp: "Free",
-    header: "TopoDS_TShape.hxx".}
+    dynlib: tkbrep.}
 proc locked*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Locked",
-                                      header: "TopoDS_TShape.hxx".}
+                                      dynlib: tkbrep.}
 proc locked*(this: var TopoDS_TShape; theIsLocked: bool) {.cdecl, importcpp: "Locked",
-    header: "TopoDS_TShape.hxx".}
+    dynlib: tkbrep.}
 proc modified*(this: TopoDS_TShape): bool {.noSideEffect, cdecl,
-                                        importcpp: "Modified", header: "TopoDS_TShape.hxx".}
+                                        importcpp: "Modified", dynlib: tkbrep.}
 proc modified*(this: var TopoDS_TShape; theIsModified: bool) {.cdecl,
-    importcpp: "Modified", header: "TopoDS_TShape.hxx".}
+    importcpp: "Modified", dynlib: tkbrep.}
 proc checked*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Checked",
-                                       header: "TopoDS_TShape.hxx".}
+                                       dynlib: tkbrep.}
 proc checked*(this: var TopoDS_TShape; theIsChecked: bool) {.cdecl,
-    importcpp: "Checked", header: "TopoDS_TShape.hxx".}
+    importcpp: "Checked", dynlib: tkbrep.}
 proc orientable*(this: TopoDS_TShape): bool {.noSideEffect, cdecl,
-    importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
+    importcpp: "Orientable", dynlib: tkbrep.}
 proc orientable*(this: var TopoDS_TShape; theIsOrientable: bool) {.cdecl,
-    importcpp: "Orientable", header: "TopoDS_TShape.hxx".}
+    importcpp: "Orientable", dynlib: tkbrep.}
 proc closed*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Closed",
-                                      header: "TopoDS_TShape.hxx".}
+                                      dynlib: tkbrep.}
 proc closed*(this: var TopoDS_TShape; theIsClosed: bool) {.cdecl, importcpp: "Closed",
-    header: "TopoDS_TShape.hxx".}
+    dynlib: tkbrep.}
 proc infinite*(this: TopoDS_TShape): bool {.noSideEffect, cdecl,
-                                        importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
+                                        importcpp: "Infinite", dynlib: tkbrep.}
 proc infinite*(this: var TopoDS_TShape; theIsInfinite: bool) {.cdecl,
-    importcpp: "Infinite", header: "TopoDS_TShape.hxx".}
+    importcpp: "Infinite", dynlib: tkbrep.}
 proc convex*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Convex",
-                                      header: "TopoDS_TShape.hxx".}
+                                      dynlib: tkbrep.}
 proc convex*(this: var TopoDS_TShape; theIsConvex: bool) {.cdecl, importcpp: "Convex",
-    header: "TopoDS_TShape.hxx".}
+    dynlib: tkbrep.}
 proc shapeType*(this: TopoDS_TShape): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", header: "TopoDS_TShape.hxx".}
+    importcpp: "ShapeType", dynlib: tkbrep.}
 proc emptyCopy*(this: TopoDS_TShape): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
-    importcpp: "EmptyCopy", header: "TopoDS_TShape.hxx".}
+    importcpp: "EmptyCopy", dynlib: tkbrep.}
 proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, cdecl,
-    importcpp: "NbChildren", header: "TopoDS_TShape.hxx".}
+    importcpp: "NbChildren", dynlib: tkbrep.}
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "TopoDS_TShape.hxx".}
+                                 dynlib: tkbrep.}
 type
   HandleTopoDS_TShape* = Handle[TopoDS_TShape]

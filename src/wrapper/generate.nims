@@ -19,6 +19,8 @@ proc executeGenerators() =
       cd(cwd)
 
 proc getPackageName(txt:string):string =
+  echo "==========="
+  echo txt
   var lines = txt.splitLines
   var pkg:string = ""
   if "let packageName" in txt:
@@ -58,10 +60,17 @@ proc processNimfile(filename, c2nim, headerFilename: string) =
     writeFile(filename, nim)  
 
 
+
+# 1. Create the bindings
+executeGenerators()
+
+# 2. 
+
 #let cwd = getCurrentDir()
 for i in walkDirRec("./"):
   var (dir, name, ext) = splitFile(i)
   if name == "gen" and ext == ".nims":
+    echo "----> ", i
     var txt = readFile( dir / name & ext ) 
     var pkgName = getPackageName(txt)
     var c2nim = readDynlib( dir / pkgName & ".c2nim" )

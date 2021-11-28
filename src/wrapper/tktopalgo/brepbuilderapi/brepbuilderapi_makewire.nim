@@ -93,36 +93,36 @@ type
                                                                                                           ## construction.
 
 
-proc newBRepBuilderAPI_MakeWire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge;
+proc newWire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,
+    importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge;
                                 e4: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(w: TopoDS_Wire): BRepBuilderAPI_MakeWire {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newBRepBuilderAPI_MakeWire*(w: TopoDS_Wire; e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
+    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(w: TopoDS_Wire): BRepBuilderAPI_MakeWire {.cdecl,
+    constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
+proc newWire*(w: TopoDS_Wire; e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakeWire; e: TopoDS_Edge) {.cdecl, importcpp: "Add",
-    header: "BRepBuilderAPI_MakeWire.hxx".}
+    dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakeWire; w: TopoDS_Wire) {.cdecl, importcpp: "Add",
-    header: "BRepBuilderAPI_MakeWire.hxx".}
+    dynlib: tktopalgo.}
 proc add*(this: var BRepBuilderAPI_MakeWire; L: TopToolsListOfShape) {.cdecl,
-    importcpp: "Add", header: "BRepBuilderAPI_MakeWire.hxx".}
+    importcpp: "Add", dynlib: tktopalgo.}
 proc isDone*(this: BRepBuilderAPI_MakeWire): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", header: "BRepBuilderAPI_MakeWire.hxx".}
+    importcpp: "IsDone", dynlib: tktopalgo.}
 proc error*(this: BRepBuilderAPI_MakeWire): BRepBuilderAPI_WireError {.noSideEffect,
-    cdecl, importcpp: "Error", header: "BRepBuilderAPI_MakeWire.hxx".}
+    cdecl, importcpp: "Error", dynlib: tktopalgo.}
 proc wire*(this: var BRepBuilderAPI_MakeWire): TopoDS_Wire {.cdecl, importcpp: "Wire",
-    header: "BRepBuilderAPI_MakeWire.hxx".}
+    dynlib: tktopalgo.}
 converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakeWire): TopoDS_Wire {.cdecl,
-    importcpp: "BRepBuilderAPI_MakeWire::operator TopoDS_Wire", header: "BRepBuilderAPI_MakeWire.hxx".}
+    importcpp: "BRepBuilderAPI_MakeWire::operator TopoDS_Wire", dynlib: tktopalgo.}
 proc edge*(this: BRepBuilderAPI_MakeWire): TopoDS_Edge {.noSideEffect, cdecl,
-    importcpp: "Edge", header: "BRepBuilderAPI_MakeWire.hxx".}
+    importcpp: "Edge", dynlib: tktopalgo.}
 proc vertex*(this: BRepBuilderAPI_MakeWire): TopoDS_Vertex {.noSideEffect, cdecl,
-    importcpp: "Vertex", header: "BRepBuilderAPI_MakeWire.hxx".}
+    importcpp: "Vertex", dynlib: tktopalgo.}

@@ -122,57 +122,57 @@ type
 
 
 proc newGeomPlane*(a3: Ax3): GeomPlane {.cdecl, constructor,
-                                     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+                                     importcpp: "Geom_Plane(@)", dynlib: tkg3d.}
 proc newGeomPlane*(pl: Pln): GeomPlane {.cdecl, constructor,
-                                     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+                                     importcpp: "Geom_Plane(@)", dynlib: tkg3d.}
 proc newGeomPlane*(p: Pnt; v: Dir): GeomPlane {.cdecl, constructor,
-    importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
+    importcpp: "Geom_Plane(@)", dynlib: tkg3d.}
 proc newGeomPlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GeomPlane {.cdecl,
-    constructor, importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc setPln*(this: var GeomPlane; pl: Pln) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}
-proc pln*(this: GeomPlane): Pln {.noSideEffect, cdecl, importcpp: "Pln", header: "Geom_Plane.hxx".}
-proc uReverse*(this: var GeomPlane) {.cdecl, importcpp: "UReverse", header: "Geom_Plane.hxx".}
+    constructor, importcpp: "Geom_Plane(@)", dynlib: tkg3d.}
+proc setPln*(this: var GeomPlane; pl: Pln) {.cdecl, importcpp: "SetPln", dynlib: tkg3d.}
+proc pln*(this: GeomPlane): Pln {.noSideEffect, cdecl, importcpp: "Pln", dynlib: tkg3d.}
+proc uReverse*(this: var GeomPlane) {.cdecl, importcpp: "UReverse", dynlib: tkg3d.}
 proc uReversedParameter*(this: GeomPlane; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}
-proc vReverse*(this: var GeomPlane) {.cdecl, importcpp: "VReverse", header: "Geom_Plane.hxx".}
+    importcpp: "UReversedParameter", dynlib: tkg3d.}
+proc vReverse*(this: var GeomPlane) {.cdecl, importcpp: "VReverse", dynlib: tkg3d.}
 proc vReversedParameter*(this: GeomPlane; v: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
+    importcpp: "VReversedParameter", dynlib: tkg3d.}
 proc transformParameters*(this: GeomPlane; u: var cfloat; v: var cfloat; t: Trsf) {.
-    noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_Plane.hxx".}
+    noSideEffect, cdecl, importcpp: "TransformParameters", dynlib: tkg3d.}
 proc parametricTransformation*(this: GeomPlane; t: Trsf): GTrsf2d {.noSideEffect,
-    cdecl, importcpp: "ParametricTransformation", header: "Geom_Plane.hxx".}
+    cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
 proc bounds*(this: GeomPlane; u1: var cfloat; u2: var cfloat; v1: var cfloat; v2: var cfloat) {.
-    noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_Plane.hxx".}
+    noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
 proc coefficients*(this: GeomPlane; a: var cfloat; b: var cfloat; c: var cfloat;
                   d: var cfloat) {.noSideEffect, cdecl, importcpp: "Coefficients",
-                                header: "Geom_Plane.hxx".}
+                                dynlib: tkg3d.}
 proc isUClosed*(this: GeomPlane): bool {.noSideEffect, cdecl, importcpp: "IsUClosed",
-                                     header: "Geom_Plane.hxx".}
+                                     dynlib: tkg3d.}
 proc isVClosed*(this: GeomPlane): bool {.noSideEffect, cdecl, importcpp: "IsVClosed",
-                                     header: "Geom_Plane.hxx".}
+                                     dynlib: tkg3d.}
 proc isUPeriodic*(this: GeomPlane): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsUPeriodic", header: "Geom_Plane.hxx".}
+                                       importcpp: "IsUPeriodic", dynlib: tkg3d.}
 proc isVPeriodic*(this: GeomPlane): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsVPeriodic", header: "Geom_Plane.hxx".}
+                                       importcpp: "IsVPeriodic", dynlib: tkg3d.}
 proc uIso*(this: GeomPlane; u: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "UIso", header: "Geom_Plane.hxx".}
+    importcpp: "UIso", dynlib: tkg3d.}
 proc vIso*(this: GeomPlane; v: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
-    importcpp: "VIso", header: "Geom_Plane.hxx".}
+    importcpp: "VIso", dynlib: tkg3d.}
 proc d0*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", header: "Geom_Plane.hxx".}
+    importcpp: "D0", dynlib: tkg3d.}
 proc d1*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D1", header: "Geom_Plane.hxx".}
+    noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
 proc d2*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl, importcpp: "D2",
-    header: "Geom_Plane.hxx".}
+    dynlib: tkg3d.}
 proc d3*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
         d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Plane.hxx".}
+        d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
 proc dn*(this: GeomPlane; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.noSideEffect,
-    cdecl, importcpp: "DN", header: "Geom_Plane.hxx".}
+    cdecl, importcpp: "DN", dynlib: tkg3d.}
 proc transform*(this: var GeomPlane; t: Trsf) {.cdecl, importcpp: "Transform",
-    header: "Geom_Plane.hxx".}
+    dynlib: tkg3d.}
 proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", header: "Geom_Plane.hxx".}
+    importcpp: "Copy", dynlib: tkg3d.}
 proc dumpJson*(this: GeomPlane; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Plane.hxx".}
+    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}

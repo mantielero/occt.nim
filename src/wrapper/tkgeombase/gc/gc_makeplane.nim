@@ -21,36 +21,38 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Ax1"
 type
-  GC_MakePlane* {.importcpp: "GC_MakePlane", header: "GC_MakePlane.hxx", bycopy.} = object of GC_Root ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## plane
-                                                                                            ## from
-                                                                                            ## a
-                                                                                            ## non
-                                                                                            ## persistent
-                                                                                            ## plane
-                                                                                            ## from
-                                                                                            ## package
-                                                                                            ## gp.
+  MakePlane* {.importcpp: "GC_MakePlane", header: "GC_MakePlane.hxx", bycopy.} = object of Root ##
+                                                                                      ## !
+                                                                                      ## Creates
+                                                                                      ## a
+                                                                                      ## plane
+                                                                                      ## from
+                                                                                      ## a
+                                                                                      ## non
+                                                                                      ## persistent
+                                                                                      ## plane
+                                                                                      ## from
+                                                                                      ## package
+                                                                                      ## gp.
 
 
-proc newGC_MakePlane*(pl: Pln): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(p: Pnt; v: Dir): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GC_MakePlane {.cdecl,
-    constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(pln: Pln; point: Pnt): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(pln: Pln; dist: cfloat): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(p1: Pnt; p2: Pnt; p3: Pnt): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc newGC_MakePlane*(axis: Ax1): GC_MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc value*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakePlane.hxx".}
-converter `constopencascade`*(this: GC_MakePlane): Handle[GeomPlane] {.noSideEffect,
-    cdecl, importcpp: "GC_MakePlane::operator constopencascade", header: "GC_MakePlane.hxx".}
+proc newMakePlane*(pl: Pln): MakePlane {.cdecl, constructor,
+                                     importcpp: "GC_MakePlane(@)",
+                                     dynlib: tkgeombase.}
+proc newMakePlane*(p: Pnt; v: Dir): MakePlane {.cdecl, constructor,
+    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+proc newMakePlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): MakePlane {.cdecl,
+    constructor, importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+proc newMakePlane*(pln: Pln; point: Pnt): MakePlane {.cdecl, constructor,
+    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+proc newMakePlane*(pln: Pln; dist: cfloat): MakePlane {.cdecl, constructor,
+    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+proc newMakePlane*(p1: Pnt; p2: Pnt; p3: Pnt): MakePlane {.cdecl, constructor,
+    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+proc newMakePlane*(axis: Ax1): MakePlane {.cdecl, constructor,
+                                       importcpp: "GC_MakePlane(@)",
+                                       dynlib: tkgeombase.}
+proc value*(this: MakePlane): Handle[GeomPlane] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakePlane): Handle[GeomPlane] {.noSideEffect,
+    cdecl, importcpp: "GC_MakePlane::operator constopencascade", dynlib: tkgeombase.}

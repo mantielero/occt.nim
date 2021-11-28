@@ -32,13 +32,13 @@ type
 
 
 proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = TCollectionAsciiString()): TopoDS_AlertAttribute {.
-    cdecl, constructor, importcpp: "TopoDS_AlertAttribute(@)", header: "TopoDS_AlertAttribute.hxx".}
+    cdecl, constructor, importcpp: "TopoDS_AlertAttribute(@)", dynlib: tkbrep.}
 proc getShape*(this: TopoDS_AlertAttribute): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "GetShape", header: "TopoDS_AlertAttribute.hxx".}
+    importcpp: "GetShape", dynlib: tkbrep.}
 proc send*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "TopoDS_AlertAttribute::Send(@)", header: "TopoDS_AlertAttribute.hxx".}
+    importcpp: "TopoDS_AlertAttribute::Send(@)", dynlib: tkbrep.}
 proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 header: "TopoDS_AlertAttribute.hxx".}
+                                 dynlib: tkbrep.}
 proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
-    MessageMessenger] {.cdecl, importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}
+    MessageMessenger] {.cdecl, importcpp: "(# << #)", dynlib: tkbrep.}

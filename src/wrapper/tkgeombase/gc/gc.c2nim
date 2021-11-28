@@ -2,6 +2,7 @@
 #dynlib tkgeombase
 #cdecl
 #prefix gp_
+#prefix GC_
 #assumendef _MSC_VER
 #assumendef _DEBUG
 #assumendef _WIN32

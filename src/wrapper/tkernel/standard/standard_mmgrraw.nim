@@ -27,10 +27,10 @@ type
 
 
 proc constructStandardMMgrRaw*(aClear: bool = false): StandardMMgrRaw {.cdecl,
-    constructor, importcpp: "Standard_MMgrRaw(@)", header: "Standard_MMgrRaw.hxx".}
+    constructor, importcpp: "Standard_MMgrRaw(@)", dynlib: tkernel.}
 proc allocate*(this: var StandardMMgrRaw; aSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", header: "Standard_MMgrRaw.hxx".}
+    importcpp: "Allocate", dynlib: tkernel.}
 proc reallocate*(this: var StandardMMgrRaw; thePtr: pointer; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Reallocate", header: "Standard_MMgrRaw.hxx".}
+    cdecl, importcpp: "Reallocate", dynlib: tkernel.}
 proc free*(this: var StandardMMgrRaw; thePtr: pointer) {.cdecl, importcpp: "Free",
-    header: "Standard_MMgrRaw.hxx".}
+    dynlib: tkernel.}

@@ -119,9 +119,15 @@ proc pp*(file:string,
 genFiles("BRepPrimAPI_MakeBox")
 genFiles("BRepPrimAPI_MakeCone")
 genFiles("BRepPrimAPI_MakeCylinder")
+pp("brepprimapi_makecylinder.nim",
+  replaceAll = @[("newBRepPrimAPI_Make", "new")]
+)
 genFiles("BRepPrimAPI_MakeHalfSpace")
 genFiles("BRepPrimAPI_MakeOneAxis")
 genFiles("BRepPrimAPI_MakePrism")
+pp("brepprimapi_makeprism.nim",
+  replaceAll = @[("newBRepPrimAPI_Make", "new")]
+)
 genFiles("BRepPrimAPI_MakeRevol")
 genFiles("BRepPrimAPI_MakeRevolution")
 genFiles("BRepPrimAPI_MakeSphere")

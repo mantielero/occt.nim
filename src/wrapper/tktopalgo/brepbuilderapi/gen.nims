@@ -162,16 +162,25 @@ pp("brepbuilderapi_makeedge.nim",
           """proc init*(this: var BRepBuilderAPI_MakeEdge; c: Handle[GeomCurve]; p1: Pnt; p2: Pnt;
           p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}"""),
           ("""s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat) {.cdecl,""",
-          """s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,""")]
+          """s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,"""),
+    ("newBRepBuilderAPI_Make", "new"),
+    ("Handle[GeomCurve]", "HandleGeomCurve")
+          ]
 )
 
 genFiles("BRepBuilderAPI_MakeFace")
+pp("brepbuilderapi_makeface.nim",
+  replaceAll = @[("newBRepBuilderAPI_Make", "new")]
+)
 genFiles("BRepBuilderAPI_MakePolygon")
 genFiles("BRepBuilderAPI_MakeShape")
 genFiles("BRepBuilderAPI_MakeShell")
 genFiles("BRepBuilderAPI_MakeSolid")
 genFiles("BRepBuilderAPI_MakeVertex")
 genFiles("BRepBuilderAPI_MakeWire")
+pp("brepbuilderapi_makewire.nim",
+  replaceAll = @[("newBRepBuilderAPI_Make", "new")]
+)
 genFiles("BRepBuilderAPI_ModifyShape")
 genFiles("BRepBuilderAPI_NurbsConvert")
 genFiles("BRepBuilderAPI_PipeError")
@@ -184,6 +193,9 @@ pp("brepbuilderapi_sewing.nim",
 genFiles("BRepBuilderAPI_ShapeModification")
 genFiles("BRepBuilderAPI_ShellError")
 genFiles("BRepBuilderAPI_Transform")
+pp("brepbuilderapi_transform.nim",
+  replaceAll = @[("newBRepBuilderAPI_Transform", "transform")]
+)
 genFiles("BRepBuilderAPI_TransitionMode")
 genFiles("BRepBuilderAPI_VertexInspector")
 genFiles("BRepBuilderAPI_WireError")

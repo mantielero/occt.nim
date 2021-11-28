@@ -30,38 +30,38 @@ type
 
 
 proc add*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Add", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "Add", dynlib: tkfillet.}
 proc resetContour*(this: var BRepFilletAPI_LocalOperation; ic: cint) {.cdecl,
-    importcpp: "ResetContour", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "ResetContour", dynlib: tkfillet.}
 proc nbContours*(this: BRepFilletAPI_LocalOperation): cint {.noSideEffect, cdecl,
-    importcpp: "NbContours", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "NbContours", dynlib: tkfillet.}
 proc contour*(this: BRepFilletAPI_LocalOperation; e: TopoDS_Edge): cint {.
-    noSideEffect, cdecl, importcpp: "Contour", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "Contour", dynlib: tkfillet.}
 proc nbEdges*(this: BRepFilletAPI_LocalOperation; i: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbEdges", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "NbEdges", dynlib: tkfillet.}
 proc edge*(this: BRepFilletAPI_LocalOperation; i: cint; j: cint): TopoDS_Edge {.
-    noSideEffect, cdecl, importcpp: "Edge", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "Edge", dynlib: tkfillet.}
 proc remove*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.cdecl,
-    importcpp: "Remove", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "Remove", dynlib: tkfillet.}
 proc length*(this: BRepFilletAPI_LocalOperation; ic: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Length", header: "BRepFilletAPI_LocalOperation.hxx".}
+    cdecl, importcpp: "Length", dynlib: tkfillet.}
 proc firstVertex*(this: BRepFilletAPI_LocalOperation; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "FirstVertex", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "FirstVertex", dynlib: tkfillet.}
 proc lastVertex*(this: BRepFilletAPI_LocalOperation; ic: cint): TopoDS_Vertex {.
-    noSideEffect, cdecl, importcpp: "LastVertex", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "LastVertex", dynlib: tkfillet.}
 proc abscissa*(this: BRepFilletAPI_LocalOperation; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "Abscissa", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "Abscissa", dynlib: tkfillet.}
 proc relativeAbscissa*(this: BRepFilletAPI_LocalOperation; ic: cint; v: TopoDS_Vertex): cfloat {.
-    noSideEffect, cdecl, importcpp: "RelativeAbscissa", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "RelativeAbscissa", dynlib: tkfillet.}
 proc closedAndTangent*(this: BRepFilletAPI_LocalOperation; ic: cint): bool {.
-    noSideEffect, cdecl, importcpp: "ClosedAndTangent", header: "BRepFilletAPI_LocalOperation.hxx".}
+    noSideEffect, cdecl, importcpp: "ClosedAndTangent", dynlib: tkfillet.}
 proc closed*(this: BRepFilletAPI_LocalOperation; ic: cint): bool {.noSideEffect, cdecl,
-    importcpp: "Closed", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "Closed", dynlib: tkfillet.}
 proc reset*(this: var BRepFilletAPI_LocalOperation) {.cdecl, importcpp: "Reset",
-    header: "BRepFilletAPI_LocalOperation.hxx".}
+    dynlib: tkfillet.}
 proc simulate*(this: var BRepFilletAPI_LocalOperation; ic: cint) {.cdecl,
-    importcpp: "Simulate", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "Simulate", dynlib: tkfillet.}
 proc nbSurf*(this: BRepFilletAPI_LocalOperation; ic: cint): cint {.noSideEffect, cdecl,
-    importcpp: "NbSurf", header: "BRepFilletAPI_LocalOperation.hxx".}
+    importcpp: "NbSurf", dynlib: tkfillet.}
 proc sect*(this: BRepFilletAPI_LocalOperation; ic: cint; `is`: cint): Handle[
-    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_LocalOperation.hxx".}
+    ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", dynlib: tkfillet.}

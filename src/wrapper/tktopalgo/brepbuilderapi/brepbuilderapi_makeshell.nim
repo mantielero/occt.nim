@@ -62,22 +62,22 @@ type
 
 
 proc newBRepBuilderAPI_MakeShell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
+    importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; segment: bool = false): BRepBuilderAPI_MakeShell {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
                                  vMin: cfloat; vMax: cfloat; segment: bool = false): BRepBuilderAPI_MakeShell {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: cfloat;
           uMax: cfloat; vMin: cfloat; vMax: cfloat; segment: bool = false) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_MakeShell.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc isDone*(this: BRepBuilderAPI_MakeShell): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", header: "BRepBuilderAPI_MakeShell.hxx".}
+    importcpp: "IsDone", dynlib: tktopalgo.}
 proc error*(this: BRepBuilderAPI_MakeShell): BRepBuilderAPI_ShellError {.
-    noSideEffect, cdecl, importcpp: "Error", header: "BRepBuilderAPI_MakeShell.hxx".}
+    noSideEffect, cdecl, importcpp: "Error", dynlib: tktopalgo.}
 proc shell*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.noSideEffect, cdecl,
-    importcpp: "Shell", header: "BRepBuilderAPI_MakeShell.hxx".}
+    importcpp: "Shell", dynlib: tktopalgo.}
 converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, cdecl,
     importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
-    header: "BRepBuilderAPI_MakeShell.hxx".}
+    dynlib: tktopalgo.}

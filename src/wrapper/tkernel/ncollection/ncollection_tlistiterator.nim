@@ -28,17 +28,17 @@ type
 
 proc newNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
-                  importcpp: "NCollection_TListIterator<\'*0>(@)", header: "NCollection_TListIterator.hxx".}
+                  importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
 proc newNCollectionTListIterator*[TheItemType](theList: NCollectionBaseList): NCollectionTListIterator[
     TheItemType] {.cdecl, constructor,
-                  importcpp: "NCollection_TListIterator<\'*0>(@)", header: "NCollection_TListIterator.hxx".}
+                  importcpp: "NCollection_TListIterator<\'*0>(@)", dynlib: tkernel.}
 proc more*[TheItemType](this: NCollectionTListIterator[TheItemType]): bool {.
-    noSideEffect, cdecl, importcpp: "More", header: "NCollection_TListIterator.hxx".}
+    noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
 proc next*[TheItemType](this: var NCollectionTListIterator[TheItemType]) {.cdecl,
-    importcpp: "Next", header: "NCollection_TListIterator.hxx".}
+    importcpp: "Next", dynlib: tkernel.}
 proc value*[TheItemType](this: NCollectionTListIterator[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_TListIterator.hxx".}
+    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
 proc value*[TheItemType](this: var NCollectionTListIterator[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "Value", header: "NCollection_TListIterator.hxx".}
+    cdecl, importcpp: "Value", dynlib: tkernel.}
 proc changeValue*[TheItemType](this: NCollectionTListIterator[TheItemType]): var TheItemType {.
-    noSideEffect, cdecl, importcpp: "ChangeValue", header: "NCollection_TListIterator.hxx".}
+    noSideEffect, cdecl, importcpp: "ChangeValue", dynlib: tkernel.}

@@ -32,12 +32,12 @@ type
 
 
 proc newGeomAdaptorHSurface*(): GeomAdaptorHSurface {.cdecl, constructor,
-    importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
+    importcpp: "GeomAdaptor_HSurface(@)", dynlib: tkg3d.}
 proc newGeomAdaptorHSurface*(`as`: GeomAdaptorSurface): GeomAdaptorHSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
+    constructor, importcpp: "GeomAdaptor_HSurface(@)", dynlib: tkg3d.}
 proc newGeomAdaptorHSurface*(s: Handle[GeomSurface]): GeomAdaptorHSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
+    constructor, importcpp: "GeomAdaptor_HSurface(@)", dynlib: tkg3d.}
 proc newGeomAdaptorHSurface*(s: Handle[GeomSurface]; uFirst: cfloat; uLast: cfloat;
                             vFirst: cfloat; vLast: cfloat; tolU: cfloat = 0.0;
                             tolV: cfloat = 0.0): GeomAdaptorHSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
+    constructor, importcpp: "GeomAdaptor_HSurface(@)", dynlib: tkg3d.}

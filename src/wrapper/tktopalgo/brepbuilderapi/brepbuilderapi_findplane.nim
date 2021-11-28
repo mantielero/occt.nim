@@ -38,12 +38,12 @@ type
 
 
 proc newBRepBuilderAPI_FindPlane*(): BRepBuilderAPI_FindPlane {.cdecl, constructor,
-    importcpp: "BRepBuilderAPI_FindPlane(@)", header: "BRepBuilderAPI_FindPlane.hxx".}
+    importcpp: "BRepBuilderAPI_FindPlane(@)", dynlib: tktopalgo.}
 proc newBRepBuilderAPI_FindPlane*(s: TopoDS_Shape; tol: cfloat = -1): BRepBuilderAPI_FindPlane {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_FindPlane(@)", header: "BRepBuilderAPI_FindPlane.hxx".}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_FindPlane(@)", dynlib: tktopalgo.}
 proc init*(this: var BRepBuilderAPI_FindPlane; s: TopoDS_Shape; tol: cfloat = -1) {.cdecl,
-    importcpp: "Init", header: "BRepBuilderAPI_FindPlane.hxx".}
+    importcpp: "Init", dynlib: tktopalgo.}
 proc found*(this: BRepBuilderAPI_FindPlane): bool {.noSideEffect, cdecl,
-    importcpp: "Found", header: "BRepBuilderAPI_FindPlane.hxx".}
+    importcpp: "Found", dynlib: tktopalgo.}
 proc plane*(this: BRepBuilderAPI_FindPlane): Handle[GeomPlane] {.noSideEffect, cdecl,
-    importcpp: "Plane", header: "BRepBuilderAPI_FindPlane.hxx".}
+    importcpp: "Plane", dynlib: tktopalgo.}

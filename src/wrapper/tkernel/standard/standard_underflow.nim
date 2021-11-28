@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardUnderflow):
   template standardUnderflowRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardUnderflow*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_Underflow(@)", header: "Standard_Underflow.hxx".}
+          importcpp: "Standard_Underflow(@)", dynlib: tkernel.}
 
 else:
   discard

@@ -35,33 +35,33 @@ type
 
 
 proc newBRepPrimAPI_MakeSphere*(r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
+    constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", dynlib: tkprim.}
 proc oneAxis*(this: var BRepPrimAPI_MakeSphere): pointer {.cdecl,
-    importcpp: "OneAxis", header: "BRepPrimAPI_MakeSphere.hxx".}
+    importcpp: "OneAxis", dynlib: tkprim.}
 proc sphere*(this: var BRepPrimAPI_MakeSphere): var BRepPrimSphere {.cdecl,
-    importcpp: "Sphere", header: "BRepPrimAPI_MakeSphere.hxx".}
+    importcpp: "Sphere", dynlib: tkprim.}

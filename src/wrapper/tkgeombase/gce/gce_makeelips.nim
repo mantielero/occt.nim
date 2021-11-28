@@ -90,12 +90,12 @@ type
 
 
 proc newGceMakeElips*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips {.
-    cdecl, constructor, importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
+    cdecl, constructor, importcpp: "gce_MakeElips(@)", dynlib: tkgeombase.}
 proc newGceMakeElips*(s1: Pnt; s2: Pnt; center: Pnt): GceMakeElips {.cdecl, constructor,
-    importcpp: "gce_MakeElips(@)", header: "gce_MakeElips.hxx".}
+    importcpp: "gce_MakeElips(@)", dynlib: tkgeombase.}
 proc value*(this: GceMakeElips): Elips {.noSideEffect, cdecl, importcpp: "Value",
-                                     header: "gce_MakeElips.hxx".}
+                                     dynlib: tkgeombase.}
 proc operator*(this: GceMakeElips): Elips {.noSideEffect, cdecl,
-                                        importcpp: "Operator", header: "gce_MakeElips.hxx".}
+                                        importcpp: "Operator", dynlib: tkgeombase.}
 converter `elips`*(this: GceMakeElips): Elips {.noSideEffect, cdecl,
-    importcpp: "gce_MakeElips::operator gp_Elips", header: "gce_MakeElips.hxx".}
+    importcpp: "gce_MakeElips::operator gp_Elips", dynlib: tkgeombase.}

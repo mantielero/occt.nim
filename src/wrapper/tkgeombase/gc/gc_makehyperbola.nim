@@ -19,24 +19,18 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 type
-  GC_MakeHyperbola* {.importcpp: "GC_MakeHyperbola",
-                     header: "GC_MakeHyperbola.hxx", bycopy.} = object of GC_Root ## !
-                                                                           ## Creates  an
-                                                                           ## Hyperbola from a non
-                                                                           ## persistent
-                                                                           ## hyperbola  from
-                                                                           ## package gp by
-                                                                           ## conversion.
+  MakeHyperbola* {.importcpp: "GC_MakeHyperbola", header: "GC_MakeHyperbola.hxx",
+                  bycopy.} = object of Root ## ! Creates  an Hyperbola from a non persistent hyperbola  from package gp by conversion.
 
 
-proc newGC_MakeHyperbola*(h: Hypr): GC_MakeHyperbola {.cdecl, constructor,
-    importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc newGC_MakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GC_MakeHyperbola {.
-    cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc newGC_MakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): GC_MakeHyperbola {.cdecl,
-    constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc value*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
-    importcpp: "Value", header: "GC_MakeHyperbola.hxx".}
-converter `constopencascade`*(this: GC_MakeHyperbola): Handle[GeomHyperbola] {.
+proc newMakeHyperbola*(h: Hypr): MakeHyperbola {.cdecl, constructor,
+    importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
+proc newMakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
+    cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
+proc newMakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): MakeHyperbola {.cdecl,
+    constructor, importcpp: "GC_MakeHyperbola(@)", dynlib: tkgeombase.}
+proc value*(this: MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
+    importcpp: "Value", dynlib: tkgeombase.}
+converter `constopencascade`*(this: MakeHyperbola): Handle[GeomHyperbola] {.
     noSideEffect, cdecl, importcpp: "GC_MakeHyperbola::operator constopencascade",
-    header: "GC_MakeHyperbola.hxx".}
+    dynlib: tkgeombase.}

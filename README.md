@@ -1,7 +1,43 @@
 # occt
 OpenCascade nim wrapper
 
-## Development
+# Status
+Some of the examples currently compiles and run. But the coverage of the library still is pretty low.
+
+
+# OpenCascade overview
+OpenCascade is organized in different [modules](https://dev.opencascade.org/doc/refman/html/index.html) (alphabetic order):
+- [ApplicationFramework](https://dev.opencascade.org/doc/refman/html/module_applicationframework.html)
+- [DataExchange](https://dev.opencascade.org/doc/refman/html/module_dataexchange.html)
+- [Draw](https://dev.opencascade.org/doc/refman/html/module_draw.html)
+- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
+- [ModelingAlgorithms](https://dev.opencascade.org/doc/refman/html/module_modelingalgorithms.html)
+- [ModelingData](https://dev.opencascade.org/doc/refman/html/module_modelingdata.html)
+- [Visualization](https://dev.opencascade.org/doc/refman/html/module_visualization.html)
+
+Each module contain a number of toolkits (TK). For example:
+- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
+  - [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html)
+  - [tkmath](https://dev.opencascade.org/doc/refman/html/toolkit_tkmath.html)
+  - ...
+
+Each toolkit contains a number of packages as seen for [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html).
+
+So OpenCascade is huge (beyond 7600 headers).
+
+# Development
+## Wrapping process
+We are wrapping C++ code here. In order to quickly play with the code, the shorter path is using [cinterop](https://github.com/n0bra1n3r/cinterop). In order to create proper bindings, it is better to use [c2nim](https://github.com/nim-lang/c2nim).
+
+The `src/wrapper` folder contains the bindings to opencascade. It contains the different toolkits. Within each toolkit folder, there are folders for each package. For each package, two files are created:
+- `gen.nims`: this script is the one that creates a `.nim` file for each header file considered as part of the package. It can perform some preprocessing (modifying a copy of the header file to enable its processing by `c2nim`) and postprocessing (modifying the generated `.nim` file once generated).
+- `<package>.c2nim`: this contains the information needed by `c2nim` in order to process the file.
+
+
+Besides, `src/wrapper/generate.nims` can execute all the `gen.nims` files existing in each folder. This file also replace the `dynlib` pragmas by `header` ones, because there seem to be a problem with `dynlib` in C++.
+
+
+### How to do it
 Currently working on: `./src/wrapper/`
 
 In particular in: `tkgeombase/extrema`:
@@ -33,25 +69,9 @@ pp("extrema_ponsurf.nim",
 
 
 
-## OpenCascade overview
-OpenCascade is organized in different [modules](https://dev.opencascade.org/doc/refman/html/index.html) (alphabetic order):
-- [ApplicationFramework](https://dev.opencascade.org/doc/refman/html/module_applicationframework.html)
-- [DataExchange](https://dev.opencascade.org/doc/refman/html/module_dataexchange.html)
-- [Draw](https://dev.opencascade.org/doc/refman/html/module_draw.html)
-- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
-- [ModelingAlgorithms](https://dev.opencascade.org/doc/refman/html/module_modelingalgorithms.html)
-- [ModelingData](https://dev.opencascade.org/doc/refman/html/module_modelingdata.html)
-- [Visualization](https://dev.opencascade.org/doc/refman/html/module_visualization.html)
 
-Each module contain a number of toolkits (TK). For example:
-- [FoundationClasses](https://dev.opencascade.org/doc/refman/html/module_foundationclasses.html)
-  - [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html)
-  - [tkmath](https://dev.opencascade.org/doc/refman/html/toolkit_tkmath.html)
 
-Each toolkit contains a number of packages as seen for [tkernel](https://dev.opencascade.org/doc/refman/html/toolkit_tkernel.html).
 
-## Wrapping process
-We are wrapping C++ code here. In order to quickly play with the code, the shorter path is using [cinterop](https://github.com/n0bra1n3r/cinterop). In order to create proper bindings, it is better to use [c2nim](https://github.com/nim-lang/c2nim).
 
 ### Example: [Standard package](https://dev.opencascade.org/doc/refman/html/package_standard.html)
 There are cases where the bindings will be created without any issue:
@@ -264,7 +284,7 @@ pyOcct seem to cover:
 - [ ] BRepFilletAPI/BRepFilletAPI_includes
 - [ ] ChFi3d/ChFi3d_includes
 - [X] BRep/BRep_includes
-#- [ ] BRepSweep/BRepSweep_includes
+- [ ] BRepSweep/BRepSweep_includes
 - [ ] TopLoc/TopLoc_includes
 - [X] TopAbs/TopAbs_includes
 - [ ] TopExp/TopExp_includes

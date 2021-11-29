@@ -43,7 +43,7 @@ proc reraise*(this: var StandardFailure; aMessage: cstring) {.cdecl,
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
 proc reraise*(this: var StandardFailure; aReason: StandardSStream) {.cdecl,
     importcpp: "Reraise", header: "Standard_Failure.hxx".}
-proc `raise`*(aMessage: cstring = cstring("")) {.cdecl,
+proc `raise`*(aMessage: cstring = "") {.cdecl,
                                    importcpp: "Standard_Failure::Raise(@)",
                                    header: "Standard_Failure.hxx".}
 proc `raise`*(aReason: StandardSStream) {.cdecl,

@@ -140,7 +140,7 @@ genFiles("Standard_ExtCharacter")
 genFiles("Standard_ExtString")
 genFiles("Standard_Failure", remove = @[(30,31), (107, 108)])
 pp("standard_failure.nim",
-  replaceAll = @[("cstring = \"\"", """cstring = cstring("")""")]
+  #replaceAll = @[("cstring = \"\"", """cstring = cstring("")""")]
 )
 
 genFiles("Standard_GUID")

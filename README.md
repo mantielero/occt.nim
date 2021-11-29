@@ -300,3 +300,37 @@ pyOcct seem to cover:
 - [ ] XSControl/XSControl_includes
 - [ ] Interface/Interface_includes
 - [ ] IFSelect/IFSelect_includes
+
+# Tutorials
+https://occtutorials.wordpress.com/
+
+# Exporting to STEP
+https://techoverflow.net/2019/06/13/how-to-export-step-file-in-opencascade/
+
+This is the function used by `OCCUtils`:
+```c++
+if (shape.IsNull () == true) {
+    throw new invalid_argument("Can't export null shape to STEP");
+}
+STEPControl_Writer writer;
+Interface_Static::SetCVal ("xstep.cascade.unit", unit.c_str());
+Interface_Static::SetCVal ("write.step.unit", unit.c_str ());
+Interface_Static::SetIVal ("write.step.nonmanifold", 1);
+// "Transfer" = convert
+IFSelect_ReturnStatus transferStatus = writer.Transfer(shape, STEPControl_AsIs);
+if (transferStatus != IFSelect_RetDone) {
+    throw std::logic_error ("Error while transferring shape to STEP");
+}
+// Write transferred structure to STEP file
+IFSelect_ReturnStatus writeStatus = writer.Write(filename.c_str());
+// Return previous locale
+if (writeStatus != IFSelect_RetDone)
+{
+    throw std::logic_error ("Error while writing transferred shape to STEP file");
+}
+```
+
+So this requires:
+- `TKSTEP/STEPControl`: [STEPControl_Writer](https://dev.opencascade.org/doc/refman/html/class_s_t_e_p_control___writer.html)
+- `TKXSBase/Interface`: [Interface_Static](https://dev.opencascade.org/doc/refman/html/class_interface___static.html)
+- `TKXSBase/IFSelect`: [IFSelect_ReturnStatus](https://dev.opencascade.org/doc/refman/html/_i_f_select___return_status_8hxx.html#a751547ba469d1e63c4b90ba3371e7e7b)

@@ -1,7 +1,6 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-
 include tkernel/tkernel
 include tkmath/tkmath
 include tkgeombase/tkgeombase
@@ -14,3 +13,7 @@ include tkfillet/tkfillet
 include tkbool/tkbool
 include tkgeomalgo/tkgeomalgo
 include tkbo/tkbo
+include tkxsbase/tkxsbase
+include tkstep/tkstep
+
+

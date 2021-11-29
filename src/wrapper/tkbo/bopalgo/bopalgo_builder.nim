@@ -127,49 +127,49 @@ type
 
 
 proc newBOPAlgoBuilder*(): BOPAlgoBuilder {.cdecl, constructor,
-    importcpp: "BOPAlgo_Builder(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Builder(@)", header: "BOPAlgo_Builder.hxx".}
 proc destroyBOPAlgoBuilder*(this: var BOPAlgoBuilder) {.cdecl,
-    importcpp: "#.~BOPAlgo_Builder()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_Builder()", header: "BOPAlgo_Builder.hxx".}
 proc newBOPAlgoBuilder*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilder {.
-    cdecl, constructor, importcpp: "BOPAlgo_Builder(@)", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoBuilder) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_Builder(@)", header: "BOPAlgo_Builder.hxx".}
+proc clear*(this: var BOPAlgoBuilder) {.cdecl, importcpp: "Clear", header: "BOPAlgo_Builder.hxx".}
 proc pPaveFiller*(this: var BOPAlgoBuilder): BOPAlgoPPaveFiller {.cdecl,
-    importcpp: "PPaveFiller", dynlib: tkbo.}
-#proc pds*(this: var BOPAlgoBuilder): Bopds_Pds {.cdecl, importcpp: "PDS", dynlib: tkbo.}
+    importcpp: "PPaveFiller", header: "BOPAlgo_Builder.hxx".}
+#proc pds*(this: var BOPAlgoBuilder): Bopds_Pds {.cdecl, importcpp: "PDS", header: "BOPAlgo_Builder.hxx".}
 #proc context*(this: BOPAlgoBuilder): Handle[IntToolsContext] {.noSideEffect, cdecl,
-#    importcpp: "Context", dynlib: tkbo.}
+#    importcpp: "Context", header: "BOPAlgo_Builder.hxx".}
 proc addArgument*(this: var BOPAlgoBuilder; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "AddArgument", dynlib: tkbo.}
+    importcpp: "AddArgument", header: "BOPAlgo_Builder.hxx".}
 proc setArguments*(this: var BOPAlgoBuilder; theLS: TopToolsListOfShape) {.cdecl,
-    importcpp: "SetArguments", dynlib: tkbo.}
+    importcpp: "SetArguments", header: "BOPAlgo_Builder.hxx".}
 proc arguments*(this: BOPAlgoBuilder): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Arguments", dynlib: tkbo.}
+    importcpp: "Arguments", header: "BOPAlgo_Builder.hxx".}
 proc setNonDestructive*(this: var BOPAlgoBuilder; theFlag: bool) {.cdecl,
-    importcpp: "SetNonDestructive", dynlib: tkbo.}
+    importcpp: "SetNonDestructive", header: "BOPAlgo_Builder.hxx".}
 proc nonDestructive*(this: BOPAlgoBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "NonDestructive", dynlib: tkbo.}
+    importcpp: "NonDestructive", header: "BOPAlgo_Builder.hxx".}
 proc setGlue*(this: var BOPAlgoBuilder; theGlue: BOPAlgoGlueEnum) {.cdecl,
-    importcpp: "SetGlue", dynlib: tkbo.}
+    importcpp: "SetGlue", header: "BOPAlgo_Builder.hxx".}
 proc glue*(this: BOPAlgoBuilder): BOPAlgoGlueEnum {.noSideEffect, cdecl,
-    importcpp: "Glue", dynlib: tkbo.}
+    importcpp: "Glue", header: "BOPAlgo_Builder.hxx".}
 proc setCheckInverted*(this: var BOPAlgoBuilder; theCheck: bool) {.cdecl,
-    importcpp: "SetCheckInverted", dynlib: tkbo.}
+    importcpp: "SetCheckInverted", header: "BOPAlgo_Builder.hxx".}
 proc checkInverted*(this: BOPAlgoBuilder): bool {.noSideEffect, cdecl,
-    importcpp: "CheckInverted", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoBuilder) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "CheckInverted", header: "BOPAlgo_Builder.hxx".}
+proc perform*(this: var BOPAlgoBuilder) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Builder.hxx".}
 proc performWithFiller*(this: var BOPAlgoBuilder; theFiller: BOPAlgoPaveFiller) {.
-    cdecl, importcpp: "PerformWithFiller", dynlib: tkbo.}
+    cdecl, importcpp: "PerformWithFiller", header: "BOPAlgo_Builder.hxx".}
 proc buildBOP*(this: var BOPAlgoBuilder; theObjects: TopToolsListOfShape;
               theObjState: TopAbsState; theTools: TopToolsListOfShape;
               theToolsState: TopAbsState; theReport: Handle[MessageReport] = cast[Handle[MessageReport] ](nil)) {.
-    cdecl, importcpp: "BuildBOP", dynlib: tkbo.}
+    cdecl, importcpp: "BuildBOP", header: "BOPAlgo_Builder.hxx".}
 proc buildBOP*(this: var BOPAlgoBuilder; theObjects: TopToolsListOfShape;
               theTools: TopToolsListOfShape; theOperation: BOPAlgoOperation;
               theReport: Handle[MessageReport] = cast[Handle[MessageReport] ](nil)) {.cdecl, importcpp: "BuildBOP",
-    dynlib: tkbo.}
+    header: "BOPAlgo_Builder.hxx".}
 proc images*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
-    noSideEffect, cdecl, importcpp: "Images", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "Images", header: "BOPAlgo_Builder.hxx".}
 proc origins*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
-    noSideEffect, cdecl, importcpp: "Origins", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "Origins", header: "BOPAlgo_Builder.hxx".}
 proc shapesSD*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeShape {.noSideEffect,
-    cdecl, importcpp: "ShapesSD", dynlib: tkbo.}
+    cdecl, importcpp: "ShapesSD", header: "BOPAlgo_Builder.hxx".}

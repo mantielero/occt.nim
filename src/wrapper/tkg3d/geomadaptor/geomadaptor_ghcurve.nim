@@ -32,17 +32,17 @@ type
 
 
 proc newGeomAdaptorGHCurve*(): GeomAdaptorGHCurve {.cdecl, constructor,
-    importcpp: "GeomAdaptor_GHCurve(@)", dynlib: tkg3d.}
+    importcpp: "GeomAdaptor_GHCurve(@)", header: "GeomAdaptor_GHCurve.hxx".}
 proc newGeomAdaptorGHCurve*(c: GeomAdaptorCurve): GeomAdaptorGHCurve {.cdecl,
-    constructor, importcpp: "GeomAdaptor_GHCurve(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_GHCurve(@)", header: "GeomAdaptor_GHCurve.hxx".}
 proc set*(this: var GeomAdaptorGHCurve; c: GeomAdaptorCurve) {.cdecl, importcpp: "Set",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_GHCurve.hxx".}
 proc curve*(this: GeomAdaptorGHCurve): Adaptor3dCurve {.noSideEffect, cdecl,
-    importcpp: "Curve", dynlib: tkg3d.}
+    importcpp: "Curve", header: "GeomAdaptor_GHCurve.hxx".}
 proc getCurve*(this: var GeomAdaptorGHCurve): var Adaptor3dCurve {.cdecl,
-    importcpp: "GetCurve", dynlib: tkg3d.}
+    importcpp: "GetCurve", header: "GeomAdaptor_GHCurve.hxx".}
 proc changeCurve*(this: var GeomAdaptorGHCurve): var GeomAdaptorCurve {.cdecl,
-    importcpp: "ChangeCurve", dynlib: tkg3d.}
+    importcpp: "ChangeCurve", header: "GeomAdaptor_GHCurve.hxx".}
 type
   GeomAdaptorGHCurvebaseType* = Adaptor3dHCurve
 

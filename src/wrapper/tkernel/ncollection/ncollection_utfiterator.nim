@@ -40,46 +40,46 @@ type
 
 proc newNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfIterator<\'*0>(@)",
-           dynlib: tkernel.}
+           header: "NCollection_UtfIterator.hxx".}
 proc init*[Type](this: var NCollectionUtfIterator[Type]; theString: ptr Type) {.cdecl,
-    importcpp: "Init", dynlib: tkernel.}
+    importcpp: "Init", header: "NCollection_UtfIterator.hxx".}
 proc isValid*[Type](this: NCollectionUtfIterator[Type]): bool {.noSideEffect, cdecl,
-    importcpp: "IsValid", dynlib: tkernel.}
+    importcpp: "IsValid", header: "NCollection_UtfIterator.hxx".}
 proc `*`*[Type](this: NCollectionUtfIterator[Type]): StandardUtf32Char {.
-    noSideEffect, cdecl, importcpp: "(* #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(* #)", header: "NCollection_UtfIterator.hxx".}
 proc bufferHere*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
-    cdecl, importcpp: "BufferHere", dynlib: tkernel.}
+    cdecl, importcpp: "BufferHere", header: "NCollection_UtfIterator.hxx".}
 proc changeBufferHere*[Type](this: var NCollectionUtfIterator[Type]): ptr Type {.
-    cdecl, importcpp: "ChangeBufferHere", dynlib: tkernel.}
+    cdecl, importcpp: "ChangeBufferHere", header: "NCollection_UtfIterator.hxx".}
 proc bufferNext*[Type](this: NCollectionUtfIterator[Type]): ptr Type {.noSideEffect,
-    cdecl, importcpp: "BufferNext", dynlib: tkernel.}
+    cdecl, importcpp: "BufferNext", header: "NCollection_UtfIterator.hxx".}
 proc index*[Type](this: NCollectionUtfIterator[Type]): cint {.noSideEffect, cdecl,
-    importcpp: "Index", dynlib: tkernel.}
+    importcpp: "Index", header: "NCollection_UtfIterator.hxx".}
 proc advanceBytesUtf8*[Type](this: NCollectionUtfIterator[Type]): cint {.
-    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf8", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf8", header: "NCollection_UtfIterator.hxx".}
 proc advanceBytesUtf16*[Type](this: NCollectionUtfIterator[Type]): cint {.
-    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf16", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf16", header: "NCollection_UtfIterator.hxx".}
 proc advanceCodeUnitsUtf16*[Type](this: NCollectionUtfIterator[Type]): cint {.
-    noSideEffect, cdecl, importcpp: "AdvanceCodeUnitsUtf16", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "AdvanceCodeUnitsUtf16", header: "NCollection_UtfIterator.hxx".}
 proc advanceBytesUtf32*[Type](this: NCollectionUtfIterator[Type]): cint {.
-    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf32", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf32", header: "NCollection_UtfIterator.hxx".}
 proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
                    theBuffer: ptr StandardUtf8Char): ptr StandardUtf8Char {.
-    noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetUtf8", header: "NCollection_UtfIterator.hxx".}
 proc getUtf8*[Type](this: NCollectionUtfIterator[Type];
 #                   theBuffer: ptr StandardUtf8UChar): ptr StandardUtf8UChar {.
-#    noSideEffect, cdecl, importcpp: "GetUtf8", dynlib: tkernel.}
+#    noSideEffect, cdecl, importcpp: "GetUtf8", header: "NCollection_UtfIterator.hxx".}
 #proc getUtf16*[Type](this: NCollectionUtfIterator[Type];
                     theBuffer: ptr StandardUtf16Char): ptr StandardUtf16Char {.
-    noSideEffect, cdecl, importcpp: "GetUtf16", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetUtf16", header: "NCollection_UtfIterator.hxx".}
 proc getUtf32*[Type](this: NCollectionUtfIterator[Type];
                     theBuffer: ptr StandardUtf32Char): ptr StandardUtf32Char {.
-    noSideEffect, cdecl, importcpp: "GetUtf32", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetUtf32", header: "NCollection_UtfIterator.hxx".}
 proc advanceBytesUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type]): cint {.
-    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "AdvanceBytesUtf", header: "NCollection_UtfIterator.hxx".}
 proc getUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type];
                             theBuffer: ptr TypeWrite): ptr TypeWrite {.noSideEffect,
-    cdecl, importcpp: "GetUtf", dynlib: tkernel.}
+    cdecl, importcpp: "GetUtf", header: "NCollection_UtfIterator.hxx".}
 type
   NCollectionUtf8Iter* = NCollectionUtfIterator[StandardUtf8Char]
   NCollectionUtf16Iter* = NCollectionUtfIterator[StandardUtf16Char]

@@ -24,12 +24,12 @@ type
 
 
 proc destroyStandardMMgrRoot*(this: var StandardMMgrRoot) {.cdecl,
-    importcpp: "#.~Standard_MMgrRoot()", dynlib: tkernel.}
+    importcpp: "#.~Standard_MMgrRoot()", header: "Standard_MMgrRoot.hxx".}
 proc allocate*(this: var StandardMMgrRoot; theSize: csize_t): pointer {.cdecl,
-    importcpp: "Allocate", dynlib: tkernel.}
+    importcpp: "Allocate", header: "Standard_MMgrRoot.hxx".}
 proc reallocate*(this: var StandardMMgrRoot; thePtr: pointer; theSize: csize_t): pointer {.
-    cdecl, importcpp: "Reallocate", dynlib: tkernel.}
+    cdecl, importcpp: "Reallocate", header: "Standard_MMgrRoot.hxx".}
 proc free*(this: var StandardMMgrRoot; thePtr: pointer) {.cdecl, importcpp: "Free",
-    dynlib: tkernel.}
+    header: "Standard_MMgrRoot.hxx".}
 proc purge*(this: var StandardMMgrRoot; isDestroyed: bool = false): cint {.cdecl,
-    importcpp: "Purge", dynlib: tkernel.}
+    importcpp: "Purge", header: "Standard_MMgrRoot.hxx".}

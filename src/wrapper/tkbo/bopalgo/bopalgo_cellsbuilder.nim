@@ -184,28 +184,28 @@ type
 
 
 proc newBOPAlgoCellsBuilder*(): BOPAlgoCellsBuilder {.cdecl, constructor,
-    importcpp: "BOPAlgo_CellsBuilder(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_CellsBuilder(@)", header: "BOPAlgo_CellsBuilder.hxx".}
 proc newBOPAlgoCellsBuilder*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoCellsBuilder {.
-    cdecl, constructor, importcpp: "BOPAlgo_CellsBuilder(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_CellsBuilder(@)", header: "BOPAlgo_CellsBuilder.hxx".}
 proc destroyBOPAlgoCellsBuilder*(this: var BOPAlgoCellsBuilder) {.cdecl,
-    importcpp: "#.~BOPAlgo_CellsBuilder()", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoCellsBuilder) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_CellsBuilder()", header: "BOPAlgo_CellsBuilder.hxx".}
+proc clear*(this: var BOPAlgoCellsBuilder) {.cdecl, importcpp: "Clear", header: "BOPAlgo_CellsBuilder.hxx".}
 proc addToResult*(this: var BOPAlgoCellsBuilder; theLSToTake: TopToolsListOfShape;
                  theLSToAvoid: TopToolsListOfShape; theMaterial: cint = 0;
                  theUpdate: bool = false) {.cdecl, importcpp: "AddToResult",
-                                        dynlib: tkbo.}
+                                        header: "BOPAlgo_CellsBuilder.hxx".}
 proc addAllToResult*(this: var BOPAlgoCellsBuilder; theMaterial: cint = 0;
                     theUpdate: bool = false) {.cdecl, importcpp: "AddAllToResult",
-    dynlib: tkbo.}
+    header: "BOPAlgo_CellsBuilder.hxx".}
 proc removeFromResult*(this: var BOPAlgoCellsBuilder;
                       theLSToTake: TopToolsListOfShape;
                       theLSToAvoid: TopToolsListOfShape) {.cdecl,
-    importcpp: "RemoveFromResult", dynlib: tkbo.}
+    importcpp: "RemoveFromResult", header: "BOPAlgo_CellsBuilder.hxx".}
 proc removeAllFromResult*(this: var BOPAlgoCellsBuilder) {.cdecl,
-    importcpp: "RemoveAllFromResult", dynlib: tkbo.}
+    importcpp: "RemoveAllFromResult", header: "BOPAlgo_CellsBuilder.hxx".}
 proc removeInternalBoundaries*(this: var BOPAlgoCellsBuilder) {.cdecl,
-    importcpp: "RemoveInternalBoundaries", dynlib: tkbo.}
+    importcpp: "RemoveInternalBoundaries", header: "BOPAlgo_CellsBuilder.hxx".}
 proc getAllParts*(this: BOPAlgoCellsBuilder): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "GetAllParts", dynlib: tkbo.}
+    importcpp: "GetAllParts", header: "BOPAlgo_CellsBuilder.hxx".}
 proc makeContainers*(this: var BOPAlgoCellsBuilder) {.cdecl,
-    importcpp: "MakeContainers", dynlib: tkbo.}
+    importcpp: "MakeContainers", header: "BOPAlgo_CellsBuilder.hxx".}

@@ -39,13 +39,13 @@ type
 
 
 proc newMakeRotation*(line: Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
-    importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc newMakeRotation*(axis: Ax1; angle: cfloat): MakeRotation {.cdecl, constructor,
-    importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc newMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): MakeRotation {.cdecl,
-    constructor, importcpp: "GC_MakeRotation(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc value*(this: MakeRotation): Handle[GeomTransformation] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeRotation.hxx".}
 converter `constopencascade`*(this: MakeRotation): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "GC_MakeRotation::operator constopencascade",
-    dynlib: tkgeombase.}
+    header: "GC_MakeRotation.hxx".}

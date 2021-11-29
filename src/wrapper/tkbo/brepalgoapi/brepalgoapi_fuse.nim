@@ -25,12 +25,12 @@ type
 
 
 proc fuse*(): BRepAlgoAPI_Fuse {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Fuse(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
 proc destroyBRepAlgoAPI_Fuse*(this: var BRepAlgoAPI_Fuse) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_Fuse()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_Fuse()", header: "BRepAlgoAPI_Fuse.hxx".}
 proc fuse*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Fuse {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Fuse(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
 proc fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Fuse {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
 proc fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller): BRepAlgoAPI_Fuse {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}

@@ -46,9 +46,9 @@ type
 
 
 proc newMakeScale*(point: Pnt; scale: cfloat): MakeScale {.cdecl, constructor,
-    importcpp: "GC_MakeScale(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
 proc value*(this: MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeScale.hxx".}
 converter `constopencascade`*(this: MakeScale): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "GC_MakeScale::operator constopencascade",
-    dynlib: tkgeombase.}
+    header: "GC_MakeScale.hxx".}

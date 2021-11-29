@@ -36,50 +36,50 @@ type
 proc makeBlocks*[TheType; TheTypeHasher](theMILI: NCollectionIndexedDataMap[
     TheType, NCollectionList[TheType], TheTypeHasher]; theMBlocks: var NCollectionList[
     NCollectionList[TheType]]; theAllocator: Handle[NCollectionBaseAllocator]) {.
-    cdecl, importcpp: "BOPAlgo_Tools::MakeBlocks(@)", dynlib: tkbo.}
+    cdecl, importcpp: "BOPAlgo_Tools::MakeBlocks(@)", header: "BOPAlgo_Tools.hxx".}
 proc fillMap*[TheType; TheTypeHasher](n1: TheType; n2: TheType; theMILI: var NCollectionIndexedDataMap[
     TheType, NCollectionList[TheType], TheTypeHasher]; theAllocator: Handle[
     NCollectionBaseAllocator]) {.cdecl, importcpp: "BOPAlgo_Tools::FillMap(@)",
-                                dynlib: tkbo.}
+                                header: "BOPAlgo_Tools.hxx".}
 #proc fillMap*(thePB1: Handle[BOPDS_PaveBlock]; theF: cint;
 #             theMILI: var BOPDS_IndexedDataMapOfPaveBlockListOfInteger;
 #             theAllocator: Handle[NCollectionBaseAllocator]) {.cdecl,
-#    importcpp: "BOPAlgo_Tools::FillMap(@)", dynlib: tkbo.}
+#    importcpp: "BOPAlgo_Tools::FillMap(@)", header: "BOPAlgo_Tools.hxx".}
 #proc performCommonBlocks*(theMBlocks: var BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock;
 #                         theAllocator: Handle[NCollectionBaseAllocator];
 #                         theDS: var Bopds_Pds; theContext: Handle[IntToolsContext] = handle[
 #    IntToolsContext]()) {.cdecl,
 #                         importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
-#                         dynlib: tkbo.}
+#                         header: "BOPAlgo_Tools.hxx".}
 #proc performCommonBlocks*(theMBlocks: BOPDS_IndexedDataMapOfPaveBlockListOfInteger;
 #                         theAllocator: Handle[NCollectionBaseAllocator];
 #                         pDS: var Bopds_Pds; theContext: Handle[IntToolsContext] = handle[
 #    IntToolsContext]()) {.cdecl,
 #                         importcpp: "BOPAlgo_Tools::PerformCommonBlocks(@)",
-#                         dynlib: tkbo.}
+#                         header: "BOPAlgo_Tools.hxx".}
 #proc computeToleranceOfCB*(theCB: Handle[BOPDS_CommonBlock]; theDS: Bopds_Pds;
 #                          theContext: Handle[IntToolsContext]): cfloat {.cdecl,
-#    importcpp: "BOPAlgo_Tools::ComputeToleranceOfCB(@)", dynlib: tkbo.}
+#    importcpp: "BOPAlgo_Tools::ComputeToleranceOfCB(@)", header: "BOPAlgo_Tools.hxx".}
 proc edgesToWires*(theEdges: TopoDS_Shape; theWires: var TopoDS_Shape;
                   theShared: bool = false; theAngTol: cfloat = 1e-8): cint {.cdecl,
-    importcpp: "BOPAlgo_Tools::EdgesToWires(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Tools::EdgesToWires(@)", header: "BOPAlgo_Tools.hxx".}
 proc wiresToFaces*(theWires: TopoDS_Shape; theFaces: var TopoDS_Shape;
                   theAngTol: cfloat = 1e-8): bool {.cdecl,
-    importcpp: "BOPAlgo_Tools::WiresToFaces(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Tools::WiresToFaces(@)", header: "BOPAlgo_Tools.hxx".}
 proc intersectVertices*(theVertices: TopToolsIndexedDataMapOfShapeReal;
                        theFuzzyValue: cfloat;
                        theChains: var TopToolsListOfListOfShape) {.cdecl,
-    importcpp: "BOPAlgo_Tools::IntersectVertices(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Tools::IntersectVertices(@)", header: "BOPAlgo_Tools.hxx".}
 #proc classifyFaces*(theFaces: TopToolsListOfShape; theSolids: TopToolsListOfShape;
 #                   theRunParallel: bool; theContext: var Handle[IntToolsContext];
 #                   theInParts: var TopToolsIndexedDataMapOfShapeListOfShape;
 #    theShapeBoxMap: TopToolsDataMapOfShapeBox = topToolsDataMapOfShapeBox();
 #    theSolidsIF: TopToolsDataMapOfShapeListOfShape = topToolsDataMapOfShapeListOfShape()) {.
-#    cdecl, importcpp: "BOPAlgo_Tools::ClassifyFaces(@)", dynlib: tkbo.}
+#    cdecl, importcpp: "BOPAlgo_Tools::ClassifyFaces(@)", header: "BOPAlgo_Tools.hxx".}
 #proc fillInternals*(theSolids: TopToolsListOfShape; theParts: TopToolsListOfShape;
 #                   theImages: TopToolsDataMapOfShapeListOfShape;
 #                   theContext: Handle[IntToolsContext]) {.cdecl,
-#    importcpp: "BOPAlgo_Tools::FillInternals(@)", dynlib: tkbo.}
+#    importcpp: "BOPAlgo_Tools::FillInternals(@)", header: "BOPAlgo_Tools.hxx".}
 #proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var Trsf;
 #                 thePoint: Pnt = pnt(0.0, 0.0, 0.0); theCriteria: cfloat = 1.e+5): bool {.
-#    cdecl, importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", dynlib: tkbo.}
+#    cdecl, importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", header: "BOPAlgo_Tools.hxx".}

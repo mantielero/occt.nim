@@ -27,50 +27,50 @@ type
 
 
 proc newBRepAlgoAPI_Section*(): BRepAlgoAPI_Section {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc destroyBRepAlgoAPI_Section*(this: var BRepAlgoAPI_Section) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_Section()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_Section()", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Section {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                             performNow: bool = true): BRepAlgoAPI_Section {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; s2: TopoDS_Shape;
                             aDSF: BOPAlgoPaveFiller; performNow: bool = true): BRepAlgoAPI_Section {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; pl: Pln; performNow: bool = true): BRepAlgoAPI_Section {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(s1: TopoDS_Shape; sf: Handle[GeomSurface];
                             performNow: bool = true): BRepAlgoAPI_Section {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(sf: Handle[GeomSurface]; s2: TopoDS_Shape;
                             performNow: bool = true): BRepAlgoAPI_Section {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc newBRepAlgoAPI_Section*(sf1: Handle[GeomSurface]; sf2: Handle[GeomSurface];
                             performNow: bool = true): BRepAlgoAPI_Section {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Section(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Section(@)", header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; s1: TopoDS_Shape) {.cdecl,
-    importcpp: "Init1", dynlib: tkbo.}
+    importcpp: "Init1", header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; pl: Pln) {.cdecl, importcpp: "Init1",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_Section.hxx".}
 proc init1*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Init1", dynlib: tkbo.}
+    importcpp: "Init1", header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; s2: TopoDS_Shape) {.cdecl,
-    importcpp: "Init2", dynlib: tkbo.}
+    importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; pl: Pln) {.cdecl, importcpp: "Init2",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_Section.hxx".}
 proc init2*(this: var BRepAlgoAPI_Section; sf: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Init2", dynlib: tkbo.}
+    importcpp: "Init2", header: "BRepAlgoAPI_Section.hxx".}
 proc approximation*(this: var BRepAlgoAPI_Section; b: bool) {.cdecl,
-    importcpp: "Approximation", dynlib: tkbo.}
+    importcpp: "Approximation", header: "BRepAlgoAPI_Section.hxx".}
 proc computePCurveOn1*(this: var BRepAlgoAPI_Section; b: bool) {.cdecl,
-    importcpp: "ComputePCurveOn1", dynlib: tkbo.}
+    importcpp: "ComputePCurveOn1", header: "BRepAlgoAPI_Section.hxx".}
 proc computePCurveOn2*(this: var BRepAlgoAPI_Section; b: bool) {.cdecl,
-    importcpp: "ComputePCurveOn2", dynlib: tkbo.}
-proc build*(this: var BRepAlgoAPI_Section) {.cdecl, importcpp: "Build", dynlib: tkbo.}
+    importcpp: "ComputePCurveOn2", header: "BRepAlgoAPI_Section.hxx".}
+proc build*(this: var BRepAlgoAPI_Section) {.cdecl, importcpp: "Build", header: "BRepAlgoAPI_Section.hxx".}
 proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
                         f: var TopoDS_Shape): bool {.noSideEffect, cdecl,
-    importcpp: "HasAncestorFaceOn1", dynlib: tkbo.}
+    importcpp: "HasAncestorFaceOn1", header: "BRepAlgoAPI_Section.hxx".}
 proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
                         f: var TopoDS_Shape): bool {.noSideEffect, cdecl,
-    importcpp: "HasAncestorFaceOn2", dynlib: tkbo.}
+    importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}

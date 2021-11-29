@@ -44,72 +44,72 @@ type
 
 
 proc `iterator`*[Type](this: NCollectionUtfString[Type]): NCollectionUtfIterator[
-    Type] {.noSideEffect, cdecl, importcpp: "Iterator", dynlib: tkernel.}
+    Type] {.noSideEffect, cdecl, importcpp: "Iterator", header: "NCollection_UtfString.hxx".}
 proc size*[Type](this: NCollectionUtfString[Type]): cint {.noSideEffect, cdecl,
-    importcpp: "Size", dynlib: tkernel.}
+    importcpp: "Size", header: "NCollection_UtfString.hxx".}
 proc length*[Type](this: NCollectionUtfString[Type]): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkernel.}
+    importcpp: "Length", header: "NCollection_UtfString.hxx".}
 proc getChar*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): StandardUtf32Char {.
-    noSideEffect, cdecl, importcpp: "GetChar", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetChar", header: "NCollection_UtfString.hxx".}
 proc getCharBuffer*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): ptr Type {.
-    noSideEffect, cdecl, importcpp: "GetCharBuffer", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetCharBuffer", header: "NCollection_UtfString.hxx".}
 proc `[]`*[Type](this: NCollectionUtfString[Type]; theCharIndex: cint): StandardUtf32Char {.
-    noSideEffect, cdecl, importcpp: "#[@]", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "#[@]", header: "NCollection_UtfString.hxx".}
 proc newNCollectionUtfString*[Type](): NCollectionUtfString[Type] {.cdecl,
-    constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
+    constructor, importcpp: "NCollection_UtfString<\'*0>(@)", header: "NCollection_UtfString.hxx".}
 proc newNCollectionUtfString*[Type](theCopy: NCollectionUtfString): NCollectionUtfString[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)",
-           dynlib: tkernel.}
+           header: "NCollection_UtfString.hxx".}
 proc newNCollectionUtfString*[Type](theCopyUtf8: cstring; theLength: cint = -1): NCollectionUtfString[
     Type] {.cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)",
-           dynlib: tkernel.}
+           header: "NCollection_UtfString.hxx".}
 proc newNCollectionUtfString*[Type](theCopyUtf16: ptr StandardUtf16Char;
                                    theLength: cint = -1): NCollectionUtfString[Type] {.
-    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", header: "NCollection_UtfString.hxx".}
 proc newNCollectionUtfString*[Type](theCopyUtf32: ptr StandardUtf32Char;
                                    theLength: cint = -1): NCollectionUtfString[Type] {.
-    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_UtfString<\'*0>(@)", header: "NCollection_UtfString.hxx".}
 proc fromUnicode*[Type; TypeFrom](this: var NCollectionUtfString[Type];
                                 theStringUtf: ptr TypeFrom; theLength: cint = -1) {.
-    cdecl, importcpp: "FromUnicode", dynlib: tkernel.}
+    cdecl, importcpp: "FromUnicode", header: "NCollection_UtfString.hxx".}
 proc fromLocale*[Type](this: var NCollectionUtfString[Type]; theString: cstring;
                       theLength: cint = -1) {.cdecl, importcpp: "FromLocale",
-    dynlib: tkernel.}
+    header: "NCollection_UtfString.hxx".}
 proc destroyNCollectionUtfString*[Type](this: var NCollectionUtfString[Type]) {.
-    cdecl, importcpp: "#.~NCollection_UtfString()", dynlib: tkernel.}
+    cdecl, importcpp: "#.~NCollection_UtfString()", header: "NCollection_UtfString.hxx".}
 proc isEqual*[Type](this: NCollectionUtfString[Type];
                    theCompare: NCollectionUtfString): bool {.noSideEffect, cdecl,
-    importcpp: "IsEqual", dynlib: tkernel.}
+    importcpp: "IsEqual", header: "NCollection_UtfString.hxx".}
 proc subString*[Type](this: NCollectionUtfString[Type]; theStart: cint; theEnd: cint): NCollectionUtfString {.
-    noSideEffect, cdecl, importcpp: "SubString", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "SubString", header: "NCollection_UtfString.hxx".}
 proc toCString*[Type](this: NCollectionUtfString[Type]): ptr Type {.noSideEffect,
-    cdecl, importcpp: "ToCString", dynlib: tkernel.}
+    cdecl, importcpp: "ToCString", header: "NCollection_UtfString.hxx".}
 proc toUtf8*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
-    StandardUtf8Char] {.noSideEffect, cdecl, importcpp: "ToUtf8", dynlib: tkernel.}
+    StandardUtf8Char] {.noSideEffect, cdecl, importcpp: "ToUtf8", header: "NCollection_UtfString.hxx".}
 proc toUtf16*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
-    StandardUtf16Char] {.noSideEffect, cdecl, importcpp: "ToUtf16", dynlib: tkernel.}
+    StandardUtf16Char] {.noSideEffect, cdecl, importcpp: "ToUtf16", header: "NCollection_UtfString.hxx".}
 proc toUtf32*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
-    StandardUtf32Char] {.noSideEffect, cdecl, importcpp: "ToUtf32", dynlib: tkernel.}
+    StandardUtf32Char] {.noSideEffect, cdecl, importcpp: "ToUtf32", header: "NCollection_UtfString.hxx".}
 proc toUtfWide*[Type](this: NCollectionUtfString[Type]): NCollectionUtfString[
-    StandardWideChar] {.noSideEffect, cdecl, importcpp: "ToUtfWide", dynlib: tkernel.}
+    StandardWideChar] {.noSideEffect, cdecl, importcpp: "ToUtfWide", header: "NCollection_UtfString.hxx".}
 proc toLocale*[Type](this: NCollectionUtfString[Type]; theBuffer: cstring;
                     theSizeBytes: cint): bool {.noSideEffect, cdecl,
-    importcpp: "ToLocale", dynlib: tkernel.}
+    importcpp: "ToLocale", header: "NCollection_UtfString.hxx".}
 proc isEmpty*[Type](this: NCollectionUtfString[Type]): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkernel.}
+    importcpp: "IsEmpty", header: "NCollection_UtfString.hxx".}
 proc clear*[Type](this: var NCollectionUtfString[Type]) {.cdecl, importcpp: "Clear",
-    dynlib: tkernel.}
+    header: "NCollection_UtfString.hxx".}
 proc assign*[Type](this: var NCollectionUtfString[Type];
                   theOther: NCollectionUtfString): NCollectionUtfString {.cdecl,
-    importcpp: "Assign", dynlib: tkernel.}
+    importcpp: "Assign", header: "NCollection_UtfString.hxx".}
 proc swap*[Type](this: var NCollectionUtfString[Type];
                 theOther: var NCollectionUtfString) {.cdecl, importcpp: "Swap",
-    dynlib: tkernel.}
+    header: "NCollection_UtfString.hxx".}
 proc `+=`*[Type](this: var NCollectionUtfString[Type];
                 theAppend: NCollectionUtfString) {.cdecl, importcpp: "(# += #)",
-    dynlib: tkernel.}
+    header: "NCollection_UtfString.hxx".}
 proc `==`*[Type](this: NCollectionUtfString[Type]; theCompare: NCollectionUtfString): bool {.
-    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(# == #)", header: "NCollection_UtfString.hxx".}
 type
   NCollectionUtf8String* = NCollectionUtfString[StandardUtf8Char]
   NCollectionUtf16String* = NCollectionUtfString[StandardUtf16Char]

@@ -57,20 +57,20 @@ type
 
 
 proc newBRepAlgoAPI_BooleanOperation*(): BRepAlgoAPI_BooleanOperation {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc newBRepAlgoAPI_BooleanOperation*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_BooleanOperation {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_BooleanOperation(@)", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc shape1*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape1", dynlib: tkbo.}
+    importcpp: "Shape1", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc shape2*(this: BRepAlgoAPI_BooleanOperation): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape2", dynlib: tkbo.}
+    importcpp: "Shape2", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc setTools*(this: var BRepAlgoAPI_BooleanOperation; theLS: TopToolsListOfShape) {.
-    cdecl, importcpp: "SetTools", dynlib: tkbo.}
+    cdecl, importcpp: "SetTools", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc tools*(this: BRepAlgoAPI_BooleanOperation): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "Tools", dynlib: tkbo.}
+    cdecl, importcpp: "Tools", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc setOperation*(this: var BRepAlgoAPI_BooleanOperation; theBOP: BOPAlgoOperation) {.
-    cdecl, importcpp: "SetOperation", dynlib: tkbo.}
+    cdecl, importcpp: "SetOperation", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgoOperation {.
-    noSideEffect, cdecl, importcpp: "Operation", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "Operation", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc build*(this: var BRepAlgoAPI_BooleanOperation) {.cdecl, importcpp: "Build",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_BooleanOperation.hxx".}

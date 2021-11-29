@@ -38,18 +38,18 @@ type
 
 
 proc oneAxis*(this: var BRepPrimAPI_MakeOneAxis): pointer {.cdecl,
-    importcpp: "OneAxis", dynlib: tkprim.}
+    importcpp: "OneAxis", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc build*(this: var BRepPrimAPI_MakeOneAxis) {.cdecl, importcpp: "Build",
-    dynlib: tkprim.}
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc face*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Face {.cdecl, importcpp: "Face",
-    dynlib: tkprim.}
+    header: "BRepPrimAPI_MakeOneAxis.hxx".}
 converter `topoDS_Face`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Face {.cdecl,
-    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Face", dynlib: tkprim.}
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Face", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc shell*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Shell {.cdecl,
-    importcpp: "Shell", dynlib: tkprim.}
+    importcpp: "Shell", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 converter `topoDS_Shell`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Shell {.cdecl,
-    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Shell", dynlib: tkprim.}
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Shell", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 proc solid*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
-    importcpp: "Solid", dynlib: tkprim.}
+    importcpp: "Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
-    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid", dynlib: tkprim.}
+    importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}

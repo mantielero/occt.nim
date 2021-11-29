@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardDimensionMismatch):
   template standardDimensionMismatchRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardDimensionMismatch*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_DimensionMismatch(@)", dynlib: tkernel.}
+          importcpp: "Standard_DimensionMismatch(@)", header: "Standard_DimensionMismatch.hxx".}
 
 else:
   discard

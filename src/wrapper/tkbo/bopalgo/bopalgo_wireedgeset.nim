@@ -23,21 +23,21 @@ type
 
 
 proc newBOPAlgoWireEdgeSet*(): BOPAlgoWireEdgeSet {.cdecl, constructor,
-    importcpp: "BOPAlgo_WireEdgeSet(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_WireEdgeSet(@)", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc destroyBOPAlgoWireEdgeSet*(this: var BOPAlgoWireEdgeSet) {.cdecl,
-    importcpp: "#.~BOPAlgo_WireEdgeSet()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_WireEdgeSet()", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc newBOPAlgoWireEdgeSet*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoWireEdgeSet {.
-    cdecl, constructor, importcpp: "BOPAlgo_WireEdgeSet(@)", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoWireEdgeSet) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_WireEdgeSet(@)", header: "BOPAlgo_WireEdgeSet.hxx".}
+proc clear*(this: var BOPAlgoWireEdgeSet) {.cdecl, importcpp: "Clear", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc setFace*(this: var BOPAlgoWireEdgeSet; aF: TopoDS_Face) {.cdecl,
-    importcpp: "SetFace", dynlib: tkbo.}
+    importcpp: "SetFace", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc face*(this: BOPAlgoWireEdgeSet): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkbo.}
+    importcpp: "Face", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc addStartElement*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.cdecl,
-    importcpp: "AddStartElement", dynlib: tkbo.}
+    importcpp: "AddStartElement", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc startElements*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "StartElements", dynlib: tkbo.}
+    cdecl, importcpp: "StartElements", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc addShape*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.cdecl,
-    importcpp: "AddShape", dynlib: tkbo.}
+    importcpp: "AddShape", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc shapes*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Shapes", dynlib: tkbo.}
+    importcpp: "Shapes", header: "BOPAlgo_WireEdgeSet.hxx".}

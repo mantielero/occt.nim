@@ -24,4 +24,4 @@ type
                                                                                                   ## constructor
 
 
-proc perform*(this: var BOPAlgoAlgo) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+proc perform*(this: var BOPAlgoAlgo) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Algo.hxx".}

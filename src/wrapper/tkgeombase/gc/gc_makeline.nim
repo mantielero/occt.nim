@@ -49,17 +49,17 @@ type
 
 
 proc newMakeLine*(a1: Ax1): MakeLine {.cdecl, constructor,
-                                   importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+                                   importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc newMakeLine*(L: Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
-                                  dynlib: tkgeombase.}
+                                  header: "GC_MakeLine.hxx".}
 proc newMakeLine*(p: Pnt; v: Dir): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
-                                        dynlib: tkgeombase.}
+                                        header: "GC_MakeLine.hxx".}
 proc newMakeLine*(lin: Lin; point: Pnt): MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc newMakeLine*(p1: Pnt; p2: Pnt): MakeLine {.cdecl, constructor,
-    importcpp: "GC_MakeLine(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeLine.hxx".}
 converter `constopencascade`*(this: MakeLine): Handle[GeomLine] {.noSideEffect,
-    cdecl, importcpp: "GC_MakeLine::operator constopencascade", dynlib: tkgeombase.}
+    cdecl, importcpp: "GC_MakeLine::operator constopencascade", header: "GC_MakeLine.hxx".}

@@ -314,18 +314,18 @@ type
 
 
 proc newBOPAlgoRemoveFeatures*(): BOPAlgoRemoveFeatures {.cdecl, constructor,
-    importcpp: "BOPAlgo_RemoveFeatures(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_RemoveFeatures(@)", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc setShape*(this: var BOPAlgoRemoveFeatures; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "SetShape", dynlib: tkbo.}
+    importcpp: "SetShape", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc inputShape*(this: BOPAlgoRemoveFeatures): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "InputShape", dynlib: tkbo.}
+    importcpp: "InputShape", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc addFaceToRemove*(this: var BOPAlgoRemoveFeatures; theFace: TopoDS_Shape) {.cdecl,
-    importcpp: "AddFaceToRemove", dynlib: tkbo.}
+    importcpp: "AddFaceToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc addFacesToRemove*(this: var BOPAlgoRemoveFeatures;
                       theFaces: TopToolsListOfShape) {.cdecl,
-    importcpp: "AddFacesToRemove", dynlib: tkbo.}
+    importcpp: "AddFacesToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc facesToRemove*(this: BOPAlgoRemoveFeatures): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "FacesToRemove", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "FacesToRemove", header: "BOPAlgo_RemoveFeatures.hxx".}
 proc perform*(this: var BOPAlgoRemoveFeatures) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
-proc clear*(this: var BOPAlgoRemoveFeatures) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    header: "BOPAlgo_RemoveFeatures.hxx".}
+proc clear*(this: var BOPAlgoRemoveFeatures) {.cdecl, importcpp: "Clear", header: "BOPAlgo_RemoveFeatures.hxx".}

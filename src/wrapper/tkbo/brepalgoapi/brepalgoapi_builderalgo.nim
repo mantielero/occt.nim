@@ -524,53 +524,53 @@ type
 
 
 proc newBRepAlgoAPI_BuilderAlgo*(): BRepAlgoAPI_BuilderAlgo {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_BuilderAlgo(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_BuilderAlgo(@)", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc destroyBRepAlgoAPI_BuilderAlgo*(this: var BRepAlgoAPI_BuilderAlgo) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_BuilderAlgo()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_BuilderAlgo()", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc newBRepAlgoAPI_BuilderAlgo*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_BuilderAlgo {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_BuilderAlgo(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_BuilderAlgo(@)", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setArguments*(this: var BRepAlgoAPI_BuilderAlgo; theLS: TopToolsListOfShape) {.
-    cdecl, importcpp: "SetArguments", dynlib: tkbo.}
+    cdecl, importcpp: "SetArguments", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc arguments*(this: BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "Arguments", dynlib: tkbo.}
+    cdecl, importcpp: "Arguments", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setNonDestructive*(this: var BRepAlgoAPI_BuilderAlgo; theFlag: bool) {.cdecl,
-    importcpp: "SetNonDestructive", dynlib: tkbo.}
+    importcpp: "SetNonDestructive", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc nonDestructive*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "NonDestructive", dynlib: tkbo.}
+    importcpp: "NonDestructive", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setGlue*(this: var BRepAlgoAPI_BuilderAlgo; theGlue: BOPAlgoGlueEnum) {.cdecl,
-    importcpp: "SetGlue", dynlib: tkbo.}
+    importcpp: "SetGlue", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc glue*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoGlueEnum {.noSideEffect, cdecl,
-    importcpp: "Glue", dynlib: tkbo.}
+    importcpp: "Glue", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setCheckInverted*(this: var BRepAlgoAPI_BuilderAlgo; theCheck: bool) {.cdecl,
-    importcpp: "SetCheckInverted", dynlib: tkbo.}
+    importcpp: "SetCheckInverted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc checkInverted*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "CheckInverted", dynlib: tkbo.}
+    importcpp: "CheckInverted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc build*(this: var BRepAlgoAPI_BuilderAlgo) {.cdecl, importcpp: "Build",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc simplifyResult*(this: var BRepAlgoAPI_BuilderAlgo; theUnifyEdges: bool = true;
                     theUnifyFaces: bool = true; theAngularTol: cfloat = angular()) {.
-    cdecl, importcpp: "SimplifyResult", dynlib: tkbo.}
+    cdecl, importcpp: "SimplifyResult", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc modified*(this: var BRepAlgoAPI_BuilderAlgo; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tkbo.}
+    cdecl, importcpp: "Modified", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc generated*(this: var BRepAlgoAPI_BuilderAlgo; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkbo.}
+    cdecl, importcpp: "Generated", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc isDeleted*(this: var BRepAlgoAPI_BuilderAlgo; `aS`: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkbo.}
+    importcpp: "IsDeleted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc hasModified*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "HasModified", dynlib: tkbo.}
+    importcpp: "HasModified", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc hasGenerated*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "HasGenerated", dynlib: tkbo.}
+    importcpp: "HasGenerated", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc hasDeleted*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "HasDeleted", dynlib: tkbo.}
+    importcpp: "HasDeleted", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc setToFillHistory*(this: var BRepAlgoAPI_BuilderAlgo; theHistFlag: bool) {.cdecl,
-    importcpp: "SetToFillHistory", dynlib: tkbo.}
+    importcpp: "SetToFillHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc hasHistory*(this: BRepAlgoAPI_BuilderAlgo): bool {.noSideEffect, cdecl,
-    importcpp: "HasHistory", dynlib: tkbo.}
+    importcpp: "HasHistory", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc sectionEdges*(this: var BRepAlgoAPI_BuilderAlgo): TopToolsListOfShape {.cdecl,
-    importcpp: "SectionEdges", dynlib: tkbo.}
+    importcpp: "SectionEdges", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc dSFiller*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPPaveFiller {.noSideEffect,
-    cdecl, importcpp: "DSFiller", dynlib: tkbo.}
+    cdecl, importcpp: "DSFiller", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 proc builder*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPBuilder {.noSideEffect, cdecl,
-    importcpp: "Builder", dynlib: tkbo.}
+    importcpp: "Builder", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 #proc history*(this: BRepAlgoAPI_BuilderAlgo): Handle[BRepToolsHistory] {.
-#    noSideEffect, cdecl, importcpp: "History", dynlib: tkbo.}
+#    noSideEffect, cdecl, importcpp: "History", header: "BRepAlgoAPI_BuilderAlgo.hxx".}

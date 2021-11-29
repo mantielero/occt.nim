@@ -28,15 +28,15 @@ type
 
 
 proc constructStandardCondition*(theIsSet: bool): StandardCondition {.cdecl,
-    constructor, importcpp: "Standard_Condition(@)", dynlib: tkernel.}
+    constructor, importcpp: "Standard_Condition(@)", header: "Standard_Condition.hxx".}
 proc destroyStandardCondition*(this: var StandardCondition) {.cdecl,
-    importcpp: "#.~Standard_Condition()", dynlib: tkernel.}
-proc set*(this: var StandardCondition) {.cdecl, importcpp: "Set", dynlib: tkernel.}
-proc reset*(this: var StandardCondition) {.cdecl, importcpp: "Reset", dynlib: tkernel.}
-proc wait*(this: var StandardCondition) {.cdecl, importcpp: "Wait", dynlib: tkernel.}
+    importcpp: "#.~Standard_Condition()", header: "Standard_Condition.hxx".}
+proc set*(this: var StandardCondition) {.cdecl, importcpp: "Set", header: "Standard_Condition.hxx".}
+proc reset*(this: var StandardCondition) {.cdecl, importcpp: "Reset", header: "Standard_Condition.hxx".}
+proc wait*(this: var StandardCondition) {.cdecl, importcpp: "Wait", header: "Standard_Condition.hxx".}
 proc wait*(this: var StandardCondition; theTimeMilliseconds: cint): bool {.cdecl,
-    importcpp: "Wait", dynlib: tkernel.}
+    importcpp: "Wait", header: "Standard_Condition.hxx".}
 proc check*(this: var StandardCondition): bool {.cdecl, importcpp: "Check",
-    dynlib: tkernel.}
+    header: "Standard_Condition.hxx".}
 proc checkReset*(this: var StandardCondition): bool {.cdecl, importcpp: "CheckReset",
-    dynlib: tkernel.}
+    header: "Standard_Condition.hxx".}

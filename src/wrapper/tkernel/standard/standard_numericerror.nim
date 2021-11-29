@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardNumericError):
   template standardNumericErrorRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardNumericError*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_NumericError(@)", dynlib: tkernel.}
+          importcpp: "Standard_NumericError(@)", header: "Standard_NumericError.hxx".}
 
 else:
   discard

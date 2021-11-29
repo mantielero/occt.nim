@@ -21,23 +21,23 @@ type
 
 
 proc newBOPAlgoWireSplitter*(): BOPAlgoWireSplitter {.cdecl, constructor,
-    importcpp: "BOPAlgo_WireSplitter(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_WireSplitter(@)", header: "BOPAlgo_WireSplitter.hxx".}
 proc destroyBOPAlgoWireSplitter*(this: var BOPAlgoWireSplitter) {.cdecl,
-    importcpp: "#.~BOPAlgo_WireSplitter()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_WireSplitter()", header: "BOPAlgo_WireSplitter.hxx".}
 proc newBOPAlgoWireSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoWireSplitter {.
-    cdecl, constructor, importcpp: "BOPAlgo_WireSplitter(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_WireSplitter(@)", header: "BOPAlgo_WireSplitter.hxx".}
 proc setWES*(this: var BOPAlgoWireSplitter; theWES: BOPAlgoWireEdgeSet) {.cdecl,
-    importcpp: "SetWES", dynlib: tkbo.}
+    importcpp: "SetWES", header: "BOPAlgo_WireSplitter.hxx".}
 proc wes*(this: var BOPAlgoWireSplitter): var BOPAlgoWireEdgeSet {.cdecl,
-    importcpp: "WES", dynlib: tkbo.}
+    importcpp: "WES", header: "BOPAlgo_WireSplitter.hxx".}
 #proc setContext*(this: var BOPAlgoWireSplitter; theContext: Handle[IntToolsContext]) {.
-#    cdecl, importcpp: "SetContext", dynlib: tkbo.}
+#    cdecl, importcpp: "SetContext", header: "BOPAlgo_WireSplitter.hxx".}
 #proc context*(this: var BOPAlgoWireSplitter): Handle[IntToolsContext] {.cdecl,
-#    importcpp: "Context", dynlib: tkbo.}
+#    importcpp: "Context", header: "BOPAlgo_WireSplitter.hxx".}
 proc perform*(this: var BOPAlgoWireSplitter) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
+    header: "BOPAlgo_WireSplitter.hxx".}
 proc makeWire*(theLE: var TopToolsListOfShape; theW: var TopoDS_Wire) {.cdecl,
-    importcpp: "BOPAlgo_WireSplitter::MakeWire(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_WireSplitter::MakeWire(@)", header: "BOPAlgo_WireSplitter.hxx".}
 #proc splitBlock*(theF: TopoDS_Face; theCB: var BOPToolsConnexityBlock;
 #                theContext: Handle[IntToolsContext]) {.cdecl,
-#    importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)", dynlib: tkbo.}
+#    importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)", header: "BOPAlgo_WireSplitter.hxx".}

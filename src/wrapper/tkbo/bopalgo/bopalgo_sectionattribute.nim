@@ -25,19 +25,19 @@ type
 
 
 proc newBOPAlgoSectionAttribute*(): BOPAlgoSectionAttribute {.cdecl, constructor,
-    importcpp: "BOPAlgo_SectionAttribute(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_SectionAttribute(@)", header: "BOPAlgo_SectionAttribute.hxx".}
 proc newBOPAlgoSectionAttribute*(theAproximation: bool; thePCurveOnS1: bool;
                                 thePCurveOnS2: bool): BOPAlgoSectionAttribute {.
-    cdecl, constructor, importcpp: "BOPAlgo_SectionAttribute(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_SectionAttribute(@)", header: "BOPAlgo_SectionAttribute.hxx".}
 proc approximation*(this: var BOPAlgoSectionAttribute; theApprox: bool) {.cdecl,
-    importcpp: "Approximation", dynlib: tkbo.}
+    importcpp: "Approximation", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS1*(this: var BOPAlgoSectionAttribute; thePCurveOnS1: bool) {.cdecl,
-    importcpp: "PCurveOnS1", dynlib: tkbo.}
+    importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS2*(this: var BOPAlgoSectionAttribute; thePCurveOnS2: bool) {.cdecl,
-    importcpp: "PCurveOnS2", dynlib: tkbo.}
+    importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}
 proc approximation*(this: BOPAlgoSectionAttribute): bool {.noSideEffect, cdecl,
-    importcpp: "Approximation", dynlib: tkbo.}
+    importcpp: "Approximation", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS1*(this: BOPAlgoSectionAttribute): bool {.noSideEffect, cdecl,
-    importcpp: "PCurveOnS1", dynlib: tkbo.}
+    importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS2*(this: BOPAlgoSectionAttribute): bool {.noSideEffect, cdecl,
-    importcpp: "PCurveOnS2", dynlib: tkbo.}
+    importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}

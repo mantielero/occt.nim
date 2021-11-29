@@ -30,46 +30,46 @@ type
 
 
 proc constructStandardTransient*(): StandardTransient {.cdecl, constructor,
-    importcpp: "Standard_Transient(@)", dynlib: tkernel.}
+    importcpp: "Standard_Transient(@)", header: "Standard_Transient.hxx".}
 proc constructStandardTransient*(a1: StandardTransient): StandardTransient {.cdecl,
-    constructor, importcpp: "Standard_Transient(@)", dynlib: tkernel.}
+    constructor, importcpp: "Standard_Transient(@)", header: "Standard_Transient.hxx".}
 proc destroyStandardTransient*(this: var StandardTransient) {.cdecl,
-    importcpp: "#.~Standard_Transient()", dynlib: tkernel.}
+    importcpp: "#.~Standard_Transient()", header: "Standard_Transient.hxx".}
 proc delete*(this: StandardTransient) {.noSideEffect, cdecl, importcpp: "Delete",
-                                     dynlib: tkernel.}
+                                     header: "Standard_Transient.hxx".}
 type
   StandardTransientbaseType* = void
 
 proc getTypeName*(): cstring {.cdecl,
                             importcpp: "Standard_Transient::get_type_name(@)",
-                            dynlib: tkernel.}
+                            header: "Standard_Transient.hxx".}
 proc getTypeDescriptor*(): Handle[StandardType] {.cdecl,
-    importcpp: "Standard_Transient::get_type_descriptor(@)", dynlib: tkernel.}
+    importcpp: "Standard_Transient::get_type_descriptor(@)", header: "Standard_Transient.hxx".}
 proc dynamicType*(this: StandardTransient): Handle[StandardType] {.noSideEffect,
-    cdecl, importcpp: "DynamicType", dynlib: tkernel.}
+    cdecl, importcpp: "DynamicType", header: "Standard_Transient.hxx".}
 proc isInstance*(this: StandardTransient; theType: Handle[StandardType]): bool {.
-    noSideEffect, cdecl, importcpp: "IsInstance", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsInstance", header: "Standard_Transient.hxx".}
 proc isInstance*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
-    cdecl, importcpp: "IsInstance", dynlib: tkernel.}
+    cdecl, importcpp: "IsInstance", header: "Standard_Transient.hxx".}
 proc isKind*(this: StandardTransient; theType: Handle[StandardType]): bool {.
-    noSideEffect, cdecl, importcpp: "IsKind", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsKind", header: "Standard_Transient.hxx".}
 proc isKind*(this: StandardTransient; theTypeName: cstring): bool {.noSideEffect,
-    cdecl, importcpp: "IsKind", dynlib: tkernel.}
+    cdecl, importcpp: "IsKind", header: "Standard_Transient.hxx".}
 proc this*(this: StandardTransient): ptr StandardTransient {.noSideEffect, cdecl,
-    importcpp: "This", dynlib: tkernel.}
+    importcpp: "This", header: "Standard_Transient.hxx".}
 proc getRefCount*(this: StandardTransient): cint {.noSideEffect, cdecl,
-    importcpp: "GetRefCount", dynlib: tkernel.}
+    importcpp: "GetRefCount", header: "Standard_Transient.hxx".}
 proc incrementRefCounter*(this: StandardTransient) {.noSideEffect, cdecl,
-    importcpp: "IncrementRefCounter", dynlib: tkernel.}
+    importcpp: "IncrementRefCounter", header: "Standard_Transient.hxx".}
 proc decrementRefCounter*(this: StandardTransient): cint {.noSideEffect, cdecl,
-    importcpp: "DecrementRefCounter", dynlib: tkernel.}
+    importcpp: "DecrementRefCounter", header: "Standard_Transient.hxx".}
 ## ! Computes a hash code for the given transient object, in the range [1, theUpperBound]
 ## ! @param theTransientObject the transient object which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 proc hashCode*(theTransientObject: ptr StandardTransient; theUpperBound: cint): cint {.
-    cdecl, importcpp: "HashCode(@)", dynlib: tkernel.}
+    cdecl, importcpp: "HashCode(@)", header: "Standard_Transient.hxx".}
 ## ! Definition of Handle_Standard_Transient as typedef for compatibility
 
 type

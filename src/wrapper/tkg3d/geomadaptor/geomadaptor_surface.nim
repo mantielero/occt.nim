@@ -41,114 +41,114 @@ type
 
 
 proc newGeomAdaptorSurface*(): GeomAdaptorSurface {.cdecl, constructor,
-    importcpp: "GeomAdaptor_Surface(@)", dynlib: tkg3d.}
+    importcpp: "GeomAdaptor_Surface(@)", header: "GeomAdaptor_Surface.hxx".}
 proc newGeomAdaptorSurface*(s: Handle[GeomSurface]): GeomAdaptorSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_Surface(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_Surface(@)", header: "GeomAdaptor_Surface.hxx".}
 proc newGeomAdaptorSurface*(s: Handle[GeomSurface]; uFirst: cfloat; uLast: cfloat;
                            vFirst: cfloat; vLast: cfloat; tolU: cfloat = 0.0;
                            tolV: cfloat = 0.0): GeomAdaptorSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_Surface(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_Surface(@)", header: "GeomAdaptor_Surface.hxx".}
 proc load*(this: var GeomAdaptorSurface; s: Handle[GeomSurface]) {.cdecl,
-    importcpp: "Load", dynlib: tkg3d.}
+    importcpp: "Load", header: "GeomAdaptor_Surface.hxx".}
 proc load*(this: var GeomAdaptorSurface; s: Handle[GeomSurface]; uFirst: cfloat;
           uLast: cfloat; vFirst: cfloat; vLast: cfloat; tolU: cfloat = 0.0;
-          tolV: cfloat = 0.0) {.cdecl, importcpp: "Load", dynlib: tkg3d.}
+          tolV: cfloat = 0.0) {.cdecl, importcpp: "Load", header: "GeomAdaptor_Surface.hxx".}
 proc surface*(this: GeomAdaptorSurface): Handle[GeomSurface] {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkg3d.}
+    importcpp: "Surface", header: "GeomAdaptor_Surface.hxx".}
 proc firstUParameter*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstUParameter", dynlib: tkg3d.}
+    importcpp: "FirstUParameter", header: "GeomAdaptor_Surface.hxx".}
 proc lastUParameter*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastUParameter", dynlib: tkg3d.}
+    importcpp: "LastUParameter", header: "GeomAdaptor_Surface.hxx".}
 proc firstVParameter*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstVParameter", dynlib: tkg3d.}
+    importcpp: "FirstVParameter", header: "GeomAdaptor_Surface.hxx".}
 proc lastVParameter*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastVParameter", dynlib: tkg3d.}
+    importcpp: "LastVParameter", header: "GeomAdaptor_Surface.hxx".}
 proc uContinuity*(this: GeomAdaptorSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "UContinuity", dynlib: tkg3d.}
+    importcpp: "UContinuity", header: "GeomAdaptor_Surface.hxx".}
 proc vContinuity*(this: GeomAdaptorSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "VContinuity", dynlib: tkg3d.}
+    importcpp: "VContinuity", header: "GeomAdaptor_Surface.hxx".}
 proc nbUIntervals*(this: GeomAdaptorSurface; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbUIntervals", dynlib: tkg3d.}
+    cdecl, importcpp: "NbUIntervals", header: "GeomAdaptor_Surface.hxx".}
 proc nbVIntervals*(this: GeomAdaptorSurface; s: GeomAbsShape): cint {.noSideEffect,
-    cdecl, importcpp: "NbVIntervals", dynlib: tkg3d.}
+    cdecl, importcpp: "NbVIntervals", header: "GeomAdaptor_Surface.hxx".}
 proc uIntervals*(this: GeomAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "UIntervals", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "UIntervals", header: "GeomAdaptor_Surface.hxx".}
 proc vIntervals*(this: GeomAdaptorSurface; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
-    noSideEffect, cdecl, importcpp: "VIntervals", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "VIntervals", header: "GeomAdaptor_Surface.hxx".}
 proc uTrim*(this: GeomAdaptorSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
-    Adaptor3dHSurface] {.noSideEffect, cdecl, importcpp: "UTrim", dynlib: tkg3d.}
+    Adaptor3dHSurface] {.noSideEffect, cdecl, importcpp: "UTrim", header: "GeomAdaptor_Surface.hxx".}
 proc vTrim*(this: GeomAdaptorSurface; first: cfloat; last: cfloat; tol: cfloat): Handle[
-    Adaptor3dHSurface] {.noSideEffect, cdecl, importcpp: "VTrim", dynlib: tkg3d.}
+    Adaptor3dHSurface] {.noSideEffect, cdecl, importcpp: "VTrim", header: "GeomAdaptor_Surface.hxx".}
 proc isUClosed*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", dynlib: tkg3d.}
+    importcpp: "IsUClosed", header: "GeomAdaptor_Surface.hxx".}
 proc isVClosed*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", dynlib: tkg3d.}
+    importcpp: "IsVClosed", header: "GeomAdaptor_Surface.hxx".}
 proc isUPeriodic*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkg3d.}
+    importcpp: "IsUPeriodic", header: "GeomAdaptor_Surface.hxx".}
 proc uPeriod*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "UPeriod", dynlib: tkg3d.}
+    importcpp: "UPeriod", header: "GeomAdaptor_Surface.hxx".}
 proc isVPeriodic*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkg3d.}
+    importcpp: "IsVPeriodic", header: "GeomAdaptor_Surface.hxx".}
 proc vPeriod*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "VPeriod", dynlib: tkg3d.}
+    importcpp: "VPeriod", header: "GeomAdaptor_Surface.hxx".}
 proc value*(this: GeomAdaptorSurface; u: cfloat; v: cfloat): Pnt {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkg3d.}
+    importcpp: "Value", header: "GeomAdaptor_Surface.hxx".}
 proc d0*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg3d.}
+    importcpp: "D0", header: "GeomAdaptor_Surface.hxx".}
 proc d1*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "GeomAdaptor_Surface.hxx".}
 proc d2*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", dynlib: tkg3d.}
+    importcpp: "D2", header: "GeomAdaptor_Surface.hxx".}
 proc d3*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    dynlib: tkg3d.}
+                                    header: "GeomAdaptor_Surface.hxx".}
 proc dn*(this: GeomAdaptorSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "DN", header: "GeomAdaptor_Surface.hxx".}
 proc uResolution*(this: GeomAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "UResolution", dynlib: tkg3d.}
+    importcpp: "UResolution", header: "GeomAdaptor_Surface.hxx".}
 proc vResolution*(this: GeomAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "VResolution", dynlib: tkg3d.}
+    importcpp: "VResolution", header: "GeomAdaptor_Surface.hxx".}
 proc getType*(this: GeomAdaptorSurface): GeomAbsSurfaceType {.noSideEffect, cdecl,
-    importcpp: "GetType", dynlib: tkg3d.}
+    importcpp: "GetType", header: "GeomAdaptor_Surface.hxx".}
 proc plane*(this: GeomAdaptorSurface): Pln {.noSideEffect, cdecl, importcpp: "Plane",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_Surface.hxx".}
 proc cylinder*(this: GeomAdaptorSurface): Cylinder {.noSideEffect, cdecl,
-    importcpp: "Cylinder", dynlib: tkg3d.}
+    importcpp: "Cylinder", header: "GeomAdaptor_Surface.hxx".}
 proc cone*(this: GeomAdaptorSurface): Cone {.noSideEffect, cdecl, importcpp: "Cone",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_Surface.hxx".}
 proc sphere*(this: GeomAdaptorSurface): Sphere {.noSideEffect, cdecl,
-    importcpp: "Sphere", dynlib: tkg3d.}
+    importcpp: "Sphere", header: "GeomAdaptor_Surface.hxx".}
 proc torus*(this: GeomAdaptorSurface): Torus {.noSideEffect, cdecl,
-    importcpp: "Torus", dynlib: tkg3d.}
+    importcpp: "Torus", header: "GeomAdaptor_Surface.hxx".}
 proc uDegree*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkg3d.}
+    importcpp: "UDegree", header: "GeomAdaptor_Surface.hxx".}
 proc nbUPoles*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbUPoles", dynlib: tkg3d.}
+    importcpp: "NbUPoles", header: "GeomAdaptor_Surface.hxx".}
 proc vDegree*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "VDegree", dynlib: tkg3d.}
+    importcpp: "VDegree", header: "GeomAdaptor_Surface.hxx".}
 proc nbVPoles*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbVPoles", dynlib: tkg3d.}
+    importcpp: "NbVPoles", header: "GeomAdaptor_Surface.hxx".}
 proc nbUKnots*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbUKnots", dynlib: tkg3d.}
+    importcpp: "NbUKnots", header: "GeomAdaptor_Surface.hxx".}
 proc nbVKnots*(this: GeomAdaptorSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbVKnots", dynlib: tkg3d.}
+    importcpp: "NbVKnots", header: "GeomAdaptor_Surface.hxx".}
 proc isURational*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsURational", dynlib: tkg3d.}
+    importcpp: "IsURational", header: "GeomAdaptor_Surface.hxx".}
 proc isVRational*(this: GeomAdaptorSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVRational", dynlib: tkg3d.}
+    importcpp: "IsVRational", header: "GeomAdaptor_Surface.hxx".}
 proc bezier*(this: GeomAdaptorSurface): Handle[GeomBezierSurface] {.noSideEffect,
-    cdecl, importcpp: "Bezier", dynlib: tkg3d.}
+    cdecl, importcpp: "Bezier", header: "GeomAdaptor_Surface.hxx".}
 proc bSpline*(this: GeomAdaptorSurface): Handle[GeomBSplineSurface] {.noSideEffect,
-    cdecl, importcpp: "BSpline", dynlib: tkg3d.}
+    cdecl, importcpp: "BSpline", header: "GeomAdaptor_Surface.hxx".}
 proc axeOfRevolution*(this: GeomAdaptorSurface): Ax1 {.noSideEffect, cdecl,
-    importcpp: "AxeOfRevolution", dynlib: tkg3d.}
+    importcpp: "AxeOfRevolution", header: "GeomAdaptor_Surface.hxx".}
 proc direction*(this: GeomAdaptorSurface): Dir {.noSideEffect, cdecl,
-    importcpp: "Direction", dynlib: tkg3d.}
+    importcpp: "Direction", header: "GeomAdaptor_Surface.hxx".}
 proc basisCurve*(this: GeomAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffect,
-    cdecl, importcpp: "BasisCurve", dynlib: tkg3d.}
+    cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_Surface.hxx".}
 proc basisSurface*(this: GeomAdaptorSurface): Handle[Adaptor3dHSurface] {.
-    noSideEffect, cdecl, importcpp: "BasisSurface", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "BasisSurface", header: "GeomAdaptor_Surface.hxx".}
 proc offsetValue*(this: GeomAdaptorSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "OffsetValue", dynlib: tkg3d.}
+    importcpp: "OffsetValue", header: "GeomAdaptor_Surface.hxx".}

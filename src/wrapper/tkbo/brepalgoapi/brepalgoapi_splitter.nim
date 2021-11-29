@@ -103,11 +103,11 @@ type
 
 
 proc newBRepAlgoAPI_Splitter*(): BRepAlgoAPI_Splitter {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Splitter(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Splitter(@)", header: "BRepAlgoAPI_Splitter.hxx".}
 proc newBRepAlgoAPI_Splitter*(thePF: BOPAlgoPaveFiller): BRepAlgoAPI_Splitter {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Splitter(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Splitter(@)", header: "BRepAlgoAPI_Splitter.hxx".}
 proc setTools*(this: var BRepAlgoAPI_Splitter; theLS: TopToolsListOfShape) {.cdecl,
-    importcpp: "SetTools", dynlib: tkbo.}
+    importcpp: "SetTools", header: "BRepAlgoAPI_Splitter.hxx".}
 proc tools*(this: BRepAlgoAPI_Splitter): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Tools", dynlib: tkbo.}
-proc build*(this: var BRepAlgoAPI_Splitter) {.cdecl, importcpp: "Build", dynlib: tkbo.}
+    importcpp: "Tools", header: "BRepAlgoAPI_Splitter.hxx".}
+proc build*(this: var BRepAlgoAPI_Splitter) {.cdecl, importcpp: "Build", header: "BRepAlgoAPI_Splitter.hxx".}

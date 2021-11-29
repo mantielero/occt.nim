@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardTooManyUsers):
   template standardTooManyUsersRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardTooManyUsers*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_TooManyUsers(@)", dynlib: tkernel.}
+          importcpp: "Standard_TooManyUsers(@)", header: "Standard_TooManyUsers.hxx".}
 
 else:
   discard

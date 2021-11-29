@@ -33,4 +33,4 @@ type
 
 
 proc newTopoDS_Solid*(): TopoDS_Solid {.cdecl, constructor,
-                                     importcpp: "TopoDS_Solid(@)", dynlib: tkbrep.}
+                                     importcpp: "TopoDS_Solid(@)", header: "TopoDS_Solid.hxx".}

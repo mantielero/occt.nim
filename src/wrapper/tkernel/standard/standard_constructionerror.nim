@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardConstructionError):
   template standardConstructionErrorRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardConstructionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_ConstructionError(@)", dynlib: tkernel.}
+          importcpp: "Standard_ConstructionError(@)", header: "Standard_ConstructionError.hxx".}
 
 else:
   discard

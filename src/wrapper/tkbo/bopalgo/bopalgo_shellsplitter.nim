@@ -22,18 +22,18 @@ type
 
 
 proc newBOPAlgoShellSplitter*(): BOPAlgoShellSplitter {.cdecl, constructor,
-    importcpp: "BOPAlgo_ShellSplitter(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_ShellSplitter(@)", header: "BOPAlgo_ShellSplitter.hxx".}
 proc destroyBOPAlgoShellSplitter*(this: var BOPAlgoShellSplitter) {.cdecl,
-    importcpp: "#.~BOPAlgo_ShellSplitter()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_ShellSplitter()", header: "BOPAlgo_ShellSplitter.hxx".}
 proc newBOPAlgoShellSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoShellSplitter {.
-    cdecl, constructor, importcpp: "BOPAlgo_ShellSplitter(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_ShellSplitter(@)", header: "BOPAlgo_ShellSplitter.hxx".}
 proc addStartElement*(this: var BOPAlgoShellSplitter; theS: TopoDS_Shape) {.cdecl,
-    importcpp: "AddStartElement", dynlib: tkbo.}
+    importcpp: "AddStartElement", header: "BOPAlgo_ShellSplitter.hxx".}
 proc startElements*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "StartElements", dynlib: tkbo.}
+    cdecl, importcpp: "StartElements", header: "BOPAlgo_ShellSplitter.hxx".}
 proc perform*(this: var BOPAlgoShellSplitter) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
+    header: "BOPAlgo_ShellSplitter.hxx".}
 proc shells*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Shells", dynlib: tkbo.}
+    importcpp: "Shells", header: "BOPAlgo_ShellSplitter.hxx".}
 #proc splitBlock*(theCB: var BOPToolsConnexityBlock) {.cdecl,
-#    importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)", dynlib: tkbo.}
+#    importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)", header: "BOPAlgo_ShellSplitter.hxx".}

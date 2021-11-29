@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardDivideByZero):
   template standardDivideByZeroRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardDivideByZero*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_DivideByZero(@)", dynlib: tkernel.}
+          importcpp: "Standard_DivideByZero(@)", header: "Standard_DivideByZero.hxx".}
 
 else:
   discard

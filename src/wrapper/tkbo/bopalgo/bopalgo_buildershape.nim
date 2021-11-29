@@ -94,22 +94,22 @@ type
 
 
 proc shape*(this: BOPAlgoBuilderShape): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbo.}
+    importcpp: "Shape", header: "BOPAlgo_BuilderShape.hxx".}
 proc modified*(this: var BOPAlgoBuilderShape; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tkbo.}
+    cdecl, importcpp: "Modified", header: "BOPAlgo_BuilderShape.hxx".}
 proc generated*(this: var BOPAlgoBuilderShape; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkbo.}
+    cdecl, importcpp: "Generated", header: "BOPAlgo_BuilderShape.hxx".}
 proc isDeleted*(this: var BOPAlgoBuilderShape; theS: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkbo.}
+    importcpp: "IsDeleted", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasModified*(this: BOPAlgoBuilderShape): bool {.noSideEffect, cdecl,
-    importcpp: "HasModified", dynlib: tkbo.}
+    importcpp: "HasModified", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasGenerated*(this: BOPAlgoBuilderShape): bool {.noSideEffect, cdecl,
-    importcpp: "HasGenerated", dynlib: tkbo.}
+    importcpp: "HasGenerated", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasDeleted*(this: BOPAlgoBuilderShape): bool {.noSideEffect, cdecl,
-    importcpp: "HasDeleted", dynlib: tkbo.}
+    importcpp: "HasDeleted", header: "BOPAlgo_BuilderShape.hxx".}
 #proc history*(this: var BOPAlgoBuilderShape): Handle[BRepToolsHistory] {.cdecl,
-#    importcpp: "History", dynlib: tkbo.}
+#    importcpp: "History", header: "BOPAlgo_BuilderShape.hxx".}
 proc setToFillHistory*(this: var BOPAlgoBuilderShape; theHistFlag: bool) {.cdecl,
-    importcpp: "SetToFillHistory", dynlib: tkbo.}
+    importcpp: "SetToFillHistory", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasHistory*(this: BOPAlgoBuilderShape): bool {.noSideEffect, cdecl,
-    importcpp: "HasHistory", dynlib: tkbo.}
+    importcpp: "HasHistory", header: "BOPAlgo_BuilderShape.hxx".}

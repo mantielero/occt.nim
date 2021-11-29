@@ -32,8 +32,8 @@ type
 
 
 proc newTopoDS_TCompSolid*(): TopoDS_TCompSolid {.cdecl, constructor,
-    importcpp: "TopoDS_TCompSolid(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS_TCompSolid(@)", header: "TopoDS_TCompSolid.hxx".}
 proc shapeType*(this: TopoDS_TCompSolid): TopAbsShapeEnum {.noSideEffect, cdecl,
-    importcpp: "ShapeType", dynlib: tkbrep.}
+    importcpp: "ShapeType", header: "TopoDS_TCompSolid.hxx".}
 proc emptyCopy*(this: TopoDS_TCompSolid): Handle[TopoDS_TShape] {.noSideEffect,
-    cdecl, importcpp: "EmptyCopy", dynlib: tkbrep.}
+    cdecl, importcpp: "EmptyCopy", header: "TopoDS_TCompSolid.hxx".}

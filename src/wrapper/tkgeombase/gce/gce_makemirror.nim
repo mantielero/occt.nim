@@ -26,20 +26,20 @@ type
 
 
 proc newGceMakeMirror*(point: Pnt): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(axis: Ax1): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(line: Lin): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(point: Pnt; direc: Dir): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(plane: Pln): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc newGceMakeMirror*(plane: Ax2): GceMakeMirror {.cdecl, constructor,
-    importcpp: "gce_MakeMirror(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
 proc value*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl, importcpp: "Value",
-                                     dynlib: tkgeombase.}
+                                     header: "gce_MakeMirror.hxx".}
 proc operator*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl,
-                                        importcpp: "Operator", dynlib: tkgeombase.}
+                                        importcpp: "Operator", header: "gce_MakeMirror.hxx".}
 converter `trsf`*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl,
-    importcpp: "gce_MakeMirror::operator gp_Trsf", dynlib: tkgeombase.}
+    importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}

@@ -35,27 +35,27 @@ type
 
 
 proc newBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; angle: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; vMin: cfloat;
                                    vMax: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(meridian: Handle[GeomCurve]; vMin: cfloat;
                                    vMax: cfloat; angle: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
                                    angle: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
                                    vMin: cfloat; vMax: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc newBRepPrimAPI_MakeRevolution*(axes: Ax2; meridian: Handle[GeomCurve];
                                    vMin: cfloat; vMax: cfloat; angle: cfloat): BRepPrimAPI_MakeRevolution {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakeRevolution(@)", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): pointer {.cdecl,
-    importcpp: "OneAxis", dynlib: tkprim.}
+    importcpp: "OneAxis", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrimRevolution {.
-    cdecl, importcpp: "Revolution", dynlib: tkprim.}
+    cdecl, importcpp: "Revolution", header: "BRepPrimAPI_MakeRevolution.hxx".}

@@ -29,16 +29,16 @@ type
 
 
 #proc setContext*(this: var BOPAlgoBuilderArea; theContext: Handle[IntToolsContext]) {.
-#    cdecl, importcpp: "SetContext", dynlib: tkbo.}
+#    cdecl, importcpp: "SetContext", header: "BOPAlgo_BuilderArea.hxx".}
 proc shapes*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Shapes", dynlib: tkbo.}
+    importcpp: "Shapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc setShapes*(this: var BOPAlgoBuilderArea; theLS: TopToolsListOfShape) {.cdecl,
-    importcpp: "SetShapes", dynlib: tkbo.}
+    importcpp: "SetShapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc loops*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Loops", dynlib: tkbo.}
+    importcpp: "Loops", header: "BOPAlgo_BuilderArea.hxx".}
 proc areas*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Areas", dynlib: tkbo.}
+    importcpp: "Areas", header: "BOPAlgo_BuilderArea.hxx".}
 proc setAvoidInternalShapes*(this: var BOPAlgoBuilderArea; theAvoidInternal: bool) {.
-    cdecl, importcpp: "SetAvoidInternalShapes", dynlib: tkbo.}
+    cdecl, importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc isAvoidInternalShapes*(this: BOPAlgoBuilderArea): bool {.noSideEffect, cdecl,
-    importcpp: "IsAvoidInternalShapes", dynlib: tkbo.}
+    importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}

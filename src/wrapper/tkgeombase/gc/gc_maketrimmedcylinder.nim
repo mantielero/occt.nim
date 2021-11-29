@@ -62,13 +62,13 @@ type
 
 
 proc newMakeTrimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): MakeTrimmedCylinder {.cdecl,
-    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc newMakeTrimmedCylinder*(circ: Circ; height: cfloat): MakeTrimmedCylinder {.cdecl,
-    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc newMakeTrimmedCylinder*(a1: Ax1; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
-    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc value*(this: MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCylinder.hxx".}
 converter `constopencascade`*(this: MakeTrimmedCylinder): Handle[
     GeomRectangularTrimmedSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeTrimmedCylinder::operator constopencascade",
-                                    dynlib: tkgeombase.}
+                                    header: "GC_MakeTrimmedCylinder.hxx".}

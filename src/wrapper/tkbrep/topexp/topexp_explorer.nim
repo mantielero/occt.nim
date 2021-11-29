@@ -23,24 +23,24 @@ type
 
 
 proc newExplorer*(): TopExpExplorer {.cdecl, constructor,
-    importcpp: "TopExp_Explorer(@)", dynlib: tkbrep.}
+    importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
 proc newExplorer*(s: TopoDS_Shape; toFind: TopAbsShapeEnum;
                        toAvoid: TopAbsShapeEnum = topAbsSHAPE): TopExpExplorer {.
-    cdecl, constructor, importcpp: "TopExp_Explorer(@)", dynlib: tkbrep.}
+    cdecl, constructor, importcpp: "TopExp_Explorer(@)", header: "TopExp_Explorer.hxx".}
 proc init*(this: var TopExpExplorer; s: TopoDS_Shape; toFind: TopAbsShapeEnum;
           toAvoid: TopAbsShapeEnum = topAbsSHAPE) {.cdecl, importcpp: "Init",
-    dynlib: tkbrep.}
+    header: "TopExp_Explorer.hxx".}
 proc more*(this: TopExpExplorer): bool {.noSideEffect, cdecl, importcpp: "More",
-                                     dynlib: tkbrep.}
-proc next*(this: var TopExpExplorer) {.cdecl, importcpp: "Next", dynlib: tkbrep.}
+                                     header: "TopExp_Explorer.hxx".}
+proc next*(this: var TopExpExplorer) {.cdecl, importcpp: "Next", header: "TopExp_Explorer.hxx".}
 proc value*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkbrep.}
+    importcpp: "Value", header: "TopExp_Explorer.hxx".}
 proc current*(this: TopExpExplorer): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Current", dynlib: tkbrep.}
-proc reInit*(this: var TopExpExplorer) {.cdecl, importcpp: "ReInit", dynlib: tkbrep.}
+    importcpp: "Current", header: "TopExp_Explorer.hxx".}
+proc reInit*(this: var TopExpExplorer) {.cdecl, importcpp: "ReInit", header: "TopExp_Explorer.hxx".}
 proc depth*(this: TopExpExplorer): cint {.noSideEffect, cdecl, importcpp: "Depth",
-                                      dynlib: tkbrep.}
-proc clear*(this: var TopExpExplorer) {.cdecl, importcpp: "Clear", dynlib: tkbrep.}
-proc destroy*(this: var TopExpExplorer) {.cdecl, importcpp: "Destroy", dynlib: tkbrep.}
+                                      header: "TopExp_Explorer.hxx".}
+proc clear*(this: var TopExpExplorer) {.cdecl, importcpp: "Clear", header: "TopExp_Explorer.hxx".}
+proc destroy*(this: var TopExpExplorer) {.cdecl, importcpp: "Destroy", header: "TopExp_Explorer.hxx".}
 proc destroyTopExpExplorer*(this: var TopExpExplorer) {.cdecl,
-    importcpp: "#.~TopExp_Explorer()", dynlib: tkbrep.}
+    importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}

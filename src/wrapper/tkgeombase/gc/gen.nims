@@ -105,7 +105,10 @@ proc pp*(file:string,
 
 genFiles("GC_MakeArcOfCircle")
 pp("gc_makearcofcircle.nim",
-  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve")]
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeArcOfCircle::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)")
+  ]
 )
 genFiles("GC_MakeArcOfEllipse")
 genFiles("GC_MakeArcOfHyperbola")
@@ -122,7 +125,10 @@ genFiles("GC_MakeRotation")
 genFiles("GC_MakeScale")
 genFiles("GC_MakeSegment")
 pp("gc_makesegment.nim",
-  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve")]
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeSegment::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)")  
+  ]
 )
 genFiles("GC_MakeTranslation")
 genFiles("GC_MakeTrimmedCone")

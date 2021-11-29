@@ -24,8 +24,8 @@ type
 
 
 proc destroyBRepBuilderAPI_Command*(this: var BRepBuilderAPI_Command) {.cdecl,
-    importcpp: "#.~BRepBuilderAPI_Command()", dynlib: tktopalgo.}
+    importcpp: "#.~BRepBuilderAPI_Command()", header: "BRepBuilderAPI_Command.hxx".}
 proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, cdecl,
-    importcpp: "IsDone", dynlib: tktopalgo.}
+    importcpp: "IsDone", header: "BRepBuilderAPI_Command.hxx".}
 proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, cdecl, importcpp: "Check",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_Command.hxx".}

@@ -164,23 +164,23 @@ type
 
 
 proc newBRepAlgoAPI_Check*(): BRepAlgoAPI_Check {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Check(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
 proc destroyBRepAlgoAPI_Check*(this: var BRepAlgoAPI_Check) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_Check()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_Check()", header: "BRepAlgoAPI_Check.hxx".}
 proc newBRepAlgoAPI_Check*(theS: TopoDS_Shape; bTestSE: bool = true;
                           bTestSI: bool = true): BRepAlgoAPI_Check {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Check(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
 proc newBRepAlgoAPI_Check*(theS1: TopoDS_Shape; theS2: TopoDS_Shape;
                           theOp: BOPAlgoOperation = bOPAlgoUNKNOWN;
                           bTestSE: bool = true; bTestSI: bool = true): BRepAlgoAPI_Check {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Check(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Check(@)", header: "BRepAlgoAPI_Check.hxx".}
 proc setData*(this: var BRepAlgoAPI_Check; theS: TopoDS_Shape; bTestSE: bool = true;
-             bTestSI: bool = true) {.cdecl, importcpp: "SetData", dynlib: tkbo.}
+             bTestSI: bool = true) {.cdecl, importcpp: "SetData", header: "BRepAlgoAPI_Check.hxx".}
 proc setData*(this: var BRepAlgoAPI_Check; theS1: TopoDS_Shape; theS2: TopoDS_Shape;
              theOp: BOPAlgoOperation = bOPAlgoUNKNOWN; bTestSE: bool = true;
-             bTestSI: bool = true) {.cdecl, importcpp: "SetData", dynlib: tkbo.}
-proc perform*(this: var BRepAlgoAPI_Check) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+             bTestSI: bool = true) {.cdecl, importcpp: "SetData", header: "BRepAlgoAPI_Check.hxx".}
+proc perform*(this: var BRepAlgoAPI_Check) {.cdecl, importcpp: "Perform", header: "BRepAlgoAPI_Check.hxx".}
 proc isValid*(this: var BRepAlgoAPI_Check): bool {.cdecl, importcpp: "IsValid",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_Check.hxx".}
 proc result*(this: var BRepAlgoAPI_Check): BOPAlgoListOfCheckResult {.cdecl,
-    importcpp: "Result", dynlib: tkbo.}
+    importcpp: "Result", header: "BRepAlgoAPI_Check.hxx".}

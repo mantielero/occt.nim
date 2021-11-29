@@ -32,15 +32,15 @@ type
 
 
 proc newGeomAdaptorGHSurface*(): GeomAdaptorGHSurface {.cdecl, constructor,
-    importcpp: "GeomAdaptor_GHSurface(@)", dynlib: tkg3d.}
+    importcpp: "GeomAdaptor_GHSurface(@)", header: "GeomAdaptor_GHSurface.hxx".}
 proc newGeomAdaptorGHSurface*(s: GeomAdaptorSurface): GeomAdaptorGHSurface {.cdecl,
-    constructor, importcpp: "GeomAdaptor_GHSurface(@)", dynlib: tkg3d.}
+    constructor, importcpp: "GeomAdaptor_GHSurface(@)", header: "GeomAdaptor_GHSurface.hxx".}
 proc set*(this: var GeomAdaptorGHSurface; s: GeomAdaptorSurface) {.cdecl,
-    importcpp: "Set", dynlib: tkg3d.}
+    importcpp: "Set", header: "GeomAdaptor_GHSurface.hxx".}
 proc surface*(this: GeomAdaptorGHSurface): Adaptor3dSurface {.noSideEffect, cdecl,
-    importcpp: "Surface", dynlib: tkg3d.}
+    importcpp: "Surface", header: "GeomAdaptor_GHSurface.hxx".}
 proc changeSurface*(this: var GeomAdaptorGHSurface): var GeomAdaptorSurface {.cdecl,
-    importcpp: "ChangeSurface", dynlib: tkg3d.}
+    importcpp: "ChangeSurface", header: "GeomAdaptor_GHSurface.hxx".}
 type
   GeomAdaptorGHSurfacebaseType* = Adaptor3dHSurface
 

@@ -23,13 +23,13 @@ type
 
 
 proc newBOPAlgoToolsProvider*(): BOPAlgoToolsProvider {.cdecl, constructor,
-    importcpp: "BOPAlgo_ToolsProvider(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_ToolsProvider(@)", header: "BOPAlgo_ToolsProvider.hxx".}
 proc newBOPAlgoToolsProvider*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoToolsProvider {.
-    cdecl, constructor, importcpp: "BOPAlgo_ToolsProvider(@)", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoToolsProvider) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_ToolsProvider(@)", header: "BOPAlgo_ToolsProvider.hxx".}
+proc clear*(this: var BOPAlgoToolsProvider) {.cdecl, importcpp: "Clear", header: "BOPAlgo_ToolsProvider.hxx".}
 proc addTool*(this: var BOPAlgoToolsProvider; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "AddTool", dynlib: tkbo.}
+    importcpp: "AddTool", header: "BOPAlgo_ToolsProvider.hxx".}
 proc setTools*(this: var BOPAlgoToolsProvider; theShapes: TopToolsListOfShape) {.
-    cdecl, importcpp: "SetTools", dynlib: tkbo.}
+    cdecl, importcpp: "SetTools", header: "BOPAlgo_ToolsProvider.hxx".}
 proc tools*(this: BOPAlgoToolsProvider): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Tools", dynlib: tkbo.}
+    importcpp: "Tools", header: "BOPAlgo_ToolsProvider.hxx".}

@@ -34,16 +34,16 @@ type
 
 proc newGceMakeLin*(a1: Ax1): GceMakeLin {.cdecl, constructor,
                                        importcpp: "gce_MakeLin(@)",
-                                       dynlib: tkgeombase.}
+                                       header: "gce_MakeLin.hxx".}
 proc newGceMakeLin*(p: Pnt; v: Dir): GceMakeLin {.cdecl, constructor,
-    importcpp: "gce_MakeLin(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
 proc newGceMakeLin*(lin: Lin; point: Pnt): GceMakeLin {.cdecl, constructor,
-    importcpp: "gce_MakeLin(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
 proc newGceMakeLin*(p1: Pnt; p2: Pnt): GceMakeLin {.cdecl, constructor,
-    importcpp: "gce_MakeLin(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeLin(@)", header: "gce_MakeLin.hxx".}
 proc value*(this: GceMakeLin): Lin {.noSideEffect, cdecl, importcpp: "Value",
-                                 dynlib: tkgeombase.}
+                                 header: "gce_MakeLin.hxx".}
 proc operator*(this: GceMakeLin): Lin {.noSideEffect, cdecl, importcpp: "Operator",
-                                    dynlib: tkgeombase.}
+                                    header: "gce_MakeLin.hxx".}
 converter `lin`*(this: GceMakeLin): Lin {.noSideEffect, cdecl, importcpp: "gce_MakeLin::operator gp_Lin",
-                                      dynlib: tkgeombase.}
+                                      header: "gce_MakeLin.hxx".}

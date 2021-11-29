@@ -46,15 +46,15 @@ type
 
 
 proc newMakeSegment*(p1: Pnt; p2: Pnt): MakeSegment {.cdecl, constructor,
-    importcpp: "GC_MakeSegment(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc newMakeSegment*(line: Lin; u1: cfloat; u2: cfloat): MakeSegment {.cdecl,
-    constructor, importcpp: "GC_MakeSegment(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc newMakeSegment*(line: Lin; point: Pnt; ulast: cfloat): MakeSegment {.cdecl,
-    constructor, importcpp: "GC_MakeSegment(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc newMakeSegment*(line: Lin; p1: Pnt; p2: Pnt): MakeSegment {.cdecl, constructor,
-    importcpp: "GC_MakeSegment(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc value*(this: MakeSegment): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
-converter `constopencascade`*(this: MakeSegment): HandleGeomTrimmedCurve {.
-    noSideEffect, cdecl, importcpp: "GC_MakeSegment::operator constopencascade",
-    dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeSegment.hxx".}
+converter toHandleGeomTrimmedCurve*(this: MakeSegment): HandleGeomTrimmedCurve {.
+    noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
+    header: "GC_MakeSegment.hxx".}

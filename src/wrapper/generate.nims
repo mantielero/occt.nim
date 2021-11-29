@@ -18,26 +18,19 @@ proc executeGenerators() =
       exec "./gen.nims"
       cd(cwd)
 
-proc getPackageName(txt:string):string =
-  echo "==========="
-  echo txt
-  var lines = txt.splitLines
-  var pkg:string = ""
-  if "let packageName" in txt:
-    for line in lines:
-      if "let packageName" in line:
-        var tmp = line.split("\"")[1]
-        pkg = tmp.rsplit("\"")[0]
-  elif "let c2nimFile" in txt:
-    for line in lines:
-      if "let c2nimFile" in line:
-        var tmp = line.split("\"")[1]
-        pkg = tmp.rsplit("\"")[0]
-        pkg = pkg.split(".c2nim")[0]  
+proc getPackageName(filename:string):string =
+  let txt = readFile(filename)
+  let lines = txt.splitLines
+  for line in lines:
+    if "let packageName" in line:
+      var tmp = line.split("\"")[1]
+      return tmp.rsplit("\"")[0]
+    elif "let c2nimFile" in line:
+      var tmp = line.split("\"")[1]
+      tmp = tmp.rsplit("\"")[0]
+      return tmp.split(".c2nim")[0]  
 
-  if pkg == "":
-    echo "ERROR"
-  return pkg
+  return ""
 
 proc readDynlib(c2nim:string):string =
   #echo "--> ", c2nim
@@ -59,37 +52,54 @@ proc processNimfile(filename, c2nim, headerFilename: string) =
     nim = nim.replace(dlib, header)
     writeFile(filename, nim)  
 
+proc getPackages(filename:string):seq[tuple[header:string,nim:string]] =
+  var (dir, name, ext) = splitFile(filename)
+  let txt = readFile(filename)
+  let lines = txt.splitLines
+  var files:seq[tuple[header:string,nim:string]]
+  for line in lines:
+    if line.startsWith("genFiles"):
+      var tmp = line.split("genFiles(\"")[1]
+      tmp = tmp.rsplit("\")")[0]
+      tmp = tmp.rsplit("\",")[0]
+
+      files &= (tmp & ".hxx",  dir / tmp.toLower & ".nim")
+
+  return files
+
+
 
 
 # 1. Create the bindings
-executeGenerators()
+#executeGenerators()
 
 # 2. 
-
-#let cwd = getCurrentDir()
 for i in walkDirRec("./"):
   var (dir, name, ext) = splitFile(i)
   if name == "gen" and ext == ".nims":
-    echo "----> ", i
-    var txt = readFile( dir / name & ext ) 
-    var pkgName = getPackageName(txt)
+    echo "Processing: ", i
+    #var txt = readFile( i ) 
+    var pkgName = getPackageName(i)
+    echo "  - package name: ", pkgName
     var c2nim = readDynlib( dir / pkgName & ".c2nim" )
-    var lines = txt.splitLines
-    for line in lines:
-      if line.startsWith("genFiles"):
-        var tmp = line.split("genFiles(\"")[1]
-        tmp = tmp.rsplit("\")")[0]
-        tmp = tmp.rsplit("\",")[0]
-        var headerFilename = tmp & ".hxx"
-        #echo headerFilename
-        var nimFilename = dir / tmp.toLower & ".nim"
-        echo nimFilename
-        #echo pkgName, " -> ", c2nim
+    echo "  - dynlib: ", c2nim
+    #var lines = txt.splitLines
+    # for line in lines:
+    #   if line.startsWith("genFiles"):
+    #     var tmp = line.split("genFiles(\"")[1]
+    #     tmp = tmp.rsplit("\")")[0]
+    #     tmp = tmp.rsplit("\",")[0]
+    #     var headerFilename = tmp & ".hxx"
+    #     #echo headerFilename
+    #     var nimFilename = dir / tmp.toLower & ".nim"
+    #     echo nimFilename
+    #     #echo pkgName, " -> ", c2nim
+    var files = getPackages(i)
+    # Open .nim file and replace the dynlib
+    for f in files:
+      let nimFilename = f[1]
+      let headerFilename = f[0]
+      echo "    - nim filename: ", nimFilename
+      processNimfile(nimFilename, c2nim, headerFilename)
 
-        # Open .nim file and replace the dynlib
-        processNimfile(nimFilename, c2nim, headerFilename)
 
-
-    #cd(dir)
-    #exec "./gen.nims"
-    #cd(cwd)

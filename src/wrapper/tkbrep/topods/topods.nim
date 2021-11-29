@@ -53,34 +53,34 @@ type
 
 
 proc vertex*(s: TopoDS_Shape): TopoDS_Vertex {.cdecl, importcpp: "TopoDS::Vertex(@)",
-    dynlib: tkbrep.}
+    header: "TopoDS.hxx".}
 proc vertex*(a1: var TopoDS_Shape): var TopoDS_Vertex {.cdecl,
-    importcpp: "TopoDS::Vertex(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Vertex(@)", header: "TopoDS.hxx".}
 proc edge*(s: TopoDS_Shape): TopoDS_Edge {.cdecl, importcpp: "TopoDS::Edge(@)",
-                                       dynlib: tkbrep.}
+                                       header: "TopoDS.hxx".}
 proc edge*(a1: var TopoDS_Shape): var TopoDS_Edge {.cdecl,
-    importcpp: "TopoDS::Edge(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Edge(@)", header: "TopoDS.hxx".}
 proc wire*(s: TopoDS_Shape): TopoDS_Wire {.cdecl, importcpp: "TopoDS::Wire(@)",
-                                       dynlib: tkbrep.}
+                                       header: "TopoDS.hxx".}
 proc wire*(a1: var TopoDS_Shape): var TopoDS_Wire {.cdecl,
-    importcpp: "TopoDS::Wire(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Wire(@)", header: "TopoDS.hxx".}
 proc face*(s: TopoDS_Shape): TopoDS_Face {.cdecl, importcpp: "TopoDS::Face(@)",
-                                       dynlib: tkbrep.}
+                                       header: "TopoDS.hxx".}
 proc face*(a1: var TopoDS_Shape): var TopoDS_Face {.cdecl,
-    importcpp: "TopoDS::Face(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Face(@)", header: "TopoDS.hxx".}
 proc shell*(s: TopoDS_Shape): TopoDS_Shell {.cdecl, importcpp: "TopoDS::Shell(@)",
-    dynlib: tkbrep.}
+    header: "TopoDS.hxx".}
 proc shell*(a1: var TopoDS_Shape): var TopoDS_Shell {.cdecl,
-    importcpp: "TopoDS::Shell(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Shell(@)", header: "TopoDS.hxx".}
 proc solid*(s: TopoDS_Shape): TopoDS_Solid {.cdecl, importcpp: "TopoDS::Solid(@)",
-    dynlib: tkbrep.}
+    header: "TopoDS.hxx".}
 proc solid*(a1: var TopoDS_Shape): var TopoDS_Solid {.cdecl,
-    importcpp: "TopoDS::Solid(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Solid(@)", header: "TopoDS.hxx".}
 proc compSolid*(s: TopoDS_Shape): TopoDS_CompSolid {.cdecl,
-    importcpp: "TopoDS::CompSolid(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
 proc compSolid*(a1: var TopoDS_Shape): var TopoDS_CompSolid {.cdecl,
-    importcpp: "TopoDS::CompSolid(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::CompSolid(@)", header: "TopoDS.hxx".}
 proc compound*(s: TopoDS_Shape): TopoDS_Compound {.cdecl,
-    importcpp: "TopoDS::Compound(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
 proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.cdecl,
-    importcpp: "TopoDS::Compound(@)", dynlib: tkbrep.}
+    importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}

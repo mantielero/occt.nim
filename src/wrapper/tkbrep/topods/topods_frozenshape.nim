@@ -25,7 +25,7 @@ when not defined(noException) and not defined(noTopoDS_FrozenShape):
   template topoDS_FrozenShapeRaiseIf*(condition, message: untyped): void =
     if condition:
       proc topoDS_FrozenShape*(a1: Message): Throw {.cdecl,
-          importcpp: "TopoDS_FrozenShape(@)", dynlib: tkbrep.}
+          importcpp: "TopoDS_FrozenShape(@)", header: "TopoDS_FrozenShape.hxx".}
 
 else:
   discard

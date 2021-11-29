@@ -80,75 +80,75 @@ proc newGeomRectangularTrimmedSurface*(s: Handle[GeomSurface]; u1: cfloat;
                                       u2: cfloat; v1: cfloat; v2: cfloat;
                                       uSense: bool = true; vSense: bool = true): GeomRectangularTrimmedSurface {.
     cdecl, constructor, importcpp: "Geom_RectangularTrimmedSurface(@)",
-    dynlib: tkg3d.}
+    header: "Geom_RectangularTrimmedSurface.hxx".}
 proc newGeomRectangularTrimmedSurface*(s: Handle[GeomSurface]; param1: cfloat;
                                       param2: cfloat; uTrim: bool;
                                       sense: bool = true): GeomRectangularTrimmedSurface {.
     cdecl, constructor, importcpp: "Geom_RectangularTrimmedSurface(@)",
-    dynlib: tkg3d.}
+    header: "Geom_RectangularTrimmedSurface.hxx".}
 proc setTrim*(this: var GeomRectangularTrimmedSurface; u1: cfloat; u2: cfloat;
              v1: cfloat; v2: cfloat; uSense: bool = true; vSense: bool = true) {.cdecl,
-    importcpp: "SetTrim", dynlib: tkg3d.}
+    importcpp: "SetTrim", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc setTrim*(this: var GeomRectangularTrimmedSurface; param1: cfloat; param2: cfloat;
              uTrim: bool; sense: bool = true) {.cdecl, importcpp: "SetTrim",
-    dynlib: tkg3d.}
+    header: "Geom_RectangularTrimmedSurface.hxx".}
 proc basisSurface*(this: GeomRectangularTrimmedSurface): Handle[GeomSurface] {.
-    noSideEffect, cdecl, importcpp: "BasisSurface", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "BasisSurface", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc uReverse*(this: var GeomRectangularTrimmedSurface) {.cdecl,
-    importcpp: "UReverse", dynlib: tkg3d.}
+    importcpp: "UReverse", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc uReversedParameter*(this: GeomRectangularTrimmedSurface; u: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vReverse*(this: var GeomRectangularTrimmedSurface) {.cdecl,
-    importcpp: "VReverse", dynlib: tkg3d.}
+    importcpp: "VReverse", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vReversedParameter*(this: GeomRectangularTrimmedSurface; v: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc bounds*(this: GeomRectangularTrimmedSurface; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
-                                        dynlib: tkg3d.}
+                                        header: "Geom_RectangularTrimmedSurface.hxx".}
 proc continuity*(this: GeomRectangularTrimmedSurface): GeomAbsShape {.noSideEffect,
-    cdecl, importcpp: "Continuity", dynlib: tkg3d.}
+    cdecl, importcpp: "Continuity", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isUClosed*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", dynlib: tkg3d.}
+    importcpp: "IsUClosed", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isVClosed*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", dynlib: tkg3d.}
+    importcpp: "IsVClosed", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isCNu*(this: GeomRectangularTrimmedSurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNu", dynlib: tkg3d.}
+    importcpp: "IsCNu", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isCNv*(this: GeomRectangularTrimmedSurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNv", dynlib: tkg3d.}
+    importcpp: "IsCNv", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isUPeriodic*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkg3d.}
+    importcpp: "IsUPeriodic", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc uPeriod*(this: GeomRectangularTrimmedSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "UPeriod", dynlib: tkg3d.}
+    importcpp: "UPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc isVPeriodic*(this: GeomRectangularTrimmedSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkg3d.}
+    importcpp: "IsVPeriodic", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vPeriod*(this: GeomRectangularTrimmedSurface): cfloat {.noSideEffect, cdecl,
-    importcpp: "VPeriod", dynlib: tkg3d.}
+    importcpp: "VPeriod", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc uIso*(this: GeomRectangularTrimmedSurface; u: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "UIso", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "UIso", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vIso*(this: GeomRectangularTrimmedSurface; v: cfloat): Handle[GeomCurve] {.
-    noSideEffect, cdecl, importcpp: "VIso", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "VIso", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc d0*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt) {.
-    noSideEffect, cdecl, importcpp: "D0", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "D0", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc d1*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
-        d1u: var Vec; d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
+        d1u: var Vec; d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc d2*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
         d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkg3d.}
+    cdecl, importcpp: "D2", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc d3*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
         d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
         d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D3", dynlib: tkg3d.}
+    importcpp: "D3", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc dn*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "DN", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc transform*(this: var GeomRectangularTrimmedSurface; t: Trsf) {.cdecl,
-    importcpp: "Transform", dynlib: tkg3d.}
+    importcpp: "Transform", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc transformParameters*(this: GeomRectangularTrimmedSurface; u: var cfloat;
                          v: var cfloat; t: Trsf) {.noSideEffect, cdecl,
-    importcpp: "TransformParameters", dynlib: tkg3d.}
+    importcpp: "TransformParameters", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: Trsf): GTrsf2d {.
-    noSideEffect, cdecl, importcpp: "ParametricTransformation", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc copy*(this: GeomRectangularTrimmedSurface): Handle[GeomGeometry] {.
-    noSideEffect, cdecl, importcpp: "Copy", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Copy", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc dumpJson*(this: GeomRectangularTrimmedSurface;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
-    cdecl, importcpp: "DumpJson", dynlib: tkg3d.}
+    cdecl, importcpp: "DumpJson", header: "Geom_RectangularTrimmedSurface.hxx".}

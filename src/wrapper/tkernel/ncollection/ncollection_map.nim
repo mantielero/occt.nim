@@ -111,9 +111,9 @@ type
 proc newNCollectionMapMapNode*[TheKeyType; Hasher](theKey: TheKeyType;
     theNext: ptr NCollectionListNode): NCollectionMapMapNode[TheKeyType, Hasher] {.
     cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>::MapNode(@)",
-    dynlib: tkernel.}
+    header: "NCollection_Map.hxx".}
 proc key*[TheKeyType; Hasher](this: var NCollectionMapMapNode[TheKeyType, Hasher]): TheKeyType {.
-    cdecl, importcpp: "Key", dynlib: tkernel.}
+    cdecl, importcpp: "Key", header: "NCollection_Map.hxx".}
 type
   NCollectionMapIterator*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::Iterator",
@@ -124,102 +124,102 @@ type
 proc newNCollectionMapIterator*[TheKeyType; Hasher](): NCollectionMapIterator[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>::Iterator(@)",
-                        dynlib: tkernel.}
+                        header: "NCollection_Map.hxx".}
 proc newNCollectionMapIterator*[TheKeyType; Hasher](theMap: NCollectionMap): NCollectionMapIterator[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>::Iterator(@)",
-                        dynlib: tkernel.}
+                        header: "NCollection_Map.hxx".}
 proc more*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): bool {.
-    noSideEffect, cdecl, importcpp: "More", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "More", header: "NCollection_Map.hxx".}
 proc next*[TheKeyType; Hasher](this: var NCollectionMapIterator[TheKeyType, Hasher]) {.
-    cdecl, importcpp: "Next", dynlib: tkernel.}
+    cdecl, importcpp: "Next", header: "NCollection_Map.hxx".}
 proc value*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): TheKeyType {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Map.hxx".}
 proc key*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): TheKeyType {.
-    noSideEffect, cdecl, importcpp: "Key", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Key", header: "NCollection_Map.hxx".}
 type
   NCollectionMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
       NCollectionMapIterator, TheKeyType, true]
 
 proc cbegin*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
-    noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cbegin", header: "NCollection_Map.hxx".}
 proc cend*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
-    noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cend", header: "NCollection_Map.hxx".}
 proc newNCollectionMap*[TheKeyType; Hasher](): NCollectionMap[TheKeyType, Hasher] {.
-    cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_Map<\'*0,\'*1>(@)", header: "NCollection_Map.hxx".}
 proc newNCollectionMap*[TheKeyType; Hasher](theNbBuckets: cint;
     theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>(@)",
-                        dynlib: tkernel.}
+                        header: "NCollection_Map.hxx".}
 proc newNCollectionMap*[TheKeyType; Hasher](theOther: NCollectionMap): NCollectionMap[
     TheKeyType, Hasher] {.cdecl, constructor,
                         importcpp: "NCollection_Map<\'*0,\'*1>(@)",
-                        dynlib: tkernel.}
+                        header: "NCollection_Map.hxx".}
 proc exchange*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                  theOther: var NCollectionMap) {.cdecl,
-    importcpp: "Exchange", dynlib: tkernel.}
+    importcpp: "Exchange", header: "NCollection_Map.hxx".}
 proc assign*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                theOther: NCollectionMap): var NCollectionMap {.
-    cdecl, importcpp: "Assign", dynlib: tkernel.}
+    cdecl, importcpp: "Assign", header: "NCollection_Map.hxx".}
 proc reSize*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher]; n: cint) {.
-    cdecl, importcpp: "ReSize", dynlib: tkernel.}
+    cdecl, importcpp: "ReSize", header: "NCollection_Map.hxx".}
 proc add*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                             k: TheKeyType): bool {.cdecl, importcpp: "Add",
-    dynlib: tkernel.}
+    header: "NCollection_Map.hxx".}
 proc added*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               k: TheKeyType): TheKeyType {.cdecl,
-    importcpp: "Added", dynlib: tkernel.}
+    importcpp: "Added", header: "NCollection_Map.hxx".}
 proc contains*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
                                  k: TheKeyType): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkernel.}
+    importcpp: "Contains", header: "NCollection_Map.hxx".}
 proc remove*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                k: TheKeyType): bool {.cdecl, importcpp: "Remove",
-    dynlib: tkernel.}
+    header: "NCollection_Map.hxx".}
 proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               doReleaseMemory: bool = true) {.cdecl,
-    importcpp: "Clear", dynlib: tkernel.}
+    importcpp: "Clear", header: "NCollection_Map.hxx".}
 proc clear*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               theAllocator: Handle[NCollectionBaseAllocator]) {.
-    cdecl, importcpp: "Clear", dynlib: tkernel.}
+    cdecl, importcpp: "Clear", header: "NCollection_Map.hxx".}
 proc destroyNCollectionMap*[TheKeyType; Hasher](
     this: var NCollectionMap[TheKeyType, Hasher]) {.cdecl,
-    importcpp: "#.~NCollection_Map()", dynlib: tkernel.}
+    importcpp: "#.~NCollection_Map()", header: "NCollection_Map.hxx".}
 proc size*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): cint {.
-    noSideEffect, cdecl, importcpp: "Size", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Size", header: "NCollection_Map.hxx".}
 proc isEqual*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
                                 theOther: NCollectionMap): bool {.noSideEffect,
-    cdecl, importcpp: "IsEqual", dynlib: tkernel.}
+    cdecl, importcpp: "IsEqual", header: "NCollection_Map.hxx".}
 proc contains*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
                                  theOther: NCollectionMap): bool {.noSideEffect,
-    cdecl, importcpp: "Contains", dynlib: tkernel.}
+    cdecl, importcpp: "Contains", header: "NCollection_Map.hxx".}
 proc union*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               theLeft: NCollectionMap; theRight: NCollectionMap) {.
-    cdecl, importcpp: "Union", dynlib: tkernel.}
+    cdecl, importcpp: "Union", header: "NCollection_Map.hxx".}
 proc unite*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                               theOther: NCollectionMap): bool {.cdecl,
-    importcpp: "Unite", dynlib: tkernel.}
+    importcpp: "Unite", header: "NCollection_Map.hxx".}
 proc hasIntersection*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher];
                                         theMap: NCollectionMap): bool {.
-    noSideEffect, cdecl, importcpp: "HasIntersection", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "HasIntersection", header: "NCollection_Map.hxx".}
 proc intersection*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                      theLeft: NCollectionMap;
                                      theRight: NCollectionMap) {.cdecl,
-    importcpp: "Intersection", dynlib: tkernel.}
+    importcpp: "Intersection", header: "NCollection_Map.hxx".}
 proc intersect*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                   theOther: NCollectionMap): bool {.cdecl,
-    importcpp: "Intersect", dynlib: tkernel.}
+    importcpp: "Intersect", header: "NCollection_Map.hxx".}
 proc subtraction*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                     theLeft: NCollectionMap;
                                     theRight: NCollectionMap) {.cdecl,
-    importcpp: "Subtraction", dynlib: tkernel.}
+    importcpp: "Subtraction", header: "NCollection_Map.hxx".}
 proc subtract*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                  theOther: NCollectionMap): bool {.cdecl,
-    importcpp: "Subtract", dynlib: tkernel.}
+    importcpp: "Subtract", header: "NCollection_Map.hxx".}
 proc difference*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                    theLeft: NCollectionMap;
                                    theRight: NCollectionMap) {.cdecl,
-    importcpp: "Difference", dynlib: tkernel.}
+    importcpp: "Difference", header: "NCollection_Map.hxx".}
 proc differ*[TheKeyType; Hasher](this: var NCollectionMap[TheKeyType, Hasher];
                                theOther: NCollectionMap): bool {.cdecl,
-    importcpp: "Differ", dynlib: tkernel.}
+    importcpp: "Differ", header: "NCollection_Map.hxx".}

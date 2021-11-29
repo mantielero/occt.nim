@@ -42,15 +42,15 @@ type
 
 
 proc newBOPAlgoBuilderFace*(): BOPAlgoBuilderFace {.cdecl, constructor,
-    importcpp: "BOPAlgo_BuilderFace(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_BuilderFace(@)", header: "BOPAlgo_BuilderFace.hxx".}
 proc destroyBOPAlgoBuilderFace*(this: var BOPAlgoBuilderFace) {.cdecl,
-    importcpp: "#.~BOPAlgo_BuilderFace()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_BuilderFace()", header: "BOPAlgo_BuilderFace.hxx".}
 proc newBOPAlgoBuilderFace*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilderFace {.
-    cdecl, constructor, importcpp: "BOPAlgo_BuilderFace(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_BuilderFace(@)", header: "BOPAlgo_BuilderFace.hxx".}
 proc setFace*(this: var BOPAlgoBuilderFace; theFace: TopoDS_Face) {.cdecl,
-    importcpp: "SetFace", dynlib: tkbo.}
+    importcpp: "SetFace", header: "BOPAlgo_BuilderFace.hxx".}
 proc face*(this: BOPAlgoBuilderFace): TopoDS_Face {.noSideEffect, cdecl,
-    importcpp: "Face", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoBuilderFace) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "Face", header: "BOPAlgo_BuilderFace.hxx".}
+proc perform*(this: var BOPAlgoBuilderFace) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BuilderFace.hxx".}
 proc orientation*(this: BOPAlgoBuilderFace): TopAbsOrientation {.noSideEffect, cdecl,
-    importcpp: "Orientation", dynlib: tkbo.}
+    importcpp: "Orientation", header: "BOPAlgo_BuilderFace.hxx".}

@@ -22,13 +22,13 @@ type
 
 
 proc newBRepAlgoAPI_Cut*(): BRepAlgoAPI_Cut {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Cut(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc destroyBRepAlgoAPI_Cut*(this: var BRepAlgoAPI_Cut) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_Cut()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_Cut()", header: "BRepAlgoAPI_Cut.hxx".}
 proc newBRepAlgoAPI_Cut*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Cut {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Cut(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc newBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Cut(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc newBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller;
                         bFWD: bool = true): BRepAlgoAPI_Cut {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Cut(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}

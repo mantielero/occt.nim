@@ -41,6 +41,6 @@ type
 
 
 proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tktopalgo.}
+    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_ModifyShape.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedShape", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_ModifyShape.hxx".}

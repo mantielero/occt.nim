@@ -24,4 +24,4 @@
 ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 proc hashCode*(theExtString: StandardExtString; theUpperBound: cint): cint {.cdecl,
-    importcpp: "HashCode(@)", dynlib: tkernel.}
+    importcpp: "HashCode(@)", header: "Standard_ExtString.hxx".}

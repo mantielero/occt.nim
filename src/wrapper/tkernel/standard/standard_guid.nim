@@ -23,45 +23,45 @@ type
 
 
 proc constructStandardGUID*(): StandardGUID {.cdecl, constructor,
-    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: cstring): StandardGUID {.cdecl, constructor,
-    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: StandardExtString): StandardGUID {.cdecl,
-    constructor, importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    constructor, importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(a32b: cint; a16b1: StandardExtCharacter;
                            a16b2: StandardExtCharacter;
                            a16b3: StandardExtCharacter; a8b1: StandardByte;
                            a8b2: StandardByte; a8b3: StandardByte;
                            a8b4: StandardByte; a8b5: StandardByte;
                            a8b6: StandardByte): StandardGUID {.cdecl, constructor,
-    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: StandardUUID): StandardGUID {.cdecl, constructor,
-    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc constructStandardGUID*(aGuid: StandardGUID): StandardGUID {.cdecl, constructor,
-    importcpp: "Standard_GUID(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID(@)", header: "Standard_GUID.hxx".}
 proc toUUID*(this: StandardGUID): StandardUUID {.noSideEffect, cdecl,
-    importcpp: "ToUUID", dynlib: tkernel.}
+    importcpp: "ToUUID", header: "Standard_GUID.hxx".}
 proc toCString*(this: StandardGUID; aStrGuid: StandardPCharacter) {.noSideEffect,
-    cdecl, importcpp: "ToCString", dynlib: tkernel.}
+    cdecl, importcpp: "ToCString", header: "Standard_GUID.hxx".}
 proc toExtString*(this: StandardGUID; aStrGuid: StandardPExtCharacter) {.
-    noSideEffect, cdecl, importcpp: "ToExtString", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "ToExtString", header: "Standard_GUID.hxx".}
 proc isSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
-    importcpp: "IsSame", dynlib: tkernel.}
+    importcpp: "IsSame", header: "Standard_GUID.hxx".}
 proc `==`*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
-    importcpp: "(# == #)", dynlib: tkernel.}
+    importcpp: "(# == #)", header: "Standard_GUID.hxx".}
 proc isNotSame*(this: StandardGUID; uid: StandardGUID): bool {.noSideEffect, cdecl,
-    importcpp: "IsNotSame", dynlib: tkernel.}
+    importcpp: "IsNotSame", header: "Standard_GUID.hxx".}
 proc assign*(this: var StandardGUID; uid: StandardGUID) {.cdecl, importcpp: "Assign",
-    dynlib: tkernel.}
+    header: "Standard_GUID.hxx".}
 proc assign*(this: var StandardGUID; uid: StandardUUID) {.cdecl, importcpp: "Assign",
-    dynlib: tkernel.}
+    header: "Standard_GUID.hxx".}
 proc shallowDump*(this: StandardGUID; aStream: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "ShallowDump", dynlib: tkernel.}
+    cdecl, importcpp: "ShallowDump", header: "Standard_GUID.hxx".}
 proc checkGUIDFormat*(aGuid: cstring): bool {.cdecl,
-    importcpp: "Standard_GUID::CheckGUIDFormat(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID::CheckGUIDFormat(@)", header: "Standard_GUID.hxx".}
 proc hash*(this: StandardGUID; upper: cint): cint {.noSideEffect, cdecl,
-    importcpp: "Hash", dynlib: tkernel.}
+    importcpp: "Hash", header: "Standard_GUID.hxx".}
 proc hashCode*(theGUID: StandardGUID; theUpperBound: cint): cint {.cdecl,
-    importcpp: "Standard_GUID::HashCode(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID::HashCode(@)", header: "Standard_GUID.hxx".}
 proc isEqual*(string1: StandardGUID; string2: StandardGUID): bool {.cdecl,
-    importcpp: "Standard_GUID::IsEqual(@)", dynlib: tkernel.}
+    importcpp: "Standard_GUID::IsEqual(@)", header: "Standard_GUID.hxx".}

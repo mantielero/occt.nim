@@ -28,22 +28,22 @@ type
 
 
 proc newBOPAlgoMakerVolume*(): BOPAlgoMakerVolume {.cdecl, constructor,
-    importcpp: "BOPAlgo_MakerVolume(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_MakerVolume(@)", header: "BOPAlgo_MakerVolume.hxx".}
 proc destroyBOPAlgoMakerVolume*(this: var BOPAlgoMakerVolume) {.cdecl,
-    importcpp: "#.~BOPAlgo_MakerVolume()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_MakerVolume()", header: "BOPAlgo_MakerVolume.hxx".}
 proc newBOPAlgoMakerVolume*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoMakerVolume {.
-    cdecl, constructor, importcpp: "BOPAlgo_MakerVolume(@)", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_MakerVolume(@)", header: "BOPAlgo_MakerVolume.hxx".}
+proc clear*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Clear", header: "BOPAlgo_MakerVolume.hxx".}
 proc setIntersect*(this: var BOPAlgoMakerVolume; bIntersect: bool) {.cdecl,
-    importcpp: "SetIntersect", dynlib: tkbo.}
+    importcpp: "SetIntersect", header: "BOPAlgo_MakerVolume.hxx".}
 proc isIntersect*(this: BOPAlgoMakerVolume): bool {.noSideEffect, cdecl,
-    importcpp: "IsIntersect", dynlib: tkbo.}
+    importcpp: "IsIntersect", header: "BOPAlgo_MakerVolume.hxx".}
 proc box*(this: BOPAlgoMakerVolume): TopoDS_Solid {.noSideEffect, cdecl,
-    importcpp: "Box", dynlib: tkbo.}
+    importcpp: "Box", header: "BOPAlgo_MakerVolume.hxx".}
 proc faces*(this: BOPAlgoMakerVolume): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Faces", dynlib: tkbo.}
+    importcpp: "Faces", header: "BOPAlgo_MakerVolume.hxx".}
 proc setAvoidInternalShapes*(this: var BOPAlgoMakerVolume; theAvoidInternal: bool) {.
-    cdecl, importcpp: "SetAvoidInternalShapes", dynlib: tkbo.}
+    cdecl, importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
 proc isAvoidInternalShapes*(this: BOPAlgoMakerVolume): bool {.noSideEffect, cdecl,
-    importcpp: "IsAvoidInternalShapes", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
+proc perform*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Perform", header: "BOPAlgo_MakerVolume.hxx".}

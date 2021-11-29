@@ -31,51 +31,51 @@ type
 
 
 proc newBOPAlgoOptions*(): BOPAlgoOptions {.cdecl, constructor,
-    importcpp: "BOPAlgo_Options(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Options(@)", header: "BOPAlgo_Options.hxx".}
 proc newBOPAlgoOptions*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoOptions {.
-    cdecl, constructor, importcpp: "BOPAlgo_Options(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_Options(@)", header: "BOPAlgo_Options.hxx".}
 proc destroyBOPAlgoOptions*(this: var BOPAlgoOptions) {.cdecl,
-    importcpp: "#.~BOPAlgo_Options()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_Options()", header: "BOPAlgo_Options.hxx".}
 proc allocator*(this: BOPAlgoOptions): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoOptions) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "Allocator", header: "BOPAlgo_Options.hxx".}
+proc clear*(this: var BOPAlgoOptions) {.cdecl, importcpp: "Clear", header: "BOPAlgo_Options.hxx".}
 proc addError*(this: var BOPAlgoOptions; theAlert: Handle[MessageAlert]) {.cdecl,
-    importcpp: "AddError", dynlib: tkbo.}
+    importcpp: "AddError", header: "BOPAlgo_Options.hxx".}
 proc addWarning*(this: var BOPAlgoOptions; theAlert: Handle[MessageAlert]) {.cdecl,
-    importcpp: "AddWarning", dynlib: tkbo.}
+    importcpp: "AddWarning", header: "BOPAlgo_Options.hxx".}
 proc hasErrors*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl,
-    importcpp: "HasErrors", dynlib: tkbo.}
+    importcpp: "HasErrors", header: "BOPAlgo_Options.hxx".}
 proc hasError*(this: BOPAlgoOptions; theType: Handle[StandardType]): bool {.
-    noSideEffect, cdecl, importcpp: "HasError", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "HasError", header: "BOPAlgo_Options.hxx".}
 proc hasWarnings*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl,
-    importcpp: "HasWarnings", dynlib: tkbo.}
+    importcpp: "HasWarnings", header: "BOPAlgo_Options.hxx".}
 proc hasWarning*(this: BOPAlgoOptions; theType: Handle[StandardType]): bool {.
-    noSideEffect, cdecl, importcpp: "HasWarning", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "HasWarning", header: "BOPAlgo_Options.hxx".}
 proc getReport*(this: BOPAlgoOptions): Handle[MessageReport] {.noSideEffect, cdecl,
-    importcpp: "GetReport", dynlib: tkbo.}
+    importcpp: "GetReport", header: "BOPAlgo_Options.hxx".}
 proc dumpErrors*(this: BOPAlgoOptions; theOS: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "DumpErrors", dynlib: tkbo.}
+    cdecl, importcpp: "DumpErrors", header: "BOPAlgo_Options.hxx".}
 proc dumpWarnings*(this: BOPAlgoOptions; theOS: var StandardOStream) {.noSideEffect,
-    cdecl, importcpp: "DumpWarnings", dynlib: tkbo.}
+    cdecl, importcpp: "DumpWarnings", header: "BOPAlgo_Options.hxx".}
 proc clearWarnings*(this: var BOPAlgoOptions) {.cdecl, importcpp: "ClearWarnings",
-    dynlib: tkbo.}
+    header: "BOPAlgo_Options.hxx".}
 proc getParallelMode*(): bool {.cdecl,
                              importcpp: "BOPAlgo_Options::GetParallelMode(@)",
-                             dynlib: tkbo.}
+                             header: "BOPAlgo_Options.hxx".}
 proc setParallelMode*(theNewMode: bool) {.cdecl, importcpp: "BOPAlgo_Options::SetParallelMode(@)",
-                                       dynlib: tkbo.}
+                                       header: "BOPAlgo_Options.hxx".}
 proc setRunParallel*(this: var BOPAlgoOptions; theFlag: bool) {.cdecl,
-    importcpp: "SetRunParallel", dynlib: tkbo.}
+    importcpp: "SetRunParallel", header: "BOPAlgo_Options.hxx".}
 proc runParallel*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl,
-    importcpp: "RunParallel", dynlib: tkbo.}
+    importcpp: "RunParallel", header: "BOPAlgo_Options.hxx".}
 proc setFuzzyValue*(this: var BOPAlgoOptions; theFuzz: cfloat) {.cdecl,
-    importcpp: "SetFuzzyValue", dynlib: tkbo.}
+    importcpp: "SetFuzzyValue", header: "BOPAlgo_Options.hxx".}
 proc fuzzyValue*(this: BOPAlgoOptions): cfloat {.noSideEffect, cdecl,
-    importcpp: "FuzzyValue", dynlib: tkbo.}
+    importcpp: "FuzzyValue", header: "BOPAlgo_Options.hxx".}
 proc setProgressIndicator*(this: var BOPAlgoOptions;
                           theProgress: MessageProgressScope) {.cdecl,
-    importcpp: "SetProgressIndicator", dynlib: tkbo.}
+    importcpp: "SetProgressIndicator", header: "BOPAlgo_Options.hxx".}
 proc setUseOBB*(this: var BOPAlgoOptions; theUseOBB: bool) {.cdecl,
-    importcpp: "SetUseOBB", dynlib: tkbo.}
+    importcpp: "SetUseOBB", header: "BOPAlgo_Options.hxx".}
 proc useOBB*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl, importcpp: "UseOBB",
-                                       dynlib: tkbo.}
+                                       header: "BOPAlgo_Options.hxx".}

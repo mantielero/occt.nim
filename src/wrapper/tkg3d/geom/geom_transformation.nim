@@ -63,58 +63,58 @@ type
 
 
 proc newGeomTransformation*(): GeomTransformation {.cdecl, constructor,
-    importcpp: "Geom_Transformation(@)", dynlib: tkg3d.}
+    importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
 proc newGeomTransformation*(t: Trsf): GeomTransformation {.cdecl, constructor,
-    importcpp: "Geom_Transformation(@)", dynlib: tkg3d.}
+    importcpp: "Geom_Transformation(@)", header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; thePnt: Pnt) {.cdecl,
-    importcpp: "SetMirror", dynlib: tkg3d.}
+    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; theA1: Ax1) {.cdecl,
-    importcpp: "SetMirror", dynlib: tkg3d.}
+    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
 proc setMirror*(this: var GeomTransformation; theA2: Ax2) {.cdecl,
-    importcpp: "SetMirror", dynlib: tkg3d.}
+    importcpp: "SetMirror", header: "Geom_Transformation.hxx".}
 proc setRotation*(this: var GeomTransformation; theA1: Ax1; theAng: cfloat) {.cdecl,
-    importcpp: "SetRotation", dynlib: tkg3d.}
+    importcpp: "SetRotation", header: "Geom_Transformation.hxx".}
 proc setScale*(this: var GeomTransformation; thePnt: Pnt; theScale: cfloat) {.cdecl,
-    importcpp: "SetScale", dynlib: tkg3d.}
+    importcpp: "SetScale", header: "Geom_Transformation.hxx".}
 proc setTransformation*(this: var GeomTransformation; theFromSystem1: Ax3;
                        theToSystem2: Ax3) {.cdecl, importcpp: "SetTransformation",
-    dynlib: tkg3d.}
+    header: "Geom_Transformation.hxx".}
 proc setTransformation*(this: var GeomTransformation; theToSystem: Ax3) {.cdecl,
-    importcpp: "SetTransformation", dynlib: tkg3d.}
+    importcpp: "SetTransformation", header: "Geom_Transformation.hxx".}
 proc setTranslation*(this: var GeomTransformation; theVec: Vec) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkg3d.}
+    importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTranslation*(this: var GeomTransformation; p1: Pnt; p2: Pnt) {.cdecl,
-    importcpp: "SetTranslation", dynlib: tkg3d.}
+    importcpp: "SetTranslation", header: "Geom_Transformation.hxx".}
 proc setTrsf*(this: var GeomTransformation; theTrsf: Trsf) {.cdecl,
-    importcpp: "SetTrsf", dynlib: tkg3d.}
+    importcpp: "SetTrsf", header: "Geom_Transformation.hxx".}
 proc isNegative*(this: GeomTransformation): bool {.noSideEffect, cdecl,
-    importcpp: "IsNegative", dynlib: tkg3d.}
+    importcpp: "IsNegative", header: "Geom_Transformation.hxx".}
 proc form*(this: GeomTransformation): TrsfForm {.noSideEffect, cdecl,
-    importcpp: "Form", dynlib: tkg3d.}
+    importcpp: "Form", header: "Geom_Transformation.hxx".}
 proc scaleFactor*(this: GeomTransformation): cfloat {.noSideEffect, cdecl,
-    importcpp: "ScaleFactor", dynlib: tkg3d.}
+    importcpp: "ScaleFactor", header: "Geom_Transformation.hxx".}
 proc trsf*(this: GeomTransformation): Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
-    dynlib: tkg3d.}
+    header: "Geom_Transformation.hxx".}
 proc value*(this: GeomTransformation; theRow: cint; theCol: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "Value", dynlib: tkg3d.}
-proc invert*(this: var GeomTransformation) {.cdecl, importcpp: "Invert", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Value", header: "Geom_Transformation.hxx".}
+proc invert*(this: var GeomTransformation) {.cdecl, importcpp: "Invert", header: "Geom_Transformation.hxx".}
 proc inverted*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
-    cdecl, importcpp: "Inverted", dynlib: tkg3d.}
+    cdecl, importcpp: "Inverted", header: "Geom_Transformation.hxx".}
 proc multiplied*(this: GeomTransformation; other: Handle[GeomTransformation]): Handle[
-    GeomTransformation] {.noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkg3d.}
+    GeomTransformation] {.noSideEffect, cdecl, importcpp: "Multiplied", header: "Geom_Transformation.hxx".}
 proc multiply*(this: var GeomTransformation; theOther: Handle[GeomTransformation]) {.
-    cdecl, importcpp: "Multiply", dynlib: tkg3d.}
+    cdecl, importcpp: "Multiply", header: "Geom_Transformation.hxx".}
 proc power*(this: var GeomTransformation; n: cint) {.cdecl, importcpp: "Power",
-    dynlib: tkg3d.}
+    header: "Geom_Transformation.hxx".}
 proc powered*(this: GeomTransformation; n: cint): Handle[GeomTransformation] {.
-    noSideEffect, cdecl, importcpp: "Powered", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Powered", header: "Geom_Transformation.hxx".}
 proc preMultiply*(this: var GeomTransformation; other: Handle[GeomTransformation]) {.
-    cdecl, importcpp: "PreMultiply", dynlib: tkg3d.}
+    cdecl, importcpp: "PreMultiply", header: "Geom_Transformation.hxx".}
 proc transforms*(this: GeomTransformation; theX: var cfloat; theY: var cfloat;
                 theZ: var cfloat) {.noSideEffect, cdecl, importcpp: "Transforms",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_Transformation.hxx".}
 proc copy*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
-    cdecl, importcpp: "Copy", dynlib: tkg3d.}
+    cdecl, importcpp: "Copy", header: "Geom_Transformation.hxx".}
 proc dumpJson*(this: GeomTransformation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_Transformation.hxx".}

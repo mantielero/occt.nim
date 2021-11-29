@@ -49,13 +49,13 @@ type
 
 
 proc newBRepBuilderAPI_NurbsConvert*(): BRepBuilderAPI_NurbsConvert {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)", dynlib: tktopalgo.}
+    constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)", header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc newBRepBuilderAPI_NurbsConvert*(s: TopoDS_Shape; copy: bool = false): BRepBuilderAPI_NurbsConvert {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
-    dynlib: tktopalgo.}
+    header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc perform*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape;
-             copy: bool = false) {.cdecl, importcpp: "Perform", dynlib: tktopalgo.}
+             copy: bool = false) {.cdecl, importcpp: "Perform", header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tktopalgo.}
+    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedShape", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_NurbsConvert.hxx".}

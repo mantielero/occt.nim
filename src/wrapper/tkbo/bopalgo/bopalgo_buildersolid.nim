@@ -195,12 +195,12 @@ type
 
 
 proc newBOPAlgoBuilderSolid*(): BOPAlgoBuilderSolid {.cdecl, constructor,
-    importcpp: "BOPAlgo_BuilderSolid(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_BuilderSolid(@)", header: "BOPAlgo_BuilderSolid.hxx".}
 proc destroyBOPAlgoBuilderSolid*(this: var BOPAlgoBuilderSolid) {.cdecl,
-    importcpp: "#.~BOPAlgo_BuilderSolid()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_BuilderSolid()", header: "BOPAlgo_BuilderSolid.hxx".}
 proc newBOPAlgoBuilderSolid*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBuilderSolid {.
-    cdecl, constructor, importcpp: "BOPAlgo_BuilderSolid(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_BuilderSolid(@)", header: "BOPAlgo_BuilderSolid.hxx".}
 proc perform*(this: var BOPAlgoBuilderSolid) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
+    header: "BOPAlgo_BuilderSolid.hxx".}
 proc getBoxesMap*(this: BOPAlgoBuilderSolid): TopToolsDataMapOfShapeBox {.
-    noSideEffect, cdecl, importcpp: "GetBoxesMap", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "GetBoxesMap", header: "BOPAlgo_BuilderSolid.hxx".}

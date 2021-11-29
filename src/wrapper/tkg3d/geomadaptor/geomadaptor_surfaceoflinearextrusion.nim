@@ -40,88 +40,88 @@ type
 
 proc newGeomAdaptorSurfaceOfLinearExtrusion*(): GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc newGeomAdaptorSurfaceOfLinearExtrusion*(c: Handle[Adaptor3dHCurve]): GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc newGeomAdaptorSurfaceOfLinearExtrusion*(c: Handle[Adaptor3dHCurve]; v: Dir): GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, constructor, importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion(@)",
-    dynlib: tkg3d.}
+    header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; c: Handle[Adaptor3dHCurve]) {.
-    cdecl, importcpp: "Load", dynlib: tkg3d.}
+    cdecl, importcpp: "Load", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc load*(this: var GeomAdaptorSurfaceOfLinearExtrusion; v: Dir) {.cdecl,
-    importcpp: "Load", dynlib: tkg3d.}
+    importcpp: "Load", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc firstUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.
-    noSideEffect, cdecl, importcpp: "FirstUParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "FirstUParameter", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc lastUParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.
-    noSideEffect, cdecl, importcpp: "LastUParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "LastUParameter", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc firstVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.
-    noSideEffect, cdecl, importcpp: "FirstVParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "FirstVParameter", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc lastVParameter*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.
-    noSideEffect, cdecl, importcpp: "LastVParameter", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "LastVParameter", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uContinuity*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsShape {.
-    noSideEffect, cdecl, importcpp: "UContinuity", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "UContinuity", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc vContinuity*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsShape {.
-    noSideEffect, cdecl, importcpp: "VContinuity", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "VContinuity", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc nbUIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbUIntervals", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "NbUIntervals", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc nbVIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion; s: GeomAbsShape): cint {.
-    noSideEffect, cdecl, importcpp: "NbVIntervals", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "NbVIntervals", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion;
                 t: var TColStdArray1OfReal; s: GeomAbsShape) {.noSideEffect, cdecl,
-    importcpp: "UIntervals", dynlib: tkg3d.}
+    importcpp: "UIntervals", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc vIntervals*(this: GeomAdaptorSurfaceOfLinearExtrusion;
                 t: var TColStdArray1OfReal; s: GeomAbsShape) {.noSideEffect, cdecl,
-    importcpp: "VIntervals", dynlib: tkg3d.}
+    importcpp: "VIntervals", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: cfloat; last: cfloat;
            tol: cfloat): Handle[Adaptor3dHSurface] {.noSideEffect, cdecl,
-    importcpp: "UTrim", dynlib: tkg3d.}
+    importcpp: "UTrim", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc vTrim*(this: GeomAdaptorSurfaceOfLinearExtrusion; first: cfloat; last: cfloat;
            tol: cfloat): Handle[Adaptor3dHSurface] {.noSideEffect, cdecl,
-    importcpp: "VTrim", dynlib: tkg3d.}
+    importcpp: "VTrim", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isUClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsUClosed", dynlib: tkg3d.}
+    cdecl, importcpp: "IsUClosed", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isVClosed*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsVClosed", dynlib: tkg3d.}
+    cdecl, importcpp: "IsVClosed", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isUPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsUPeriodic", dynlib: tkg3d.}
+    cdecl, importcpp: "IsUPeriodic", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.noSideEffect,
-    cdecl, importcpp: "UPeriod", dynlib: tkg3d.}
+    cdecl, importcpp: "UPeriod", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isVPeriodic*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsVPeriodic", dynlib: tkg3d.}
+    cdecl, importcpp: "IsVPeriodic", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc vPeriod*(this: GeomAdaptorSurfaceOfLinearExtrusion): cfloat {.noSideEffect,
-    cdecl, importcpp: "VPeriod", dynlib: tkg3d.}
+    cdecl, importcpp: "VPeriod", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "UResolution", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "UResolution", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc vResolution*(this: GeomAdaptorSurfaceOfLinearExtrusion; r3d: cfloat): cfloat {.
-    noSideEffect, cdecl, importcpp: "VResolution", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "VResolution", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc getType*(this: GeomAdaptorSurfaceOfLinearExtrusion): GeomAbsSurfaceType {.
-    noSideEffect, cdecl, importcpp: "GetType", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "GetType", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc plane*(this: GeomAdaptorSurfaceOfLinearExtrusion): Pln {.noSideEffect, cdecl,
-    importcpp: "Plane", dynlib: tkg3d.}
+    importcpp: "Plane", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc cylinder*(this: GeomAdaptorSurfaceOfLinearExtrusion): Cylinder {.noSideEffect,
-    cdecl, importcpp: "Cylinder", dynlib: tkg3d.}
+    cdecl, importcpp: "Cylinder", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc cone*(this: GeomAdaptorSurfaceOfLinearExtrusion): Cone {.noSideEffect, cdecl,
-    importcpp: "Cone", dynlib: tkg3d.}
+    importcpp: "Cone", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc sphere*(this: GeomAdaptorSurfaceOfLinearExtrusion): Sphere {.noSideEffect,
-    cdecl, importcpp: "Sphere", dynlib: tkg3d.}
+    cdecl, importcpp: "Sphere", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc torus*(this: GeomAdaptorSurfaceOfLinearExtrusion): Torus {.noSideEffect, cdecl,
-    importcpp: "Torus", dynlib: tkg3d.}
+    importcpp: "Torus", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc uDegree*(this: GeomAdaptorSurfaceOfLinearExtrusion): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkg3d.}
+    importcpp: "UDegree", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc nbUPoles*(this: GeomAdaptorSurfaceOfLinearExtrusion): cint {.noSideEffect,
-    cdecl, importcpp: "NbUPoles", dynlib: tkg3d.}
+    cdecl, importcpp: "NbUPoles", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isURational*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsURational", dynlib: tkg3d.}
+    cdecl, importcpp: "IsURational", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc isVRational*(this: GeomAdaptorSurfaceOfLinearExtrusion): bool {.noSideEffect,
-    cdecl, importcpp: "IsVRational", dynlib: tkg3d.}
+    cdecl, importcpp: "IsVRational", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc bezier*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[GeomBezierSurface] {.
-    noSideEffect, cdecl, importcpp: "Bezier", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Bezier", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc bSpline*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[GeomBSplineSurface] {.
-    noSideEffect, cdecl, importcpp: "BSpline", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "BSpline", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc axeOfRevolution*(this: GeomAdaptorSurfaceOfLinearExtrusion): Ax1 {.
-    noSideEffect, cdecl, importcpp: "AxeOfRevolution", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "AxeOfRevolution", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc direction*(this: GeomAdaptorSurfaceOfLinearExtrusion): Dir {.noSideEffect,
-    cdecl, importcpp: "Direction", dynlib: tkg3d.}
+    cdecl, importcpp: "Direction", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc basisCurve*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[Adaptor3dHCurve] {.
-    noSideEffect, cdecl, importcpp: "BasisCurve", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}

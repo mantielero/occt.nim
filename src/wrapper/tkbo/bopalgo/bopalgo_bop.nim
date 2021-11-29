@@ -22,14 +22,14 @@ type
 
 
 proc newBOPAlgoBOP*(): BOPAlgoBOP {.cdecl, constructor, importcpp: "BOPAlgo_BOP(@)",
-                                 dynlib: tkbo.}
+                                 header: "BOPAlgo_BOP.hxx".}
 proc destroyBOPAlgoBOP*(this: var BOPAlgoBOP) {.cdecl, importcpp: "#.~BOPAlgo_BOP()",
-    dynlib: tkbo.}
+    header: "BOPAlgo_BOP.hxx".}
 proc newBOPAlgoBOP*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoBOP {.
-    cdecl, constructor, importcpp: "BOPAlgo_BOP(@)", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_BOP(@)", header: "BOPAlgo_BOP.hxx".}
+proc clear*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Clear", header: "BOPAlgo_BOP.hxx".}
 proc setOperation*(this: var BOPAlgoBOP; theOperation: BOPAlgoOperation) {.cdecl,
-    importcpp: "SetOperation", dynlib: tkbo.}
+    importcpp: "SetOperation", header: "BOPAlgo_BOP.hxx".}
 proc operation*(this: BOPAlgoBOP): BOPAlgoOperation {.noSideEffect, cdecl,
-    importcpp: "Operation", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "Operation", header: "BOPAlgo_BOP.hxx".}
+proc perform*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}

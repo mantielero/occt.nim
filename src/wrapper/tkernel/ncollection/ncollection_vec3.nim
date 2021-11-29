@@ -27,143 +27,143 @@ type
 
 
 #proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
-#                              dynlib: tkernel.}
+#                              header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](): NCollectionVec3[ElementT] {.cdecl,
-    constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
+    constructor, importcpp: "NCollection_Vec3<\'*0>(@)", header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](theValue: ElementT): NCollectionVec3[ElementT] {.
-    cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](theX: ElementT; theY: ElementT; theZ: ElementT): NCollectionVec3[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
-               dynlib: tkernel.}
+               header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](theVec2: NCollectionVec2[ElementT];
                                   theZ: ElementT = ElementT(0)): NCollectionVec3[
     ElementT] {.cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)",
-               dynlib: tkernel.}
+               header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT; OtherElementT](
     theOtherVec3: NCollectionVec3[OtherElementT]): NCollectionVec3[ElementT] {.
-    cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "NCollection_Vec3<\'*0>(@)", header: "NCollection_Vec3.hxx".}
 proc setValues*[ElementT](this: var NCollectionVec3[ElementT]; theX: ElementT;
                          theY: ElementT; theZ: ElementT) {.cdecl,
-    importcpp: "SetValues", dynlib: tkernel.}
+    importcpp: "SetValues", header: "NCollection_Vec3.hxx".}
 proc setValues*[ElementT](this: var NCollectionVec3[ElementT];
                          theVec2: NCollectionVec2[ElementT]; theZ: ElementT) {.
-    cdecl, importcpp: "SetValues", dynlib: tkernel.}
+    cdecl, importcpp: "SetValues", header: "NCollection_Vec3.hxx".}
 proc x*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "x", dynlib: tkernel.}
+    importcpp: "x", header: "NCollection_Vec3.hxx".}
 proc r*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "r", dynlib: tkernel.}
+    importcpp: "r", header: "NCollection_Vec3.hxx".}
 proc y*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "y", dynlib: tkernel.}
+    importcpp: "y", header: "NCollection_Vec3.hxx".}
 proc g*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "g", dynlib: tkernel.}
+    importcpp: "g", header: "NCollection_Vec3.hxx".}
 proc z*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "z", dynlib: tkernel.}
+    importcpp: "z", header: "NCollection_Vec3.hxx".}
 proc b*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect, cdecl,
-    importcpp: "b", dynlib: tkernel.}
+    importcpp: "b", header: "NCollection_Vec3.hxx".}
 proc xy*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "xy", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "xy", header: "NCollection_Vec3.hxx".}
 proc yx*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "yx", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "yx", header: "NCollection_Vec3.hxx".}
 proc xz*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "xz", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "xz", header: "NCollection_Vec3.hxx".}
 proc zx*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "zx", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "zx", header: "NCollection_Vec3.hxx".}
 proc yz*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "yz", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "yz", header: "NCollection_Vec3.hxx".}
 proc zy*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec2[ElementT] {.
-    noSideEffect, cdecl, importcpp: "zy", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "zy", header: "NCollection_Vec3.hxx".}
 proc xyz*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "xyz", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "xyz", header: "NCollection_Vec3.hxx".}
 proc xzy*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "xzy", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "xzy", header: "NCollection_Vec3.hxx".}
 proc yxz*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "yxz", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "yxz", header: "NCollection_Vec3.hxx".}
 proc yzx*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "yzx", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "yzx", header: "NCollection_Vec3.hxx".}
 proc zyx*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "zyx", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "zyx", header: "NCollection_Vec3.hxx".}
 proc zxy*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3[ElementT] {.
-    noSideEffect, cdecl, importcpp: "zxy", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "zxy", header: "NCollection_Vec3.hxx".}
 proc x*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "x", dynlib: tkernel.}
+    importcpp: "x", header: "NCollection_Vec3.hxx".}
 proc r*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "r", dynlib: tkernel.}
+    importcpp: "r", header: "NCollection_Vec3.hxx".}
 proc y*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "y", dynlib: tkernel.}
+    importcpp: "y", header: "NCollection_Vec3.hxx".}
 proc g*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "g", dynlib: tkernel.}
+    importcpp: "g", header: "NCollection_Vec3.hxx".}
 proc z*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "z", dynlib: tkernel.}
+    importcpp: "z", header: "NCollection_Vec3.hxx".}
 proc b*[ElementT](this: var NCollectionVec3[ElementT]): var ElementT {.cdecl,
-    importcpp: "b", dynlib: tkernel.}
+    importcpp: "b", header: "NCollection_Vec3.hxx".}
 proc isEqual*[ElementT](this: NCollectionVec3[ElementT]; theOther: NCollectionVec3): bool {.
-    noSideEffect, cdecl, importcpp: "IsEqual", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "IsEqual", header: "NCollection_Vec3.hxx".}
 proc `==`*[ElementT](this: var NCollectionVec3[ElementT]; theOther: NCollectionVec3): bool {.
-    cdecl, importcpp: "(# == #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# == #)", header: "NCollection_Vec3.hxx".}
 proc `==`*[ElementT](this: NCollectionVec3[ElementT]; theOther: NCollectionVec3): bool {.
-    noSideEffect, cdecl, importcpp: "(# == #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(# == #)", header: "NCollection_Vec3.hxx".}
 proc getData*[ElementT](this: NCollectionVec3[ElementT]): ptr ElementT {.
-    noSideEffect, cdecl, importcpp: "GetData", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "GetData", header: "NCollection_Vec3.hxx".}
 proc changeData*[ElementT](this: var NCollectionVec3[ElementT]): ptr ElementT {.cdecl,
-    importcpp: "ChangeData", dynlib: tkernel.}
+    importcpp: "ChangeData", header: "NCollection_Vec3.hxx".}
 converter `constElementT*`*[ElementT](this: NCollectionVec3[ElementT]): ptr ElementT {.
     noSideEffect, cdecl, importcpp: "NCollection_Vec3::operator constElement_t*",
-    dynlib: tkernel.}
+    header: "NCollection_Vec3.hxx".}
 converter `elementT*`*[ElementT](this: var NCollectionVec3[ElementT]): ptr ElementT {.
-    cdecl, importcpp: "NCollection_Vec3::operator Element_t*", dynlib: tkernel.}
+    cdecl, importcpp: "NCollection_Vec3::operator Element_t*", header: "NCollection_Vec3.hxx".}
 proc `+=`*[ElementT](this: var NCollectionVec3[ElementT]; theAdd: NCollectionVec3) {.
-    cdecl, importcpp: "(# += #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# += #)", header: "NCollection_Vec3.hxx".}
 proc `-`*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "(- #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(- #)", header: "NCollection_Vec3.hxx".}
 proc `-=`*[ElementT](this: var NCollectionVec3[ElementT]; theDec: NCollectionVec3) {.
-    cdecl, importcpp: "(# -= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# -= #)", header: "NCollection_Vec3.hxx".}
 proc multiply*[ElementT](this: var NCollectionVec3[ElementT]; theFactor: ElementT) {.
-    cdecl, importcpp: "Multiply", dynlib: tkernel.}
+    cdecl, importcpp: "Multiply", header: "NCollection_Vec3.hxx".}
 proc `*=`*[ElementT](this: var NCollectionVec3[ElementT]; theRight: NCollectionVec3) {.
-    cdecl, importcpp: "(# *= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# *= #)", header: "NCollection_Vec3.hxx".}
 proc `*=`*[ElementT](this: var NCollectionVec3[ElementT]; theFactor: ElementT) {.
-    cdecl, importcpp: "(# *= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# *= #)", header: "NCollection_Vec3.hxx".}
 proc `*`*[ElementT](this: NCollectionVec3[ElementT]; theFactor: ElementT): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "(# * #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(# * #)", header: "NCollection_Vec3.hxx".}
 proc multiplied*[ElementT](this: NCollectionVec3[ElementT]; theFactor: ElementT): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "Multiplied", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Multiplied", header: "NCollection_Vec3.hxx".}
 proc cwiseMin*[ElementT](this: NCollectionVec3[ElementT]; theVec: NCollectionVec3): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "cwiseMin", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cwiseMin", header: "NCollection_Vec3.hxx".}
 proc cwiseMax*[ElementT](this: NCollectionVec3[ElementT]; theVec: NCollectionVec3): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "cwiseMax", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cwiseMax", header: "NCollection_Vec3.hxx".}
 proc cwiseAbs*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "cwiseAbs", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cwiseAbs", header: "NCollection_Vec3.hxx".}
 proc maxComp*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect,
-    cdecl, importcpp: "maxComp", dynlib: tkernel.}
+    cdecl, importcpp: "maxComp", header: "NCollection_Vec3.hxx".}
 proc minComp*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect,
-    cdecl, importcpp: "minComp", dynlib: tkernel.}
+    cdecl, importcpp: "minComp", header: "NCollection_Vec3.hxx".}
 proc `/=`*[ElementT](this: var NCollectionVec3[ElementT]; theInvFactor: ElementT) {.
-    cdecl, importcpp: "(# /= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# /= #)", header: "NCollection_Vec3.hxx".}
 proc `/=`*[ElementT](this: var NCollectionVec3[ElementT]; theRight: NCollectionVec3) {.
-    cdecl, importcpp: "(# /= #)", dynlib: tkernel.}
+    cdecl, importcpp: "(# /= #)", header: "NCollection_Vec3.hxx".}
 proc `/`*[ElementT](this: NCollectionVec3[ElementT]; theInvFactor: ElementT): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "(# / #)", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "(# / #)", header: "NCollection_Vec3.hxx".}
 proc dot*[ElementT](this: NCollectionVec3[ElementT]; theOther: NCollectionVec3): ElementT {.
-    noSideEffect, cdecl, importcpp: "Dot", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Dot", header: "NCollection_Vec3.hxx".}
 proc modulus*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.noSideEffect,
-    cdecl, importcpp: "Modulus", dynlib: tkernel.}
+    cdecl, importcpp: "Modulus", header: "NCollection_Vec3.hxx".}
 proc squareModulus*[ElementT](this: NCollectionVec3[ElementT]): ElementT {.
-    noSideEffect, cdecl, importcpp: "SquareModulus", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "SquareModulus", header: "NCollection_Vec3.hxx".}
 proc normalize*[ElementT](this: var NCollectionVec3[ElementT]) {.cdecl,
-    importcpp: "Normalize", dynlib: tkernel.}
+    importcpp: "Normalize", header: "NCollection_Vec3.hxx".}
 proc normalized*[ElementT](this: NCollectionVec3[ElementT]): NCollectionVec3 {.
-    noSideEffect, cdecl, importcpp: "Normalized", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Normalized", header: "NCollection_Vec3.hxx".}
 proc cross*[ElementT](theVec1: NCollectionVec3; theVec2: NCollectionVec3): NCollectionVec3 {.
-    cdecl, importcpp: "NCollection_Vec3::Cross(@)", dynlib: tkernel.}
+    cdecl, importcpp: "NCollection_Vec3::Cross(@)", header: "NCollection_Vec3.hxx".}
 proc getLERP*[ElementT](theFrom: NCollectionVec3; theTo: NCollectionVec3;
                        theT: ElementT): NCollectionVec3 {.cdecl,
-    importcpp: "NCollection_Vec3::GetLERP(@)", dynlib: tkernel.}
+    importcpp: "NCollection_Vec3::GetLERP(@)", header: "NCollection_Vec3.hxx".}
 proc dxVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DX(@)",
-                                     dynlib: tkernel.}
+                                     header: "NCollection_Vec3.hxx".}
 proc dyVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DY(@)",
-                                     dynlib: tkernel.}
+                                     header: "NCollection_Vec3.hxx".}
 proc dzVec3*[ElementT](): NCollectionVec3 {.cdecl, importcpp: "NCollection_Vec3::DZ(@)",
-                                     dynlib: tkernel.}
+                                     header: "NCollection_Vec3.hxx".}
 proc dumpJson*[ElementT](this: NCollectionVec3[ElementT];
                         theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "NCollection_Vec3.hxx".}

@@ -21,15 +21,15 @@ type
 
 
 proc newNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
-    importcpp: "NCollection_SeqNode(@)", dynlib: tkernel.}
+    importcpp: "NCollection_SeqNode(@)", header: "NCollection_BaseSequence.hxx".}
 proc next*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect, cdecl,
-    importcpp: "Next", dynlib: tkernel.}
+    importcpp: "Next", header: "NCollection_BaseSequence.hxx".}
 proc previous*(this: NCollectionSeqNode): ptr NCollectionSeqNode {.noSideEffect,
-    cdecl, importcpp: "Previous", dynlib: tkernel.}
+    cdecl, importcpp: "Previous", header: "NCollection_BaseSequence.hxx".}
 proc setNext*(this: var NCollectionSeqNode; theNext: ptr NCollectionSeqNode) {.cdecl,
-    importcpp: "SetNext", dynlib: tkernel.}
+    importcpp: "SetNext", header: "NCollection_BaseSequence.hxx".}
 proc setPrevious*(this: var NCollectionSeqNode; thePrev: ptr NCollectionSeqNode) {.
-    cdecl, importcpp: "SetPrevious", dynlib: tkernel.}
+    cdecl, importcpp: "SetPrevious", header: "NCollection_BaseSequence.hxx".}
 type
   NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
@@ -73,19 +73,19 @@ type
 
 proc newNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
-    dynlib: tkernel.}
+    header: "NCollection_BaseSequence.hxx".}
 proc newNCollectionBaseSequenceIterator*(theSeq: NCollectionBaseSequence;
                                         isStart: bool): NCollectionBaseSequenceIterator {.
     cdecl, constructor, importcpp: "NCollection_BaseSequence::Iterator(@)",
-    dynlib: tkernel.}
+    header: "NCollection_BaseSequence.hxx".}
 proc init*(this: var NCollectionBaseSequenceIterator;
           theSeq: NCollectionBaseSequence; isStart: bool = true) {.cdecl,
-    importcpp: "Init", dynlib: tkernel.}
+    importcpp: "Init", header: "NCollection_BaseSequence.hxx".}
 proc previous*(this: var NCollectionBaseSequenceIterator) {.cdecl,
-    importcpp: "Previous", dynlib: tkernel.}
+    importcpp: "Previous", header: "NCollection_BaseSequence.hxx".}
 proc isEmpty*(this: NCollectionBaseSequence): bool {.noSideEffect, cdecl,
-    importcpp: "IsEmpty", dynlib: tkernel.}
+    importcpp: "IsEmpty", header: "NCollection_BaseSequence.hxx".}
 proc length*(this: NCollectionBaseSequence): cint {.noSideEffect, cdecl,
-    importcpp: "Length", dynlib: tkernel.}
+    importcpp: "Length", header: "NCollection_BaseSequence.hxx".}
 proc allocator*(this: NCollectionBaseSequence): Handle[NCollectionBaseAllocator] {.
-    noSideEffect, cdecl, importcpp: "Allocator", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Allocator", header: "NCollection_BaseSequence.hxx".}

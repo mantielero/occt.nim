@@ -38,21 +38,21 @@ type
 
 proc newMakePlane*(pl: Pln): MakePlane {.cdecl, constructor,
                                      importcpp: "GC_MakePlane(@)",
-                                     dynlib: tkgeombase.}
+                                     header: "GC_MakePlane.hxx".}
 proc newMakePlane*(p: Pnt; v: Dir): MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc newMakePlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): MakePlane {.cdecl,
-    constructor, importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+    constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc newMakePlane*(pln: Pln; point: Pnt): MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc newMakePlane*(pln: Pln; dist: cfloat): MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc newMakePlane*(p1: Pnt; p2: Pnt; p3: Pnt): MakePlane {.cdecl, constructor,
-    importcpp: "GC_MakePlane(@)", dynlib: tkgeombase.}
+    importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc newMakePlane*(axis: Ax1): MakePlane {.cdecl, constructor,
                                        importcpp: "GC_MakePlane(@)",
-                                       dynlib: tkgeombase.}
+                                       header: "GC_MakePlane.hxx".}
 proc value*(this: MakePlane): Handle[GeomPlane] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakePlane.hxx".}
 converter `constopencascade`*(this: MakePlane): Handle[GeomPlane] {.noSideEffect,
-    cdecl, importcpp: "GC_MakePlane::operator constopencascade", dynlib: tkgeombase.}
+    cdecl, importcpp: "GC_MakePlane::operator constopencascade", header: "GC_MakePlane.hxx".}

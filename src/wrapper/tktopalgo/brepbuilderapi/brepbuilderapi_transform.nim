@@ -50,12 +50,12 @@ type
 
 
 proc transform*(t: Trsf): BRepBuilderAPI_Transform {.cdecl,
-    constructor, importcpp: "BRepBuilderAPI_Transform(@)", dynlib: tktopalgo.}
+    constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
 proc transform*(s: TopoDS_Shape; t: Trsf; copy: bool = false): BRepBuilderAPI_Transform {.
-    cdecl, constructor, importcpp: "BRepBuilderAPI_Transform(@)", dynlib: tktopalgo.}
+    cdecl, constructor, importcpp: "BRepBuilderAPI_Transform(@)", header: "BRepBuilderAPI_Transform.hxx".}
 proc perform*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape; copy: bool = false) {.
-    cdecl, importcpp: "Perform", dynlib: tktopalgo.}
+    cdecl, importcpp: "Perform", header: "BRepBuilderAPI_Transform.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Shape {.
-    noSideEffect, cdecl, importcpp: "ModifiedShape", dynlib: tktopalgo.}
+    noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_Transform.hxx".}
 proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tktopalgo.}
+    cdecl, importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}

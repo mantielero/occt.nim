@@ -30,4 +30,4 @@ type
 
 
 proc newTopoDS_Wire*(): TopoDS_Wire {.cdecl, constructor,
-                                   importcpp: "TopoDS_Wire(@)", dynlib: tkbrep.}
+                                   importcpp: "TopoDS_Wire(@)", header: "TopoDS_Wire.hxx".}

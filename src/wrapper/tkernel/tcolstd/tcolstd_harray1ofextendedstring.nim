@@ -19,13 +19,13 @@ type
 
 proc newTColStdHArray1OfExtendedString*(theLower: cint; theUpper: cint): TColStdHArray1OfExtendedString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfExtendedString.hxx".}
 proc newTColStdHArray1OfExtendedString*(theLower: cint; theUpper: cint;
                                        theValue: ValueType): TColStdHArray1OfExtendedString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfExtendedString.hxx".}
 proc newTColStdHArray1OfExtendedString*(theOther: TColStdArray1OfExtendedString): TColStdHArray1OfExtendedString {.
     cdecl, constructor, importcpp: "TColStd_HArray1OfExtendedString(@)",
-    dynlib: tkernel.}
+    header: "TColStd_HArray1OfExtendedString.hxx".}
 proc array1*(this: TColStdHArray1OfExtendedString): TColStdArray1OfExtendedString {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TColStd_HArray1OfExtendedString.hxx".}

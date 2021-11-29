@@ -46,9 +46,9 @@ type
 
 
 proc newBOPAlgoSplitter*(): BOPAlgoSplitter {.cdecl, constructor,
-    importcpp: "BOPAlgo_Splitter(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
 proc destroyBOPAlgoSplitter*(this: var BOPAlgoSplitter) {.cdecl,
-    importcpp: "#.~BOPAlgo_Splitter()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_Splitter()", header: "BOPAlgo_Splitter.hxx".}
 proc newBOPAlgoSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSplitter {.
-    cdecl, constructor, importcpp: "BOPAlgo_Splitter(@)", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoSplitter) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
+proc perform*(this: var BOPAlgoSplitter) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Splitter.hxx".}

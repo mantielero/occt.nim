@@ -211,144 +211,144 @@ type
 
 
 proc newGeomBezierSurface*(surfacePoles: TColgpArray2OfPnt): GeomBezierSurface {.
-    cdecl, constructor, importcpp: "Geom_BezierSurface(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "Geom_BezierSurface(@)", header: "Geom_BezierSurface.hxx".}
 proc newGeomBezierSurface*(surfacePoles: TColgpArray2OfPnt;
                           poleWeights: TColStdArray2OfReal): GeomBezierSurface {.
-    cdecl, constructor, importcpp: "Geom_BezierSurface(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "Geom_BezierSurface(@)", header: "Geom_BezierSurface.hxx".}
 proc exchangeUV*(this: var GeomBezierSurface) {.cdecl, importcpp: "ExchangeUV",
-    dynlib: tkg3d.}
+    header: "Geom_BezierSurface.hxx".}
 proc increase*(this: var GeomBezierSurface; uDeg: cint; vDeg: cint) {.cdecl,
-    importcpp: "Increase", dynlib: tkg3d.}
+    importcpp: "Increase", header: "Geom_BezierSurface.hxx".}
 proc insertPoleColAfter*(this: var GeomBezierSurface; vIndex: cint;
                         cPoles: TColgpArray1OfPnt) {.cdecl,
-    importcpp: "InsertPoleColAfter", dynlib: tkg3d.}
+    importcpp: "InsertPoleColAfter", header: "Geom_BezierSurface.hxx".}
 proc insertPoleColAfter*(this: var GeomBezierSurface; vIndex: cint;
                         cPoles: TColgpArray1OfPnt;
                         cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "InsertPoleColAfter", dynlib: tkg3d.}
+    importcpp: "InsertPoleColAfter", header: "Geom_BezierSurface.hxx".}
 proc insertPoleColBefore*(this: var GeomBezierSurface; vIndex: cint;
                          cPoles: TColgpArray1OfPnt) {.cdecl,
-    importcpp: "InsertPoleColBefore", dynlib: tkg3d.}
+    importcpp: "InsertPoleColBefore", header: "Geom_BezierSurface.hxx".}
 proc insertPoleColBefore*(this: var GeomBezierSurface; vIndex: cint;
                          cPoles: TColgpArray1OfPnt;
                          cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "InsertPoleColBefore", dynlib: tkg3d.}
+    importcpp: "InsertPoleColBefore", header: "Geom_BezierSurface.hxx".}
 proc insertPoleRowAfter*(this: var GeomBezierSurface; uIndex: cint;
                         cPoles: TColgpArray1OfPnt) {.cdecl,
-    importcpp: "InsertPoleRowAfter", dynlib: tkg3d.}
+    importcpp: "InsertPoleRowAfter", header: "Geom_BezierSurface.hxx".}
 proc insertPoleRowAfter*(this: var GeomBezierSurface; uIndex: cint;
                         cPoles: TColgpArray1OfPnt;
                         cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "InsertPoleRowAfter", dynlib: tkg3d.}
+    importcpp: "InsertPoleRowAfter", header: "Geom_BezierSurface.hxx".}
 proc insertPoleRowBefore*(this: var GeomBezierSurface; uIndex: cint;
                          cPoles: TColgpArray1OfPnt) {.cdecl,
-    importcpp: "InsertPoleRowBefore", dynlib: tkg3d.}
+    importcpp: "InsertPoleRowBefore", header: "Geom_BezierSurface.hxx".}
 proc insertPoleRowBefore*(this: var GeomBezierSurface; uIndex: cint;
                          cPoles: TColgpArray1OfPnt;
                          cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "InsertPoleRowBefore", dynlib: tkg3d.}
+    importcpp: "InsertPoleRowBefore", header: "Geom_BezierSurface.hxx".}
 proc removePoleCol*(this: var GeomBezierSurface; vIndex: cint) {.cdecl,
-    importcpp: "RemovePoleCol", dynlib: tkg3d.}
+    importcpp: "RemovePoleCol", header: "Geom_BezierSurface.hxx".}
 proc removePoleRow*(this: var GeomBezierSurface; uIndex: cint) {.cdecl,
-    importcpp: "RemovePoleRow", dynlib: tkg3d.}
+    importcpp: "RemovePoleRow", header: "Geom_BezierSurface.hxx".}
 proc segment*(this: var GeomBezierSurface; u1: cfloat; u2: cfloat; v1: cfloat; v2: cfloat) {.
-    cdecl, importcpp: "Segment", dynlib: tkg3d.}
+    cdecl, importcpp: "Segment", header: "Geom_BezierSurface.hxx".}
 proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: Pnt) {.cdecl,
-    importcpp: "SetPole", dynlib: tkg3d.}
+    importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
 proc setPole*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; p: Pnt;
-             weight: cfloat) {.cdecl, importcpp: "SetPole", dynlib: tkg3d.}
+             weight: cfloat) {.cdecl, importcpp: "SetPole", header: "Geom_BezierSurface.hxx".}
 proc setPoleCol*(this: var GeomBezierSurface; vIndex: cint; cPoles: TColgpArray1OfPnt) {.
-    cdecl, importcpp: "SetPoleCol", dynlib: tkg3d.}
+    cdecl, importcpp: "SetPoleCol", header: "Geom_BezierSurface.hxx".}
 proc setPoleCol*(this: var GeomBezierSurface; vIndex: cint; cPoles: TColgpArray1OfPnt;
                 cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "SetPoleCol", dynlib: tkg3d.}
+    importcpp: "SetPoleCol", header: "Geom_BezierSurface.hxx".}
 proc setPoleRow*(this: var GeomBezierSurface; uIndex: cint; cPoles: TColgpArray1OfPnt) {.
-    cdecl, importcpp: "SetPoleRow", dynlib: tkg3d.}
+    cdecl, importcpp: "SetPoleRow", header: "Geom_BezierSurface.hxx".}
 proc setPoleRow*(this: var GeomBezierSurface; uIndex: cint; cPoles: TColgpArray1OfPnt;
                 cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "SetPoleRow", dynlib: tkg3d.}
+    importcpp: "SetPoleRow", header: "Geom_BezierSurface.hxx".}
 proc setWeight*(this: var GeomBezierSurface; uIndex: cint; vIndex: cint; weight: cfloat) {.
-    cdecl, importcpp: "SetWeight", dynlib: tkg3d.}
+    cdecl, importcpp: "SetWeight", header: "Geom_BezierSurface.hxx".}
 proc setWeightCol*(this: var GeomBezierSurface; vIndex: cint;
                   cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "SetWeightCol", dynlib: tkg3d.}
+    importcpp: "SetWeightCol", header: "Geom_BezierSurface.hxx".}
 proc setWeightRow*(this: var GeomBezierSurface; uIndex: cint;
                   cPoleWeights: TColStdArray1OfReal) {.cdecl,
-    importcpp: "SetWeightRow", dynlib: tkg3d.}
+    importcpp: "SetWeightRow", header: "Geom_BezierSurface.hxx".}
 proc uReverse*(this: var GeomBezierSurface) {.cdecl, importcpp: "UReverse",
-    dynlib: tkg3d.}
+    header: "Geom_BezierSurface.hxx".}
 proc uReversedParameter*(this: GeomBezierSurface; u: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "UReversedParameter", dynlib: tkg3d.}
+    cdecl, importcpp: "UReversedParameter", header: "Geom_BezierSurface.hxx".}
 proc vReverse*(this: var GeomBezierSurface) {.cdecl, importcpp: "VReverse",
-    dynlib: tkg3d.}
+    header: "Geom_BezierSurface.hxx".}
 proc vReversedParameter*(this: GeomBezierSurface; v: cfloat): cfloat {.noSideEffect,
-    cdecl, importcpp: "VReversedParameter", dynlib: tkg3d.}
+    cdecl, importcpp: "VReversedParameter", header: "Geom_BezierSurface.hxx".}
 proc bounds*(this: GeomBezierSurface; u1: var cfloat; u2: var cfloat; v1: var cfloat;
-            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", dynlib: tkg3d.}
+            v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_BezierSurface.hxx".}
 proc continuity*(this: GeomBezierSurface): GeomAbsShape {.noSideEffect, cdecl,
-    importcpp: "Continuity", dynlib: tkg3d.}
+    importcpp: "Continuity", header: "Geom_BezierSurface.hxx".}
 proc d0*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
-    importcpp: "D0", dynlib: tkg3d.}
+    importcpp: "D0", header: "Geom_BezierSurface.hxx".}
 proc d1*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", dynlib: tkg3d.}
+        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_BezierSurface.hxx".}
 proc d2*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D2", dynlib: tkg3d.}
+    importcpp: "D2", header: "Geom_BezierSurface.hxx".}
 proc d3*(this: GeomBezierSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
         d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
         d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
-                                    dynlib: tkg3d.}
+                                    header: "Geom_BezierSurface.hxx".}
 proc dn*(this: GeomBezierSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
-    noSideEffect, cdecl, importcpp: "DN", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "DN", header: "Geom_BezierSurface.hxx".}
 proc nbUPoles*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbUPoles", dynlib: tkg3d.}
+    importcpp: "NbUPoles", header: "Geom_BezierSurface.hxx".}
 proc nbVPoles*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
-    importcpp: "NbVPoles", dynlib: tkg3d.}
+    importcpp: "NbVPoles", header: "Geom_BezierSurface.hxx".}
 proc pole*(this: GeomBezierSurface; uIndex: cint; vIndex: cint): Pnt {.noSideEffect,
-    cdecl, importcpp: "Pole", dynlib: tkg3d.}
+    cdecl, importcpp: "Pole", header: "Geom_BezierSurface.hxx".}
 proc poles*(this: GeomBezierSurface; p: var TColgpArray2OfPnt) {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkg3d.}
+    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
 proc poles*(this: GeomBezierSurface): TColgpArray2OfPnt {.noSideEffect, cdecl,
-    importcpp: "Poles", dynlib: tkg3d.}
+    importcpp: "Poles", header: "Geom_BezierSurface.hxx".}
 proc uDegree*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
-    importcpp: "UDegree", dynlib: tkg3d.}
+    importcpp: "UDegree", header: "Geom_BezierSurface.hxx".}
 proc uIso*(this: GeomBezierSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "UIso", dynlib: tkg3d.}
+    cdecl, importcpp: "UIso", header: "Geom_BezierSurface.hxx".}
 proc vDegree*(this: GeomBezierSurface): cint {.noSideEffect, cdecl,
-    importcpp: "VDegree", dynlib: tkg3d.}
+    importcpp: "VDegree", header: "Geom_BezierSurface.hxx".}
 proc vIso*(this: GeomBezierSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
-    cdecl, importcpp: "VIso", dynlib: tkg3d.}
+    cdecl, importcpp: "VIso", header: "Geom_BezierSurface.hxx".}
 proc weight*(this: GeomBezierSurface; uIndex: cint; vIndex: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "Weight", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Weight", header: "Geom_BezierSurface.hxx".}
 proc weights*(this: GeomBezierSurface; w: var TColStdArray2OfReal) {.noSideEffect,
-    cdecl, importcpp: "Weights", dynlib: tkg3d.}
+    cdecl, importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
 proc weights*(this: GeomBezierSurface): ptr TColStdArray2OfReal {.noSideEffect, cdecl,
-    importcpp: "Weights", dynlib: tkg3d.}
+    importcpp: "Weights", header: "Geom_BezierSurface.hxx".}
 proc isUClosed*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUClosed", dynlib: tkg3d.}
+    importcpp: "IsUClosed", header: "Geom_BezierSurface.hxx".}
 proc isVClosed*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVClosed", dynlib: tkg3d.}
+    importcpp: "IsVClosed", header: "Geom_BezierSurface.hxx".}
 proc isCNu*(this: GeomBezierSurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNu", dynlib: tkg3d.}
+    importcpp: "IsCNu", header: "Geom_BezierSurface.hxx".}
 proc isCNv*(this: GeomBezierSurface; n: cint): bool {.noSideEffect, cdecl,
-    importcpp: "IsCNv", dynlib: tkg3d.}
+    importcpp: "IsCNv", header: "Geom_BezierSurface.hxx".}
 proc isUPeriodic*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsUPeriodic", dynlib: tkg3d.}
+    importcpp: "IsUPeriodic", header: "Geom_BezierSurface.hxx".}
 proc isVPeriodic*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVPeriodic", dynlib: tkg3d.}
+    importcpp: "IsVPeriodic", header: "Geom_BezierSurface.hxx".}
 proc isURational*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsURational", dynlib: tkg3d.}
+    importcpp: "IsURational", header: "Geom_BezierSurface.hxx".}
 proc isVRational*(this: GeomBezierSurface): bool {.noSideEffect, cdecl,
-    importcpp: "IsVRational", dynlib: tkg3d.}
+    importcpp: "IsVRational", header: "Geom_BezierSurface.hxx".}
 proc transform*(this: var GeomBezierSurface; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkg3d.}
+    header: "Geom_BezierSurface.hxx".}
 proc maxDegreeBezierSurface*(): cint {.cdecl, importcpp: "Geom_BezierSurface::MaxDegree(@)",
-                       dynlib: tkg3d.}
+                       header: "Geom_BezierSurface.hxx".}
 proc resolution*(this: var GeomBezierSurface; tolerance3D: cfloat;
                 uTolerance: var cfloat; vTolerance: var cfloat) {.cdecl,
-    importcpp: "Resolution", dynlib: tkg3d.}
+    importcpp: "Resolution", header: "Geom_BezierSurface.hxx".}
 proc copy*(this: GeomBezierSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg3d.}
+    importcpp: "Copy", header: "Geom_BezierSurface.hxx".}
 proc dumpJson*(this: GeomBezierSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_BezierSurface.hxx".}

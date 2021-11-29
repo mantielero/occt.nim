@@ -851,9 +851,9 @@ type
 
 
 proc newBOPAlgoMakePeriodic*(): BOPAlgoMakePeriodic {.cdecl, constructor,
-    importcpp: "BOPAlgo_MakePeriodic(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_MakePeriodic(@)", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setShape*(this: var BOPAlgoMakePeriodic; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "SetShape", dynlib: tkbo.}
+    importcpp: "SetShape", header: "BOPAlgo_MakePeriodic.hxx".}
 type
   BOPAlgoMakePeriodicPeriodicityParams* {.
       importcpp: "BOPAlgo_MakePeriodic::PeriodicityParams",
@@ -870,87 +870,87 @@ type
 
 proc newBOPAlgoMakePeriodicPeriodicityParams*(): BOPAlgoMakePeriodicPeriodicityParams {.
     cdecl, constructor, importcpp: "BOPAlgo_MakePeriodic::PeriodicityParams(@)",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakePeriodic.hxx".}
 proc clear*(this: var BOPAlgoMakePeriodicPeriodicityParams) {.cdecl,
-    importcpp: "Clear", dynlib: tkbo.}
+    importcpp: "Clear", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setPeriodicityParameters*(this: var BOPAlgoMakePeriodic;
                               theParams: BOPAlgoMakePeriodicPeriodicityParams) {.
-    cdecl, importcpp: "SetPeriodicityParameters", dynlib: tkbo.}
+    cdecl, importcpp: "SetPeriodicityParameters", header: "BOPAlgo_MakePeriodic.hxx".}
 proc periodicityParameters*(this: BOPAlgoMakePeriodic): BOPAlgoMakePeriodicPeriodicityParams {.
-    noSideEffect, cdecl, importcpp: "PeriodicityParameters", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "PeriodicityParameters", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makePeriodic*(this: var BOPAlgoMakePeriodic; theDirectionID: cint;
                   theIsPeriodic: bool; thePeriod: cfloat = 0.0) {.cdecl,
-    importcpp: "MakePeriodic", dynlib: tkbo.}
+    importcpp: "MakePeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
 proc isPeriodic*(this: BOPAlgoMakePeriodic; theDirectionID: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IsPeriodic", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "IsPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
 proc period*(this: BOPAlgoMakePeriodic; theDirectionID: cint): cfloat {.noSideEffect,
-    cdecl, importcpp: "Period", dynlib: tkbo.}
+    cdecl, importcpp: "Period", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeXPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
                    thePeriod: cfloat = 0.0) {.cdecl, importcpp: "MakeXPeriodic",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakePeriodic.hxx".}
 proc isXPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsXPeriodic", dynlib: tkbo.}
+    importcpp: "IsXPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
 proc xPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "XPeriod", dynlib: tkbo.}
+    importcpp: "XPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeYPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
                    thePeriod: cfloat = 0.0) {.cdecl, importcpp: "MakeYPeriodic",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakePeriodic.hxx".}
 proc isYPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsYPeriodic", dynlib: tkbo.}
+    importcpp: "IsYPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
 proc yPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "YPeriod", dynlib: tkbo.}
+    importcpp: "YPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
 proc makeZPeriodic*(this: var BOPAlgoMakePeriodic; theIsPeriodic: bool;
                    thePeriod: cfloat = 0.0) {.cdecl, importcpp: "MakeZPeriodic",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakePeriodic.hxx".}
 proc isZPeriodic*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsZPeriodic", dynlib: tkbo.}
+    importcpp: "IsZPeriodic", header: "BOPAlgo_MakePeriodic.hxx".}
 proc zPeriod*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "ZPeriod", dynlib: tkbo.}
+    importcpp: "ZPeriod", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setTrimmed*(this: var BOPAlgoMakePeriodic; theDirectionID: cint;
                 theIsTrimmed: bool; theFirst: cfloat = 0.0) {.cdecl,
-    importcpp: "SetTrimmed", dynlib: tkbo.}
+    importcpp: "SetTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputTrimmed*(this: BOPAlgoMakePeriodic; theDirectionID: cint): bool {.
-    noSideEffect, cdecl, importcpp: "IsInputTrimmed", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "IsInputTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc periodFirst*(this: BOPAlgoMakePeriodic; theDirectionID: cint): cfloat {.
-    noSideEffect, cdecl, importcpp: "PeriodFirst", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "PeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setXTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
-                 theFirst: bool = false) {.cdecl, importcpp: "SetXTrimmed", dynlib: tkbo.}
+                 theFirst: bool = false) {.cdecl, importcpp: "SetXTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputXTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsInputXTrimmed", dynlib: tkbo.}
+    importcpp: "IsInputXTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc xPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "XPeriodFirst", dynlib: tkbo.}
+    importcpp: "XPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setYTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
-                 theFirst: bool = false) {.cdecl, importcpp: "SetYTrimmed", dynlib: tkbo.}
+                 theFirst: bool = false) {.cdecl, importcpp: "SetYTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputYTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsInputYTrimmed", dynlib: tkbo.}
+    importcpp: "IsInputYTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc yPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "YPeriodFirst", dynlib: tkbo.}
+    importcpp: "YPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc setZTrimmed*(this: var BOPAlgoMakePeriodic; theIsTrimmed: bool;
-                 theFirst: bool = false) {.cdecl, importcpp: "SetZTrimmed", dynlib: tkbo.}
+                 theFirst: bool = false) {.cdecl, importcpp: "SetZTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc isInputZTrimmed*(this: BOPAlgoMakePeriodic): bool {.noSideEffect, cdecl,
-    importcpp: "IsInputZTrimmed", dynlib: tkbo.}
+    importcpp: "IsInputZTrimmed", header: "BOPAlgo_MakePeriodic.hxx".}
 proc zPeriodFirst*(this: BOPAlgoMakePeriodic): cfloat {.noSideEffect, cdecl,
-    importcpp: "ZPeriodFirst", dynlib: tkbo.}
+    importcpp: "ZPeriodFirst", header: "BOPAlgo_MakePeriodic.hxx".}
 proc perform*(this: var BOPAlgoMakePeriodic) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakePeriodic.hxx".}
 proc repeatShape*(this: var BOPAlgoMakePeriodic; theDirectionID: cint; theTimes: cint): TopoDS_Shape {.
-    cdecl, importcpp: "RepeatShape", dynlib: tkbo.}
+    cdecl, importcpp: "RepeatShape", header: "BOPAlgo_MakePeriodic.hxx".}
 proc xRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.cdecl,
-    importcpp: "XRepeat", dynlib: tkbo.}
+    importcpp: "XRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
 proc yRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.cdecl,
-    importcpp: "YRepeat", dynlib: tkbo.}
+    importcpp: "YRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
 proc zRepeat*(this: var BOPAlgoMakePeriodic; theTimes: cint): TopoDS_Shape {.cdecl,
-    importcpp: "ZRepeat", dynlib: tkbo.}
+    importcpp: "ZRepeat", header: "BOPAlgo_MakePeriodic.hxx".}
 proc repeatedShape*(this: BOPAlgoMakePeriodic): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "RepeatedShape", dynlib: tkbo.}
+    importcpp: "RepeatedShape", header: "BOPAlgo_MakePeriodic.hxx".}
 proc clearRepetitions*(this: var BOPAlgoMakePeriodic) {.cdecl,
-    importcpp: "ClearRepetitions", dynlib: tkbo.}
+    importcpp: "ClearRepetitions", header: "BOPAlgo_MakePeriodic.hxx".}
 proc shape*(this: BOPAlgoMakePeriodic): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbo.}
+    importcpp: "Shape", header: "BOPAlgo_MakePeriodic.hxx".}
 proc getTwins*(this: BOPAlgoMakePeriodic; theS: TopoDS_Shape): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "GetTwins", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "GetTwins", header: "BOPAlgo_MakePeriodic.hxx".}
 #proc history*(this: BOPAlgoMakePeriodic): Handle[BRepToolsHistory] {.noSideEffect,
-#    cdecl, importcpp: "History", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoMakePeriodic) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+#    cdecl, importcpp: "History", header: "BOPAlgo_MakePeriodic.hxx".}
+proc clear*(this: var BOPAlgoMakePeriodic) {.cdecl, importcpp: "Clear", header: "BOPAlgo_MakePeriodic.hxx".}
 proc toDirectionID*(theDirectionID: cint): cint {.cdecl,
-    importcpp: "BOPAlgo_MakePeriodic::ToDirectionID(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_MakePeriodic::ToDirectionID(@)", header: "BOPAlgo_MakePeriodic.hxx".}

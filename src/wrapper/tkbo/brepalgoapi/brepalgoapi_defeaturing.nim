@@ -189,35 +189,35 @@ type
 
 
 proc newBRepAlgoAPI_Defeaturing*(): BRepAlgoAPI_Defeaturing {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Defeaturing(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Defeaturing(@)", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc setShape*(this: var BRepAlgoAPI_Defeaturing; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "SetShape", dynlib: tkbo.}
+    importcpp: "SetShape", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc inputShape*(this: BRepAlgoAPI_Defeaturing): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "InputShape", dynlib: tkbo.}
+    importcpp: "InputShape", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc addFaceToRemove*(this: var BRepAlgoAPI_Defeaturing; theFace: TopoDS_Shape) {.
-    cdecl, importcpp: "AddFaceToRemove", dynlib: tkbo.}
+    cdecl, importcpp: "AddFaceToRemove", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc addFacesToRemove*(this: var BRepAlgoAPI_Defeaturing;
                       theFaces: TopToolsListOfShape) {.cdecl,
-    importcpp: "AddFacesToRemove", dynlib: tkbo.}
+    importcpp: "AddFacesToRemove", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc facesToRemove*(this: BRepAlgoAPI_Defeaturing): TopToolsListOfShape {.
-    noSideEffect, cdecl, importcpp: "FacesToRemove", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "FacesToRemove", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc build*(this: var BRepAlgoAPI_Defeaturing) {.cdecl, importcpp: "Build",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc setToFillHistory*(this: var BRepAlgoAPI_Defeaturing; theFlag: bool) {.cdecl,
-    importcpp: "SetToFillHistory", dynlib: tkbo.}
+    importcpp: "SetToFillHistory", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc hasHistory*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect, cdecl,
-    importcpp: "HasHistory", dynlib: tkbo.}
+    importcpp: "HasHistory", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc modified*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Modified", dynlib: tkbo.}
+    cdecl, importcpp: "Modified", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc generated*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkbo.}
+    cdecl, importcpp: "Generated", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc isDeleted*(this: var BRepAlgoAPI_Defeaturing; theS: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkbo.}
+    importcpp: "IsDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc hasModified*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect, cdecl,
-    importcpp: "HasModified", dynlib: tkbo.}
+    importcpp: "HasModified", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc hasGenerated*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect, cdecl,
-    importcpp: "HasGenerated", dynlib: tkbo.}
+    importcpp: "HasGenerated", header: "BRepAlgoAPI_Defeaturing.hxx".}
 proc hasDeleted*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect, cdecl,
-    importcpp: "HasDeleted", dynlib: tkbo.}
+    importcpp: "HasDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
 #proc history*(this: var BRepAlgoAPI_Defeaturing): Handle[BRepToolsHistory] {.cdecl,
-#    importcpp: "History", dynlib: tkbo.}
+#    importcpp: "History", header: "BRepAlgoAPI_Defeaturing.hxx".}

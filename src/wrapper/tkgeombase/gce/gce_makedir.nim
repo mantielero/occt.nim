@@ -43,16 +43,16 @@ type
 
 proc newGceMakeDir*(v: Vec): GceMakeDir {.cdecl, constructor,
                                       importcpp: "gce_MakeDir(@)",
-                                      dynlib: tkgeombase.}
+                                      header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(coord: Xyz): GceMakeDir {.cdecl, constructor,
-    importcpp: "gce_MakeDir(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(xv: cfloat; yv: cfloat; zv: cfloat): GceMakeDir {.cdecl, constructor,
-    importcpp: "gce_MakeDir(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(p1: Pnt; p2: Pnt): GceMakeDir {.cdecl, constructor,
-    importcpp: "gce_MakeDir(@)", dynlib: tkgeombase.}
+    importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc value*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "Value",
-                                 dynlib: tkgeombase.}
+                                 header: "gce_MakeDir.hxx".}
 proc operator*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "Operator",
-                                    dynlib: tkgeombase.}
+                                    header: "gce_MakeDir.hxx".}
 converter `dir`*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "gce_MakeDir::operator gp_Dir",
-                                      dynlib: tkgeombase.}
+                                      header: "gce_MakeDir.hxx".}

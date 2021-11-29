@@ -32,6 +32,6 @@ type
 
 
 proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
-    importcpp: "FirstShape", dynlib: tkprim.}
+    importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
-    importcpp: "LastShape", dynlib: tkprim.}
+    importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}

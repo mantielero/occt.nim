@@ -338,35 +338,35 @@ type
 
 
 proc newBOPAlgoMakeConnected*(): BOPAlgoMakeConnected {.cdecl, constructor,
-    importcpp: "BOPAlgo_MakeConnected(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_MakeConnected(@)", header: "BOPAlgo_MakeConnected.hxx".}
 proc setArguments*(this: var BOPAlgoMakeConnected; theArgs: TopToolsListOfShape) {.
-    cdecl, importcpp: "SetArguments", dynlib: tkbo.}
+    cdecl, importcpp: "SetArguments", header: "BOPAlgo_MakeConnected.hxx".}
 proc addArgument*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape) {.cdecl,
-    importcpp: "AddArgument", dynlib: tkbo.}
+    importcpp: "AddArgument", header: "BOPAlgo_MakeConnected.hxx".}
 proc arguments*(this: BOPAlgoMakeConnected): TopToolsListOfShape {.noSideEffect,
-    cdecl, importcpp: "Arguments", dynlib: tkbo.}
+    cdecl, importcpp: "Arguments", header: "BOPAlgo_MakeConnected.hxx".}
 proc perform*(this: var BOPAlgoMakeConnected) {.cdecl, importcpp: "Perform",
-    dynlib: tkbo.}
+    header: "BOPAlgo_MakeConnected.hxx".}
 #proc makePeriodic*(this: var BOPAlgoMakeConnected; theParams: PeriodicityParams) {.
-#    cdecl, importcpp: "MakePeriodic", dynlib: tkbo.}
+#    cdecl, importcpp: "MakePeriodic", header: "BOPAlgo_MakeConnected.hxx".}
 proc repeatShape*(this: var BOPAlgoMakeConnected; theDirectionID: cint; theTimes: cint) {.
-    cdecl, importcpp: "RepeatShape", dynlib: tkbo.}
+    cdecl, importcpp: "RepeatShape", header: "BOPAlgo_MakeConnected.hxx".}
 proc clearRepetitions*(this: var BOPAlgoMakeConnected) {.cdecl,
-    importcpp: "ClearRepetitions", dynlib: tkbo.}
+    importcpp: "ClearRepetitions", header: "BOPAlgo_MakeConnected.hxx".}
 proc periodicityTool*(this: BOPAlgoMakeConnected): BOPAlgoMakePeriodic {.
-    noSideEffect, cdecl, importcpp: "PeriodicityTool", dynlib: tkbo.}
+    noSideEffect, cdecl, importcpp: "PeriodicityTool", header: "BOPAlgo_MakeConnected.hxx".}
 proc materialsOnPositiveSide*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "MaterialsOnPositiveSide", dynlib: tkbo.}
+    cdecl, importcpp: "MaterialsOnPositiveSide", header: "BOPAlgo_MakeConnected.hxx".}
 proc materialsOnNegativeSide*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "MaterialsOnNegativeSide", dynlib: tkbo.}
+    cdecl, importcpp: "MaterialsOnNegativeSide", header: "BOPAlgo_MakeConnected.hxx".}
 #proc history*(this: BOPAlgoMakeConnected): Handle[BRepToolsHistory] {.noSideEffect,
-#    cdecl, importcpp: "History", dynlib: tkbo.}
+#    cdecl, importcpp: "History", header: "BOPAlgo_MakeConnected.hxx".}
 proc getModified*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "GetModified", dynlib: tkbo.}
+    cdecl, importcpp: "GetModified", header: "BOPAlgo_MakeConnected.hxx".}
 proc getOrigins*(this: var BOPAlgoMakeConnected; theS: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "GetOrigins", dynlib: tkbo.}
+    cdecl, importcpp: "GetOrigins", header: "BOPAlgo_MakeConnected.hxx".}
 proc shape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "Shape", dynlib: tkbo.}
+    importcpp: "Shape", header: "BOPAlgo_MakeConnected.hxx".}
 proc periodicShape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect, cdecl,
-    importcpp: "PeriodicShape", dynlib: tkbo.}
-proc clear*(this: var BOPAlgoMakeConnected) {.cdecl, importcpp: "Clear", dynlib: tkbo.}
+    importcpp: "PeriodicShape", header: "BOPAlgo_MakeConnected.hxx".}
+proc clear*(this: var BOPAlgoMakeConnected) {.cdecl, importcpp: "Clear", header: "BOPAlgo_MakeConnected.hxx".}

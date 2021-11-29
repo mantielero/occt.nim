@@ -38,14 +38,14 @@ type
 
 
 proc newMakeArcOfParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfParabola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
 proc newMakeArcOfParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfParabola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
 proc newMakeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfParabola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
 proc value*(this: MakeArcOfParabola): Handle[GeomTrimmedCurve] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeArcOfParabola.hxx".}
 converter `constopencascade`*(this: MakeArcOfParabola): Handle[GeomTrimmedCurve] {.
     noSideEffect, cdecl,
     importcpp: "GC_MakeArcOfParabola::operator constopencascade",
-    dynlib: tkgeombase.}
+    header: "GC_MakeArcOfParabola.hxx".}

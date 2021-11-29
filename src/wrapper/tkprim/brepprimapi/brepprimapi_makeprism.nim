@@ -61,23 +61,23 @@ type
 
 proc newPrism*(s: TopoDS_Shape; v: Vec; copy: bool = false;
                               canonize: bool = true): BRepPrimAPI_MakePrism {.cdecl,
-    constructor, importcpp: "BRepPrimAPI_MakePrism(@)", dynlib: tkprim.}
+    constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
 proc newPrism*(s: TopoDS_Shape; d: Dir; inf: bool = true;
                               copy: bool = false; canonize: bool = true): BRepPrimAPI_MakePrism {.
-    cdecl, constructor, importcpp: "BRepPrimAPI_MakePrism(@)", dynlib: tkprim.}
+    cdecl, constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
 proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect, cdecl,
-    importcpp: "Prism", dynlib: tkprim.}
+    importcpp: "Prism", header: "BRepPrimAPI_MakePrism.hxx".}
 proc build*(this: var BRepPrimAPI_MakePrism) {.cdecl, importcpp: "Build",
-    dynlib: tkprim.}
+    header: "BRepPrimAPI_MakePrism.hxx".}
 proc firstShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.cdecl,
-    importcpp: "FirstShape", dynlib: tkprim.}
+    importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism): TopoDS_Shape {.cdecl,
-    importcpp: "LastShape", dynlib: tkprim.}
+    importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc generated*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): TopToolsListOfShape {.
-    cdecl, importcpp: "Generated", dynlib: tkprim.}
+    cdecl, importcpp: "Generated", header: "BRepPrimAPI_MakePrism.hxx".}
 proc isDeleted*(this: var BRepPrimAPI_MakePrism; s: TopoDS_Shape): bool {.cdecl,
-    importcpp: "IsDeleted", dynlib: tkprim.}
+    importcpp: "IsDeleted", header: "BRepPrimAPI_MakePrism.hxx".}
 proc firstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
-    cdecl, importcpp: "FirstShape", dynlib: tkprim.}
+    cdecl, importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
-    cdecl, importcpp: "LastShape", dynlib: tkprim.}
+    cdecl, importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}

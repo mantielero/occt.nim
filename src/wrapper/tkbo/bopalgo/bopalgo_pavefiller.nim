@@ -41,37 +41,37 @@ type
 
 
 proc newBOPAlgoPaveFiller*(): BOPAlgoPaveFiller {.cdecl, constructor,
-    importcpp: "BOPAlgo_PaveFiller(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_PaveFiller(@)", header: "BOPAlgo_PaveFiller.hxx".}
 proc destroyBOPAlgoPaveFiller*(this: var BOPAlgoPaveFiller) {.cdecl,
-    importcpp: "#.~BOPAlgo_PaveFiller()", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_PaveFiller()", header: "BOPAlgo_PaveFiller.hxx".}
 proc newBOPAlgoPaveFiller*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoPaveFiller {.
-    cdecl, constructor, importcpp: "BOPAlgo_PaveFiller(@)", dynlib: tkbo.}
-#proc ds*(this: var BOPAlgoPaveFiller): Bopds_Ds {.cdecl, importcpp: "DS", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BOPAlgo_PaveFiller(@)", header: "BOPAlgo_PaveFiller.hxx".}
+#proc ds*(this: var BOPAlgoPaveFiller): Bopds_Ds {.cdecl, importcpp: "DS", header: "BOPAlgo_PaveFiller.hxx".}
 #proc pds*(this: var BOPAlgoPaveFiller): Bopds_Pds {.cdecl, importcpp: "PDS",
-#    dynlib: tkbo.}
+#    header: "BOPAlgo_PaveFiller.hxx".}
 #proc `iterator`*(this: var BOPAlgoPaveFiller): BOPDS_PIterator {.cdecl,
-#    importcpp: "Iterator", dynlib: tkbo.}
+#    importcpp: "Iterator", header: "BOPAlgo_PaveFiller.hxx".}
 proc setArguments*(this: var BOPAlgoPaveFiller; theLS: TopToolsListOfShape) {.cdecl,
-    importcpp: "SetArguments", dynlib: tkbo.}
+    importcpp: "SetArguments", header: "BOPAlgo_PaveFiller.hxx".}
 proc addArgument*(this: var BOPAlgoPaveFiller; theShape: TopoDS_Shape) {.cdecl,
-    importcpp: "AddArgument", dynlib: tkbo.}
+    importcpp: "AddArgument", header: "BOPAlgo_PaveFiller.hxx".}
 proc arguments*(this: BOPAlgoPaveFiller): TopToolsListOfShape {.noSideEffect, cdecl,
-    importcpp: "Arguments", dynlib: tkbo.}
+    importcpp: "Arguments", header: "BOPAlgo_PaveFiller.hxx".}
 #proc context*(this: var BOPAlgoPaveFiller): Handle[IntToolsContext] {.cdecl,
-#    importcpp: "Context", dynlib: tkbo.}
+#    importcpp: "Context", header: "BOPAlgo_PaveFiller.hxx".}
 proc setSectionAttribute*(this: var BOPAlgoPaveFiller;
                          theSecAttr: BOPAlgoSectionAttribute) {.cdecl,
-    importcpp: "SetSectionAttribute", dynlib: tkbo.}
+    importcpp: "SetSectionAttribute", header: "BOPAlgo_PaveFiller.hxx".}
 proc setNonDestructive*(this: var BOPAlgoPaveFiller; theFlag: bool) {.cdecl,
-    importcpp: "SetNonDestructive", dynlib: tkbo.}
+    importcpp: "SetNonDestructive", header: "BOPAlgo_PaveFiller.hxx".}
 proc nonDestructive*(this: BOPAlgoPaveFiller): bool {.noSideEffect, cdecl,
-    importcpp: "NonDestructive", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoPaveFiller) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "NonDestructive", header: "BOPAlgo_PaveFiller.hxx".}
+proc perform*(this: var BOPAlgoPaveFiller) {.cdecl, importcpp: "Perform", header: "BOPAlgo_PaveFiller.hxx".}
 proc setGlue*(this: var BOPAlgoPaveFiller; theGlue: BOPAlgoGlueEnum) {.cdecl,
-    importcpp: "SetGlue", dynlib: tkbo.}
+    importcpp: "SetGlue", header: "BOPAlgo_PaveFiller.hxx".}
 proc glue*(this: BOPAlgoPaveFiller): BOPAlgoGlueEnum {.noSideEffect, cdecl,
-    importcpp: "Glue", dynlib: tkbo.}
+    importcpp: "Glue", header: "BOPAlgo_PaveFiller.hxx".}
 proc setAvoidBuildPCurve*(this: var BOPAlgoPaveFiller; theValue: bool) {.cdecl,
-    importcpp: "SetAvoidBuildPCurve", dynlib: tkbo.}
+    importcpp: "SetAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
 proc isAvoidBuildPCurve*(this: BOPAlgoPaveFiller): bool {.noSideEffect, cdecl,
-    importcpp: "IsAvoidBuildPCurve", dynlib: tkbo.}
+    importcpp: "IsAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}

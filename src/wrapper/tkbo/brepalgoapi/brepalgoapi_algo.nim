@@ -22,7 +22,7 @@ type
 
 
 proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape",
-    dynlib: tkbo.}
+    header: "BRepAlgoAPI_Algo.hxx".}
 ## using statement
 
 ## using statement

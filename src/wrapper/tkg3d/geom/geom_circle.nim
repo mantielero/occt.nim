@@ -72,41 +72,41 @@ type
 
 
 proc newGeomCircle*(c: Circ): GeomCircle {.cdecl, constructor,
-                                       importcpp: "Geom_Circle(@)", dynlib: tkg3d.}
+                                       importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
 proc newGeomCircle*(a2: Ax2; radius: cfloat): GeomCircle {.cdecl, constructor,
-    importcpp: "Geom_Circle(@)", dynlib: tkg3d.}
-proc setCirc*(this: var GeomCircle; c: Circ) {.cdecl, importcpp: "SetCirc", dynlib: tkg3d.}
+    importcpp: "Geom_Circle(@)", header: "Geom_Circle.hxx".}
+proc setCirc*(this: var GeomCircle; c: Circ) {.cdecl, importcpp: "SetCirc", header: "Geom_Circle.hxx".}
 proc setRadius*(this: var GeomCircle; r: cfloat) {.cdecl, importcpp: "SetRadius",
-    dynlib: tkg3d.}
+    header: "Geom_Circle.hxx".}
 proc circ*(this: GeomCircle): Circ {.noSideEffect, cdecl, importcpp: "Circ",
-                                 dynlib: tkg3d.}
+                                 header: "Geom_Circle.hxx".}
 proc radius*(this: GeomCircle): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
-                                     dynlib: tkg3d.}
+                                     header: "Geom_Circle.hxx".}
 proc reversedParameter*(this: GeomCircle; u: cfloat): cfloat {.noSideEffect, cdecl,
-    importcpp: "ReversedParameter", dynlib: tkg3d.}
+    importcpp: "ReversedParameter", header: "Geom_Circle.hxx".}
 proc eccentricity*(this: GeomCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "Eccentricity", dynlib: tkg3d.}
+    importcpp: "Eccentricity", header: "Geom_Circle.hxx".}
 proc firstParameter*(this: GeomCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "FirstParameter", dynlib: tkg3d.}
+    importcpp: "FirstParameter", header: "Geom_Circle.hxx".}
 proc lastParameter*(this: GeomCircle): cfloat {.noSideEffect, cdecl,
-    importcpp: "LastParameter", dynlib: tkg3d.}
+    importcpp: "LastParameter", header: "Geom_Circle.hxx".}
 proc isClosed*(this: GeomCircle): bool {.noSideEffect, cdecl, importcpp: "IsClosed",
-                                     dynlib: tkg3d.}
+                                     header: "Geom_Circle.hxx".}
 proc isPeriodic*(this: GeomCircle): bool {.noSideEffect, cdecl,
-                                       importcpp: "IsPeriodic", dynlib: tkg3d.}
+                                       importcpp: "IsPeriodic", header: "Geom_Circle.hxx".}
 proc d0*(this: GeomCircle; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
-    dynlib: tkg3d.}
+    header: "Geom_Circle.hxx".}
 proc d1*(this: GeomCircle; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
-    importcpp: "D1", dynlib: tkg3d.}
+    importcpp: "D1", header: "Geom_Circle.hxx".}
 proc d2*(this: GeomCircle; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
-    cdecl, importcpp: "D2", dynlib: tkg3d.}
+    cdecl, importcpp: "D2", header: "Geom_Circle.hxx".}
 proc d3*(this: GeomCircle; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
-    noSideEffect, cdecl, importcpp: "D3", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "D3", header: "Geom_Circle.hxx".}
 proc dn*(this: GeomCircle; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
-    importcpp: "DN", dynlib: tkg3d.}
+    importcpp: "DN", header: "Geom_Circle.hxx".}
 proc transform*(this: var GeomCircle; t: Trsf) {.cdecl, importcpp: "Transform",
-    dynlib: tkg3d.}
+    header: "Geom_Circle.hxx".}
 proc copy*(this: GeomCircle): Handle[GeomGeometry] {.noSideEffect, cdecl,
-    importcpp: "Copy", dynlib: tkg3d.}
+    importcpp: "Copy", header: "Geom_Circle.hxx".}
 proc dumpJson*(this: GeomCircle; theOStream: var StandardOStream; theDepth: cint = -1) {.
-    noSideEffect, cdecl, importcpp: "DumpJson", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Circle.hxx".}

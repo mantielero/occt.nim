@@ -44,14 +44,14 @@ type
 
 
 proc newMakeArcOfHyperbola*(hypr: Hypr; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfHyperbola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
 proc newMakeArcOfHyperbola*(hypr: Hypr; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfHyperbola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
 proc newMakeArcOfHyperbola*(hypr: Hypr; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfHyperbola {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfHyperbola(@)", header: "GC_MakeArcOfHyperbola.hxx".}
 proc value*(this: MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.noSideEffect,
-    cdecl, importcpp: "Value", dynlib: tkgeombase.}
+    cdecl, importcpp: "Value", header: "GC_MakeArcOfHyperbola.hxx".}
 converter `constopencascade`*(this: MakeArcOfHyperbola): Handle[GeomTrimmedCurve] {.
     noSideEffect, cdecl,
     importcpp: "GC_MakeArcOfHyperbola::operator constopencascade",
-    dynlib: tkgeombase.}
+    header: "GC_MakeArcOfHyperbola.hxx".}

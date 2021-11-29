@@ -126,11 +126,11 @@ type
 
 
 proc constructStandardArrayStreamBuffer*(theBegin: cstring; theSize: csize_t): StandardArrayStreamBuffer {.
-    cdecl, constructor, importcpp: "Standard_ArrayStreamBuffer(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "Standard_ArrayStreamBuffer(@)", header: "Standard_ArrayStreamBuffer.hxx".}
 proc destroyStandardArrayStreamBuffer*(this: var StandardArrayStreamBuffer) {.cdecl,
-    importcpp: "#.~Standard_ArrayStreamBuffer()", dynlib: tkernel.}
+    importcpp: "#.~Standard_ArrayStreamBuffer()", header: "Standard_ArrayStreamBuffer.hxx".}
 proc init*(this: var StandardArrayStreamBuffer; theBegin: cstring; theSize: csize_t) {.
-    cdecl, importcpp: "Init", dynlib: tkernel.}
+    cdecl, importcpp: "Init", header: "Standard_ArrayStreamBuffer.hxx".}
 proc xsgetn*(this: var StandardArrayStreamBuffer; thePtr: cstring;
             theCount: Streamsize): Streamsize {.cdecl, importcpp: "xsgetn",
-    dynlib: tkernel.}
+    header: "Standard_ArrayStreamBuffer.hxx".}

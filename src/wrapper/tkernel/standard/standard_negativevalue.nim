@@ -22,7 +22,7 @@ when not defined(noException) and not defined(noStandardNegativeValue):
   template standardNegativeValueRaiseIf*(condition, message: untyped): void =
     if condition:
       proc standardNegativeValue*(a1: Message): Throw {.cdecl,
-          importcpp: "Standard_NegativeValue(@)", dynlib: tkernel.}
+          importcpp: "Standard_NegativeValue(@)", header: "Standard_NegativeValue.hxx".}
 
 else:
   discard

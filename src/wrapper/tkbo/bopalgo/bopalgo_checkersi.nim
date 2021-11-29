@@ -30,9 +30,9 @@ type
 
 
 proc newBOPAlgoCheckerSI*(): BOPAlgoCheckerSI {.cdecl, constructor,
-    importcpp: "BOPAlgo_CheckerSI(@)", dynlib: tkbo.}
+    importcpp: "BOPAlgo_CheckerSI(@)", header: "BOPAlgo_CheckerSI.hxx".}
 proc destroyBOPAlgoCheckerSI*(this: var BOPAlgoCheckerSI) {.cdecl,
-    importcpp: "#.~BOPAlgo_CheckerSI()", dynlib: tkbo.}
-proc perform*(this: var BOPAlgoCheckerSI) {.cdecl, importcpp: "Perform", dynlib: tkbo.}
+    importcpp: "#.~BOPAlgo_CheckerSI()", header: "BOPAlgo_CheckerSI.hxx".}
+proc perform*(this: var BOPAlgoCheckerSI) {.cdecl, importcpp: "Perform", header: "BOPAlgo_CheckerSI.hxx".}
 proc setLevelOfCheck*(this: var BOPAlgoCheckerSI; theLevel: cint) {.cdecl,
-    importcpp: "SetLevelOfCheck", dynlib: tkbo.}
+    importcpp: "SetLevelOfCheck", header: "BOPAlgo_CheckerSI.hxx".}

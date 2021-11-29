@@ -32,14 +32,14 @@ type
 
 
 proc newMakeArcOfEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
 proc newMakeArcOfEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
 proc newMakeArcOfEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfEllipse {.
-    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", dynlib: tkgeombase.}
+    cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
 proc value*(this: MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.noSideEffect, cdecl,
-    importcpp: "Value", dynlib: tkgeombase.}
+    importcpp: "Value", header: "GC_MakeArcOfEllipse.hxx".}
 converter `constopencascade`*(this: MakeArcOfEllipse): Handle[GeomTrimmedCurve] {.
     noSideEffect, cdecl,
     importcpp: "GC_MakeArcOfEllipse::operator constopencascade",
-    dynlib: tkgeombase.}
+    header: "GC_MakeArcOfEllipse.hxx".}

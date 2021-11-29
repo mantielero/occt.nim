@@ -18,10 +18,10 @@ type
 
 
 proc newTColStdHArray1OfBoolean*(theLower: cint; theUpper: cint): TColStdHArray1OfBoolean {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", header: "TColStd_HArray1OfBoolean.hxx".}
 proc newTColStdHArray1OfBoolean*(theLower: cint; theUpper: cint; theValue: ValueType): TColStdHArray1OfBoolean {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", header: "TColStd_HArray1OfBoolean.hxx".}
 proc newTColStdHArray1OfBoolean*(theOther: TColStdArray1OfBoolean): TColStdHArray1OfBoolean {.
-    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", dynlib: tkernel.}
+    cdecl, constructor, importcpp: "TColStd_HArray1OfBoolean(@)", header: "TColStd_HArray1OfBoolean.hxx".}
 proc array1*(this: TColStdHArray1OfBoolean): TColStdArray1OfBoolean {.noSideEffect,
-    cdecl, importcpp: "Array1", dynlib: tkernel.}
+    cdecl, importcpp: "Array1", header: "TColStd_HArray1OfBoolean.hxx".}

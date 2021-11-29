@@ -25,12 +25,12 @@ type
 
 
 proc newBRepAlgoAPI_Common*(): BRepAlgoAPI_Common {.cdecl, constructor,
-    importcpp: "BRepAlgoAPI_Common(@)", dynlib: tkbo.}
+    importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc destroyBRepAlgoAPI_Common*(this: var BRepAlgoAPI_Common) {.cdecl,
-    importcpp: "#.~BRepAlgoAPI_Common()", dynlib: tkbo.}
+    importcpp: "#.~BRepAlgoAPI_Common()", header: "BRepAlgoAPI_Common.hxx".}
 proc newBRepAlgoAPI_Common*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.cdecl,
-    constructor, importcpp: "BRepAlgoAPI_Common(@)", dynlib: tkbo.}
+    constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Common {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape; pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
-    cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", dynlib: tkbo.}
+    cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}

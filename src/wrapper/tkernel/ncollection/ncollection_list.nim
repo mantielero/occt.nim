@@ -53,78 +53,78 @@ type
       NCollectionListIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
-    noSideEffect, cdecl, importcpp: "begin", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "begin", header: "NCollection_List.hxx".}
 proc `end`*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
-    noSideEffect, cdecl, importcpp: "end", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "end", header: "NCollection_List.hxx".}
 proc cbegin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
-    noSideEffect, cdecl, importcpp: "cbegin", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cbegin", header: "NCollection_List.hxx".}
 proc cend*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListconstIterator {.
-    noSideEffect, cdecl, importcpp: "cend", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "cend", header: "NCollection_List.hxx".}
 proc newNCollectionList*[TheItemType](): NCollectionList[TheItemType] {.cdecl,
-    constructor, importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
+    constructor, importcpp: "NCollection_List<\'*0>(@)", header: "NCollection_List.hxx".}
 proc newNCollectionList*[TheItemType](theAllocator: Handle[
     NCollectionBaseAllocator]): NCollectionList[TheItemType] {.cdecl, constructor,
-    importcpp: "NCollection_List<\'*0>(@)", dynlib: tkernel.}
+    importcpp: "NCollection_List<\'*0>(@)", header: "NCollection_List.hxx".}
 proc newNCollectionList*[TheItemType](theOther: NCollectionList): NCollectionList[
     TheItemType] {.cdecl, constructor, importcpp: "NCollection_List<\'*0>(@)",
-                  dynlib: tkernel.}
+                  header: "NCollection_List.hxx".}
 proc size*[TheItemType](this: NCollectionList[TheItemType]): cint {.noSideEffect,
-    cdecl, importcpp: "Size", dynlib: tkernel.}
+    cdecl, importcpp: "Size", header: "NCollection_List.hxx".}
 proc assign*[TheItemType](this: var NCollectionList[TheItemType];
                          theOther: NCollectionList): var NCollectionList {.cdecl,
-    importcpp: "Assign", dynlib: tkernel.}
+    importcpp: "Assign", header: "NCollection_List.hxx".}
 proc clear*[TheItemType](this: var NCollectionList[TheItemType];
                         theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)) {.
-    cdecl, importcpp: "Clear", dynlib: tkernel.}
+    cdecl, importcpp: "Clear", header: "NCollection_List.hxx".}
 proc first*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "First", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "First", header: "NCollection_List.hxx".}
 proc first*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "First", dynlib: tkernel.}
+    cdecl, importcpp: "First", header: "NCollection_List.hxx".}
 proc last*[TheItemType](this: NCollectionList[TheItemType]): TheItemType {.
-    noSideEffect, cdecl, importcpp: "Last", dynlib: tkernel.}
+    noSideEffect, cdecl, importcpp: "Last", header: "NCollection_List.hxx".}
 proc last*[TheItemType](this: var NCollectionList[TheItemType]): var TheItemType {.
-    cdecl, importcpp: "Last", dynlib: tkernel.}
+    cdecl, importcpp: "Last", header: "NCollection_List.hxx".}
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theItem: TheItemType): var TheItemType {.cdecl,
-    importcpp: "Append", dynlib: tkernel.}
+    importcpp: "Append", header: "NCollection_List.hxx".}
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theItem: TheItemType;
                          theIter: var NCollectionListIterator) {.cdecl,
-    importcpp: "Append", dynlib: tkernel.}
+    importcpp: "Append", header: "NCollection_List.hxx".}
 proc append*[TheItemType](this: var NCollectionList[TheItemType];
                          theOther: var NCollectionList) {.cdecl,
-    importcpp: "Append", dynlib: tkernel.}
+    importcpp: "Append", header: "NCollection_List.hxx".}
 proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
                           theItem: TheItemType): var TheItemType {.cdecl,
-    importcpp: "Prepend", dynlib: tkernel.}
+    importcpp: "Prepend", header: "NCollection_List.hxx".}
 proc prepend*[TheItemType](this: var NCollectionList[TheItemType];
                           theOther: var NCollectionList) {.cdecl,
-    importcpp: "Prepend", dynlib: tkernel.}
+    importcpp: "Prepend", header: "NCollection_List.hxx".}
 proc removeFirst*[TheItemType](this: var NCollectionList[TheItemType]) {.cdecl,
-    importcpp: "RemoveFirst", dynlib: tkernel.}
+    importcpp: "RemoveFirst", header: "NCollection_List.hxx".}
 proc remove*[TheItemType](this: var NCollectionList[TheItemType];
                          theIter: var NCollectionListIterator) {.cdecl,
-    importcpp: "Remove", dynlib: tkernel.}
+    importcpp: "Remove", header: "NCollection_List.hxx".}
 proc insertBefore*[TheItemType](this: var NCollectionList[TheItemType];
                                theItem: TheItemType;
                                theIter: var NCollectionListIterator): var TheItemType {.
-    cdecl, importcpp: "InsertBefore", dynlib: tkernel.}
+    cdecl, importcpp: "InsertBefore", header: "NCollection_List.hxx".}
 proc insertBefore*[TheItemType](this: var NCollectionList[TheItemType];
                                theOther: var NCollectionList;
                                theIter: var NCollectionListIterator) {.cdecl,
-    importcpp: "InsertBefore", dynlib: tkernel.}
+    importcpp: "InsertBefore", header: "NCollection_List.hxx".}
 proc insertAfter*[TheItemType](this: var NCollectionList[TheItemType];
                               theItem: TheItemType;
                               theIter: var NCollectionListIterator): var TheItemType {.
-    cdecl, importcpp: "InsertAfter", dynlib: tkernel.}
+    cdecl, importcpp: "InsertAfter", header: "NCollection_List.hxx".}
 proc insertAfter*[TheItemType](this: var NCollectionList[TheItemType];
                               theOther: var NCollectionList;
                               theIter: var NCollectionListIterator) {.cdecl,
-    importcpp: "InsertAfter", dynlib: tkernel.}
+    importcpp: "InsertAfter", header: "NCollection_List.hxx".}
 proc reverse*[TheItemType](this: var NCollectionList[TheItemType]) {.cdecl,
-    importcpp: "Reverse", dynlib: tkernel.}
+    importcpp: "Reverse", header: "NCollection_List.hxx".}
 proc contains*[TheItemType](this: NCollectionList[TheItemType];
                            theObject: TheValueType): bool {.noSideEffect, cdecl,
-    importcpp: "Contains", dynlib: tkernel.}
+    importcpp: "Contains", header: "NCollection_List.hxx".}
 proc destroyNCollectionList*[TheItemType](this: var NCollectionList[TheItemType]) {.
-    cdecl, importcpp: "#.~NCollection_List()", dynlib: tkernel.}
+    cdecl, importcpp: "#.~NCollection_List()", header: "NCollection_List.hxx".}

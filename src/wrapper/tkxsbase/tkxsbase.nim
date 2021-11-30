@@ -1,9 +1,9 @@
-{.passL:"-lTKG3d".}
+{.passL:"-lTKXSBase".}
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-#type
-#  GeomUndefinedDerivative* = object
+type
+  IFGraphSubPartsIterator* = object
 #  GeomUndefinedValue* = object
 #[ type
   TColStdArray1OfReal* = object
@@ -18,3 +18,4 @@ else:
 
 include transfer/transfer_includes
 include intface/interface_includes
+include ifselect/ifselect_includes

@@ -16,7 +16,7 @@ type
   StepShapeShapeDefinitionRepresentation* = object
   XSControlController* = object of RootObj
   XSControlWorkSession* = object
-  IFSelectReturnStatus* = object #<<---------- ELIMINAR
+  #IFSelectReturnStatus* = object #<<---------- ELIMINAR
   XSControlReader* = object of RootObj
   StepDataStepModel* = object
 

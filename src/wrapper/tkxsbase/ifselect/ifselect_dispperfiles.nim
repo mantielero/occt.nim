@@ -1,0 +1,64 @@
+##  Created on: 1994-12-21
+##  Created by: Christian CAILLET
+##  Copyright (c) 1994-1999 Matra Datavision
+##  Copyright (c) 1999-2014 OPEN CASCADE SAS
+##
+##  This file is part of Open CASCADE Technology software library.
+##
+##  This library is free software; you can redistribute it and/or modify it under
+##  the terms of the GNU Lesser General Public License version 2.1 as published
+##  by the Free Software Foundation, with special exception defined in the file
+##  OCCT_LGPL_EXCEPTION.txt. Consult the file LICENSE_LGPL_21.txt included in OCCT
+##  distribution for complete text of the license and disclaimer of any warranty.
+##
+##  Alternatively, this file may be used under the terms of Open CASCADE
+##  commercial license or contractual agreement.
+
+discard "forward decl of IFSelect_IntParam"
+discard "forward decl of Interface_InterfaceError"
+discard "forward decl of TCollection_AsciiString"
+discard "forward decl of Interface_Graph"
+discard "forward decl of IFGraph_SubPartsIterator"
+discard "forward decl of IFSelect_DispPerFiles"
+type
+  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
+
+## ! A DispPerFiles produces a determined count of Packets from the
+## ! input Entities. It divides, as equally as possible, the input
+## ! list into a count of files. This count is the parameter of the
+## ! DispPerFiles. If the input list has less than this count, of
+## ! course there will be one packet per input entity.
+## ! This count is a Parameter of the DispPerFiles, given as an
+## ! IntParam, thus allowing external control of its Value
+
+type
+  IFSelectDispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
+                         header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelectDispatch ##
+                                                                                             ## !
+                                                                                             ## Creates
+                                                                                             ## a
+                                                                                             ## DispPerFiles
+                                                                                             ## with
+                                                                                             ## no
+                                                                                             ## Count
+                                                                                             ## (default
+                                                                                             ## value
+                                                                                             ## 1
+                                                                                             ## file)
+
+
+proc newIFSelectDispPerFiles*(): IFSelectDispPerFiles {.cdecl, constructor,
+    importcpp: "IFSelect_DispPerFiles(@)", header: "IFSelect_DispPerFiles.hxx".}
+proc count*(this: IFSelectDispPerFiles): Handle[IFSelectIntParam] {.noSideEffect,
+    cdecl, importcpp: "Count", header: "IFSelect_DispPerFiles.hxx".}
+proc setCount*(this: var IFSelectDispPerFiles; count: Handle[IFSelectIntParam]) {.
+    cdecl, importcpp: "SetCount", header: "IFSelect_DispPerFiles.hxx".}
+proc countValue*(this: IFSelectDispPerFiles): cint {.noSideEffect, cdecl,
+    importcpp: "CountValue", header: "IFSelect_DispPerFiles.hxx".}
+proc label*(this: IFSelectDispPerFiles): TCollectionAsciiString {.noSideEffect,
+    cdecl, importcpp: "Label", header: "IFSelect_DispPerFiles.hxx".}
+proc limitedMax*(this: IFSelectDispPerFiles; nbent: cint; max: var cint): bool {.
+    noSideEffect, cdecl, importcpp: "LimitedMax", header: "IFSelect_DispPerFiles.hxx".}
+proc packets*(this: IFSelectDispPerFiles; g: InterfaceGraph;
+             packs: var IFGraphSubPartsIterator) {.noSideEffect, cdecl,
+    importcpp: "Packets", header: "IFSelect_DispPerFiles.hxx".}

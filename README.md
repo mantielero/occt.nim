@@ -282,25 +282,25 @@ pyOcct seem to cover:
 - [X] BRepBuilderAPI/BRepBuilderAPI_includes
 - [X] BRepPrim/BRepPrim_includes
 - [X] BRepPrimAPI/BRepPrimAPI_includes
-- [ ] BRepFilletAPI/BRepFilletAPI_includes
-- [ ] ChFi3d/ChFi3d_includes
+- [X] BRepFilletAPI/BRepFilletAPI_includes
+- [X] ChFi3d/ChFi3d_includes
 - [X] BRep/BRep_includes
 - [ ] BRepSweep/BRepSweep_includes
-- [ ] TopLoc/TopLoc_includes
+- [X] TopLoc/TopLoc_includes
 - [X] TopAbs/TopAbs_includes
-- [ ] TopExp/TopExp_includes
+- [X] TopExp/TopExp_includes
 - [X] TopTools/TopTools_includes
 - [ ] BRepAlgo/BRepAlgo_includes
 - [X] GeomAbs/GeomAbs_includes
-- [ ] Adaptor2d/Adaptor2d_includes
-- [ ] Adaptor3d/Adaptor3d_includes
+- [X] Adaptor2d/Adaptor2d_includes
+- [X] Adaptor3d/Adaptor3d_includes
 
-- [ ] STEPControl/STEPControl_includes
+- [X] STEPControl/STEPControl_includes
 - [ ] StepData/StepData_includes
-- [ ] Transfer/Transfer_includes
+- [X] Transfer/Transfer_includes
 - [ ] XSControl/XSControl_includes
-- [ ] Interface/Interface_includes
-- [ ] IFSelect/IFSelect_includes
+- [X] Interface/Interface_includes
+- [X] IFSelect/IFSelect_includes
 
 # Tutorials
 https://occtutorials.wordpress.com/
@@ -308,30 +308,18 @@ https://occtutorials.wordpress.com/
 # Exporting to STEP
 https://techoverflow.net/2019/06/13/how-to-export-step-file-in-opencascade/
 
-This is the function used by `OCCUtils`:
+Implemented
+
+# Display something
 ```c++
-if (shape.IsNull () == true) {
-    throw new invalid_argument("Can't export null shape to STEP");
-}
-STEPControl_Writer writer;
-Interface_Static::SetCVal ("xstep.cascade.unit", unit.c_str());
-Interface_Static::SetCVal ("write.step.unit", unit.c_str ());
-Interface_Static::SetIVal ("write.step.nonmanifold", 1);
-// "Transfer" = convert
-IFSelect_ReturnStatus transferStatus = writer.Transfer(shape, STEPControl_AsIs);
-if (transferStatus != IFSelect_RetDone) {
-    throw std::logic_error ("Error while transferring shape to STEP");
-}
-// Write transferred structure to STEP file
-IFSelect_ReturnStatus writeStatus = writer.Write(filename.c_str());
-// Return previous locale
-if (writeStatus != IFSelect_RetDone)
-{
-    throw std::logic_error ("Error while writing transferred shape to STEP file");
-}
+Handle(V3d_Viewer) theViewer;
+Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);
+ 
+BRepPrimAPI_MakeWedge aWedgeMaker (theWedgeDX, theWedgeDY, theWedgeDZ, theWedgeLtx);
+TopoDS_Solid aShape = aWedgeMaker.Solid();
+Handle(AIS_Shape) aShapePrs = new AIS_Shape (aShape); // creation of the presentable object
+aContext->Display (aShapePrs, AIS_Shaded, 0, true);   // display the presentable object and redraw 3d viewer
 ```
 
-So this requires:
-- `TKSTEP/STEPControl`: [STEPControl_Writer](https://dev.opencascade.org/doc/refman/html/class_s_t_e_p_control___writer.html)
-- `TKXSBase/Interface`: [Interface_Static](https://dev.opencascade.org/doc/refman/html/class_interface___static.html)
-- `TKXSBase/IFSelect`: [IFSelect_ReturnStatus](https://dev.opencascade.org/doc/refman/html/_i_f_select___return_status_8hxx.html#a751547ba469d1e63c4b90ba3371e7e7b)
+- AIS
+- V3d_Viewer

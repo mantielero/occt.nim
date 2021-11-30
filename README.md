@@ -4,6 +4,7 @@ OpenCascade nim wrapper
 # Status
 Some of the examples currently compiles and run. But the coverage of the library still is pretty low.
 
+![](https://i.imgur.com/B7S6PIo.png)
 
 # OpenCascade overview
 OpenCascade is organized in different [modules](https://dev.opencascade.org/doc/refman/html/index.html) (alphabetic order):

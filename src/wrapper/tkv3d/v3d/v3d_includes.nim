@@ -1,0 +1,37 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include v3d
+include v3d_ambientlight
+include v3d_badvalue
+include v3d_circulargrid
+include v3d_coordinate
+include v3d_directionallight
+include v3d_imagedumpoptions
+include v3d_light
+include v3d_listoflight
+include v3d_listofview
+include v3d_parameter
+include v3d_plane
+include v3d_positionallight
+include v3d_positionlight
+include v3d_rectangulargrid
+include v3d_spotlight
+include v3d_stereodumpoptions
+include v3d_trihedron
+include v3d_typeofaxe
+include v3d_typeofbackfacingmodel
+include v3d_typeoflight
+include v3d_typeoforientation
+include v3d_typeofpickcamera
+include v3d_typeofpicklight
+include v3d_typeofrepresentation
+include v3d_typeofshadingmodel
+include v3d_typeofview
+include v3d_typeofvisualization
+include v3d_unmapped
+include v3d_view
+include v3d_viewer
+include v3d_viewerpointer
+include v3d_viewpointer

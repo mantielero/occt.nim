@@ -1,0 +1,36 @@
+{.passL:"-lTKMath".}
+{.passC:"-I/usr/include/opencascade/" .}
+{.experimental: "codeReordering".}
+
+include prsdim
+include prsdim_angledimension
+include prsdim_chamf2ddimension
+include prsdim_chamf3ddimension
+include prsdim_concentricrelation
+include prsdim_diameterdimension
+include prsdim_dimension
+include prsdim_dimensionowner
+include prsdim_dimensionselectionmode
+include prsdim_displayspecialsymbol
+include prsdim_ellipseradiusdimension
+include prsdim_equaldistancerelation
+include prsdim_equalradiusrelation
+include prsdim_fixrelation
+include prsdim_identicrelation
+include prsdim_kindofdimension
+include prsdim_kindofrelation
+include prsdim_kindofsurface
+include prsdim_lengthdimension
+include prsdim_maxradiusdimension
+include prsdim_midpointrelation
+include prsdim_minradiusdimension
+include prsdim_offsetdimension
+include prsdim_parallelrelation
+include prsdim_perpendicularrelation
+include prsdim_radiusdimension
+include prsdim_relation
+include prsdim_symmetricrelation
+include prsdim_tangentrelation
+include prsdim_typeofangle
+include prsdim_typeofanglearrowvisibility
+include prsdim_typeofdist

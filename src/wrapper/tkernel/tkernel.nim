@@ -167,3 +167,5 @@ include ncollection/ncollection_winheapallocator
 include tcolstd/tcolstd_includes
 include tcollection/tcollection_includes
 include message/message_includes
+
+include quantity/quantity_includes

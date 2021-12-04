@@ -15,5 +15,5 @@ include tkgeomalgo/tkgeomalgo
 include tkbo/tkbo
 include tkxsbase/tkxsbase
 include tkstep/tkstep
-
-
+include tkv3d/tkv3d
+include tkservice/tkservice

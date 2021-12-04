@@ -323,3 +323,9 @@ aContext->Display (aShapePrs, AIS_Shaded, 0, true);   // display the presentable
 
 - AIS
 - V3d_Viewer
+
+https://stackoverflow.com/questions/51168352/reading-step-file-with-open-cascade
+
+# Examples
+https://techoverflow.net/category/opencascade/
+https://occtutorials.wordpress.com/

@@ -58,4 +58,4 @@ const
 
 
 const                         ## ! Auxiliary value defining the overall number of values in enumeration Graphic3d_TypeOfShadingModel
-  Graphic3dTypeOfShadingModelNB* = graphic3dTOSM_PBR_FACET + 1
+  Graphic3dTypeOfShadingModelNB* = graphic3dTOSM_PBR_FACET.int + 1

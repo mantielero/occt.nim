@@ -2,8 +2,13 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-#type
-#  Graphic3dGroup* = object
+type
+  Display* = object
+  Atom* = object
+  gLXFBConfigRec* = object
+  AspectDrawable* = culong
+  InfoString* = object
+  TrackingUniverseOrigin* = object
 
 
 when defined(windows):

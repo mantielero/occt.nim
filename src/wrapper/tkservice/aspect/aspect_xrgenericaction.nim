@@ -16,24 +16,24 @@
 type
   AspectXRGenericAction* {.size: sizeof(cint), importcpp: "Aspect_XRGenericAction",
                           header: "Aspect_XRGenericAction.hxx".} = enum
-    AspectXRGenericActionIsHeadsetOn, ## !< headset is on/off head
-    AspectXRGenericActionInputAppMenu, ## !< application menu button pressed/released
-    AspectXRGenericActionInputSysMenu, ## !< system menu button pressed/released
-    AspectXRGenericActionInputTriggerPull, ## !< trigger squeezing [0..1], 1 to click
-    AspectXRGenericActionInputTriggerClick, ## !< trigger clicked/released
-    AspectXRGenericActionInputGripClick, ## !< grip state on/off
-    AspectXRGenericActionInputTrackPadPosition, ## !< trackpad 2D position [-1,+1] with X and Y axes
-    AspectXRGenericActionInputTrackPadTouch, ## !< trackpad touched/untouched
-    AspectXRGenericActionInputTrackPadClick, ## !< trackpad clicked/released
-    AspectXRGenericActionInputThumbstickPosition, ## !< thumbstick 2D position [-1,+1] with X and Y axes
-    AspectXRGenericActionInputThumbstickTouch, ## !< thumbstick touched/untouched
-    AspectXRGenericActionInputThumbstickClick, ## !< thumbstick clicked/released
-    AspectXRGenericActionInputPoseBase, ## !< base position of hand
-    AspectXRGenericActionInputPoseFront, ## !< front position of hand
-    AspectXRGenericActionInputPoseHandGrip, ## !< position of main handgrip
-    AspectXRGenericActionInputPoseFingerTip, ## !< position of main fingertip
-    AspectXRGenericActionOutputHaptic ## !< haptic output (vibration)
+    aspectXRGenericActionIsHeadsetOn, ## !< headset is on/off head
+    aspectXRGenericActionInputAppMenu, ## !< application menu button pressed/released
+    aspectXRGenericActionInputSysMenu, ## !< system menu button pressed/released
+    aspectXRGenericActionInputTriggerPull, ## !< trigger squeezing [0..1], 1 to click
+    aspectXRGenericActionInputTriggerClick, ## !< trigger clicked/released
+    aspectXRGenericActionInputGripClick, ## !< grip state on/off
+    aspectXRGenericActionInputTrackPadPosition, ## !< trackpad 2D position [-1,+1] with X and Y axes
+    aspectXRGenericActionInputTrackPadTouch, ## !< trackpad touched/untouched
+    aspectXRGenericActionInputTrackPadClick, ## !< trackpad clicked/released
+    aspectXRGenericActionInputThumbstickPosition, ## !< thumbstick 2D position [-1,+1] with X and Y axes
+    aspectXRGenericActionInputThumbstickTouch, ## !< thumbstick touched/untouched
+    aspectXRGenericActionInputThumbstickClick, ## !< thumbstick clicked/released
+    aspectXRGenericActionInputPoseBase, ## !< base position of hand
+    aspectXRGenericActionInputPoseFront, ## !< front position of hand
+    aspectXRGenericActionInputPoseHandGrip, ## !< position of main handgrip
+    aspectXRGenericActionInputPoseFingerTip, ## !< position of main fingertip
+    aspectXRGenericActionOutputHaptic ## !< haptic output (vibration)
 
 
 const
-  AspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic + 1
+  AspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic.int + 1

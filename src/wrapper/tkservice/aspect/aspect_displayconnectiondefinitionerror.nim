@@ -13,19 +13,19 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_DisplayConnectionDefinitionError"
-type
-  HandleAspectDisplayConnectionDefinitionError* = Handle[
-      AspectDisplayConnectionDefinitionError]
-
-when not defined(noException) and
-    not defined(noAspectDisplayConnectionDefinitionError):
-  template aspectDisplayConnectionDefinitionErrorRaiseIf*(
-      condition, message: untyped): void =
-    if condition:
-      proc aspectDisplayConnectionDefinitionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_DisplayConnectionDefinitionError(@)",
-          header: "Aspect_DisplayConnectionDefinitionError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_DisplayConnectionDefinitionError"
+#type
+#  HandleAspectDisplayConnectionDefinitionError* = Handle[
+#      AspectDisplayConnectionDefinitionError]
+#
+#when not defined(noException) and
+#    not defined(noAspectDisplayConnectionDefinitionError):
+#  template aspectDisplayConnectionDefinitionErrorRaiseIf*(
+#      condition, message: untyped): void =
+#    if condition:
+#      proc aspectDisplayConnectionDefinitionError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_DisplayConnectionDefinitionError(@)",
+#          header: "Aspect_DisplayConnectionDefinitionError.hxx".}
+#
+#else:
+#  discard

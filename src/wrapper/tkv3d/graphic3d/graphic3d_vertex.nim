@@ -23,19 +23,19 @@ type
 
 proc newGraphic3dVertex*(): Graphic3dVertex {.cdecl, constructor,
     importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc newGraphic3dVertex*(theX: StandardShortReal; theY: StandardShortReal;
-                        theZ: StandardShortReal): Graphic3dVertex {.cdecl,
-    constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
+#proc newGraphic3dVertex*(theX: StandardShortReal; theY: StandardShortReal;
+#                        theZ: StandardShortReal): Graphic3dVertex {.cdecl,
+#    constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
 proc newGraphic3dVertex*(theX: cfloat; theY: cfloat; theZ: cfloat): Graphic3dVertex {.
     cdecl, constructor, importcpp: "Graphic3d_Vertex(@)", header: "Graphic3d_Vertex.hxx".}
-proc setCoord*(this: var Graphic3dVertex; theX: StandardShortReal;
-              theY: StandardShortReal; theZ: StandardShortReal) {.cdecl,
-    importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
+#proc setCoord*(this: var Graphic3dVertex; theX: StandardShortReal;
+#              theY: StandardShortReal; theZ: StandardShortReal) {.cdecl,
+#    importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
 proc setCoord*(this: var Graphic3dVertex; theX: cfloat; theY: cfloat; theZ: cfloat) {.
     cdecl, importcpp: "SetCoord", header: "Graphic3d_Vertex.hxx".}
-proc coord*(this: Graphic3dVertex; theX: var StandardShortReal;
-           theY: var StandardShortReal; theZ: var StandardShortReal) {.noSideEffect,
-    cdecl, importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
+#proc coord*(this: Graphic3dVertex; theX: var StandardShortReal;
+#           theY: var StandardShortReal; theZ: var StandardShortReal) {.noSideEffect,
+#    cdecl, importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
 proc coord*(this: Graphic3dVertex; theX: var cfloat; theY: var cfloat; theZ: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Coord", header: "Graphic3d_Vertex.hxx".}
 proc x*(this: Graphic3dVertex): StandardShortReal {.noSideEffect, cdecl,

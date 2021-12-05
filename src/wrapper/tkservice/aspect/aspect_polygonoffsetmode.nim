@@ -24,7 +24,7 @@ type
     aspectPOM_Line = 0x02,      ##  GL_POLYGON_OFFSET_LINE enabled (polygons as outlines)
     aspectPOM_Point = 0x04,     ##  GL_POLYGON_OFFSET_POINT enabled (polygons as vertices)
 const
-  aspectPOM_All = aspectPOM_Fill or aspectPOM_Line or aspectPOM_Point
+  aspectPOM_All = (aspectPOM_Fill.int or aspectPOM_Line.int or aspectPOM_Point.int).AspectPolygonOffsetMode
   aspectPOM_None = 0x08 ##  do not change current polygon offset mode
-  aspectPOM_Mask = aspectPOM_All or aspectPOM_None
+  aspectPOM_Mask = (aspectPOM_All.int or aspectPOM_None.int).AspectPolygonOffsetMode
 

@@ -27,9 +27,9 @@ proc `type`*(this: AspectXRAction): AspectXRActionType {.noSideEffect, cdecl,
     importcpp: "Type", header: "Aspect_XRAction.hxx".}
 proc isValid*(this: AspectXRAction): bool {.noSideEffect, cdecl, importcpp: "IsValid",
                                         header: "Aspect_XRAction.hxx".}
-proc rawHandle*(this: AspectXRAction): uint64T {.noSideEffect, cdecl,
+proc rawHandle*(this: AspectXRAction): uint64 {.noSideEffect, cdecl,
     importcpp: "RawHandle", header: "Aspect_XRAction.hxx".}
-proc setRawHandle*(this: var AspectXRAction; theHande: uint64T) {.cdecl,
+proc setRawHandle*(this: var AspectXRAction; theHande: uint64) {.cdecl,
     importcpp: "SetRawHandle", header: "Aspect_XRAction.hxx".}
 proc newAspectXRAction*(theId: TCollectionAsciiString; theType: AspectXRActionType): AspectXRAction {.
     cdecl, constructor, importcpp: "Aspect_XRAction(@)", header: "Aspect_XRAction.hxx".}

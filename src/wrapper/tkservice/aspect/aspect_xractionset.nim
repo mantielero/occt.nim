@@ -27,9 +27,9 @@ type
 
 proc id*(this: AspectXRActionSet): TCollectionAsciiString {.noSideEffect, cdecl,
     importcpp: "Id", header: "Aspect_XRActionSet.hxx".}
-proc rawHandle*(this: AspectXRActionSet): uint64T {.noSideEffect, cdecl,
+proc rawHandle*(this: AspectXRActionSet): uint64 {.noSideEffect, cdecl,
     importcpp: "RawHandle", header: "Aspect_XRActionSet.hxx".}
-proc setRawHandle*(this: var AspectXRActionSet; theHande: uint64T) {.cdecl,
+proc setRawHandle*(this: var AspectXRActionSet; theHande: uint64) {.cdecl,
     importcpp: "SetRawHandle", header: "Aspect_XRActionSet.hxx".}
 proc addAction*(this: var AspectXRActionSet; theAction: Handle[AspectXRAction]) {.
     cdecl, importcpp: "AddAction", header: "Aspect_XRActionSet.hxx".}

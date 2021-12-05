@@ -17,11 +17,11 @@ type
   AspectXRTrackedDeviceRole* {.size: sizeof(cint),
                               importcpp: "Aspect_XRTrackedDeviceRole",
                               header: "Aspect_XRTrackedDeviceRole.hxx".} = enum
-    AspectXRTrackedDeviceRoleHead, ## !< head
-    AspectXRTrackedDeviceRoleLeftHand, ## !< left hand
-    AspectXRTrackedDeviceRoleRightHand, ## !< right hand
-    AspectXRTrackedDeviceRoleOther ## !< other devices
+    aspectXRTrackedDeviceRoleHead, ## !< head
+    aspectXRTrackedDeviceRoleLeftHand, ## !< left hand
+    aspectXRTrackedDeviceRoleRightHand, ## !< right hand
+    aspectXRTrackedDeviceRoleOther ## !< other devices
 
 
 const
-  AspectXRTrackedDeviceRoleNB* = aspectXRTrackedDeviceRoleOther + 1
+  aspectXRTrackedDeviceRoleNB* = aspectXRTrackedDeviceRoleOther.int + 1

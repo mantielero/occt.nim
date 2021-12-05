@@ -20,9 +20,9 @@ type
   Graphic3dTypeOfBackground* {.size: sizeof(cint),
                               importcpp: "Graphic3d_TypeOfBackground",
                               header: "Graphic3d_TypeOfBackground.hxx".} = enum
-    Graphic3dTOB_NONE = -1, Graphic3dTOB_GRADIENT, Graphic3dTOB_TEXTURE,
-    Graphic3dTOB_CUBEMAP
+    graphic3dTOB_NONE = -1, graphic3dTOB_GRADIENT, graphic3dTOB_TEXTURE,
+    graphic3dTOB_CUBEMAP
 
 
 const
-  Graphic3dTypeOfBackgroundNB* = graphic3dTOB_CUBEMAP + 1
+  Graphic3dTypeOfBackgroundNB* = graphic3dTOB_CUBEMAP.int + 1

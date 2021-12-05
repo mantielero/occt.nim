@@ -116,8 +116,17 @@ proc pp*(file:string,
 # ls /usr/include/opencascade/Aspect*.hxx | cut -c 26-
 
 genFiles("Aspect_AspectFillAreaDefinitionError")
+pp("aspect_aspectfillareadefinitionerror.nim",
+  commentRange = @[(16,30)]
+)
 genFiles("Aspect_AspectLineDefinitionError")
+pp("aspect_aspectlinedefinitionerror.nim",
+  commentRange = @[(16,27)]
+)
 genFiles("Aspect_AspectMarkerDefinitionError")
+pp("aspect_aspectmarkerdefinitionerror.nim",
+  commentRange = @[(16,29)]
+)
 genFiles("Aspect_Background")
 pp("aspect_background.nim",
   replaceAll = @[("= object", "= object of RootObj")]
@@ -126,6 +135,9 @@ genFiles("Aspect_CircularGrid")
 genFiles("Aspect_ColorSpace")
 genFiles("Aspect_Convert")
 genFiles("Aspect_DisplayConnectionDefinitionError")
+pp("aspect_displayconnectiondefinitionerror.nim",
+  commentRange = @[(16,31)]
+)
 genFiles("Aspect_DisplayConnection",
   comment = @[(42,42), (81,81)]
 )
@@ -138,7 +150,13 @@ genFiles("Aspect_FrustumLRBT")
 genFiles("Aspect_GenId")
 genFiles("Aspect_GradientBackground")
 genFiles("Aspect_GradientFillMethod")
+pp("aspect_gradientfillmethod.nim",
+  replaceAll = @[("AspectGFM", "aspectGFM")]
+)
 genFiles("Aspect_GraphicDeviceDefinitionError")
+pp("aspect_graphicdevicedefinitionerror.nim",
+  commentRange = @[(16,29)]
+)
 genFiles("Aspect_GraphicsLibrary")
 genFiles("Aspect_GridDrawMode")
 genFiles("Aspect_Grid")
@@ -146,6 +164,9 @@ genFiles("Aspect_GridType")
 genFiles("Aspect_Handle")
 genFiles("Aspect_HatchStyle")
 genFiles("Aspect_IdentDefinitionError")
+pp("aspect_identdefinitionerror.nim",
+  commentRange = @[(16,27)]
+)
 genFiles("Aspect_InteriorStyle")
 pp("aspect_interiorstyle.nim",
   replaceAll = @[("AspectIS", "aspectIS"),
@@ -166,9 +187,9 @@ pp("aspect_polygonoffsetmode.nim",
     ("""    aspectPOM_All = aspectPOM_Fill or aspectPOM_Line or aspectPOM_Point, aspectPOM_None = 0x08, ##  do not change current polygon offset mode
     aspectPOM_Mask = aspectPOM_All or aspectPOM_None""",
     """const
-  aspectPOM_All = aspectPOM_Fill or aspectPOM_Line or aspectPOM_Point
+  aspectPOM_All = (aspectPOM_Fill.int or aspectPOM_Line.int or aspectPOM_Point.int).AspectPolygonOffsetMode
   aspectPOM_None = 0x08 ##  do not change current polygon offset mode
-  aspectPOM_Mask = aspectPOM_All or aspectPOM_None"""
+  aspectPOM_Mask = (aspectPOM_All.int or aspectPOM_None.int).AspectPolygonOffsetMode"""
     )
   
   ]
@@ -182,6 +203,11 @@ genFiles("Aspect_ScrollDelta")
 genFiles("Aspect_SequenceOfColor")
 genFiles("Aspect_Touch")
 genFiles("Aspect_TouchMap")
+pp("aspect_touchmap.nim",
+  replaceAll = @[("AspectTouchMap* = NCollectionIndexedDataMap[csize_t, AspectTouch]",
+    """AspectTouchMap* {.importcpp:"NCollection_IndexedDataMap<Standard_Size, Aspect_Touch>", header:"Aspect_TouchMap.hxx", bycopy.}= object"""
+  )]
+)
 genFiles("Aspect_TrackedDevicePose")
 genFiles("Aspect_TypeOfColorScaleData")
 genFiles("Aspect_TypeOfColorScaleOrientation")
@@ -220,32 +246,76 @@ pp("aspect_typeoftriedronposition.nim",
     """  ## !< at the middle of the right  side
 
 const
-  aspectTOTP_LEFT_LOWER  = aspectTOTP_BOTTOM or aspectTOTP_LEFT  ## at the left lower corner
-  aspectTOTP_LEFT_UPPER  = aspectTOTP_TOP or aspectTOTP_LEFT     ## at the left upper corner
-  aspectTOTP_RIGHT_LOWER = aspectTOTP_BOTTOM or aspectTOTP_RIGHT ## at the right lower corner
-  aspectTOTP_RIGHT_UPPER = aspectTOTP_TOP or aspectTOTP_RIGHT    ## at the right upper corner""")
+  aspectTOTP_LEFT_LOWER  = (aspectTOTP_BOTTOM.int or aspectTOTP_LEFT.int).AspectTypeOfTriedronPosition  ## at the left lower corner
+  aspectTOTP_LEFT_UPPER  = (aspectTOTP_TOP.int or aspectTOTP_LEFT.int).AspectTypeOfTriedronPosition     ## at the left upper corner
+  aspectTOTP_RIGHT_LOWER = (aspectTOTP_BOTTOM.int or aspectTOTP_RIGHT.int).AspectTypeOfTriedronPosition ## at the right lower corner
+  aspectTOTP_RIGHT_UPPER = (aspectTOTP_TOP.int or aspectTOTP_RIGHT.int).AspectTypeOfTriedronPosition    ## at the right upper corner""")
   
   ]
 )
 genFiles("Aspect_Units")
+pp("aspect_units.nim",
+  replaceAll = @[("[]", "")]
+)
 genFiles("Aspect_VKeyFlags")
+pp("aspect_vkeyflags.nim",
+  replaceAll = @[("AspectVKeyFlags", "aspectVKeyFlags"), ("aspectVKeyFlags*", "AspectVKeyFlags*")]
+)
 genFiles("Aspect_VKey")
+pp("aspect_vkey.nim",
+  replaceAll = @[("AspectVKey", "aspectVKey"), ("aspectVKey*", "AspectVKey*"), ("aspectVKeyBasic*", "AspectVKeyBasic*"),
+    ("aspectVKeyUpper - aspectVKeyLower + 1", "(aspectVKeyUpper.int - aspectVKeyLower.int + 1)"),
+    ("aspectVKey2Modifier*(theKey: aspectVKey): aspectVKeyFlags", "aspectVKey2Modifier*(theKey: AspectVKey): AspectVKeyFlags")
+  ]
+)
 genFiles("Aspect_VKeySet")
 genFiles("Aspect_WidthOfLine")
 genFiles("Aspect_WindowDefinitionError")
+pp("aspect_windowdefinitionerror.nim",
+  commentRange = @[(16,27)]
+)
 genFiles("Aspect_WindowError")
+pp("aspect_windowerror.nim",
+  commentRange = @[(16,27)]
+)
 genFiles("Aspect_Window")
 genFiles("Aspect_XAtom")
 genFiles("Aspect_XRAction")
+pp("aspect_xraction.nim",
+  replaceAll = @[("uint64T", "uint64")]
+)
 genFiles("Aspect_XRActionSet")
+pp("aspect_xractionset.nim",
+  replaceAll = @[("uint64T", "uint64")]
+)
 genFiles("Aspect_XRActionType")
 genFiles("Aspect_XRAnalogActionData")
+pp("aspect_xranalogactiondata.nim",
+  replaceAll = @[("uint64T", "uint64")]
+)
 genFiles("Aspect_XRDigitalActionData")
+pp("aspect_xrdigitalactiondata.nim",
+  replaceAll = @[("uint64T", "uint64")]
+)
 genFiles("Aspect_XRGenericAction")
+pp("aspect_xrgenericaction.nim",
+  replaceAll = @[("AspectXRGenericAction", "aspectXRGenericAction"),
+    ("aspectXRGenericAction*","AspectXRGenericAction*"),
+    ("aspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic + 1", "AspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic.int + 1")
+  ]
+)
 genFiles("Aspect_XRHapticActionData")
 genFiles("Aspect_XRPoseActionData")
+pp("aspect_xrposeactiondata.nim",
+  replaceAll = @[("uint64T", "uint64")]
+)
 genFiles("Aspect_XRSession")
 genFiles("Aspect_XRTrackedDeviceRole")
+pp("aspect_xrtrackeddevicerole.nim",
+  replaceAll = @[("AspectXR", "aspectXR"), ("aspectXRTrackedDeviceRole*", "AspectXRTrackedDeviceRole*"),
+    ("aspectXRTrackedDeviceRoleOther + 1","aspectXRTrackedDeviceRoleOther.int + 1")
+  ]
+)
 genFiles("Aspect_XWD",
   comment = @[(17, 92)]
 )

@@ -21,82 +21,82 @@ type
 type
   AspectVKeyBasic* {.size: sizeof(cint), importcpp: "Aspect_VKeyBasic",
                     header: "Aspect_VKey.hxx".} = enum
-    AspectVKeyUNKNOWN = 0,      ##  main latin alphabet keys
-    AspectVKeyA = 1, AspectVKeyB, AspectVKeyC, AspectVKeyD, AspectVKeyE, AspectVKeyF,
-    AspectVKeyG, AspectVKeyH, AspectVKeyI, AspectVKeyJ, AspectVKeyK, AspectVKeyL,
-    AspectVKeyM, AspectVKeyN, AspectVKeyO, AspectVKeyP, AspectVKeyQ, AspectVKeyR,
-    AspectVKeyS, AspectVKeyT, AspectVKeyU, AspectVKeyV, AspectVKeyW, AspectVKeyX,
-    AspectVKeyY, AspectVKeyZ, AspectVKey0, AspectVKey1, AspectVKey2, AspectVKey3,
-    AspectVKey4, AspectVKey5, AspectVKey6, AspectVKey7, AspectVKey8, AspectVKey9,
-    AspectVKeyF1, AspectVKeyF2, AspectVKeyF3, AspectVKeyF4, AspectVKeyF5,
-    AspectVKeyF6, AspectVKeyF7, AspectVKeyF8, AspectVKeyF9, AspectVKeyF10,
-    AspectVKeyF11, AspectVKeyF12, ##  standard keys
-    AspectVKeyUp, AspectVKeyDown, AspectVKeyLeft, AspectVKeyRight, AspectVKeyPlus, ## !< '+'
-    AspectVKeyMinus,          ## !< '-'
-    AspectVKeyEqual,          ## !< '=+'
-    AspectVKeyPageUp, AspectVKeyPageDown, AspectVKeyHome, AspectVKeyEnd,
-    AspectVKeyEscape, AspectVKeyBack, AspectVKeyEnter, AspectVKeyBackspace,
-    AspectVKeySpace, AspectVKeyDelete, AspectVKeyTilde, AspectVKeyTab, AspectVKeyComma, ## !< ','
-    AspectVKeyPeriod,         ## !< '.'
-    AspectVKeySemicolon,      ## !< ';:'
-    AspectVKeySlash,          ## !< '/?'
-    AspectVKeyBracketLeft,    ## !< '[{'
-    AspectVKeyBackslash,      ## !< '\|'
-    AspectVKeyBracketRight,   ## !< ']}'
-    AspectVKeyApostrophe,     ## !< ''"'
-    AspectVKeyNumlock,        ## !< Num Lock key
-    AspectVKeyScroll,         ## !< Scroll Lock key
+    aspectVKeyUNKNOWN = 0,      ##  main latin alphabet keys
+    aspectVKeyA = 1, aspectVKeyB, aspectVKeyC, aspectVKeyD, aspectVKeyE, aspectVKeyF,
+    aspectVKeyG, aspectVKeyH, aspectVKeyI, aspectVKeyJ, aspectVKeyK, aspectVKeyL,
+    aspectVKeyM, aspectVKeyN, aspectVKeyO, aspectVKeyP, aspectVKeyQ, aspectVKeyR,
+    aspectVKeyS, aspectVKeyT, aspectVKeyU, aspectVKeyV, aspectVKeyW, aspectVKeyX,
+    aspectVKeyY, aspectVKeyZ, aspectVKey0, aspectVKey1, aspectVKey2, aspectVKey3,
+    aspectVKey4, aspectVKey5, aspectVKey6, aspectVKey7, aspectVKey8, aspectVKey9,
+    aspectVKeyF1, aspectVKeyF2, aspectVKeyF3, aspectVKeyF4, aspectVKeyF5,
+    aspectVKeyF6, aspectVKeyF7, aspectVKeyF8, aspectVKeyF9, aspectVKeyF10,
+    aspectVKeyF11, aspectVKeyF12, ##  standard keys
+    aspectVKeyUp, aspectVKeyDown, aspectVKeyLeft, aspectVKeyRight, aspectVKeyPlus, ## !< '+'
+    aspectVKeyMinus,          ## !< '-'
+    aspectVKeyEqual,          ## !< '=+'
+    aspectVKeyPageUp, aspectVKeyPageDown, aspectVKeyHome, aspectVKeyEnd,
+    aspectVKeyEscape, aspectVKeyBack, aspectVKeyEnter, aspectVKeyBackspace,
+    aspectVKeySpace, aspectVKeyDelete, aspectVKeyTilde, aspectVKeyTab, aspectVKeyComma, ## !< ','
+    aspectVKeyPeriod,         ## !< '.'
+    aspectVKeySemicolon,      ## !< ';:'
+    aspectVKeySlash,          ## !< '/?'
+    aspectVKeyBracketLeft,    ## !< '[{'
+    aspectVKeyBackslash,      ## !< '\|'
+    aspectVKeyBracketRight,   ## !< ']}'
+    aspectVKeyApostrophe,     ## !< ''"'
+    aspectVKeyNumlock,        ## !< Num Lock key
+    aspectVKeyScroll,         ## !< Scroll Lock key
                      ##  numpad keys
-    AspectVKeyNumpad0, AspectVKeyNumpad1, AspectVKeyNumpad2, AspectVKeyNumpad3,
-    AspectVKeyNumpad4, AspectVKeyNumpad5, AspectVKeyNumpad6, AspectVKeyNumpad7,
-    AspectVKeyNumpad8, AspectVKeyNumpad9, AspectVKeyNumpadMultiply, ## !< numpad '*'
-    AspectVKeyNumpadAdd,      ## !< numpad '+'
-    AspectVKeyNumpadSubtract, ## !< numpad '-'
-    AspectVKeyNumpadDivide,   ## !< numpad '/'
+    aspectVKeyNumpad0, aspectVKeyNumpad1, aspectVKeyNumpad2, aspectVKeyNumpad3,
+    aspectVKeyNumpad4, aspectVKeyNumpad5, aspectVKeyNumpad6, aspectVKeyNumpad7,
+    aspectVKeyNumpad8, aspectVKeyNumpad9, aspectVKeyNumpadMultiply, ## !< numpad '*'
+    aspectVKeyNumpadAdd,      ## !< numpad '+'
+    aspectVKeyNumpadSubtract, ## !< numpad '-'
+    aspectVKeyNumpadDivide,   ## !< numpad '/'
                            ##  Multimedia keys
-    AspectVKeyMediaNextTrack, AspectVKeyMediaPreviousTrack, AspectVKeyMediaStop,
-    AspectVKeyMediaPlayPause, AspectVKeyVolumeMute, AspectVKeyVolumeDown,
-    AspectVKeyVolumeUp, AspectVKeyBrowserBack, AspectVKeyBrowserForward,
-    AspectVKeyBrowserRefresh, AspectVKeyBrowserStop, AspectVKeyBrowserSearch,
-    AspectVKeyBrowserFavorites, AspectVKeyBrowserHome, ##  3d view keys
-    AspectVKeyViewTop, AspectVKeyViewBottom, AspectVKeyViewLeft,
-    AspectVKeyViewRight, AspectVKeyViewFront, AspectVKeyViewBack,
-    AspectVKeyViewAxoLeftProj, AspectVKeyViewAxoRightProj, AspectVKeyViewFitAll,
-    AspectVKeyViewRoll90CW, AspectVKeyViewRoll90CCW, AspectVKeyViewSwitchRotate, ##  modifier keys, @sa Aspect_VKey_ModifiersLower and Aspect_VKey_ModifiersUpper below
-    AspectVKeyShift, AspectVKeyControl, AspectVKeyAlt, AspectVKeyMenu, AspectVKeyMeta, ##  virtual navigation keys, @sa Aspect_VKey_NavigationKeysLower and Aspect_VKey_NavigationKeysUpper below
-    AspectVKeyNavInteract,    ## !< interact
-    AspectVKeyNavForward,     ## !< go forward
-    AspectVKeyNavBackward,    ## !< go backward
-    AspectVKeyNavSlideLeft,   ## !< sidewalk, left
-    AspectVKeyNavSlideRight,  ## !< sidewalk, right
-    AspectVKeyNavSlideUp,     ## !< lift up
-    AspectVKeyNavSlideDown,   ## !< fall down
-    AspectVKeyNavRollCCW,     ## !< bank left  (roll counter-clockwise)
-    AspectVKeyNavRollCW,      ## !< bank right (roll clockwise)
-    AspectVKeyNavLookLeft,    ## !< look left  (yaw counter-clockwise)
-    AspectVKeyNavLookRight,   ## !< look right (yaw clockwise)
-    AspectVKeyNavLookUp,      ## !< look up    (pitch clockwise)
-    AspectVKeyNavLookDown,    ## !< look down  (pitch counter-clockwise)
-    AspectVKeyNavCrouch,      ## !< crouch walking
-    AspectVKeyNavJump,        ## !< jump
-    AspectVKeyNavThrustForward, ## !< increase continuous velocity in forward  direction
-    AspectVKeyNavThrustBackward, ## !< increase continuous velocity in reversed direction
-    AspectVKeyNavThrustStop,  ## !< reset continuous velocity
-    AspectVKeyNavSpeedIncrease, ## !< increase navigation speed
-    AspectVKeyNavSpeedDecrease ## !< decrease navigation speed
+    aspectVKeyMediaNextTrack, aspectVKeyMediaPreviousTrack, aspectVKeyMediaStop,
+    aspectVKeyMediaPlayPause, aspectVKeyVolumeMute, aspectVKeyVolumeDown,
+    aspectVKeyVolumeUp, aspectVKeyBrowserBack, aspectVKeyBrowserForward,
+    aspectVKeyBrowserRefresh, aspectVKeyBrowserStop, aspectVKeyBrowserSearch,
+    aspectVKeyBrowserFavorites, aspectVKeyBrowserHome, ##  3d view keys
+    aspectVKeyViewTop, aspectVKeyViewBottom, aspectVKeyViewLeft,
+    aspectVKeyViewRight, aspectVKeyViewFront, aspectVKeyViewBack,
+    aspectVKeyViewAxoLeftProj, aspectVKeyViewAxoRightProj, aspectVKeyViewFitAll,
+    aspectVKeyViewRoll90CW, aspectVKeyViewRoll90CCW, aspectVKeyViewSwitchRotate, ##  modifier keys, @sa Aspect_VKey_ModifiersLower and Aspect_VKey_ModifiersUpper below
+    aspectVKeyShift, aspectVKeyControl, aspectVKeyAlt, aspectVKeyMenu, aspectVKeyMeta, ##  virtual navigation keys, @sa Aspect_VKey_NavigationKeysLower and Aspect_VKey_NavigationKeysUpper below
+    aspectVKeyNavInteract,    ## !< interact
+    aspectVKeyNavForward,     ## !< go forward
+    aspectVKeyNavBackward,    ## !< go backward
+    aspectVKeyNavSlideLeft,   ## !< sidewalk, left
+    aspectVKeyNavSlideRight,  ## !< sidewalk, right
+    aspectVKeyNavSlideUp,     ## !< lift up
+    aspectVKeyNavSlideDown,   ## !< fall down
+    aspectVKeyNavRollCCW,     ## !< bank left  (roll counter-clockwise)
+    aspectVKeyNavRollCW,      ## !< bank right (roll clockwise)
+    aspectVKeyNavLookLeft,    ## !< look left  (yaw counter-clockwise)
+    aspectVKeyNavLookRight,   ## !< look right (yaw clockwise)
+    aspectVKeyNavLookUp,      ## !< look up    (pitch clockwise)
+    aspectVKeyNavLookDown,    ## !< look down  (pitch counter-clockwise)
+    aspectVKeyNavCrouch,      ## !< crouch walking
+    aspectVKeyNavJump,        ## !< jump
+    aspectVKeyNavThrustForward, ## !< increase continuous velocity in forward  direction
+    aspectVKeyNavThrustBackward, ## !< increase continuous velocity in reversed direction
+    aspectVKeyNavThrustStop,  ## !< reset continuous velocity
+    aspectVKeyNavSpeedIncrease, ## !< increase navigation speed
+    aspectVKeyNavSpeedDecrease ## !< decrease navigation speed
 
 
 ## ! Auxiliary ranges.
 
 const
-  AspectVKeyLower* = 0
-  AspectVKeyModifiersLower* = aspectVKeyShift
-  AspectVKeyModifiersUpper* = aspectVKeyMeta
-  AspectVKeyNavigationKeysLower* = aspectVKeyNavInteract
-  AspectVKeyNavigationKeysUpper* = aspectVKeyNavSpeedDecrease
-  AspectVKeyUpper* = aspectVKeyNavSpeedDecrease
-  AspectVKeyNB* = AspectVKeyUpper - AspectVKeyLower + 1
-  AspectVKeyMAX* = 255
+  aspectVKeyLower* = 0
+  aspectVKeyModifiersLower* = aspectVKeyShift
+  aspectVKeyModifiersUpper* = aspectVKeyMeta
+  aspectVKeyNavigationKeysLower* = aspectVKeyNavInteract
+  aspectVKeyNavigationKeysUpper* = aspectVKeyNavSpeedDecrease
+  aspectVKeyUpper* = aspectVKeyNavSpeedDecrease
+  aspectVKeyNB* = (aspectVKeyUpper.int - aspectVKeyLower.int + 1)
+  aspectVKeyMAX* = 255
 
 ## ! Return modifier flags for specified modifier key.
 

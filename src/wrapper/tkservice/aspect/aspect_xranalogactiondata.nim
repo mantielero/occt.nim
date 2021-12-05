@@ -16,7 +16,7 @@
 type
   AspectXRAnalogActionData* {.importcpp: "Aspect_XRAnalogActionData",
                              header: "Aspect_XRAnalogActionData.hxx", bycopy.} = object
-    activeOrigin* {.importc: "ActiveOrigin".}: uint64T ## !< The origin that caused this action's current state
+    activeOrigin* {.importc: "ActiveOrigin".}: uint64 ## !< The origin that caused this action's current state
     updateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
     vecXYZ* {.importc: "VecXYZ".}: NCollectionVec3[cfloat] ## !< the current state of this action
     deltaXYZ* {.importc: "DeltaXYZ".}: NCollectionVec3[cfloat] ## !< deltas since the previous update

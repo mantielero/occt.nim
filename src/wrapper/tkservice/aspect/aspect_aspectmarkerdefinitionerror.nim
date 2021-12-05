@@ -13,17 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_AspectMarkerDefinitionError"
-type
-  HandleAspectAspectMarkerDefinitionError* = Handle[
-      AspectAspectMarkerDefinitionError]
-
-when not defined(noException) and
-    not defined(noAspectAspectMarkerDefinitionError):
-  template aspectAspectMarkerDefinitionErrorRaiseIf*(condition, message: untyped): void =
-    if condition:
-      proc aspectAspectMarkerDefinitionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_AspectMarkerDefinitionError(@)", header: "Aspect_AspectMarkerDefinitionError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_AspectMarkerDefinitionError"
+#type
+#  HandleAspectAspectMarkerDefinitionError* = Handle[
+#      AspectAspectMarkerDefinitionError]
+#
+#when not defined(noException) and
+#    not defined(noAspectAspectMarkerDefinitionError):
+#  template aspectAspectMarkerDefinitionErrorRaiseIf*(condition, message: untyped): void =
+#    if condition:
+#      proc aspectAspectMarkerDefinitionError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_AspectMarkerDefinitionError(@)", header: "Aspect_AspectMarkerDefinitionError.hxx".}
+#
+#else:
+#  discard

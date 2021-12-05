@@ -13,15 +13,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_WindowError"
-type
-  HandleAspectWindowError* = Handle[AspectWindowError]
-
-when not defined(noException) and not defined(noAspectWindowError):
-  template aspectWindowErrorRaiseIf*(condition, message: untyped): void =
-    if condition:
-      proc aspectWindowError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_WindowError(@)", header: "Aspect_WindowError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_WindowError"
+#type
+#  HandleAspectWindowError* = Handle[AspectWindowError]
+#
+#when not defined(noException) and not defined(noAspectWindowError):
+#  template aspectWindowErrorRaiseIf*(condition, message: untyped): void =
+#    if condition:
+#      proc aspectWindowError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_WindowError(@)", header: "Aspect_WindowError.hxx".}
+#
+#else:
+#  discard

@@ -17,7 +17,7 @@ type
   AspectXRPoseActionData* {.importcpp: "Aspect_XRPoseActionData",
                            header: "Aspect_XRPoseActionData.hxx", bycopy.} = object
     pose* {.importc: "Pose".}: AspectTrackedDevicePose ## !< pose state
-    activeOrigin* {.importc: "ActiveOrigin".}: uint64T ## !< The origin that caused this action's current state
+    activeOrigin* {.importc: "ActiveOrigin".}: uint64 ## !< The origin that caused this action's current state
     isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
                                         ## ! Empty constructor.
 

@@ -13,18 +13,18 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_AspectFillAreaDefinitionError"
-type
-  HandleAspectAspectFillAreaDefinitionError* = Handle[
-      AspectAspectFillAreaDefinitionError]
-
-when not defined(noException) and
-    not defined(noAspectAspectFillAreaDefinitionError):
-  template aspectAspectFillAreaDefinitionErrorRaiseIf*(
-      condition, message: untyped): void =
-    if condition:
-      proc aspectAspectFillAreaDefinitionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_AspectFillAreaDefinitionError(@)", header: "Aspect_AspectFillAreaDefinitionError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_AspectFillAreaDefinitionError"
+#type
+#  HandleAspectAspectFillAreaDefinitionError* = Handle[
+#      AspectAspectFillAreaDefinitionError]
+#
+#when not defined(noException) and
+#    not defined(noAspectAspectFillAreaDefinitionError):
+#  template aspectAspectFillAreaDefinitionErrorRaiseIf*(
+#      condition, message: untyped): void =
+#    if condition:
+#      proc aspectAspectFillAreaDefinitionError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_AspectFillAreaDefinitionError(@)", header: "Aspect_AspectFillAreaDefinitionError.hxx".}
+#
+#else:
+#  discard

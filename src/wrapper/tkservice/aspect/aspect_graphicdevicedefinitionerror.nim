@@ -13,17 +13,17 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_GraphicDeviceDefinitionError"
-type
-  HandleAspectGraphicDeviceDefinitionError* = Handle[
-      AspectGraphicDeviceDefinitionError]
-
-when not defined(noException) and
-    not defined(noAspectGraphicDeviceDefinitionError):
-  template aspectGraphicDeviceDefinitionErrorRaiseIf*(condition, message: untyped): void =
-    if condition:
-      proc aspectGraphicDeviceDefinitionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_GraphicDeviceDefinitionError(@)", header: "Aspect_GraphicDeviceDefinitionError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_GraphicDeviceDefinitionError"
+#type
+#  HandleAspectGraphicDeviceDefinitionError* = Handle[
+#      AspectGraphicDeviceDefinitionError]
+#
+#when not defined(noException) and
+#    not defined(noAspectGraphicDeviceDefinitionError):
+#  template aspectGraphicDeviceDefinitionErrorRaiseIf*(condition, message: untyped): void =
+#    if condition:
+#      proc aspectGraphicDeviceDefinitionError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_GraphicDeviceDefinitionError(@)", header: "Aspect_GraphicDeviceDefinitionError.hxx".}
+#
+#else:
+#  discard

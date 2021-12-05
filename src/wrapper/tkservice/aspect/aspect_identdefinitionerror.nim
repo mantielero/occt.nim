@@ -13,15 +13,15 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_IdentDefinitionError"
-type
-  HandleAspectIdentDefinitionError* = Handle[AspectIdentDefinitionError]
-
-when not defined(noException) and not defined(noAspectIdentDefinitionError):
-  template aspectIdentDefinitionErrorRaiseIf*(condition, message: untyped): void =
-    if condition:
-      proc aspectIdentDefinitionError*(a1: Message): Throw {.cdecl,
-          importcpp: "Aspect_IdentDefinitionError(@)", header: "Aspect_IdentDefinitionError.hxx".}
-
-else:
-  discard
+#discard "forward decl of Aspect_IdentDefinitionError"
+#type
+#  HandleAspectIdentDefinitionError* = Handle[AspectIdentDefinitionError]
+#
+#when not defined(noException) and not defined(noAspectIdentDefinitionError):
+#  template aspectIdentDefinitionErrorRaiseIf*(condition, message: untyped): void =
+#    if condition:
+#      proc aspectIdentDefinitionError*(a1: Message): Throw {.cdecl,
+#          importcpp: "Aspect_IdentDefinitionError(@)", header: "Aspect_IdentDefinitionError.hxx".}
+#
+#else:
+#  discard

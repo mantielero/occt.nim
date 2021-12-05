@@ -12,4 +12,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  AspectTouchMap* = NCollectionIndexedDataMap[csize_t, AspectTouch]
+  AspectTouchMap* {.importcpp:"NCollection_IndexedDataMap<Standard_Size, Aspect_Touch>", header:"Aspect_TouchMap.hxx", bycopy.}= object

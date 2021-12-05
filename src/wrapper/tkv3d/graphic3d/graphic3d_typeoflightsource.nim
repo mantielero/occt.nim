@@ -34,4 +34,4 @@ const
 
 
 const                         ## ! Auxiliary value defining the overall number of values in enumeration Graphic3d_TypeOfLightSource
-  Graphic3dTypeOfLightSourceNB* = graphic3dTOLS_SPOT + 1
+  Graphic3dTypeOfLightSourceNB* = graphic3dTOLS_SPOT.int + 1

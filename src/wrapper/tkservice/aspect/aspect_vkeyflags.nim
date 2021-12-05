@@ -19,14 +19,14 @@ type
 ## ! Key modifier, for combining with general key from Aspect_VKey.
 
 const
-  AspectVKeyFlagsNONE* = 0      ##  reserve first 8 bits to combine value with Aspect_VKey
-  AspectVKeyFlagsSHIFT* = 1 shl 8 ## !< Aspect_VKey_Shift
-  AspectVKeyFlagsCTRL* = 1 shl 9  ## !< Aspect_VKey_Control
-  AspectVKeyFlagsALT* = 1 shl 10  ## !< Aspect_VKey_Alt
-  AspectVKeyFlagsMENU* = 1 shl 11 ## !< Aspect_VKey_Menu
-  AspectVKeyFlagsMETA* = 1 shl 12 ## !< Aspect_VKey_Meta
-  AspectVKeyFlagsALL* = AspectVKeyFlagsSHIFT or AspectVKeyFlagsCTRL or
-      AspectVKeyFlagsALT or AspectVKeyFlagsMENU or AspectVKeyFlagsMETA
+  aspectVKeyFlagsNONE* = 0      ##  reserve first 8 bits to combine value with Aspect_VKey
+  aspectVKeyFlagsSHIFT* = 1 shl 8 ## !< Aspect_VKey_Shift
+  aspectVKeyFlagsCTRL* = 1 shl 9  ## !< Aspect_VKey_Control
+  aspectVKeyFlagsALT* = 1 shl 10  ## !< Aspect_VKey_Alt
+  aspectVKeyFlagsMENU* = 1 shl 11 ## !< Aspect_VKey_Menu
+  aspectVKeyFlagsMETA* = 1 shl 12 ## !< Aspect_VKey_Meta
+  aspectVKeyFlagsALL* = aspectVKeyFlagsSHIFT or aspectVKeyFlagsCTRL or
+      aspectVKeyFlagsALT or aspectVKeyFlagsMENU or aspectVKeyFlagsMETA
 
 ## ! Mouse buttons, for combining with Aspect_VKey and Aspect_VKeyFlags.
 

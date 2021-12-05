@@ -652,6 +652,11 @@ const
 genFiles("Graphic3d_TypeOfAnswer")
 genFiles("Graphic3d_TypeOfBackfacingModel")
 genFiles("Graphic3d_TypeOfBackground")
+pp("graphic3d_typeofbackground.nim",
+  replaceAll = @[("Graphic3dTOB", "graphic3dTOB"),
+    ("graphic3dTOB_CUBEMAP + 1", "graphic3dTOB_CUBEMAP.int + 1")
+  ]
+)
 genFiles("Graphic3d_TypeOfComposition")
 genFiles("Graphic3d_TypeOfConnection")
 genFiles("Graphic3d_TypeOfLightSource")
@@ -668,7 +673,8 @@ const
   v3dAMBIENT     = graphic3dTOLS_AMBIENT
   v3dDIRECTIONAL = graphic3dTOLS_DIRECTIONAL
   v3dPOSITIONAL  = graphic3dTOLS_POSITIONAL
-  v3dSPOT        = graphic3dTOLS_SPOT""")]
+  v3dSPOT        = graphic3dTOLS_SPOT"""),
+  ("graphic3dTOLS_SPOT + 1", "graphic3dTOLS_SPOT.int + 1")]
 
 )
 genFiles("Graphic3d_TypeOfLimit")
@@ -693,7 +699,8 @@ const
   v3dCOLOR = graphic3dTOSM_NONE
   v3dFLAT = graphic3dTOSM_FACET
   v3dGOURAUD = graphic3dTOSM_VERTEX
-  v3dPHONG = graphic3dTOSM_FRAGMENT""")
+  v3dPHONG = graphic3dTOSM_FRAGMENT"""),
+  ("graphic3dTOSM_PBR_FACET + 1", "graphic3dTOSM_PBR_FACET.int + 1")
   ]
 )
 genFiles("Graphic3d_TypeOfStructure")
@@ -706,6 +713,9 @@ genFiles("Graphic3d_Vec3")
 genFiles("Graphic3d_Vec4")
 genFiles("Graphic3d_Vec")
 genFiles("Graphic3d_Vertex")
+pp("graphic3d_vertex.nim",
+  commentRange = @[(26,28), (31,33), (36,38)]
+)
 genFiles("Graphic3d_VerticalTextAlignment")
 genFiles("Graphic3d_ViewAffinity",
   comment = @[(44,44)]

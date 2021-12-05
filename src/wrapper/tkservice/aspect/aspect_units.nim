@@ -24,8 +24,8 @@
 ##
 
 const
-  METER* = 1000.0[]
-  CENTIMETER* = 10.0[]
+  METER* = 1000.0
+  CENTIMETER* = 10.0
 
 template tocentimeter*(v: untyped): untyped =
   (v) div 10.0
@@ -34,7 +34,7 @@ template fromcentimeter*(v: untyped): untyped =
   (v) * 10.0
 
 const
-  MILLIMETER* = 1.0[]
+  MILLIMETER* = 1.0
 
 template tomillimeter*(v: untyped): untyped =
   v

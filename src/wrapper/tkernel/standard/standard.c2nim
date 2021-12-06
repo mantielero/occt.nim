@@ -44,7 +44,7 @@
 #def OCCT_CLASS_NAME(theClass) #theClass
 #def Standard_DEPRECATED(A)
 #def DEFINE_STANDARD_RTTIEXT(Standard_Failure,Standard_Transient)
-#assumedef OCCT_NO_RVALUE_REFERENCE
+#assumendef OCCT_NO_RVALUE_REFERENCE
 #def Standard_DEPRECATED
 #def OCCT_NO_RVALUE_REFERENCE
 #def DEFINE_STANDARD_RTTI_INLINE(Class,Base) \

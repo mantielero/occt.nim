@@ -148,7 +148,16 @@ pp("standard_guid.nim", replaceAll = @[("standardGUID_SIZE + 1", "StandardGUID_S
 
 genFiles("Standard_Handle", remove = @[(152,154), (173,175), (180,182), (184,214), (216,398), (406,407), (413,417), (419,439)], addSemiColon = @[151, 172, 179,414]) #remove = @[(152,154), (173,175), (180,182)], addSemiColon = @[151, 172, 179] )#, remove = @[(159, 161)], addSemiColon = @[158])
 pp("standard_handle.nim",
-  replaceAll = @[("header: \"Standard_Handle.hxx\", bycopy.} = object", "header: \"Standard_Handle.hxx\", bycopy.} = object of RootObj")]
+  replaceAll = @[("header: \"Standard_Handle.hxx\", bycopy.} = object", "header: \"Standard_Handle.hxx\", bycopy.} = object of RootObj")],
+  insert = @[(76, """
+converter `toHandle`*[T](this: T): Handle[T] {.
+    importcpp: "(@)",
+    header: "Standard_Handle.hxx".}
+    
+converter `toHandle`*[T](this: ptr T): Handle[T] {.
+    importcpp: "(@)",
+    header: "Standard_Handle.hxx".}
+    """)]
 )
 
 genFiles("Standard_HandlerStatus")

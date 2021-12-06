@@ -73,3 +73,17 @@ proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, c
 ## ! @param theHandle the handle which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
+#[ converter `toHandle`*[T](this: T): Handle[T] {.
+    importcpp: "(operator=) (@)",
+    header: "Standard_Handle.hxx".} ]#
+
+#proc `=`*[T](this:var Handle[T], right:T) {.
+#    importcpp: "# = #;",
+#    header: "Standard_Handle.hxx",cdecl.}
+converter `toHandle`*[T](this: T): Handle[T] {.
+    importcpp: "(@)",
+    header: "Standard_Handle.hxx".}
+
+converter `toHandle`*[T](this: ptr T): Handle[T] {.
+    importcpp: "(@)",
+    header: "Standard_Handle.hxx".}

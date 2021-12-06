@@ -1,6 +1,8 @@
 {.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
+proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
+
 include tkernel/tkernel
 include tkmath/tkmath
 include tkgeombase/tkgeombase

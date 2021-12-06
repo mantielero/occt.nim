@@ -8,3 +8,4 @@ src/wrapper2/temp/*
 src/wrapper2/acme.py
 experiments/lib/nimcache
 experiments/wrapper2/nimcache
+examples/.cache

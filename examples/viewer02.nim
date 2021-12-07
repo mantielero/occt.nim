@@ -1,5 +1,12 @@
 import cinterop
 
+csource "Standard_Handle.hxx":
+  type
+    Handle*[T] {.cgen:"(Handle::$1(@))".} = object of CClass
+
+csource "V3D_Viewer.hxx":
+  type
+    V3dViewer* {.cgen:"(V3d_Viewer::$1(@))".} = object of CClass
 #[
 Handle(V3d_Viewer) theViewer;
 Handle(AIS_InteractiveContext) aContext = new AIS_InteractiveContext (theViewer);

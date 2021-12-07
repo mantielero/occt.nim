@@ -326,6 +326,11 @@ aContext->Display (aShapePrs, AIS_Shaded, 0, true);   // display the presentable
 
 https://stackoverflow.com/questions/51168352/reading-step-file-with-open-cascade
 
-# Examples
+# Inspiration
 https://techoverflow.net/category/opencascade/
 https://occtutorials.wordpress.com/
+https://cadquery.readthedocs.io/en/latest/quickstart.html
+OCCUtils
+
+# To explore
+[hcparse](https://github.com/haxscramper/hcparse)

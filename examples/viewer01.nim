@@ -12,7 +12,7 @@ proc main =
   # https://dev.opencascade.org/content/understanding-basic-example
   var aShapePrs:HandleAIS_Shape = cnew newAIS_Shape(solid)  # Handle(AIS_Shape) 
 
-  # Viewer
+  # Viewer  https://github.com/nim-lang/Nim/issues/4108  https://forum.nim-lang.org/t/8660#56349
   var theViewer:HandleV3dViewer
 
   var aContext:HandleAIS_InteractiveContext = cnew newAIS_InteractiveContext(theViewer)   # HandleAISInteractiveContext

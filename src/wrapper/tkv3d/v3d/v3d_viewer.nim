@@ -25,7 +25,7 @@ discard "forward decl of V3d_RectangularGrid"
 discard "forward decl of V3d_View"
 discard "forward decl of Quantity_Color"
 type
-  V3dViewer* {.importcpp: "V3d_Viewer", header: "V3d_Viewer.hxx", bycopy.} = object of StandardTransient ##
+  V3dViewer* {.importcpp: "V3d_Viewer", header: "V3d_Viewer.hxx", byref, pure,inheritable.} = object of StandardTransient ##
                                                                                                ## !
                                                                                                ## Create
                                                                                                ## a

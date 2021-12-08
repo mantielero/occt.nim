@@ -157,7 +157,7 @@ genFiles("gp_XY")
 genFiles("gp_XYZ")
 pp("gp_xyz.nim",
   replaceAll = @[("""Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy.} = object""",
-                  """Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy.} = object of RootObj""")]
+                  """Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object""")]
 )
 
 

@@ -1,7 +1,4 @@
-*
-!/**/
-!*.*
-.note
+.vscode/
 *~
 src/wrapper2/headers/*
 src/wrapper2/temp/*

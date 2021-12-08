@@ -16,7 +16,7 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Mat"
 type
-  Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy.} = object of RootObj ## ! Creates an XYZ object with zero co-ordinates (0,0,0)
+  Xyz* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object ## ! Creates an XYZ object with zero co-ordinates (0,0,0)
 
 
 proc newXyz*(): Xyz {.cdecl, constructor, importcpp: "gp_XYZ(@)", header: "gp_XYZ.hxx".}

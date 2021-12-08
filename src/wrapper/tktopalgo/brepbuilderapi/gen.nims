@@ -117,8 +117,17 @@ proc pp*(file:string,
 
 
 genFiles("BRepBuilderAPI_BndBoxTreeSelector")
+pp("brepbuilderapi_bndboxtreeselector.nim",
+  replaceAll = @[("newBRepBuilderAPI_BndBoxTreeSelector", "bndBoxTreeSelector")]
+)
+
 genFiles("BRepBuilderAPI_CellFilter")
+
 genFiles("BRepBuilderAPI_Collect")
+pp("brepbuilderapi_collect.nim",
+  replaceAll = @[("newBRepBuilderAPI_Collect", "collect")]
+)
+
 genFiles("BRepBuilderAPI_Command")
 pp("brepbuilderapi_command.nim",
   replaceAll = @[("""  BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
@@ -128,15 +137,29 @@ pp("brepbuilderapi_command.nim",
 )
 
 genFiles("BRepBuilderAPI_Copy")
+pp("brepbuilderapi_copy.nim",
+  replaceAll = @[("newBRepBuilderAPI_Copy", "copy")]
+)
+
 genFiles("BRepBuilderAPI_EdgeError")
 genFiles("BRepBuilderAPI_FaceError")
 genFiles("BRepBuilderAPI_FastSewing")
 pp("brepbuilderapi_fastsewing.nim",
-  replaceAll = @[("ptr StandardOStream = 0", "ptr StandardOStream = cast[ptr StandardOStream](0)")]
+  replaceAll = @[("ptr StandardOStream = 0", "ptr StandardOStream = cast[ptr StandardOStream](0)"),
+    ("newBRepBuilderAPI_FastSewing", "fastSewing")
+  ]
 )
 
 genFiles("BRepBuilderAPI_FindPlane")
+pp("brepbuilderapi_findplane.nim",
+  replaceAll = @[("newBRepBuilderAPI_FindPlane", "findPlane")]
+)
+
 genFiles("BRepBuilderAPI_GTransform")
+pp("brepbuilderapi_gtransform.nim",
+  replaceAll = @[("newBRepBuilderAPI_GTransform", "gTransform")]
+)
+
 genFiles("BRepBuilderAPI")
 genFiles("BRepBuilderAPI_MakeEdge2d")
 pp("brepbuilderapi_makeedge2d.nim",
@@ -147,8 +170,11 @@ pp("brepbuilderapi_makeedge2d.nim",
                   ("""proc init*(this: var BRepBuilderAPI_MakeEdge2d; c: Handle[Geom2dCurve]; p1: Pnt2d;
           p2: Pnt2d; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",""",
                   """proc init*(this: var BRepBuilderAPI_MakeEdge2d; c: Handle[Geom2dCurve]; p1: Pnt2d;
-          p2: Pnt2d; p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init",""")]
+          p2: Pnt2d; p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init","""),
+    ("newBRepBuilderAPI_MakeEdge2d", "makeEdge2d")
+          ]
 )
+
 genFiles("BRepBuilderAPI_MakeEdge")
 pp("brepbuilderapi_makeedge.nim",
   replaceAll = @[("""proc newBRepBuilderAPI_MakeEdge*(L: Handle[GeomCurve]; p1: Pnt; p2: Pnt; p1: cfloat;
@@ -163,41 +189,80 @@ pp("brepbuilderapi_makeedge.nim",
           p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init", dynlib: tktopalgo.}"""),
           ("""s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat) {.cdecl,""",
           """s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,"""),
-    ("newBRepBuilderAPI_Make", "new"),
+    ("newBRepBuilderAPI_MakeEdge", "edge"),
     ("Handle[GeomCurve]", "HandleGeomCurve")
           ]
 )
 
 genFiles("BRepBuilderAPI_MakeFace")
 pp("brepbuilderapi_makeface.nim",
-  replaceAll = @[("newBRepBuilderAPI_Make", "new")]
+  replaceAll = @[("newBRepBuilderAPI_MakeFace", "face")]
 )
+
 genFiles("BRepBuilderAPI_MakePolygon")
+pp("brepbuilderapi_makepolygon.nim",
+  replaceAll = @[("newBRepBuilderAPI_MakePolygon", "polygon")]
+)
+
 genFiles("BRepBuilderAPI_MakeShape")
+
 genFiles("BRepBuilderAPI_MakeShell")
+pp("brepbuilderapi_makeshell.nim",
+  replaceAll = @[("newBRepBuilderAPI_MakeShell", "shell")]
+)
+
 genFiles("BRepBuilderAPI_MakeSolid")
+pp("brepbuilderapi_makesolid.nim",
+  replaceAll = @[("newBRepBuilderAPI_MakeSolid", "solid")]
+)
+
 genFiles("BRepBuilderAPI_MakeVertex")
+pp("brepbuilderapi_makevertex.nim",
+  replaceAll = @[("newBRepBuilderAPI_MakeVertex", "vertex")]
+)
+
 genFiles("BRepBuilderAPI_MakeWire")
 pp("brepbuilderapi_makewire.nim",
-  replaceAll = @[("newBRepBuilderAPI_Make", "new")]
+  replaceAll = @[("newBRepBuilderAPI_MakeWire", "wire")]
 )
+
 genFiles("BRepBuilderAPI_ModifyShape")
+
+
 genFiles("BRepBuilderAPI_NurbsConvert")
+pp("brepbuilderapi_nurbsconvert.nim",
+  replaceAll = @[("newBRepBuilderAPI_NurbsConvert", "nurbsConvert")]
+)
+
 genFiles("BRepBuilderAPI_PipeError")
+
+
 genFiles("BRepBuilderAPI_Sewing")
 pp("brepbuilderapi_sewing.nim",
-  replaceAll = @[("MessageProgressRange = messageProgressRange()", "MessageProgressRange = newMessageProgressRange()")]
+  replaceAll = @[("MessageProgressRange = messageProgressRange()", "MessageProgressRange = newMessageProgressRange()"),
+    ("newBRepBuilderAPI_Sewing", "sewing")
+  ]
 )
 
-
 genFiles("BRepBuilderAPI_ShapeModification")
+
+
 genFiles("BRepBuilderAPI_ShellError")
+
+
 genFiles("BRepBuilderAPI_Transform")
 pp("brepbuilderapi_transform.nim",
   replaceAll = @[("newBRepBuilderAPI_Transform", "transform")]
 )
+
 genFiles("BRepBuilderAPI_TransitionMode")
+
+
 genFiles("BRepBuilderAPI_VertexInspector")
+pp("brepbuilderapi_vertexinspector.nim",
+  replaceAll = @[("newBRepBuilderAPI_VertexInspector", "vertexInspector")]
+)
+
 genFiles("BRepBuilderAPI_WireError")
 
 

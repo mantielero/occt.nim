@@ -56,20 +56,20 @@ type
                                                                                                             ## it.
 
 
-proc newBRepBuilderAPI_MakeSolid*(): BRepBuilderAPI_MakeSolid {.cdecl, constructor,
+proc solid*(): BRepBuilderAPI_MakeSolid {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(s: TopoDS_CompSolid): BRepBuilderAPI_MakeSolid {.
+proc solid*(s: TopoDS_CompSolid): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc solid*(s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc solid*(s1: TopoDS_Shell; s2: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(s1: TopoDS_Shell; s2: TopoDS_Shell;
+proc solid*(s1: TopoDS_Shell; s2: TopoDS_Shell;
                                  s3: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid): BRepBuilderAPI_MakeSolid {.
+proc solid*(so: TopoDS_Solid): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
-proc newBRepBuilderAPI_MakeSolid*(so: TopoDS_Solid; s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
+proc solid*(so: TopoDS_Solid; s: TopoDS_Shell): BRepBuilderAPI_MakeSolid {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeSolid(@)", header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc add*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shell) {.cdecl,
     importcpp: "Add", header: "BRepBuilderAPI_MakeSolid.hxx".}

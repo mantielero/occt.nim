@@ -37,9 +37,9 @@ type
                                                                                   ## shape.
 
 
-proc newBRepBuilderAPI_FindPlane*(): BRepBuilderAPI_FindPlane {.cdecl, constructor,
+proc findPlane*(): BRepBuilderAPI_FindPlane {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_FindPlane(@)", header: "BRepBuilderAPI_FindPlane.hxx".}
-proc newBRepBuilderAPI_FindPlane*(s: TopoDS_Shape; tol: cfloat = -1): BRepBuilderAPI_FindPlane {.
+proc findPlane*(s: TopoDS_Shape; tol: cfloat = -1): BRepBuilderAPI_FindPlane {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_FindPlane(@)", header: "BRepBuilderAPI_FindPlane.hxx".}
 proc init*(this: var BRepBuilderAPI_FindPlane; s: TopoDS_Shape; tol: cfloat = -1) {.cdecl,
     importcpp: "Init", header: "BRepBuilderAPI_FindPlane.hxx".}

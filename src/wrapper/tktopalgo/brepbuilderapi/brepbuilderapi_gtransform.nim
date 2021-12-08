@@ -49,9 +49,9 @@ type
                                                                                                                 ## transform.
 
 
-proc newBRepBuilderAPI_GTransform*(t: GTrsf): BRepBuilderAPI_GTransform {.cdecl,
+proc gTransform*(t: GTrsf): BRepBuilderAPI_GTransform {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
-proc newBRepBuilderAPI_GTransform*(s: TopoDS_Shape; t: GTrsf; copy: bool = false): BRepBuilderAPI_GTransform {.
+proc gTransform*(s: TopoDS_Shape; t: GTrsf; copy: bool = false): BRepBuilderAPI_GTransform {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_GTransform(@)", header: "BRepBuilderAPI_GTransform.hxx".}
 proc perform*(this: var BRepBuilderAPI_GTransform; s: TopoDS_Shape; copy: bool = false) {.
     cdecl, importcpp: "Perform", header: "BRepBuilderAPI_GTransform.hxx".}

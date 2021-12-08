@@ -48,9 +48,9 @@ type
                                                                                                                     ## convert.
 
 
-proc newBRepBuilderAPI_NurbsConvert*(): BRepBuilderAPI_NurbsConvert {.cdecl,
+proc nurbsConvert*(): BRepBuilderAPI_NurbsConvert {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)", header: "BRepBuilderAPI_NurbsConvert.hxx".}
-proc newBRepBuilderAPI_NurbsConvert*(s: TopoDS_Shape; copy: bool = false): BRepBuilderAPI_NurbsConvert {.
+proc nurbsConvert*(s: TopoDS_Shape; copy: bool = false): BRepBuilderAPI_NurbsConvert {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_NurbsConvert(@)",
     header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc perform*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape;

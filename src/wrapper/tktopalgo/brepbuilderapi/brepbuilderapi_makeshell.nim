@@ -61,11 +61,11 @@ type
                                                                                                             ## Init.
 
 
-proc newBRepBuilderAPI_MakeShell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,
+proc shell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; segment: bool = false): BRepBuilderAPI_MakeShell {.
+proc shell*(s: Handle[GeomSurface]; segment: bool = false): BRepBuilderAPI_MakeShell {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
-proc newBRepBuilderAPI_MakeShell*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
+proc shell*(s: Handle[GeomSurface]; uMin: cfloat; uMax: cfloat;
                                  vMin: cfloat; vMax: cfloat; segment: bool = false): BRepBuilderAPI_MakeShell {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeShell(@)", header: "BRepBuilderAPI_MakeShell.hxx".}
 proc init*(this: var BRepBuilderAPI_MakeShell; s: Handle[GeomSurface]; uMin: cfloat;

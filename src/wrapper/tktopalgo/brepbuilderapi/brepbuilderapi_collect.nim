@@ -21,7 +21,7 @@ type
                            header: "BRepBuilderAPI_Collect.hxx", bycopy.} = object
 
 
-proc newBRepBuilderAPI_Collect*(): BRepBuilderAPI_Collect {.cdecl, constructor,
+proc collect*(): BRepBuilderAPI_Collect {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_Collect(@)", header: "BRepBuilderAPI_Collect.hxx".}
 proc add*(this: var BRepBuilderAPI_Collect; si: TopoDS_Shape;
          mks: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Add",

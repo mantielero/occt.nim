@@ -93,20 +93,20 @@ type
                                                                                                           ## construction.
 
 
-proc newWire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,
+proc wire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
+proc wire*(e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+proc wire*(e1: TopoDS_Edge; e2: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+proc wire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge;
+proc wire*(e1: TopoDS_Edge; e2: TopoDS_Edge; e3: TopoDS_Edge;
                                 e4: TopoDS_Edge): BRepBuilderAPI_MakeWire {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(w: TopoDS_Wire): BRepBuilderAPI_MakeWire {.cdecl,
+proc wire*(w: TopoDS_Wire): BRepBuilderAPI_MakeWire {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
-proc newWire*(w: TopoDS_Wire; e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
+proc wire*(w: TopoDS_Wire; e: TopoDS_Edge): BRepBuilderAPI_MakeWire {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakeWire(@)", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc add*(this: var BRepBuilderAPI_MakeWire; e: TopoDS_Edge) {.cdecl, importcpp: "Add",
     header: "BRepBuilderAPI_MakeWire.hxx".}

@@ -48,7 +48,7 @@ type
                                                                                                               ## BRepBuilderAPI_MakeVertex(P);
 
 
-proc newBRepBuilderAPI_MakeVertex*(p: Pnt): BRepBuilderAPI_MakeVertex {.cdecl,
+proc vertex*(p: Pnt): BRepBuilderAPI_MakeVertex {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakeVertex(@)", header: "BRepBuilderAPI_MakeVertex.hxx".}
 proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.cdecl,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeVertex.hxx".}

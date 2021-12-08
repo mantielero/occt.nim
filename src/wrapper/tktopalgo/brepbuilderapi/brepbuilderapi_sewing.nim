@@ -112,7 +112,7 @@ type
                                                                                                ## processing
 
 
-proc newBRepBuilderAPI_Sewing*(tolerance: cfloat = 1.0e-06; option1: bool = true;
+proc sewing*(tolerance: cfloat = 1.0e-06; option1: bool = true;
                               option2: bool = true; option3: bool = true;
                               option4: bool = false): BRepBuilderAPI_Sewing {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_Sewing(@)", header: "BRepBuilderAPI_Sewing.hxx".}

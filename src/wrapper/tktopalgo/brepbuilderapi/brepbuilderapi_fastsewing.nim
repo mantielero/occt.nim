@@ -47,7 +47,7 @@ type
     FS_EmptyInput = 0x00000040, FS_Exception = 0x00000080
 
 
-proc newBRepBuilderAPI_FastSewing*(theTolerance: cfloat = 1.0e-06): BRepBuilderAPI_FastSewing {.
+proc fastSewing*(theTolerance: cfloat = 1.0e-06): BRepBuilderAPI_FastSewing {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_FastSewing(@)", header: "BRepBuilderAPI_FastSewing.hxx".}
 proc add*(this: var BRepBuilderAPI_FastSewing; theShape: TopoDS_Shape): bool {.cdecl,
     importcpp: "Add", header: "BRepBuilderAPI_FastSewing.hxx".}

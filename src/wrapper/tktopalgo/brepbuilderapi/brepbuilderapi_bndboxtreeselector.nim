@@ -29,7 +29,7 @@ type
                                       bycopy.} = object of Selector ## ! Constructor; calls the base class constructor
 
 
-proc newBRepBuilderAPI_BndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.
+proc bndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_BndBoxTreeSelector(@)",
     header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
 proc reject*(this: BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox): bool {.

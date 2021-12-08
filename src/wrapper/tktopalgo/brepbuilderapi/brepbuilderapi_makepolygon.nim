@@ -65,26 +65,26 @@ type
                                                                                                                 ## function.
 
 
-proc newBRepBuilderAPI_MakePolygon*(): BRepBuilderAPI_MakePolygon {.cdecl,
+proc polygon*(): BRepBuilderAPI_MakePolygon {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)", header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt): BRepBuilderAPI_MakePolygon {.
+proc polygon*(p1: Pnt; p2: Pnt): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; close: bool = false): BRepBuilderAPI_MakePolygon {.
+proc polygon*(p1: Pnt; p2: Pnt; p3: Pnt; close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt;
+proc polygon*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakePolygon {.
+proc polygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
+proc polygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                    v3: TopoDS_Vertex; close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
-proc newBRepBuilderAPI_MakePolygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
+proc polygon*(v1: TopoDS_Vertex; v2: TopoDS_Vertex;
                                    v3: TopoDS_Vertex; v4: TopoDS_Vertex;
                                    close: bool = false): BRepBuilderAPI_MakePolygon {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_MakePolygon(@)",

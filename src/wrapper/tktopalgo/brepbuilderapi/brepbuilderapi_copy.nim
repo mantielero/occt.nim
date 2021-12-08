@@ -35,9 +35,9 @@ type
                                                                                                     ## shapes.
 
 
-proc newBRepBuilderAPI_Copy*(): BRepBuilderAPI_Copy {.cdecl, constructor,
+proc copy*(): BRepBuilderAPI_Copy {.cdecl, constructor,
     importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
-proc newBRepBuilderAPI_Copy*(s: TopoDS_Shape; copyGeom: bool = true;
+proc copy*(s: TopoDS_Shape; copyGeom: bool = true;
                             copyMesh: bool = false): BRepBuilderAPI_Copy {.cdecl,
     constructor, importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
 proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape; copyGeom: bool = true;

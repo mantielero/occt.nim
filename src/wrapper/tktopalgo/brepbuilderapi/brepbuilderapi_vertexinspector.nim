@@ -30,7 +30,7 @@ type
 
   BRepBuilderAPI_VertexInspectorTarget* = cint
 
-proc newBRepBuilderAPI_VertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
+proc vertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
     header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: Xyz) {.cdecl,

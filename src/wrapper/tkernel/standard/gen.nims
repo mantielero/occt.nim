@@ -148,7 +148,7 @@ pp("standard_guid.nim", replaceAll = @[("standardGUID_SIZE + 1", "StandardGUID_S
 
 genFiles("Standard_Handle", remove = @[(152,154), (173,175), (180,182), (184,214), (216,398), (406,407), (413,417), (419,439)], addSemiColon = @[151, 172, 179,414]) #remove = @[(152,154), (173,175), (180,182)], addSemiColon = @[151, 172, 179] )#, remove = @[(159, 161)], addSemiColon = @[158])
 pp("standard_handle.nim",
-  replaceAll = @[("header: \"Standard_Handle.hxx\", bycopy.} = object", "header: \"Standard_Handle.hxx\", bycopy.} = object of RootObj")],
+  replaceAll = @[("header: \"Standard_Handle.hxx\", bycopy.} = object", "header: \"Standard_Handle.hxx\", bycopy, pure, inheritable.} = object")],
   insert = @[(76, """
 converter `toHandle`*[T](this: T): Handle[T] {.
     importcpp: "(@)",
@@ -246,7 +246,7 @@ genFiles("Standard_ShortReal") # Ignored: #assumedef _Standard_ShortReal_HeaderF
 genFiles("Standard_Size")      # Ignored: #assumedef _Standard_Size_HeaderFile
 genFiles("Standard_SStream")
 pp("standard_sstream.nim",
-  replaceAll = @[("  StandardSStream* = stringstream", "  StandardSStream* {.importcpp:\"std::stringstream\".}= object")])
+  replaceAll = @[("  StandardSStream* = stringstream", "  StandardSStream* {.importcpp:\"std::stringstream\".} = object")])
 
 genFiles("Standard_Std")       # Ignored: #assumedef _Standard_Std_HeaderFile
 genFiles("Standard_Stream")
@@ -255,7 +255,10 @@ genFiles("Standard_Time",  replaceAll = @[("__QNX__", "QNX")])
 genFiles("Standard_TooManyUsers")
 genFiles("Standard_Transient", remove = @[(117, 119)], addSemiColon = @[116])
 pp("standard_transient.nim",
-  replaceAll = @[("header: \"Standard_Transient.hxx\", bycopy.} = object","header: \"Standard_Transient.hxx\", bycopy.} = object of RootObj")]
+  replaceAll = @[("header: \"Standard_Transient.hxx\", bycopy.} = object","header: \"Standard_Transient.hxx\", byref, pure, inheritable.} = object"),
+    ("HandleStandardTransient* = Handle[StandardTransient]", 
+    """HandleStandardTransient* {.importcpp: "opencascade::handle<Standard_Transient>", header: "Standard_Transient.hxx", byref, pure, inheritable.} = object""")
+  ]
   )
 
 genFiles("Standard_TypeDef", replaceAll = @[("_WIN64", "WIN64")]) 

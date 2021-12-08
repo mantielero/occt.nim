@@ -19,7 +19,7 @@ discard "forward decl of handle"
 
 type
   StandardTransient* {.importcpp: "Standard_Transient",
-                      header: "Standard_Transient.hxx", bycopy.} = object of RootObj ##  Standard OCCT memory allocation stuff
+                      header: "Standard_Transient.hxx", byref, pure, inheritable.} = object ##  Standard OCCT memory allocation stuff
                                                                      ## ! Empty constructor
                                                                      ## !@name Support of run-time type information (RTTI)
                                                                      ## !@name Reference counting, for use by handle<>
@@ -73,4 +73,4 @@ proc hashCode*(theTransientObject: ptr StandardTransient; theUpperBound: cint): 
 ## ! Definition of Handle_Standard_Transient as typedef for compatibility
 
 type
-  HandleStandardTransient* = Handle[StandardTransient]
+  HandleStandardTransient* {.importcpp: "opencascade::handle<Standard_Transient>", header: "Standard_Transient.hxx", byref, pure, inheritable.} = object

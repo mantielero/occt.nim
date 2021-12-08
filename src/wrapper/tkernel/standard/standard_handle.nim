@@ -37,7 +37,7 @@ discard "forward decl of Standard_Transient"
 
 type
   Handle*[T] {.importcpp: "opencascade::handle<\'0>",
-              header: "Standard_Handle.hxx", byref, pure,inheritable.} = object of RootObj ## ! STL-compliant typedef of contained type
+              header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object ## ! STL-compliant typedef of contained type
                                                           ## ! Empty constructor
 
   HandleelementType*[T] = T
@@ -73,17 +73,11 @@ proc `<`*[T; T2](this: Handle[T]; theHandle: Handle[T2]): bool {.noSideEffect, c
 ## ! @param theHandle the handle which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
-#[ converter `toHandle`*[T](this: T): Handle[T] {.
-    importcpp: "(operator=) (@)",
-    header: "Standard_Handle.hxx".} ]#
-
-#proc `=`*[T](this:var Handle[T], right:T) {.
-#    importcpp: "# = #;",
-#    header: "Standard_Handle.hxx",cdecl.}
 converter `toHandle`*[T](this: T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
-
+    
 converter `toHandle`*[T](this: ptr T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
+    

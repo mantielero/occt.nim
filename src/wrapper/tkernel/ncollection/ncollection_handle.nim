@@ -20,7 +20,7 @@
 ## ! the object when last referred Handle is destroyed (i.e. it is a
 ## ! typical smart pointer), and that it can be handled as
 ## ! Handle(Standard_Transient) in OCCT components.
-
+ 
 type
   NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
                          header: "NCollection_Handle.hxx", bycopy.} = object of HandleStandardTransient

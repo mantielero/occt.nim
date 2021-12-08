@@ -36,9 +36,14 @@ https://stackoverflow.com/questions/51168352/reading-step-file-with-open-cascade
 
 # Inspiration
 https://techoverflow.net/category/opencascade/
+
 https://occtutorials.wordpress.com/
+
 https://cadquery.readthedocs.io/en/latest/quickstart.html
+
 OCCUtils
+
+https://github.com/gkv311/occt-webgl
 
 # To explore
 [hcparse](https://github.com/haxscramper/hcparse)

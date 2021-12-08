@@ -15,9 +15,11 @@ proc main =
   # Viewer  https://github.com/nim-lang/Nim/issues/4108  https://forum.nim-lang.org/t/8660#56349
   var theViewer:HandleV3dViewer
 
+
   var aContext:HandleAIS_InteractiveContext = cnew newAIS_InteractiveContext(theViewer)   # HandleAISInteractiveContext
+  #var aContext:AIS_InteractiveContext = cnew newAIS_InteractiveContext(theViewer)   # HandleAISInteractiveContext
   #var hObject:Handle[AIS_InteractiveObject] = constructHandle[Handle[AIS_InteractiveObject]]()
-  #aContext.display(aShapePrs, AIS_Shaded, 0, true)
+  aContext.display(aShapePrs, AIS_Shaded, 0, true)
 
 main()
 

@@ -15,14 +15,10 @@ proc main() =
     aPnt4 = newPnt(myWidth / 2.0, -myThickness / 4.0, 0)
     aPnt5 = newPnt(myWidth / 2.0, 0, 0)
 
-#[   echo aPnt2.x
-  echo aPnt3.y
-  echo aPnt4.z ]#
-
   let 
-    aArcOfCircle:HandleGeomTrimmedCurve = newMakeArcOfCircle(aPnt2,aPnt3,aPnt4) # MakeCircle --(converter)--> Handle[GeomTrimmedCurve] 
-    aSegment1:HandleGeomTrimmedCurve    = newMakeSegment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
-    aSegment2:HandleGeomTrimmedCurve    = newMakeSegment(aPnt4, aPnt5)
+    aArcOfCircle:HandleGeomTrimmedCurve = arcCircle(aPnt2,aPnt3,aPnt4) # MakeCircle --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment1:HandleGeomTrimmedCurve    = segment(aPnt1, aPnt2)  # MakeSegment --(converter)--> Handle[GeomTrimmedCurve] 
+    aSegment2:HandleGeomTrimmedCurve    = segment(aPnt4, aPnt5)
     # Note: HandleGeomCurve = Handle[GeomCurve] 
     # Note: HandleGeomTrimmedCurve should inherit from HandleGeomCurve
 
@@ -32,13 +28,13 @@ proc main() =
     #aEdge1:TopoDS_Edge = makeEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
     #aEdge2:TopoDS_Edge = makeEdge(aArcOfCircle)
     #aEdge3:TopoDS_Edge = makeEdge(aSegment2)
-    aEdge1:BRepBuilderAPI_MakeEdge = newEdge(aSegment1)    # BRepBuilderAPI_MakeEdge
-    aEdge2:BRepBuilderAPI_MakeEdge = newEdge(aArcOfCircle)
-    aEdge3:BRepBuilderAPI_MakeEdge = newEdge(aSegment2)
+    aEdge1:BRepBuilderAPI_MakeEdge = edge(aSegment1)    # BRepBuilderAPI_MakeEdge
+    aEdge2:BRepBuilderAPI_MakeEdge = edge(aArcOfCircle)
+    aEdge3:BRepBuilderAPI_MakeEdge = edge(aSegment2)
 
     #aEdge1 = makeEdge(aPnt1, aPnt3)
     #aEdge3 = makeEdge(aPnt4, aPnt5)
-    aWire:BRepBuilderAPI_MakeWire = newWire(aEdge1, aEdge2, aEdge3)
+    aWire:BRepBuilderAPI_MakeWire = wire(aEdge1, aEdge2, aEdge3)
 
 
     # Profile: Completing the Profile
@@ -62,7 +58,7 @@ proc main() =
 
 
   # Join the wires into a shape
-  var mkWire = newWire() #:BRepBuilderAPI_MakeWire
+  var mkWire = wire() #:BRepBuilderAPI_MakeWire
   mkWire.add(aWire)
   mkWire.add(aMirroredWire)
   let myWireProfile:TopoDS_Wire = mkWire.wire 
@@ -70,7 +66,7 @@ proc main() =
 
   # Building the body
   #   let myFaceProfile:BRepBuilderAPI_MakeFace = MakeFace(myWireProfile)
-  let myFaceProfile:TopoDS_Face = newFace(myWireProfile)
+  let myFaceProfile:TopoDS_Face = face(myWireProfile)
   let aPrismVec = newVec(0.0, 0.0, myHeight)
   var myBody:BRepPrimAPI_MakePrism = newPrism(myFaceProfile, aPrismVec)  # BRepPrimAPI_MakePrism
 
@@ -104,17 +100,6 @@ proc main() =
   # Creating a Hollowed Solid
 
 #[
-#include <STEPControl.hxx> 
-#include <STEPControl_Writer.hxx> 
-#include <TopoDS_Shape.hxx> 
-#include <BRepTools.hxx> 
-#include <BRep_Builder.hxx> 
- 
-Standard_Integer main() 
-{ 
-TopoDS_Solid source; 
-. . . 
- 
 STEPControl_Writer writer; 
 writer.Transfer(source, STEPControl_ManifoldSolidBrep); 
  
@@ -122,7 +107,5 @@ writer.Transfer(source, STEPControl_ManifoldSolidBrep);
 writer.Write(;Output.stp;); 
 // writes the resulting entity in the STEP file 
  
-} 
-
 ]#
 main()

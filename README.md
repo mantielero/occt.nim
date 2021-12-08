@@ -1,6 +1,7 @@
 # occt
-OpenCascade nim wrapper
-[occt.nim site](https://mantielero.github.io/occt-site/)
+OpenCascade nim wrapper.
+
+Further documentation in [occt.nim site](https://mantielero.github.io/occt-site/)
 
 # Status
 Some of the examples currently compiles and run. But the coverage of the library still is pretty low.

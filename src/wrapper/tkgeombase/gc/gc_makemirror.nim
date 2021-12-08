@@ -25,20 +25,20 @@ type
   MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
 
 
-proc newMakeMirror*(point: Pnt): MakeMirror {.cdecl, constructor,
+proc mirror*(point: Pnt): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newMakeMirror*(axis: Ax1): MakeMirror {.cdecl, constructor,
+proc mirror*(axis: Ax1): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newMakeMirror*(line: Lin): MakeMirror {.cdecl, constructor,
+proc mirror*(line: Lin): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newMakeMirror*(point: Pnt; direc: Dir): MakeMirror {.cdecl, constructor,
+proc mirror*(point: Pnt; direc: Dir): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newMakeMirror*(plane: Pln): MakeMirror {.cdecl, constructor,
+proc mirror*(plane: Pln): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc newMakeMirror*(plane: Ax2): MakeMirror {.cdecl, constructor,
+proc mirror*(plane: Ax2): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc value*(this: MakeMirror): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeMirror.hxx".}
-converter `constopencascade`*(this: MakeMirror): Handle[GeomTransformation] {.
-    noSideEffect, cdecl, importcpp: "GC_MakeMirror::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeMirror): Handle[GeomTransformation] {.
+    noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeMirror.hxx".}

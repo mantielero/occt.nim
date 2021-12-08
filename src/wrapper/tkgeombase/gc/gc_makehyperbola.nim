@@ -23,14 +23,14 @@ type
                   bycopy.} = object of Root ## ! Creates  an Hyperbola from a non persistent hyperbola  from package gp by conversion.
 
 
-proc newMakeHyperbola*(h: Hypr): MakeHyperbola {.cdecl, constructor,
+proc hyperbola*(h: Hypr): MakeHyperbola {.cdecl, constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc newMakeHyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
+proc hyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc newMakeHyperbola*(s1: Pnt; s2: Pnt; center: Pnt): MakeHyperbola {.cdecl,
+proc hyperbola*(s1: Pnt; s2: Pnt; center: Pnt): MakeHyperbola {.cdecl,
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc value*(this: MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeHyperbola.hxx".}
-converter `constopencascade`*(this: MakeHyperbola): Handle[GeomHyperbola] {.
-    noSideEffect, cdecl, importcpp: "GC_MakeHyperbola::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeHyperbola): Handle[GeomHyperbola] {.
+    noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeHyperbola.hxx".}

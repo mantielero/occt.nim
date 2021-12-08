@@ -37,25 +37,25 @@ type
                                                                                          ## conversion.
 
 
-proc newMakeCircle*(c: Circ): MakeCircle {.cdecl, constructor,
+proc circle*(c: Circ): MakeCircle {.cdecl, constructor,
                                        importcpp: "GC_MakeCircle(@)",
                                        header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(a2: Ax2; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(a2: Ax2; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(circ: Circ; dist: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(circ: Circ; dist: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(circ: Circ; point: Pnt): MakeCircle {.cdecl, constructor,
+proc circle*(circ: Circ; point: Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(p1: Pnt; p2: Pnt; p3: Pnt): MakeCircle {.cdecl, constructor,
+proc circle*(p1: Pnt; p2: Pnt; p3: Pnt): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(center: Pnt; norm: Dir; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: Pnt; norm: Dir; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(center: Pnt; ptAxis: Pnt; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: Pnt; ptAxis: Pnt; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc newMakeCircle*(axis: Ax1; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(axis: Ax1; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc value*(this: MakeCircle): Handle[GeomCircle] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeCircle.hxx".}
-converter `constopencascade`*(this: MakeCircle): Handle[GeomCircle] {.noSideEffect,
-    cdecl, importcpp: "GC_MakeCircle::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeCircle): Handle[GeomCircle] {.noSideEffect,
+    cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeCircle.hxx".}

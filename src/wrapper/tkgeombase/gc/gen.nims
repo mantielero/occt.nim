@@ -107,32 +107,164 @@ genFiles("GC_MakeArcOfCircle")
 pp("gc_makearcofcircle.nim",
   replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
     ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
-    ("GC_MakeArcOfCircle::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)")
+    ("GC_MakeArcOfCircle::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeArcOfCircle", "arcCircle")
   ]
 )
+
 genFiles("GC_MakeArcOfEllipse")
+pp("gc_makearcofellipse.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeArcOfEllipse::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeArcOfEllipse", "arcEllipse")
+  ]
+)
+
 genFiles("GC_MakeArcOfHyperbola")
+pp("gc_makearcofhyperbola.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeArcOfHyperbola::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeArcOfHyperbola", "arcHyperbola")
+  ]
+)
+
 genFiles("GC_MakeArcOfParabola")
+pp("gc_makearcofparabola.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeArcOfParabola::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeArcOfParabola", "arcParabola")
+  ]
+)
+
 genFiles("GC_MakeCircle")
+pp("gc_makecircle.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeCircle::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeCircle", "circle")
+  ]
+)
+
 genFiles("GC_MakeConicalSurface")
+pp("gc_makeconicalsurface.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeConicalSurface::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeConicalSurface", "conicalSurface")
+  ]
+)
+
 genFiles("GC_MakeCylindricalSurface")
+pp("gc_makecylindricalsurface.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeCylindricalSurface::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeCylindricalSurface", "cylindricalSurface")
+  ]
+)
+
 genFiles("GC_MakeEllipse")
+pp("gc_makeellipse.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeEllipse::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeEllipse", "ellipse")
+  ]
+)
+
 genFiles("GC_MakeHyperbola")
+pp("gc_makehyperbola.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeHyperbola::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeHyperbola", "hyperbola")
+  ]
+)
+
 genFiles("GC_MakeLine")
+pp("gc_makeline.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeLine::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeLine", "line")
+  ]
+)
+
 genFiles("GC_MakeMirror")
+pp("gc_makemirror.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeMirror::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeMirror", "mirror")
+  ]
+)
+
 genFiles("GC_MakePlane")
+pp("gc_makeplane.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakePlane::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakePlane", "plane")
+  ]
+)
+
 genFiles("GC_MakeRotation")
+pp("gc_makerotation.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeRotation::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeRotation", "rotation")
+  ]
+)
+
 genFiles("GC_MakeScale")
+pp("gc_makescale.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeScale::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeScale", "scale")
+  ]
+)
+
 genFiles("GC_MakeSegment")
 pp("gc_makesegment.nim",
   replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
     ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
-    ("GC_MakeSegment::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)")  
+    ("GC_MakeSegment::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeSegment", "segment")
   ]
 )
+
 genFiles("GC_MakeTranslation")
+pp("gc_maketranslation.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeTranslation::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeTranslation", "translation")
+  ]
+)
+
 genFiles("GC_MakeTrimmedCone")
+pp("gc_maketrimmedcone.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeTrimmedCone::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeTrimmedCone", "trimmedCone")
+  ]
+)
+
 genFiles("GC_MakeTrimmedCylinder")
+pp("gc_maketrimmedcylinder.nim",
+  replaceAll = @[("Handle[GeomTrimmedCurve]", "HandleGeomTrimmedCurve"),
+    ("converter `constopencascade`*", "converter toHandleGeomTrimmedCurve*"),
+    ("GC_MakeTrimmedCylinder::operator constopencascade", "(Handle_Geom_TrimmedCurve)(#)"),
+    ("newMakeTrimmedCylinder", "trimmedCylinder")
+  ]
+)
+
 genFiles("GC_Root")
 pp("gc_root.nim",
   replaceAll = @[("= object", "= object of RootObj")]

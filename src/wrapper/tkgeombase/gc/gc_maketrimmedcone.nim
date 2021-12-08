@@ -37,12 +37,12 @@ type
                                                                          ## colinear to <P1P2>.
 
 
-proc newMakeTrimmedCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): MakeTrimmedCone {.cdecl,
+proc trimmedCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): MakeTrimmedCone {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
-proc newMakeTrimmedCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
+proc trimmedCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
     cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
 proc value*(this: MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCone.hxx".}
-converter `constopencascade`*(this: MakeTrimmedCone): Handle[
-    GeomRectangularTrimmedSurface] {.noSideEffect, cdecl, importcpp: "GC_MakeTrimmedCone::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeTrimmedCone): Handle[
+    GeomRectangularTrimmedSurface] {.noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
                                     header: "GC_MakeTrimmedCone.hxx".}

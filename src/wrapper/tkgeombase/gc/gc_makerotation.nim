@@ -38,14 +38,14 @@ type
                                                                                          ## Line.
 
 
-proc newMakeRotation*(line: Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
+proc rotation*(line: Lin; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc newMakeRotation*(axis: Ax1; angle: cfloat): MakeRotation {.cdecl, constructor,
+proc rotation*(axis: Ax1; angle: cfloat): MakeRotation {.cdecl, constructor,
     importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
-proc newMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): MakeRotation {.cdecl,
+proc rotation*(point: Pnt; direc: Dir; angle: cfloat): MakeRotation {.cdecl,
     constructor, importcpp: "GC_MakeRotation(@)", header: "GC_MakeRotation.hxx".}
 proc value*(this: MakeRotation): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeRotation.hxx".}
-converter `constopencascade`*(this: MakeRotation): Handle[GeomTransformation] {.
-    noSideEffect, cdecl, importcpp: "GC_MakeRotation::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeRotation): Handle[GeomTransformation] {.
+    noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeRotation.hxx".}

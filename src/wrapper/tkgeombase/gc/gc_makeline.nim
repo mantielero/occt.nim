@@ -48,18 +48,18 @@ type
                                                                                    ## line.
 
 
-proc newMakeLine*(a1: Ax1): MakeLine {.cdecl, constructor,
+proc line*(a1: Ax1): MakeLine {.cdecl, constructor,
                                    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc newMakeLine*(L: Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
+proc line*(L: Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
                                   header: "GC_MakeLine.hxx".}
-proc newMakeLine*(p: Pnt; v: Dir): MakeLine {.cdecl, constructor,
+proc line*(p: Pnt; v: Dir): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
                                         header: "GC_MakeLine.hxx".}
-proc newMakeLine*(lin: Lin; point: Pnt): MakeLine {.cdecl, constructor,
+proc line*(lin: Lin; point: Pnt): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc newMakeLine*(p1: Pnt; p2: Pnt): MakeLine {.cdecl, constructor,
+proc line*(p1: Pnt; p2: Pnt): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeLine.hxx".}
-converter `constopencascade`*(this: MakeLine): Handle[GeomLine] {.noSideEffect,
-    cdecl, importcpp: "GC_MakeLine::operator constopencascade", header: "GC_MakeLine.hxx".}
+converter toHandleGeomTrimmedCurve*(this: MakeLine): Handle[GeomLine] {.noSideEffect,
+    cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeLine.hxx".}

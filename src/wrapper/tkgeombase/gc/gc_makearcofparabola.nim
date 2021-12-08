@@ -37,15 +37,15 @@ type
                                                                              ## radians).
 
 
-proc newMakeArcOfParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfParabola {.
+proc arcParabola*(parab: Parab; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
-proc newMakeArcOfParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfParabola {.
+proc arcParabola*(parab: Parab; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
-proc newMakeArcOfParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfParabola {.
+proc arcParabola*(parab: Parab; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfParabola {.
     cdecl, constructor, importcpp: "GC_MakeArcOfParabola(@)", header: "GC_MakeArcOfParabola.hxx".}
-proc value*(this: MakeArcOfParabola): Handle[GeomTrimmedCurve] {.noSideEffect, cdecl,
+proc value*(this: MakeArcOfParabola): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfParabola.hxx".}
-converter `constopencascade`*(this: MakeArcOfParabola): Handle[GeomTrimmedCurve] {.
+converter toHandleGeomTrimmedCurve*(this: MakeArcOfParabola): HandleGeomTrimmedCurve {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeArcOfParabola::operator constopencascade",
+    importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeArcOfParabola.hxx".}

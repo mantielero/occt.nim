@@ -45,10 +45,10 @@ type
                                                                                 ## factor.
 
 
-proc newMakeScale*(point: Pnt; scale: cfloat): MakeScale {.cdecl, constructor,
+proc scale*(point: Pnt; scale: cfloat): MakeScale {.cdecl, constructor,
     importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
 proc value*(this: MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeScale.hxx".}
-converter `constopencascade`*(this: MakeScale): Handle[GeomTransformation] {.
-    noSideEffect, cdecl, importcpp: "GC_MakeScale::operator constopencascade",
+converter toHandleGeomTrimmedCurve*(this: MakeScale): Handle[GeomTransformation] {.
+    noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeScale.hxx".}

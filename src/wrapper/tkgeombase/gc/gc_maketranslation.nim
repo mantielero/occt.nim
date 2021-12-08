@@ -22,12 +22,12 @@ type
                     header: "GC_MakeTranslation.hxx", bycopy.} = object ## ! Constructs a translation along the vector " Vect "
 
 
-proc newMakeTranslation*(vect: Vec): MakeTranslation {.cdecl, constructor,
+proc translation*(vect: Vec): MakeTranslation {.cdecl, constructor,
     importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc newMakeTranslation*(point1: Pnt; point2: Pnt): MakeTranslation {.cdecl,
+proc translation*(point1: Pnt; point2: Pnt): MakeTranslation {.cdecl,
     constructor, importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
 proc value*(this: MakeTranslation): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeTranslation.hxx".}
-converter `constopencascade`*(this: MakeTranslation): Handle[GeomTransformation] {.
+converter toHandleGeomTrimmedCurve*(this: MakeTranslation): Handle[GeomTransformation] {.
     noSideEffect, cdecl,
-    importcpp: "GC_MakeTranslation::operator constopencascade", header: "GC_MakeTranslation.hxx".}
+    importcpp: "(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeTranslation.hxx".}

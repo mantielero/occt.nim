@@ -21,14 +21,14 @@ type
                     bycopy.} = object of BRepAlgoAPI_BooleanOperation ## ! Empty constructor
 
 
-proc newBRepAlgoAPI_Cut*(): BRepAlgoAPI_Cut {.cdecl, constructor,
+proc cut*(): BRepAlgoAPI_Cut {.cdecl, constructor,
     importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
 proc destroyBRepAlgoAPI_Cut*(this: var BRepAlgoAPI_Cut) {.cdecl,
     importcpp: "#.~BRepAlgoAPI_Cut()", header: "BRepAlgoAPI_Cut.hxx".}
-proc newBRepAlgoAPI_Cut*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Cut {.cdecl,
+proc cut*(pf: BOPAlgoPaveFiller): BRepAlgoAPI_Cut {.cdecl,
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
-proc newBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.cdecl,
+proc cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.cdecl,
     constructor, importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
-proc newBRepAlgoAPI_Cut*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller;
+proc cut*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller;
                         bFWD: bool = true): BRepAlgoAPI_Cut {.cdecl, constructor,
     importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}

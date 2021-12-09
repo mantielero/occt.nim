@@ -116,23 +116,43 @@ proc pp*(file:string,
 # ls /usr/include/opencascade/BRepAlgoAPI*.hxx | cut -c 26-
 
 genFiles("BRepAlgoAPI_Algo")
+
+
 genFiles("BRepAlgoAPI_BooleanOperation")
+
+
 genFiles("BRepAlgoAPI_BuilderAlgo")
 pp("brepalgoapi_builderalgo.nim",
   commentRange = @[(575,576)]
 )
+
+
 genFiles("BRepAlgoAPI_Check")
+
+
 genFiles("BRepAlgoAPI_Common")
+
+
 genFiles("BRepAlgoAPI_Cut")
+pp("brepalgoapi_cut.nim",
+  replaceAll = @[("newBRepAlgoAPI_Cut", "cut")]
+)
+
 genFiles("BRepAlgoAPI_Defeaturing")
 pp("brepalgoapi_defeaturing.nim",
   commentRange = @[(222,223)]
 )
+
+
 genFiles("BRepAlgoAPI_Fuse")
 pp("brepalgoapi_fuse.nim",
   replaceAll = @[("newBRepAlgoAPI_F", "f")]
 )
+
+
 genFiles("BRepAlgoAPI_Section")
+
+
 genFiles("BRepAlgoAPI_Splitter")
 
 

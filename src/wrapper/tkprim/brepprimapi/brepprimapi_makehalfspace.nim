@@ -35,9 +35,9 @@ type
                                                                                                               ## Point.
 
 
-proc newBRepPrimAPI_MakeHalfSpace*(face: TopoDS_Face; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
+proc halfSpace*(face: TopoDS_Face; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
-proc newBRepPrimAPI_MakeHalfSpace*(shell: TopoDS_Shell; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
+proc halfSpace*(shell: TopoDS_Shell; refPnt: Pnt): BRepPrimAPI_MakeHalfSpace {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeHalfSpace(@)", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
 proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect, cdecl,
     importcpp: "Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}

@@ -35,14 +35,14 @@ type
                                                                                                       ## 0)
 
 
-proc newBRepPrimAPI_MakeWedge*(dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
+proc wedge*(dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
-proc newBRepPrimAPI_MakeWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
+proc wedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
-proc newBRepPrimAPI_MakeWedge*(dx: cfloat; dy: cfloat; dz: cfloat; xmin: cfloat;
+proc wedge*(dx: cfloat; dy: cfloat; dz: cfloat; xmin: cfloat;
                               zmin: cfloat; xmax: cfloat; zmax: cfloat): BRepPrimAPI_MakeWedge {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
-proc newBRepPrimAPI_MakeWedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat;
+proc wedge*(axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat;
                               xmin: cfloat; zmin: cfloat; xmax: cfloat; zmax: cfloat): BRepPrimAPI_MakeWedge {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeWedge(@)", header: "BRepPrimAPI_MakeWedge.hxx".}
 proc wedge*(this: var BRepPrimAPI_MakeWedge): var BRepPrimWedge {.cdecl,

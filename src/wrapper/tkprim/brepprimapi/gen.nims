@@ -117,23 +117,64 @@ proc pp*(file:string,
 
 
 genFiles("BRepPrimAPI_MakeBox")
+pp("brepprimapi_makebox.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeBox", "box")]
+)
+
 genFiles("BRepPrimAPI_MakeCone")
+pp("brepprimapi_makecone.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeCone", "cone")]
+)
+
 genFiles("BRepPrimAPI_MakeCylinder")
 pp("brepprimapi_makecylinder.nim",
-  replaceAll = @[("newBRepPrimAPI_Make", "new")]
+  replaceAll = @[("newBRepPrimAPI_MakeCylinder", "cylinder")]
 )
+
 genFiles("BRepPrimAPI_MakeHalfSpace")
+pp("brepprimapi_makehalfspace.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeHalfSpace", "halfSpace")]
+)
+
 genFiles("BRepPrimAPI_MakeOneAxis")
+#pp("brepprimapi_makeoneaxis.nim",
+#  replaceAll = @[("newBRepPrimAPI_MakeCylinder", "cylinder")]
+#)
+
 genFiles("BRepPrimAPI_MakePrism")
 pp("brepprimapi_makeprism.nim",
-  replaceAll = @[("newBRepPrimAPI_Make", "new")]
+  replaceAll = @[("newBRepPrimAPI_MakePrism", "prism")]
 )
+
 genFiles("BRepPrimAPI_MakeRevol")
+pp("brepprimapi_makerevol.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeRevol", "revol")]
+)
+
 genFiles("BRepPrimAPI_MakeRevolution")
+pp("brepprimapi_makerevolution.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeRevolution", "revolution")]
+)
+
 genFiles("BRepPrimAPI_MakeSphere")
+pp("brepprimapi_makesphere.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeSphere", "sphere")]
+)
+
 genFiles("BRepPrimAPI_MakeSweep")
+#pp("brepprimapi_makesweep.nim",
+#  replaceAll = @[("newBRepPrimAPI_MakeSphere", "sphere")]
+#)
+
 genFiles("BRepPrimAPI_MakeTorus")
+pp("brepprimapi_maketorus.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeTorus", "torus")]
+)
+
 genFiles("BRepPrimAPI_MakeWedge")
+pp("brepprimapi_makewedge.nim",
+  replaceAll = @[("newBRepPrimAPI_MakeWedge", "wedge")]
+)
 
 
 

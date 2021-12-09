@@ -34,31 +34,31 @@ type
                                                                                                        ## radius
 
 
-proc newBRepPrimAPI_MakeSphere*(r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
+proc sphere*(r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(r: cfloat; angle1: cfloat; angle2: cfloat;
+proc sphere*(r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(center: Pnt; r: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(center: Pnt; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat;
+proc sphere*(center: Pnt; r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
+proc sphere*(axis: Ax2; r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(axis: Ax2; r: cfloat; angle: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
+proc sphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI_MakeSphere {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
-proc newBRepPrimAPI_MakeSphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat;
+proc sphere*(axis: Ax2; r: cfloat; angle1: cfloat; angle2: cfloat;
                                angle3: cfloat): BRepPrimAPI_MakeSphere {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeSphere(@)", header: "BRepPrimAPI_MakeSphere.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeSphere): pointer {.cdecl,

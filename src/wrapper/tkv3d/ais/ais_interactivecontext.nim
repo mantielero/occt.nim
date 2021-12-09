@@ -937,10 +937,16 @@ proc display*(this: var AIS_InteractiveContext;
              theIObj: Handle[AIS_InteractiveObject]; theToUpdateViewer: bool) {.
     cdecl, importcpp: "Display", header: "AIS_InteractiveContext.hxx".}
 proc display*(this: var AIS_InteractiveContext;
-             theIObj: Handle[AIS_InteractiveObject]; theDispMode: cint;
+             theIObj: HandleAIS_InteractiveObject; theDispMode: cint;
              theSelectionMode: cint; theToUpdateViewer: bool;
              theDispStatus: AIS_DisplayStatus = aIS_DS_None) {.cdecl,
     importcpp: "Display", header: "AIS_InteractiveContext.hxx".}
+proc display*(this: var HandleAIS_InteractiveContext;
+             theIObj: HandleAIS_InteractiveObject; theDispMode: cint;
+             theSelectionMode: cint; theToUpdateViewer: bool;
+             theDispStatus: AIS_DisplayStatus = aIS_DS_None) {.cdecl,
+    importcpp: "#->Display(@)", header: "AIS_InteractiveContext.hxx".}
+
 proc load*(this: var AIS_InteractiveContext; theObj: Handle[AIS_InteractiveObject];
           theSelectionMode: cint = -1) {.cdecl, importcpp: "Load", header: "AIS_InteractiveContext.hxx".}
 proc display*(this: var AIS_InteractiveContext;
@@ -1332,7 +1338,7 @@ proc rebuildSelectionStructs*(this: var AIS_InteractiveContext) {.cdecl,
     importcpp: "RebuildSelectionStructs", header: "AIS_InteractiveContext.hxx".}
 proc disconnect*(this: var AIS_InteractiveContext;
                 theAssembly: Handle[AIS_InteractiveObject];
-                theObjToDisconnect: Handle[AIS_InteractiveObject] = cast[HandleAIS_InteractiveObject](nil)) {.cdecl,
+                theObjToDisconnect: HandleAIS_InteractiveObject = cast[HandleAIS_InteractiveObject](nil)) {.cdecl,
     importcpp: "Disconnect", header: "AIS_InteractiveContext.hxx".}
 proc objectsForView*(this: AIS_InteractiveContext;
                     theListOfIO: var AIS_ListOfInteractive;

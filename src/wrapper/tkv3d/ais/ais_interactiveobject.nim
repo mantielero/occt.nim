@@ -108,4 +108,6 @@ proc dumpJson*(this: AIS_InteractiveObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "AIS_InteractiveObject.hxx".}
 type
-  HandleAIS_InteractiveObject* = Handle[AIS_InteractiveObject]
+  #HandleAIS_InteractiveObject* = Handle[AIS_InteractiveObject]
+  HandleAIS_InteractiveObject* {.importcpp:"opencascade::handle<AIS_InteractiveObject>", 
+    header:"AIS_InteractiveObject.hxx", byref, pure, inheritable.} = object

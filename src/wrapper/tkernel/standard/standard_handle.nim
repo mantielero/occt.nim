@@ -77,7 +77,16 @@ converter `toHandle`*[T](this: T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
     
-converter `toHandle`*[T](this: ptr T): Handle[T] {.
+#converter `toHandle`*[T](this: ptr T): Handle[T] {.
+#    importcpp: "(@)",
+#    header: "Standard_Handle.hxx".}
+
+# opencascade::handle<AIS_Shape>(@)    
+converter `toHandle`*(this: ptr AIS_Shape): HandleAIS_Shape {.
+    importcpp: "(@)", 
+    header: "Standard_Handle.hxx".}
+
+# opencascade::handle<AIS_InteractiveContext>(@)
+converter `toHandle`*(this: ptr AIS_InteractiveContext): HandleAIS_InteractiveContext {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
-    

@@ -42,12 +42,12 @@ type
 
   HandleelementType*[T] = T
 
-proc constructHandle*[T](): Handle[T] {.cdecl, constructor,
+proc newHandle*[T](): Handle[T] {.cdecl, constructor,
                                      importcpp: "opencascade::handle<\'*0>(@)",
                                      header: "Standard_Handle.hxx".}
-proc constructHandle*[T](thePtr: ptr T): Handle[T] {.cdecl, constructor,
+proc newHandle*[T](thePtr: ptr T): Handle[T] {.cdecl, constructor,
     importcpp: "opencascade::handle<\'*0>(@)", header: "Standard_Handle.hxx".}
-proc constructHandle*[T](theHandle: Handle): Handle[T] {.cdecl, constructor,
+proc newHandle*[T](theHandle: Handle): Handle[T] {.cdecl, constructor,
     importcpp: "opencascade::handle<\'*0>(@)", header: "Standard_Handle.hxx".}
 proc destroyHandle*[T](this: var Handle[T]) {.cdecl, importcpp: "#.~handle()",
     header: "Standard_Handle.hxx".}
@@ -77,16 +77,7 @@ converter `toHandle`*[T](this: T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
     
-#converter `toHandle`*[T](this: ptr T): Handle[T] {.
-#    importcpp: "(@)",
-#    header: "Standard_Handle.hxx".}
-
-# opencascade::handle<AIS_Shape>(@)    
-converter `toHandle`*(this: ptr AIS_Shape): HandleAIS_Shape {.
-    importcpp: "(@)", 
-    header: "Standard_Handle.hxx".}
-
-# opencascade::handle<AIS_InteractiveContext>(@)
-converter `toHandle`*(this: ptr AIS_InteractiveContext): HandleAIS_InteractiveContext {.
+converter `toHandle`*[T](this: ptr T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
+    

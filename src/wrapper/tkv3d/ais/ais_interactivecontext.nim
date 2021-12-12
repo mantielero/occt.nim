@@ -941,11 +941,11 @@ proc display*(this: var AIS_InteractiveContext;
              theSelectionMode: cint; theToUpdateViewer: bool;
              theDispStatus: AIS_DisplayStatus = aIS_DS_None) {.cdecl,
     importcpp: "Display", header: "AIS_InteractiveContext.hxx".}
-proc display*(this: var HandleAIS_InteractiveContext;
-             theIObj: HandleAIS_InteractiveObject; theDispMode: cint;
+proc display*(this: var AIS_InteractiveContext;
+             theIObj: Handle[AIS_Shape]; theDispMode: cint;
              theSelectionMode: cint; theToUpdateViewer: bool;
              theDispStatus: AIS_DisplayStatus = aIS_DS_None) {.cdecl,
-    importcpp: "#->Display(@)", header: "AIS_InteractiveContext.hxx".}
+    importcpp: "Display", header: "AIS_InteractiveContext.hxx".}
 
 proc load*(this: var AIS_InteractiveContext; theObj: Handle[AIS_InteractiveObject];
           theSelectionMode: cint = -1) {.cdecl, importcpp: "Load", header: "AIS_InteractiveContext.hxx".}

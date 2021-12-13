@@ -133,7 +133,7 @@ pp("brepbuilderapi_command.nim",
   replaceAll = @[("""  BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
                            header: "BRepBuilderAPI_Command.hxx", bycopy.} = object ## !""",
                   """  BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
-                           header: "BRepBuilderAPI_Command.hxx", bycopy.} = object of RootObj## !""")]
+                           header: "BRepBuilderAPI_Command.hxx", bycopy, pure, inheritable.} = object ## !""")]
 )
 
 genFiles("BRepBuilderAPI_Copy")

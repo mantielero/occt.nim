@@ -135,7 +135,7 @@ genFiles("Geom_Conic")
 genFiles("Geom_Curve")
 pp("geom_curve.nim",
   replaceAll = @[("HandleGeomCurve* = Handle[GeomCurve]", 
-    """HandleGeomCurve* {.importcpp:"opencascade::handle<Geom_Curve>", header: "Standard_Handle.hxx", bycopy.} = object of RootObj""")]
+    """HandleGeomCurve* {.importcpp:"opencascade::handle<Geom_Curve>", header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object""")]
 )
 genFiles("Geom_CylindricalSurface")
 genFiles("Geom_Direction")

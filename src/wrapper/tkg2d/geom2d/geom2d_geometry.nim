@@ -21,7 +21,7 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 type
-  HandleGeom2dGeometry* = Handle[Geom2dGeometry]
+  HandleGeom2dGeometry* {.importcpp:"opencascade::handle<Geom2d_Geometry>", header:"Standard_Handle.hxx", bycopy, pure, inheritable.} = object
 
 ## ! The general abstract class Geometry in 2D space describes
 ## ! the common behaviour of all the geometric entities.

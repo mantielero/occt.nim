@@ -171,7 +171,16 @@ pp("brepbuilderapi_makeedge2d.nim",
           p2: Pnt2d; p1: cfloat; p2: cfloat) {.cdecl, importcpp: "Init",""",
                   """proc init*(this: var BRepBuilderAPI_MakeEdge2d; c: Handle[Geom2dCurve]; p1: Pnt2d;
           p2: Pnt2d; p3: cfloat; p4: cfloat) {.cdecl, importcpp: "Init","""),
-    ("newBRepBuilderAPI_MakeEdge2d", "makeEdge2d")
+    ("newBRepBuilderAPI_MakeEdge2d", "edge2d"),
+    ("Handle[Geom2dCurve]", "HandleGeom2dCurve"),
+    ("BRepBuilderAPI_MakeEdge2d", "Edge2dObj"),
+    ("Edge2dObj(@)", "BRepBuilderAPI_MakeEdge2d(@)"),
+    ("Edge2dObj.hxx", "BRepBuilderAPI_MakeEdge2d.hxx"),
+    ("importcpp: \"Edge2dObj\"", "importcpp: \"BRepBuilderAPI_MakeEdge2d\""),
+    ("""converter `topoDS_Edge`*(this: var Edge2dObj): TopoDS_Edge {.cdecl,
+    importcpp: "Edge2dObj::operator TopoDS_Edge",""",
+    """converter toTopoDS_Edge*(this: var Edge2dObj): TopoDS_Edge {.cdecl,
+    importcpp: "(@)",""")
           ]
 )
 
@@ -190,7 +199,15 @@ pp("brepbuilderapi_makeedge.nim",
           ("""s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p1: cfloat; p2: cfloat) {.cdecl,""",
           """s: Handle[GeomSurface]; p1: Pnt; p2: Pnt; p3: cfloat; p4: cfloat) {.cdecl,"""),
     ("newBRepBuilderAPI_MakeEdge", "edge"),
-    ("Handle[GeomCurve]", "HandleGeomCurve")
+    ("Handle[GeomCurve]", "HandleGeomCurve"),
+    ("Handle[Geom2dCurve]", "HandleGeom2dCurve"),
+    ("BRepBuilderAPI_MakeEdge", "EdgeObj"),
+    ("EdgeObj(@)", "BRepBuilderAPI_MakeEdge(@)"),
+    ("EdgeObj.hxx", "BRepBuilderAPI_MakeEdge.hxx"),
+    ("""converter `topoDS_Edge`*(this: var EdgeObj): TopoDS_Edge {.cdecl,
+    importcpp: "EdgeObj::operator TopoDS_Edge",""",
+    """converter toTopoDS_Edge*(this: var EdgeObj): TopoDS_Edge {.cdecl,
+    importcpp: "(@)",""")
           ]
 )
 

@@ -141,7 +141,7 @@ pp("topods_listofshape.nim",
 genFiles("TopoDS_LockedShape")
 genFiles("TopoDS_Shape")
 pp("topods_shape.nim",
-  replaceAll = @[("bycopy.} = object", "bycopy.} = object of RootObj")]
+  replaceAll = @[(".} = object", ", pure, inheritable.} = object")]
 )
 genFiles("TopoDS_Shell")
 genFiles("TopoDS_Solid")

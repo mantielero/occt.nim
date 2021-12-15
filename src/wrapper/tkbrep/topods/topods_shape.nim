@@ -30,7 +30,7 @@ when defined(Convex):
 ## ! shape which has an empty list of shapes.
 
 type
-  TopoDS_Shape* {.importcpp: "TopoDS_Shape", header: "TopoDS_Shape.hxx", bycopy.} = object of RootObj ##
+  TopoDS_Shape* {.importcpp: "TopoDS_Shape", header: "TopoDS_Shape.hxx", bycopy, pure, inheritable.} = object ##
                                                                                    ## !
                                                                                    ## Creates
                                                                                    ## a

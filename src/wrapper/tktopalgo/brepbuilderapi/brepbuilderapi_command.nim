@@ -17,7 +17,7 @@
 discard "forward decl of StdFail_NotDone"
 type
   BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
-                           header: "BRepBuilderAPI_Command.hxx", bycopy, pure, inheritable.} = object    ## !
+                           header: "BRepBuilderAPI_Command.hxx", bycopy, pure, inheritable.} = object ## !
                                                                               ## Set
                                                                               ## done to
                                                                               ## False.

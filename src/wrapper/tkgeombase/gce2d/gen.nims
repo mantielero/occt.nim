@@ -1,7 +1,7 @@
 #!/usr/bin/env nim
 import strutils, os, algorithm
 let lib = "/usr/include/opencascade/"
-let packageName = "geom2d"
+let packageName = "gce2d"
 let c2nimFile = packageName & ".c2nim"
 #[ let beg = """
 when defined(windows):
@@ -113,52 +113,37 @@ proc pp*(file:string,
 
 #=====================================================
 
-# ls /usr/include/opencascade/TCollection*.hxx | cut -c 26-
+# ls /usr/include/opencascade/GCE2d*.hxx | cut -c 26-
 
-
-genFiles("Geom2d_AxisPlacement")
-genFiles("Geom2d_BezierCurve")
-genFiles("Geom2d_BoundedCurve")
-genFiles("Geom2d_BSplineCurve")
-pp("geom2d_bsplinecurve.nim",
-  replaceAll = @[("cfloat = pConfusion()", "cfloat = 1.0e-7"),
-                 ("maxDegree*", "maxDegreeBSplineCurve2d*")]
+genFiles("GCE2d_MakeArcOfCircle")
+genFiles("GCE2d_MakeArcOfEllipse")
+genFiles("GCE2d_MakeArcOfHyperbola")
+genFiles("GCE2d_MakeArcOfParabola")
+genFiles("GCE2d_MakeCircle")
+genFiles("GCE2d_MakeEllipse")
+genFiles("GCE2d_MakeHyperbola")
+genFiles("GCE2d_MakeLine")
+genFiles("GCE2d_MakeMirror")
+genFiles("GCE2d_MakeParabola")
+genFiles("GCE2d_MakeRotation")
+genFiles("GCE2d_MakeScale")
+genFiles("GCE2d_MakeSegment")
+pp("gce2d_makesegment.nim",
+  replaceAll = @[("newGCE2dMakeSegment", "segment"),
+    ("Handle[Geom2dTrimmedCurve]", "HandleGeom2dTrimmedCurve"),
+    ("`constopencascade`", "toHandleGeom2dTrimmedCurve"),
+    ("GCE2d_MakeSegment::operator constopencascade", "(Handle_Geom2d_TrimmedCurve)(#)")
+  ]
+)
+genFiles("GCE2d_MakeTranslation")
+genFiles("GCE2d_Root")
+pp("gce2d_root.nim",
+  replaceAll = @[("bycopy.}", "bycopy, pure, inheritable.}"),
+    ("`constopencascade`", "toHandleGeom2dTrimmedCurve")
+  ]
 )
 
-genFiles("Geom2d_CartesianPoint")
-genFiles("Geom2d_Circle")
-genFiles("Geom2d_Conic")
-genFiles("Geom2d_Curve")
-pp("geom2d_curve.nim",
-  replaceAll = @[("HandleGeom2dCurve* = Handle[Geom2dCurve]", 
-  """HandleGeom2dCurve* {.importcpp:"opencascade::handle<Geom2d_Curve>", header:"Standard_Handle.hxx", bycopy.} = object of HandleGeom2dGeometry""")]
-)
 
-genFiles("Geom2d_Direction")
-genFiles("Geom2d_Ellipse")
-genFiles("Geom2d_Geometry")
-pp("geom2d_geometry.nim",
-  replaceAll = @[("HandleGeom2dGeometry* = Handle[Geom2dGeometry]", 
-  """HandleGeom2dGeometry* {.importcpp:"opencascade::handle<Geom2d_Geometry>", header:"Standard_Handle.hxx", bycopy, pure, inheritable.} = object""")]
-)
-
-
-genFiles("Geom2d_Hyperbola")
-genFiles("Geom2d_Line")
-genFiles("Geom2d_OffsetCurve")
-genFiles("Geom2d_Parabola")
-genFiles("Geom2d_Point")
-genFiles("Geom2d_Transformation")
-genFiles("Geom2d_TrimmedCurve")
-pp("geom2d_trimmedcurve.nim",
-  replaceAll = @[("HandleGeom2dTrimmedCurve* = Handle[Geom2dTrimmedCurve]", 
-  """HandleGeom2dTrimmedCurve* {.importcpp:"opencascade::handle<Geom_TrimmedCurve>", header:"Standard_Handle.hxx", bycopy.} = object of HandleGeom2dCurve""")]
-)
-
-genFiles("Geom2d_UndefinedDerivative")
-genFiles("Geom2d_UndefinedValue")
-genFiles("Geom2d_Vector")
-genFiles("Geom2d_VectorWithMagnitude")
 
 
 

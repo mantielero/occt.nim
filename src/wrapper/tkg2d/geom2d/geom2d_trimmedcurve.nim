@@ -26,7 +26,7 @@ discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_TrimmedCurve"
 type
-  HandleGeom2dTrimmedCurve* = Handle[Geom2dTrimmedCurve]
+  HandleGeom2dTrimmedCurve* {.importcpp:"opencascade::handle<Geom2d_TrimmedCurve>", header:"Standard_Handle.hxx", bycopy.} = object of HandleGeom2dCurve
 
 ## ! Defines a portion of a curve limited by two values of
 ## ! parameters inside the parametric domain of the curve.

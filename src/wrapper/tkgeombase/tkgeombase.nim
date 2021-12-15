@@ -19,3 +19,4 @@ include approx/approx_includes
 include appcont/appcont_includes
 include appparcurves/appparcurves_includes
 include extrema/extrema_includes
+include gce2d/gce2d_includes

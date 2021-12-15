@@ -23,7 +23,7 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Curve"
 type
-  HandleGeom2dCurve* = Handle[Geom2dCurve]
+  HandleGeom2dCurve* {.importcpp:"opencascade::handle<Geom2d_Curve>", header:"Standard_Handle.hxx", bycopy.} = object of HandleGeom2dGeometry
 
 ## ! The abstract class Curve describes the common
 ## ! behavior of curves in 2D space. The Geom2d

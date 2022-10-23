@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat, sequtils]#, parseutils]
+import std/[os, strutils, strformat, sequtils, parseutils]
 import system/io
 # Once we have the headers, we will modify them
 
@@ -27,36 +27,45 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
   var typ:TypObj
   var push:seq[string]
   var newFile:string
+  var isType = false
+  var currentIndent = 0  
+  var indent = 0         # Tracks de indent used for the type block
 
   var txt = fname.readFile()
   var lines = txt.splitLines()
-  var isType = false
-  var indent = 0
   for line in lines:
-    var currentIndent = line.countPrefixSpaces
-    if line.strip.startsWith("{.push"):
-      push &= line
-    if line.strip.startsWith("{.pop"):
-      push.delete(push.high)
-    #echo push    
-
-    # Añadimos el módulo type
-    if line.strip == "type":
-      isType = true
-      #var tmp = line.split("type")
-      indent = currentIndent 
-      typ.push = push
-    if isType:
-      typ.txt &= line
+    if line.strip == "":  # Línea vacía
+      newFile &= line
     else:
-      newFile &= line & "\n"
-    #echo indent, " - ", currentIndent, " - ", (currentIndent < indent), ": ", line     
-    if currentIndent <= indent and line.strip != "type" and line.strip.len > 0:
-      isType = false
-      if typ.txt != @[]:
-        typs &= typ
-      typ.txt = @[]
-      typ.push = @[]
+      # Stop being a `type`
+      if currentIndent <= indent:# and line.strip != "type":
+      #if line.len > currentIndent:
+        isType = false
+        if typ.txt != @[]:
+          typs &= typ
+        typ.txt = @[]
+        typ.push = @[]
+
+      # Let's start      
+      currentIndent = line.skipWhile({' '}) #line.countPrefixSpaces
+      if line.strip.startsWith("{.push"):
+        push &= line
+      if line.strip.startsWith("{.pop"):
+        push.delete(push.high)
+      #echo push    
+
+      # Añadimos el módulo type
+      if line.strip == "type":
+        isType = true
+        indent = currentIndent 
+        typ.push = push
+      if isType:
+        typ.txt &= line
+      else:
+        newFile &= line & "\n"
+    
+    # 
+
   return (typs, newFile)
 
 proc createTypesFile*(pattern:string) =

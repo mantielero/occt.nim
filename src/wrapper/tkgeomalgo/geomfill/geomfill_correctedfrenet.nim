@@ -43,15 +43,15 @@ proc setCurve*(this: var GeomFillCorrectedFrenet; c: Handle[Adaptor3dHCurve]) {.
     importcpp: "SetCurve", header: "GeomFill_CorrectedFrenet.hxx".}
 proc setInterval*(this: var GeomFillCorrectedFrenet; first: cfloat; last: cfloat) {.
     cdecl, importcpp: "SetInterval", header: "GeomFill_CorrectedFrenet.hxx".}
-proc d0*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
-        normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
+proc d0*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var VecObj;
+        normal: var VecObj; biNormal: var VecObj): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_CorrectedFrenet.hxx".}
-proc d1*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
-        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_CorrectedFrenet.hxx".}
-proc d2*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var Vec;
-        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
-        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+proc d1*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var VecObj;
+        dTangent: var VecObj; normal: var VecObj; dNormal: var VecObj; biNormal: var VecObj;
+        dBiNormal: var VecObj): bool {.cdecl, importcpp: "D1", header: "GeomFill_CorrectedFrenet.hxx".}
+proc d2*(this: var GeomFillCorrectedFrenet; param: cfloat; tangent: var VecObj;
+        dTangent: var VecObj; d2Tangent: var VecObj; normal: var VecObj; dNormal: var VecObj;
+        d2Normal: var VecObj; biNormal: var VecObj; dBiNormal: var VecObj; d2BiNormal: var VecObj): bool {.
     cdecl, importcpp: "D2", header: "GeomFill_CorrectedFrenet.hxx".}
 proc nbIntervals*(this: GeomFillCorrectedFrenet; s: GeomAbsShape): cint {.
     noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_CorrectedFrenet.hxx".}
@@ -60,8 +60,8 @@ proc intervals*(this: GeomFillCorrectedFrenet; t: var TColStdArray1OfReal;
                                 header: "GeomFill_CorrectedFrenet.hxx".}
 proc evaluateBestMode*(this: var GeomFillCorrectedFrenet): GeomFillTrihedron {.cdecl,
     importcpp: "EvaluateBestMode", header: "GeomFill_CorrectedFrenet.hxx".}
-proc getAverageLaw*(this: var GeomFillCorrectedFrenet; aTangent: var Vec;
-                   aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
+proc getAverageLaw*(this: var GeomFillCorrectedFrenet; aTangent: var VecObj;
+                   aNormal: var VecObj; aBiNormal: var VecObj) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_CorrectedFrenet.hxx".}
 proc isConstant*(this: GeomFillCorrectedFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_CorrectedFrenet.hxx".}

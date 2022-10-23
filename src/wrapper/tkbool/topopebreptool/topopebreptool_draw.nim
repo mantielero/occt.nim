@@ -15,17 +15,17 @@
 ##  commercial license or contractual agreement.
 
 when defined(DRAW):
-  proc topOpeBRepToolDrawPoint*(p: Pnt; t: DrawMarkerShape; c: DrawColorKind) {.cdecl,
+  proc topOpeBRepToolDrawPoint*(p: PntObj; t: DrawMarkerShape; c: DrawColorKind) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawPoint(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p1: Pnt; p2: Pnt; c: DrawColorKind) {.cdecl,
+  proc topOpeBRepToolDrawSegment*(p1: PntObj; p2: PntObj; c: DrawColorKind) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p1: Pnt; p2: Pnt) {.cdecl,
+  proc topOpeBRepToolDrawSegment*(p1: PntObj; p2: PntObj) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: Pnt; a2: Lin; par: cfloat; c: DrawColorKind) {.
+  proc topOpeBRepToolDrawSegment*(p: PntObj; a2: LinObj; par: cfloat; c: DrawColorKind) {.
       cdecl, importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc topOpeBRepToolColorOnState*(s: TopAbsState): DrawColorKind {.cdecl,
       importcpp: "TopOpeBRepTool_ColorOnState(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc topOpeBRepToolDrawSegment*(p: Pnt; L: Lin; par: cfloat; s: TopAbsState) {.cdecl,
+  proc topOpeBRepToolDrawSegment*(p: PntObj; L: LinObj; par: cfloat; s: TopAbsState) {.cdecl,
       importcpp: "TopOpeBRepTool_DrawSegment(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fdraw_Dins*(pref: TCollectionAsciiString; ss: TopoDS_Shape;
                   snam: TCollectionAsciiString; suff: TCollectionAsciiString = "") {.
@@ -36,13 +36,13 @@ when defined(DRAW):
   proc fdraw_Dinloe*(pref: TCollectionAsciiString; loe: TopToolsListOfShape;
                     str1: TCollectionAsciiString; str2: TCollectionAsciiString) {.
       cdecl, importcpp: "FDRAW_DINLOE(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt; d: Dir) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: PntObj; d: DirObj) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt2d; d: Dir2d; i: cint) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt2dObj; d: Dir2dObj; i: cint) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: Pnt2d) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p2d: Pnt2dObj) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
-  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: Pnt) {.cdecl,
+  proc fUN_toolDraw*(aa: TCollectionAsciiString; p: PntObj) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}
   proc fUN_toolDraw*(aa: TCollectionAsciiString; c2d: Handle[Geom2dCurve]) {.cdecl,
       importcpp: "FUN_tool_draw(@)", header: "TopOpeBRepTool_DRAW.hxx".}

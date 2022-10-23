@@ -31,7 +31,7 @@ type
                           header: "GeomFill_LocationDraft.hxx", bycopy.} = object of GeomFillLocationLaw
 
 
-proc newGeomFillLocationDraft*(direction: Dir; angle: cfloat): GeomFillLocationDraft {.
+proc newGeomFillLocationDraft*(direction: DirObj; angle: cfloat): GeomFillLocationDraft {.
     cdecl, constructor, importcpp: "GeomFill_LocationDraft(@)", header: "GeomFill_LocationDraft.hxx".}
 proc setStopSurf*(this: var GeomFillLocationDraft; surf: Handle[Adaptor3dHSurface]) {.
     cdecl, importcpp: "SetStopSurf", header: "GeomFill_LocationDraft.hxx".}
@@ -41,21 +41,21 @@ proc setCurve*(this: var GeomFillLocationDraft; c: Handle[Adaptor3dHCurve]) {.cd
     importcpp: "SetCurve", header: "GeomFill_LocationDraft.hxx".}
 proc getCurve*(this: GeomFillLocationDraft): Handle[Adaptor3dHCurve] {.noSideEffect,
     cdecl, importcpp: "GetCurve", header: "GeomFill_LocationDraft.hxx".}
-proc setTrsf*(this: var GeomFillLocationDraft; transfo: Mat) {.cdecl,
+proc setTrsf*(this: var GeomFillLocationDraft; transfo: MatObj) {.cdecl,
     importcpp: "SetTrsf", header: "GeomFill_LocationDraft.hxx".}
 proc copy*(this: GeomFillLocationDraft): Handle[GeomFillLocationLaw] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec): bool {.
+proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var VecObj): bool {.
     cdecl, importcpp: "D0", header: "GeomFill_LocationDraft.hxx".}
-proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
+proc d0*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var VecObj;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_LocationDraft.hxx".}
-proc d1*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+proc d1*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var VecObj;
+        dm: var MatObj; dv: var VecObj; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
     header: "GeomFill_LocationDraft.hxx".}
-proc d2*(this: var GeomFillLocationDraft; param: cfloat; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
+proc d2*(this: var GeomFillLocationDraft; param: cfloat; m: var MatObj; v: var VecObj;
+        dm: var MatObj; dv: var VecObj; d2m: var MatObj; d2v: var VecObj;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
     header: "GeomFill_LocationDraft.hxx".}
@@ -81,15 +81,15 @@ proc resolution*(this: GeomFillLocationDraft; index: cint; tol: cfloat;
     importcpp: "Resolution", header: "GeomFill_LocationDraft.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationDraft): cfloat {.cdecl,
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationDraft.hxx".}
-proc getAverageLaw*(this: var GeomFillLocationDraft; am: var Mat; av: var Vec) {.cdecl,
+proc getAverageLaw*(this: var GeomFillLocationDraft; am: var MatObj; av: var VecObj) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_LocationDraft.hxx".}
 proc isTranslation*(this: GeomFillLocationDraft; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationDraft.hxx".}
 proc isRotation*(this: GeomFillLocationDraft; error: var cfloat): bool {.noSideEffect,
     cdecl, importcpp: "IsRotation", header: "GeomFill_LocationDraft.hxx".}
-proc rotation*(this: GeomFillLocationDraft; center: var Pnt) {.noSideEffect, cdecl,
+proc rotation*(this: GeomFillLocationDraft; center: var PntObj) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_LocationDraft.hxx".}
 proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
-proc direction*(this: GeomFillLocationDraft): Dir {.noSideEffect, cdecl,
+proc direction*(this: GeomFillLocationDraft): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}

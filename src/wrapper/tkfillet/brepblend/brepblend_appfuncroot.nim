@@ -80,7 +80,7 @@ proc getTolerance*(this: BRepBlendAppFuncRoot; boundTol: cfloat; surfTol: cfloat
     cdecl, importcpp: "GetTolerance", header: "BRepBlend_AppFuncRoot.hxx".}
 proc setTolerance*(this: var BRepBlendAppFuncRoot; tol3d: cfloat; tol2d: cfloat) {.
     cdecl, importcpp: "SetTolerance", header: "BRepBlend_AppFuncRoot.hxx".}
-proc barycentreOfSurf*(this: BRepBlendAppFuncRoot): Pnt {.noSideEffect, cdecl,
+proc barycentreOfSurf*(this: BRepBlendAppFuncRoot): PntObj {.noSideEffect, cdecl,
     importcpp: "BarycentreOfSurf", header: "BRepBlend_AppFuncRoot.hxx".}
 proc maximalSection*(this: BRepBlendAppFuncRoot): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "BRepBlend_AppFuncRoot.hxx".}

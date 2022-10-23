@@ -104,23 +104,23 @@ type
                                                                                            ## Resolution.
 
 
-proc newGceMakeCone*(a2: Ax2; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
+proc newGceMakeCone*(a2: Ax2Obj; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(cone: Cone; point: Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(cone: ConeObj; point: PntObj): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(cone: Cone; dist: cfloat): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(cone: ConeObj; dist: cfloat): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(axis: Ax1; p1: Pnt; p2: Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(axis: Ax1Obj; p1: PntObj; p2: PntObj): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(axis: Lin; p1: Pnt; p2: Pnt): GceMakeCone {.cdecl, constructor,
+proc newGceMakeCone*(axis: LinObj; p1: PntObj; p2: PntObj): GceMakeCone {.cdecl, constructor,
     importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc newGceMakeCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
+proc newGceMakeCone*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): GceMakeCone {.cdecl,
     constructor, importcpp: "gce_MakeCone(@)", header: "gce_MakeCone.hxx".}
-proc value*(this: GceMakeCone): Cone {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeCone.hxx".}
-proc operator*(this: GceMakeCone): Cone {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Operator",
                                       header: "gce_MakeCone.hxx".}
-converter `cone`*(this: GceMakeCone): Cone {.noSideEffect, cdecl,
+converter `cone`*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCone::operator gp_Cone", header: "gce_MakeCone.hxx".}

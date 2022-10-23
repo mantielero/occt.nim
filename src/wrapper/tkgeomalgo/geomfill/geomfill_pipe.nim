@@ -54,7 +54,7 @@ proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve];
 proc newGeomFillPipe*(path: Handle[Geom2dCurve]; support: Handle[GeomSurface];
                      firstSect: Handle[GeomCurve]): GeomFillPipe {.cdecl,
     constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
-proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve]; dir: Dir): GeomFillPipe {.
+proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve]; dir: DirObj): GeomFillPipe {.
     cdecl, constructor, importcpp: "GeomFill_Pipe(@)", header: "GeomFill_Pipe.hxx".}
 proc newGeomFillPipe*(path: Handle[GeomCurve]; firstSect: Handle[GeomCurve];
                      lastSect: Handle[GeomCurve]): GeomFillPipe {.cdecl,
@@ -81,7 +81,7 @@ proc init*(this: var GeomFillPipe; path: Handle[Geom2dCurve];
           support: Handle[GeomSurface]; firstSect: Handle[GeomCurve]) {.cdecl,
     importcpp: "Init", header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
-          firstSect: Handle[GeomCurve]; dir: Dir) {.cdecl, importcpp: "Init",
+          firstSect: Handle[GeomCurve]; dir: DirObj) {.cdecl, importcpp: "Init",
     header: "GeomFill_Pipe.hxx".}
 proc init*(this: var GeomFillPipe; path: Handle[GeomCurve];
           firstSect: Handle[GeomCurve]; lastSect: Handle[GeomCurve]) {.cdecl,

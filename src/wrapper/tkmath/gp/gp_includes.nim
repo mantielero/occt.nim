@@ -43,3 +43,6 @@ include gp_vec2d
 include gp_vectorwithnullmagnitude
 include gp_xy
 include gp_xyz
+
+import gp_types
+export gp_types

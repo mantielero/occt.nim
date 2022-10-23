@@ -268,7 +268,7 @@ proc remove*(this: var Graphic3dStructure; thePtr: ptr Graphic3dStructure;
 proc setComputeVisual*(this: var Graphic3dStructure;
                       theVisual: Graphic3dTypeOfStructure) {.cdecl,
     importcpp: "SetComputeVisual", header: "Graphic3d_Structure.hxx".}
-proc transforms*(theTrsf: Trsf; theX: cfloat; theY: cfloat; theZ: cfloat;
+proc transforms*(theTrsf: TrsfObj; theX: cfloat; theY: cfloat; theZ: cfloat;
                 theNewX: var cfloat; theNewY: var cfloat; theNewZ: var cfloat) {.cdecl,
     importcpp: "Graphic3d_Structure::Transforms(@)", header: "Graphic3d_Structure.hxx".}
 proc cStructure*(this: Graphic3dStructure): Handle[Graphic3dCStructure] {.

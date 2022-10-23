@@ -71,17 +71,17 @@ type
     ## !< cylinder radius
 
 
-proc newBRepPrimCylinder*(position: Ax2; radius: cfloat; height: cfloat): BRepPrimCylinder {.
+proc newBRepPrimCylinder*(position: Ax2Obj; radius: cfloat; height: cfloat): BRepPrimCylinder {.
     cdecl, constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc newBRepPrimCylinder*(radius: cfloat): BRepPrimCylinder {.cdecl, constructor,
     importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc newBRepPrimCylinder*(center: Pnt; radius: cfloat): BRepPrimCylinder {.cdecl,
+proc newBRepPrimCylinder*(center: PntObj; radius: cfloat): BRepPrimCylinder {.cdecl,
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc newBRepPrimCylinder*(axes: Ax2; radius: cfloat): BRepPrimCylinder {.cdecl,
+proc newBRepPrimCylinder*(axes: Ax2Obj; radius: cfloat): BRepPrimCylinder {.cdecl,
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc newBRepPrimCylinder*(r: cfloat; h: cfloat): BRepPrimCylinder {.cdecl, constructor,
     importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
-proc newBRepPrimCylinder*(center: Pnt; r: cfloat; h: cfloat): BRepPrimCylinder {.cdecl,
+proc newBRepPrimCylinder*(center: PntObj; r: cfloat; h: cfloat): BRepPrimCylinder {.cdecl,
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCylinder): TopoDS_Face {.noSideEffect,
     cdecl, importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cylinder.hxx".}

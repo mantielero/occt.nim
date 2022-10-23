@@ -31,7 +31,7 @@ type
     ## !< sector radius
 
 
-proc create*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+proc create*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
     Graphic3dArrayOfTriangles] {.cdecl, importcpp: "Prs3d_ToolSector::Create(@)",
                                 header: "Prs3d_ToolSector.hxx".}
 proc newPrs3dToolSector*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolSector {.

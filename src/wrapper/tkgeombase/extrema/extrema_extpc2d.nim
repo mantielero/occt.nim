@@ -32,15 +32,15 @@ type
 
 proc newExtremaExtPC2d*(): ExtremaExtPC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc newExtremaExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; uinf: cfloat; usup: cfloat;
+proc newExtremaExtPC2d*(p: Pnt2dObj; c: Adaptor2dCurve2d; uinf: cfloat; usup: cfloat;
                        tolF: cfloat = 1.0e-10): ExtremaExtPC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
-proc newExtremaExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; tolF: cfloat = 1.0e-10): ExtremaExtPC2d {.
+proc newExtremaExtPC2d*(p: Pnt2dObj; c: Adaptor2dCurve2d; tolF: cfloat = 1.0e-10): ExtremaExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ExtPC2d(@)", header: "Extrema_ExtPC2d.hxx".}
 proc initialize*(this: var ExtremaExtPC2d; c: Adaptor2dCurve2d; uinf: cfloat;
                 usup: cfloat; tolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
     header: "Extrema_ExtPC2d.hxx".}
-proc perform*(this: var ExtremaExtPC2d; p: Pnt2d) {.cdecl, importcpp: "Perform",
+proc perform*(this: var ExtremaExtPC2d; p: Pnt2dObj) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPC2d.hxx".}
 proc isDone*(this: ExtremaExtPC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Extrema_ExtPC2d.hxx".}
@@ -53,5 +53,5 @@ proc isMin*(this: ExtremaExtPC2d; n: cint): bool {.noSideEffect, cdecl,
 proc point*(this: ExtremaExtPC2d; n: cint): ExtremaPOnCurv2d {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPC2d.hxx".}
 proc trimmedSquareDistances*(this: ExtremaExtPC2d; dist1: var cfloat;
-                            dist2: var cfloat; p1: var Pnt2d; p2: var Pnt2d) {.
+                            dist2: var cfloat; p1: var Pnt2dObj; p2: var Pnt2dObj) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPC2d.hxx".}

@@ -176,26 +176,26 @@ proc newPrsDimLengthDimension*(theFace: TopoDS_Face; theEdge: TopoDS_Edge): PrsD
 proc newPrsDimLengthDimension*(theFirstFace: TopoDS_Face;
                               theSecondFace: TopoDS_Face): PrsDimLengthDimension {.
     cdecl, constructor, importcpp: "PrsDim_LengthDimension(@)", header: "PrsDim_LengthDimension.hxx".}
-proc newPrsDimLengthDimension*(theFirstPoint: Pnt; theSecondPoint: Pnt; thePlane: Pln): PrsDimLengthDimension {.
+proc newPrsDimLengthDimension*(theFirstPoint: PntObj; theSecondPoint: PntObj; thePlane: PlnObj): PrsDimLengthDimension {.
     cdecl, constructor, importcpp: "PrsDim_LengthDimension(@)", header: "PrsDim_LengthDimension.hxx".}
 proc newPrsDimLengthDimension*(theFirstShape: TopoDS_Shape;
-                              theSecondShape: TopoDS_Shape; thePlane: Pln): PrsDimLengthDimension {.
+                              theSecondShape: TopoDS_Shape; thePlane: PlnObj): PrsDimLengthDimension {.
     cdecl, constructor, importcpp: "PrsDim_LengthDimension(@)", header: "PrsDim_LengthDimension.hxx".}
-proc newPrsDimLengthDimension*(theEdge: TopoDS_Edge; thePlane: Pln): PrsDimLengthDimension {.
+proc newPrsDimLengthDimension*(theEdge: TopoDS_Edge; thePlane: PlnObj): PrsDimLengthDimension {.
     cdecl, constructor, importcpp: "PrsDim_LengthDimension(@)", header: "PrsDim_LengthDimension.hxx".}
-proc firstPoint*(this: PrsDimLengthDimension): Pnt {.noSideEffect, cdecl,
+proc firstPoint*(this: PrsDimLengthDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "FirstPoint", header: "PrsDim_LengthDimension.hxx".}
-proc secondPoint*(this: PrsDimLengthDimension): Pnt {.noSideEffect, cdecl,
+proc secondPoint*(this: PrsDimLengthDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "SecondPoint", header: "PrsDim_LengthDimension.hxx".}
 proc firstShape*(this: PrsDimLengthDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "FirstShape", header: "PrsDim_LengthDimension.hxx".}
 proc secondShape*(this: PrsDimLengthDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "SecondShape", header: "PrsDim_LengthDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theFirstPoint: Pnt;
-                         theSecondPoint: Pnt; thePlane: Pln) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theFirstPoint: PntObj;
+                         theSecondPoint: PntObj; thePlane: PlnObj) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_LengthDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimLengthDimension; theEdge: TopoDS_Edge;
-                         thePlane: Pln) {.cdecl, importcpp: "SetMeasuredGeometry",
+                         thePlane: PlnObj) {.cdecl, importcpp: "SetMeasuredGeometry",
                                         header: "PrsDim_LengthDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimLengthDimension;
                          theFirstFace: TopoDS_Face; theSecondFace: TopoDS_Face) {.
@@ -216,10 +216,10 @@ proc setDisplayUnits*(this: var PrsDimLengthDimension;
 proc setModelUnits*(this: var PrsDimLengthDimension;
                    theUnits: TCollectionAsciiString) {.cdecl,
     importcpp: "SetModelUnits", header: "PrsDim_LengthDimension.hxx".}
-proc setTextPosition*(this: var PrsDimLengthDimension; theTextPos: Pnt) {.cdecl,
+proc setTextPosition*(this: var PrsDimLengthDimension; theTextPos: PntObj) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_LengthDimension.hxx".}
-proc getTextPosition*(this: PrsDimLengthDimension): Pnt {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimLengthDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_LengthDimension.hxx".}
-proc setDirection*(this: var PrsDimLengthDimension; theDirection: Dir;
+proc setDirection*(this: var PrsDimLengthDimension; theDirection: DirObj;
                   theUseDirection: bool = true) {.cdecl, importcpp: "SetDirection",
     header: "PrsDim_LengthDimension.hxx".}

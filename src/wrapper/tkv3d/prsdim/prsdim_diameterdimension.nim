@@ -267,21 +267,21 @@ type
                                                                                                   ## point.
 
 
-proc newPrsDimDiameterDimension*(theCircle: Circ): PrsDimDiameterDimension {.cdecl,
+proc newPrsDimDiameterDimension*(theCircle: CircObj): PrsDimDiameterDimension {.cdecl,
     constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
-proc newPrsDimDiameterDimension*(theCircle: Circ; thePlane: Pln): PrsDimDiameterDimension {.
+proc newPrsDimDiameterDimension*(theCircle: CircObj; thePlane: PlnObj): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
 proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
-proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: Pln): PrsDimDiameterDimension {.
+proc newPrsDimDiameterDimension*(theShape: TopoDS_Shape; thePlane: PlnObj): PrsDimDiameterDimension {.
     cdecl, constructor, importcpp: "PrsDim_DiameterDimension(@)", header: "PrsDim_DiameterDimension.hxx".}
-proc circle*(this: PrsDimDiameterDimension): Circ {.noSideEffect, cdecl,
+proc circle*(this: PrsDimDiameterDimension): CircObj {.noSideEffect, cdecl,
     importcpp: "Circle", header: "PrsDim_DiameterDimension.hxx".}
-proc anchorPoint*(this: var PrsDimDiameterDimension): Pnt {.cdecl,
+proc anchorPoint*(this: var PrsDimDiameterDimension): PntObj {.cdecl,
     importcpp: "AnchorPoint", header: "PrsDim_DiameterDimension.hxx".}
 proc shape*(this: PrsDimDiameterDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "PrsDim_DiameterDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimDiameterDimension; theCircle: Circ) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimDiameterDimension; theCircle: CircObj) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_DiameterDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimDiameterDimension; theShape: TopoDS_Shape) {.
     cdecl, importcpp: "SetMeasuredGeometry", header: "PrsDim_DiameterDimension.hxx".}
@@ -295,7 +295,7 @@ proc setDisplayUnits*(this: var PrsDimDiameterDimension;
 proc setModelUnits*(this: var PrsDimDiameterDimension;
                    theUnits: TCollectionAsciiString) {.cdecl,
     importcpp: "SetModelUnits", header: "PrsDim_DiameterDimension.hxx".}
-proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: Pnt) {.cdecl,
+proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: PntObj) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
-proc getTextPosition*(this: PrsDimDiameterDimension): Pnt {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimDiameterDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_DiameterDimension.hxx".}

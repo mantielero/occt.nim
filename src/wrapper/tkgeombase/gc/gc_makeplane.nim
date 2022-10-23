@@ -36,20 +36,20 @@ type
                                                                                       ## gp.
 
 
-proc plane*(pl: Pln): MakePlane {.cdecl, constructor,
+proc plane*(pl: PlnObj): MakePlane {.cdecl, constructor,
                                      importcpp: "GC_MakePlane(@)",
                                      header: "GC_MakePlane.hxx".}
-proc plane*(p: Pnt; v: Dir): MakePlane {.cdecl, constructor,
+proc plane*(p: PntObj; v: DirObj): MakePlane {.cdecl, constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
 proc plane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): MakePlane {.cdecl,
     constructor, importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc plane*(pln: Pln; point: Pnt): MakePlane {.cdecl, constructor,
+proc plane*(pln: PlnObj; point: PntObj): MakePlane {.cdecl, constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc plane*(pln: Pln; dist: cfloat): MakePlane {.cdecl, constructor,
+proc plane*(pln: PlnObj; dist: cfloat): MakePlane {.cdecl, constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc plane*(p1: Pnt; p2: Pnt; p3: Pnt): MakePlane {.cdecl, constructor,
+proc plane*(p1: PntObj; p2: PntObj; p3: PntObj): MakePlane {.cdecl, constructor,
     importcpp: "GC_MakePlane(@)", header: "GC_MakePlane.hxx".}
-proc plane*(axis: Ax1): MakePlane {.cdecl, constructor,
+proc plane*(axis: Ax1Obj): MakePlane {.cdecl, constructor,
                                        importcpp: "GC_MakePlane(@)",
                                        header: "GC_MakePlane.hxx".}
 proc value*(this: MakePlane): Handle[GeomPlane] {.noSideEffect, cdecl,

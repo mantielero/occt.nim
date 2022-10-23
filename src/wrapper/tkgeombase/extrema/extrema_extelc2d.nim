@@ -27,23 +27,23 @@ type
 
 proc newExtremaExtElC2d*(): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Lin2d; c2: Lin2d; angTol: cfloat): ExtremaExtElC2d {.cdecl,
+proc newExtremaExtElC2d*(c1: Lin2dObj; c2: Lin2dObj; angTol: cfloat): ExtremaExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Lin2d; c2: Circ2d; tol: cfloat): ExtremaExtElC2d {.cdecl,
+proc newExtremaExtElC2d*(c1: Lin2dObj; c2: Circ2dObj; tol: cfloat): ExtremaExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Lin2d; c2: Elips2d): ExtremaExtElC2d {.cdecl, constructor,
+proc newExtremaExtElC2d*(c1: Lin2dObj; c2: Elips2dObj): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Lin2d; c2: Hypr2d): ExtremaExtElC2d {.cdecl, constructor,
+proc newExtremaExtElC2d*(c1: Lin2dObj; c2: Hypr2dObj): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Lin2d; c2: Parab2d): ExtremaExtElC2d {.cdecl, constructor,
+proc newExtremaExtElC2d*(c1: Lin2dObj; c2: Parab2dObj): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Circ2d; c2: Circ2d): ExtremaExtElC2d {.cdecl, constructor,
+proc newExtremaExtElC2d*(c1: Circ2dObj; c2: Circ2dObj): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Circ2d; c2: Elips2d): ExtremaExtElC2d {.cdecl,
+proc newExtremaExtElC2d*(c1: Circ2dObj; c2: Elips2dObj): ExtremaExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Circ2d; c2: Hypr2d): ExtremaExtElC2d {.cdecl, constructor,
+proc newExtremaExtElC2d*(c1: Circ2dObj; c2: Hypr2dObj): ExtremaExtElC2d {.cdecl, constructor,
     importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
-proc newExtremaExtElC2d*(c1: Circ2d; c2: Parab2d): ExtremaExtElC2d {.cdecl,
+proc newExtremaExtElC2d*(c1: Circ2dObj; c2: Parab2dObj): ExtremaExtElC2d {.cdecl,
     constructor, importcpp: "Extrema_ExtElC2d(@)", header: "Extrema_ExtElC2d.hxx".}
 proc isDone*(this: ExtremaExtElC2d): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                         header: "Extrema_ExtElC2d.hxx".}

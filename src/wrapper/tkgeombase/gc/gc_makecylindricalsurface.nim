@@ -118,24 +118,24 @@ type
                                                                                        ## 0.0
 
 
-proc cylindricalSurface*(a2: Ax2; radius: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(a2: Ax2Obj; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(c: Cylinder): MakeCylindricalSurface {.cdecl,
+proc cylindricalSurface*(c: CylinderObj): MakeCylindricalSurface {.cdecl,
     constructor, importcpp: "GC_MakeCylindricalSurface(@)", header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(cyl: Cylinder; point: Pnt): MakeCylindricalSurface {.
+proc cylindricalSurface*(cyl: CylinderObj; point: PntObj): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(cyl: Cylinder; dist: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(cyl: CylinderObj; dist: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(p1: Pnt; p2: Pnt; p3: Pnt): MakeCylindricalSurface {.
+proc cylindricalSurface*(p1: PntObj; p2: PntObj; p3: PntObj): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(axis: Ax1; radius: cfloat): MakeCylindricalSurface {.
+proc cylindricalSurface*(axis: Ax1Obj; radius: cfloat): MakeCylindricalSurface {.
     cdecl, constructor, importcpp: "GC_MakeCylindricalSurface(@)",
     header: "GC_MakeCylindricalSurface.hxx".}
-proc cylindricalSurface*(circ: Circ): MakeCylindricalSurface {.cdecl,
+proc cylindricalSurface*(circ: CircObj): MakeCylindricalSurface {.cdecl,
     constructor, importcpp: "GC_MakeCylindricalSurface(@)", header: "GC_MakeCylindricalSurface.hxx".}
 proc value*(this: MakeCylindricalSurface): Handle[GeomCylindricalSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeCylindricalSurface.hxx".}

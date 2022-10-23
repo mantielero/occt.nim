@@ -42,7 +42,7 @@ type
                                                                                                           ## otherwise.
 
 
-proc newExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: Pnt): ExtremaFuncPSDist {.
+proc newExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: PntObj): ExtremaFuncPSDist {.
     cdecl, constructor, importcpp: "Extrema_FuncPSDist(@)", header: "Extrema_FuncPSDist.hxx".}
 proc nbVariables*(this: ExtremaFuncPSDist): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "Extrema_FuncPSDist.hxx".}

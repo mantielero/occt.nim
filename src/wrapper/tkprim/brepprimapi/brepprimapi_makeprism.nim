@@ -59,10 +59,10 @@ type
                                                                                                    ## types
 
 
-proc prism*(s: TopoDS_Shape; v: Vec; copy: bool = false;
+proc prism*(s: TopoDS_Shape; v: VecObj; copy: bool = false;
                               canonize: bool = true): BRepPrimAPI_MakePrism {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
-proc prism*(s: TopoDS_Shape; d: Dir; inf: bool = true;
+proc prism*(s: TopoDS_Shape; d: DirObj; inf: bool = true;
                               copy: bool = false; canonize: bool = true): BRepPrimAPI_MakePrism {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakePrism(@)", header: "BRepPrimAPI_MakePrism.hxx".}
 proc prism*(this: BRepPrimAPI_MakePrism): BRepSweepPrism {.noSideEffect, cdecl,

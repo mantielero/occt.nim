@@ -22,7 +22,7 @@ type
 
 proc newBndSphere*(): BndSphere {.cdecl, constructor, importcpp: "Bnd_Sphere(@)",
                                header: "Bnd_Sphere.hxx".}
-proc newBndSphere*(theCntr: Xyz; theRad: cfloat; theU: cint; theV: cint): BndSphere {.
+proc newBndSphere*(theCntr: XyzObj; theRad: cfloat; theU: cint; theV: cint): BndSphere {.
     cdecl, constructor, importcpp: "Bnd_Sphere(@)", header: "Bnd_Sphere.hxx".}
 proc u*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "U", header: "Bnd_Sphere.hxx".}
 proc v*(this: BndSphere): cint {.noSideEffect, cdecl, importcpp: "V", header: "Bnd_Sphere.hxx".}
@@ -30,28 +30,28 @@ proc isValid*(this: BndSphere): bool {.noSideEffect, cdecl, importcpp: "IsValid"
                                    header: "Bnd_Sphere.hxx".}
 proc setValid*(this: var BndSphere; isValid: bool) {.cdecl, importcpp: "SetValid",
     header: "Bnd_Sphere.hxx".}
-proc center*(this: BndSphere): Xyz {.noSideEffect, cdecl, importcpp: "Center",
+proc center*(this: BndSphere): XyzObj {.noSideEffect, cdecl, importcpp: "Center",
                                  header: "Bnd_Sphere.hxx".}
 proc radius*(this: BndSphere): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                     header: "Bnd_Sphere.hxx".}
-proc distances*(this: BndSphere; theXYZ: Xyz; theMin: var cfloat; theMax: var cfloat) {.
+proc distances*(this: BndSphere; theXYZ: XyzObj; theMin: var cfloat; theMax: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Distances", header: "Bnd_Sphere.hxx".}
-proc squareDistances*(this: BndSphere; theXYZ: Xyz; theMin: var cfloat;
+proc squareDistances*(this: BndSphere; theXYZ: XyzObj; theMin: var cfloat;
                      theMax: var cfloat) {.noSideEffect, cdecl,
                                         importcpp: "SquareDistances",
                                         header: "Bnd_Sphere.hxx".}
-proc project*(this: BndSphere; theNode: Xyz; theProjNode: var Xyz; theDist: var cfloat;
+proc project*(this: BndSphere; theNode: XyzObj; theProjNode: var XyzObj; theDist: var cfloat;
              theInside: var bool): bool {.noSideEffect, cdecl, importcpp: "Project",
                                       header: "Bnd_Sphere.hxx".}
-proc distance*(this: BndSphere; theNode: Xyz): cfloat {.noSideEffect, cdecl,
+proc distance*(this: BndSphere; theNode: XyzObj): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "Bnd_Sphere.hxx".}
-proc squareDistance*(this: BndSphere; theNode: Xyz): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: BndSphere; theNode: XyzObj): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "Bnd_Sphere.hxx".}
 proc add*(this: var BndSphere; theOther: BndSphere) {.cdecl, importcpp: "Add",
     header: "Bnd_Sphere.hxx".}
 proc isOut*(this: BndSphere; theOther: BndSphere): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
-proc isOut*(this: BndSphere; thePnt: Xyz; theMaxDist: var cfloat): bool {.noSideEffect,
+proc isOut*(this: BndSphere; thePnt: XyzObj; theMaxDist: var cfloat): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_Sphere.hxx".}
 proc squareExtent*(this: BndSphere): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareExtent", header: "Bnd_Sphere.hxx".}

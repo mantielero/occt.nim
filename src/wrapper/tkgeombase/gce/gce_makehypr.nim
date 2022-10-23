@@ -109,13 +109,13 @@ type
                                                                                            ## MajorRadius.
 
 
-proc newGceMakeHypr*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
+proc newGceMakeHypr*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.
     cdecl, constructor, importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
-proc newGceMakeHypr*(s1: Pnt; s2: Pnt; center: Pnt): GceMakeHypr {.cdecl, constructor,
+proc newGceMakeHypr*(s1: PntObj; s2: PntObj; center: PntObj): GceMakeHypr {.cdecl, constructor,
     importcpp: "gce_MakeHypr(@)", header: "gce_MakeHypr.hxx".}
-proc value*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl, importcpp: "Value",
                                    header: "gce_MakeHypr.hxx".}
-proc operator*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl, importcpp: "Operator",
                                       header: "gce_MakeHypr.hxx".}
-converter `hypr`*(this: GceMakeHypr): Hypr {.noSideEffect, cdecl,
+converter `hypr`*(this: GceMakeHypr): HyprObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeHypr::operator gp_Hypr", header: "gce_MakeHypr.hxx".}

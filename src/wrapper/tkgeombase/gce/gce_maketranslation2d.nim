@@ -25,13 +25,13 @@ type
                                                                            ## vector Vect.
 
 
-proc newGceMakeTranslation2d*(vect: Vec2d): GceMakeTranslation2d {.cdecl,
+proc newGceMakeTranslation2d*(vect: Vec2dObj): GceMakeTranslation2d {.cdecl,
     constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
-proc newGceMakeTranslation2d*(point1: Pnt2d; point2: Pnt2d): GceMakeTranslation2d {.
+proc newGceMakeTranslation2d*(point1: Pnt2dObj; point2: Pnt2dObj): GceMakeTranslation2d {.
     cdecl, constructor, importcpp: "gce_MakeTranslation2d(@)", header: "gce_MakeTranslation2d.hxx".}
-proc value*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
+proc value*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeTranslation2d.hxx".}
-proc operator*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeTranslation2d.hxx".}
-converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2d {.noSideEffect, cdecl,
+converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d", header: "gce_MakeTranslation2d.hxx".}

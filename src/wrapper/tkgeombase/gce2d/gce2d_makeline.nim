@@ -48,17 +48,17 @@ type
                                                                                                    ## line.
 
 
-proc newGCE2dMakeLine*(a: Ax2d): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(a: Ax2dObj): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(L: Lin2d): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(L: Lin2dObj): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(p: Pnt2d; v: Dir2d): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(p: Pnt2dObj; v: Dir2dObj): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(lin: Lin2d; point: Pnt2d): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(lin: Lin2dObj; point: Pnt2dObj): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(lin: Lin2d; dist: cfloat): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(lin: Lin2dObj; dist: cfloat): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
-proc newGCE2dMakeLine*(p1: Pnt2d; p2: Pnt2d): GCE2dMakeLine {.cdecl, constructor,
+proc newGCE2dMakeLine*(p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeLine {.cdecl, constructor,
     importcpp: "GCE2d_MakeLine(@)", header: "GCE2d_MakeLine.hxx".}
 proc value*(this: GCE2dMakeLine): Handle[Geom2dLine] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GCE2d_MakeLine.hxx".}

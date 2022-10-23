@@ -70,31 +70,31 @@ proc isPeriodic*(this: GeomAdaptorCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "GeomAdaptor_Curve.hxx".}
 proc period*(this: GeomAdaptorCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "GeomAdaptor_Curve.hxx".}
-proc value*(this: GeomAdaptorCurve; u: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: GeomAdaptorCurve; u: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomAdaptor_Curve.hxx".}
-proc d0*(this: GeomAdaptorCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: GeomAdaptorCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomAdaptor_Curve.hxx".}
-proc d1*(this: GeomAdaptorCurve; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomAdaptorCurve; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomAdaptor_Curve.hxx".}
-proc d2*(this: GeomAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomAdaptorCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "GeomAdaptor_Curve.hxx".}
-proc d3*(this: GeomAdaptorCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: GeomAdaptorCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "GeomAdaptor_Curve.hxx".}
-proc dn*(this: GeomAdaptorCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
+proc dn*(this: GeomAdaptorCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "GeomAdaptor_Curve.hxx".}
 proc resolution*(this: GeomAdaptorCurve; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "GeomAdaptor_Curve.hxx".}
 proc getType*(this: GeomAdaptorCurve): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "GeomAdaptor_Curve.hxx".}
-proc line*(this: GeomAdaptorCurve): Lin {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: GeomAdaptorCurve): LinObj {.noSideEffect, cdecl, importcpp: "Line",
                                       header: "GeomAdaptor_Curve.hxx".}
-proc circle*(this: GeomAdaptorCurve): Circ {.noSideEffect, cdecl, importcpp: "Circle",
+proc circle*(this: GeomAdaptorCurve): CircObj {.noSideEffect, cdecl, importcpp: "Circle",
     header: "GeomAdaptor_Curve.hxx".}
-proc ellipse*(this: GeomAdaptorCurve): Elips {.noSideEffect, cdecl,
+proc ellipse*(this: GeomAdaptorCurve): ElipsObj {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "GeomAdaptor_Curve.hxx".}
-proc hyperbola*(this: GeomAdaptorCurve): Hypr {.noSideEffect, cdecl,
+proc hyperbola*(this: GeomAdaptorCurve): HyprObj {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "GeomAdaptor_Curve.hxx".}
-proc parabola*(this: GeomAdaptorCurve): Parab {.noSideEffect, cdecl,
+proc parabola*(this: GeomAdaptorCurve): ParabObj {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "GeomAdaptor_Curve.hxx".}
 proc degree*(this: GeomAdaptorCurve): cint {.noSideEffect, cdecl, importcpp: "Degree",
     header: "GeomAdaptor_Curve.hxx".}

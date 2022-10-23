@@ -54,33 +54,33 @@ type
                                                      ## ! symmetry and assigns the result to this geometric object.
 
 
-proc mirror*(this: var Geom2dGeometry; p: Pnt2d) {.cdecl, importcpp: "Mirror",
+proc mirror*(this: var Geom2dGeometry; p: Pnt2dObj) {.cdecl, importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc mirror*(this: var Geom2dGeometry; a: Ax2d) {.cdecl, importcpp: "Mirror",
+proc mirror*(this: var Geom2dGeometry; a: Ax2dObj) {.cdecl, importcpp: "Mirror",
     header: "Geom2d_Geometry.hxx".}
-proc rotate*(this: var Geom2dGeometry; p: Pnt2d; ang: cfloat) {.cdecl,
+proc rotate*(this: var Geom2dGeometry; p: Pnt2dObj; ang: cfloat) {.cdecl,
     importcpp: "Rotate", header: "Geom2d_Geometry.hxx".}
-proc scale*(this: var Geom2dGeometry; p: Pnt2d; s: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var Geom2dGeometry; p: Pnt2dObj; s: cfloat) {.cdecl, importcpp: "Scale",
     header: "Geom2d_Geometry.hxx".}
-proc translate*(this: var Geom2dGeometry; v: Vec2d) {.cdecl, importcpp: "Translate",
+proc translate*(this: var Geom2dGeometry; v: Vec2dObj) {.cdecl, importcpp: "Translate",
     header: "Geom2d_Geometry.hxx".}
-proc translate*(this: var Geom2dGeometry; p1: Pnt2d; p2: Pnt2d) {.cdecl,
+proc translate*(this: var Geom2dGeometry; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
     importcpp: "Translate", header: "Geom2d_Geometry.hxx".}
-proc transform*(this: var Geom2dGeometry; t: Trsf2d) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dGeometry; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Geometry.hxx".}
-proc mirrored*(this: Geom2dGeometry; p: Pnt2d): Handle[Geom2dGeometry] {.noSideEffect,
+proc mirrored*(this: Geom2dGeometry; p: Pnt2dObj): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
-proc mirrored*(this: Geom2dGeometry; a: Ax2d): Handle[Geom2dGeometry] {.noSideEffect,
+proc mirrored*(this: Geom2dGeometry; a: Ax2dObj): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Mirrored", header: "Geom2d_Geometry.hxx".}
-proc rotated*(this: Geom2dGeometry; p: Pnt2d; ang: cfloat): Handle[Geom2dGeometry] {.
+proc rotated*(this: Geom2dGeometry; p: Pnt2dObj; ang: cfloat): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Rotated", header: "Geom2d_Geometry.hxx".}
-proc scaled*(this: Geom2dGeometry; p: Pnt2d; s: cfloat): Handle[Geom2dGeometry] {.
+proc scaled*(this: Geom2dGeometry; p: Pnt2dObj; s: cfloat): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Scaled", header: "Geom2d_Geometry.hxx".}
-proc transformed*(this: Geom2dGeometry; t: Trsf2d): Handle[Geom2dGeometry] {.
+proc transformed*(this: Geom2dGeometry; t: Trsf2dObj): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Transformed", header: "Geom2d_Geometry.hxx".}
-proc translated*(this: Geom2dGeometry; v: Vec2d): Handle[Geom2dGeometry] {.
+proc translated*(this: Geom2dGeometry; v: Vec2dObj): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Translated", header: "Geom2d_Geometry.hxx".}
-proc translated*(this: Geom2dGeometry; p1: Pnt2d; p2: Pnt2d): Handle[Geom2dGeometry] {.
+proc translated*(this: Geom2dGeometry; p1: Pnt2dObj; p2: Pnt2dObj): Handle[Geom2dGeometry] {.
     noSideEffect, cdecl, importcpp: "Translated", header: "Geom2d_Geometry.hxx".}
 proc copy*(this: Geom2dGeometry): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Geometry.hxx".}

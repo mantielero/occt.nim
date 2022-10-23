@@ -31,11 +31,11 @@ type
                                                                            ## Alpha2.
 
 
-proc arcEllipse*(elips: Elips; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfEllipse {.
+proc arcEllipse*(elips: ElipsObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc arcEllipse*(elips: Elips; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
+proc arcEllipse*(elips: ElipsObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
-proc arcEllipse*(elips: Elips; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfEllipse {.
+proc arcEllipse*(elips: ElipsObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfEllipse {.
     cdecl, constructor, importcpp: "GC_MakeArcOfEllipse(@)", header: "GC_MakeArcOfEllipse.hxx".}
 proc value*(this: MakeArcOfEllipse): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfEllipse.hxx".}

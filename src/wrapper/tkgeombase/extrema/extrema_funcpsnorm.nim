@@ -26,11 +26,11 @@ type
 
 proc newExtremaFuncPSNorm*(): ExtremaFuncPSNorm {.cdecl, constructor,
     importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
-proc newExtremaFuncPSNorm*(p: Pnt; s: Adaptor3dSurface): ExtremaFuncPSNorm {.cdecl,
+proc newExtremaFuncPSNorm*(p: PntObj; s: Adaptor3dSurface): ExtremaFuncPSNorm {.cdecl,
     constructor, importcpp: "Extrema_FuncPSNorm(@)", header: "Extrema_FuncPSNorm.hxx".}
 proc initialize*(this: var ExtremaFuncPSNorm; s: Adaptor3dSurface) {.cdecl,
     importcpp: "Initialize", header: "Extrema_FuncPSNorm.hxx".}
-proc setPoint*(this: var ExtremaFuncPSNorm; p: Pnt) {.cdecl, importcpp: "SetPoint",
+proc setPoint*(this: var ExtremaFuncPSNorm; p: PntObj) {.cdecl, importcpp: "SetPoint",
     header: "Extrema_FuncPSNorm.hxx".}
 proc nbVariables*(this: ExtremaFuncPSNorm): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "Extrema_FuncPSNorm.hxx".}

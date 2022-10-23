@@ -36,9 +36,9 @@ proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; fi: TopoDS_Shape;
 proc add*(this: var TopOpeBRepDS_FaceInterferenceTool; e: TopoDS_Shape;
          c: TopOpeBRepDS_Curve; i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
     importcpp: "Add", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
-proc setEdgePntPar*(this: var TopOpeBRepDS_FaceInterferenceTool; p: Pnt; par: cfloat) {.
+proc setEdgePntPar*(this: var TopOpeBRepDS_FaceInterferenceTool; p: PntObj; par: cfloat) {.
     cdecl, importcpp: "SetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
-proc getEdgePntPar*(this: TopOpeBRepDS_FaceInterferenceTool; p: var Pnt;
+proc getEdgePntPar*(this: TopOpeBRepDS_FaceInterferenceTool; p: var PntObj;
                    par: var cfloat) {.noSideEffect, cdecl,
                                    importcpp: "GetEdgePntPar", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
 proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): bool {.noSideEffect,

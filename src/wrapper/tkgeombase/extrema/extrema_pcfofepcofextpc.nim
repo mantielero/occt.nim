@@ -28,11 +28,11 @@ type
 
 proc newExtremaPCFOfEPCOfExtPC*(): ExtremaPCFOfEPCOfExtPC {.cdecl, constructor,
     importcpp: "Extrema_PCFOfEPCOfExtPC(@)", header: "Extrema_PCFOfEPCOfExtPC.hxx".}
-proc newExtremaPCFOfEPCOfExtPC*(p: Pnt; c: Adaptor3dCurve): ExtremaPCFOfEPCOfExtPC {.
+proc newExtremaPCFOfEPCOfExtPC*(p: PntObj; c: Adaptor3dCurve): ExtremaPCFOfEPCOfExtPC {.
     cdecl, constructor, importcpp: "Extrema_PCFOfEPCOfExtPC(@)", header: "Extrema_PCFOfEPCOfExtPC.hxx".}
 proc initialize*(this: var ExtremaPCFOfEPCOfExtPC; c: Adaptor3dCurve) {.cdecl,
     importcpp: "Initialize", header: "Extrema_PCFOfEPCOfExtPC.hxx".}
-proc setPoint*(this: var ExtremaPCFOfEPCOfExtPC; p: Pnt) {.cdecl,
+proc setPoint*(this: var ExtremaPCFOfEPCOfExtPC; p: PntObj) {.cdecl,
     importcpp: "SetPoint", header: "Extrema_PCFOfEPCOfExtPC.hxx".}
 proc value*(this: var ExtremaPCFOfEPCOfExtPC; u: cfloat; f: var cfloat): bool {.cdecl,
     importcpp: "Value", header: "Extrema_PCFOfEPCOfExtPC.hxx".}

@@ -31,8 +31,8 @@ proc newGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];
                               guide: Handle[Adaptor3dHCurve];
                               paramOnLaw: cfloat = 0.0): GeomFillFunctionGuide {.
     cdecl, constructor, importcpp: "GeomFill_FunctionGuide(@)", header: "GeomFill_FunctionGuide.hxx".}
-proc setParam*(this: var GeomFillFunctionGuide; param: cfloat; centre: Pnt; dir: Xyz;
-              xDir: Xyz) {.cdecl, importcpp: "SetParam", header: "GeomFill_FunctionGuide.hxx".}
+proc setParam*(this: var GeomFillFunctionGuide; param: cfloat; centre: PntObj; dir: XyzObj;
+              xDir: XyzObj) {.cdecl, importcpp: "SetParam", header: "GeomFill_FunctionGuide.hxx".}
 proc nbVariables*(this: GeomFillFunctionGuide): cint {.noSideEffect, cdecl,
     importcpp: "NbVariables", header: "GeomFill_FunctionGuide.hxx".}
 proc nbEquations*(this: GeomFillFunctionGuide): cint {.noSideEffect, cdecl,
@@ -43,9 +43,9 @@ proc derivatives*(this: var GeomFillFunctionGuide; x: MathVector; d: var MathMat
     cdecl, importcpp: "Derivatives", header: "GeomFill_FunctionGuide.hxx".}
 proc values*(this: var GeomFillFunctionGuide; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "GeomFill_FunctionGuide.hxx".}
-proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: Xyz; dDir: Xyz;
+proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: XyzObj; dDir: XyzObj;
             dfdt: var MathVector): bool {.cdecl, importcpp: "DerivT",
                                       header: "GeomFill_FunctionGuide.hxx".}
-proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: Xyz; dDir: Xyz;
+proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: XyzObj; dDir: XyzObj;
              dfdt: var MathVector; d2ft: var MathVector): bool {.cdecl,
     importcpp: "Deriv2T", header: "GeomFill_FunctionGuide.hxx".}

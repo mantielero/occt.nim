@@ -74,17 +74,17 @@ type
                                                                                                 ## one.
 
 
-proc newGeomParabola*(prb: Parab): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(prb: ParabObj): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc newGeomParabola*(a2: Ax2; focal: cfloat): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(a2: Ax2Obj; focal: cfloat): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
-proc newGeomParabola*(d: Ax1; f: Pnt): GeomParabola {.cdecl, constructor,
+proc newGeomParabola*(d: Ax1Obj; f: PntObj): GeomParabola {.cdecl, constructor,
     importcpp: "Geom_Parabola(@)", header: "Geom_Parabola.hxx".}
 proc setFocal*(this: var GeomParabola; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "Geom_Parabola.hxx".}
-proc setParab*(this: var GeomParabola; prb: Parab) {.cdecl, importcpp: "SetParab",
+proc setParab*(this: var GeomParabola; prb: ParabObj) {.cdecl, importcpp: "SetParab",
     header: "Geom_Parabola.hxx".}
-proc parab*(this: GeomParabola): Parab {.noSideEffect, cdecl, importcpp: "Parab",
+proc parab*(this: GeomParabola): ParabObj {.noSideEffect, cdecl, importcpp: "Parab",
                                      header: "Geom_Parabola.hxx".}
 proc reversedParameter*(this: GeomParabola; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom_Parabola.hxx".}
@@ -96,31 +96,31 @@ proc isClosed*(this: GeomParabola): bool {.noSideEffect, cdecl, importcpp: "IsCl
                                        header: "Geom_Parabola.hxx".}
 proc isPeriodic*(this: GeomParabola): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom_Parabola.hxx".}
-proc directrix*(this: GeomParabola): Ax1 {.noSideEffect, cdecl,
+proc directrix*(this: GeomParabola): Ax1Obj {.noSideEffect, cdecl,
                                        importcpp: "Directrix", header: "Geom_Parabola.hxx".}
 proc eccentricity*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Parabola.hxx".}
-proc focus*(this: GeomParabola): Pnt {.noSideEffect, cdecl, importcpp: "Focus",
+proc focus*(this: GeomParabola): PntObj {.noSideEffect, cdecl, importcpp: "Focus",
                                    header: "Geom_Parabola.hxx".}
 proc focal*(this: GeomParabola): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                       header: "Geom_Parabola.hxx".}
 proc parameter*(this: GeomParabola): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Geom_Parabola.hxx".}
-proc d0*(this: GeomParabola; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: GeomParabola; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_Parabola.hxx".}
-proc d1*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Parabola.hxx".}
-proc d2*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
+proc d2*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Parabola.hxx".}
-proc d3*(this: GeomParabola; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: GeomParabola; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Parabola.hxx".}
-proc dn*(this: GeomParabola; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
+proc dn*(this: GeomParabola; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom_Parabola.hxx".}
-proc transform*(this: var GeomParabola; t: Trsf) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomParabola; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Parabola.hxx".}
-proc transformedParameter*(this: GeomParabola; u: cfloat; t: Trsf): cfloat {.
+proc transformedParameter*(this: GeomParabola; u: cfloat; t: TrsfObj): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom_Parabola.hxx".}
-proc parametricTransformation*(this: GeomParabola; t: Trsf): cfloat {.noSideEffect,
+proc parametricTransformation*(this: GeomParabola; t: TrsfObj): cfloat {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_Parabola.hxx".}
 proc copy*(this: GeomParabola): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Parabola.hxx".}

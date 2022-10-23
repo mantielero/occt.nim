@@ -34,8 +34,7 @@ discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Compound"
 discard "forward decl of StepRepr_ConstructiveGeometryRepresentationRelationship"
 discard "forward decl of STEPControl_ActorRead"
-type
-  HandleSTEPControlActorRead* = Handle[STEPControlActorRead]
+
 
 ## ! This class performs the transfer of an Entity from
 ## ! AP214 and AP203, either Geometric or Topologic.
@@ -47,7 +46,8 @@ type
   STEPControlActorRead* {.importcpp: "STEPControl_ActorRead",
                          header: "STEPControl_ActorRead.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
                                                                                                             ## !
-                                                                                                            ## Transfers
+type
+  HandleSTEPControlActorRead* = Handle[STEPControlActorRead]                                                                                                            ## Transfers
                                                                                                             ## product
                                                                                                             ## definition
                                                                                                             ## entity
@@ -93,9 +93,9 @@ proc computeTransformation*(this: var STEPControlActorRead;
                            target: Handle[StepGeomAxis2Placement3d];
                            origContext: Handle[StepReprRepresentation];
                            targContext: Handle[StepReprRepresentation];
-                           tp: Handle[TransferTransientProcess]; trsf: var Trsf): bool {.
+                           tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.
     cdecl, importcpp: "ComputeTransformation", header: "STEPControl_ActorRead.hxx".}
 proc computeSRRWT*(this: var STEPControlActorRead;
                   srr: Handle[StepReprRepresentationRelationship];
-                  tp: Handle[TransferTransientProcess]; trsf: var Trsf): bool {.cdecl,
+                  tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.cdecl,
     importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".}

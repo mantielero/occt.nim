@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,26 +16,17 @@
 ## ! Class perform linear interpolation (approximate rotation interpolation),
 ## ! result quaternion nonunit, its length lay between. sqrt(2)/2  and 1.0
 
-type
-  QuaternionNLerp* {.importcpp: "gp_QuaternionNLerp",
-                    header: "gp_QuaternionNLerp.hxx", bycopy.} = object ## ! Compute interpolated quaternion between two quaternions.
-                                                                   ## ! @param theStart first  quaternion
-                                                                   ## ! @param theEnd   second quaternion
-                                                                   ## ! @param theT normalized interpolation coefficient within 0..1 range,
-                                                                   ## !             with 0 pointing to theStart and 1 to theEnd.
-                                                                   ## ! Empty constructor,
 
-
-proc interpolate*(theQStart: Quaternion; theQEnd: Quaternion; theT: cfloat): Quaternion {.
+proc interpolate*(theQStart: QuaternionObj; theQEnd: QuaternionObj; theT: cfloat): QuaternionObj {.
     cdecl, importcpp: "gp_QuaternionNLerp::Interpolate(@)", header: "gp_QuaternionNLerp.hxx".}
 proc newQuaternionNLerp*(): QuaternionNLerp {.cdecl, constructor,
     importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
-proc newQuaternionNLerp*(theQStart: Quaternion; theQEnd: Quaternion): QuaternionNLerp {.
+proc newQuaternionNLerp*(theQStart: QuaternionObj; theQEnd: QuaternionObj): QuaternionNLerp {.
     cdecl, constructor, importcpp: "gp_QuaternionNLerp(@)", header: "gp_QuaternionNLerp.hxx".}
-proc init*(this: var QuaternionNLerp; theQStart: Quaternion; theQEnd: Quaternion) {.
+proc init*(this: var QuaternionNLerp; theQStart: QuaternionObj; theQEnd: QuaternionObj) {.
     cdecl, importcpp: "Init", header: "gp_QuaternionNLerp.hxx".}
-proc initFromUnit*(this: var QuaternionNLerp; theQStart: Quaternion;
-                  theQEnd: Quaternion) {.cdecl, importcpp: "InitFromUnit",
+proc initFromUnit*(this: var QuaternionNLerp; theQStart: QuaternionObj;
+                  theQEnd: QuaternionObj) {.cdecl, importcpp: "InitFromUnit",
                                        header: "gp_QuaternionNLerp.hxx".}
-proc interpolate*(this: QuaternionNLerp; theT: cfloat; theResultQ: var Quaternion) {.
+proc interpolate*(this: QuaternionNLerp; theT: cfloat; theResultQ: var QuaternionObj) {.
     noSideEffect, cdecl, importcpp: "Interpolate", header: "gp_QuaternionNLerp.hxx".}

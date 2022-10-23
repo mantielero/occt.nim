@@ -54,15 +54,15 @@ proc textFormatter*(this: Graphic3dText): Handle[FontTextFormatter] {.noSideEffe
 proc setTextFormatter*(this: var Graphic3dText;
                       theFormatter: Handle[FontTextFormatter]) {.cdecl,
     importcpp: "SetTextFormatter", header: "Graphic3d_Text.hxx".}
-proc position*(this: Graphic3dText): Pnt {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: Graphic3dText): PntObj {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "Graphic3d_Text.hxx".}
-proc setPosition*(this: var Graphic3dText; thePoint: Pnt) {.cdecl,
+proc setPosition*(this: var Graphic3dText; thePoint: PntObj) {.cdecl,
     importcpp: "SetPosition", header: "Graphic3d_Text.hxx".}
-proc orientation*(this: Graphic3dText): Ax2 {.noSideEffect, cdecl,
+proc orientation*(this: Graphic3dText): Ax2Obj {.noSideEffect, cdecl,
     importcpp: "Orientation", header: "Graphic3d_Text.hxx".}
 proc hasPlane*(this: Graphic3dText): bool {.noSideEffect, cdecl,
                                         importcpp: "HasPlane", header: "Graphic3d_Text.hxx".}
-proc setOrientation*(this: var Graphic3dText; theOrientation: Ax2) {.cdecl,
+proc setOrientation*(this: var Graphic3dText; theOrientation: Ax2Obj) {.cdecl,
     importcpp: "SetOrientation", header: "Graphic3d_Text.hxx".}
 proc resetOrientation*(this: var Graphic3dText) {.cdecl,
     importcpp: "ResetOrientation", header: "Graphic3d_Text.hxx".}

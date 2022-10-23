@@ -25,9 +25,9 @@ type
 
 proc newAdaptor3dHVertex*(): Adaptor3dHVertex {.cdecl, constructor,
     importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
-proc newAdaptor3dHVertex*(p: Pnt2d; ori: TopAbsOrientation; resolution: cfloat): Adaptor3dHVertex {.
+proc newAdaptor3dHVertex*(p: Pnt2dObj; ori: TopAbsOrientation; resolution: cfloat): Adaptor3dHVertex {.
     cdecl, constructor, importcpp: "Adaptor3d_HVertex(@)", header: "Adaptor3d_HVertex.hxx".}
-proc value*(this: var Adaptor3dHVertex): Pnt2d {.cdecl, importcpp: "Value",
+proc value*(this: var Adaptor3dHVertex): Pnt2dObj {.cdecl, importcpp: "Value",
     header: "Adaptor3d_HVertex.hxx".}
 proc parameter*(this: var Adaptor3dHVertex; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     cdecl, importcpp: "Parameter", header: "Adaptor3d_HVertex.hxx".}

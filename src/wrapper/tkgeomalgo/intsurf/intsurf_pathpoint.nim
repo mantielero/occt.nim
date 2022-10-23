@@ -26,19 +26,19 @@ type
 
 proc newIntSurfPathPoint*(): IntSurfPathPoint {.cdecl, constructor,
     importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc newIntSurfPathPoint*(p: Pnt; u: cfloat; v: cfloat): IntSurfPathPoint {.cdecl,
+proc newIntSurfPathPoint*(p: PntObj; u: cfloat; v: cfloat): IntSurfPathPoint {.cdecl,
     constructor, importcpp: "IntSurf_PathPoint(@)", header: "IntSurf_PathPoint.hxx".}
-proc setValue*(this: var IntSurfPathPoint; p: Pnt; u: cfloat; v: cfloat) {.cdecl,
+proc setValue*(this: var IntSurfPathPoint; p: PntObj; u: cfloat; v: cfloat) {.cdecl,
     importcpp: "SetValue", header: "IntSurf_PathPoint.hxx".}
 proc addUV*(this: var IntSurfPathPoint; u: cfloat; v: cfloat) {.cdecl,
     importcpp: "AddUV", header: "IntSurf_PathPoint.hxx".}
-proc setDirections*(this: var IntSurfPathPoint; v: Vec; d: Dir2d) {.cdecl,
+proc setDirections*(this: var IntSurfPathPoint; v: VecObj; d: Dir2dObj) {.cdecl,
     importcpp: "SetDirections", header: "IntSurf_PathPoint.hxx".}
 proc setTangency*(this: var IntSurfPathPoint; tang: bool) {.cdecl,
     importcpp: "SetTangency", header: "IntSurf_PathPoint.hxx".}
 proc setPassing*(this: var IntSurfPathPoint; pass: bool) {.cdecl,
     importcpp: "SetPassing", header: "IntSurf_PathPoint.hxx".}
-proc value*(this: IntSurfPathPoint): Pnt {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: IntSurfPathPoint): PntObj {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "IntSurf_PathPoint.hxx".}
 proc value2d*(this: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Value2d", header: "IntSurf_PathPoint.hxx".}
@@ -46,9 +46,9 @@ proc isPassingPnt*(this: IntSurfPathPoint): bool {.noSideEffect, cdecl,
     importcpp: "IsPassingPnt", header: "IntSurf_PathPoint.hxx".}
 proc isTangent*(this: IntSurfPathPoint): bool {.noSideEffect, cdecl,
     importcpp: "IsTangent", header: "IntSurf_PathPoint.hxx".}
-proc direction3d*(this: IntSurfPathPoint): Vec {.noSideEffect, cdecl,
+proc direction3d*(this: IntSurfPathPoint): VecObj {.noSideEffect, cdecl,
     importcpp: "Direction3d", header: "IntSurf_PathPoint.hxx".}
-proc direction2d*(this: IntSurfPathPoint): Dir2d {.noSideEffect, cdecl,
+proc direction2d*(this: IntSurfPathPoint): Dir2dObj {.noSideEffect, cdecl,
     importcpp: "Direction2d", header: "IntSurf_PathPoint.hxx".}
 proc multiplicity*(this: IntSurfPathPoint): cint {.noSideEffect, cdecl,
     importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}

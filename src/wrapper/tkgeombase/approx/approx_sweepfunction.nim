@@ -78,7 +78,7 @@ proc getTolerance*(this: ApproxSweepFunction; boundTol: cfloat; surfTol: cfloat;
     cdecl, importcpp: "GetTolerance", header: "Approx_SweepFunction.hxx".}
 proc setTolerance*(this: var ApproxSweepFunction; tol3d: cfloat; tol2d: cfloat) {.cdecl,
     importcpp: "SetTolerance", header: "Approx_SweepFunction.hxx".}
-proc barycentreOfSurf*(this: ApproxSweepFunction): Pnt {.noSideEffect, cdecl,
+proc barycentreOfSurf*(this: ApproxSweepFunction): PntObj {.noSideEffect, cdecl,
     importcpp: "BarycentreOfSurf", header: "Approx_SweepFunction.hxx".}
 proc maximalSection*(this: ApproxSweepFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "Approx_SweepFunction.hxx".}

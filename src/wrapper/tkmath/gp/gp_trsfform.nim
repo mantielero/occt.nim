@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Created on: 1993-04-13
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,15 +18,4 @@
 
 ## ! Identifies the type of a geometric transformation.
 
-type
-  TrsfForm* {.size: sizeof(cint), importcpp: "gp_TrsfForm", header: "gp_TrsfForm.hxx".} = enum
-    Identity,                 ## !< No transformation (matrix is identity)
-    Rotation,                 ## !< Rotation
-    Translation,              ## !< Translation
-    PntMirror,                ## !< Central symmetry
-    Ax1Mirror,                ## !< Rotational symmetry
-    Ax2Mirror,                ## !< Bilateral symmetry
-    Scale,                    ## !< Scale
-    CompoundTrsf,             ## !< Combination of the above transformations
-    Other                     ## !< Transformation with not-orthogonal matrix
 

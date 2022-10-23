@@ -140,7 +140,7 @@ type
 
 
 proc create*(theInnerRadius: cfloat; theOuterRadius: cfloat; theNbSlices: cint;
-            theNbStacks: cint; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
+            theNbStacks: cint; theTrsf: TrsfObj): Handle[Graphic3dArrayOfTriangles] {.
     cdecl, importcpp: "Prs3d_ToolDisk::Create(@)", header: "Prs3d_ToolDisk.hxx".}
 proc newPrs3dToolDisk*(theInnerRadius: cfloat; theOuterRadius: cfloat;
                       theNbSlices: cint; theNbStacks: cint): Prs3dToolDisk {.cdecl,

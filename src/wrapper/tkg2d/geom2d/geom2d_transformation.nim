@@ -69,34 +69,34 @@ type
 
 proc newGeom2dTransformation*(): Geom2dTransformation {.cdecl, constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
-proc newGeom2dTransformation*(t: Trsf2d): Geom2dTransformation {.cdecl, constructor,
+proc newGeom2dTransformation*(t: Trsf2dObj): Geom2dTransformation {.cdecl, constructor,
     importcpp: "Geom2d_Transformation(@)", header: "Geom2d_Transformation.hxx".}
-proc setMirror*(this: var Geom2dTransformation; p: Pnt2d) {.cdecl,
+proc setMirror*(this: var Geom2dTransformation; p: Pnt2dObj) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
-proc setMirror*(this: var Geom2dTransformation; a: Ax2d) {.cdecl,
+proc setMirror*(this: var Geom2dTransformation; a: Ax2dObj) {.cdecl,
     importcpp: "SetMirror", header: "Geom2d_Transformation.hxx".}
-proc setRotation*(this: var Geom2dTransformation; p: Pnt2d; ang: cfloat) {.cdecl,
+proc setRotation*(this: var Geom2dTransformation; p: Pnt2dObj; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "Geom2d_Transformation.hxx".}
-proc setScale*(this: var Geom2dTransformation; p: Pnt2d; s: cfloat) {.cdecl,
+proc setScale*(this: var Geom2dTransformation; p: Pnt2dObj; s: cfloat) {.cdecl,
     importcpp: "SetScale", header: "Geom2d_Transformation.hxx".}
-proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2d;
-                       toSystem2: Ax2d) {.cdecl, importcpp: "SetTransformation",
+proc setTransformation*(this: var Geom2dTransformation; fromSystem1: Ax2dObj;
+                       toSystem2: Ax2dObj) {.cdecl, importcpp: "SetTransformation",
                                         header: "Geom2d_Transformation.hxx".}
-proc setTransformation*(this: var Geom2dTransformation; toSystem: Ax2d) {.cdecl,
+proc setTransformation*(this: var Geom2dTransformation; toSystem: Ax2dObj) {.cdecl,
     importcpp: "SetTransformation", header: "Geom2d_Transformation.hxx".}
-proc setTranslation*(this: var Geom2dTransformation; v: Vec2d) {.cdecl,
+proc setTranslation*(this: var Geom2dTransformation; v: Vec2dObj) {.cdecl,
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
-proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2d; p2: Pnt2d) {.cdecl,
+proc setTranslation*(this: var Geom2dTransformation; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
     importcpp: "SetTranslation", header: "Geom2d_Transformation.hxx".}
-proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2d) {.cdecl,
+proc setTrsf2d*(this: var Geom2dTransformation; t: Trsf2dObj) {.cdecl,
     importcpp: "SetTrsf2d", header: "Geom2d_Transformation.hxx".}
 proc isNegative*(this: Geom2dTransformation): bool {.noSideEffect, cdecl,
     importcpp: "IsNegative", header: "Geom2d_Transformation.hxx".}
-proc form*(this: Geom2dTransformation): TrsfForm {.noSideEffect, cdecl,
+proc form*(this: Geom2dTransformation): TrsfFormObj {.noSideEffect, cdecl,
     importcpp: "Form", header: "Geom2d_Transformation.hxx".}
 proc scaleFactor*(this: Geom2dTransformation): cfloat {.noSideEffect, cdecl,
     importcpp: "ScaleFactor", header: "Geom2d_Transformation.hxx".}
-proc trsf2d*(this: Geom2dTransformation): Trsf2d {.noSideEffect, cdecl,
+proc trsf2d*(this: Geom2dTransformation): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Trsf2d", header: "Geom2d_Transformation.hxx".}
 proc value*(this: Geom2dTransformation; row: cint; col: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Value", header: "Geom2d_Transformation.hxx".}

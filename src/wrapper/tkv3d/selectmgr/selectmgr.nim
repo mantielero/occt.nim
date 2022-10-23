@@ -24,6 +24,6 @@ type
 
 
 proc computeSensitivePrs*(theStructure: Handle[Graphic3dStructure];
-                         theSel: Handle[SelectMgrSelection]; theLoc: Trsf;
+                         theSel: Handle[SelectMgrSelection]; theLoc: TrsfObj;
                          theTrsfPers: Handle[Graphic3dTransformPers]) {.cdecl,
     importcpp: "SelectMgr::ComputeSensitivePrs(@)", header: "SelectMgr.hxx".}

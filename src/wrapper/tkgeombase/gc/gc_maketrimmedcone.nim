@@ -37,9 +37,9 @@ type
                                                                          ## colinear to <P1P2>.
 
 
-proc trimmedCone*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): MakeTrimmedCone {.cdecl,
+proc trimmedCone*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): MakeTrimmedCone {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
-proc trimmedCone*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
+proc trimmedCone*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): MakeTrimmedCone {.
     cdecl, constructor, importcpp: "GC_MakeTrimmedCone(@)", header: "GC_MakeTrimmedCone.hxx".}
 proc value*(this: MakeTrimmedCone): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCone.hxx".}

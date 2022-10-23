@@ -72,27 +72,27 @@ type
                                                                                             ## line.
 
 
-proc newGeom2dLine*(a: Ax2d): Geom2dLine {.cdecl, constructor,
+proc newGeom2dLine*(a: Ax2dObj): Geom2dLine {.cdecl, constructor,
                                        importcpp: "Geom2d_Line(@)", header: "Geom2d_Line.hxx".}
-proc newGeom2dLine*(L: Lin2d): Geom2dLine {.cdecl, constructor,
+proc newGeom2dLine*(L: Lin2dObj): Geom2dLine {.cdecl, constructor,
                                         importcpp: "Geom2d_Line(@)", header: "Geom2d_Line.hxx".}
-proc newGeom2dLine*(p: Pnt2d; v: Dir2d): Geom2dLine {.cdecl, constructor,
+proc newGeom2dLine*(p: Pnt2dObj; v: Dir2dObj): Geom2dLine {.cdecl, constructor,
     importcpp: "Geom2d_Line(@)", header: "Geom2d_Line.hxx".}
-proc setLin2d*(this: var Geom2dLine; L: Lin2d) {.cdecl, importcpp: "SetLin2d",
+proc setLin2d*(this: var Geom2dLine; L: Lin2dObj) {.cdecl, importcpp: "SetLin2d",
     header: "Geom2d_Line.hxx".}
-proc setDirection*(this: var Geom2dLine; v: Dir2d) {.cdecl, importcpp: "SetDirection",
+proc setDirection*(this: var Geom2dLine; v: Dir2dObj) {.cdecl, importcpp: "SetDirection",
     header: "Geom2d_Line.hxx".}
-proc direction*(this: Geom2dLine): Dir2d {.noSideEffect, cdecl,
+proc direction*(this: Geom2dLine): Dir2dObj {.noSideEffect, cdecl,
                                        importcpp: "Direction", header: "Geom2d_Line.hxx".}
-proc setLocation*(this: var Geom2dLine; p: Pnt2d) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var Geom2dLine; p: Pnt2dObj) {.cdecl, importcpp: "SetLocation",
     header: "Geom2d_Line.hxx".}
-proc location*(this: Geom2dLine): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: Geom2dLine): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Location",
                                       header: "Geom2d_Line.hxx".}
-proc setPosition*(this: var Geom2dLine; a: Ax2d) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var Geom2dLine; a: Ax2dObj) {.cdecl, importcpp: "SetPosition",
     header: "Geom2d_Line.hxx".}
-proc position*(this: Geom2dLine): Ax2d {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: Geom2dLine): Ax2dObj {.noSideEffect, cdecl, importcpp: "Position",
                                      header: "Geom2d_Line.hxx".}
-proc lin2d*(this: Geom2dLine): Lin2d {.noSideEffect, cdecl, importcpp: "Lin2d",
+proc lin2d*(this: Geom2dLine): Lin2dObj {.noSideEffect, cdecl, importcpp: "Lin2d",
                                    header: "Geom2d_Line.hxx".}
 proc reverse*(this: var Geom2dLine) {.cdecl, importcpp: "Reverse", header: "Geom2d_Line.hxx".}
 proc reversedParameter*(this: Geom2dLine; u: cfloat): cfloat {.noSideEffect, cdecl,
@@ -107,25 +107,25 @@ proc isPeriodic*(this: Geom2dLine): bool {.noSideEffect, cdecl,
                                        importcpp: "IsPeriodic", header: "Geom2d_Line.hxx".}
 proc continuity*(this: Geom2dLine): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom2d_Line.hxx".}
-proc distance*(this: Geom2dLine; p: Pnt2d): cfloat {.noSideEffect, cdecl,
+proc distance*(this: Geom2dLine; p: Pnt2dObj): cfloat {.noSideEffect, cdecl,
     importcpp: "Distance", header: "Geom2d_Line.hxx".}
 proc isCN*(this: Geom2dLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
                                         header: "Geom2d_Line.hxx".}
-proc d0*(this: Geom2dLine; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dLine; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_Line.hxx".}
-proc d1*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect, cdecl,
+proc d1*(this: Geom2dLine; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom2d_Line.hxx".}
-proc d2*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: Geom2dLine; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_Line.hxx".}
-proc d3*(this: Geom2dLine; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Line.hxx".}
-proc dn*(this: Geom2dLine; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
+proc d3*(this: Geom2dLine; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
+        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Line.hxx".}
+proc dn*(this: Geom2dLine; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Line.hxx".}
-proc transform*(this: var Geom2dLine; t: Trsf2d) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dLine; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Line.hxx".}
-proc transformedParameter*(this: Geom2dLine; u: cfloat; t: Trsf2d): cfloat {.
+proc transformedParameter*(this: Geom2dLine; u: cfloat; t: Trsf2dObj): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_Line.hxx".}
-proc parametricTransformation*(this: Geom2dLine; t: Trsf2d): cfloat {.noSideEffect,
+proc parametricTransformation*(this: Geom2dLine; t: Trsf2dObj): cfloat {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom2d_Line.hxx".}
 proc copy*(this: Geom2dLine): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Line.hxx".}

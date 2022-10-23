@@ -24,15 +24,15 @@ type
                     bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
 
 
-proc newGceMakeRotation*(line: Lin; angle: cfloat): GceMakeRotation {.cdecl,
+proc newGceMakeRotation*(line: LinObj; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc newGceMakeRotation*(axis: Ax1; angle: cfloat): GceMakeRotation {.cdecl,
+proc newGceMakeRotation*(axis: Ax1Obj; angle: cfloat): GceMakeRotation {.cdecl,
     constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc newGceMakeRotation*(point: Pnt; direc: Dir; angle: cfloat): GceMakeRotation {.
+proc newGceMakeRotation*(point: PntObj; direc: DirObj; angle: cfloat): GceMakeRotation {.
     cdecl, constructor, importcpp: "gce_MakeRotation(@)", header: "gce_MakeRotation.hxx".}
-proc value*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
                                        header: "gce_MakeRotation.hxx".}
-proc operator*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
+proc operator*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeRotation.hxx".}
-converter `trsf`*(this: GceMakeRotation): Trsf {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeRotation::operator gp_Trsf", header: "gce_MakeRotation.hxx".}

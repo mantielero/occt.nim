@@ -209,20 +209,20 @@ proc setCustomValue*(this: var PrsDimDimension; theValue: TCollectionExtendedStr
     cdecl, importcpp: "SetCustomValue", header: "PrsDim_Dimension.hxx".}
 proc getCustomValue*(this: PrsDimDimension): TCollectionExtendedString {.
     noSideEffect, cdecl, importcpp: "GetCustomValue", header: "PrsDim_Dimension.hxx".}
-proc getPlane*(this: PrsDimDimension): Pln {.noSideEffect, cdecl,
+proc getPlane*(this: PrsDimDimension): PlnObj {.noSideEffect, cdecl,
     importcpp: "GetPlane", header: "PrsDim_Dimension.hxx".}
 proc getGeometryType*(this: PrsDimDimension): cint {.noSideEffect, cdecl,
     importcpp: "GetGeometryType", header: "PrsDim_Dimension.hxx".}
-proc setCustomPlane*(this: var PrsDimDimension; thePlane: Pln) {.cdecl,
+proc setCustomPlane*(this: var PrsDimDimension; thePlane: PlnObj) {.cdecl,
     importcpp: "SetCustomPlane", header: "PrsDim_Dimension.hxx".}
 proc unsetCustomPlane*(this: var PrsDimDimension) {.cdecl,
     importcpp: "UnsetCustomPlane", header: "PrsDim_Dimension.hxx".}
 proc isTextPositionCustom*(this: PrsDimDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsTextPositionCustom", header: "PrsDim_Dimension.hxx".}
-proc setTextPosition*(this: var PrsDimDimension; a2: Pnt) {.cdecl,
+proc setTextPosition*(this: var PrsDimDimension; a2: PntObj) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_Dimension.hxx".}
   ## theTextPos
-proc getTextPosition*(this: PrsDimDimension): Pnt {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_Dimension.hxx".}
 proc dimensionAspect*(this: PrsDimDimension): Handle[Prs3dDimensionAspect] {.
     noSideEffect, cdecl, importcpp: "DimensionAspect", header: "PrsDim_Dimension.hxx".}

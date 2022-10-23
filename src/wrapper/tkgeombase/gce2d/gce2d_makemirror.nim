@@ -24,13 +24,13 @@ type
                     bycopy.} = object
 
 
-proc newGCE2dMakeMirror*(point: Pnt2d): GCE2dMakeMirror {.cdecl, constructor,
+proc newGCE2dMakeMirror*(point: Pnt2dObj): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc newGCE2dMakeMirror*(axis: Ax2d): GCE2dMakeMirror {.cdecl, constructor,
+proc newGCE2dMakeMirror*(axis: Ax2dObj): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc newGCE2dMakeMirror*(line: Lin2d): GCE2dMakeMirror {.cdecl, constructor,
+proc newGCE2dMakeMirror*(line: Lin2dObj): GCE2dMakeMirror {.cdecl, constructor,
     importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
-proc newGCE2dMakeMirror*(point: Pnt2d; direc: Dir2d): GCE2dMakeMirror {.cdecl,
+proc newGCE2dMakeMirror*(point: Pnt2dObj; direc: Dir2dObj): GCE2dMakeMirror {.cdecl,
     constructor, importcpp: "GCE2d_MakeMirror(@)", header: "GCE2d_MakeMirror.hxx".}
 proc value*(this: GCE2dMakeMirror): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeMirror.hxx".}

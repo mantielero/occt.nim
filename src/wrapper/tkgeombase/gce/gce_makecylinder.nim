@@ -26,21 +26,21 @@ type
                                             ## ! The status is "NegativeRadius" if R < 0.0
 
 
-proc newCylinder*(a2: Ax2; radius: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(a2: Ax2Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc newCylinder*(cyl: Cylinder; point: Pnt): GceMakeCylinder {.cdecl,
+proc cylinder*(cyl: CylinderObj; point: PntObj): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc newCylinder*(cyl: Cylinder; dist: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(cyl: CylinderObj; dist: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc newCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): GceMakeCylinder {.cdecl,
+proc cylinder*(p1: PntObj; p2: PntObj; p3: PntObj): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc newCylinder*(axis: Ax1; radius: cfloat): GceMakeCylinder {.cdecl,
+proc cylinder*(axis: Ax1Obj; radius: cfloat): GceMakeCylinder {.cdecl,
     constructor, importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc newCylinder*(circ: Circ): GceMakeCylinder {.cdecl, constructor,
+proc cylinder*(circ: CircObj): GceMakeCylinder {.cdecl, constructor,
     importcpp: "gce_MakeCylinder(@)", header: "gce_MakeCylinder.hxx".}
-proc value*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
+proc value*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeCylinder.hxx".}
-proc operator*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
+proc operator*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeCylinder.hxx".}
-converter `cylinder`*(this: GceMakeCylinder): Cylinder {.noSideEffect, cdecl,
+converter `cylinder`*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCylinder::operator gp_Cylinder", header: "gce_MakeCylinder.hxx".}

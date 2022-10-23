@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  GeomFillSequenceOfAx2* = NCollectionSequence[Ax2]
+  GeomFillSequenceOfAx2* = NCollectionSequence[Ax2Obj]

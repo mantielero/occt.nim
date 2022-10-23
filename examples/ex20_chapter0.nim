@@ -8,7 +8,7 @@ proc main =
 """
  
   # Create a simple box with a size 100x100x50, centered around the origin
-  let lowerLeftCornerOfBox = newPnt(-50.0,-50.0,0.0)
+  let lowerLeftCornerOfBox = pnt(-50.0,-50.0,0.0)
   var boxMaker = box(lowerLeftCornerOfBox,100,100,50)
   var myBox:TopoDS_Shape = boxMaker.shape()
      

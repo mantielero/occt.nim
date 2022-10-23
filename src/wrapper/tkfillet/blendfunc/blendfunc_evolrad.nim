@@ -53,22 +53,22 @@ proc isSolution*(this: var BlendFuncEvolRad; sol: MathVector; tol: cfloat): bool
     importcpp: "IsSolution", header: "BlendFunc_EvolRad.hxx".}
 proc getMinimalDistance*(this: BlendFuncEvolRad): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BlendFunc_EvolRad.hxx".}
-proc pointOnS1*(this: BlendFuncEvolRad): Pnt {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncEvolRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_EvolRad.hxx".}
-proc pointOnS2*(this: BlendFuncEvolRad): Pnt {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncEvolRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc isTangencyPoint*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_EvolRad.hxx".}
-proc tangentOnS1*(this: BlendFuncEvolRad): Vec {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFuncEvolRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_EvolRad.hxx".}
-proc tangent2dOnS1*(this: BlendFuncEvolRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncEvolRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_EvolRad.hxx".}
-proc tangentOnS2*(this: BlendFuncEvolRad): Vec {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFuncEvolRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_EvolRad.hxx".}
-proc tangent2dOnS2*(this: BlendFuncEvolRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncEvolRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_EvolRad.hxx".}
 proc tangent*(this: BlendFuncEvolRad; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
+             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_EvolRad.hxx".}
 proc twistOnS1*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
     importcpp: "TwistOnS1", header: "BlendFunc_EvolRad.hxx".}
@@ -79,7 +79,7 @@ proc set*(this: var BlendFuncEvolRad; choix: cint) {.cdecl, importcpp: "Set",
 proc set*(this: var BlendFuncEvolRad; typeSection: BlendFuncSectionShape) {.cdecl,
     importcpp: "Set", header: "BlendFunc_EvolRad.hxx".}
 proc section*(this: var BlendFuncEvolRad; param: cfloat; u1: cfloat; v1: cfloat;
-             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.
+             u2: cfloat; v2: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.
     cdecl, importcpp: "Section", header: "BlendFunc_EvolRad.hxx".}
 proc isRational*(this: BlendFuncEvolRad): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "BlendFunc_EvolRad.hxx".}

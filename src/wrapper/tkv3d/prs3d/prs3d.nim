@@ -20,7 +20,7 @@ type
                                                               ## ! to a given direction.
 
 
-proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: Pnt; p2: Pnt;
+proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: PntObj; p2: PntObj;
                   dist: var cfloat): bool {.cdecl,
                                         importcpp: "Prs3d::MatchSegment(@)",
                                         header: "Prs3d.hxx".}
@@ -38,5 +38,5 @@ proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
                         thePolylines: var Prs3dNListOfSequenceOfPnt) {.cdecl,
     importcpp: "Prs3d::AddPrimitivesGroup(@)", header: "Prs3d.hxx".}
 proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
-                  thePolyTri: Handle[PolyTriangulation]; theLocation: Trsf) {.cdecl,
+                  thePolyTri: Handle[PolyTriangulation]; theLocation: TrsfObj) {.cdecl,
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}

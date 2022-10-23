@@ -93,27 +93,27 @@ type
                                                                                               ## measure.
 
 
-proc newPrsDimRadiusDimension*(theCircle: Circ): PrsDimRadiusDimension {.cdecl,
+proc newPrsDimRadiusDimension*(theCircle: CircObj): PrsDimRadiusDimension {.cdecl,
     constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
-proc newPrsDimRadiusDimension*(theCircle: Circ; theAnchorPoint: Pnt): PrsDimRadiusDimension {.
+proc newPrsDimRadiusDimension*(theCircle: CircObj; theAnchorPoint: PntObj): PrsDimRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
 proc newPrsDimRadiusDimension*(theShape: TopoDS_Shape): PrsDimRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_RadiusDimension(@)", header: "PrsDim_RadiusDimension.hxx".}
-proc circle*(this: PrsDimRadiusDimension): Circ {.noSideEffect, cdecl,
+proc circle*(this: PrsDimRadiusDimension): CircObj {.noSideEffect, cdecl,
     importcpp: "Circle", header: "PrsDim_RadiusDimension.hxx".}
-proc anchorPoint*(this: PrsDimRadiusDimension): Pnt {.noSideEffect, cdecl,
+proc anchorPoint*(this: PrsDimRadiusDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "AnchorPoint", header: "PrsDim_RadiusDimension.hxx".}
 proc shape*(this: PrsDimRadiusDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "PrsDim_RadiusDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: Circ) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: CircObj) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: Circ;
-                         theAnchorPoint: Pnt; theHasAnchor: bool = true) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theCircle: CircObj;
+                         theAnchorPoint: PntObj; theHasAnchor: bool = true) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theShape: TopoDS_Shape) {.
     cdecl, importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimRadiusDimension; theShape: TopoDS_Shape;
-                         theAnchorPoint: Pnt; theHasAnchor: bool = true) {.cdecl,
+                         theAnchorPoint: PntObj; theHasAnchor: bool = true) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_RadiusDimension.hxx".}
 proc getDisplayUnits*(this: PrsDimRadiusDimension): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "GetDisplayUnits", header: "PrsDim_RadiusDimension.hxx".}
@@ -125,7 +125,7 @@ proc setDisplayUnits*(this: var PrsDimRadiusDimension;
 proc setModelUnits*(this: var PrsDimRadiusDimension;
                    theUnits: TCollectionAsciiString) {.cdecl,
     importcpp: "SetModelUnits", header: "PrsDim_RadiusDimension.hxx".}
-proc setTextPosition*(this: var PrsDimRadiusDimension; theTextPos: Pnt) {.cdecl,
+proc setTextPosition*(this: var PrsDimRadiusDimension; theTextPos: PntObj) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
-proc getTextPosition*(this: PrsDimRadiusDimension): Pnt {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimRadiusDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_RadiusDimension.hxx".}

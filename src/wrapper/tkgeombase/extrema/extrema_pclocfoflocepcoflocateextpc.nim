@@ -29,12 +29,12 @@ type
 proc newExtremaPCLocFOfLocEPCOfLocateExtPC*(): ExtremaPCLocFOfLocEPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC(@)",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx".}
-proc newExtremaPCLocFOfLocEPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve): ExtremaPCLocFOfLocEPCOfLocateExtPC {.
+proc newExtremaPCLocFOfLocEPCOfLocateExtPC*(p: PntObj; c: Adaptor3dCurve): ExtremaPCLocFOfLocEPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC(@)",
     header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx".}
 proc initialize*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC; c: Adaptor3dCurve) {.
     cdecl, importcpp: "Initialize", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx".}
-proc setPoint*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC; p: Pnt) {.cdecl,
+proc setPoint*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC; p: PntObj) {.cdecl,
     importcpp: "SetPoint", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx".}
 proc value*(this: var ExtremaPCLocFOfLocEPCOfLocateExtPC; u: cfloat; f: var cfloat): bool {.
     cdecl, importcpp: "Value", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx".}

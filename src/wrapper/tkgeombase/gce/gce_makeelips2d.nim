@@ -30,16 +30,16 @@ type
                                            ## ! "NegativeRadius" if MinorRadius < 0.0
 
 
-proc newGceMakeElips2d*(majorAxis: Ax2d; majorRadius: cfloat; minorRadius: cfloat;
+proc newGceMakeElips2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
                        sense: bool = true): GceMakeElips2d {.cdecl, constructor,
     importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc newGceMakeElips2d*(a: Ax22d; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
+proc newGceMakeElips2d*(a: Ax22dObj; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips2d {.
     cdecl, constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc newGceMakeElips2d*(s1: Pnt2d; s2: Pnt2d; center: Pnt2d): GceMakeElips2d {.cdecl,
+proc newGceMakeElips2d*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GceMakeElips2d {.cdecl,
     constructor, importcpp: "gce_MakeElips2d(@)", header: "gce_MakeElips2d.hxx".}
-proc value*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeElips2d.hxx".}
-proc operator*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeElips2d.hxx".}
-converter `elips2d`*(this: GceMakeElips2d): Elips2d {.noSideEffect, cdecl,
+converter `elips2d`*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeElips2d::operator gp_Elips2d", header: "gce_MakeElips2d.hxx".}

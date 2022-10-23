@@ -42,7 +42,7 @@ type
                                                                                          ## 0.0).
 
 
-proc newV3dPositionalLight*(thePos: Pnt;
+proc newV3dPositionalLight*(thePos: PntObj;
                            theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dPositionalLight {.
     cdecl, constructor, importcpp: "V3d_PositionalLight(@)", header: "V3d_PositionalLight.hxx".}
 ## using statement

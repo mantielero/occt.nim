@@ -25,7 +25,7 @@ type
 proc newTopOpeBRepToolMkTondgE*(): TopOpeBRepToolMkTondgE {.cdecl, constructor,
     importcpp: "TopOpeBRepTool_mkTondgE(@)", header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc initialize*(this: var TopOpeBRepToolMkTondgE; dgE: TopoDS_Edge; f: TopoDS_Face;
-                uvi: Pnt2d; fi: TopoDS_Face): bool {.cdecl, importcpp: "Initialize",
+                uvi: Pnt2dObj; fi: TopoDS_Face): bool {.cdecl, importcpp: "Initialize",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
 proc setclE*(this: var TopOpeBRepToolMkTondgE; clE: TopoDS_Edge): bool {.cdecl,
     importcpp: "SetclE", header: "TopOpeBRepTool_mkTondgE.hxx".}

@@ -38,11 +38,11 @@ type
                                                                                             ## conversion.
 
 
-proc ellipse*(e: Elips): MakeEllipse {.cdecl, constructor,
+proc ellipse*(e: ElipsObj): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc ellipse*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
+proc ellipse*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeEllipse {.
     cdecl, constructor, importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
-proc ellipse*(s1: Pnt; s2: Pnt; center: Pnt): MakeEllipse {.cdecl, constructor,
+proc ellipse*(s1: PntObj; s2: PntObj; center: PntObj): MakeEllipse {.cdecl, constructor,
     importcpp: "GC_MakeEllipse(@)", header: "GC_MakeEllipse.hxx".}
 proc value*(this: MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeEllipse.hxx".}

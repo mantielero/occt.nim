@@ -57,16 +57,16 @@ type
                                                                                       ## radians.
 
 
-proc newGCE2dMakeArcOfCircle*(circ: Circ2d; alpha1: cfloat; alpha2: cfloat;
+proc newGCE2dMakeArcOfCircle*(circ: Circ2dObj; alpha1: cfloat; alpha2: cfloat;
                              sense: bool = true): GCE2dMakeArcOfCircle {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfCircle(@)", header: "GCE2d_MakeArcOfCircle.hxx".}
-proc newGCE2dMakeArcOfCircle*(circ: Circ2d; p: Pnt2d; alpha: cfloat; sense: bool = true): GCE2dMakeArcOfCircle {.
+proc newGCE2dMakeArcOfCircle*(circ: Circ2dObj; p: Pnt2dObj; alpha: cfloat; sense: bool = true): GCE2dMakeArcOfCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfCircle(@)", header: "GCE2d_MakeArcOfCircle.hxx".}
-proc newGCE2dMakeArcOfCircle*(circ: Circ2d; p1: Pnt2d; p2: Pnt2d; sense: bool = true): GCE2dMakeArcOfCircle {.
+proc newGCE2dMakeArcOfCircle*(circ: Circ2dObj; p1: Pnt2dObj; p2: Pnt2dObj; sense: bool = true): GCE2dMakeArcOfCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfCircle(@)", header: "GCE2d_MakeArcOfCircle.hxx".}
-proc newGCE2dMakeArcOfCircle*(p1: Pnt2d; p2: Pnt2d; p3: Pnt2d): GCE2dMakeArcOfCircle {.
+proc newGCE2dMakeArcOfCircle*(p1: Pnt2dObj; p2: Pnt2dObj; p3: Pnt2dObj): GCE2dMakeArcOfCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfCircle(@)", header: "GCE2d_MakeArcOfCircle.hxx".}
-proc newGCE2dMakeArcOfCircle*(p1: Pnt2d; v: Vec2d; p2: Pnt2d): GCE2dMakeArcOfCircle {.
+proc newGCE2dMakeArcOfCircle*(p1: Pnt2dObj; v: Vec2dObj; p2: Pnt2dObj): GCE2dMakeArcOfCircle {.
     cdecl, constructor, importcpp: "GCE2d_MakeArcOfCircle(@)", header: "GCE2d_MakeArcOfCircle.hxx".}
 proc value*(this: GCE2dMakeArcOfCircle): Handle[Geom2dTrimmedCurve] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GCE2d_MakeArcOfCircle.hxx".}

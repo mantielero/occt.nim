@@ -5,6 +5,6 @@ let
   myWidth = 50
   myThickness = 20
   myHeight = 70
-  aPnt1 = newPnt( myWidth, myThickness, myHeight)
+  aPnt1 = pnt( myWidth, myThickness, myHeight)
 
 echo aPnt1.x

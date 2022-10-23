@@ -147,13 +147,13 @@ type
                                                                                ## Resolution
 
 
-proc conicalSurface*(a2: Ax2; ang: cfloat; radius: cfloat): MakeConicalSurface {.
+proc conicalSurface*(a2: Ax2Obj; ang: cfloat; radius: cfloat): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
-proc conicalSurface*(c: Cone): MakeConicalSurface {.cdecl, constructor,
+proc conicalSurface*(c: ConeObj): MakeConicalSurface {.cdecl, constructor,
     importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
-proc conicalSurface*(p1: Pnt; p2: Pnt; p3: Pnt; p4: Pnt): MakeConicalSurface {.
+proc conicalSurface*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
-proc conicalSurface*(p1: Pnt; p2: Pnt; r1: cfloat; r2: cfloat): MakeConicalSurface {.
+proc conicalSurface*(p1: PntObj; p2: PntObj; r1: cfloat; r2: cfloat): MakeConicalSurface {.
     cdecl, constructor, importcpp: "GC_MakeConicalSurface(@)", header: "GC_MakeConicalSurface.hxx".}
 proc value*(this: MakeConicalSurface): Handle[GeomConicalSurface] {.noSideEffect,
     cdecl, importcpp: "Value", header: "GC_MakeConicalSurface.hxx".}

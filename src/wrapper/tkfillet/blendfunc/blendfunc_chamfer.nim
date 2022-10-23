@@ -39,22 +39,22 @@ proc set*(this: var BlendFuncChamfer; param: cfloat) {.cdecl, importcpp: "Set",
     header: "BlendFunc_Chamfer.hxx".}
 proc isSolution*(this: var BlendFuncChamfer; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Chamfer.hxx".}
-proc pointOnS1*(this: BlendFuncChamfer): Pnt {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncChamfer): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_Chamfer.hxx".}
-proc pointOnS2*(this: BlendFuncChamfer): Pnt {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncChamfer): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc isTangencyPoint*(this: BlendFuncChamfer): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Chamfer.hxx".}
-proc tangentOnS1*(this: BlendFuncChamfer): Vec {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFuncChamfer): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_Chamfer.hxx".}
-proc tangent2dOnS1*(this: BlendFuncChamfer): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncChamfer): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_Chamfer.hxx".}
-proc tangentOnS2*(this: BlendFuncChamfer): Vec {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFuncChamfer): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_Chamfer.hxx".}
-proc tangent2dOnS2*(this: BlendFuncChamfer): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncChamfer): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_Chamfer.hxx".}
 proc tangent*(this: BlendFuncChamfer; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
+             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_Chamfer.hxx".}
 proc set*(this: var BlendFuncChamfer; dist1: cfloat; dist2: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BlendFunc_Chamfer.hxx".}

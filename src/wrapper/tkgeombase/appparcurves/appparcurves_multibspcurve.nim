@@ -57,19 +57,19 @@ proc multiplicities*(this: AppParCurvesMultiBSpCurve): TColStdArray1OfInteger {.
     noSideEffect, cdecl, importcpp: "Multiplicities", header: "AppParCurves_MultiBSpCurve.hxx".}
 proc degree*(this: AppParCurvesMultiBSpCurve): cint {.noSideEffect, cdecl,
     importcpp: "Degree", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt) {.
+proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var PntObj) {.
     noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d) {.
+proc value*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2dObj) {.
     noSideEffect, cdecl, importcpp: "Value", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt;
-        v1: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
-        v1: var Vec2d) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
-proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt;
-        v1: var Vec; v2: var Vec) {.noSideEffect, cdecl, importcpp: "D2",
+proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var PntObj;
+        v1: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d1*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2dObj;
+        v1: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D1", header: "AppParCurves_MultiBSpCurve.hxx".}
+proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var PntObj;
+        v1: var VecObj; v2: var VecObj) {.noSideEffect, cdecl, importcpp: "D2",
                               header: "AppParCurves_MultiBSpCurve.hxx".}
-proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2d;
-        v1: var Vec2d; v2: var Vec2d) {.noSideEffect, cdecl, importcpp: "D2",
+proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2dObj;
+        v1: var Vec2dObj; v2: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D2",
                                   header: "AppParCurves_MultiBSpCurve.hxx".}
 proc dump*(this: AppParCurvesMultiBSpCurve; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "AppParCurves_MultiBSpCurve.hxx".}

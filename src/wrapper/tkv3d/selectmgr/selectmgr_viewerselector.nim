@@ -160,7 +160,7 @@ proc pickedData*(this: SelectMgrViewerSelector; theRank: cint): SelectMgrSortCri
 proc pickedEntity*(this: SelectMgrViewerSelector; theRank: cint): Handle[
     Select3D_SensitiveEntity] {.noSideEffect, cdecl, importcpp: "PickedEntity",
                                header: "SelectMgr_ViewerSelector.hxx".}
-proc pickedPoint*(this: SelectMgrViewerSelector; theRank: cint): Pnt {.noSideEffect,
+proc pickedPoint*(this: SelectMgrViewerSelector; theRank: cint): PntObj {.noSideEffect,
     cdecl, importcpp: "PickedPoint", header: "SelectMgr_ViewerSelector.hxx".}
 proc contains*(this: SelectMgrViewerSelector;
               theObject: Handle[SelectMgrSelectableObject]): bool {.noSideEffect,

@@ -37,9 +37,9 @@ proc tolerance*(this: var BRepTVertex; t: cfloat) {.cdecl, importcpp: "Tolerance
     header: "BRep_TVertex.hxx".}
 proc updateTolerance*(this: var BRepTVertex; t: cfloat) {.cdecl,
     importcpp: "UpdateTolerance", header: "BRep_TVertex.hxx".}
-proc pnt*(this: BRepTVertex): Pnt {.noSideEffect, cdecl, importcpp: "Pnt",
+proc pnt*(this: BRepTVertex): PntObj {.noSideEffect, cdecl, importcpp: "Pnt",
                                 header: "BRep_TVertex.hxx".}
-proc pnt*(this: var BRepTVertex; p: Pnt) {.cdecl, importcpp: "Pnt", header: "BRep_TVertex.hxx".}
+proc pnt*(this: var BRepTVertex; p: PntObj) {.cdecl, importcpp: "Pnt", header: "BRep_TVertex.hxx".}
 proc points*(this: BRepTVertex): BRepListOfPointRepresentation {.noSideEffect, cdecl,
     importcpp: "Points", header: "BRep_TVertex.hxx".}
 proc changePoints*(this: var BRepTVertex): var BRepListOfPointRepresentation {.cdecl,

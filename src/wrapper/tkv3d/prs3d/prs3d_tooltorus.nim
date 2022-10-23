@@ -46,19 +46,19 @@ type
 
 
 proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theNbSlices: cint;
-            theNbStacks: cint; theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.
+            theNbStacks: cint; theTrsf: TrsfObj): Handle[Graphic3dArrayOfTriangles] {.
     cdecl, importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
 proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle: cfloat;
-            theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+            theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
     Graphic3dArrayOfTriangles] {.cdecl, importcpp: "Prs3d_ToolTorus::Create(@)",
                                 header: "Prs3d_ToolTorus.hxx".}
 proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle1: cfloat;
-            theAngle2: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+            theAngle2: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
     Graphic3dArrayOfTriangles] {.cdecl, importcpp: "Prs3d_ToolTorus::Create(@)",
                                 header: "Prs3d_ToolTorus.hxx".}
 proc create*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle1: cfloat;
             theAngle2: cfloat; theAngle: cfloat; theNbSlices: cint; theNbStacks: cint;
-            theTrsf: Trsf): Handle[Graphic3dArrayOfTriangles] {.cdecl,
+            theTrsf: TrsfObj): Handle[Graphic3dArrayOfTriangles] {.cdecl,
     importcpp: "Prs3d_ToolTorus::Create(@)", header: "Prs3d_ToolTorus.hxx".}
 proc newPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat; theNbSlices: cint;
                        theNbStacks: cint): Prs3dToolTorus {.cdecl, constructor,

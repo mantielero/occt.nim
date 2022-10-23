@@ -42,33 +42,33 @@ proc isPeriodic*(c: Adaptor2dCurve2d): bool {.cdecl,
     importcpp: "Extrema_Curve2dTool::IsPeriodic(@)", header: "Extrema_Curve2dTool.hxx".}
 proc period*(c: Adaptor2dCurve2d): cfloat {.cdecl, importcpp: "Extrema_Curve2dTool::Period(@)",
                                         header: "Extrema_Curve2dTool.hxx".}
-proc value*(c: Adaptor2dCurve2d; u: cfloat): Pnt2d {.cdecl,
+proc value*(c: Adaptor2dCurve2d; u: cfloat): Pnt2dObj {.cdecl,
     importcpp: "Extrema_Curve2dTool::Value(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d0*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d) {.cdecl,
+proc d0*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2dObj) {.cdecl,
     importcpp: "Extrema_Curve2dTool::D0(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d1*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v: var Vec2d) {.cdecl,
+proc d1*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2dObj; v: var Vec2dObj) {.cdecl,
     importcpp: "Extrema_Curve2dTool::D1(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d2*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.cdecl,
+proc d2*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.cdecl,
     importcpp: "Extrema_Curve2dTool::D2(@)", header: "Extrema_Curve2dTool.hxx".}
-proc d3*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.cdecl, importcpp: "Extrema_Curve2dTool::D3(@)",
+proc d3*(c: Adaptor2dCurve2d; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
+        v3: var Vec2dObj) {.cdecl, importcpp: "Extrema_Curve2dTool::D3(@)",
                       header: "Extrema_Curve2dTool.hxx".}
-proc dn*(c: Adaptor2dCurve2d; u: cfloat; n: cint): Vec2d {.cdecl,
+proc dn*(c: Adaptor2dCurve2d; u: cfloat; n: cint): Vec2dObj {.cdecl,
     importcpp: "Extrema_Curve2dTool::DN(@)", header: "Extrema_Curve2dTool.hxx".}
 proc resolution*(c: Adaptor2dCurve2d; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Extrema_Curve2dTool::Resolution(@)", header: "Extrema_Curve2dTool.hxx".}
 proc getType*(c: Adaptor2dCurve2d): GeomAbsCurveType {.cdecl,
     importcpp: "Extrema_Curve2dTool::GetType(@)", header: "Extrema_Curve2dTool.hxx".}
-proc line*(c: Adaptor2dCurve2d): Lin2d {.cdecl,
+proc line*(c: Adaptor2dCurve2d): Lin2dObj {.cdecl,
                                      importcpp: "Extrema_Curve2dTool::Line(@)",
                                      header: "Extrema_Curve2dTool.hxx".}
-proc circle*(c: Adaptor2dCurve2d): Circ2d {.cdecl, importcpp: "Extrema_Curve2dTool::Circle(@)",
+proc circle*(c: Adaptor2dCurve2d): Circ2dObj {.cdecl, importcpp: "Extrema_Curve2dTool::Circle(@)",
                                         header: "Extrema_Curve2dTool.hxx".}
-proc ellipse*(c: Adaptor2dCurve2d): Elips2d {.cdecl,
+proc ellipse*(c: Adaptor2dCurve2d): Elips2dObj {.cdecl,
     importcpp: "Extrema_Curve2dTool::Ellipse(@)", header: "Extrema_Curve2dTool.hxx".}
-proc hyperbola*(c: Adaptor2dCurve2d): Hypr2d {.cdecl,
+proc hyperbola*(c: Adaptor2dCurve2d): Hypr2dObj {.cdecl,
     importcpp: "Extrema_Curve2dTool::Hyperbola(@)", header: "Extrema_Curve2dTool.hxx".}
-proc parabola*(c: Adaptor2dCurve2d): Parab2d {.cdecl,
+proc parabola*(c: Adaptor2dCurve2d): Parab2dObj {.cdecl,
     importcpp: "Extrema_Curve2dTool::Parabola(@)", header: "Extrema_Curve2dTool.hxx".}
 proc degree*(c: Adaptor2dCurve2d): cint {.cdecl, importcpp: "Extrema_Curve2dTool::Degree(@)",
                                       header: "Extrema_Curve2dTool.hxx".}

@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpSequenceOfDir2d* = NCollectionSequence[Dir2d]
+  TColgpSequenceOfDir2d* = NCollectionSequence[Dir2dObj]

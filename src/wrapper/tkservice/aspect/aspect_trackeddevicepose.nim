@@ -16,9 +16,9 @@
 type
   AspectTrackedDevicePose* {.importcpp: "Aspect_TrackedDevicePose",
                             header: "Aspect_TrackedDevicePose.hxx", bycopy.} = object
-    orientation* {.importc: "Orientation".}: Trsf ## !< device to absolute transformation
-    velocity* {.importc: "Velocity".}: Vec ## !< velocity in tracker space in m/s
-    angularVelocity* {.importc: "AngularVelocity".}: Vec ## !< angular velocity in radians/s
+    orientation* {.importc: "Orientation".}: TrsfObj ## !< device to absolute transformation
+    velocity* {.importc: "Velocity".}: VecObj ## !< velocity in tracker space in m/s
+    angularVelocity* {.importc: "AngularVelocity".}: VecObj ## !< angular velocity in radians/s
     isValidPose* {.importc: "IsValidPose".}: bool ## !< indicates valid pose
     isConnectedDevice* {.importc: "IsConnectedDevice".}: bool ## !< indicates connected state
                                                           ## ! Empty constructor.

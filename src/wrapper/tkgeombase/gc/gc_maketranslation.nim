@@ -22,9 +22,9 @@ type
                     header: "GC_MakeTranslation.hxx", bycopy.} = object ## ! Constructs a translation along the vector " Vect "
 
 
-proc translation*(vect: Vec): MakeTranslation {.cdecl, constructor,
+proc translation*(vect: VecObj): MakeTranslation {.cdecl, constructor,
     importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
-proc translation*(point1: Pnt; point2: Pnt): MakeTranslation {.cdecl,
+proc translation*(point1: PntObj; point2: PntObj): MakeTranslation {.cdecl,
     constructor, importcpp: "GC_MakeTranslation(@)", header: "GC_MakeTranslation.hxx".}
 proc value*(this: MakeTranslation): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeTranslation.hxx".}

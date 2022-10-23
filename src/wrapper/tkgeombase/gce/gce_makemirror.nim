@@ -25,21 +25,21 @@ type
   GceMakeMirror* {.importcpp: "gce_MakeMirror", header: "gce_MakeMirror.hxx", bycopy.} = object
 
 
-proc newGceMakeMirror*(point: Pnt): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(point: PntObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(axis: Ax1): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(axis: Ax1Obj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(line: Lin): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(line: LinObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(point: Pnt; direc: Dir): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(point: PntObj; direc: DirObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(plane: Pln): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(plane: PlnObj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc newGceMakeMirror*(plane: Ax2): GceMakeMirror {.cdecl, constructor,
+proc newGceMakeMirror*(plane: Ax2Obj): GceMakeMirror {.cdecl, constructor,
     importcpp: "gce_MakeMirror(@)", header: "gce_MakeMirror.hxx".}
-proc value*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeMirror.hxx".}
-proc operator*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl,
+proc operator*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeMirror.hxx".}
-converter `trsf`*(this: GceMakeMirror): Trsf {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}

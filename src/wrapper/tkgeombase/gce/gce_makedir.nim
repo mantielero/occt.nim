@@ -41,18 +41,18 @@ type
                                                                                         ## Resolution.
 
 
-proc newGceMakeDir*(v: Vec): GceMakeDir {.cdecl, constructor,
+proc newGceMakeDir*(v: VecObj): GceMakeDir {.cdecl, constructor,
                                       importcpp: "gce_MakeDir(@)",
                                       header: "gce_MakeDir.hxx".}
-proc newGceMakeDir*(coord: Xyz): GceMakeDir {.cdecl, constructor,
+proc newGceMakeDir*(coord: XyzObj): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
 proc newGceMakeDir*(xv: cfloat; yv: cfloat; zv: cfloat): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
-proc newGceMakeDir*(p1: Pnt; p2: Pnt): GceMakeDir {.cdecl, constructor,
+proc newGceMakeDir*(p1: PntObj; p2: PntObj): GceMakeDir {.cdecl, constructor,
     importcpp: "gce_MakeDir(@)", header: "gce_MakeDir.hxx".}
-proc value*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeDir): DirObj {.noSideEffect, cdecl, importcpp: "Value",
                                  header: "gce_MakeDir.hxx".}
-proc operator*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeDir): DirObj {.noSideEffect, cdecl, importcpp: "Operator",
                                     header: "gce_MakeDir.hxx".}
-converter `dir`*(this: GceMakeDir): Dir {.noSideEffect, cdecl, importcpp: "gce_MakeDir::operator gp_Dir",
+converter `dir`*(this: GceMakeDir): DirObj {.noSideEffect, cdecl, importcpp: "gce_MakeDir::operator gp_Dir",
                                       header: "gce_MakeDir.hxx".}

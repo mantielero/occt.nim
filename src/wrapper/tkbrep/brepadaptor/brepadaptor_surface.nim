@@ -58,7 +58,7 @@ proc surface*(this: BRepAdaptorSurface): GeomAdaptorSurface {.noSideEffect, cdec
     importcpp: "Surface", header: "BRepAdaptor_Surface.hxx".}
 proc changeSurface*(this: var BRepAdaptorSurface): var GeomAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "BRepAdaptor_Surface.hxx".}
-proc trsf*(this: BRepAdaptorSurface): Trsf {.noSideEffect, cdecl, importcpp: "Trsf",
+proc trsf*(this: BRepAdaptorSurface): TrsfObj {.noSideEffect, cdecl, importcpp: "Trsf",
     header: "BRepAdaptor_Surface.hxx".}
 proc face*(this: BRepAdaptorSurface): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Face", header: "BRepAdaptor_Surface.hxx".}
@@ -100,20 +100,20 @@ proc isVPeriodic*(this: BRepAdaptorSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsVPeriodic", header: "BRepAdaptor_Surface.hxx".}
 proc vPeriod*(this: BRepAdaptorSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "VPeriod", header: "BRepAdaptor_Surface.hxx".}
-proc value*(this: BRepAdaptorSurface; u: cfloat; v: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: BRepAdaptorSurface; u: cfloat; v: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "BRepAdaptor_Surface.hxx".}
-proc d0*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "BRepAdaptor_Surface.hxx".}
-proc d1*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "BRepAdaptor_Surface.hxx".}
-proc d2*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "BRepAdaptor_Surface.hxx".}
+proc d2*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "BRepAdaptor_Surface.hxx".}
-proc d3*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
+        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "BRepAdaptor_Surface.hxx".}
-proc dn*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(this: BRepAdaptorSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "DN", header: "BRepAdaptor_Surface.hxx".}
 proc uResolution*(this: BRepAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "UResolution", header: "BRepAdaptor_Surface.hxx".}
@@ -121,15 +121,15 @@ proc vResolution*(this: BRepAdaptorSurface; r3d: cfloat): cfloat {.noSideEffect,
     importcpp: "VResolution", header: "BRepAdaptor_Surface.hxx".}
 proc getType*(this: BRepAdaptorSurface): GeomAbsSurfaceType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "BRepAdaptor_Surface.hxx".}
-proc plane*(this: BRepAdaptorSurface): Pln {.noSideEffect, cdecl, importcpp: "Plane",
+proc plane*(this: BRepAdaptorSurface): PlnObj {.noSideEffect, cdecl, importcpp: "Plane",
     header: "BRepAdaptor_Surface.hxx".}
-proc cylinder*(this: BRepAdaptorSurface): Cylinder {.noSideEffect, cdecl,
+proc cylinder*(this: BRepAdaptorSurface): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Cylinder", header: "BRepAdaptor_Surface.hxx".}
-proc cone*(this: BRepAdaptorSurface): Cone {.noSideEffect, cdecl, importcpp: "Cone",
+proc cone*(this: BRepAdaptorSurface): ConeObj {.noSideEffect, cdecl, importcpp: "Cone",
     header: "BRepAdaptor_Surface.hxx".}
-proc sphere*(this: BRepAdaptorSurface): Sphere {.noSideEffect, cdecl,
+proc sphere*(this: BRepAdaptorSurface): SphereObj {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "BRepAdaptor_Surface.hxx".}
-proc torus*(this: BRepAdaptorSurface): Torus {.noSideEffect, cdecl,
+proc torus*(this: BRepAdaptorSurface): TorusObj {.noSideEffect, cdecl,
     importcpp: "Torus", header: "BRepAdaptor_Surface.hxx".}
 proc uDegree*(this: BRepAdaptorSurface): cint {.noSideEffect, cdecl,
     importcpp: "UDegree", header: "BRepAdaptor_Surface.hxx".}
@@ -151,9 +151,9 @@ proc bezier*(this: BRepAdaptorSurface): Handle[GeomBezierSurface] {.noSideEffect
     cdecl, importcpp: "Bezier", header: "BRepAdaptor_Surface.hxx".}
 proc bSpline*(this: BRepAdaptorSurface): Handle[GeomBSplineSurface] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "BRepAdaptor_Surface.hxx".}
-proc axeOfRevolution*(this: BRepAdaptorSurface): Ax1 {.noSideEffect, cdecl,
+proc axeOfRevolution*(this: BRepAdaptorSurface): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "AxeOfRevolution", header: "BRepAdaptor_Surface.hxx".}
-proc direction*(this: BRepAdaptorSurface): Dir {.noSideEffect, cdecl,
+proc direction*(this: BRepAdaptorSurface): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "BRepAdaptor_Surface.hxx".}
 proc basisCurve*(this: BRepAdaptorSurface): Handle[Adaptor3dHCurve] {.noSideEffect,
     cdecl, importcpp: "BasisCurve", header: "BRepAdaptor_Surface.hxx".}

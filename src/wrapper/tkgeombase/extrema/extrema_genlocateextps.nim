@@ -31,7 +31,7 @@ proc newExtremaGenLocateExtPS*(theS: Adaptor3dSurface;
                               theTolU: cfloat = pConfusion();
                               theTolV: cfloat = pConfusion()): ExtremaGenLocateExtPS {.
     cdecl, constructor, importcpp: "Extrema_GenLocateExtPS(@)", header: "Extrema_GenLocateExtPS.hxx".}
-proc perform*(this: var ExtremaGenLocateExtPS; theP: Pnt; theU0: cfloat; theV0: cfloat;
+proc perform*(this: var ExtremaGenLocateExtPS; theP: PntObj; theU0: cfloat; theV0: cfloat;
              isDistanceCriteria: bool = false) {.cdecl, importcpp: "Perform",
     header: "Extrema_GenLocateExtPS.hxx".}
 proc isDone*(this: ExtremaGenLocateExtPS): bool {.noSideEffect, cdecl,

@@ -22,7 +22,7 @@ type
                      header: "GeomFill_PlanFunc.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
-proc newGeomFillPlanFunc*(p: Pnt; v: Vec; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
+proc newGeomFillPlanFunc*(p: PntObj; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
     cdecl, constructor, importcpp: "GeomFill_PlanFunc(@)", header: "GeomFill_PlanFunc.hxx".}
 proc value*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat): bool {.cdecl,
     importcpp: "Value", header: "GeomFill_PlanFunc.hxx".}
@@ -32,8 +32,8 @@ proc values*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat; d: var cfloat
     cdecl, importcpp: "Values", header: "GeomFill_PlanFunc.hxx".}
 proc d2*(this: var GeomFillPlanFunc; x: cfloat; f: var cfloat; d1: var cfloat;
         d2: var cfloat) {.cdecl, importcpp: "D2", header: "GeomFill_PlanFunc.hxx".}
-proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: Vec; dv: Vec; df: var cfloat) {.cdecl,
+proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; dv: VecObj; df: var cfloat) {.cdecl,
     importcpp: "DEDT", header: "GeomFill_PlanFunc.hxx".}
-proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: Vec; d2p: Vec; dv: Vec; d2v: Vec;
+proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; d2p: VecObj; dv: VecObj; d2v: VecObj;
          dfdt: var cfloat; d2fdt2: var cfloat; d2fdtdx: var cfloat) {.cdecl,
     importcpp: "D2E", header: "GeomFill_PlanFunc.hxx".}

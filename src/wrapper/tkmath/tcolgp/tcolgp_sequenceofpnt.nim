@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpSequenceOfPnt* = NCollectionSequence[Pnt]
+  TColgpSequenceOfPnt* = NCollectionSequence[PntObj]

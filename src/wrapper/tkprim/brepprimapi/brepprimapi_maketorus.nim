@@ -62,14 +62,14 @@ proc torus*(r1: cfloat; r2: cfloat; angle1: cfloat; angle2: cfloat): BRepPrimAPI
 proc torus*(r1: cfloat; r2: cfloat; angle1: cfloat; angle2: cfloat;
                               angle: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
-proc torus*(axes: Ax2; r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.
+proc torus*(axes: Ax2Obj; r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
-proc torus*(axes: Ax2; r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
+proc torus*(axes: Ax2Obj; r1: cfloat; r2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
-proc torus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
+proc torus*(axes: Ax2Obj; r1: cfloat; r2: cfloat; angle1: cfloat;
                               angle2: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
     constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
-proc torus*(axes: Ax2; r1: cfloat; r2: cfloat; angle1: cfloat;
+proc torus*(axes: Ax2Obj; r1: cfloat; r2: cfloat; angle1: cfloat;
                               angle2: cfloat; angle: cfloat): BRepPrimAPI_MakeTorus {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeTorus(@)", header: "BRepPrimAPI_MakeTorus.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeTorus): pointer {.cdecl, importcpp: "OneAxis",

@@ -16,5 +16,5 @@ type
   SelectMgrVec4* = NCollectionVec4[cfloat]
   SelectMgrMat4* = NCollectionMat4[cfloat]
 
-proc transform*(theTrsf: Trsf; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
+proc transform*(theTrsf: TrsfObj; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
   discard

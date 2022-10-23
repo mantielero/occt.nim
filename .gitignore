@@ -1,3 +1,4 @@
+*.backup
 .vscode/
 *~
 src/wrapper2/headers/*
@@ -6,3 +7,5 @@ src/wrapper2/acme.py
 experiments/lib/nimcache
 experiments/wrapper2/nimcache
 examples/.cache
+examples/*
+!examples/*.nim

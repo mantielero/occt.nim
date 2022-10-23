@@ -35,9 +35,9 @@ proc newBRepCurveOnClosedSurface*(pc1: Handle[Geom2dCurve];
                                  pc2: Handle[Geom2dCurve]; s: Handle[GeomSurface];
                                  L: TopLocLocation; c: GeomAbsShape): BRepCurveOnClosedSurface {.
     cdecl, constructor, importcpp: "BRep_CurveOnClosedSurface(@)", header: "BRep_CurveOnClosedSurface.hxx".}
-proc setUVPoints2*(this: var BRepCurveOnClosedSurface; p1: Pnt2d; p2: Pnt2d) {.cdecl,
+proc setUVPoints2*(this: var BRepCurveOnClosedSurface; p1: Pnt2dObj; p2: Pnt2dObj) {.cdecl,
     importcpp: "SetUVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
-proc uVPoints2*(this: BRepCurveOnClosedSurface; p1: var Pnt2d; p2: var Pnt2d) {.
+proc uVPoints2*(this: BRepCurveOnClosedSurface; p1: var Pnt2dObj; p2: var Pnt2dObj) {.
     noSideEffect, cdecl, importcpp: "UVPoints2", header: "BRep_CurveOnClosedSurface.hxx".}
 proc isCurveOnClosedSurface*(this: BRepCurveOnClosedSurface): bool {.noSideEffect,
     cdecl, importcpp: "IsCurveOnClosedSurface", header: "BRep_CurveOnClosedSurface.hxx".}

@@ -403,7 +403,7 @@ proc windowFitAll*(this: var V3dView; xmin: cint; ymin: cint; xmax: cint; ymax: 
 #               theMargin: cfloat; theResolution: cfloat = 0.0;
 #               theToEnlargeIfLine: bool = true): bool {.noSideEffect, cdecl,
 #    importcpp: "FitMinMax", header: "V3d_View.hxx".}
-#proc setGrid*(this: var V3dView; aPlane: Ax3; aGrid: Handle[AspectGrid]) {.cdecl,
+#proc setGrid*(this: var V3dView; aPlane: Ax3Obj; aGrid: Handle[AspectGrid]) {.cdecl,
 #    importcpp: "SetGrid", header: "V3d_View.hxx".}
 #proc setGridActivity*(this: var V3dView; aFlag: bool) {.cdecl,
 #    importcpp: "SetGridActivity", header: "V3d_View.hxx".}
@@ -460,7 +460,7 @@ proc statisticInformation*(this: V3dView): TCollectionAsciiString {.noSideEffect
 proc statisticInformation*(this: V3dView;
                           theDict: var TColStdIndexedDataMapOfStringString) {.
     noSideEffect, cdecl, importcpp: "StatisticInformation", header: "V3d_View.hxx".}
-proc gravityPoint*(this: V3dView): Pnt {.noSideEffect, cdecl,
+proc gravityPoint*(this: V3dView): PntObj {.noSideEffect, cdecl,
                                      importcpp: "GravityPoint", header: "V3d_View.hxx".}
 proc dumpJson*(this: V3dView; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "V3d_View.hxx".}

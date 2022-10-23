@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -18,61 +20,58 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
-type
-  Circ* {.importcpp: "gp_Circ", header: "gp_Circ.hxx", bycopy.} = object ## ! Creates an indefinite circle.
 
-
-proc newCirc*(): Circ {.cdecl, constructor, importcpp: "gp_Circ(@)", header: "gp_Circ.hxx".}
-proc newCirc*(a2: Ax2; radius: cfloat): Circ {.cdecl, constructor,
+proc circ*(): CircObj {.cdecl, constructor, importcpp: "gp_Circ(@)", header: "gp_Circ.hxx".}
+proc circ*(a2: Ax2Obj; radius: cfloat): CircObj {.cdecl, constructor,
     importcpp: "gp_Circ(@)", header: "gp_Circ.hxx".}
-proc setAxis*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Circ.hxx".}
-proc setLocation*(this: var Circ; p: Pnt) {.cdecl, importcpp: "SetLocation",
+proc setAxis*(this: var CircObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Circ.hxx".}
+proc setLocation*(this: var CircObj; p: PntObj) {.cdecl, importcpp: "SetLocation",
                                       header: "gp_Circ.hxx".}
-proc setPosition*(this: var Circ; a2: Ax2) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var CircObj; a2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
                                        header: "gp_Circ.hxx".}
-proc setRadius*(this: var Circ; radius: cfloat) {.cdecl, importcpp: "SetRadius",
+proc setRadius*(this: var CircObj; radius: cfloat) {.cdecl, importcpp: "SetRadius",
     header: "gp_Circ.hxx".}
-proc area*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Circ.hxx".}
-proc axis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Circ.hxx".}
-proc length*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Length",
+proc area*(this: CircObj): cfloat {.noSideEffect, cdecl, importcpp: "Area", header: "gp_Circ.hxx".}
+proc axis*(this: CircObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Circ.hxx".}
+proc length*(this: CircObj): cfloat {.noSideEffect, cdecl, importcpp: "Length",
                                header: "gp_Circ.hxx".}
-proc location*(this: Circ): Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: CircObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
                               header: "gp_Circ.hxx".}
-proc position*(this: Circ): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: CircObj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
                               header: "gp_Circ.hxx".}
-proc radius*(this: Circ): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
+proc radius*(this: CircObj): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                header: "gp_Circ.hxx".}
-proc xAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Circ.hxx".}
-proc yAxis*(this: Circ): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Circ.hxx".}
-proc distance*(this: Circ; p: Pnt): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
+proc xAxis*(this: CircObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Circ.hxx".}
+proc yAxis*(this: CircObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Circ.hxx".}
+proc distance*(this: CircObj; p: PntObj): cfloat {.noSideEffect, cdecl, importcpp: "Distance",
                                        header: "gp_Circ.hxx".}
-proc squareDistance*(this: Circ; p: Pnt): cfloat {.noSideEffect, cdecl,
+proc squareDistance*(this: CircObj; p: PntObj): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "gp_Circ.hxx".}
-proc contains*(this: Circ; p: Pnt; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
+proc contains*(this: CircObj; p: PntObj; linearTolerance: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "Contains", header: "gp_Circ.hxx".}
-proc mirror*(this: var Circ; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
-proc mirrored*(this: Circ; p: Pnt): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var CircObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
+proc mirrored*(this: CircObj; p: PntObj): CircObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                      header: "gp_Circ.hxx".}
-proc mirror*(this: var Circ; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
-proc mirrored*(this: Circ; a1: Ax1): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var CircObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
+proc mirrored*(this: CircObj; a1: Ax1Obj): CircObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Circ.hxx".}
-proc mirror*(this: var Circ; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
-proc mirrored*(this: Circ; a2: Ax2): Circ {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc mirror*(this: var CircObj; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Circ.hxx".}
+proc mirrored*(this: CircObj; a2: Ax2Obj): CircObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                       header: "gp_Circ.hxx".}
-proc rotate*(this: var Circ; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var CircObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Circ.hxx".}
-proc rotated*(this: Circ; a1: Ax1; ang: cfloat): Circ {.noSideEffect, cdecl,
+proc rotated*(this: CircObj; a1: Ax1Obj; ang: cfloat): CircObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Circ.hxx".}
-proc scale*(this: var Circ; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Circ.hxx".}
-proc scaled*(this: Circ; p: Pnt; s: cfloat): Circ {.noSideEffect, cdecl,
+proc scale*(this: var CircObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Circ.hxx".}
+proc scaled*(this: CircObj; p: PntObj; s: cfloat): CircObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Circ.hxx".}
-proc transform*(this: var Circ; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Circ.hxx".}
-proc transformed*(this: Circ; t: Trsf): Circ {.noSideEffect, cdecl,
+proc transform*(this: var CircObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Circ.hxx".}
+proc transformed*(this: CircObj; t: TrsfObj): CircObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Circ.hxx".}
-proc translate*(this: var Circ; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Circ.hxx".}
-proc translated*(this: Circ; v: Vec): Circ {.noSideEffect, cdecl,
+proc translate*(this: var CircObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Circ.hxx".}
+proc translated*(this: CircObj; v: VecObj): CircObj {.noSideEffect, cdecl,
                                        importcpp: "Translated", header: "gp_Circ.hxx".}
-proc translate*(this: var Circ; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
+proc translate*(this: var CircObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
     header: "gp_Circ.hxx".}
-proc translated*(this: Circ; p1: Pnt; p2: Pnt): Circ {.noSideEffect, cdecl,
+proc translated*(this: CircObj; p1: PntObj; p2: PntObj): CircObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Circ.hxx".}

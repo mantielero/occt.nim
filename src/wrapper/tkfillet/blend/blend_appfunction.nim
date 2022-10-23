@@ -55,9 +55,9 @@ proc isSolution*(this: var BlendAppFunction; sol: MathVector; tol: cfloat): bool
     importcpp: "IsSolution", header: "Blend_AppFunction.hxx".}
 proc getMinimalDistance*(this: BlendAppFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "Blend_AppFunction.hxx".}
-proc pnt1*(this: BlendAppFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt1",
+proc pnt1*(this: BlendAppFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt1",
                                       header: "Blend_AppFunction.hxx".}
-proc pnt2*(this: BlendAppFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt2",
+proc pnt2*(this: BlendAppFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt2",
                                       header: "Blend_AppFunction.hxx".}
 proc isRational*(this: BlendAppFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "Blend_AppFunction.hxx".}

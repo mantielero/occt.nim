@@ -49,8 +49,8 @@ proc getMinimalWeights*(sectShape: BlendFuncSectionShape;
     importcpp: "BlendFunc::GetMinimalWeights(@)", header: "BlendFunc.hxx".}
 proc nextShape*(s: GeomAbsShape): GeomAbsShape {.cdecl,
     importcpp: "BlendFunc::NextShape(@)", header: "BlendFunc.hxx".}
-proc computeNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2d; normal: var Vec): bool {.
+proc computeNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var VecObj): bool {.
     cdecl, importcpp: "BlendFunc::ComputeNormal(@)", header: "BlendFunc.hxx".}
-proc computeDNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2d; normal: var Vec;
-                    dNu: var Vec; dNv: var Vec): bool {.cdecl,
+proc computeDNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var VecObj;
+                    dNu: var VecObj; dNv: var VecObj): bool {.cdecl,
     importcpp: "BlendFunc::ComputeDNormal(@)", header: "BlendFunc.hxx".}

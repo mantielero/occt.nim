@@ -127,25 +127,25 @@ proc uIso*(this: GeomRectangularTrimmedSurface; u: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "UIso", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc vIso*(this: GeomRectangularTrimmedSurface; v: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "VIso", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d0*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt) {.
+proc d0*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var PntObj) {.
     noSideEffect, cdecl, importcpp: "D0", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d1*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
-        d1u: var Vec; d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d2*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
-        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect,
+proc d1*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var PntObj;
+        d1u: var VecObj; d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_RectangularTrimmedSurface.hxx".}
+proc d2*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var PntObj;
+        d1u: var VecObj; d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc d3*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var Pnt;
-        d1u: var Vec; d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec;
-        d3v: var Vec; d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl,
+proc d3*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; p: var PntObj;
+        d1u: var VecObj; d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj;
+        d3v: var VecObj; d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D3", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc dn*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(this: GeomRectangularTrimmedSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc transform*(this: var GeomRectangularTrimmedSurface; t: Trsf) {.cdecl,
+proc transform*(this: var GeomRectangularTrimmedSurface; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc transformParameters*(this: GeomRectangularTrimmedSurface; u: var cfloat;
-                         v: var cfloat; t: Trsf) {.noSideEffect, cdecl,
+                         v: var cfloat; t: TrsfObj) {.noSideEffect, cdecl,
     importcpp: "TransformParameters", header: "Geom_RectangularTrimmedSurface.hxx".}
-proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomRectangularTrimmedSurface; t: TrsfObj): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_RectangularTrimmedSurface.hxx".}
 proc copy*(this: GeomRectangularTrimmedSurface): Handle[GeomGeometry] {.
     noSideEffect, cdecl, importcpp: "Copy", header: "Geom_RectangularTrimmedSurface.hxx".}

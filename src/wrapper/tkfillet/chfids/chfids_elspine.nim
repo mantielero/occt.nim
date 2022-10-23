@@ -62,15 +62,15 @@ proc setPeriodic*(this: var ChFiDS_ElSpine; i: bool) {.cdecl, importcpp: "SetPer
     header: "ChFiDS_ElSpine.hxx".}
 proc period*(this: ChFiDS_ElSpine): cfloat {.noSideEffect, cdecl, importcpp: "Period",
     header: "ChFiDS_ElSpine.hxx".}
-proc value*(this: ChFiDS_ElSpine; absC: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: ChFiDS_ElSpine; absC: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "ChFiDS_ElSpine.hxx".}
-proc d0*(this: ChFiDS_ElSpine; absC: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: ChFiDS_ElSpine; absC: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "ChFiDS_ElSpine.hxx".}
-proc d1*(this: ChFiDS_ElSpine; absC: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: ChFiDS_ElSpine; absC: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "ChFiDS_ElSpine.hxx".}
-proc d2*(this: ChFiDS_ElSpine; absC: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: ChFiDS_ElSpine; absC: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "ChFiDS_ElSpine.hxx".}
-proc d3*(this: ChFiDS_ElSpine; absC: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: ChFiDS_ElSpine; absC: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "ChFiDS_ElSpine.hxx".}
 proc firstParameter*(this: var ChFiDS_ElSpine; p: cfloat) {.cdecl,
     importcpp: "FirstParameter", header: "ChFiDS_ElSpine.hxx".}
@@ -82,19 +82,19 @@ proc saveLastParameter*(this: var ChFiDS_ElSpine) {.cdecl,
     importcpp: "SaveLastParameter", header: "ChFiDS_ElSpine.hxx".}
 proc setOrigin*(this: var ChFiDS_ElSpine; o: cfloat) {.cdecl, importcpp: "SetOrigin",
     header: "ChFiDS_ElSpine.hxx".}
-proc firstPointAndTgt*(this: ChFiDS_ElSpine; p: var Pnt; t: var Vec) {.noSideEffect,
+proc firstPointAndTgt*(this: ChFiDS_ElSpine; p: var PntObj; t: var VecObj) {.noSideEffect,
     cdecl, importcpp: "FirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc lastPointAndTgt*(this: ChFiDS_ElSpine; p: var Pnt; t: var Vec) {.noSideEffect, cdecl,
+proc lastPointAndTgt*(this: ChFiDS_ElSpine; p: var PntObj; t: var VecObj) {.noSideEffect, cdecl,
     importcpp: "LastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
 proc nbVertices*(this: ChFiDS_ElSpine): cint {.noSideEffect, cdecl,
     importcpp: "NbVertices", header: "ChFiDS_ElSpine.hxx".}
-proc vertexWithTangent*(this: ChFiDS_ElSpine; index: cint): Ax1 {.noSideEffect, cdecl,
+proc vertexWithTangent*(this: ChFiDS_ElSpine; index: cint): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "VertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
-proc setFirstPointAndTgt*(this: var ChFiDS_ElSpine; p: Pnt; t: Vec) {.cdecl,
+proc setFirstPointAndTgt*(this: var ChFiDS_ElSpine; p: PntObj; t: VecObj) {.cdecl,
     importcpp: "SetFirstPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc setLastPointAndTgt*(this: var ChFiDS_ElSpine; p: Pnt; t: Vec) {.cdecl,
+proc setLastPointAndTgt*(this: var ChFiDS_ElSpine; p: PntObj; t: VecObj) {.cdecl,
     importcpp: "SetLastPointAndTgt", header: "ChFiDS_ElSpine.hxx".}
-proc addVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: Ax1) {.cdecl,
+proc addVertexWithTangent*(this: var ChFiDS_ElSpine; anAx1: Ax1Obj) {.cdecl,
     importcpp: "AddVertexWithTangent", header: "ChFiDS_ElSpine.hxx".}
 proc setCurve*(this: var ChFiDS_ElSpine; c: Handle[GeomCurve]) {.cdecl,
     importcpp: "SetCurve", header: "ChFiDS_ElSpine.hxx".}
@@ -106,15 +106,15 @@ proc next*(this: ChFiDS_ElSpine): Handle[ChFiDS_SurfData] {.noSideEffect, cdecl,
     importcpp: "Next", header: "ChFiDS_ElSpine.hxx".}
 proc changeNext*(this: var ChFiDS_ElSpine): var Handle[ChFiDS_SurfData] {.cdecl,
     importcpp: "ChangeNext", header: "ChFiDS_ElSpine.hxx".}
-proc line*(this: ChFiDS_ElSpine): Lin {.noSideEffect, cdecl, importcpp: "Line",
+proc line*(this: ChFiDS_ElSpine): LinObj {.noSideEffect, cdecl, importcpp: "Line",
                                     header: "ChFiDS_ElSpine.hxx".}
-proc circle*(this: ChFiDS_ElSpine): Circ {.noSideEffect, cdecl, importcpp: "Circle",
+proc circle*(this: ChFiDS_ElSpine): CircObj {.noSideEffect, cdecl, importcpp: "Circle",
                                        header: "ChFiDS_ElSpine.hxx".}
-proc ellipse*(this: ChFiDS_ElSpine): Elips {.noSideEffect, cdecl,
+proc ellipse*(this: ChFiDS_ElSpine): ElipsObj {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "ChFiDS_ElSpine.hxx".}
-proc hyperbola*(this: ChFiDS_ElSpine): Hypr {.noSideEffect, cdecl,
+proc hyperbola*(this: ChFiDS_ElSpine): HyprObj {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "ChFiDS_ElSpine.hxx".}
-proc parabola*(this: ChFiDS_ElSpine): Parab {.noSideEffect, cdecl,
+proc parabola*(this: ChFiDS_ElSpine): ParabObj {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "ChFiDS_ElSpine.hxx".}
 proc bezier*(this: ChFiDS_ElSpine): Handle[GeomBezierCurve] {.noSideEffect, cdecl,
     importcpp: "Bezier", header: "ChFiDS_ElSpine.hxx".}

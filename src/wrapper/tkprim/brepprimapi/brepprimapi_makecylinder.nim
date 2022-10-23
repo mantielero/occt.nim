@@ -44,9 +44,9 @@ proc cylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
 proc cylinder*(r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc cylinder*(axes: Ax2; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
+proc cylinder*(axes: Ax2Obj; r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
-proc cylinder*(axes: Ax2; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
+proc cylinder*(axes: Ax2Obj; r: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCylinder {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCylinder(@)", header: "BRepPrimAPI_MakeCylinder.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}

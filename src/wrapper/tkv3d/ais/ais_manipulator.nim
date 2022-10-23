@@ -145,7 +145,7 @@ type
 
 proc newAIS_Manipulator*(): AIS_Manipulator {.cdecl, constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
-proc newAIS_Manipulator*(thePosition: Ax2): AIS_Manipulator {.cdecl, constructor,
+proc newAIS_Manipulator*(thePosition: Ax2Obj): AIS_Manipulator {.cdecl, constructor,
     importcpp: "AIS_Manipulator(@)", header: "AIS_Manipulator.hxx".}
 proc setPart*(this: var AIS_Manipulator; theAxisIndex: cint;
              theMode: AIS_ManipulatorMode; theIsEnabled: bool) {.cdecl,
@@ -192,15 +192,15 @@ proc processDragging*(this: var AIS_Manipulator;
 proc startTransform*(this: var AIS_Manipulator; theX: cint; theY: cint;
                     theView: Handle[V3dView]) {.cdecl, importcpp: "StartTransform",
     header: "AIS_Manipulator.hxx".}
-proc transform*(this: var AIS_Manipulator; aTrsf: Trsf) {.cdecl,
+proc transform*(this: var AIS_Manipulator; aTrsf: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "AIS_Manipulator.hxx".}
 proc stopTransform*(this: var AIS_Manipulator; theToApply: bool = true) {.cdecl,
     importcpp: "StopTransform", header: "AIS_Manipulator.hxx".}
 proc transform*(this: var AIS_Manipulator; theX: cint; theY: cint;
-               theView: Handle[V3dView]): Trsf {.cdecl, importcpp: "Transform",
+               theView: Handle[V3dView]): TrsfObj {.cdecl, importcpp: "Transform",
     header: "AIS_Manipulator.hxx".}
 proc objectTransformation*(this: var AIS_Manipulator; theX: cint; theY: cint;
-                          theView: Handle[V3dView]; theTrsf: var Trsf): bool {.cdecl,
+                          theView: Handle[V3dView]; theTrsf: var TrsfObj): bool {.cdecl,
     importcpp: "ObjectTransformation", header: "AIS_Manipulator.hxx".}
 proc deactivateCurrentMode*(this: var AIS_Manipulator) {.cdecl,
     importcpp: "DeactivateCurrentMode", header: "AIS_Manipulator.hxx".}
@@ -217,9 +217,9 @@ proc hasActiveMode*(this: AIS_Manipulator): bool {.noSideEffect, cdecl,
     importcpp: "HasActiveMode", header: "AIS_Manipulator.hxx".}
 proc hasActiveTransformation*(this: var AIS_Manipulator): bool {.cdecl,
     importcpp: "HasActiveTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator): Trsf {.noSideEffect, cdecl,
+proc startTransformation*(this: AIS_Manipulator): TrsfObj {.noSideEffect, cdecl,
     importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
-proc startTransformation*(this: AIS_Manipulator; theIndex: cint): Trsf {.noSideEffect,
+proc startTransformation*(this: AIS_Manipulator; theIndex: cint): TrsfObj {.noSideEffect,
     cdecl, importcpp: "StartTransformation", header: "AIS_Manipulator.hxx".}
 proc setZoomPersistence*(this: var AIS_Manipulator; theToEnable: bool) {.cdecl,
     importcpp: "SetZoomPersistence", header: "AIS_Manipulator.hxx".}
@@ -232,9 +232,9 @@ proc activeMode*(this: AIS_Manipulator): AIS_ManipulatorMode {.noSideEffect, cde
     importcpp: "ActiveMode", header: "AIS_Manipulator.hxx".}
 proc activeAxisIndex*(this: AIS_Manipulator): cint {.noSideEffect, cdecl,
     importcpp: "ActiveAxisIndex", header: "AIS_Manipulator.hxx".}
-proc position*(this: AIS_Manipulator): Ax2 {.noSideEffect, cdecl,
+proc position*(this: AIS_Manipulator): Ax2Obj {.noSideEffect, cdecl,
     importcpp: "Position", header: "AIS_Manipulator.hxx".}
-proc setPosition*(this: var AIS_Manipulator; thePosition: Ax2) {.cdecl,
+proc setPosition*(this: var AIS_Manipulator; thePosition: Ax2Obj) {.cdecl,
     importcpp: "SetPosition", header: "AIS_Manipulator.hxx".}
 proc size*(this: AIS_Manipulator): StandardShortReal {.noSideEffect, cdecl,
     importcpp: "Size", header: "AIS_Manipulator.hxx".}

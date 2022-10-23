@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -17,93 +19,90 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_GTrsf"
-type
-  Mat* {.importcpp: "gp_Mat", header: "gp_Mat.hxx", bycopy.} = object ## ! creates  a matrix with null coefficients.
 
-
-proc newMat*(): Mat {.cdecl, constructor, importcpp: "gp_Mat(@)", header: "gp_Mat.hxx".}
-proc newMat*(a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat; a22: cfloat; a23: cfloat;
-            a31: cfloat; a32: cfloat; a33: cfloat): Mat {.cdecl, constructor,
+proc mat*(): MatObj {.cdecl, constructor, importcpp: "gp_Mat(@)", header: "gp_Mat.hxx".}
+proc mat*(a11: cfloat; a12: cfloat; a13: cfloat; a21: cfloat; a22: cfloat; a23: cfloat;
+            a31: cfloat; a32: cfloat; a33: cfloat): MatObj {.cdecl, constructor,
     importcpp: "gp_Mat(@)", header: "gp_Mat.hxx".}
-proc newMat*(col1: Xyz; col2: Xyz; col3: Xyz): Mat {.cdecl, constructor,
+proc mat*(col1: XyzObj; col2: XyzObj; col3: XyzObj): MatObj {.cdecl, constructor,
     importcpp: "gp_Mat(@)", header: "gp_Mat.hxx".}
-proc setCol*(this: var Mat; col: cint; value: Xyz) {.cdecl, importcpp: "SetCol",
+proc setCol*(this: var MatObj; col: cint; value: XyzObj) {.cdecl, importcpp: "SetCol",
     header: "gp_Mat.hxx".}
-proc setCols*(this: var Mat; col1: Xyz; col2: Xyz; col3: Xyz) {.cdecl,
+proc setCols*(this: var MatObj; col1: XyzObj; col2: XyzObj; col3: XyzObj) {.cdecl,
     importcpp: "SetCols", header: "gp_Mat.hxx".}
-proc setCross*(this: var Mat; `ref`: Xyz) {.cdecl, importcpp: "SetCross", header: "gp_Mat.hxx".}
-proc setDiagonal*(this: var Mat; x1: cfloat; x2: cfloat; x3: cfloat) {.cdecl,
+proc setCross*(this: var MatObj; `ref`: XyzObj) {.cdecl, importcpp: "SetCross", header: "gp_Mat.hxx".}
+proc setDiagonal*(this: var MatObj; x1: cfloat; x2: cfloat; x3: cfloat) {.cdecl,
     importcpp: "SetDiagonal", header: "gp_Mat.hxx".}
-proc setDot*(this: var Mat; `ref`: Xyz) {.cdecl, importcpp: "SetDot", header: "gp_Mat.hxx".}
-proc setIdentity*(this: var Mat) {.cdecl, importcpp: "SetIdentity", header: "gp_Mat.hxx".}
-proc setRotation*(this: var Mat; axis: Xyz; ang: cfloat) {.cdecl,
+proc setDot*(this: var MatObj; `ref`: XyzObj) {.cdecl, importcpp: "SetDot", header: "gp_Mat.hxx".}
+proc setIdentity*(this: var MatObj) {.cdecl, importcpp: "SetIdentity", header: "gp_Mat.hxx".}
+proc setRotation*(this: var MatObj; axis: XyzObj; ang: cfloat) {.cdecl,
     importcpp: "SetRotation", header: "gp_Mat.hxx".}
-proc setRow*(this: var Mat; row: cint; value: Xyz) {.cdecl, importcpp: "SetRow",
+proc setRow*(this: var MatObj; row: cint; value: XyzObj) {.cdecl, importcpp: "SetRow",
     header: "gp_Mat.hxx".}
-proc setRows*(this: var Mat; row1: Xyz; row2: Xyz; row3: Xyz) {.cdecl,
+proc setRows*(this: var MatObj; row1: XyzObj; row2: XyzObj; row3: XyzObj) {.cdecl,
     importcpp: "SetRows", header: "gp_Mat.hxx".}
-proc setScale*(this: var Mat; s: cfloat) {.cdecl, importcpp: "SetScale", header: "gp_Mat.hxx".}
-proc setValue*(this: var Mat; row: cint; col: cint; value: cfloat) {.cdecl,
+proc setScale*(this: var MatObj; s: cfloat) {.cdecl, importcpp: "SetScale", header: "gp_Mat.hxx".}
+proc setValue*(this: var MatObj; row: cint; col: cint; value: cfloat) {.cdecl,
     importcpp: "SetValue", header: "gp_Mat.hxx".}
-proc column*(this: Mat; col: cint): Xyz {.noSideEffect, cdecl, importcpp: "Column",
+proc column*(this: MatObj; col: cint): XyzObj {.noSideEffect, cdecl, importcpp: "Column",
                                     header: "gp_Mat.hxx".}
-proc determinant*(this: Mat): cfloat {.noSideEffect, cdecl, importcpp: "Determinant",
+proc determinant*(this: MatObj): cfloat {.noSideEffect, cdecl, importcpp: "Determinant",
                                    header: "gp_Mat.hxx".}
-proc diagonal*(this: Mat): Xyz {.noSideEffect, cdecl, importcpp: "Diagonal",
+proc diagonal*(this: MatObj): XyzObj {.noSideEffect, cdecl, importcpp: "Diagonal",
                              header: "gp_Mat.hxx".}
-proc row*(this: Mat; row: cint): Xyz {.noSideEffect, cdecl, importcpp: "Row",
+proc row*(this: MatObj; row: cint): XyzObj {.noSideEffect, cdecl, importcpp: "Row",
                                  header: "gp_Mat.hxx".}
-proc value*(this: Mat; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc value*(this: MatObj; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Value", header: "gp_Mat.hxx".}
-proc `()`*(this: Mat; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
+proc `()`*(this: MatObj; row: cint; col: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "#(@)", header: "gp_Mat.hxx".}
-proc changeValue*(this: var Mat; row: cint; col: cint): var cfloat {.cdecl,
+proc changeValue*(this: var MatObj; row: cint; col: cint): var cfloat {.cdecl,
     importcpp: "ChangeValue", header: "gp_Mat.hxx".}
-proc `()`*(this: var Mat; row: cint; col: cint): var cfloat {.cdecl, importcpp: "#(@)",
+proc `()`*(this: var MatObj; row: cint; col: cint): var cfloat {.cdecl, importcpp: "#(@)",
     header: "gp_Mat.hxx".}
-proc isSingular*(this: Mat): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
+proc isSingular*(this: MatObj): bool {.noSideEffect, cdecl, importcpp: "IsSingular",
                                 header: "gp_Mat.hxx".}
-proc add*(this: var Mat; other: Mat) {.cdecl, importcpp: "Add", header: "gp_Mat.hxx".}
-proc `+=`*(this: var Mat; other: Mat) {.cdecl, importcpp: "(# += #)", header: "gp_Mat.hxx".}
-proc added*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl, importcpp: "Added",
+proc add*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "Add", header: "gp_Mat.hxx".}
+proc `+=`*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "(# += #)", header: "gp_Mat.hxx".}
+proc added*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "Added",
                                     header: "gp_Mat.hxx".}
-proc `+`*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl, importcpp: "(# + #)",
+proc `+`*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "(# + #)",
                                   header: "gp_Mat.hxx".}
-proc divide*(this: var Mat; scalar: cfloat) {.cdecl, importcpp: "Divide", header: "gp_Mat.hxx".}
-proc `/=`*(this: var Mat; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", header: "gp_Mat.hxx".}
-proc divided*(this: Mat; scalar: cfloat): Mat {.noSideEffect, cdecl,
+proc divide*(this: var MatObj; scalar: cfloat) {.cdecl, importcpp: "Divide", header: "gp_Mat.hxx".}
+proc `/=`*(this: var MatObj; scalar: cfloat) {.cdecl, importcpp: "(# /= #)", header: "gp_Mat.hxx".}
+proc divided*(this: MatObj; scalar: cfloat): MatObj {.noSideEffect, cdecl,
     importcpp: "Divided", header: "gp_Mat.hxx".}
-proc `/`*(this: Mat; scalar: cfloat): Mat {.noSideEffect, cdecl, importcpp: "(# / #)",
+proc `/`*(this: MatObj; scalar: cfloat): MatObj {.noSideEffect, cdecl, importcpp: "(# / #)",
                                       header: "gp_Mat.hxx".}
-proc invert*(this: var Mat) {.cdecl, importcpp: "Invert", header: "gp_Mat.hxx".}
-proc inverted*(this: Mat): Mat {.noSideEffect, cdecl, importcpp: "Inverted",
+proc invert*(this: var MatObj) {.cdecl, importcpp: "Invert", header: "gp_Mat.hxx".}
+proc inverted*(this: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "Inverted",
                              header: "gp_Mat.hxx".}
-proc multiplied*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl,
+proc multiplied*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_Mat.hxx".}
-proc `*`*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "(# * #)",
                                   header: "gp_Mat.hxx".}
-proc multiply*(this: var Mat; other: Mat) {.cdecl, importcpp: "Multiply", header: "gp_Mat.hxx".}
-proc `*=`*(this: var Mat; other: Mat) {.cdecl, importcpp: "(# *= #)", header: "gp_Mat.hxx".}
-proc preMultiply*(this: var Mat; other: Mat) {.cdecl, importcpp: "PreMultiply",
+proc multiply*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "Multiply", header: "gp_Mat.hxx".}
+proc `*=`*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "(# *= #)", header: "gp_Mat.hxx".}
+proc preMultiply*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "PreMultiply",
     header: "gp_Mat.hxx".}
-proc multiplied*(this: Mat; scalar: cfloat): Mat {.noSideEffect, cdecl,
+proc multiplied*(this: MatObj; scalar: cfloat): MatObj {.noSideEffect, cdecl,
     importcpp: "Multiplied", header: "gp_Mat.hxx".}
-proc `*`*(this: Mat; scalar: cfloat): Mat {.noSideEffect, cdecl, importcpp: "(# * #)",
+proc `*`*(this: MatObj; scalar: cfloat): MatObj {.noSideEffect, cdecl, importcpp: "(# * #)",
                                       header: "gp_Mat.hxx".}
-proc multiply*(this: var Mat; scalar: cfloat) {.cdecl, importcpp: "Multiply",
+proc multiply*(this: var MatObj; scalar: cfloat) {.cdecl, importcpp: "Multiply",
     header: "gp_Mat.hxx".}
-proc `*=`*(this: var Mat; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", header: "gp_Mat.hxx".}
-proc power*(this: var Mat; n: cint) {.cdecl, importcpp: "Power", header: "gp_Mat.hxx".}
-proc powered*(this: Mat; n: cint): Mat {.noSideEffect, cdecl, importcpp: "Powered",
+proc `*=`*(this: var MatObj; scalar: cfloat) {.cdecl, importcpp: "(# *= #)", header: "gp_Mat.hxx".}
+proc power*(this: var MatObj; n: cint) {.cdecl, importcpp: "Power", header: "gp_Mat.hxx".}
+proc powered*(this: MatObj; n: cint): MatObj {.noSideEffect, cdecl, importcpp: "Powered",
                                    header: "gp_Mat.hxx".}
-proc subtract*(this: var Mat; other: Mat) {.cdecl, importcpp: "Subtract", header: "gp_Mat.hxx".}
-proc `-=`*(this: var Mat; other: Mat) {.cdecl, importcpp: "(# -= #)", header: "gp_Mat.hxx".}
-proc subtracted*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl,
+proc subtract*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "Subtract", header: "gp_Mat.hxx".}
+proc `-=`*(this: var MatObj; other: MatObj) {.cdecl, importcpp: "(# -= #)", header: "gp_Mat.hxx".}
+proc subtracted*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl,
     importcpp: "Subtracted", header: "gp_Mat.hxx".}
-proc `-`*(this: Mat; other: Mat): Mat {.noSideEffect, cdecl, importcpp: "(# - #)",
+proc `-`*(this: MatObj; other: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "(# - #)",
                                   header: "gp_Mat.hxx".}
-proc transpose*(this: var Mat) {.cdecl, importcpp: "Transpose", header: "gp_Mat.hxx".}
-proc transposed*(this: Mat): Mat {.noSideEffect, cdecl, importcpp: "Transposed",
+proc transpose*(this: var MatObj) {.cdecl, importcpp: "Transpose", header: "gp_Mat.hxx".}
+proc transposed*(this: MatObj): MatObj {.noSideEffect, cdecl, importcpp: "Transposed",
                                header: "gp_Mat.hxx".}
-proc dumpJson*(this: Mat; theOStream: var StandardOStream; theDepth: cint = -1) {.
+proc dumpJson*(this: MatObj; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "gp_Mat.hxx".}

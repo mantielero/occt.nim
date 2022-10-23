@@ -40,7 +40,7 @@ proc derivatives*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
 proc values*(this: var BRepBlendSurfPointConstRadInv; x: MathVector;
             f: var MathVector; d: var MathMatrix): bool {.cdecl, importcpp: "Values",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
-proc set*(this: var BRepBlendSurfPointConstRadInv; p: Pnt) {.cdecl, importcpp: "Set",
+proc set*(this: var BRepBlendSurfPointConstRadInv; p: PntObj) {.cdecl, importcpp: "Set",
     header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc getTolerance*(this: BRepBlendSurfPointConstRadInv; tolerance: var MathVector;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "GetTolerance",

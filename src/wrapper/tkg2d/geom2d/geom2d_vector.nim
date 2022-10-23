@@ -53,5 +53,5 @@ proc crossed*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideE
     cdecl, importcpp: "Crossed", header: "Geom2d_Vector.hxx".}
 proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffect,
     cdecl, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
-proc vec2d*(this: Geom2dVector): Vec2d {.noSideEffect, cdecl, importcpp: "Vec2d",
+proc vec2d*(this: Geom2dVector): Vec2dObj {.noSideEffect, cdecl, importcpp: "Vec2d",
                                      header: "Geom2d_Vector.hxx".}

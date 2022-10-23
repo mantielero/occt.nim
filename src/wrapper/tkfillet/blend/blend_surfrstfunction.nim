@@ -56,31 +56,31 @@ proc isSolution*(this: var BlendSurfRstFunction; sol: MathVector; tol: cfloat): 
     cdecl, importcpp: "IsSolution", header: "Blend_SurfRstFunction.hxx".}
 proc getMinimalDistance*(this: BlendSurfRstFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "Blend_SurfRstFunction.hxx".}
-proc pnt1*(this: BlendSurfRstFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt1",
+proc pnt1*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt1",
     header: "Blend_SurfRstFunction.hxx".}
-proc pnt2*(this: BlendSurfRstFunction): Pnt {.noSideEffect, cdecl, importcpp: "Pnt2",
+proc pnt2*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl, importcpp: "Pnt2",
     header: "Blend_SurfRstFunction.hxx".}
-proc pointOnS*(this: BlendSurfRstFunction): Pnt {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "Blend_SurfRstFunction.hxx".}
-proc pointOnRst*(this: BlendSurfRstFunction): Pnt {.noSideEffect, cdecl,
+proc pointOnRst*(this: BlendSurfRstFunction): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc pnt2dOnS*(this: BlendSurfRstFunction): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnS*(this: BlendSurfRstFunction): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnS", header: "Blend_SurfRstFunction.hxx".}
-proc pnt2dOnRst*(this: BlendSurfRstFunction): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnRst*(this: BlendSurfRstFunction): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst", header: "Blend_SurfRstFunction.hxx".}
 proc parameterOnRst*(this: BlendSurfRstFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst", header: "Blend_SurfRstFunction.hxx".}
 proc isTangencyPoint*(this: BlendSurfRstFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnS*(this: BlendSurfRstFunction): Vec {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendSurfRstFunction): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "Blend_SurfRstFunction.hxx".}
-proc tangent2dOnS*(this: BlendSurfRstFunction): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS*(this: BlendSurfRstFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "Blend_SurfRstFunction.hxx".}
-proc tangentOnRst*(this: BlendSurfRstFunction): Vec {.noSideEffect, cdecl,
+proc tangentOnRst*(this: BlendSurfRstFunction): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc tangent2dOnRst*(this: BlendSurfRstFunction): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnRst*(this: BlendSurfRstFunction): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst", header: "Blend_SurfRstFunction.hxx".}
-proc decroch*(this: BlendSurfRstFunction; sol: MathVector; ns: var Vec; tgS: var Vec): bool {.
+proc decroch*(this: BlendSurfRstFunction; sol: MathVector; ns: var VecObj; tgS: var VecObj): bool {.
     noSideEffect, cdecl, importcpp: "Decroch", header: "Blend_SurfRstFunction.hxx".}
 proc isRational*(this: BlendSurfRstFunction): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "Blend_SurfRstFunction.hxx".}

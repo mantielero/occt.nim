@@ -25,17 +25,17 @@ type
   MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
 
 
-proc mirror*(point: Pnt): MakeMirror {.cdecl, constructor,
+proc mirror*(point: PntObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(axis: Ax1): MakeMirror {.cdecl, constructor,
+proc mirror*(axis: Ax1Obj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(line: Lin): MakeMirror {.cdecl, constructor,
+proc mirror*(line: LinObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(point: Pnt; direc: Dir): MakeMirror {.cdecl, constructor,
+proc mirror*(point: PntObj; direc: DirObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(plane: Pln): MakeMirror {.cdecl, constructor,
+proc mirror*(plane: PlnObj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
-proc mirror*(plane: Ax2): MakeMirror {.cdecl, constructor,
+proc mirror*(plane: Ax2Obj): MakeMirror {.cdecl, constructor,
     importcpp: "GC_MakeMirror(@)", header: "GC_MakeMirror.hxx".}
 proc value*(this: MakeMirror): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeMirror.hxx".}

@@ -51,31 +51,31 @@ proc getBounds*(this: BlendFuncCSConstRad; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BlendFunc_CSConstRad.hxx".}
 proc isSolution*(this: var BlendFuncCSConstRad; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BlendFunc_CSConstRad.hxx".}
-proc pointOnS*(this: BlendFuncCSConstRad): Pnt {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendFuncCSConstRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BlendFunc_CSConstRad.hxx".}
-proc pointOnC*(this: BlendFuncCSConstRad): Pnt {.noSideEffect, cdecl,
+proc pointOnC*(this: BlendFuncCSConstRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnC", header: "BlendFunc_CSConstRad.hxx".}
-proc pnt2d*(this: BlendFuncCSConstRad): Pnt2d {.noSideEffect, cdecl,
+proc pnt2d*(this: BlendFuncCSConstRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2d", header: "BlendFunc_CSConstRad.hxx".}
 proc parameterOnC*(this: BlendFuncCSConstRad): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnC", header: "BlendFunc_CSConstRad.hxx".}
 proc isTangencyPoint*(this: BlendFuncCSConstRad): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_CSConstRad.hxx".}
-proc tangentOnS*(this: BlendFuncCSConstRad): Vec {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendFuncCSConstRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BlendFunc_CSConstRad.hxx".}
-proc tangent2d*(this: BlendFuncCSConstRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2d*(this: BlendFuncCSConstRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2d", header: "BlendFunc_CSConstRad.hxx".}
-proc tangentOnC*(this: BlendFuncCSConstRad): Vec {.noSideEffect, cdecl,
+proc tangentOnC*(this: BlendFuncCSConstRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnC", header: "BlendFunc_CSConstRad.hxx".}
-proc tangent*(this: BlendFuncCSConstRad; u: cfloat; v: cfloat; tgS: var Vec;
-             normS: var Vec) {.noSideEffect, cdecl, importcpp: "Tangent",
+proc tangent*(this: BlendFuncCSConstRad; u: cfloat; v: cfloat; tgS: var VecObj;
+             normS: var VecObj) {.noSideEffect, cdecl, importcpp: "Tangent",
                             header: "BlendFunc_CSConstRad.hxx".}
 proc set*(this: var BlendFuncCSConstRad; radius: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BlendFunc_CSConstRad.hxx".}
 proc set*(this: var BlendFuncCSConstRad; typeSection: BlendFuncSectionShape) {.cdecl,
     importcpp: "Set", header: "BlendFunc_CSConstRad.hxx".}
 proc section*(this: var BlendFuncCSConstRad; param: cfloat; u: cfloat; v: cfloat;
-             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.cdecl,
+             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,
     importcpp: "Section", header: "BlendFunc_CSConstRad.hxx".}
 proc section*(this: var BlendFuncCSConstRad; p: BlendPoint;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;

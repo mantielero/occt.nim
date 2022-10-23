@@ -5,10 +5,10 @@ import strformat  # For fmt"Hello {name}" like formatting
 
 proc main() =
   # Create a circle like before
-  let centerPoint = newPnt(2.5, 2.5, 0)
-  let normalDirection = newDir(0,0,1)
-  let xDirection = newDir(1,0,0)
-  let axis = newAx2(centerPoint, normalDirection, xDirection)
+  let centerPoint = pnt(2.5, 2.5, 0)
+  let normalDirection = dir(0,0,1)
+  let xDirection = dir(1,0,0)
+  let axis = ax2(centerPoint, normalDirection, xDirection)
 
   # Creating the circle
   let circle = newCirc(axis, 2.5)

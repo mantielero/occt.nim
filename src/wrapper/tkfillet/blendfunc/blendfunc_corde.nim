@@ -37,19 +37,19 @@ proc value*(this: var BlendFuncCorde; x: MathVector; f: var MathVector): bool {.
     importcpp: "Value", header: "BlendFunc_Corde.hxx".}
 proc derivatives*(this: var BlendFuncCorde; x: MathVector; d: var MathMatrix): bool {.
     cdecl, importcpp: "Derivatives", header: "BlendFunc_Corde.hxx".}
-proc pointOnS*(this: BlendFuncCorde): Pnt {.noSideEffect, cdecl,
+proc pointOnS*(this: BlendFuncCorde): PntObj {.noSideEffect, cdecl,
                                         importcpp: "PointOnS", header: "BlendFunc_Corde.hxx".}
-proc pointOnGuide*(this: BlendFuncCorde): Pnt {.noSideEffect, cdecl,
+proc pointOnGuide*(this: BlendFuncCorde): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnGuide", header: "BlendFunc_Corde.hxx".}
-proc nPlan*(this: BlendFuncCorde): Vec {.noSideEffect, cdecl, importcpp: "NPlan",
+proc nPlan*(this: BlendFuncCorde): VecObj {.noSideEffect, cdecl, importcpp: "NPlan",
                                      header: "BlendFunc_Corde.hxx".}
 proc isTangencyPoint*(this: BlendFuncCorde): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Corde.hxx".}
-proc tangentOnS*(this: BlendFuncCorde): Vec {.noSideEffect, cdecl,
+proc tangentOnS*(this: BlendFuncCorde): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BlendFunc_Corde.hxx".}
-proc tangent2dOnS*(this: BlendFuncCorde): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS*(this: BlendFuncCorde): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "BlendFunc_Corde.hxx".}
-proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2d) {.cdecl,
+proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2dObj) {.cdecl,
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
 proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}

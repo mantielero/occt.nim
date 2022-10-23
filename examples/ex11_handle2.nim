@@ -1,10 +1,10 @@
 import occt
 
 # Create the pointer to the object
-var aPntPtr = cnew newGeomCartesianPoint(1.1, 2.2, 3.3) 
+var aPntPtr = cnew cartesianPoint(1.1, 2.2, 3.3) 
 
 # Create handles for the object
-var aPntHandle1, aPntHandle2: HandleGeom_CartesianPoint
+var aPntHandle1, aPntHandle2: HandleCartesianPointObj
 aPntHandle1 = newHandle( aPntPtr )
 aPntHandle2 = newHandle( aPntPtr )
 

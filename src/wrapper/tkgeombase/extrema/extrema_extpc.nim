@@ -32,15 +32,15 @@ type
 proc newExtremaExtPC*(): ExtremaExtPC {.cdecl, constructor,
                                      importcpp: "Extrema_ExtPC(@)",
                                      header: "Extrema_ExtPC.hxx".}
-proc newExtremaExtPC*(p: Pnt; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
+proc newExtremaExtPC*(p: PntObj; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
                      tolF: cfloat = 1.0e-10): ExtremaExtPC {.cdecl, constructor,
     importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
-proc newExtremaExtPC*(p: Pnt; c: Adaptor3dCurve; tolF: cfloat = 1.0e-10): ExtremaExtPC {.
+proc newExtremaExtPC*(p: PntObj; c: Adaptor3dCurve; tolF: cfloat = 1.0e-10): ExtremaExtPC {.
     cdecl, constructor, importcpp: "Extrema_ExtPC(@)", header: "Extrema_ExtPC.hxx".}
 proc initialize*(this: var ExtremaExtPC; c: Adaptor3dCurve; uinf: cfloat; usup: cfloat;
                 tolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
                                       header: "Extrema_ExtPC.hxx".}
-proc perform*(this: var ExtremaExtPC; p: Pnt) {.cdecl, importcpp: "Perform",
+proc perform*(this: var ExtremaExtPC; p: PntObj) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtPC.hxx".}
 proc isDone*(this: ExtremaExtPC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                      header: "Extrema_ExtPC.hxx".}
@@ -53,5 +53,5 @@ proc isMin*(this: ExtremaExtPC; n: cint): bool {.noSideEffect, cdecl,
 proc point*(this: ExtremaExtPC; n: cint): ExtremaPOnCurv {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPC.hxx".}
 proc trimmedSquareDistances*(this: ExtremaExtPC; dist1: var cfloat; dist2: var cfloat;
-                            p1: var Pnt; p2: var Pnt) {.noSideEffect, cdecl,
+                            p1: var PntObj; p2: var PntObj) {.noSideEffect, cdecl,
     importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPC.hxx".}

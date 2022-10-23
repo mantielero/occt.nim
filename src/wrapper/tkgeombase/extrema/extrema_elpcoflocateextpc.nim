@@ -32,17 +32,17 @@ type
 
 proc newExtremaELPCOfLocateExtPC*(): ExtremaELPCOfLocateExtPC {.cdecl, constructor,
     importcpp: "Extrema_ELPCOfLocateExtPC(@)", header: "Extrema_ELPCOfLocateExtPC.hxx".}
-proc newExtremaELPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; uinf: cfloat;
+proc newExtremaELPCOfLocateExtPC*(p: PntObj; c: Adaptor3dCurve; uinf: cfloat;
                                  usup: cfloat; tolF: cfloat = 1.0e-10): ExtremaELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC(@)",
     header: "Extrema_ELPCOfLocateExtPC.hxx".}
-proc newExtremaELPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; tolF: cfloat = 1.0e-10): ExtremaELPCOfLocateExtPC {.
+proc newExtremaELPCOfLocateExtPC*(p: PntObj; c: Adaptor3dCurve; tolF: cfloat = 1.0e-10): ExtremaELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC(@)",
     header: "Extrema_ELPCOfLocateExtPC.hxx".}
 proc initialize*(this: var ExtremaELPCOfLocateExtPC; c: Adaptor3dCurve; uinf: cfloat;
                 usup: cfloat; tolF: cfloat = 1.0e-10) {.cdecl, importcpp: "Initialize",
     header: "Extrema_ELPCOfLocateExtPC.hxx".}
-proc perform*(this: var ExtremaELPCOfLocateExtPC; p: Pnt) {.cdecl,
+proc perform*(this: var ExtremaELPCOfLocateExtPC; p: PntObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ELPCOfLocateExtPC.hxx".}
 proc isDone*(this: ExtremaELPCOfLocateExtPC): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_ELPCOfLocateExtPC.hxx".}
@@ -55,5 +55,5 @@ proc isMin*(this: ExtremaELPCOfLocateExtPC; n: cint): bool {.noSideEffect, cdecl
 proc point*(this: ExtremaELPCOfLocateExtPC; n: cint): ExtremaPOnCurv {.noSideEffect,
     cdecl, importcpp: "Point", header: "Extrema_ELPCOfLocateExtPC.hxx".}
 proc trimmedSquareDistances*(this: ExtremaELPCOfLocateExtPC; dist1: var cfloat;
-                            dist2: var cfloat; p1: var Pnt; p2: var Pnt) {.noSideEffect,
+                            dist2: var cfloat; p1: var PntObj; p2: var PntObj) {.noSideEffect,
     cdecl, importcpp: "TrimmedSquareDistances", header: "Extrema_ELPCOfLocateExtPC.hxx".}

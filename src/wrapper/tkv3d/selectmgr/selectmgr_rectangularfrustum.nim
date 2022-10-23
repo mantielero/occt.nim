@@ -37,9 +37,9 @@ type
 
 proc newSelectMgrRectangularFrustum*(): SelectMgrRectangularFrustum {.cdecl,
     constructor, importcpp: "SelectMgr_RectangularFrustum(@)", header: "SelectMgr_RectangularFrustum.hxx".}
-proc build*(this: var SelectMgrRectangularFrustum; thePoint: Pnt2d) {.cdecl,
+proc build*(this: var SelectMgrRectangularFrustum; thePoint: Pnt2dObj) {.cdecl,
     importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
-proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: Pnt2d; theMaxPnt: Pnt2d) {.
+proc build*(this: var SelectMgrRectangularFrustum; theMinPnt: Pnt2dObj; theMaxPnt: Pnt2dObj) {.
     cdecl, importcpp: "Build", header: "SelectMgr_RectangularFrustum.hxx".}
 proc scaleAndTransform*(this: SelectMgrRectangularFrustum; theScaleFactor: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
@@ -51,11 +51,11 @@ proc overlaps*(this: SelectMgrRectangularFrustum; theBoxMin: SelectMgrVec3;
 proc overlaps*(this: SelectMgrRectangularFrustum; theBoxMin: SelectMgrVec3;
               theBoxMax: SelectMgrVec3; theInside: ptr bool): bool {.noSideEffect,
     cdecl, importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrRectangularFrustum; thePnt: Pnt;
+proc overlaps*(this: SelectMgrRectangularFrustum; thePnt: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrRectangularFrustum; thePnt: Pnt): bool {.noSideEffect,
+proc overlaps*(this: SelectMgrRectangularFrustum; thePnt: PntObj): bool {.noSideEffect,
     cdecl, importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
 proc overlaps*(this: SelectMgrRectangularFrustum;
               theArrayOfPnts: TColgpArray1OfPnt;
@@ -63,28 +63,28 @@ proc overlaps*(this: SelectMgrRectangularFrustum;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrRectangularFrustum; thePnt1: Pnt; thePnt2: Pnt;
+proc overlaps*(this: SelectMgrRectangularFrustum; thePnt1: PntObj; thePnt2: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrRectangularFrustum; thePnt1: Pnt; thePnt2: Pnt;
-              thePnt3: Pnt; theSensType: Select3D_TypeOfSensitivity;
+proc overlaps*(this: SelectMgrRectangularFrustum; thePnt1: PntObj; thePnt2: PntObj;
+              thePnt3: PntObj; theSensType: Select3D_TypeOfSensitivity;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_RectangularFrustum.hxx".}
-proc distToGeometryCenter*(this: SelectMgrRectangularFrustum; theCOG: Pnt): cfloat {.
+proc distToGeometryCenter*(this: SelectMgrRectangularFrustum; theCOG: PntObj): cfloat {.
     noSideEffect, cdecl, importcpp: "DistToGeometryCenter", header: "SelectMgr_RectangularFrustum.hxx".}
-proc detectedPoint*(this: SelectMgrRectangularFrustum; theDepth: cfloat): Pnt {.
+proc detectedPoint*(this: SelectMgrRectangularFrustum; theDepth: cfloat): PntObj {.
     noSideEffect, cdecl, importcpp: "DetectedPoint", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getVertices*(this: SelectMgrRectangularFrustum): ptr Pnt {.noSideEffect, cdecl,
+proc getVertices*(this: SelectMgrRectangularFrustum): ptr PntObj {.noSideEffect, cdecl,
     importcpp: "GetVertices", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getNearPnt*(this: SelectMgrRectangularFrustum): Pnt {.noSideEffect, cdecl,
+proc getNearPnt*(this: SelectMgrRectangularFrustum): PntObj {.noSideEffect, cdecl,
     importcpp: "GetNearPnt", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getFarPnt*(this: SelectMgrRectangularFrustum): Pnt {.noSideEffect, cdecl,
+proc getFarPnt*(this: SelectMgrRectangularFrustum): PntObj {.noSideEffect, cdecl,
     importcpp: "GetFarPnt", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getViewRayDirection*(this: SelectMgrRectangularFrustum): Dir {.noSideEffect,
+proc getViewRayDirection*(this: SelectMgrRectangularFrustum): DirObj {.noSideEffect,
     cdecl, importcpp: "GetViewRayDirection", header: "SelectMgr_RectangularFrustum.hxx".}
-proc getMousePosition*(this: SelectMgrRectangularFrustum): Pnt2d {.noSideEffect,
+proc getMousePosition*(this: SelectMgrRectangularFrustum): Pnt2dObj {.noSideEffect,
     cdecl, importcpp: "GetMousePosition", header: "SelectMgr_RectangularFrustum.hxx".}
 proc getPlanes*(this: SelectMgrRectangularFrustum;
                thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.

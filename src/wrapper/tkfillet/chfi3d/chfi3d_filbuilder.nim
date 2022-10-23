@@ -60,7 +60,7 @@ proc setRadius*(this: var ChFi3dFilBuilder; radius: cfloat; ic: cint; v: TopoDS_
     cdecl, importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc unSet*(this: var ChFi3dFilBuilder; ic: cint; v: TopoDS_Vertex) {.cdecl,
     importcpp: "UnSet", header: "ChFi3d_FilBuilder.hxx".}
-proc setRadius*(this: var ChFi3dFilBuilder; uandR: Xy; ic: cint; iinC: cint) {.cdecl,
+proc setRadius*(this: var ChFi3dFilBuilder; uandR: XyObj; ic: cint; iinC: cint) {.cdecl,
     importcpp: "SetRadius", header: "ChFi3d_FilBuilder.hxx".}
 proc isConstant*(this: var ChFi3dFilBuilder; ic: cint; e: TopoDS_Edge): bool {.cdecl,
     importcpp: "IsConstant", header: "ChFi3d_FilBuilder.hxx".}

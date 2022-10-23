@@ -44,28 +44,28 @@ proc resolution*(c: Adaptor3dCurve; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Extrema_CurveTool::Resolution(@)", header: "Extrema_CurveTool.hxx".}
 proc getType*(c: Adaptor3dCurve): GeomAbsCurveType {.cdecl,
     importcpp: "Extrema_CurveTool::GetType(@)", header: "Extrema_CurveTool.hxx".}
-proc value*(c: Adaptor3dCurve; u: cfloat): Pnt {.cdecl,
+proc value*(c: Adaptor3dCurve; u: cfloat): PntObj {.cdecl,
     importcpp: "Extrema_CurveTool::Value(@)", header: "Extrema_CurveTool.hxx".}
-proc d0*(c: Adaptor3dCurve; u: cfloat; p: var Pnt) {.cdecl,
+proc d0*(c: Adaptor3dCurve; u: cfloat; p: var PntObj) {.cdecl,
     importcpp: "Extrema_CurveTool::D0(@)", header: "Extrema_CurveTool.hxx".}
-proc d1*(c: Adaptor3dCurve; u: cfloat; p: var Pnt; v: var Vec) {.cdecl,
+proc d1*(c: Adaptor3dCurve; u: cfloat; p: var PntObj; v: var VecObj) {.cdecl,
     importcpp: "Extrema_CurveTool::D1(@)", header: "Extrema_CurveTool.hxx".}
-proc d2*(c: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.cdecl,
+proc d2*(c: Adaptor3dCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.cdecl,
     importcpp: "Extrema_CurveTool::D2(@)", header: "Extrema_CurveTool.hxx".}
-proc d3*(c: Adaptor3dCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(c: Adaptor3dCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     cdecl, importcpp: "Extrema_CurveTool::D3(@)", header: "Extrema_CurveTool.hxx".}
-proc dn*(c: Adaptor3dCurve; u: cfloat; n: cint): Vec {.cdecl,
+proc dn*(c: Adaptor3dCurve; u: cfloat; n: cint): VecObj {.cdecl,
     importcpp: "Extrema_CurveTool::DN(@)", header: "Extrema_CurveTool.hxx".}
-proc line*(c: Adaptor3dCurve): Lin {.cdecl, importcpp: "Extrema_CurveTool::Line(@)",
+proc line*(c: Adaptor3dCurve): LinObj {.cdecl, importcpp: "Extrema_CurveTool::Line(@)",
                                  header: "Extrema_CurveTool.hxx".}
-proc circle*(c: Adaptor3dCurve): Circ {.cdecl,
+proc circle*(c: Adaptor3dCurve): CircObj {.cdecl,
                                     importcpp: "Extrema_CurveTool::Circle(@)",
                                     header: "Extrema_CurveTool.hxx".}
-proc ellipse*(c: Adaptor3dCurve): Elips {.cdecl, importcpp: "Extrema_CurveTool::Ellipse(@)",
+proc ellipse*(c: Adaptor3dCurve): ElipsObj {.cdecl, importcpp: "Extrema_CurveTool::Ellipse(@)",
                                       header: "Extrema_CurveTool.hxx".}
-proc hyperbola*(c: Adaptor3dCurve): Hypr {.cdecl, importcpp: "Extrema_CurveTool::Hyperbola(@)",
+proc hyperbola*(c: Adaptor3dCurve): HyprObj {.cdecl, importcpp: "Extrema_CurveTool::Hyperbola(@)",
                                        header: "Extrema_CurveTool.hxx".}
-proc parabola*(c: Adaptor3dCurve): Parab {.cdecl, importcpp: "Extrema_CurveTool::Parabola(@)",
+proc parabola*(c: Adaptor3dCurve): ParabObj {.cdecl, importcpp: "Extrema_CurveTool::Parabola(@)",
                                        header: "Extrema_CurveTool.hxx".}
 proc degree*(c: Adaptor3dCurve): cint {.cdecl,
                                     importcpp: "Extrema_CurveTool::Degree(@)",

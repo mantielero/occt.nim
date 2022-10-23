@@ -32,11 +32,11 @@ proc destroyTopOpeBRepToolSolidClassifier*(
     importcpp: "#.~TopOpeBRepTool_SolidClassifier()", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadSolid*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid) {.cdecl,
     importcpp: "LoadSolid", header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: Pnt;
+proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Solid; p: PntObj;
               tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc loadShell*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell) {.cdecl,
     importcpp: "LoadShell", header: "TopOpeBRepTool_SolidClassifier.hxx".}
-proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: Pnt;
+proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: PntObj;
               tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect, cdecl,
     importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}

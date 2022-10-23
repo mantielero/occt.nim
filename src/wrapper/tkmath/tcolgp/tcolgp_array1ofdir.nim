@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpArray1OfDir* = NCollectionArray1[Dir]
+  TColgpArray1OfDir* = NCollectionArray1[DirObj]

@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpArray1OfVec* = NCollectionArray1[Vec]
+  TColgpArray1OfVec* = NCollectionArray1[VecObj]

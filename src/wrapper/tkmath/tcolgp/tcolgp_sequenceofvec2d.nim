@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpSequenceOfVec2d* = NCollectionSequence[Vec2d]
+  TColgpSequenceOfVec2d* = NCollectionSequence[Vec2dObj]

@@ -55,11 +55,11 @@ type
                                                                                                        ## degrees.
 
 
-proc newV3dSpotLight*(thePos: Pnt;
+proc newV3dSpotLight*(thePos: PntObj;
                      theDirection: V3dTypeOfOrientation = v3dXnegYnegZpos;
                      theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dSpotLight {.
     cdecl, constructor, importcpp: "V3d_SpotLight(@)", header: "V3d_SpotLight.hxx".}
-proc newV3dSpotLight*(thePos: Pnt; theDirection: Dir;
+proc newV3dSpotLight*(thePos: PntObj; theDirection: DirObj;
                      theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dSpotLight {.
     cdecl, constructor, importcpp: "V3d_SpotLight(@)", header: "V3d_SpotLight.hxx".}
 proc setDirection*(this: var V3dSpotLight; theOrientation: V3dTypeOfOrientation) {.

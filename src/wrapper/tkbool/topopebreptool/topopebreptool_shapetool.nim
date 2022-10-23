@@ -48,7 +48,7 @@ type
 
 proc tolerance*(s: TopoDS_Shape): cfloat {.cdecl, importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",
                                        header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc pnt*(s: TopoDS_Shape): Pnt {.cdecl,
+proc pnt*(s: TopoDS_Shape): PntObj {.cdecl,
                               importcpp: "TopOpeBRepTool_ShapeTool::Pnt(@)",
                               header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc basiscurve*(c: Handle[GeomCurve]): Handle[GeomCurve] {.cdecl,
@@ -83,9 +83,9 @@ proc curvesSameOriented*(c1: BRepAdaptorCurve; c2: BRepAdaptorCurve): bool {.cde
     importcpp: "TopOpeBRepTool_ShapeTool::CurvesSameOriented(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc edgesSameOriented*(e1: TopoDS_Shape; e2: TopoDS_Shape): bool {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::EdgesSameOriented(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc edgeData*(brac: BRepAdaptorCurve; p: cfloat; t: var Dir; n: var Dir; c: var cfloat): cfloat {.
+proc edgeData*(brac: BRepAdaptorCurve; p: cfloat; t: var DirObj; n: var DirObj; c: var cfloat): cfloat {.
     cdecl, importcpp: "TopOpeBRepTool_ShapeTool::EdgeData(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
-proc edgeData*(e: TopoDS_Shape; p: cfloat; t: var Dir; n: var Dir; c: var cfloat): cfloat {.
+proc edgeData*(e: TopoDS_Shape; p: cfloat; t: var DirObj; n: var DirObj; c: var cfloat): cfloat {.
     cdecl, importcpp: "TopOpeBRepTool_ShapeTool::EdgeData(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc resolution3dU*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3dU(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}

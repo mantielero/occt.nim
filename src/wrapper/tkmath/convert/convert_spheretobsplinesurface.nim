@@ -67,14 +67,14 @@ type
                                                                                            ## V2.
 
 
-proc newConvertSphereToBSplineSurface*(sph: Sphere; u1: cfloat; u2: cfloat; v1: cfloat;
+proc newConvertSphereToBSplineSurface*(sph: SphereObj; u1: cfloat; u2: cfloat; v1: cfloat;
                                       v2: cfloat): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc newConvertSphereToBSplineSurface*(sph: Sphere; param1: cfloat; param2: cfloat;
+proc newConvertSphereToBSplineSurface*(sph: SphereObj; param1: cfloat; param2: cfloat;
                                       uTrim: bool = true): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}
-proc newConvertSphereToBSplineSurface*(sph: Sphere): ConvertSphereToBSplineSurface {.
+proc newConvertSphereToBSplineSurface*(sph: SphereObj): ConvertSphereToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_SphereToBSplineSurface(@)",
     header: "Convert_SphereToBSplineSurface.hxx".}

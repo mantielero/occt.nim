@@ -351,24 +351,24 @@ proc uIso*(this: GeomOffsetSurface; u: cfloat): Handle[GeomCurve] {.noSideEffect
     cdecl, importcpp: "UIso", header: "Geom_OffsetSurface.hxx".}
 proc vIso*(this: GeomOffsetSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "VIso", header: "Geom_OffsetSurface.hxx".}
-proc d0*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_OffsetSurface.hxx".}
-proc d1*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_OffsetSurface.hxx".}
-proc d2*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_OffsetSurface.hxx".}
+proc d2*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_OffsetSurface.hxx".}
-proc d3*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: GeomOffsetSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
+        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_OffsetSurface.hxx".}
-proc dn*(this: GeomOffsetSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(this: GeomOffsetSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_OffsetSurface.hxx".}
-proc transform*(this: var GeomOffsetSurface; t: Trsf) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomOffsetSurface; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_OffsetSurface.hxx".}
-proc transformParameters*(this: GeomOffsetSurface; u: var cfloat; v: var cfloat; t: Trsf) {.
+proc transformParameters*(this: GeomOffsetSurface; u: var cfloat; v: var cfloat; t: TrsfObj) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_OffsetSurface.hxx".}
-proc parametricTransformation*(this: GeomOffsetSurface; t: Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomOffsetSurface; t: TrsfObj): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_OffsetSurface.hxx".}
 proc copy*(this: GeomOffsetSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_OffsetSurface.hxx".}

@@ -24,13 +24,13 @@ type
                                                                        ## translation along the vector " Vect"
 
 
-proc newGceMakeTranslation*(vect: Vec): GceMakeTranslation {.cdecl, constructor,
+proc newGceMakeTranslation*(vect: VecObj): GceMakeTranslation {.cdecl, constructor,
     importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
-proc newGceMakeTranslation*(point1: Pnt; point2: Pnt): GceMakeTranslation {.cdecl,
+proc newGceMakeTranslation*(point1: PntObj; point2: PntObj): GceMakeTranslation {.cdecl,
     constructor, importcpp: "gce_MakeTranslation(@)", header: "gce_MakeTranslation.hxx".}
-proc value*(this: GceMakeTranslation): Trsf {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeTranslation.hxx".}
-proc operator*(this: GceMakeTranslation): Trsf {.noSideEffect, cdecl,
+proc operator*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeTranslation.hxx".}
-converter `trsf`*(this: GceMakeTranslation): Trsf {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeTranslation::operator gp_Trsf", header: "gce_MakeTranslation.hxx".}

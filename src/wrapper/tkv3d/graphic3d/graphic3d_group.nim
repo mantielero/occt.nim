@@ -81,7 +81,7 @@ proc marker*(this: var Graphic3dGroup; thePoint: Graphic3dVertex;
 proc setStencilTestOptions*(this: var Graphic3dGroup; theIsEnabled: bool) {.cdecl,
     importcpp: "SetStencilTestOptions", header: "Graphic3d_Group.hxx".}
 proc setFlippingOptions*(this: var Graphic3dGroup; theIsEnabled: bool;
-                        theRefPlane: Ax2) {.cdecl, importcpp: "SetFlippingOptions",
+                        theRefPlane: Ax2Obj) {.cdecl, importcpp: "SetFlippingOptions",
     header: "Graphic3d_Group.hxx".}
 proc containsFacet*(this: Graphic3dGroup): bool {.noSideEffect, cdecl,
     importcpp: "ContainsFacet", header: "Graphic3d_Group.hxx".}
@@ -123,13 +123,13 @@ proc text*(this: var Graphic3dGroup; aText: TCollectionExtendedString;
 proc text*(this: var Graphic3dGroup; aText: TCollectionExtendedString;
           aPoint: Graphic3dVertex; aHeight: cfloat; evalMinMax: bool = true) {.cdecl,
     importcpp: "Text", header: "Graphic3d_Group.hxx".}
-proc text*(this: var Graphic3dGroup; theTextUtf: cstring; theOrientation: Ax2;
+proc text*(this: var Graphic3dGroup; theTextUtf: cstring; theOrientation: Ax2Obj;
           theHeight: cfloat; theAngle: cfloat; theTp: Graphic3dTextPath;
           theHTA: Graphic3dHorizontalTextAlignment;
           theVTA: Graphic3dVerticalTextAlignment; theToEvalMinMax: bool = true;
           theHasOwnAnchor: bool = true) {.cdecl, importcpp: "Text", header: "Graphic3d_Group.hxx".}
 proc text*(this: var Graphic3dGroup; theText: TCollectionExtendedString;
-          theOrientation: Ax2; theHeight: cfloat; theAngle: cfloat;
+          theOrientation: Ax2Obj; theHeight: cfloat; theAngle: cfloat;
           theTp: Graphic3dTextPath; theHTA: Graphic3dHorizontalTextAlignment;
           theVTA: Graphic3dVerticalTextAlignment; theToEvalMinMax: bool = true;
           theHasOwnAnchor: bool = true) {.cdecl, importcpp: "Text", header: "Graphic3d_Group.hxx".}

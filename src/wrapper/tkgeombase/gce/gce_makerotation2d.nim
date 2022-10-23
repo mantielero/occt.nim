@@ -21,11 +21,11 @@ type
                       header: "gce_MakeRotation2d.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
 
 
-proc newGceMakeRotation2d*(point: Pnt2d; angle: cfloat): GceMakeRotation2d {.cdecl,
+proc newGceMakeRotation2d*(point: Pnt2dObj; angle: cfloat): GceMakeRotation2d {.cdecl,
     constructor, importcpp: "gce_MakeRotation2d(@)", header: "gce_MakeRotation2d.hxx".}
-proc value*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
+proc value*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "gce_MakeRotation2d.hxx".}
-proc operator*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeRotation2d.hxx".}
-converter `trsf2d`*(this: GceMakeRotation2d): Trsf2d {.noSideEffect, cdecl,
+converter `trsf2d`*(this: GceMakeRotation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeRotation2d::operator gp_Trsf2d", header: "gce_MakeRotation2d.hxx".}

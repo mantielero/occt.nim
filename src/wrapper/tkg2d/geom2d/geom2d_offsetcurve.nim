@@ -296,15 +296,15 @@ proc basisCurve*(this: Geom2dOffsetCurve): Handle[Geom2dCurve] {.noSideEffect, c
     importcpp: "BasisCurve", header: "Geom2d_OffsetCurve.hxx".}
 proc continuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom2d_OffsetCurve.hxx".}
-proc d0*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_OffsetCurve.hxx".}
-proc d1*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect,
+proc d1*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Geom2d_OffsetCurve.hxx".}
-proc d2*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_OffsetCurve.hxx".}
-proc d3*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_OffsetCurve.hxx".}
-proc dn*(this: Geom2dOffsetCurve; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
+proc d3*(this: Geom2dOffsetCurve; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
+        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_OffsetCurve.hxx".}
+proc dn*(this: Geom2dOffsetCurve; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_OffsetCurve.hxx".}
 proc firstParameter*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "FirstParameter", header: "Geom2d_OffsetCurve.hxx".}
@@ -320,11 +320,11 @@ proc isPeriodic*(this: Geom2dOffsetCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom2d_OffsetCurve.hxx".}
 proc period*(this: Geom2dOffsetCurve): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "Geom2d_OffsetCurve.hxx".}
-proc transform*(this: var Geom2dOffsetCurve; t: Trsf2d) {.cdecl,
+proc transform*(this: var Geom2dOffsetCurve; t: Trsf2dObj) {.cdecl,
     importcpp: "Transform", header: "Geom2d_OffsetCurve.hxx".}
-proc transformedParameter*(this: Geom2dOffsetCurve; u: cfloat; t: Trsf2d): cfloat {.
+proc transformedParameter*(this: Geom2dOffsetCurve; u: cfloat; t: Trsf2dObj): cfloat {.
     noSideEffect, cdecl, importcpp: "TransformedParameter", header: "Geom2d_OffsetCurve.hxx".}
-proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2d): cfloat {.
+proc parametricTransformation*(this: Geom2dOffsetCurve; t: Trsf2dObj): cfloat {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom2d_OffsetCurve.hxx".}
 proc copy*(this: Geom2dOffsetCurve): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_OffsetCurve.hxx".}

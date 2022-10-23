@@ -176,11 +176,11 @@ type
                                                                                           ## ! returns the tangent vector at the first node of a link
 
 
-proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Dir): bool {.
+proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var DirObj): bool {.
     noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var Dir): bool {.
+proc getLastTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var DirObj): bool {.
     noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
-proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var Dir): bool {.
+proc getNormal*(this: PolyMakeLoops3DHelper; theNode: cint; theDir: var DirObj): bool {.
     noSideEffect, cdecl, importcpp: "GetNormal", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops3D {.
@@ -201,9 +201,9 @@ type
                                                                                           ## ! returns the tangent vector at the first node of a link
 
 
-proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2d): bool {.
+proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2dObj): bool {.
     noSideEffect, cdecl, importcpp: "GetFirstTangent", header: "Poly_MakeLoops.hxx".}
-proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2d): bool {.
+proc getLastTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2dObj): bool {.
     noSideEffect, cdecl, importcpp: "GetLastTangent", header: "Poly_MakeLoops.hxx".}
 proc newPolyMakeLoops2D*(theLeftWay: bool; theHelper: ptr PolyMakeLoops2DHelper;
                         theAlloc: Handle[NCollectionBaseAllocator]): PolyMakeLoops2D {.

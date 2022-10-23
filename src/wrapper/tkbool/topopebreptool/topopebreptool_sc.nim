@@ -22,7 +22,7 @@ proc fSC_GetPSC*(s: TopoDS_Shape): var TopOpeBRepToolShapeClassifier {.cdecl,
 ##   state point <P> on/in shapes (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
-proc fSC_StatePonFace*(p: Pnt; f: TopoDS_Shape;
+proc fSC_StatePonFace*(p: PntObj; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.cdecl,
     importcpp: "FSC_StatePonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
 proc fSC_StateEonFace*(e: TopoDS_Shape; t: cfloat; f: TopoDS_Shape;

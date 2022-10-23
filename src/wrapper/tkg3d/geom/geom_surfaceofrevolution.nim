@@ -238,21 +238,21 @@ type
                                                                                                    ## self-intersects.
 
 
-proc newGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1): GeomSurfaceOfRevolution {.
+proc newGeomSurfaceOfRevolution*(c: Handle[GeomCurve]; a1: Ax1Obj): GeomSurfaceOfRevolution {.
     cdecl, constructor, importcpp: "Geom_SurfaceOfRevolution(@)", header: "Geom_SurfaceOfRevolution.hxx".}
-proc setAxis*(this: var GeomSurfaceOfRevolution; a1: Ax1) {.cdecl,
+proc setAxis*(this: var GeomSurfaceOfRevolution; a1: Ax1Obj) {.cdecl,
     importcpp: "SetAxis", header: "Geom_SurfaceOfRevolution.hxx".}
-proc setDirection*(this: var GeomSurfaceOfRevolution; v: Dir) {.cdecl,
+proc setDirection*(this: var GeomSurfaceOfRevolution; v: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Geom_SurfaceOfRevolution.hxx".}
 proc setBasisCurve*(this: var GeomSurfaceOfRevolution; c: Handle[GeomCurve]) {.cdecl,
     importcpp: "SetBasisCurve", header: "Geom_SurfaceOfRevolution.hxx".}
-proc setLocation*(this: var GeomSurfaceOfRevolution; p: Pnt) {.cdecl,
+proc setLocation*(this: var GeomSurfaceOfRevolution; p: PntObj) {.cdecl,
     importcpp: "SetLocation", header: "Geom_SurfaceOfRevolution.hxx".}
-proc axis*(this: GeomSurfaceOfRevolution): Ax1 {.noSideEffect, cdecl,
+proc axis*(this: GeomSurfaceOfRevolution): Ax1Obj {.noSideEffect, cdecl,
     importcpp: "Axis", header: "Geom_SurfaceOfRevolution.hxx".}
-proc location*(this: GeomSurfaceOfRevolution): Pnt {.noSideEffect, cdecl,
+proc location*(this: GeomSurfaceOfRevolution): PntObj {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_SurfaceOfRevolution.hxx".}
-proc referencePlane*(this: GeomSurfaceOfRevolution): Ax2 {.noSideEffect, cdecl,
+proc referencePlane*(this: GeomSurfaceOfRevolution): Ax2Obj {.noSideEffect, cdecl,
     importcpp: "ReferencePlane", header: "Geom_SurfaceOfRevolution.hxx".}
 proc uReverse*(this: var GeomSurfaceOfRevolution) {.cdecl, importcpp: "UReverse",
     header: "Geom_SurfaceOfRevolution.hxx".}
@@ -263,9 +263,9 @@ proc vReverse*(this: var GeomSurfaceOfRevolution) {.cdecl, importcpp: "VReverse"
 proc vReversedParameter*(this: GeomSurfaceOfRevolution; v: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "VReversedParameter", header: "Geom_SurfaceOfRevolution.hxx".}
 proc transformParameters*(this: GeomSurfaceOfRevolution; u: var cfloat; v: var cfloat;
-                         t: Trsf) {.noSideEffect, cdecl,
+                         t: TrsfObj) {.noSideEffect, cdecl,
                                   importcpp: "TransformParameters", header: "Geom_SurfaceOfRevolution.hxx".}
-proc parametricTransformation*(this: GeomSurfaceOfRevolution; t: Trsf): GTrsf2d {.
+proc parametricTransformation*(this: GeomSurfaceOfRevolution; t: TrsfObj): GTrsf2d {.
     noSideEffect, cdecl, importcpp: "ParametricTransformation", header: "Geom_SurfaceOfRevolution.hxx".}
 proc bounds*(this: GeomSurfaceOfRevolution; u1: var cfloat; u2: var cfloat;
             v1: var cfloat; v2: var cfloat) {.noSideEffect, cdecl, importcpp: "Bounds",
@@ -286,20 +286,20 @@ proc uIso*(this: GeomSurfaceOfRevolution; u: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "UIso", header: "Geom_SurfaceOfRevolution.hxx".}
 proc vIso*(this: GeomSurfaceOfRevolution; v: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "VIso", header: "Geom_SurfaceOfRevolution.hxx".}
-proc d0*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
+proc d0*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect,
     cdecl, importcpp: "D0", header: "Geom_SurfaceOfRevolution.hxx".}
-proc d1*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SurfaceOfRevolution.hxx".}
-proc d2*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SurfaceOfRevolution.hxx".}
+proc d2*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_SurfaceOfRevolution.hxx".}
-proc d3*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
+        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_SurfaceOfRevolution.hxx".}
-proc dn*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(this: GeomSurfaceOfRevolution; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_SurfaceOfRevolution.hxx".}
-proc transform*(this: var GeomSurfaceOfRevolution; t: Trsf) {.cdecl,
+proc transform*(this: var GeomSurfaceOfRevolution; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_SurfaceOfRevolution.hxx".}
 proc copy*(this: GeomSurfaceOfRevolution): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_SurfaceOfRevolution.hxx".}

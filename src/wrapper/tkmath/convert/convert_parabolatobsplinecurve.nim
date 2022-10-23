@@ -35,6 +35,6 @@ type
                                                                              ## Prb.
 
 
-proc newConvertParabolaToBSplineCurve*(prb: Parab2d; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.
+proc newConvertParabolaToBSplineCurve*(prb: Parab2dObj; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.
     cdecl, constructor, importcpp: "Convert_ParabolaToBSplineCurve(@)",
     header: "Convert_ParabolaToBSplineCurve.hxx".}

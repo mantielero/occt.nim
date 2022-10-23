@@ -78,21 +78,21 @@ type
 
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[
     GeomSurface] {.cdecl, importcpp: "GeomFill::Surface(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; nplan: Vec;
-               pt1: Pnt; pt2: Pnt; rayon: cfloat; center: Pnt;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; nplan: VecObj;
+               pt1: PntObj; pt2: PntObj; rayon: cfloat; center: PntObj;
                poles: var TColgpArray1OfPnt; weigths: var TColStdArray1OfReal) {.
     cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
-               dn2w: Vec; nplan: Vec; dnplan: Vec; pts1: Pnt; pts2: Pnt; tang1: Vec;
-               tang2: Vec; rayon: cfloat; dRayon: cfloat; center: Pnt; dCenter: Vec;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; dn1w: VecObj;
+               dn2w: VecObj; nplan: VecObj; dnplan: VecObj; pts1: PntObj; pts2: PntObj; tang1: VecObj;
+               tang2: VecObj; rayon: cfloat; dRayon: cfloat; center: PntObj; dCenter: VecObj;
                poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal): bool {.
     cdecl, importcpp: "GeomFill::GetCircle(@)", header: "GeomFill.hxx".}
-proc getCircle*(tConv: ConvertParameterisationType; ns1: Vec; ns2: Vec; dn1w: Vec;
-               dn2w: Vec; d2n1w: Vec; d2n2w: Vec; nplan: Vec; dnplan: Vec; d2nplan: Vec;
-               pts1: Pnt; pts2: Pnt; tang1: Vec; tang2: Vec; dtang1: Vec; dtang2: Vec;
-               rayon: cfloat; dRayon: cfloat; d2Rayon: cfloat; center: Pnt;
-               dCenter: Vec; d2Center: Vec; poles: var TColgpArray1OfPnt;
+proc getCircle*(tConv: ConvertParameterisationType; ns1: VecObj; ns2: VecObj; dn1w: VecObj;
+               dn2w: VecObj; d2n1w: VecObj; d2n2w: VecObj; nplan: VecObj; dnplan: VecObj; d2nplan: VecObj;
+               pts1: PntObj; pts2: PntObj; tang1: VecObj; tang2: VecObj; dtang1: VecObj; dtang2: VecObj;
+               rayon: cfloat; dRayon: cfloat; d2Rayon: cfloat; center: PntObj;
+               dCenter: VecObj; d2Center: VecObj; poles: var TColgpArray1OfPnt;
                dPoles: var TColgpArray1OfVec; d2Poles: var TColgpArray1OfVec;
                weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
                d2Weigths: var TColStdArray1OfReal): bool {.cdecl,

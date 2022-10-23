@@ -23,11 +23,11 @@ type
                   bycopy.} = object of Root ## ! Creates  an Hyperbola from a non persistent hyperbola  from package gp by conversion.
 
 
-proc hyperbola*(h: Hypr): MakeHyperbola {.cdecl, constructor,
+proc hyperbola*(h: HyprObj): MakeHyperbola {.cdecl, constructor,
     importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc hyperbola*(a2: Ax2; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
+proc hyperbola*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): MakeHyperbola {.
     cdecl, constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
-proc hyperbola*(s1: Pnt; s2: Pnt; center: Pnt): MakeHyperbola {.cdecl,
+proc hyperbola*(s1: PntObj; s2: PntObj; center: PntObj): MakeHyperbola {.cdecl,
     constructor, importcpp: "GC_MakeHyperbola(@)", header: "GC_MakeHyperbola.hxx".}
 proc value*(this: MakeHyperbola): Handle[GeomHyperbola] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeHyperbola.hxx".}

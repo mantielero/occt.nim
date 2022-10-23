@@ -30,8 +30,8 @@ proc newBndBox2d*(): BndBox2d {.cdecl, constructor, importcpp: "Bnd_Box2d(@)",
                              header: "Bnd_Box2d.hxx".}
 proc setWhole*(this: var BndBox2d) {.cdecl, importcpp: "SetWhole", header: "Bnd_Box2d.hxx".}
 proc setVoid*(this: var BndBox2d) {.cdecl, importcpp: "SetVoid", header: "Bnd_Box2d.hxx".}
-proc set*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Set", header: "Bnd_Box2d.hxx".}
-proc set*(this: var BndBox2d; thePnt: Pnt2d; theDir: Dir2d) {.cdecl, importcpp: "Set",
+proc set*(this: var BndBox2d; thePnt: Pnt2dObj) {.cdecl, importcpp: "Set", header: "Bnd_Box2d.hxx".}
+proc set*(this: var BndBox2d; thePnt: Pnt2dObj; theDir: Dir2dObj) {.cdecl, importcpp: "Set",
     header: "Bnd_Box2d.hxx".}
 proc update*(this: var BndBox2d; aXmin: cfloat; aYmin: cfloat; aXmax: cfloat;
             aYmax: cfloat) {.cdecl, importcpp: "Update", header: "Bnd_Box2d.hxx".}
@@ -61,20 +61,20 @@ proc isWhole*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsWhole",
                                   header: "Bnd_Box2d.hxx".}
 proc isVoid*(this: BndBox2d): bool {.noSideEffect, cdecl, importcpp: "IsVoid",
                                  header: "Bnd_Box2d.hxx".}
-proc transformed*(this: BndBox2d; t: Trsf2d): BndBox2d {.noSideEffect, cdecl,
+proc transformed*(this: BndBox2d; t: Trsf2dObj): BndBox2d {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "Bnd_Box2d.hxx".}
 proc add*(this: var BndBox2d; other: BndBox2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; thePnt: Pnt2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; thePnt: Pnt2d; theDir: Dir2d) {.cdecl, importcpp: "Add",
+proc add*(this: var BndBox2d; thePnt: Pnt2dObj) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
+proc add*(this: var BndBox2d; thePnt: Pnt2dObj; theDir: Dir2dObj) {.cdecl, importcpp: "Add",
     header: "Bnd_Box2d.hxx".}
-proc add*(this: var BndBox2d; d: Dir2d) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; p: Pnt2d): bool {.noSideEffect, cdecl, importcpp: "IsOut",
+proc add*(this: var BndBox2d; d: Dir2dObj) {.cdecl, importcpp: "Add", header: "Bnd_Box2d.hxx".}
+proc isOut*(this: BndBox2d; p: Pnt2dObj): bool {.noSideEffect, cdecl, importcpp: "IsOut",
                                         header: "Bnd_Box2d.hxx".}
 proc isOut*(this: BndBox2d; other: BndBox2d): bool {.noSideEffect, cdecl,
     importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; theOther: BndBox2d; theTrsf: Trsf2d): bool {.noSideEffect,
+proc isOut*(this: BndBox2d; theOther: BndBox2d; theTrsf: Trsf2dObj): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
-proc isOut*(this: BndBox2d; t1: Trsf2d; other: BndBox2d; t2: Trsf2d): bool {.noSideEffect,
+proc isOut*(this: BndBox2d; t1: Trsf2dObj; other: BndBox2d; t2: Trsf2dObj): bool {.noSideEffect,
     cdecl, importcpp: "IsOut", header: "Bnd_Box2d.hxx".}
 proc dump*(this: BndBox2d) {.noSideEffect, cdecl, importcpp: "Dump", header: "Bnd_Box2d.hxx".}
 proc squareExtent*(this: BndBox2d): cfloat {.noSideEffect, cdecl,

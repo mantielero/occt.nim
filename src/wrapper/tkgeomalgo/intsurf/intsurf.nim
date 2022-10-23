@@ -30,7 +30,7 @@ type
                                                                     ## ! TSecond is the transition of the point on the second line.
 
 
-proc makeTransition*(tgFirst: Vec; tgSecond: Vec; normal: Dir;
+proc makeTransition*(tgFirst: VecObj; tgSecond: VecObj; normal: DirObj;
                     tFirst: var IntSurfTransition; tSecond: var IntSurfTransition) {.
     cdecl, importcpp: "IntSurf::MakeTransition(@)", header: "IntSurf.hxx".}
 proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];

@@ -37,21 +37,21 @@ proc copy*(this: GeomFillFrenet): Handle[GeomFillTrihedronLaw] {.noSideEffect, c
 proc init*(this: var GeomFillFrenet) {.cdecl, importcpp: "Init", header: "GeomFill_Frenet.hxx".}
 proc setCurve*(this: var GeomFillFrenet; c: Handle[Adaptor3dHCurve]) {.cdecl,
     importcpp: "SetCurve", header: "GeomFill_Frenet.hxx".}
-proc d0*(this: var GeomFillFrenet; param: cfloat; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.cdecl, importcpp: "D0", header: "GeomFill_Frenet.hxx".}
-proc d1*(this: var GeomFillFrenet; param: cfloat; tangent: var Vec; dTangent: var Vec;
-        normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
+proc d0*(this: var GeomFillFrenet; param: cfloat; tangent: var VecObj; normal: var VecObj;
+        biNormal: var VecObj): bool {.cdecl, importcpp: "D0", header: "GeomFill_Frenet.hxx".}
+proc d1*(this: var GeomFillFrenet; param: cfloat; tangent: var VecObj; dTangent: var VecObj;
+        normal: var VecObj; dNormal: var VecObj; biNormal: var VecObj; dBiNormal: var VecObj): bool {.
     cdecl, importcpp: "D1", header: "GeomFill_Frenet.hxx".}
-proc d2*(this: var GeomFillFrenet; param: cfloat; tangent: var Vec; dTangent: var Vec;
-        d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
-        biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.cdecl,
+proc d2*(this: var GeomFillFrenet; param: cfloat; tangent: var VecObj; dTangent: var VecObj;
+        d2Tangent: var VecObj; normal: var VecObj; dNormal: var VecObj; d2Normal: var VecObj;
+        biNormal: var VecObj; dBiNormal: var VecObj; d2BiNormal: var VecObj): bool {.cdecl,
     importcpp: "D2", header: "GeomFill_Frenet.hxx".}
 proc nbIntervals*(this: GeomFillFrenet; s: GeomAbsShape): cint {.noSideEffect, cdecl,
     importcpp: "NbIntervals", header: "GeomFill_Frenet.hxx".}
 proc intervals*(this: GeomFillFrenet; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_Frenet.hxx".}
-proc getAverageLaw*(this: var GeomFillFrenet; aTangent: var Vec; aNormal: var Vec;
-                   aBiNormal: var Vec) {.cdecl, importcpp: "GetAverageLaw",
+proc getAverageLaw*(this: var GeomFillFrenet; aTangent: var VecObj; aNormal: var VecObj;
+                   aBiNormal: var VecObj) {.cdecl, importcpp: "GetAverageLaw",
                                       header: "GeomFill_Frenet.hxx".}
 proc isConstant*(this: GeomFillFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_Frenet.hxx".}

@@ -22,11 +22,11 @@ type
 
 proc newExtremaPOnCurv*(): ExtremaPOnCurv {.cdecl, constructor,
     importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
-proc newExtremaPOnCurv*(u: cfloat; p: Pnt): ExtremaPOnCurv {.cdecl, constructor,
+proc newExtremaPOnCurv*(u: cfloat; p: PntObj): ExtremaPOnCurv {.cdecl, constructor,
     importcpp: "Extrema_POnCurv(@)", header: "Extrema_POnCurv.hxx".}
-proc setValues*(this: var ExtremaPOnCurv; u: cfloat; p: Pnt) {.cdecl,
+proc setValues*(this: var ExtremaPOnCurv; u: cfloat; p: PntObj) {.cdecl,
     importcpp: "SetValues", header: "Extrema_POnCurv.hxx".}
-proc value*(this: ExtremaPOnCurv): Pnt {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: ExtremaPOnCurv): PntObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "Extrema_POnCurv.hxx".}
 proc parameter*(this: ExtremaPOnCurv): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Extrema_POnCurv.hxx".}

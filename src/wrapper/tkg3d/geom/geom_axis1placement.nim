@@ -49,19 +49,19 @@ type
                                                                                           ## A1.
 
 
-proc newGeomAxis1Placement*(a1: Ax1): GeomAxis1Placement {.cdecl, constructor,
+proc newGeomAxis1Placement*(a1: Ax1Obj): GeomAxis1Placement {.cdecl, constructor,
     importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
-proc newGeomAxis1Placement*(p: Pnt; v: Dir): GeomAxis1Placement {.cdecl, constructor,
+proc newGeomAxis1Placement*(p: PntObj; v: DirObj): GeomAxis1Placement {.cdecl, constructor,
     importcpp: "Geom_Axis1Placement(@)", header: "Geom_Axis1Placement.hxx".}
-proc ax1*(this: GeomAxis1Placement): Ax1 {.noSideEffect, cdecl, importcpp: "Ax1",
+proc ax1*(this: GeomAxis1Placement): Ax1Obj {.noSideEffect, cdecl, importcpp: "Ax1",
                                        header: "Geom_Axis1Placement.hxx".}
 proc reverse*(this: var GeomAxis1Placement) {.cdecl, importcpp: "Reverse",
     header: "Geom_Axis1Placement.hxx".}
 proc reversed*(this: GeomAxis1Placement): Handle[GeomAxis1Placement] {.noSideEffect,
     cdecl, importcpp: "Reversed", header: "Geom_Axis1Placement.hxx".}
-proc setDirection*(this: var GeomAxis1Placement; v: Dir) {.cdecl,
+proc setDirection*(this: var GeomAxis1Placement; v: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Geom_Axis1Placement.hxx".}
-proc transform*(this: var GeomAxis1Placement; t: Trsf) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomAxis1Placement; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Axis1Placement.hxx".}
 proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}

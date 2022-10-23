@@ -47,7 +47,7 @@ proc newPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                  aText: TCollectionExtendedString): PrsDimMinRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_MinRadiusDimension(@)", header: "PrsDim_MinRadiusDimension.hxx".}
 proc newPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
-                                 aText: TCollectionExtendedString; aPosition: Pnt;
+                                 aText: TCollectionExtendedString; aPosition: PntObj;
                                  aSymbolPrs: DsgPrsArrowSide;
                                  anArrowSize: cfloat = 0.0): PrsDimMinRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_MinRadiusDimension(@)", header: "PrsDim_MinRadiusDimension.hxx".}

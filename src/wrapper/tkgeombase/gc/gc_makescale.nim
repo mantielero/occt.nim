@@ -45,7 +45,7 @@ type
                                                                                 ## factor.
 
 
-proc scale*(point: Pnt; scale: cfloat): MakeScale {.cdecl, constructor,
+proc scale*(point: PntObj; scale: cfloat): MakeScale {.cdecl, constructor,
     importcpp: "GC_MakeScale(@)", header: "GC_MakeScale.hxx".}
 proc value*(this: MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeScale.hxx".}

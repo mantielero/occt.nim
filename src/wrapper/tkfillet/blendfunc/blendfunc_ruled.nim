@@ -51,22 +51,22 @@ proc isSolution*(this: var BlendFuncRuled; sol: MathVector; tol: cfloat): bool {
     importcpp: "IsSolution", header: "BlendFunc_Ruled.hxx".}
 proc getMinimalDistance*(this: BlendFuncRuled): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BlendFunc_Ruled.hxx".}
-proc pointOnS1*(this: BlendFuncRuled): Pnt {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncRuled): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_Ruled.hxx".}
-proc pointOnS2*(this: BlendFuncRuled): Pnt {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncRuled): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_Ruled.hxx".}
 proc isTangencyPoint*(this: BlendFuncRuled): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_Ruled.hxx".}
-proc tangentOnS1*(this: BlendFuncRuled): Vec {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFuncRuled): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_Ruled.hxx".}
-proc tangent2dOnS1*(this: BlendFuncRuled): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncRuled): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_Ruled.hxx".}
-proc tangentOnS2*(this: BlendFuncRuled): Vec {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFuncRuled): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_Ruled.hxx".}
-proc tangent2dOnS2*(this: BlendFuncRuled): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncRuled): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_Ruled.hxx".}
 proc tangent*(this: BlendFuncRuled; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
+             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_Ruled.hxx".}
 proc getSection*(this: var BlendFuncRuled; param: cfloat; u1: cfloat; v1: cfloat;
                 u2: cfloat; v2: cfloat; tabP: var TColgpArray1OfPnt;
@@ -106,7 +106,7 @@ proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1Of
 proc section*(this: var BlendFuncRuled; p: BlendPoint; poles: var TColgpArray1OfPnt;
              poles2d: var TColgpArray1OfPnt2d; weigths: var TColStdArray1OfReal) {.
     cdecl, importcpp: "Section", header: "BlendFunc_Ruled.hxx".}
-proc axeRot*(this: var BlendFuncRuled; prm: cfloat): Ax1 {.cdecl, importcpp: "AxeRot",
+proc axeRot*(this: var BlendFuncRuled; prm: cfloat): Ax1Obj {.cdecl, importcpp: "AxeRot",
     header: "BlendFunc_Ruled.hxx".}
 proc resolution*(this: BlendFuncRuled; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",

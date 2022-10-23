@@ -95,17 +95,17 @@ type
                                                                                           ## surface.
 
 
-proc setAxis*(this: var GeomElementarySurface; theA1: Ax1) {.cdecl,
+proc setAxis*(this: var GeomElementarySurface; theA1: Ax1Obj) {.cdecl,
     importcpp: "SetAxis", header: "Geom_ElementarySurface.hxx".}
-proc setLocation*(this: var GeomElementarySurface; theLoc: Pnt) {.cdecl,
+proc setLocation*(this: var GeomElementarySurface; theLoc: PntObj) {.cdecl,
     importcpp: "SetLocation", header: "Geom_ElementarySurface.hxx".}
-proc setPosition*(this: var GeomElementarySurface; theAx3: Ax3) {.cdecl,
+proc setPosition*(this: var GeomElementarySurface; theAx3: Ax3Obj) {.cdecl,
     importcpp: "SetPosition", header: "Geom_ElementarySurface.hxx".}
-proc axis*(this: GeomElementarySurface): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
+proc axis*(this: GeomElementarySurface): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis",
     header: "Geom_ElementarySurface.hxx".}
-proc location*(this: GeomElementarySurface): Pnt {.noSideEffect, cdecl,
+proc location*(this: GeomElementarySurface): PntObj {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_ElementarySurface.hxx".}
-proc position*(this: GeomElementarySurface): Ax3 {.noSideEffect, cdecl,
+proc position*(this: GeomElementarySurface): Ax3Obj {.noSideEffect, cdecl,
     importcpp: "Position", header: "Geom_ElementarySurface.hxx".}
 proc uReverse*(this: var GeomElementarySurface) {.cdecl, importcpp: "UReverse",
     header: "Geom_ElementarySurface.hxx".}

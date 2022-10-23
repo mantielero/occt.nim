@@ -302,7 +302,7 @@ proc setTransformPersistence*(this: var PrsMgrPresentableObject;
     importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
 proc localTransformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
     noSideEffect, cdecl, importcpp: "LocalTransformationGeom", header: "PrsMgr_PresentableObject.hxx".}
-proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: Trsf) {.
+proc setLocalTransformation*(this: var PrsMgrPresentableObject; theTrsf: TrsfObj) {.
     cdecl, importcpp: "SetLocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc setLocalTransformation*(this: var PrsMgrPresentableObject;
                             theTrsf: Handle[TopLocDatum3D]) {.cdecl,
@@ -311,9 +311,9 @@ proc hasTransformation*(this: PrsMgrPresentableObject): bool {.noSideEffect, cde
     importcpp: "HasTransformation", header: "PrsMgr_PresentableObject.hxx".}
 proc transformationGeom*(this: PrsMgrPresentableObject): Handle[TopLocDatum3D] {.
     noSideEffect, cdecl, importcpp: "TransformationGeom", header: "PrsMgr_PresentableObject.hxx".}
-proc localTransformation*(this: PrsMgrPresentableObject): Trsf {.noSideEffect, cdecl,
+proc localTransformation*(this: PrsMgrPresentableObject): TrsfObj {.noSideEffect, cdecl,
     importcpp: "LocalTransformation", header: "PrsMgr_PresentableObject.hxx".}
-proc transformation*(this: PrsMgrPresentableObject): Trsf {.noSideEffect, cdecl,
+proc transformation*(this: PrsMgrPresentableObject): TrsfObj {.noSideEffect, cdecl,
     importcpp: "Transformation", header: "PrsMgr_PresentableObject.hxx".}
 proc inversedTransformation*(this: PrsMgrPresentableObject): GTrsf {.noSideEffect,
     cdecl, importcpp: "InversedTransformation", header: "PrsMgr_PresentableObject.hxx".}
@@ -417,11 +417,11 @@ proc setClipPlanes*(this: var PrsMgrPresentableObject;
     importcpp: "SetClipPlanes", header: "PrsMgr_PresentableObject.hxx".}
 proc setTransformPersistence*(this: var PrsMgrPresentableObject;
                              theMode: Graphic3dTransModeFlags;
-                             thePoint: Pnt = newPnt(0.0, 0.0, 0.0)) {.cdecl,
+                             thePoint: PntObj = pnt(0.0, 0.0, 0.0)) {.cdecl,
     importcpp: "SetTransformPersistence", header: "PrsMgr_PresentableObject.hxx".}
 proc getTransformPersistenceMode*(this: PrsMgrPresentableObject): Graphic3dTransModeFlags {.
     noSideEffect, cdecl, importcpp: "GetTransformPersistenceMode", header: "PrsMgr_PresentableObject.hxx".}
-proc getTransformPersistencePoint*(this: PrsMgrPresentableObject): Pnt {.
+proc getTransformPersistencePoint*(this: PrsMgrPresentableObject): PntObj {.
     noSideEffect, cdecl, importcpp: "GetTransformPersistencePoint", header: "PrsMgr_PresentableObject.hxx".}
 proc toPropagateVisualState*(this: PrsMgrPresentableObject): bool {.noSideEffect,
     cdecl, importcpp: "ToPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}

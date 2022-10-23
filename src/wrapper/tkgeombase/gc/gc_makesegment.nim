@@ -45,13 +45,13 @@ type
                                                                                             ## confused.
 
 
-proc segment*(p1: Pnt; p2: Pnt): MakeSegment {.cdecl, constructor,
+proc segment*(p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc segment*(line: Lin; u1: cfloat; u2: cfloat): MakeSegment {.cdecl,
+proc segment*(line: LinObj; u1: cfloat; u2: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc segment*(line: Lin; point: Pnt; ulast: cfloat): MakeSegment {.cdecl,
+proc segment*(line: LinObj; point: PntObj; ulast: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
-proc segment*(line: Lin; p1: Pnt; p2: Pnt): MakeSegment {.cdecl, constructor,
+proc segment*(line: LinObj; p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
 proc value*(this: MakeSegment): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeSegment.hxx".}

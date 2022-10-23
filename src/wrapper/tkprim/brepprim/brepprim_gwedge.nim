@@ -33,16 +33,16 @@ type
 
 proc newBRepPrimGWedge*(): BRepPrimGWedge {.cdecl, constructor,
     importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimGWedge {.
+proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2Obj; dx: cfloat; dy: cfloat; dz: cfloat): BRepPrimGWedge {.
     cdecl, constructor, importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; dx: cfloat; dy: cfloat;
+proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2Obj; dx: cfloat; dy: cfloat;
                        dz: cfloat; ltx: cfloat): BRepPrimGWedge {.cdecl, constructor,
     importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2; xmin: cfloat; ymin: cfloat;
+proc newBRepPrimGWedge*(b: BRepPrimBuilder; axes: Ax2Obj; xmin: cfloat; ymin: cfloat;
                        zmin: cfloat; z2min: cfloat; x2min: cfloat; xmax: cfloat;
                        ymax: cfloat; zmax: cfloat; z2max: cfloat; x2max: cfloat): BRepPrimGWedge {.
     cdecl, constructor, importcpp: "BRepPrim_GWedge(@)", header: "BRepPrim_GWedge.hxx".}
-proc axes*(this: BRepPrimGWedge): Ax2 {.noSideEffect, cdecl, importcpp: "Axes",
+proc axes*(this: BRepPrimGWedge): Ax2Obj {.noSideEffect, cdecl, importcpp: "Axes",
                                     header: "BRepPrim_GWedge.hxx".}
 proc getXMin*(this: BRepPrimGWedge): cfloat {.noSideEffect, cdecl,
     importcpp: "GetXMin", header: "BRepPrim_GWedge.hxx".}
@@ -76,7 +76,7 @@ proc hasFace*(this: BRepPrimGWedge; d1: BRepPrimDirection): bool {.noSideEffect,
     importcpp: "HasFace", header: "BRepPrim_GWedge.hxx".}
 proc face*(this: var BRepPrimGWedge; d1: BRepPrimDirection): TopoDS_Face {.cdecl,
     importcpp: "Face", header: "BRepPrim_GWedge.hxx".}
-proc plane*(this: var BRepPrimGWedge; d1: BRepPrimDirection): Pln {.cdecl,
+proc plane*(this: var BRepPrimGWedge; d1: BRepPrimDirection): PlnObj {.cdecl,
     importcpp: "Plane", header: "BRepPrim_GWedge.hxx".}
 proc hasWire*(this: BRepPrimGWedge; d1: BRepPrimDirection): bool {.noSideEffect, cdecl,
     importcpp: "HasWire", header: "BRepPrim_GWedge.hxx".}
@@ -86,7 +86,7 @@ proc hasEdge*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection
     noSideEffect, cdecl, importcpp: "HasEdge", header: "BRepPrim_GWedge.hxx".}
 proc edge*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): TopoDS_Edge {.
     cdecl, importcpp: "Edge", header: "BRepPrim_GWedge.hxx".}
-proc line*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): Lin {.
+proc line*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection): LinObj {.
     cdecl, importcpp: "Line", header: "BRepPrim_GWedge.hxx".}
 proc hasVertex*(this: BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
                d3: BRepPrimDirection): bool {.noSideEffect, cdecl,
@@ -95,6 +95,6 @@ proc vertex*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirect
             d3: BRepPrimDirection): TopoDS_Vertex {.cdecl, importcpp: "Vertex",
     header: "BRepPrim_GWedge.hxx".}
 proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirection;
-           d3: BRepPrimDirection): Pnt {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
+           d3: BRepPrimDirection): PntObj {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
 proc isDegeneratedShape*(this: var BRepPrimGWedge): bool {.cdecl,
     importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}

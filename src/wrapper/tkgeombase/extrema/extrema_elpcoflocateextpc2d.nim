@@ -32,18 +32,18 @@ type
 
 proc newExtremaELPCOfLocateExtPC2d*(): ExtremaELPCOfLocateExtPC2d {.cdecl,
     constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc newExtremaELPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d; uinf: cfloat;
+proc newExtremaELPCOfLocateExtPC2d*(p: Pnt2dObj; c: Adaptor2dCurve2d; uinf: cfloat;
                                    usup: cfloat; tolF: cfloat = 1.0e-10): ExtremaELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc newExtremaELPCOfLocateExtPC2d*(p: Pnt2d; c: Adaptor2dCurve2d;
+proc newExtremaELPCOfLocateExtPC2d*(p: Pnt2dObj; c: Adaptor2dCurve2d;
                                    tolF: cfloat = 1.0e-10): ExtremaELPCOfLocateExtPC2d {.
     cdecl, constructor, importcpp: "Extrema_ELPCOfLocateExtPC2d(@)",
     header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc initialize*(this: var ExtremaELPCOfLocateExtPC2d; c: Adaptor2dCurve2d;
                 uinf: cfloat; usup: cfloat; tolF: cfloat = 1.0e-10) {.cdecl,
     importcpp: "Initialize", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
-proc perform*(this: var ExtremaELPCOfLocateExtPC2d; p: Pnt2d) {.cdecl,
+proc perform*(this: var ExtremaELPCOfLocateExtPC2d; p: Pnt2dObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc isDone*(this: ExtremaELPCOfLocateExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
@@ -56,5 +56,5 @@ proc isMin*(this: ExtremaELPCOfLocateExtPC2d; n: cint): bool {.noSideEffect, cde
 proc point*(this: ExtremaELPCOfLocateExtPC2d; n: cint): ExtremaPOnCurv2d {.
     noSideEffect, cdecl, importcpp: "Point", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
 proc trimmedSquareDistances*(this: ExtremaELPCOfLocateExtPC2d; dist1: var cfloat;
-                            dist2: var cfloat; p1: var Pnt2d; p2: var Pnt2d) {.
+                            dist2: var cfloat; p1: var Pnt2dObj; p2: var Pnt2dObj) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}

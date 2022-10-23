@@ -40,24 +40,24 @@ proc builder*(this: BRepPrimBuilder): BRepBuilder {.noSideEffect, cdecl,
     importcpp: "Builder", header: "BRepPrim_Builder.hxx".}
 proc makeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
     importcpp: "MakeShell", header: "BRepPrim_Builder.hxx".}
-proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: Pln) {.noSideEffect, cdecl,
+proc makeFace*(this: BRepPrimBuilder; f: var TopoDS_Face; p: PlnObj) {.noSideEffect, cdecl,
     importcpp: "MakeFace", header: "BRepPrim_Builder.hxx".}
 proc makeWire*(this: BRepPrimBuilder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
     importcpp: "MakeWire", header: "BRepPrim_Builder.hxx".}
 proc makeDegeneratedEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge) {.noSideEffect,
     cdecl, importcpp: "MakeDegeneratedEdge", header: "BRepPrim_Builder.hxx".}
-proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; L: Lin) {.noSideEffect, cdecl,
+proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; L: LinObj) {.noSideEffect, cdecl,
     importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
-proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; c: Circ) {.noSideEffect, cdecl,
+proc makeEdge*(this: BRepPrimBuilder; e: var TopoDS_Edge; c: CircObj) {.noSideEffect, cdecl,
     importcpp: "MakeEdge", header: "BRepPrim_Builder.hxx".}
-proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; L: Lin2d) {.
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; L: Lin2dObj) {.
     noSideEffect, cdecl, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
-proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; l1: Lin2d;
-               l2: Lin2d) {.noSideEffect, cdecl, importcpp: "SetPCurve",
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; l1: Lin2dObj;
+               l2: Lin2dObj) {.noSideEffect, cdecl, importcpp: "SetPCurve",
                           header: "BRepPrim_Builder.hxx".}
-proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; c: Circ2d) {.
+proc setPCurve*(this: BRepPrimBuilder; e: var TopoDS_Edge; f: TopoDS_Face; c: Circ2dObj) {.
     noSideEffect, cdecl, importcpp: "SetPCurve", header: "BRepPrim_Builder.hxx".}
-proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: Pnt) {.noSideEffect,
+proc makeVertex*(this: BRepPrimBuilder; v: var TopoDS_Vertex; p: PntObj) {.noSideEffect,
     cdecl, importcpp: "MakeVertex", header: "BRepPrim_Builder.hxx".}
 proc reverseFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
     importcpp: "ReverseFace", header: "BRepPrim_Builder.hxx".}

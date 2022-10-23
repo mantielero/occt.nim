@@ -199,15 +199,15 @@ type
                                                                                                   ## 0.0.
 
 
-proc newGeomSphericalSurface*(a3: Ax3; radius: cfloat): GeomSphericalSurface {.cdecl,
+proc newGeomSphericalSurface*(a3: Ax3Obj; radius: cfloat): GeomSphericalSurface {.cdecl,
     constructor, importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
-proc newGeomSphericalSurface*(s: Sphere): GeomSphericalSurface {.cdecl, constructor,
+proc newGeomSphericalSurface*(s: SphereObj): GeomSphericalSurface {.cdecl, constructor,
     importcpp: "Geom_SphericalSurface(@)", header: "Geom_SphericalSurface.hxx".}
 proc setRadius*(this: var GeomSphericalSurface; r: cfloat) {.cdecl,
     importcpp: "SetRadius", header: "Geom_SphericalSurface.hxx".}
-proc setSphere*(this: var GeomSphericalSurface; s: Sphere) {.cdecl,
+proc setSphere*(this: var GeomSphericalSurface; s: SphereObj) {.cdecl,
     importcpp: "SetSphere", header: "Geom_SphericalSurface.hxx".}
-proc sphere*(this: GeomSphericalSurface): Sphere {.noSideEffect, cdecl,
+proc sphere*(this: GeomSphericalSurface): SphereObj {.noSideEffect, cdecl,
     importcpp: "Sphere", header: "Geom_SphericalSurface.hxx".}
 proc uReversedParameter*(this: GeomSphericalSurface; u: cfloat): cfloat {.
     noSideEffect, cdecl, importcpp: "UReversedParameter", header: "Geom_SphericalSurface.hxx".}
@@ -237,20 +237,20 @@ proc uIso*(this: GeomSphericalSurface; u: cfloat): Handle[GeomCurve] {.noSideEff
     cdecl, importcpp: "UIso", header: "Geom_SphericalSurface.hxx".}
 proc vIso*(this: GeomSphericalSurface; v: cfloat): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "VIso", header: "Geom_SphericalSurface.hxx".}
-proc d0*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect,
+proc d0*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect,
     cdecl, importcpp: "D0", header: "Geom_SphericalSurface.hxx".}
-proc d1*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SphericalSurface.hxx".}
-proc d2*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj) {.noSideEffect, cdecl, importcpp: "D1", header: "Geom_SphericalSurface.hxx".}
+proc d2*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D2", header: "Geom_SphericalSurface.hxx".}
-proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3",
+proc d3*(this: GeomSphericalSurface; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
+        d3uuv: var VecObj; d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3",
                                     header: "Geom_SphericalSurface.hxx".}
-proc dn*(this: GeomSphericalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(this: GeomSphericalSurface; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     noSideEffect, cdecl, importcpp: "DN", header: "Geom_SphericalSurface.hxx".}
-proc transform*(this: var GeomSphericalSurface; t: Trsf) {.cdecl,
+proc transform*(this: var GeomSphericalSurface; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_SphericalSurface.hxx".}
 proc copy*(this: GeomSphericalSurface): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_SphericalSurface.hxx".}

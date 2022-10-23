@@ -258,19 +258,19 @@ proc baseXRCamera*(this: Graphic3dCView): Handle[Graphic3dCamera] {.noSideEffect
     cdecl, importcpp: "BaseXRCamera", header: "Graphic3d_CView.hxx".}
 proc setBaseXRCamera*(this: var Graphic3dCView; theCamera: Handle[Graphic3dCamera]) {.
     cdecl, importcpp: "SetBaseXRCamera", header: "Graphic3d_CView.hxx".}
-proc poseXRToWorld*(this: Graphic3dCView; thePoseXR: Trsf): Trsf {.noSideEffect, cdecl,
+proc poseXRToWorld*(this: Graphic3dCView; thePoseXR: TrsfObj): TrsfObj {.noSideEffect, cdecl,
     importcpp: "PoseXRToWorld", header: "Graphic3d_CView.hxx".}
 proc synchronizeXRBaseToPosedCamera*(this: var Graphic3dCView) {.cdecl,
     importcpp: "SynchronizeXRBaseToPosedCamera", header: "Graphic3d_CView.hxx".}
 proc synchronizeXRPosedToBaseCamera*(this: var Graphic3dCView) {.cdecl,
     importcpp: "SynchronizeXRPosedToBaseCamera", header: "Graphic3d_CView.hxx".}
 proc computeXRPosedCameraFromBase*(this: Graphic3dCView;
-                                  theCam: var Graphic3dCamera; theXRTrsf: Trsf) {.
+                                  theCam: var Graphic3dCamera; theXRTrsf: TrsfObj) {.
     noSideEffect, cdecl, importcpp: "ComputeXRPosedCameraFromBase", header: "Graphic3d_CView.hxx".}
 proc computeXRBaseCameraFromPosed*(this: var Graphic3dCView;
-                                  theCamPosed: Graphic3dCamera; thePoseTrsf: Trsf) {.
+                                  theCamPosed: Graphic3dCamera; thePoseTrsf: TrsfObj) {.
     cdecl, importcpp: "ComputeXRBaseCameraFromPosed", header: "Graphic3d_CView.hxx".}
-proc turnViewXRCamera*(this: var Graphic3dCView; theTrsfTurn: Trsf) {.cdecl,
+proc turnViewXRCamera*(this: var Graphic3dCView; theTrsfTurn: TrsfObj) {.cdecl,
     importcpp: "TurnViewXRCamera", header: "Graphic3d_CView.hxx".}
 proc getGraduatedTrihedron*(this: var Graphic3dCView): Graphic3dGraduatedTrihedron {.
     cdecl, importcpp: "GetGraduatedTrihedron", header: "Graphic3d_CView.hxx".}

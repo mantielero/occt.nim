@@ -37,9 +37,9 @@ type
 
 proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.cdecl,
     importcpp: "SetMeridianOffset", header: "BRepPrim_OneAxis.hxx".}
-proc axes*(this: BRepPrimOneAxis): Ax2 {.noSideEffect, cdecl, importcpp: "Axes",
+proc axes*(this: BRepPrimOneAxis): Ax2Obj {.noSideEffect, cdecl, importcpp: "Axes",
                                      header: "BRepPrim_OneAxis.hxx".}
-proc axes*(this: var BRepPrimOneAxis; a: Ax2) {.cdecl, importcpp: "Axes", header: "BRepPrim_OneAxis.hxx".}
+proc axes*(this: var BRepPrimOneAxis; a: Ax2Obj) {.cdecl, importcpp: "Axes", header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: BRepPrimOneAxis): cfloat {.noSideEffect, cdecl, importcpp: "Angle",
     header: "BRepPrim_OneAxis.hxx".}
 proc angle*(this: var BRepPrimOneAxis; a: cfloat) {.cdecl, importcpp: "Angle",
@@ -58,7 +58,7 @@ proc makeEmptyMeridianEdge*(this: BRepPrimOneAxis; ang: cfloat): TopoDS_Edge {.
     noSideEffect, cdecl, importcpp: "MakeEmptyMeridianEdge", header: "BRepPrim_OneAxis.hxx".}
 proc setMeridianPCurve*(this: BRepPrimOneAxis; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_OneAxis.hxx".}
-proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): Pnt2d {.noSideEffect, cdecl,
+proc meridianValue*(this: BRepPrimOneAxis; v: cfloat): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "MeridianValue", header: "BRepPrim_OneAxis.hxx".}
 proc meridianOnAxis*(this: BRepPrimOneAxis; v: cfloat): bool {.noSideEffect, cdecl,
     importcpp: "MeridianOnAxis", header: "BRepPrim_OneAxis.hxx".}

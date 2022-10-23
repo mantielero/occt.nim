@@ -33,15 +33,15 @@ type
                                                                                 ## one.
 
 
-proc newGCE2dMakeParabola*(prb: Parab2d): GCE2dMakeParabola {.cdecl, constructor,
+proc newGCE2dMakeParabola*(prb: Parab2dObj): GCE2dMakeParabola {.cdecl, constructor,
     importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(axis: Ax22d; focal: cfloat): GCE2dMakeParabola {.cdecl,
+proc newGCE2dMakeParabola*(axis: Ax22dObj; focal: cfloat): GCE2dMakeParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(mirrorAxis: Ax2d; focal: cfloat; sense: bool): GCE2dMakeParabola {.
+proc newGCE2dMakeParabola*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool): GCE2dMakeParabola {.
     cdecl, constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(d: Ax2d; f: Pnt2d; sense: bool = true): GCE2dMakeParabola {.
+proc newGCE2dMakeParabola*(d: Ax2dObj; f: Pnt2dObj; sense: bool = true): GCE2dMakeParabola {.
     cdecl, constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
-proc newGCE2dMakeParabola*(s1: Pnt2d; o: Pnt2d): GCE2dMakeParabola {.cdecl,
+proc newGCE2dMakeParabola*(s1: Pnt2dObj; o: Pnt2dObj): GCE2dMakeParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeParabola(@)", header: "GCE2d_MakeParabola.hxx".}
 proc value*(this: GCE2dMakeParabola): Handle[Geom2dParabola] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GCE2d_MakeParabola.hxx".}

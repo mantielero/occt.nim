@@ -124,9 +124,9 @@ type
 proc reverse*(this: var GeomCurve) {.cdecl, importcpp: "Reverse", header: "Geom_Curve.hxx".}
 proc reversedParameter*(this: GeomCurve; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "ReversedParameter", header: "Geom_Curve.hxx".}
-proc transformedParameter*(this: GeomCurve; u: cfloat; t: Trsf): cfloat {.noSideEffect,
+proc transformedParameter*(this: GeomCurve; u: cfloat; t: TrsfObj): cfloat {.noSideEffect,
     cdecl, importcpp: "TransformedParameter", header: "Geom_Curve.hxx".}
-proc parametricTransformation*(this: GeomCurve; t: Trsf): cfloat {.noSideEffect, cdecl,
+proc parametricTransformation*(this: GeomCurve; t: TrsfObj): cfloat {.noSideEffect, cdecl,
     importcpp: "ParametricTransformation", header: "Geom_Curve.hxx".}
 proc reversed*(this: GeomCurve): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "Reversed", header: "Geom_Curve.hxx".}
@@ -144,17 +144,17 @@ proc continuity*(this: GeomCurve): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_Curve.hxx".}
 proc isCN*(this: GeomCurve; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
                                        header: "Geom_Curve.hxx".}
-proc d0*(this: GeomCurve; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
+proc d0*(this: GeomCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, importcpp: "D0",
     header: "Geom_Curve.hxx".}
-proc d1*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomCurve; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Curve.hxx".}
-proc d2*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
+proc d2*(this: GeomCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Curve.hxx".}
-proc d3*(this: GeomCurve; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: GeomCurve; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Curve.hxx".}
-proc dn*(this: GeomCurve; u: cfloat; n: cint): Vec {.noSideEffect, cdecl, importcpp: "DN",
+proc dn*(this: GeomCurve; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl, importcpp: "DN",
     header: "Geom_Curve.hxx".}
-proc value*(this: GeomCurve; u: cfloat): Pnt {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GeomCurve; u: cfloat): PntObj {.noSideEffect, cdecl, importcpp: "Value",
     header: "Geom_Curve.hxx".}
 proc dumpJson*(this: GeomCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Curve.hxx".}

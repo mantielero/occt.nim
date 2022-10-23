@@ -61,34 +61,34 @@ proc isSolution*(this: var BRepBlendSurfRstConstRad; sol: MathVector; tol: cfloa
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc getMinimalDistance*(this: BRepBlendSurfRstConstRad): cfloat {.noSideEffect,
     cdecl, importcpp: "GetMinimalDistance", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc pointOnS*(this: BRepBlendSurfRstConstRad): Pnt {.noSideEffect, cdecl,
+proc pointOnS*(this: BRepBlendSurfRstConstRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc pointOnRst*(this: BRepBlendSurfRstConstRad): Pnt {.noSideEffect, cdecl,
+proc pointOnRst*(this: BRepBlendSurfRstConstRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnRst", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc pnt2dOnS*(this: BRepBlendSurfRstConstRad): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnS*(this: BRepBlendSurfRstConstRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnS", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc pnt2dOnRst*(this: BRepBlendSurfRstConstRad): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnRst*(this: BRepBlendSurfRstConstRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc parameterOnRst*(this: BRepBlendSurfRstConstRad): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc isTangencyPoint*(this: BRepBlendSurfRstConstRad): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc tangentOnS*(this: BRepBlendSurfRstConstRad): Vec {.noSideEffect, cdecl,
+proc tangentOnS*(this: BRepBlendSurfRstConstRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc tangent2dOnS*(this: BRepBlendSurfRstConstRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS*(this: BRepBlendSurfRstConstRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc tangentOnRst*(this: BRepBlendSurfRstConstRad): Vec {.noSideEffect, cdecl,
+proc tangentOnRst*(this: BRepBlendSurfRstConstRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnRst", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc tangent2dOnRst*(this: BRepBlendSurfRstConstRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnRst*(this: BRepBlendSurfRstConstRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst", header: "BRepBlend_SurfRstConstRad.hxx".}
-proc decroch*(this: BRepBlendSurfRstConstRad; sol: MathVector; ns: var Vec; tgS: var Vec): bool {.
+proc decroch*(this: BRepBlendSurfRstConstRad; sol: MathVector; ns: var VecObj; tgS: var VecObj): bool {.
     noSideEffect, cdecl, importcpp: "Decroch", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc set*(this: var BRepBlendSurfRstConstRad; radius: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc set*(this: var BRepBlendSurfRstConstRad; typeSection: BlendFuncSectionShape) {.
     cdecl, importcpp: "Set", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc section*(this: var BRepBlendSurfRstConstRad; param: cfloat; u: cfloat; v: cfloat;
-             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.cdecl,
+             w: cfloat; pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,
     importcpp: "Section", header: "BRepBlend_SurfRstConstRad.hxx".}
 proc isRational*(this: BRepBlendSurfRstConstRad): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "BRepBlend_SurfRstConstRad.hxx".}

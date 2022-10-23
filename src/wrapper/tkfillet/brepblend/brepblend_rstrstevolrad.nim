@@ -65,13 +65,13 @@ proc isSolution*(this: var BRepBlendRstRstEvolRad; sol: MathVector; tol: cfloat)
     cdecl, importcpp: "IsSolution", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc getMinimalDistance*(this: BRepBlendRstRstEvolRad): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMinimalDistance", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pointOnRst1*(this: BRepBlendRstRstEvolRad): Pnt {.noSideEffect, cdecl,
+proc pointOnRst1*(this: BRepBlendRstRstEvolRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pointOnRst2*(this: BRepBlendRstRstEvolRad): Pnt {.noSideEffect, cdecl,
+proc pointOnRst2*(this: BRepBlendRstRstEvolRad): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pnt2dOnRst1*(this: BRepBlendRstRstEvolRad): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnRst1*(this: BRepBlendRstRstEvolRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc pnt2dOnRst2*(this: BRepBlendRstRstEvolRad): Pnt2d {.noSideEffect, cdecl,
+proc pnt2dOnRst2*(this: BRepBlendRstRstEvolRad): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pnt2dOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc parameterOnRst1*(this: BRepBlendRstRstEvolRad): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
@@ -79,26 +79,26 @@ proc parameterOnRst2*(this: BRepBlendRstRstEvolRad): cfloat {.noSideEffect, cdec
     importcpp: "ParameterOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc isTangencyPoint*(this: BRepBlendRstRstEvolRad): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc tangentOnRst1*(this: BRepBlendRstRstEvolRad): Vec {.noSideEffect, cdecl,
+proc tangentOnRst1*(this: BRepBlendRstRstEvolRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc tangent2dOnRst1*(this: BRepBlendRstRstEvolRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnRst1*(this: BRepBlendRstRstEvolRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst1", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc tangentOnRst2*(this: BRepBlendRstRstEvolRad): Vec {.noSideEffect, cdecl,
+proc tangentOnRst2*(this: BRepBlendRstRstEvolRad): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc tangent2dOnRst2*(this: BRepBlendRstRstEvolRad): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnRst2*(this: BRepBlendRstRstEvolRad): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnRst2", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc decroch*(this: BRepBlendRstRstEvolRad; sol: MathVector; nRst1: var Vec;
-             tgRst1: var Vec; nRst2: var Vec; tgRst2: var Vec): BlendDecrochStatus {.
+proc decroch*(this: BRepBlendRstRstEvolRad; sol: MathVector; nRst1: var VecObj;
+             tgRst1: var VecObj; nRst2: var VecObj; tgRst2: var VecObj): BlendDecrochStatus {.
     noSideEffect, cdecl, importcpp: "Decroch", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc set*(this: var BRepBlendRstRstEvolRad; choix: cint) {.cdecl, importcpp: "Set",
     header: "BRepBlend_RstRstEvolRad.hxx".}
 proc set*(this: var BRepBlendRstRstEvolRad; typeSection: BlendFuncSectionShape) {.
     cdecl, importcpp: "Set", header: "BRepBlend_RstRstEvolRad.hxx".}
-proc centerCircleRst1Rst2*(this: BRepBlendRstRstEvolRad; ptRst1: Pnt; ptRst2: Pnt;
-                          np: Vec; center: var Pnt; vdMed: var Vec): bool {.noSideEffect,
+proc centerCircleRst1Rst2*(this: BRepBlendRstRstEvolRad; ptRst1: PntObj; ptRst2: PntObj;
+                          np: VecObj; center: var PntObj; vdMed: var VecObj): bool {.noSideEffect,
     cdecl, importcpp: "CenterCircleRst1Rst2", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc section*(this: var BRepBlendRstRstEvolRad; param: cfloat; u: cfloat; v: cfloat;
-             pdeb: var cfloat; pfin: var cfloat; c: var Circ) {.cdecl,
+             pdeb: var cfloat; pfin: var cfloat; c: var CircObj) {.cdecl,
     importcpp: "Section", header: "BRepBlend_RstRstEvolRad.hxx".}
 proc isRational*(this: BRepBlendRstRstEvolRad): bool {.noSideEffect, cdecl,
     importcpp: "IsRational", header: "BRepBlend_RstRstEvolRad.hxx".}

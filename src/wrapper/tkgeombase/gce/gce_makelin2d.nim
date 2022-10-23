@@ -30,21 +30,21 @@ type
                                                                                               ## A.
 
 
-proc newGceMakeLin2d*(a: Ax2d): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(a: Ax2dObj): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc newGceMakeLin2d*(p: Pnt2d; v: Dir2d): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(p: Pnt2dObj; v: Dir2dObj): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
 proc newGceMakeLin2d*(a: cfloat; b: cfloat; c: cfloat): GceMakeLin2d {.cdecl,
     constructor, importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc newGceMakeLin2d*(lin: Lin2d; dist: cfloat): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(lin: Lin2dObj; dist: cfloat): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc newGceMakeLin2d*(lin: Lin2d; point: Pnt2d): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(lin: Lin2dObj; point: Pnt2dObj): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc newGceMakeLin2d*(p1: Pnt2d; p2: Pnt2d): GceMakeLin2d {.cdecl, constructor,
+proc newGceMakeLin2d*(p1: Pnt2dObj; p2: Pnt2dObj): GceMakeLin2d {.cdecl, constructor,
     importcpp: "gce_MakeLin2d(@)", header: "gce_MakeLin2d.hxx".}
-proc value*(this: GceMakeLin2d): Lin2d {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeLin2d): Lin2dObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeLin2d.hxx".}
-proc operator*(this: GceMakeLin2d): Lin2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeLin2d): Lin2dObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeLin2d.hxx".}
-converter `lin2d`*(this: GceMakeLin2d): Lin2d {.noSideEffect, cdecl,
+converter `lin2d`*(this: GceMakeLin2d): Lin2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeLin2d::operator gp_Lin2d", header: "gce_MakeLin2d.hxx".}

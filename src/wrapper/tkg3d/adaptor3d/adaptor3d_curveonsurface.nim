@@ -76,31 +76,31 @@ proc isPeriodic*(this: Adaptor3dCurveOnSurface): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc period*(this: Adaptor3dCurveOnSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc value*(this: Adaptor3dCurveOnSurface; u: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: Adaptor3dCurveOnSurface; u: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d0*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d1*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect,
+proc d1*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d2*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc d3*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
-        v3: var Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc dn*(this: Adaptor3dCurveOnSurface; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
+proc d3*(this: Adaptor3dCurveOnSurface; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj;
+        v3: var VecObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Adaptor3d_CurveOnSurface.hxx".}
+proc dn*(this: Adaptor3dCurveOnSurface; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc resolution*(this: Adaptor3dCurveOnSurface; r3d: cfloat): cfloat {.noSideEffect,
     cdecl, importcpp: "Resolution", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc getType*(this: Adaptor3dCurveOnSurface): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc line*(this: Adaptor3dCurveOnSurface): Lin {.noSideEffect, cdecl,
+proc line*(this: Adaptor3dCurveOnSurface): LinObj {.noSideEffect, cdecl,
     importcpp: "Line", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc circle*(this: Adaptor3dCurveOnSurface): Circ {.noSideEffect, cdecl,
+proc circle*(this: Adaptor3dCurveOnSurface): CircObj {.noSideEffect, cdecl,
     importcpp: "Circle", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc ellipse*(this: Adaptor3dCurveOnSurface): Elips {.noSideEffect, cdecl,
+proc ellipse*(this: Adaptor3dCurveOnSurface): ElipsObj {.noSideEffect, cdecl,
     importcpp: "Ellipse", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc hyperbola*(this: Adaptor3dCurveOnSurface): Hypr {.noSideEffect, cdecl,
+proc hyperbola*(this: Adaptor3dCurveOnSurface): HyprObj {.noSideEffect, cdecl,
     importcpp: "Hyperbola", header: "Adaptor3d_CurveOnSurface.hxx".}
-proc parabola*(this: Adaptor3dCurveOnSurface): Parab {.noSideEffect, cdecl,
+proc parabola*(this: Adaptor3dCurveOnSurface): ParabObj {.noSideEffect, cdecl,
     importcpp: "Parabola", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc degree*(this: Adaptor3dCurveOnSurface): cint {.noSideEffect, cdecl,
     importcpp: "Degree", header: "Adaptor3d_CurveOnSurface.hxx".}

@@ -70,17 +70,17 @@ type
                                                                                                   ## C.
 
 
-proc newGeom2dCircle*(c: Circ2d): Geom2dCircle {.cdecl, constructor,
+proc newGeom2dCircle*(c: Circ2dObj): Geom2dCircle {.cdecl, constructor,
     importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc newGeom2dCircle*(a: Ax2d; radius: cfloat; sense: bool = true): Geom2dCircle {.cdecl,
+proc newGeom2dCircle*(a: Ax2dObj; radius: cfloat; sense: bool = true): Geom2dCircle {.cdecl,
     constructor, importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc newGeom2dCircle*(a: Ax22d; radius: cfloat): Geom2dCircle {.cdecl, constructor,
+proc newGeom2dCircle*(a: Ax22dObj; radius: cfloat): Geom2dCircle {.cdecl, constructor,
     importcpp: "Geom2d_Circle(@)", header: "Geom2d_Circle.hxx".}
-proc setCirc2d*(this: var Geom2dCircle; c: Circ2d) {.cdecl, importcpp: "SetCirc2d",
+proc setCirc2d*(this: var Geom2dCircle; c: Circ2dObj) {.cdecl, importcpp: "SetCirc2d",
     header: "Geom2d_Circle.hxx".}
 proc setRadius*(this: var Geom2dCircle; r: cfloat) {.cdecl, importcpp: "SetRadius",
     header: "Geom2d_Circle.hxx".}
-proc circ2d*(this: Geom2dCircle): Circ2d {.noSideEffect, cdecl, importcpp: "Circ2d",
+proc circ2d*(this: Geom2dCircle): Circ2dObj {.noSideEffect, cdecl, importcpp: "Circ2d",
                                        header: "Geom2d_Circle.hxx".}
 proc radius*(this: Geom2dCircle): cfloat {.noSideEffect, cdecl, importcpp: "Radius",
                                        header: "Geom2d_Circle.hxx".}
@@ -96,17 +96,17 @@ proc isClosed*(this: Geom2dCircle): bool {.noSideEffect, cdecl, importcpp: "IsCl
                                        header: "Geom2d_Circle.hxx".}
 proc isPeriodic*(this: Geom2dCircle): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Geom2d_Circle.hxx".}
-proc d0*(this: Geom2dCircle; u: cfloat; p: var Pnt2d) {.noSideEffect, cdecl,
+proc d0*(this: Geom2dCircle; u: cfloat; p: var Pnt2dObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom2d_Circle.hxx".}
-proc d1*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d) {.noSideEffect, cdecl,
+proc d1*(this: Geom2dCircle; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom2d_Circle.hxx".}
-proc d2*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d) {.
+proc d2*(this: Geom2dCircle; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "Geom2d_Circle.hxx".}
-proc d3*(this: Geom2dCircle; u: cfloat; p: var Pnt2d; v1: var Vec2d; v2: var Vec2d;
-        v3: var Vec2d) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Circle.hxx".}
-proc dn*(this: Geom2dCircle; u: cfloat; n: cint): Vec2d {.noSideEffect, cdecl,
+proc d3*(this: Geom2dCircle; u: cfloat; p: var Pnt2dObj; v1: var Vec2dObj; v2: var Vec2dObj;
+        v3: var Vec2dObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom2d_Circle.hxx".}
+proc dn*(this: Geom2dCircle; u: cfloat; n: cint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "Geom2d_Circle.hxx".}
-proc transform*(this: var Geom2dCircle; t: Trsf2d) {.cdecl, importcpp: "Transform",
+proc transform*(this: var Geom2dCircle; t: Trsf2dObj) {.cdecl, importcpp: "Transform",
     header: "Geom2d_Circle.hxx".}
 proc copy*(this: Geom2dCircle): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Circle.hxx".}

@@ -109,7 +109,7 @@ type
 proc newAIS_AnimationObject*(theAnimationName: TCollectionAsciiString;
                             theContext: Handle[AIS_InteractiveContext];
                             theObject: Handle[AIS_InteractiveObject];
-                            theTrsfStart: Trsf; theTrsfEnd: Trsf): AIS_AnimationObject {.
+                            theTrsfStart: TrsfObj; theTrsfEnd: TrsfObj): AIS_AnimationObject {.
     cdecl, constructor, importcpp: "AIS_AnimationObject(@)", header: "AIS_AnimationObject.hxx".}
 type
   HandleAIS_AnimationObject* = Handle[AIS_AnimationObject]

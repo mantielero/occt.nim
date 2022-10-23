@@ -39,7 +39,7 @@ proc getNearestDepth*(this: SelectMgrViewClipRange; theRange: BndRange;
 proc setVoid*(this: var SelectMgrViewClipRange) {.cdecl, importcpp: "SetVoid",
     header: "SelectMgr_ViewClipRange.hxx".}
 proc addClippingPlanes*(this: var SelectMgrViewClipRange;
-                       thePlanes: Graphic3dSequenceOfHClipPlane; thePickRay: Ax1) {.
+                       thePlanes: Graphic3dSequenceOfHClipPlane; thePickRay: Ax1Obj) {.
     cdecl, importcpp: "AddClippingPlanes", header: "SelectMgr_ViewClipRange.hxx".}
 proc changeUnclipRange*(this: var SelectMgrViewClipRange): var BndRange {.cdecl,
     importcpp: "ChangeUnclipRange", header: "SelectMgr_ViewClipRange.hxx".}

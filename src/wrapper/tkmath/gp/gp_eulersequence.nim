@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Created on: 1993-04-13
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,15 +33,4 @@
 ## ! conventions: classic Euler angles (intrinsic ZXZ) and
 ## ! yaw-pitch-roll (intrinsic ZYX).
 
-type
-  EulerSequence* {.size: sizeof(cint), importcpp: "gp_EulerSequence",
-                  header: "gp_EulerSequence.hxx".} = enum ## ! Classic Euler angles, alias to Intrinsic_ZXZ
-    EulerAngles,              ## ! Yaw Pitch Roll (or nautical) angles, alias to Intrinsic_ZYX
-    YawPitchRoll,             ##  Tait-Bryan angles (using three different axes)
-    ExtrinsicXYZ, ExtrinsicXZY, ExtrinsicYZX, ExtrinsicYXZ, ExtrinsicZXY,
-    ExtrinsicZYX, IntrinsicXYZ, IntrinsicXZY, IntrinsicYZX, IntrinsicYXZ,
-    IntrinsicZXY, IntrinsicZYX, ##  Proper Euler angles (using two different axes, first and third the same)
-    ExtrinsicXYX, ExtrinsicXZX, ExtrinsicYZY, ExtrinsicYXY, ExtrinsicZYZ,
-    ExtrinsicZXZ, IntrinsicXYX, IntrinsicXZX, IntrinsicYZY, IntrinsicYXY,
-    IntrinsicZXZ, IntrinsicZYZ
 

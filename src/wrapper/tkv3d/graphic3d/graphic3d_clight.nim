@@ -62,9 +62,9 @@ proc headlight*(this: Graphic3dCLight): bool {.noSideEffect, cdecl,
     importcpp: "Headlight", header: "Graphic3d_CLight.hxx".}
 proc setHeadlight*(this: var Graphic3dCLight; theValue: bool) {.cdecl,
     importcpp: "SetHeadlight", header: "Graphic3d_CLight.hxx".}
-proc position*(this: Graphic3dCLight): Pnt {.noSideEffect, cdecl,
+proc position*(this: Graphic3dCLight): PntObj {.noSideEffect, cdecl,
     importcpp: "Position", header: "Graphic3d_CLight.hxx".}
-proc setPosition*(this: var Graphic3dCLight; thePosition: Pnt) {.cdecl,
+proc setPosition*(this: var Graphic3dCLight; thePosition: PntObj) {.cdecl,
     importcpp: "SetPosition", header: "Graphic3d_CLight.hxx".}
 proc position*(this: Graphic3dCLight; theX: var cfloat; theY: var cfloat;
               theZ: var cfloat) {.noSideEffect, cdecl, importcpp: "Position",
@@ -82,9 +82,9 @@ proc setAttenuation*(this: var Graphic3dCLight;
                     theConstAttenuation: StandardShortReal;
                     theLinearAttenuation: StandardShortReal) {.cdecl,
     importcpp: "SetAttenuation", header: "Graphic3d_CLight.hxx".}
-proc direction*(this: Graphic3dCLight): Dir {.noSideEffect, cdecl,
+proc direction*(this: Graphic3dCLight): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Graphic3d_CLight.hxx".}
-proc setDirection*(this: var Graphic3dCLight; theDir: Dir) {.cdecl,
+proc setDirection*(this: var Graphic3dCLight; theDir: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Graphic3d_CLight.hxx".}
 proc direction*(this: Graphic3dCLight; theVx: var cfloat; theVy: var cfloat;
                theVz: var cfloat) {.noSideEffect, cdecl, importcpp: "Direction",

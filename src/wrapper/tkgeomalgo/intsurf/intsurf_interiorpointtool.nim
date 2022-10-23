@@ -29,11 +29,11 @@ type
                                                                                    ## point.
 
 
-proc value3d*(pStart: IntSurfInteriorPoint): Pnt {.cdecl,
+proc value3d*(pStart: IntSurfInteriorPoint): PntObj {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Value3d(@)", header: "IntSurf_InteriorPointTool.hxx".}
 proc value2d*(pStart: IntSurfInteriorPoint; u: var cfloat; v: var cfloat) {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Value2d(@)", header: "IntSurf_InteriorPointTool.hxx".}
-proc direction3d*(pStart: IntSurfInteriorPoint): Vec {.cdecl,
+proc direction3d*(pStart: IntSurfInteriorPoint): VecObj {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction3d(@)", header: "IntSurf_InteriorPointTool.hxx".}
-proc direction2d*(pStart: IntSurfInteriorPoint): Dir2d {.cdecl,
+proc direction2d*(pStart: IntSurfInteriorPoint): Dir2dObj {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction2d(@)", header: "IntSurf_InteriorPointTool.hxx".}

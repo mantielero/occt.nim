@@ -59,7 +59,7 @@ proc readPolygon2D*(`is`: var StandardIStream): Handle[PolyPolygon2D] {.cdecl,
     importcpp: "Poly::ReadPolygon2D(@)", header: "Poly.hxx".}
 proc computeNormals*(tri: Handle[PolyTriangulation]) {.cdecl,
     importcpp: "Poly::ComputeNormals(@)", header: "Poly.hxx".}
-proc pointOnTriangle*(p1: Xy; p2: Xy; p3: Xy; p: Xy; uv: var Xy): cfloat {.cdecl,
+proc pointOnTriangle*(p1: XyObj; p2: XyObj; p3: XyObj; p: XyObj; uv: var XyObj): cfloat {.cdecl,
     importcpp: "Poly::PointOnTriangle(@)", header: "Poly.hxx".}
 proc polygonProperties*[TypeSequencePnts](theSeqPnts: TypeSequencePnts;
     theArea: var cfloat; thePerimeter: var cfloat): bool {.cdecl,

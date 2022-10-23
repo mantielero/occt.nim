@@ -31,11 +31,11 @@ type
 
 proc newExtremaEPCOfELPCOfLocateExtPC*(): ExtremaEPCOfELPCOfLocateExtPC {.cdecl,
     constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc newExtremaEPCOfELPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: cint;
+proc newExtremaEPCOfELPCOfLocateExtPC*(p: PntObj; c: Adaptor3dCurve; nbU: cint;
                                       tolU: cfloat; tolF: cfloat): ExtremaEPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)",
     header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc newExtremaEPCOfELPCOfLocateExtPC*(p: Pnt; c: Adaptor3dCurve; nbU: cint;
+proc newExtremaEPCOfELPCOfLocateExtPC*(p: PntObj; c: Adaptor3dCurve; nbU: cint;
                                       umin: cfloat; usup: cfloat; tolU: cfloat;
                                       tolF: cfloat): ExtremaEPCOfELPCOfLocateExtPC {.
     cdecl, constructor, importcpp: "Extrema_EPCOfELPCOfLocateExtPC(@)",
@@ -51,7 +51,7 @@ proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC; c: Adaptor3dCurve) {.c
 proc initialize*(this: var ExtremaEPCOfELPCOfLocateExtPC; nbU: cint; umin: cfloat;
                 usup: cfloat; tolU: cfloat; tolF: cfloat) {.cdecl,
     importcpp: "Initialize", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
-proc perform*(this: var ExtremaEPCOfELPCOfLocateExtPC; p: Pnt) {.cdecl,
+proc perform*(this: var ExtremaEPCOfELPCOfLocateExtPC; p: PntObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}
 proc isDone*(this: ExtremaEPCOfELPCOfLocateExtPC): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Extrema_EPCOfELPCOfLocateExtPC.hxx".}

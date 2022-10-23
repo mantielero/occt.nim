@@ -61,13 +61,13 @@ proc newPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
                           aWire: TopoDS_Wire): PrsDimFixRelation {.cdecl,
     constructor, importcpp: "PrsDim_FixRelation(@)", header: "PrsDim_FixRelation.hxx".}
 proc newPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
-                          aWire: TopoDS_Wire; aPosition: Pnt;
+                          aWire: TopoDS_Wire; aPosition: PntObj;
                           anArrowSize: cfloat = 0.01): PrsDimFixRelation {.cdecl,
     constructor, importcpp: "PrsDim_FixRelation(@)", header: "PrsDim_FixRelation.hxx".}
 proc newPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane]): PrsDimFixRelation {.
     cdecl, constructor, importcpp: "PrsDim_FixRelation(@)", header: "PrsDim_FixRelation.hxx".}
 proc newPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];
-                          aPosition: Pnt; anArrowSize: cfloat = 0.01): PrsDimFixRelation {.
+                          aPosition: PntObj; anArrowSize: cfloat = 0.01): PrsDimFixRelation {.
     cdecl, constructor, importcpp: "PrsDim_FixRelation(@)", header: "PrsDim_FixRelation.hxx".}
 proc wire*(this: var PrsDimFixRelation): TopoDS_Wire {.cdecl, importcpp: "Wire",
     header: "PrsDim_FixRelation.hxx".}

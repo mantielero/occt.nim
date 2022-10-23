@@ -45,11 +45,11 @@ type
                                                                                      ## factor.
 
 
-proc newGceMakeScale*(point: Pnt; scale: cfloat): GceMakeScale {.cdecl, constructor,
+proc newGceMakeScale*(point: PntObj; scale: cfloat): GceMakeScale {.cdecl, constructor,
     importcpp: "gce_MakeScale(@)", header: "gce_MakeScale.hxx".}
-proc value*(this: GceMakeScale): Trsf {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "Value",
                                     header: "gce_MakeScale.hxx".}
-proc operator*(this: GceMakeScale): Trsf {.noSideEffect, cdecl, importcpp: "Operator",
+proc operator*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "Operator",
                                        header: "gce_MakeScale.hxx".}
-converter `trsf`*(this: GceMakeScale): Trsf {.noSideEffect, cdecl,
+converter `trsf`*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeScale::operator gp_Trsf", header: "gce_MakeScale.hxx".}

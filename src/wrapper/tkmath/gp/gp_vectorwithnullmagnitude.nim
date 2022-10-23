@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Created on: 1993-04-13
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_VectorWithNullMagnitude"
-type
-  HandleGpVectorWithNullMagnitude* = Handle[VectorWithNullMagnitude]
-
 when not defined(noException) and not defined(noGpVectorWithNullMagnitude):
   template vectorWithNullMagnitudeRaiseIf*(condition, message: untyped): void =
     if condition:

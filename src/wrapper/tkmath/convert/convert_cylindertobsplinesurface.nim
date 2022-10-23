@@ -65,10 +65,10 @@ type
                                                                                              ## V2.
 
 
-proc newConvertCylinderToBSplineSurface*(cyl: Cylinder; u1: cfloat; u2: cfloat;
+proc newConvertCylinderToBSplineSurface*(cyl: CylinderObj; u1: cfloat; u2: cfloat;
                                         v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}
-proc newConvertCylinderToBSplineSurface*(cyl: Cylinder; v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
+proc newConvertCylinderToBSplineSurface*(cyl: CylinderObj; v1: cfloat; v2: cfloat): ConvertCylinderToBSplineSurface {.
     cdecl, constructor, importcpp: "Convert_CylinderToBSplineSurface(@)",
     header: "Convert_CylinderToBSplineSurface.hxx".}

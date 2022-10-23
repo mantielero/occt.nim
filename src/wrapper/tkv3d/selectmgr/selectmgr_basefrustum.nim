@@ -76,15 +76,15 @@ proc setViewport*(this: var SelectMgrBaseFrustum; theX: cfloat; theY: cfloat;
 proc setBuilder*(this: var SelectMgrBaseFrustum;
                 theBuilder: Handle[SelectMgrFrustumBuilder]) {.cdecl,
     importcpp: "SetBuilder", header: "SelectMgr_BaseFrustum.hxx".}
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2d) {.cdecl, importcpp: "Build",
+proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj) {.cdecl, importcpp: "Build",
     header: "SelectMgr_BaseFrustum.hxx".}
   ## thePoint
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2d; ## theMinPt
-           a3: Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
+proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj; ## theMinPt
+           a3: Pnt2dObj) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## theMaxPt
-proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2d; ## theP1
-           a3: Pnt2d;          ## theP2
-           a4: Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
+proc build*(this: var SelectMgrBaseFrustum; a2: Pnt2dObj; ## theP1
+           a3: Pnt2dObj;          ## theP2
+           a4: Pnt2dObj) {.cdecl, importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
   ## theP3
 proc build*(this: var SelectMgrBaseFrustum; a2: TColgpArray1OfPnt2d) {.cdecl,
     importcpp: "Build", header: "SelectMgr_BaseFrustum.hxx".}
@@ -100,29 +100,29 @@ proc overlaps*(this: SelectMgrBaseFrustum; theBoxMin: SelectMgrVec3;
 proc overlaps*(this: SelectMgrBaseFrustum; theBoxMin: SelectMgrVec3;
               theBoxMax: SelectMgrVec3; theInside: ptr bool = nil): bool {.noSideEffect,
     cdecl, importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc overlaps*(this: SelectMgrBaseFrustum; thePnt: Pnt;
+proc overlaps*(this: SelectMgrBaseFrustum; thePnt: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc overlaps*(this: SelectMgrBaseFrustum; thePnt: Pnt): bool {.noSideEffect, cdecl,
+proc overlaps*(this: SelectMgrBaseFrustum; thePnt: PntObj): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
 proc overlaps*(this: SelectMgrBaseFrustum; theArrayOfPnts: TColgpArray1OfPnt;
               theSensType: Select3D_TypeOfSensitivity;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc overlaps*(this: SelectMgrBaseFrustum; thePnt1: Pnt; thePnt2: Pnt;
+proc overlaps*(this: SelectMgrBaseFrustum; thePnt1: PntObj; thePnt2: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc overlaps*(this: SelectMgrBaseFrustum; thePt1: Pnt; thePt2: Pnt; thePt3: Pnt;
+proc overlaps*(this: SelectMgrBaseFrustum; thePt1: PntObj; thePt2: PntObj; thePt3: PntObj;
               theSensType: Select3D_TypeOfSensitivity;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_BaseFrustum.hxx".}
-proc distToGeometryCenter*(this: SelectMgrBaseFrustum; theCOG: Pnt): cfloat {.
+proc distToGeometryCenter*(this: SelectMgrBaseFrustum; theCOG: PntObj): cfloat {.
     noSideEffect, cdecl, importcpp: "DistToGeometryCenter", header: "SelectMgr_BaseFrustum.hxx".}
-proc detectedPoint*(this: SelectMgrBaseFrustum; theDepth: cfloat): Pnt {.noSideEffect,
+proc detectedPoint*(this: SelectMgrBaseFrustum; theDepth: cfloat): PntObj {.noSideEffect,
     cdecl, importcpp: "DetectedPoint", header: "SelectMgr_BaseFrustum.hxx".}
 proc getPlanes*(this: SelectMgrBaseFrustum;
                thePlaneEquations: var NCollectionVector[SelectMgrVec4]) {.

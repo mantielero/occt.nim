@@ -113,9 +113,9 @@ proc computeTwoEdgesLength*(aPresentation: Handle[Prs3dPresentation];
                            aDrawer: Handle[Prs3dDrawer]; arrowSize: cfloat;
                            firstEdge: TopoDS_Edge; secondEdge: TopoDS_Edge;
                            plane: Handle[GeomPlane]; automaticPos: bool;
-                           isSetBndBox: bool; bndBox: BndBox; position: var Pnt;
-                           firstAttach: var Pnt; secondAttach: var Pnt;
-                           firstExtreme: var Pnt; secondExtreme: var Pnt;
+                           isSetBndBox: bool; bndBox: BndBox; position: var PntObj;
+                           firstAttach: var PntObj; secondAttach: var PntObj;
+                           firstExtreme: var PntObj; secondExtreme: var PntObj;
                            symbolPrs: var DsgPrsArrowSide) {.cdecl,
     importcpp: "PrsDim_EqualDistanceRelation::ComputeTwoEdgesLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
@@ -125,9 +125,9 @@ proc computeTwoVerticesLength*(aPresentation: Handle[Prs3dPresentation];
                               secondVertex: TopoDS_Vertex;
                               plane: Handle[GeomPlane]; automaticPos: bool;
                               isSetBndBox: bool; bndBox: BndBox;
-                              typeDist: PrsDimTypeOfDist; position: var Pnt;
-                              firstAttach: var Pnt; secondAttach: var Pnt;
-                              firstExtreme: var Pnt; secondExtreme: var Pnt;
+                              typeDist: PrsDimTypeOfDist; position: var PntObj;
+                              firstAttach: var PntObj; secondAttach: var PntObj;
+                              firstExtreme: var PntObj; secondExtreme: var PntObj;
                               symbolPrs: var DsgPrsArrowSide) {.cdecl,
     importcpp: "PrsDim_EqualDistanceRelation::ComputeTwoVerticesLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
@@ -137,8 +137,8 @@ proc computeOneEdgeOneVertexLength*(aPresentation: Handle[Prs3dPresentation];
                                    secondShape: TopoDS_Shape;
                                    plane: Handle[GeomPlane]; automaticPos: bool;
                                    isSetBndBox: bool; bndBox: BndBox;
-                                   position: var Pnt; firstAttach: var Pnt;
-                                   secondAttach: var Pnt; firstExtreme: var Pnt;
-                                   secondExtreme: var Pnt;
+                                   position: var PntObj; firstAttach: var PntObj;
+                                   secondAttach: var PntObj; firstExtreme: var PntObj;
+                                   secondExtreme: var PntObj;
                                    symbolPrs: var DsgPrsArrowSide) {.cdecl, importcpp: "PrsDim_EqualDistanceRelation::ComputeOneEdgeOneVertexLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}

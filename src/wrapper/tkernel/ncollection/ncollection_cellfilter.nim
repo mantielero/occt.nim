@@ -289,7 +289,7 @@ const
   NCollectionCellFilterInspectorXYZDimension* = 3
 
 type
-  NCollectionCellFilterInspectorXYZPoint* = Xyz
+  NCollectionCellFilterInspectorXYZPoint* = XyzObj
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYZPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXYZ::Coord(@)",
@@ -315,7 +315,7 @@ const
   NCollectionCellFilterInspectorXYDimension* = 2
 
 type
-  NCollectionCellFilterInspectorXYPoint* = Xy
+  NCollectionCellFilterInspectorXYPoint* = XyObj
 
 proc coord*(i: cint; thePnt: NCollectionCellFilterInspectorXYPoint): StandardReal {.
     cdecl, importcpp: "NCollection_CellFilter_InspectorXY::Coord(@)",

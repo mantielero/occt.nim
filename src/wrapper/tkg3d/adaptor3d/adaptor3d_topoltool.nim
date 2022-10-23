@@ -61,10 +61,10 @@ proc vertex*(this: var Adaptor3dTopolTool): Handle[Adaptor3dHVertex] {.cdecl,
     importcpp: "Vertex", header: "Adaptor3d_TopolTool.hxx".}
 proc nextVertex*(this: var Adaptor3dTopolTool) {.cdecl, importcpp: "NextVertex",
     header: "Adaptor3d_TopolTool.hxx".}
-proc classify*(this: var Adaptor3dTopolTool; p: Pnt2d; tol: cfloat;
+proc classify*(this: var Adaptor3dTopolTool; p: Pnt2dObj; tol: cfloat;
               reacdreOnPeriodic: bool = true): TopAbsState {.cdecl,
     importcpp: "Classify", header: "Adaptor3d_TopolTool.hxx".}
-proc isThePointOn*(this: var Adaptor3dTopolTool; p: Pnt2d; tol: cfloat;
+proc isThePointOn*(this: var Adaptor3dTopolTool; p: Pnt2dObj; tol: cfloat;
                   reacdreOnPeriodic: bool = true): bool {.cdecl,
     importcpp: "IsThePointOn", header: "Adaptor3d_TopolTool.hxx".}
 proc orientation*(this: var Adaptor3dTopolTool; c: Handle[Adaptor2dHCurve2d]): TopAbsOrientation {.
@@ -80,7 +80,7 @@ proc tol3d*(this: Adaptor3dTopolTool; c: Handle[Adaptor2dHCurve2d]): cfloat {.
     noSideEffect, cdecl, importcpp: "Tol3d", header: "Adaptor3d_TopolTool.hxx".}
 proc tol3d*(this: Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): cfloat {.
     noSideEffect, cdecl, importcpp: "Tol3d", header: "Adaptor3d_TopolTool.hxx".}
-proc pnt*(this: Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): Pnt {.noSideEffect,
+proc pnt*(this: Adaptor3dTopolTool; v: Handle[Adaptor3dHVertex]): PntObj {.noSideEffect,
     cdecl, importcpp: "Pnt", header: "Adaptor3d_TopolTool.hxx".}
 proc computeSamplePoints*(this: var Adaptor3dTopolTool) {.cdecl,
     importcpp: "ComputeSamplePoints", header: "Adaptor3d_TopolTool.hxx".}
@@ -94,7 +94,7 @@ proc uParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {
     noSideEffect, cdecl, importcpp: "UParameters", header: "Adaptor3d_TopolTool.hxx".}
 proc vParameters*(this: Adaptor3dTopolTool; theArray: var TColStdArray1OfReal) {.
     noSideEffect, cdecl, importcpp: "VParameters", header: "Adaptor3d_TopolTool.hxx".}
-proc samplePoint*(this: var Adaptor3dTopolTool; index: cint; p2d: var Pnt2d; p3d: var Pnt) {.
+proc samplePoint*(this: var Adaptor3dTopolTool; index: cint; p2d: var Pnt2dObj; p3d: var PntObj) {.
     cdecl, importcpp: "SamplePoint", header: "Adaptor3d_TopolTool.hxx".}
 proc domainIsInfinite*(this: var Adaptor3dTopolTool): bool {.cdecl,
     importcpp: "DomainIsInfinite", header: "Adaptor3d_TopolTool.hxx".}

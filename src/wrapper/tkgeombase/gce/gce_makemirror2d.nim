@@ -24,17 +24,17 @@ type
                     bycopy.} = object
 
 
-proc newGceMakeMirror2d*(point: Pnt2d): GceMakeMirror2d {.cdecl, constructor,
+proc newGceMakeMirror2d*(point: Pnt2dObj): GceMakeMirror2d {.cdecl, constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc newGceMakeMirror2d*(axis: Ax2d): GceMakeMirror2d {.cdecl, constructor,
+proc newGceMakeMirror2d*(axis: Ax2dObj): GceMakeMirror2d {.cdecl, constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc newGceMakeMirror2d*(line: Lin2d): GceMakeMirror2d {.cdecl, constructor,
+proc newGceMakeMirror2d*(line: Lin2dObj): GceMakeMirror2d {.cdecl, constructor,
     importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc newGceMakeMirror2d*(point: Pnt2d; direc: Dir2d): GceMakeMirror2d {.cdecl,
+proc newGceMakeMirror2d*(point: Pnt2dObj; direc: Dir2dObj): GceMakeMirror2d {.cdecl,
     constructor, importcpp: "gce_MakeMirror2d(@)", header: "gce_MakeMirror2d.hxx".}
-proc value*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl, importcpp: "Value",
     header: "gce_MakeMirror2d.hxx".}
-proc operator*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeMirror2d.hxx".}
-converter `trsf2d`*(this: GceMakeMirror2d): Trsf2d {.noSideEffect, cdecl,
+converter `trsf2d`*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror2d::operator gp_Trsf2d", header: "gce_MakeMirror2d.hxx".}

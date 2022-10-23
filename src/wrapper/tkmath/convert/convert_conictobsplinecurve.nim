@@ -47,7 +47,7 @@ proc nbKnots*(this: ConvertConicToBSplineCurve): cint {.noSideEffect, cdecl,
     importcpp: "NbKnots", header: "Convert_ConicToBSplineCurve.hxx".}
 proc isPeriodic*(this: ConvertConicToBSplineCurve): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Convert_ConicToBSplineCurve.hxx".}
-proc pole*(this: ConvertConicToBSplineCurve; index: cint): Pnt2d {.noSideEffect, cdecl,
+proc pole*(this: ConvertConicToBSplineCurve; index: cint): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "Pole", header: "Convert_ConicToBSplineCurve.hxx".}
 proc weight*(this: ConvertConicToBSplineCurve; index: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Weight", header: "Convert_ConicToBSplineCurve.hxx".}

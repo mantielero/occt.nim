@@ -26,7 +26,7 @@ type
                                                                            ## point.
 
 
-proc value3d*(pStart: IntSurfPathPoint): Pnt {.cdecl,
+proc value3d*(pStart: IntSurfPathPoint): PntObj {.cdecl,
     importcpp: "IntSurf_PathPointTool::Value3d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc value2d*(pStart: IntSurfPathPoint; u: var cfloat; v: var cfloat) {.cdecl,
     importcpp: "IntSurf_PathPointTool::Value2d(@)", header: "IntSurf_PathPointTool.hxx".}
@@ -34,9 +34,9 @@ proc isPassingPnt*(pStart: IntSurfPathPoint): bool {.cdecl,
     importcpp: "IntSurf_PathPointTool::IsPassingPnt(@)", header: "IntSurf_PathPointTool.hxx".}
 proc isTangent*(pStart: IntSurfPathPoint): bool {.cdecl,
     importcpp: "IntSurf_PathPointTool::IsTangent(@)", header: "IntSurf_PathPointTool.hxx".}
-proc direction3d*(pStart: IntSurfPathPoint): Vec {.cdecl,
+proc direction3d*(pStart: IntSurfPathPoint): VecObj {.cdecl,
     importcpp: "IntSurf_PathPointTool::Direction3d(@)", header: "IntSurf_PathPointTool.hxx".}
-proc direction2d*(pStart: IntSurfPathPoint): Dir2d {.cdecl,
+proc direction2d*(pStart: IntSurfPathPoint): Dir2dObj {.cdecl,
     importcpp: "IntSurf_PathPointTool::Direction2d(@)", header: "IntSurf_PathPointTool.hxx".}
 proc multiplicity*(pStart: IntSurfPathPoint): cint {.cdecl,
     importcpp: "IntSurf_PathPointTool::Multiplicity(@)", header: "IntSurf_PathPointTool.hxx".}

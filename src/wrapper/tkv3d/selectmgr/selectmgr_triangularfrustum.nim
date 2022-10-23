@@ -30,8 +30,8 @@ proc newSelectMgrTriangularFrustum*(): SelectMgrTriangularFrustum {.cdecl,
     constructor, importcpp: "SelectMgr_TriangularFrustum(@)", header: "SelectMgr_TriangularFrustum.hxx".}
 proc destroySelectMgrTriangularFrustum*(this: var SelectMgrTriangularFrustum) {.
     cdecl, importcpp: "#.~SelectMgr_TriangularFrustum()", header: "SelectMgr_TriangularFrustum.hxx".}
-proc build*(this: var SelectMgrTriangularFrustum; theP1: Pnt2d; theP2: Pnt2d;
-           theP3: Pnt2d) {.cdecl, importcpp: "Build", header: "SelectMgr_TriangularFrustum.hxx".}
+proc build*(this: var SelectMgrTriangularFrustum; theP1: Pnt2dObj; theP2: Pnt2dObj;
+           theP3: Pnt2dObj) {.cdecl, importcpp: "Build", header: "SelectMgr_TriangularFrustum.hxx".}
 proc scaleAndTransform*(this: SelectMgrTriangularFrustum; theScale: cint;
                        theTrsf: GTrsf): Handle[SelectMgrBaseFrustum] {.
     noSideEffect, cdecl, importcpp: "ScaleAndTransform", header: "SelectMgr_TriangularFrustum.hxx".}
@@ -42,7 +42,7 @@ proc overlaps*(this: SelectMgrTriangularFrustum; theMinPnt: SelectMgrVec3;
 proc overlaps*(this: SelectMgrTriangularFrustum; theMinPt: SelectMgrVec3;
               theMaxPt: SelectMgrVec3; theInside: ptr bool): bool {.noSideEffect,
     cdecl, importcpp: "Overlaps", header: "SelectMgr_TriangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustum; thePnt: Pnt;
+proc overlaps*(this: SelectMgrTriangularFrustum; thePnt: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_TriangularFrustum.hxx".}
@@ -51,12 +51,12 @@ proc overlaps*(this: SelectMgrTriangularFrustum; theArrayOfPnts: TColgpArray1OfP
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_TriangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustum; thePnt1: Pnt; thePnt2: Pnt;
+proc overlaps*(this: SelectMgrTriangularFrustum; thePnt1: PntObj; thePnt2: PntObj;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_TriangularFrustum.hxx".}
-proc overlaps*(this: SelectMgrTriangularFrustum; thePnt1: Pnt; thePnt2: Pnt;
-              thePnt3: Pnt; theSensType: Select3D_TypeOfSensitivity;
+proc overlaps*(this: SelectMgrTriangularFrustum; thePnt1: PntObj; thePnt2: PntObj;
+              thePnt3: PntObj; theSensType: Select3D_TypeOfSensitivity;
               theClipRange: SelectMgrViewClipRange;
               thePickResult: var SelectBasicsPickResult): bool {.noSideEffect, cdecl,
     importcpp: "Overlaps", header: "SelectMgr_TriangularFrustum.hxx".}

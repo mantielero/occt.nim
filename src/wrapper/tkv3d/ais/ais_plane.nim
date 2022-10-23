@@ -45,10 +45,10 @@ type
 
 proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCurrentMode: bool = false): AIS_Plane {.
     cdecl, constructor, importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: Pnt;
+proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: PntObj;
                   aCurrentMode: bool = false): AIS_Plane {.cdecl, constructor,
     importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
-proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: Pnt; aPmin: Pnt; aPmax: Pnt;
+proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCenter: PntObj; aPmin: PntObj; aPmax: PntObj;
                   aCurrentMode: bool = false): AIS_Plane {.cdecl, constructor,
     importcpp: "AIS_Plane(@)", header: "AIS_Plane.hxx".}
 proc newAIS_Plane*(aComponent: Handle[GeomAxis2Placement];
@@ -72,14 +72,14 @@ proc component*(this: var AIS_Plane): Handle[GeomPlane] {.cdecl,
 proc setComponent*(this: var AIS_Plane; aComponent: Handle[GeomPlane]) {.cdecl,
     importcpp: "SetComponent", header: "AIS_Plane.hxx".}
 proc planeAttributes*(this: var AIS_Plane; aComponent: var Handle[GeomPlane];
-                     aCenter: var Pnt; aPmin: var Pnt; aPmax: var Pnt): bool {.cdecl,
+                     aCenter: var PntObj; aPmin: var PntObj; aPmax: var PntObj): bool {.cdecl,
     importcpp: "PlaneAttributes", header: "AIS_Plane.hxx".}
 proc setPlaneAttributes*(this: var AIS_Plane; aComponent: Handle[GeomPlane];
-                        aCenter: Pnt; aPmin: Pnt; aPmax: Pnt) {.cdecl,
+                        aCenter: PntObj; aPmin: PntObj; aPmax: PntObj) {.cdecl,
     importcpp: "SetPlaneAttributes", header: "AIS_Plane.hxx".}
-proc center*(this: AIS_Plane): Pnt {.noSideEffect, cdecl, importcpp: "Center",
+proc center*(this: AIS_Plane): PntObj {.noSideEffect, cdecl, importcpp: "Center",
                                  header: "AIS_Plane.hxx".}
-proc setCenter*(this: var AIS_Plane; theCenter: Pnt) {.cdecl, importcpp: "SetCenter",
+proc setCenter*(this: var AIS_Plane; theCenter: PntObj) {.cdecl, importcpp: "SetCenter",
     header: "AIS_Plane.hxx".}
 proc setAxis2Placement*(this: var AIS_Plane; aComponent: Handle[GeomAxis2Placement];
                        aPlaneType: AIS_TypeOfPlane) {.cdecl,

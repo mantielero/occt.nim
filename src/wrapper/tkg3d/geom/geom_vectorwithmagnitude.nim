@@ -39,15 +39,15 @@ type
                                                                                              ## V.
 
 
-proc newGeomVectorWithMagnitude*(v: Vec): GeomVectorWithMagnitude {.cdecl,
+proc newGeomVectorWithMagnitude*(v: VecObj): GeomVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
 proc newGeomVectorWithMagnitude*(x: cfloat; y: cfloat; z: cfloat): GeomVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
-proc newGeomVectorWithMagnitude*(p1: Pnt; p2: Pnt): GeomVectorWithMagnitude {.cdecl,
+proc newGeomVectorWithMagnitude*(p1: PntObj; p2: PntObj): GeomVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom_VectorWithMagnitude(@)", header: "Geom_VectorWithMagnitude.hxx".}
 proc setCoord*(this: var GeomVectorWithMagnitude; x: cfloat; y: cfloat; z: cfloat) {.
     cdecl, importcpp: "SetCoord", header: "Geom_VectorWithMagnitude.hxx".}
-proc setVec*(this: var GeomVectorWithMagnitude; v: Vec) {.cdecl, importcpp: "SetVec",
+proc setVec*(this: var GeomVectorWithMagnitude; v: VecObj) {.cdecl, importcpp: "SetVec",
     header: "Geom_VectorWithMagnitude.hxx".}
 proc setX*(this: var GeomVectorWithMagnitude; x: cfloat) {.cdecl, importcpp: "SetX",
     header: "Geom_VectorWithMagnitude.hxx".}
@@ -92,7 +92,7 @@ proc subtract*(this: var GeomVectorWithMagnitude; other: Handle[GeomVector]) {.c
 proc subtracted*(this: GeomVectorWithMagnitude; other: Handle[GeomVector]): Handle[
     GeomVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "Subtracted",
                               header: "Geom_VectorWithMagnitude.hxx".}
-proc transform*(this: var GeomVectorWithMagnitude; t: Trsf) {.cdecl,
+proc transform*(this: var GeomVectorWithMagnitude; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_VectorWithMagnitude.hxx".}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}

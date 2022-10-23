@@ -33,21 +33,21 @@ proc newGeomFillDarboux*(): GeomFillDarboux {.cdecl, constructor,
     importcpp: "GeomFill_Darboux(@)", header: "GeomFill_Darboux.hxx".}
 proc copy*(this: GeomFillDarboux): Handle[GeomFillTrihedronLaw] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "GeomFill_Darboux.hxx".}
-proc d0*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; normal: var Vec;
-        biNormal: var Vec): bool {.cdecl, importcpp: "D0", header: "GeomFill_Darboux.hxx".}
-proc d1*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; dTangent: var Vec;
-        normal: var Vec; dNormal: var Vec; biNormal: var Vec; dBiNormal: var Vec): bool {.
+proc d0*(this: var GeomFillDarboux; param: cfloat; tangent: var VecObj; normal: var VecObj;
+        biNormal: var VecObj): bool {.cdecl, importcpp: "D0", header: "GeomFill_Darboux.hxx".}
+proc d1*(this: var GeomFillDarboux; param: cfloat; tangent: var VecObj; dTangent: var VecObj;
+        normal: var VecObj; dNormal: var VecObj; biNormal: var VecObj; dBiNormal: var VecObj): bool {.
     cdecl, importcpp: "D1", header: "GeomFill_Darboux.hxx".}
-proc d2*(this: var GeomFillDarboux; param: cfloat; tangent: var Vec; dTangent: var Vec;
-        d2Tangent: var Vec; normal: var Vec; dNormal: var Vec; d2Normal: var Vec;
-        biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.cdecl,
+proc d2*(this: var GeomFillDarboux; param: cfloat; tangent: var VecObj; dTangent: var VecObj;
+        d2Tangent: var VecObj; normal: var VecObj; dNormal: var VecObj; d2Normal: var VecObj;
+        biNormal: var VecObj; dBiNormal: var VecObj; d2BiNormal: var VecObj): bool {.cdecl,
     importcpp: "D2", header: "GeomFill_Darboux.hxx".}
 proc nbIntervals*(this: GeomFillDarboux; s: GeomAbsShape): cint {.noSideEffect, cdecl,
     importcpp: "NbIntervals", header: "GeomFill_Darboux.hxx".}
 proc intervals*(this: GeomFillDarboux; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_Darboux.hxx".}
-proc getAverageLaw*(this: var GeomFillDarboux; aTangent: var Vec; aNormal: var Vec;
-                   aBiNormal: var Vec) {.cdecl, importcpp: "GetAverageLaw",
+proc getAverageLaw*(this: var GeomFillDarboux; aTangent: var VecObj; aNormal: var VecObj;
+                   aBiNormal: var VecObj) {.cdecl, importcpp: "GetAverageLaw",
                                       header: "GeomFill_Darboux.hxx".}
 proc isConstant*(this: GeomFillDarboux): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_Darboux.hxx".}

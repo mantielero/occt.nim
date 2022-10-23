@@ -56,23 +56,23 @@ type
                                                                                                ## axis
 
 
-proc setAxis*(this: var Geom2dConic; theA: Ax22d) {.cdecl, importcpp: "SetAxis",
+proc setAxis*(this: var Geom2dConic; theA: Ax22dObj) {.cdecl, importcpp: "SetAxis",
     header: "Geom2d_Conic.hxx".}
-proc setXAxis*(this: var Geom2dConic; theAX: Ax2d) {.cdecl, importcpp: "SetXAxis",
+proc setXAxis*(this: var Geom2dConic; theAX: Ax2dObj) {.cdecl, importcpp: "SetXAxis",
     header: "Geom2d_Conic.hxx".}
-proc setYAxis*(this: var Geom2dConic; theAY: Ax2d) {.cdecl, importcpp: "SetYAxis",
+proc setYAxis*(this: var Geom2dConic; theAY: Ax2dObj) {.cdecl, importcpp: "SetYAxis",
     header: "Geom2d_Conic.hxx".}
-proc setLocation*(this: var Geom2dConic; theP: Pnt2d) {.cdecl,
+proc setLocation*(this: var Geom2dConic; theP: Pnt2dObj) {.cdecl,
     importcpp: "SetLocation", header: "Geom2d_Conic.hxx".}
-proc xAxis*(this: Geom2dConic): Ax2d {.noSideEffect, cdecl, importcpp: "XAxis",
+proc xAxis*(this: Geom2dConic): Ax2dObj {.noSideEffect, cdecl, importcpp: "XAxis",
                                    header: "Geom2d_Conic.hxx".}
-proc yAxis*(this: Geom2dConic): Ax2d {.noSideEffect, cdecl, importcpp: "YAxis",
+proc yAxis*(this: Geom2dConic): Ax2dObj {.noSideEffect, cdecl, importcpp: "YAxis",
                                    header: "Geom2d_Conic.hxx".}
 proc eccentricity*(this: Geom2dConic): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom2d_Conic.hxx".}
-proc location*(this: Geom2dConic): Pnt2d {.noSideEffect, cdecl, importcpp: "Location",
+proc location*(this: Geom2dConic): Pnt2dObj {.noSideEffect, cdecl, importcpp: "Location",
                                        header: "Geom2d_Conic.hxx".}
-proc position*(this: Geom2dConic): Ax22d {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: Geom2dConic): Ax22dObj {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "Geom2d_Conic.hxx".}
 proc reverse*(this: var Geom2dConic) {.cdecl, importcpp: "Reverse", header: "Geom2d_Conic.hxx".}
 proc reversedParameter*(this: Geom2dConic; u: cfloat): cfloat {.noSideEffect, cdecl,

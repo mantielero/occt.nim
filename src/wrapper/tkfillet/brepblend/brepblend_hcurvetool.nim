@@ -44,32 +44,32 @@ proc isPeriodic*(c: Handle[Adaptor3dHCurve]): bool {.cdecl,
     importcpp: "BRepBlend_HCurveTool::IsPeriodic(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc period*(c: Handle[Adaptor3dHCurve]): cfloat {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Period(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc value*(c: Handle[Adaptor3dHCurve]; u: cfloat): Pnt {.cdecl,
+proc value*(c: Handle[Adaptor3dHCurve]; u: cfloat): PntObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Value(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d0*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt) {.cdecl,
+proc d0*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var PntObj) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D0(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d1*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v: var Vec) {.cdecl,
+proc d1*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var PntObj; v: var VecObj) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D1(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d2*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.cdecl,
+proc d2*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.cdecl,
     importcpp: "BRepBlend_HCurveTool::D2(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc d3*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec;
-        v3: var Vec) {.cdecl, importcpp: "BRepBlend_HCurveTool::D3(@)",
+proc d3*(c: Handle[Adaptor3dHCurve]; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj;
+        v3: var VecObj) {.cdecl, importcpp: "BRepBlend_HCurveTool::D3(@)",
                     header: "BRepBlend_HCurveTool.hxx".}
-proc dn*(c: Handle[Adaptor3dHCurve]; u: cfloat; n: cint): Vec {.cdecl,
+proc dn*(c: Handle[Adaptor3dHCurve]; u: cfloat; n: cint): VecObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::DN(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc resolution*(c: Handle[Adaptor3dHCurve]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Resolution(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc getType*(c: Handle[Adaptor3dHCurve]): GeomAbsCurveType {.cdecl,
     importcpp: "BRepBlend_HCurveTool::GetType(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc line*(c: Handle[Adaptor3dHCurve]): Lin {.cdecl,
+proc line*(c: Handle[Adaptor3dHCurve]): LinObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Line(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc circle*(c: Handle[Adaptor3dHCurve]): Circ {.cdecl,
+proc circle*(c: Handle[Adaptor3dHCurve]): CircObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Circle(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc ellipse*(c: Handle[Adaptor3dHCurve]): Elips {.cdecl,
+proc ellipse*(c: Handle[Adaptor3dHCurve]): ElipsObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Ellipse(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc hyperbola*(c: Handle[Adaptor3dHCurve]): Hypr {.cdecl,
+proc hyperbola*(c: Handle[Adaptor3dHCurve]): HyprObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Hyperbola(@)", header: "BRepBlend_HCurveTool.hxx".}
-proc parabola*(c: Handle[Adaptor3dHCurve]): Parab {.cdecl,
+proc parabola*(c: Handle[Adaptor3dHCurve]): ParabObj {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Parabola(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc bezier*(c: Handle[Adaptor3dHCurve]): Handle[GeomBezierCurve] {.cdecl,
     importcpp: "BRepBlend_HCurveTool::Bezier(@)", header: "BRepBlend_HCurveTool.hxx".}

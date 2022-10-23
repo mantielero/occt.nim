@@ -1085,7 +1085,7 @@ proc setTransformPersistence*(this: var AIS_InteractiveContext;
 proc setTransformPersistence*(this: var AIS_InteractiveContext;
                              theObj: Handle[AIS_InteractiveObject];
                              theFlag: Graphic3dTransModeFlags;
-                             thePoint: Pnt = newPnt(0.0, 0.0, 0.0)) {.cdecl,
+                             thePoint: PntObj = pnt(0.0, 0.0, 0.0)) {.cdecl,
     importcpp: "SetTransformPersistence", header: "AIS_InteractiveContext.hxx".}
 proc setPixelTolerance*(this: var AIS_InteractiveContext; thePrecision: cint = 2) {.
     cdecl, importcpp: "SetPixelTolerance", header: "AIS_InteractiveContext.hxx".}
@@ -1347,7 +1347,7 @@ proc objectsForView*(this: AIS_InteractiveContext;
     cdecl, importcpp: "ObjectsForView", header: "AIS_InteractiveContext.hxx".}
 proc purgeDisplay*(this: var AIS_InteractiveContext): cint {.cdecl,
     importcpp: "PurgeDisplay", header: "AIS_InteractiveContext.hxx".}
-proc gravityPoint*(this: AIS_InteractiveContext; theView: Handle[V3dView]): Pnt {.
+proc gravityPoint*(this: AIS_InteractiveContext; theView: Handle[V3dView]): PntObj {.
     noSideEffect, cdecl, importcpp: "GravityPoint", header: "AIS_InteractiveContext.hxx".}
 proc displayActiveSensitive*(this: var AIS_InteractiveContext;
                             aView: Handle[V3dView]) {.cdecl,

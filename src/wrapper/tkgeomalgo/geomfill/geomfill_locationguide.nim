@@ -43,21 +43,21 @@ proc setCurve*(this: var GeomFillLocationGuide; c: Handle[Adaptor3dHCurve]) {.cd
     importcpp: "SetCurve", header: "GeomFill_LocationGuide.hxx".}
 proc getCurve*(this: GeomFillLocationGuide): Handle[Adaptor3dHCurve] {.noSideEffect,
     cdecl, importcpp: "GetCurve", header: "GeomFill_LocationGuide.hxx".}
-proc setTrsf*(this: var GeomFillLocationGuide; transfo: Mat) {.cdecl,
+proc setTrsf*(this: var GeomFillLocationGuide; transfo: MatObj) {.cdecl,
     importcpp: "SetTrsf", header: "GeomFill_LocationGuide.hxx".}
 proc copy*(this: GeomFillLocationGuide): Handle[GeomFillLocationLaw] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "GeomFill_LocationGuide.hxx".}
-proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec): bool {.
+proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var MatObj; v: var VecObj): bool {.
     cdecl, importcpp: "D0", header: "GeomFill_LocationGuide.hxx".}
-proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
+proc d0*(this: var GeomFillLocationGuide; param: cfloat; m: var MatObj; v: var VecObj;
         poles2d: var TColgpArray1OfPnt2d): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_LocationGuide.hxx".}
-proc d1*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; poles2d: var TColgpArray1OfPnt2d;
+proc d1*(this: var GeomFillLocationGuide; param: cfloat; m: var MatObj; v: var VecObj;
+        dm: var MatObj; dv: var VecObj; poles2d: var TColgpArray1OfPnt2d;
         dPoles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D1",
     header: "GeomFill_LocationGuide.hxx".}
-proc d2*(this: var GeomFillLocationGuide; param: cfloat; m: var Mat; v: var Vec;
-        dm: var Mat; dv: var Vec; d2m: var Mat; d2v: var Vec;
+proc d2*(this: var GeomFillLocationGuide; param: cfloat; m: var MatObj; v: var VecObj;
+        dm: var MatObj; dv: var VecObj; d2m: var MatObj; d2v: var VecObj;
         poles2d: var TColgpArray1OfPnt2d; dPoles2d: var TColgpArray1OfVec2d;
         d2Poles2d: var TColgpArray1OfVec2d): bool {.cdecl, importcpp: "D2",
     header: "GeomFill_LocationGuide.hxx".}
@@ -87,13 +87,13 @@ proc resolution*(this: GeomFillLocationGuide; index: cint; tol: cfloat;
     importcpp: "Resolution", header: "GeomFill_LocationGuide.hxx".}
 proc getMaximalNorm*(this: var GeomFillLocationGuide): cfloat {.cdecl,
     importcpp: "GetMaximalNorm", header: "GeomFill_LocationGuide.hxx".}
-proc getAverageLaw*(this: var GeomFillLocationGuide; am: var Mat; av: var Vec) {.cdecl,
+proc getAverageLaw*(this: var GeomFillLocationGuide; am: var MatObj; av: var VecObj) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_LocationGuide.hxx".}
 proc isTranslation*(this: GeomFillLocationGuide; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsTranslation", header: "GeomFill_LocationGuide.hxx".}
 proc isRotation*(this: GeomFillLocationGuide; error: var cfloat): bool {.noSideEffect,
     cdecl, importcpp: "IsRotation", header: "GeomFill_LocationGuide.hxx".}
-proc rotation*(this: GeomFillLocationGuide; center: var Pnt) {.noSideEffect, cdecl,
+proc rotation*(this: GeomFillLocationGuide; center: var PntObj) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_LocationGuide.hxx".}
 proc section*(this: GeomFillLocationGuide): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "Section", header: "GeomFill_LocationGuide.hxx".}

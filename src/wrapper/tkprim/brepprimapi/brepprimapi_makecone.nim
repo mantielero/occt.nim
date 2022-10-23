@@ -65,9 +65,9 @@ proc cone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
 proc cone*(r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
-proc cone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
+proc cone*(axes: Ax2Obj; r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
-proc cone*(axes: Ax2; r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
+proc cone*(axes: Ax2Obj; r1: cfloat; r2: cfloat; h: cfloat; angle: cfloat): BRepPrimAPI_MakeCone {.
     cdecl, constructor, importcpp: "BRepPrimAPI_MakeCone(@)", header: "BRepPrimAPI_MakeCone.hxx".}
 proc oneAxis*(this: var BRepPrimAPI_MakeCone): pointer {.cdecl, importcpp: "OneAxis",
     header: "BRepPrimAPI_MakeCone.hxx".}

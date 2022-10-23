@@ -51,19 +51,19 @@ type
 
 
 proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theAttachmentPoint: Pnt): Handle[
+          theText: TCollectionExtendedString; theAttachmentPoint: PntObj): Handle[
     Graphic3dText] {.cdecl, importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
 proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theOrientation: Ax2;
+          theText: TCollectionExtendedString; theOrientation: Ax2Obj;
           theHasOwnAnchor: bool = true): Handle[Graphic3dText] {.cdecl,
     importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
 proc draw*(thePrs: Handle[Prs3dPresentation]; theDrawer: Handle[Prs3dDrawer];
-          theText: TCollectionExtendedString; theAttachmentPoint: Pnt) {.cdecl,
+          theText: TCollectionExtendedString; theAttachmentPoint: PntObj) {.cdecl,
     importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
 proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theOrientation: Ax2;
+          theText: TCollectionExtendedString; theOrientation: Ax2Obj;
           theHasOwnAnchor: bool = true) {.cdecl, importcpp: "Prs3d_Text::Draw(@)",
                                       header: "Prs3d_Text.hxx".}
 proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect];
-          theText: TCollectionExtendedString; theAttachmentPoint: Pnt) {.cdecl,
+          theText: TCollectionExtendedString; theAttachmentPoint: PntObj) {.cdecl,
     importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}

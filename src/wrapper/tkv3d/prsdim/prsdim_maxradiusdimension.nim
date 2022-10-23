@@ -47,7 +47,7 @@ proc newPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                  aText: TCollectionExtendedString): PrsDimMaxRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_MaxRadiusDimension(@)", header: "PrsDim_MaxRadiusDimension.hxx".}
 proc newPrsDimMaxRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
-                                 aText: TCollectionExtendedString; aPosition: Pnt;
+                                 aText: TCollectionExtendedString; aPosition: PntObj;
                                  aSymbolPrs: DsgPrsArrowSide;
                                  anArrowSize: cfloat = 0.0): PrsDimMaxRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_MaxRadiusDimension(@)", header: "PrsDim_MaxRadiusDimension.hxx".}

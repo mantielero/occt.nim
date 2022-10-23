@@ -294,9 +294,9 @@ proc defaultComputedMode*(this: V3dViewer): bool {.noSideEffect, cdecl,
     importcpp: "DefaultComputedMode", header: "V3d_Viewer.hxx".}
 proc setDefaultComputedMode*(this: var V3dViewer; theMode: bool) {.cdecl,
     importcpp: "SetDefaultComputedMode", header: "V3d_Viewer.hxx".}
-proc privilegedPlane*(this: V3dViewer): Ax3 {.noSideEffect, cdecl,
+proc privilegedPlane*(this: V3dViewer): Ax3Obj {.noSideEffect, cdecl,
     importcpp: "PrivilegedPlane", header: "V3d_Viewer.hxx".}
-proc setPrivilegedPlane*(this: var V3dViewer; thePlane: Ax3) {.cdecl,
+proc setPrivilegedPlane*(this: var V3dViewer; thePlane: Ax3Obj) {.cdecl,
     importcpp: "SetPrivilegedPlane", header: "V3d_Viewer.hxx".}
 proc displayPrivilegedPlane*(this: var V3dViewer; theOnOff: bool; theSize: cfloat = 1) {.
     cdecl, importcpp: "DisplayPrivilegedPlane", header: "V3d_Viewer.hxx".}

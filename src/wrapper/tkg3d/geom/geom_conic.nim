@@ -87,22 +87,22 @@ type
                                                                                        ## conic.
 
 
-proc setAxis*(this: var GeomConic; theA1: Ax1) {.cdecl, importcpp: "SetAxis",
+proc setAxis*(this: var GeomConic; theA1: Ax1Obj) {.cdecl, importcpp: "SetAxis",
     header: "Geom_Conic.hxx".}
-proc setLocation*(this: var GeomConic; theP: Pnt) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var GeomConic; theP: PntObj) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Conic.hxx".}
-proc setPosition*(this: var GeomConic; theA2: Ax2) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var GeomConic; theA2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Conic.hxx".}
-proc axis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
-proc location*(this: GeomConic): Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc axis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "Geom_Conic.hxx".}
+proc location*(this: GeomConic): PntObj {.noSideEffect, cdecl, importcpp: "Location",
                                    header: "Geom_Conic.hxx".}
-proc position*(this: GeomConic): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: GeomConic): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
                                    header: "Geom_Conic.hxx".}
 proc eccentricity*(this: GeomConic): cfloat {.noSideEffect, cdecl,
     importcpp: "Eccentricity", header: "Geom_Conic.hxx".}
-proc xAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis",
+proc xAxis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis",
                                 header: "Geom_Conic.hxx".}
-proc yAxis*(this: GeomConic): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis",
+proc yAxis*(this: GeomConic): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis",
                                 header: "Geom_Conic.hxx".}
 proc reverse*(this: var GeomConic) {.cdecl, importcpp: "Reverse", header: "Geom_Conic.hxx".}
 proc reversedParameter*(this: GeomConic; u: cfloat): cfloat {.noSideEffect, cdecl,

@@ -65,4 +65,4 @@ proc dot*(this: GeomVector; other: Handle[GeomVector]): cfloat {.noSideEffect, c
     importcpp: "Dot", header: "Geom_Vector.hxx".}
 proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): cfloat {.
     noSideEffect, cdecl, importcpp: "DotCross", header: "Geom_Vector.hxx".}
-proc vec*(this: GeomVector): Vec {.noSideEffect, cdecl, importcpp: "Vec", header: "Geom_Vector.hxx".}
+proc vec*(this: GeomVector): VecObj {.noSideEffect, cdecl, importcpp: "Vec", header: "Geom_Vector.hxx".}

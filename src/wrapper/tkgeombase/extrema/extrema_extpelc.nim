@@ -30,25 +30,25 @@ type
 
 proc newExtremaExtPElC*(): ExtremaExtPElC {.cdecl, constructor,
     importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc newExtremaExtPElC*(p: Pnt; c: Lin; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
+proc newExtremaExtPElC*(p: PntObj; c: LinObj; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Lin; tol: cfloat; uinf: cfloat;
+proc perform*(this: var ExtremaExtPElC; p: PntObj; c: LinObj; tol: cfloat; uinf: cfloat;
              usup: cfloat) {.cdecl, importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
-proc newExtremaExtPElC*(p: Pnt; c: Circ; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
+proc newExtremaExtPElC*(p: PntObj; c: CircObj; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Circ; tol: cfloat; uinf: cfloat;
+proc perform*(this: var ExtremaExtPElC; p: PntObj; c: CircObj; tol: cfloat; uinf: cfloat;
              usup: cfloat) {.cdecl, importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
-proc newExtremaExtPElC*(p: Pnt; c: Elips; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
+proc newExtremaExtPElC*(p: PntObj; c: ElipsObj; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Elips; tol: cfloat; uinf: cfloat;
+proc perform*(this: var ExtremaExtPElC; p: PntObj; c: ElipsObj; tol: cfloat; uinf: cfloat;
              usup: cfloat) {.cdecl, importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
-proc newExtremaExtPElC*(p: Pnt; c: Hypr; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
+proc newExtremaExtPElC*(p: PntObj; c: HyprObj; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Hypr; tol: cfloat; uinf: cfloat;
+proc perform*(this: var ExtremaExtPElC; p: PntObj; c: HyprObj; tol: cfloat; uinf: cfloat;
              usup: cfloat) {.cdecl, importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
-proc newExtremaExtPElC*(p: Pnt; c: Parab; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
+proc newExtremaExtPElC*(p: PntObj; c: ParabObj; tol: cfloat; uinf: cfloat; usup: cfloat): ExtremaExtPElC {.
     cdecl, constructor, importcpp: "Extrema_ExtPElC(@)", header: "Extrema_ExtPElC.hxx".}
-proc perform*(this: var ExtremaExtPElC; p: Pnt; c: Parab; tol: cfloat; uinf: cfloat;
+proc perform*(this: var ExtremaExtPElC; p: PntObj; c: ParabObj; tol: cfloat; uinf: cfloat;
              usup: cfloat) {.cdecl, importcpp: "Perform", header: "Extrema_ExtPElC.hxx".}
 proc isDone*(this: ExtremaExtPElC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Extrema_ExtPElC.hxx".}

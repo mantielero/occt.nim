@@ -23,11 +23,11 @@ type
                                   ## ! -   Scale as the scale factor.
 
 
-proc newGceMakeScale2d*(point: Pnt2d; scale: cfloat): GceMakeScale2d {.cdecl,
+proc newGceMakeScale2d*(point: Pnt2dObj; scale: cfloat): GceMakeScale2d {.cdecl,
     constructor, importcpp: "gce_MakeScale2d(@)", header: "gce_MakeScale2d.hxx".}
-proc value*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeScale2d): Trsf2dObj {.noSideEffect, cdecl, importcpp: "Value",
                                         header: "gce_MakeScale2d.hxx".}
-proc operator*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl,
+proc operator*(this: GceMakeScale2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeScale2d.hxx".}
-converter `trsf2d`*(this: GceMakeScale2d): Trsf2d {.noSideEffect, cdecl,
+converter `trsf2d`*(this: GceMakeScale2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeScale2d::operator gp_Trsf2d", header: "gce_MakeScale2d.hxx".}

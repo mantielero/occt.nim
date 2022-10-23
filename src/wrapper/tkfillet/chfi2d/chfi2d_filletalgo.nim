@@ -34,19 +34,19 @@ type
 
 proc newChFi2dFilletAlgo*(): ChFi2dFilletAlgo {.cdecl, constructor,
     importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc newChFi2dFilletAlgo*(theWire: TopoDS_Wire; thePlane: Pln): ChFi2dFilletAlgo {.
+proc newChFi2dFilletAlgo*(theWire: TopoDS_Wire; thePlane: PlnObj): ChFi2dFilletAlgo {.
     cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc newChFi2dFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: Pln): ChFi2dFilletAlgo {.
+proc newChFi2dFilletAlgo*(theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge; thePlane: PlnObj): ChFi2dFilletAlgo {.
     cdecl, constructor, importcpp: "ChFi2d_FilletAlgo(@)", header: "ChFi2d_FilletAlgo.hxx".}
-proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: Pln) {.cdecl,
+proc init*(this: var ChFi2dFilletAlgo; theWire: TopoDS_Wire; thePlane: PlnObj) {.cdecl,
     importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc init*(this: var ChFi2dFilletAlgo; theEdge1: TopoDS_Edge; theEdge2: TopoDS_Edge;
-          thePlane: Pln) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
+          thePlane: PlnObj) {.cdecl, importcpp: "Init", header: "ChFi2d_FilletAlgo.hxx".}
 proc perform*(this: var ChFi2dFilletAlgo; theRadius: cfloat): bool {.cdecl,
     importcpp: "Perform", header: "ChFi2d_FilletAlgo.hxx".}
-proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: Pnt): cint {.cdecl,
+proc nbResults*(this: var ChFi2dFilletAlgo; thePoint: PntObj): cint {.cdecl,
     importcpp: "NbResults", header: "ChFi2d_FilletAlgo.hxx".}
-proc result*(this: var ChFi2dFilletAlgo; thePoint: Pnt; theEdge1: var TopoDS_Edge;
+proc result*(this: var ChFi2dFilletAlgo; thePoint: PntObj; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
     importcpp: "Result", header: "ChFi2d_FilletAlgo.hxx".}
 ## ! Private class. Corresponds to the point on the first curve, computed
@@ -105,9 +105,9 @@ proc setParam2*(this: var FilletPoint; theParam2: cfloat) {.cdecl,
     importcpp: "setParam2", header: "ChFi2d_FilletAlgo.hxx".}
 proc getParam2*(this: var FilletPoint): cfloat {.cdecl, importcpp: "getParam2",
     header: "ChFi2d_FilletAlgo.hxx".}
-proc setCenter*(this: var FilletPoint; thePoint: Pnt2d) {.cdecl,
+proc setCenter*(this: var FilletPoint; thePoint: Pnt2dObj) {.cdecl,
     importcpp: "setCenter", header: "ChFi2d_FilletAlgo.hxx".}
-proc getCenter*(this: var FilletPoint): Pnt2d {.cdecl, importcpp: "getCenter",
+proc getCenter*(this: var FilletPoint): Pnt2dObj {.cdecl, importcpp: "getCenter",
     header: "ChFi2d_FilletAlgo.hxx".}
 proc appendValue*(this: var FilletPoint; theValue: cfloat; theValid: bool) {.cdecl,
     importcpp: "appendValue", header: "ChFi2d_FilletAlgo.hxx".}

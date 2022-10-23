@@ -42,13 +42,13 @@ type
                                                                                           ## Alpha2.
 
 
-proc newGCE2dMakeArcOfParabola*(parab: Parab2d; alpha1: cfloat; alpha2: cfloat;
+proc newGCE2dMakeArcOfParabola*(parab: Parab2dObj; alpha1: cfloat; alpha2: cfloat;
                                sense: bool = true): GCE2dMakeArcOfParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)", header: "GCE2d_MakeArcOfParabola.hxx".}
-proc newGCE2dMakeArcOfParabola*(parab: Parab2d; p: Pnt2d; alpha: cfloat;
+proc newGCE2dMakeArcOfParabola*(parab: Parab2dObj; p: Pnt2dObj; alpha: cfloat;
                                sense: bool = true): GCE2dMakeArcOfParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)", header: "GCE2d_MakeArcOfParabola.hxx".}
-proc newGCE2dMakeArcOfParabola*(parab: Parab2d; p1: Pnt2d; p2: Pnt2d;
+proc newGCE2dMakeArcOfParabola*(parab: Parab2dObj; p1: Pnt2dObj; p2: Pnt2dObj;
                                sense: bool = true): GCE2dMakeArcOfParabola {.cdecl,
     constructor, importcpp: "GCE2d_MakeArcOfParabola(@)", header: "GCE2d_MakeArcOfParabola.hxx".}
 proc value*(this: GCE2dMakeArcOfParabola): Handle[Geom2dTrimmedCurve] {.

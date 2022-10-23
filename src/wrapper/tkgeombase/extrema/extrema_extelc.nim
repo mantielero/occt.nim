@@ -41,17 +41,17 @@ type
 proc newExtremaExtElC*(): ExtremaExtElC {.cdecl, constructor,
                                        importcpp: "Extrema_ExtElC(@)",
                                        header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Lin; c2: Lin; angTol: cfloat): ExtremaExtElC {.cdecl,
+proc newExtremaExtElC*(c1: LinObj; c2: LinObj; angTol: cfloat): ExtremaExtElC {.cdecl,
     constructor, importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Lin; c2: Circ; tol: cfloat): ExtremaExtElC {.cdecl,
+proc newExtremaExtElC*(c1: LinObj; c2: CircObj; tol: cfloat): ExtremaExtElC {.cdecl,
     constructor, importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Lin; c2: Elips): ExtremaExtElC {.cdecl, constructor,
+proc newExtremaExtElC*(c1: LinObj; c2: ElipsObj): ExtremaExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Lin; c2: Hypr): ExtremaExtElC {.cdecl, constructor,
+proc newExtremaExtElC*(c1: LinObj; c2: HyprObj): ExtremaExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Lin; c2: Parab): ExtremaExtElC {.cdecl, constructor,
+proc newExtremaExtElC*(c1: LinObj; c2: ParabObj): ExtremaExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
-proc newExtremaExtElC*(c1: Circ; c2: Circ): ExtremaExtElC {.cdecl, constructor,
+proc newExtremaExtElC*(c1: CircObj; c2: CircObj): ExtremaExtElC {.cdecl, constructor,
     importcpp: "Extrema_ExtElC(@)", header: "Extrema_ExtElC.hxx".}
 proc isDone*(this: ExtremaExtElC): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                       header: "Extrema_ExtElC.hxx".}

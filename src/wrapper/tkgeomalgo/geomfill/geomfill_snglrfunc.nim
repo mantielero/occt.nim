@@ -36,21 +36,21 @@ proc nbIntervals*(this: GeomFillSnglrFunc; s: GeomAbsShape): cint {.noSideEffect
     cdecl, importcpp: "NbIntervals", header: "GeomFill_SnglrFunc.hxx".}
 proc intervals*(this: GeomFillSnglrFunc; t: var TColStdArray1OfReal; s: GeomAbsShape) {.
     noSideEffect, cdecl, importcpp: "Intervals", header: "GeomFill_SnglrFunc.hxx".}
-proc value*(this: GeomFillSnglrFunc; u: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: GeomFillSnglrFunc; u: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_SnglrFunc.hxx".}
 proc isPeriodic*(this: GeomFillSnglrFunc): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "GeomFill_SnglrFunc.hxx".}
 proc period*(this: GeomFillSnglrFunc): cfloat {.noSideEffect, cdecl,
     importcpp: "Period", header: "GeomFill_SnglrFunc.hxx".}
-proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "GeomFill_SnglrFunc.hxx".}
-proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_SnglrFunc.hxx".}
-proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.
+proc d2*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D2", header: "GeomFill_SnglrFunc.hxx".}
-proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: GeomFillSnglrFunc; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "GeomFill_SnglrFunc.hxx".}
-proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): Vec {.noSideEffect, cdecl,
+proc dn*(this: GeomFillSnglrFunc; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl,
     importcpp: "DN", header: "GeomFill_SnglrFunc.hxx".}
 proc resolution*(this: GeomFillSnglrFunc; r3d: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}

@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpArray2OfCirc2d* = NCollectionArray2[Circ2d]
+  TColgpArray2OfCirc2d* = NCollectionArray2[Circ2dObj]

@@ -20,7 +20,7 @@ type
   V3d* {.importcpp: "V3d", header: "V3d.hxx", bycopy.} = object ## ! Determines the orientation vector corresponding to the predefined orientation type.
 
 
-proc getProjAxis*(theOrientation: V3dTypeOfOrientation): Dir {.cdecl,
+proc getProjAxis*(theOrientation: V3dTypeOfOrientation): DirObj {.cdecl,
     importcpp: "V3d::GetProjAxis(@)", header: "V3d.hxx".}
 proc arrowOfRadius*(garrow: Handle[Graphic3dGroup]; x0: cfloat; y0: cfloat; z0: cfloat;
                    dx: cfloat; dy: cfloat; dz: cfloat; alpha: cfloat; lng: cfloat) {.

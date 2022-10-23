@@ -360,9 +360,9 @@ proc newGraphic3dClipPlane*(theOther: Graphic3dClipPlane): Graphic3dClipPlane {.
     cdecl, constructor, importcpp: "Graphic3d_ClipPlane(@)", header: "Graphic3d_ClipPlane.hxx".}
 proc newGraphic3dClipPlane*(theEquation: Graphic3dVec4d): Graphic3dClipPlane {.
     cdecl, constructor, importcpp: "Graphic3d_ClipPlane(@)", header: "Graphic3d_ClipPlane.hxx".}
-proc newGraphic3dClipPlane*(thePlane: Pln): Graphic3dClipPlane {.cdecl, constructor,
+proc newGraphic3dClipPlane*(thePlane: PlnObj): Graphic3dClipPlane {.cdecl, constructor,
     importcpp: "Graphic3d_ClipPlane(@)", header: "Graphic3d_ClipPlane.hxx".}
-proc setEquation*(this: var Graphic3dClipPlane; thePlane: Pln) {.cdecl,
+proc setEquation*(this: var Graphic3dClipPlane; thePlane: PlnObj) {.cdecl,
     importcpp: "SetEquation", header: "Graphic3d_ClipPlane.hxx".}
 proc setEquation*(this: var Graphic3dClipPlane; theEquation: Graphic3dVec4d) {.cdecl,
     importcpp: "SetEquation", header: "Graphic3d_ClipPlane.hxx".}
@@ -378,7 +378,7 @@ proc setCapping*(this: var Graphic3dClipPlane; theIsOn: bool) {.cdecl,
     importcpp: "SetCapping", header: "Graphic3d_ClipPlane.hxx".}
 proc isCapping*(this: Graphic3dClipPlane): bool {.noSideEffect, cdecl,
     importcpp: "IsCapping", header: "Graphic3d_ClipPlane.hxx".}
-proc toPlane*(this: Graphic3dClipPlane): Pln {.noSideEffect, cdecl,
+proc toPlane*(this: Graphic3dClipPlane): PlnObj {.noSideEffect, cdecl,
     importcpp: "ToPlane", header: "Graphic3d_ClipPlane.hxx".}
 proc clone*(this: Graphic3dClipPlane): Handle[Graphic3dClipPlane] {.noSideEffect,
     cdecl, importcpp: "Clone", header: "Graphic3d_ClipPlane.hxx".}

@@ -66,8 +66,8 @@ proc points*(this: ExtremaExtCC; n: cint; p1: var ExtremaPOnCurv; p2: var Extrem
     noSideEffect, cdecl, importcpp: "Points", header: "Extrema_ExtCC.hxx".}
 proc trimmedSquareDistances*(this: ExtremaExtCC; dist11: var cfloat;
                             distP12: var cfloat; distP21: var cfloat;
-                            distP22: var cfloat; p11: var Pnt; p12: var Pnt;
-                            p21: var Pnt; p22: var Pnt) {.noSideEffect, cdecl,
+                            distP22: var cfloat; p11: var PntObj; p12: var PntObj;
+                            p21: var PntObj; p22: var PntObj) {.noSideEffect, cdecl,
     importcpp: "TrimmedSquareDistances", header: "Extrema_ExtCC.hxx".}
 proc setSingleSolutionFlag*(this: var ExtremaExtCC; theSingleSolutionFlag: bool) {.
     cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ExtCC.hxx".}

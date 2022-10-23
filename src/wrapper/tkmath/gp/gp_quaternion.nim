@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Created on: 2010-05-11
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -15,113 +17,105 @@
 
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Mat"
-type
-  Quaternion* {.importcpp: "gp_Quaternion", header: "gp_Quaternion.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## identity
-                                                                                   ## quaternion
 
-
-proc newQuaternion*(): Quaternion {.cdecl, constructor,
+proc quaternion*(): QuaternionObj {.cdecl, constructor,
                                  importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc newQuaternion*(x: cfloat; y: cfloat; z: cfloat; w: cfloat): Quaternion {.cdecl,
+proc quaternion*(x: cfloat; y: cfloat; z: cfloat; w: cfloat): QuaternionObj {.cdecl,
     constructor, importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc newQuaternion*(theVecFrom: Vec; theVecTo: Vec): Quaternion {.cdecl, constructor,
+proc quaternion*(theVecFrom: VecObj; theVecTo: VecObj): QuaternionObj {.cdecl, constructor,
     importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc newQuaternion*(theVecFrom: Vec; theVecTo: Vec; theHelpCrossVec: Vec): Quaternion {.
+proc quaternion*(theVecFrom: VecObj; theVecTo: VecObj; theHelpCrossVec: VecObj): QuaternionObj {.
     cdecl, constructor, importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc newQuaternion*(theAxis: Vec; theAngle: cfloat): Quaternion {.cdecl, constructor,
+proc quaternion*(theAxis: VecObj; theAngle: cfloat): QuaternionObj {.cdecl, constructor,
     importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc newQuaternion*(theMat: Mat): Quaternion {.cdecl, constructor,
+proc quaternion*(theMat: MatObj): QuaternionObj {.cdecl, constructor,
     importcpp: "gp_Quaternion(@)", header: "gp_Quaternion.hxx".}
-proc isEqual*(this: Quaternion; theOther: Quaternion): bool {.noSideEffect, cdecl,
+proc isEqual*(this: QuaternionObj; theOther: QuaternionObj): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", header: "gp_Quaternion.hxx".}
-proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec) {.cdecl,
+proc setRotation*(this: var QuaternionObj; theVecFrom: VecObj; theVecTo: VecObj) {.cdecl,
     importcpp: "SetRotation", header: "gp_Quaternion.hxx".}
-proc setRotation*(this: var Quaternion; theVecFrom: Vec; theVecTo: Vec;
-                 theHelpCrossVec: Vec) {.cdecl, importcpp: "SetRotation",
+proc setRotation*(this: var QuaternionObj; theVecFrom: VecObj; theVecTo: VecObj;
+                 theHelpCrossVec: VecObj) {.cdecl, importcpp: "SetRotation",
                                        header: "gp_Quaternion.hxx".}
-proc setVectorAndAngle*(this: var Quaternion; theAxis: Vec; theAngle: cfloat) {.cdecl,
+proc setVectorAndAngle*(this: var QuaternionObj; theAxis: VecObj; theAngle: cfloat) {.cdecl,
     importcpp: "SetVectorAndAngle", header: "gp_Quaternion.hxx".}
-proc getVectorAndAngle*(this: Quaternion; theAxis: var Vec; theAngle: var cfloat) {.
+proc getVectorAndAngle*(this: QuaternionObj; theAxis: var VecObj; theAngle: var cfloat) {.
     noSideEffect, cdecl, importcpp: "GetVectorAndAngle", header: "gp_Quaternion.hxx".}
-proc setMatrix*(this: var Quaternion; theMat: Mat) {.cdecl, importcpp: "SetMatrix",
+proc setMatrix*(this: var QuaternionObj; theMat: MatObj) {.cdecl, importcpp: "SetMatrix",
     header: "gp_Quaternion.hxx".}
-proc getMatrix*(this: Quaternion): Mat {.noSideEffect, cdecl, importcpp: "GetMatrix",
+proc getMatrix*(this: QuaternionObj): MatObj {.noSideEffect, cdecl, importcpp: "GetMatrix",
                                      header: "gp_Quaternion.hxx".}
-proc setEulerAngles*(this: var Quaternion; theOrder: EulerSequence; theAlpha: cfloat;
+proc setEulerAngles*(this: var QuaternionObj; theOrder: EulerSequenceObj; theAlpha: cfloat;
                     theBeta: cfloat; theGamma: cfloat) {.cdecl,
     importcpp: "SetEulerAngles", header: "gp_Quaternion.hxx".}
-proc getEulerAngles*(this: Quaternion; theOrder: EulerSequence; theAlpha: var cfloat;
+proc getEulerAngles*(this: QuaternionObj; theOrder: EulerSequenceObj; theAlpha: var cfloat;
                     theBeta: var cfloat; theGamma: var cfloat) {.noSideEffect, cdecl,
     importcpp: "GetEulerAngles", header: "gp_Quaternion.hxx".}
-proc set*(this: var Quaternion; x: cfloat; y: cfloat; z: cfloat; w: cfloat) {.cdecl,
+proc set*(this: var QuaternionObj; x: cfloat; y: cfloat; z: cfloat; w: cfloat) {.cdecl,
     importcpp: "Set", header: "gp_Quaternion.hxx".}
-proc set*(this: var Quaternion; theQuaternion: Quaternion) {.cdecl, importcpp: "Set",
+proc set*(this: var QuaternionObj; theQuaternion: QuaternionObj) {.cdecl, importcpp: "Set",
     header: "gp_Quaternion.hxx".}
-proc x*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Quaternion.hxx".}
-proc y*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Quaternion.hxx".}
-proc z*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "gp_Quaternion.hxx".}
-proc w*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "W", header: "gp_Quaternion.hxx".}
-proc setIdent*(this: var Quaternion) {.cdecl, importcpp: "SetIdent", header: "gp_Quaternion.hxx".}
-proc reverse*(this: var Quaternion) {.cdecl, importcpp: "Reverse", header: "gp_Quaternion.hxx".}
-proc reversed*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc x*(this: QuaternionObj): cfloat {.noSideEffect, cdecl, importcpp: "X", header: "gp_Quaternion.hxx".}
+proc y*(this: QuaternionObj): cfloat {.noSideEffect, cdecl, importcpp: "Y", header: "gp_Quaternion.hxx".}
+proc z*(this: QuaternionObj): cfloat {.noSideEffect, cdecl, importcpp: "Z", header: "gp_Quaternion.hxx".}
+proc w*(this: QuaternionObj): cfloat {.noSideEffect, cdecl, importcpp: "W", header: "gp_Quaternion.hxx".}
+proc setIdent*(this: var QuaternionObj) {.cdecl, importcpp: "SetIdent", header: "gp_Quaternion.hxx".}
+proc reverse*(this: var QuaternionObj) {.cdecl, importcpp: "Reverse", header: "gp_Quaternion.hxx".}
+proc reversed*(this: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Reversed", header: "gp_Quaternion.hxx".}
-proc invert*(this: var Quaternion) {.cdecl, importcpp: "Invert", header: "gp_Quaternion.hxx".}
-proc inverted*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc invert*(this: var QuaternionObj) {.cdecl, importcpp: "Invert", header: "gp_Quaternion.hxx".}
+proc inverted*(this: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Inverted", header: "gp_Quaternion.hxx".}
-proc squareNorm*(this: Quaternion): cfloat {.noSideEffect, cdecl,
+proc squareNorm*(this: QuaternionObj): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareNorm", header: "gp_Quaternion.hxx".}
-proc norm*(this: Quaternion): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
+proc norm*(this: QuaternionObj): cfloat {.noSideEffect, cdecl, importcpp: "Norm",
                                    header: "gp_Quaternion.hxx".}
-proc scale*(this: var Quaternion; theScale: cfloat) {.cdecl, importcpp: "Scale",
+proc scale*(this: var QuaternionObj; theScale: cfloat) {.cdecl, importcpp: "Scale",
     header: "gp_Quaternion.hxx".}
-proc `*=`*(this: var Quaternion; theScale: cfloat) {.cdecl, importcpp: "(# *= #)",
+proc `*=`*(this: var QuaternionObj; theScale: cfloat) {.cdecl, importcpp: "(# *= #)",
     header: "gp_Quaternion.hxx".}
-proc scaled*(this: Quaternion; theScale: cfloat): Quaternion {.noSideEffect, cdecl,
+proc scaled*(this: QuaternionObj; theScale: cfloat): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Quaternion.hxx".}
-proc `*`*(this: Quaternion; theScale: cfloat): Quaternion {.noSideEffect, cdecl,
+proc `*`*(this: QuaternionObj; theScale: cfloat): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "(# * #)", header: "gp_Quaternion.hxx".}
-proc stabilizeLength*(this: var Quaternion) {.cdecl, importcpp: "StabilizeLength",
+proc stabilizeLength*(this: var QuaternionObj) {.cdecl, importcpp: "StabilizeLength",
     header: "gp_Quaternion.hxx".}
-proc normalize*(this: var Quaternion) {.cdecl, importcpp: "Normalize", header: "gp_Quaternion.hxx".}
-proc normalized*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc normalize*(this: var QuaternionObj) {.cdecl, importcpp: "Normalize", header: "gp_Quaternion.hxx".}
+proc normalized*(this: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Normalized", header: "gp_Quaternion.hxx".}
-proc negated*(this: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc negated*(this: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Negated", header: "gp_Quaternion.hxx".}
-proc `-`*(this: Quaternion): Quaternion {.noSideEffect, cdecl, importcpp: "(- #)",
+proc `-`*(this: QuaternionObj): QuaternionObj {.noSideEffect, cdecl, importcpp: "(- #)",
                                       header: "gp_Quaternion.hxx".}
-proc added*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc added*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "Added", header: "gp_Quaternion.hxx".}
-proc `+`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc `+`*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "(# + #)", header: "gp_Quaternion.hxx".}
-proc subtracted*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+proc subtracted*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect,
     cdecl, importcpp: "Subtracted", header: "gp_Quaternion.hxx".}
-proc `-`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc `-`*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "(# - #)", header: "gp_Quaternion.hxx".}
-proc multiplied*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect,
+proc multiplied*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect,
     cdecl, importcpp: "Multiplied", header: "gp_Quaternion.hxx".}
-proc `*`*(this: Quaternion; theOther: Quaternion): Quaternion {.noSideEffect, cdecl,
+proc `*`*(this: QuaternionObj; theOther: QuaternionObj): QuaternionObj {.noSideEffect, cdecl,
     importcpp: "(# * #)", header: "gp_Quaternion.hxx".}
-proc add*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "Add",
+proc add*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl, importcpp: "Add",
     header: "gp_Quaternion.hxx".}
-proc `+=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# += #)",
+proc `+=`*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl, importcpp: "(# += #)",
     header: "gp_Quaternion.hxx".}
-proc subtract*(this: var Quaternion; theOther: Quaternion) {.cdecl,
+proc subtract*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl,
     importcpp: "Subtract", header: "gp_Quaternion.hxx".}
-proc `-=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# -= #)",
+proc `-=`*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl, importcpp: "(# -= #)",
     header: "gp_Quaternion.hxx".}
-proc multiply*(this: var Quaternion; theOther: Quaternion) {.cdecl,
+proc multiply*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl,
     importcpp: "Multiply", header: "gp_Quaternion.hxx".}
-proc `*=`*(this: var Quaternion; theOther: Quaternion) {.cdecl, importcpp: "(# *= #)",
+proc `*=`*(this: var QuaternionObj; theOther: QuaternionObj) {.cdecl, importcpp: "(# *= #)",
     header: "gp_Quaternion.hxx".}
-proc dot*(this: Quaternion; theOther: Quaternion): cfloat {.noSideEffect, cdecl,
+proc dot*(this: QuaternionObj; theOther: QuaternionObj): cfloat {.noSideEffect, cdecl,
     importcpp: "Dot", header: "gp_Quaternion.hxx".}
-proc getRotationAngle*(this: Quaternion): cfloat {.noSideEffect, cdecl,
+proc getRotationAngle*(this: QuaternionObj): cfloat {.noSideEffect, cdecl,
     importcpp: "GetRotationAngle", header: "gp_Quaternion.hxx".}
-proc multiply*(this: Quaternion; theVec: Vec): Vec {.noSideEffect, cdecl,
+proc multiply*(this: QuaternionObj; theVec: VecObj): VecObj {.noSideEffect, cdecl,
     importcpp: "Multiply", header: "gp_Quaternion.hxx".}
-proc `*`*(this: Quaternion; theVec: Vec): Vec {.noSideEffect, cdecl,
+proc `*`*(this: QuaternionObj; theVec: VecObj): VecObj {.noSideEffect, cdecl,
     importcpp: "(# * #)", header: "gp_Quaternion.hxx".}

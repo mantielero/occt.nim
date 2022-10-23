@@ -159,7 +159,7 @@ type
 
 
 proc create*(theBottomRad: cfloat; theTopRad: cfloat; theHeight: cfloat;
-            theNbSlices: cint; theNbStacks: cint; theTrsf: Trsf): Handle[
+            theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[
     Graphic3dArrayOfTriangles] {.cdecl,
                                 importcpp: "Prs3d_ToolCylinder::Create(@)",
                                 header: "Prs3d_ToolCylinder.hxx".}

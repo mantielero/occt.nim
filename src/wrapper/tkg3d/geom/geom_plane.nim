@@ -121,25 +121,25 @@ type
                                                                                                    ## curves.
 
 
-proc newGeomPlane*(a3: Ax3): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(a3: Ax3Obj): GeomPlane {.cdecl, constructor,
                                      importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc newGeomPlane*(pl: Pln): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(pl: PlnObj): GeomPlane {.cdecl, constructor,
                                      importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc newGeomPlane*(p: Pnt; v: Dir): GeomPlane {.cdecl, constructor,
+proc newGeomPlane*(p: PntObj; v: DirObj): GeomPlane {.cdecl, constructor,
     importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
 proc newGeomPlane*(a: cfloat; b: cfloat; c: cfloat; d: cfloat): GeomPlane {.cdecl,
     constructor, importcpp: "Geom_Plane(@)", header: "Geom_Plane.hxx".}
-proc setPln*(this: var GeomPlane; pl: Pln) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}
-proc pln*(this: GeomPlane): Pln {.noSideEffect, cdecl, importcpp: "Pln", header: "Geom_Plane.hxx".}
+proc setPln*(this: var GeomPlane; pl: PlnObj) {.cdecl, importcpp: "SetPln", header: "Geom_Plane.hxx".}
+proc pln*(this: GeomPlane): PlnObj {.noSideEffect, cdecl, importcpp: "Pln", header: "Geom_Plane.hxx".}
 proc uReverse*(this: var GeomPlane) {.cdecl, importcpp: "UReverse", header: "Geom_Plane.hxx".}
 proc uReversedParameter*(this: GeomPlane; u: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "UReversedParameter", header: "Geom_Plane.hxx".}
 proc vReverse*(this: var GeomPlane) {.cdecl, importcpp: "VReverse", header: "Geom_Plane.hxx".}
 proc vReversedParameter*(this: GeomPlane; v: cfloat): cfloat {.noSideEffect, cdecl,
     importcpp: "VReversedParameter", header: "Geom_Plane.hxx".}
-proc transformParameters*(this: GeomPlane; u: var cfloat; v: var cfloat; t: Trsf) {.
+proc transformParameters*(this: GeomPlane; u: var cfloat; v: var cfloat; t: TrsfObj) {.
     noSideEffect, cdecl, importcpp: "TransformParameters", header: "Geom_Plane.hxx".}
-proc parametricTransformation*(this: GeomPlane; t: Trsf): GTrsf2d {.noSideEffect,
+proc parametricTransformation*(this: GeomPlane; t: TrsfObj): GTrsf2d {.noSideEffect,
     cdecl, importcpp: "ParametricTransformation", header: "Geom_Plane.hxx".}
 proc bounds*(this: GeomPlane; u1: var cfloat; u2: var cfloat; v1: var cfloat; v2: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Bounds", header: "Geom_Plane.hxx".}
@@ -158,19 +158,19 @@ proc uIso*(this: GeomPlane; u: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "UIso", header: "Geom_Plane.hxx".}
 proc vIso*(this: GeomPlane; v: cfloat): Handle[GeomCurve] {.noSideEffect, cdecl,
     importcpp: "VIso", header: "Geom_Plane.hxx".}
-proc d0*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt) {.noSideEffect, cdecl,
+proc d0*(this: GeomPlane; u: cfloat; v: cfloat; p: var PntObj) {.noSideEffect, cdecl,
     importcpp: "D0", header: "Geom_Plane.hxx".}
-proc d1*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec) {.
+proc d1*(this: GeomPlane; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj; d1v: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D1", header: "Geom_Plane.hxx".}
-proc d2*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.noSideEffect, cdecl, importcpp: "D2",
+proc d2*(this: GeomPlane; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj; d1v: var VecObj;
+        d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.noSideEffect, cdecl, importcpp: "D2",
     header: "Geom_Plane.hxx".}
-proc d3*(this: GeomPlane; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec; d1v: var Vec;
-        d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec; d3uuv: var Vec;
-        d3uvv: var Vec) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Plane.hxx".}
-proc dn*(this: GeomPlane; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.noSideEffect,
+proc d3*(this: GeomPlane; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj; d1v: var VecObj;
+        d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj; d3uuv: var VecObj;
+        d3uvv: var VecObj) {.noSideEffect, cdecl, importcpp: "D3", header: "Geom_Plane.hxx".}
+proc dn*(this: GeomPlane; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.noSideEffect,
     cdecl, importcpp: "DN", header: "Geom_Plane.hxx".}
-proc transform*(this: var GeomPlane; t: Trsf) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomPlane; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Plane.hxx".}
 proc copy*(this: GeomPlane): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Plane.hxx".}

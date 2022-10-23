@@ -37,22 +37,22 @@ type
                                                                                          ## conversion.
 
 
-proc circle*(c: Circ): MakeCircle {.cdecl, constructor,
+proc circle*(c: CircObj): MakeCircle {.cdecl, constructor,
                                        importcpp: "GC_MakeCircle(@)",
                                        header: "GC_MakeCircle.hxx".}
-proc circle*(a2: Ax2; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(a2: Ax2Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(circ: Circ; dist: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(circ: CircObj; dist: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(circ: Circ; point: Pnt): MakeCircle {.cdecl, constructor,
+proc circle*(circ: CircObj; point: PntObj): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(p1: Pnt; p2: Pnt; p3: Pnt): MakeCircle {.cdecl, constructor,
+proc circle*(p1: PntObj; p2: PntObj; p3: PntObj): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(center: Pnt; norm: Dir; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: PntObj; norm: DirObj; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(center: Pnt; ptAxis: Pnt; radius: cfloat): MakeCircle {.cdecl,
+proc circle*(center: PntObj; ptAxis: PntObj; radius: cfloat): MakeCircle {.cdecl,
     constructor, importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
-proc circle*(axis: Ax1; radius: cfloat): MakeCircle {.cdecl, constructor,
+proc circle*(axis: Ax1Obj; radius: cfloat): MakeCircle {.cdecl, constructor,
     importcpp: "GC_MakeCircle(@)", header: "GC_MakeCircle.hxx".}
 proc value*(this: MakeCircle): Handle[GeomCircle] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeCircle.hxx".}

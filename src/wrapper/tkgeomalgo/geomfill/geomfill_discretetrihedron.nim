@@ -41,23 +41,23 @@ proc init*(this: var GeomFillDiscreteTrihedron) {.cdecl, importcpp: "Init",
     header: "GeomFill_DiscreteTrihedron.hxx".}
 proc setCurve*(this: var GeomFillDiscreteTrihedron; c: Handle[Adaptor3dHCurve]) {.
     cdecl, importcpp: "SetCurve", header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d0*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var Vec;
-        normal: var Vec; biNormal: var Vec): bool {.cdecl, importcpp: "D0",
+proc d0*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var VecObj;
+        normal: var VecObj; biNormal: var VecObj): bool {.cdecl, importcpp: "D0",
     header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d1*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var Vec;
-        dTangent: var Vec; normal: var Vec; dNormal: var Vec; biNormal: var Vec;
-        dBiNormal: var Vec): bool {.cdecl, importcpp: "D1", header: "GeomFill_DiscreteTrihedron.hxx".}
-proc d2*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var Vec;
-        dTangent: var Vec; d2Tangent: var Vec; normal: var Vec; dNormal: var Vec;
-        d2Normal: var Vec; biNormal: var Vec; dBiNormal: var Vec; d2BiNormal: var Vec): bool {.
+proc d1*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var VecObj;
+        dTangent: var VecObj; normal: var VecObj; dNormal: var VecObj; biNormal: var VecObj;
+        dBiNormal: var VecObj): bool {.cdecl, importcpp: "D1", header: "GeomFill_DiscreteTrihedron.hxx".}
+proc d2*(this: var GeomFillDiscreteTrihedron; param: cfloat; tangent: var VecObj;
+        dTangent: var VecObj; d2Tangent: var VecObj; normal: var VecObj; dNormal: var VecObj;
+        d2Normal: var VecObj; biNormal: var VecObj; dBiNormal: var VecObj; d2BiNormal: var VecObj): bool {.
     cdecl, importcpp: "D2", header: "GeomFill_DiscreteTrihedron.hxx".}
 proc nbIntervals*(this: GeomFillDiscreteTrihedron; s: GeomAbsShape): cint {.
     noSideEffect, cdecl, importcpp: "NbIntervals", header: "GeomFill_DiscreteTrihedron.hxx".}
 proc intervals*(this: GeomFillDiscreteTrihedron; t: var TColStdArray1OfReal;
                s: GeomAbsShape) {.noSideEffect, cdecl, importcpp: "Intervals",
                                 header: "GeomFill_DiscreteTrihedron.hxx".}
-proc getAverageLaw*(this: var GeomFillDiscreteTrihedron; aTangent: var Vec;
-                   aNormal: var Vec; aBiNormal: var Vec) {.cdecl,
+proc getAverageLaw*(this: var GeomFillDiscreteTrihedron; aTangent: var VecObj;
+                   aNormal: var VecObj; aBiNormal: var VecObj) {.cdecl,
     importcpp: "GetAverageLaw", header: "GeomFill_DiscreteTrihedron.hxx".}
 proc isConstant*(this: GeomFillDiscreteTrihedron): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_DiscreteTrihedron.hxx".}

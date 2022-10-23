@@ -38,12 +38,12 @@ proc derivatives*(this: var GeomFillFunctionDraft; x: MathVector; d: var MathMat
 proc values*(this: var GeomFillFunctionDraft; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "GeomFill_FunctionDraft.hxx".}
 proc derivT*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
-            param: cfloat; w: cfloat; dN: Vec; teta: cfloat; f: var MathVector): bool {.
+            param: cfloat; w: cfloat; dN: VecObj; teta: cfloat; f: var MathVector): bool {.
     cdecl, importcpp: "DerivT", header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2T*(this: var GeomFillFunctionDraft; c: Handle[Adaptor3dHCurve];
-             param: cfloat; w: cfloat; d2N: Vec; teta: cfloat; f: var MathVector): bool {.
+             param: cfloat; w: cfloat; d2N: VecObj; teta: cfloat; f: var MathVector): bool {.
     cdecl, importcpp: "Deriv2T", header: "GeomFill_FunctionDraft.hxx".}
-proc derivTX*(this: var GeomFillFunctionDraft; dN: Vec; teta: cfloat; d: var MathMatrix): bool {.
+proc derivTX*(this: var GeomFillFunctionDraft; dN: VecObj; teta: cfloat; d: var MathMatrix): bool {.
     cdecl, importcpp: "DerivTX", header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2X*(this: var GeomFillFunctionDraft; x: MathVector; t: var GeomFillTensor): bool {.
     cdecl, importcpp: "Deriv2X", header: "GeomFill_FunctionDraft.hxx".}

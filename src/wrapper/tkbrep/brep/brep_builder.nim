@@ -57,6 +57,8 @@ proc updateFace*(this: BRepBuilder; f: TopoDS_Face; tol: cfloat) {.noSideEffect,
     importcpp: "UpdateFace", header: "BRep_Builder.hxx".}
 proc naturalRestriction*(this: BRepBuilder; f: TopoDS_Face; n: bool) {.noSideEffect,
     cdecl, importcpp: "NaturalRestriction", header: "BRep_Builder.hxx".}
+
+
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge) {.noSideEffect, cdecl,
     importcpp: "MakeEdge", header: "BRep_Builder.hxx".}
 proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
@@ -73,6 +75,8 @@ proc makeEdge*(this: BRepBuilder; e: var TopoDS_Edge;
               n: Handle[PolyPolygonOnTriangulation]; t: Handle[PolyTriangulation];
               L: TopLocLocation) {.noSideEffect, cdecl, importcpp: "MakeEdge",
                                  header: "BRep_Builder.hxx".}
+
+                                 
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve]; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[GeomCurve];
@@ -88,8 +92,8 @@ proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
                 s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c: Handle[Geom2dCurve];
-                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: Pnt2d;
-                pl: Pnt2d) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
+                s: Handle[GeomSurface]; L: TopLocLocation; tol: cfloat; pf: Pnt2dObj;
+                pl: Pnt2dObj) {.noSideEffect, cdecl, importcpp: "UpdateEdge",
                            header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
@@ -97,7 +101,7 @@ proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                              header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; c1: Handle[Geom2dCurve];
                 c2: Handle[Geom2dCurve]; s: Handle[GeomSurface]; L: TopLocLocation;
-                tol: cfloat; pf: Pnt2d; pl: Pnt2d) {.noSideEffect, cdecl,
+                tol: cfloat; pf: Pnt2dObj; pl: Pnt2dObj) {.noSideEffect, cdecl,
     importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
 proc updateEdge*(this: BRepBuilder; e: TopoDS_Edge; p: Handle[PolyPolygon3D]) {.
     noSideEffect, cdecl, importcpp: "UpdateEdge", header: "BRep_Builder.hxx".}
@@ -161,9 +165,9 @@ proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge) {.noSide
     cdecl, importcpp: "Transfert", header: "BRep_Builder.hxx".}
 proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex) {.noSideEffect, cdecl,
     importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: Pnt; tol: cfloat) {.
+proc makeVertex*(this: BRepBuilder; v: var TopoDS_Vertex; p: PntObj; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "MakeVertex", header: "BRep_Builder.hxx".}
-proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: Pnt; tol: cfloat) {.
+proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: PntObj; tol: cfloat) {.
     noSideEffect, cdecl, importcpp: "UpdateVertex", header: "BRep_Builder.hxx".}
 proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; p: cfloat; e: TopoDS_Edge;
                   tol: cfloat) {.noSideEffect, cdecl, importcpp: "UpdateVertex",

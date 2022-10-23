@@ -27,29 +27,29 @@ type
 
 proc newExtremaExtElSS*(): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Pln; s2: Pln): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: PlnObj; s2: PlnObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Pln; s2: Pln) {.cdecl, importcpp: "Perform",
+proc perform*(this: var ExtremaExtElSS; s1: PlnObj; s2: PlnObj) {.cdecl, importcpp: "Perform",
     header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Pln; s2: Sphere): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: PlnObj; s2: SphereObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Pln; s2: Sphere) {.cdecl,
+proc perform*(this: var ExtremaExtElSS; s1: PlnObj; s2: SphereObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Sphere; s2: Sphere): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: SphereObj; s2: SphereObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Sphere) {.cdecl,
+proc perform*(this: var ExtremaExtElSS; s1: SphereObj; s2: SphereObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Sphere; s2: Cylinder): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: SphereObj; s2: CylinderObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Cylinder) {.cdecl,
+proc perform*(this: var ExtremaExtElSS; s1: SphereObj; s2: CylinderObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Sphere; s2: Cone): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: SphereObj; s2: ConeObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Cone) {.cdecl,
+proc perform*(this: var ExtremaExtElSS; s1: SphereObj; s2: ConeObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
-proc newExtremaExtElSS*(s1: Sphere; s2: Torus): ExtremaExtElSS {.cdecl, constructor,
+proc newExtremaExtElSS*(s1: SphereObj; s2: TorusObj): ExtremaExtElSS {.cdecl, constructor,
     importcpp: "Extrema_ExtElSS(@)", header: "Extrema_ExtElSS.hxx".}
-proc perform*(this: var ExtremaExtElSS; s1: Sphere; s2: Torus) {.cdecl,
+proc perform*(this: var ExtremaExtElSS; s1: SphereObj; s2: TorusObj) {.cdecl,
     importcpp: "Perform", header: "Extrema_ExtElSS.hxx".}
 proc isDone*(this: ExtremaExtElSS): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Extrema_ExtElSS.hxx".}

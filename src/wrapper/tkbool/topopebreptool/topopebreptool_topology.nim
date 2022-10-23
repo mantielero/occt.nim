@@ -38,19 +38,19 @@ proc fUN_toolOutbounds*(sh: TopoDS_Shape; u1: var cfloat; u2: var cfloat; v1: va
 ##   project point <P> on geometries (curve <C>,surface <S>)
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolPinC*(p: Pnt; bac: BRepAdaptorCurve; pmin: cfloat; pmax: cfloat; tol: cfloat): bool {.
+proc fUN_toolPinC*(p: PntObj; bac: BRepAdaptorCurve; pmin: cfloat; pmax: cfloat; tol: cfloat): bool {.
     cdecl, importcpp: "FUN_tool_PinC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolPinC*(p: Pnt; bac: BRepAdaptorCurve; tol: cfloat): bool {.cdecl,
+proc fUN_toolPinC*(p: PntObj; bac: BRepAdaptorCurve; tol: cfloat): bool {.cdecl,
     importcpp: "FUN_tool_PinC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolValue*(par: cfloat; e: TopoDS_Edge; p: var Pnt): bool {.cdecl,
+proc fUN_toolValue*(par: cfloat; e: TopoDS_Edge; p: var PntObj): bool {.cdecl,
     importcpp: "FUN_tool_value(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolValue*(uv: Pnt2d; f: TopoDS_Face; p: var Pnt): bool {.cdecl,
+proc fUN_toolValue*(uv: Pnt2dObj; f: TopoDS_Face; p: var PntObj): bool {.cdecl,
     importcpp: "FUN_tool_value(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolStaPinE*(p: Pnt; e: TopoDS_Edge; tol: cfloat): TopAbsState {.cdecl,
+proc fUN_toolStaPinE*(p: PntObj; e: TopoDS_Edge; tol: cfloat): TopAbsState {.cdecl,
     importcpp: "FUN_tool_staPinE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolStaPinE*(p: Pnt; e: TopoDS_Edge): TopAbsState {.cdecl,
+proc fUN_toolStaPinE*(p: PntObj; e: TopoDS_Edge): TopAbsState {.cdecl,
     importcpp: "FUN_tool_staPinE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 ##  ----------------------------------------------------------------------
 ##   subshape's orientation :
@@ -74,14 +74,14 @@ proc fUN_toolEboundF*(e: TopoDS_Edge; f: TopoDS_Face): bool {.cdecl,
 ##   derivatives :
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolNggeomF*(p2d: Pnt2d; f: TopoDS_Face): Vec {.cdecl,
+proc fUN_toolNggeomF*(p2d: Pnt2dObj; f: TopoDS_Face): VecObj {.cdecl,
     importcpp: "FUN_tool_nggeomF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var Vec): bool {.
+proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var VecObj): bool {.
     cdecl, importcpp: "FUN_tool_nggeomF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var Vec;
+proc fUN_toolNggeomF*(paronE: cfloat; e: TopoDS_Edge; f: TopoDS_Face; nggeomF: var VecObj;
                      tol: cfloat): bool {.cdecl, importcpp: "FUN_tool_nggeomF(@)",
                                        header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolEtgF*(paronE: cfloat; e: TopoDS_Edge; p2d: Pnt2d; f: TopoDS_Face;
+proc fUN_toolEtgF*(paronE: cfloat; e: TopoDS_Edge; p2d: Pnt2dObj; f: TopoDS_Face;
                   tola: cfloat): bool {.cdecl, importcpp: "FUN_tool_EtgF(@)",
                                      header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolEtgOOE*(paronE: cfloat; e: TopoDS_Edge; paronOOE: cfloat;
@@ -91,21 +91,21 @@ proc fUN_toolEtgOOE*(paronE: cfloat; e: TopoDS_Edge; paronOOE: cfloat;
 ##  oriented vectors :
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: Dir): Vec {.
+proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: DirObj): VecObj {.
     cdecl, importcpp: "FUN_tool_getgeomxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat): Vec {.cdecl,
+proc fUN_toolGetgeomxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat): VecObj {.cdecl,
     importcpp: "FUN_tool_getgeomxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_nearestISO*(f: TopoDS_Face; xpar: cfloat; isoU: bool; xinf: var cfloat;
                     xsup: var cfloat): bool {.cdecl, importcpp: "FUN_nearestISO(@)",
     header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolGetxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: Dir;
-                   xx: var Dir): bool {.cdecl, importcpp: "FUN_tool_getxx(@)",
+proc fUN_toolGetxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; ngFi: DirObj;
+                   xx: var DirObj): bool {.cdecl, importcpp: "FUN_tool_getxx(@)",
                                     header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolGetxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; xx: var Dir): bool {.
+proc fUN_toolGetxx*(fi: TopoDS_Face; ei: TopoDS_Edge; parOnEi: cfloat; xx: var DirObj): bool {.
     cdecl, importcpp: "FUN_tool_getxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolGetdxx*(f: TopoDS_Face; e: TopoDS_Edge; parE: cfloat; xx: var Vec2d): bool {.
+proc fUN_toolGetdxx*(f: TopoDS_Face; e: TopoDS_Edge; parE: cfloat; xx: var Vec2dObj): bool {.
     cdecl, importcpp: "FUN_tool_getdxx(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolEitangenttoFe*(ngFe: Dir; ei: TopoDS_Edge; parOnEi: cfloat): bool {.cdecl,
+proc fUN_toolEitangenttoFe*(ngFe: DirObj; ei: TopoDS_Edge; parOnEi: cfloat): bool {.cdecl,
     importcpp: "FUN_tool_EitangenttoFe(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 ##  ----------------------------------------------------------------------
 ##  curve type,surface type :
@@ -152,18 +152,18 @@ proc fUN_toolParE*(e0: TopoDS_Edge; par0: cfloat; e: TopoDS_Edge; par: var cfloa
                                     header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolParE*(e0: TopoDS_Edge; par0: cfloat; e: TopoDS_Edge; par: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_parE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolParonEF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2d;
+proc fUN_toolParonEF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2dObj;
                      tol: cfloat): bool {.cdecl, importcpp: "FUN_tool_paronEF(@)",
                                        header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolParonEF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2d): bool {.
+proc fUN_toolParonEF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2dObj): bool {.
     cdecl, importcpp: "FUN_tool_paronEF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolParF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2d; tol: cfloat): bool {.
+proc fUN_toolParF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2dObj; tol: cfloat): bool {.
     cdecl, importcpp: "FUN_tool_parF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolParF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2d): bool {.
+proc fUN_toolParF*(e: TopoDS_Edge; par: cfloat; f: TopoDS_Face; uv: var Pnt2dObj): bool {.
     cdecl, importcpp: "FUN_tool_parF(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolDirC*(par: cfloat; bac: BRepAdaptorCurve): Dir {.cdecl,
+proc fUN_toolDirC*(par: cfloat; bac: BRepAdaptorCurve): DirObj {.cdecl,
     importcpp: "FUN_tool_dirC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolTggeomE*(paronE: cfloat; e: TopoDS_Edge): Vec {.cdecl,
+proc fUN_toolTggeomE*(paronE: cfloat; e: TopoDS_Edge): VecObj {.cdecl,
     importcpp: "FUN_tool_tggeomE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolLine*(bac: BRepAdaptorCurve): bool {.cdecl,
     importcpp: "FUN_tool_line(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
@@ -173,13 +173,13 @@ proc fUN_toolQuad*(bac: BRepAdaptorCurve): bool {.cdecl,
     importcpp: "FUN_tool_quad(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolQuad*(f: TopoDS_Face): bool {.cdecl, importcpp: "FUN_tool_quad(@)",
                                        header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolFindPinBAC*(bac: BRepAdaptorCurve; p: var Pnt; par: var cfloat): bool {.
+proc fUN_toolFindPinBAC*(bac: BRepAdaptorCurve; p: var PntObj; par: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_findPinBAC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolFindparinBAC*(bac: BRepAdaptorCurve; par: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_findparinBAC(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolFindparinE*(e: TopoDS_Shape; par: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_findparinE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
-proc fUN_toolFindPinE*(e: TopoDS_Shape; p: var Pnt; par: var cfloat): bool {.cdecl,
+proc fUN_toolFindPinE*(e: TopoDS_Shape; p: var PntObj; par: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_findPinE(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolMaxtol*(s: TopoDS_Shape; typ: TopAbsShapeEnum; tol: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_maxtol(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}

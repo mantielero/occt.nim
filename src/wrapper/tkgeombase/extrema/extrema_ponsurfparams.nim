@@ -24,7 +24,7 @@ type
 
 proc newExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.cdecl, constructor,
     importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
-proc newExtremaPOnSurfParams*(theU: cfloat; theV: cfloat; thePnt: Pnt): ExtremaPOnSurfParams {.
+proc newExtremaPOnSurfParams*(theU: cfloat; theV: cfloat; thePnt: PntObj): ExtremaPOnSurfParams {.
     cdecl, constructor, importcpp: "Extrema_POnSurfParams(@)", header: "Extrema_POnSurfParams.hxx".}
 proc setSqrDistance*(this: var ExtremaPOnSurfParams; theSqrDistance: cfloat) {.cdecl,
     importcpp: "SetSqrDistance", header: "Extrema_POnSurfParams.hxx".}

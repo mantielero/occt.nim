@@ -60,7 +60,7 @@ proc newPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
                                aPlane: Handle[GeomPlane]): PrsDimParallelRelation {.
     cdecl, constructor, importcpp: "PrsDim_ParallelRelation(@)", header: "PrsDim_ParallelRelation.hxx".}
 proc newPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
-                               aPlane: Handle[GeomPlane]; aPosition: Pnt;
+                               aPlane: Handle[GeomPlane]; aPosition: PntObj;
                                aSymbolPrs: DsgPrsArrowSide;
                                anArrowSize: cfloat = 0.01): PrsDimParallelRelation {.
     cdecl, constructor, importcpp: "PrsDim_ParallelRelation(@)", header: "PrsDim_ParallelRelation.hxx".}

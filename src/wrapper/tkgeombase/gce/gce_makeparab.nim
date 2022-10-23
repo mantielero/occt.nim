@@ -98,13 +98,13 @@ type
                                                                                               ## 0.0
 
 
-proc newGceMakeParab*(a2: Ax2; focal: cfloat): GceMakeParab {.cdecl, constructor,
+proc newGceMakeParab*(a2: Ax2Obj; focal: cfloat): GceMakeParab {.cdecl, constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc newGceMakeParab*(d: Ax1; f: Pnt): GceMakeParab {.cdecl, constructor,
+proc newGceMakeParab*(d: Ax1Obj; f: PntObj): GceMakeParab {.cdecl, constructor,
     importcpp: "gce_MakeParab(@)", header: "gce_MakeParab.hxx".}
-proc value*(this: GceMakeParab): Parab {.noSideEffect, cdecl, importcpp: "Value",
+proc value*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl, importcpp: "Value",
                                      header: "gce_MakeParab.hxx".}
-proc operator*(this: GceMakeParab): Parab {.noSideEffect, cdecl,
+proc operator*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeParab.hxx".}
-converter `parab`*(this: GceMakeParab): Parab {.noSideEffect, cdecl,
+converter `parab`*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeParab::operator gp_Parab", header: "gce_MakeParab.hxx".}

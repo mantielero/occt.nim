@@ -66,21 +66,21 @@ type
                                                                                     ## line.
 
 
-proc newGeomLine*(a1: Ax1): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
+proc newGeomLine*(a1: Ax1Obj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
                                    header: "Geom_Line.hxx".}
-proc newGeomLine*(L: Lin): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
+proc newGeomLine*(L: LinObj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",
                                   header: "Geom_Line.hxx".}
-proc newGeomLine*(p: Pnt; v: Dir): GeomLine {.cdecl, constructor,
+proc newGeomLine*(p: PntObj; v: DirObj): GeomLine {.cdecl, constructor,
                                         importcpp: "Geom_Line(@)", header: "Geom_Line.hxx".}
-proc setLin*(this: var GeomLine; L: Lin) {.cdecl, importcpp: "SetLin", header: "Geom_Line.hxx".}
-proc setDirection*(this: var GeomLine; v: Dir) {.cdecl, importcpp: "SetDirection",
+proc setLin*(this: var GeomLine; L: LinObj) {.cdecl, importcpp: "SetLin", header: "Geom_Line.hxx".}
+proc setDirection*(this: var GeomLine; v: DirObj) {.cdecl, importcpp: "SetDirection",
     header: "Geom_Line.hxx".}
-proc setLocation*(this: var GeomLine; p: Pnt) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var GeomLine; p: PntObj) {.cdecl, importcpp: "SetLocation",
     header: "Geom_Line.hxx".}
-proc setPosition*(this: var GeomLine; a1: Ax1) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var GeomLine; a1: Ax1Obj) {.cdecl, importcpp: "SetPosition",
     header: "Geom_Line.hxx".}
-proc lin*(this: GeomLine): Lin {.noSideEffect, cdecl, importcpp: "Lin", header: "Geom_Line.hxx".}
-proc position*(this: GeomLine): Ax1 {.noSideEffect, cdecl, importcpp: "Position",
+proc lin*(this: GeomLine): LinObj {.noSideEffect, cdecl, importcpp: "Lin", header: "Geom_Line.hxx".}
+proc position*(this: GeomLine): Ax1Obj {.noSideEffect, cdecl, importcpp: "Position",
                                   header: "Geom_Line.hxx".}
 proc reverse*(this: var GeomLine) {.cdecl, importcpp: "Reverse", header: "Geom_Line.hxx".}
 proc reversedParameter*(this: GeomLine; u: cfloat): cfloat {.noSideEffect, cdecl,
@@ -97,21 +97,21 @@ proc continuity*(this: GeomLine): GeomAbsShape {.noSideEffect, cdecl,
     importcpp: "Continuity", header: "Geom_Line.hxx".}
 proc isCN*(this: GeomLine; n: cint): bool {.noSideEffect, cdecl, importcpp: "IsCN",
                                       header: "Geom_Line.hxx".}
-proc d0*(this: GeomLine; u: cfloat; p: var Pnt) {.noSideEffect, cdecl, importcpp: "D0",
+proc d0*(this: GeomLine; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, importcpp: "D0",
     header: "Geom_Line.hxx".}
-proc d1*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "Geom_Line.hxx".}
-proc d2*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec) {.noSideEffect,
+proc d2*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D2", header: "Geom_Line.hxx".}
-proc d3*(this: GeomLine; u: cfloat; p: var Pnt; v1: var Vec; v2: var Vec; v3: var Vec) {.
+proc d3*(this: GeomLine; u: cfloat; p: var PntObj; v1: var VecObj; v2: var VecObj; v3: var VecObj) {.
     noSideEffect, cdecl, importcpp: "D3", header: "Geom_Line.hxx".}
-proc dn*(this: GeomLine; u: cfloat; n: cint): Vec {.noSideEffect, cdecl, importcpp: "DN",
+proc dn*(this: GeomLine; u: cfloat; n: cint): VecObj {.noSideEffect, cdecl, importcpp: "DN",
     header: "Geom_Line.hxx".}
-proc transform*(this: var GeomLine; t: Trsf) {.cdecl, importcpp: "Transform",
+proc transform*(this: var GeomLine; t: TrsfObj) {.cdecl, importcpp: "Transform",
     header: "Geom_Line.hxx".}
-proc transformedParameter*(this: GeomLine; u: cfloat; t: Trsf): cfloat {.noSideEffect,
+proc transformedParameter*(this: GeomLine; u: cfloat; t: TrsfObj): cfloat {.noSideEffect,
     cdecl, importcpp: "TransformedParameter", header: "Geom_Line.hxx".}
-proc parametricTransformation*(this: GeomLine; t: Trsf): cfloat {.noSideEffect, cdecl,
+proc parametricTransformation*(this: GeomLine; t: TrsfObj): cfloat {.noSideEffect, cdecl,
     importcpp: "ParametricTransformation", header: "Geom_Line.hxx".}
 proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Line.hxx".}

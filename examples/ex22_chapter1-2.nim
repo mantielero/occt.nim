@@ -11,13 +11,13 @@ proc main() =
   its orientation (lies on the xy plane, i.e. its normal is the z axis)
   its radius (2.5)
   ]# 
-  let centerPoint = newPnt(2.5, 2.5, 0)
-  let normalDirection = newDir(0,0,1)
-  let xDirection = newDir(1,0,0)
-  let axis = newAx2(centerPoint, normalDirection, xDirection)
+  let centerPoint = pnt(2.5, 2.5, 0)
+  let normalDirection = dir(0,0,1)
+  let xDirection = dir(1,0,0)
+  let axis = ax2(centerPoint, normalDirection, xDirection)
 
   # Creating the circle
-  let circle = newCirc(axis, 2.5)
+  let circle = circ(axis, 2.5)
 
   # Some convenience functions provided by the circle class
   echo "Circle area is: ", circle.area
@@ -62,8 +62,7 @@ proc main() =
   the tangent by 90 degrees clockwise  
   ]#
 
-when isMainModule:
-  main()
+main()
 
 
 

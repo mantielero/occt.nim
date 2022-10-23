@@ -24,25 +24,25 @@ proc fUN_toolGetindex*(ponc: ExtremaExtPC): cint {.cdecl,
     importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
 proc fUN_toolGetindex*(ponc: ExtremaExtPC2d): cint {.cdecl,
     importcpp: "FUN_tool_getindex(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC*(p: Pnt; tole: cfloat; bac: BRepAdaptorCurve; pmin: cfloat;
+proc fUN_toolProjPonC*(p: PntObj; tole: cfloat; bac: BRepAdaptorCurve; pmin: cfloat;
                       pmax: cfloat; param: var cfloat; dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; pmin: cfloat; pmax: cfloat;
+proc fUN_toolProjPonC*(p: PntObj; bac: BRepAdaptorCurve; pmin: cfloat; pmax: cfloat;
                       param: var cfloat; dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC*(p: Pnt; bac: BRepAdaptorCurve; param: var cfloat;
+proc fUN_toolProjPonC*(p: PntObj; bac: BRepAdaptorCurve; param: var cfloat;
                       dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC2D*(p: Pnt; tole: cfloat; bac2d: BRepAdaptorCurve2d; pmin: cfloat;
+proc fUN_toolProjPonC2D*(p: PntObj; tole: cfloat; bac2d: BRepAdaptorCurve2d; pmin: cfloat;
                         pmax: cfloat; param: var cfloat; dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; pmin: cfloat; pmax: cfloat;
+proc fUN_toolProjPonC2D*(p: PntObj; bac2d: BRepAdaptorCurve2d; pmin: cfloat; pmax: cfloat;
                         param: var cfloat; dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonC2D*(p: Pnt; bac2d: BRepAdaptorCurve2d; param: var cfloat;
+proc fUN_toolProjPonC2D*(p: PntObj; bac2d: BRepAdaptorCurve2d; param: var cfloat;
                         dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonC2D(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonS*(p: Pnt; s: Handle[GeomSurface]; uv: var Pnt2d; dist: var cfloat;
+proc fUN_toolProjPonS*(p: PntObj; s: Handle[GeomSurface]; uv: var Pnt2dObj; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
     importcpp: "FUN_tool_projPonS(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
@@ -50,14 +50,14 @@ proc fUN_toolProjPonS*(p: Pnt; s: Handle[GeomSurface]; uv: var Pnt2d; dist: var 
 ##   project point <P> on topologies (edge <E>,face <F>)
 ##  ----------------------------------------------------------------------
 
-proc fUN_toolProjPonE*(p: Pnt; tole: cfloat; e: TopoDS_Edge; param: var cfloat;
+proc fUN_toolProjPonE*(p: PntObj; tole: cfloat; e: TopoDS_Edge; param: var cfloat;
                       dist: var cfloat): bool {.cdecl,
     importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonE*(p: Pnt; e: TopoDS_Edge; param: var cfloat; dist: var cfloat): bool {.
+proc fUN_toolProjPonE*(p: PntObj; e: TopoDS_Edge; param: var cfloat; dist: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_projPonE(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonboundedF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var cfloat): bool {.
+proc fUN_toolProjPonboundedF*(p: PntObj; f: TopoDS_Face; uv: var Pnt2dObj; dist: var cfloat): bool {.
     cdecl, importcpp: "FUN_tool_projPonboundedF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}
-proc fUN_toolProjPonF*(p: Pnt; f: TopoDS_Face; uv: var Pnt2d; dist: var cfloat;
+proc fUN_toolProjPonF*(p: PntObj; f: TopoDS_Face; uv: var Pnt2dObj; dist: var cfloat;
                       anExtFlag: ExtremaExtFlag = extremaExtFlagMINMAX;
                       anExtAlgo: ExtremaExtAlgo = extremaExtAlgoGrad): bool {.cdecl,
     importcpp: "FUN_tool_projPonF(@)", header: "TopOpeBRepTool_PROJECT.hxx".}

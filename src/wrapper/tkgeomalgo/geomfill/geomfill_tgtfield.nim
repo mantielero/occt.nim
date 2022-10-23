@@ -32,9 +32,9 @@ proc isScalable*(this: GeomFillTgtField): bool {.noSideEffect, cdecl,
     importcpp: "IsScalable", header: "GeomFill_TgtField.hxx".}
 proc scale*(this: var GeomFillTgtField; `func`: Handle[LawBSpline]) {.cdecl,
     importcpp: "Scale", header: "GeomFill_TgtField.hxx".}
-proc value*(this: GeomFillTgtField; w: cfloat): Vec {.noSideEffect, cdecl,
+proc value*(this: GeomFillTgtField; w: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_TgtField.hxx".}
-proc d1*(this: GeomFillTgtField; w: cfloat): Vec {.noSideEffect, cdecl, importcpp: "D1",
+proc d1*(this: GeomFillTgtField; w: cfloat): VecObj {.noSideEffect, cdecl, importcpp: "D1",
     header: "GeomFill_TgtField.hxx".}
-proc d1*(this: GeomFillTgtField; w: cfloat; v: var Vec; dv: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillTgtField; w: cfloat; v: var VecObj; dv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtField.hxx".}

@@ -127,17 +127,17 @@ type
                                                                                    ## parallel.
 
 
-proc setAxis*(this: var GeomAxisPlacement; a1: Ax1) {.cdecl, importcpp: "SetAxis",
+proc setAxis*(this: var GeomAxisPlacement; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis",
     header: "Geom_AxisPlacement.hxx".}
-proc setDirection*(this: var GeomAxisPlacement; v: Dir) {.cdecl,
+proc setDirection*(this: var GeomAxisPlacement; v: DirObj) {.cdecl,
     importcpp: "SetDirection", header: "Geom_AxisPlacement.hxx".}
-proc setLocation*(this: var GeomAxisPlacement; p: Pnt) {.cdecl,
+proc setLocation*(this: var GeomAxisPlacement; p: PntObj) {.cdecl,
     importcpp: "SetLocation", header: "Geom_AxisPlacement.hxx".}
 proc angle*(this: GeomAxisPlacement; other: Handle[GeomAxisPlacement]): cfloat {.
     noSideEffect, cdecl, importcpp: "Angle", header: "Geom_AxisPlacement.hxx".}
-proc axis*(this: GeomAxisPlacement): Ax1 {.noSideEffect, cdecl, importcpp: "Axis",
+proc axis*(this: GeomAxisPlacement): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis",
                                        header: "Geom_AxisPlacement.hxx".}
-proc direction*(this: GeomAxisPlacement): Dir {.noSideEffect, cdecl,
+proc direction*(this: GeomAxisPlacement): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
-proc location*(this: GeomAxisPlacement): Pnt {.noSideEffect, cdecl,
+proc location*(this: GeomAxisPlacement): PntObj {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_AxisPlacement.hxx".}

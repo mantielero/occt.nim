@@ -16,7 +16,7 @@
 discard "forward decl of NCollection_BaseAllocator"
 type
   PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
-                     header: "Poly_CoherentNode.hxx", bycopy.} = object of Xyz ##  ---------- PUBLIC METHODS ----------
+                     header: "Poly_CoherentNode.hxx", bycopy.} = object of XyzObj ##  ---------- PUBLIC METHODS ----------
                                                                         ## *
                                                                         ##  Empty constructor.
                                                                         ##
@@ -26,7 +26,7 @@ type
 
 proc newPolyCoherentNode*(): PolyCoherentNode {.cdecl, constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
-proc newPolyCoherentNode*(thePnt: Xyz): PolyCoherentNode {.cdecl, constructor,
+proc newPolyCoherentNode*(thePnt: XyzObj): PolyCoherentNode {.cdecl, constructor,
     importcpp: "Poly_CoherentNode(@)", header: "Poly_CoherentNode.hxx".}
 proc setUV*(this: var PolyCoherentNode; theU: cfloat; theV: cfloat) {.cdecl,
     importcpp: "SetUV", header: "Poly_CoherentNode.hxx".}
@@ -34,11 +34,11 @@ proc getU*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "Ge
     header: "Poly_CoherentNode.hxx".}
 proc getV*(this: PolyCoherentNode): cfloat {.noSideEffect, cdecl, importcpp: "GetV",
     header: "Poly_CoherentNode.hxx".}
-proc setNormal*(this: var PolyCoherentNode; theVector: Xyz) {.cdecl,
+proc setNormal*(this: var PolyCoherentNode; theVector: XyzObj) {.cdecl,
     importcpp: "SetNormal", header: "Poly_CoherentNode.hxx".}
 proc hasNormal*(this: PolyCoherentNode): bool {.noSideEffect, cdecl,
     importcpp: "HasNormal", header: "Poly_CoherentNode.hxx".}
-proc getNormal*(this: PolyCoherentNode): Xyz {.noSideEffect, cdecl,
+proc getNormal*(this: PolyCoherentNode): XyzObj {.noSideEffect, cdecl,
     importcpp: "GetNormal", header: "Poly_CoherentNode.hxx".}
 proc setIndex*(this: var PolyCoherentNode; theIndex: cint) {.cdecl,
     importcpp: "SetIndex", header: "Poly_CoherentNode.hxx".}

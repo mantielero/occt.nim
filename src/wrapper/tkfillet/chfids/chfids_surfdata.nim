@@ -121,13 +121,13 @@ proc setSimul*(this: var ChFiDS_SurfData; s: Handle[StandardTransient]) {.cdecl,
     importcpp: "SetSimul", header: "ChFiDS_SurfData.hxx".}
 proc resetSimul*(this: var ChFiDS_SurfData) {.cdecl, importcpp: "ResetSimul",
     header: "ChFiDS_SurfData.hxx".}
-proc get2dPoints*(this: ChFiDS_SurfData; first: bool; onS: cint): Pnt2d {.noSideEffect,
+proc get2dPoints*(this: ChFiDS_SurfData; first: bool; onS: cint): Pnt2dObj {.noSideEffect,
     cdecl, importcpp: "Get2dPoints", header: "ChFiDS_SurfData.hxx".}
-proc get2dPoints*(this: ChFiDS_SurfData; p2df1: var Pnt2d; p2dl1: var Pnt2d;
-                 p2df2: var Pnt2d; p2dl2: var Pnt2d) {.noSideEffect, cdecl,
+proc get2dPoints*(this: ChFiDS_SurfData; p2df1: var Pnt2dObj; p2dl1: var Pnt2dObj;
+                 p2df2: var Pnt2dObj; p2dl2: var Pnt2dObj) {.noSideEffect, cdecl,
     importcpp: "Get2dPoints", header: "ChFiDS_SurfData.hxx".}
-proc set2dPoints*(this: var ChFiDS_SurfData; p2df1: Pnt2d; p2dl1: Pnt2d; p2df2: Pnt2d;
-                 p2dl2: Pnt2d) {.cdecl, importcpp: "Set2dPoints", header: "ChFiDS_SurfData.hxx".}
+proc set2dPoints*(this: var ChFiDS_SurfData; p2df1: Pnt2dObj; p2dl1: Pnt2dObj; p2df2: Pnt2dObj;
+                 p2dl2: Pnt2dObj) {.cdecl, importcpp: "Set2dPoints", header: "ChFiDS_SurfData.hxx".}
 proc twistOnS1*(this: ChFiDS_SurfData): bool {.noSideEffect, cdecl,
     importcpp: "TwistOnS1", header: "ChFiDS_SurfData.hxx".}
 proc twistOnS2*(this: ChFiDS_SurfData): bool {.noSideEffect, cdecl,

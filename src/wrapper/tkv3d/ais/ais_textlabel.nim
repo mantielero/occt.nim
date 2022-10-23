@@ -42,7 +42,7 @@ proc setMaterial*(this: var AIS_TextLabel; a2: Graphic3dMaterialAspect) {.cdecl,
     importcpp: "SetMaterial", header: "AIS_TextLabel.hxx".}
 proc setText*(this: var AIS_TextLabel; theText: TCollectionExtendedString) {.cdecl,
     importcpp: "SetText", header: "AIS_TextLabel.hxx".}
-proc setPosition*(this: var AIS_TextLabel; thePosition: Pnt) {.cdecl,
+proc setPosition*(this: var AIS_TextLabel; thePosition: PntObj) {.cdecl,
     importcpp: "SetPosition", header: "AIS_TextLabel.hxx".}
 proc setHJustification*(this: var AIS_TextLabel;
                        theHJust: Graphic3dHorizontalTextAlignment) {.cdecl,
@@ -60,11 +60,11 @@ proc setFontAspect*(this: var AIS_TextLabel; theFontAspect: FontFontAspect) {.cd
     importcpp: "SetFontAspect", header: "AIS_TextLabel.hxx".}
 proc setFont*(this: var AIS_TextLabel; theFont: cstring) {.cdecl, importcpp: "SetFont",
     header: "AIS_TextLabel.hxx".}
-proc setOrientation3D*(this: var AIS_TextLabel; theOrientation: Ax2) {.cdecl,
+proc setOrientation3D*(this: var AIS_TextLabel; theOrientation: Ax2Obj) {.cdecl,
     importcpp: "SetOrientation3D", header: "AIS_TextLabel.hxx".}
 proc unsetOrientation3D*(this: var AIS_TextLabel) {.cdecl,
     importcpp: "UnsetOrientation3D", header: "AIS_TextLabel.hxx".}
-proc position*(this: AIS_TextLabel): Pnt {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: AIS_TextLabel): PntObj {.noSideEffect, cdecl, importcpp: "Position",
                                        header: "AIS_TextLabel.hxx".}
 proc text*(this: AIS_TextLabel): TCollectionExtendedString {.noSideEffect, cdecl,
     importcpp: "Text", header: "AIS_TextLabel.hxx".}
@@ -72,7 +72,7 @@ proc fontName*(this: AIS_TextLabel): TCollectionAsciiString {.noSideEffect, cdec
     importcpp: "FontName", header: "AIS_TextLabel.hxx".}
 proc fontAspect*(this: AIS_TextLabel): FontFontAspect {.noSideEffect, cdecl,
     importcpp: "FontAspect", header: "AIS_TextLabel.hxx".}
-proc orientation3D*(this: AIS_TextLabel): Ax2 {.noSideEffect, cdecl,
+proc orientation3D*(this: AIS_TextLabel): Ax2Obj {.noSideEffect, cdecl,
     importcpp: "Orientation3D", header: "AIS_TextLabel.hxx".}
 proc hasOrientation3D*(this: AIS_TextLabel): bool {.noSideEffect, cdecl,
     importcpp: "HasOrientation3D", header: "AIS_TextLabel.hxx".}

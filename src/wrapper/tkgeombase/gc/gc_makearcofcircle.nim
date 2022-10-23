@@ -26,15 +26,15 @@ type
                                                                          ## radiians.
 
 
-proc arcCircle*(circ: Circ; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.
+proc arcCircle*(circ: CircObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(circ: Circ; p: Pnt; alpha: cfloat; sense: bool): MakeArcOfCircle {.
+proc arcCircle*(circ: CircObj; p: PntObj; alpha: cfloat; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(circ: Circ; p1: Pnt; p2: Pnt; sense: bool): MakeArcOfCircle {.
+proc arcCircle*(circ: CircObj; p1: PntObj; p2: PntObj; sense: bool): MakeArcOfCircle {.
     cdecl, constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(p1: Pnt; p2: Pnt; p3: Pnt): MakeArcOfCircle {.cdecl,
+proc arcCircle*(p1: PntObj; p2: PntObj; p3: PntObj): MakeArcOfCircle {.cdecl,
     constructor, importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
-proc arcCircle*(p1: Pnt; v: Vec; p2: Pnt): MakeArcOfCircle {.cdecl, constructor,
+proc arcCircle*(p1: PntObj; v: VecObj; p2: PntObj): MakeArcOfCircle {.cdecl, constructor,
     importcpp: "GC_MakeArcOfCircle(@)", header: "GC_MakeArcOfCircle.hxx".}
 proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeArcOfCircle.hxx".}

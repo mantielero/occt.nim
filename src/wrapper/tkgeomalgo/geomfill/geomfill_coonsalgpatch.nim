@@ -79,15 +79,15 @@ proc `func`*(this: GeomFillCoonsAlgPatch; f1: var Handle[LawFunction];
 proc setFunc*(this: var GeomFillCoonsAlgPatch; f1: Handle[LawFunction];
              f2: Handle[LawFunction]) {.cdecl, importcpp: "SetFunc",
                                       header: "GeomFill_CoonsAlgPatch.hxx".}
-proc value*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Pnt {.noSideEffect,
+proc value*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): PntObj {.noSideEffect,
     cdecl, importcpp: "Value", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc d1u*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
+proc d1u*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "D1U", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc d1v*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
+proc d1v*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "D1V", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc duv*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): Vec {.noSideEffect, cdecl,
+proc duv*(this: GeomFillCoonsAlgPatch; u: cfloat; v: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "DUV", header: "GeomFill_CoonsAlgPatch.hxx".}
-proc corner*(this: GeomFillCoonsAlgPatch; i: cint): Pnt {.noSideEffect, cdecl,
+proc corner*(this: GeomFillCoonsAlgPatch; i: cint): PntObj {.noSideEffect, cdecl,
     importcpp: "Corner", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc bound*(this: GeomFillCoonsAlgPatch; i: cint): Handle[GeomFillBoundary] {.
     noSideEffect, cdecl, importcpp: "Bound", header: "GeomFill_CoonsAlgPatch.hxx".}

@@ -23,7 +23,7 @@ type
                                                                                ## Empty
                                                                                ## constructor.
     entity* {.importc: "Entity".}: Handle[Select3D_SensitiveEntity] ## !< detected entity
-    point* {.importc: "Point".}: Pnt ## !< 3D point
+    point* {.importc: "Point".}: PntObj ## !< 3D point
     normal* {.importc: "Normal".}: Graphic3dVec3 ## !< surface normal or 0 vector if undefined
     depth* {.importc: "Depth".}: cfloat ## !< distance from the view plane to the entity
     minDist* {.importc: "MinDist".}: cfloat ## !< distance from the clicked point to the entity on the view plane

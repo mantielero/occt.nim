@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpArray1OfLin2d* = NCollectionArray1[Lin2d]
+  TColgpArray1OfLin2d* = NCollectionArray1[Lin2dObj]

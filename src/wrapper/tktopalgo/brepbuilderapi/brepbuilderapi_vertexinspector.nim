@@ -14,7 +14,7 @@
 ##  commercial license or contractual agreement.
 
 type
-  VectorOfPoint* = NCollectionVector[Xyz]
+  VectorOfPoint* = NCollectionVector[XyzObj]
 
 ## =======================================================================
 ## ! Class BRepBuilderAPI_VertexInspector
@@ -33,11 +33,11 @@ type
 proc vertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",
     header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: Xyz) {.cdecl,
+proc add*(this: var BRepBuilderAPI_VertexInspector; thePnt: XyzObj) {.cdecl,
     importcpp: "Add", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc clearResList*(this: var BRepBuilderAPI_VertexInspector) {.cdecl,
     importcpp: "ClearResList", header: "BRepBuilderAPI_VertexInspector.hxx".}
-proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: Xyz) {.cdecl,
+proc setCurrent*(this: var BRepBuilderAPI_VertexInspector; theCurPnt: XyzObj) {.cdecl,
     importcpp: "SetCurrent", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.cdecl,
     importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}

@@ -34,20 +34,20 @@ type
                      header: "GeomFill_Boundary.hxx", bycopy.} = object of StandardTransient
 
 
-proc value*(this: GeomFillBoundary; u: cfloat): Pnt {.noSideEffect, cdecl,
+proc value*(this: GeomFillBoundary; u: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "Value", header: "GeomFill_Boundary.hxx".}
-proc d1*(this: GeomFillBoundary; u: cfloat; p: var Pnt; v: var Vec) {.noSideEffect, cdecl,
+proc d1*(this: GeomFillBoundary; u: cfloat; p: var PntObj; v: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_Boundary.hxx".}
 proc hasNormals*(this: GeomFillBoundary): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "GeomFill_Boundary.hxx".}
-proc norm*(this: GeomFillBoundary; u: cfloat): Vec {.noSideEffect, cdecl,
+proc norm*(this: GeomFillBoundary; u: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "Norm", header: "GeomFill_Boundary.hxx".}
-proc d1Norm*(this: GeomFillBoundary; u: cfloat; n: var Vec; dn: var Vec) {.noSideEffect,
+proc d1Norm*(this: GeomFillBoundary; u: cfloat; n: var VecObj; dn: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1Norm", header: "GeomFill_Boundary.hxx".}
 proc reparametrize*(this: var GeomFillBoundary; first: cfloat; last: cfloat;
                    hasDF: bool; hasDL: bool; df: cfloat; dl: cfloat; rev: bool) {.cdecl,
     importcpp: "Reparametrize", header: "GeomFill_Boundary.hxx".}
-proc points*(this: GeomFillBoundary; pFirst: var Pnt; pLast: var Pnt) {.noSideEffect,
+proc points*(this: GeomFillBoundary; pFirst: var PntObj; pLast: var PntObj) {.noSideEffect,
     cdecl, importcpp: "Points", header: "GeomFill_Boundary.hxx".}
 proc bounds*(this: GeomFillBoundary; first: var cfloat; last: var cfloat) {.noSideEffect,
     cdecl, importcpp: "Bounds", header: "GeomFill_Boundary.hxx".}

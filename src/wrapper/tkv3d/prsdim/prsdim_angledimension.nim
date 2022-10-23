@@ -182,8 +182,8 @@ type
 
 proc newPrsDimAngleDimension*(theFirstEdge: TopoDS_Edge; theSecondEdge: TopoDS_Edge): PrsDimAngleDimension {.
     cdecl, constructor, importcpp: "PrsDim_AngleDimension(@)", header: "PrsDim_AngleDimension.hxx".}
-proc newPrsDimAngleDimension*(theFirstPoint: Pnt; theSecondPoint: Pnt;
-                             theThirdPoint: Pnt): PrsDimAngleDimension {.cdecl,
+proc newPrsDimAngleDimension*(theFirstPoint: PntObj; theSecondPoint: PntObj;
+                             theThirdPoint: PntObj): PrsDimAngleDimension {.cdecl,
     constructor, importcpp: "PrsDim_AngleDimension(@)", header: "PrsDim_AngleDimension.hxx".}
 proc newPrsDimAngleDimension*(theFirstVertex: TopoDS_Vertex;
                              theSecondVertex: TopoDS_Vertex;
@@ -194,13 +194,13 @@ proc newPrsDimAngleDimension*(theCone: TopoDS_Face): PrsDimAngleDimension {.cdec
 proc newPrsDimAngleDimension*(theFirstFace: TopoDS_Face; theSecondFace: TopoDS_Face): PrsDimAngleDimension {.
     cdecl, constructor, importcpp: "PrsDim_AngleDimension(@)", header: "PrsDim_AngleDimension.hxx".}
 proc newPrsDimAngleDimension*(theFirstFace: TopoDS_Face;
-                             theSecondFace: TopoDS_Face; thePoint: Pnt): PrsDimAngleDimension {.
+                             theSecondFace: TopoDS_Face; thePoint: PntObj): PrsDimAngleDimension {.
     cdecl, constructor, importcpp: "PrsDim_AngleDimension(@)", header: "PrsDim_AngleDimension.hxx".}
-proc firstPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect, cdecl,
+proc firstPoint*(this: PrsDimAngleDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "FirstPoint", header: "PrsDim_AngleDimension.hxx".}
-proc secondPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect, cdecl,
+proc secondPoint*(this: PrsDimAngleDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "SecondPoint", header: "PrsDim_AngleDimension.hxx".}
-proc centerPoint*(this: PrsDimAngleDimension): Pnt {.noSideEffect, cdecl,
+proc centerPoint*(this: PrsDimAngleDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "CenterPoint", header: "PrsDim_AngleDimension.hxx".}
 proc firstShape*(this: PrsDimAngleDimension): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "FirstShape", header: "PrsDim_AngleDimension.hxx".}
@@ -211,8 +211,8 @@ proc thirdShape*(this: PrsDimAngleDimension): TopoDS_Shape {.noSideEffect, cdecl
 proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstEdge: TopoDS_Edge;
                          theSecondEdge: TopoDS_Edge) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
-proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstPoint: Pnt;
-                         theSecondPoint: Pnt; theThridPoint: Pnt) {.cdecl,
+proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstPoint: PntObj;
+                         theSecondPoint: PntObj; theThridPoint: PntObj) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimAngleDimension;
                          theFirstVertex: TopoDS_Vertex;
@@ -225,7 +225,7 @@ proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstFace: TopoDS_F
                          theSecondFace: TopoDS_Face) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
 proc setMeasuredGeometry*(this: var PrsDimAngleDimension; theFirstFace: TopoDS_Face;
-                         theSecondFace: TopoDS_Face; thePoint: Pnt) {.cdecl,
+                         theSecondFace: TopoDS_Face; thePoint: PntObj) {.cdecl,
     importcpp: "SetMeasuredGeometry", header: "PrsDim_AngleDimension.hxx".}
 proc getDisplayUnits*(this: PrsDimAngleDimension): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "GetDisplayUnits", header: "PrsDim_AngleDimension.hxx".}
@@ -236,9 +236,9 @@ proc setDisplayUnits*(this: var PrsDimAngleDimension;
     importcpp: "SetDisplayUnits", header: "PrsDim_AngleDimension.hxx".}
 proc setModelUnits*(this: var PrsDimAngleDimension; theUnits: TCollectionAsciiString) {.
     cdecl, importcpp: "SetModelUnits", header: "PrsDim_AngleDimension.hxx".}
-proc setTextPosition*(this: var PrsDimAngleDimension; theTextPos: Pnt) {.cdecl,
+proc setTextPosition*(this: var PrsDimAngleDimension; theTextPos: PntObj) {.cdecl,
     importcpp: "SetTextPosition", header: "PrsDim_AngleDimension.hxx".}
-proc getTextPosition*(this: PrsDimAngleDimension): Pnt {.noSideEffect, cdecl,
+proc getTextPosition*(this: PrsDimAngleDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_AngleDimension.hxx".}
 proc setType*(this: var PrsDimAngleDimension; theType: PrsDimTypeOfAngle) {.cdecl,
     importcpp: "SetType", header: "PrsDim_AngleDimension.hxx".}

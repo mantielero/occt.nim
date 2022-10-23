@@ -29,19 +29,19 @@ proc initialized*(this: GeomFillQuasiAngularConvertor): bool {.noSideEffect, cde
     importcpp: "Initialized", header: "GeomFill_QuasiAngularConvertor.hxx".}
 proc init*(this: var GeomFillQuasiAngularConvertor) {.cdecl, importcpp: "Init",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; center: Pnt;
-             dir: Vec; angle: cfloat; poles: var TColgpArray1OfPnt;
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: PntObj; center: PntObj;
+             dir: VecObj; angle: cfloat; poles: var TColgpArray1OfPnt;
              weights: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
-             center: Pnt; dCenter: Vec; dir: Vec; dDir: Vec; angle: cfloat;
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: PntObj; dFirstPnt: VecObj;
+             center: PntObj; dCenter: VecObj; dir: VecObj; dDir: VecObj; angle: cfloat;
              dAngle: cfloat; poles: var TColgpArray1OfPnt;
              dPoles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "GeomFill_QuasiAngularConvertor.hxx".}
-proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: Pnt; dFirstPnt: Vec;
-             d2FirstPnt: Vec; center: Pnt; dCenter: Vec; d2Center: Vec; dir: Vec;
-             dDir: Vec; d2Dir: Vec; angle: cfloat; dAngle: cfloat; d2Angle: cfloat;
+proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: PntObj; dFirstPnt: VecObj;
+             d2FirstPnt: VecObj; center: PntObj; dCenter: VecObj; d2Center: VecObj; dir: VecObj;
+             dDir: VecObj; d2Dir: VecObj; angle: cfloat; dAngle: cfloat; d2Angle: cfloat;
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.

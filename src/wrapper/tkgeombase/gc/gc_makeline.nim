@@ -48,16 +48,16 @@ type
                                                                                    ## line.
 
 
-proc line*(a1: Ax1): MakeLine {.cdecl, constructor,
+proc line*(a1: Ax1Obj): MakeLine {.cdecl, constructor,
                                    importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc line*(L: Lin): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
+proc line*(L: LinObj): MakeLine {.cdecl, constructor, importcpp: "GC_MakeLine(@)",
                                   header: "GC_MakeLine.hxx".}
-proc line*(p: Pnt; v: Dir): MakeLine {.cdecl, constructor,
+proc line*(p: PntObj; v: DirObj): MakeLine {.cdecl, constructor,
                                         importcpp: "GC_MakeLine(@)",
                                         header: "GC_MakeLine.hxx".}
-proc line*(lin: Lin; point: Pnt): MakeLine {.cdecl, constructor,
+proc line*(lin: LinObj; point: PntObj): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
-proc line*(p1: Pnt; p2: Pnt): MakeLine {.cdecl, constructor,
+proc line*(p1: PntObj; p2: PntObj): MakeLine {.cdecl, constructor,
     importcpp: "GC_MakeLine(@)", header: "GC_MakeLine.hxx".}
 proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeLine.hxx".}

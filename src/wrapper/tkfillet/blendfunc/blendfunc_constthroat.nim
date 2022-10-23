@@ -37,22 +37,22 @@ proc set*(this: var BlendFuncConstThroat; param: cfloat) {.cdecl, importcpp: "Se
     header: "BlendFunc_ConstThroat.hxx".}
 proc isSolution*(this: var BlendFuncConstThroat; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS1*(this: BlendFuncConstThroat): Pnt {.noSideEffect, cdecl,
+proc pointOnS1*(this: BlendFuncConstThroat): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc pointOnS2*(this: BlendFuncConstThroat): Pnt {.noSideEffect, cdecl,
+proc pointOnS2*(this: BlendFuncConstThroat): PntObj {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc isTangencyPoint*(this: BlendFuncConstThroat): bool {.noSideEffect, cdecl,
     importcpp: "IsTangencyPoint", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS1*(this: BlendFuncConstThroat): Vec {.noSideEffect, cdecl,
+proc tangentOnS1*(this: BlendFuncConstThroat): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent2dOnS1*(this: BlendFuncConstThroat): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS1*(this: BlendFuncConstThroat): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS1", header: "BlendFunc_ConstThroat.hxx".}
-proc tangentOnS2*(this: BlendFuncConstThroat): Vec {.noSideEffect, cdecl,
+proc tangentOnS2*(this: BlendFuncConstThroat): VecObj {.noSideEffect, cdecl,
     importcpp: "TangentOnS2", header: "BlendFunc_ConstThroat.hxx".}
-proc tangent2dOnS2*(this: BlendFuncConstThroat): Vec2d {.noSideEffect, cdecl,
+proc tangent2dOnS2*(this: BlendFuncConstThroat): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroat.hxx".}
 proc tangent*(this: BlendFuncConstThroat; u1: cfloat; v1: cfloat; u2: cfloat; v2: cfloat;
-             tgFirst: var Vec; tgLast: var Vec; normFirst: var Vec; normLast: var Vec) {.
+             tgFirst: var VecObj; tgLast: var VecObj; normFirst: var VecObj; normLast: var VecObj) {.
     noSideEffect, cdecl, importcpp: "Tangent", header: "BlendFunc_ConstThroat.hxx".}
 proc set*(this: var BlendFuncConstThroat; aThroat: cfloat; a3: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ConstThroat.hxx".}

@@ -15,4 +15,4 @@
 ##  commercial license or contractual agreement.
 
 type
-  TColgpArray2OfPnt* = NCollectionArray2[Pnt]
+  TColgpArray2OfPnt* = NCollectionArray2[PntObj]

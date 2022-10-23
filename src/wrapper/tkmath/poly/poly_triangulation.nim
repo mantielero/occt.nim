@@ -137,17 +137,17 @@ proc nodes*(this: PolyTriangulation): TColgpArray1OfPnt {.noSideEffect, cdecl,
     importcpp: "Nodes", header: "Poly_Triangulation.hxx".}
 proc changeNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt {.cdecl,
     importcpp: "ChangeNodes", header: "Poly_Triangulation.hxx".}
-proc node*(this: PolyTriangulation; theIndex: cint): Pnt {.noSideEffect, cdecl,
+proc node*(this: PolyTriangulation; theIndex: cint): PntObj {.noSideEffect, cdecl,
     importcpp: "Node", header: "Poly_Triangulation.hxx".}
-proc changeNode*(this: var PolyTriangulation; theIndex: cint): var Pnt {.cdecl,
+proc changeNode*(this: var PolyTriangulation; theIndex: cint): var PntObj {.cdecl,
     importcpp: "ChangeNode", header: "Poly_Triangulation.hxx".}
 proc uVNodes*(this: PolyTriangulation): TColgpArray1OfPnt2d {.noSideEffect, cdecl,
     importcpp: "UVNodes", header: "Poly_Triangulation.hxx".}
 proc changeUVNodes*(this: var PolyTriangulation): var TColgpArray1OfPnt2d {.cdecl,
     importcpp: "ChangeUVNodes", header: "Poly_Triangulation.hxx".}
-proc uVNode*(this: PolyTriangulation; theIndex: cint): Pnt2d {.noSideEffect, cdecl,
+proc uVNode*(this: PolyTriangulation; theIndex: cint): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "UVNode", header: "Poly_Triangulation.hxx".}
-proc changeUVNode*(this: var PolyTriangulation; theIndex: cint): var Pnt2d {.cdecl,
+proc changeUVNode*(this: var PolyTriangulation; theIndex: cint): var Pnt2dObj {.cdecl,
     importcpp: "ChangeUVNode", header: "Poly_Triangulation.hxx".}
 proc triangles*(this: PolyTriangulation): PolyArray1OfTriangle {.noSideEffect, cdecl,
     importcpp: "Triangles", header: "Poly_Triangulation.hxx".}
@@ -166,9 +166,9 @@ proc changeNormals*(this: var PolyTriangulation): var TShortArray1OfShortReal {.
     importcpp: "ChangeNormals", header: "Poly_Triangulation.hxx".}
 proc hasNormals*(this: PolyTriangulation): bool {.noSideEffect, cdecl,
     importcpp: "HasNormals", header: "Poly_Triangulation.hxx".}
-proc normal*(this: PolyTriangulation; theIndex: cint): Dir {.noSideEffect, cdecl,
+proc normal*(this: PolyTriangulation; theIndex: cint): DirObj {.noSideEffect, cdecl,
     importcpp: "Normal", header: "Poly_Triangulation.hxx".}
-proc setNormal*(this: var PolyTriangulation; theIndex: cint; theNormal: Dir) {.cdecl,
+proc setNormal*(this: var PolyTriangulation; theIndex: cint; theNormal: DirObj) {.cdecl,
     importcpp: "SetNormal", header: "Poly_Triangulation.hxx".}
 proc dumpJson*(this: PolyTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",

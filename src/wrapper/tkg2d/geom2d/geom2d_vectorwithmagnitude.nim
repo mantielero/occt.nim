@@ -39,15 +39,15 @@ type
                                                                                                    ## V.
 
 
-proc newGeom2dVectorWithMagnitude*(v: Vec2d): Geom2dVectorWithMagnitude {.cdecl,
+proc newGeom2dVectorWithMagnitude*(v: Vec2dObj): Geom2dVectorWithMagnitude {.cdecl,
     constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc newGeom2dVectorWithMagnitude*(x: cfloat; y: cfloat): Geom2dVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc newGeom2dVectorWithMagnitude*(p1: Pnt2d; p2: Pnt2d): Geom2dVectorWithMagnitude {.
+proc newGeom2dVectorWithMagnitude*(p1: Pnt2dObj; p2: Pnt2dObj): Geom2dVectorWithMagnitude {.
     cdecl, constructor, importcpp: "Geom2d_VectorWithMagnitude(@)", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc setCoord*(this: var Geom2dVectorWithMagnitude; x: cfloat; y: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom2d_VectorWithMagnitude.hxx".}
-proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: Vec2d) {.cdecl,
+proc setVec2d*(this: var Geom2dVectorWithMagnitude; v: Vec2dObj) {.cdecl,
     importcpp: "SetVec2d", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc setX*(this: var Geom2dVectorWithMagnitude; x: cfloat) {.cdecl, importcpp: "SetX",
     header: "Geom2d_VectorWithMagnitude.hxx".}
@@ -102,7 +102,7 @@ proc subtracted*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): 
 proc `-`*(this: Geom2dVectorWithMagnitude; other: Handle[Geom2dVector]): Handle[
     Geom2dVectorWithMagnitude] {.noSideEffect, cdecl, importcpp: "(# - #)",
                                 header: "Geom2d_VectorWithMagnitude.hxx".}
-proc transform*(this: var Geom2dVectorWithMagnitude; t: Trsf2d) {.cdecl,
+proc transform*(this: var Geom2dVectorWithMagnitude; t: Trsf2dObj) {.cdecl,
     importcpp: "Transform", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc copy*(this: Geom2dVectorWithMagnitude): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}

@@ -11,11 +11,13 @@ else:
   const tkernel* = "libTKernel.so" 
 
 """ ]#
+
 proc genFiles*( infile:string;
                remove:seq[tuple[a,b:int]] = @[]; 
                addSemiColon:seq[int] = @[];
                replaceAll:seq[tuple[sub,by:string]] = @[];
                removeFuncBody:seq[tuple[a,b:int]] = @[]) =
+    ## creates a binding file for each header
     var (dir, name, ext) = splitFile(infile)
     if dir == "":
       dir = lib

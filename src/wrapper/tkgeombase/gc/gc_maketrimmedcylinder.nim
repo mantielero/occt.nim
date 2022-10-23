@@ -61,11 +61,11 @@ type
                                                                                  ## P2.
 
 
-proc trimmedCylinder*(p1: Pnt; p2: Pnt; p3: Pnt): MakeTrimmedCylinder {.cdecl,
+proc trimmedCylinder*(p1: PntObj; p2: PntObj; p3: PntObj): MakeTrimmedCylinder {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc trimmedCylinder*(circ: Circ; height: cfloat): MakeTrimmedCylinder {.cdecl,
+proc trimmedCylinder*(circ: CircObj; height: cfloat): MakeTrimmedCylinder {.cdecl,
     constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
-proc trimmedCylinder*(a1: Ax1; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
+proc trimmedCylinder*(a1: Ax1Obj; radius: cfloat; height: cfloat): MakeTrimmedCylinder {.
     cdecl, constructor, importcpp: "GC_MakeTrimmedCylinder(@)", header: "GC_MakeTrimmedCylinder.hxx".}
 proc value*(this: MakeTrimmedCylinder): Handle[GeomRectangularTrimmedSurface] {.
     noSideEffect, cdecl, importcpp: "Value", header: "GC_MakeTrimmedCylinder.hxx".}

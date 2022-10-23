@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -18,59 +20,56 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Vec"
-type
-  Parab* {.importcpp: "gp_Parab", header: "gp_Parab.hxx", bycopy.} = object ## ! Creates an indefinite Parabola.
 
-
-proc newParab*(): Parab {.cdecl, constructor, importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
-proc newParab*(a2: Ax2; focal: cfloat): Parab {.cdecl, constructor,
+proc parab*(): ParabObj {.cdecl, constructor, importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
+proc parab*(a2: Ax2Obj; focal: cfloat): ParabObj {.cdecl, constructor,
     importcpp: "gp_Parab(@)", header: "gp_Parab.hxx".}
-proc newParab*(d: Ax1; f: Pnt): Parab {.cdecl, constructor, importcpp: "gp_Parab(@)",
+proc parab*(d: Ax1Obj; f: PntObj): ParabObj {.cdecl, constructor, importcpp: "gp_Parab(@)",
                                   header: "gp_Parab.hxx".}
-proc setAxis*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "SetAxis", header: "gp_Parab.hxx".}
-proc setFocal*(this: var Parab; focal: cfloat) {.cdecl, importcpp: "SetFocal",
+proc setAxis*(this: var ParabObj; a1: Ax1Obj) {.cdecl, importcpp: "SetAxis", header: "gp_Parab.hxx".}
+proc setFocal*(this: var ParabObj; focal: cfloat) {.cdecl, importcpp: "SetFocal",
     header: "gp_Parab.hxx".}
-proc setLocation*(this: var Parab; p: Pnt) {.cdecl, importcpp: "SetLocation",
+proc setLocation*(this: var ParabObj; p: PntObj) {.cdecl, importcpp: "SetLocation",
                                        header: "gp_Parab.hxx".}
-proc setPosition*(this: var Parab; a2: Ax2) {.cdecl, importcpp: "SetPosition",
+proc setPosition*(this: var ParabObj; a2: Ax2Obj) {.cdecl, importcpp: "SetPosition",
                                         header: "gp_Parab.hxx".}
-proc axis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Parab.hxx".}
-proc directrix*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "Directrix",
+proc axis*(this: ParabObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Axis", header: "gp_Parab.hxx".}
+proc directrix*(this: ParabObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "Directrix",
                                 header: "gp_Parab.hxx".}
-proc focal*(this: Parab): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
+proc focal*(this: ParabObj): cfloat {.noSideEffect, cdecl, importcpp: "Focal",
                                header: "gp_Parab.hxx".}
-proc focus*(this: Parab): Pnt {.noSideEffect, cdecl, importcpp: "Focus", header: "gp_Parab.hxx".}
-proc location*(this: Parab): Pnt {.noSideEffect, cdecl, importcpp: "Location",
+proc focus*(this: ParabObj): PntObj {.noSideEffect, cdecl, importcpp: "Focus", header: "gp_Parab.hxx".}
+proc location*(this: ParabObj): PntObj {.noSideEffect, cdecl, importcpp: "Location",
                                header: "gp_Parab.hxx".}
-proc parameter*(this: Parab): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
+proc parameter*(this: ParabObj): cfloat {.noSideEffect, cdecl, importcpp: "Parameter",
                                    header: "gp_Parab.hxx".}
-proc position*(this: Parab): Ax2 {.noSideEffect, cdecl, importcpp: "Position",
+proc position*(this: ParabObj): Ax2Obj {.noSideEffect, cdecl, importcpp: "Position",
                                header: "gp_Parab.hxx".}
-proc xAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Parab.hxx".}
-proc yAxis*(this: Parab): Ax1 {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Parab.hxx".}
-proc mirror*(this: var Parab; p: Pnt) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
-proc mirrored*(this: Parab; p: Pnt): Parab {.noSideEffect, cdecl, importcpp: "Mirrored",
+proc xAxis*(this: ParabObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "XAxis", header: "gp_Parab.hxx".}
+proc yAxis*(this: ParabObj): Ax1Obj {.noSideEffect, cdecl, importcpp: "YAxis", header: "gp_Parab.hxx".}
+proc mirror*(this: var ParabObj; p: PntObj) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: ParabObj; p: PntObj): ParabObj {.noSideEffect, cdecl, importcpp: "Mirrored",
                                        header: "gp_Parab.hxx".}
-proc mirror*(this: var Parab; a1: Ax1) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
-proc mirrored*(this: Parab; a1: Ax1): Parab {.noSideEffect, cdecl,
+proc mirror*(this: var ParabObj; a1: Ax1Obj) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: ParabObj; a1: Ax1Obj): ParabObj {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Parab.hxx".}
-proc mirror*(this: var Parab; a2: Ax2) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
-proc mirrored*(this: Parab; a2: Ax2): Parab {.noSideEffect, cdecl,
+proc mirror*(this: var ParabObj; a2: Ax2Obj) {.cdecl, importcpp: "Mirror", header: "gp_Parab.hxx".}
+proc mirrored*(this: ParabObj; a2: Ax2Obj): ParabObj {.noSideEffect, cdecl,
                                         importcpp: "Mirrored", header: "gp_Parab.hxx".}
-proc rotate*(this: var Parab; a1: Ax1; ang: cfloat) {.cdecl, importcpp: "Rotate",
+proc rotate*(this: var ParabObj; a1: Ax1Obj; ang: cfloat) {.cdecl, importcpp: "Rotate",
     header: "gp_Parab.hxx".}
-proc rotated*(this: Parab; a1: Ax1; ang: cfloat): Parab {.noSideEffect, cdecl,
+proc rotated*(this: ParabObj; a1: Ax1Obj; ang: cfloat): ParabObj {.noSideEffect, cdecl,
     importcpp: "Rotated", header: "gp_Parab.hxx".}
-proc scale*(this: var Parab; p: Pnt; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Parab.hxx".}
-proc scaled*(this: Parab; p: Pnt; s: cfloat): Parab {.noSideEffect, cdecl,
+proc scale*(this: var ParabObj; p: PntObj; s: cfloat) {.cdecl, importcpp: "Scale", header: "gp_Parab.hxx".}
+proc scaled*(this: ParabObj; p: PntObj; s: cfloat): ParabObj {.noSideEffect, cdecl,
     importcpp: "Scaled", header: "gp_Parab.hxx".}
-proc transform*(this: var Parab; t: Trsf) {.cdecl, importcpp: "Transform", header: "gp_Parab.hxx".}
-proc transformed*(this: Parab; t: Trsf): Parab {.noSideEffect, cdecl,
+proc transform*(this: var ParabObj; t: TrsfObj) {.cdecl, importcpp: "Transform", header: "gp_Parab.hxx".}
+proc transformed*(this: ParabObj; t: TrsfObj): ParabObj {.noSideEffect, cdecl,
     importcpp: "Transformed", header: "gp_Parab.hxx".}
-proc translate*(this: var Parab; v: Vec) {.cdecl, importcpp: "Translate", header: "gp_Parab.hxx".}
-proc translated*(this: Parab; v: Vec): Parab {.noSideEffect, cdecl,
+proc translate*(this: var ParabObj; v: VecObj) {.cdecl, importcpp: "Translate", header: "gp_Parab.hxx".}
+proc translated*(this: ParabObj; v: VecObj): ParabObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Parab.hxx".}
-proc translate*(this: var Parab; p1: Pnt; p2: Pnt) {.cdecl, importcpp: "Translate",
+proc translate*(this: var ParabObj; p1: PntObj; p2: PntObj) {.cdecl, importcpp: "Translate",
     header: "gp_Parab.hxx".}
-proc translated*(this: Parab; p1: Pnt; p2: Pnt): Parab {.noSideEffect, cdecl,
+proc translated*(this: ParabObj; p1: PntObj; p2: PntObj): ParabObj {.noSideEffect, cdecl,
     importcpp: "Translated", header: "gp_Parab.hxx".}

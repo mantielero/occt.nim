@@ -63,22 +63,22 @@ proc isVPeriodic*(s: Handle[Adaptor3dHSurface]): bool {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::IsVPeriodic(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc vPeriod*(s: Handle[Adaptor3dHSurface]): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::VPeriod(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): Pnt {.cdecl,
+proc value*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat): PntObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Value(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt) {.cdecl,
+proc d0*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D0(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec) {.cdecl, importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
+proc d1*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj) {.cdecl, importcpp: "Adaptor3d_HSurfaceTool::D1(@)",
                      header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec) {.cdecl,
+proc d2*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj) {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::D2(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var Pnt; d1u: var Vec;
-        d1v: var Vec; d2u: var Vec; d2v: var Vec; d2uv: var Vec; d3u: var Vec; d3v: var Vec;
-        d3uuv: var Vec; d3uvv: var Vec) {.cdecl,
+proc d3*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; p: var PntObj; d1u: var VecObj;
+        d1v: var VecObj; d2u: var VecObj; d2v: var VecObj; d2uv: var VecObj; d3u: var VecObj; d3v: var VecObj;
+        d3uuv: var VecObj; d3uvv: var VecObj) {.cdecl,
                                     importcpp: "Adaptor3d_HSurfaceTool::D3(@)",
                                     header: "Adaptor3d_HSurfaceTool.hxx".}
-proc dn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; nu: cint; nv: cint): Vec {.
+proc dn*(s: Handle[Adaptor3dHSurface]; u: cfloat; v: cfloat; nu: cint; nv: cint): VecObj {.
     cdecl, importcpp: "Adaptor3d_HSurfaceTool::DN(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc uResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::UResolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
@@ -86,23 +86,23 @@ proc vResolution*(s: Handle[Adaptor3dHSurface]; r3d: cfloat): cfloat {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::VResolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc getType*(s: Handle[Adaptor3dHSurface]): GeomAbsSurfaceType {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::GetType(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc plane*(s: Handle[Adaptor3dHSurface]): Pln {.cdecl,
+proc plane*(s: Handle[Adaptor3dHSurface]): PlnObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Plane(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc cylinder*(s: Handle[Adaptor3dHSurface]): Cylinder {.cdecl,
+proc cylinder*(s: Handle[Adaptor3dHSurface]): CylinderObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Cylinder(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc cone*(s: Handle[Adaptor3dHSurface]): Cone {.cdecl,
+proc cone*(s: Handle[Adaptor3dHSurface]): ConeObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Cone(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc torus*(s: Handle[Adaptor3dHSurface]): Torus {.cdecl,
+proc torus*(s: Handle[Adaptor3dHSurface]): TorusObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Torus(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc sphere*(s: Handle[Adaptor3dHSurface]): Sphere {.cdecl,
+proc sphere*(s: Handle[Adaptor3dHSurface]): SphereObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Sphere(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc bezier*(s: Handle[Adaptor3dHSurface]): Handle[GeomBezierSurface] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Bezier(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc bSpline*(s: Handle[Adaptor3dHSurface]): Handle[GeomBSplineSurface] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::BSpline(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc axeOfRevolution*(s: Handle[Adaptor3dHSurface]): Ax1 {.cdecl,
+proc axeOfRevolution*(s: Handle[Adaptor3dHSurface]): Ax1Obj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::AxeOfRevolution(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
-proc direction*(s: Handle[Adaptor3dHSurface]): Dir {.cdecl,
+proc direction*(s: Handle[Adaptor3dHSurface]): DirObj {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::Direction(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc basisCurve*(s: Handle[Adaptor3dHSurface]): Handle[Adaptor3dHCurve] {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::BasisCurve(@)", header: "Adaptor3d_HSurfaceTool.hxx".}

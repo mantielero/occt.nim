@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat, sequtils, parseutils]
+import std/[os, strutils, strformat, sequtils, parseutils, tables]
 import system/io
 # Once we have the headers, we will modify them
 
@@ -35,10 +35,11 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
   var lines = txt.splitLines()
   for line in lines:
     if line.strip == "":  # Línea vacía
-      newFile &= line
+      newFile &= line & "\n"
     else:
+      currentIndent = line.skipWhile({' '}) #line.countPrefixSpaces
       # Stop being a `type`
-      if currentIndent <= indent:# and line.strip != "type":
+      if currentIndent <= indent and line.strip[0] != '#':
       #if line.len > currentIndent:
         isType = false
         if typ.txt != @[]:
@@ -47,18 +48,20 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
         typ.push = @[]
 
       # Let's start      
-      currentIndent = line.skipWhile({' '}) #line.countPrefixSpaces
+
       if line.strip.startsWith("{.push"):
         push &= line
       if line.strip.startsWith("{.pop"):
         push.delete(push.high)
       #echo push    
 
-      # Añadimos el módulo type
-      if line.strip == "type":
+      # Let's check if we are within a type block
+      if line == "type": # We only consider `type` in first column
         isType = true
         indent = currentIndent 
         typ.push = push
+
+      # We handle the information depending on if we are within a type block or not.
       if isType:
         typ.txt &= line
       else:
@@ -185,6 +188,169 @@ proc convertIncludesToImports*() = #replaceProcs:seq[tuple[a,b:string]]) =
 # 5. Convert discarded lines into something useful
 # ------------------------------------------------
 
+
+#
+# 7. Reorder *_types.nim content
+#
+type
+  TypOb = object
+    lines:seq[string]
+    name:string
+    depend:string
+
+
+proc reorderContent(fname:string) =
+  var typs:seq[TypOb]
+  var txt = fname.readFile()
+  var lines = txt.splitLines()
+  var lineNumbers:seq[int]
+
+  for i in 0..lines.high:
+    var line = lines[i]
+    if line == "type":
+      lineNumbers &= i
+
+  # Split each type
+  var pairs:seq[tuple[a,b:int]]
+  for i in 0..lineNumbers.high-1:  
+    pairs &= (lineNumbers[i], (lineNumbers[i+1] - 1))    
+    #for n in lineNumbers[i] .. (lineNumbers[i+1] - 1):
+  pairs &= (pairs[pairs.high].b, lines.high)
+
+  #for i in 0..lineNumbers.high-1:
+  for (a,b) in pairs:
+    var tmp:TypOb
+    #for n in lineNumbers[i] .. (lineNumbers[i+1] - 1):
+    for n in a .. b:
+      var line = lines[n]
+      tmp.lines &= lines[n]
+      # Get type name
+      var ident = line.skipWhile({' '})
+      if ident == 2:
+        var typName:string
+        discard line.parseUntil(typName, '*')
+        typName = typName.strip
+        tmp.name = typName
+
+      # Get dependency
+      if line.contains("= object of "):
+        var items = line.split("= object of ")
+        var depend = items[1].split()[0]
+        if depend.contains('['):
+          depend = depend.split('[')[0]
+        tmp.depend = depend
+    typs &= tmp
+
+  # Reorder
+  var neworder:seq[int]
+  # 1. We include those that don't depend on anything
+  var items:seq[int] #= toSeq(0..typs.high)
+  for i in 0..typs.high:
+    if typs[i].depend == "" or typs[i].depend == "RootObj":
+      neworder &= i
+    else:
+      items &= i
+
+  var nItems = typs.len
+  while items.len > 0:
+    var remove:seq[int]
+    for i in items:
+      var depend = typs[i].depend
+      for n in neworder:
+        if typs[n].name == depend:
+          remove &= i
+          break
+    for i in remove:
+      items.delete(items.find(i))
+      neworder &= i
+    if items.len == nItems:
+      break
+    else:
+      nItems = items.len
+
+  # Create needed imports
+  var depends:seq[string]
+  for i in items:
+    depends &= typs[i].depend
+
+
+  var provides:seq[string]
+  for i in neworder:
+    provides &= typs[i].name
+
+
+  # Create the new file
+  var newtxt = ""
+  newtxt &= "# PROVIDES: " 
+  for i in provides:
+    newtxt &= i & " "
+  newtxt = newtxt.strip  
+  newtxt &= "\n# DEPENDS: " 
+  for i in depends:
+    newtxt &= i & " "
+  newtxt = newtxt.strip
+  newtxt &= "\n\n"
+  
+  for i in neworder:
+    for line in typs[i].lines:
+      newtxt &= line & "\n"
+
+    newtxt &= "\n"
+
+  for i in items:   
+    for line in typs[i].lines:  
+      newtxt &= line & "\n"       
+
+    newtxt &= "\n"
+
+  #for typ in typs:
+  #  echo typ.name, " ", typ.depend
+  fname.writeFile(newtxt)
+
+#
+# 8. Add import statements: *_types.nim content
+#
+proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
+  var providedBy = initTable[string,string]()
+  var needed = initTable[string,seq[string]]()
+
+  for fname in walkFiles(pattern):
+    var txt = fname.readFile()
+    var lines = txt.splitLines()
+    
+    # Get what provides
+    var provides:seq[string]
+    if lines[0].startsWith("# PROVIDES: "):
+      provides = lines[0].split("# PROVIDES: ")[1].split()
+    for typ in provides:
+      providedBy[typ] = fname
+
+    # Get what needs
+    var needs:seq[string]
+    if lines[1].startsWith("# DEPENDS: "):
+      needs = lines[1].split("# DEPENDS: ")[1].split()
+
+    needed[fname] = needs
+    #echo needs
+
+  for fname in needed.keys:
+    echo fname
+    var reqs:seq[string]
+    echo fname
+    var imports:seq[string]
+    for f in needed[fname]:
+      if f in providedBy:
+        var tmp = providedBy[f][2 .. (providedBy[f].high - 4)]
+        imports &= tmp
+        #echo imports
+      elif f == "RootObj##":
+        discard
+      else:
+        echo f
+
+
+
+
 #
 # 9. Check includes contains the _types files
 #
@@ -222,8 +388,13 @@ proc appendBeg*(fname, append:string) =
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
+#createTypesFile("./tkernel/standard")
 
-createTypesFile("./tkernel/standard")
+#reorderContent("./tkernel/standard/standard_types.nim")
+#for fname in walkFiles("./tk*/*/*_types.nim"):
+#  reorderContent(fname)
+
+addImportsToTypes("./tk*/*/*_types.nim")
 #correctIncludes("./tk*/*")
 
 # 2. Rename types
@@ -261,3 +432,6 @@ var replaceProcs: seq[tuple[a,b:string]]
 
 
 #convertIncludesToImports()
+
+
+# TODO: reorder types "object of ..."

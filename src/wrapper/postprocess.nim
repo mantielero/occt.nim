@@ -72,11 +72,9 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
   return (typs, newFile)
 
 proc createTypesFile*(pattern:string) =
-  var txt = ""
-
-
   var dirs = toSeq( walkDirs(pattern) )
   for d in dirs:
+    var txt = ""
     var tmp = d.split('/')
     var prefix = tmp[tmp.high]
   #for fname in walkFiles("./tk*/*/*.nim"): 
@@ -198,9 +196,8 @@ type
     name:string
     depend:string
 
-
 proc reorderContent(fname:string) =
-  var typs:seq[TypOb]
+  var typs:seq[TypOb] = @[]
   var txt = fname.readFile()
   var lines = txt.splitLines()
   var lineNumbers:seq[int]
@@ -215,7 +212,13 @@ proc reorderContent(fname:string) =
   for i in 0..lineNumbers.high-1:  
     pairs &= (lineNumbers[i], (lineNumbers[i+1] - 1))    
     #for n in lineNumbers[i] .. (lineNumbers[i+1] - 1):
-  pairs &= (pairs[pairs.high].b, lines.high)
+  #echo pairs[pairs.high].b, lines.high
+  #echo pairs
+  if pairs == @[]:
+    pairs &= (lines.low, lines.high)
+  else:
+    pairs &= (pairs[pairs.high].b, lines.high)
+  #echo pairs
 
   #for i in 0..lineNumbers.high-1:
   for (a,b) in pairs:
@@ -391,6 +394,8 @@ proc appendBeg*(fname, append:string) =
 #createTypesFile("./tkernel/standard")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
+#reorderContent("./tkg3d/topabs/topabs_types.nim")
+
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)
 

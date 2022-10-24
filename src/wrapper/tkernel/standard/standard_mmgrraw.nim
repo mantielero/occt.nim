@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -19,11 +21,6 @@
 ##  without any optimization
 ##
 
-type
-  StandardMMgrRaw* {.importcpp: "Standard_MMgrRaw", header: "Standard_MMgrRaw.hxx",
-                    bycopy.} = object of StandardMMgrRoot ## ! Constructor; if aClear is True, the memory will be nullified
-                                                     ## ! upon allocation.
-    ## ! Option to nullify allocated memory
 
 
 proc constructStandardMMgrRaw*(aClear: bool = false): StandardMMgrRaw {.cdecl,

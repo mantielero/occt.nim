@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -20,18 +22,8 @@ discard "forward decl of Transfer_ProcessForFinder"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ActorOfFinderProcess"
-type
-  HandleTransferActorOfFinderProcess* = Handle[TransferActorOfFinderProcess]
 
-## ! The original class was renamed. Compatibility only
-## !
-## ! ModeTrans : a simple way of transmitting a transfer mode from
-## ! a user. To be interpreted for each norm
 
-type
-  TransferActorOfFinderProcess* {.importcpp: "Transfer_ActorOfFinderProcess",
-                                 header: "Transfer_ActorOfFinderProcess.hxx",
-                                 bycopy.} = object of TransferActorOfProcessForFinder
 
 
 proc newTransferActorOfFinderProcess*(): TransferActorOfFinderProcess {.cdecl,

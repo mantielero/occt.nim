@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,37 +14,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Message_Report"
-type
-  MessagePrinterToReport* {.importcpp: "Message_PrinterToReport",
-                           header: "Message_PrinterToReport.hxx", bycopy.} = object of MessagePrinter ##
-                                                                                               ## !
-                                                                                               ## Create
-                                                                                               ## printer
-                                                                                               ## for
-                                                                                               ## redirecting
-                                                                                               ## messages
-                                                                                               ## into
-                                                                                               ## report.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Send
-                                                                                               ## a
-                                                                                               ## string
-                                                                                               ## message
-                                                                                               ## with
-                                                                                               ## specified
-                                                                                               ## trace
-                                                                                               ## level.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## This
-                                                                                               ## method
-                                                                                               ## must
-                                                                                               ## be
-                                                                                               ## redefined
-                                                                                               ## in
-                                                                                               ## descendant.
-    ## !< the report for sending alerts
 
 
 proc newMessagePrinterToReport*(): MessagePrinterToReport {.cdecl, constructor,
@@ -59,5 +30,4 @@ proc sendStringStream*(this: MessagePrinterToReport; theStream: StandardSStream;
 proc sendObject*(this: MessagePrinterToReport;
                 theObject: Handle[StandardTransient]; theGravity: MessageGravity) {.
     noSideEffect, cdecl, importcpp: "SendObject", header: "Message_PrinterToReport.hxx".}
-type
-  HandleMessagePrinterToReport* = Handle[MessagePrinterToReport]
+

@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1995-04-24
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,16 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of ChFiDS_ChamfSpine"
-type
-  HandleChFiDS_ChamfSpine* = Handle[ChFiDS_ChamfSpine]
 
-## ! Provides  data specific to chamfers
-## ! distances on  each  of faces.
 
-type
-  ChFiDS_ChamfSpine* {.importcpp: "ChFiDS_ChamfSpine",
-                      header: "ChFiDS_ChamfSpine.hxx", bycopy.} = object of ChFiDS_Spine
-    ## Standard_Boolean dison1;
 
 
 proc newChFiDS_ChamfSpine*(): ChFiDS_ChamfSpine {.cdecl, constructor,

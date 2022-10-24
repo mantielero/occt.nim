@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,28 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopOpeBRepBuild_Loop"
-type
-  TopOpeBRepBuildWireEdgeClassifier* {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx",
-                                      bycopy.} = object of TopOpeBRepBuildCompositeClassifier ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## classifier
-                                                                                         ## on
-                                                                                         ## edge
-                                                                                         ## <F>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Used
-                                                                                         ## to
-                                                                                         ## compare
-                                                                                         ## edges
-                                                                                         ## and
-                                                                                         ## wires
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## edge
-                                                                                         ## <F>.
 
 
 proc newTopOpeBRepBuildWireEdgeClassifier*(f: TopoDS_Shape;

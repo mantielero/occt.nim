@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-01-21
 ##  Created by: Prestataire Christiane ARMAND
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,23 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Circle"
-type
-  AIS_Circle* {.importcpp: "AIS_Circle", header: "AIS_Circle.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## this
-                                                                                                    ## algorithm
-                                                                                                    ## for
-                                                                                                    ## constructing
-                                                                                                    ## AIS
-                                                                                                    ## circle
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## datums
-                                                                                                    ## initializes
-                                                                                                    ## the
-                                                                                                    ## circle
-                                                                                                    ## aCircle
 
 
 proc newAIS_Circle*(aCircle: Handle[GeomCircle]): AIS_Circle {.cdecl, constructor,
@@ -63,5 +48,4 @@ proc isFilledCircleSens*(this: AIS_Circle): bool {.noSideEffect, cdecl,
     importcpp: "IsFilledCircleSens", header: "AIS_Circle.hxx".}
 proc setFilledCircleSens*(this: var AIS_Circle; theIsFilledCircleSens: bool) {.cdecl,
     importcpp: "SetFilledCircleSens", header: "AIS_Circle.hxx".}
-type
-  HandleAIS_Circle* = Handle[AIS_Circle]
+

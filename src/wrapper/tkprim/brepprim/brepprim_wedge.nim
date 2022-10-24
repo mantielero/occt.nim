@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1995-01-09
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,11 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
-type
-  BRepPrimWedge* {.importcpp: "BRepPrim_Wedge", header: "BRepPrim_Wedge.hxx", bycopy.} = object of BRepPrimGWedge ##
-                                                                                                        ## !
-                                                                                                        ## Default
-                                                                                                        ## constructor
 
 
 proc newBRepPrimWedge*(): BRepPrimWedge {.cdecl, constructor,

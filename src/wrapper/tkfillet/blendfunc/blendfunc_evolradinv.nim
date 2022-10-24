@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1993-12-21
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Law_Function"
 discard "forward decl of math_Matrix"
-type
-  BlendFuncEvolRadInv* {.importcpp: "BlendFunc_EvolRadInv",
-                        header: "BlendFunc_EvolRadInv.hxx", bycopy.} = object of BlendFuncInv
 
 
 proc newBlendFuncEvolRadInv*(s1: Handle[Adaptor3dHSurface];

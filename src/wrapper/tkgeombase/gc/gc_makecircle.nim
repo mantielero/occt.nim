@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,21 +22,6 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Ax1"
-type
-  MakeCircle* {.importcpp: "GC_MakeCircle", header: "GC_MakeCircle.hxx", bycopy.} = object of Root ##
-                                                                                         ## !
-                                                                                         ## creates
-                                                                                         ## a
-                                                                                         ## circle
-                                                                                         ## from
-                                                                                         ## a
-                                                                                         ## non
-                                                                                         ## persistent
-                                                                                         ## circle
-                                                                                         ## C
-                                                                                         ## by
-                                                                                         ## its
-                                                                                         ## conversion.
 
 
 proc circle*(c: CircObj): MakeCircle {.cdecl, constructor,

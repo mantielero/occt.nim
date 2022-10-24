@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1997-10-02
 ##  Created by: Xuan Trang PHAM PHU
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
-type
-  TopOpeBRepBuildShellToSolid* {.importcpp: "TopOpeBRepBuild_ShellToSolid",
-                                header: "TopOpeBRepBuild_ShellToSolid.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildShellToSolid*(): TopOpeBRepBuildShellToSolid {.cdecl,

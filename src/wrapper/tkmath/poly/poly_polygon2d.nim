@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,28 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePolyPolygon2D* = Handle[PolyPolygon2D]
 
-## ! Provides a polygon in 2D space (for example, in the
-## ! parametric space of a surface). It is generally an
-## ! approximate representation of a curve.
-## ! A Polygon2D is defined by a table of nodes. Each node is
-## ! a 2D point. If the polygon is closed, the point of closure is
-## ! repeated at the end of the table of nodes.
 
-type
-  PolyPolygon2D* {.importcpp: "Poly_Polygon2D", header: "Poly_Polygon2D.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Constructs
-                                                                                                           ## a
-                                                                                                           ## 2D
-                                                                                                           ## polygon
-                                                                                                           ## with
-                                                                                                           ## specified
-                                                                                                           ## number
-                                                                                                           ## of
-                                                                                                           ## nodes.
 
 
 proc newPolyPolygon2D*(theNbNodes: cint): PolyPolygon2D {.cdecl, constructor,

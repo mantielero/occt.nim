@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2015-05-29
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,29 +17,12 @@
 
 ## ! Tool object to call BVH builder subroutines.
 
-type
-  BVH_BuildTool* {.importcpp: "BVH_BuildTool", header: "BVH_BuildThread.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Performs
-                                                                                        ## splitting
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## given
-                                                                                        ## BVH
-                                                                                        ## node.
 
 
 proc perform*(this: var BVH_BuildTool; theNode: cint) {.cdecl, importcpp: "Perform",
     header: "BVH_BuildThread.hxx".}
 ## ! Wrapper for BVH build thread.
 
-type
-  BVH_BuildThread* {.importcpp: "BVH_BuildThread", header: "BVH_BuildThread.hxx",
-                    bycopy.} = object of StandardTransient ## ! Creates new BVH build thread.
-                                                      ## ! Executes BVH build thread.
-                                                      ## ! Data needed to build the BVH.
-    ## ! Reference to BVH build queue.
-    ## ! Thread to execute work items.
 
 
 proc newBVH_BuildThread*(theBuildTool: var BVH_BuildTool;
@@ -45,5 +30,4 @@ proc newBVH_BuildThread*(theBuildTool: var BVH_BuildTool;
     constructor, importcpp: "BVH_BuildThread(@)", header: "BVH_BuildThread.hxx".}
 proc run*(this: var BVH_BuildThread) {.cdecl, importcpp: "Run", header: "BVH_BuildThread.hxx".}
 proc wait*(this: var BVH_BuildThread) {.cdecl, importcpp: "Wait", header: "BVH_BuildThread.hxx".}
-type
-  HandleBVH_BuildThread* = Handle[BVH_BuildThread]
+

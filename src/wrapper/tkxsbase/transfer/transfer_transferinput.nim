@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,12 +23,6 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Transfer_FinderProcess"
-type
-  TransferTransferInput* {.importcpp: "Transfer_TransferInput",
-                          header: "Transfer_TransferInput.hxx", bycopy.} = object ## !
-                                                                             ## Creates a
-                                                                             ## TransferInput
-                                                                             ## ready to use
 
 
 proc newTransferTransferInput*(): TransferTransferInput {.cdecl, constructor,

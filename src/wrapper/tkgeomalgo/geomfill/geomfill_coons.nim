@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,8 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillCoons* {.importcpp: "GeomFill_Coons", header: "GeomFill_Coons.hxx", bycopy.} = object of GeomFillFilling
 
 
 proc newGeomFillCoons*(): GeomFillCoons {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,37 +18,8 @@
 
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectBase"
-type
-  HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
 
-## ! SelectBase works directly from an InterfaceModel : it is the
-## ! first base for other Selections.
 
-type
-  IFSelectSelectBase* {.importcpp: "IFSelect_SelectBase",
-                       header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                          ## !
-                                                                                          ## Puts
-                                                                                          ## in
-                                                                                          ## an
-                                                                                          ## Iterator
-                                                                                          ## the
-                                                                                          ## Selections
-                                                                                          ## from
-                                                                                          ## which
-                                                                                          ## "me"
-                                                                                          ## depends
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## This
-                                                                                          ## list
-                                                                                          ## is
-                                                                                          ## empty
-                                                                                          ## for
-                                                                                          ## all
-                                                                                          ## SelectBase
-                                                                                          ## type
-                                                                                          ## Selections
 
 
 proc fillIterator*(this: IFSelectSelectBase; iter: var IFSelectSelectionIterator) {.

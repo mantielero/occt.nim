@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,23 +15,6 @@
 
 ## ! Texture unit.
 
-type
-  Graphic3dTextureUnit* {.size: sizeof(cint), importcpp: "Graphic3d_TextureUnit",
-                         header: "Graphic3d_TextureUnit.hxx".} = enum ##  value as index number
-    graphic3dTextureUnitPbrEnvironmentLUT = -3, ## ! sampler2D occDiffIBLMapSHCoeffs.
-                                             ## ! Diffuse (irradiance) IBL map's spherical harmonics coefficients baked for PBR from environment cubemap image.
-                                             ## ! Configured as index at the end of available texture units - 2.
-    graphic3dTextureUnitPbrIblDiffuseSH = -2, ## ! samplerCube occSpecIBLMap.
-                                           ## ! Specular IBL (Image-Based Lighting) environment map baked for PBR from environment cubemap image.
-                                           ## ! Configured as index at the end of available texture units - 1.
-    graphic3dTextureUnitPbrIblSpecular = -1, graphic3dTextureUnit0,
-    graphic3dTextureUnit1, graphic3dTextureUnit2, graphic3dTextureUnit3,
-    graphic3dTextureUnit4, graphic3dTextureUnit5, graphic3dTextureUnit6,
-    graphic3dTextureUnit7, graphic3dTextureUnit8, graphic3dTextureUnit9,
-    graphic3dTextureUnit10, graphic3dTextureUnit11, graphic3dTextureUnit12,
-    graphic3dTextureUnit13, graphic3dTextureUnit14, graphic3dTextureUnit15 ##  aliases
-                                                                         ## ! sampler2D occSamplerBaseColor.
-                                                                         ## ! RGB(A) base color of the material and alpha mask/opacity.
 const
   graphic3dTextureUnitBaseColor* = graphic3dTextureUnit0.Graphic3dTextureUnit ## ! sampler2D occSamplerEmissive.
                                                         ## ! RGB emissive map controls the color and intensity of the light being emitted by the material.
@@ -55,3 +40,4 @@ const
                                                          ## ! Lookup table for approximated PBR environment lighting.
                                                          ## ! Configured as index at the end of available texture units - 3.
   graphic3dTextureUnitNB* = (graphic3dTextureUnit15.int + 1)#.Graphic3dTextureUnit
+

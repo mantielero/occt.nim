@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-01-29
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,47 +19,8 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignType"
-type
-  HandleIFSelectSignType* = Handle[IFSelectSignType]
 
-## ! This Signature returns the cdl Type of an entity, under two
-## ! forms :
-## ! - complete dynamic type (package and class)
-## ! - class type, without package name
 
-type
-  IFSelectSignType* {.importcpp: "IFSelect_SignType",
-                     header: "IFSelect_SignType.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## a
-                                                                                      ## SignType
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <nopk>
-                                                                                      ## false
-                                                                                      ## (D)
-                                                                                      ## :
-                                                                                      ## complete
-                                                                                      ## dynamic
-                                                                                      ## type
-                                                                                      ## (name
-                                                                                      ## =
-                                                                                      ## Dynamic
-                                                                                      ## Type)
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## <nopk>
-                                                                                      ## true
-                                                                                      ## :
-                                                                                      ## class
-                                                                                      ## type
-                                                                                      ## without
-                                                                                      ## pk
-                                                                                      ## (name
-                                                                                      ## =
-                                                                                      ## Class
-                                                                                      ## Type)
 
 
 proc newIFSelectSignType*(nopk: bool = false): IFSelectSignType {.cdecl, constructor,

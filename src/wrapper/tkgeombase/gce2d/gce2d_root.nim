@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-29
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,11 +23,6 @@ when defined(Status):
 ## ! This class implements the common services for
 ## ! all classes of gce which report error.
 
-type
-  GCE2dRoot* {.importcpp: "GCE2d_Root", header: "GCE2d_Root.hxx", bycopy, pure, inheritable.} = object ## !
-                                                                            ## Returns true if the
-                                                                            ## construction is
-                                                                            ## successful.
 
 
 proc isDone*(this: GCE2dRoot): bool {.noSideEffect, cdecl, importcpp: "IsDone",

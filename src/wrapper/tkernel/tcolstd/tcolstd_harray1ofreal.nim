@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHArray1OfReal* {.importcpp: "TColStd_HArray1OfReal",
-                         header: "TColStd_HArray1OfReal.hxx", bycopy.} = object of TColStdArray1OfReal
 
 
 proc newTColStdHArray1OfReal*(theLower: cint; theUpper: cint): TColStdHArray1OfReal {.

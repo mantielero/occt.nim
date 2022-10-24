@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-10-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,26 +19,8 @@
 discard "forward decl of IFSelect_SelectDeduct"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFSelect_GraphCounter"
-type
-  HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
 
-## ! A GraphCounter computes values to be sorted with the help of
-## ! a Graph. I.E. not from a Signature
-## !
-## ! The default GraphCounter works with an Applied Selection (a
-## ! SelectDeduct), the value is the count of selected entities
-## ! from each input entities)
 
-type
-  IFSelectGraphCounter* {.importcpp: "IFSelect_GraphCounter",
-                         header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelectSignCounter ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## GraphCounter,
-                                                                                                ## without
-                                                                                                ## applied
-                                                                                                ## selection
 
 
 proc newIFSelectGraphCounter*(withmap: bool = true; withlist: bool = false): IFSelectGraphCounter {.

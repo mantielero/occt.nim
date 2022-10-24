@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,31 +15,7 @@
 
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 discard "forward decl of Image_Texture"
-type
-  AspectXRSession* {.importcpp: "Aspect_XRSession", header: "Aspect_XRSession.hxx",
-                    bycopy.} = object of StandardTransient ## ! Identifies which style of tracking origin the application wants to use for the poses it is requesting.
-                                                      ## ! Return TRUE if session is opened.
-                                                      ## ! Info string enumeration.
-                                                      ## ! Empty constructor.
-    ## !< generic actions
-    ## !< actions sets
-    ## !< tracking origin
-    ## !< array of tracked poses
-    ## !< head orientation
-    ## !< viewport Width x Height for rendering into VR
-    ## !< left  eye projection frustum
-    ## !< right eye projection frustum
-    ## !< unit scale factor defined as scale factor for m (meters)
-    ## !< aspect ratio
-    ## !< field of view
-    ## !< intra-ocular distance in meters
-    ## !< display frequency
 
-  AspectXRSessionTrackingUniverseOrigin* {.size: sizeof(cint),
-      importcpp: "Aspect_XRSession::TrackingUniverseOrigin",
-      header: "Aspect_XRSession.hxx".} = enum
-    TrackingUniverseOriginSeated, ## ! poses are provided relative to the seated zero pose
-    TrackingUniverseOriginStanding ## ! poses are provided relative to the safe bounds configured by the user
 
 
 proc isOpen*(this: AspectXRSession): bool {.noSideEffect, cdecl, importcpp: "IsOpen",
@@ -125,11 +103,6 @@ proc setTrackingOrigin*(this: var AspectXRSession;
 proc genericAction*(this: AspectXRSession; theDevice: AspectXRTrackedDeviceRole;
                    theAction: AspectXRGenericAction): Handle[AspectXRAction] {.
     noSideEffect, cdecl, importcpp: "GenericAction", header: "Aspect_XRSession.hxx".}
-type
-  AspectXRSessionInfoString* {.size: sizeof(cint),
-                              importcpp: "Aspect_XRSession::InfoString",
-                              header: "Aspect_XRSession.hxx".} = enum
-    InfoStringVendor, InfoStringDevice, InfoStringTracker, InfoStringSerialNumber
 
 
 proc getString*(this: AspectXRSession; theInfo: AspectXRSessionInfoString): TCollectionAsciiString {.

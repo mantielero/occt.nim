@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2014-07-18
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -15,12 +17,6 @@
 
 ## ! Fast random number generator (the algorithm proposed by Ian C. Bullard).
 
-type
-  MathBullardGenerator* {.importcpp: "math_BullardGenerator",
-                         header: "math_BullardGenerator.hxx", bycopy.} = object ## !
-                                                                           ## Creates new
-                                                                           ## Xorshift
-                                                                           ## 64-bit RNG.
 
 
 proc newMathBullardGenerator*(theSeed: cuint = 1): MathBullardGenerator {.cdecl,

@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,13 +21,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_Polygon3D"
-type
-  HandleBRepPolygon3D* = Handle[BRepPolygon3D]
 
-## ! Representation by a 3D polygon.
 
-type
-  BRepPolygon3D* {.importcpp: "BRep_Polygon3D", header: "BRep_Polygon3D.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
 proc newBRepPolygon3D*(p: Handle[PolyPolygon3D]; L: TopLocLocation): BRepPolygon3D {.

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,24 +15,6 @@
 
 ## ! Customizable properties.
 
-type
-  AIS_ColoredDrawer* {.importcpp: "AIS_ColoredDrawer",
-                      header: "AIS_ColoredDrawer.hxx", bycopy.} = object of Prs3dDrawer ##
-                                                                                 ## !
-                                                                                 ## Default
-                                                                                 ## constructor.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## @name
-                                                                                 ## list
-                                                                                 ## of
-                                                                                 ## overridden
-                                                                                 ## properties
-    myIsHidden* {.importc: "myIsHidden".}: bool
-    myHasOwnMaterial* {.importc: "myHasOwnMaterial".}: bool
-    myHasOwnColor* {.importc: "myHasOwnColor".}: bool
-    myHasOwnTransp* {.importc: "myHasOwnTransp".}: bool
-    myHasOwnWidth* {.importc: "myHasOwnWidth".}: bool
 
 
 proc newAIS_ColoredDrawer*(theLink: Handle[Prs3dDrawer]): AIS_ColoredDrawer {.cdecl,
@@ -64,5 +48,4 @@ proc unsetOwnWidth*(this: var AIS_ColoredDrawer) {.cdecl, importcpp: "UnsetOwnWi
     header: "AIS_ColoredDrawer.hxx".}
 proc setOwnWidth*(this: var AIS_ColoredDrawer; a2: cfloat) {.cdecl,
     importcpp: "SetOwnWidth", header: "AIS_ColoredDrawer.hxx".}
-type
-  HandleAIS_ColoredDrawer* = Handle[AIS_ColoredDrawer]
+

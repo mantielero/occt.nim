@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2014-04-15
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -20,12 +22,6 @@
 ## ! iterator requires Offset and Differ methods. See NCollection_Vector as
 ## ! example of declaring custom STL iterators.
 
-type
-  NCollectionStlIterator*[Category; BaseIterator; ItemType;
-                          IsConstant: static[bool]] {.
-      importcpp: "NCollection_StlIterator<\'0,\'1,\'2,\'3>",
-      header: "NCollection_StlIterator.hxx", bycopy.} = object ## ! Default constructor
-    myIterator* {.importc: "myIterator".}: BaseIterator
 
 
 proc newNCollectionStlIterator*[Category; BaseIterator; ItemType;

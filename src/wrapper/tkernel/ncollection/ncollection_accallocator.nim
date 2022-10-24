@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2013-11-12
 ##  Created by: Maxim YAKUNIN (myn)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -32,14 +34,6 @@
 ## ! To  define  the size  of  memory  blocks  requested  from the OS,  use the
 ## ! parameter of the constructor (measured in bytes).
 
-type
-  NCollectionAccAllocator* {.importcpp: "NCollection_AccAllocator",
-                            header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  --------- PUBLIC CONSTANTS ---------
-                                                                                                           ## ! Alignment of all allocated objects: 4 bytes
-                                                                                                           ## ! Constructor
-                                                                                                           ## ! Size value aligned to a 4 byte boundary
-                                                                                                           ## ! Calculate a key for the data map basing on the given address
-    ##  Declaration of CASCADE RTTI
 
 
 proc newNCollectionAccAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionAccAllocator {.
@@ -52,5 +46,4 @@ proc free*(this: var NCollectionAccAllocator; theAddress: pointer) {.cdecl,
     importcpp: "Free", header: "NCollection_AccAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
-type
-  HandleNCollectionAccAllocator* = Handle[NCollectionAccAllocator]
+

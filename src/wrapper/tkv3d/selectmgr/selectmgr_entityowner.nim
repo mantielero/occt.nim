@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-05-23
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,25 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of V3d_Viewer"
-type
-  SelectMgrEntityOwner* {.importcpp: "SelectMgr_EntityOwner",
-                         header: "SelectMgr_EntityOwner.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Initializes
-                                                                                              ## the
-                                                                                              ## selection
-                                                                                              ## priority
-                                                                                              ## aPriority.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Sets
-                                                                                              ## the
-                                                                                              ## selectable
-                                                                                              ## object.
-    ## !< raw pointer to selectable object
-    ## !< selection priority (for result with the same depth)
-    ## !< flag indicating selected state
-    ## !< flag indicating this owner points to a part of object (TRUE) or to entire object (FALSE)
 
 
 proc newSelectMgrEntityOwner*(aPriority: cint = 0): SelectMgrEntityOwner {.cdecl,
@@ -114,10 +97,6 @@ proc set*(this: var SelectMgrEntityOwner;
     header: "SelectMgr_EntityOwner.hxx".}
 proc set*(this: var SelectMgrEntityOwner; thePriority: cint) {.cdecl, importcpp: "Set",
     header: "SelectMgr_EntityOwner.hxx".}
-type
-  HandleSelectMgrEntityOwner* = Handle[SelectMgrEntityOwner]
 
-##  for porting old code
 
-type
-  SelectBasicsEntityOwner* = SelectMgrEntityOwner
+

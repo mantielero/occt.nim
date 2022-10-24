@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,14 +19,8 @@
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnSurface"
-type
-  HandleBRepPointOnSurface* = Handle[BRepPointOnSurface]
 
-## ! Representation by two parameters on a surface.
 
-type
-  BRepPointOnSurface* {.importcpp: "BRep_PointOnSurface",
-                       header: "BRep_PointOnSurface.hxx", bycopy.} = object of BRepPointsOnSurface
 
 
 proc newBRepPointOnSurface*(p1: cfloat; p2: cfloat; s: Handle[GeomSurface];

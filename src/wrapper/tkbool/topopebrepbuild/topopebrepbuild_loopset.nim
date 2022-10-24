@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-03-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepBuild_Loop"
-type
-  TopOpeBRepBuildLoopSet* {.importcpp: "TopOpeBRepBuild_LoopSet",
-                           header: "TopOpeBRepBuild_LoopSet.hxx", bycopy.} = object of RootObj
 
 
 proc newTopOpeBRepBuildLoopSet*(): TopOpeBRepBuildLoopSet {.cdecl, constructor,

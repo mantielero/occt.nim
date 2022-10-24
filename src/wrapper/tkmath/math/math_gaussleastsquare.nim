@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,34 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_Matrix"
-type
-  MathGaussLeastSquare* {.importcpp: "math_GaussLeastSquare",
-                         header: "math_GaussLeastSquare.hxx", bycopy.} = object ## ! Given an input n X m
-                                                                           ## matrix A with n >= m this
-                                                                           ## constructor
-                                                                           ## !
-                                                                           ## performs the LU
-                                                                           ## decomposition with
-                                                                           ## partial
-                                                                           ## pivoting
-                                                                           ## !
-                                                                           ## (interchange of rows) of the
-                                                                           ## matrix AA =
-                                                                           ## A.Transposed() * A;
-                                                                           ## ! This LU
-                                                                           ## decomposition is
-                                                                           ## stored
-                                                                           ## internally and may be used
-                                                                           ## ! to do
-                                                                           ## subsequent
-                                                                           ## calculation.
-                                                                           ## ! If the
-                                                                           ## largest pivot found is less than
-                                                                           ## MinPivot the
-                                                                           ## matrix <A>
-                                                                           ## ! is
-                                                                           ## considered as
-                                                                           ## singular.
 
 
 proc newMathGaussLeastSquare*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathGaussLeastSquare {.

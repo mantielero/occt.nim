@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,24 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
-type
-  MakeEllipse* {.importcpp: "GC_MakeEllipse", header: "GC_MakeEllipse.hxx", bycopy.} = object of Root ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## ellipse
-                                                                                            ## from
-                                                                                            ## a
-                                                                                            ## non
-                                                                                            ## persistent
-                                                                                            ## ellipse
-                                                                                            ## E
-                                                                                            ## from
-                                                                                            ## package
-                                                                                            ## gp
-                                                                                            ## by
-                                                                                            ## its
-                                                                                            ## conversion.
 
 
 proc ellipse*(e: ElipsObj): MakeEllipse {.cdecl, constructor,

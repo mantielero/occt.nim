@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,36 +18,6 @@
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepBuilderAPI_MakeVertex* {.importcpp: "BRepBuilderAPI_MakeVertex",
-                              header: "BRepBuilderAPI_MakeVertex.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## a
-                                                                                                              ## vertex
-                                                                                                              ## from
-                                                                                                              ## point
-                                                                                                              ## P.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Example
-                                                                                                              ## create
-                                                                                                              ## a
-                                                                                                              ## vertex
-                                                                                                              ## from
-                                                                                                              ## a
-                                                                                                              ## 3D
-                                                                                                              ## point.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## gp_Pnt
-                                                                                                              ## P(0,0,10);
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## TopoDS_Vertex
-                                                                                                              ## V
-                                                                                                              ## =
-                                                                                                              ## BRepBuilderAPI_MakeVertex(P);
 
 
 proc vertex*(p: PntObj): BRepBuilderAPI_MakeVertex {.cdecl,

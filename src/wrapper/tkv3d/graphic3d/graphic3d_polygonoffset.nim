@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,6 @@
 
 ## ! Polygon offset parameters.
 
-type
-  Graphic3dPolygonOffset* {.importcpp: "Graphic3d_PolygonOffset",
-                           header: "Graphic3d_PolygonOffset.hxx", bycopy.} = object
-    mode* {.importc: "Mode".}: AspectPolygonOffsetMode
-    factor* {.importc: "Factor".}: StandardShortReal
-    units* {.importc: "Units".}: StandardShortReal ## ! Empty constructor.
 
 
 proc newGraphic3dPolygonOffset*(): Graphic3dPolygonOffset {.cdecl, constructor,

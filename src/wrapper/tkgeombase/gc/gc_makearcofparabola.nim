@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,24 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Parab"
 discard "forward decl of gp_Pnt"
-type
-  MakeArcOfParabola* {.importcpp: "GC_MakeArcOfParabola",
-                      header: "GC_MakeArcOfParabola.hxx", bycopy.} = object of Root ## !
-                                                                             ## Creates an arc of
-                                                                             ## Parabola
-                                                                             ## (TrimmedCurve
-                                                                             ## from
-                                                                             ## Geom)
-                                                                             ## from
-                                                                             ## ! a
-                                                                             ## Parabola
-                                                                             ## between two
-                                                                             ## parameters
-                                                                             ## Alpha1 and
-                                                                             ## Alpha2
-                                                                             ## !
-                                                                             ## (given in
-                                                                             ## radians).
 
 
 proc arcParabola*(parab: ParabObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfParabola {.

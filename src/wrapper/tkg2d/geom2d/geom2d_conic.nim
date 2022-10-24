@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,45 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom2d_Conic"
-type
-  HandleGeom2dConic* = Handle[Geom2dConic]
 
-## ! The abstract class Conic describes the common
-## ! behavior of conic curves in 2D space and, in
-## ! particular, their general characteristics. The Geom2d
-## ! package provides four specific classes of conics:
-## ! Geom2d_Circle, Geom2d_Ellipse,
-## ! Geom2d_Hyperbola and Geom2d_Parabola.
-## ! A conic is positioned in the plane with a coordinate
-## ! system (gp_Ax22d object), where the origin is the
-## ! center of the conic (or the apex in case of a parabola).
-## ! This coordinate system is the local coordinate
-## ! system of the conic. It gives the conic an explicit
-## ! orientation, determining the direction in which the
-## ! parameter increases along the conic. The "X Axis" of
-## ! the local coordinate system also defines the origin of
-## ! the parameter of the conic.
 
-type
-  Geom2dConic* {.importcpp: "Geom2d_Conic", header: "Geom2d_Conic.hxx", bycopy.} = object of Geom2dCurve ##
-                                                                                               ## !
-                                                                                               ## Modifies
-                                                                                               ## this
-                                                                                               ## conic,
-                                                                                               ## redefining
-                                                                                               ## its
-                                                                                               ## local
-                                                                                               ## coordinate
-                                                                                               ## system
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## partially,
-                                                                                               ## by
-                                                                                               ## assigning
-                                                                                               ## theA
-                                                                                               ## as
-                                                                                               ## its
-                                                                                               ## axis
 
 
 proc setAxis*(this: var Geom2dConic; theA: Ax22dObj) {.cdecl, importcpp: "SetAxis",

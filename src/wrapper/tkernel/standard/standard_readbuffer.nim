@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 2017-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,21 +15,6 @@
 
 ## ! Auxiliary tool for buffered reading from input stream within chunks of constant size.
 
-type
-  StandardReadBuffer* {.importcpp: "Standard_ReadBuffer",
-                       header: "Standard_ReadBuffer.hxx", bycopy.} = object ## !
-                                                                       ## Constructor with
-                                                                       ## initialization.
-                                                                       ## ! Read next chunk.
-                                                                       ## ! @return pointer to the chunk or NULL on error / end of reading buffer
-    ## !< data cache
-    ## !< current position within the buffer
-    ## !< end of the buffer
-    ## !< length of entire data to read
-    ## !< amount of data already processed
-    ## !< length of single chunk that caller would like to read (e.g. iterator increment)
-    ## !< number of cached chunks
-    ## !< effective length of the buffer to be read at once (multiple of chunk length)
 
 
 proc constructStandardReadBuffer*(theDataLen: int; theChunkLen: csize_t;

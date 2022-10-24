@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -16,27 +18,6 @@
 ## ! A non-template class for using as base for BVH_Builder
 ## ! (just to have a named base class).
 
-type
-  BVH_BuilderTransient* {.importcpp: "BVH_BuilderTransient",
-                         header: "BVH_Builder.hxx", bycopy.} = object of StandardTransient ##
-                                                                                    ## !
-                                                                                    ## Returns
-                                                                                    ## the
-                                                                                    ## maximum
-                                                                                    ## depth
-                                                                                    ## of
-                                                                                    ## constructed
-                                                                                    ## BVH.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## new
-                                                                                    ## abstract
-                                                                                    ## BVH
-                                                                                    ## builder.
-    ## !< Maximum depth of constructed BVH
-    ## !< Maximum number of objects per leaf
-    ## !< Parallel execution flag.
 
 
 proc maxTreeDepth*(this: BVH_BuilderTransient): cint {.noSideEffect, cdecl,
@@ -52,22 +33,6 @@ proc setParallel*(this: var BVH_BuilderTransient; isParallel: bool) {.cdecl,
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Builder*[T; N: static[cint]] {.importcpp: "BVH_Builder<\'0,\'1>",
-                                  header: "BVH_Builder.hxx", bycopy.} = object of BVH_BuilderTransient ##
-                                                                                                ## !
-                                                                                                ## Builds
-                                                                                                ## BVH
-                                                                                                ## using
-                                                                                                ## specific
-                                                                                                ## algorithm.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## new
-                                                                                                ## abstract
-                                                                                                ## BVH
-                                                                                                ## builder.
 
 
 proc build*[T; N: static[cint]](this: BVH_Builder[T, N]; theSet: ptr BVH_Set[T, N];

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,20 +20,8 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerOne"
-type
-  HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
 
-## ! A DispPerOne gathers all the input Entities into as many
-## ! Packets as there Root Entities from the Final Selection,
-## ! that is, one Packet per Entity
 
-type
-  IFSelectDispPerOne* {.importcpp: "IFSelect_DispPerOne",
-                       header: "IFSelect_DispPerOne.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## DispPerOne
 
 
 proc newIFSelectDispPerOne*(): IFSelectDispPerOne {.cdecl, constructor,

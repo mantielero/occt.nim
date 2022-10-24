@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom2d_UndefinedValue"
-type
-  HandleGeom2dUndefinedValue* = Handle[Geom2dUndefinedValue]
 
 when not defined(noException) and not defined(noGeom2dUndefinedValue):
   template geom2dUndefinedValueRaiseIf*(condition, message: untyped): void =

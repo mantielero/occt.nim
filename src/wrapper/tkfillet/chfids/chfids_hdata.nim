@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,8 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_HData* {.importcpp: "ChFiDS_HData", header: "ChFiDS_HData.hxx", bycopy.} = object of ChFiDS_SequenceOfSurfData
 
 
 proc newChFiDS_HData*(): ChFiDS_HData {.cdecl, constructor,
@@ -31,5 +31,4 @@ proc append*(this: var ChFiDS_HData; theSequence: var ChFiDS_SequenceOfSurfData)
     cdecl, importcpp: "Append", header: "ChFiDS_HData.hxx".}
 proc changeSequence*(this: var ChFiDS_HData): var ChFiDS_SequenceOfSurfData {.cdecl,
     importcpp: "ChangeSequence", header: "ChFiDS_HData.hxx".}
-type
-  HandleChFiDS_HData* = Handle[ChFiDS_HData]
+

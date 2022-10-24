@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2014-11-10
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -13,18 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Font_TextFormatter"
-type
-  AIS_TextLabel* {.importcpp: "AIS_TextLabel", header: "AIS_TextLabel.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                             ## !
-                                                                                                             ## Default
-                                                                                                             ## constructor
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Compute
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## CASCADE
-                                                                                                             ## RTTI
 
 
 proc newAIS_TextLabel*(): AIS_TextLabel {.cdecl, constructor,
@@ -94,5 +84,4 @@ proc textFormatter*(this: AIS_TextLabel): Handle[FontTextFormatter] {.noSideEffe
 proc setTextFormatter*(this: var AIS_TextLabel;
                       theFormatter: Handle[FontTextFormatter]) {.cdecl,
     importcpp: "SetTextFormatter", header: "AIS_TextLabel.hxx".}
-type
-  HandleAIS_TextLabel* = Handle[AIS_TextLabel]
+

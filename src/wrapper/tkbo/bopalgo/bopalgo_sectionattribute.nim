@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created on: 2002-03-04
 ##  Created by: Michael KLOKOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -16,12 +18,6 @@
 ## ! Class is a container of the flags used
 ## ! by intersection algorithm
 
-type
-  BOPAlgoSectionAttribute* {.importcpp: "BOPAlgo_SectionAttribute",
-                            header: "BOPAlgo_SectionAttribute.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Default
-                                                                                 ## constructor
 
 
 proc newBOPAlgoSectionAttribute*(): BOPAlgoSectionAttribute {.cdecl, constructor,

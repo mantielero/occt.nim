@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,14 +15,6 @@
 
 ## ! Haptic output XR action data.
 
-type
-  AspectXRHapticActionData* {.importcpp: "Aspect_XRHapticActionData",
-                             header: "Aspect_XRHapticActionData.hxx", bycopy.} = object
-    delay* {.importc: "Delay".}: cfloat ## !< delay in seconds before start
-    duration* {.importc: "Duration".}: cfloat ## !< duration in seconds
-    frequency* {.importc: "Frequency".}: cfloat ## !< vibration frequency
-    amplitude* {.importc: "Amplitude".}: cfloat ## !< vibration amplitude
-                                            ## ! Return TRUE if data is not empty.
 
 
 proc isValid*(this: AspectXRHapticActionData): bool {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of TopOpeBRepBuild_PaveClassifier"
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepBuildEdgeBuilder* {.importcpp: "TopOpeBRepBuild_EdgeBuilder",
-                               header: "TopOpeBRepBuild_EdgeBuilder.hxx", bycopy.} = object of TopOpeBRepBuildArea1dBuilder
 
 
 proc newTopOpeBRepBuildEdgeBuilder*(): TopOpeBRepBuildEdgeBuilder {.cdecl,

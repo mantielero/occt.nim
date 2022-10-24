@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1995-03-23
 ##  Created by: Jing Cheng MEI
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -25,91 +27,8 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Curve"
 discard "forward decl of BRepBuilderAPI_Sewing"
-type
-  HandleBRepBuilderAPI_Sewing* = Handle[BRepBuilderAPI_Sewing]
 
-## ! Provides methods to
-## !
-## ! - identify possible contigous boundaries (for control
-## ! afterwards (of continuity: C0, C1, ...))
-## !
-## ! - assemble contigous shapes into one shape.
-## ! Only manifold shapes will be found. Sewing will not
-## ! be done in case of multiple edges.
-## !
-## ! For sewing, use this function as following:
-## ! - create an empty object
-## ! - default tolerance 1.E-06
-## ! - with face analysis on
-## ! - with sewing operation on
-## ! - set the cutting option as you need (default True)
-## ! - define a tolerance
-## ! - add shapes to be sewed -> Add
-## ! - compute -> Perfom
-## ! - output the resulted shapes
-## ! - output free edges if necessary
-## ! - output multiple edges if necessary
-## ! - output the problems if any
 
-type
-  BRepBuilderAPI_Sewing* {.importcpp: "BRepBuilderAPI_Sewing",
-                          header: "BRepBuilderAPI_Sewing.hxx", bycopy.} = object of StandardTransient ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## object
-                                                                                               ## with
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## tolerance
-                                                                                               ## of
-                                                                                               ## connexity
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## sewing
-                                                                                               ## (if
-                                                                                               ## false
-                                                                                               ## only
-                                                                                               ## control)
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## analysis
-                                                                                               ## of
-                                                                                               ## degenerated
-                                                                                               ## shapes
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## cutting
-                                                                                               ## of
-                                                                                               ## free
-                                                                                               ## edges.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## option
-                                                                                               ## for
-                                                                                               ## non
-                                                                                               ## manifold
-                                                                                               ## processing
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Performs
-                                                                                               ## cutting
-                                                                                               ## of
-                                                                                               ## sections
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## theProgress
-                                                                                               ## -
-                                                                                               ## progress
-                                                                                               ## indicator
-                                                                                               ## of
-                                                                                               ## processing
 
 
 proc sewing*(tolerance: cfloat = 1.0e-06; option1: bool = true;

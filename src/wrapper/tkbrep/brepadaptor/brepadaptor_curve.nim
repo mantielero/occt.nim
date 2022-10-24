@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,18 +37,6 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
-type
-  BRepAdaptorCurve* {.importcpp: "BRepAdaptor_Curve",
-                     header: "BRepAdaptor_Curve.hxx", bycopy.} = object of Adaptor3dCurve ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## undefined
-                                                                                   ## Curve
-                                                                                   ## with
-                                                                                   ## no
-                                                                                   ## Edge
-                                                                                   ## loaded.
 
 
 proc newBRepAdaptorCurve*(): BRepAdaptorCurve {.cdecl, constructor,

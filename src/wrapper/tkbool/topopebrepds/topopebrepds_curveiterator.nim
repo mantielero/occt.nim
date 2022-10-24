@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,26 +18,6 @@
 
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of Geom2d_Curve"
-type
-  TopOpeBRepDS_CurveIterator* {.importcpp: "TopOpeBRepDS_CurveIterator",
-                               header: "TopOpeBRepDS_CurveIterator.hxx", bycopy.} = object of TopOpeBRepDS_InterferenceIterator ##
-                                                                                                                         ## !
-                                                                                                                         ## Creates
-                                                                                                                         ## an
-                                                                                                                         ## iterator
-                                                                                                                         ## on
-                                                                                                                         ## the
-                                                                                                                         ## curves
-                                                                                                                         ## on
-                                                                                                                         ## surface
-                                                                                                                         ##
-                                                                                                                         ## !
-                                                                                                                         ## described
-                                                                                                                         ## by
-                                                                                                                         ## the
-                                                                                                                         ## interferences
-                                                                                                                         ## in
-                                                                                                                         ## <L>.
 
 
 proc newTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_CurveIterator {.

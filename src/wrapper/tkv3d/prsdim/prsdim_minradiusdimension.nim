@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1998-01-22
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -14,33 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimMinRadiusDimension* = Handle[PrsDimMinRadiusDimension]
 
-## ! --  Ellipse  Min  radius  dimension  of  a  Shape  which
-## ! can  be  Edge  or  Face  (planar  or  cylindrical(surface  of
-## ! extrusion  or  surface  of  offset))
 
-type
-  PrsDimMinRadiusDimension* {.importcpp: "PrsDim_MinRadiusDimension",
-                             header: "PrsDim_MinRadiusDimension.hxx", bycopy.} = object of PrsDimEllipseRadiusDimension ##
-                                                                                                                 ## !
-                                                                                                                 ## Max
-                                                                                                                 ## Ellipse
-                                                                                                                 ## radius
-                                                                                                                 ## dimension
-                                                                                                                 ##
-                                                                                                                 ## !
-                                                                                                                 ## Shape
-                                                                                                                 ## can
-                                                                                                                 ## be
-                                                                                                                 ## edge
-                                                                                                                 ## ,
-                                                                                                                 ## planar
-                                                                                                                 ## face
-                                                                                                                 ## or
-                                                                                                                 ## cylindrical
-                                                                                                                 ## face
 
 
 proc newPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;

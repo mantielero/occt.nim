@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,19 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TSolid"
-type
-  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
 
-## ! A Topological part of 3D space, bounded by shells,
-## ! edges and vertices.
 
-type
-  TopoDS_TSolid* {.importcpp: "TopoDS_TSolid", header: "TopoDS_TSolid.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## an
-                                                                                                     ## empty
-                                                                                                     ## TSolid.
 
 
 proc newTopoDS_TSolid*(): TopoDS_TSolid {.cdecl, constructor,

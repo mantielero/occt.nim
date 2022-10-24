@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-10
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -15,9 +17,6 @@
 
 ##  **************************************** Class SeqNode ********************
 
-type
-  NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
-                       header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
 
 
 proc newNCollectionSeqNode*(): NCollectionSeqNode {.cdecl, constructor,
@@ -30,45 +29,9 @@ proc setNext*(this: var NCollectionSeqNode; theNext: ptr NCollectionSeqNode) {.c
     importcpp: "SetNext", header: "NCollection_BaseSequence.hxx".}
 proc setPrevious*(this: var NCollectionSeqNode; thePrev: ptr NCollectionSeqNode) {.
     cdecl, importcpp: "SetPrevious", header: "NCollection_BaseSequence.hxx".}
-type
-  NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
-                              theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
-## *
-##  Purpose:     This  is  a base  class  for  the  Sequence.  It  deals with
-##               an indexed bidirectional list of NCollection_SeqNode's.
-##
 
-type
-  NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
-                            header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##
-                                                                                 ## !
-                                                                                 ## Memory
-                                                                                 ## allocation
-                                                                                 ##
-                                                                                 ## Methods
-                                                                                 ## PUBLIC
-                                                                                 ##
-                                                                                 ##
-                                                                                 ## Methods
-                                                                                 ## PROTECTED
-                                                                                 ##
-                                                                                 ##
-                                                                                 ## Fields
-                                                                                 ## PROTECTED
-                                                                                 ##
-                                                                                 ##
-                                                                                 ## Methods
-                                                                                 ## PRIVATE
-                                                                                 ##
 
-  NCollectionBaseSequenceIterator* {.importcpp: "NCollection_BaseSequence::Iterator",
-                                    header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
-    ## !< Pointer to the current node
-    ## !< Pointer to the previous node
 
 
 proc newNCollectionBaseSequenceIterator*(): NCollectionBaseSequenceIterator {.

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,27 +19,8 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectAnyType"
-type
-  HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
 
-## ! A SelectAnyType sorts the Entities of which the Type is Kind
-## ! of a given Type : this Type for Match is specific of each
-## ! class of SelectAnyType
 
-type
-  IFSelectSelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
-                          header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                    ## !
-                                                                                                    ## Returns
-                                                                                                    ## the
-                                                                                                    ## Type
-                                                                                                    ## which
-                                                                                                    ## has
-                                                                                                    ## to
-                                                                                                    ## be
-                                                                                                    ## matched
-                                                                                                    ## for
-                                                                                                    ## select
 
 
 proc typeForMatch*(this: IFSelectSelectAnyType): Handle[StandardType] {.

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1995-03-21
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,20 +18,6 @@
 
 ## ! Class holding the list of selected owners.
 
-type
-  AIS_Selection* {.importcpp: "AIS_Selection", header: "AIS_Selection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                         ## !
-                                                                                                         ## creates
-                                                                                                         ## a
-                                                                                                         ## new
-                                                                                                         ## selection.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Start
-                                                                                                         ## iteration
-                                                                                                         ## through
-                                                                                                         ## selected
-                                                                                                         ## objects.
 
 
 proc newAIS_Selection*(): AIS_Selection {.cdecl, constructor,
@@ -57,5 +45,4 @@ proc more*(this: AIS_Selection): bool {.noSideEffect, cdecl, importcpp: "More",
 proc next*(this: var AIS_Selection) {.cdecl, importcpp: "Next", header: "AIS_Selection.hxx".}
 proc value*(this: AIS_Selection): Handle[SelectMgrEntityOwner] {.noSideEffect, cdecl,
     importcpp: "Value", header: "AIS_Selection.hxx".}
-type
-  HandleAIS_Selection* = Handle[AIS_Selection]
+

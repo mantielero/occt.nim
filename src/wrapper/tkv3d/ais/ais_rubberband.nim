@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2015-11-23
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -13,52 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
 
-## ! Presentation for drawing rubber band selection.
-## ! It supports rectangle and polygonal selection.
-## ! It is constructed in 2d overlay.
-## ! Default configaration is built without filling.
-## ! For rectangle selection use SetRectangle() method.
-## ! For polygonal selection use AddPoint() and GetPoints() methods.
 
-type
-  AIS_RubberBand* {.importcpp: "AIS_RubberBand", header: "AIS_RubberBand.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                                ## !
-                                                                                                                ## Constructs
-                                                                                                                ## rubber
-                                                                                                                ## band
-                                                                                                                ## with
-                                                                                                                ## default
-                                                                                                                ## configuration:
-                                                                                                                ## empty
-                                                                                                                ## filling
-                                                                                                                ## and
-                                                                                                                ## white
-                                                                                                                ## solid
-                                                                                                                ## lines.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @warning
-                                                                                                                ## It
-                                                                                                                ## binds
-                                                                                                                ## this
-                                                                                                                ## object
-                                                                                                                ## with
-                                                                                                                ## Graphic3d_ZLayerId_TopOSD
-                                                                                                                ## layer.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Computes
-                                                                                                                ## presentation
-                                                                                                                ## of
-                                                                                                                ## rubber
-                                                                                                                ## band.
-    ## !< Array of screen points
-    ## !< Triangles for rubber band filling
-    ## !< Polylines for rubber band borders
-    ## !< automatic closing of rubber-band flag
 
 
 proc newAIS_RubberBand*(): AIS_RubberBand {.cdecl, constructor,

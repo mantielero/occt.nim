@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,41 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
-type
-  BRepPrimTorus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                                            ## !
-                                                                                                            ## the
-                                                                                                            ## STEP
-                                                                                                            ## definition
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Position
-                                                                                                            ## :
-                                                                                                            ## center
-                                                                                                            ## and
-                                                                                                            ## axes
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Major,
-                                                                                                            ## Minor
-                                                                                                            ## :
-                                                                                                            ## Radii
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Errors
-                                                                                                            ## :
-                                                                                                            ## Major
-                                                                                                            ## <
-                                                                                                            ## Resolution
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Minor
-                                                                                                            ## <
-                                                                                                            ## Resolution
-    ## !< distance from the center of the pipe to the center of the torus
-    ## !< radius of the pipe
 
 
 proc newBRepPrimTorus*(position: Ax2Obj; major: cfloat; minor: cfloat): BRepPrimTorus {.

@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -14,17 +16,6 @@
 
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of BOPAlgo_PaveFiller"
-type
-  BOPAlgoMakerVolume* {.importcpp: "BOPAlgo_MakerVolume",
-                       header: "BOPAlgo_MakerVolume.hxx", bycopy.} = object of BOPAlgoBuilder ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## contructor.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Checks
-                                                                                       ## the
-                                                                                       ## data.
 
 
 proc newBOPAlgoMakerVolume*(): BOPAlgoMakerVolume {.cdecl, constructor,

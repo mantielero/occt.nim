@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-17
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -21,46 +23,9 @@
 ##               the  list  length is  continuously updated,  so the  method
 ##               Extent is quite quick.
 
-type
-  NCollectionDelListNode* = proc (a1: ptr NCollectionListNode;
-                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
-##  ********************************************************** BaseList class
 
-type
-  NCollectionBaseList* {.importcpp: "NCollection_BaseList",
-                        header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ## ! Memory
-                                                                         ## allocation
-                                                                         ##
-                                                                         ## ---------- PUBLIC METHODS
-                                                                         ## ------------
-                                                                         ##
-                                                                         ## ******** Extent
-                                                                         ##
-                                                                         ## Purpose: Returns the number of nodes in the list
-                                                                         ##
-                                                                         ## ---------
-                                                                         ## PROTECTED METHODS
-                                                                         ## ----------
-                                                                         ##
-                                                                         ## ********
-                                                                         ## Constructor
-                                                                         ##
-                                                                         ## Purpose:
-                                                                         ## Initializes an empty list
-                                                                         ##
-                                                                         ## ------------
-                                                                         ## PROTECTED FIELDS
-                                                                         ## ------------
-    ##  Pointer to the head
-    ##  Pointer to the tail
-    ##  Actual length
-    ##  ------------ FRIEND CLASSES ------------
 
-  NCollectionBaseListIterator* {.importcpp: "NCollection_BaseList::Iterator",
-                                header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ##  ******** Empty constructor
-    myCurrent* {.importc: "myCurrent".}: ptr NCollectionListNode ##  Pointer to the current node
-    myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode ##  Pointer to the previous one
 
 
 proc newNCollectionBaseListIterator*(): NCollectionBaseListIterator {.cdecl,

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-01-08
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -27,109 +29,6 @@
 ## ! Descendants may redefine ComputeSelection() though.
 ## ! Also ConnectedInteractive will handle HLR if its reference based on AIS_Shape.
 
-type
-  AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
-                             header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                         ## !
-                                                                                                         ## Disconnects
-                                                                                                         ## the
-                                                                                                         ## previous
-                                                                                                         ## view
-                                                                                                         ## and
-                                                                                                         ## sets
-                                                                                                         ## highlight
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## mode
-                                                                                                         ## to
-                                                                                                         ## 0.
-                                                                                                         ## This
-                                                                                                         ## highlights
-                                                                                                         ## the
-                                                                                                         ## wireframe
-                                                                                                         ## presentation
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## aTypeOfPresentation3d.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Top_AllView
-                                                                                                         ## deactivates
-                                                                                                         ## hidden
-                                                                                                         ## line
-                                                                                                         ## removal.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Calculates
-                                                                                                         ## the
-                                                                                                         ## view
-                                                                                                         ## aPresentation
-                                                                                                         ## and
-                                                                                                         ## its
-                                                                                                         ## updates.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## The
-                                                                                                         ## latter
-                                                                                                         ## are
-                                                                                                         ## managed
-                                                                                                         ## by
-                                                                                                         ## aPresentationManager.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## The
-                                                                                                         ## display
-                                                                                                         ## mode
-                                                                                                         ## aMode
-                                                                                                         ## is
-                                                                                                         ## 0
-                                                                                                         ## by
-                                                                                                         ## default.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## this
-                                                                                                         ## method
-                                                                                                         ## is
-                                                                                                         ## redefined
-                                                                                                         ## virtual;
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## when
-                                                                                                         ## the
-                                                                                                         ## instance
-                                                                                                         ## is
-                                                                                                         ## connected
-                                                                                                         ## to
-                                                                                                         ## another
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## InteractiveObject,this
-                                                                                                         ## method
-                                                                                                         ## doesn't
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## compute
-                                                                                                         ## anything,
-                                                                                                         ## but
-                                                                                                         ## just
-                                                                                                         ## uses
-                                                                                                         ## the
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## presentation
-                                                                                                         ## of
-                                                                                                         ## this
-                                                                                                         ## last
-                                                                                                         ## object,
-                                                                                                         ## with
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## a
-                                                                                                         ## transformation
-                                                                                                         ## if
-                                                                                                         ## there's
-                                                                                                         ## one
-                                                                                                         ## stored.
 
 
 proc newAIS_ConnectedInteractive*(aTypeOfPresentation3d: PrsMgrTypeOfPresentation3d = prsMgrTOP_AllView): AIS_ConnectedInteractive {.
@@ -158,5 +57,4 @@ proc acceptShapeDecomposition*(this: AIS_ConnectedInteractive): bool {.noSideEff
     cdecl, importcpp: "AcceptShapeDecomposition", header: "AIS_ConnectedInteractive.hxx".}
 proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: cint): bool {.
     noSideEffect, cdecl, importcpp: "AcceptDisplayMode", header: "AIS_ConnectedInteractive.hxx".}
-type
-  HandleAIS_ConnectedInteractive* = Handle[AIS_ConnectedInteractive]
+

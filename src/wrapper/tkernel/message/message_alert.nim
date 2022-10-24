@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2017-06-26
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -14,71 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Message_Alert"
-type
-  HandleMessageAlert* = Handle[MessageAlert]
 
-## ! Base class of the hierarchy of classes describing various situations
-## ! occurring during execution of some algorithm or procedure.
-## !
-## ! Alert should provide unique text identifier that can be used to distinguish
-## ! particular type of alerts, e.g. to get text message string describing it.
-## ! See method GetMessageKey(); by default, dynamic type name is used.
-## !
-## ! Alert can contain some data. To avoid duplication of data, new alert
-## ! can be merged with another one of the same type. Method SupportsMerge()
-## ! should return true if merge is supported; method Merge() should do the
-## ! merge if possible and return true in that case and false otherwise.
-## !
 
-type
-  MessageAlert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Return
-                                                                                                        ## a
-                                                                                                        ## C
-                                                                                                        ## string
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## used
-                                                                                                        ## as
-                                                                                                        ## a
-                                                                                                        ## key
-                                                                                                        ## for
-                                                                                                        ## generating
-                                                                                                        ## text
-                                                                                                        ## user
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## messages
-                                                                                                        ## describing
-                                                                                                        ## this
-                                                                                                        ## alert.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## The
-                                                                                                        ## messages
-                                                                                                        ## are
-                                                                                                        ## generated
-                                                                                                        ## with
-                                                                                                        ## help
-                                                                                                        ## of
-                                                                                                        ## Message_Msg
-                                                                                                        ## class,
-                                                                                                        ## in
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Message_Report::Dump().
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Base
-                                                                                                        ## implementation
-                                                                                                        ## returns
-                                                                                                        ## dynamic
-                                                                                                        ## type
-                                                                                                        ## name
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## instance.
 
 
 proc getMessageKey*(this: MessageAlert): cstring {.noSideEffect, cdecl,
@@ -98,3 +37,4 @@ template define_Simple_Alert*(alert: untyped): void =
 
   type
     AlertbaseType* = MessageAlert
+

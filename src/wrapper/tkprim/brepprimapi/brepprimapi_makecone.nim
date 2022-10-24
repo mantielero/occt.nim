@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,48 +19,6 @@
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Cone"
-type
-  BRepPrimAPI_MakeCone* {.importcpp: "BRepPrimAPI_MakeCone",
-                         header: "BRepPrimAPI_MakeCone.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                   ## !
-                                                                                                   ## Make
-                                                                                                   ## a
-                                                                                                   ## cone.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## R1
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## bottom
-                                                                                                   ## radius,
-                                                                                                   ## may
-                                                                                                   ## be
-                                                                                                   ## null
-                                                                                                   ## (z
-                                                                                                   ## =
-                                                                                                   ## 0)
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## R2
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## top
-                                                                                                   ## radius,
-                                                                                                   ## may
-                                                                                                   ## be
-                                                                                                   ## null
-                                                                                                   ## (z
-                                                                                                   ## =
-                                                                                                   ## H)
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @param
-                                                                                                   ## H
-                                                                                                   ## [in]
-                                                                                                   ## cone
-                                                                                                   ## height
 
 
 proc cone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.

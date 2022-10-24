@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-07-30
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -24,16 +26,7 @@
 ##  the key.
 ##
 
-type
-  TheObjType* = object
-  TheBndType* = object
-  TreeNode* {.importcpp:"typename UBTree::TreeNode".} = object
-  NCollectionEBTree*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_EBTree<\'0,\'1>", header: "NCollection_EBTree.hxx",
-      bycopy.} = object of RootObj
 
-  NCollectionEBTreeUBTree* = NCollectionUBTree[TheObjType, TheBndType]
-  NCollectionEBTreeTreeNode* = TreeNode
 
 proc newNCollectionEBTree*[TheObjType; TheBndType](
     theAllocator: Handle[NCollectionBaseAllocator] = cast[Handle[NCollectionBaseAllocator]](0)): NCollectionEBTree[
@@ -69,3 +62,4 @@ proc clear*[TheObjType; TheBndType](this: var NCollectionEBTree[TheObjType,
 ##  _BNDTYPE      - the name of the bounding box type
 ##  _HUBTREE      - the name of parent class
 ##                  (defined using macro DEFINE_HUBTREE)
+

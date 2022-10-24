@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent Painnot
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,17 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
-type
-  MathBracketedRoot* {.importcpp: "math_BracketedRoot",
-                      header: "math_BracketedRoot.hxx", bycopy.} = object ## ! The Brent method is used to find the root of the function F between
-                                                                     ## ! the bounds Bound1 and Bound2 on the function F.
-                                                                     ## ! If
-                                                                     ## F(Bound1)*F(Bound2) >0 the Brent method fails.
-                                                                     ## ! The tolerance required for the root is given by Tolerance.
-                                                                     ## ! The solution is found when :
-                                                                     ## ! abs(Xi - Xi-1) <= Tolerance;
-                                                                     ## ! The maximum number of iterations allowed is given by
-                                                                     ## NbIterations.
 
 
 proc newMathBracketedRoot*(f: var MathFunction; bound1: cfloat; bound2: cfloat;

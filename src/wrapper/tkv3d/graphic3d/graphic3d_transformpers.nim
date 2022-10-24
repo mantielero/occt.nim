@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2015-06-18
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -13,132 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleGraphic3dTransformPers* = Handle[Graphic3dTransformPers]
 
-## ! Transformation Persistence definition.
-## !
-## ! Transformation Persistence defines a mutable Local Coordinate system which depends on camera position,
-## ! so that visual appearance of the object becomes partially immutable while camera moves.
-## ! Object visually preserves particular property such as size, placement, rotation or their combination.
-## !
-## ! Graphic3d_TMF_ZoomPers, Graphic3d_TMF_RotatePers and Graphic3d_TMF_ZoomRotatePers define Local Coordinate system
-## ! having origin in specified anchor point defined in World Coordinate system,
-## ! while Graphic3d_TMF_TriedronPers and Graphic3d_TMF_2d define origin as 2D offset from screen corner in pixels.
-## !
-## ! Graphic3d_TMF_2d, Graphic3d_TMF_TriedronPers and Graphic3d_TMF_ZoomPers defines Local Coordinate system where length units are pixels.
-## ! Beware that Graphic3d_RenderingParams::ResolutionRatio() will be ignored!
-## ! For other Persistence flags, normal (world) length units will apply.
-## !
-## ! WARNING: Graphic3d_TMF_None is not permitted for defining instance of this class - NULL handle should be used for this purpose!
 
-type
-  Graphic3dTransformPers* {.importcpp: "Graphic3d_TransformPers",
-                           header: "Graphic3d_TransformPers.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## true
-                                                                                                  ## if
-                                                                                                  ## specified
-                                                                                                  ## mode
-                                                                                                  ## is
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Set
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Return
-                                                                                                  ## the
-                                                                                                  ## anchor
-                                                                                                  ## point
-                                                                                                  ## for
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Apply
-                                                                                                  ## transformation
-                                                                                                  ## to
-                                                                                                  ## bounding
-                                                                                                  ## box
-                                                                                                  ## of
-                                                                                                  ## presentation.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theCamera
-                                                                                                  ## [in]
-                                                                                                  ## camera
-                                                                                                  ## definition
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theProjection
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## projection
-                                                                                                  ## transformation
-                                                                                                  ## matrix.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theWorldView
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## world
-                                                                                                  ## view
-                                                                                                  ## transformation
-                                                                                                  ## matrix.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theViewportWidth
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## width
-                                                                                                  ## of
-                                                                                                  ## viewport
-                                                                                                  ## (for
-                                                                                                  ## 2d
-                                                                                                  ## persistence).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theViewportHeight
-                                                                                                  ## [in]
-                                                                                                  ## the
-                                                                                                  ## height
-                                                                                                  ## of
-                                                                                                  ## viewport
-                                                                                                  ## (for
-                                                                                                  ## 2d
-                                                                                                  ## persistence).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theBoundingBox
-                                                                                                  ## [in/out]
-                                                                                                  ## the
-                                                                                                  ## bounding
-                                                                                                  ## box
-                                                                                                  ## to
-                                                                                                  ## transform.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## 3D
-                                                                                                  ## anchor
-                                                                                                  ## point
-                                                                                                  ## for
-                                                                                                  ## zoom/rotate
-                                                                                                  ## transformation
-                                                                                                  ## persistence.
-    ## !< Transformation persistence mode flags
 
 
 proc isZoomOrRotate*(theMode: Graphic3dTransModeFlags): bool {.cdecl,

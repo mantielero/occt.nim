@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 2010-12-03
 ##  Created by: Artem SHAL
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -14,10 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_XYZ"
-type
-  BndSphere* {.importcpp: "Bnd_Sphere", header: "Bnd_Sphere.hxx", bycopy.} = object ## !
-                                                                            ## Empty
-                                                                            ## constructor
 
 
 proc newBndSphere*(): BndSphere {.cdecl, constructor, importcpp: "Bnd_Sphere(@)",

@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1997-03-04
 ##  Created by: Jean-Pierre COMBE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,45 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimOffsetDimension* = Handle[PrsDimOffsetDimension]
 
-## ! A framework to display dimensions of offsets.
-## ! The relation between the offset and the basis shape
-## ! is indicated. This relation is displayed with arrows and
-## ! text. The text gives the dsitance between the offset
-## ! and the basis shape.
 
-type
-  PrsDimOffsetDimension* {.importcpp: "PrsDim_OffsetDimension",
-                          header: "PrsDim_OffsetDimension.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                             ## !
-                                                                                             ## Constructs
-                                                                                             ## the
-                                                                                             ## offset
-                                                                                             ## display
-                                                                                             ## object
-                                                                                             ## defined
-                                                                                             ## by
-                                                                                             ## the
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## first
-                                                                                             ## shape
-                                                                                             ## aFShape,
-                                                                                             ## the
-                                                                                             ## second
-                                                                                             ## shape
-                                                                                             ## aSShape,
-                                                                                             ## the
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## dimension
-                                                                                             ## aVal,
-                                                                                             ## and
-                                                                                             ## the
-                                                                                             ## text
-                                                                                             ## aText.
 
 
 proc newPrsDimOffsetDimension*(fistShape: TopoDS_Shape; secondShape: TopoDS_Shape;

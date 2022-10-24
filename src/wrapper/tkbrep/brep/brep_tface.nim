@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,39 +21,8 @@ discard "forward decl of Poly_Triangulation"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TFace"
-type
-  HandleBRepTFace* = Handle[BRepTFace]
 
-## ! The Tface from BRep  is  based  on the TFace  from
-## ! TopoDS. The TFace contains :
-## !
-## ! * A suface, a tolerance and a Location.
-## !
-## ! * A NaturalRestriction flag,   when this  flag  is
-## ! True the  boundary of the  face is known to be the
-## ! parametric space (Umin, UMax, VMin, VMax).
-## !
-## ! *  An    optional Triangulation.   If  there  is a
-## ! triangulation the surface can be absent.
-## !
-## ! The  Location is  used   for the Surface.
-## !
-## ! The triangulation  is in the same reference system
-## ! than the TFace.     A point on mySurface must   be
-## ! transformed with myLocation,  but  not a point  on
-## ! the triangulation.
-## !
-## ! The Surface may  be shared by different TFaces but
-## ! not the  Triangulation, because the  Triangulation
-## ! may be modified by  the edges.
 
-type
-  BRepTFace* {.importcpp: "BRep_TFace", header: "BRep_TFace.hxx", bycopy.} = object of TopoDS_TFace ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## empty
-                                                                                          ## TFace.
 
 
 proc newBRepTFace*(): BRepTFace {.cdecl, constructor, importcpp: "BRep_TFace(@)",

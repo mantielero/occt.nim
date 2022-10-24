@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1993-01-04
 ##  Created by: J.P. BOUDIER - J.P. TIRAULT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,15 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Quantity_PeriodDefinitionError"
-type
-  QuantityPeriod* {.importcpp: "Quantity_Period", header: "Quantity_Period.hxx",
-                   bycopy.} = object ## ! Creates a Period
-                                  ## ! With:      0 <= dd
-                                  ## ! 0 <= hh
-                                  ## ! 0 <= mn
-                                  ## ! 0 <= ss
-                                  ## ! 0 <= mis
-                                  ## ! 0 <= mics
 
 
 proc newQuantityPeriod*(dd: cint; hh: cint; mn: cint; ss: cint; mis: cint = 0; mics: cint = 0): QuantityPeriod {.

@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-29
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,10 +22,6 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  ChFiDS_CommonPoint* {.importcpp: "ChFiDS_CommonPoint",
-                       header: "ChFiDS_CommonPoint.hxx", bycopy.} = object ## ! Empty
-                                                                      ## constructor.
 
 
 proc newChFiDS_CommonPoint*(): ChFiDS_CommonPoint {.cdecl, constructor,

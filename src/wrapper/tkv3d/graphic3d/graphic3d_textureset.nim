@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,22 +16,7 @@
 ## ! Class holding array of textures to be mapped as a set.
 ## ! Textures should be defined in ascending order of texture units within the set.
 
-type
-  Graphic3dTextureSet* {.importcpp: "Graphic3d_TextureSet",
-                        header: "Graphic3d_TextureSet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Class
-                                                                                            ## for
-                                                                                            ## iterating
-                                                                                            ## texture
-                                                                                            ## set.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor.
 
-  Graphic3dTextureSetIterator* {.importcpp: "Graphic3d_TextureSet::Iterator",
-                                header: "Graphic3d_TextureSet.hxx", bycopy.} = object of RootObj ## ! Empty constructor.
 
 
 proc newGraphic3dTextureSetIterator*(): Graphic3dTextureSetIterator {.cdecl,

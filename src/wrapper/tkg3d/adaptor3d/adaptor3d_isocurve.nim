@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1993-03-11
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,16 +30,6 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
-type
-  Adaptor3dIsoCurve* {.importcpp: "Adaptor3d_IsoCurve",
-                      header: "Adaptor3d_IsoCurve.hxx", bycopy.} = object of Adaptor3dCurve ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## iso
-                                                                                     ## is
-                                                                                     ## set
-                                                                                     ## to
-                                                                                     ## NoneIso.
 
 
 proc newAdaptor3dIsoCurve*(): Adaptor3dIsoCurve {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-11-04
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,107 +18,6 @@
 
 ## ! This class defines graphic attributes for opaque 3d primitives (polygons, triangles, quadrilaterals).
 
-type
-  Graphic3dAspectFillArea3d* {.importcpp: "Graphic3d_AspectFillArea3d",
-                              header: "Graphic3d_AspectFillArea3d.hxx", bycopy.} = object of Graphic3dAspects ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## context
-                                                                                                       ## table
-                                                                                                       ## for
-                                                                                                       ## fill
-                                                                                                       ## area
-                                                                                                       ## primitives
-                                                                                                       ## defined
-                                                                                                       ## with
-                                                                                                       ## the
-                                                                                                       ## following
-                                                                                                       ## default
-                                                                                                       ## values:
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## InteriorStyle
-                                                                                                       ## :
-                                                                                                       ## Aspect_IS_EMPTY
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## InteriorColor
-                                                                                                       ## :
-                                                                                                       ## Quantity_NOC_CYAN1
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## EdgeColor
-                                                                                                       ## :
-                                                                                                       ## Quantity_NOC_WHITE
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## EdgeLineType
-                                                                                                       ## :
-                                                                                                       ## Aspect_TOL_SOLID
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## EdgeWidth
-                                                                                                       ## :
-                                                                                                       ## 1.0
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## FrontMaterial
-                                                                                                       ## :
-                                                                                                       ## NOM_BRASS
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## BackMaterial
-                                                                                                       ## :
-                                                                                                       ## NOM_BRASS
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## HatchStyle
-                                                                                                       ## :
-                                                                                                       ## Aspect_HS_SOLID
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Display
-                                                                                                       ## of
-                                                                                                       ## back-facing
-                                                                                                       ## filled
-                                                                                                       ## polygons.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## No
-                                                                                                       ## distinction
-                                                                                                       ## between
-                                                                                                       ## external
-                                                                                                       ## and
-                                                                                                       ## internal
-                                                                                                       ## faces
-                                                                                                       ## of
-                                                                                                       ## FillAreas.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## The
-                                                                                                       ## edges
-                                                                                                       ## are
-                                                                                                       ## not
-                                                                                                       ## drawn.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Polygon
-                                                                                                       ## offset
-                                                                                                       ## parameters:
-                                                                                                       ## mode
-                                                                                                       ## =
-                                                                                                       ## Aspect_POM_None,
-                                                                                                       ## factor
-                                                                                                       ## =
-                                                                                                       ## 1.,
-                                                                                                       ## units
-                                                                                                       ## =
-                                                                                                       ## 0.
 
 
 proc newGraphic3dAspectFillArea3d*(): Graphic3dAspectFillArea3d {.cdecl,
@@ -131,5 +32,4 @@ proc newGraphic3dAspectFillArea3d*(theInterior: AspectInteriorStyle;
     cdecl, constructor, importcpp: "Graphic3d_AspectFillArea3d(@)", header: "Graphic3d_AspectFillArea3d.hxx".}
 proc edge*(this: Graphic3dAspectFillArea3d): bool {.noSideEffect, cdecl,
     importcpp: "Edge", header: "Graphic3d_AspectFillArea3d.hxx".}
-type
-  HandleGraphic3dAspectFillArea3d* = Handle[Graphic3dAspectFillArea3d]
+

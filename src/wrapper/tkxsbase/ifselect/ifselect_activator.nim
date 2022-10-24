@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,88 +20,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Activator"
-type
-  HandleIFSelectActivator* = Handle[IFSelectActivator]
 
-## ! Defines the general frame for working with a SessionPilot.
-## ! Each Activator treats a set of Commands. Commands are given as
-## ! alphanumeric strings. They can be of two main forms :
-## ! - classic, to list, evaluate, enrich the session (by itself) :
-## ! no specific remark, its complete execution must be described
-## ! - creation of a new item : instead of creatinf it plus adding
-## ! it to the session (which is a classic way), it is possible
-## ! to create it and make it recorded by the SessionPilot :
-## ! then, the Pilot will add it to the session; this way allows
-## ! the Pilot to manage itself named items
-## !
-## ! In order to make easier the use of Activator, this class
-## ! provides a simple way to Select an Actor for a Command :
-## ! each sub-class of SectionActor defines the command titles it
-## ! recognizes, plus attaches a Number, unique for this sub-class,
-## ! to each distinct command title.
-## !
-## ! Each time an action is required, the corresponding Number
-## ! can then be given to help the selection of the action to do.
-## !
-## ! The result of an Execution must indicate if it is worth to be
-## ! recorded or not : see method Do
 
-type
-  IFSelectActivator* {.importcpp: "IFSelect_Activator",
-                      header: "IFSelect_Activator.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Records,
-                                                                                        ## in
-                                                                                        ## a
-                                                                                        ## Dictionary
-                                                                                        ## available
-                                                                                        ## for
-                                                                                        ## all
-                                                                                        ## the
-                                                                                        ## Activators,
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## the
-                                                                                        ## command
-                                                                                        ## title
-                                                                                        ## an
-                                                                                        ## Activator
-                                                                                        ## can
-                                                                                        ## process,
-                                                                                        ## attached
-                                                                                        ## with
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## its
-                                                                                        ## number,
-                                                                                        ## proper
-                                                                                        ## for
-                                                                                        ## this
-                                                                                        ## Activator
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## <mode>
-                                                                                        ## allows
-                                                                                        ## to
-                                                                                        ## distinguish
-                                                                                        ## various
-                                                                                        ## execution
-                                                                                        ## modes
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## 0:
-                                                                                        ## default
-                                                                                        ## mode;
-                                                                                        ## 1
-                                                                                        ## :
-                                                                                        ## for
-                                                                                        ## xset
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Sets
-                                                                                        ## the
-                                                                                        ## default
-                                                                                        ## values
 
 
 proc adding*(actor: Handle[IFSelectActivator]; number: cint; command: cstring;

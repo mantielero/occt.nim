@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -15,15 +17,6 @@
 ## ! Simple linear interpolation tool (also known as mix() in GLSL).
 ## ! The main purpose of this template class is making interpolation routines more readable.
 
-type
-  NCollectionLerp*[T] {.importcpp: "NCollection_Lerp<\'0>",
-                       header: "NCollection_Lerp.hxx", bycopy.} = object ## ! Compute interpolated value between two values.
-                                                                    ## ! @param theStart first  value
-                                                                    ## ! @param theEnd   second value
-                                                                    ## ! @param theT normalized
-                                                                    ## interpolation coefficient within [0, 1] range,
-                                                                    ## !             with 0 pointing to theStart and 1 to theEnd.
-                                                                    ## ! Empty constructor
 
 
 proc interpolate*[T](theStart: T; theEnd: T; theT: cdouble): T {.cdecl,

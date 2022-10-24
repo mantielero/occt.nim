@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -16,20 +18,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of IntTools_Context"
-type
-  BOPAlgoBuilderArea* {.importcpp: "BOPAlgo_BuilderArea",
-                       header: "BOPAlgo_BuilderArea.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                    ## !
-                                                                                    ## Sets
-                                                                                    ## the
-                                                                                    ## context
-                                                                                    ## for
-                                                                                    ## the
-                                                                                    ## algorithms
 
 
-#proc setContext*(this: var BOPAlgoBuilderArea; theContext: Handle[IntToolsContext]) {.
-#    cdecl, importcpp: "SetContext", header: "BOPAlgo_BuilderArea.hxx".}
 proc shapes*(this: BOPAlgoBuilderArea): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Shapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc setShapes*(this: var BOPAlgoBuilderArea; theLS: TopToolsListOfShape) {.cdecl,

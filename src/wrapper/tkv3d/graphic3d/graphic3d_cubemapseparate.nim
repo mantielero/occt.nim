@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -14,44 +16,6 @@
 
 ## ! Class to manage cubemap located in six different images.
 
-type
-  Graphic3dCubeMapSeparate* {.importcpp: "Graphic3d_CubeMapSeparate",
-                             header: "Graphic3d_CubeMapSeparate.hxx", bycopy.} = object of Graphic3dCubeMap ##
-                                                                                                     ## !
-                                                                                                     ## Initializes
-                                                                                                     ## cubemap
-                                                                                                     ## to
-                                                                                                     ## be
-                                                                                                     ## loaded
-                                                                                                     ## from
-                                                                                                     ## file.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @thePaths
-                                                                                                     ## -
-                                                                                                     ## array
-                                                                                                     ## of
-                                                                                                     ## paths
-                                                                                                     ## to
-                                                                                                     ## separate
-                                                                                                     ## image
-                                                                                                     ## files
-                                                                                                     ## (has
-                                                                                                     ## to
-                                                                                                     ## have
-                                                                                                     ## size
-                                                                                                     ## equal
-                                                                                                     ## 6).
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Nulifies
-                                                                                                     ## whole
-                                                                                                     ## images
-                                                                                                     ## array.
-    ## !< array of paths to cubemap images
-    ## !< array of cubemap images
-    ## !< size of each side of cubemap
-    ## !< format each side of cubemap
 
 
 proc newGraphic3dCubeMapSeparate*(thePaths: NCollectionArray1[
@@ -71,5 +35,4 @@ proc isDone*(this: Graphic3dCubeMapSeparate): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Graphic3d_CubeMapSeparate.hxx".}
 proc destroyGraphic3dCubeMapSeparate*(this: var Graphic3dCubeMapSeparate) {.cdecl,
     importcpp: "#.~Graphic3d_CubeMapSeparate()", header: "Graphic3d_CubeMapSeparate.hxx".}
-type
-  HandleGraphic3dCubeMapSeparate* = Handle[Graphic3dCubeMapSeparate]
+

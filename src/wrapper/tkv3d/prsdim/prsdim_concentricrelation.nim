@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,69 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Plane"
-type
-  HandlePrsDimConcentricRelation* = Handle[PrsDimConcentricRelation]
 
-## ! A framework to define a constraint by a relation of
-## ! concentricity between two or more interactive datums.
-## ! The display of this constraint is also defined.
-## ! A plane is used to create an axis along which the
-## ! relation of concentricity can be extended.
 
-type
-  PrsDimConcentricRelation* {.importcpp: "PrsDim_ConcentricRelation",
-                             header: "PrsDim_ConcentricRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## the
-                                                                                                   ## display
-                                                                                                   ## object
-                                                                                                   ## for
-                                                                                                   ## concentric
-                                                                                                   ## relations
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## between
-                                                                                                   ## shapes.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## This
-                                                                                                   ## object
-                                                                                                   ## is
-                                                                                                   ## defined
-                                                                                                   ## by
-                                                                                                   ## the
-                                                                                                   ## two
-                                                                                                   ## shapes,
-                                                                                                   ## aFShape
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## and
-                                                                                                   ## aSShape
-                                                                                                   ## and
-                                                                                                   ## the
-                                                                                                   ## plane
-                                                                                                   ## aPlane.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## aPlane
-                                                                                                   ## is
-                                                                                                   ## provided
-                                                                                                   ## to
-                                                                                                   ## create
-                                                                                                   ## an
-                                                                                                   ## axis
-                                                                                                   ## along
-                                                                                                   ## which
-                                                                                                   ## the
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## relation
-                                                                                                   ## of
-                                                                                                   ## concentricity
-                                                                                                   ## can
-                                                                                                   ## be
-                                                                                                   ## extended.
 
 
 proc newPrsDimConcentricRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;

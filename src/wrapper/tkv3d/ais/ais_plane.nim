@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1995-08-02
 ##  Created by: Arnaud BOUZY/Odile Olivier
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,30 +19,6 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of gp_Pnt"
-type
-  AIS_Plane* {.importcpp: "AIS_Plane", header: "AIS_Plane.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                 ## !
-                                                                                                 ## initializes
-                                                                                                 ## the
-                                                                                                 ## plane
-                                                                                                 ## aComponent.
-                                                                                                 ## If
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## the
-                                                                                                 ## mode
-                                                                                                 ## aCurrentMode
-                                                                                                 ## equals
-                                                                                                 ## true,
-                                                                                                 ## the
-                                                                                                 ## drawing
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## tool,
-                                                                                                 ## "Drawer"
-                                                                                                 ## is
-                                                                                                 ## not
-                                                                                                 ## initialized.
 
 
 proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCurrentMode: bool = false): AIS_Plane {.
@@ -109,5 +87,4 @@ proc computeSelection*(this: var AIS_Plane;
 proc setColor*(this: var AIS_Plane; aColor: QuantityColor) {.cdecl,
     importcpp: "SetColor", header: "AIS_Plane.hxx".}
 proc unsetColor*(this: var AIS_Plane) {.cdecl, importcpp: "UnsetColor", header: "AIS_Plane.hxx".}
-type
-  HandleAIS_Plane* = Handle[AIS_Plane]
+

@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,14 +19,6 @@
 discard "forward decl of Law_BSpline"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
-type
-  LawInterpolate* {.importcpp: "Law_Interpolate", header: "Law_Interpolate.hxx",
-                   bycopy.} = object ## ! Tolerance is to check if  the points are not too close
-                                  ## ! to one an  other.  It is  also  used to check   if the
-                                  ## ! tangent vector  is not too small.   There should be at
-                                  ## ! least 2 points. If PeriodicFlag is True then the curve
-                                  ## ! will be periodic be periodic
-                                  ## ! Interpolates in a non periodic fashion.
 
 
 proc newLawInterpolate*(points: Handle[TColStdHArray1OfReal]; periodicFlag: bool;

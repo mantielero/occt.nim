@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1991-02-21
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -24,30 +26,6 @@ discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_CompSolid"
 discard "forward decl of TopoDS_Compound"
-type
-  TopoDS_Builder* {.importcpp: "TopoDS_Builder", header: "TopoDS_Builder.hxx", bycopy.} = object of RootObj ##
-                                                                                         ## !
-                                                                                         ## Make
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## Wire.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## basic
-                                                                                         ## method
-                                                                                         ## to
-                                                                                         ## make
-                                                                                         ## a
-                                                                                         ## Shape,
-                                                                                         ## used
-                                                                                         ## by
-                                                                                         ## all
-                                                                                         ## the
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Make
-                                                                                         ## methods.
 
 
 proc makeWire*(this: TopoDS_Builder; w: var TopoDS_Wire) {.noSideEffect, cdecl,

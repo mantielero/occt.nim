@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1996-03-29
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,13 +19,8 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Constant"
-type
-  HandleLawConstant* = Handle[LawConstant]
 
-## ! Loi constante
 
-type
-  LawConstant* {.importcpp: "Law_Constant", header: "Law_Constant.hxx", bycopy.} = object of LawFunction
 
 
 proc newLawConstant*(): LawConstant {.cdecl, constructor,

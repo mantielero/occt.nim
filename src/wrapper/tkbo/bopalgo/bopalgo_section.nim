@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -14,10 +16,6 @@
 
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoSection* {.importcpp: "BOPAlgo_Section", header: "BOPAlgo_Section.hxx",
-                   bycopy.} = object of BOPAlgoBuilder ## ! Empty constructor
-                                                  ## ! Checks the data before performing the operation
 
 
 proc newBOPAlgoSection*(): BOPAlgoSection {.cdecl, constructor,

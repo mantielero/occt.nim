@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-08-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,16 +20,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of IntSurf_Transition"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Vec"
-type
-  IntSurf* {.importcpp: "IntSurf", header: "IntSurf.hxx", bycopy.} = object ## ! Computes the transition of the intersection point
-                                                                    ## ! between the two lines.
-                                                                    ## ! TgFirst is the tangent vector of the first line.
-                                                                    ## ! TgSecond is the tangent vector of the second line.
-                                                                    ## ! Normal is the direction used to orientate the cross
-                                                                    ## ! product
-                                                                    ## TgFirst^TgSecond.
-                                                                    ## ! TFirst is the transition of the point on the first line.
-                                                                    ## ! TSecond is the transition of the point on the second line.
 
 
 proc makeTransition*(tgFirst: VecObj; tgSecond: VecObj; normal: DirObj;

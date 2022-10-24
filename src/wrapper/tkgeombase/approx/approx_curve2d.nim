@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1997-10-28
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Adaptor2d_HCurve2d"
-type
-  ApproxCurve2d* {.importcpp: "Approx_Curve2d", header: "Approx_Curve2d.hxx", bycopy.} = object
 
 
 proc newApproxCurve2d*(c2d: Handle[Adaptor2dHCurve2d]; first: cfloat; last: cfloat;

@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,9 +32,6 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Dir"
 discard "forward decl of Adaptor3d_HCurve"
-type
-  Adaptor3dSurface* {.importcpp: "Adaptor3d_Surface",
-                     header: "Adaptor3d_Surface.hxx", bycopy.} = object of RootObj
 
 
 proc firstUParameter*(this: Adaptor3dSurface): cfloat {.noSideEffect, cdecl,

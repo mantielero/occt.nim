@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-05-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_DomainError"
-type
-  IntSurfTransition* {.importcpp: "IntSurf_Transition",
-                      header: "IntSurf_Transition.hxx", bycopy.} = object ## ! Empty
-                                                                     ## constructor. Creates an UNDECIDED transition.
 
 
 proc newIntSurfTransition*(): IntSurfTransition {.cdecl, constructor,

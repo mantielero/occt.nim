@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -15,12 +17,6 @@
 
 ## ! Defines a set of static methods operating with bounding boxes
 
-type
-  BndTools* {.importcpp: "Bnd_Tools", header: "Bnd_Tools.hxx", bycopy.} = object ## ! @name Bnd_Box to BVH_Box
-                                                                         ## conversion
-                                                                         ## !
-                                                                         ## Converts the given
-                                                                         ## Bnd_Box2d to BVH_Box
 
 
 proc bnd2BVH*(theBox: BndBox2d): BVH_Box[cfloat, 2] {.cdecl,

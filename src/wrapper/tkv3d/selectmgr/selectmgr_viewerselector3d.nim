@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-03-15
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,30 +19,6 @@
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_TransformPers"
 discard "forward decl of V3d_View"
-type
-  SelectMgrViewerSelector3d* {.importcpp: "SelectMgr_ViewerSelector3d",
-                              header: "SelectMgr_ViewerSelector3d.hxx", bycopy.} = object of SelectMgrViewerSelector ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## 3D
-                                                                                                              ## selector
-                                                                                                              ## object.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Displays
-                                                                                                              ## sensitives
-                                                                                                              ## in
-                                                                                                              ## view
-                                                                                                              ## <theView>.
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Update
-                                                                                                              ## z-layers
-                                                                                                              ## order
-                                                                                                              ## map.
-    ## !< list of debug presentations
 
 
 proc newSelectMgrViewerSelector3d*(): SelectMgrViewerSelector3d {.cdecl,
@@ -67,5 +45,4 @@ proc displaySensitive*(this: var SelectMgrViewerSelector3d;
 proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_ViewerSelector3d.hxx".}
-type
-  HandleSelectMgrViewerSelector3d* = Handle[SelectMgrViewerSelector3d]
+

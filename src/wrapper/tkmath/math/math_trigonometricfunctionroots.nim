@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-09-03
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_RangeError"
-type
-  MathTrigonometricFunctionRoots* {.importcpp: "math_TrigonometricFunctionRoots", header: "math_TrigonometricFunctionRoots.hxx",
-                                   bycopy.} = object ## ! Given coefficients a, b, c, d , e, this constructor
-                                                  ## ! performs the resolution of the equation above.
-                                                  ## ! The solutions must be contained in [InfBound, SupBound].
-                                                  ## ! InfBound and SupBound can be set by default to 0 and 2*PI.
-                                                  ## ! is used by the constructors above.
 
 
 proc newMathTrigonometricFunctionRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat;

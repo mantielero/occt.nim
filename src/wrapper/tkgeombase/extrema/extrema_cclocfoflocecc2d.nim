@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of math_Matrix"
-type
-  ExtremaCCLocFOfLocECC2d* {.importcpp: "Extrema_CCLocFOfLocECC2d",
-                            header: "Extrema_CCLocFOfLocECC2d.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
 proc newExtremaCCLocFOfLocECC2d*(thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC2d {.
@@ -82,3 +81,4 @@ proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC2d; c: pointer): cfloat {
 ##  #define Extrema_SeqPOnC_hxx <Extrema_SequenceOfPOnCurv2d.hxx>
 ##  #define Extrema_FuncExtCC Extrema_CCLocFOfLocECC2d
 ##  #define Extrema_FuncExtCC_hxx <Extrema_CCLocFOfLocECC2d.hxx>
+

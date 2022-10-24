@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -22,20 +24,6 @@
 ## ! Here and below term "Unicode symbol" is used as
 ## ! synonym of "Unicode code point".
 
-type
-  StandardUtf32Char* = object
-  StandardWideChar*  = object
-  NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
-                                 header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theString
-                                                                                     ## buffer
-                                                                                     ## to
-                                                                                     ## iterate
 
 
 proc newNCollectionUtfIterator*[Type](theString: ptr Type): NCollectionUtfIterator[
@@ -80,13 +68,6 @@ proc advanceBytesUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type]): cint
 proc getUtf*[Type; TypeWrite](this: NCollectionUtfIterator[Type];
                             theBuffer: ptr TypeWrite): ptr TypeWrite {.noSideEffect,
     cdecl, importcpp: "GetUtf", header: "NCollection_UtfIterator.hxx".}
-type
-  NCollectionUtf8Iter* = NCollectionUtfIterator[StandardUtf8Char]
-  NCollectionUtf16Iter* = NCollectionUtfIterator[StandardUtf16Char]
-  NCollectionUtf32Iter* = NCollectionUtfIterator[StandardUtf32Char]
-  NCollectionUtfWideIter* = NCollectionUtfIterator[StandardWideChar]
 
-##  template implementation
 
-#import
-#  nCollectionUtfIterator
+

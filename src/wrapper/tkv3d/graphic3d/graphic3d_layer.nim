@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2011-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -23,23 +25,6 @@
 #      Graphic3dIndexedMapOfStructure]
 
 discard "forward decl of Graphic3d_CullingTool"
-type
-  Graphic3dLayer* {.importcpp: "Graphic3d_Layer", header: "Graphic3d_Layer.hxx",
-                   bycopy.} = object of StandardTransient ## ! Initializes associated priority list and layer properties
-                                                     ## ! Returns set of Graphic3d_CStructures structures for building BVH tree.
-                                                     ## ! Updates BVH trees if their state has been invalidated.
-                                                     ## ! Array of Graphic3d_CStructures by priority rendered in layer.
-    ## ! Overall number of structures rendered in the layer.
-    ## ! Number of NOT culled structures in the layer.
-    ## ! Layer setting flags.
-    ## ! Layer id.
-    ## ! Set of Graphic3d_CStructures structures for building BVH tree.
-    ## ! Set of transform persistent Graphic3d_CStructures for building BVH tree.
-    ## ! Indexed map of always rendered structures.
-    ## ! Is needed for implementation of stochastic order of BVH traverse.
-    ## ! Defines if the primitive set for BVH is outdated.
-    ## ! Defines if the cached bounding box is outdated.
-    ## ! Cached layer bounding box.
 
 
 proc newGraphic3dLayer*(theId: Graphic3dZLayerId; theNbPriorities: cint;

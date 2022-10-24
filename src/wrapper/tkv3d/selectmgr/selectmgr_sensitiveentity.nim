@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-08-15
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -16,22 +18,6 @@
 ## ! The purpose of this class is to mark sensitive entities selectable or not
 ## ! depending on current active selection of parent object for proper BVH traverse
 
-type
-  SelectMgrSensitiveEntity* {.importcpp: "SelectMgr_SensitiveEntity",
-                             header: "SelectMgr_SensitiveEntity.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## new
-                                                                                                      ## inactive
-                                                                                                      ## for
-                                                                                                      ## selection
-                                                                                                      ## object
-                                                                                                      ## with
-                                                                                                      ## base
-                                                                                                      ## entity
-                                                                                                      ## theEntity
-    ## !< Related SelectBasics entity
-    ## !< Selection activity status
 
 
 proc newSelectMgrSensitiveEntity*(theEntity: Handle[Select3D_SensitiveEntity]): SelectMgrSensitiveEntity {.
@@ -52,5 +38,4 @@ proc setActiveForSelection*(this: SelectMgrSensitiveEntity) {.noSideEffect, cdec
 proc dumpJson*(this: SelectMgrSensitiveEntity; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_SensitiveEntity.hxx".}
-type
-  HandleSelectMgrSensitiveEntity* = Handle[SelectMgrSensitiveEntity]
+

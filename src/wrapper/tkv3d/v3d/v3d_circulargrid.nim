@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1998-07-16
 ##  Created by: CAL
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_Group"
-type
-  V3dCircularGrid* {.importcpp: "V3d_CircularGrid", header: "V3d_CircularGrid.hxx",
-                    bycopy.} = object of AspectCircularGrid ## ! Custom Graphic3d_Structure implementation.
 
 
 proc newV3dCircularGrid*(aViewer: V3dViewerPointer; aColor: QuantityColor;
@@ -41,5 +40,4 @@ proc setGraphicValues*(this: var V3dCircularGrid; radius: cfloat; offSet: cfloat
 proc dumpJson*(this: V3dCircularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_CircularGrid.hxx".}
-type
-  HandleV3dCircularGrid* = Handle[V3dCircularGrid]
+

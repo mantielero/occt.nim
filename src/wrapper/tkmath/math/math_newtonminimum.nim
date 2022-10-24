@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1996-02-28
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,16 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_MultipleVarFunctionWithHessian"
-type
-  MathNewtonMinimum* {.importcpp: "math_NewtonMinimum",
-                      header: "math_NewtonMinimum.hxx", bycopy.} = object ## ! The tolerance required on the solution is given by Tolerance.
-                                                                     ## ! Iteration are  stopped if
-                                                                     ## (!WithSingularity) and H(F(Xi)) is not definite
-                                                                     ## ! positive (if the smaller eigenvalue of H < Convexity)
-                                                                     ## ! or
-                                                                     ## IsConverged() returns True for 2 successives Iterations.
-                                                                     ## ! Warning: This constructor does not perform
-                                                                     ## computation.
 
 
 proc newMathNewtonMinimum*(theFunction: MathMultipleVarFunctionWithHessian;

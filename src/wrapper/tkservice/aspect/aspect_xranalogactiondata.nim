@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,15 +15,6 @@
 
 ## ! Analog input XR action data.
 
-type
-  AspectXRAnalogActionData* {.importcpp: "Aspect_XRAnalogActionData",
-                             header: "Aspect_XRAnalogActionData.hxx", bycopy.} = object
-    activeOrigin* {.importc: "ActiveOrigin".}: uint64 ## !< The origin that caused this action's current state
-    updateTime* {.importc: "UpdateTime".}: cfloat ## !< Time relative to now when this event happened. Will be negative to indicate a past time
-    vecXYZ* {.importc: "VecXYZ".}: NCollectionVec3[cfloat] ## !< the current state of this action
-    deltaXYZ* {.importc: "DeltaXYZ".}: NCollectionVec3[cfloat] ## !< deltas since the previous update
-    isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
-                                        ## ! Return TRUE if delta is non-zero.
 
 
 proc isChanged*(this: var AspectXRAnalogActionData): bool {.cdecl,

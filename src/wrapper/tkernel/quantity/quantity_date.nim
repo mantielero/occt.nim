@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1993-01-04
 ##  Created by: J.P. BOUDIER - J.P. TIRAULT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,34 +19,6 @@
 discard "forward decl of Quantity_DateDefinitionError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Quantity_Period"
-type
-  QuantityDate* {.importcpp: "Quantity_Date", header: "Quantity_Date.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## a
-                                                                                     ## default
-                                                                                     ## date
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## (00:00
-                                                                                     ## GMT,
-                                                                                     ## January
-                                                                                     ## 1,
-                                                                                     ## 1979
-                                                                                     ## (zero
-                                                                                     ## hour));
-                                                                                     ## use
-                                                                                     ## the
-                                                                                     ## function
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## SetValues
-                                                                                     ## to
-                                                                                     ## define
-                                                                                     ## the
-                                                                                     ## required
-                                                                                     ## date;
-                                                                                     ## or
 
 
 proc newQuantityDate*(): QuantityDate {.cdecl, constructor,

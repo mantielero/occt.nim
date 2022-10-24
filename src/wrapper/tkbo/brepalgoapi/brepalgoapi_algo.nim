@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -13,12 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BRepAlgoAPI_Algo* {.importcpp: "BRepAlgoAPI_Algo",
-                     header: "BRepAlgoAPI_Algo.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor
 
 
 proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape",
@@ -52,3 +48,4 @@ proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape
 ## using statement
 
 ## using statement
+

@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -17,8 +19,6 @@
 ## ! An incorrect insertion was attempted.
 
 discard "forward decl of TopoDS_UnCompatibleShapes"
-type
-  HandleTopoDS_UnCompatibleShapes* = Handle[TopoDS_UnCompatibleShapes]
 
 when not defined(noException) and not defined(noTopoDS_UnCompatibleShapes):
   template topoDS_UnCompatibleShapesRaiseIf*(condition, message: untyped): void =

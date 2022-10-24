@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-17
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,152 +26,8 @@ discard "forward decl of V3d_CircularGrid"
 discard "forward decl of V3d_RectangularGrid"
 discard "forward decl of V3d_View"
 discard "forward decl of Quantity_Color"
-type
-  V3dViewer* {.importcpp: "V3d_Viewer", header: "V3d_Viewer.hxx", byref, pure,inheritable.} = object of StandardTransient ##
-                                                                                               ## !
-                                                                                               ## Create
-                                                                                               ## a
-                                                                                               ## Viewer
-                                                                                               ## with
-                                                                                               ## the
-                                                                                               ## given
-                                                                                               ## graphic
-                                                                                               ## driver
-                                                                                               ## and
-                                                                                               ## with
-                                                                                               ## default
-                                                                                               ## parameters:
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## -
-                                                                                               ## View
-                                                                                               ## orientation:
-                                                                                               ## V3d_XposYnegZpos
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## -
-                                                                                               ## View
-                                                                                               ## background:
-                                                                                               ## Quantity_NOC_GRAY30
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## -
-                                                                                               ## Shading
-                                                                                               ## model:
-                                                                                               ## V3d_GOURAUD
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Return
-                                                                                               ## a
-                                                                                               ## list
-                                                                                               ## of
-                                                                                               ## active
-                                                                                               ## views.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Return
-                                                                                               ## a
-                                                                                               ## list
-                                                                                               ## of
-                                                                                               ## defined
-                                                                                               ## views.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## lights
-                                                                                               ## management
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Defines
-                                                                                               ## default
-                                                                                               ## lights:
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## positional-light
-                                                                                               ## 0.3
-                                                                                               ## 0.
-                                                                                               ## 0.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## directional-light
-                                                                                               ## V3d_XnegYposZpos
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## directional-light
-                                                                                               ## V3d_XnegYneg
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## ambient-light
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Return
-                                                                                               ## a
-                                                                                               ## list
-                                                                                               ## of
-                                                                                               ## defined
-                                                                                               ## lights.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## objects
-                                                                                               ## management
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Erase
-                                                                                               ## all
-                                                                                               ## Objects
-                                                                                               ## in
-                                                                                               ## All
-                                                                                               ## the
-                                                                                               ## views.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## returns
-                                                                                               ## true
-                                                                                               ## if
-                                                                                               ## the
-                                                                                               ## computed
-                                                                                               ## mode
-                                                                                               ## can
-                                                                                               ## be
-                                                                                               ## used.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## privileged
-                                                                                               ## plane
-                                                                                               ## management
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## grid
-                                                                                               ## management
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Activates
-                                                                                               ## the
-                                                                                               ## grid
-                                                                                               ## in
-                                                                                               ## all
-                                                                                               ## views
-                                                                                               ## of
-                                                                                               ## <me>.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## deprecated
-                                                                                               ## methods
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## the
-                                                                                               ## default
-                                                                                               ## background
-                                                                                               ## colour.
 
 
-#proc newV3dViewer*(theDriver: Handle[Graphic3dGraphicDriver]): V3dViewer {.cdecl,
-#    constructor, importcpp: "V3d_Viewer(@)", header: "V3d_Viewer.hxx".}
 proc ifMoreViews*(this: V3dViewer): bool {.noSideEffect, cdecl,
                                        importcpp: "IfMoreViews", header: "V3d_Viewer.hxx".}
 proc createView*(this: var V3dViewer): Handle[V3dView] {.cdecl,
@@ -399,5 +257,4 @@ proc definedLight*(this: V3dViewer): Handle[V3dLight] {.noSideEffect, cdecl,
     importcpp: "DefinedLight", header: "V3d_Viewer.hxx".}
 proc dumpJson*(this: V3dViewer; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "V3d_Viewer.hxx".}
-type
-  HandleV3dViewer* = Handle[V3dViewer]
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -16,35 +18,8 @@ discard "forward decl of Graphic3d_CView"
 discard "forward decl of Graphic3d_GraphicDriver"
 discard "forward decl of Graphic3d_Layer"
 discard "forward decl of Graphic3d_StructureManager"
-type
-  HandleGraphic3dCView* = Handle[Graphic3dCView]
 
-## ! Base class of a graphical view that carries out rendering process for a concrete
-## ! implementation of graphical driver. Provides virtual interfaces for redrawing its
-## ! contents, management of displayed structures and render settings. The source code
-## ! of the class itself implements functionality related to management of
-## ! computed (HLR or "view-dependent") structures.
 
-type
-  Graphic3dCView* {.importcpp: "Graphic3d_CView", header: "Graphic3d_CView.hxx",
-                   bycopy.} = object of Graphic3dDataStructureManager ## ! Constructor.
-                                                                 ## ! Returns default Shading Model of the view;
-                                                                 ## Graphic3d_TOSM_FRAGMENT by default.
-                                                                 ## ! Is it possible to display the structure in the view?
-                                                                 ## ! Redraw content of the view.
-                                                                 ## ! Copy visualization settings from another view.
-                                                                 ## ! Method is used for cloning views in viewer when its required to create view
-                                                                 ## ! with same view properties.
-                                                                 ## ! Return unit scale factor defined as scale factor for m (meters); 1.0 by default.
-                                                                 ## ! Normally, view definition is unitless, however some operations like VR input requires proper units mapping.
-                                                                 ## ! @name obsolete Graduated Trihedron functionality
-                                                                 ## ! Returns data of a graduated trihedron
-                                                                 ## ! Adds the structure to display lists of the view.
-    ## !< camera projection parameters to restore after closing XR session (FOV, aspect and similar)
-    ## !< neutral camera orientation defining coordinate system in which head tracking is defined
-    ## !< transient XR camera orientation with tracked head orientation applied (based on myBaseXRCamera)
-    ## !< neutral camera orientation copy at the beginning of processing input
-    ## !< unit scale factor defined as scale factor for m (meters)
 
 
 proc newGraphic3dCView*(theMgr: Handle[Graphic3dStructureManager]): Graphic3dCView {.

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-01-24
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,20 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
 
-## ! Stores  information  about objects in graphic context:
-## ! - Status Of Display : in the main viewer
-## ! hidden in the main viewer
-## ! - Displayed Modes
-## ! - Active Selection Modes
-## ! - is the Interactive Object Current ?
-## ! - Layer Index
 
-type
-  AIS_GlobalStatus* {.importcpp: "AIS_GlobalStatus",
-                     header: "AIS_GlobalStatus.hxx", bycopy.} = object of StandardTransient
 
 
 proc newAIS_GlobalStatus*(): AIS_GlobalStatus {.cdecl, constructor,

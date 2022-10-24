@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,17 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Transfer_Finder"
-type
-  TransferFindHasher* {.importcpp: "Transfer_FindHasher",
-                       header: "Transfer_FindHasher.hxx", bycopy.} = object ## ! Returns hash code for the given finder, in the range [1,
-                                                                       ## theUpperBound].
-                                                                       ## ! Asks the finder its hash code, then
-                                                                       ## transforms it to be in the required range
-                                                                       ## ! @param theFinder the finder which hash code is to be computed
-                                                                       ## ! @param
-                                                                       ## theUpperBound the upper bound of the range a computing hash code must be within
-                                                                       ## ! @return a computed hash code, in the range [1,
-                                                                       ## theUpperBound]
 
 
 proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: cint): cint {.cdecl,

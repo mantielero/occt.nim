@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomHSequenceOfBSplineSurface* {.importcpp: "Geom_HSequenceOfBSplineSurface",
-                                  header: "Geom_HSequenceOfBSplineSurface.hxx",
-                                  bycopy.} = object of GeomSequenceOfBSplineSurface
 
 
 proc newGeomHSequenceOfBSplineSurface*(): GeomHSequenceOfBSplineSurface {.cdecl,
@@ -34,5 +32,4 @@ proc append*(this: var GeomHSequenceOfBSplineSurface;
     importcpp: "Append", header: "Geom_HSequenceOfBSplineSurface.hxx".}
 proc changeSequence*(this: var GeomHSequenceOfBSplineSurface): var GeomSequenceOfBSplineSurface {.
     cdecl, importcpp: "ChangeSequence", header: "Geom_HSequenceOfBSplineSurface.hxx".}
-type
-  HandleGeomHSequenceOfBSplineSurface* = Handle[GeomHSequenceOfBSplineSurface]
+

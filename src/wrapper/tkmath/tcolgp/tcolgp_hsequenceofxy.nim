@@ -1,3 +1,5 @@
+import tcolgp_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColgpHSequenceOfXY* {.importcpp: "TColgp_HSequenceOfXY",
-                        header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
 
 
 proc newTColgpHSequenceOfXY*(): TColgpHSequenceOfXY {.cdecl, constructor,
@@ -31,5 +30,4 @@ proc append*(this: var TColgpHSequenceOfXY; theSequence: var TColgpSequenceOfXY)
     cdecl, importcpp: "Append", header: "TColgp_HSequenceOfXY.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfXY): var TColgpSequenceOfXY {.cdecl,
     importcpp: "ChangeSequence", header: "TColgp_HSequenceOfXY.hxx".}
-type
-  HandleTColgpHSequenceOfXY* = Handle[TColgpHSequenceOfXY]
+

@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,23 +20,8 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_CartesianPoint"
-type
-  HandleGeom2dCartesianPoint* = Handle[Geom2dCartesianPoint]
 
-## ! Describes a point in 2D space. A
-## ! Geom2d_CartesianPoint is defined by a gp_Pnt2d
-## ! point, with its two Cartesian coordinates X and Y.
 
-type
-  Geom2dCartesianPoint* {.importcpp: "Geom2d_CartesianPoint",
-                         header: "Geom2d_CartesianPoint.hxx", bycopy.} = object of Geom2dPoint ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## persistent
-                                                                                        ## copy
-                                                                                        ## of
-                                                                                        ## P.
 
 
 proc newGeom2dCartesianPoint*(p: Pnt2dObj): Geom2dCartesianPoint {.cdecl, constructor,

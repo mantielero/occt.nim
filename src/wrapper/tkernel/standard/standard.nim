@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Standard_ErrorHandler"
 discard "forward decl of Standard_Persistent"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Standard_Failure"
-type
-  Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object ## ! Allocates memory blocks
-                                                                       ## ! aSize - bytes to  allocate
 
 
 proc allocate*(aSize: csize_t): pointer {.cdecl, importcpp: "Standard::Allocate(@)",
@@ -38,3 +37,4 @@ proc freeAligned*[T](thePtrAligned: ptr T) {.cdecl,
 proc purge*(): cint {.cdecl, importcpp: "Standard::Purge(@)", header: "Standard.hxx".}
 ##  include definition of handle to make it always visible
 ##  (put at the and of the file due to cyclic dependency between headers)
+

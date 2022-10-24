@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,20 +15,10 @@
 
 ## ! Describes a single pose for a tracked object (for XR).
 
-type
-  AspectTrackedDevicePose* {.importcpp: "Aspect_TrackedDevicePose",
-                            header: "Aspect_TrackedDevicePose.hxx", bycopy.} = object
-    orientation* {.importc: "Orientation".}: TrsfObj ## !< device to absolute transformation
-    velocity* {.importc: "Velocity".}: VecObj ## !< velocity in tracker space in m/s
-    angularVelocity* {.importc: "AngularVelocity".}: VecObj ## !< angular velocity in radians/s
-    isValidPose* {.importc: "IsValidPose".}: bool ## !< indicates valid pose
-    isConnectedDevice* {.importc: "IsConnectedDevice".}: bool ## !< indicates connected state
-                                                          ## ! Empty constructor.
 
 
 proc newAspectTrackedDevicePose*(): AspectTrackedDevicePose {.cdecl, constructor,
     importcpp: "Aspect_TrackedDevicePose(@)", header: "Aspect_TrackedDevicePose.hxx".}
 ## ! Array of tracked poses.
 
-type
-  AspectTrackedDevicePoseArray* = NCollectionArray1[AspectTrackedDevicePose]
+

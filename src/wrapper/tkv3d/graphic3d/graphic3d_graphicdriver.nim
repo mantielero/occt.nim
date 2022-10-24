@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-01-28
 ##  Created by: CAL
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -24,36 +26,8 @@ discard "forward decl of Graphic3d_StructureManager"
 discard "forward decl of Graphic3d_ViewManager"
 discard "forward decl of Quantity_Color"
 discard "forward decl of TCollection_AsciiString"
-type
-  HandleGraphic3dGraphicDriver* = Handle[Graphic3dGraphicDriver]
 
-## ! This class allows the definition of a graphic driver
-## ! for 3d interface (currently only OpenGl driver is used).
 
-type
-  Graphic3dGraphicDriver* {.importcpp: "Graphic3d_GraphicDriver",
-                           header: "Graphic3d_GraphicDriver.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Request
-                                                                                                  ## limit
-                                                                                                  ## of
-                                                                                                  ## graphic
-                                                                                                  ## resource
-                                                                                                  ## of
-                                                                                                  ## specific
-                                                                                                  ## type.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## new
-                                                                                                  ## empty
-                                                                                                  ## graphic
-                                                                                                  ## structure
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## the
-                                                                                                  ## Driver
 
 
 proc inquireLimit*(this: Graphic3dGraphicDriver; theType: Graphic3dTypeOfLimit): cint {.

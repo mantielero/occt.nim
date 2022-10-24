@@ -1,3 +1,5 @@
+import tcolgp_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColgpHArray2OfPnt* {.importcpp: "TColgp_HArray2OfPnt",
-                       header: "TColgp_HArray2OfPnt.hxx", bycopy.} = object of TColgpArray2OfPnt
 
 
 proc newTColgpHArray2OfPnt*(theRowLow: cint; theRowUpp: cint; theColLow: cint;

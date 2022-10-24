@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -14,20 +16,6 @@
 
 discard "forward decl of Graphic3d_Camera"
 discard "forward decl of V3d_View"
-type
-  AIS_AnimationCamera* {.importcpp: "AIS_AnimationCamera",
-                        header: "AIS_AnimationCamera.hxx", bycopy.} = object of AIS_Animation ##
-                                                                                       ## !
-                                                                                       ## Main
-                                                                                       ## constructor.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Update
-                                                                                       ## the
-                                                                                       ## progress.
-    ## !< view to setup camera
-    ## !< starting camera position
-    ## !< end camera position
 
 
 proc newAIS_AnimationCamera*(theAnimationName: TCollectionAsciiString;
@@ -47,5 +35,4 @@ proc cameraEnd*(this: AIS_AnimationCamera): Handle[Graphic3dCamera] {.noSideEffe
 proc setCameraEnd*(this: var AIS_AnimationCamera;
                   theCameraEnd: Handle[Graphic3dCamera]) {.cdecl,
     importcpp: "SetCameraEnd", header: "AIS_AnimationCamera.hxx".}
-type
-  HandleAIS_AnimationCamera* = Handle[AIS_AnimationCamera]
+

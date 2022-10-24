@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 2010-05-21
 ##  Created by: PAUL SUPRYATKIN
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -14,28 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Quantity_Color"
-type
-  AspectGradientBackground* {.importcpp: "Aspect_GradientBackground",
-                             header: "Aspect_GradientBackground.hxx", bycopy.} = object of AspectBackground ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## window
-                                                                                                     ## gradient
-                                                                                                     ## background.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Default
-                                                                                                     ## colors
-                                                                                                     ## :
-                                                                                                     ## Quantity_NOC_BLACK.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Default
-                                                                                                     ## fill
-                                                                                                     ## method
-                                                                                                     ## :
-                                                                                                     ## Aspect_GFM_NONE
 
 
 proc newAspectGradientBackground*(): AspectGradientBackground {.cdecl, constructor,

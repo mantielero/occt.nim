@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -17,14 +19,6 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_ObjectSet*[T; N: static[cint]] {.importcpp: "BVH_ObjectSet<\'0,\'1>",
-                                    header: "BVH_ObjectSet.hxx", bycopy.} = object of BVH_Set[
-      T, N]                    ## ! Type of array of geometric objects.
-          ## ! Creates new set of geometric objects.
-          ## ! Removes all geometric objects.
-          ## ! Return total number of objects.
-    ## !< Array of geometric objects
 
   
 

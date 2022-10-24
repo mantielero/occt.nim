@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,81 +17,12 @@
 
 ## ! List of shader objects.
 
-type
-  Graphic3dShaderObjectList* = NCollectionSequence[Handle[Graphic3dShaderObject]]
 
-## ! List of custom uniform shader variables.
 
-type
-  Graphic3dShaderVariableList* = NCollectionSequence[
-      Handle[Graphic3dShaderVariable]]
 
-## ! List of custom vertex shader attrubures
 
-type
-  Graphic3dShaderAttributeList* = NCollectionSequence[
-      Handle[Graphic3dShaderAttribute]]
 
-## ! This class is responsible for managing shader programs.
 
-type
-  Graphic3dShaderProgram* {.importcpp: "Graphic3d_ShaderProgram",
-                           header: "Graphic3d_ShaderProgram.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## value
-                                                                                                  ## of
-                                                                                                  ## THE_MAX_LIGHTS
-                                                                                                  ## macros
-                                                                                                  ## within
-                                                                                                  ## GLSL
-                                                                                                  ## program
-                                                                                                  ## (see
-                                                                                                  ## Declarations.glsl).
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## new
-                                                                                                  ## empty
-                                                                                                  ## program
-                                                                                                  ## object.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## The
-                                                                                                  ## path
-                                                                                                  ## to
-                                                                                                  ## GLSL
-                                                                                                  ## programs
-                                                                                                  ## determined
-                                                                                                  ## from
-                                                                                                  ## CSF_ShadersDirectory
-                                                                                                  ## or
-                                                                                                  ## CASROOT
-                                                                                                  ## environment
-                                                                                                  ## variables.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @return
-                                                                                                  ## the
-                                                                                                  ## root
-                                                                                                  ## folder
-                                                                                                  ## with
-                                                                                                  ## default
-                                                                                                  ## GLSL
-                                                                                                  ## programs.
-    ## !< the unique identifier of program object
-    ## !< the list of attached shader objects
-    ## !< the list of custom uniform variables
-    ## !< the list of custom vertex attributes
-    ## !< GLSL header with version code and used extensions
-    ## !< length of array of light sources (THE_MAX_LIGHTS)
-    ## !< length of array of clipping planes (THE_MAX_CLIP_PLANES)
-    ## !< length of array of Fragment Shader outputs (THE_NB_FRAG_OUTPUTS)
-    ## !< texture units declared within the program, @sa Graphic3d_TextureSetBits
-    ## !< flag indicating that program defines default texture sampler occSampler0
-    ## !< flag indicating that Fragment Shader performs alpha test
-    ## !< flag indicating that Fragment Shader includes weighted OIT coverage
-    ## !< flag indicating that program defines functions and variables used in PBR pipeline
 
 
 proc newGraphic3dShaderProgram*(): Graphic3dShaderProgram {.cdecl, constructor,
@@ -187,14 +120,5 @@ proc pushVariableVec4i*(this: var Graphic3dShaderProgram;
     cdecl, importcpp: "PushVariableVec4i", header: "Graphic3d_ShaderProgram.hxx".}
 proc shadersFolder*(): TCollectionAsciiString {.cdecl,
     importcpp: "Graphic3d_ShaderProgram::ShadersFolder(@)", header: "Graphic3d_ShaderProgram.hxx".}
-type
-  HandleGraphic3dShaderProgram* = Handle[Graphic3dShaderProgram]
 
-##  =======================================================================
-##  function : PushVariable
-##  purpose  : Pushes custom uniform variable to the program
-##  =======================================================================
 
-#proc pushVariable*(this: var Graphic3dShaderProgram;
-#                  theName: TCollectionAsciiString; theValue: T): bool {.cdecl,
-#    importcpp: "PushVariable", header: "Graphic3d_ShaderProgram.hxx".}

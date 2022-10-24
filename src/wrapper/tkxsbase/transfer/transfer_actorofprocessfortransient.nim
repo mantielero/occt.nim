@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,11 +23,6 @@ discard "forward decl of Transfer_IteratorOfProcessForTransient"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
-type
-  HandleTransferActorOfProcessForTransient* = Handle[
-      TransferActorOfProcessForTransient]
-  TransferActorOfProcessForTransient* {.importcpp: "Transfer_ActorOfProcessForTransient", header: "Transfer_ActorOfProcessForTransient.hxx",
-                                       bycopy.} = object of StandardTransient
 
 
 proc newTransferActorOfProcessForTransient*(): TransferActorOfProcessForTransient {.
@@ -56,5 +53,4 @@ proc setNext*(this: var TransferActorOfProcessForTransient;
 proc next*(this: TransferActorOfProcessForTransient): Handle[
     TransferActorOfProcessForTransient] {.noSideEffect, cdecl, importcpp: "Next",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
-type
-  TransferActorOfProcessForTransientbaseType* = StandardTransient
+

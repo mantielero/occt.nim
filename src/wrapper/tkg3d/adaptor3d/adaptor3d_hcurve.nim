@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1994-02-23
 ##  Created by: model
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -24,22 +26,8 @@ discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of Adaptor3d_HCurve"
-type
-  HandleAdaptor3dHCurve* = Handle[Adaptor3dHCurve]
 
-## ! Root class for 3D curves manipulated by handles, on
-## ! which geometric algorithms work.
-## ! An adapted curve is an interface between the
-## ! services provided by a curve and those required of
-## ! the curve by algorithms which use it.
-## ! Two derived concrete classes are provided:
-## ! - GeomAdaptor_HCurve for a curve from the Geom package
-## ! - Adaptor3d_HCurveOnSurface for a curve lying
-## ! on a surface from the Geom package.
 
-type
-  Adaptor3dHCurve* {.importcpp: "Adaptor3d_HCurve", header: "Adaptor3d_HCurve.hxx",
-                    bycopy.} = object of StandardTransient ## ! Returns a pointer to the Curve inside the HCurve.
 
 
 proc curve*(this: Adaptor3dHCurve): Adaptor3dCurve {.noSideEffect, cdecl,

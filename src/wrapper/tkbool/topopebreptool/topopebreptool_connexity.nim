@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1998-12-09
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepToolConnexity* {.importcpp: "TopOpeBRepTool_connexity",
-                            header: "TopOpeBRepTool_connexity.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolConnexity*(): TopOpeBRepToolConnexity {.cdecl, constructor,

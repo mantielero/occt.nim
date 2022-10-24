@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -22,23 +24,8 @@ discard "forward decl of IFSelect_ListEditor"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_Editor"
-type
-  HandleIFSelectEditor* = Handle[IFSelectEditor]
 
-## ! An Editor defines a set of values and a way to edit them, on
-## ! an entity or on the model (e.g. on its header)
-## !
-## ! Each Value is controlled by a TypedValue, with a number (it is
-## ! an Integer) and a name under two forms (complete and short)
-## ! and an edit mode
 
-type
-  IFSelectEditor* {.importcpp: "IFSelect_Editor", header: "IFSelect_Editor.hxx",
-                   bycopy.} = object of StandardTransient ## ! Sets a Typed Value for a given ident and short name, with an
-                                                     ## ! Edit Mode
-                                                     ## ! Prepares the list of Typed Values (gives its count)
-                                                     ## ! This count can be tuned later, to a LOWER value, this allows
-                                                     ## ! to initialize with a "maximum reservation" then cut the extra
 
 
 proc setValue*(this: var IFSelectEditor; num: cint;

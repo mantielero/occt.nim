@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,30 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Hypr2d"
-type
-  ConvertHyperbolaToBSplineCurve* {.importcpp: "Convert_HyperbolaToBSplineCurve", header: "Convert_HyperbolaToBSplineCurve.hxx",
-                                   bycopy.} = object of ConvertConicToBSplineCurve ## !
-                                                                              ## The
-                                                                              ## hyperbola H is
-                                                                              ## limited
-                                                                              ## between
-                                                                              ## the
-                                                                              ## parametric
-                                                                              ## values
-                                                                              ## U1, U2
-                                                                              ## !
-                                                                              ## and
-                                                                              ## the
-                                                                              ## equivalent
-                                                                              ## B-spline
-                                                                              ## curve
-                                                                              ## has
-                                                                              ## the
-                                                                              ## same
-                                                                              ## orientation as
-                                                                              ## the
-                                                                              ## !
-                                                                              ## hyperbola.
 
 
 proc newConvertHyperbolaToBSplineCurve*(h: Hypr2dObj; u1: cfloat; u2: cfloat): ConvertHyperbolaToBSplineCurve {.

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2014-07-18
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -17,14 +19,6 @@
 ## ! Indexes:
 ## ! 0 <= aDimidx <= myDimensionCount - 1
 
-type
-  PSO_Particle* {.importcpp: "PSO_Particle", header: "math_PSOParticlesPool.hxx",
-                 bycopy.} = object
-    position* {.importc: "Position".}: ptr cfloat ##  Data for pointers allocated within PSOParticlesPool instance.
-    velocity* {.importc: "Velocity".}: ptr cfloat ##  Not need to delete it manually.
-    bestPosition* {.importc: "BestPosition".}: ptr cfloat
-    distance* {.importc: "Distance".}: cfloat
-    bestDistance* {.importc: "BestDistance".}: cfloat
 
 
 proc newPSO_Particle*(): PSO_Particle {.cdecl, constructor,
@@ -34,10 +28,6 @@ proc `<`*(this: PSO_Particle; thePnt: PSO_Particle): bool {.noSideEffect, cdecl,
 ##  Indexes:
 ##  1 <= aParticleIdx <= myParticlesCount
 
-type
-  MathPSOParticlesPool* {.importcpp: "math_PSOParticlesPool",
-                         header: "math_PSOParticlesPool.hxx", bycopy.} = object
-    ##  Stores particles vector data.
 
 
 proc newMathPSOParticlesPool*(theParticlesCount: cint; theDimensionCount: cint): MathPSOParticlesPool {.

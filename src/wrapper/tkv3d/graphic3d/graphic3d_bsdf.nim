@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2015-01-15
 ##  Created by: Danila ULYANOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,22 +16,9 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_PBRMaterial"
-type
-  Graphic3dFresnelModel* {.size: sizeof(cint), importcpp: "Graphic3d_FresnelModel",
-                          header: "Graphic3d_BSDF.hxx".} = enum
-    Graphic3dFM_SCHLICK = 0, Graphic3dFM_CONSTANT = 1, Graphic3dFM_CONDUCTOR = 2,
-    Graphic3dFM_DIELECTRIC = 3
 
 
-## ! Describes Fresnel reflectance parameters.
 
-type
-  Graphic3dFresnel* {.importcpp: "Graphic3d_Fresnel", header: "Graphic3d_BSDF.hxx",
-                     bycopy.} = object ## ! Creates uninitialized Fresnel factor.
-                                    ## ! Returns serialized representation of Fresnel factor.
-                                    ## ! Creates new Fresnel reflectance factor.
-                                    ## ! Type of Fresnel approximation.
-    ## ! Serialized parameters of specific approximation.
 
 
 proc newGraphic3dFresnel*(): Graphic3dFresnel {.cdecl, constructor,
@@ -66,35 +55,6 @@ proc dumpJson*(this: Graphic3dFresnel; theOStream: var StandardOStream;
 ## ! We use actual BRDF model only for direct reflection by the coat layer. For transmission
 ## ! through this layer, we approximate it as a flat specular surface.
 
-type
-  Graphic3dBSDF* {.importcpp: "Graphic3d_BSDF", header: "Graphic3d_BSDF.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Weight
-                                                                                        ## of
-                                                                                        ## coat
-                                                                                        ## specular/glossy
-                                                                                        ## BRDF.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## BSDF
-                                                                                        ## describing
-                                                                                        ## diffuse
-                                                                                        ## (Lambertian)
-                                                                                        ## surface.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## uninitialized
-                                                                                        ## BSDF.
-    kc* {.importc: "Kc".}: Graphic3dVec4 ## ! Weight of base diffuse BRDF.
-    kd* {.importc: "Kd".}: Graphic3dVec3 ## ! Weight of base specular/glossy BRDF.
-    ks* {.importc: "Ks".}: Graphic3dVec4 ## ! Weight of base specular/glossy BTDF.
-    kt* {.importc: "Kt".}: Graphic3dVec3 ## ! Radiance emitted by the surface.
-    le* {.importc: "Le".}: Graphic3dVec3 ## ! Volume scattering color/density.
-    absorption* {.importc: "Absorption".}: Graphic3dVec4 ## ! Parameters of Fresnel reflectance of coat layer.
-    fresnelCoat* {.importc: "FresnelCoat".}: Graphic3dFresnel ## ! Parameters of Fresnel reflectance of base layer.
-    fresnelBase* {.importc: "FresnelBase".}: Graphic3dFresnel
 
 
 proc createDiffuse*(theWeight: Graphic3dVec3): Graphic3dBSDF {.cdecl,

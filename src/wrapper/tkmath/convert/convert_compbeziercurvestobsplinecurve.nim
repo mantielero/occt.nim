@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1993-10-20
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,54 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_ConstructionError"
-type
-  ConvertCompBezierCurvesToBSplineCurve* {.
-      importcpp: "Convert_CompBezierCurvesToBSplineCurve",
-      header: "Convert_CompBezierCurvesToBSplineCurve.hxx", bycopy.} = object ## !
-                                                                         ## Constructs a
-                                                                         ## framework for
-                                                                         ## converting a
-                                                                         ## sequence of
-                                                                         ## !
-                                                                         ## adjacent
-                                                                         ## non-rational Bezier curves into a BSpline curve.
-                                                                         ## ! Knots will be created on the
-                                                                         ## computed BSpline curve at
-                                                                         ## ! each
-                                                                         ## junction point of two
-                                                                         ## consecutive Bezier curves. The
-                                                                         ## ! degree of
-                                                                         ## continuity of the BSpline curve will be
-                                                                         ## increased at
-                                                                         ## ! the
-                                                                         ## junction point of two
-                                                                         ## consecutive Bezier curves if their
-                                                                         ## ! tangent vectors at this point are
-                                                                         ## parallel.
-                                                                         ## AngularTolerance
-                                                                         ## ! (given in
-                                                                         ## radians, and
-                                                                         ## defaulted to 1.0 e-4) will be used
-                                                                         ## ! to check the
-                                                                         ## parallelism of the two tangent
-                                                                         ## vectors.
-                                                                         ## ! Use the
-                                                                         ## following
-                                                                         ## functions:
-                                                                         ## ! -
-                                                                         ## AddCurve to define in
-                                                                         ## sequence the
-                                                                         ## adjacent Bezier
-                                                                         ## ! curves to be
-                                                                         ## converted,
-                                                                         ## ! -   Perform to compute the data needed to build the BSpline curve,
-                                                                         ## ! -   and the
-                                                                         ## available
-                                                                         ## consultation
-                                                                         ## functions to access the
-                                                                         ## !
-                                                                         ## computed data. This data may be used to
-                                                                         ## construct the BSpline curve.
 
 
 proc newConvertCompBezierCurvesToBSplineCurve*(angularTolerance: cfloat = 1.0e-4): ConvertCompBezierCurvesToBSplineCurve {.

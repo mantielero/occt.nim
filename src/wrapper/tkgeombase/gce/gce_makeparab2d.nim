@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,12 +21,6 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Parab2d"
-type
-  GceMakeParab2d* {.importcpp: "gce_MakeParab2d", header: "gce_MakeParab2d.hxx",
-                   bycopy.} = object of GceRoot ## ! Creates a parabola with its axis of symmetry ("MirrorAxis")
-                                           ## ! and its focal length.
-                                           ## ! Warnings : It is possible to have Focal = 0.
-                                           ## ! The status is "NullFocalLength" Raised if Focal < 0.0
 
 
 proc newGceMakeParab2d*(mirrorAxis: Ax2dObj; focal: cfloat; sense: bool = true): GceMakeParab2d {.

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-10-06
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,23 +19,6 @@
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BezierCurve"
-type
-  GeomFillBezierCurves* {.importcpp: "GeomFill_BezierCurves",
-                         header: "GeomFill_BezierCurves.hxx", bycopy.} = object ## !
-                                                                           ## Constructs an empty
-                                                                           ## framework for
-                                                                           ## building a
-                                                                           ## Bezier
-                                                                           ## !
-                                                                           ## surface from
-                                                                           ## contiguous
-                                                                           ## Bezier
-                                                                           ## curves.
-                                                                           ## ! You use the Init
-                                                                           ## function to
-                                                                           ## define the
-                                                                           ## boundaries of the
-                                                                           ## surface.
 
 
 proc newGeomFillBezierCurves*(): GeomFillBezierCurves {.cdecl, constructor,

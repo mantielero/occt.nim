@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -13,24 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  SelectMgrTriangFrustums* = NCollectionList[Handle[SelectMgrTriangularFrustum]]
-  SelectMgrTriangFrustumsIter*[HandleSelectMgrTriangularFrustum] {.importcpp:"NCollection_List<'0>::Iterator", header:"SelectMgr_TriangularFrustumSet.hxx", bycopy.} = object
 
-## ! This class is used to handle polyline selection. The main principle of polyline selection
-## ! algorithm is to split the polygon defined by polyline onto triangles. Than each of
-## ! them is considered as a base for triangular frustum building. In other
-## ! words, each triangle vertiex will be projected from 2d screen space to 3d world space
-## ! onto near and far view frustum planes. Thus, the projected triangles make up the bases of
-## ! selecting frustum. When the set of such frustums is created, the function determining
-## ! selection iterates through triangular frustum set and searches for overlap with any
-## ! frustum.
 
-type
-  SelectMgrTriangularFrustumSet* {.importcpp: "SelectMgr_TriangularFrustumSet",
-                                  header: "SelectMgr_TriangularFrustumSet.hxx",
-                                  bycopy.} = object of SelectMgrBaseFrustum ## ! Checks whether the segment
-                                                                       ## intersects with the boundary of the current volume selection
 
 
 proc newSelectMgrTriangularFrustumSet*(): SelectMgrTriangularFrustumSet {.cdecl,

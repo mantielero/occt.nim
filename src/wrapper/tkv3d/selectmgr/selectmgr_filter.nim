@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1997-03-05
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,35 +18,8 @@
 
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_Filter"
-type
-  HandleSelectMgrFilter* = Handle[SelectMgrFilter]
 
-## ! The root class to define filter objects for selection.
-## ! Advance handling of objects requires the services of
-## ! filters. These only allow dynamic detection and
-## ! selection of objects which correspond to the criteria defined in each.
-## ! Eight standard filters inheriting SelectMgr_Filter are
-## ! defined in Open CASCADE.
-## ! You can create your own filters by defining new filter
-## ! classes inheriting this framework. You use these
-## ! filters by loading them into an AIS interactive context.
 
-type
-  SelectMgrFilter* {.importcpp: "SelectMgr_Filter", header: "SelectMgr_Filter.hxx",
-                    bycopy.} = object of StandardTransient ## ! Indicates that the selected Interactive Object
-                                                      ## ! passes the filter. The owner, anObj, can be either
-                                                      ## ! direct or user. A direct owner is the corresponding
-                                                      ## ! construction element, whereas a user is the
-                                                      ## ! compound shape of which the entity forms a part.
-                                                      ## ! When an object is detected by the mouse - in AIS,
-                                                      ## ! this is done through a context selector - its owner
-                                                      ## ! is passed to the filter as an argument.
-                                                      ## ! If the object returns Standard_True, it is kept; if
-                                                      ## ! not, it is rejected.
-                                                      ## ! If you are creating a filter class inheriting this
-                                                      ## ! framework, and the daughter class is to be used in
-                                                      ## ! an AIS local context, you will need to implement the
-                                                      ## ! virtual function ActsOn.
 
 
 proc isOk*(this: SelectMgrFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.

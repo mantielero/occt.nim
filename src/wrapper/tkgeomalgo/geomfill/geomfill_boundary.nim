@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-10-17
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,21 +19,8 @@
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Boundary"
-type
-  HandleGeomFillBoundary* = Handle[GeomFillBoundary]
 
-## ! Root class to define a boundary  which will form part of a
-## ! contour around a gap requiring filling.
-## ! Any  new type  of  constrained boundary must inherit this class.
-## ! The GeomFill package provides two classes to define constrained boundaries:
-## ! -   GeomFill_SimpleBound to define an unattached boundary
-## ! -   GeomFill_BoundWithSurf to define a boundary attached to a surface.
-## ! These objects are used to define the boundaries for a
-## ! GeomFill_ConstrainedFilling framework.
 
-type
-  GeomFillBoundary* {.importcpp: "GeomFill_Boundary",
-                     header: "GeomFill_Boundary.hxx", bycopy.} = object of StandardTransient
 
 
 proc value*(this: GeomFillBoundary; u: cfloat): PntObj {.noSideEffect, cdecl,

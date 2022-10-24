@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,26 +19,6 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Pnt2d"
-type
-  ConvertConicToBSplineCurve* {.importcpp: "Convert_ConicToBSplineCurve",
-                               header: "Convert_ConicToBSplineCurve.hxx", bycopy.} = object of RootObj ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## the
-                                                                                       ## degree
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## BSpline
-                                                                                       ## curve
-                                                                                       ## whose
-                                                                                       ## data
-                                                                                       ## is
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## computed
-                                                                                       ## in
-                                                                                       ## this
-                                                                                       ## framework.
 
 
 proc degree*(this: ConvertConicToBSplineCurve): cint {.noSideEffect, cdecl,

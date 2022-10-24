@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -21,22 +23,8 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_SectionLaw"
-type
-  HandleGeomFillSectionLaw* = Handle[GeomFillSectionLaw]
 
-## ! To define section law in  sweeping
 
-type
-  GeomFillSectionLaw* {.importcpp: "GeomFill_SectionLaw",
-                       header: "GeomFill_SectionLaw.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## compute
-                                                                                          ## the
-                                                                                          ## section
-                                                                                          ## for
-                                                                                          ## v
-                                                                                          ## =
-                                                                                          ## param
 
 
 proc d0*(this: var GeomFillSectionLaw; param: cfloat; poles: var TColgpArray1OfPnt;

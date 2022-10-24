@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,13 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TCollection_AsciiString"
-type
-  Graphic3dTextureMap* {.importcpp: "Graphic3d_TextureMap",
-                        header: "Graphic3d_TextureMap.hxx", bycopy.} = object of Graphic3dTextureRoot ##
-                                                                                               ## !
-                                                                                               ## enable
-                                                                                               ## texture
-                                                                                               ## smoothing
 
 
 proc enableSmooth*(this: var Graphic3dTextureMap) {.cdecl, importcpp: "EnableSmooth",
@@ -47,5 +42,4 @@ proc anisoFilter*(this: Graphic3dTextureMap): Graphic3dLevelOfTextureAnisotropy 
 proc setAnisoFilter*(this: var Graphic3dTextureMap;
                     theLevel: Graphic3dLevelOfTextureAnisotropy) {.cdecl,
     importcpp: "SetAnisoFilter", header: "Graphic3d_TextureMap.hxx".}
-type
-  HandleGraphic3dTextureMap* = Handle[Graphic3dTextureMap]
+

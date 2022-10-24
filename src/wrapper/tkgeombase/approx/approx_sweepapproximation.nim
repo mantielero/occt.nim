@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1997-06-24
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of AdvApprox_Cutting"
-type
-  ApproxSweepApproximation* {.importcpp: "Approx_SweepApproximation",
-                             header: "Approx_SweepApproximation.hxx", bycopy.} = object
 
 
 proc newApproxSweepApproximation*(`func`: Handle[ApproxSweepFunction]): ApproxSweepApproximation {.

@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeCircle* {.importcpp: "GCE2d_MakeCircle", header: "GCE2d_MakeCircle.hxx",
-                    bycopy.} = object of GCE2dRoot ## ! creates a circle from a non persistent one.
 
 
 proc newGCE2dMakeCircle*(c: Circ2dObj): GCE2dMakeCircle {.cdecl, constructor,

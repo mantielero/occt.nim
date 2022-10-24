@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,46 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Plane"
-type
-  HandlePrsDimFixRelation* = Handle[PrsDimFixRelation]
 
-## ! Constructs and manages a constraint by a fixed
-## ! relation between two or more interactive datums. This
-## ! constraint is represented by a wire from a shape -
-## ! point, vertex, or edge - in the first datum and a
-## ! corresponding shape in the second.
-## ! Warning: This relation is not bound with any kind of parametric
-## ! constraint : it represents the "status" of an parametric
-## ! object.
 
-type
-  PrsDimFixRelation* {.importcpp: "PrsDim_FixRelation",
-                      header: "PrsDim_FixRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                     ## !
-                                                                                     ## initializes
-                                                                                     ## the
-                                                                                     ## vertex
-                                                                                     ## aShape,
-                                                                                     ## the
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## plane
-                                                                                     ## aPlane
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## wire
-                                                                                     ## aWire,
-                                                                                     ## which
-                                                                                     ## connects
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## two
-                                                                                     ## vertices
-                                                                                     ## in
-                                                                                     ## a
-                                                                                     ## fixed
-                                                                                     ## relation.
 
 
 proc newPrsDimFixRelation*(aShape: TopoDS_Shape; aPlane: Handle[GeomPlane];

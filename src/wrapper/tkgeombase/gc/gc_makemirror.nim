@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,8 +23,6 @@ discard "forward decl of gp_Lin"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Ax2"
-type
-  MakeMirror* {.importcpp: "GC_MakeMirror", header: "GC_MakeMirror.hxx", bycopy.} = object
 
 
 proc mirror*(point: PntObj): MakeMirror {.cdecl, constructor,

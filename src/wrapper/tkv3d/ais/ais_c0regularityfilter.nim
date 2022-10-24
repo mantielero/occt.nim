@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1998-02-04
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_C0RegularityFilter"
-type
-  HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
-  AIS_C0RegularityFilter* {.importcpp: "AIS_C0RegularityFilter",
-                           header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgrFilter
 
 
 proc newAIS_C0RegularityFilter*(aShape: TopoDS_Shape): AIS_C0RegularityFilter {.

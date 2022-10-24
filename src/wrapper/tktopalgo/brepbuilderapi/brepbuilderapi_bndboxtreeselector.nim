@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 2011-11-29
 ##  Created by: ANNA MASALSKAYA
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,20 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[cint, BndBox]
 
-## =======================================================================
-## ! Class BRepBuilderAPI_BndBoxTreeSelector
-## !   derived from UBTree::Selector
-## !   This class is used to select overlapping boxes, stored in
-## !   NCollection::UBTree; contains methods to maintain the selection
-## !   condition and to retrieve selected objects after search.
-## =======================================================================
 
-type
-  BRepBuilderAPI_BndBoxTreeSelector* {.importcpp: "BRepBuilderAPI_BndBoxTreeSelector", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx",
-                                      bycopy.} = object of Selector ## ! Constructor; calls the base class constructor
 
 
 proc bndBoxTreeSelector*(): BRepBuilderAPI_BndBoxTreeSelector {.

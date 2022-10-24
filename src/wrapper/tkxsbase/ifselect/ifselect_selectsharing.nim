@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-11-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,21 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSharing"
-type
-  HandleIFSelectSelectSharing* = Handle[IFSelectSelectSharing]
 
-## ! A SelectSharing selects Entities which directly Share (Level
-## ! One) the Entities of the Input list
-## ! Remark : if an Entity of the Input List directly shares
-## ! another one, it is of course present in the Result List
 
-type
-  IFSelectSelectSharing* {.importcpp: "IFSelect_SelectSharing",
-                          header: "IFSelect_SelectSharing.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## SelectSharing;
 
 
 proc newIFSelectSelectSharing*(): IFSelectSelectSharing {.cdecl, constructor,

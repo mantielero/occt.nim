@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1994-01-25
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of IntSurf_Transition"
 discard "forward decl of BRepBlend_PointOnRst"
-type
-  BRepBlendExtremity* {.importcpp: "BRepBlend_Extremity",
-                       header: "BRepBlend_Extremity.hxx", bycopy.} = object
 
 
 proc newBRepBlendExtremity*(): BRepBlendExtremity {.cdecl, constructor,

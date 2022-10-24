@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 2016-05-10
 ##  Created by: Alexander MALYSHEV
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,31 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of math_Vector"
-type
-  ExtremaFuncPSDist* {.importcpp: "Extrema_FuncPSDist",
-                      header: "Extrema_FuncPSDist.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient ##
-                                                                                                          ## !
-                                                                                                          ## Constructor.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Check
-                                                                                                          ## point
-                                                                                                          ## is
-                                                                                                          ## inside
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## surface
-                                                                                                          ## parameter
-                                                                                                          ## space.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## true
-                                                                                                          ## if
-                                                                                                          ## inside
-                                                                                                          ## and
-                                                                                                          ## false
-                                                                                                          ## otherwise.
 
 
 proc newExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: PntObj): ExtremaFuncPSDist {.

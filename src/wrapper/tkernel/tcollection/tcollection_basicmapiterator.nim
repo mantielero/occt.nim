@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1993-02-26
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,23 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TCollection_BasicMap"
-type
-  TCollectionBasicMapIterator* {.importcpp: "TCollection_BasicMapIterator",
-                                header: "TCollection_BasicMapIterator.hxx", bycopy.} = object of RootObj ##
-                                                                                         ## !
-                                                                                         ## Resets
-                                                                                         ## the
-                                                                                         ## iterator
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## first
-                                                                                         ## node.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## iterator.
 
 
 proc reset*(this: var TCollectionBasicMapIterator) {.cdecl, importcpp: "Reset",

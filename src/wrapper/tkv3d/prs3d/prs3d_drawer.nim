@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -22,24 +24,8 @@ discard "forward decl of Prs3d_ArrowAspect"
 discard "forward decl of Prs3d_DatumAspect"
 discard "forward decl of Prs3d_DimensionAspect"
 discard "forward decl of TCollection_AsciiString"
-type
-  HandlePrs3dDrawer* = Handle[Prs3dDrawer]
 
-## ! A graphic attribute manager which governs how
-## ! objects such as color, width, line thickness and deflection are displayed.
-## ! A drawer includes an instance of the Aspect classes with particular default values.
 
-type
-  Prs3dDrawer* {.importcpp: "Prs3d_Drawer", header: "Prs3d_Drawer.hxx", bycopy.} = object of Graphic3dPresentationAttributes ##
-                                                                                                                   ## !
-                                                                                                                   ## Default
-                                                                                                                   ## constructor.
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## @name
-                                                                                                                   ## deprecated
-                                                                                                                   ## methods
-    ## !< the most edge continuity class (GeomAbs_Shape) to be included to face boundaries presentation, or -1 if undefined
 
 
 proc newPrs3dDrawer*(): Prs3dDrawer {.cdecl, constructor,
@@ -349,5 +335,4 @@ proc hasOwnHLRDeviationAngle*(this: Prs3dDrawer): bool {.noSideEffect, cdecl,
     importcpp: "HasOwnHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
 proc previousHLRDeviationAngle*(this: Prs3dDrawer): cfloat {.noSideEffect, cdecl,
     importcpp: "PreviousHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
-type
-  Graphic3dHighlightStyle* = Prs3dDrawer
+

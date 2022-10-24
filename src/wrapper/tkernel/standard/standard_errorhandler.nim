@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Ramin BARRETO
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,100 +36,6 @@
 ## ! this requires that compiler option /EHa is used.
 
 discard "forward decl of Standard_Failure"
-type
-  StandardErrorHandler* {.importcpp: "Standard_ErrorHandler",
-                         header: "Standard_ErrorHandler.hxx", bycopy.} = object ## !
-                                                                           ## Create a
-                                                                           ## ErrorHandler (to be used with
-                                                                           ## try{}catch(){}).
-                                                                           ## ! It uses the
-                                                                           ## "setjmp" and
-                                                                           ## "longjmp"
-                                                                           ## routines.
-                                                                           ## ! A
-                                                                           ## exception is
-                                                                           ## raised but it is not yet
-                                                                           ## caught.
-                                                                           ## ! So Abort the
-                                                                           ## current
-                                                                           ## function and
-                                                                           ## transmit the
-                                                                           ## exception
-                                                                           ## ! to
-                                                                           ## "calling
-                                                                           ## routines".
-                                                                           ## !
-                                                                           ## Warning: If no catch is
-                                                                           ## prepared for this
-                                                                           ## exception, it
-                                                                           ## displays the
-                                                                           ## !
-                                                                           ## exception name and calls
-                                                                           ## "exit(1)".
-                                                                           ## !
-                                                                           ## Defines a base class for
-                                                                           ## callback
-                                                                           ## objects that can be
-                                                                           ## registered
-                                                                           ## ! in the OCC error
-                                                                           ## handler (the class
-                                                                           ## simulating C++
-                                                                           ## exceptions)
-                                                                           ## ! so as to be
-                                                                           ## correctly
-                                                                           ## destroyed when error
-                                                                           ## handler is
-                                                                           ## activated.
-                                                                           ## !
-                                                                           ## ! Note that this is
-                                                                           ## needed only when Open
-                                                                           ## CASCADE is
-                                                                           ## compiled with
-                                                                           ## !
-                                                                           ## OCC_CONVERT_SIGNALS
-                                                                           ## options (i.e. on
-                                                                           ## UNIX/Linux).
-                                                                           ## ! In that case,
-                                                                           ## raising OCC
-                                                                           ## exception
-                                                                           ## and/or
-                                                                           ## signal will not cause
-                                                                           ## ! C++ stack
-                                                                           ## unwinding and
-                                                                           ## destruction of
-                                                                           ## objects
-                                                                           ## created in the
-                                                                           ## stack.
-                                                                           ## !
-                                                                           ## ! This class is
-                                                                           ## intended to
-                                                                           ## protect
-                                                                           ## critical
-                                                                           ## objects and
-                                                                           ## operations in
-                                                                           ## ! the try {} catch {} block from being
-                                                                           ## bypassed by OCC
-                                                                           ## signal or
-                                                                           ## exception.
-                                                                           ## !
-                                                                           ## !
-                                                                           ## Inherit your
-                                                                           ## object from that
-                                                                           ## class,
-                                                                           ## implement
-                                                                           ## DestroyCallback()
-                                                                           ## function,
-                                                                           ## ! and call
-                                                                           ## Register/Unregister in
-                                                                           ## critical
-                                                                           ## points.
-                                                                           ## !
-                                                                           ## ! Note that you must
-                                                                           ## ensure that your
-                                                                           ## object has life span
-                                                                           ## longer than
-                                                                           ## ! that of the try {} block in which it calls
-                                                                           ## Register().
 
 
 proc constructStandardErrorHandler*(): StandardErrorHandler {.cdecl, constructor,
@@ -149,25 +57,6 @@ proc lastCaughtError*(): Handle[StandardFailure] {.cdecl,
 proc isInTryBlock*(): bool {.cdecl,
                           importcpp: "Standard_ErrorHandler::IsInTryBlock(@)",
                           header: "Standard_ErrorHandler.hxx".}
-type
-  StandardErrorHandlerCallback* {.importcpp: "Standard_ErrorHandler::Callback",
-                                 header: "Standard_ErrorHandler.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Registers
-                                                                                   ## this
-                                                                                   ## callback
-                                                                                   ## object
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## current
-                                                                                   ## error
-                                                                                   ## handler
-                                                                                   ## (if
-                                                                                   ## found).
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Empty
-                                                                                   ## constructor
 
 
 proc registerCallback*(this: var StandardErrorHandlerCallback) {.cdecl,
@@ -184,3 +73,4 @@ proc destroyCallback*(this: var StandardErrorHandlerCallback) {.cdecl,
 
 #type
 #  StandardErrorHandlerCallback* = StandardErrorHandlerCallback
+

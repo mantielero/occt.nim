@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,15 +16,6 @@
 ## ! Buffer of vertex attributes.
 ## ! This class is intended for advanced usage allowing invalidation of entire buffer content or its sub-part.
 
-type
-  Graphic3dAttribBuffer* {.importcpp: "Graphic3d_AttribBuffer",
-                          header: "Graphic3d_AttribBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
-    ## !< invalidated buffer data range (as byte offsets)
-    ## !< flag indicating the vertex attributes being interleaved
-    ## !< flag indicating that data can be invalidated
 
 
 proc newGraphic3dAttribBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dAttribBuffer {.

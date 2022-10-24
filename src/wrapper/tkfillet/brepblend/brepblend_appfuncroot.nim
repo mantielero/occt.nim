@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1998-05-12
 ##  Created by: Philippe NOUAILLE
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -20,22 +22,8 @@ discard "forward decl of Blend_AppFunction"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_AppFuncRoot"
-type
-  HandleBRepBlendAppFuncRoot* = Handle[BRepBlendAppFuncRoot]
 
-## ! Function to approximate by AppSurface
 
-type
-  BRepBlendAppFuncRoot* {.importcpp: "BRepBlend_AppFuncRoot",
-                         header: "BRepBlend_AppFuncRoot.hxx", bycopy.} = object of ApproxSweepFunction ##
-                                                                                                ## !
-                                                                                                ## compute
-                                                                                                ## the
-                                                                                                ## section
-                                                                                                ## for
-                                                                                                ## v
-                                                                                                ## =
-                                                                                                ## param
 
 
 proc d0*(this: var BRepBlendAppFuncRoot; param: cfloat; first: cfloat; last: cfloat;

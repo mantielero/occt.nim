@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2015-12-23
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -13,16 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
 
-## ! Entity owner for selection management of AIS_Manipulator object.
 
-type
-  AIS_ManipulatorOwner* {.importcpp: "AIS_ManipulatorOwner",
-                         header: "AIS_ManipulatorOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
-    ## !< index of manipulator axis.
-    ## !< manipulation (highlight) mode.
 
 
 proc newAIS_ManipulatorOwner*(theSelObject: Handle[SelectMgrSelectableObject];

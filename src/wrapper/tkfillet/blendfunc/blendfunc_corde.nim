@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1996-06-04
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
-type
-  BlendFuncCorde* {.importcpp: "BlendFunc_Corde", header: "BlendFunc_Corde.hxx",
-                   bycopy.} = object
 
 
 proc newBlendFuncCorde*(s: Handle[Adaptor3dHSurface];

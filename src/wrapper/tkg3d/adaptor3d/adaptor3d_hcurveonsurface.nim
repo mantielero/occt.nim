@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,15 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor3d_CurveOnSurface"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_HCurveOnSurface"
-type
-  HandleAdaptor3dHCurveOnSurface* = Handle[Adaptor3dHCurveOnSurface]
-  Adaptor3dHCurveOnSurface* {.importcpp: "Adaptor3d_HCurveOnSurface",
-                             header: "Adaptor3d_HCurveOnSurface.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## GenHCurve.
 
 
 proc newAdaptor3dHCurveOnSurface*(): Adaptor3dHCurveOnSurface {.cdecl, constructor,
@@ -43,19 +36,5 @@ proc getCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc changeCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurveOnSurface {.
     cdecl, importcpp: "ChangeCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
-type
-  Adaptor3dHCurveOnSurfacebaseType* = Adaptor3dHCurve
 
-##  #define TheCurve Adaptor3d_CurveOnSurface
-##  #define TheCurve_hxx <Adaptor3d_CurveOnSurface.hxx>
-##  #define Adaptor3d_GenHCurve Adaptor3d_HCurveOnSurface
-##  #define Adaptor3d_GenHCurve_hxx <Adaptor3d_HCurveOnSurface.hxx>
-##  #define Handle_Adaptor3d_GenHCurve Handle(Adaptor3d_HCurveOnSurface)
-##
-##  #include <Adaptor3d_GenHCurve.lxx>
-##
-##  #undef TheCurve
-##  #undef TheCurve_hxx
-##  #undef Adaptor3d_GenHCurve
-##  #undef Adaptor3d_GenHCurve_hxx
-##  #undef Handle_Adaptor3d_GenHCurve
+

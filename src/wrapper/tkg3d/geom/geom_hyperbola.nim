@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,73 +27,8 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Hyperbola"
-type
-  HandleGeomHyperbola* = Handle[GeomHyperbola]
 
-## ! Describes a branch of a hyperbola in 3D space.
-## ! A hyperbola is defined by its major and minor radii
-## ! and, as with any conic curve, is positioned in space
-## ! with a right-handed coordinate system (gp_Ax2 object) where:
-## ! - the origin is the center of the hyperbola,
-## ! - the "X Direction" defines the major axis, and
-## ! - the "Y Direction" defines the minor axis.
-## ! The origin, "X Direction" and "Y Direction" of this
-## ! coordinate system define the plane of the hyperbola.
-## ! The coordinate system is the local coordinate
-## ! system of the hyperbola.
-## ! The branch of the hyperbola described is the one
-## ! located on the positive side of the major axis.
-## ! The "main Direction" of the local coordinate system is
-## ! a vector normal to the plane of the hyperbola. The
-## ! axis, of which the origin and unit vector are
-## ! respectively the origin and "main Direction" of the
-## ! local coordinate system, is termed the "Axis" or "main
-## ! Axis" of the hyperbola.
-## ! The "main Direction" of the local coordinate system
-## ! gives an explicit orientation to the hyperbola,
-## ! determining the direction in which the parameter
-## ! increases along the hyperbola.
-## ! The Geom_Hyperbola hyperbola is parameterized as follows:
-## ! P(U) = O + MajRad*Cosh(U)*XDir + MinRad*Sinh(U)*YDir, where:
-## ! - P is the point of parameter U,
-## ! - O, XDir and YDir are respectively the origin, "X
-## ! Direction" and "Y Direction" of its local coordinate system,
-## ! - MajRad and MinRad are the major and minor radii of the hyperbola.
-## ! The "X Axis" of the local coordinate system therefore
-## ! defines the origin of the parameter of the hyperbola.
-## ! The parameter range is ] -infinite, +infinite [.
-## ! The following diagram illustrates the respective
-## ! positions, in the plane of the hyperbola, of the three
-## ! branches of hyperbolas constructed using the
-## ! functions OtherBranch, ConjugateBranch1 and
-## ! ConjugateBranch2: Defines the main branch of an hyperbola.
-## ! ^YAxis
-## ! |
-## ! FirstConjugateBranch
-## ! |
-## ! Other            |                Main
-## ! --------------------- C ------------------------------>XAxis
-## ! Branch           |                Branch
-## ! |
-## ! SecondConjugateBranch
-## ! |
-## ! Warning
-## ! The value of the major radius (on the major axis) can
-## ! be less than the value of the minor radius (on the minor axis).
 
-type
-  GeomHyperbola* {.importcpp: "Geom_Hyperbola", header: "Geom_Hyperbola.hxx", bycopy.} = object of GeomConic ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## a
-                                                                                                   ## hyperbola
-                                                                                                   ## by
-                                                                                                   ## conversion
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## gp_Hypr
-                                                                                                   ## hyperbola
-                                                                                                   ## H.
 
 
 proc newGeomHyperbola*(h: HyprObj): GeomHyperbola {.cdecl, constructor,

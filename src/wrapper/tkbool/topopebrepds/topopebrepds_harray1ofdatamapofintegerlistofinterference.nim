@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,11 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference* {.
-      importcpp: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference",
-      header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx",
-      bycopy.} = object of TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference
 
 
 proc newTopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference*(theLower: cint;

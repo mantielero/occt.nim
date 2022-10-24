@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -14,158 +16,6 @@
 
 ## ! Contains segments array definition.
 
-type
-  Graphic3dArrayOfSegments* {.importcpp: "Graphic3d_ArrayOfSegments",
-                             header: "Graphic3d_ArrayOfSegments.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives ##
-                                                                                                               ## !
-                                                                                                               ## Creates
-                                                                                                               ## an
-                                                                                                               ## array
-                                                                                                               ## of
-                                                                                                               ## segments
-                                                                                                               ## (Graphic3d_TOPA_SEGMENTS),
-                                                                                                               ## a
-                                                                                                               ## segment
-                                                                                                               ## can
-                                                                                                               ## be
-                                                                                                               ## filled
-                                                                                                               ## as:
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## 1)
-                                                                                                               ## Creating
-                                                                                                               ## a
-                                                                                                               ## set
-                                                                                                               ## of
-                                                                                                               ## segments
-                                                                                                               ## defined
-                                                                                                               ## with
-                                                                                                               ## his
-                                                                                                               ## vertexes,
-                                                                                                               ## i.e:
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @code
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray
-                                                                                                               ## =
-                                                                                                               ## Graphic3d_ArrayOfSegments
-                                                                                                               ## (4);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddVertex
-                                                                                                               ## (x1,
-                                                                                                               ## y1,
-                                                                                                               ## z1);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## ....
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddVertex
-                                                                                                               ## (x4,
-                                                                                                               ## y4,
-                                                                                                               ## z4);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @endcode
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## 2)
-                                                                                                               ## Creating
-                                                                                                               ## a
-                                                                                                               ## set
-                                                                                                               ## of
-                                                                                                               ## indexed
-                                                                                                               ## segments
-                                                                                                               ## defined
-                                                                                                               ## with
-                                                                                                               ## his
-                                                                                                               ## vertex
-                                                                                                               ## and
-                                                                                                               ## edges,
-                                                                                                               ## i.e:
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @code
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray
-                                                                                                               ## =
-                                                                                                               ## Graphic3d_ArrayOfSegments
-                                                                                                               ## (4,
-                                                                                                               ## 8);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddVertex
-                                                                                                               ## (x1,
-                                                                                                               ## y1,
-                                                                                                               ## z1);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## ....
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddVertex
-                                                                                                               ## (x4,
-                                                                                                               ## y4,
-                                                                                                               ## z4);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddEdges
-                                                                                                               ## (1,
-                                                                                                               ## 2);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddEdges
-                                                                                                               ## (3,
-                                                                                                               ## 4);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddEdges
-                                                                                                               ## (2,
-                                                                                                               ## 4);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## myArray->AddEdges
-                                                                                                               ## (1,
-                                                                                                               ## 3);
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @endcode
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @param
-                                                                                                               ## theMaxVertexs
-                                                                                                               ## defines
-                                                                                                               ## the
-                                                                                                               ## maximum
-                                                                                                               ## allowed
-                                                                                                               ## vertex
-                                                                                                               ## number
-                                                                                                               ## in
-                                                                                                               ## the
-                                                                                                               ## array
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @param
-                                                                                                               ## theMaxEdges
-                                                                                                               ## defines
-                                                                                                               ## the
-                                                                                                               ## maximum
-                                                                                                               ## allowed
-                                                                                                               ## edge
-                                                                                                               ## number
-                                                                                                               ## in
-                                                                                                               ## the
-                                                                                                               ## array
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## @param
-                                                                                                               ## theArrayFlags
-                                                                                                               ## array
-                                                                                                               ## flags
 
 
 proc newGraphic3dArrayOfSegments*(theMaxVertexs: cint; theMaxEdges: cint;
@@ -174,5 +24,4 @@ proc newGraphic3dArrayOfSegments*(theMaxVertexs: cint; theMaxEdges: cint;
 proc newGraphic3dArrayOfSegments*(theMaxVertexs: cint; theMaxEdges: cint = 0;
                                  theHasVColors: bool = false): Graphic3dArrayOfSegments {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfSegments(@)", header: "Graphic3d_ArrayOfSegments.hxx".}
-type
-  HandleGraphic3dArrayOfSegments* = Handle[Graphic3dArrayOfSegments]
+

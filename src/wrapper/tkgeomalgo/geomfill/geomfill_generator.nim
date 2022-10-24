@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Geom_Surface"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
-type
-  GeomFillGenerator* {.importcpp: "GeomFill_Generator",
-                      header: "GeomFill_Generator.hxx", bycopy.} = object of GeomFillProfiler
 
 
 proc newGeomFillGenerator*(): GeomFillGenerator {.cdecl, constructor,

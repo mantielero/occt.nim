@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-10-12
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,45 +20,6 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir"
 discard "forward decl of BRepSweep_Prism"
-type
-  BRepPrimAPI_MakePrism* {.importcpp: "BRepPrimAPI_MakePrism",
-                          header: "BRepPrimAPI_MakePrism.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep ##
-                                                                                                   ## !
-                                                                                                   ## Builds
-                                                                                                   ## the
-                                                                                                   ## prism
-                                                                                                   ## of
-                                                                                                   ## base
-                                                                                                   ## S
-                                                                                                   ## and
-                                                                                                   ## vector
-                                                                                                   ## V.
-                                                                                                   ## If
-                                                                                                   ## C
-                                                                                                   ## is
-                                                                                                   ## true,
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## S
-                                                                                                   ## is
-                                                                                                   ## copied.
-                                                                                                   ## If
-                                                                                                   ## Canonize
-                                                                                                   ## is
-                                                                                                   ## true
-                                                                                                   ## then
-                                                                                                   ## generated
-                                                                                                   ## surfaces
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## are
-                                                                                                   ## attempted
-                                                                                                   ## to
-                                                                                                   ## be
-                                                                                                   ## canonized
-                                                                                                   ## in
-                                                                                                   ## simple
-                                                                                                   ## types
 
 
 proc prism*(s: TopoDS_Shape; v: VecObj; copy: bool = false;

@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1998-01-17
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,40 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Plane"
-type
-  HandlePrsDimEqualRadiusRelation* = Handle[PrsDimEqualRadiusRelation]
-  PrsDimEqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
-                              header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## equal
-                                                                                                     ## relation
-                                                                                                     ## of
-                                                                                                     ## two
-                                                                                                     ## arc's
-                                                                                                     ## radiuses.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## If
-                                                                                                     ## one
-                                                                                                     ## of
-                                                                                                     ## edges
-                                                                                                     ## is
-                                                                                                     ## not
-                                                                                                     ## in
-                                                                                                     ## the
-                                                                                                     ## given
-                                                                                                     ## plane,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## the
-                                                                                                     ## presentation
-                                                                                                     ## method
-                                                                                                     ## projects
-                                                                                                     ## it
-                                                                                                     ## onto
-                                                                                                     ## the
-                                                                                                     ## plane.
 
 
 proc newPrsDimEqualRadiusRelation*(aFirstEdge: TopoDS_Edge;

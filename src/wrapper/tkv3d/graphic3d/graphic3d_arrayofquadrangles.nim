@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -16,155 +18,6 @@
 ## ! WARNING! Quadrangle primitives might be unsupported by graphics library.
 ## ! Triangulation should be used instead of quads for better compatibility.
 
-type
-  Graphic3dArrayOfQuadrangles* {.importcpp: "Graphic3d_ArrayOfQuadrangles",
-                                header: "Graphic3d_ArrayOfQuadrangles.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives ##
-                                                                                                                     ## !
-                                                                                                                     ## Creates
-                                                                                                                     ## an
-                                                                                                                     ## array
-                                                                                                                     ## of
-                                                                                                                     ## quadrangles
-                                                                                                                     ## (Graphic3d_TOPA_QUADRANGLES),
-                                                                                                                     ## a
-                                                                                                                     ## quadrangle
-                                                                                                                     ## can
-                                                                                                                     ## be
-                                                                                                                     ## filled
-                                                                                                                     ## as:
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## 1)
-                                                                                                                     ## Creating
-                                                                                                                     ## a
-                                                                                                                     ## set
-                                                                                                                     ## of
-                                                                                                                     ## quadrangles
-                                                                                                                     ## defined
-                                                                                                                     ## with
-                                                                                                                     ## his
-                                                                                                                     ## vertexes,
-                                                                                                                     ## i.e:
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @code
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray
-                                                                                                                     ## =
-                                                                                                                     ## Graphic3d_ArrayOfQuadrangles
-                                                                                                                     ## (8);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddVertex
-                                                                                                                     ## (x1,
-                                                                                                                     ## y1,
-                                                                                                                     ## z1);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## ....
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddVertex
-                                                                                                                     ## (x8,
-                                                                                                                     ## y8,
-                                                                                                                     ## z8);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @endcode
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## 2)
-                                                                                                                     ## Creating
-                                                                                                                     ## a
-                                                                                                                     ## set
-                                                                                                                     ## of
-                                                                                                                     ## indexed
-                                                                                                                     ## quadrangles
-                                                                                                                     ## defined
-                                                                                                                     ## with
-                                                                                                                     ## his
-                                                                                                                     ## vertex
-                                                                                                                     ## ans
-                                                                                                                     ## edges,
-                                                                                                                     ## i.e:
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @code
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray
-                                                                                                                     ## =
-                                                                                                                     ## Graphic3d_ArrayOfQuadrangles
-                                                                                                                     ## (6,
-                                                                                                                     ## 8);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddVertex
-                                                                                                                     ## (x1,
-                                                                                                                     ## y1,
-                                                                                                                     ## z1);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## ....
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddVertex
-                                                                                                                     ## (x6,
-                                                                                                                     ## y6,
-                                                                                                                     ## z6);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddEdges
-                                                                                                                     ## (1,
-                                                                                                                     ## 2,
-                                                                                                                     ## 3,
-                                                                                                                     ## 4);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## myArray->AddEdges
-                                                                                                                     ## (3,
-                                                                                                                     ## 4,
-                                                                                                                     ## 5,
-                                                                                                                     ## 6);
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @endcode
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @param
-                                                                                                                     ## theMaxVertexs
-                                                                                                                     ## defines
-                                                                                                                     ## the
-                                                                                                                     ## maximum
-                                                                                                                     ## allowed
-                                                                                                                     ## vertex
-                                                                                                                     ## number
-                                                                                                                     ## in
-                                                                                                                     ## the
-                                                                                                                     ## array
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @param
-                                                                                                                     ## theMaxEdges
-                                                                                                                     ## defines
-                                                                                                                     ## the
-                                                                                                                     ## maximum
-                                                                                                                     ## allowed
-                                                                                                                     ## edge
-                                                                                                                     ## number
-                                                                                                                     ## in
-                                                                                                                     ## the
-                                                                                                                     ## array
-                                                                                                                     ## (for
-                                                                                                                     ## indexed
-                                                                                                                     ## array)
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## @param
-                                                                                                                     ## theArrayFlags
-                                                                                                                     ## array
-                                                                                                                     ## flags
 
 
 proc newGraphic3dArrayOfQuadrangles*(theMaxVertexs: cint; theMaxEdges: cint;
@@ -175,5 +28,4 @@ proc newGraphic3dArrayOfQuadrangles*(theMaxVertexs: cint; theMaxEdges: cint = 0;
                                     theHasVColors: bool = false;
                                     theHasVTexels: bool = false): Graphic3dArrayOfQuadrangles {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfQuadrangles(@)", header: "Graphic3d_ArrayOfQuadrangles.hxx".}
-type
-  HandleGraphic3dArrayOfQuadrangles* = Handle[Graphic3dArrayOfQuadrangles]
+

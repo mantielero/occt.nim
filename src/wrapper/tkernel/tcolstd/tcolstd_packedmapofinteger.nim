@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Created on: 2005-11-05
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -17,35 +19,7 @@
 ##  Optimized Map of integer values. Each block of 32 integers is stored in 8 bytes in memory.
 ##
 
-type
-  TColStdPackedMapOfInteger* {.importcpp: "TColStd_PackedMapOfInteger",
-                              header: "TColStd_PackedMapOfInteger.hxx", bycopy.} = object of TCollectionBasicMap ##  operators new and delete must be defined explicitly
-                                                                                                          ##  since inherited ones are not accessible
-                                                                                                          ## ! Iterator of class TColStd_PackedMapOfInteger.
-                                                                                                          ## / Constructor
-                                                                                                          ## !@name Boolean operations with maps as sets of integers
-                                                                                                          ## !@{
-                                                                                                          ## *
-                                                                                                          ##  Sets this Map to be the result of union (aka addition, fuse, merge, boolean OR) operation between two given Maps.
-                                                                                                          ##  The new Map contains the values that are contained either in the first map or in the second map or in both.
-                                                                                                          ##  All previous contents of this Map is cleared. This map (result of the boolean operation) can also be passed as one of operands.
-                                                                                                          ##
-                                                                                                          ##  ---------- PROTECTED METHODS ----------
-                                                                                                          ## ! Class implementing a block of 32 consecutive integer values as a node of a Map collection.
-                                                                                                          ## ! The data are stored in 64 bits as:
-                                                                                                          ## !  - bits  0 - 4 : (number of integers stored in the block) - 1;
-                                                                                                          ## !  - bits  5 - 31: base address of the block of integers (low bits assumed 0)
-                                                                                                          ## !  - bits 32 - 63: 32-bit field where each bit indicates the presence of the corresponding integer in the block.
-                                                                                                          ## !                  Number of non-zero bits must be equal to the number expressed in bits 0-4.
 
-  TColStdPackedMapOfIntegerIterator* {.importcpp: "TColStd_PackedMapOfInteger::Iterator",
-                                      header: "TColStd_PackedMapOfInteger.hxx",
-                                      bycopy.} = object of TCollectionBasicMapIterator ##
-                                                                                  ## /
-                                                                                  ## Empty
-                                                                                  ## Constructor.
-    ## !< all bits set above the iterated position
-    ## !< Currently iterated key
 
 
 proc newTColStdPackedMapOfIntegerIterator*(): TColStdPackedMapOfIntegerIterator {.

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,11 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dCTexture* {.importcpp: "Graphic3d_CTexture",
-                      header: "Graphic3d_CTexture.hxx", bycopy.} = object
-    textureMap* {.importc: "TextureMap".}: Handle[Graphic3dTextureMap] ## !< handle to texture
-    doTextureMap* {.importc: "doTextureMap".}: cint ## !< flag indicates to use texture or not
 
 
 proc newGraphic3dCTexture*(): Graphic3dCTexture {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
-type
-  TopOpeBRepDS_GapFiller* {.importcpp: "TopOpeBRepDS_GapFiller",
-                           header: "TopOpeBRepDS_GapFiller.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_GapFiller*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapFiller {.

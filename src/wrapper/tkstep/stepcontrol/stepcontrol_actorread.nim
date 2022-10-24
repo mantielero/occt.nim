@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1994-12-21
 ##  Created by: Dieter THIEMANN
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -42,30 +44,6 @@ discard "forward decl of STEPControl_ActorRead"
 ## ! I.E. for each type of Entity, it invokes the appropriate Tool
 ## ! then returns the Binder which contains the Result
 
-type
-  STEPControlActorRead* {.importcpp: "STEPControl_ActorRead",
-                         header: "STEPControl_ActorRead.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
-                                                                                                            ## !
-type
-  HandleSTEPControlActorRead* = Handle[STEPControlActorRead]                                                                                                            ## Transfers
-                                                                                                            ## product
-                                                                                                            ## definition
-                                                                                                            ## entity
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## theUseTrsf
-                                                                                                            ## -
-                                                                                                            ## special
-                                                                                                            ## flag
-                                                                                                            ## for
-                                                                                                            ## using
-                                                                                                            ## Axis2Placement
-                                                                                                            ## from
-                                                                                                            ## ShapeRepresentation
-                                                                                                            ## for
-                                                                                                            ## transform
-                                                                                                            ## root
-                                                                                                            ## shape
 
 
 proc newSTEPControlActorRead*(): STEPControlActorRead {.cdecl, constructor,

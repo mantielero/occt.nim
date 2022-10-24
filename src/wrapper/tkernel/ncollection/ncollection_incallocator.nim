@@ -1,3 +1,5 @@
+import ncollection_types
+
 const
   DefaultBlockSize:csize_t = 24600
 ##  Created on: 2002-04-12
@@ -16,15 +18,7 @@ const
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_Mutex"
-type
-  NCollectionIncAllocator* {.importcpp: "NCollection_IncAllocator::NCollection_IncAllocator",
-                            header: "NCollection_IncAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  The type defining the alignement of allocated objects
-                                                                                                           ##  Prohibited methods
-                                                                                                           ##  ----- PROTECTED CLASS IBlock -------
-                                                                                                           ##  --------- PROTECTED FIELDS ---------
-                                                                                                           ##  Declaration of CASCADE RTTI
 
-  NCollectionIncAllocatoralignedT* = pointer
 
 proc newNCollectionIncAllocator*(theBlockSize: csize_t = DefaultBlockSize): NCollectionIncAllocator {.
     cdecl, constructor, importcpp: "NCollection_IncAllocator(@)", header: "NCollection_IncAllocator.hxx".}
@@ -45,5 +39,4 @@ proc reset*(this: var NCollectionIncAllocator; doReleaseMem: bool = true) {.
     cdecl, importcpp: "Reset", header: "NCollection_IncAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
-type
-  HandleNCollectionIncAllocator* = Handle[NCollectionIncAllocator]
+

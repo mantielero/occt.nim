@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,18 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Blend_Point"
-type
-  BlendAppFunction* {.importcpp: "Blend_AppFunction",
-                     header: "Blend_AppFunction.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                   ## !
-                                                                                                   ## returns
-                                                                                                   ## the
-                                                                                                   ## number
-                                                                                                   ## of
-                                                                                                   ## variables
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## function.
 
 
 proc nbVariables*(this: BlendAppFunction): cint {.noSideEffect, cdecl,

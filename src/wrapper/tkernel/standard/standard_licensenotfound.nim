@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_LicenseNotFound"
-type
-  HandleStandardLicenseNotFound* = Handle[StandardLicenseNotFound]
 
 when not defined(noException) and not defined(noStandardLicenseNotFound):
   template standardLicenseNotFoundRaiseIf*(condition, message: untyped): void =

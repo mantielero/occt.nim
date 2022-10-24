@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -26,99 +28,8 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Plane"
-type
-  HandleGeomPlane* = Handle[GeomPlane]
 
-## ! Describes a plane in 3D space.
-## ! A plane is positioned in space by a coordinate system
-## ! (a gp_Ax3 object) such that the plane is defined by
-## ! the origin, "X Direction" and "Y Direction" of this
-## ! coordinate system.
-## ! This coordinate system is the "local coordinate
-## ! system" of the plane. The following apply:
-## ! - Its "X Direction" and "Y Direction" are respectively
-## ! the u and v parametric directions of the plane.
-## ! - Its origin is the origin of the u and v parameters
-## ! (also called the "origin" of the plane).
-## ! - Its "main Direction" is a vector normal to the plane.
-## ! This normal vector gives the orientation of the
-## ! plane only if the local coordinate system is "direct".
-## ! (The orientation of the plane is always defined by
-## ! the "X Direction" and the "Y Direction" of its local
-## ! coordinate system.)
-## ! The parametric equation of the plane is:
-## ! P(u, v) = O + u*XDir + v*YDir
-## ! where O, XDir and YDir are respectively the
-## ! origin, the "X Direction" and the "Y Direction" of the
-## ! local coordinate system of the plane.
-## ! The parametric range of the two parameters u and v
-## ! is ] -infinity, +infinity [.
 
-type
-  GeomPlane* {.importcpp: "Geom_Plane", header: "Geom_Plane.hxx", bycopy.} = object of GeomElementarySurface ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## plane
-                                                                                                   ## located
-                                                                                                   ## in
-                                                                                                   ## 3D
-                                                                                                   ## space
-                                                                                                   ## with
-                                                                                                   ## an
-                                                                                                   ## axis
-                                                                                                   ## placement
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## three
-                                                                                                   ## axis.
-                                                                                                   ## The
-                                                                                                   ## "ZDirection"
-                                                                                                   ## of
-                                                                                                   ## "A3"
-                                                                                                   ## is
-                                                                                                   ## the
-                                                                                                   ## direction
-                                                                                                   ## normal
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## to
-                                                                                                   ## the
-                                                                                                   ## plane.
-                                                                                                   ## The
-                                                                                                   ## "Location"
-                                                                                                   ## point
-                                                                                                   ## of
-                                                                                                   ## "A3"
-                                                                                                   ## is
-                                                                                                   ## the
-                                                                                                   ## origin
-                                                                                                   ## of
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## the
-                                                                                                   ## plane.
-                                                                                                   ## The
-                                                                                                   ## "XDirection"
-                                                                                                   ## and
-                                                                                                   ## "YDirection"
-                                                                                                   ## of
-                                                                                                   ## "A3"
-                                                                                                   ## define
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## the
-                                                                                                   ## directions
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## U
-                                                                                                   ## isoparametric
-                                                                                                   ## and
-                                                                                                   ## V
-                                                                                                   ## isoparametric
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## curves.
 
 
 proc newGeomPlane*(a3: Ax3Obj): GeomPlane {.cdecl, constructor,

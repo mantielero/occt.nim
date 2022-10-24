@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,30 +21,6 @@ discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  ExtremaECC* {.importcpp: "Extrema_ECC", header: "Extrema_ECC.hxx", bycopy.} = object ## !
-                                                                               ## Calculates
-                                                                               ## all
-                                                                               ## the
-                                                                               ## distances
-                                                                               ## as
-                                                                               ## above
-                                                                               ## !
-                                                                               ## between
-                                                                               ## Uinf
-                                                                               ## and
-                                                                               ## Usup
-                                                                               ## for
-                                                                               ## C1
-                                                                               ## and
-                                                                               ## between
-                                                                               ## Vinf
-                                                                               ## and
-                                                                               ## Vsup
-                                                                               ## !
-                                                                               ## for
-                                                                               ## C2.
-    ##  Default value is false.
 
 
 proc newExtremaECC*(): ExtremaECC {.cdecl, constructor, importcpp: "Extrema_ECC(@)",

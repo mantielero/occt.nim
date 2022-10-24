@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,17 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_SurfaceOfLinearExtrusion"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
-type
-  HandleGeomAdaptorHSurfaceOfLinearExtrusion* = Handle[
-      GeomAdaptorHSurfaceOfLinearExtrusion]
-  GeomAdaptorHSurfaceOfLinearExtrusion* {.
-      importcpp: "GeomAdaptor_HSurfaceOfLinearExtrusion",
-      header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx", bycopy.} = object of Adaptor3dHSurface ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## empty
-                                                                                           ## GenHSurface.
 
 
 proc newGeomAdaptorHSurfaceOfLinearExtrusion*(): GeomAdaptorHSurfaceOfLinearExtrusion {.
@@ -47,19 +38,5 @@ proc surface*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Adaptor3dSurface {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfLinearExtrusion): var GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
-type
-  GeomAdaptorHSurfaceOfLinearExtrusionbaseType* = Adaptor3dHSurface
 
-##  #define TheSurface GeomAdaptor_SurfaceOfLinearExtrusion
-##  #define TheSurface_hxx <GeomAdaptor_SurfaceOfLinearExtrusion.hxx>
-##  #define Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfLinearExtrusion
-##  #define Adaptor3d_GenHSurface_hxx <GeomAdaptor_HSurfaceOfLinearExtrusion.hxx>
-##  #define Handle_Adaptor3d_GenHSurface Handle(GeomAdaptor_HSurfaceOfLinearExtrusion)
-##
-##  #include <Adaptor3d_GenHSurface.lxx>
-##
-##  #undef TheSurface
-##  #undef TheSurface_hxx
-##  #undef Adaptor3d_GenHSurface
-##  #undef Adaptor3d_GenHSurface_hxx
-##  #undef Handle_Adaptor3d_GenHSurface
+

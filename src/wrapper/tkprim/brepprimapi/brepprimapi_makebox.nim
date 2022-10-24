@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,12 +25,6 @@ discard "forward decl of BRepPrim_Wedge"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Face"
-type
-  BRepPrimAPI_MakeBox* {.importcpp: "BRepPrimAPI_MakeBox",
-                        header: "BRepPrimAPI_MakeBox.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## constructor
 
 
 proc box*(): BRepPrimAPI_MakeBox {.cdecl, constructor,

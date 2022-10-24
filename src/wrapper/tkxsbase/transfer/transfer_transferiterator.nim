@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-10-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -25,14 +27,6 @@ when defined(Status):
 ## ! It gives several kinds of Informations, and allows to consider
 ## ! various criteria (criteria are cumulative)
 
-type
-  TransferTransferIterator* {.importcpp: "Transfer_TransferIterator",
-                             header: "Transfer_TransferIterator.hxx", bycopy.} = object of RootObj ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## empty
-                                                                                   ## Iterator
 
 
 proc newTransferTransferIterator*(): TransferTransferIterator {.cdecl, constructor,

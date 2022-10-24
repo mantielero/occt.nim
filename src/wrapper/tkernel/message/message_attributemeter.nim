@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,51 +15,6 @@
 
 discard "forward decl of Message_Alert"
 discard "forward decl of Message_AlertExtended"
-type
-  MessageAttributeMeter* {.importcpp: "Message_AttributeMeter",
-                          header: "Message_AttributeMeter.hxx", bycopy.} = object of MessageAttribute ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## default
-                                                                                               ## value
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## metric
-                                                                                               ## when
-                                                                                               ## it
-                                                                                               ## is
-                                                                                               ## not
-                                                                                               ## defined
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @return
-                                                                                               ## undefined
-                                                                                               ## value
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Constructor
-                                                                                               ## with
-                                                                                               ## string
-                                                                                               ## argument
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Sets
-                                                                                               ## start
-                                                                                               ## values
-                                                                                               ## of
-                                                                                               ## default
-                                                                                               ## report
-                                                                                               ## metrics
-                                                                                               ## into
-                                                                                               ## the
-                                                                                               ## alert
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @param
-                                                                                               ## theAlert
-                                                                                               ## an
-                                                                                               ## alert
-    ## !< computed metrics
 
 
 proc undefinedMetricValue*(): cfloat {.cdecl, importcpp: "Message_AttributeMeter::UndefinedMetricValue(@)",

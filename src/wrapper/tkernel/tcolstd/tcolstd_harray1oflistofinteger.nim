@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,10 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHArray1OfListOfInteger* {.importcpp: "TColStd_HArray1OfListOfInteger",
-                                  header: "TColStd_HArray1OfListOfInteger.hxx",
-                                  bycopy.} = object of TColStdArray1OfListOfInteger
 
 
 proc newTColStdHArray1OfListOfInteger*(theLower: cint; theUpper: cint): TColStdHArray1OfListOfInteger {.

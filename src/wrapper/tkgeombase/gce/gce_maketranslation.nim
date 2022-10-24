@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,11 +19,6 @@
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
-type
-  GceMakeTranslation* {.importcpp: "gce_MakeTranslation",
-                       header: "gce_MakeTranslation.hxx", bycopy.} = object ## !
-                                                                       ## Constructs a
-                                                                       ## translation along the vector " Vect"
 
 
 proc newGceMakeTranslation*(vect: VecObj): GceMakeTranslation {.cdecl, constructor,

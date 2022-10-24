@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1996-08-27
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shell"
-type
-  TopOpeBRepToolSolidClassifier* {.importcpp: "TopOpeBRepTool_SolidClassifier",
-                                  header: "TopOpeBRepTool_SolidClassifier.hxx",
-                                  bycopy.} = object
 
 
 proc newTopOpeBRepToolSolidClassifier*(): TopOpeBRepToolSolidClassifier {.cdecl,

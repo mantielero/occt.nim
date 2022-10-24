@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1994-02-01
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,8 +24,6 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaExtPS* {.importcpp: "Extrema_ExtPS", header: "Extrema_ExtPS.hxx", bycopy.} = object
 
 
 proc newExtremaExtPS*(): ExtremaExtPS {.cdecl, constructor,

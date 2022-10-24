@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,17 +22,6 @@
 ## ! -   color, and
 ## ! -   material
 
-type
-  Prs3dShadingAspect* {.importcpp: "Prs3d_ShadingAspect",
-                       header: "Prs3d_ShadingAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## framework
-                                                                                         ## to
-                                                                                         ## display
-                                                                                         ## shading.
 
 
 proc newPrs3dShadingAspect*(): Prs3dShadingAspect {.cdecl, constructor,
@@ -63,5 +54,4 @@ proc setAspect*(this: var Prs3dShadingAspect;
 proc dumpJson*(this: Prs3dShadingAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_ShadingAspect.hxx".}
-type
-  HandlePrs3dShadingAspect* = Handle[Prs3dShadingAspect]
+

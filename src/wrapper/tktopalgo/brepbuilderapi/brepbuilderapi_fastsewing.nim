@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ## ! Created on: 2015-04-24
 ## ! Created by: NIKOLAI BUKHALOV
 ## ! Copyright (c) 2015 OPEN CASCADE SAS
@@ -27,24 +29,7 @@
 ## ! - retrieve the error status if any
 ## ! - retrieve the resulted shape
 
-type
-  BRepBuilderAPI_FastSewing* {.importcpp: "BRepBuilderAPI_FastSewing",
-                              header: "BRepBuilderAPI_FastSewing.hxx", bycopy.} = object of StandardTransient
-    ##  myFaceVec, myVertexVec and myEdgeVec lists are filled only once!!!!!
-    ## ! Vector of faces
-    ## ! Vector of Vertices
-    ## ! Vector of edges
-    ## ! Tolerance
-    ## ! Bits of computation status
 
-  BRepBuilderAPI_FastSewingFS_VARStatuses* = cuint
-  BRepBuilderAPI_FastSewingFS_Statuses* {.size: sizeof(cint),
-      importcpp: "BRepBuilderAPI_FastSewing::FS_Statuses",
-      header: "BRepBuilderAPI_FastSewing.hxx".} = enum
-    FS_OK = 0x00000000, FS_Degenerated = 0x00000001, FS_FindVertexError = 0x00000002,
-    FS_FindEdgeError = 0x00000004, FS_FaceWithNullSurface = 0x00000008,
-    FS_NotNaturalBoundsFace = 0x00000010, FS_InfiniteSurface = 0x00000020,
-    FS_EmptyInput = 0x00000040, FS_Exception = 0x00000080
 
 
 proc fastSewing*(theTolerance: cfloat = 1.0e-06): BRepBuilderAPI_FastSewing {.
@@ -64,5 +49,4 @@ proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect, c
 proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
                  theOS: ptr StandardOStream = cast[ptr StandardOStream](0)): BRepBuilderAPI_FastSewingFS_VARStatuses {.
     cdecl, importcpp: "GetStatuses", header: "BRepBuilderAPI_FastSewing.hxx".}
-type
-  HandleBRepBuilderAPI_FastSewing* = Handle[BRepBuilderAPI_FastSewing]
+

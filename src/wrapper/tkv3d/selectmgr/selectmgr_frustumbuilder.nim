@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-11-24
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -17,28 +19,6 @@
 ## ! selecting frustum depending on current camera projection and orientation
 ## ! matrices, window size and viewport parameters.
 
-type
-  SelectMgrFrustumBuilder* {.importcpp: "SelectMgr_FrustumBuilder",
-                            header: "SelectMgr_FrustumBuilder.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## new
-                                                                                                    ## frustum
-                                                                                                    ## builder
-                                                                                                    ## with
-                                                                                                    ## empty
-                                                                                                    ## matrices
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Unprojects
-                                                                                                    ## point
-                                                                                                    ## from
-                                                                                                    ## NDC
-                                                                                                    ## coords
-                                                                                                    ## to
-                                                                                                    ## 3d
-                                                                                                    ## world
-                                                                                                    ## space
 
 
 proc newSelectMgrFrustumBuilder*(): SelectMgrFrustumBuilder {.cdecl, constructor,
@@ -74,5 +54,4 @@ proc signedPlanePntDist*(this: SelectMgrFrustumBuilder; theEq: SelectMgrVec3;
 proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: cfloat;
                            theY: cfloat; theZ: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "ProjectPntOnViewPlane", header: "SelectMgr_FrustumBuilder.hxx".}
-type
-  HandleSelectMgrFrustumBuilder* = Handle[SelectMgrFrustumBuilder]
+

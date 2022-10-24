@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,31 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectDiff"
-type
-  HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
 
-## ! A SelectDiff keeps the entities from a Selection, the Main
-## ! Input, which are not listed by the Second Input
 
-type
-  IFSelectSelectDiff* {.importcpp: "IFSelect_SelectDiff",
-                       header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelectSelectControl ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## SelectDiff
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## always
-                                                                                              ## True,
-                                                                                              ## because
-                                                                                              ## RootResult
-                                                                                              ## gives
-                                                                                              ## a
-                                                                                              ## Unique
-                                                                                              ## list
 
 
 proc newIFSelectSelectDiff*(): IFSelectSelectDiff {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-10-01
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,18 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of IntSurf_InteriorPoint"
-type
-  IntSurfInteriorPointTool* {.importcpp: "IntSurf_InteriorPointTool",
-                             header: "IntSurf_InteriorPointTool.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## the
-                                                                                   ## 3d
-                                                                                   ## coordinates
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## starting
-                                                                                   ## point.
 
 
 proc value3d*(pStart: IntSurfInteriorPoint): PntObj {.cdecl,

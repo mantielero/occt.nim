@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -41,71 +43,7 @@
 ##               optimisation issues.
 ##
 
-type
-  NCollectionMap*[TheKeyType; Hasher] {.importcpp: "NCollection_Map<\'0,\'1>",
-                                      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionBaseMap ##
-                                                                                                      ## !
-                                                                                                      ## STL-compliant
-                                                                                                      ## typedef
-                                                                                                      ## for
-                                                                                                      ## key
-                                                                                                      ## type
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Adaptation
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## TListNode
-                                                                                                      ## to
-                                                                                                      ## the
-                                                                                                      ## map
-                                                                                                      ## notations
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Implementation
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## Iterator
-                                                                                                      ## interface.
-                                                                                                      ##
-                                                                                                      ## ----------
-                                                                                                      ## PUBLIC
-                                                                                                      ## METHODS
-                                                                                                      ## ------------
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor.
-                                                                                                      ##
-                                                                                                      ## !@name
-                                                                                                      ## Boolean
-                                                                                                      ## operations
-                                                                                                      ## with
-                                                                                                      ## maps
-                                                                                                      ## as
-                                                                                                      ## sets
-                                                                                                      ## of
-                                                                                                      ## keys
-                                                                                                      ##
-                                                                                                      ## !@{
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## @return
-                                                                                                      ## true
-                                                                                                      ## if
-                                                                                                      ## two
-                                                                                                      ## maps
-                                                                                                      ## contains
-                                                                                                      ## exactly
-                                                                                                      ## the
-                                                                                                      ## same
-                                                                                                      ## keys
 
-  NCollectionMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionMapMapNode*[TheKeyType; Hasher] {.
-      importcpp: "NCollection_Map<\'0,\'1>::MapNode",
-      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionTListNode[
-      TheKeyType]             ## ! Constructor with 'Next'
 
 
 proc newNCollectionMapMapNode*[TheKeyType; Hasher](theKey: TheKeyType;
@@ -114,11 +52,6 @@ proc newNCollectionMapMapNode*[TheKeyType; Hasher](theKey: TheKeyType;
     header: "NCollection_Map.hxx".}
 proc key*[TheKeyType; Hasher](this: var NCollectionMapMapNode[TheKeyType, Hasher]): TheKeyType {.
     cdecl, importcpp: "Key", header: "NCollection_Map.hxx".}
-type
-  NCollectionMapIterator*[TheKeyType; Hasher] {.
-      importcpp: "NCollection_Map<\'0,\'1>::Iterator",
-      header: "NCollection_Map.hxx", bycopy.} = object of RootObj ## ! Empty
-                                                                          ## constructor
 
 
 proc newNCollectionMapIterator*[TheKeyType; Hasher](): NCollectionMapIterator[
@@ -137,9 +70,6 @@ proc value*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]
     noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Map.hxx".}
 proc key*[TheKeyType; Hasher](this: NCollectionMapIterator[TheKeyType, Hasher]): TheKeyType {.
     noSideEffect, cdecl, importcpp: "Key", header: "NCollection_Map.hxx".}
-type
-  NCollectionMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionMapIterator, TheKeyType, true]
 
 proc cbegin*[TheKeyType; Hasher](this: NCollectionMap[TheKeyType, Hasher]): NCollectionMapconstIterator {.
     noSideEffect, cdecl, importcpp: "cbegin", header: "NCollection_Map.hxx".}

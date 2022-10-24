@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2014-10-14
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,103 +17,6 @@
 
 ## ! Tool for computing bounding box presentation.
 
-type
-  Prs3dBndBox* {.importcpp: "Prs3d_BndBox", header: "Prs3d_BndBox.hxx", bycopy.} = object of Prs3dRoot ##
-                                                                                             ## !
-                                                                                             ## Computes
-                                                                                             ## presentation
-                                                                                             ## of
-                                                                                             ## a
-                                                                                             ## bounding
-                                                                                             ## box.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## thePresentation
-                                                                                             ## [in]
-                                                                                             ## the
-                                                                                             ## presentation.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theBndBox
-                                                                                             ## [in]
-                                                                                             ## the
-                                                                                             ## bounding
-                                                                                             ## box.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theDrawer
-                                                                                             ## [in]
-                                                                                             ## the
-                                                                                             ## drawer.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Create
-                                                                                             ## primitive
-                                                                                             ## array
-                                                                                             ## with
-                                                                                             ## line
-                                                                                             ## segments
-                                                                                             ## for
-                                                                                             ## displaying
-                                                                                             ## a
-                                                                                             ## box.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theBox
-                                                                                             ## [in]
-                                                                                             ## the
-                                                                                             ## box
-                                                                                             ## to
-                                                                                             ## add
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Create
-                                                                                             ## primitive
-                                                                                             ## array
-                                                                                             ## with
-                                                                                             ## line
-                                                                                             ## segments
-                                                                                             ## for
-                                                                                             ## displaying
-                                                                                             ## a
-                                                                                             ## box.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theSegments
-                                                                                             ## [in]
-                                                                                             ## [out]
-                                                                                             ## primitive
-                                                                                             ## array
-                                                                                             ## to
-                                                                                             ## be
-                                                                                             ## filled;
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## should
-                                                                                             ## be
-                                                                                             ## at
-                                                                                             ## least
-                                                                                             ## 8
-                                                                                             ## nodes
-                                                                                             ## and
-                                                                                             ## 24
-                                                                                             ## edges
-                                                                                             ## in
-                                                                                             ## size
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## @param
-                                                                                             ## theBox
-                                                                                             ## [in]
-                                                                                             ## the
-                                                                                             ## box
-                                                                                             ## to
-                                                                                             ## add
 
 
 proc add*(thePresentation: Handle[Prs3dPresentation]; theBndBox: BndBox;

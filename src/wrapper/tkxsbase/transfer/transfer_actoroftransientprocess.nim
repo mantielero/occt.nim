@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -20,14 +22,8 @@ discard "forward decl of Transfer_ProcessForTransient"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Message_ProgressScope"
 discard "forward decl of Transfer_ActorOfTransientProcess"
-type
-  HandleTransferActorOfTransientProcess* = Handle[TransferActorOfTransientProcess]
 
-## ! The original class was renamed. Compatibility only
 
-type
-  TransferActorOfTransientProcess* {.importcpp: "Transfer_ActorOfTransientProcess", header: "Transfer_ActorOfTransientProcess.hxx",
-                                    bycopy.} = object of TransferActorOfProcessForTransient
 
 
 proc newTransferActorOfTransientProcess*(): TransferActorOfTransientProcess {.

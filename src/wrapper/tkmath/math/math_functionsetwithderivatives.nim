@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of math_Matrix"
-type
-  MathFunctionSetWithDerivatives* {.importcpp: "math_FunctionSetWithDerivatives", header: "math_FunctionSetWithDerivatives.hxx",
-                                   bycopy.} = object of MathFunctionSet ## ! Returns the number of variables of the function.
 
 
 proc nbVariables*(this: MathFunctionSetWithDerivatives): cint {.noSideEffect, cdecl,

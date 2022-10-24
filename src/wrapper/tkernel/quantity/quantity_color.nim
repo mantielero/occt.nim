@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -20,119 +22,6 @@
 ## ! Therefore, take a look into methods converting to and from non-linear sRGB color space, if needed;
 ## ! for instance, application usually providing color picking within 0..255 range in sRGB color space.
 
-type
-  QuantityColor* {.importcpp: "Quantity_Color", header: "Quantity_Color.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## Quantity_NOC_YELLOW
-                                                                                        ## color
-                                                                                        ## (for
-                                                                                        ## historical
-                                                                                        ## reasons).
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## color
-                                                                                        ## from
-                                                                                        ## Quantity_NameOfColor
-                                                                                        ## enumeration
-                                                                                        ## nearest
-                                                                                        ## to
-                                                                                        ## specified
-                                                                                        ## RGB
-                                                                                        ## values.
-                                                                                        ##
-                                                                                        ## !@name
-                                                                                        ## Routines
-                                                                                        ## converting
-                                                                                        ## colors
-                                                                                        ## between
-                                                                                        ## different
-                                                                                        ## encodings
-                                                                                        ## and
-                                                                                        ## color
-                                                                                        ## spaces
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Parses
-                                                                                        ## the
-                                                                                        ## string
-                                                                                        ## as
-                                                                                        ## a
-                                                                                        ## hex
-                                                                                        ## color
-                                                                                        ## (like
-                                                                                        ## "#FF0"
-                                                                                        ## for
-                                                                                        ## short
-                                                                                        ## sRGB
-                                                                                        ## color,
-                                                                                        ## or
-                                                                                        ## "#FFFF00"
-                                                                                        ## for
-                                                                                        ## sRGB
-                                                                                        ## color)
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @param
-                                                                                        ## theHexColorString
-                                                                                        ## the
-                                                                                        ## string
-                                                                                        ## to
-                                                                                        ## be
-                                                                                        ## parsed
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @param
-                                                                                        ## theColor
-                                                                                        ## a
-                                                                                        ## color
-                                                                                        ## that
-                                                                                        ## is
-                                                                                        ## a
-                                                                                        ## result
-                                                                                        ## of
-                                                                                        ## parsing
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @return
-                                                                                        ## true
-                                                                                        ## if
-                                                                                        ## parsing
-                                                                                        ## was
-                                                                                        ## successful,
-                                                                                        ## or
-                                                                                        ## false
-                                                                                        ## otherwise
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## value
-                                                                                        ## used
-                                                                                        ## to
-                                                                                        ## compare
-                                                                                        ## two
-                                                                                        ## colors
-                                                                                        ## for
-                                                                                        ## equality;
-                                                                                        ## 0.0001
-                                                                                        ## by
-                                                                                        ## default.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## the
-                                                                                        ## values
-                                                                                        ## of
-                                                                                        ## a
-                                                                                        ## predefined
-                                                                                        ## color
-                                                                                        ## according
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## mode.
 
 
 proc newQuantityColor*(): QuantityColor {.cdecl, constructor,

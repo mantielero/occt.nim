@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -27,53 +29,8 @@ discard "forward decl of gp_Trsf"
 discard "forward decl of gp_GTrsf2d"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_RectangularTrimmedSurface"
-type
-  HandleGeomRectangularTrimmedSurface* = Handle[GeomRectangularTrimmedSurface]
 
-## ! Describes a portion of a surface (a patch) limited
-## ! by two values of the u parameter in the u
-## ! parametric direction, and two values of the v
-## ! parameter in the v parametric direction. The
-## ! domain of the trimmed surface must be within the
-## ! domain of the surface being trimmed.
-## ! The trimmed surface is defined by:
-## ! - the basis surface, and
-## ! - the values (umin, umax) and (vmin, vmax)
-## ! which limit it in the u and v parametric directions.
-## ! The trimmed surface is built from a copy of the basis
-## ! surface. Therefore, when the basis surface is
-## ! modified the trimmed surface is not changed.
-## ! Consequently, the trimmed surface does not
-## ! necessarily have the same orientation as the basis surface.
-## ! Warning:  The  case of surface   being trimmed is  periodic and
-## ! parametrics values are outside the domain is possible.
-## ! But, domain of the  trimmed surface can be translated
-## ! by (n X) the period.
 
-type
-  GeomRectangularTrimmedSurface* {.importcpp: "Geom_RectangularTrimmedSurface",
-                                  header: "Geom_RectangularTrimmedSurface.hxx",
-                                  bycopy.} = object of GeomBoundedSurface ## ! The U parametric direction of the surface is oriented from U1
-                                                                     ## ! to U2. The V parametric direction of the surface is oriented
-                                                                     ## ! from V1 to V2.
-                                                                     ## ! These two directions define the orientation of the surface
-                                                                     ## ! (normal). If the surface is not periodic USense and VSense are
-                                                                     ## ! not used for the
-                                                                     ## construction. If the surface S is periodic in
-                                                                     ## ! one direction USense and VSense give the available part of the
-                                                                     ## ! surface. By default in this case the surface has the same
-                                                                     ## ! orientation as the basis surface S.
-                                                                     ## ! The returned surface is not closed and not periodic.
-                                                                     ## !
-                                                                     ## ConstructionError   Raised if
-                                                                     ## ! S is not periodic in the UDirection and U1 or U2 are out of the
-                                                                     ## ! bounds of S.
-                                                                     ## ! S is not periodic in the VDirection and V1 or V2 are out of the
-                                                                     ## ! bounds of S.
-                                                                     ## ! U1 = U2 or V1 = V2
-                                                                     ## ! General set trim,  to implement
-                                                                     ## constructors and
-                                                                     ## ! others set trim.
 
 
 proc newGeomRectangularTrimmedSurface*(s: Handle[GeomSurface]; u1: cfloat;

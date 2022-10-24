@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,19 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelEntities"
-type
-  HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
 
-## ! A SelectModelEntities gets all the Entities of an
-## ! InterfaceModel.
 
-type
-  IFSelectSelectModelEntities* {.importcpp: "IFSelect_SelectModelEntities",
-                                header: "IFSelect_SelectModelEntities.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                             ## !
-                                                                                                             ## Creates
-                                                                                                             ## a
-                                                                                                             ## SelectModelRoot
 
 
 proc newIFSelectSelectModelEntities*(): IFSelectSelectModelEntities {.cdecl,

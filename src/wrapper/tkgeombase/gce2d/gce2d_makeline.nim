@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,33 +21,6 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Dir2d"
-type
-  GCE2dMakeLine* {.importcpp: "GCE2d_MakeLine", header: "GCE2d_MakeLine.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## line
-                                                                                                   ## located
-                                                                                                   ## in
-                                                                                                   ## 2D
-                                                                                                   ## space
-                                                                                                   ## with
-                                                                                                   ## the
-                                                                                                   ## axis
-                                                                                                   ## placement
-                                                                                                   ## A.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## The
-                                                                                                   ## Location
-                                                                                                   ## of
-                                                                                                   ## A
-                                                                                                   ## is
-                                                                                                   ## the
-                                                                                                   ## origin
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## line.
 
 
 proc newGCE2dMakeLine*(a: Ax2dObj): GCE2dMakeLine {.cdecl, constructor,

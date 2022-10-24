@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1994-12-09
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,37 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_NurbsConvert* {.importcpp: "BRepBuilderAPI_NurbsConvert",
-                                header: "BRepBuilderAPI_NurbsConvert.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                                    ## !
-                                                                                                                    ## Constructs
-                                                                                                                    ## a
-                                                                                                                    ## framework
-                                                                                                                    ## for
-                                                                                                                    ## converting
-                                                                                                                    ## the
-                                                                                                                    ## geometry
-                                                                                                                    ## of
-                                                                                                                    ## a
-                                                                                                                    ##
-                                                                                                                    ## !
-                                                                                                                    ## shape
-                                                                                                                    ## into
-                                                                                                                    ## NURBS
-                                                                                                                    ## geometry.
-                                                                                                                    ## Use
-                                                                                                                    ## the
-                                                                                                                    ## function
-                                                                                                                    ## Perform
-                                                                                                                    ##
-                                                                                                                    ## !
-                                                                                                                    ## to
-                                                                                                                    ## define
-                                                                                                                    ## the
-                                                                                                                    ## shape
-                                                                                                                    ## to
-                                                                                                                    ## convert.
 
 
 proc nurbsConvert*(): BRepBuilderAPI_NurbsConvert {.cdecl,

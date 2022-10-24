@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,15 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_Curve"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of GeomAdaptor_GHCurve"
-type
-  HandleGeomAdaptorGHCurve* = Handle[GeomAdaptorGHCurve]
-  GeomAdaptorGHCurve* {.importcpp: "GeomAdaptor_GHCurve",
-                       header: "GeomAdaptor_GHCurve.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## GenHCurve.
 
 
 proc newGeomAdaptorGHCurve*(): GeomAdaptorGHCurve {.cdecl, constructor,
@@ -43,19 +36,5 @@ proc getCurve*(this: var GeomAdaptorGHCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "GeomAdaptor_GHCurve.hxx".}
 proc changeCurve*(this: var GeomAdaptorGHCurve): var GeomAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve", header: "GeomAdaptor_GHCurve.hxx".}
-type
-  GeomAdaptorGHCurvebaseType* = Adaptor3dHCurve
 
-##  #define TheCurve GeomAdaptor_Curve
-##  #define TheCurve_hxx <GeomAdaptor_Curve.hxx>
-##  #define Adaptor3d_GenHCurve GeomAdaptor_GHCurve
-##  #define Adaptor3d_GenHCurve_hxx <GeomAdaptor_GHCurve.hxx>
-##  #define Handle_Adaptor3d_GenHCurve Handle(GeomAdaptor_GHCurve)
-##
-##  #include <Adaptor3d_GenHCurve.lxx>
-##
-##  #undef TheCurve
-##  #undef TheCurve_hxx
-##  #undef Adaptor3d_GenHCurve
-##  #undef Adaptor3d_GenHCurve_hxx
-##  #undef Handle_Adaptor3d_GenHCurve
+

@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,8 +18,6 @@
 
 discard "forward decl of Graphic3d_Group"
 discard "forward decl of V3d_View"
-type
-  V3d* {.importcpp: "V3d", header: "V3d.hxx", bycopy.} = object ## ! Determines the orientation vector corresponding to the predefined orientation type.
 
 
 proc getProjAxis*(theOrientation: V3dTypeOfOrientation): DirObj {.cdecl,

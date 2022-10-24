@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1996-01-05
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopOpeBRepBuild_Loop"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepBuildCompositeClassifier* {.importcpp: "TopOpeBRepBuild_CompositeClassifier", header: "TopOpeBRepBuild_CompositeClassifier.hxx",
-                                       bycopy.} = object of TopOpeBRepBuildLoopClassifier
 
 
 proc compare*(this: var TopOpeBRepBuildCompositeClassifier;

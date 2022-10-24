@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,36 +21,6 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ProcessForTransient"
 discard "forward decl of Transfer_ActorOfProcessForTransient"
 discard "forward decl of Transfer_Binder"
-type
-  TransferIteratorOfProcessForTransient* {.
-      importcpp: "Transfer_IteratorOfProcessForTransient",
-      header: "Transfer_IteratorOfProcessForTransient.hxx", bycopy.} = object of TransferTransferIterator ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## an
-                                                                                                   ## empty
-                                                                                                   ## Iterator
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## if
-                                                                                                   ## withstarts
-                                                                                                   ## is
-                                                                                                   ## True,
-                                                                                                   ## each
-                                                                                                   ## Binder
-                                                                                                   ## to
-                                                                                                   ## be
-                                                                                                   ## iterated
-                                                                                                   ## will
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## be
-                                                                                                   ## associated
-                                                                                                   ## to
-                                                                                                   ## its
-                                                                                                   ## corresponding
-                                                                                                   ## Starting
-                                                                                                   ## Object
 
 
 proc newTransferIteratorOfProcessForTransient*(withstarts: bool): TransferIteratorOfProcessForTransient {.

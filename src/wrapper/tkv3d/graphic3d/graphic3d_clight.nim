@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -16,28 +18,6 @@
 ## ! Some parameters are applicable only to particular light type;
 ## ! calling methods unrelated to current type will throw an exception.
 
-type
-  Graphic3dCLight* {.importcpp: "Graphic3d_CLight", header: "Graphic3d_CLight.hxx",
-                    bycopy.} = object of StandardTransient ## ! Empty constructor, which should be followed by light source properties configuration.
-                                                      ## ! Returns location of positional/spot light; (0, 0, 0) by default.
-                                                      ## ! Returns direction of directional/spot light.
-                                                      ## ! Returns an angle in radians of the cone created by the spot; 30 degrees by default.
-                                                      ## ! Returns the intensity of light source; 1.0 by default.
-                                                      ## ! @return light resource identifier string
-                                                      ## ! Access positional/spot light constant attenuation coefficient from packed vector.
-                                                      ## ! Generate unique object id.
-    ## !< resource id
-    ## !< user given name
-    ## !< light position
-    ## !< light color
-    ## !< direction of directional/spot light
-    ## !< packed light parameters
-    ## !< radius for point light or cone angle for directional light
-    ## !< intensity multiplier for light
-    ## !< Graphic3d_TypeOfLightSource enumeration
-    ## !< modification counter
-    ## !< flag to mark head light
-    ## !< enabled state
 
 
 proc newGraphic3dCLight*(theType: Graphic3dTypeOfLightSource): Graphic3dCLight {.
@@ -127,5 +107,4 @@ proc revision*(this: Graphic3dCLight): csize_t {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dCLight; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CLight.hxx".}
-type
-  HandleGraphic3dCLight* = Handle[Graphic3dCLight]
+

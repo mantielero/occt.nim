@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-08-06
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  GeomFillQuasiAngularConvertor* {.importcpp: "GeomFill_QuasiAngularConvertor",
-                                  header: "GeomFill_QuasiAngularConvertor.hxx",
-                                  bycopy.} = object
 
 
 proc newGeomFillQuasiAngularConvertor*(): GeomFillQuasiAngularConvertor {.cdecl,

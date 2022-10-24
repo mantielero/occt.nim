@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-12-04
 ##  Created by: Stephane MORTAUD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,31 +18,8 @@
 
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_AndFilter"
-type
-  HandleSelectMgrAndFilter* = Handle[SelectMgrAndFilter]
 
-## ! A framework to define a selection filter for two or
-## ! more types of entity.
 
-type
-  SelectMgrAndFilter* {.importcpp: "SelectMgr_AndFilter",
-                       header: "SelectMgr_AndFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
-                                                                                                   ## !
-                                                                                                   ## Constructs
-                                                                                                   ## an
-                                                                                                   ## empty
-                                                                                                   ## selection
-                                                                                                   ## filter
-                                                                                                   ## object
-                                                                                                   ## for
-                                                                                                   ## two
-                                                                                                   ## or
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## more
-                                                                                                   ## types
-                                                                                                   ## of
-                                                                                                   ## entity.
 
 
 proc newSelectMgrAndFilter*(): SelectMgrAndFilter {.cdecl, constructor,

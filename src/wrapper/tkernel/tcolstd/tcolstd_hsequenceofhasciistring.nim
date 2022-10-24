@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHSequenceOfHAsciiString* {.importcpp: "TColStd_HSequenceOfHAsciiString", header: "TColStd_HSequenceOfHAsciiString.hxx",
-                                   bycopy.} = object of TColStdSequenceOfHAsciiString
 
 
 proc newTColStdHSequenceOfHAsciiString*(): TColStdHSequenceOfHAsciiString {.cdecl,
@@ -31,5 +30,4 @@ proc append*(this: var TColStdHSequenceOfHAsciiString;
     importcpp: "Append", header: "TColStd_HSequenceOfHAsciiString.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfHAsciiString): var TColStdSequenceOfHAsciiString {.
     cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfHAsciiString.hxx".}
-type
-  HandleTColStdHSequenceOfHAsciiString* = Handle[TColStdHSequenceOfHAsciiString]
+

@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Mireille MERCIEN
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,35 +21,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of TCollection_AsciiString"
-type
-  TCollectionExtendedString* {.importcpp: "TCollection_ExtendedString",
-                              header: "TCollection_ExtendedString.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Initializes
-                                                                                     ## a
-                                                                                     ## ExtendedString
-                                                                                     ## to
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## ExtendedString.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Returns
-                                                                                     ## true
-                                                                                     ## if
-                                                                                     ## the
-                                                                                     ## input
-                                                                                     ## CString
-                                                                                     ## was
-                                                                                     ## successfuly
-                                                                                     ## converted
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## to
-                                                                                     ## UTF8
-                                                                                     ## coding
-    ## !< NULL-terminated string
-    ## !< length in 16-bit code units (excluding terminating NULL symbol)
 
 
 proc newTCollectionExtendedString*(): TCollectionExtendedString {.cdecl,
@@ -181,3 +154,4 @@ proc lengthOfCString*(this: TCollectionExtendedString): cint {.noSideEffect, cde
 proc hashCode*(theExtendedString: TCollectionExtendedString; theUpperBound: cint): cint {.
     cdecl.} =
   discard
+

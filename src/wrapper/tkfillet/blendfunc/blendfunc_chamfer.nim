@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1996-06-06
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
-type
-  BlendFuncChamfer* {.importcpp: "BlendFunc_Chamfer",
-                     header: "BlendFunc_Chamfer.hxx", bycopy.} = object of BlendFuncGenChamfer
 
 
 proc newBlendFuncChamfer*(s1: Handle[Adaptor3dHSurface];

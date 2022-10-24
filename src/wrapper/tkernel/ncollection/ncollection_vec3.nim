@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -17,17 +19,8 @@
 ## ! To be used as RGB color pixel or XYZ 3D-point.
 ## ! The main target for this class - to handle raw low-level arrays (from/to graphic driver etc.).
 
-type
-  NCollectionVec3*[ElementT] {.importcpp: "NCollection_Vec3<\'0>",
-                              header: "NCollection_Vec3.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
-    ## !< define the vector as array to avoid structure alignment issues
 
 
-#proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
-#                              header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](): NCollectionVec3[ElementT] {.cdecl,
     constructor, importcpp: "NCollection_Vec3<\'*0>(@)", header: "NCollection_Vec3.hxx".}
 proc newNCollectionVec3*[ElementT](theValue: ElementT): NCollectionVec3[ElementT] {.

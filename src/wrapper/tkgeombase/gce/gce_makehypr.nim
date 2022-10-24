@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,95 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Hypr"
-type
-  GceMakeHypr* {.importcpp: "gce_MakeHypr", header: "gce_MakeHypr.hxx", bycopy.} = object of GceRoot ##
-                                                                                           ## !
-                                                                                           ## A2
-                                                                                           ## is
-                                                                                           ## the
-                                                                                           ## local
-                                                                                           ## coordinate
-                                                                                           ## system
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## hyperbola.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## In
-                                                                                           ## the
-                                                                                           ## local
-                                                                                           ## coordinates
-                                                                                           ## system
-                                                                                           ## A2
-                                                                                           ## the
-                                                                                           ## equation
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## hyperbola
-                                                                                           ## is
-                                                                                           ## :
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## X*X
-                                                                                           ## /
-                                                                                           ## MajorRadius*MajorRadius
-                                                                                           ## -
-                                                                                           ## Y*Y
-                                                                                           ## /
-                                                                                           ## MinorRadius*MinorRadius
-                                                                                           ## =
-                                                                                           ## 1.0
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## It
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ## forbidden
-                                                                                           ## to
-                                                                                           ## create
-                                                                                           ## an
-                                                                                           ## Hyperbola
-                                                                                           ## with
-                                                                                           ## MajorRadius
-                                                                                           ## =
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## MinorRadius.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## For
-                                                                                           ## the
-                                                                                           ## hyperbola
-                                                                                           ## the
-                                                                                           ## MajorRadius
-                                                                                           ## can
-                                                                                           ## be
-                                                                                           ## lower
-                                                                                           ## than
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## MinorRadius.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## status
-                                                                                           ## is
-                                                                                           ## "NegativeRadius"
-                                                                                           ## if
-                                                                                           ## MajorRadius
-                                                                                           ## <
-                                                                                           ## 0.0
-                                                                                           ## and
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## "InvertRadius"
-                                                                                           ## if
-                                                                                           ## MinorRadius
-                                                                                           ## >
-                                                                                           ## MajorRadius.
 
 
 proc newGceMakeHypr*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceMakeHypr {.

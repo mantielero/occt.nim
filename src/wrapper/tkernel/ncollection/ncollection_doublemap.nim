@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-24
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -21,37 +23,7 @@
 ##               of buckets
 ##
 
-type
-  NCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
-      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
-                                                                            ## STL-compliant
-                                                                            ## typedef for key1 type
-                                                                            ##
-                                                                            ## ****************
-                                                                            ## Adaptation of the
-                                                                            ## TListNode to the
-                                                                            ## DOUBLEmap
-                                                                            ##
-                                                                            ## ****************
-                                                                            ## Implementation of the
-                                                                            ## Iterator
-                                                                            ## interface.
-                                                                            ##
-                                                                            ## ----------
-                                                                            ## PUBLIC
-                                                                            ## METHODS
-                                                                            ## ------------
-                                                                            ## !
-                                                                            ## Empty
-                                                                            ## constructor.
 
-  NCollectionDoubleMapkey1Type*[TheKey1Type] = TheKey1Type
-  NCollectionDoubleMapkey2Type*[TheKey2Type] = TheKey2Type
-  NCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
-      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::DoubleMapNode",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionTListNode[
-      TheKey2Type]            ## ! Constructor with 'Next'
 
 
 proc newNCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1;
@@ -72,13 +44,6 @@ proc next2*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](this: var NCollectionDou
 #proc delNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](
 #    theNode: ptr NCollectionListNode; theAl: var Handle[NCollectionBaseAllocator]) {.
 #    cdecl, importcpp: "DoubleMapNode::delNode(@)", header: "NCollection_DoubleMap.hxx".}
-type
-  NCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
-      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::Iterator",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of RootObj ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
 
 
 proc newNCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2](): NCollectionDoubleMapIterator[

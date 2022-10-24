@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
-type
-  BRepBlendCurvPointRadInv* {.importcpp: "BRepBlend_CurvPointRadInv",
-                             header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of BlendCurvPointFuncInv
 
 
 proc newBRepBlendCurvPointRadInv*(c1: Handle[Adaptor3dHCurve];

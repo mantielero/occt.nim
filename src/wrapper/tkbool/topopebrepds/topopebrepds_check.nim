@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1997-04-10
 ##  Created by: Prestataire Mary FABIEN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,14 +18,8 @@
 
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopOpeBRepDS_Check"
-type
-  HandleTopOpeBRepDS_Check* = Handle[TopOpeBRepDS_Check]
 
-## ! a tool verifing integrity and structure of DS
 
-type
-  TopOpeBRepDS_Check* {.importcpp: "TopOpeBRepDS_Check",
-                       header: "TopOpeBRepDS_Check.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_Check*(): TopOpeBRepDS_Check {.cdecl, constructor,

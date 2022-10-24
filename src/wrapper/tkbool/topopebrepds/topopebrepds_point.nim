@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepDS_Point* {.importcpp: "TopOpeBRepDS_Point",
-                       header: "TopOpeBRepDS_Point.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.cdecl, constructor,

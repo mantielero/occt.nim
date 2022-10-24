@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,29 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeArcOfEllipse* {.importcpp: "GCE2d_MakeArcOfEllipse",
-                          header: "GCE2d_MakeArcOfEllipse.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                        ## !
-                                                                                        ## Make
-                                                                                        ## an
-                                                                                        ## arc
-                                                                                        ## of
-                                                                                        ## Ellipse
-                                                                                        ## (TrimmedCurve
-                                                                                        ## from
-                                                                                        ## Geom2d)
-                                                                                        ## from
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## a
-                                                                                        ## Ellipse
-                                                                                        ## between
-                                                                                        ## two
-                                                                                        ## parameters
-                                                                                        ## Alpha1
-                                                                                        ## and
-                                                                                        ## Alpha2.
 
 
 proc newGCE2dMakeArcOfEllipse*(elips: Elips2dObj; alpha1: cfloat; alpha2: cfloat;

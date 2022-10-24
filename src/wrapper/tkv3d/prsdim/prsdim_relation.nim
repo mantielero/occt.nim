@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1997-02-27
 ##  Created by: Odile Olivier
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -19,10 +21,6 @@ discard "forward decl of Geom_Plane"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-type
-  PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
-                   bycopy.} = object of AIS_InteractiveObject ## ! Allows you to provide settings for the color theColor
-                                                         ## ! of the lines representing the relation between the two shapes.
 
 
 proc setColor*(this: var PrsDimRelation; theColor: QuantityColor) {.cdecl,
@@ -82,5 +80,4 @@ proc setAutomaticPosition*(this: var PrsDimRelation; theStatus: bool) {.cdecl,
     importcpp: "SetAutomaticPosition", header: "PrsDim_Relation.hxx".}
 proc automaticPosition*(this: PrsDimRelation): bool {.noSideEffect, cdecl,
     importcpp: "AutomaticPosition", header: "PrsDim_Relation.hxx".}
-type
-  HandlePrsDimRelation* = Handle[PrsDimRelation]
+

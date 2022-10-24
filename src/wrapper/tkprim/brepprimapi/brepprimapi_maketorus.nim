@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,40 +19,6 @@
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Torus"
-type
-  BRepPrimAPI_MakeTorus* {.importcpp: "BRepPrimAPI_MakeTorus",
-                          header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                     ## !
-                                                                                                     ## Make
-                                                                                                     ## a
-                                                                                                     ## torus.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## R1
-                                                                                                     ## [in]
-                                                                                                     ## distance
-                                                                                                     ## from
-                                                                                                     ## the
-                                                                                                     ## center
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## pipe
-                                                                                                     ## to
-                                                                                                     ## the
-                                                                                                     ## center
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## torus
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## @param
-                                                                                                     ## R2
-                                                                                                     ## [in]
-                                                                                                     ## radius
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## pipe
 
 
 proc torus*(r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.cdecl,

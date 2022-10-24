@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 1993-03-05
 ##  Created by: Didier PIFFAULT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_MultiplyDefined"
 discard "forward decl of Bnd_Box2d"
-type
-  BndBoundSortBox2d* {.importcpp: "Bnd_BoundSortBox2d",
-                      header: "Bnd_BoundSortBox2d.hxx", bycopy.} = object ## ! Constructs an empty comparison algorithm for 2D bounding boxes.
-                                                                     ## ! The bounding boxes are then defined using the Initialize function.
-                                                                     ## ! Prepares
-                                                                     ## BoundSortBox2d and sorts the rectangles of
-                                                                     ## ! <SetOfBox> .
 
 
 proc newBndBoundSortBox2d*(): BndBoundSortBox2d {.cdecl, constructor,

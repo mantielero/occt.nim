@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,16 +19,8 @@
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TVertex"
-type
-  HandleBRepTVertex* = Handle[BRepTVertex]
 
-## ! The TVertex from  BRep inherits  from  the TVertex
-## ! from TopoDS. It contains the geometric data.
-## !
-## ! The  TVertex contains a 3d point, location and a tolerance.
 
-type
-  BRepTVertex* {.importcpp: "BRep_TVertex", header: "BRep_TVertex.hxx", bycopy.} = object of TopoDS_TVertex
 
 
 proc newBRepTVertex*(): BRepTVertex {.cdecl, constructor,

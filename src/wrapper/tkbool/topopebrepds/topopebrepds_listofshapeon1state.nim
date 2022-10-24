@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1995-06-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 ## ! represent a list of shape
 
-type
-  TopOpeBRepDS_ListOfShapeOn1State* {.importcpp: "TopOpeBRepDS_ListOfShapeOn1State", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx",
-                                     bycopy.} = object
 
 
 proc newTopOpeBRepDS_ListOfShapeOn1State*(): TopOpeBRepDS_ListOfShapeOn1State {.

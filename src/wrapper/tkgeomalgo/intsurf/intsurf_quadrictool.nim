@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-09-30
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of IntSurf_Quadric"
 discard "forward decl of gp_Vec"
-type
-  IntSurfQuadricTool* {.importcpp: "IntSurf_QuadricTool",
-                       header: "IntSurf_QuadricTool.hxx", bycopy.} = object ## ! Returns the value of the function.
 
 
 proc value*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat): cfloat {.cdecl,

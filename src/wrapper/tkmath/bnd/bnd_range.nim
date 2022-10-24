@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 2016-06-07
 ##  Created by: Nikolai BUKHALOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -17,11 +19,6 @@
 ## ! by two real values.
 ## ! A range can be void indicating there is no point included in the range.
 
-type
-  BndRange* {.importcpp: "Bnd_Range", header: "Bnd_Range.hxx", bycopy.} = object ## ! Default
-                                                                         ## constructor. Creates VOID range.
-    ## !< Start of range
-    ## !< End   of range
 
 
 proc newBndRange*(): BndRange {.cdecl, constructor, importcpp: "Bnd_Range(@)",

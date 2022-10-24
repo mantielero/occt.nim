@@ -1,3 +1,5 @@
+import tcolgeom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColGeomHSequenceOfCurve* {.importcpp: "TColGeom_HSequenceOfCurve",
-                             header: "TColGeom_HSequenceOfCurve.hxx", bycopy.} = object of TColGeomSequenceOfCurve
 
 
 proc newTColGeomHSequenceOfCurve*(): TColGeomHSequenceOfCurve {.cdecl, constructor,
@@ -32,5 +31,4 @@ proc append*(this: var TColGeomHSequenceOfCurve;
     dynlib: tkg3d.}
 proc changeSequence*(this: var TColGeomHSequenceOfCurve): var TColGeomSequenceOfCurve {.
     cdecl, importcpp: "ChangeSequence", dynlib: tkg3d.}
-type
-  HandleTColGeomHSequenceOfCurve* = Handle[TColGeomHSequenceOfCurve]
+

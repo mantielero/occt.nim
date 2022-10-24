@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,24 +18,8 @@
 
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dsegment"
-type
-  HandleGraphic3dTexture1Dsegment* = Handle[Graphic3dTexture1Dsegment]
 
-## ! This class provides the implementation
-## ! of a 1D texture applyable along a segment.
-## ! You might use the SetSegment() method
-## ! to set the way the texture is "streched" on facets.
 
-type
-  Graphic3dTexture1Dsegment* {.importcpp: "Graphic3d_Texture1Dsegment",
-                              header: "Graphic3d_Texture1Dsegment.hxx", bycopy.} = object of Graphic3dTexture1D ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## a
-                                                                                                         ## texture
-                                                                                                         ## from
-                                                                                                         ## a
-                                                                                                         ## file
 
 
 proc newGraphic3dTexture1Dsegment*(theFileName: TCollectionAsciiString): Graphic3dTexture1Dsegment {.

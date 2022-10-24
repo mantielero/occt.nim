@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -17,18 +19,7 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Triangulation*[T; N: static[cint]] {.importcpp: "BVH_Triangulation<\'0,\'1>",
-                                        header: "BVH_Triangulation.hxx", bycopy.} = object of BVH_PrimitiveSet[
-      T, N]                    ## ! Creates empty triangulation.
-          ## ! Array of vertex coordinates.
-          ##    typename BVH::ArrayType<T, N>::Type Vertices;
-          ##
-          ##    //! Array of indices of triangle vertices.
-          ##    BVH_Array4i Elements;
-          ## ! Returns total number of triangles.
 
-  BVH_TriangulationBVH_VecNt*[T; N] = object
 
 proc newBVH_Triangulation*[T; N: static[cint]](): BVH_Triangulation[T, N] {.cdecl,
     constructor, importcpp: "BVH_Triangulation<\'*0,\'*1>(@)", header: "BVH_Triangulation.hxx".}

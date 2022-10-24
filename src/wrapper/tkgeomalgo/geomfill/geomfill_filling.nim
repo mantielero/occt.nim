@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_NoSuchObject"
-type
-  GeomFillFilling* {.importcpp: "GeomFill_Filling", header: "GeomFill_Filling.hxx",
-                    bycopy.} = object of RootObj
 
 
 proc newGeomFillFilling*(): GeomFillFilling {.cdecl, constructor,

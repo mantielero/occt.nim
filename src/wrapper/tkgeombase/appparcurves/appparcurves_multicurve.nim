@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1991-12-02
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -22,13 +24,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
-type
-  AppParCurvesMultiCurve* {.importcpp: "AppParCurves_MultiCurve",
-                           header: "AppParCurves_MultiCurve.hxx", bycopy.} = object of RootObj ## !
-                                                                               ## returns
-                                                                               ## an
-                                                                               ## indefinite
-                                                                               ## MultiCurve.
 
 
 proc newAppParCurvesMultiCurve*(): AppParCurvesMultiCurve {.cdecl, constructor,

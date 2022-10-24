@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -21,33 +23,6 @@ when defined(Status):
 ## ! This  class contains  the algorithm  used to build
 ## ! fillet on planar wire.
 
-type
-  ChFi2dBuilder* {.importcpp: "ChFi2d_Builder", header: "ChFi2d_Builder.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Is
-                                                                                        ## internaly
-                                                                                        ## used
-                                                                                        ## by
-                                                                                        ## <AddFillet>.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Warning:
-                                                                                        ## <TrimE1>,
-                                                                                        ## <TrimE2>,
-                                                                                        ## <Fillet>
-                                                                                        ## has
-                                                                                        ## sense
-                                                                                        ## only
-                                                                                        ## if
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## status
-                                                                                        ## <status>
-                                                                                        ## is
-                                                                                        ## equal
-                                                                                        ## to
-                                                                                        ## <IsDone>
 
 
 proc newChFi2dBuilder*(): ChFi2dBuilder {.cdecl, constructor,

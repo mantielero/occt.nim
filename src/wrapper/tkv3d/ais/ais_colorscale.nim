@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2015-02-03
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -13,122 +15,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of AIS_ColorScale"
-type
-  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
 
-## ! Class for drawing a custom color scale.
-## !
-## ! The color scale consists of rectangular color bar (composed of fixed
-## ! number of color intervals), optional labels, and title.
-## ! The labels can be positioned either at the boundaries of the intervals,
-## ! or at the middle of each interval.
-## ! Colors and labels can be either defined automatically or set by the user.
-## ! Automatic labels are calculated from numerical limits of the scale,
-## ! its type (logarithmic or plain), and formatted by specified format string.
 
-type
-  AIS_ColorScale* {.importcpp: "AIS_ColorScale", header: "AIS_ColorScale.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                                ## !
-                                                                                                                ## Calculate
-                                                                                                                ## color
-                                                                                                                ## according
-                                                                                                                ## passed
-                                                                                                                ## value;
-                                                                                                                ## returns
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## value
-                                                                                                                ## is
-                                                                                                                ## in
-                                                                                                                ## range
-                                                                                                                ## or
-                                                                                                                ## false,
-                                                                                                                ## if
-                                                                                                                ## isn't
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Default
-                                                                                                                ## constructor.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## width
-                                                                                                                ## of
-                                                                                                                ## text.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theText
-                                                                                                                ## [in]
-                                                                                                                ## the
-                                                                                                                ## text
-                                                                                                                ## of
-                                                                                                                ## which
-                                                                                                                ## to
-                                                                                                                ## calculate
-                                                                                                                ## width.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Return
-                                                                                                                ## true
-                                                                                                                ## if
-                                                                                                                ## specified
-                                                                                                                ## display
-                                                                                                                ## mode
-                                                                                                                ## is
-                                                                                                                ## supported.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## size
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theWidth
-                                                                                                                ## [out]
-                                                                                                                ## the
-                                                                                                                ## width
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @param
-                                                                                                                ## theHeight
-                                                                                                                ## [out]
-                                                                                                                ## the
-                                                                                                                ## height
-                                                                                                                ## of
-                                                                                                                ## color
-                                                                                                                ## scale.
-    ## !< values range - minimal value
-    ## !< values range - maximal value
-    ## !< HLS color corresponding to minimum value
-    ## !< HLS color corresponding to maximum value
-    ## !< optional title string
-    ## !< sprintf() format for generating label from value
-    ## !< number of intervals
-    ## !< color type
-    ## !< label type
-    ## !< at border
-    ## !< flag indicating reversed order
-    ## !< flag indicating logarithmic scale
-    ## !< flag indicating smooth transition between the colors
-    ## !< sequence of custom colors
-    ## !< sequence of custom text labels
-    ## !< label position relative to the color scale
-    ## !< title position
-    ## !< left   position
-    ## !< bottom position
-    ## !< color scale breadth
-    ## !< height of the color scale
-    ## !< extra spacing between element
-    ## !< label font height
 
 
 proc findColor*(theValue: cfloat; theMin: cfloat; theMax: cfloat; theColorsCount: cint;

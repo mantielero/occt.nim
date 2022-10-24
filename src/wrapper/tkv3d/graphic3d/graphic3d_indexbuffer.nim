@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,6 @@
 
 ## ! Index buffer.
 
-type
-  Graphic3dIndexBuffer* {.importcpp: "Graphic3d_IndexBuffer",
-                         header: "Graphic3d_IndexBuffer.hxx", bycopy.} = object of Graphic3dBuffer ##
-                                                                                            ## !
-                                                                                            ## Empty
-                                                                                            ## constructor.
 
 
 proc newGraphic3dIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dIndexBuffer {.
@@ -34,5 +30,4 @@ proc setIndex*(this: var Graphic3dIndexBuffer; theIndex: cint; theValue: cint) {
 proc dumpJson*(this: Graphic3dIndexBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_IndexBuffer.hxx".}
-type
-  HandleGraphic3dIndexBuffer* = Handle[Graphic3dIndexBuffer]
+

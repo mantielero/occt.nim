@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,23 +20,8 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CartesianPoint"
-type
-  HandleGeomCartesianPoint* = Handle[GeomCartesianPoint]
 
-## ! Describes a point in 3D space. A
-## ! Geom_CartesianPoint is defined by a gp_Pnt point,
-## ! with its three Cartesian coordinates X, Y and Z.
 
-type
-  GeomCartesianPoint* {.importcpp: "Geom_CartesianPoint",
-                       header: "Geom_CartesianPoint.hxx", bycopy.} = object of GeomPoint ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## a
-                                                                                  ## transient
-                                                                                  ## copy
-                                                                                  ## of
-                                                                                  ## P.
 
 
 proc newGeomCartesianPoint*(p: PntObj): GeomCartesianPoint {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-08-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,41 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_NotSquare"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_Matrix"
-type
-  MathCrout* {.importcpp: "math_Crout", header: "math_Crout.hxx", bycopy.} = object ## !
-                                                                            ## Given an
-                                                                            ## input
-                                                                            ## matrix A, this
-                                                                            ## algorithm
-                                                                            ## inverts A by the
-                                                                            ## !
-                                                                            ## Crout
-                                                                            ## algorithm. The user can give only the
-                                                                            ## inferior
-                                                                            ## !
-                                                                            ## triangle for the
-                                                                            ## implementation.
-                                                                            ## ! A can be
-                                                                            ## decomposed like
-                                                                            ## this:
-                                                                            ## ! A = L * D * T(L)
-                                                                            ## where L is
-                                                                            ## triangular
-                                                                            ## inferior and D is
-                                                                            ## !
-                                                                            ## diagonal.
-                                                                            ## ! If one
-                                                                            ## element of A is less than
-                                                                            ## MinPivot, A is
-                                                                            ## !
-                                                                            ## considered as
-                                                                            ## singular.
-                                                                            ## !
-                                                                            ## Exception
-                                                                            ## NotSquare is
-                                                                            ## raised if A is not a
-                                                                            ## square
-                                                                            ## matrix.
 
 
 proc newMathCrout*(a: MathMatrix; minPivot: cfloat = 1.0e-20): MathCrout {.cdecl,

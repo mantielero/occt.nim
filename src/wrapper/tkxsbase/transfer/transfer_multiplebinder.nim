@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1993-04-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,39 +20,8 @@ discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_MultipleBinder"
-type
-  HandleTransferMultipleBinder* = Handle[TransferMultipleBinder]
 
-## ! Allows direct binding between a starting Object and the Result
-## ! of its transfer, when it can be made of several Transient
-## ! Objects. Compared to a Transcriptor, it has no Transfer Action
-## !
-## ! Result is a list of Transient Results. Unique Result is not
-## ! available : SetResult is redefined to start the list on the
-## ! first call, and refuse the other times.
-## !
-## ! rr
-## !
-## ! Remark : MultipleBinder itself is intended to be created and
-## ! filled by TransferProcess itself (method Bind). In particular,
-## ! conflicts between Unique (Standard) result and Multiple result
-## ! are avoided through management made by TransferProcess.
-## !
-## ! Also, a Transcriptor (with an effective Transfer Method) which
-## ! can produce a Multiple Result, may be defined as a sub-class
-## ! of MultipleBinder by redefining method Transfer.
 
-type
-  TransferMultipleBinder* {.importcpp: "Transfer_MultipleBinder",
-                           header: "Transfer_MultipleBinder.hxx", bycopy.} = object of TransferBinder ##
-                                                                                               ## !
-                                                                                               ## normal
-                                                                                               ## standard
-                                                                                               ## constructor,
-                                                                                               ## creates
-                                                                                               ## an
-                                                                                               ## empty
-                                                                                               ## MultipleBinder
 
 
 proc newTransferMultipleBinder*(): TransferMultipleBinder {.cdecl, constructor,

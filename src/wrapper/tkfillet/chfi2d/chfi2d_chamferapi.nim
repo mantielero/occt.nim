@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 2013-05-20
 ##  Created by: Mikhail PONIKAROV
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -15,9 +17,6 @@
 
 ## ! A class making a chamfer between two linear edges.
 
-type
-  ChFi2dChamferAPI* {.importcpp: "ChFi2d_ChamferAPI",
-                     header: "ChFi2d_ChamferAPI.hxx", bycopy.} = object ## ! An empty constructor.
 
 
 proc newChFi2dChamferAPI*(): ChFi2dChamferAPI {.cdecl, constructor,

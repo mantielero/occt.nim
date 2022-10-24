@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2001-01-06
 ##  Created by: OCC Team
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -14,130 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Message_PrinterOStream"
-type
-  HandleMessagePrinterOStream* = Handle[MessagePrinterOStream]
 
-## ! Implementation of a message printer associated with an std::ostream
-## ! The std::ostream may be either externally defined one (e.g. std::cout),
-## ! or file stream maintained internally (depending on constructor).
 
-type
-  MessagePrinterOStream* {.importcpp: "Message_PrinterOStream",
-                          header: "Message_PrinterOStream.hxx", bycopy.} = object of MessagePrinter ##
-                                                                                             ## !
-                                                                                             ## Setup
-                                                                                             ## console
-                                                                                             ## text
-                                                                                             ## color.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## On
-                                                                                             ## Windows,
-                                                                                             ## this
-                                                                                             ## would
-                                                                                             ## affect
-                                                                                             ## active
-                                                                                             ## terminal
-                                                                                             ## color
-                                                                                             ## output.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## On
-                                                                                             ## other
-                                                                                             ## systems,
-                                                                                             ## this
-                                                                                             ## would
-                                                                                             ## put
-                                                                                             ## special
-                                                                                             ## terminal
-                                                                                             ## codes;
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## the
-                                                                                             ## terminal
-                                                                                             ## should
-                                                                                             ## support
-                                                                                             ## these
-                                                                                             ## codes
-                                                                                             ## or
-                                                                                             ## them
-                                                                                             ## will
-                                                                                             ## appear
-                                                                                             ## in
-                                                                                             ## text
-                                                                                             ## otherwise.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## The
-                                                                                             ## same
-                                                                                             ## will
-                                                                                             ## happen
-                                                                                             ## when
-                                                                                             ## stream
-                                                                                             ## is
-                                                                                             ## redirected
-                                                                                             ## into
-                                                                                             ## text
-                                                                                             ## file.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Beware
-                                                                                             ## that
-                                                                                             ## within
-                                                                                             ## multi-threaded
-                                                                                             ## environment
-                                                                                             ## inducing
-                                                                                             ## console
-                                                                                             ## colors
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## might
-                                                                                             ## lead
-                                                                                             ## to
-                                                                                             ## colored
-                                                                                             ## text
-                                                                                             ## mixture
-                                                                                             ## due
-                                                                                             ## to
-                                                                                             ## concurrency.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Empty
-                                                                                             ## constructor,
-                                                                                             ## defaulting
-                                                                                             ## to
-                                                                                             ## cout
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Puts
-                                                                                             ## a
-                                                                                             ## message
-                                                                                             ## to
-                                                                                             ## the
-                                                                                             ## current
-                                                                                             ## stream
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## if
-                                                                                             ## its
-                                                                                             ## gravity
-                                                                                             ## is
-                                                                                             ## equal
-                                                                                             ## or
-                                                                                             ## greater
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## to
-                                                                                             ## the
-                                                                                             ## trace
-                                                                                             ## level
-                                                                                             ## set
-                                                                                             ## by
-                                                                                             ## SetTraceLevel()
 
 
 proc setConsoleTextColor*(theOStream: ptr StandardOStream;

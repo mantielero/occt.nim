@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -13,12 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoShellSplitter* {.importcpp: "BOPAlgo_ShellSplitter",
-                         header: "BOPAlgo_ShellSplitter.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                        ## !
-                                                                                        ## empty
-                                                                                        ## constructor
 
 
 proc newBOPAlgoShellSplitter*(): BOPAlgoShellSplitter {.cdecl, constructor,

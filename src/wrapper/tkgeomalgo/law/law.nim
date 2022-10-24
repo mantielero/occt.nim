@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1994-04-07
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -28,13 +30,6 @@ discard "forward decl of Law_S"
 discard "forward decl of Law_Interpol"
 discard "forward decl of Law_Composite"
 discard "forward decl of Law_BSplineKnotSplitting"
-type
-  Law* {.importcpp: "Law", header: "Law.hxx", bycopy.} = object ## ! This algorithm searches the knot values corresponding to the
-                                                        ## ! splitting of a given B-spline law into  several arcs with
-                                                        ## ! the same continuity. The continuity order is given at the
-                                                        ## ! construction time.
-                                                        ## ! Builds a 1d bspline that   is near from Lin with  null
-                                                        ## ! derivatives at the extremities.
 
 
 proc mixBnd*(lin: Handle[LawLinear]): Handle[LawBSpFunc] {.cdecl,

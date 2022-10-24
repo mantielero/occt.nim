@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-15
 ##  Created by: Roberc Coublanc
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,107 +22,8 @@ discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of Select3D_SensitiveEntity"
 when defined(Status):
   discard
-type
-  SelectMgrMapOfObjectSensitives*[HandleSelectMgrSelectableObject, HandleSelectMgrSensitiveEntitySet] {.importcpp:"NCollection_DataMap< '0, '1 >", header:"SelectMgr_ViewerSelector.hxx", bycopy.} = object
-  SelectMgrMapOfObjectSensitivesIterator*[HandleSelectMgrSelectableObject, HandleSelectMgrSensitiveEntitySet] {.importcpp:"NCollection_DataMap< '0, '1 >::Iterator", header:"SelectMgr_ViewerSelector.hxx", bycopy.} = object
-  SelectMgrFrustumCache*[cint, SelectMgrSelectingVolumeManager] {.importcpp:"NCollection_DataMap< '0, '1 >", header:"SelectMgr_ViewerSelector.hxx", bycopy.} = object
 
-## ! A framework to define finding, sorting the sensitive
-## ! primitives in a view. Services are also provided to
-## ! define the return of the owners of those primitives
-## ! selected. The primitives are sorted by criteria such
-## ! as priority of the primitive or its depth in the view
-## ! relative to that of other primitives.
-## ! Note that in 3D, the inheriting framework
-## ! StdSelect_ViewerSelector3d   is only to be used
-## ! if you do not want to use the services provided by
-## ! AIS.
-## ! Two tools are available to find and select objects
-## ! found at a given position in the view. If you want to
-## ! select the owners of all the objects detected at
-## ! point x,y,z you use the Init - More - Next - Picked
-## ! loop. If, on the other hand, you want to select only
-## ! one object detected at that point, you use the Init -
-## ! More - OnePicked loop. In this iteration, More is
-## ! used to see if an object was picked and
-## ! OnePicked, to get the object closest to the pick position.
-## ! Viewer selectors are driven by
-## ! SelectMgr_SelectionManager, and manipulate
-## ! the SelectMgr_Selection objects given to them by
-## ! the selection manager.
-## !
-## ! Tolerances are applied to the entities in the following way:
-## ! 1. tolerance value stored in mytolerance will be used to calculate initial
-## !    selecting frustum, which will be applied for intersection testing during
-## !    BVH traverse;
-## ! 2. if tolerance of sensitive entity is less than mytolerance, the frustum for
-## !    intersection detection will be resized according to its sensitivity.
 
-type
-  SelectMgrViewerSelector* {.importcpp: "SelectMgr_ViewerSelector",
-                            header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Empties
-                                                                                                    ## all
-                                                                                                    ## the
-                                                                                                    ## tables,
-                                                                                                    ## removes
-                                                                                                    ## all
-                                                                                                    ## selections...
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Begins
-                                                                                                    ## an
-                                                                                                    ## iteration
-                                                                                                    ## scanning
-                                                                                                    ## for
-                                                                                                    ## the
-                                                                                                    ## owners
-                                                                                                    ## detected
-                                                                                                    ## at
-                                                                                                    ## a
-                                                                                                    ## position
-                                                                                                    ## in
-                                                                                                    ## the
-                                                                                                    ## view.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Enables/disables
-                                                                                                    ## building
-                                                                                                    ## BVH
-                                                                                                    ## for
-                                                                                                    ## sensitives
-                                                                                                    ## in
-                                                                                                    ## separate
-                                                                                                    ## threads
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Checks
-                                                                                                    ## if
-                                                                                                    ## the
-                                                                                                    ## entity
-                                                                                                    ## given
-                                                                                                    ## requires
-                                                                                                    ## to
-                                                                                                    ## scale
-                                                                                                    ## current
-                                                                                                    ## selecting
-                                                                                                    ## frustum
-                                                                                                    ##
-                                                                                                    ## implementation
-                                                                                                    ## of
-                                                                                                    ## deprecated
-                                                                                                    ## methods
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## internal
-                                                                                                    ## iterator
-                                                                                                    ## for
-                                                                                                    ## stored
-                                                                                                    ## detected
-                                                                                                    ## sensitive
-                                                                                                    ## entities
 
 
 proc clear*(this: var SelectMgrViewerSelector) {.cdecl, importcpp: "Clear",
@@ -251,5 +154,4 @@ proc waitForBVHBuild*(this: var SelectMgrViewerSelector) {.cdecl,
     importcpp: "WaitForBVHBuild", header: "SelectMgr_ViewerSelector.hxx".}
 proc toPrebuildBVH*(this: SelectMgrViewerSelector): bool {.noSideEffect, cdecl,
     importcpp: "ToPrebuildBVH", header: "SelectMgr_ViewerSelector.hxx".}
-type
-  HandleSelectMgrViewerSelector* = Handle[SelectMgrViewerSelector]
+

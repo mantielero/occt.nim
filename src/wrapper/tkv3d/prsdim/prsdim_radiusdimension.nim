@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,85 +14,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
 
-## ! Radius dimension. Can be constructued:
-## ! - On generic circle.
-## ! - On generic circle with user-defined anchor point on that circle.
-## ! - On generic shape containing geometry that can be measured
-## !   by diameter dimension: circle wire, arc, circular face, etc.
-## ! The anchor point is the location of left attachement point of
-## ! dimension on the circle. It can be user-specified, or computed as
-## ! middle point on the arc. The radius dimension always lies in the
-## ! plane of the measured circle. The dimension is considered as
-## ! invalid if the user-specified anchor point is not lying on the circle,
-## ! if the radius of the circle is less than Precision::Confusion().
-## ! In case if the dimension is built on the arbitrary shape,
-## ! it can be considered as invalid if the shape does not contain
-## ! circle geometry.
 
-type
-  PrsDimRadiusDimension* {.importcpp: "PrsDim_RadiusDimension",
-                          header: "PrsDim_RadiusDimension.hxx", bycopy.} = object of PrsDimDimension ##
-                                                                                              ## !
-                                                                                              ## Create
-                                                                                              ## radius
-                                                                                              ## dimension
-                                                                                              ## for
-                                                                                              ## the
-                                                                                              ## circle
-                                                                                              ## geometry.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theCircle
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## circle
-                                                                                              ## to
-                                                                                              ## measure.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @return
-                                                                                              ## measured
-                                                                                              ## geometry
-                                                                                              ## circle.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Measure
-                                                                                              ## radius
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## circle.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## dimension
-                                                                                              ## will
-                                                                                              ## become
-                                                                                              ## invalid
-                                                                                              ## if
-                                                                                              ## the
-                                                                                              ## radius
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## circle
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## is
-                                                                                              ## less
-                                                                                              ## than
-                                                                                              ## Precision::Confusion().
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theCircle
-                                                                                              ## [in]
-                                                                                              ## the
-                                                                                              ## circle
-                                                                                              ## to
-                                                                                              ## measure.
 
 
 proc newPrsDimRadiusDimension*(theCircle: CircObj): PrsDimRadiusDimension {.cdecl,

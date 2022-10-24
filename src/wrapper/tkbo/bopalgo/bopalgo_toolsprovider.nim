@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Oleg AGASHIN
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -14,12 +16,6 @@
 
 ## ! Auxiliary class providing API to operate tool arguments.
 
-type
-  BOPAlgoToolsProvider* {.importcpp: "BOPAlgo_ToolsProvider",
-                         header: "BOPAlgo_ToolsProvider.hxx", bycopy.} = object of BOPAlgoBuilder ##
-                                                                                           ## !
-                                                                                           ## Empty
-                                                                                           ## constructor
 
 
 proc newBOPAlgoToolsProvider*(): BOPAlgoToolsProvider {.cdecl, constructor,

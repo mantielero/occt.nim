@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 2018-06-10
 ##  Created by: Natalia Ermolaeva
 ##  Copyright (c) 2018-2020 OPEN CASCADE SAS
@@ -14,21 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Message_Messenger"
-type
-  TopoDS_AlertAttribute* {.importcpp: "TopoDS_AlertAttribute",
-                          header: "TopoDS_AlertAttribute.hxx", bycopy.} = object of MessageAttributeStream ##
-                                                                                                    ## !
-                                                                                                    ## Constructor
-                                                                                                    ## with
-                                                                                                    ## shape
-                                                                                                    ## argument
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Push
-                                                                                                    ## shape
-                                                                                                    ## information
-                                                                                                    ## into
-                                                                                                    ## messenger
 
 
 proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = TCollectionAsciiString()): TopoDS_AlertAttribute {.

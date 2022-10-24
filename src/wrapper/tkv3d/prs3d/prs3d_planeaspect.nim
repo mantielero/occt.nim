@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1994-01-17
 ##  Created by: Modelistation
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,19 +18,6 @@
 
 ## ! A framework to define the display of planes.
 
-type
-  Prs3dPlaneAspect* {.importcpp: "Prs3d_PlaneAspect",
-                     header: "Prs3d_PlaneAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## framework
-                                                                                     ## for
-                                                                                     ## the
-                                                                                     ## display
-                                                                                     ## of
-                                                                                     ## planes.
 
 
 proc newPrs3dPlaneAspect*(): Prs3dPlaneAspect {.cdecl, constructor,
@@ -80,5 +69,4 @@ proc isoDistance*(this: Prs3dPlaneAspect): cfloat {.noSideEffect, cdecl,
 proc dumpJson*(this: Prs3dPlaneAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PlaneAspect.hxx".}
-type
-  HandlePrs3dPlaneAspect* = Handle[Prs3dPlaneAspect]
+

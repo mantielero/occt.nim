@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2013-01-17
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -24,17 +26,6 @@
 ## ! Internally you should prefer more portable C++ locale interfaces
 ## ! or OCCT wrappers to some C functions like Sprintf, Atof, Strtod.
 
-type
-  StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
-                          header: "Standard_CLocaleSentry.hxx", bycopy.} = object ## !
-                                                                             ## Setup
-                                                                             ## current C
-                                                                             ## locale to
-                                                                             ## "C".
-                                                                             ## !
-                                                                             ## Copying
-                                                                             ## disallowed
-    ## !< previous locale, platform-dependent pointer!
 
 
 proc constructStandardCLocaleSentry*(): StandardCLocaleSentry {.cdecl, constructor,

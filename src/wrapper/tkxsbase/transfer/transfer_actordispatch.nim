@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1994-05-24
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -24,58 +26,8 @@ discard "forward decl of Transfer_Binder"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ActorDispatch"
-type
-  HandleTransferActorDispatch* = Handle[TransferActorDispatch]
 
-## ! This class allows to work with a TransferDispatch, i.e. to
-## ! transfer entities from a data set to another one defined by
-## ! the same interface norm, with the following features :
-## ! - ActorDispatch itself acts as a default actor, i.e. it copies
-## ! entities with the general service Copy, as CopyTool does
-## ! - it allows to add other actors for specific ways of transfer,
-## ! which may include data modifications, conversions ...
-## ! - and other features from TransferDispatch (such as mapping
-## ! other than one-one)
 
-type
-  TransferActorDispatch* {.importcpp: "Transfer_ActorDispatch",
-                          header: "Transfer_ActorDispatch.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## an
-                                                                                                              ## ActorDispatch
-                                                                                                              ## from
-                                                                                                              ## a
-                                                                                                              ## Model.
-                                                                                                              ## Works
-                                                                                                              ## with
-                                                                                                              ## a
-                                                                                                              ## General
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Service
-                                                                                                              ## Library,
-                                                                                                              ## given
-                                                                                                              ## as
-                                                                                                              ## an
-                                                                                                              ## Argument
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## This
-                                                                                                              ## causes
-                                                                                                              ## TransferDispatch
-                                                                                                              ## and
-                                                                                                              ## its
-                                                                                                              ## TransientProcess
-                                                                                                              ## to
-                                                                                                              ## be
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## created,
-                                                                                                              ## with
-                                                                                                              ## default
-                                                                                                              ## actor
-                                                                                                              ## <me>
 
 
 proc newTransferActorDispatch*(amodel: Handle[InterfaceInterfaceModel];

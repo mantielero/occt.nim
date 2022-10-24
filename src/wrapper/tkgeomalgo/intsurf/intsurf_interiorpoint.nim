@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-05-15
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
-type
-  IntSurfInteriorPoint* {.importcpp: "IntSurf_InteriorPoint",
-                         header: "IntSurf_InteriorPoint.hxx", bycopy.} = object
 
 
 proc newIntSurfInteriorPoint*(): IntSurfInteriorPoint {.cdecl, constructor,

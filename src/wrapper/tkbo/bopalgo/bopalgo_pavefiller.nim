@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -25,19 +27,6 @@ discard "forward decl of BOPDS_Curve"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
-type
-  BOPAlgoPaveFiller* {.importcpp: "BOPAlgo_PaveFiller",
-                      header: "BOPAlgo_PaveFiller.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                  ## !
-                                                                                  ## Fields
-    ## !< Fence map of intersected faces and pave blocks
-    ## !< Sub-shapes with increased tolerance during the operation
-    ## !< Vertices located close to E/E or E/F intersection points
-    ## ! which has already been extended to cover the real intersection
-    ## ! points, and should not be extended any longer to be put
-    ## ! on a section curve.
-    ## !< Map to store minimal distances between shapes
-    ## !  which have no real intersections
 
 
 proc newBOPAlgoPaveFiller*(): BOPAlgoPaveFiller {.cdecl, constructor,

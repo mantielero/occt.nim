@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2016-04-13
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2016 OPEN CASCADE SAS
@@ -16,11 +18,6 @@
 ## ! Performs centroid-based sorting of abstract set along
 ## ! the given axis (X - 0, Y - 1, Z - 2) using quick sort.
 
-type
-  BVH_QuickSorter*[T; N: static[cint]] {.importcpp: "BVH_QuickSorter<\'0,\'1>",
-                                      header: "BVH_QuickSorter.hxx", bycopy.} = object of BVH_Sorter[
-      T, N]                    ## ! Creates new BVH quick sorter for the given axis.
-          ## ! Axis used to arrange the primitives (X - 0, Y - 1, Z - 2).
 
 
 proc newBVH_QuickSorter*[T; N: static[cint]](theAxis: cint = 0): BVH_QuickSorter[T, N] {.

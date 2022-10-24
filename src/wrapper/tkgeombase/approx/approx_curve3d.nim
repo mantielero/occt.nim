@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1998-08-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,22 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Adaptor3d_HCurve"
-type
-  ApproxCurve3d* {.importcpp: "Approx_Curve3d", header: "Approx_Curve3d.hxx", bycopy.} = object ##
-                                                                                        ## !
-                                                                                        ## Approximation
-                                                                                        ## of
-                                                                                        ## a
-                                                                                        ## curve
-                                                                                        ## with
-                                                                                        ## respect
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## requiered
-                                                                                        ## tolerance
-                                                                                        ## Tol3D.
 
 
 proc newApproxCurve3d*(curve: Handle[Adaptor3dHCurve]; tol3d: cfloat;

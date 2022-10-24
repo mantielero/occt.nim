@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Pnt"
-type
-  ExtremaPOnCurv* {.importcpp: "Extrema_POnCurv", header: "Extrema_POnCurv.hxx",
-                   bycopy.} = object ## ! Creation of an indefinite point on curve.
 
 
 proc newExtremaPOnCurv*(): ExtremaPOnCurv {.cdecl, constructor,
@@ -34,3 +33,4 @@ proc parameter*(this: ExtremaPOnCurv): cfloat {.noSideEffect, cdecl,
 ##  #define Pnt_hxx <gp_Pnt.hxx>
 ##  #define Extrema_Point Extrema_POnCurv
 ##  #define Extrema_Point_hxx <Extrema_POnCurv.hxx>
+

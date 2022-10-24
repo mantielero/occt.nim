@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -29,16 +31,6 @@ when defined(Convex):
 ## ! Note: A Shape is empty if it references an underlying
 ## ! shape which has an empty list of shapes.
 
-type
-  TopoDS_Shape* {.importcpp: "TopoDS_Shape", header: "TopoDS_Shape.hxx", bycopy, pure, inheritable.} = object ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## a
-                                                                                   ## NULL
-                                                                                   ## Shape
-                                                                                   ## referring
-                                                                                   ## to
-                                                                                   ## nothing.
 
 
 proc newTopoDS_Shape*(): TopoDS_Shape {.cdecl, constructor,
@@ -138,3 +130,4 @@ proc dumpJson*(this: TopoDS_Shape; theOStream: var StandardOStream;
 
 proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl.} =
   discard
+

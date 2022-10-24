@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,13 +15,6 @@
 
 ## ! Pose input XR action data.
 
-type
-  AspectXRPoseActionData* {.importcpp: "Aspect_XRPoseActionData",
-                           header: "Aspect_XRPoseActionData.hxx", bycopy.} = object
-    pose* {.importc: "Pose".}: AspectTrackedDevicePose ## !< pose state
-    activeOrigin* {.importc: "ActiveOrigin".}: uint64 ## !< The origin that caused this action's current state
-    isActive* {.importc: "IsActive".}: bool ## !< whether or not this action is currently available to be bound in the active action set
-                                        ## ! Empty constructor.
 
 
 proc newAspectXRPoseActionData*(): AspectXRPoseActionData {.cdecl, constructor,

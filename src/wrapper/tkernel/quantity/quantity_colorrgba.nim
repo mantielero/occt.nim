@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,19 +15,6 @@
 
 ## ! The pair of Quantity_Color and Alpha component (1.0 opaque, 0.0 transparent).
 
-type
-  QuantityColorRGBA* {.importcpp: "Quantity_ColorRGBA",
-                      header: "Quantity_ColorRGBA.hxx", bycopy.} = object ## ! Creates a color with the default value.
-                                                                     ## ! Finds color from predefined names.
-                                                                     ## ! For example, the name of the color which corresponds to "BLACK" is
-                                                                     ## Quantity_NOC_BLACK.
-                                                                     ## ! An alpha component is set to 1.0.
-                                                                     ## ! @param
-                                                                     ## theColorNameString the color name
-                                                                     ## ! @param theColor a found color
-                                                                     ## ! @return false if the color name is unknown, or true if the search by color name was successful
-                                                                     ## ! Convert linear RGB components into sRGB using OpenGL specs formula.
-                                                                     ## ! Dumps the content of me into the stream
 
 
 proc newQuantityColorRGBA*(): QuantityColorRGBA {.cdecl, constructor,

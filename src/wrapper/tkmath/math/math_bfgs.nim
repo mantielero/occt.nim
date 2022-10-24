@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,26 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_MultipleVarFunctionWithGradient"
-type
-  MathBFGS* {.importcpp: "math_BFGS", header: "math_BFGS.hxx", bycopy.} = object ## !
-                                                                         ## Initializes the
-                                                                         ## computation of the minimum of a
-                                                                         ## function with
-                                                                         ## !
-                                                                         ## NbVariables.
-                                                                         ## !
-                                                                         ## Tolerance, ZEPS and
-                                                                         ## NbIterations are
-                                                                         ## described in the method
-                                                                         ## Perform.
-                                                                         ## !
-                                                                         ## Warning:
-                                                                         ## ! A call to the Perform method must be made after this
-                                                                         ## !
-                                                                         ## initialization to
-                                                                         ## effectively compute the minimum of the
-                                                                         ## !
-                                                                         ## function F.
 
 
 proc newMathBFGS*(nbVariables: cint; tolerance: cfloat = 1.0e-8;

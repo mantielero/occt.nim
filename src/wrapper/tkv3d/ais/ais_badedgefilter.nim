@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1998-03-04
 ##  Created by: Julia Gerasimova
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,23 +19,8 @@
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of AIS_BadEdgeFilter"
-type
-  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
 
-## ! A Class
 
-type
-  AIS_BadEdgeFilter* {.importcpp: "AIS_BadEdgeFilter",
-                      header: "AIS_BadEdgeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## filter
-                                                                                     ## object
-                                                                                     ## for
-                                                                                     ## bad
-                                                                                     ## edges.
 
 
 proc newAIS_BadEdgeFilter*(): AIS_BadEdgeFilter {.cdecl, constructor,

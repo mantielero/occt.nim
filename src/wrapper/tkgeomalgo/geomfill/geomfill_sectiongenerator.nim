@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-02-18
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,9 +20,6 @@
 ## ! AppSurf in AppBlend.   Allow  to  evaluate  a  surface
 ## ! passing by all the curves if the Profiler.
 
-type
-  GeomFillSectionGenerator* {.importcpp: "GeomFill_SectionGenerator",
-                             header: "GeomFill_SectionGenerator.hxx", bycopy.} = object of GeomFillProfiler
 
 
 proc newGeomFillSectionGenerator*(): GeomFillSectionGenerator {.cdecl, constructor,

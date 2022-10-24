@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2005-04-10
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -50,29 +52,7 @@ else:
 ##  TryLock(), and UnregisterCallback() before Unlock() (or use Sentry classes).
 ##
 
-type
-  StandardMutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object #of Callback ## *
-                                                                                                  ##  @brief Simple sentry class providing convenient interface to mutex.
-                                                                                                  ##
-                                                                                                  ##  Provides automatic locking and unlocking a mutex in its constructor
-                                                                                                  ##  and destructor, thus ensuring correct unlock of the mutex even in case of
-                                                                                                  ##  raising an exception or signal from the protected code.
-                                                                                                  ##
-                                                                                                  ##  Create instance of that class when entering critical section.
-                                                                                                  ##
-                                                                                                  ## ! Constructor: creates a mutex object and initializes it.
-                                                                                                  ## ! It is strongly recommended that mutexes were created as
-                                                                                                  ## ! static objects whenever possible.
-                                                                                                  ## ! Callback method to unlock the mutex if OCC exception or signal is raised
-#    when (defined(win32) or defined(win32)):
-#      discard
-#    when not (defined(win32) or defined(win32)):
-#      discard
 
-  StandardMutexSentry* {.importcpp: "Standard_Mutex::Sentry",
-                        header: "Standard_Mutex.hxx", bycopy.} = object ## ! Constructor - initializes the sentry object by reference to a
-                                                                   ## ! mutex (which must be initialized) and locks the mutex immediately
-                                                                   ## ! Lock the mutex
 
 
 proc constructStandardMutexSentry*(theMutex: var StandardMutex): StandardMutexSentry {.

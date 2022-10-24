@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_OutOfMemory"
-type
-  HandleStandardOutOfMemory* = Handle[StandardOutOfMemory]
 
 when not defined(noException) and not defined(noStandardOutOfMemory):
   template standardOutOfMemoryRaiseIf*(condition, message: untyped): void =
@@ -40,17 +40,6 @@ else:
 ## ! fail, thus use of operator new for allocation of new exception instance
 ## ! is dangerous (can cause recursion until stack overflow, see #24836).
 
-type
-  StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
-                        header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError ##
-                                                                                               ## !
-                                                                                               ## Constructor
-                                                                                               ## is
-                                                                                               ## kept
-                                                                                               ## public
-                                                                                               ## for
-                                                                                               ## backward
-                                                                                               ## compatibility
 
 
 proc constructStandardOutOfMemory*(theMessage: cstring = 0): StandardOutOfMemory {.

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2005-12-20
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -15,9 +17,6 @@
 
 ## ! Simple container storing two reals: value and weight
 
-type
-  MathValueAndWeight* {.importcpp: "math_ValueAndWeight",
-                       header: "math_ValueAndWeight.hxx", bycopy.} = object
 
 
 proc newMathValueAndWeight*(): MathValueAndWeight {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -154,33 +156,6 @@
 ## ! bcremoveint res<br>
 ## !
 
-type
-  BOPAlgoCellsBuilder* {.importcpp: "BOPAlgo_CellsBuilder",
-                        header: "BOPAlgo_CellsBuilder.hxx", bycopy.} = object of BOPAlgoBuilder ##
-                                                                                         ## !
-                                                                                         ## Prepare
-                                                                                         ## information
-                                                                                         ## for
-                                                                                         ## history
-                                                                                         ## support
-                                                                                         ## taking
-                                                                                         ## into
-                                                                                         ## account
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## local
-                                                                                         ## modification
-                                                                                         ## map
-                                                                                         ## of
-                                                                                         ## unified
-                                                                                         ## elements
-                                                                                         ## -
-                                                                                         ## myMapModified.
-    ## !< All split parts of the arguments
-    ## !< Connection map from all splits parts to the argument shapes from which they were created
-    ## !< Map of assigned materials (material -> list of shape)
-    ## !< Map of assigned materials (shape -> material)
-    ## !< Local modification map to track unification of the splits
 
 
 proc newBOPAlgoCellsBuilder*(): BOPAlgoCellsBuilder {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -14,139 +16,6 @@
 
 ## ! Contains triangles strip array definition.
 
-type
-  Graphic3dArrayOfTriangleStrips* {.importcpp: "Graphic3d_ArrayOfTriangleStrips", header: "Graphic3d_ArrayOfTriangleStrips.hxx",
-                                   bycopy.} = object of Graphic3dArrayOfPrimitives ## !
-                                                                              ## Creates an
-                                                                              ## array of
-                                                                              ## triangle
-                                                                              ## strips
-                                                                              ## (Graphic3d_TOPA_TRIANGLESTRIPS), a
-                                                                              ## polygon
-                                                                              ## can be
-                                                                              ## filled
-                                                                              ## as:
-                                                                              ## ! 1)
-                                                                              ## Creating a
-                                                                              ## single
-                                                                              ## strip
-                                                                              ## defined
-                                                                              ## with
-                                                                              ## his
-                                                                              ## vertexes,
-                                                                              ## i.e:
-                                                                              ## !
-                                                                              ## @code
-                                                                              ## !
-                                                                              ## myArray =
-                                                                              ## Graphic3d_ArrayOfTriangleStrips
-                                                                              ## (7);
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x1,
-                                                                              ## y1,
-                                                                              ## z1);
-                                                                              ## !
-                                                                              ## ....
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x7,
-                                                                              ## y7,
-                                                                              ## z7);
-                                                                              ## !
-                                                                              ## @endcode
-                                                                              ## ! 2)
-                                                                              ## Creating
-                                                                              ## separate
-                                                                              ## strips
-                                                                              ## defined
-                                                                              ## with a
-                                                                              ## predefined
-                                                                              ## number of
-                                                                              ## strips
-                                                                              ## and
-                                                                              ## the
-                                                                              ## number of
-                                                                              ## vertex
-                                                                              ## per
-                                                                              ## strip,
-                                                                              ## i.e:
-                                                                              ## !
-                                                                              ## @code
-                                                                              ## !
-                                                                              ## myArray =
-                                                                              ## Graphic3d_ArrayOfTriangleStrips
-                                                                              ## (8,
-                                                                              ## 2);
-                                                                              ## !
-                                                                              ## myArray->AddBound
-                                                                              ## (4);
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x1,
-                                                                              ## y1,
-                                                                              ## z1);
-                                                                              ## !
-                                                                              ## ....
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x4,
-                                                                              ## y4,
-                                                                              ## z4);
-                                                                              ## !
-                                                                              ## myArray->AddBound
-                                                                              ## (4);
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x5,
-                                                                              ## y5,
-                                                                              ## z5);
-                                                                              ## !
-                                                                              ## ....
-                                                                              ## !
-                                                                              ## myArray->AddVertex
-                                                                              ## (x8,
-                                                                              ## y8,
-                                                                              ## z8);
-                                                                              ## !
-                                                                              ## @endcode
-                                                                              ## !
-                                                                              ## @param
-                                                                              ## theMaxVertexs
-                                                                              ## defines
-                                                                              ## the
-                                                                              ## maximum
-                                                                              ## allowed
-                                                                              ## vertex
-                                                                              ## number in
-                                                                              ## the
-                                                                              ## array
-                                                                              ## !
-                                                                              ## @param
-                                                                              ## theMaxStrips
-                                                                              ## defines
-                                                                              ## the
-                                                                              ## maximum
-                                                                              ## allowed
-                                                                              ## strip
-                                                                              ## number in
-                                                                              ## the
-                                                                              ## array;
-                                                                              ## !
-                                                                              ## the
-                                                                              ## number of
-                                                                              ## triangle
-                                                                              ## really
-                                                                              ## drawn
-                                                                              ## is:
-                                                                              ## VertexNumber() - 2 *
-                                                                              ## Min(1,
-                                                                              ## BoundNumber())
-                                                                              ## !
-                                                                              ## @param
-                                                                              ## theArrayFlags
-                                                                              ## array
-                                                                              ## flags
 
 
 proc newGraphic3dArrayOfTriangleStrips*(theMaxVertexs: cint; theMaxStrips: cint;
@@ -161,5 +30,4 @@ proc newGraphic3dArrayOfTriangleStrips*(theMaxVertexs: cint;
                                        theHasVTexels: bool = false): Graphic3dArrayOfTriangleStrips {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfTriangleStrips(@)",
     header: "Graphic3d_ArrayOfTriangleStrips.hxx".}
-type
-  HandleGraphic3dArrayOfTriangleStrips* = Handle[Graphic3dArrayOfTriangleStrips]
+

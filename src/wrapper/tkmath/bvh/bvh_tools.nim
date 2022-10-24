@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -17,24 +19,7 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Tools*[T; N: static[cint]] {.importcpp: "BVH_Tools<\'0,\'1>",
-                                header: "BVH_Tools.hxx", bycopy.} = object ## ! @name public types
-                                                                      ## ! @name Box-Box Square distance
-                                                                      ## ! Computes Square distance between Axis aligned bounding boxes
-                                                                      ## ! @name Point-Box Square distance
-                                                                      ## ! Computes square distance between point and bounding box
-                                                                      ## ! @name Point-Box projection
-                                                                      ## ! Computes projection of point on bounding box
-                                                                      ## ! @name
-                                                                      ## Point-Triangle Square distance
-                                                                      ## ! Computes square distance between point and triangle
-                                                                      ## ! @name Ray-Box
-                                                                      ## Intersection
-                                                                      ## ! Computes hit time of ray-box
-                                                                      ## intersection
 
-  BVH_ToolsBVH_VecNt*[T; N] = object
 
 proc boxBoxSquareDistance*[T; N: static[cint]](theBox1: BVH_Box[T, N];
     theBox2: BVH_Box[T, N]): T {.cdecl,

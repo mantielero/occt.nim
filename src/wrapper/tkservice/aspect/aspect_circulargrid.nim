@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 1995-03-17
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,23 +19,6 @@
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_NumericError"
-type
-  AspectCircularGrid* {.importcpp: "Aspect_CircularGrid",
-                       header: "Aspect_CircularGrid.hxx", bycopy.} = object of AspectGrid ##
-                                                                                   ## !
-                                                                                   ## creates
-                                                                                   ## a
-                                                                                   ## new
-                                                                                   ## grid.
-                                                                                   ## By
-                                                                                   ## default
-                                                                                   ## this
-                                                                                   ## grid
-                                                                                   ## is
-                                                                                   ## not
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## active.
 
 
 proc newAspectCircularGrid*(aRadiusStep: cfloat; aDivisionNumber: cint;
@@ -58,5 +43,4 @@ proc init*(this: var AspectCircularGrid) {.cdecl, importcpp: "Init", header: "As
 proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_CircularGrid.hxx".}
-type
-  HandleAspectCircularGrid* = Handle[AspectCircularGrid]
+

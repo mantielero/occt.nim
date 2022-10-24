@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,32 +19,6 @@
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of StepRepr_RepresentationContext"
-type
-  STEPControlReader* {.importcpp: "STEPControl_Reader",
-                      header: "STEPControl_Reader.hxx", bycopy.} = object of XSControlReader ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## reader
-                                                                                      ## object
-                                                                                      ## with
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## STEP
-                                                                                      ## model.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## units
-                                                                                      ## for
-                                                                                      ## length
-                                                                                      ## ,
-                                                                                      ## angle
-                                                                                      ## and
-                                                                                      ## solidangle
-                                                                                      ## for
-                                                                                      ## shape
-                                                                                      ## representations
 
 
 proc newSTEPControlReader*(): STEPControlReader {.cdecl, constructor,

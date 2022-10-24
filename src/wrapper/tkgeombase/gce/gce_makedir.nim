@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,26 +21,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_XYZ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
-type
-  GceMakeDir* {.importcpp: "gce_MakeDir", header: "gce_MakeDir.hxx", bycopy.} = object of GceRoot ##
-                                                                                        ## !
-                                                                                        ## Normalizes
-                                                                                        ## the
-                                                                                        ## vector
-                                                                                        ## V
-                                                                                        ## and
-                                                                                        ## creates
-                                                                                        ## a
-                                                                                        ## direction.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Status
-                                                                                        ## is
-                                                                                        ## "NullVector"
-                                                                                        ## if
-                                                                                        ## V.Magnitude()
-                                                                                        ## <=
-                                                                                        ## Resolution.
 
 
 proc newGceMakeDir*(v: VecObj): GceMakeDir {.cdecl, constructor,

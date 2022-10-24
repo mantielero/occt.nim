@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2014-03-31
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -15,32 +17,6 @@
 
 ## ! NCollection allocator with managed memory alignment capabilities.
 
-type
-  NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
-                                header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
-                                                                                                                   ## The
-                                                                                                                   ## alignment
-                                                                                                                   ## should
-                                                                                                                   ## be
-                                                                                                                   ## specified
-                                                                                                                   ## explicitly:
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 16
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## SSE
-                                                                                                                   ## instructions
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 32
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## AVX
-                                                                                                                   ## instructions
-    ## !< alignment in bytes
 
 
 proc newNCollectionAlignedAllocator*(theAlignment: csize_t): NCollectionAlignedAllocator {.
@@ -52,5 +28,4 @@ proc free*(this: var NCollectionAlignedAllocator; thePtr: pointer) {.cdecl,
     importcpp: "Free", header: "NCollection_AlignedAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
-type
-  HandleNCollectionAlignedAllocator* = Handle[NCollectionAlignedAllocator]
+

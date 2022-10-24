@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-29
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,8 +23,6 @@ when defined(Status):
 ## ! This class implements the common services for
 ## ! all classes of gce which report error.
 
-type
-  Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object of RootObj ## ! Returns true if the construction is successful.
 
 
 proc isDone*(this: Root): bool {.noSideEffect, cdecl, importcpp: "IsDone",

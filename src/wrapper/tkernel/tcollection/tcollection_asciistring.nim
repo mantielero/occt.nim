@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Mireille MERCIEN
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,17 +22,6 @@ discard "forward decl of Standard_NumericError"
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_ExtendedString"
-type
-  TCollectionAsciiString* {.importcpp: "TCollection_AsciiString",
-                           header: "TCollection_AsciiString.hxx", bycopy.} = object ## !
-                                                                               ## Initializes a
-                                                                               ## AsciiString
-                                                                               ## to
-                                                                               ## an
-                                                                               ## empty
-                                                                               ## AsciiString.
-    ## !< NULL-terminated string
-    ## !< length in bytes (excluding terminating NULL symbol)
 
 
 proc newTCollectionAsciiString*(): TCollectionAsciiString {.cdecl, constructor,

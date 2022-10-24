@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -22,49 +24,7 @@
 ## ! \tparam Dimension Vector dimension
 ## ! \tparam BVHSetType Type of the set on which BVH is built
 
-type
-  BVH_PairDistance*[NumType; Dimension: static[cint]; BVHSetType] {.
-      importcpp: "BVH_PairDistance<\'0,\'1,\'2>", header: "BVH_PairDistance.hxx",
-      bycopy.} = object of BVH_PairTraverse[NumType, Dimension, BVHSetType, NumType] ## !
-                                                                             ## @name
-                                                                             ## Constructor
-                                                                             ## !
-                                                                             ## Constructor
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Compute the
-                                                                             ## distance
-                                                                             ## !
-                                                                             ## Computes the
-                                                                             ## distance
-                                                                             ## between two BVH
-                                                                             ## trees
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Accessing the
-                                                                             ## results
-                                                                             ## !
-                                                                             ## Returns
-                                                                             ## IsDone
-                                                                             ## flag
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Definition of the
-                                                                             ## rules for
-                                                                             ## tree
-                                                                             ## descend
-                                                                             ## !
-                                                                             ## Compares the two
-                                                                             ## metrics and
-                                                                             ## chooses the
-                                                                             ## best one
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Fields
-    ## !< Square distance
-    ## !< State of the algorithm
 
-  BVH_PairDistanceBVH_VecNt*[NumType; Dimension] = object
 
 proc newBVH_PairDistance*[NumType; Dimension: static[cint]; BVHSetType](): BVH_PairDistance[
     NumType, Dimension, BVHSetType] {.cdecl, constructor, importcpp: "BVH_PairDistance<\'*0,\'*1,\'*2>(@)",

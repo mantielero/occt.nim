@@ -1,3 +1,5 @@
+import appcont_types
+
 ##  Created on: 1995-03-14
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,15 +16,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PeriodicityInfo* {.importcpp: "PeriodicityInfo",
-                    header: "AppCont_LeastSquare.hxx", bycopy.} = object
-    isPeriodic* {.importc: "isPeriodic".}: bool
-    myPeriod* {.importc: "myPeriod".}: cfloat
 
-  AppContLeastSquare* {.importcpp: "AppCont_LeastSquare",
-                       header: "AppCont_LeastSquare.hxx", bycopy.} = object ## ! Fix border point
-                                                                       ## evaluation.
 
 
 proc newAppContLeastSquare*(ssp: AppContFunction; u0: cfloat; u1: cfloat;

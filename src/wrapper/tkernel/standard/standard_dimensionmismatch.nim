@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_DimensionMismatch"
-type
-  HandleStandardDimensionMismatch* = Handle[StandardDimensionMismatch]
 
 when not defined(noException) and not defined(noStandardDimensionMismatch):
   template standardDimensionMismatchRaiseIf*(condition, message: untyped): void =

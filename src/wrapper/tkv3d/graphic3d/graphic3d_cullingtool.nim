@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-12-25
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -16,75 +18,12 @@
 ## ! Graphic3d_CullingTool class provides a possibility to store parameters of view volume,
 ## ! such as its vertices and equations, and contains methods detecting if given AABB overlaps view volume.
 
-type
-  Graphic3dCullingTool* {.importcpp: "Graphic3d_CullingTool",
-                         header: "Graphic3d_CullingTool.hxx", bycopy.} = object ## !
-                                                                           ## Auxiliary
-                                                                           ## structure
-                                                                           ## holding
-                                                                           ## non-persistent
-                                                                           ## culling
-                                                                           ## options.
-                                                                           ## !
-                                                                           ## Creates an empty
-                                                                           ## selector
-                                                                           ## object with
-                                                                           ## parallel
-                                                                           ## projection type by
-                                                                           ## default.
-                                                                           ## !
-                                                                           ## Calculates
-                                                                           ## signed
-                                                                           ## distance from plane to
-                                                                           ## point.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## theNormal [in] the
-                                                                           ## plane's
-                                                                           ## normal.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## thePnt    [in]
-                                                                           ## !
-                                                                           ## Enumerates
-                                                                           ## planes of view
-                                                                           ## volume.
-    ## !< Planes
-    ## !< Vertices
-    ## !< camera definition
-    ##  for caching clip points projections onto viewing area normals once per traverse
-    ##  ORDER: LEFT, RIGHT, BOTTOM, TOP, NEAR, FAR
-    ## !< Max view volume's vertices projections onto its normals
-    ## !< Min view volume's vertices projections onto its normals
-    ##  for caching clip points projections onto AABB normals once per traverse
-    ##  ORDER: E0, E1, E2
-    ## !< Max view volume's vertices projections onto normalized dimensions of AABB
-    ## !< Min view volume's vertices projections onto normalized dimensions of AABB
-    ## !< State of world view projection matrices.
-    ## !< camera eye position for distance culling
-    ## !< camera direction for size culling
-    ## !< camera scale for size culling
-    ## !< pixel size for size culling
 
-  Graphic3dCullingToolCullingContext* {.importcpp: "Graphic3d_CullingTool::CullingContext",
-                                       header: "Graphic3d_CullingTool.hxx", bycopy.} = object
-    distCull* {.importc: "DistCull".}: cfloat ## !< culling distance
-    sizeCull2* {.importc: "SizeCull2".}: cfloat ## !< squared culling size
-                                            ## ! Empty constructor.
 
 
 proc newGraphic3dCullingToolCullingContext*(): Graphic3dCullingToolCullingContext {.
     cdecl, constructor, importcpp: "Graphic3d_CullingTool::CullingContext(@)",
     header: "Graphic3d_CullingTool.hxx".}
-type
-  Graphic3dCullingToolPlane* {.importcpp: "Graphic3d_CullingTool::Plane",
-                              header: "Graphic3d_CullingTool.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## default
-                                                                                ## plane.
-    origin* {.importc: "Origin".}: Graphic3dVec3d
-    normal* {.importc: "Normal".}: Graphic3dVec3d
 
 
 proc newGraphic3dCullingToolPlane*(): Graphic3dCullingToolPlane {.cdecl,

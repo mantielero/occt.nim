@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1994-03-24
 ##  Created by: model
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,20 +24,8 @@ discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_TopolTool"
-type
-  HandleAdaptor3dTopolTool* = Handle[Adaptor3dTopolTool]
 
-## ! This class provides a default topological tool,
-## ! based on the Umin,Vmin,Umax,Vmax of an HSurface
-## ! from Adaptor3d.
-## ! All methods and fields may be redefined when
-## ! inheriting from this class.
-## ! This class is used to instantiate algorithmes
-## ! as Intersection, outlines,...
 
-type
-  Adaptor3dTopolTool* {.importcpp: "Adaptor3d_TopolTool",
-                       header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of StandardTransient
 
 
 proc newAdaptor3dTopolTool*(): Adaptor3dTopolTool {.cdecl, constructor,

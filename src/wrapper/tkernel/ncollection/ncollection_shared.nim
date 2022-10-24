@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2015-06-26
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -27,12 +29,6 @@
 ## ! The intent is similar to std::make_shared<> in STL, except that this
 ## ! implementation defines a separate type.
 
-type
-  NCollectionShared*[T] {.importcpp: "NCollection_Shared<\'0>",
-                         header: "NCollection_Shared.hxx", bycopy.} = object of StandardTransient ##
-                                                                                           ## !
-                                                                                           ## Default
-                                                                                           ## constructor
 
 
 proc newNCollectionShared*[T](): NCollectionShared[T] {.cdecl, constructor,

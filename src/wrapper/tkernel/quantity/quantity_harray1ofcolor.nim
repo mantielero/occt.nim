@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  QuantityHArray1OfColor* {.importcpp: "Quantity_HArray1OfColor",
-                           header: "Quantity_HArray1OfColor.hxx", bycopy.} = object of QuantityArray1OfColor
 
 
 proc newQuantityHArray1OfColor*(theLower: cint; theUpper: cint): QuantityHArray1OfColor {.

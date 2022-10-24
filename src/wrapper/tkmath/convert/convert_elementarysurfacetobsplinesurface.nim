@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
-type
-  ConvertElementarySurfaceToBSplineSurface* {.
-      importcpp: "Convert_ElementarySurfaceToBSplineSurface",
-      header: "Convert_ElementarySurfaceToBSplineSurface.hxx", bycopy.} = object of RootObj
 
 
 proc uDegree*(this: ConvertElementarySurfaceToBSplineSurface): cint {.noSideEffect,

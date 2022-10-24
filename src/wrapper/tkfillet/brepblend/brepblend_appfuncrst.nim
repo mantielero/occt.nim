@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1997-07-25
 ##  Created by: Jerome LEMONIER
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -20,14 +22,8 @@ discard "forward decl of Blend_SurfRstFunction"
 discard "forward decl of Blend_AppFunction"
 discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_AppFuncRst"
-type
-  HandleBRepBlendAppFuncRst* = Handle[BRepBlendAppFuncRst]
 
-## ! Function  to approximate by AppSurface  for Curve/Surface contact.
 
-type
-  BRepBlendAppFuncRst* {.importcpp: "BRepBlend_AppFuncRst",
-                        header: "BRepBlend_AppFuncRst.hxx", bycopy.} = object of BRepBlendAppFuncRoot
 
 
 proc newBRepBlendAppFuncRst*(line: var Handle[BRepBlendLine];

@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created on: 1993-10-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,44 +18,6 @@
 
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepAlgoAPI_BooleanOperation* {.importcpp: "BRepAlgoAPI_BooleanOperation",
-                                 header: "BRepAlgoAPI_BooleanOperation.hxx",
-                                 bycopy.} = object of BRepAlgoAPI_BuilderAlgo ## ! @name
-                                                                         ## Constructors
-                                                                         ## ! Empty
-                                                                         ## constructor
-                                                                         ## ! @name
-                                                                         ## Setting/getting
-                                                                         ## arguments
-                                                                         ## ! Returns the first
-                                                                         ## argument
-                                                                         ## involved in this Boolean
-                                                                         ## operation.
-                                                                         ## !
-                                                                         ## Obsolete
-                                                                         ## ! @name
-                                                                         ## Setting/Getting the type of Boolean
-                                                                         ## operation
-                                                                         ## ! Sets the type of Boolean
-                                                                         ## operation
-                                                                         ## ! @name
-                                                                         ## Performing the
-                                                                         ## operation
-                                                                         ## !
-                                                                         ## Performs the Boolean
-                                                                         ## operation.
-                                                                         ## ! @name
-                                                                         ## Constructors
-                                                                         ## !
-                                                                         ## Constructor to perform Boolean
-                                                                         ## operation on only two
-                                                                         ## arguments.
-                                                                         ## !
-                                                                         ## Obsolete
-                                                                         ## ! @name Fields
-    ## !< Tool arguments of operation
-    ## !< Type of Boolean Operation
 
 
 proc newBRepAlgoAPI_BooleanOperation*(): BRepAlgoAPI_BooleanOperation {.cdecl,

@@ -1,3 +1,5 @@
+import brepfilletapi_types
+
 ##  Created on: 1995-08-31
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -33,112 +35,6 @@ when defined(Status):
 ## ! Only segments of straight lines and arcs of circles are
 ## ! treated. BSplines are not processed.
 
-type
-  BRepFilletAPI_MakeFillet2d* {.importcpp: "BRepFilletAPI_MakeFillet2d",
-                               header: "BRepFilletAPI_MakeFillet2d.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                ## !
-                                                                                                                ## Initializes
-                                                                                                                ## an
-                                                                                                                ## empty
-                                                                                                                ## algorithm
-                                                                                                                ## for
-                                                                                                                ## computing
-                                                                                                                ## fillets
-                                                                                                                ## and
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## chamfers.
-                                                                                                                ## The
-                                                                                                                ## face
-                                                                                                                ## on
-                                                                                                                ## which
-                                                                                                                ## the
-                                                                                                                ## fillets
-                                                                                                                ## and
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## chamfers
-                                                                                                                ## are
-                                                                                                                ## built
-                                                                                                                ## is
-                                                                                                                ## defined
-                                                                                                                ## using
-                                                                                                                ## the
-                                                                                                                ## Init
-                                                                                                                ## function.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## The
-                                                                                                                ## vertices
-                                                                                                                ## on
-                                                                                                                ## which
-                                                                                                                ## fillets
-                                                                                                                ## or
-                                                                                                                ## chamfers
-                                                                                                                ## are
-                                                                                                                ## built
-                                                                                                                ## are
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## defined
-                                                                                                                ## using
-                                                                                                                ## the
-                                                                                                                ## AddFillet
-                                                                                                                ## or
-                                                                                                                ## AddChamfer
-                                                                                                                ## function.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Warning
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## The
-                                                                                                                ## status
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## initialization,
-                                                                                                                ## as
-                                                                                                                ## given
-                                                                                                                ## by
-                                                                                                                ## the
-                                                                                                                ## Status
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## function,
-                                                                                                                ## can
-                                                                                                                ## be
-                                                                                                                ## one
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## following:
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## ChFi2d_Ready
-                                                                                                                ## if
-                                                                                                                ## the
-                                                                                                                ## initialization
-                                                                                                                ## is
-                                                                                                                ## correct,
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## ChFi2d_NotPlanar
-                                                                                                                ## if
-                                                                                                                ## F
-                                                                                                                ## is
-                                                                                                                ## not
-                                                                                                                ## planar,
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## -
-                                                                                                                ## ChFi2d_NoFace
-                                                                                                                ## if
-                                                                                                                ## F
-                                                                                                                ## is
-                                                                                                                ## a
-                                                                                                                ## null
-                                                                                                                ## face.
 
 
 proc newBRepFilletAPI_MakeFillet2d*(): BRepFilletAPI_MakeFillet2d {.cdecl,

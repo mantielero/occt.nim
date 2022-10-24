@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
-type
-  ExtremaCurve2dTool* {.importcpp: "Extrema_Curve2dTool",
-                       header: "Extrema_Curve2dTool.hxx", bycopy.} = object
 
 
 proc firstParameter*(c: Adaptor2dCurve2d): cfloat {.cdecl,

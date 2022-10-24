@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,57 +21,8 @@ discard "forward decl of gp_GTrsf2d"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Surface"
-type
-  HandleGeomSurface* = Handle[GeomSurface]
 
-## ! Describes the common behavior of surfaces in 3D
-## ! space. The Geom package provides many
-## ! implementations of concrete derived surfaces, such as
-## ! planes, cylinders, cones, spheres and tori, surfaces of
-## ! linear extrusion, surfaces of revolution, Bezier and
-## ! BSpline surfaces, and so on.
-## ! The key characteristic of these surfaces is that they
-## ! are parameterized. Geom_Surface demonstrates:
-## ! - how to work with the parametric equation of a
-## ! surface to compute the point of parameters (u,
-## ! v), and, at this point, the 1st, 2nd ... Nth derivative,
-## ! - how to find global information about a surface in
-## ! each parametric direction (for example, level of
-## ! continuity, whether the surface is closed, its
-## ! periodicity, the bounds of the parameters and so on), and
-## ! - how the parameters change when geometric
-## ! transformations are applied to the surface, or the
-## ! orientation is modified.
-## ! Note that all surfaces must have a geometric
-## ! continuity, and any surface is at least "C0". Generally,
-## ! continuity is checked at construction time or when the
-## ! curve is edited. Where this is not the case, the
-## ! documentation makes this explicit.
-## ! Warning
-## ! The Geom package does not prevent the construction of
-## ! surfaces with null areas, or surfaces which self-intersect.
 
-type
-  GeomSurface* {.importcpp: "Geom_Surface", header: "Geom_Surface.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                                ## !
-                                                                                                ## Reverses
-                                                                                                ## the
-                                                                                                ## U
-                                                                                                ## direction
-                                                                                                ## of
-                                                                                                ## parametrization
-                                                                                                ## of
-                                                                                                ## <me>.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## The
-                                                                                                ## bounds
-                                                                                                ## of
-                                                                                                ## the
-                                                                                                ## surface
-                                                                                                ## are
-                                                                                                ## not
-                                                                                                ## modified.
 
 
 proc uReverse*(this: var GeomSurface) {.cdecl, importcpp: "UReverse", header: "Geom_Surface.hxx".}

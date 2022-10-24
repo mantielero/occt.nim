@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2005-12-15
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -14,9 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of StdFail_NotDone"
-type
-  MathEigenValuesSearcher* {.importcpp: "math_EigenValuesSearcher",
-                            header: "math_EigenValuesSearcher.hxx", bycopy.} = object
 
 
 proc newMathEigenValuesSearcher*(diagonal: TColStdArray1OfReal;

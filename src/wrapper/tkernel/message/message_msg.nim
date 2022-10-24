@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2001-01-18
 ##  Created by: OCC Team
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -17,10 +19,6 @@ discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_HExtendedString"
-type
-  MessageMsg* {.importcpp: "Message_Msg", header: "Message_Msg.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
 
 
 proc newMessageMsg*(): MessageMsg {.cdecl, constructor, importcpp: "Message_Msg(@)",

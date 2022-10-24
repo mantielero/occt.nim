@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -23,11 +25,6 @@
 ## ! terms of its geometry (as opposed to orientation in
 ## ! relation to other shapes).
 
-type
-  TopoDS_Vertex* {.importcpp: "TopoDS_Vertex", header: "TopoDS_Vertex.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                                    ## !
-                                                                                                    ## Undefined
-                                                                                                    ## Vertex.
 
 
 proc newTopoDS_Vertex*(): TopoDS_Vertex {.cdecl, constructor,

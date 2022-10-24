@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,88 +22,6 @@ discard "forward decl of gp_Cone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Lin"
-type
-  GceMakeCone* {.importcpp: "gce_MakeCone", header: "gce_MakeCone.hxx", bycopy.} = object of GceRoot ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## infinite
-                                                                                           ## conical
-                                                                                           ## surface.
-                                                                                           ## A2
-                                                                                           ## locates
-                                                                                           ## the
-                                                                                           ## cone
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## space
-                                                                                           ## and
-                                                                                           ## defines
-                                                                                           ## the
-                                                                                           ## reference
-                                                                                           ## plane
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## surface.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Ang
-                                                                                           ## is
-                                                                                           ## the
-                                                                                           ## conical
-                                                                                           ## surface
-                                                                                           ## semi-angle
-                                                                                           ## between
-                                                                                           ## 0
-                                                                                           ## and
-                                                                                           ## PI/2
-                                                                                           ## radians.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Radius
-                                                                                           ## is
-                                                                                           ## the
-                                                                                           ## radius
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## circle
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## reference
-                                                                                           ## plane
-                                                                                           ## of
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## the
-                                                                                           ## cone.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## Radius
-                                                                                           ## is
-                                                                                           ## lower
-                                                                                           ## than
-                                                                                           ## 0.0
-                                                                                           ## the
-                                                                                           ## status
-                                                                                           ## is
-                                                                                           ## "
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## If
-                                                                                           ## Ang
-                                                                                           ## <
-                                                                                           ## Resolution
-                                                                                           ## from
-                                                                                           ## gp
-                                                                                           ## or
-                                                                                           ## Ang
-                                                                                           ## >=
-                                                                                           ## (PI/2)
-                                                                                           ## -
-                                                                                           ## Resolution.
 
 
 proc newGceMakeCone*(a2: Ax2Obj; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,

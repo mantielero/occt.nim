@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,17 +21,6 @@ discard "forward decl of gp_Elips2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeEllipse* {.importcpp: "GCE2d_MakeEllipse",
-                     header: "GCE2d_MakeEllipse.hxx", bycopy.} = object of GCE2dRoot ## !
-                                                                              ## Creates an
-                                                                              ## ellipse
-                                                                              ## from a
-                                                                              ## non
-                                                                              ## persistent
-                                                                              ## one
-                                                                              ## from
-                                                                              ## package gp
 
 
 proc newGCE2dMakeEllipse*(e: Elips2dObj): GCE2dMakeEllipse {.cdecl, constructor,

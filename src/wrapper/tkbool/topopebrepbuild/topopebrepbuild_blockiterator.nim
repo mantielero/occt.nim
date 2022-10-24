@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-02-25
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_NoMoreObject"
-type
-  TopOpeBRepBuildBlockIterator* {.importcpp: "TopOpeBRepBuild_BlockIterator",
-                                 header: "TopOpeBRepBuild_BlockIterator.hxx",
-                                 bycopy.} = object
 
 
 proc newTopOpeBRepBuildBlockIterator*(): TopOpeBRepBuildBlockIterator {.cdecl,

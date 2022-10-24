@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepBuild_GTopo"
-type
-  TopOpeBRepBuildGTool* {.importcpp: "TopOpeBRepBuild_GTool",
-                         header: "TopOpeBRepBuild_GTool.hxx", bycopy.} = object
 
 
 proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.

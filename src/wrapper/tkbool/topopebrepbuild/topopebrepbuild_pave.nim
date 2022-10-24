@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1994-11-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,42 +18,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_Pave"
-type
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-  TopOpeBRepBuildPave* {.importcpp: "TopOpeBRepBuild_Pave",
-                        header: "TopOpeBRepBuild_Pave.hxx", bycopy.} = object of TopOpeBRepBuildLoop ##
-                                                                                              ## !
-                                                                                              ## V
-                                                                                              ## =
-                                                                                              ## vertex,
-                                                                                              ## P
-                                                                                              ## =
-                                                                                              ## parameter
-                                                                                              ## of
-                                                                                              ## vertex
-                                                                                              ## <V>
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## bound
-                                                                                              ## =
-                                                                                              ## True
-                                                                                              ## if
-                                                                                              ## <V>
-                                                                                              ## is
-                                                                                              ## an
-                                                                                              ## old
-                                                                                              ## vertex
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## bound
-                                                                                              ## =
-                                                                                              ## False
-                                                                                              ## if
-                                                                                              ## <V>
-                                                                                              ## is
-                                                                                              ## a
-                                                                                              ## new
-                                                                                              ## vertex
 
 
 proc newTopOpeBRepBuildPave*(v: TopoDS_Shape; p: cfloat; bound: bool): TopOpeBRepBuildPave {.

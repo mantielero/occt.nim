@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1997-01-23
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -27,9 +29,6 @@ discard "forward decl of Adaptor3d_HVertex"
 discard "forward decl of IntSurf_Transition"
 discard "forward decl of BRepBlend_Extremity"
 discard "forward decl of Blend_Point"
-type
-  BRepBlendSurfRstLineBuilder* {.importcpp: "BRepBlend_SurfRstLineBuilder",
-                                header: "BRepBlend_SurfRstLineBuilder.hxx", bycopy.} = object
 
 
 proc newBRepBlendSurfRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];

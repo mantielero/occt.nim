@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeRotation* {.importcpp: "GCE2d_MakeRotation",
-                      header: "GCE2d_MakeRotation.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
 
 
 proc newGCE2dMakeRotation*(point: Pnt2dObj; angle: cfloat): GCE2dMakeRotation {.cdecl,

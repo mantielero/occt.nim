@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,19 +26,6 @@
 ## ! as well as V3d_TypeOfOrientation_Yup_* aliases for another commonly used in other systems +Y-up convention.
 ## ! Applications using other coordinate system can define their own enumeration, when found suitable.
 
-type
-  V3dTypeOfOrientation* {.size: sizeof(cint), importcpp: "V3d_TypeOfOrientation",
-                         header: "V3d_TypeOfOrientation.hxx".} = enum
-    v3dXpos,                  ## !< (+Y+Z) view
-    v3dYpos,                  ## !< (-X+Z) view
-    v3dZpos,                  ## !< (+X+Y) view
-    v3dXneg,                  ## !< (-Y+Z) view
-    v3dYneg,                  ## !< (+X+Z) view
-    v3dZneg,                  ## !< (+X-Y) view
-    v3dXposYpos, v3dXposZpos, v3dYposZpos, v3dXnegYneg, v3dXnegYpos, v3dXnegZneg,
-    v3dXnegZpos, v3dYnegZneg, v3dYnegZpos, v3dXposYneg, v3dXposZneg, v3dYposZneg,
-    v3dXposYposZpos, v3dXposYnegZpos, v3dXposYposZneg, v3dXnegYposZpos,
-    v3dXposYnegZneg, v3dXnegYposZneg, v3dXnegYnegZpos, v3dXnegYnegZneg ##  +Z-up +Y-forward convention
 const
   v3dTypeOfOrientationZupAxoLeft = v3dXnegYnegZpos ## !< +Z-up +Y-forward Left +Front+Top
   v3dTypeOfOrientationZupAxoRight = v3dXposYnegZpos ## !< +Z-up +Y-forward Right+Front+Top
@@ -55,4 +44,5 @@ const
   v3dTypeOfOrientationYupBottom = v3dYneg ## !< +Y-up -Z-forward Bottom (-X-Z) view
   v3dTypeOfOrientationYupLeft = v3dXpos ## !< +Y-up -Z-forward Left   (-Z+Y) view
   v3dTypeOfOrientationYupRight = v3dXneg ## !< +Y-up -Z-forward Right  (+Z+Y) view
+
 

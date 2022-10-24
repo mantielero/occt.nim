@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1999-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_Marker"
-type
-  HandleTopOpeBRepDS_Marker* = Handle[TopOpeBRepDS_Marker]
-  TopOpeBRepDS_Marker* {.importcpp: "TopOpeBRepDS_Marker",
-                        header: "TopOpeBRepDS_Marker.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_Marker*(): TopOpeBRepDS_Marker {.cdecl, constructor,

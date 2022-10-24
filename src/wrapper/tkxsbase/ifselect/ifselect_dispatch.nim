@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,58 +25,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_Dispatch"
-type
-  HandleIFSelectDispatch* = Handle[IFSelectDispatch]
 
-## ! This class allows to describe how a set of Entities has to be
-## ! dispatched into resulting Packets : a Packet is a sub-set of
-## ! the initial set of entities.
-## !
-## ! Thus, it can generate zero, one, or more Packets according
-## ! input set and criterium of dispatching. And it can let apart
-## ! some entities : it is the Remainder, which can be recovered
-## ! by a specific Selection (RemainderFromDispatch).
-## !
-## ! Depending of sub-classes, a Dispatch can potentially generate
-## ! a limited or not count of packet, and a remainder or none.
-## !
-## ! The input set is read from a specified Selection, attached to
-## ! the Dispatch : the Final Selection of the Dispatch. The input
-## ! is the Unique Root Entities list of the Final Selection
 
-type
-  IFSelectDispatch* {.importcpp: "IFSelect_Dispatch",
-                     header: "IFSelect_Dispatch.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Sets
-                                                                                      ## a
-                                                                                      ## Root
-                                                                                      ## Name
-                                                                                      ## as
-                                                                                      ## an
-                                                                                      ## HAsciiString
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## To
-                                                                                      ## reset
-                                                                                      ## it,
-                                                                                      ## give
-                                                                                      ## a
-                                                                                      ## Null
-                                                                                      ## Handle
-                                                                                      ## (then,
-                                                                                      ## a
-                                                                                      ## ShareOut
-                                                                                      ## will
-                                                                                      ## have
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## to
-                                                                                      ## define
-                                                                                      ## the
-                                                                                      ## Default
-                                                                                      ## Root
-                                                                                      ## Name)
 
 
 proc setRootName*(this: var IFSelectDispatch; name: Handle[TCollectionHAsciiString]) {.

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1999-09-20
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepDS_ShapeWithState* {.importcpp: "TopOpeBRepDS_ShapeWithState",
-                                header: "TopOpeBRepDS_ShapeWithState.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_ShapeWithState*(): TopOpeBRepDS_ShapeWithState {.cdecl,

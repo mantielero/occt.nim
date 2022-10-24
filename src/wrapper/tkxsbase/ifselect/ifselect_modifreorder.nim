@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-03-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -20,57 +22,8 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifReorder"
-type
-  HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
 
-## ! This modifier reorders a whole model from its roots, i.e.
-## ! according to <rootlast> status, it considers each of its
-## ! roots, then it orders all its shared entities at any level,
-## ! the result begins by the lower level entities ... ends by
-## ! the roots.
 
-type
-  IFSelectModifReorder* {.importcpp: "IFSelect_ModifReorder",
-                         header: "IFSelect_ModifReorder.hxx", bycopy.} = object of IFSelectModifier ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## ModifReorder.
-                                                                                             ## It
-                                                                                             ## may
-                                                                                             ## change
-                                                                                             ## the
-                                                                                             ## graph
-                                                                                             ## (it
-                                                                                             ## does
-                                                                                             ## !)
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## If
-                                                                                             ## <rootlast>
-                                                                                             ## is
-                                                                                             ## True
-                                                                                             ## (D),
-                                                                                             ## roots
-                                                                                             ## are
-                                                                                             ## set
-                                                                                             ## at
-                                                                                             ## the
-                                                                                             ## end
-                                                                                             ## of
-                                                                                             ## packets
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Else,
-                                                                                             ## they
-                                                                                             ## are
-                                                                                             ## set
-                                                                                             ## at
-                                                                                             ## beginning
-                                                                                             ## (as
-                                                                                             ## done
-                                                                                             ## by
-                                                                                             ## AddWithRefs)
 
 
 proc newIFSelectModifReorder*(rootlast: bool = true): IFSelectModifReorder {.cdecl,

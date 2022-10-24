@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1995-03-08
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,20 +21,6 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
-type
-  BRepPrimAPI_MakeHalfSpace* {.importcpp: "BRepPrimAPI_MakeHalfSpace",
-                              header: "BRepPrimAPI_MakeHalfSpace.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                              ## !
-                                                                                                              ## Make
-                                                                                                              ## a
-                                                                                                              ## HalfSpace
-                                                                                                              ## defined
-                                                                                                              ## with
-                                                                                                              ## a
-                                                                                                              ## Face
-                                                                                                              ## and
-                                                                                                              ## a
-                                                                                                              ## Point.
 
 
 proc halfSpace*(face: TopoDS_Face; refPnt: PntObj): BRepPrimAPI_MakeHalfSpace {.

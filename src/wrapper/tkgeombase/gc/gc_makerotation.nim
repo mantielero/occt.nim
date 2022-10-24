@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,23 +21,6 @@ discard "forward decl of gp_Lin"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
-type
-  MakeRotation* {.importcpp: "GC_MakeRotation", header: "GC_MakeRotation.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## a
-                                                                                         ## rotation
-                                                                                         ## through
-                                                                                         ## angle
-                                                                                         ## Angle
-                                                                                         ## about
-                                                                                         ## the
-                                                                                         ## axis
-                                                                                         ## defined
-                                                                                         ## by
-                                                                                         ## the
-                                                                                         ## line
-                                                                                         ## Line.
 
 
 proc rotation*(line: LinObj; angle: cfloat): MakeRotation {.cdecl, constructor,

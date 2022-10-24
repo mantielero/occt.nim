@@ -1,3 +1,5 @@
+import tcolgp_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColgpHSequenceOfVec2d* {.importcpp: "TColgp_HSequenceOfVec2d",
-                           header: "TColgp_HSequenceOfVec2d.hxx", bycopy.} = object of TColgpSequenceOfVec2d
 
 
 proc newTColgpHSequenceOfVec2d*(): TColgpHSequenceOfVec2d {.cdecl, constructor,
@@ -32,5 +31,4 @@ proc append*(this: var TColgpHSequenceOfVec2d;
     header: "TColgp_HSequenceOfVec2d.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfVec2d): var TColgpSequenceOfVec2d {.
     cdecl, importcpp: "ChangeSequence", header: "TColgp_HSequenceOfVec2d.hxx".}
-type
-  HandleTColgpHSequenceOfVec2d* = Handle[TColgpHSequenceOfVec2d]
+

@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 2014-06-23
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -16,21 +18,6 @@
 ## ! This class implements function which calculate square Eucluidean distance
 ## ! between point on curve and point on surface in case of continuity is C2.
 
-type
-  ExtremaGlobOptFuncCS* {.importcpp: "Extrema_GlobOptFuncCS",
-                         header: "Extrema_GlobOptFuncCS.hxx", bycopy.} = object of MathMultipleVarFunctionWithHessian ##
-                                                                                                               ## !
-                                                                                                               ## Curve
-                                                                                                               ## and
-                                                                                                               ## surface
-                                                                                                               ## should
-                                                                                                               ## exist
-                                                                                                               ## during
-                                                                                                               ## all
-                                                                                                               ## the
-                                                                                                               ## lifetime
-                                                                                                               ## of
-                                                                                                               ## Extrema_GlobOptFuncCS.
 
 
 proc newExtremaGlobOptFuncCS*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncCS {.

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,41 +20,6 @@ discard "forward decl of math_NotSquare"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Matrix"
-type
-  MathGauss* {.importcpp: "math_Gauss", header: "math_Gauss.hxx", bycopy.} = object ## !
-                                                                            ## Given an
-                                                                            ## input n X n
-                                                                            ## matrix A this
-                                                                            ## constructor
-                                                                            ## performs its LU
-                                                                            ## !
-                                                                            ## decomposition with
-                                                                            ## partial
-                                                                            ## pivoting
-                                                                            ## (interchange of
-                                                                            ## rows).
-                                                                            ## ! This LU
-                                                                            ## decomposition is
-                                                                            ## stored
-                                                                            ## internally and may be used to
-                                                                            ## ! do
-                                                                            ## subsequent
-                                                                            ## calculation.
-                                                                            ## ! If the
-                                                                            ## largest
-                                                                            ## pivot
-                                                                            ## found is less than
-                                                                            ## MinPivot the
-                                                                            ## matrix A is
-                                                                            ## !
-                                                                            ## considered as
-                                                                            ## singular.
-                                                                            ## !
-                                                                            ## Exception
-                                                                            ## NotSquare is
-                                                                            ## raised if A is not a
-                                                                            ## square
-                                                                            ## matrix.
 
 
 proc newMathGauss*(a: MathMatrix; minPivot: cfloat = 1.0e-20;

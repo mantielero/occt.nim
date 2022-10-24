@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1991-07-23
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -24,15 +26,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepPrimOneAxis* {.importcpp: "BRepPrim_OneAxis", header: "BRepPrim_OneAxis.hxx",
-                    bycopy.} = object of RootObj ## ! The MeridianOffset is added  to the  parameters on
-                                   ## ! the meridian curve and  to  the  V values  of  the
-                                   ## ! pcurves. This is  used for the sphere for example,
-                                   ## ! to give a range on the meridian  edge which is not
-                                   ## ! VMin, VMax.
-                                   ## ! Creates a OneAxis algorithm.  <B> is used to build
-                                   ## ! the Topology. The angle defaults to 2*PI.
 
 
 proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.cdecl,

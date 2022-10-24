@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -13,21 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Message_ProgressScope"
-type
-  BOPAlgoOptions* {.importcpp: "BOPAlgo_Options", header: "BOPAlgo_Options.hxx",
-                   bycopy.} = object of RootObj ## ! Empty constructor
-                                  ## !@name Error reporting mechanism
-                                  ## ! Adds the alert as error (fail)
-                                  ## !@name Parallel processing mode
-                                  ## ! Gets the global parallel mode
-                                  ## !@name Fuzzy tolerance
-                                  ## ! Sets the additional tolerance
-                                  ## !@name Progress indicator
-                                  ## ! Set the Progress Indicator object.
-                                  ## !@name Usage of Oriented Bounding boxes
-                                  ## ! Enables/Disables the usage of OBB
-                                  ## ! Breaks the execution if the break signal
-                                  ## ! is indicated by myProgressIndicator.
 
 
 proc newBOPAlgoOptions*(): BOPAlgoOptions {.cdecl, constructor,

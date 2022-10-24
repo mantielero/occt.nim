@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
-type
-  BlendFuncConstRadInv* {.importcpp: "BlendFunc_ConstRadInv",
-                         header: "BlendFunc_ConstRadInv.hxx", bycopy.} = object of BlendFuncInv
 
 
 proc newBlendFuncConstRadInv*(s1: Handle[Adaptor3dHSurface];

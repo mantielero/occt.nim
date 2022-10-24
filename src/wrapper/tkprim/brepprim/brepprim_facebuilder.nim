@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepPrimFaceBuilder* {.importcpp: "BRepPrim_FaceBuilder",
-                        header: "BRepPrim_FaceBuilder.hxx", bycopy.} = object
 
 
 proc newBRepPrimFaceBuilder*(): BRepPrimFaceBuilder {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-05
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -20,29 +22,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_UniformSection"
-type
-  HandleGeomFillUniformSection* = Handle[GeomFillUniformSection]
 
-## ! Define an Constant Section Law
 
-type
-  GeomFillUniformSection* {.importcpp: "GeomFill_UniformSection",
-                           header: "GeomFill_UniformSection.hxx", bycopy.} = object of GeomFillSectionLaw ##
-                                                                                                   ## !
-                                                                                                   ## Make
-                                                                                                   ## an
-                                                                                                   ## constant
-                                                                                                   ## Law
-                                                                                                   ## with
-                                                                                                   ## C.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## [First,
-                                                                                                   ## Last]
-                                                                                                   ## define
-                                                                                                   ## law
-                                                                                                   ## definition
-                                                                                                   ## domain
 
 
 proc newGeomFillUniformSection*(c: Handle[GeomCurve]; firstParameter: cfloat = 0.0;

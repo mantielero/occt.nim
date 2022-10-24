@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -14,95 +16,10 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of BVH_Builder"
-type
-  BVH_TreeBaseTransient* {.importcpp: "BVH_TreeBaseTransient",
-                          header: "BVH_Tree.hxx", bycopy.} = object of StandardTransient
 
 
-## ! Stores parameters of bounding volume hierarchy (BVH).
-## ! Bounding volume hierarchy (BVH) organizes geometric objects in
-## ! the tree based on spatial relationships. Each node in the tree
-## ! contains an axis-aligned bounding box of all the objects below
-## ! it. Bounding volume hierarchies are used in many algorithms to
-## ! support efficient operations on the sets of geometric objects,
-## ! such as collision detection, ray-tracing, searching of nearest
-## ! objects, and view frustum culling.
 
-type
-  BVH_TreeBase*[T; N: static[cint]] {.importcpp: "BVH_TreeBase<\'0,\'1>",
-                                   header: "BVH_Tree.hxx", bycopy.} = object of BVH_TreeBaseTransient ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## custom
-                                                                                               ## data
-                                                                                               ## types
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## general
-                                                                                               ## methods
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## new
-                                                                                               ## empty
-                                                                                               ## BVH
-                                                                                               ## tree.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## methods
-                                                                                               ## for
-                                                                                               ## accessing
-                                                                                               ## individual
-                                                                                               ## nodes
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## minimum
-                                                                                               ## point
-                                                                                               ## of
-                                                                                               ## the
-                                                                                               ## given
-                                                                                               ## node.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## methods
-                                                                                               ## for
-                                                                                               ## accessing
-                                                                                               ## serialized
-                                                                                               ## tree
-                                                                                               ## data
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## array
-                                                                                               ## of
-                                                                                               ## node
-                                                                                               ## data
-                                                                                               ## records.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## @name
-                                                                                               ## protected
-                                                                                               ## fields
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Array
-                                                                                               ## of
-                                                                                               ## node
-                                                                                               ## data
-                                                                                               ## records.
-    myNodeInfoBuffer* {.importc: "myNodeInfoBuffer".}: BVH_Array4i ## ! Array of node minimum points.
-                                                               ##    typename BVH::ArrayType<T, N>::Type myMinPointBuffer;
-                                                               ##
-                                                               ##    //! Array of node maximum points.
-                                                               ##    typename BVH::ArrayType<T, N>::Type myMaxPointBuffer;
-                                                               ## ! Current depth of BVH tree (set by builder).
-    myDepth* {.importc: "myDepth".}: cint
 
-#  BVH_TreeBaseBVH_VecNt*[T; N] = BVH_VecNt[T, N]
 
 proc newBVH_TreeBase*[T; N: static[cint]](): BVH_TreeBase[T, N] {.cdecl, constructor,
     importcpp: "BVH_TreeBase<\'*0,\'*1>(@)", header: "BVH_Tree.hxx".}
@@ -142,19 +59,9 @@ proc nodeInfoBuffer*[T; N: static[cint]](this: BVH_TreeBase[T, N]): BVH_Array4i 
     noSideEffect, cdecl, importcpp: "NodeInfoBuffer", header: "BVH_Tree.hxx".}
 ## ! Type corresponding to quad BVH.
 
-type
-  BVH_QuadTree* {.importcpp: "BVH_QuadTree", header: "BVH_Tree.hxx", bycopy.} = object
 
 
-## ! Type corresponding to binary BVH.
-
-type
-  BVH_BinaryTree* {.importcpp: "BVH_BinaryTree", header: "BVH_Tree.hxx", bycopy.} = object
 
 
-## ! BVH tree with given arity (2 or 4).
-##  template<class T, int N, class Arity = BVH_BinaryTree>
-##  class BVH_Tree
-##  {
-##    // Invalid type
-##  };
+
+

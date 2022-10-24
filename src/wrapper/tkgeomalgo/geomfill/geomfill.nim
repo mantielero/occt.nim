@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -72,8 +74,6 @@ discard "forward decl of GeomFill_GuideTrihedronAC"
 discard "forward decl of GeomFill_GuideTrihedronPlan"
 discard "forward decl of GeomFill_Sweep"
 discard "forward decl of GeomFill_SectionPlacement"
-type
-  GeomFill* {.importcpp: "GeomFill", header: "GeomFill.hxx", bycopy.} = object ## ! Builds a ruled surface between the two curves, Curve1 and Curve2.
 
 
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[

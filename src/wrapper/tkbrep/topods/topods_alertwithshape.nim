@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 2017-06-27
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -15,14 +17,6 @@
 
 ## ! Alert object storing TopoDS shape in its field
 
-type
-  TopoDS_AlertWithShape* {.importcpp: "TopoDS_AlertWithShape",
-                          header: "TopoDS_AlertWithShape.hxx", bycopy.} = object of MessageAlert ##
-                                                                                          ## !
-                                                                                          ## Constructor
-                                                                                          ## with
-                                                                                          ## shape
-                                                                                          ## argument
 
 
 proc newTopoDS_AlertWithShape*(theShape: TopoDS_Shape): TopoDS_AlertWithShape {.
@@ -45,3 +39,4 @@ template define_Alert_With_Shape*(alert: untyped): void =
       importcpp: "Alert(@)", header: "TopoDS_AlertWithShape.hxx".}
   type
     AlertbaseType* = TopoDS_AlertWithShape
+

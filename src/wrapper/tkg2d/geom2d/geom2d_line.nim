@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,53 +25,8 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Line"
-type
-  HandleGeom2dLine* = Handle[Geom2dLine]
 
-## ! Describes an infinite line in the plane (2D space).
-## ! A line is defined and positioned in the plane with an
-## ! axis (gp_Ax2d object) which gives it an origin and a unit vector.
-## ! The Geom2d_Line line is parameterized as follows:
-## ! P (U) = O + U*Dir
-## ! where:
-## ! - P is the point of parameter U,
-## ! - O is the origin and Dir the unit vector of its positioning axis.
-## ! The parameter range is ] -infinite, +infinite [.
-## ! The orientation of the line is given by the unit vector
-## ! of its positioning axis.
-## ! See Also
-## ! GCE2d_MakeLine which provides functions for more
-## ! complex line constructions
-## ! gp_Ax2d
-## ! gp_Lin2d for an equivalent, non-parameterized data structure.
 
-type
-  Geom2dLine* {.importcpp: "Geom2d_Line", header: "Geom2d_Line.hxx", bycopy.} = object of Geom2dCurve ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## line
-                                                                                            ## located
-                                                                                            ## in
-                                                                                            ## 2D
-                                                                                            ## space
-                                                                                            ## with
-                                                                                            ## the
-                                                                                            ## axis
-                                                                                            ## placement
-                                                                                            ## A.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## The
-                                                                                            ## Location
-                                                                                            ## of
-                                                                                            ## A
-                                                                                            ## is
-                                                                                            ## the
-                                                                                            ## origin
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## line.
 
 
 proc newGeom2dLine*(a: Ax2dObj): Geom2dLine {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1998-11-25
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -20,9 +22,6 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopOpeBRepTool_C2DF"
 discard "forward decl of TopoDS_Vertex"
-type
-  TopOpeBRepToolCORRISO* {.importcpp: "TopOpeBRepTool_CORRISO",
-                          header: "TopOpeBRepTool_CORRISO.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolCORRISO*(): TopOpeBRepToolCORRISO {.cdecl, constructor,

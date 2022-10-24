@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1994-05-26
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,16 +18,8 @@
 
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_SolidSurfaceInterference"
-type
-  HandleTopOpeBRepDS_SolidSurfaceInterference* = Handle[
-      TopOpeBRepDS_SolidSurfaceInterference]
 
-## ! Interference
 
-type
-  TopOpeBRepDS_SolidSurfaceInterference* {.
-      importcpp: "TopOpeBRepDS_SolidSurfaceInterference",
-      header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
 
 
 proc newTopOpeBRepDS_SolidSurfaceInterference*(

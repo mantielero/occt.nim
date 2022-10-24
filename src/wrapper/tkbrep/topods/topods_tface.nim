@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,20 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TFace"
-type
-  HandleTopoDS_TFace* = Handle[TopoDS_TFace]
 
-## ! A  topological part  of a surface   or  of the  2D
-## ! space.  The  boundary  is  a   set of  wires   and
-## ! vertices.
 
-type
-  TopoDS_TFace* {.importcpp: "TopoDS_TFace", header: "TopoDS_TFace.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## TFace.
 
 
 proc newTopoDS_TFace*(): TopoDS_TFace {.cdecl, constructor,

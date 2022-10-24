@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,18 +21,6 @@ discard "forward decl of gp_Parab2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeParabola* {.importcpp: "GCE2d_MakeParabola",
-                      header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## a
-                                                                                ## parabola
-                                                                                ## from
-                                                                                ## a
-                                                                                ## non
-                                                                                ## persistent
-                                                                                ## one.
 
 
 proc newGCE2dMakeParabola*(prb: Parab2dObj): GCE2dMakeParabola {.cdecl, constructor,

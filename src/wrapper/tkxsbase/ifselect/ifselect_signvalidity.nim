@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,21 +19,8 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignValidity"
-type
-  HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
 
-## ! This Signature returns the Validity Status of an entity, as
-## ! deducted from data in the model : it can be
-## ! "OK" "Unknown" "Unloaded" "Syntactic Fail"(but loaded)
-## ! "Syntactic Warning" "Semantic Fail" "Semantic Warning"
 
-type
-  IFSelectSignValidity* {.importcpp: "IFSelect_SignValidity",
-                         header: "IFSelect_SignValidity.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## SignValidity
 
 
 proc newIFSelectSignValidity*(): IFSelectSignValidity {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-11-10
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Dir2d"
-type
-  IntSurfPathPoint* {.importcpp: "IntSurf_PathPoint",
-                     header: "IntSurf_PathPoint.hxx", bycopy.} = object
 
 
 proc newIntSurfPathPoint*(): IntSurfPathPoint {.cdecl, constructor,

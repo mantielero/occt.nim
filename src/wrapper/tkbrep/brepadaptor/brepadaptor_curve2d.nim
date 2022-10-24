@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-07-13
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,14 +19,6 @@
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
-type
-  BRepAdaptorCurve2d* {.importcpp: "BRepAdaptor_Curve2d",
-                       header: "BRepAdaptor_Curve2d.hxx", bycopy.} = object of Geom2dAdaptorCurve ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## an
-                                                                                           ## uninitialized
-                                                                                           ## curve2d.
 
 
 proc newBRepAdaptorCurve2d*(): BRepAdaptorCurve2d {.cdecl, constructor,

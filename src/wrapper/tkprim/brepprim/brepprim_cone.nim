@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,83 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
-type
-  BRepPrimCone* {.importcpp: "BRepPrim_Cone", header: "BRepPrim_Cone.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                                         ## !
-                                                                                                         ## the
-                                                                                                         ## STEP
-                                                                                                         ## definition
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## =
-                                                                                                         ## semi-angle
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## cone
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Position
-                                                                                                         ## :
-                                                                                                         ## the
-                                                                                                         ## coordinate
-                                                                                                         ## system
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Height
-                                                                                                         ## :
-                                                                                                         ## height
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## cone.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Radius
-                                                                                                         ## :
-                                                                                                         ## radius
-                                                                                                         ## of
-                                                                                                         ## truncated
-                                                                                                         ## face
-                                                                                                         ## at
-                                                                                                         ## z
-                                                                                                         ## =
-                                                                                                         ## 0
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## The
-                                                                                                         ## apex
-                                                                                                         ## is
-                                                                                                         ## on
-                                                                                                         ## z
-                                                                                                         ## <
-                                                                                                         ## 0
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Errors
-                                                                                                         ## :
-                                                                                                         ## Height
-                                                                                                         ## <
-                                                                                                         ## Resolution
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## <
-                                                                                                         ## Resolution
-                                                                                                         ## /
-                                                                                                         ## Height
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Angle
-                                                                                                         ## >
-                                                                                                         ## PI/2
-                                                                                                         ## -
-                                                                                                         ## Resolution
-                                                                                                         ## /
-                                                                                                         ## Height
 
 
 proc newBRepPrimCone*(angle: cfloat; position: Ax2Obj; height: cfloat; radius: cfloat = 0): BRepPrimCone {.

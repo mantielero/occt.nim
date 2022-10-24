@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,13 +15,6 @@
 
 ## ! Structure defining frustum boundaries.
 
-type
-  AspectFrustumLRBT*[ElemT] {.importcpp: "Aspect_FrustumLRBT<\'0>",
-                             header: "Aspect_FrustumLRBT.hxx", bycopy.} = object
-    left* {.importc: "Left".}: ElemT
-    right* {.importc: "Right".}: ElemT
-    bottom* {.importc: "Bottom".}: ElemT
-    top* {.importc: "Top".}: ElemT ## ! Empty constructor.
 
 
 proc newAspectFrustumLRBT*[ElemT](): AspectFrustumLRBT[ElemT] {.cdecl, constructor,

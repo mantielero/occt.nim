@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -16,22 +18,6 @@
 ## ! This class is used to switch between active selecting volumes depending
 ## ! on selection type chosen by the user
 
-type
-  SelectMgrSelectingVolumeManager* {.importcpp: "SelectMgr_SelectingVolumeManager", header: "SelectMgr_SelectingVolumeManager.hxx",
-                                    bycopy.} = object of SelectBasicsSelectingVolumeManager ##
-                                                                                       ## !
-                                                                                       ## Creates
-                                                                                       ## instances
-                                                                                       ## of
-                                                                                       ## all
-                                                                                       ## available
-                                                                                       ## selecting
-                                                                                       ## volume
-                                                                                       ## types
-    ## !< Array of selecting volumes
-    ## !< view clipping planes
-    ## !< object clipping planes
-    ## !< Defines if partially overlapped entities will me detected or not
 
 
 proc newSelectMgrSelectingVolumeManager*(theToAllocateFrustums: bool = true): SelectMgrSelectingVolumeManager {.

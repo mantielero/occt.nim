@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1994-06-27
 ##  Created by: Design
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,40 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Transfer_VoidBinder"
-type
-  HandleTransferVoidBinder* = Handle[TransferVoidBinder]
 
-## ! a VoidBinder is used to bind a starting item with a status,
-## ! error or warning messages, but no result
-## ! It is interpreted by TransferProcess, which admits a
-## ! VoidBinder to be over-written, and copies its check to the
-## ! new Binder
 
-type
-  TransferVoidBinder* {.importcpp: "Transfer_VoidBinder",
-                       header: "Transfer_VoidBinder.hxx", bycopy.} = object of TransferBinder ##
-                                                                                       ## !
-                                                                                       ## a
-                                                                                       ## VoidBinder
-                                                                                       ## is
-                                                                                       ## not
-                                                                                       ## Multiple
-                                                                                       ## (Remark
-                                                                                       ## :
-                                                                                       ## it
-                                                                                       ## is
-                                                                                       ## not
-                                                                                       ## Simple
-                                                                                       ## too)
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## But
-                                                                                       ## it
-                                                                                       ## can
-                                                                                       ## bring
-                                                                                       ## next
-                                                                                       ## results
-                                                                                       ## ...
 
 
 proc newTransferVoidBinder*(): TransferVoidBinder {.cdecl, constructor,

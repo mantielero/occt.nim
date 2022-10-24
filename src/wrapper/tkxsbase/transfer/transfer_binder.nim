@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1993-06-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,39 +21,8 @@ discard "forward decl of Transfer_TransferFailure"
 when defined(Status):
   discard
 discard "forward decl of Transfer_Binder"
-type
-  HandleTransferBinder* = Handle[TransferBinder]
 
-## ! A Binder is an auxiliary object to Map the Result of the
-## ! Transfer of a given Object : it records the Result of the
-## ! Unitary Transfer (Resulting Object), status of progress and
-## ! error (if any) of the Process
-## !
-## ! The class Binder itself makes no definition for the Result :
-## ! it is defined by sub-classes : it can be either Simple (and
-## ! has to be typed : see generic class SimpleBinder) or Multiple
-## ! (see class MultipleBinder).
-## !
-## ! In principle, for a Transfer in progress, Result cannot be
-## ! accessed : this would cause an exception raising.
-## ! This is controlled by the value if StatusResult : if it is
-## ! "Used", the Result cannot be changed. This status is normally
-## ! controlled by TransferProcess but can be directly (see method
-## ! SetAlreadyUsed)
-## !
-## ! Checks can be completed by a record of cases, as string which
-## ! can be used as codes, but not to be printed
-## !
-## ! In addition to the Result, a Binder can bring a list of
-## ! Attributes, which are additional data, each of them has a name
 
-type
-  TransferBinder* {.importcpp: "Transfer_Binder", header: "Transfer_Binder.hxx",
-                   bycopy.} = object of StandardTransient ## ! Merges basic data (Check, ExecStatus) from another Binder but
-                                                     ## ! keeps its result. Used when a binder is replaced by another
-                                                     ## ! one, this allows to keep messages
-                                                     ## ! Sets fields at initial values
-                                                     ## ! Called by AddResult, to keep unicity of each item in the list
 
 
 proc merge*(this: var TransferBinder; other: Handle[TransferBinder]) {.cdecl,

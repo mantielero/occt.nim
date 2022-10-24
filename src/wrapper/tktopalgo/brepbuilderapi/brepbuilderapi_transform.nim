@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1994-12-09
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,36 +19,6 @@
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of gp_Trsf"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_Transform* {.importcpp: "BRepBuilderAPI_Transform",
-                             header: "BRepBuilderAPI_Transform.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                              ## !
-                                                                                                              ## Constructs
-                                                                                                              ## a
-                                                                                                              ## framework
-                                                                                                              ## for
-                                                                                                              ## applying
-                                                                                                              ## the
-                                                                                                              ## geometric
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## transformation
-                                                                                                              ## T
-                                                                                                              ## to
-                                                                                                              ## a
-                                                                                                              ## shape.
-                                                                                                              ## Use
-                                                                                                              ## the
-                                                                                                              ## function
-                                                                                                              ## Perform
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## to
-                                                                                                              ## define
-                                                                                                              ## the
-                                                                                                              ## shape
-                                                                                                              ## to
-                                                                                                              ## transform.
 
 
 proc transform*(t: TrsfObj): BRepBuilderAPI_Transform {.cdecl,

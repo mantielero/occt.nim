@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created by: Jacques  GOUSSARD Author:    Laurent    BOURESCHE --
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -20,17 +22,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Blend_Point"
-type
-  BlendSurfRstFunction* {.importcpp: "Blend_SurfRstFunction",
-                         header: "Blend_SurfRstFunction.hxx", bycopy.} = object of BlendAppFunction ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## 3
-                                                                                             ## (default
-                                                                                             ## value).
-                                                                                             ## Can
-                                                                                             ## be
-                                                                                             ## redefined.
 
 
 proc nbVariables*(this: BlendSurfRstFunction): cint {.noSideEffect, cdecl,

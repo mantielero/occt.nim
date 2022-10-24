@@ -1,3 +1,5 @@
+import math_types
+
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -17,44 +19,6 @@
 when defined(Opposite):
   discard
 discard "forward decl of math_Matrix"
-type
-  MathVector* {.importcpp: "math_Vector", header: "math_Vector.hxx", bycopy.} = object ## !
-                                                                               ## Contructs a
-                                                                               ## non-initialized
-                                                                               ## vector
-                                                                               ## in
-                                                                               ## the
-                                                                               ## range
-                                                                               ## [theLower..theUpper]
-                                                                               ## !
-                                                                               ## "theLower"
-                                                                               ## and
-                                                                               ## "theUpper"
-                                                                               ## are
-                                                                               ## the
-                                                                               ## indexes
-                                                                               ## of
-                                                                               ## the
-                                                                               ## lower
-                                                                               ## and
-                                                                               ## upper
-                                                                               ## bounds
-                                                                               ## of
-                                                                               ## the
-                                                                               ## constructed
-                                                                               ## vector.
-                                                                               ## !
-                                                                               ## Is
-                                                                               ## used
-                                                                               ## internally
-                                                                               ## to
-                                                                               ## set
-                                                                               ## the
-                                                                               ## "theLower"
-                                                                               ## value
-                                                                               ## of
-                                                                               ## the
-                                                                               ## vector.
 
 
 proc newMathVector*(theLower: cint; theUpper: cint): MathVector {.cdecl, constructor,

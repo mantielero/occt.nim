@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-07-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,37 +21,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_NumericError"
 discard "forward decl of math_FunctionWithDerivative"
 discard "forward decl of math_FunctionSample"
-type
-  MathFunctionAllRoots* {.importcpp: "math_FunctionAllRoots",
-                         header: "math_FunctionAllRoots.hxx", bycopy.} = object ## ! The
-                                                                           ## algorithm uses the
-                                                                           ## sample to find
-                                                                           ## intervals on which
-                                                                           ## ! the
-                                                                           ## function is null. An
-                                                                           ## interval is found if, for at least
-                                                                           ## ! two
-                                                                           ## consecutive
-                                                                           ## points of the
-                                                                           ## sample, Ui and Ui+1, we get
-                                                                           ## !
-                                                                           ## |F(Ui)|<=EpsNul and
-                                                                           ## |F(Ui+1)|<=EpsNul. The real
-                                                                           ## bounds of
-                                                                           ## ! an
-                                                                           ## interval are
-                                                                           ## computed with the
-                                                                           ## FunctionRoots.
-                                                                           ## !
-                                                                           ## algorithm.
-                                                                           ## !
-                                                                           ## Between two
-                                                                           ## intervals, the roots of the
-                                                                           ## function F are
-                                                                           ## !
-                                                                           ## calculated using the
-                                                                           ## FunctionRoots
-                                                                           ## algorithm.
 
 
 proc newMathFunctionAllRoots*(f: var MathFunctionWithDerivative;

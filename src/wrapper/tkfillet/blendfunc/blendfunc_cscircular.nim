@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1995-01-04
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -24,95 +26,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Circ"
 discard "forward decl of Blend_Point"
-type
-  BlendFuncCSCircular* {.importcpp: "BlendFunc_CSCircular",
-                        header: "BlendFunc_CSCircular.hxx", bycopy.} = object of BlendCSFunction ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## function
-                                                                                          ## for
-                                                                                          ## a
-                                                                                          ## circular
-                                                                                          ## blending
-                                                                                          ## between
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## curve
-                                                                                          ## <C>
-                                                                                          ## and
-                                                                                          ## a
-                                                                                          ## surface
-                                                                                          ## <S>.
-                                                                                          ## The
-                                                                                          ## direction
-                                                                                          ## of
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## the
-                                                                                          ## planes
-                                                                                          ## are
-                                                                                          ## given
-                                                                                          ## by
-                                                                                          ## <CGuide>.
-                                                                                          ## The
-                                                                                          ## position
-                                                                                          ## of
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## the
-                                                                                          ## plane
-                                                                                          ## is
-                                                                                          ## determined
-                                                                                          ## on
-                                                                                          ## the
-                                                                                          ## curve
-                                                                                          ## <C>.
-                                                                                          ## <L>
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## defines
-                                                                                          ## the
-                                                                                          ## change
-                                                                                          ## of
-                                                                                          ## parameter
-                                                                                          ## between
-                                                                                          ## <C>
-                                                                                          ## and
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## <CGuide>.
-                                                                                          ## So,
-                                                                                          ## the
-                                                                                          ## planes
-                                                                                          ## are
-                                                                                          ## defined
-                                                                                          ## as
-                                                                                          ## described
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## below
-                                                                                          ## :
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## t
-                                                                                          ## is
-                                                                                          ## the
-                                                                                          ## current
-                                                                                          ## parameter
-                                                                                          ## on
-                                                                                          ## the
-                                                                                          ## guide
-                                                                                          ## line.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Pguide
-                                                                                          ## =
-                                                                                          ## C(L(t));
-                                                                                          ## Nguide
-                                                                                          ## =
-                                                                                          ## CGuide'(t)/||CGuide'(t)||
 
 
 proc newBlendFuncCSCircular*(s: Handle[Adaptor3dHSurface];

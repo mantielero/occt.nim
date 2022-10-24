@@ -1,3 +1,5 @@
+import tcolgp_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColgpHSequenceOfDir* {.importcpp: "TColgp_HSequenceOfDir",
-                         header: "TColgp_HSequenceOfDir.hxx", bycopy.} = object of TColgpSequenceOfDir
 
 
 proc newTColgpHSequenceOfDir*(): TColgpHSequenceOfDir {.cdecl, constructor,
@@ -31,5 +30,4 @@ proc append*(this: var TColgpHSequenceOfDir; theSequence: var TColgpSequenceOfDi
     cdecl, importcpp: "Append", header: "TColgp_HSequenceOfDir.hxx".}
 proc changeSequence*(this: var TColgpHSequenceOfDir): var TColgpSequenceOfDir {.cdecl,
     importcpp: "ChangeSequence", header: "TColgp_HSequenceOfDir.hxx".}
-type
-  HandleTColgpHSequenceOfDir* = Handle[TColgpHSequenceOfDir]
+

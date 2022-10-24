@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,50 +23,8 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Transformation"
-type
-  HandleGeom2dTransformation* = Handle[Geom2dTransformation]
 
-## ! The class Transformation allows to create Translation,
-## ! Rotation, Symmetry, Scaling and complex transformations
-## ! obtained by combination of the previous elementary
-## ! transformations.
-## ! The Transformation class can also be used to
-## ! construct complex transformations by combining
-## ! these elementary transformations.
-## ! However, these transformations can never change
-## ! the type of an object. For example, the projection
-## ! transformation can change a circle into an ellipse,
-## ! and therefore change the real type of the object.
-## ! Such a transformation is forbidden in this
-## ! environment and cannot be a Geom2d_Transformation.
-## ! The transformation can be represented as follow :
-## !
-## ! V1   V2     T
-## ! | a11  a12    a14 |   | x |      | x'|
-## ! | a21  a22    a24 |   | y |      | y'|
-## ! |  0    0      1  |   | 1 |      | 1 |
-## !
-## ! where {V1, V2} defines the vectorial part of the
-## ! transformation and T defines the translation part of
-## ! the transformation.
-## ! - Geom2d_Transformation transformations provide
-## ! the same kind of "geometric" services as
-## ! gp_Trsf2d ones but have more complex data
-## ! structures. The geometric objects provided by the
-## ! Geom2d package use gp_Trsf2d transformations
-## ! in the syntaxes Transform and Transformed.
-## ! - Geom2d_Transformation transformations are
-## ! used in a context where they can be shared by
-## ! several objects contained inside a common data structure.
 
-type
-  Geom2dTransformation* {.importcpp: "Geom2d_Transformation",
-                         header: "Geom2d_Transformation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## identity
-                                                                                              ## transformation.
 
 
 proc newGeom2dTransformation*(): Geom2dTransformation {.cdecl, constructor,

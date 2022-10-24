@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1994-10-28
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,25 +18,8 @@
 
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TopOpeBRepDS_FaceEdgeInterference"
-type
-  HandleTopOpeBRepDS_FaceEdgeInterference* = Handle[
-      TopOpeBRepDS_FaceEdgeInterference]
 
-## ! ShapeShapeInterference
 
-type
-  TopOpeBRepDS_FaceEdgeInterference* {.importcpp: "TopOpeBRepDS_FaceEdgeInterference", header: "TopOpeBRepDS_FaceEdgeInterference.hxx",
-                                      bycopy.} = object of TopOpeBRepDS_ShapeShapeInterference ##
-                                                                                          ## !
-                                                                                          ## Create
-                                                                                          ## an
-                                                                                          ## interference
-                                                                                          ## of
-                                                                                          ## EDGE
-                                                                                          ## <G>
-                                                                                          ## on
-                                                                                          ## FACE
-                                                                                          ## <S>.
 
 
 proc newTopOpeBRepDS_FaceEdgeInterference*(t: TopOpeBRepDS_Transition; s: cint;

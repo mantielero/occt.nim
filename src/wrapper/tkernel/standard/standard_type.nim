@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -47,27 +49,6 @@ template standard_Type*(theType: untyped): untyped =
 ## !
 ## ! Only single chain of inheritance is supported, with a root base class Standard_Transient.
 
-type
-  StandardType* {.importcpp: "Standard_Type", header: "Standard_Type.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## the
-                                                                                                        ## system
-                                                                                                        ## type
-                                                                                                        ## name
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## class
-                                                                                                        ## (typeinfo.name)
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Constructor
-                                                                                                        ## is
-                                                                                                        ## private
-    ## !< System name of the class (typeinfo.name)
-    ## !< Given name of the class
-    ## !< Size of the class instance, in bytes
-    ## !< Type descriptor of parent class
 
 
 proc systemName*(this: StandardType): cstring {.noSideEffect, cdecl,
@@ -101,9 +82,6 @@ proc destroyStandardType*(this: var StandardType) {.cdecl,
 ## ! that all types get initialized during the library loading and thus no
 ## ! concurrency occurs when type system is accessed from multiple threads.
 
-type
-  TypeInstance*[T] {.importcpp: "opencascade::type_instance<\'0>",
-                    header: "Standard_Type.hxx", bycopy.} = object
 
 
 proc get*[T](): Handle[StandardType] {.cdecl, importcpp: "opencascade::type_instance::get(@)",
@@ -126,5 +104,4 @@ proc `<<`*(theStream: var StandardOStream; theType: Handle[StandardType]): var S
     cdecl, importcpp: "(# << #)", header: "Standard_Type.hxx".}
 ## ! Definition of Handle_Standard_Type as typedef for compatibility
 
-type
-  HandleStandardType* = Handle[StandardType]
+

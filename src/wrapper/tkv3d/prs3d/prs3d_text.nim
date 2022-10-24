@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-09-14
 ##  Created by: Jean-Louis FRENKEL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,38 +18,6 @@
 
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of gp_Pnt"
-type
-  Prs3dText* {.importcpp: "Prs3d_Text", header: "Prs3d_Text.hxx", bycopy.} = object ## !
-                                                                            ## Defines the
-                                                                            ## display of the
-                                                                            ## text.
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theGroup
-                                                                            ## group to add
-                                                                            ## primitives
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theAspect
-                                                                            ## presentation
-                                                                            ## attributes
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theText   text to draw
-                                                                            ## !
-                                                                            ## @param
-                                                                            ## theAttachmentPoint
-                                                                            ## attachment
-                                                                            ## point
-                                                                            ## !
-                                                                            ## @return text to draw
-                                                                            ## !
-                                                                            ## Alias to
-                                                                            ## another
-                                                                            ## method
-                                                                            ## Draw() for
-                                                                            ## backward
-                                                                            ## compatibility.
 
 
 proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];

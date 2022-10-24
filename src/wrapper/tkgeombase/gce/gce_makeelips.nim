@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,75 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Elips"
-type
-  GceMakeElips* {.importcpp: "gce_MakeElips", header: "gce_MakeElips.hxx", bycopy.} = object of GceRoot ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## major
-                                                                                              ## radius
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## ellipse
-                                                                                              ## is
-                                                                                              ## on
-                                                                                              ## the
-                                                                                              ## "XAxis"
-                                                                                              ## and
-                                                                                              ## the
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## minor
-                                                                                              ## radius
-                                                                                              ## is
-                                                                                              ## on
-                                                                                              ## the
-                                                                                              ## "YAxis"
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## ellipse.
-                                                                                              ## The
-                                                                                              ## "XAxis"
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## is
-                                                                                              ## defined
-                                                                                              ## with
-                                                                                              ## the
-                                                                                              ## "XDirection"
-                                                                                              ## of
-                                                                                              ## A2
-                                                                                              ## and
-                                                                                              ## the
-                                                                                              ## "YAxis"
-                                                                                              ## is
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## defined
-                                                                                              ## with
-                                                                                              ## the
-                                                                                              ## "YDirection"
-                                                                                              ## of
-                                                                                              ## A2.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Warnings
-                                                                                              ## :
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## It
-                                                                                              ## is
-                                                                                              ## not
-                                                                                              ## forbidden
-                                                                                              ## to
-                                                                                              ## create
-                                                                                              ## an
-                                                                                              ## ellipse
-                                                                                              ## with
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## MajorRadius
-                                                                                              ## =
-                                                                                              ## MinorRadius.
 
 
 proc newGceMakeElips*(a2: Ax2Obj; majorRadius: cfloat; minorRadius: cfloat): GceMakeElips {.

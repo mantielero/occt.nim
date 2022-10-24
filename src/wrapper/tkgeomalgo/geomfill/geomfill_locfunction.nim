@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-02-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of GeomFill_LocationLaw"
-type
-  GeomFillLocFunction* {.importcpp: "GeomFill_LocFunction",
-                        header: "GeomFill_LocFunction.hxx", bycopy.} = object
 
 
 proc newGeomFillLocFunction*(law: Handle[GeomFillLocationLaw]): GeomFillLocFunction {.

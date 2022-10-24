@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,32 +23,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectDeduct"
-type
-  HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
 
-## ! A SelectDeduct determines a list of Entities from an Input
-## ! Selection, by a computation : Output list is not obliged to be
-## ! a sub-list of Input list
-## ! (for more specific, see SelectExtract for filtered sub-lists,
-## ! and SelectExplore for recurcive exploration)
-## !
-## ! A SelectDeduct may use an alternate input for one shot
-## ! This allows to use an already existing definition, by
-## ! overloading the input selection by an alternate list,
-## ! already defined, for one use :
-## ! If this alternate list is set, InputResult queries it instead
-## ! of calling the input selection, then clears it immediately
 
-type
-  IFSelectSelectDeduct* {.importcpp: "IFSelect_SelectDeduct",
-                         header: "IFSelect_SelectDeduct.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                              ## !
-                                                                                              ## Defines
-                                                                                              ## or
-                                                                                              ## Changes
-                                                                                              ## the
-                                                                                              ## Input
-                                                                                              ## Selection
 
 
 proc setInput*(this: var IFSelectSelectDeduct; sel: Handle[IFSelectSelection]) {.

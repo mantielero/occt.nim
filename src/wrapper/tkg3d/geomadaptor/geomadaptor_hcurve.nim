@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1995-08-25
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -18,16 +20,8 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomAdaptor_Curve"
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomAdaptor_HCurve"
-type
-  HandleGeomAdaptorHCurve* = Handle[GeomAdaptorHCurve]
 
-## ! An interface between the services provided by any
-## ! curve from the package Geom and those required of
-## ! the curve by algorithms which use it.
 
-type
-  GeomAdaptorHCurve* {.importcpp: "GeomAdaptor_HCurve",
-                      header: "GeomAdaptor_HCurve.hxx", bycopy.} = object of GeomAdaptorGHCurve
 
 
 proc newGeomAdaptorHCurve*(): GeomAdaptorHCurve {.cdecl, constructor,

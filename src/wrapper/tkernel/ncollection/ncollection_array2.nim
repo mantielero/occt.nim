@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-15
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -30,76 +32,7 @@
 ##               for (j = A.LowerCol(); j <= A.UpperCol(); j++)
 ##
 
-type
-  NCollectionArray2*[TheItemType] {.importcpp: "NCollection_Array2<\'0>",
-                                   header: "NCollection_Array2.hxx", bycopy.} = object of RootObj ##
-                                                                                  ## !
-                                                                                  ## STL-compliant
-                                                                                  ## typedef
-                                                                                  ## for
-                                                                                  ## value
-                                                                                  ## type
-                                                                                  ##
-                                                                                  ## ****************
-                                                                                  ## Implementation
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## Iterator
-                                                                                  ## interface.
-                                                                                  ##
-                                                                                  ## ----------
-                                                                                  ## PUBLIC
-                                                                                  ## METHODS
-                                                                                  ## ------------
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor;
-                                                                                  ## should
-                                                                                  ## be
-                                                                                  ## used
-                                                                                  ## with
-                                                                                  ## caution.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @sa
-                                                                                  ## methods
-                                                                                  ## Resize()
-                                                                                  ## and
-                                                                                  ## Move().
-                                                                                  ##
-                                                                                  ## -----------
-                                                                                  ## PRIVATE
-                                                                                  ## METHODS
-                                                                                  ## -----------
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Allocate
-                                                                                  ## memory
-                                                                                  ## for
-                                                                                  ## the
-                                                                                  ## array,
-                                                                                  ## set
-                                                                                  ## up
-                                                                                  ## indirection
-                                                                                  ## table
-                                                                                  ##
-                                                                                  ## ----------
-                                                                                  ## PROTECTED
-                                                                                  ## FIELDS
-                                                                                  ## -----------
-    ## !< Pointer to the row pointers table
-    ## !< Pointer to the memory array
-    ## !< Flag showing who allocated the array
-    ##  ----------- FRIEND CLASSES ------------
 
-  NCollectionArray2valueType*[TheItemType] = TheItemType
-  NCollectionArray2Iterator*[TheItemType] {.
-      importcpp: "NCollection_Array2<\'0>::Iterator",
-      header: "NCollection_Array2.hxx", bycopy.} = object of RootObj ## ! Empty constructor - for later Init
-    ## !< Index of the current item
-    ## !< Total amount of items
-    ## !< Pointer to the array being iterated
 
 
 proc newNCollectionArray2Iterator*[TheItemType](): NCollectionArray2Iterator[

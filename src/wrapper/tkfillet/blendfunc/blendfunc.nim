@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1993-12-03
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,8 +33,6 @@ discard "forward decl of BlendFunc_ChamfInv"
 discard "forward decl of BlendFunc_ChAsym"
 discard "forward decl of BlendFunc_ChAsymInv"
 discard "forward decl of BlendFunc_Tensor"
-type
-  BlendFunc* {.importcpp: "BlendFunc", header: "BlendFunc.hxx", bycopy.} = object
 
 
 proc getShape*(sectShape: BlendFuncSectionShape; maxAng: cfloat; nbPoles: var cint;

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-11-28
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,52 +18,8 @@
 
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of AIS_ExclusionFilter"
-type
-  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
 
-## ! A framework to reject or to accept only objects of
-## ! given types and/or signatures.
-## ! Objects are stored, and the stored objects - along
-## ! with the flag settings - are used to define the filter.
-## ! Objects to be filtered are compared with the stored
-## ! objects added to the filter, and are accepted or
-## ! rejected according to the exclusion flag setting.
-## ! -   Exclusion flag on
-## ! -   the function IsOk answers true for all objects,
-## ! except those of the types and signatures stored
-## ! in the filter framework
-## ! -   Exclusion flag off
-## ! -   the funciton IsOk answers true for all objects
-## ! which have the same type and signature as the stored ones.
 
-type
-  AIS_ExclusionFilter* {.importcpp: "AIS_ExclusionFilter",
-                        header: "AIS_ExclusionFilter.hxx", bycopy.} = object of SelectMgrFilter ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## exclusion
-                                                                                         ## filter
-                                                                                         ## object
-                                                                                         ## defined
-                                                                                         ## by
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## setting
-                                                                                         ## ExclusionFlagOn.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## By
-                                                                                         ## default,
-                                                                                         ## the
-                                                                                         ## flag
-                                                                                         ## is
-                                                                                         ## set
-                                                                                         ## to
-                                                                                         ## true.
 
 
 proc newAIS_ExclusionFilter*(exclusionFlagOn: bool = true): AIS_ExclusionFilter {.

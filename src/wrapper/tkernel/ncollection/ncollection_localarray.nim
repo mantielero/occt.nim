@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2009-09-23
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
 ##
@@ -15,10 +17,6 @@
 ## ! Auxiliary class optimizing creation of array buffer
 ## ! (using stack allocation for small arrays).
 
-type
-  NCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]] {.
-      importcpp: "NCollection_LocalArray<\'0,\'1>",
-      header: "NCollection_LocalArray.hxx", bycopy.} = object
 
 
 proc newNCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]](

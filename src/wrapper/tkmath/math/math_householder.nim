@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-08-07
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,17 +21,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of math_Matrix"
-type
-  MathHouseholder* {.importcpp: "math_Householder", header: "math_Householder.hxx",
-                    bycopy.} = object ## ! Given an input matrix A with n>= m, given an input matrix B
-                                   ## ! this constructor performs the least square resolution of
-                                   ## ! the set of linear equations A.X = B for each column of B.
-                                   ## ! If a column norm is less than EPS, the resolution can't
-                                   ## ! be done.
-                                   ## ! Exception DimensionError is raised if the row number of B
-                                   ## ! is different from the A row number.
-                                   ## ! This method is used internally for each constructor
-                                   ## ! above and can't be used directly.
 
 
 proc newMathHouseholder*(a: MathMatrix; b: MathMatrix; eps: cfloat = 1.0e-20): MathHouseholder {.

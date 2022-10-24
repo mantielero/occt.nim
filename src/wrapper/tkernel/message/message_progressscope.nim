@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2002-02-22
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -15,72 +17,6 @@
 
 discard "forward decl of Message_ProgressRange"
 discard "forward decl of Message_ProgressIndicator"
-type
-  MessageProgressScope* {.importcpp: "Message_ProgressScope",
-                         header: "Message_ProgressScope.hxx", bycopy.} = object of RootObj ## ! @name
-                                                                           ## Preparation
-                                                                           ## methods
-                                                                           ## !
-                                                                           ## Creates dummy
-                                                                           ## scope.
-                                                                           ## ! It can be
-                                                                           ## safely
-                                                                           ## passed to
-                                                                           ## algorithms; no
-                                                                           ## progress
-                                                                           ## indication will be done.
-                                                                           ## ! @name
-                                                                           ## Advance by
-                                                                           ## iterations
-                                                                           ## !
-                                                                           ## Returns true if
-                                                                           ## ProgressIndicator
-                                                                           ## signals
-                                                                           ## UserBreak
-                                                                           ## ! @name
-                                                                           ## Auxiliary
-                                                                           ## methods to use in
-                                                                           ## ProgressIndicator
-                                                                           ## ! Force
-                                                                           ## update of
-                                                                           ## presentation of the
-                                                                           ## progress
-                                                                           ## indicator.
-                                                                           ## !
-                                                                           ## Should not be
-                                                                           ## called
-                                                                           ## concurrently.
-                                                                           ## ! @name
-                                                                           ## Destruction,
-                                                                           ## allocation
-                                                                           ## !
-                                                                           ## Destructor -
-                                                                           ## closes the scope and adds its scale to the total
-                                                                           ## progress
-                                                                           ## ! @name
-                                                                           ## Internal
-                                                                           ## methods
-                                                                           ## !
-                                                                           ## Creates a
-                                                                           ## top-level scope with
-                                                                           ## default range [0,1] and step 1.
-                                                                           ## !
-                                                                           ## Called only by
-                                                                           ## Message_ProgressIndicator
-                                                                           ## constructor.
-                                                                           ## ! Copy
-                                                                           ## constructor is
-                                                                           ## prohibited
-    ## !< Pointer to progress indicator instance
-    ## !< Pointer to parent scope
-    ## !< Name of the operation being done in this scope, or null
-    ## !< Start position on the global scale [0, 1]
-    ## !< The portion of the global scale covered by this scope [0, 1]
-    ## !< Maximal value of progress in this scope
-    ## !< Current position advanced within this scope [0, Max]
-    ## !< flag indicating armed/disarmed state
-    ## !< flag indicating if name was allocated or not
-    ## !< Option to advance by hyperbolic law
 
 
 discard "forward decl of NullString"

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -16,42 +18,6 @@
 ## ! Creates and updates a group of attributes for 3d line primitives.
 ## ! This group contains the color, the type of line, and its thickness.
 
-type
-  Graphic3dAspectLine3d* {.importcpp: "Graphic3d_AspectLine3d",
-                          header: "Graphic3d_AspectLine3d.hxx", bycopy.} = object of Graphic3dAspects ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## context
-                                                                                               ## table
-                                                                                               ## for
-                                                                                               ## line
-                                                                                               ## primitives
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## defined
-                                                                                               ## with
-                                                                                               ## the
-                                                                                               ## following
-                                                                                               ## default
-                                                                                               ## values:
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Color
-                                                                                               ## =
-                                                                                               ## Quantity_NOC_YELLOW;
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Type
-                                                                                               ## =
-                                                                                               ## Aspect_TOL_SOLID;
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Width
-                                                                                               ## =
-                                                                                               ## 1.0;
 
 
 proc newGraphic3dAspectLine3d*(): Graphic3dAspectLine3d {.cdecl, constructor,
@@ -69,5 +35,4 @@ proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: cfloat) {.cdecl,
     importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
 #proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: StandardShortReal) {.cdecl,
 #    importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
-type
-  HandleGraphic3dAspectLine3d* = Handle[Graphic3dAspectLine3d]
+

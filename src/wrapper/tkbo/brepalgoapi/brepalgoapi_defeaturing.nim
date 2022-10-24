@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -88,104 +90,6 @@
 ## ! if the input shape is a COMPSOLID, the resulting solids will also be put into a COMPSOLID.
 ## !
 
-type
-  BRepAlgoAPI_Defeaturing* {.importcpp: "BRepAlgoAPI_Defeaturing",
-                            header: "BRepAlgoAPI_Defeaturing.hxx", bycopy.} = object of BRepAlgoAPI_Algo ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Constructors
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Setting
-                                                                                                  ## input
-                                                                                                  ## data
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ## algorithm
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Sets
-                                                                                                  ## the
-                                                                                                  ## shape
-                                                                                                  ## for
-                                                                                                  ## processing.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @param
-                                                                                                  ## theShape
-                                                                                                  ## [in]
-                                                                                                  ## The
-                                                                                                  ## shape
-                                                                                                  ## to
-                                                                                                  ## remove
-                                                                                                  ## the
-                                                                                                  ## features
-                                                                                                  ## from.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## It
-                                                                                                  ## should
-                                                                                                  ## either
-                                                                                                  ## be
-                                                                                                  ## the
-                                                                                                  ## SOLID,
-                                                                                                  ## COMPSOLID
-                                                                                                  ## or
-                                                                                                  ## COMPOUND
-                                                                                                  ## of
-                                                                                                  ## Solids.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Performing
-                                                                                                  ## the
-                                                                                                  ## operation
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Performs
-                                                                                                  ## the
-                                                                                                  ## operation
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## History
-                                                                                                  ## Methods
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Defines
-                                                                                                  ## whether
-                                                                                                  ## to
-                                                                                                  ## track
-                                                                                                  ## the
-                                                                                                  ## modification
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## shapes
-                                                                                                  ## or
-                                                                                                  ## not.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Setting
-                                                                                                  ## the
-                                                                                                  ## algorithm
-                                                                                                  ## into
-                                                                                                  ## default
-                                                                                                  ## state
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## @name
-                                                                                                  ## Fields
-    ## !< Input shape to remove the features from
-    ## !< Features to remove from the shape
-    ## !< Defines whether to track the history of
-    ## ! shapes modifications or not (true by default)
-    ## !< Tool for the features removal
 
 
 proc newBRepAlgoAPI_Defeaturing*(): BRepAlgoAPI_Defeaturing {.cdecl, constructor,

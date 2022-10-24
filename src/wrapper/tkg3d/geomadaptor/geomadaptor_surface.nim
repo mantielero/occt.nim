@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1993-05-14
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -32,12 +34,6 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Dir"
 discard "forward decl of Adaptor3d_HCurve"
-type
-  GeomAdaptorSurface* {.importcpp: "GeomAdaptor_Surface",
-                       header: "GeomAdaptor_Surface.hxx", bycopy.} = object of Adaptor3dSurface
-    ## /< B-spline representation to prevent downcasts
-    ## /< Cached data for B-spline or Bezier surface
-    ## /< Calculates values of nested complex surfaces (offset surface, surface of extrusion or revolution)
 
 
 proc newGeomAdaptorSurface*(): GeomAdaptorSurface {.cdecl, constructor,

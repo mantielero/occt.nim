@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -17,9 +19,6 @@
 
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoWireEdgeSet* {.importcpp: "BOPAlgo_WireEdgeSet",
-                       header: "BOPAlgo_WireEdgeSet.hxx", bycopy.} = object
 
 
 proc newBOPAlgoWireEdgeSet*(): BOPAlgoWireEdgeSet {.cdecl, constructor,

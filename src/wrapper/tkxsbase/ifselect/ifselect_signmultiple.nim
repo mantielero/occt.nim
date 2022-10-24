@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-01-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,36 +21,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignMultiple"
-type
-  HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
 
-## ! Multiple Signature : ordered list of other Signatures
-## ! It concatenates on a same line the result of its sub-items
-## ! separated by sets of 3 blanks
-## ! It is possible to define tabulations between sub-items
-## ! Moreover, match rules are specific
 
-type
-  IFSelectSignMultiple* {.importcpp: "IFSelect_SignMultiple",
-                         header: "IFSelect_SignMultiple.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## SignMultiple
-                                                                                              ## with
-                                                                                              ## a
-                                                                                              ## Name
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## This
-                                                                                              ## name
-                                                                                              ## should
-                                                                                              ## take
-                                                                                              ## expected
-                                                                                              ## tabulations
-                                                                                              ## into
-                                                                                              ## account
 
 
 proc newIFSelectSignMultiple*(name: cstring): IFSelectSignMultiple {.cdecl,

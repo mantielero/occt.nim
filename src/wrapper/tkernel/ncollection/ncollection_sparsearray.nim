@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2006-11-23
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -38,114 +40,6 @@
 ##  return null-filled object or cause access violation.
 ##
 
-type
-  NCollectionSparseArray*[TheItemType] {.importcpp: "NCollection_SparseArray<\'0>",
-                                        header: "NCollection_SparseArray.hxx",
-                                        bycopy.} = object of NCollectionSparseArrayBase ##
-                                                                                   ## !
-                                                                                   ## Constructor;
-                                                                                   ## accepts
-                                                                                   ## size
-                                                                                   ## of
-                                                                                   ## blocks
-                                                                                   ##
-                                                                                   ## !@name
-                                                                                   ## Array-like
-                                                                                   ## interface
-                                                                                   ## (in
-                                                                                   ## addition
-                                                                                   ## to
-                                                                                   ## inherited
-                                                                                   ## methods)
-                                                                                   ##
-                                                                                   ## !@{
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Direct
-                                                                                   ## const
-                                                                                   ## access
-                                                                                   ## to
-                                                                                   ## the
-                                                                                   ## item
-                                                                                   ##
-                                                                                   ## !@name
-                                                                                   ## DataMap-like
-                                                                                   ## interface
-                                                                                   ##
-                                                                                   ## !@{
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Returns
-                                                                                   ## number
-                                                                                   ## of
-                                                                                   ## items
-                                                                                   ## in
-                                                                                   ## the
-                                                                                   ## array
-                                                                                   ##
-                                                                                   ## Iterator
-                                                                                   ## interface
-                                                                                   ##
-                                                                                   ## *
-                                                                                   ##
-                                                                                   ## Implementation
-                                                                                   ## of
-                                                                                   ## type-specific
-                                                                                   ## const
-                                                                                   ## Iterator
-                                                                                   ## class
-                                                                                   ##
-                                                                                   ##
-                                                                                   ## Implementation
-                                                                                   ## of
-                                                                                   ## virtual
-                                                                                   ## methods
-                                                                                   ## providing
-                                                                                   ## type-specific
-                                                                                   ## behaviour
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Create
-                                                                                   ## new
-                                                                                   ## item
-                                                                                   ## at
-                                                                                   ## the
-                                                                                   ## specified
-                                                                                   ## address
-                                                                                   ## with
-                                                                                   ## default
-                                                                                   ## constructor
-                                                                                   ##
-                                                                                   ## virtual
-                                                                                   ## void
-                                                                                   ## createItem
-                                                                                   ## (Standard_Address
-                                                                                   ## theAddress)
-                                                                                   ##
-                                                                                   ## {
-                                                                                   ##
-                                                                                   ## new
-                                                                                   ## (theAddress)
-                                                                                   ## TheItemType;
-                                                                                   ##
-                                                                                   ## }
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## Create
-                                                                                   ## new
-                                                                                   ## item
-                                                                                   ## at
-                                                                                   ## the
-                                                                                   ## specified
-                                                                                   ## address
-                                                                                   ## with
-                                                                                   ## copy
-                                                                                   ## constructor
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## from
-                                                                                   ## existing
-                                                                                   ## item
 
 
 proc newNCollectionSparseArray*[TheItemType](theIncrement: csize_t): NCollectionSparseArray[
@@ -194,10 +88,6 @@ proc isBound*[TheItemType](this: NCollectionSparseArray[TheItemType];
 proc unBind*[TheItemType](this: var NCollectionSparseArray[TheItemType];
                          theIndex: csize_t): bool {.cdecl, importcpp: "UnBind",
     header: "NCollection_SparseArray.hxx".}
-type
-  NCollectionSparseArrayConstIterator*[TheItemType] {.
-      importcpp: "NCollection_SparseArray<\'0>::ConstIterator",
-      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayBaseIterator ## ! Empty constructor - for later Init
 
 
 proc newNCollectionSparseArrayConstIterator*[TheItemType](): NCollectionSparseArrayConstIterator[
@@ -218,17 +108,6 @@ proc value*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType])
 #    noSideEffect, cdecl, importcpp: "#(@)", header: "NCollection_SparseArray.hxx".}
 proc key*[TheItemType](this: NCollectionSparseArrayConstIterator[TheItemType]): csize_t {.
     noSideEffect, cdecl, importcpp: "Key", header: "NCollection_SparseArray.hxx".}
-type
-  NCollectionSparseArrayIterator*[TheItemType] {.
-      importcpp: "NCollection_SparseArray<\'0>::Iterator",
-      header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayConstIterator ##
-                                                                                               ## !
-                                                                                               ## Empty
-                                                                                               ## constructor
-                                                                                               ## -
-                                                                                               ## for
-                                                                                               ## later
-                                                                                               ## Init
 
 
 proc newNCollectionSparseArrayIterator*[TheItemType](): NCollectionSparseArrayIterator[

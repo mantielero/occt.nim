@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_Transient"
-type
-  TransferDataInfo* {.importcpp: "Transfer_DataInfo",
-                     header: "Transfer_DataInfo.hxx", bycopy.} = object ## ! Returns the Type attached to an object
-                                                                   ## ! Here, the Dynamic Type of a Transient. Null Type if unknown
 
 
 proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.cdecl,

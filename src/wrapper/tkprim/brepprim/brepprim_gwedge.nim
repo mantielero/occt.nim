@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1991-09-18
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -26,9 +28,6 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Lin"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
-type
-  BRepPrimGWedge* {.importcpp: "BRepPrim_GWedge", header: "BRepPrim_GWedge.hxx",
-                   bycopy.} = object of RootObj ## ! Default constructor
 
 
 proc newBRepPrimGWedge*(): BRepPrimGWedge {.cdecl, constructor,

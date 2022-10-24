@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of TopOpeBRepBuild_LoopSet"
 discard "forward decl of TopOpeBRepBuild_LoopClassifier"
-type
-  TopOpeBRepBuildArea3dBuilder* {.importcpp: "TopOpeBRepBuild_Area3dBuilder",
-                                 header: "TopOpeBRepBuild_Area3dBuilder.hxx",
-                                 bycopy.} = object of TopOpeBRepBuildAreaBuilder
 
 
 proc newTopOpeBRepBuildArea3dBuilder*(): TopOpeBRepBuildArea3dBuilder {.cdecl,

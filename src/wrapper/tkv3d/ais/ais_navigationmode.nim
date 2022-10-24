@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,14 +15,9 @@
 
 ## ! Camera navigation mode.
 
-type
-  AIS_NavigationMode* {.size: sizeof(cint), importcpp: "AIS_NavigationMode",
-                       header: "AIS_NavigationMode.hxx".} = enum
-    aIS_NavigationModeOrbit,  ## !< orbit rotation
-    aIS_NavigationModeFirstPersonFlight, ## !< flight rotation (first person)
-    aIS_NavigationModeFirstPersonWalk ## !< walking mode (first person)
 
 
 const
   AIS_NavigationModeLOWER* = 0
   AIS_NavigationModeUPPER* = aIS_NavigationModeFirstPersonWalk
+

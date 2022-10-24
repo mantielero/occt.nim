@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,47 +25,8 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Line"
-type
-  HandleGeomLine* = Handle[GeomLine]
 
-## ! Describes an infinite line.
-## ! A line is defined and positioned in space with an axis
-## ! (gp_Ax1 object) which gives it an origin and a unit vector.
-## ! The Geom_Line line is parameterized:
-## ! P (U) = O + U*Dir, where:
-## ! - P is the point of parameter U,
-## ! - O is the origin and Dir the unit vector of its positioning axis.
-## ! The parameter range is ] -infinite, +infinite [.
-## ! The orientation of the line is given by the unit vector
-## ! of its positioning axis.
 
-type
-  GeomLine* {.importcpp: "Geom_Line", header: "Geom_Line.hxx", bycopy.} = object of GeomCurve ##
-                                                                                    ## !
-                                                                                    ## Creates
-                                                                                    ## a
-                                                                                    ## line
-                                                                                    ## located
-                                                                                    ## in
-                                                                                    ## 3D
-                                                                                    ## space
-                                                                                    ## with
-                                                                                    ## the
-                                                                                    ## axis
-                                                                                    ## placement
-                                                                                    ## A1.
-                                                                                    ##
-                                                                                    ## !
-                                                                                    ## The
-                                                                                    ## Location
-                                                                                    ## of
-                                                                                    ## A1
-                                                                                    ## is
-                                                                                    ## the
-                                                                                    ## origin
-                                                                                    ## of
-                                                                                    ## the
-                                                                                    ## line.
 
 
 proc newGeomLine*(a1: Ax1Obj): GeomLine {.cdecl, constructor, importcpp: "Geom_Line(@)",

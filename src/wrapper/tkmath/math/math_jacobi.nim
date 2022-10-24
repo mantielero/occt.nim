@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,48 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Matrix"
-type
-  MathJacobi* {.importcpp: "math_Jacobi", header: "math_Jacobi.hxx", bycopy.} = object ## !
-                                                                               ## Given a
-                                                                               ## Real n X n
-                                                                               ## matrix
-                                                                               ## A,
-                                                                               ## this
-                                                                               ## constructor
-                                                                               ## computes
-                                                                               ## all
-                                                                               ## its
-                                                                               ## !
-                                                                               ## eigenvalues
-                                                                               ## and
-                                                                               ## eigenvectors
-                                                                               ## using
-                                                                               ## the
-                                                                               ## Jacobi
-                                                                               ## method.
-                                                                               ## !
-                                                                               ## The
-                                                                               ## exception
-                                                                               ## NotSquare
-                                                                               ## is
-                                                                               ## raised
-                                                                               ## if
-                                                                               ## the
-                                                                               ## matrix
-                                                                               ## is
-                                                                               ## not
-                                                                               ## square.
-                                                                               ## !
-                                                                               ## No
-                                                                               ## verification
-                                                                               ## that
-                                                                               ## the
-                                                                               ## matrix A
-                                                                               ## is
-                                                                               ## really
-                                                                               ## symmetric
-                                                                               ## is
-                                                                               ## done.
 
 
 proc newMathJacobi*(a: MathMatrix): MathJacobi {.cdecl, constructor,

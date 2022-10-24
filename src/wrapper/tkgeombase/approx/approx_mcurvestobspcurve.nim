@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1994-02-21
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of AppParCurves_MultiCurve"
 discard "forward decl of AppParCurves_MultiBSpCurve"
-type
-  ApproxMCurvesToBSpCurve* {.importcpp: "Approx_MCurvesToBSpCurve",
-                            header: "Approx_MCurvesToBSpCurve.hxx", bycopy.} = object
 
 
 proc newApproxMCurvesToBSpCurve*(): ApproxMCurvesToBSpCurve {.cdecl, constructor,

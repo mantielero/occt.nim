@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,17 +20,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnknownEntities"
-type
-  HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
 
-## ! A SelectUnknownEntities sorts the Entities which are qualified
-## ! as "Unknown" (their Type has not been recognized)
 
-type
-  IFSelectSelectUnknownEntities* {.importcpp: "IFSelect_SelectUnknownEntities",
-                                  header: "IFSelect_SelectUnknownEntities.hxx",
-                                  bycopy.} = object of IFSelectSelectExtract ## ! Creates a
-                                                                        ## SelectUnknownEntities
 
 
 proc newIFSelectSelectUnknownEntities*(): IFSelectSelectUnknownEntities {.cdecl,

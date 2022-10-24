@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-05-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,50 +18,8 @@
 
 discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_AppliedModifiers"
-type
-  HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
 
-## ! This class allows to memorize and access to the modifiers
-## ! which are to be applied to a file. To each modifier, is bound
-## ! a list of integers (optionnal) : if this list is absent, the
-## ! modifier applies to all the file. Else, it applies to the
-## ! entities designated by these numbers in the produced file.
-## !
-## ! To record a modifier, and a possible list of entity numbers
-## ! to be applied on :
-## ! AddModif (amodifier);
-## ! loop on  AddNum (anumber);
-## !
-## ! To query it,  Count gives the count of recorded modifiers,
-## ! then for each one :
-## ! Item (numodif, amodifier, entcount);
-## ! IsForAll ()  -> can be called, if True, applies on the whole file
-## !
-## ! for (i = 1; i <= entcount; i ++)
-## ! nument = ItemNum (i);  -> return an entity number
 
-type
-  IFSelectAppliedModifiers* {.importcpp: "IFSelect_AppliedModifiers",
-                             header: "IFSelect_AppliedModifiers.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                      ## !
-                                                                                                      ## Creates
-                                                                                                      ## an
-                                                                                                      ## AppliedModifiers,
-                                                                                                      ## ready
-                                                                                                      ## to
-                                                                                                      ## record
-                                                                                                      ## up
-                                                                                                      ## to
-                                                                                                      ## <nbmax>
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## modifiers,
-                                                                                                      ## on
-                                                                                                      ## a
-                                                                                                      ## model
-                                                                                                      ## of
-                                                                                                      ## <nbent>
-                                                                                                      ## entities
 
 
 proc newIFSelectAppliedModifiers*(nbmax: cint; nbent: cint): IFSelectAppliedModifiers {.

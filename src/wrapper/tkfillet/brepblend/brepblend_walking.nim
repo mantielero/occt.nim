@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,9 +36,6 @@ discard "forward decl of Blend_FuncInv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of IntSurf_Transition"
-type
-  BRepBlendWalking* {.importcpp: "BRepBlend_Walking",
-                     header: "BRepBlend_Walking.hxx", bycopy.} = object
 
 
 proc newBRepBlendWalking*(surf1: Handle[Adaptor3dHSurface];
@@ -157,3 +156,4 @@ proc line*(this: BRepBlendWalking): Handle[BRepBlendLine] {.noSideEffect, cdecl,
 ##  #undef TheLine_hxx
 ##  #undef Blend_Walking
 ##  #undef Blend_Walking_hxx
+

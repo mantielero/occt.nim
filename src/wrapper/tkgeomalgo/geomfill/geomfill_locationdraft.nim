@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-04-21
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -25,10 +27,6 @@ discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_LocationDraft"
-type
-  HandleGeomFillLocationDraft* = Handle[GeomFillLocationDraft]
-  GeomFillLocationDraft* {.importcpp: "GeomFill_LocationDraft",
-                          header: "GeomFill_LocationDraft.hxx", bycopy.} = object of GeomFillLocationLaw
 
 
 proc newGeomFillLocationDraft*(direction: DirObj; angle: cfloat): GeomFillLocationDraft {.

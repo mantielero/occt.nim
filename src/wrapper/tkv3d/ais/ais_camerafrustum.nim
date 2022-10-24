@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2018-12-12
 ##  Created by: Olga SURYANINOVA
 ##  Copyright (c) 2018 OPEN CASCADE SAS
@@ -15,49 +17,7 @@
 
 discard "forward decl of Graphic3d_ArrayOfSegments"
 discard "forward decl of Graphic3d_ArrayOfTriangles"
-type
-  AIS_CameraFrustum* {.importcpp: "AIS_CameraFrustum",
-                      header: "AIS_CameraFrustum.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                           ## !
-                                                                                           ## Selection
-                                                                                           ## modes
-                                                                                           ## supported
-                                                                                           ## by
-                                                                                           ## this
-                                                                                           ## object
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Constructs
-                                                                                           ## camera
-                                                                                           ## frustum
-                                                                                           ## with
-                                                                                           ## default
-                                                                                           ## configuration.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Computes
-                                                                                           ## presentation
-                                                                                           ## of
-                                                                                           ## camera
-                                                                                           ## frustum.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Fills
-                                                                                           ## triangles
-                                                                                           ## primitive
-                                                                                           ## array
-                                                                                           ## for
-                                                                                           ## camera
-                                                                                           ## frustum
-                                                                                           ## filling.
-    ## !< Array of points
-    ## !< Triangles for camera frustum filling
-    ## !< Segments for camera frustum borders
 
-  AIS_CameraFrustumSelectionMode* {.size: sizeof(cint), importcpp: "AIS_CameraFrustum::SelectionMode",
-                                   header: "AIS_CameraFrustum.hxx".} = enum
-    SelectionModeEdges = 0,     ## !< detect by edges (default)
-    SelectionModeVolume = 1     ## !< detect by volume
 
 
 proc newAIS_CameraFrustum*(): AIS_CameraFrustum {.cdecl, constructor,

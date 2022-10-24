@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-12-25
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,22 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_CStructure"
-type
-  Graphic3dBvhCStructureSet* {.importcpp: "Graphic3d_BvhCStructureSet",
-                              header: "Graphic3d_BvhCStructureSet.hxx", bycopy.} = object of BVH_PrimitiveSet3d ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## primitive
-                                                                                                         ## set
-                                                                                                         ## for
-                                                                                                         ## BVH
-                                                                                                         ## clipping.
-    ## !< Indexed map of structures.
 
 
-## using statement
 
 proc newGraphic3dBvhCStructureSet*(): Graphic3dBvhCStructureSet {.cdecl,
     constructor, importcpp: "Graphic3d_BvhCStructureSet(@)", header: "Graphic3d_BvhCStructureSet.hxx".}

@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -18,13 +20,6 @@
 ## !
 ## ! This class provides interface similar to WinAPI Event objects.
 
-type
-  StandardCondition* {.importcpp: "Standard_Condition",
-                      header: "Standard_Condition.hxx", bycopy.} = object ## ! Default
-                                                                     ## constructor.
-                                                                     ## ! @param theIsSet Initial flag state
-                                                                     ## ! This method should not be called
-                                                                     ## (prohibited).
 
 
 proc constructStandardCondition*(theIsSet: bool): StandardCondition {.cdecl,

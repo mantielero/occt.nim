@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1992-09-11
 ##  Created by: Mireille MERCIEN
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,52 +18,6 @@
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_OutOfRange"
-type
-  TCollectionBaseSequence* {.importcpp: "TCollection_BaseSequence",
-                            header: "TCollection_BaseSequence.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## returns
-                                                                                 ## True
-                                                                                 ## if
-                                                                                 ## the
-                                                                                 ## sequence
-                                                                                 ## <me>
-                                                                                 ## contains
-                                                                                 ## no
-                                                                                 ## elements.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Creation
-                                                                                 ## of
-                                                                                 ## an
-                                                                                 ## empty
-                                                                                 ## sequence.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Creation
-                                                                                 ## by
-                                                                                 ## copy
-                                                                                 ## of
-                                                                                 ## existing
-                                                                                 ## Sequence.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Warning:
-                                                                                 ## This
-                                                                                 ## constructor
-                                                                                 ## prints
-                                                                                 ## a
-                                                                                 ## warning
-                                                                                 ## message.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## We
-                                                                                 ## recommand
-                                                                                 ## to
-                                                                                 ## use
-                                                                                 ## the
-                                                                                 ## operator
-                                                                                 ## =.
 
 
 proc isEmpty*(this: TCollectionBaseSequence): bool {.noSideEffect, cdecl,

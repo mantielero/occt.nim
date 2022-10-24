@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-16
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom2d_Curve"
-type
-  ChFiDS_FaceInterference* {.importcpp: "ChFiDS_FaceInterference",
-                            header: "ChFiDS_FaceInterference.hxx", bycopy.} = object
 
 
 proc newChFiDS_FaceInterference*(): ChFiDS_FaceInterference {.cdecl, constructor,

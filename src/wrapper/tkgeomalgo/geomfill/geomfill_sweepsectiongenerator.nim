@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-02-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,10 +21,6 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Trsf"
-type
-  GeomFillSweepSectionGenerator* {.importcpp: "GeomFill_SweepSectionGenerator",
-                                  header: "GeomFill_SweepSectionGenerator.hxx",
-                                  bycopy.} = object
 
 
 proc newGeomFillSweepSectionGenerator*(): GeomFillSweepSectionGenerator {.cdecl,

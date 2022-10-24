@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,25 +25,6 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of IFSelect_PacketList"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of TCollection_AsciiString"
-type
-  IFSelectShareOutResult* {.importcpp: "IFSelect_ShareOutResult",
-                           header: "IFSelect_ShareOutResult.hxx", bycopy.} = object ## !
-                                                                               ## Creates a
-                                                                               ## ShareOutResult
-                                                                               ## from a
-                                                                               ## ShareOut,
-                                                                               ## to
-                                                                               ## work
-                                                                               ## on a
-                                                                               ## Model
-                                                                               ## !
-                                                                               ## (without
-                                                                               ## any
-                                                                               ## more
-                                                                               ## precision;
-                                                                               ## uses
-                                                                               ## Active
-                                                                               ## Protocol)
 
 
 proc newIFSelectShareOutResult*(sho: Handle[IFSelectShareOut];

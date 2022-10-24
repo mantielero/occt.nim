@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -19,29 +21,8 @@ discard "forward decl of Interface_HGraph"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Transfer_TransientProcess"
-type
-  HandleTransferTransientProcess* = Handle[TransferTransientProcess]
 
-## ! Adds specific features to the generic definition :
-## ! TransientProcess is intended to work from an InterfaceModel
-## ! to a set of application objects.
-## !
-## ! Hence, some informations about starting entities can be gotten
-## ! from the model : for Trace, CheckList, Integrity Status
 
-type
-  TransferTransientProcess* {.importcpp: "Transfer_TransientProcess",
-                             header: "Transfer_TransientProcess.hxx", bycopy.} = object of TransferProcessForTransient ##
-                                                                                                                ## !
-                                                                                                                ## Sets
-                                                                                                                ## TransientProcess
-                                                                                                                ## at
-                                                                                                                ## initial
-                                                                                                                ## state,
-                                                                                                                ## with
-                                                                                                                ## an
-                                                                                                                ## initial
-                                                                                                                ## size
 
 
 proc newTransferTransientProcess*(nb: cint = 10000): TransferTransientProcess {.cdecl,

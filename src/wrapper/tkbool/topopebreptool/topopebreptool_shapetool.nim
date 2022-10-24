@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1994-02-09
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -23,27 +25,6 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of BRepAdaptor_Surface"
 discard "forward decl of BRepAdaptor_Curve"
 discard "forward decl of gp_Dir"
-type
-  TopOpeBRepToolShapeTool* {.importcpp: "TopOpeBRepTool_ShapeTool",
-                            header: "TopOpeBRepTool_ShapeTool.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## the
-                                                                                 ## tolerance
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## shape
-                                                                                 ## <S>.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## If
-                                                                                 ## the
-                                                                                 ## shape
-                                                                                 ## <S>
-                                                                                 ## is
-                                                                                 ## Null,
-                                                                                 ## returns
-                                                                                 ## 0.
 
 
 proc tolerance*(s: TopoDS_Shape): cfloat {.cdecl, importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",

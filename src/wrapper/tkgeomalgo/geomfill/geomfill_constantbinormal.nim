@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-09
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -22,14 +24,8 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_ConstantBiNormal"
-type
-  HandleGeomFillConstantBiNormal* = Handle[GeomFillConstantBiNormal]
 
-## ! Defined an Trihedron Law  where the BiNormal, is fixed
 
-type
-  GeomFillConstantBiNormal* {.importcpp: "GeomFill_ConstantBiNormal",
-                             header: "GeomFill_ConstantBiNormal.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillConstantBiNormal*(biNormal: DirObj): GeomFillConstantBiNormal {.cdecl,

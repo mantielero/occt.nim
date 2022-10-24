@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -37,103 +39,6 @@ discard "forward decl of TopOpeBRepTool_makeTransition"
 discard "forward decl of TopOpeBRepTool_mkTondgE"
 discard "forward decl of TopOpeBRepTool_PurgeInternalEdges"
 discard "forward decl of TopOpeBRepTool_FuseEdges"
-type
-  TopOpeBRepTool* {.importcpp: "TopOpeBRepTool", header: "TopOpeBRepTool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Fuse
-                                                                                         ## edges
-                                                                                         ## (in
-                                                                                         ## a
-                                                                                         ## wire)
-                                                                                         ## of
-                                                                                         ## a
-                                                                                         ## shape
-                                                                                         ## where
-                                                                                         ## we
-                                                                                         ## have
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## useless
-                                                                                         ## vertex.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## In
-                                                                                         ## case
-                                                                                         ## face
-                                                                                         ## <FF>
-                                                                                         ## is
-                                                                                         ## built
-                                                                                         ## on
-                                                                                         ## UV-non-connexed
-                                                                                         ## wires
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## (with
-                                                                                         ## the
-                                                                                         ## two
-                                                                                         ## closing
-                                                                                         ## edges
-                                                                                         ## FORWARD
-                                                                                         ## and
-                                                                                         ## REVERSED,
-                                                                                         ## in
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## spite
-                                                                                         ## of
-                                                                                         ## one
-                                                                                         ## only),
-                                                                                         ## we
-                                                                                         ## find
-                                                                                         ## out
-                                                                                         ## the
-                                                                                         ## faulty
-                                                                                         ## edge,
-                                                                                         ## add
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## faulty
-                                                                                         ## shapes
-                                                                                         ## (edge,wire,face)
-                                                                                         ## to
-                                                                                         ## <MshNOK>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## <FF>
-                                                                                         ## is
-                                                                                         ## a
-                                                                                         ## face
-                                                                                         ## descendant
-                                                                                         ## of
-                                                                                         ## <F>.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## <MWisOld>(wire)
-                                                                                         ## =
-                                                                                         ## 1
-                                                                                         ## if
-                                                                                         ## wire
-                                                                                         ## is
-                                                                                         ## wire
-                                                                                         ## of
-                                                                                         ## <F>
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## 0
-                                                                                         ## wire
-                                                                                         ## results
-                                                                                         ## from
-                                                                                         ## <F>'s
-                                                                                         ## wire
-                                                                                         ## splitted.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## returns
-                                                                                         ## false
-                                                                                         ## if
-                                                                                         ## purge
-                                                                                         ## fails
 
 
 proc purgeClosingEdges*(f: TopoDS_Face; ff: TopoDS_Face;

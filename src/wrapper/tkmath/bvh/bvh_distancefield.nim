@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2014-09-06
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -14,48 +16,7 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of BVH_ParallelDistanceFieldBuilder"
-type
-  BVH_DistanceField*[T; N: static[cint]] {.importcpp: "BVH_DistanceField<\'0,\'1>",
-                                        header: "BVH_DistanceField.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## empty
-                                                                                      ## 3D
-                                                                                      ## distance
-                                                                                      ## field.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## packed
-                                                                                      ## voxel
-                                                                                      ## data.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Performs
-                                                                                      ## building
-                                                                                      ## of
-                                                                                      ## distance
-                                                                                      ## field
-                                                                                      ## for
-                                                                                      ## the
-                                                                                      ## given
-                                                                                      ## Z
-                                                                                      ## slices.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Array
-                                                                                      ## of
-                                                                                      ## voxels.
-    ## ! Size of single voxel.
-    ## ! Minimum corner of voxel grid.
-    ## ! Maximum corner of voxel grid.
-    ## ! Size of voxel grid in X dimension.
-    ## ! Size of voxel grid in Y dimension.
-    ## ! Size of voxel grid in Z dimension.
-    ## ! Size of voxel grid in maximum dimension.
-    ## ! Enables/disables signing of distance field.
 
-  BVH_DistanceFieldBVH_VecNt*[T; N] = object
 
 proc newBVH_DistanceField*[T; N: static[cint]](theMaximumSize: cint;
     theComputeSign: bool): BVH_DistanceField[T, N] {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-22
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,36 +25,6 @@
 ## ! The default values (1.0, 0.0) correspond to a minimum of attenuation.
 ## ! The concentration factor determines the dispersion of the light on the surface, the default value (1.0) corresponds to a minimum of dispersion.
 
-type
-  V3dSpotLight* {.importcpp: "V3d_SpotLight", header: "V3d_SpotLight.hxx", bycopy.} = object of V3dPositionLight ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## light
-                                                                                                       ## source
-                                                                                                       ## of
-                                                                                                       ## the
-                                                                                                       ## Spot
-                                                                                                       ## type
-                                                                                                       ## in
-                                                                                                       ## the
-                                                                                                       ## viewer
-                                                                                                       ## with
-                                                                                                       ## default
-                                                                                                       ## attenuation
-                                                                                                       ## factors
-                                                                                                       ## (1.0,
-                                                                                                       ## 0.0),
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## concentration
-                                                                                                       ## factor
-                                                                                                       ## 1.0
-                                                                                                       ## and
-                                                                                                       ## spot
-                                                                                                       ## angle
-                                                                                                       ## 30
-                                                                                                       ## degrees.
 
 
 proc newV3dSpotLight*(thePos: PntObj;
@@ -70,5 +42,4 @@ proc setDirection*(this: var V3dSpotLight; theOrientation: V3dTypeOfOrientation)
 
 ## using statement
 
-type
-  HandleV3dSpotLight* = Handle[V3dSpotLight]
+

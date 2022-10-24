@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,8 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
-type
-  BlendPoint* {.importcpp: "Blend_Point", header: "Blend_Point.hxx", bycopy.} = object
 
 
 proc newBlendPoint*(): BlendPoint {.cdecl, constructor, importcpp: "Blend_Point(@)",

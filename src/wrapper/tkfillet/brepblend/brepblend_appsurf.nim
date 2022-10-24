@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Blend_AppFunction"
 discard "forward decl of BRepBlend_Line"
-type
-  BRepBlendAppSurf* {.importcpp: "BRepBlend_AppSurf",
-                     header: "BRepBlend_AppSurf.hxx", bycopy.} = object of AppBlendApprox
 
 
 proc newBRepBlendAppSurf*(): BRepBlendAppSurf {.cdecl, constructor,
@@ -118,3 +117,4 @@ proc tolCurveOnSurf*(this: BRepBlendAppSurf; index: cint): cfloat {.noSideEffect
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+

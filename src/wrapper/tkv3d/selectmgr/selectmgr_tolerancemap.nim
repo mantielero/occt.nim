@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,13 +17,6 @@
 ## ! Each time the selection set is deactivated, maximum tolerance value will be recalculated.
 ## ! If a user enables custom precision using StdSelect_ViewerSelector3d::SetPixelTolerance, it will be applied to all sensitive entities without any checks.
 
-type
-  SelectMgrToleranceMap* {.importcpp: "SelectMgr_ToleranceMap",
-                          header: "SelectMgr_ToleranceMap.hxx", bycopy.} = object ## !
-                                                                             ## Sets
-                                                                             ## tolerance
-                                                                             ## values to
-                                                                             ## -1.0
 
 
 proc newSelectMgrToleranceMap*(): SelectMgrToleranceMap {.cdecl, constructor,

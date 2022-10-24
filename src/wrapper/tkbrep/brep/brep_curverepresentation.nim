@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-07-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,20 +26,8 @@ discard "forward decl of Poly_Polygon3D"
 discard "forward decl of Poly_Polygon2D"
 discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of BRep_CurveRepresentation"
-type
-  HandleBRepCurveRepresentation* = Handle[BRepCurveRepresentation]
 
-## ! Root class for the curve representations. Contains
-## ! a location.
 
-type
-  BRepCurveRepresentation* {.importcpp: "BRep_CurveRepresentation",
-                            header: "BRep_CurveRepresentation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## A
-                                                                                                    ## 3D
-                                                                                                    ## curve
-                                                                                                    ## representation.
 
 
 proc isCurve3D*(this: BRepCurveRepresentation): bool {.noSideEffect, cdecl,

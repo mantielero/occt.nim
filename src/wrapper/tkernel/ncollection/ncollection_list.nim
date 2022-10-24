@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-17
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -19,38 +21,7 @@
 ##                Inherits BaseList, adding the data item to each node.
 ##
 
-type
-  TheValueType* = object
-  NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
-                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
-                                                                                                   ## !
-                                                                                                   ## STL-compliant
-                                                                                                   ## typedef
-                                                                                                   ## for
-                                                                                                   ## value
-                                                                                                   ## type
-                                                                                                   ##
-                                                                                                   ## ----------
-                                                                                                   ## PUBLIC
-                                                                                                   ## METHODS
-                                                                                                   ## ------------
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor.
-                                                                                                   ##
-                                                                                                   ## -----------
-                                                                                                   ## PRIVATE
-                                                                                                   ## METHODS
-                                                                                                   ## -----------
 
-  NCollectionListvalueType*[TheItemType] = TheItemType
-  NCollectionListListNode* = NCollectionTListNode[TheItemType]
-  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
-#  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
-#      NCollectionListIterator, TheItemType, False]
-  NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionList[TheItemType]): NCollectionListiterator {.
     noSideEffect, cdecl, importcpp: "begin", header: "NCollection_List.hxx".}

@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1995-03-15
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,15 +21,8 @@ discard "forward decl of Geom_Surface"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnClosedSurface"
-type
-  HandleBRepPolygonOnClosedSurface* = Handle[BRepPolygonOnClosedSurface]
 
-## ! Representation by two 2d polygons in the parametric
-## ! space of a surface.
 
-type
-  BRepPolygonOnClosedSurface* {.importcpp: "BRep_PolygonOnClosedSurface",
-                               header: "BRep_PolygonOnClosedSurface.hxx", bycopy.} = object of BRepPolygonOnSurface
 
 
 proc newBRepPolygonOnClosedSurface*(p1: Handle[PolyPolygon2D];

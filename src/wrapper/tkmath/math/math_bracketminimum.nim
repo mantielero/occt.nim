@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,12 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
-type
-  MathBracketMinimum* {.importcpp: "math_BracketMinimum",
-                       header: "math_BracketMinimum.hxx", bycopy.} = object ## !
-                                                                       ## Constructor preparing A and B
-                                                                       ## parameters only. It does not perform the job.
-                                                                       ## ! Limit the given value to become within the range [myLeft, myRight].
 
 
 proc newMathBracketMinimum*(a: cfloat; b: cfloat): MathBracketMinimum {.cdecl,

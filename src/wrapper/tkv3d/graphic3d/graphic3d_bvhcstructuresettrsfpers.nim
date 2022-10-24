@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2015-06-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -15,20 +17,6 @@
 
 discard "forward decl of Graphic3d_Camera"
 discard "forward decl of Graphic3d_CStructure"
-type
-  Graphic3dBvhCStructureSetTrsfPers* {.importcpp: "Graphic3d_BvhCStructureSetTrsfPers", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx",
-                                      bycopy.} = object of BVH_Set[cfloat, 3] ## ! Creates an empty
-                                                                        ## primitive set for BVH
-                                                                        ## clipping.
-                                                                        ## ! Marks internal object state as
-                                                                        ## outdated.
-    ## ! Constructed bottom-level BVH.
-    ## ! Builder for bottom-level BVH.
-    ## ! Indexed map of structures.
-    ## ! Cached set of bounding boxes precomputed for transformation persistent selectable objects.
-    ## ! Cache exists only during computation of BVH Tree. Bounding boxes are world view projection
-    ## ! dependent and should by synchronized.
-    ## ! State of world view projection used for generation of transformation persistence bounding boxes.
 
 
 proc newGraphic3dBvhCStructureSetTrsfPers*(

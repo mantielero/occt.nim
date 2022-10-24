@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,13 +18,8 @@
 
 ## ! Describes type of view background.
 
-type
-  Graphic3dTypeOfBackground* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_TypeOfBackground",
-                              header: "Graphic3d_TypeOfBackground.hxx".} = enum
-    graphic3dTOB_NONE = -1, graphic3dTOB_GRADIENT, graphic3dTOB_TEXTURE,
-    graphic3dTOB_CUBEMAP
 
 
 const
   Graphic3dTypeOfBackgroundNB* = graphic3dTOB_CUBEMAP.int + 1
+

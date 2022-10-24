@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TransferHSequenceOfFinder* {.importcpp: "Transfer_HSequenceOfFinder",
-                              header: "Transfer_HSequenceOfFinder.hxx", bycopy.} = object of TransferSequenceOfFinder
 
 
 proc newTransferHSequenceOfFinder*(): TransferHSequenceOfFinder {.cdecl,
@@ -32,5 +31,4 @@ proc append*(this: var TransferHSequenceOfFinder;
     header: "Transfer_HSequenceOfFinder.hxx".}
 proc changeSequence*(this: var TransferHSequenceOfFinder): var TransferSequenceOfFinder {.
     cdecl, importcpp: "ChangeSequence", header: "Transfer_HSequenceOfFinder.hxx".}
-type
-  HandleTransferHSequenceOfFinder* = Handle[TransferHSequenceOfFinder]
+

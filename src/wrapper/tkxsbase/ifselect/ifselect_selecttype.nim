@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,23 +18,8 @@
 
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectType"
-type
-  HandleIFSelectSelectType* = Handle[IFSelectSelectType]
 
-## ! A SelectType keeps or rejects Entities of which the Type
-## ! is Kind of a given Cdl Type
 
-type
-  IFSelectSelectType* {.importcpp: "IFSelect_SelectType",
-                       header: "IFSelect_SelectType.hxx", bycopy.} = object of IFSelectSelectAnyType ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## SelectType.
-                                                                                              ## Default
-                                                                                              ## is
-                                                                                              ## no
-                                                                                              ## filter
 
 
 proc newIFSelectSelectType*(): IFSelectSelectType {.cdecl, constructor,

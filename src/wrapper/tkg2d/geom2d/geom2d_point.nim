@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,22 +18,8 @@
 
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Geom2d_Point"
-type
-  HandleGeom2dPoint* = Handle[Geom2dPoint]
 
-## ! The abstract class Point describes the common
-## ! behavior of geometric points in 2D space.
-## ! The Geom2d package also provides the concrete
-## ! class Geom2d_CartesianPoint.
 
-type
-  Geom2dPoint* {.importcpp: "Geom2d_Point", header: "Geom2d_Point.hxx", bycopy.} = object of Geom2dGeometry ##
-                                                                                                  ## !
-                                                                                                  ## returns
-                                                                                                  ## the
-                                                                                                  ## Coordinates
-                                                                                                  ## of
-                                                                                                  ## <me>.
 
 
 proc coord*(this: Geom2dPoint; x: var cfloat; y: var cfloat) {.noSideEffect, cdecl,

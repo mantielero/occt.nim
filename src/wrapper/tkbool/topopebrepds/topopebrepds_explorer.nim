@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1999-01-05
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-type
-  TopOpeBRepDS_Explorer* {.importcpp: "TopOpeBRepDS_Explorer",
-                          header: "TopOpeBRepDS_Explorer.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Explorer*(): TopOpeBRepDS_Explorer {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 2009-10-22
 ##  Created by: Mikhail SAZONOV
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -18,55 +20,9 @@
 ##  a pair of integer indices of nodes.
 ##
 
-type
-  PolyMakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj##
-                                                                                        ## !
-                                                                                        ## Orientation
-                                                                                        ## flags
-                                                                                        ## that
-                                                                                        ## can
-                                                                                        ## be
-                                                                                        ## attached
-                                                                                        ## to
-                                                                                        ## a
-                                                                                        ## link
-                                                                                        ##
-                                                                                        ## PUBLIC
-                                                                                        ## METHODS
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Constructor.
-                                                                                        ## If
-                                                                                        ## helper
-                                                                                        ## is
-                                                                                        ## NULL
-                                                                                        ## then
-                                                                                        ## the
-                                                                                        ## algorithm
-                                                                                        ## will
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## probably
-                                                                                        ## return
-                                                                                        ## a
-                                                                                        ## wrong
-                                                                                        ## result
-
-  PolyMakeLoopsLinkFlag* {.size: sizeof(cint),
-                          importcpp: "Poly_MakeLoops::LinkFlag",
-                          header: "Poly_MakeLoops.hxx".} = enum
-    LF_None = 0, LF_Fwd = 1,       ##  forward orientation
-    LF_Rev = 2,                 ##  reversed orientation
-    LF_Both = 3,                ##  both ways oriented
-    LF_Reversed = 4
 
 
-type
-  PolyMakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
-                      header: "Poly_MakeLoops.hxx", bycopy.} = object
-    node1* {.importc: "node1".}: cint
-    node2* {.importc: "node2".}: cint
-    flags* {.importc: "flags".}: cint
+
 
 
 proc newPolyMakeLoopsLink*(): PolyMakeLoopsLink {.cdecl, constructor,
@@ -81,11 +37,6 @@ proc nullify*(this: var PolyMakeLoopsLink) {.cdecl, importcpp: "Nullify",
     header: "Poly_MakeLoops.hxx".}
 proc isNull*(this: PolyMakeLoopsLink): bool {.noSideEffect, cdecl,
     importcpp: "IsNull", header: "Poly_MakeLoops.hxx".}
-type
-  PolyMakeLoopsListOfLink* = NCollectionList[PolyMakeLoopsLink]
-  PolyMakeLoopsLoop* = PolyMakeLoopsListOfLink
-  PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
-                        header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj ## ! returns the links adjacent to the given node
 
 
 proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: cint): PolyMakeLoopsListOfLink {.
@@ -93,9 +44,6 @@ proc getAdjacentLinks*(this: PolyMakeLoopsHelper; theNode: cint): PolyMakeLoopsL
 proc onAddLink*(this: PolyMakeLoopsHelper; a2: cint; a3: PolyMakeLoopsLink) {.
     noSideEffect, cdecl, importcpp: "OnAddLink", header: "Poly_MakeLoops.hxx".}
   ## theLink
-type
-  PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
-                               header: "Poly_MakeLoops.hxx", bycopy.} = object
 
 
 proc newPolyMakeLoopsHeapOfInteger*(theNbPreAllocated: cint = 1): PolyMakeLoopsHeapOfInteger {.
@@ -129,11 +77,6 @@ proc setLinkOrientation*(this: var PolyMakeLoops; theLink: PolyMakeLoopsLink;
     cdecl, importcpp: "SetLinkOrientation", header: "Poly_MakeLoops.hxx".}
 proc findLink*(this: PolyMakeLoops; theLink: PolyMakeLoopsLink): PolyMakeLoopsLink {.
     noSideEffect, cdecl, importcpp: "FindLink", header: "Poly_MakeLoops.hxx".}
-type
-  PolyMakeLoopsResultCode* {.size: sizeof(cint),
-                            importcpp: "Poly_MakeLoops::ResultCode",
-                            header: "Poly_MakeLoops.hxx".} = enum
-    RC_LoopsDone = 1, RC_HangingLinks = 2, RC_Failure = 4
 
 
 proc perform*(this: var PolyMakeLoops): cint {.cdecl, importcpp: "Perform",
@@ -166,14 +109,7 @@ proc isEqual*(theKey1: PolyMakeLoopsLink; theKey2: PolyMakeLoopsLink): bool {.cd
 ##
 
 discard "forward decl of gp_Dir"
-type
-  PolyMakeLoops3D* {.importcpp: "Poly_MakeLoops3D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
 
-  PolyMakeLoops3DHelper* {.importcpp: "Poly_MakeLoops3D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
 
 
 proc getFirstTangent*(this: PolyMakeLoops3DHelper; theLink: Link; theDir: var DirObj): bool {.
@@ -190,15 +126,7 @@ proc newPolyMakeLoops3D*(theHelper: ptr PolyMakeLoops3DHelper;
 ##
 
 discard "forward decl of gp_Dir2d"
-type
-  PolyMakeLoops2D* {.importcpp: "Poly_MakeLoops2D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
-                                                  ## ! this flag says that chooseLeftWay must choose the right way instead
 
-  PolyMakeLoops2DHelper* {.importcpp: "Poly_MakeLoops2D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
 
 
 proc getFirstTangent*(this: PolyMakeLoops2DHelper; theLink: Link; theDir: var Dir2dObj): bool {.

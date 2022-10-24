@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -22,11 +24,6 @@
 ## ! - has an orientation for the underlying wire, in terms
 ## ! of its geometry (as opposed to orientation in relation to other shapes).
 
-type
-  TopoDS_Wire* {.importcpp: "TopoDS_Wire", header: "TopoDS_Wire.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                              ## !
-                                                                                              ## Undefined
-                                                                                              ## Wire.
 
 
 proc newTopoDS_Wire*(): TopoDS_Wire {.cdecl, constructor,

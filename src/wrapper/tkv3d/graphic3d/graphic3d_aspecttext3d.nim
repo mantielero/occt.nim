@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,46 +17,6 @@
 
 ## ! Creates and updates a group of attributes for text primitives.
 
-type
-  Graphic3dAspectText3d* {.importcpp: "Graphic3d_AspectText3d",
-                          header: "Graphic3d_AspectText3d.hxx", bycopy.} = object of Graphic3dAspects ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## context
-                                                                                               ## table
-                                                                                               ## for
-                                                                                               ## text
-                                                                                               ## primitives
-                                                                                               ## defined
-                                                                                               ## with
-                                                                                               ## the
-                                                                                               ## following
-                                                                                               ## default
-                                                                                               ## values:
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Color
-                                                                                               ## :
-                                                                                               ## Quantity_NOC_YELLOW
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Font
-                                                                                               ## :
-                                                                                               ## Font_NOF_ASCII_MONO
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## The
-                                                                                               ## style
-                                                                                               ## :
-                                                                                               ## Aspect_TOST_NORMAL
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## The
-                                                                                               ## display
-                                                                                               ## type
-                                                                                               ## :
-                                                                                               ## Aspect_TODT_NORMAL
 
 
 proc newGraphic3dAspectText3d*(): Graphic3dAspectText3d {.cdecl, constructor,
@@ -97,5 +59,4 @@ proc getTextFontAspect*(this: Graphic3dAspectText3d): FontFontAspect {.noSideEff
 proc dumpJson*(this: Graphic3dAspectText3d; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_AspectText3d.hxx".}
-type
-  HandleGraphic3dAspectText3d* = Handle[Graphic3dAspectText3d]
+

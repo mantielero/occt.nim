@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent Painnot
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,9 +20,6 @@
 ## ! a*Cos(x)*Cos(x) + 2*b*Cos(x)*Sin(x) + c*Cos(x) + d*Sin(x) + e = 0
 ## ! See class math_TrigonometricFunctionRoots
 
-type
-  MathTrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
-                                      bycopy.} = object of MathFunctionWithDerivative
 
 
 proc newMathTrigonometricEquationFunction*(a: cfloat; b: cfloat; c: cfloat; d: cfloat;

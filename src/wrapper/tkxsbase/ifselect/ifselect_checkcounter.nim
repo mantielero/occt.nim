@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,25 +20,8 @@ discard "forward decl of MoniTool_SignText"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_CheckCounter"
-type
-  HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
 
-## ! A CheckCounter allows to see a CheckList (i.e. CheckIterator)
-## ! not per entity, its messages, but per message, the entities
-## ! attached (count and list). Because many messages can be
-## ! repeated if they are due to systematic errors
 
-type
-  IFSelectCheckCounter* {.importcpp: "IFSelect_CheckCounter",
-                         header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelectSignatureList ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## CheckCounter,
-                                                                                                  ## empty
-                                                                                                  ## ready
-                                                                                                  ## to
-                                                                                                  ## work
 
 
 proc newIFSelectCheckCounter*(withlist: bool = false): IFSelectCheckCounter {.cdecl,

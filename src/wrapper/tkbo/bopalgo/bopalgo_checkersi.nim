@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter Kurnev
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -24,9 +26,6 @@
 ## ! in BOPAlgo_PaveFiller::PerformInternal() method, the errors from this method
 ## ! directly will be returned.
 
-type
-  BOPAlgoCheckerSI* {.importcpp: "BOPAlgo_CheckerSI",
-                     header: "BOPAlgo_CheckerSI.hxx", bycopy.} = object of BOPAlgoPaveFiller
 
 
 proc newBOPAlgoCheckerSI*(): BOPAlgoCheckerSI {.cdecl, constructor,

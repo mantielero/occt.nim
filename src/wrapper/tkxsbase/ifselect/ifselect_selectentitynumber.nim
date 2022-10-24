@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,27 +21,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectEntityNumber"
-type
-  HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
 
-## ! A SelectEntityNumber gets in an InterfaceModel (through a
-## ! Graph), the Entity which has a specified Number (its rank of
-## ! adding into the Model) : there can be zero (if none) or one.
-## ! The Number is not directly defined as an Integer, but as a
-## ! Parameter, which can be externally controled
 
-type
-  IFSelectSelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
-                               header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## a
-                                                                                                           ## SelectEntityNumber,
-                                                                                                           ## initially
-                                                                                                           ## with
-                                                                                                           ## no
-                                                                                                           ## specified
-                                                                                                           ## Number
 
 
 proc newIFSelectSelectEntityNumber*(): IFSelectSelectEntityNumber {.cdecl,

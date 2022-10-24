@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_SecHArray1* {.importcpp: "ChFiDS_SecHArray1",
-                      header: "ChFiDS_SecHArray1.hxx", bycopy.} = object of ChFiDS_SecArray1
 
 
 proc newChFiDS_SecHArray1*(theLower: cint; theUpper: cint): ChFiDS_SecHArray1 {.cdecl,

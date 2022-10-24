@@ -1,3 +1,5 @@
+import adaptor2d_types
+
 ##  Created on: 1993-04-15
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,16 +30,6 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
-type
-  Adaptor2dOffsetCurve* {.importcpp: "Adaptor2d_OffsetCurve",
-                         header: "Adaptor2d_OffsetCurve.hxx", bycopy.} = object of Adaptor2dCurve2d ##
-                                                                                             ## !
-                                                                                             ## The
-                                                                                             ## Offset
-                                                                                             ## is
-                                                                                             ## set
-                                                                                             ## to
-                                                                                             ## 0.
 
 
 proc newAdaptor2dOffsetCurve*(): Adaptor2dOffsetCurve {.cdecl, constructor,

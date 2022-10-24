@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2016-02-04
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -15,22 +17,6 @@
 
 ## ! Base class to build 3D surfaces presentation of quadric surfaces.
 
-type
-  Prs3dToolQuadric* {.importcpp: "Prs3d_ToolQuadric",
-                     header: "Prs3d_ToolQuadric.hxx", bycopy.} = object of RootObj ## ! Return number of triangles for presentation with the given params.
-                                                                   ## ! Generate primitives for 3D quadric surface presentation.
-                                                                   ## ! @param theTrsf [in] optional
-                                                                   ## transformation to apply
-                                                                   ## ! @return generated triangulation
-                                                                   ## ! Generate primitives for 3D quadric surface presentation.
-                                                                   ## ! @param theArray [out] generated array of triangles
-                                                                   ## ! @param
-                                                                   ## theTriangulation [out] generated triangulation
-                                                                   ## ! @param theTrsf [in] optional
-                                                                   ## transformation to apply
-                                                                   ## ! Return number of triangles in generated presentation.
-    ## !< number of slices within U parameter
-    ## !< number of stacks within V parameter
 
 
 proc trianglesNb*(theSlicesNb: cint; theStacksNb: cint): cint {.cdecl,

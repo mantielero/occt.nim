@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Jerome LEMONIER
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -25,9 +27,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Circ"
 discard "forward decl of Blend_Point"
-type
-  BRepBlendSurfRstEvolRad* {.importcpp: "BRepBlend_SurfRstEvolRad",
-                            header: "BRepBlend_SurfRstEvolRad.hxx", bycopy.} = object of BlendSurfRstFunction
 
 
 proc newBRepBlendSurfRstEvolRad*(surf: Handle[Adaptor3dHSurface];

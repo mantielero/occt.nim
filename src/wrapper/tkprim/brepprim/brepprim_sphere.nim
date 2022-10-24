@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,11 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax2"
 discard "forward decl of TopoDS_Face"
-type
-  BRepPrimSphere* {.importcpp: "BRepPrim_Sphere", header: "BRepPrim_Sphere.hxx",
-                   bycopy.} = object of BRepPrimRevolution ## ! Creates a Sphere at  origin with  Radius. The axes
-                                                      ## ! of the sphere are the  reference axes. An error is
-                                                      ## ! raised if the radius is < Resolution.
 
 
 proc newBRepPrimSphere*(radius: cfloat): BRepPrimSphere {.cdecl, constructor,

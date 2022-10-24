@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1995-04-25
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -27,9 +29,6 @@ discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of BRepBlend_Line"
 discard "forward decl of ChFiDS_Stripe"
-type
-  ChFi3dFilBuilder* {.importcpp: "ChFi3d_FilBuilder",
-                     header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
 
 
 proc newChFi3dFilBuilder*(s: TopoDS_Shape;

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Wire"
-type
-  TopOpeBRepBuildTools2d* {.importcpp: "TopOpeBRepBuild_Tools2d",
-                           header: "TopOpeBRepBuild_Tools2d.hxx", bycopy.} = object
 
 
 proc makeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.

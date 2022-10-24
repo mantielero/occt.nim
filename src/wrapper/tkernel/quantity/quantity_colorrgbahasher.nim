@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,67 +15,6 @@
 
 ## ! Hasher of Quantity_ColorRGBA.
 
-type
-  QuantityColorRGBAHasher* {.importcpp: "Quantity_ColorRGBAHasher",
-                            header: "Quantity_ColorRGBAHasher.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## hash
-                                                                                 ## code
-                                                                                 ## for
-                                                                                 ## the
-                                                                                 ## given
-                                                                                 ## RGBA
-                                                                                 ## color,
-                                                                                 ## in
-                                                                                 ## the
-                                                                                 ## range
-                                                                                 ## [1,
-                                                                                 ## theUpperBound]
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## @param
-                                                                                 ## theColor
-                                                                                 ## the
-                                                                                 ## RGBA
-                                                                                 ## color
-                                                                                 ## object
-                                                                                 ## which
-                                                                                 ## hash
-                                                                                 ## code
-                                                                                 ## is
-                                                                                 ## to
-                                                                                 ## be
-                                                                                 ## computed
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## @param
-                                                                                 ## theUpperBound
-                                                                                 ## the
-                                                                                 ## upper
-                                                                                 ## bound
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## range
-                                                                                 ## a
-                                                                                 ## computing
-                                                                                 ## hash
-                                                                                 ## code
-                                                                                 ## must
-                                                                                 ## be
-                                                                                 ## within
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## @return
-                                                                                 ## a
-                                                                                 ## computed
-                                                                                 ## hash
-                                                                                 ## code,
-                                                                                 ## in
-                                                                                 ## the
-                                                                                 ## range
-                                                                                 ## [1,
-                                                                                 ## theUpperBound]
 
 
 proc hashCode*(theColor: QuantityColorRGBA; theUpperBound: cint): cint {.cdecl,

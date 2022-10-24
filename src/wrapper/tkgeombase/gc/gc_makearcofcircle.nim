@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  MakeArcOfCircle* {.importcpp: "GC_MakeArcOfCircle",
-                    header: "GC_MakeArcOfCircle.hxx", bycopy.} = object of Root ## ! Make an arc of circle
-                                                                         ## (TrimmedCurve from Geom) from
-                                                                         ## ! a circle between two angles Alpha1 and Alpha2
-                                                                         ## ! given in
-                                                                         ## radiians.
 
 
 proc arcCircle*(circ: CircObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.

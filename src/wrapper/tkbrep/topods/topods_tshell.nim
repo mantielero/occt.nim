@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,18 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TShell"
-type
-  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
 
-## ! A set of faces connected by their edges.
 
-type
-  TopoDS_TShell* {.importcpp: "TopoDS_TShell", header: "TopoDS_TShell.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## an
-                                                                                                     ## empty
-                                                                                                     ## TShell.
 
 
 proc newTopoDS_TShell*(): TopoDS_TShell {.cdecl, constructor,

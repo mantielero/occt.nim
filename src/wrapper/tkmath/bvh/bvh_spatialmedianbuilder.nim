@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,10 +17,6 @@
 
 ## ! Performs building of BVH tree using spatial median split algorithm.
 
-type
-  BVH_SpatialMedianBuilder*[T; N: static[cint]] {.
-      importcpp: "BVH_SpatialMedianBuilder<\'0,\'1>",
-      header: "BVH_SpatialMedianBuilder.hxx", bycopy.} = object
 
 
 proc newBVH_SpatialMedianBuilder*[T; N: static[cint]](

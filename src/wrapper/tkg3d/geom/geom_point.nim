@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,22 +18,8 @@
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Point"
-type
-  HandleGeomPoint* = Handle[GeomPoint]
 
-## ! The abstract class Point describes the common
-## ! behavior of geometric points in 3D space.
-## ! The Geom package also provides the concrete class
-## ! Geom_CartesianPoint.
 
-type
-  GeomPoint* {.importcpp: "Geom_Point", header: "Geom_Point.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                          ## !
-                                                                                          ## returns
-                                                                                          ## the
-                                                                                          ## Coordinates
-                                                                                          ## of
-                                                                                          ## <me>.
 
 
 proc coord*(this: GeomPoint; x: var cfloat; y: var cfloat; z: var cfloat) {.noSideEffect,

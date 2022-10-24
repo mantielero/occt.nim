@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,41 +25,8 @@ discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of IFSelect_Modifier"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ShareOut"
-type
-  HandleIFSelectShareOut* = Handle[IFSelectShareOut]
 
-## ! This class gathers the informations required to produce one or
-## ! several file(s) from the content of an InterfaceModel (passing
-## ! through the creation of intermediate Models).
-## !
-## ! It can correspond to a complete Divide up of a set of Entities
-## ! intended to be exhaustive and to limit duplications. Or to a
-## ! simple Extraction of some Entities, in order to work on them.
-## !
-## ! A ShareOut is composed of a list of Dispatches.
-## ! To Each Dispatch in the ShareOut, is bound an Id. Number
-## ! This Id. Number allows to identify a Display inside the
-## ! ShareOut in a stable way (for instance, to attach file names)
-## !
-## ! ShareOut can be seen as a "passive" description, activated
-## ! through a ShareOutResult, which gives the InterfaceModel on
-## ! which to work, as a unique source. Thus it is easy to change
-## ! it without coherence problems
-## !
-## ! Services about it are provided by the class ShareOutResult
-## ! which is a service class : simulation (list of files and of
-## ! entities per file; "forgotten" entities; duplicated entities),
-## ! exploitation (generation of derivated Models, each of them
-## ! generating an output file)
 
-type
-  IFSelectShareOut* {.importcpp: "IFSelect_ShareOut",
-                     header: "IFSelect_ShareOut.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## empty
-                                                                                      ## ShareOut
 
 
 proc newIFSelectShareOut*(): IFSelectShareOut {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,11 +22,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Blend_Point"
-type
-  BlendFunction* {.importcpp: "Blend_Function", header: "Blend_Function.hxx", bycopy.} = object of BlendAppFunction ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## 4.
 
 
 proc nbVariables*(this: BlendFunction): cint {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHSequenceOfInteger* {.importcpp: "TColStd_HSequenceOfInteger",
-                              header: "TColStd_HSequenceOfInteger.hxx", bycopy.} = object of TColStdSequenceOfInteger
 
 
 proc newTColStdHSequenceOfInteger*(): TColStdHSequenceOfInteger {.cdecl,
@@ -30,5 +29,4 @@ proc append*(this: var TColStdHSequenceOfInteger;
     header: "TColStd_HSequenceOfInteger.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfInteger): var TColStdSequenceOfInteger {.
     cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfInteger.hxx".}
-type
-  HandleTColStdHSequenceOfInteger* = Handle[TColStdHSequenceOfInteger]
+

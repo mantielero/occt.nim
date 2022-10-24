@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,6 @@
 
 ## ! Structure holding touch position - original and current location.
 
-type
-  AspectTouch* {.importcpp: "Aspect_Touch", header: "Aspect_Touch.hxx", bycopy.} = object
-    `from`* {.importc: "From".}: NCollectionVec2[cfloat] ## !< original touch position
-    to* {.importc: "To".}: NCollectionVec2[cfloat] ## !< current  touch position
-    isPreciseDevice* {.importc: "IsPreciseDevice".}: bool ## !< precise device input (e.g. mouse cursor, NOT emulated from touch screen)
-                                                      ## ! Return values delta.
 
 
 proc delta*(this: AspectTouch): NCollectionVec2[cfloat] {.noSideEffect, cdecl,

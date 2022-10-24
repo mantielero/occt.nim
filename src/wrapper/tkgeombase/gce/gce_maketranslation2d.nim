@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,12 +19,6 @@
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Trsf2d"
-type
-  GceMakeTranslation2d* {.importcpp: "gce_MakeTranslation2d",
-                         header: "gce_MakeTranslation2d.hxx", bycopy.} = object ## !
-                                                                           ## Constructs a
-                                                                           ## translation along the
-                                                                           ## vector Vect.
 
 
 proc newGceMakeTranslation2d*(vect: Vec2dObj): GceMakeTranslation2d {.cdecl,

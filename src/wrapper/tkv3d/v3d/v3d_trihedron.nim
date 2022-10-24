@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 2016-10-11
 ##  Created by: Ilya SEVRIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -14,22 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of V3d_View"
-type
-  V3dTrihedron* {.importcpp: "V3d_Trihedron", header: "V3d_Trihedron.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## default
-                                                                                                        ## trihedron.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Fills
-                                                                                                        ## Graphic3d_Group.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Custom
-                                                                                                        ## Graphic3d_Structure
-                                                                                                        ## implementation.
 
 
 proc newV3dTrihedron*(): V3dTrihedron {.cdecl, constructor,
@@ -59,5 +45,4 @@ proc erase*(this: var V3dTrihedron) {.cdecl, importcpp: "Erase", header: "V3d_Tr
 proc dumpJson*(this: V3dTrihedron; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_Trihedron.hxx".}
-type
-  HandleV3dTrihedron* = Handle[V3dTrihedron]
+

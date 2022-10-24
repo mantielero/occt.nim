@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2014-07-18
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -14,23 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of math_PSOParticlesPool"
-type
-  MathPSO* {.importcpp: "math_PSO", header: "math_PSO.hxx", bycopy.} = object ## *
-                                                                      ##  Constructor.
-                                                                      ##
-                                                                      ##  @param theFunc defines the objective function. It should exist during all lifetime of class instance.
-                                                                      ##  @param theLowBorder defines lower border of search space.
-                                                                      ##  @param theUppBorder defines upper border of search space.
-                                                                      ##  @param theSteps defines steps of regular grid, used for particle generation.
-                                                                      ##                     This parameter used to define stop condition (TerminalVelocity).
-                                                                      ##  @param theNbParticles defines number of particles.
-                                                                      ##  @param theNbIter defines maximum number of iterations.
-                                                                      ##
-    ##  Lower border.
-    ##  Upper border.
-    ##  steps used in PSO algorithm.
-    ##  Dimension count.
-    ##  Particles number.
 
 
 proc newMathPSO*(theFunc: ptr MathMultipleVarFunction; theLowBorder: MathVector;

@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-22
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,24 +24,6 @@
 ## ! @endcode
 ## ! Where Distance is the distance of the isolated source from the surface.
 
-type
-  V3dPositionalLight* {.importcpp: "V3d_PositionalLight",
-                       header: "V3d_PositionalLight.hxx", bycopy.} = object of V3dPositionLight ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## isolated
-                                                                                         ## light
-                                                                                         ## source
-                                                                                         ## in
-                                                                                         ## the
-                                                                                         ## viewer
-                                                                                         ## with
-                                                                                         ## default
-                                                                                         ## attenuation
-                                                                                         ## factors
-                                                                                         ## (1.0,
-                                                                                         ## 0.0).
 
 
 proc newV3dPositionalLight*(thePos: PntObj;
@@ -61,5 +45,4 @@ proc newV3dPositionalLight*(thePos: PntObj;
 
 ## using statement
 
-type
-  HandleV3dPositionalLight* = Handle[V3dPositionalLight]
+

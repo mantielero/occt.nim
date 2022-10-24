@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2015-03-16
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -41,19 +43,6 @@
 ## ! - for triangular frustum: V0_Near - V0_Far, V1_Near - V1_Far, V2_Near - V2_Far,
 ## !                           V1_Near - V0_Near, V2_Near - V1_Near, V2_Near - V0_Near.
 
-type
-  SelectMgrFrustum*[N: static[cint]] {.importcpp: "SelectMgr_Frustum<\'0>",
-                                     header: "SelectMgr_Frustum.hxx", bycopy.} = object of SelectMgrBaseFrustum ##  SAT Tests for different objects
-                                                                                                         ## ! Returns true if selecting volume is overlapped by axis-aligned bounding box
-                                                                                                         ## ! with minimum corner at point theMinPt and maximum at point theMaxPt
-                                                                                                         ## ! Checks if AABB and frustum are separated along the given axis
-    ## !< Plane equations
-    ## !< Vertices coordinates
-    ## !< Cached projections of vertices onto frustum plane directions
-    ## !< Cached projections of vertices onto frustum plane directions
-    ## !< Cached projections of vertices onto directions of ortho unit vectors
-    ## !< Cached projections of vertices onto directions of ortho unit vectors
-    ## !< Cached edge directions
 
 
 proc newSelectMgrFrustum*[N: static[cint]](): SelectMgrFrustum[N] {.cdecl,

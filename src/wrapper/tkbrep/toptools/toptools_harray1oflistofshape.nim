@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopToolsHArray1OfListOfShape* {.importcpp: "TopTools_HArray1OfListOfShape",
-                                 header: "TopTools_HArray1OfListOfShape.hxx",
-                                 bycopy.} = object of TopToolsArray1OfListOfShape
 
 
 proc newTopToolsHArray1OfListOfShape*(theLower: cint; theUpper: cint): TopToolsHArray1OfListOfShape {.

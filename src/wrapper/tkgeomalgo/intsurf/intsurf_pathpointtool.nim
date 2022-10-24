@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-09-25
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of StdFail_UndefinedDerivative"
 discard "forward decl of IntSurf_PathPoint"
-type
-  IntSurfPathPointTool* {.importcpp: "IntSurf_PathPointTool",
-                         header: "IntSurf_PathPointTool.hxx", bycopy.} = object ## !
-                                                                           ## Returns the 3d
-                                                                           ## coordinates of the
-                                                                           ## starting
-                                                                           ## point.
 
 
 proc value3d*(pStart: IntSurfPathPoint): PntObj {.cdecl,

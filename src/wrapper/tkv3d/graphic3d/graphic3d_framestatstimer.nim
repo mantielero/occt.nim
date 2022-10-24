@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,14 +15,8 @@
 
 ## ! Timers for collecting frame performance statistics.
 
-type
-  Graphic3dFrameStatsTimer* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_FrameStatsTimer",
-                             header: "Graphic3d_FrameStatsTimer.hxx".} = enum
-    graphic3dFrameStatsTimerElapsedFrame, graphic3dFrameStatsTimerCpuFrame,
-    graphic3dFrameStatsTimerCpuCulling, graphic3dFrameStatsTimerCpuPicking,
-    graphic3dFrameStatsTimerCpuDynamics
 
 
 const
   graphic3dFrameStatsTimerNB* = graphic3dFrameStatsTimerCpuDynamics.int + 1
+

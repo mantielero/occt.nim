@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,66 +21,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Hypr2d"
-type
-  GceMakeHypr2d* {.importcpp: "gce_MakeHypr2d", header: "gce_MakeHypr2d.hxx", bycopy.} = object of GceRoot ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## a
-                                                                                                 ## hyperbola
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## centered
-                                                                                                 ## on
-                                                                                                 ## the
-                                                                                                 ## point
-                                                                                                 ## Center,
-                                                                                                 ## where:
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## -
-                                                                                                 ## the
-                                                                                                 ## major
-                                                                                                 ## axis
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## hyperbola
-                                                                                                 ## is
-                                                                                                 ## defined
-                                                                                                 ## by
-                                                                                                 ## Center
-                                                                                                 ## and
-                                                                                                 ## point
-                                                                                                 ## S1,
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## -
-                                                                                                 ## the
-                                                                                                 ## major
-                                                                                                 ## radius
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## distance
-                                                                                                 ## between
-                                                                                                 ## Center
-                                                                                                 ## and
-                                                                                                 ## S1,
-                                                                                                 ## and
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## -
-                                                                                                 ## the
-                                                                                                 ## minor
-                                                                                                 ## radius
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## distance
-                                                                                                 ## between
-                                                                                                 ## point
-                                                                                                 ## S2
-                                                                                                 ## and
-                                                                                                 ## the
-                                                                                                 ## major
-                                                                                                 ## axis.
 
 
 proc newGceMakeHypr2d*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GceMakeHypr2d {.cdecl,

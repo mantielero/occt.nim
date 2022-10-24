@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-06-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepBuildShapeListOfShape* {.importcpp: "TopOpeBRepBuild_ShapeListOfShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx",
-                                    bycopy.} = object
 
 
 proc newTopOpeBRepBuildShapeListOfShape*(): TopOpeBRepBuildShapeListOfShape {.

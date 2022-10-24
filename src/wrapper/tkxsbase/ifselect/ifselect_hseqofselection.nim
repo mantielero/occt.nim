@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  IFSelectHSeqOfSelection* {.importcpp: "IFSelect_HSeqOfSelection",
-                            header: "IFSelect_HSeqOfSelection.hxx", bycopy.} = object of IFSelectTSeqOfSelection
 
 
 proc newIFSelectHSeqOfSelection*(): IFSelectHSeqOfSelection {.cdecl, constructor,
@@ -32,5 +31,4 @@ proc append*(this: var IFSelectHSeqOfSelection;
     header: "IFSelect_HSeqOfSelection.hxx".}
 proc changeSequence*(this: var IFSelectHSeqOfSelection): var IFSelectTSeqOfSelection {.
     cdecl, importcpp: "ChangeSequence", header: "IFSelect_HSeqOfSelection.hxx".}
-type
-  HandleIFSelectHSeqOfSelection* = Handle[IFSelectHSeqOfSelection]
+

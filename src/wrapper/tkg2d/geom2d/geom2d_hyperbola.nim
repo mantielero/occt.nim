@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,63 +27,8 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Hyperbola"
-type
-  HandleGeom2dHyperbola* = Handle[Geom2dHyperbola]
 
-## ! Describes a branch of a hyperbola in the plane (2D space).
-## ! A hyperbola is defined by its major and minor radii
-## ! and, as with any conic curve, is positioned in the
-## ! plane with a coordinate system (gp_Ax22d object) where:
-## ! - the origin is the center of the hyperbola,
-## ! - the "X Direction" defines the major axis, and
-## ! - the "Y Direction" defines the minor axis.
-## ! This coordinate system is the local coordinate
-## ! system of the hyperbola.
-## ! The branch of the hyperbola described is the one
-## ! located on the positive side of the major axis.
-## ! The orientation (direct or indirect) of the local
-## ! coordinate system gives an explicit orientation to the
-## ! hyperbola, determining the direction in which the
-## ! parameter increases along the hyperbola.
-## ! The Geom2d_Hyperbola hyperbola is parameterized as follows:
-## ! P(U) = O + MajRad*Cosh(U)*XDir + MinRad*Sinh(U)*YDir
-## ! where:
-## ! - P is the point of parameter U,
-## ! - O, XDir and YDir are respectively the origin, "X
-## ! Direction" and "Y Direction" of its local coordinate system,
-## ! - MajRad and MinRad are the major and minor radii of the hyperbola.
-## ! The "X Axis" of the local coordinate system therefore
-## ! defines the origin of the parameter of the hyperbola.
-## ! The parameter range is ] -infinite,+infinite [.
-## ! The following diagram illustrates the respective
-## ! positions, in the plane of the hyperbola, of the three
-## ! branches of hyperbolas constructed using the
-## ! functions OtherBranch, ConjugateBranch1 and
-## ! ConjugateBranch2:
-## ! ^YAxis
-## ! |
-## ! FirstConjugateBranch
-## ! |
-## ! Other         |          Main
-## ! --------------------- C
-## ! --------------------->XAxis
-## ! Branch       |
-## ! Branch
-## ! |
-## ! SecondConjugateBranch
-## ! |
-## ! Warning
-## ! The value of the major radius (on the major axis) can
-## ! be less than the value of the minor radius (on the minor axis).
-## ! See Also
-## ! GCE2d_MakeHyperbola which provides functions for
-## ! more complex hyperbola constructions
-## ! gp_Ax22d
-## ! gp_Hypr2d for an equivalent, non-parameterized data structure
 
-type
-  Geom2dHyperbola* {.importcpp: "Geom2d_Hyperbola", header: "Geom2d_Hyperbola.hxx",
-                    bycopy.} = object of Geom2dConic ## ! Creates  an Hyperbola from a non persistent one from package gp
 
 
 proc newGeom2dHyperbola*(h: Hypr2dObj): Geom2dHyperbola {.cdecl, constructor,

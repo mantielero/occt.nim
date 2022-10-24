@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-06-12
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,102 +20,10 @@ discard "forward decl of Graphic3d_StructureManager"
 discard "forward decl of Graphic3d_DataStructureManager"
 discard "forward decl of Bnd_Box"
 discard "forward decl of gp_Pnt"
-type
-  HandleGraphic3dStructure* = Handle[Graphic3dStructure]
-
-## ! This class allows the definition a graphic object.
-## ! This graphic structure can be displayed, erased, or highlighted.
-## ! This graphic structure can be connected with another graphic structure.
-
-type
-  Graphic3dStructure* {.importcpp: "Graphic3d_Structure",
-                       header: "Graphic3d_Structure.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## graphic
-                                                                                          ## object
-                                                                                          ## in
-                                                                                          ## the
-                                                                                          ## manager
-                                                                                          ## theManager.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## It
-                                                                                          ## will
-                                                                                          ## appear
-                                                                                          ## in
-                                                                                          ## all
-                                                                                          ## the
-                                                                                          ## views
-                                                                                          ## of
-                                                                                          ## the
-                                                                                          ## visualiser.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## The
-                                                                                          ## structure
-                                                                                          ## is
-                                                                                          ## not
-                                                                                          ## displayed
-                                                                                          ## when
-                                                                                          ## it
-                                                                                          ## is
-                                                                                          ## created.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theManager
-                                                                                          ## structure
-                                                                                          ## manager
-                                                                                          ## holding
-                                                                                          ## this
-                                                                                          ## structure
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## @param
-                                                                                          ## theLinkPrs
-                                                                                          ## another
-                                                                                          ## structure
-                                                                                          ## for
-                                                                                          ## creating
-                                                                                          ## a
-                                                                                          ## shadow
-                                                                                          ## (linked)
-                                                                                          ## structure
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Transforms
-                                                                                          ## boundaries
-                                                                                          ## with
-                                                                                          ## <theTrsf>
-                                                                                          ## transformation.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Suppress
-                                                                                          ## in
-                                                                                          ## the
-                                                                                          ## structure
-                                                                                          ## <me>,
-                                                                                          ## the
-                                                                                          ## group
-                                                                                          ## theGroup.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## It
-                                                                                          ## will
-                                                                                          ## be
-                                                                                          ## erased
-                                                                                          ## at
-                                                                                          ## the
-                                                                                          ## next
-                                                                                          ## screen
-                                                                                          ## update.
 
 
-#proc newGraphic3dStructure*(theManager: Handle[Graphic3dStructureManager];
-#    theLinkPrs: Handle[Graphic3dStructure] = handle[Graphic3dStructure]()): Graphic3dStructure {.
-#    cdecl, constructor, importcpp: "Graphic3d_Structure(@)", header: "Graphic3d_Structure.hxx".}
+
+
 proc clear*(this: var Graphic3dStructure; withDestruction: bool = true) {.cdecl,
     importcpp: "Clear", header: "Graphic3d_Structure.hxx".}
 proc destroyGraphic3dStructure*(this: var Graphic3dStructure) {.cdecl,

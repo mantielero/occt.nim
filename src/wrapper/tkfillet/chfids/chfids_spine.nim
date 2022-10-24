@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -22,35 +24,8 @@ discard "forward decl of TopoDS_Vertex"
 when defined(Status):
   discard
 discard "forward decl of ChFiDS_Spine"
-type
-  HandleChFiDS_Spine* = Handle[ChFiDS_Spine]
 
-## ! Contains information necessary for construction of
-## ! a 3D fillet or chamfer:
-## !
-## ! - guideline composed of edges of the solid, tangents
-## ! between them, and borders by faces tangents
-## ! between them.
-## !
-## ! Tools for construction of the Sp
-## ! by propagation from an edge of solid
-## ! are provided in the Builder of Fil3d.
-## !
-## ! The Spine contains among others the
-## ! information about the nature of extremities
-## ! of the fillet ( on free border , on section or closed ).
-## !
-## ! IMPORTANT NOTE  :    the guideline
-## ! represented in this way is not C2, although the path
-## ! claims it. Several palliative workarounds
-## ! (see the methods at the end) are planned,
-## ! but they are not enough. It is necessary to change
-## ! the approach and double the Spine of line C2 with
-## ! the known consequences for management of
-## ! interactions between KPart Blend in Fil3d.
 
-type
-  ChFiDS_Spine* {.importcpp: "ChFiDS_Spine", header: "ChFiDS_Spine.hxx", bycopy.} = object of StandardTransient
 
 
 proc newChFiDS_Spine*(): ChFiDS_Spine {.cdecl, constructor,

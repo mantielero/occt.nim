@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -28,21 +30,6 @@
 ## ! \tparam Dimension Vector dimension
 ## ! \tparam DataType Type of elements on which the boxes are built
 
-type
-  BVH_IndexedBoxSet*[NumType; Dimension: static[cint]; DataType] {.
-      importcpp: "BVH_IndexedBoxSet<\'0,\'1,\'2>",
-      header: "BVH_IndexedBoxSet.hxx", bycopy.} = object of BVH_BoxSet[NumType,
-      Dimension, DataType] ## ! @name Constructors
-                         ## ! Empty constructor for use the default BVH_Builder
-                         ## ! @name Setting expected size of the BVH
-                         ## ! Sets the expected size of BVH tree
-                         ## ! @name Adding elements in BVH
-                         ## ! Adds the element into BVH
-                         ## ! @name Clearing the elements and boxes
-                         ## ! Clears the vectors of elements and boxes
-                         ## ! @name Necessary overrides for BVH construction
-                         ## ! Make inherited method Box() visible to avoid CLang warning
-                         ## ! @name Fields
 
 
 proc newBVH_IndexedBoxSet*[NumType; Dimension: static[cint]; DataType](): BVH_IndexedBoxSet[

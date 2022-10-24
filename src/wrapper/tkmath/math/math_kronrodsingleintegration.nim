@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2005-12-08
 ##  Created by: Sergey KHROMOV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -15,10 +17,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
-type
-  MathKronrodSingleIntegration* {.importcpp: "math_KronrodSingleIntegration",
-                                 header: "math_KronrodSingleIntegration.hxx",
-                                 bycopy.} = object ## ! An empty constructor.
 
 
 proc newMathKronrodSingleIntegration*(): MathKronrodSingleIntegration {.cdecl,

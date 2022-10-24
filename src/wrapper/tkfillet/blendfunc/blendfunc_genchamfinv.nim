@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -16,9 +18,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
-type
-  BlendFuncGenChamfInv* {.importcpp: "BlendFunc_GenChamfInv",
-                         header: "BlendFunc_GenChamfInv.hxx", bycopy.} = object of BlendFuncInv
 
 
 proc newBlendFuncGenChamfInv*(s1: Handle[Adaptor3dHSurface];

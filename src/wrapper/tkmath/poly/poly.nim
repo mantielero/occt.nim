@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1995-03-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -24,17 +26,6 @@ discard "forward decl of Poly_Polygon3D"
 discard "forward decl of Poly_Polygon2D"
 discard "forward decl of Poly_PolygonOnTriangulation"
 discard "forward decl of Poly_Connect"
-type
-  Poly* {.importcpp: "Poly", header: "Poly.hxx", bycopy.} = object ## ! Computes and  stores  the    link from   nodes  to
-                                                           ## ! triangles     and from triangles to   neighbouring
-                                                           ## ! triangles.
-                                                           ## ! This tool is obsolete, replaced by
-                                                           ## Poly_CoherentTriangulation
-                                                           ## ! Algorithm to make minimal loops in a graph
-                                                           ## ! Join several triangulations to one new triangulation object.
-                                                           ## ! The new triangulation is just a mechanical sum of input
-                                                           ## ! triangulations, without node sharing. UV coordinates are
-                                                           ## ! dropped in the result.
 
 
 proc catenate*(lstTri: PolyListOfTriangulation): Handle[PolyTriangulation] {.cdecl,

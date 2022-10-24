@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,19 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompSolid"
-type
-  HandleTopoDS_TCompSolid* = Handle[TopoDS_TCompSolid]
 
-## ! A set of solids connected by their faces.
 
-type
-  TopoDS_TCompSolid* {.importcpp: "TopoDS_TCompSolid",
-                      header: "TopoDS_TCompSolid.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## empty
-                                                                                   ## TCompSolid.
 
 
 proc newTopoDS_TCompSolid*(): TopoDS_TCompSolid {.cdecl, constructor,

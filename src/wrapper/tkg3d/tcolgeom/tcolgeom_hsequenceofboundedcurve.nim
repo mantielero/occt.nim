@@ -1,3 +1,5 @@
+import tcolgeom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColGeomHSequenceOfBoundedCurve* {.importcpp: "TColGeom_HSequenceOfBoundedCurve", header: "TColGeom_HSequenceOfBoundedCurve.hxx",
-                                    bycopy.} = object of TColGeomSequenceOfBoundedCurve
 
 
 proc newTColGeomHSequenceOfBoundedCurve*(): TColGeomHSequenceOfBoundedCurve {.
@@ -34,5 +33,4 @@ proc append*(this: var TColGeomHSequenceOfBoundedCurve;
     importcpp: "Append", dynlib: tkg3d.}
 proc changeSequence*(this: var TColGeomHSequenceOfBoundedCurve): var TColGeomSequenceOfBoundedCurve {.
     cdecl, importcpp: "ChangeSequence", dynlib: tkg3d.}
-type
-  HandleTColGeomHSequenceOfBoundedCurve* = Handle[TColGeomHSequenceOfBoundedCurve]
+

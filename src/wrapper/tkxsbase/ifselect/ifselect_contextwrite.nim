@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -24,29 +26,6 @@ discard "forward decl of Interface_Graph"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
-type
-  IFSelectContextWrite* {.importcpp: "IFSelect_ContextWrite",
-                         header: "IFSelect_ContextWrite.hxx", bycopy.} = object ## !
-                                                                           ## Prepares a
-                                                                           ## ContextWrite with these
-                                                                           ## informations :
-                                                                           ## ! - the model which is to be
-                                                                           ## written
-                                                                           ## ! - the
-                                                                           ## protocol to be used
-                                                                           ## ! - the
-                                                                           ## filename
-                                                                           ## ! - an
-                                                                           ## object
-                                                                           ## AppliedModifiers to work. It gives a list of
-                                                                           ## !
-                                                                           ## FileModifiers to be ran, and for each one it can give
-                                                                           ## ! a
-                                                                           ## restricted list of
-                                                                           ## entities (in the
-                                                                           ## model), else all
-                                                                           ## ! the model is
-                                                                           ## considered
 
 
 proc newIFSelectContextWrite*(model: Handle[InterfaceInterfaceModel];

@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,9 +30,6 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
-type
-  Adaptor3dCurve* {.importcpp: "Adaptor3d_Curve", header: "Adaptor3d_Curve.hxx",
-                   bycopy.} = object of RootObj
 
 
 proc firstParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,18 +18,6 @@
 
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of IFSelect_Selection"
-type
-  IFSelectSelectionIterator* {.importcpp: "IFSelect_SelectionIterator",
-                              header: "IFSelect_SelectionIterator.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## iterator,
-                                                                                     ## ready
-                                                                                     ## to
-                                                                                     ## be
-                                                                                     ## filled
 
 
 proc newIFSelectSelectionIterator*(): IFSelectSelectionIterator {.cdecl,

@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2014-01-10
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,10 +17,6 @@
 
 ## ! Tool object to sort abstract primitive set.
 
-type
-  BVH_Sorter*[T; N: static[cint]] {.importcpp: "BVH_Sorter<\'0,\'1>",
-                                 header: "BVH_Sorter.hxx", bycopy.} = object of RootObj## ! Performs default
-                                                                        ## initialization.
 
 
 proc newBVH_Sorter*[T; N: static[cint]](): BVH_Sorter[T, N] {.cdecl, constructor,

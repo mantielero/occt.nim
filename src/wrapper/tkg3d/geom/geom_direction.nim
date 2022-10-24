@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,40 +22,8 @@ discard "forward decl of Geom_Vector"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Direction"
-type
-  HandleGeomDirection* = Handle[GeomDirection]
 
-## ! The class Direction specifies a vector that is never null.
-## ! It is a unit vector.
 
-type
-  GeomDirection* {.importcpp: "Geom_Direction", header: "Geom_Direction.hxx", bycopy.} = object of GeomVector ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## unit
-                                                                                                    ## vector
-                                                                                                    ## with
-                                                                                                    ## it
-                                                                                                    ## 3
-                                                                                                    ## cartesian
-                                                                                                    ## coordinates.
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Raised
-                                                                                                    ## if
-                                                                                                    ## Sqrt(
-                                                                                                    ## X*X
-                                                                                                    ## +
-                                                                                                    ## Y*Y
-                                                                                                    ## +
-                                                                                                    ## Z*Z)
-                                                                                                    ## <=
-                                                                                                    ## Resolution
-                                                                                                    ## from
-                                                                                                    ## gp.
 
 
 proc newGeomDirection*(x: cfloat; y: cfloat; z: cfloat): GeomDirection {.cdecl,

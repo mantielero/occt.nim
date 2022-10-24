@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-29
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,50 +21,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
-type
-  BRepBuilderAPI_MakePolygon* {.importcpp: "BRepBuilderAPI_MakePolygon",
-                               header: "BRepBuilderAPI_MakePolygon.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                ## !
-                                                                                                                ## Initializes
-                                                                                                                ## an
-                                                                                                                ## empty
-                                                                                                                ## polygonal
-                                                                                                                ## wire,
-                                                                                                                ## to
-                                                                                                                ## which
-                                                                                                                ## points
-                                                                                                                ## or
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## vertices
-                                                                                                                ## are
-                                                                                                                ## added
-                                                                                                                ## using
-                                                                                                                ## the
-                                                                                                                ## Add
-                                                                                                                ## function.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## As
-                                                                                                                ## soon
-                                                                                                                ## as
-                                                                                                                ## the
-                                                                                                                ## polygonal
-                                                                                                                ## wire
-                                                                                                                ## under
-                                                                                                                ## construction
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## contains
-                                                                                                                ## vertices,
-                                                                                                                ## it
-                                                                                                                ## can
-                                                                                                                ## be
-                                                                                                                ## consulted
-                                                                                                                ## using
-                                                                                                                ## the
-                                                                                                                ## Wire
-                                                                                                                ## function.
 
 
 proc polygon*(): BRepBuilderAPI_MakePolygon {.cdecl,

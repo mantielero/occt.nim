@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1996-01-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaGenLocateExtSS* {.importcpp: "Extrema_GenLocateExtSS",
-                          header: "Extrema_GenLocateExtSS.hxx", bycopy.} = object
 
 
 proc newExtremaGenLocateExtSS*(): ExtremaGenLocateExtSS {.cdecl, constructor,

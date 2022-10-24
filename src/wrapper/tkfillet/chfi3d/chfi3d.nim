@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,8 +23,6 @@ discard "forward decl of ChFi3d_Builder"
 discard "forward decl of ChFi3d_ChBuilder"
 discard "forward decl of ChFi3d_FilBuilder"
 discard "forward decl of ChFi3d_SearchSing"
-type
-  ChFi3d* {.importcpp: "ChFi3d", header: "ChFi3d.hxx", bycopy.} = object ## ! Defines the type of concavity in the edge of connection of two faces
 
 
 proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;

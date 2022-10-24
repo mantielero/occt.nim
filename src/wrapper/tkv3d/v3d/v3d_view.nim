@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-15
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,71 +26,8 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of V3d_BadValue"
 discard "forward decl of V3d_UnMapped"
 discard "forward decl of V3d_View"
-type
-  HandleV3dView* = Handle[V3dView]
 
-## ! Defines the application object VIEW for the
-## ! VIEWER application.
-## ! The methods of this class allow the editing
-## ! and inquiring the parameters linked to the view.
-## ! Provides a set of services common to all types of view.
-## ! Warning: The default parameters are defined by the class
-## ! Viewer (Example : SetDefaultViewSize()).
-## ! Certain methods are mouse oriented, and it is
-## ! necessary to know the difference between the start and
-## ! the continuation of this gesture in putting the method
-## ! into operation.
-## ! Example : Shifting the eye-view along the screen axes.
-## !
-## ! View->Move(10.,20.,0.,True)     (Starting motion)
-## ! View->Move(15.,-5.,0.,False)    (Next motion)
 
-type
-  V3dView* {.importcpp: "V3d_View", header: "V3d_View.hxx", bycopy.} = object of StandardTransient ##
-                                                                                         ## !
-                                                                                         ## Initializes
-                                                                                         ## the
-                                                                                         ## view.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @name
-                                                                                         ## deprecated
-                                                                                         ## methods
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## True
-                                                                                         ## if
-                                                                                         ## One
-                                                                                         ## light
-                                                                                         ## more
-                                                                                         ## can
-                                                                                         ## be
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## activated
-                                                                                         ## in
-                                                                                         ## this
-                                                                                         ## View.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Modifies
-                                                                                         ## the
-                                                                                         ## aspect
-                                                                                         ## ratio
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## camera
-                                                                                         ## when
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## the
-                                                                                         ## associated
-                                                                                         ## window
-                                                                                         ## is
-                                                                                         ## defined
-                                                                                         ## or
-                                                                                         ## resized.
 
 
 proc newV3dView*(theViewer: Handle[V3dViewer];

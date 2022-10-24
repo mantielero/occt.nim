@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-12-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -20,31 +22,8 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerFiles"
-type
-  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
 
-## ! A DispPerFiles produces a determined count of Packets from the
-## ! input Entities. It divides, as equally as possible, the input
-## ! list into a count of files. This count is the parameter of the
-## ! DispPerFiles. If the input list has less than this count, of
-## ! course there will be one packet per input entity.
-## ! This count is a Parameter of the DispPerFiles, given as an
-## ! IntParam, thus allowing external control of its Value
 
-type
-  IFSelectDispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
-                         header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## DispPerFiles
-                                                                                             ## with
-                                                                                             ## no
-                                                                                             ## Count
-                                                                                             ## (default
-                                                                                             ## value
-                                                                                             ## 1
-                                                                                             ## file)
 
 
 proc newIFSelectDispPerFiles*(): IFSelectDispPerFiles {.cdecl, constructor,

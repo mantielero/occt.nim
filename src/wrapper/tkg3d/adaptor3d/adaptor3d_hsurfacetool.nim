@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1993-07-02
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Adaptor3d_HCurve"
-type
-  Adaptor3dHSurfaceTool* {.importcpp: "Adaptor3d_HSurfaceTool",
-                          header: "Adaptor3d_HSurfaceTool.hxx", bycopy.} = object
 
 
 proc firstUParameter*(s: Handle[Adaptor3dHSurface]): cfloat {.cdecl,

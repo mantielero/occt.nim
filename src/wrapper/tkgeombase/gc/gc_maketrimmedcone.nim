@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,25 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
-type
-  MakeTrimmedCone* {.importcpp: "GC_MakeTrimmedCone",
-                    header: "GC_MakeTrimmedCone.hxx", bycopy.} = object of Root ## ! Make a
-                                                                         ## RectangularTrimmedSurface
-                                                                         ## <TheCone> from Geom
-                                                                         ## ! It is trimmed by P3 and P4.
-                                                                         ## ! Its axis is <P1P2> and the radius of its base is
-                                                                         ## ! the
-                                                                         ## distance between <P3> and <P1P2>.
-                                                                         ## ! The
-                                                                         ## distance between <P4> and <P1P2> is the radius of
-                                                                         ## ! the section passing through <P4>.
-                                                                         ## ! An error iss raised if
-                                                                         ## <P1>,<P2>,<P3>,<P4> are
-                                                                         ## !
-                                                                         ## colinear or if <P3P4> is
-                                                                         ## perpendicular to <P1P2> or
-                                                                         ## ! <P3P4> is
-                                                                         ## colinear to <P1P2>.
 
 
 proc trimmedCone*(p1: PntObj; p2: PntObj; p3: PntObj; p4: PntObj): MakeTrimmedCone {.cdecl,

@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1999-02-11
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of gp_Pnt2d"
-type
-  TopOpeBRepToolMakeTransition* {.importcpp: "TopOpeBRepTool_makeTransition",
-                                 header: "TopOpeBRepTool_makeTransition.hxx",
-                                 bycopy.} = object
 
 
 proc newTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.cdecl,

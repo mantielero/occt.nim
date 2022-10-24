@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,40 +21,6 @@ when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
 ## ! On Windows and Mac OS X (in case when Cocoa used) platforms this class do nothing.
 ## ! WARRNING: Do not close display connection manualy!
 
-type
-  AspectDisplayConnection* {.importcpp: "Aspect_DisplayConnection",
-                            header: "Aspect_DisplayConnection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Default
-                                                                                                    ## constructor.
-                                                                                                    ## Creates
-                                                                                                    ## connection
-                                                                                                    ## with
-                                                                                                    ## display
-                                                                                                    ## name
-                                                                                                    ## taken
-                                                                                                    ## from
-                                                                                                    ## "DISPLAY"
-                                                                                                    ## environment
-                                                                                                    ## variable
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## To
-                                                                                                    ## protect
-                                                                                                    ## the
-                                                                                                    ## connection
-                                                                                                    ## from
-                                                                                                    ## closing
-                                                                                                    ## copying
-                                                                                                    ## allowed
-                                                                                                    ## only
-                                                                                                    ## through
-                                                                                                    ## the
-                                                                                                    ## handles.
-                                                                                                    ##
-                                                                                                    ## Type
-                                                                                                    ## definition
-    ##  #endif
 
 
 proc newAspectDisplayConnection*(): AspectDisplayConnection {.cdecl, constructor,
@@ -73,5 +41,4 @@ proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString 
     cdecl, importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
 proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
     importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
-type
-  HandleAspectDisplayConnection* = Handle[AspectDisplayConnection]
+

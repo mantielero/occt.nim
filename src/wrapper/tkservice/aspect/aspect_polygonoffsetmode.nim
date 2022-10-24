@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 2004-03-22
 ##  Created by: Sergey ANIKIN
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,16 +17,9 @@
 
 ##  Enumeration for polygon offset modes
 
-type
-  AspectPolygonOffsetMode* {.size: sizeof(cint),
-                            importcpp: "Aspect_PolygonOffsetMode",
-                            header: "Aspect_PolygonOffsetMode.hxx".} = enum
-    aspectPOM_Off = 0x00,       ##  all polygon offset modes disabled
-    aspectPOM_Fill = 0x01,      ##  GL_POLYGON_OFFSET_FILL enabled (shaded polygons)
-    aspectPOM_Line = 0x02,      ##  GL_POLYGON_OFFSET_LINE enabled (polygons as outlines)
-    aspectPOM_Point = 0x04,     ##  GL_POLYGON_OFFSET_POINT enabled (polygons as vertices)
 const
   aspectPOM_All = (aspectPOM_Fill.int or aspectPOM_Line.int or aspectPOM_Point.int).AspectPolygonOffsetMode
   aspectPOM_None = 0x08 ##  do not change current polygon offset mode
   aspectPOM_Mask = (aspectPOM_All.int or aspectPOM_None.int).AspectPolygonOffsetMode
+
 

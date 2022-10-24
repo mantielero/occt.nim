@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Surface"
-type
-  TopOpeBRepDS_Surface* {.importcpp: "TopOpeBRepDS_Surface",
-                         header: "TopOpeBRepDS_Surface.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Surface*(): TopOpeBRepDS_Surface {.cdecl, constructor,

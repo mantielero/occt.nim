@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-17
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -18,12 +20,6 @@
 ##               BaseMap.
 ##
 
-type
-  NCollectionListNode* {.importcpp: "NCollection_ListNode",
-                        header: "NCollection_ListNode.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
-                                                                         ## ! The only constructor
-                                                                         ## ! operator= - forbidden
-    ## !< Pointer to the next node
 
 
 proc newNCollectionListNode*(theNext: ptr NCollectionListNode): NCollectionListNode {.

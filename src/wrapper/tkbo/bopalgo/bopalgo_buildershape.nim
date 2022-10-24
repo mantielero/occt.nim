@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -16,81 +18,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoBuilderShape* {.importcpp: "BOPAlgo_BuilderShape",
-                        header: "BOPAlgo_BuilderShape.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## Getting
-                                                                                      ## the
-                                                                                      ## result
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## the
-                                                                                      ## result
-                                                                                      ## of
-                                                                                      ## algorithm
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## History
-                                                                                      ## methods
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## the
-                                                                                      ## list
-                                                                                      ## of
-                                                                                      ## shapes
-                                                                                      ## Modified
-                                                                                      ## from
-                                                                                      ## the
-                                                                                      ## shape
-                                                                                      ## theS.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## Enabling/Disabling
-                                                                                      ## the
-                                                                                      ## history
-                                                                                      ## collection.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Allows
-                                                                                      ## disabling
-                                                                                      ## the
-                                                                                      ## history
-                                                                                      ## collection
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## Constructors
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## Clearing
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Clears
-                                                                                      ## the
-                                                                                      ## content
-                                                                                      ## of
-                                                                                      ## the
-                                                                                      ## algorithm.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## @name
-                                                                                      ## Fields
-    ## !< Result of the operation
-    ## !< Storer for the history shapes
-    ## !< Cashed map of all arguments shapes
-    ## !< Controls the history filling
-    ## !< History tool
 
 
 proc shape*(this: BOPAlgoBuilderShape): TopoDS_Shape {.noSideEffect, cdecl,

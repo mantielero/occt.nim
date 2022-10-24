@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1992-12-15
 ##  Created by: Mireille MERCIEN
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,29 +23,8 @@ discard "forward decl of Standard_NegativeValue"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_HExtendedString"
 discard "forward decl of TCollection_HAsciiString"
-type
-  HandleTCollectionHAsciiString* = Handle[TCollectionHAsciiString]
 
-## ! A variable-length sequence of ASCII characters
-## ! (normal 8-bit character type). It provides editing
-## ! operations with built-in memory management to
-## ! make HAsciiString objects easier to use than ordinary character arrays.
-## ! HAsciiString objects are handles to strings.
-## ! -   HAsciiString strings may be shared by several objects.
-## ! -   You may use an AsciiString object to get the actual string.
-## ! Note: HAsciiString objects use an AsciiString string as a field.
 
-type
-  TCollectionHAsciiString* {.importcpp: "TCollection_HAsciiString",
-                            header: "TCollection_HAsciiString.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## a
-                                                                                                    ## HAsciiString
-                                                                                                    ## to
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## AsciiString.
 
 
 proc newTCollectionHAsciiString*(): TCollectionHAsciiString {.cdecl, constructor,

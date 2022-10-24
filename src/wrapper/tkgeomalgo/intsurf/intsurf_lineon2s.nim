@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of IntSurf_PntOn2S"
 discard "forward decl of IntSurf_LineOn2S"
-type
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
-  IntSurfLineOn2S* {.importcpp: "IntSurf_LineOn2S", header: "IntSurf_LineOn2S.hxx",
-                    bycopy.} = object of StandardTransient
 
 
 proc newIntSurfLineOn2S*(theAllocator: IntSurfAllocator = cast[IntSurfAllocator](0)): IntSurfLineOn2S {.cdecl,

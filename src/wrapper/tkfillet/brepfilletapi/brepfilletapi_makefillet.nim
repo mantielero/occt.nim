@@ -1,3 +1,5 @@
+import brepfilletapi_types
+
 ##  Created on: 1994-06-17
 ##  Created by: Modeling
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,69 +24,6 @@ discard "forward decl of Law_Function"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopOpeBRepBuild_HBuilder"
 discard "forward decl of Geom_Surface"
-type
-  BRepFilletAPI_MakeFillet* {.importcpp: "BRepFilletAPI_MakeFillet",
-                             header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation ##
-                                                                                                                ## !
-                                                                                                                ## Initializes
-                                                                                                                ## the
-                                                                                                                ## computation
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## fillets.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## <FShape>
-                                                                                                                ## sets
-                                                                                                                ## the
-                                                                                                                ## type
-                                                                                                                ## of
-                                                                                                                ## fillet
-                                                                                                                ## surface.
-                                                                                                                ## The
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## default
-                                                                                                                ## value
-                                                                                                                ## is
-                                                                                                                ## ChFi3d_Rational
-                                                                                                                ## (classical
-                                                                                                                ## nurbs
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## representation
-                                                                                                                ## of
-                                                                                                                ## circles).
-                                                                                                                ## ChFi3d_QuasiAngular
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## corresponds
-                                                                                                                ## to
-                                                                                                                ## a
-                                                                                                                ## nurbs
-                                                                                                                ## representation
-                                                                                                                ## of
-                                                                                                                ## circles
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## which
-                                                                                                                ## parameterisation
-                                                                                                                ## matches
-                                                                                                                ## the
-                                                                                                                ## circle
-                                                                                                                ## one.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## ChFi3d_Polynomial
-                                                                                                                ## corresponds
-                                                                                                                ## to
-                                                                                                                ## a
-                                                                                                                ## polynomial
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## representation
-                                                                                                                ## of
-                                                                                                                ## circles.
 
 
 proc newFillet*(s: TopoDS_Shape;

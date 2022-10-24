@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1997-03-28
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Curve"
-type
-  ChFi3dSearchSing* {.importcpp: "ChFi3d_SearchSing",
-                     header: "ChFi3d_SearchSing.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
 proc newChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,30 +15,6 @@
 
 ## ! This class describes texture parameters.
 
-type
-  Graphic3dTextureParams* {.importcpp: "Graphic3d_TextureParams",
-                           header: "Graphic3d_TextureParams.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## constructor.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Increment
-                                                                                                  ## revision.
-    ## !< texture coordinates generation plane S
-    ## !< texture coordinates generation plane T
-    ## !< texture coordinates scale factor vector; (1,1) by default
-    ## !< texture coordinates translation vector;  (0,0) by default
-    ## !< modification counter of parameters related to sampler state
-    ## !< default texture unit to bind texture; Graphic3d_TextureUnit_BaseColor by default
-    ## !< texture filter, Graphic3d_TOTF_NEAREST by default
-    ## !< level of anisotropy filter, Graphic3d_LOTA_OFF by default
-    ## !< texture coordinates generation mode, Graphic3d_TOTM_MANUAL by default
-    ## !< base texture mipmap level (0 by default)
-    ## !< maximum texture mipmap array level (1000 by default)
-    ## !< texture coordinates rotation angle in degrees, 0 by default
-    ## !< flag to modulate texture with material color, FALSE by default
-    ## !< flag to repeat (true) or wrap (false) texture coordinates out of [0,1] range
 
 
 proc newGraphic3dTextureParams*(): Graphic3dTextureParams {.cdecl, constructor,
@@ -97,5 +75,4 @@ proc setLevelsRange*(this: var Graphic3dTextureParams; theFirstLevel: cint;
     header: "Graphic3d_TextureParams.hxx".}
 proc samplerRevision*(this: Graphic3dTextureParams): cuint {.noSideEffect, cdecl,
     importcpp: "SamplerRevision", header: "Graphic3d_TextureParams.hxx".}
-type
-  HandleGraphic3dTextureParams* = Handle[Graphic3dTextureParams]
+

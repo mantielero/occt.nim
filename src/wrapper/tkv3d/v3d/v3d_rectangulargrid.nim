@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1998-07-16
 ##  Created by: CAL
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -16,13 +18,6 @@
 
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_Group"
-type
-  V3dRectangularGrid* {.importcpp: "V3d_RectangularGrid",
-                       header: "V3d_RectangularGrid.hxx", bycopy.} = object of AspectRectangularGrid ##
-                                                                                              ## !
-                                                                                              ## Custom
-                                                                                              ## Graphic3d_Structure
-                                                                                              ## implementation.
 
 
 proc newV3dRectangularGrid*(aViewer: V3dViewerPointer; aColor: QuantityColor;
@@ -48,5 +43,4 @@ proc setGraphicValues*(this: var V3dRectangularGrid; xSize: cfloat; ySize: cfloa
 proc dumpJson*(this: V3dRectangularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_RectangularGrid.hxx".}
-type
-  HandleV3dRectangularGrid* = Handle[V3dRectangularGrid]
+

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,19 +19,8 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignCategory"
-type
-  HandleIFSelectSignCategory* = Handle[IFSelectSignCategory]
 
-## ! This Signature returns the Category of an entity, as recorded
-## ! in the model
 
-type
-  IFSelectSignCategory* {.importcpp: "IFSelect_SignCategory",
-                         header: "IFSelect_SignCategory.hxx", bycopy.} = object of IFSelectSignature ##
-                                                                                              ## !
-                                                                                              ## Returns
-                                                                                              ## a
-                                                                                              ## SignCategory
 
 
 proc newIFSelectSignCategory*(): IFSelectSignCategory {.cdecl, constructor,

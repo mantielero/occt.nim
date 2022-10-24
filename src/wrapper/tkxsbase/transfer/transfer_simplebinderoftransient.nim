@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1993-06-10
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransferFailure"
 discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
-type
-  HandleTransferSimpleBinderOfTransient* = Handle[TransferSimpleBinderOfTransient]
 
-## ! An adapted instantiation of SimpleBinder for Transient Result,
-## ! i.e. ResultType can be computed from the Result itself,
-## ! instead of being static
 
-type
-  TransferSimpleBinderOfTransient* {.importcpp: "Transfer_SimpleBinderOfTransient", header: "Transfer_SimpleBinderOfTransient.hxx",
-                                    bycopy.} = object of TransferBinder ## ! Creates an empty
-                                                                   ## SimpleBinderOfTransient
-                                                                   ## ! Returns True if a starting object is bound with SEVERAL
-                                                                   ## ! results : Here, returns allways False
-                                                                   ## ! See Binder itself
 
 
 proc newTransferSimpleBinderOfTransient*(): TransferSimpleBinderOfTransient {.

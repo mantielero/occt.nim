@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,28 +20,8 @@ discard "forward decl of IFSelect_SessionFile"
 discard "forward decl of Standard_Transient"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_BasicDumper"
-type
-  HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
 
-## ! BasicDumper takes into account, for SessionFile, all the
-## ! classes defined in the package IFSelect : Selections,
-## ! Dispatches (there is no Modifier)
 
-type
-  IFSelectBasicDumper* {.importcpp: "IFSelect_BasicDumper",
-                        header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelectSessionDumper ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## BasicDumper
-                                                                                                ## and
-                                                                                                ## puts
-                                                                                                ## it
-                                                                                                ## into
-                                                                                                ## the
-                                                                                                ## Library
-                                                                                                ## of
-                                                                                                ## Dumper
 
 
 proc newIFSelectBasicDumper*(): IFSelectBasicDumper {.cdecl, constructor,

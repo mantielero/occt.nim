@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-07
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -51,66 +53,6 @@ when defined(Opposite):
 ## ! math_Matrix A (tab1[0][0], 1, 10, 1, 20);
 ## ! math_Matrix B (tab2[0],    1, 10, 1, 20);
 
-type
-  MathMatrix* {.importcpp: "math_Matrix", header: "math_Matrix.hxx", bycopy.} = object ## !
-                                                                               ## Constructs a
-                                                                               ## non-initialized
-                                                                               ## matrix
-                                                                               ## of
-                                                                               ## range
-                                                                               ## [LowerRow..UpperRow,
-                                                                               ## !
-                                                                               ## LowerCol..UpperCol]
-                                                                               ## !
-                                                                               ## For
-                                                                               ## the
-                                                                               ## constructed
-                                                                               ## matrix:
-                                                                               ## ! -
-                                                                               ## LowerRow
-                                                                               ## and
-                                                                               ## UpperRow
-                                                                               ## are
-                                                                               ## the
-                                                                               ## indexes
-                                                                               ## of
-                                                                               ## the
-                                                                               ## !
-                                                                               ## lower
-                                                                               ## and
-                                                                               ## upper
-                                                                               ## bounds
-                                                                               ## of a
-                                                                               ## row,
-                                                                               ## and
-                                                                               ## ! -
-                                                                               ## LowerCol
-                                                                               ## and
-                                                                               ## UpperCol
-                                                                               ## are
-                                                                               ## the
-                                                                               ## indexes
-                                                                               ## of
-                                                                               ## the
-                                                                               ## !
-                                                                               ## lower
-                                                                               ## and
-                                                                               ## upper
-                                                                               ## bounds
-                                                                               ## of a
-                                                                               ## column.
-                                                                               ## !
-                                                                               ## The
-                                                                               ## new
-                                                                               ## lower
-                                                                               ## row
-                                                                               ## of
-                                                                               ## the
-                                                                               ## matrix
-                                                                               ## is
-                                                                               ## set
-                                                                               ## to
-                                                                               ## <LowerRow>
 
 
 proc newMathMatrix*(lowerRow: cint; upperRow: cint; lowerCol: cint; upperCol: cint): MathMatrix {.

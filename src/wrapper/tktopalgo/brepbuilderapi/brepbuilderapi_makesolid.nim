@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,41 +21,6 @@ discard "forward decl of TopoDS_CompSolid"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_MakeSolid* {.importcpp: "BRepBuilderAPI_MakeSolid",
-                             header: "BRepBuilderAPI_MakeSolid.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## Initializes
-                                                                                                            ## the
-                                                                                                            ## construction
-                                                                                                            ## of
-                                                                                                            ## a
-                                                                                                            ## solid.
-                                                                                                            ## An
-                                                                                                            ## empty
-                                                                                                            ## solid
-                                                                                                            ## is
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## considered
-                                                                                                            ## to
-                                                                                                            ## cover
-                                                                                                            ## the
-                                                                                                            ## whole
-                                                                                                            ## space.
-                                                                                                            ## The
-                                                                                                            ## Add
-                                                                                                            ## function
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## is
-                                                                                                            ## used
-                                                                                                            ## to
-                                                                                                            ## define
-                                                                                                            ## shells
-                                                                                                            ## to
-                                                                                                            ## bound
-                                                                                                            ## it.
 
 
 proc solid*(): BRepBuilderAPI_MakeSolid {.cdecl, constructor,

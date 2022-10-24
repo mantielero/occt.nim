@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -20,13 +22,6 @@
 ## ! The OBB can be used more effectively than AABB as a rejection mechanism
 ## ! for non-interfering objects.
 
-type
-  BndOBB* {.importcpp: "Bnd_OBB", header: "Bnd_OBB.hxx", bycopy.} = object ## ! Empty constructor
-                                                                   ## ! Center of the OBB
-    ## ! Directions of the box's axes
-    ## ! (all vectors are already normalized)
-    ## ! Half-size dimensions of the OBB
-    ## ! To be set if the OBB is axis aligned box;
 
 
 proc newBndOBB*(): BndOBB {.cdecl, constructor, importcpp: "Bnd_OBB(@)", header: "Bnd_OBB.hxx".}

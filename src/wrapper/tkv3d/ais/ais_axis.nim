@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1995-08-09
 ##  Created by: Arnaud BOUZY/Odile Olivier
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -18,13 +20,6 @@ discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Axis1Placement"
 discard "forward decl of Geom_Axis2Placement"
 discard "forward decl of Prs3d_LineAspect"
-type
-  AIS_Axis* {.importcpp: "AIS_Axis", header: "AIS_Axis.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                              ## !
-                                                                                              ## Initializes
-                                                                                              ## the
-                                                                                              ## line
-                                                                                              ## aComponent
 
 
 proc newAIS_Axis*(aComponent: Handle[GeomLine]): AIS_Axis {.cdecl, constructor,
@@ -63,5 +58,4 @@ proc setWidth*(this: var AIS_Axis; aValue: cfloat) {.cdecl, importcpp: "SetWidth
     header: "AIS_Axis.hxx".}
 proc unsetColor*(this: var AIS_Axis) {.cdecl, importcpp: "UnsetColor", header: "AIS_Axis.hxx".}
 proc unsetWidth*(this: var AIS_Axis) {.cdecl, importcpp: "UnsetWidth", header: "AIS_Axis.hxx".}
-type
-  HandleAIS_Axis* = Handle[AIS_Axis]
+

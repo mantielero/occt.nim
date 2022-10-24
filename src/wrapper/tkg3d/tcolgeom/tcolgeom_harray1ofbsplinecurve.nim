@@ -1,3 +1,5 @@
+import tcolgeom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColGeomHArray1OfBSplineCurve* {.importcpp: "TColGeom_HArray1OfBSplineCurve",
-                                  header: "TColGeom_HArray1OfBSplineCurve.hxx",
-                                  bycopy.} = object of TColGeomArray1OfBSplineCurve
 
 
 proc newTColGeomHArray1OfBSplineCurve*(theLower: cint; theUpper: cint): TColGeomHArray1OfBSplineCurve {.

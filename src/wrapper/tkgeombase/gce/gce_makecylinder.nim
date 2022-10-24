@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,10 +22,6 @@ discard "forward decl of gp_Cylinder"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Circ"
-type
-  GceMakeCylinder* {.importcpp: "gce_MakeCylinder", header: "gce_MakeCylinder.hxx",
-                    bycopy.} = object of GceRoot ## ! <A2> is the local cartesian coordinate system of <me>.
-                                            ## ! The status is "NegativeRadius" if R < 0.0
 
 
 proc cylinder*(a2: Ax2Obj; radius: cfloat): GceMakeCylinder {.cdecl,

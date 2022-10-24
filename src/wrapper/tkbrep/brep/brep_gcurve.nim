@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,15 +19,8 @@
 discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRep_GCurve"
-type
-  HandleBRepGCurve* = Handle[BRepGCurve]
 
-## ! Root   class    for    the    geometric     curves
-## ! representation. Contains a range.
-## ! Contains a first and a last parameter.
 
-type
-  BRepGCurve* {.importcpp: "BRep_GCurve", header: "BRep_GCurve.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
 proc setRange*(this: var BRepGCurve; first: cfloat; last: cfloat) {.cdecl,

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-02-10
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of Quantity_Color"
 discard "forward decl of Graphic3d_MaterialAspect"
-type
-  AIS_GraphicTool* {.importcpp: "AIS_GraphicTool", header: "AIS_GraphicTool.hxx",
-                    bycopy.} = object
 
 
 proc getLineColor*(aDrawer: Handle[Prs3dDrawer];

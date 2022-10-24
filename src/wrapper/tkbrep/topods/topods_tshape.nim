@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -44,58 +46,6 @@ when defined(Convex):
 ## ! from TShape.  They  handle them with   the classes
 ## ! derived from Shape.
 
-type
-  TopoDS_TShape* {.importcpp: "TopoDS_TShape", header: "TopoDS_TShape.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                         ## !
-                                                                                                         ## Returns
-                                                                                                         ## the
-                                                                                                         ## free
-                                                                                                         ## flag.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Constructs
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## TShape.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Free
-                                                                                                         ## :
-                                                                                                         ## True
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Modified
-                                                                                                         ## :
-                                                                                                         ## True
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Checked
-                                                                                                         ## :
-                                                                                                         ## False
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Orientable
-                                                                                                         ## :
-                                                                                                         ## True
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Closed
-                                                                                                         ## :
-                                                                                                         ## False
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Infinite
-                                                                                                         ## :
-                                                                                                         ## False
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Convex
-                                                                                                         ## :
-                                                                                                         ## False
-                                                                                                         ##
-                                                                                                         ## Defined
-                                                                                                         ## mask
-                                                                                                         ## values
 
 
 proc free*(this: TopoDS_TShape): bool {.noSideEffect, cdecl, importcpp: "Free",
@@ -139,5 +89,4 @@ proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TopoDS_TShape.hxx".}
-type
-  HandleTopoDS_TShape* = Handle[TopoDS_TShape]
+

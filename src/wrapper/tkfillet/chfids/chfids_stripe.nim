@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1994-03-09
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,13 +19,8 @@
 discard "forward decl of ChFiDS_Spine"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of ChFiDS_Stripe"
-type
-  HandleChFiDS_Stripe* = Handle[ChFiDS_Stripe]
 
-## ! Data characterising a band of fillet.
 
-type
-  ChFiDS_Stripe* {.importcpp: "ChFiDS_Stripe", header: "ChFiDS_Stripe.hxx", bycopy.} = object of StandardTransient
 
 
 proc newChFiDS_Stripe*(): ChFiDS_Stripe {.cdecl, constructor,

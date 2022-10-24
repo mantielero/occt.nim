@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,35 +22,6 @@ discard "forward decl of Transfer_FindHasher"
 discard "forward decl of Transfer_ProcessForFinder"
 discard "forward decl of Transfer_ActorOfProcessForFinder"
 discard "forward decl of Transfer_Binder"
-type
-  TransferIteratorOfProcessForFinder* {.importcpp: "Transfer_IteratorOfProcessForFinder", header: "Transfer_IteratorOfProcessForFinder.hxx",
-                                       bycopy.} = object of TransferTransferIterator ##
-                                                                                ## !
-                                                                                ## Creates
-                                                                                ## an
-                                                                                ## empty
-                                                                                ## Iterator
-                                                                                ##
-                                                                                ## !
-                                                                                ## if
-                                                                                ## withstarts
-                                                                                ## is
-                                                                                ## True,
-                                                                                ## each
-                                                                                ## Binder
-                                                                                ## to
-                                                                                ## be
-                                                                                ## iterated
-                                                                                ## will
-                                                                                ##
-                                                                                ## !
-                                                                                ## be
-                                                                                ## associated
-                                                                                ## to
-                                                                                ## its
-                                                                                ## corresponding
-                                                                                ## Starting
-                                                                                ## Object
 
 
 proc newTransferIteratorOfProcessForFinder*(withstarts: bool): TransferIteratorOfProcessForFinder {.

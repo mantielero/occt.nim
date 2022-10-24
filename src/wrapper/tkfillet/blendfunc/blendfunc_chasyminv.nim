@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1998-06-04
 ##  Created by: Philippe NOUAILLE
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of math_Matrix"
-type
-  BlendFuncChAsymInv* {.importcpp: "BlendFunc_ChAsymInv",
-                       header: "BlendFunc_ChAsymInv.hxx", bycopy.} = object of BlendFuncInv
 
 
 proc newBlendFuncChAsymInv*(s1: Handle[Adaptor3dHSurface];

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-12-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -38,47 +40,8 @@ discard "forward decl of IFSelect_Transformer"
 discard "forward decl of IFSelect_PacketList"
 discard "forward decl of IFSelect_SignatureList"
 discard "forward decl of IFSelect_WorkSession"
-type
-  HandleIFSelectWorkSession* = Handle[IFSelectWorkSession]
 
-## ! This class can be used to simply manage a process such as
-## ! splitting a file, extracting a set of Entities ...
-## ! It allows to manage different types of Variables : Integer or
-## ! Text Parameters, Selections, Dispatches, in addition to a
-## ! ShareOut. To each of these variables, a unique Integer
-## ! Identifier is attached. A Name can be attached too as desired.
 
-type
-  IFSelectWorkSession* {.importcpp: "IFSelect_WorkSession",
-                        header: "IFSelect_WorkSession.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## a
-                                                                                            ## Work
-                                                                                            ## Session
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## It
-                                                                                            ## provides
-                                                                                            ## default,
-                                                                                            ## empty
-                                                                                            ## ShareOut
-                                                                                            ## and
-                                                                                            ## ModelCopier,
-                                                                                            ## which
-                                                                                            ## can
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## be
-                                                                                            ## replaced
-                                                                                            ## (if
-                                                                                            ## required,
-                                                                                            ## should
-                                                                                            ## be
-                                                                                            ## done
-                                                                                            ## just
-                                                                                            ## after
-                                                                                            ## creation).
 
 
 proc newIFSelectWorkSession*(): IFSelectWorkSession {.cdecl, constructor,

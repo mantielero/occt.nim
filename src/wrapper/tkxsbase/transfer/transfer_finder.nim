@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,22 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Transfer_Finder"
-type
-  HandleTransferFinder* = Handle[TransferFinder]
 
-## ! a Finder allows to map any kind of object as a Key for a Map.
-## ! This works by defining, for a Hash Code, that of the real Key,
-## ! not of the Finder which acts only as an intermediate.
-## ! When a Map asks for the HashCode of a Finder, this one returns
-## ! the code it has determined at creation time
 
-type
-  TransferFinder* {.importcpp: "Transfer_Finder", header: "Transfer_Finder.hxx",
-                   bycopy.} = object of StandardTransient ## ! Returns the HashCode which has been stored by SetHashCode
-                                                     ## ! (remark that HashCode could be deferred then be defined by
-                                                     ## ! sub-classes, the result is the same)
-                                                     ## ! Stores the HashCode which corresponds to the Value given to
-                                                     ## ! create the Mapper
 
 
 proc getHashCode*(this: TransferFinder): cint {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-12-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,74 +24,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectAnyList"
-type
-  HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
 
-## ! A SelectAnyList kind Selection selects a List of an Entity, as
-## ! well as this Entity contains some. A List contains sub-entities
-## ! as one per Item, or several (for instance if an Entity binds
-## ! couples of sub-entities, each item is one of these couples).
-## ! Remark that only Entities are taken into account (neither
-## ! Reals, nor Strings, etc...)
-## !
-## ! To define the list on which to work, SelectAnyList has two
-## ! deferred methods : NbItems (which gives the length of the
-## ! list), FillResult (which fills an EntityIterator). They are
-## ! intended to get a List in an Entity of the required Type (and
-## ! consider that list is empty if Entity has not required Type)
-## !
-## ! In addition, remark that some types of Entity define more than
-## ! one list in each instance : a given sub-class of SelectAnyList
-## ! must be attached to one list
-## !
-## ! SelectAnyList keeps or rejects a sub-set of the list,
-## ! that is the Items of which rank in the list is in a given
-## ! range (for instance form 2nd to 6th, etc...)
-## ! Range is defined by two Integer values. In order to allow
-## ! external control of them, these values are not directly
-## ! defined as fields, but accessed through IntParams, that is,
-## ! referenced as Transient (Handle) objects
-## !
-## ! Warning : the Input can be any kind of Selection, BUT its
-## ! RootResult must have zero (empty) or one Entity maximum
 
-type
-  IFSelectSelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
-                          header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                   ## !
-                                                                                                   ## Keeps
-                                                                                                   ## Input
-                                                                                                   ## Entity,
-                                                                                                   ## as
-                                                                                                   ## having
-                                                                                                   ## required
-                                                                                                   ## type.
-                                                                                                   ## It
-                                                                                                   ## works
-                                                                                                   ## by
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## keeping
-                                                                                                   ## in
-                                                                                                   ## <iter>,
-                                                                                                   ## only
-                                                                                                   ## suitable
-                                                                                                   ## Entities
-                                                                                                   ## (SelectType
-                                                                                                   ## can
-                                                                                                   ## be
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## used).
-                                                                                                   ## Called
-                                                                                                   ## by
-                                                                                                   ## RootResult
-                                                                                                   ## (which
-                                                                                                   ## waits
-                                                                                                   ## for
-                                                                                                   ## ONE
-                                                                                                   ## ENTITY
-                                                                                                   ## MAX)
 
 
 proc keepInputEntity*(this: IFSelectSelectAnyList;

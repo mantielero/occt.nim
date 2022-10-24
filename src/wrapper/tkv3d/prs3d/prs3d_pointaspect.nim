@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,6 @@
 ## ! The points are drawn using markers, whose size does not depend on
 ## ! the zoom value of the views.
 
-type
-  Prs3dPointAspect* {.importcpp: "Prs3d_PointAspect",
-                     header: "Prs3d_PointAspect.hxx", bycopy.} = object of Prs3dBasicAspect
 
 
 proc newPrs3dPointAspect*(theType: AspectTypeOfMarker; theColor: QuantityColor;
@@ -49,5 +48,4 @@ proc getTexture*(this: Prs3dPointAspect): Handle[Graphic3dMarkerImage] {.
 proc dumpJson*(this: Prs3dPointAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PointAspect.hxx".}
-type
-  HandlePrs3dPointAspect* = Handle[Prs3dPointAspect]
+

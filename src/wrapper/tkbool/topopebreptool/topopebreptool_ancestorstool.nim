@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-08-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,15 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepToolAncestorsTool* {.importcpp: "TopOpeBRepTool_AncestorsTool",
-                                header: "TopOpeBRepTool_AncestorsTool.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## same
-                                                                                         ## as
-                                                                                         ## package
-                                                                                         ## method
-                                                                                         ## TopExp::MapShapeListOfShapes()
 
 
 proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;

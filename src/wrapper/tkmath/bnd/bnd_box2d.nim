@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 1991-01-28
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Dir2d"
 discard "forward decl of gp_Trsf2d"
-type
-  BndBox2d* {.importcpp: "Bnd_Box2d", header: "Bnd_Box2d.hxx", bycopy.} = object ## ! Creates an empty 2D
-                                                                         ## bounding box.
-                                                                         ## ! The
-                                                                         ## constructed box is
-                                                                         ## qualified Void. Its gap is null.
-                                                                         ## ! Bit flags.
 
 
 proc newBndBox2d*(): BndBox2d {.cdecl, constructor, importcpp: "Bnd_Box2d(@)",

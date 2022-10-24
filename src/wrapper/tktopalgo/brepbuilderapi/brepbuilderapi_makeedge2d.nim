@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,9 +26,6 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Edge"
-type
-  Edge2dObj* {.importcpp: "BRepBuilderAPI_MakeEdge2d",
-                              header: "BRepBuilderAPI_MakeEdge2d.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
 
 proc edge2d*(v1: TopoDS_Vertex; v2: TopoDS_Vertex): Edge2dObj {.

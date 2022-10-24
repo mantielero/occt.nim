@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,22 +23,8 @@ discard "forward decl of Geom_Vector"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_VectorWithMagnitude"
-type
-  HandleGeomVectorWithMagnitude* = Handle[GeomVectorWithMagnitude]
 
-## ! Defines a vector with magnitude.
-## ! A vector with magnitude can have a zero length.
 
-type
-  GeomVectorWithMagnitude* {.importcpp: "Geom_VectorWithMagnitude",
-                            header: "Geom_VectorWithMagnitude.hxx", bycopy.} = object of GeomVector ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## transient
-                                                                                             ## copy
-                                                                                             ## of
-                                                                                             ## V.
 
 
 proc newGeomVectorWithMagnitude*(v: VecObj): GeomVectorWithMagnitude {.cdecl,

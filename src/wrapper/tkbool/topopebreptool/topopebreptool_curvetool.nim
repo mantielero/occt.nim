@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of TopOpeBRepTool_GeomTool"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepToolCurveTool* {.importcpp: "TopOpeBRepTool_CurveTool",
-                            header: "TopOpeBRepTool_CurveTool.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolCurveTool*(): TopOpeBRepToolCurveTool {.cdecl, constructor,

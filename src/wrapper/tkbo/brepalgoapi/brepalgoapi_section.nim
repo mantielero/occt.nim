@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created on: 1994-02-18
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,12 +20,6 @@ discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Pln"
 discard "forward decl of Geom_Surface"
-type
-  BRepAlgoAPI_Section* {.importcpp: "BRepAlgoAPI_Section",
-                        header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor
 
 
 proc newBRepAlgoAPI_Section*(): BRepAlgoAPI_Section {.cdecl, constructor,

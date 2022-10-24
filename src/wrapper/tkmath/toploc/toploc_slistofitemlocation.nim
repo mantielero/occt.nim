@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1993-02-26
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,14 +19,6 @@
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopLoc_ItemLocation"
-type
-  TopLocSListOfItemLocation* {.importcpp: "TopLoc_SListOfItemLocation",
-                              header: "TopLoc_SListOfItemLocation.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## List.
 
 
 proc newTopLocSListOfItemLocation*(): TopLocSListOfItemLocation {.cdecl,

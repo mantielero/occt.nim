@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1995-12-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of TopOpeBRepDS_Curve"
-type
-  TopOpeBRepDS_CurveExplorer* {.importcpp: "TopOpeBRepDS_CurveExplorer",
-                               header: "TopOpeBRepDS_CurveExplorer.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_CurveExplorer*(): TopOpeBRepDS_CurveExplorer {.cdecl,

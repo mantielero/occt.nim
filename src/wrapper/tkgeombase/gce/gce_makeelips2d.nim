@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,15 +21,6 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Elips2d"
-type
-  GceMakeElips2d* {.importcpp: "gce_MakeElips2d", header: "gce_MakeElips2d.hxx",
-                   bycopy.} = object of GceRoot ## ! Creates an ellipse with the major axis, the major and the
-                                           ## ! minor radius. The location of the MajorAxis is the center
-                                           ## ! of the  ellipse.
-                                           ## ! The sense of parametrization is given by Sense.
-                                           ## ! It is possible to create an ellipse with MajorRadius = MinorRadius.
-                                           ## ! the status is "InvertRadius" if MajorRadius < MinorRadius or
-                                           ## ! "NegativeRadius" if MinorRadius < 0.0
 
 
 proc newGceMakeElips2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;

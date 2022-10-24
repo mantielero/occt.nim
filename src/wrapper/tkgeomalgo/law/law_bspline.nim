@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1995-10-20
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -21,121 +23,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Law_BSpline"
-type
-  HandleLawBSpline* = Handle[LawBSpline]
 
-## ! Definition of the 1D B_spline curve.
-## !
-## ! Uniform  or non-uniform
-## ! Rational or non-rational
-## ! Periodic or non-periodic
-## !
-## ! a b-spline curve is defined by :
-## !
-## ! The Degree (up to 25)
-## !
-## ! The Poles  (and the weights if it is rational)
-## !
-## ! The Knots and Multiplicities
-## !
-## ! The knot vector   is an  increasing  sequence  of
-## ! reals without  repetition. The multiplicities are
-## ! the repetition of the knots.
-## !
-## ! If the knots are regularly spaced (the difference
-## ! of two  consecutive  knots  is a   constant), the
-## ! knots repartition is :
-## !
-## ! - Uniform if all multiplicities are 1.
-## !
-## ! -  Quasi-uniform if  all multiplicities are  1
-## ! but the first and the last which are Degree+1.
-## !
-## ! -   PiecewiseBezier if  all multiplicites  are
-## ! Degree but the   first and the  last which are
-## ! Degree+1.
-## !
-## ! The curve may be periodic.
-## !
-## ! On a periodic curve if there are k knots and p
-## ! poles. the period is knot(k) - knot(1)
-## !
-## ! the poles and knots are infinite vectors with :
-## !
-## ! knot(i+k) = knot(i) + period
-## !
-## ! pole(i+p) = pole(i)
-## !
-## ! References :
-## ! . A survey of curve and surface methods in CADG Wolfgang BOHM
-## ! CAGD 1 (1984)
-## ! . On de Boor-like algorithms and blossoming Wolfgang BOEHM
-## ! cagd 5 (1988)
-## ! . Blossoming and knot insertion algorithms for B-spline curves
-## ! Ronald N. GOLDMAN
-## ! . Modelisation des surfaces en CAO, Henri GIAUME Peugeot SA
-## ! . Curves and Surfaces for Computer Aided Geometric Design,
-## ! a practical guide Gerald Farin
 
-type
-  LawBSpline* {.importcpp: "Law_BSpline", header: "Law_BSpline.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## non-rational
-                                                                                                  ## B_spline
-                                                                                                  ## curve
-                                                                                                  ## on
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## basis
-                                                                                                  ## <Knots,
-                                                                                                  ## Multiplicities>
-                                                                                                  ## of
-                                                                                                  ## degree
-                                                                                                  ## <Degree>.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Tells
-                                                                                                  ## whether
-                                                                                                  ## the
-                                                                                                  ## Cache
-                                                                                                  ## is
-                                                                                                  ## valid
-                                                                                                  ## for
-                                                                                                  ## the
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## given
-                                                                                                  ## parameter
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Warnings
-                                                                                                  ## :
-                                                                                                  ## the
-                                                                                                  ## parameter
-                                                                                                  ## must
-                                                                                                  ## be
-                                                                                                  ## normalized
-                                                                                                  ## within
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## period
-                                                                                                  ## if
-                                                                                                  ## the
-                                                                                                  ## curve
-                                                                                                  ## is
-                                                                                                  ## periodic.
-                                                                                                  ## Otherwise
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## the
-                                                                                                  ## answer
-                                                                                                  ## will
-                                                                                                  ## be
-                                                                                                  ## false
 
 
 proc newLawBSpline*(poles: TColStdArray1OfReal; knots: TColStdArray1OfReal;

@@ -1,3 +1,5 @@
+import adaptor2d_types
+
 ##  Created on: 1994-02-23
 ##  Created by: model
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,30 +20,8 @@ discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Adaptor2d_HCurve2d"
-type
-  HandleAdaptor2dHCurve2d* = Handle[Adaptor2dHCurve2d]
 
-## ! Root class for 2D curves manipulated by handles, on
-## ! which geometric algorithms work.
-## ! An adapted curve is an interface between the
-## ! services provided by a curve, and those required of
-## ! the curve by algorithms, which use it.
-## ! A derived specific class is provided:
-## ! Geom2dAdaptor_HCurve for a curve from the Geom2d package.
 
-type
-  Adaptor2dHCurve2d* {.importcpp: "Adaptor2d_HCurve2d",
-                      header: "Adaptor2d_HCurve2d.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## reference
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## Curve2d
-                                                                                        ## inside
-                                                                                        ## the
-                                                                                        ## HCurve2d.
 
 
 proc curve2d*(this: Adaptor2dHCurve2d): Adaptor2dCurve2d {.noSideEffect, cdecl,

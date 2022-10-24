@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1995-07-13
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,18 +19,6 @@
 ## ! Extends TopExp_Explorer by counting index of current item
 ## ! (for tracing and debug)
 
-type
-  TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
-                                header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## explorer,
-                                                                                                         ## becomes
-                                                                                                         ## usefull
-                                                                                                         ## after
-                                                                                                         ## Init.
 
 
 proc newTopOpeBRepToolShapeExplorer*(): TopOpeBRepToolShapeExplorer {.cdecl,

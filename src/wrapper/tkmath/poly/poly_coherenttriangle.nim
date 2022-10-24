@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 2007-11-24
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -15,14 +17,6 @@
 
 discard "forward decl of Poly_CoherentTrianguation"
 discard "forward decl of Poly_CoherentLink"
-type
-  PolyCoherentTriangle* {.importcpp: "Poly_CoherentTriangle",
-                         header: "Poly_CoherentTriangle.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
-                                                                           ## *
-                                                                           ##  Empty constructor.
-                                                                           ##
-                                                                           ##  ---------- PROTECTED METHODS ----------
-                                                                           ##  ---------- PRIVATE FIELDS ----------
 
 
 proc newPolyCoherentTriangle*(): PolyCoherentTriangle {.cdecl, constructor,

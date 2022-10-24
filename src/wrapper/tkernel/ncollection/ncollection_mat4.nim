@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2013-05-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -18,13 +20,6 @@
 ## ! Originally introduced for 3D space projection and orientation
 ## ! operations.
 
-type
-  NCollectionMat4*[ElementT] {.importcpp: "NCollection_Mat4<\'0>",
-                              header: "NCollection_Mat4.hxx", bycopy.} = object ## ! Get
-                                                                           ## number of rows.
-                                                                           ## !
-                                                                           ## @return
-                                                                           ## number of rows.
 
 
 proc rows*[ElementT](): csize_t {.cdecl, importcpp: "NCollection_Mat4::Rows(@)",

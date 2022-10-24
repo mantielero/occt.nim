@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,33 +18,6 @@
 
 discard "forward decl of Standard_RangeError"
 discard "forward decl of StdFail_InfiniteSolutions"
-type
-  MathDirectPolynomialRoots* {.importcpp: "math_DirectPolynomialRoots",
-                              header: "math_DirectPolynomialRoots.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## computes
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## real
-                                                                                     ## roots
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## polynomial
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Ax4
-                                                                                     ## +
-                                                                                     ## Bx3
-                                                                                     ## +
-                                                                                     ## Cx2
-                                                                                     ## +
-                                                                                     ## Dx
-                                                                                     ## +
-                                                                                     ## E
-                                                                                     ## using
-                                                                                     ## a
-                                                                                     ## direct
-                                                                                     ## method.
 
 
 proc newMathDirectPolynomialRoots*(a: cfloat; b: cfloat; c: cfloat; d: cfloat; e: cfloat): MathDirectPolynomialRoots {.

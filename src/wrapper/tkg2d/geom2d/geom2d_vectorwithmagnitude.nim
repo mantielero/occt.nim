@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,22 +23,8 @@ discard "forward decl of Geom2d_Vector"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_VectorWithMagnitude"
-type
-  HandleGeom2dVectorWithMagnitude* = Handle[Geom2dVectorWithMagnitude]
 
-## ! Defines a vector with magnitude.
-## ! A vector with magnitude can have a zero length.
 
-type
-  Geom2dVectorWithMagnitude* {.importcpp: "Geom2d_VectorWithMagnitude",
-                              header: "Geom2d_VectorWithMagnitude.hxx", bycopy.} = object of Geom2dVector ##
-                                                                                                   ## !
-                                                                                                   ## Creates
-                                                                                                   ## a
-                                                                                                   ## persistent
-                                                                                                   ## copy
-                                                                                                   ## of
-                                                                                                   ## V.
 
 
 proc newGeom2dVectorWithMagnitude*(v: Vec2dObj): Geom2dVectorWithMagnitude {.cdecl,

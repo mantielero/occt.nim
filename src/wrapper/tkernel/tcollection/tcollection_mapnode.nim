@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1998-01-19
 ##  Created by: Kernel
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,14 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TCollection_MapNode"
-type
-  HandleTCollectionMapNode* = Handle[TCollectionMapNode]
 
-## ! Basic class root of all the Maps.
 
-type
-  TCollectionMapNode* {.importcpp: "TCollection_MapNode",
-                       header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTCollectionMapNode*(n: TCollectionMapNodePtr): TCollectionMapNode {.cdecl,

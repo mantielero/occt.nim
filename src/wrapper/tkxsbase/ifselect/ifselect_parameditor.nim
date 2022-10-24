@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-07-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,49 +23,8 @@ discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_ParamEditor"
-type
-  HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
 
-## ! A ParamEditor gives access for edition to a list of TypedValue
-## ! (i.e. of Static too)
-## ! Its definition is made of the TypedValue to edit themselves,
-## ! and can add some constants, which can then be displayed but
-## ! not changed (for instance, system name, processor version ...)
-## !
-## ! I.E. it gives a way of editing or at least displaying
-## ! parameters as global
 
-type
-  IFSelectParamEditor* {.importcpp: "IFSelect_ParamEditor",
-                        header: "IFSelect_ParamEditor.hxx", bycopy.} = object of IFSelectEditor ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## ParamEditor,
-                                                                                         ## empty,
-                                                                                         ## with
-                                                                                         ## a
-                                                                                         ## maximum
-                                                                                         ## count
-                                                                                         ## of
-                                                                                         ## params
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## (default
-                                                                                         ## is
-                                                                                         ## 100)
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## And
-                                                                                         ## a
-                                                                                         ## label,
-                                                                                         ## by
-                                                                                         ## default
-                                                                                         ## it
-                                                                                         ## will
-                                                                                         ## be
-                                                                                         ## "Param
-                                                                                         ## Editor"
 
 
 proc newIFSelectParamEditor*(nbmax: cint = 100; label: cstring = ""): IFSelectParamEditor {.

@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-03-28
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -18,50 +20,7 @@
 ##               an Integer in range of 1..n
 ##
 
-type
-  BidirectionalIteratorTag* {.importcpp:"std::bidirectional_iterator_tag".} = object
-  NCollectionSequence*[TheItemType] {.importcpp: "NCollection_Sequence<\'0>",
-                                     header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionBaseSequence ##
-                                                                                                               ## !
-                                                                                                               ## STL-compliant
-                                                                                                               ## typedef
-                                                                                                               ## for
-                                                                                                               ## value
-                                                                                                               ## type
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Class
-                                                                                                               ## defining
-                                                                                                               ## sequence
-                                                                                                               ## node
-                                                                                                               ## -
-                                                                                                               ## for
-                                                                                                               ## internal
-                                                                                                               ## use
-                                                                                                               ## by
-                                                                                                               ## Sequence
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Implementation
-                                                                                                               ## of
-                                                                                                               ## the
-                                                                                                               ## Iterator
-                                                                                                               ## interface.
-                                                                                                               ##
-                                                                                                               ## ----------
-                                                                                                               ## PUBLIC
-                                                                                                               ## METHODS
-                                                                                                               ## ------------
-                                                                                                               ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor.
 
-  NCollectionSequencevalueType*[TheItemType] = TheItemType
-  NCollectionSequenceNode*[TheItemType] {.
-      importcpp: "NCollection_Sequence<\'0>::Node",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionSeqNode ## !
-                                                                           ## Constructor
 
 
 proc newNCollectionSequenceNode*[TheItemType](theItem: TheItemType): NCollectionSequenceNode[
@@ -72,17 +31,6 @@ proc value*[TheItemType](this: NCollectionSequenceNode[TheItemType]): TheItemTyp
     noSideEffect, cdecl, importcpp: "Value", header: "NCollection_Sequence.hxx".}
 proc changeValue*[TheItemType](this: var NCollectionSequenceNode[TheItemType]): var TheItemType {.
     cdecl, importcpp: "ChangeValue", header: "NCollection_Sequence.hxx".}
-type
-  NCollectionSequenceIterator*[TheItemType] {.
-      importcpp: "NCollection_Sequence<\'0>::Iterator",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of RootObj ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
-                                                                                    ## -
-                                                                                    ## for
-                                                                                    ## later
-                                                                                    ## Init
 
 
 proc newNCollectionSequenceIterator*[TheItemType](): NCollectionSequenceIterator[
@@ -104,11 +52,6 @@ proc changeValue*[TheItemType](this: NCollectionSequenceIterator[TheItemType]): 
 proc isEqual*[TheItemType](this: NCollectionSequenceIterator[TheItemType];
                           theOther: NCollectionSequenceIterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "NCollection_Sequence.hxx".}
-type
-#  NCollectionSequenceiterator* = NCollectionStlIterator[BidirectionalIteratorTag,
-#      NCollectionSequenceIterator, TheItemType, False]
-  NCollectionSequenceconstIterator* = NCollectionStlIterator[
-      BidirectionalIteratorTag, NCollectionSequenceIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionSequence[TheItemType]): NCollectionSequenceiterator {.
     noSideEffect, cdecl, importcpp: "begin", header: "NCollection_Sequence.hxx".}

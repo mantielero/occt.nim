@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-09-06
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,32 +19,6 @@
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_ArrayOfPrimitives"
 discard "forward decl of Graphic3d_Text"
-type
-  Graphic3dGroup* {.importcpp: "Graphic3d_Group", header: "Graphic3d_Group.hxx",
-                   bycopy.} = object of StandardTransient ## ! Supress all primitives and attributes of <me>.
-                                                     ## ! To clear group without update in Graphic3d_StructureManager
-                                                     ## ! pass Standard_False as <theUpdateStructureMgr>. This
-                                                     ## ! used on context and viewer destruction, when the pointer
-                                                     ## ! to structure manager in Graphic3d_Structure could be
-                                                     ## ! already released (pointers are used here to avoid handle
-                                                     ## ! cross-reference);
-                                                     ## ! Return fill area aspect.
-                                                     ## ! sets the stencil test to theIsEnabled state;
-                                                     ## ! Creates the string <AText> at position <APoint>.
-                                                     ## ! The 3D point of attachment is projected. The text is
-                                                     ## ! written in the plane of projection.
-                                                     ## ! The attributes are given with respect to the plane of
-                                                     ## ! projection.
-                                                     ## ! AHeight : Height of text.
-                                                     ## ! (Relative to the Normalized Projection
-                                                     ## ! Coordinates (NPC) Space).
-                                                     ## ! AAngle  : Orientation of the text
-                                                     ## ! (with respect to the horizontal).
-                                                     ## ! Creates a group in the structure <AStructure>.
-    ## !< pointer to the parent structure
-    ## !< bounding box
-    ## !< flag indicating closed volume
-    ## !< flag indicating that this group contains face primitives
 
 
 proc clear*(this: var Graphic3dGroup; theUpdateStructureMgr: bool = true) {.cdecl,
@@ -136,5 +112,4 @@ proc text*(this: var Graphic3dGroup; theText: TCollectionExtendedString;
 proc dumpJson*(this: Graphic3dGroup; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Group.hxx".}
-type
-  HandleGraphic3dGroup* = Handle[Graphic3dGroup]
+

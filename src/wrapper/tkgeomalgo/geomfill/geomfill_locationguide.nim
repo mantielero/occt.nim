@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -26,10 +28,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_LocationGuide"
-type
-  HandleGeomFillLocationGuide* = Handle[GeomFillLocationGuide]
-  GeomFillLocationGuide* {.importcpp: "GeomFill_LocationGuide",
-                          header: "GeomFill_LocationGuide.hxx", bycopy.} = object of GeomFillLocationLaw
 
 
 proc newGeomFillLocationGuide*(triedre: Handle[GeomFillTrihedronWithGuide]): GeomFillLocationGuide {.

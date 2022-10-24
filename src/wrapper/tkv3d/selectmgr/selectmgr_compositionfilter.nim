@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1996-01-29
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,34 +18,8 @@
 
 discard "forward decl of SelectMgr_Filter"
 discard "forward decl of SelectMgr_CompositionFilter"
-type
-  HandleSelectMgrCompositionFilter* = Handle[SelectMgrCompositionFilter]
 
-## ! A framework to define a compound filter composed of
-## ! two or more simple filters.
 
-type
-  SelectMgrCompositionFilter* {.importcpp: "SelectMgr_CompositionFilter",
-                               header: "SelectMgr_CompositionFilter.hxx", bycopy.} = object of SelectMgrFilter ##
-                                                                                                        ## !
-                                                                                                        ## Adds
-                                                                                                        ## the
-                                                                                                        ## filter
-                                                                                                        ## afilter
-                                                                                                        ## to
-                                                                                                        ## a
-                                                                                                        ## filter
-                                                                                                        ## object
-                                                                                                        ## created
-                                                                                                        ## by
-                                                                                                        ## a
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## filter
-                                                                                                        ## class
-                                                                                                        ## inheriting
-                                                                                                        ## this
-                                                                                                        ## framework.
 
 
 proc add*(this: var SelectMgrCompositionFilter; afilter: Handle[SelectMgrFilter]) {.

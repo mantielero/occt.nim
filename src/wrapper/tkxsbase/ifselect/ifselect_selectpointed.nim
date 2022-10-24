@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-05-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,23 +24,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectPointed"
-type
-  HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
 
-## ! This type of Selection is intended to describe a direct
-## ! selection without an explicit criterium, for instance the
-## ! result of picking viewed entities on a graphic screen
-## !
-## ! It can also be used to provide a list as internal alternate
-## ! input : this use implies to clear the list once queried
 
-type
-  IFSelectSelectPointed* {.importcpp: "IFSelect_SelectPointed",
-                          header: "IFSelect_SelectPointed.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## a
-                                                                                                 ## SelectPointed
 
 
 proc newIFSelectSelectPointed*(): IFSelectSelectPointed {.cdecl, constructor,

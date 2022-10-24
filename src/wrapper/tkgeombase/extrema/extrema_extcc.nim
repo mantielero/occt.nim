@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,21 +21,6 @@ discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Extrema_ExtElC"
 discard "forward decl of Extrema_ECC"
-type
-  ExtremaExtCC* {.importcpp: "Extrema_ExtCC", header: "Extrema_ExtCC.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Prepares
-                                                                                     ## the
-                                                                                     ## extrema
-                                                                                     ## result(s)
-                                                                                     ## for
-                                                                                     ## analytical
-                                                                                     ## cases
-                                                                                     ## (line,
-                                                                                     ## circle,
-                                                                                     ## ellipsis
-                                                                                     ## etc.)
-    ##  Default value is false.
 
 
 proc newExtremaExtCC*(tolC1: cfloat = 1.0e-10; tolC2: cfloat = 1.0e-10): ExtremaExtCC {.

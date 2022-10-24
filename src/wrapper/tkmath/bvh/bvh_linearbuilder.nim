@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2014-09-11
 ##  Created by: Danila ULYANOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -24,13 +26,7 @@
 ## ! C. Lauterbach, M. Garland, S. Sengupta, D. Luebke, and D. Manocha.
 ## ! Fast BVH construction on GPUs. Eurographics, 2009.
 
-type
-  BVH_LinearBuilder*[T; N: static[cint]] {.importcpp: "BVH_LinearBuilder<\'0,\'1>",
-                                        header: "BVH_LinearBuilder.hxx", bycopy.} = object of BVH_Builder[
-      T, N]                    ## ! Creates binned LBVH builder.
-          ## ! Emits hierarchy from sorted Morton codes.
 
-  BVH_LinearBuilderBVH_VecNt*[T; N] = object
 
 proc newBVH_LinearBuilder*[T; N: static[cint]](
     theLeafNodeSize: cint = BVH_ConstantsLeafNodeSizeDefault;
@@ -142,21 +138,9 @@ proc updateBounds*[T; N: static[cint]](theSet: ptr BVH_Set[T, N];
     cdecl.} =
   discard
 
-type
-  BoundData*[T; N: static[cint]] {.importcpp: "BVH::BoundData<\'0,\'1>",
-                                header: "BVH_LinearBuilder.hxx", bycopy.} = object
-    mySet* {.importc: "mySet".}: ptr BVH_Set[T, N] ## !< Set of geometric objects
-    myBVH* {.importc: "myBVH".}: ptr BVH_Tree[T, N] ## !< BVH tree built over the set
-    myNode* {.importc: "myNode".}: cint ## !< BVH node to update bounding box
-    myLevel* {.importc: "myLevel".}: cint ## !< Level of the processed BVH node
-    myHeight* {.importc: "myHeight".}: ptr cint ## !< Height of the processed BVH node
 
 
-## ! Task for parallel bounds updating.
 
-type
-  UpdateBoundTask*[T; N: static[cint]] {.importcpp: "BVH::UpdateBoundTask<\'0,\'1>",
-                                      header: "BVH_LinearBuilder.hxx", bycopy.} = object
 
 
 proc newUpdateBoundTask*[T; N: static[cint]](isParallel: bool): UpdateBoundTask[T, N] {.
@@ -203,3 +187,4 @@ proc `()`*[T; N: static[cint]](this: UpdateBoundTask[T, N]; theData: BoundData[T
 ##
 ##    BVH_Builder<T, N>::updateDepth (theBVH, aHeight);
 ##  }
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,26 +20,6 @@
 ## ! facets MUST define texture coordinate
 ## ! if you want to see somethings on.
 
-type
-  Graphic3dTexture2Dmanual* {.importcpp: "Graphic3d_Texture2Dmanual",
-                             header: "Graphic3d_Texture2Dmanual.hxx", bycopy.} = object of Graphic3dTexture2D ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## texture
-                                                                                                       ## from
-                                                                                                       ## a
-                                                                                                       ## file.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## MipMaps
-                                                                                                       ## levels
-                                                                                                       ## will
-                                                                                                       ## be
-                                                                                                       ## automatically
-                                                                                                       ## generated
-                                                                                                       ## if
-                                                                                                       ## needed.
 
 
 proc newGraphic3dTexture2Dmanual*(theFileName: TCollectionAsciiString): Graphic3dTexture2Dmanual {.
@@ -46,5 +28,4 @@ proc newGraphic3dTexture2Dmanual*(theNOT: Graphic3dNameOfTexture2D): Graphic3dTe
     cdecl, constructor, importcpp: "Graphic3d_Texture2Dmanual(@)", header: "Graphic3d_Texture2Dmanual.hxx".}
 proc newGraphic3dTexture2Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture2Dmanual {.
     cdecl, constructor, importcpp: "Graphic3d_Texture2Dmanual(@)", header: "Graphic3d_Texture2Dmanual.hxx".}
-type
-  HandleGraphic3dTexture2Dmanual* = Handle[Graphic3dTexture2Dmanual]
+

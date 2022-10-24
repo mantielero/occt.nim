@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ExtremaHArray2OfPOnSurfParams* {.importcpp: "Extrema_HArray2OfPOnSurfParams",
-                                  header: "Extrema_HArray2OfPOnSurfParams.hxx",
-                                  bycopy.} = object of ExtremaArray2OfPOnSurfParams
 
 
 proc newExtremaHArray2OfPOnSurfParams*(theRowLow: cint; theRowUpp: cint;

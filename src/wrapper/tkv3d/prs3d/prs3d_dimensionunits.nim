@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2013-11-11
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -17,11 +19,6 @@
 ## ! - lengthes (length, radius, diameter)
 ## ! - angles
 
-type
-  Prs3dDimensionUnits* {.importcpp: "Prs3d_DimensionUnits",
-                        header: "Prs3d_DimensionUnits.hxx", bycopy.} = object ## ! Default
-                                                                         ## constructor. Sets meters as default length units
-                                                                         ## ! and radians as default angle units.
 
 
 proc newPrs3dDimensionUnits*(): Prs3dDimensionUnits {.cdecl, constructor,

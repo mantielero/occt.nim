@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,14 +19,6 @@
 ## ! This abstract class describes the virtual functions
 ## ! associated with a Function of a single variable.
 
-type
-  MathFunction* {.importcpp: "math_Function", header: "math_Function.hxx", bycopy.} = object of RootObj ##
-                                                                                     ## !
-                                                                                     ## Virtual
-                                                                                     ## destructor,
-                                                                                     ## for
-                                                                                     ## safe
-                                                                                     ## inheritance
 
 
 proc destroyMathFunction*(this: var MathFunction) {.cdecl,

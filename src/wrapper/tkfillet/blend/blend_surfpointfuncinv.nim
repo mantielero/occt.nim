@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,12 +18,6 @@
 
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
-type
-  BlendSurfPointFuncInv* {.importcpp: "Blend_SurfPointFuncInv",
-                          header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                             ## !
-                                                                                                             ## Returns
-                                                                                                             ## 3.
 
 
 proc nbVariables*(this: BlendSurfPointFuncInv): cint {.noSideEffect, cdecl,

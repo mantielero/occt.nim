@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AppParCurvesHArray1OfMultiBSpCurve* {.importcpp: "AppParCurves_HArray1OfMultiBSpCurve", header: "AppParCurves_HArray1OfMultiBSpCurve.hxx",
-                                       bycopy.} = object of AppParCurvesArray1OfMultiBSpCurve
 
 
 proc newAppParCurvesHArray1OfMultiBSpCurve*(theLower: cint; theUpper: cint): AppParCurvesHArray1OfMultiBSpCurve {.

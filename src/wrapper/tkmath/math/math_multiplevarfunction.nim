@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent Painnot
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,18 +18,6 @@
 
 ## ! Describes the virtual functions associated with a multiple variable function.
 
-type
-  MathMultipleVarFunction* {.importcpp: "math_MultipleVarFunction",
-                            header: "math_MultipleVarFunction.hxx", bycopy.} = object of RootObj ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## the
-                                                                                 ## number
-                                                                                 ## of
-                                                                                 ## variables
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## function
 
 
 proc nbVariables*(this: MathMultipleVarFunction): cint {.noSideEffect, cdecl,

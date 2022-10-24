@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-15
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -43,61 +45,8 @@
 ##               with IsDeletable.
 ##
 
-type
-  PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object
-  RandomAccessIteratorTag* {.importcpp:"std::random_access_iterator_tag".} = object
-  TheItemType* = object
   
-  NCollectionArray1*[TheItemType] {.importcpp: "NCollection_Array1<\'0>",
-                                   header: "NCollection_Array1.hxx", bycopy.} = object of RootObj ##
-                                                                                  ## !
-                                                                                  ## STL-compliant
-                                                                                  ## typedef
-                                                                                  ## for
-                                                                                  ## value
-                                                                                  ## type
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Implementation
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## Iterator
-                                                                                  ## interface.
-                                                                                  ##
-                                                                                  ## ----------
-                                                                                  ## PUBLIC
-                                                                                  ## METHODS
-                                                                                  ## ------------
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor;
-                                                                                  ## should
-                                                                                  ## be
-                                                                                  ## used
-                                                                                  ## with
-                                                                                  ## caution.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## @sa
-                                                                                  ## methods
-                                                                                  ## Resize()
-                                                                                  ## and
-                                                                                  ## Move().
-                                                                                  ##
-                                                                                  ## ----------
-                                                                                  ## PROTECTED
-                                                                                  ## FIELDS
-                                                                                  ## -----------
-    ## !< Flag showing who allocated the array
-    ## !< Pointer to '0'th array item
 
-  NCollectionArray1valueType*[TheItemType] = TheItemType
-  NCollectionArray1Iterator*[TheItemType] {.
-      importcpp: "NCollection_Array1<\'0>::Iterator",
-      header: "NCollection_Array1.hxx", bycopy.} = object of RootObj ## ! Empty constructor - for later Init
-    ## !< Pointer to the current element in the array
-    ## !< Pointer to the past-the-end element in the array
 
 
 proc newNCollectionArray1Iterator*[TheItemType](): NCollectionArray1Iterator[
@@ -130,11 +79,6 @@ proc changeValue*[TheItemType](this: NCollectionArray1Iterator[TheItemType]): va
 proc isEqual*[TheItemType](this: NCollectionArray1Iterator[TheItemType];
                           theOther: NCollectionArray1Iterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "NCollection_Array1.hxx".}
-type
-#  NCollectionArray1iterator* = NCollectionStlIterator[RandomAccessIteratorTag,
-#      NCollectionArray1Iterator, TheItemType, False]
-  NCollectionArray1constIterator* = NCollectionStlIterator[
-      RandomAccessIteratorTag, NCollectionArray1Iterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionArray1[TheItemType]): NCollectionArray1iterator {.
     noSideEffect, cdecl, importcpp: "begin", header: "NCollection_Array1.hxx".}

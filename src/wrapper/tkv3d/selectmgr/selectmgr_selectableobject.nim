@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-20
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,26 +19,6 @@
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of SelectMgr_SelectionManager"
-type
-  SelectMgrSelectableObject* {.importcpp: "SelectMgr_SelectableObject",
-                              header: "SelectMgr_SelectableObject.hxx", bycopy.} = object of PrsMgrPresentableObject ##
-                                                                                                              ## !
-                                                                                                              ## Clears
-                                                                                                              ## all
-                                                                                                              ## selections
-                                                                                                              ## of
-                                                                                                              ## the
-                                                                                                              ## object
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## Protected
-                                                                                                              ## empty
-                                                                                                              ## constructor.
-    ## !< list of selections
-    ## !< optional presentation for highlighting selected object
-    ## !< optional presentation for highlighting detected object
-    ## !< global selection mode
-    ## !< auto-highlighting flag defining
 
 
 proc destroySelectMgrSelectableObject*(this: var SelectMgrSelectableObject) {.cdecl,
@@ -114,5 +96,4 @@ proc getAssemblyOwner*(this: SelectMgrSelectableObject): Handle[
 proc dumpJson*(this: SelectMgrSelectableObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_SelectableObject.hxx".}
-type
-  HandleSelectMgrSelectableObject* = Handle[SelectMgrSelectableObject]
+

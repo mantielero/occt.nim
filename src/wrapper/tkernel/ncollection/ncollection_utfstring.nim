@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -23,24 +25,6 @@
 ## ! In comments to this class, terms "Unicode symbol" is used as
 ## ! synonym of "Unicode code point".
 
-type
-  NCollectionUtfString*[Type] {.importcpp: "NCollection_UtfString<\'0>",
-                               header: "NCollection_UtfString.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## @name
-                                                                                 ## assign
-                                                                                 ## operators
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Copy
-                                                                                 ## from
-                                                                                 ## another
-                                                                                 ## string.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## @name
-                                                                                 ## compare
-                                                                                 ## operators
 
 
 proc `iterator`*[Type](this: NCollectionUtfString[Type]): NCollectionUtfIterator[
@@ -110,13 +94,6 @@ proc `+=`*[Type](this: var NCollectionUtfString[Type];
     header: "NCollection_UtfString.hxx".}
 proc `==`*[Type](this: NCollectionUtfString[Type]; theCompare: NCollectionUtfString): bool {.
     noSideEffect, cdecl, importcpp: "(# == #)", header: "NCollection_UtfString.hxx".}
-type
-  NCollectionUtf8String* = NCollectionUtfString[StandardUtf8Char]
-  NCollectionUtf16String* = NCollectionUtfString[StandardUtf16Char]
-  NCollectionUtf32String* = NCollectionUtfString[StandardUtf32Char]
-  NCollectionUtfWideString* = NCollectionUtfString[StandardWideChar]
 
-##  template implementation (inline methods)
 
-#import
-#  nCollectionUtfString
+

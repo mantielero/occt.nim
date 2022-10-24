@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1993-12-20
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,9 +25,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Circ"
 discard "forward decl of Blend_Point"
-type
-  BlendFuncEvolRad* {.importcpp: "BlendFunc_EvolRad",
-                     header: "BlendFunc_EvolRad.hxx", bycopy.} = object of BlendFunction
 
 
 proc newBlendFuncEvolRad*(s1: Handle[Adaptor3dHSurface];

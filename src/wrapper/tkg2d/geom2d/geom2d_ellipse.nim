@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,52 +26,8 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Ellipse"
-type
-  HandleGeom2dEllipse* = Handle[Geom2dEllipse]
 
-## ! Describes an ellipse in the plane (2D space).
-## ! An ellipse is defined by its major and minor radii and,
-## ! as with any conic curve, is positioned in the plane
-## ! with a coordinate system (gp_Ax22d object) where:
-## ! - the origin is the center of the ellipse,
-## ! - the "X Direction" defines the major axis, and
-## ! - the "Y Direction" defines the minor axis.
-## ! This coordinate system is the local coordinate system of the ellipse.
-## ! The orientation (direct or indirect) of the local
-## ! coordinate system gives an explicit orientation to the
-## ! ellipse, determining the direction in which the
-## ! parameter increases along the ellipse.
-## ! The Geom2d_Ellipse ellipse is parameterized by an angle:
-## ! P(U) = O + MajorRad*Cos(U)*XDir + MinorRad*Sin(U)*YDir
-## ! where:
-## ! - P is the point of parameter U,
-## ! - O, XDir and YDir are respectively the origin, "X
-## ! Direction" and "Y Direction" of its local coordinate system,
-## ! - MajorRad and MinorRad are the major and
-## ! minor radii of the ellipse.
-## ! The "X Axis" of the local coordinate system therefore
-## ! defines the origin of the parameter of the ellipse.
-## ! An ellipse is a closed and periodic curve. The period
-## ! is 2.*Pi and the parameter range is [ 0,2.*Pi [.
-## ! See Also
-## ! GCE2d_MakeEllipse which provides functions for
-## ! more complex ellipse constructions
-## ! gp_Ax22d
-## ! gp_Elips2d for an equivalent, non-parameterized data structure
 
-type
-  Geom2dEllipse* {.importcpp: "Geom2d_Ellipse", header: "Geom2d_Ellipse.hxx", bycopy.} = object of Geom2dConic ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## an
-                                                                                                     ## ellipse
-                                                                                                     ## by
-                                                                                                     ## conversion
-                                                                                                     ## of
-                                                                                                     ## the
-                                                                                                     ## gp_Elips2d
-                                                                                                     ## ellipse
-                                                                                                     ## E.
 
 
 proc newGeom2dEllipse*(e: Elips2dObj): Geom2dEllipse {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-10-13
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,93 +21,6 @@ discard "forward decl of GeomFill_TgtField"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of GeomFill_Boundary"
 discard "forward decl of GeomFill_BoundWithSurf"
-type
-  GeomFillConstrainedFilling* {.importcpp: "GeomFill_ConstrainedFilling",
-                               header: "GeomFill_ConstrainedFilling.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## Constructs
-                                                                                       ## an
-                                                                                       ## empty
-                                                                                       ## framework
-                                                                                       ## for
-                                                                                       ## filling
-                                                                                       ## a
-                                                                                       ## surface
-                                                                                       ## from
-                                                                                       ## boundaries.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## boundaries
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## defined,
-                                                                                       ## and
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## be
-                                                                                       ## built
-                                                                                       ## by
-                                                                                       ## using
-                                                                                       ## the
-                                                                                       ## function
-                                                                                       ## Init.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## The
-                                                                                       ## surface
-                                                                                       ## will
-                                                                                       ## respect
-                                                                                       ## the
-                                                                                       ## following
-                                                                                       ## constraints:
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## -
-                                                                                       ## its
-                                                                                       ## degree
-                                                                                       ## will
-                                                                                       ## not
-                                                                                       ## be
-                                                                                       ## greater
-                                                                                       ## than
-                                                                                       ## MaxDeg
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## -
-                                                                                       ## the
-                                                                                       ## maximum
-                                                                                       ## number
-                                                                                       ## of
-                                                                                       ## segments
-                                                                                       ## MaxSeg
-                                                                                       ## which
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## BSpline
-                                                                                       ## surfaces
-                                                                                       ## can
-                                                                                       ## have.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Performs
-                                                                                       ## the
-                                                                                       ## approximation
-                                                                                       ## an
-                                                                                       ## compute
-                                                                                       ## the
-                                                                                       ## poles
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## surface.
 
 
 proc newGeomFillConstrainedFilling*(maxDeg: cint; maxSeg: cint): GeomFillConstrainedFilling {.

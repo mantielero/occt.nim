@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,74 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimTangentRelation* = Handle[PrsDimTangentRelation]
 
-## ! A framework to display tangency constraints between
-## ! two or more Interactive Objects of the datum type.
-## ! The datums are normally faces or edges.
 
-type
-  PrsDimTangentRelation* {.importcpp: "PrsDim_TangentRelation",
-                          header: "PrsDim_TangentRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                             ## !
-                                                                                             ## TwoFacesTangent
-                                                                                             ## or
-                                                                                             ## TwoEdgesTangent
-                                                                                             ## relation
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Constructs
-                                                                                             ## an
-                                                                                             ## object
-                                                                                             ## to
-                                                                                             ## display
-                                                                                             ## tangency
-                                                                                             ## constraints.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## This
-                                                                                             ## object
-                                                                                             ## is
-                                                                                             ## defined
-                                                                                             ## by
-                                                                                             ## the
-                                                                                             ## first
-                                                                                             ## shape
-                                                                                             ## aFShape,
-                                                                                             ## the
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## second
-                                                                                             ## shape
-                                                                                             ## aSShape,
-                                                                                             ## the
-                                                                                             ## plane
-                                                                                             ## aPlane
-                                                                                             ## and
-                                                                                             ## the
-                                                                                             ## index
-                                                                                             ## anExternRef.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## aPlane
-                                                                                             ## serves
-                                                                                             ## as
-                                                                                             ## an
-                                                                                             ## optional
-                                                                                             ## axis.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## anExternRef
-                                                                                             ## set
-                                                                                             ## to
-                                                                                             ## 0
-                                                                                             ## indicates
-                                                                                             ## that
-                                                                                             ## there
-                                                                                             ## is
-                                                                                             ## no
-                                                                                             ## relation.
 
 
 proc newPrsDimTangentRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;

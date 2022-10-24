@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 1991-10-02
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,11 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Quantity_Color"
-type
-  AspectBackground* {.importcpp: "Aspect_Background",
-                     header: "Aspect_Background.hxx", bycopy.} = object of RootObj ## ! Creates a window background.
-                                                                   ## ! Default color :
-                                                                   ## NOC_MATRAGRAY.
 
 
 proc newAspectBackground*(): AspectBackground {.cdecl, constructor,

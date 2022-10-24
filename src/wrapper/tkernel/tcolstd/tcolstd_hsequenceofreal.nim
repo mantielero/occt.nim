@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHSequenceOfReal* {.importcpp: "TColStd_HSequenceOfReal",
-                           header: "TColStd_HSequenceOfReal.hxx", bycopy.} = object of TColStdSequenceOfReal
 
 
 proc newTColStdHSequenceOfReal*(): TColStdHSequenceOfReal {.cdecl, constructor,
@@ -30,5 +29,4 @@ proc append*(this: var TColStdHSequenceOfReal;
     header: "TColStd_HSequenceOfReal.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfReal): var TColStdSequenceOfReal {.
     cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfReal.hxx".}
-type
-  HandleTColStdHSequenceOfReal* = Handle[TColStdHSequenceOfReal]
+

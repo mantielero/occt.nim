@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,22 +18,8 @@
 
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture2Dplane"
-type
-  HandleGraphic3dTexture2Dplane* = Handle[Graphic3dTexture2Dplane]
 
-## ! This class allows the management of a 2D texture defined from a plane equation
-## ! Use the SetXXX() methods for positioning the texture as you want.
 
-type
-  Graphic3dTexture2Dplane* {.importcpp: "Graphic3d_Texture2Dplane",
-                            header: "Graphic3d_Texture2Dplane.hxx", bycopy.} = object of Graphic3dTexture2D ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## texture
-                                                                                                     ## from
-                                                                                                     ## a
-                                                                                                     ## file
 
 
 proc newGraphic3dTexture2Dplane*(theFileName: TCollectionAsciiString): Graphic3dTexture2Dplane {.

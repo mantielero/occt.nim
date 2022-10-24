@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,15 +14,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_Transient"
-type
-  MessageAttributeObject* {.importcpp: "Message_AttributeObject",
-                           header: "Message_AttributeObject.hxx", bycopy.} = object of MessageAttribute ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-                                                                                                 ## with
-                                                                                                 ## string
-                                                                                                 ## argument
-    ## !< alert object
 
 
 proc newMessageAttributeObject*(theObject: Handle[StandardTransient]; theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttributeObject {.

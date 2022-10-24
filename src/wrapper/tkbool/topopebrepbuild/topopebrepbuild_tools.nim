@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1999-11-02
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -20,9 +22,6 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Vec"
 discard "forward decl of TopoDS_Wire"
-type
-  TopOpeBRepBuildTools* {.importcpp: "TopOpeBRepBuild_Tools",
-                         header: "TopOpeBRepBuild_Tools.hxx", bycopy.} = object
 
 
 proc findState*(aVertex: TopoDS_Shape; aState: TopAbsState;

@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1993-03-17
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,11 +20,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of IntSurf_PntOn2S"
-type
-  ApproxIntSvSurfaces* {.importcpp: "ApproxInt_SvSurfaces",
-                        header: "ApproxInt_SvSurfaces.hxx", bycopy.} = object ## ! returns True if
-                                                                         ## Tg,Tguv1 Tguv2 can be
-                                                                         ## computed.
 
 
 proc compute*(this: var ApproxIntSvSurfaces; u1: var cfloat; v1: var cfloat;

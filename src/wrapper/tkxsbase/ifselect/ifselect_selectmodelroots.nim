@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,21 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectModelRoots"
-type
-  HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
 
-## ! A SelectModelRoots gets all the Root Entities of an
-## ! InterfaceModel. Remember that a "Root Entity" is defined as
-## ! having no Sharing Entity (if there is a Loop between Entities,
-## ! none of them can be a "Root").
 
-type
-  IFSelectSelectModelRoots* {.importcpp: "IFSelect_SelectModelRoots",
-                             header: "IFSelect_SelectModelRoots.hxx", bycopy.} = object of IFSelectSelectBase ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## SelectModelRoot
 
 
 proc newIFSelectSelectModelRoots*(): IFSelectSelectModelRoots {.cdecl, constructor,

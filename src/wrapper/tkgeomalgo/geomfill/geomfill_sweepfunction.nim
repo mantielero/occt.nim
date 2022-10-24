@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -19,15 +21,8 @@ discard "forward decl of GeomFill_SectionLaw"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_SweepFunction"
-type
-  HandleGeomFillSweepFunction* = Handle[GeomFillSweepFunction]
 
-## ! Function to approximate by SweepApproximation from
-## ! Approx. To bulid general sweep Surface.
 
-type
-  GeomFillSweepFunction* {.importcpp: "GeomFill_SweepFunction",
-                          header: "GeomFill_SweepFunction.hxx", bycopy.} = object of ApproxSweepFunction
 
 
 proc newGeomFillSweepFunction*(section: Handle[GeomFillSectionLaw];

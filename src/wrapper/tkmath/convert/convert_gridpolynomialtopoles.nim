@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1996-07-08
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,17 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
-type
-  ConvertGridPolynomialToPoles* {.importcpp: "Convert_GridPolynomialToPoles",
-                                 header: "Convert_GridPolynomialToPoles.hxx",
-                                 bycopy.} = object ## ! To    only  one   polynomial  Surface.
-                                                ## ! The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
-                                                ## ! have to be 2.
-                                                ## ! This values defined the parametric domain of the Polynomial Equation.
-                                                ## !
-                                                ## ! Coefficients :
-                                                ## ! The <Coefficients> have to be formated than an "C array"
-                                                ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
 
 
 proc newConvertGridPolynomialToPoles*(maxUDegree: cint; maxVDegree: cint;

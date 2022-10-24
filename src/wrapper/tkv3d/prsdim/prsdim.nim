@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
-type
-  PrsDim* {.importcpp: "PrsDim", header: "PrsDim.hxx", bycopy.} = object ## ! Returns the nearest point in a shape. This is used by
-                                                                 ## ! several classes in calculation of dimensions.
 
 
 proc nearest*(aShape: TopoDS_Shape; aPoint: PntObj): PntObj {.cdecl,

@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,32 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Lin"
-type
-  MakeSegment* {.importcpp: "GC_MakeSegment", header: "GC_MakeSegment.hxx", bycopy.} = object of Root ##
-                                                                                            ## !
-                                                                                            ## Make
-                                                                                            ## a
-                                                                                            ## segment
-                                                                                            ## of
-                                                                                            ## Line
-                                                                                            ## from
-                                                                                            ## the
-                                                                                            ## 2
-                                                                                            ## points
-                                                                                            ## <P1>
-                                                                                            ## and
-                                                                                            ## <P2>.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## It
-                                                                                            ## returns
-                                                                                            ## NullObject
-                                                                                            ## if
-                                                                                            ## <P1>
-                                                                                            ## and
-                                                                                            ## <P2>
-                                                                                            ## are
-                                                                                            ## confused.
 
 
 proc segment*(p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,

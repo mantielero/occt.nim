@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -32,8 +34,6 @@ discard "forward decl of AppParCurves_BSpGradient"
 discard "forward decl of AppParCurves_BSpGradient_BFGS"
 discard "forward decl of AppParCurves_BSpParLeastSquare"
 discard "forward decl of AppParCurves_BSpParFunction"
-type
-  AppParCurves* {.importcpp: "AppParCurves", header: "AppParCurves.hxx", bycopy.} = object
 
 
 proc bernsteinMatrix*(nbPoles: cint; u: MathVector; a: var MathMatrix) {.cdecl,

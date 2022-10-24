@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,30 +19,8 @@
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectCombine"
-type
-  HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
 
-## ! A SelectCombine type Selection defines algebraic operations
-## ! between results of several Selections
-## ! It is a deferred class : sub-classes will have to define
-## ! precise what operator is to be applied
 
-type
-  IFSelectSelectCombine* {.importcpp: "IFSelect_SelectCombine",
-                          header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## the
-                                                                                                ## count
-                                                                                                ## of
-                                                                                                ## Input
-                                                                                                ## Selections
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Defines
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## SelectCombine
 
 
 proc nbInputs*(this: IFSelectSelectCombine): cint {.noSideEffect, cdecl,

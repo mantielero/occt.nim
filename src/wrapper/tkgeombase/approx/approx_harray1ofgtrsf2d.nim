@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
-                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
 
 
 proc newApproxHArray1OfGTrsf2d*(theLower: cint; theUpper: cint): ApproxHArray1OfGTrsf2d {.

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2009-12-10
 ##  Created by: Paul SUPRYATKIN
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -14,23 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Poly_Triangulation"
-type
-  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
 
-## ! Interactive object that draws data from  Poly_Triangulation, optionally with colors associated
-## ! with each triangulation vertex. For maximum efficiency colors are represented as 32-bit integers
-## ! instead of classic Quantity_Color values.
-## ! Interactive selection of triangles and vertices is not yet implemented.
 
-type
-  AIS_Triangulation* {.importcpp: "AIS_Triangulation",
-                      header: "AIS_Triangulation.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                           ## !
-                                                                                           ## Constructs
-                                                                                           ## the
-                                                                                           ## Triangulation
-                                                                                           ## display
-                                                                                           ## object
 
 
 proc newAIS_Triangulation*(aTriangulation: Handle[PolyTriangulation]): AIS_Triangulation {.

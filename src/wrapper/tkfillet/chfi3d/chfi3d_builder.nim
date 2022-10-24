@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -46,8 +48,6 @@ discard "forward decl of ChFiDS_CommonPoint"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of AppBlend_Approx"
 discard "forward decl of Geom2d_Curve"
-type
-  ChFi3dBuilder* {.importcpp: "ChFi3d_Builder", header: "ChFi3d_Builder.hxx", bycopy.} = object of RootObj
 
 
 proc destroyChFi3dBuilder*(this: var ChFi3dBuilder) {.cdecl,

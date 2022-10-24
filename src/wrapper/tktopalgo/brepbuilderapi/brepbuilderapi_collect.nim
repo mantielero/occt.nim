@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1996-04-09
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BRepBuilderAPI_MakeShape"
-type
-  BRepBuilderAPI_Collect* {.importcpp: "BRepBuilderAPI_Collect",
-                           header: "BRepBuilderAPI_Collect.hxx", bycopy.} = object
 
 
 proc collect*(): BRepBuilderAPI_Collect {.cdecl, constructor,

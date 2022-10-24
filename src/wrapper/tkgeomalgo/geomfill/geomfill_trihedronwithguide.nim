@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,14 +21,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_TrihedronWithGuide"
-type
-  HandleGeomFillTrihedronWithGuide* = Handle[GeomFillTrihedronWithGuide]
 
-## ! To define Trihedron along one Curve with a guide
 
-type
-  GeomFillTrihedronWithGuide* {.importcpp: "GeomFill_TrihedronWithGuide",
-                               header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc guide*(this: GeomFillTrihedronWithGuide): Handle[Adaptor3dHCurve] {.

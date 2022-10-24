@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -13,9 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_HDataStructure"
-type
-  TopOpeBRepDS_Reducer* {.importcpp: "TopOpeBRepDS_Reducer",
-                         header: "TopOpeBRepDS_Reducer.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Reducer*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Reducer {.

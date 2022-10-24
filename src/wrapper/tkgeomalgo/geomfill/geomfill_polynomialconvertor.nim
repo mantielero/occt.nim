@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-07-18
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  GeomFillPolynomialConvertor* {.importcpp: "GeomFill_PolynomialConvertor",
-                                header: "GeomFill_PolynomialConvertor.hxx", bycopy.} = object
 
 
 proc newGeomFillPolynomialConvertor*(): GeomFillPolynomialConvertor {.cdecl,

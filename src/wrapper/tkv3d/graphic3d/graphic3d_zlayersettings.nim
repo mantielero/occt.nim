@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,36 +13,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dZLayerSetting* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_ZLayerSetting",
-                           header: "Graphic3d_ZLayerSettings.hxx".} = enum
-    Graphic3dZLayerDepthTest = 1, Graphic3dZLayerDepthWrite = 2,
-    Graphic3dZLayerDepthClear = 4, Graphic3dZLayerDepthOffset = 8
 
 
-## ! Structure defines list of ZLayer properties.
 
-type
-  Graphic3dZLayerSettings* {.importcpp: "Graphic3d_ZLayerSettings",
-                            header: "Graphic3d_ZLayerSettings.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Default
-                                                                                 ## settings.
-    ## !< user-provided name
-    ## !< lights list
-    ## !< transformation to the origin
-    ## !< the origin of all objects within the layer
-    ## !< distance to discard objects
-    ## !< size to discard objects
-    ## !< glPolygonOffset() arguments
-    ## !< immediate layer will be drawn after all normal layers
-    ## !< option to render layer within ray-tracing engine
-    ## !< flag to allow/prevent environment texture mapping usage for specific layer
-    ## !< option to enable depth test
-    ## !< option to enable write depth values
-    ## !< option to clear depth values before drawing the layer
-    ## !< option to render layer within depth pre-pass
 
 
 proc newGraphic3dZLayerSettings*(): Graphic3dZLayerSettings {.cdecl, constructor,

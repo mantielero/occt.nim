@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-21
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of V3d_Viewer"
-type
-  V3dAmbientLight* {.importcpp: "V3d_AmbientLight", header: "V3d_AmbientLight.hxx",
-                    bycopy.} = object of Graphic3dCLight ## ! Constructs an ambient light source in the viewer.
-                                                    ## ! The default Color of this light source is WHITE.
 
 
 proc newV3dAmbientLight*(theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dAmbientLight {.
@@ -59,5 +57,4 @@ proc newV3dAmbientLight*(theColor: QuantityColor = newQuantityColor(quantityNOC_
 
 ## using statement
 
-type
-  HandleV3dAmbientLight* = Handle[V3dAmbientLight]
+

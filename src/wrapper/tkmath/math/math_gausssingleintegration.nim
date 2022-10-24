@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,13 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
-type
-  MathGaussSingleIntegration* {.importcpp: "math_GaussSingleIntegration",
-                               header: "math_GaussSingleIntegration.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## perfoms
-                                                                                       ## actual
-                                                                                       ## computation
 
 
 proc newMathGaussSingleIntegration*(): MathGaussSingleIntegration {.cdecl,

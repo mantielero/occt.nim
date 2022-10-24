@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1991-07-01
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -29,13 +31,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Poly_Polygon2D"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
-type
-  BRepBuilder* {.importcpp: "BRep_Builder", header: "BRep_Builder.hxx", bycopy.} = object of TopoDS_Builder ##
-                                                                                                  ## !
-                                                                                                  ## Makes
-                                                                                                  ## an
-                                                                                                  ## undefined
-                                                                                                  ## Face.
 
 
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,

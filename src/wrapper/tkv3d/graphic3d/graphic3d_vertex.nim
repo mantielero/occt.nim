@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2012-06-20
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -15,10 +17,6 @@
 
 ## ! This class represents a graphical 3D point.
 
-type
-  Graphic3dVertex* {.importcpp: "Graphic3d_Vertex", header: "Graphic3d_Vertex.hxx",
-                    bycopy.} = object ## ! Creates a point with 0.0, 0.0, 0.0 coordinates.
-    xyz* {.importc: "xyz".}: array[3, cfloat]
 
 
 proc newGraphic3dVertex*(): Graphic3dVertex {.cdecl, constructor,

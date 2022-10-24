@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -22,13 +24,6 @@
 ## ! - has an orientation for the underlying shell, in terms
 ## ! of its geometry (as opposed to orientation in relation to other shapes).
 
-type
-  TopoDS_Shell* {.importcpp: "TopoDS_Shell", header: "TopoDS_Shell.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## Undefined
-                                                                                                 ## Shell.
 
 
 proc newTopoDS_Shell*(): TopoDS_Shell {.cdecl, constructor,

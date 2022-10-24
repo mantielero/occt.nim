@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1998-01-22
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -18,17 +20,8 @@ discard "forward decl of Geom_OffsetCurve"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of Geom_Surface"
-type
-  HandlePrsDimEllipseRadiusDimension* = Handle[PrsDimEllipseRadiusDimension]
 
-## ! Computes  geometry  (  basis  curve  and  plane  of  dimension)
-## ! for  input  shape  aShape  from  TopoDS
-## ! Root  class  for MinRadiusDimension  and  MaxRadiusDimension
 
-type
-  PrsDimEllipseRadiusDimension* {.importcpp: "PrsDim_EllipseRadiusDimension",
-                                 header: "PrsDim_EllipseRadiusDimension.hxx",
-                                 bycopy.} = object of PrsDimRelation
 
 
 proc kindOfDimension*(this: PrsDimEllipseRadiusDimension): PrsDimKindOfDimension {.

@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,73 +22,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Ax1"
-type
-  GceMakePln* {.importcpp: "gce_MakePln", header: "gce_MakePln.hxx", bycopy.} = object of GceRoot ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## coordinate
-                                                                                        ## system
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## plane
-                                                                                        ## is
-                                                                                        ## defined
-                                                                                        ## with
-                                                                                        ## the
-                                                                                        ## axis
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## placement
-                                                                                        ## A2.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## "Direction"
-                                                                                        ## of
-                                                                                        ## A2
-                                                                                        ## defines
-                                                                                        ## the
-                                                                                        ## normal
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## plane.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## "Location"
-                                                                                        ## of
-                                                                                        ## A2
-                                                                                        ## defines
-                                                                                        ## the
-                                                                                        ## location
-                                                                                        ## (origin)
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## plane.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## The
-                                                                                        ## "XDirection"
-                                                                                        ## and
-                                                                                        ## "YDirection"
-                                                                                        ## of
-                                                                                        ## A2
-                                                                                        ## define
-                                                                                        ## the
-                                                                                        ## "XAxis"
-                                                                                        ## and
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## the
-                                                                                        ## "YAxis"
-                                                                                        ## of
-                                                                                        ## the
-                                                                                        ## plane
-                                                                                        ## used
-                                                                                        ## to
-                                                                                        ## parametrize
-                                                                                        ## the
-                                                                                        ## plane.
 
 
 proc newGceMakePln*(a2: Ax2Obj): GceMakePln {.cdecl, constructor,

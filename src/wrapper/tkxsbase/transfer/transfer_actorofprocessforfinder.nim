@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,10 +25,6 @@ discard "forward decl of Transfer_Binder"
 discard "forward decl of Transfer_SimpleBinderOfTransient"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_ActorOfProcessForFinder"
-type
-  HandleTransferActorOfProcessForFinder* = Handle[TransferActorOfProcessForFinder]
-  TransferActorOfProcessForFinder* {.importcpp: "Transfer_ActorOfProcessForFinder", header: "Transfer_ActorOfProcessForFinder.hxx",
-                                    bycopy.} = object of StandardTransient
 
 
 proc newTransferActorOfProcessForFinder*(): TransferActorOfProcessForFinder {.
@@ -57,5 +55,4 @@ proc setNext*(this: var TransferActorOfProcessForFinder;
 proc next*(this: TransferActorOfProcessForFinder): Handle[
     TransferActorOfProcessForFinder] {.noSideEffect, cdecl, importcpp: "Next",
                                       header: "Transfer_ActorOfProcessForFinder.hxx".}
-type
-  TransferActorOfProcessForFinderbaseType* = StandardTransient
+

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-11-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,21 +19,6 @@
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Standard_Transient"
-type
-  IFSelectSessionFile* {.importcpp: "IFSelect_SessionFile",
-                        header: "IFSelect_SessionFile.hxx", bycopy.} = object ## ! Creates a
-                                                                         ## SessionFile, ready to read Files in order to load
-                                                                         ## ! them into a given
-                                                                         ## WorkSession.
-                                                                         ## ! The
-                                                                         ## following Read
-                                                                         ## Operations must then be called.
-                                                                         ## ! It is also
-                                                                         ## possible to perform a Write, which
-                                                                         ## produces a
-                                                                         ## !
-                                                                         ## complete File of all the content of the
-                                                                         ## WorkSession.
 
 
 proc newIFSelectSessionFile*(ws: Handle[IFSelectWorkSession]): IFSelectSessionFile {.

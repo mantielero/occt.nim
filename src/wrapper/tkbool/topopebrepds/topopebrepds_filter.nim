@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1997-04-21
 ##  Created by: Prestataire Mary FABIEN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_HDataStructure"
-type
-  TopOpeBRepDS_Filter* {.importcpp: "TopOpeBRepDS_Filter",
-                        header: "TopOpeBRepDS_Filter.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Filter*(hds: Handle[TopOpeBRepDS_HDataStructure];

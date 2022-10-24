@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,76 +15,6 @@
 
 ## ! OpenVR wrapper implementing Aspect_XRSession interface.
 
-type
-  AspectOpenVRSession* {.importcpp: "Aspect_OpenVRSession",
-                        header: "Aspect_OpenVRSession.hxx", bycopy.} = object of AspectXRSession ##
-                                                                                          ## !
-                                                                                          ## Return
-                                                                                          ## TRUE
-                                                                                          ## if
-                                                                                          ## an
-                                                                                          ## HMD
-                                                                                          ## may
-                                                                                          ## be
-                                                                                          ## presented
-                                                                                          ## on
-                                                                                          ## the
-                                                                                          ## system
-                                                                                          ## (e.g.
-                                                                                          ## to
-                                                                                          ## show
-                                                                                          ## VR
-                                                                                          ## checkbox
-                                                                                          ## in
-                                                                                          ## application
-                                                                                          ## GUI).
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## This
-                                                                                          ## is
-                                                                                          ## fast
-                                                                                          ## check,
-                                                                                          ## and
-                                                                                          ## even
-                                                                                          ## if
-                                                                                          ## it
-                                                                                          ## returns
-                                                                                          ## TRUE,
-                                                                                          ## opening
-                                                                                          ## session
-                                                                                          ## may
-                                                                                          ## fail.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Empty
-                                                                                          ## constructor.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Find
-                                                                                          ## location
-                                                                                          ## of
-                                                                                          ## default
-                                                                                          ## actions
-                                                                                          ## manifest
-                                                                                          ## file
-                                                                                          ## (based
-                                                                                          ## on
-                                                                                          ## CSF_OCCTResourcePath
-                                                                                          ## or
-                                                                                          ## CASROOT
-                                                                                          ## variables).
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Access
-                                                                                          ## vr::IVRSystem*
-                                                                                          ## -
-                                                                                          ## OpenVR
-                                                                                          ## session
-                                                                                          ## object.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Internal
-                                                                                          ## fields
 
 
 proc isHmdPresent*(): bool {.cdecl,

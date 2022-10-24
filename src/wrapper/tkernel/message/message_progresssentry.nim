@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,28 +16,6 @@
 ## ! Functionality of this class (Message_ProgressSentry) has been superseded by Message_ProgressScope.
 ## ! This class is kept just to simplify transition of an old code and will be removed in future.
 
-type
-  MessageProgressSentry* {.importcpp: "Message_ProgressSentry",
-                          header: "Message_ProgressSentry.hxx", bycopy.} = object of MessageProgressScope ##
-                                                                                                   ## !
-                                                                                                   ## Deprecated
-                                                                                                   ## constructor,
-                                                                                                   ## Message_ProgressScope
-                                                                                                   ## should
-                                                                                                   ## be
-                                                                                                   ## created
-                                                                                                   ## instead.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Message_ProgressRange
-                                                                                                   ## should
-                                                                                                   ## be
-                                                                                                   ## passed
-                                                                                                   ## to
-                                                                                                   ## constructor
-                                                                                                   ## instead
-                                                                                                   ## of
-                                                                                                   ## Message_ProgressIndicator.
 
 
 proc newMessageProgressSentry*(theRange: MessageProgressRange; theName: cstring;

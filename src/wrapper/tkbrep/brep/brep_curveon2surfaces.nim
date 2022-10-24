@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,14 +22,8 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOn2Surfaces"
-type
-  HandleBRepCurveOn2Surfaces* = Handle[BRepCurveOn2Surfaces]
 
-## ! Defines a continuity between two surfaces.
 
-type
-  BRepCurveOn2Surfaces* {.importcpp: "BRep_CurveOn2Surfaces",
-                         header: "BRep_CurveOn2Surfaces.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
 proc newBRepCurveOn2Surfaces*(s1: Handle[GeomSurface]; s2: Handle[GeomSurface];

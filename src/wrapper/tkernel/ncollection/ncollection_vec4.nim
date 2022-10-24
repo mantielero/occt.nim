@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -18,13 +20,6 @@
 ## ! Use this class for 3D-points carefully because declared W-component may
 ## ! results in incorrect results if used without matrices.
 
-type
-  NCollectionVec4*[ElementT] {.importcpp: "NCollection_Vec4<\'0>",
-                              header: "NCollection_Vec4.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
-    ## !< define the vector as array to avoid structure alignment issues
 
 
 proc lengthV4*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec4::Length(@)",
@@ -221,3 +216,4 @@ proc dumpJson*[ElementT](this: NCollectionVec4[ElementT];
                         theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "NCollection_Vec4.hxx".}
 ## ignored statement
+

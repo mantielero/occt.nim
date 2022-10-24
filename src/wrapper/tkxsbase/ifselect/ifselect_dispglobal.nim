@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,19 +20,8 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispGlobal"
-type
-  HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
 
-## ! A DispGlobal gathers all the input Entities into only one
-## ! global Packet
 
-type
-  IFSelectDispGlobal* {.importcpp: "IFSelect_DispGlobal",
-                       header: "IFSelect_DispGlobal.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## a
-                                                                                         ## DispGlobal
 
 
 proc newIFSelectDispGlobal*(): IFSelectDispGlobal {.cdecl, constructor,

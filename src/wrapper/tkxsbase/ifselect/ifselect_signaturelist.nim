@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-10-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,42 +19,8 @@
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SignatureList"
-type
-  HandleIFSelectSignatureList* = Handle[IFSelectSignatureList]
 
-## ! A SignatureList is given as result from a Counter (any kind)
-## ! It gives access to a list of signatures, with counts, and
-## ! optionally with list of corresponding entities
-## !
-## ! It can also be used only to give a signature, through SignOnly
-## ! Mode. This can be useful for a specific counter (used in a
-## ! Selection), while it remains better to use a Signature
-## ! whenever possible
 
-type
-  IFSelectSignatureList* {.importcpp: "IFSelect_SignatureList",
-                          header: "IFSelect_SignatureList.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SignatureList.
-                                                                                                ## If
-                                                                                                ## <withlist>
-                                                                                                ## is
-                                                                                                ## True,
-                                                                                                ## entities
-                                                                                                ## will
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## be
-                                                                                                ## not
-                                                                                                ## only
-                                                                                                ## counted
-                                                                                                ## per
-                                                                                                ## signature,
-                                                                                                ## but
-                                                                                                ## also
-                                                                                                ## listed.
 
 
 proc newIFSelectSignatureList*(withlist: bool = false): IFSelectSignatureList {.cdecl,

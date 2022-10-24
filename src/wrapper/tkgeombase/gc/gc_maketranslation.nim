@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Geom_Transformation"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
-type
-  MakeTranslation* {.importcpp: "GC_MakeTranslation",
-                    header: "GC_MakeTranslation.hxx", bycopy.} = object ## ! Constructs a translation along the vector " Vect "
 
 
 proc translation*(vect: VecObj): MakeTranslation {.cdecl, constructor,

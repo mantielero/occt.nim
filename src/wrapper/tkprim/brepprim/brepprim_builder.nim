@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-03-12
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -26,10 +28,6 @@ discard "forward decl of gp_Lin2d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Pnt"
-type
-  BRepPrimBuilder* {.importcpp: "BRepPrim_Builder", header: "BRepPrim_Builder.hxx",
-                    bycopy.} = object ## ! Creates an empty, useless  Builder. Necesseray for
-                                   ## ! compilation.
 
 
 proc newBRepPrimBuilder*(): BRepPrimBuilder {.cdecl, constructor,

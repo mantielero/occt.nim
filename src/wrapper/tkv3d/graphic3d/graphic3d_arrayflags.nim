@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,10 +15,7 @@
 
 ## ! Bitmask for primitive array creation.
 
-type
-  Graphic3dArrayFlags* = cint
 
-## ! Graphic3d_ArrayFlags bitmask values.
 
 const
   Graphic3dArrayFlagsNone* = 0x00 ## !< no flags
@@ -27,3 +26,4 @@ const
   Graphic3dArrayFlagsAttribsMutable* = 0x20 ## !< mutable array, which can be invalidated during lifetime without re-creation
   Graphic3dArrayFlagsAttribsDeinterleaved* = 0x40 ## !< non-interleaved vertex attributes packed into single array
   Graphic3dArrayFlagsIndexesMutable* = 0x80 ## !< mutable index array, which can be invalidated during lifetime without re-creation
+

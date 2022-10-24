@@ -1,3 +1,5 @@
+import topexp_types
+
 ##  Created on: 1990-12-20
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -19,12 +21,6 @@ discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopExp_Explorer"
-type
-  TopExp* {.importcpp: "TopExp", header: "TopExp.hxx", bycopy.} = object ## ! Tool to explore a topological data structure.
-                                                                 ## ! Stores in the map <M> all  the sub-shapes of <S>
-                                                                 ## ! of type <T>.
-                                                                 ## !
-                                                                 ## ! Warning: The map is not cleared at first.
 
 
 proc mapShapes*(s: TopoDS_Shape; t: TopAbsShapeEnum; m: var TopToolsIndexedMapOfShape) {.

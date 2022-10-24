@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,22 +20,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_VectorWithNullMagnitude"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Vector"
-type
-  HandleGeom2dVector* = Handle[Geom2dVector]
 
-## ! The abstract class Vector describes the common
-## ! behavior of vectors in 2D space.
-## ! The Geom2d package provides two concrete
-## ! classes of vectors: Geom2d_Direction (unit vector)
-## ! and Geom2d_VectorWithMagnitude.
 
-type
-  Geom2dVector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2dGeometry ##
-                                                                                                     ## !
-                                                                                                     ## Reverses
-                                                                                                     ## the
-                                                                                                     ## vector
-                                                                                                     ## <me>.
 
 
 proc reverse*(this: var Geom2dVector) {.cdecl, importcpp: "Reverse", header: "Geom2d_Vector.hxx".}

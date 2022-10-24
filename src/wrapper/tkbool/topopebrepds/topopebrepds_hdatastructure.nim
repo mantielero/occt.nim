@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,10 +26,6 @@ discard "forward decl of TopOpeBRepDS_Point"
 discard "forward decl of TopOpeBRepDS_SurfaceIterator"
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
-type
-  HandleTopOpeBRepDS_HDataStructure* = Handle[TopOpeBRepDS_HDataStructure]
-  TopOpeBRepDS_HDataStructure* {.importcpp: "TopOpeBRepDS_HDataStructure",
-                                header: "TopOpeBRepDS_HDataStructure.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_HDataStructure*(): TopOpeBRepDS_HDataStructure {.cdecl,

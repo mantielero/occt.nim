@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -16,29 +18,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Face"
-type
-  BOPAlgoBuilderFace* {.importcpp: "BOPAlgo_BuilderFace",
-                       header: "BOPAlgo_BuilderFace.hxx", bycopy.} = object of BOPAlgoBuilderArea ##
-                                                                                           ## !
-                                                                                           ## Collect
-                                                                                           ## the
-                                                                                           ## edges
-                                                                                           ## that
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## a)
-                                                                                           ## are
-                                                                                           ## internal
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## b)
-                                                                                           ## are
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## and
-                                                                                           ## have
-                                                                                           ## different
-                                                                                           ## orientation
 
 
 proc newBOPAlgoBuilderFace*(): BOPAlgoBuilderFace {.cdecl, constructor,

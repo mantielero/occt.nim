@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,9 +35,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
-type
-  BRepBlendCSWalking* {.importcpp: "BRepBlend_CSWalking",
-                       header: "BRepBlend_CSWalking.hxx", bycopy.} = object
 
 
 proc newBRepBlendCSWalking*(curv: Handle[Adaptor3dHCurve];
@@ -119,3 +118,4 @@ proc line*(this: BRepBlendCSWalking): Handle[BRepBlendLine] {.noSideEffect, cdec
 ##  #undef TheLine_hxx
 ##  #undef Blend_CSWalking
 ##  #undef Blend_CSWalking_hxx
+

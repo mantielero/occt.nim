@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-08-17
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,25 +23,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_EvolvedSection"
-type
-  HandleGeomFillEvolvedSection* = Handle[GeomFillEvolvedSection]
 
-## ! Define an Constant Section Law
 
-type
-  GeomFillEvolvedSection* {.importcpp: "GeomFill_EvolvedSection",
-                           header: "GeomFill_EvolvedSection.hxx", bycopy.} = object of GeomFillSectionLaw ##
-                                                                                                   ## !
-                                                                                                   ## Make
-                                                                                                   ## an
-                                                                                                   ## SectionLaw
-                                                                                                   ## with
-                                                                                                   ## a
-                                                                                                   ## Curve
-                                                                                                   ## and
-                                                                                                   ## a
-                                                                                                   ## real
-                                                                                                   ## Law.
 
 
 proc newGeomFillEvolvedSection*(c: Handle[GeomCurve]; L: Handle[LawFunction]): GeomFillEvolvedSection {.

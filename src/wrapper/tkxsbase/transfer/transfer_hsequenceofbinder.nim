@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TransferHSequenceOfBinder* {.importcpp: "Transfer_HSequenceOfBinder",
-                              header: "Transfer_HSequenceOfBinder.hxx", bycopy.} = object of TransferSequenceOfBinder
 
 
 proc newTransferHSequenceOfBinder*(): TransferHSequenceOfBinder {.cdecl,
@@ -32,5 +31,4 @@ proc append*(this: var TransferHSequenceOfBinder;
     header: "Transfer_HSequenceOfBinder.hxx".}
 proc changeSequence*(this: var TransferHSequenceOfBinder): var TransferSequenceOfBinder {.
     cdecl, importcpp: "ChangeSequence", header: "Transfer_HSequenceOfBinder.hxx".}
-type
-  HandleTransferHSequenceOfBinder* = Handle[TransferHSequenceOfBinder]
+

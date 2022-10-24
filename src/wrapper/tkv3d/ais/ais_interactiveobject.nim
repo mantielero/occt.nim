@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -19,52 +21,6 @@ discard "forward decl of Graphic3d_MaterialAspect"
 discard "forward decl of Prs3d_BasicAspect"
 discard "forward decl of Bnd_Box"
 discard "forward decl of V3d_View"
-type
-  AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
-                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## the
-                                                                                                       ## kind
-                                                                                                       ## of
-                                                                                                       ## Interactive
-                                                                                                       ## Object;
-                                                                                                       ## AIS_KOI_None
-                                                                                                       ## by
-                                                                                                       ## default.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## Returns
-                                                                                                       ## the
-                                                                                                       ## context
-                                                                                                       ## pointer
-                                                                                                       ## to
-                                                                                                       ## the
-                                                                                                       ## interactive
-                                                                                                       ## context.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## The
-                                                                                                       ## TypeOfPresention3d
-                                                                                                       ## means
-                                                                                                       ## that
-                                                                                                       ## the
-                                                                                                       ## interactive
-                                                                                                       ## object
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## may
-                                                                                                       ## have
-                                                                                                       ## a
-                                                                                                       ## presentation
-                                                                                                       ## dependant
-                                                                                                       ## of
-                                                                                                       ## the
-                                                                                                       ## view
-                                                                                                       ## of
-                                                                                                       ## Display.
-    ## !< pointer to Interactive Context, where object is currently displayed; @sa SetContext()
-    ## !< application-specific owner object
 
 
 proc `type`*(this: AIS_InteractiveObject): AIS_KindOfInteractive {.noSideEffect,
@@ -107,7 +63,4 @@ proc setAspect*(this: var AIS_InteractiveObject; anAspect: Handle[Prs3dBasicAspe
 proc dumpJson*(this: AIS_InteractiveObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "AIS_InteractiveObject.hxx".}
-type
-  #HandleAIS_InteractiveObject* = Handle[AIS_InteractiveObject]
-  HandleAIS_InteractiveObject* {.importcpp:"opencascade::handle<AIS_InteractiveObject>", 
-    header:"AIS_InteractiveObject.hxx", byref, pure, inheritable.} = object
+

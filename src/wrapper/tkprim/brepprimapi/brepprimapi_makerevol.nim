@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-10-12
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,47 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of gp_Ax1"
 discard "forward decl of BRepSweep_Revol"
-type
-  BRepPrimAPI_MakeRevol* {.importcpp: "BRepPrimAPI_MakeRevol",
-                          header: "BRepPrimAPI_MakeRevol.hxx", bycopy.} = object of BRepPrimAPI_MakeSweep ##
-                                                                                                   ## !
-                                                                                                   ## Builds
-                                                                                                   ## the
-                                                                                                   ## Revol
-                                                                                                   ## of
-                                                                                                   ## base
-                                                                                                   ## S,
-                                                                                                   ## axis
-                                                                                                   ## A
-                                                                                                   ## and
-                                                                                                   ## angle
-                                                                                                   ## D.
-                                                                                                   ## If
-                                                                                                   ## C
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## is
-                                                                                                   ## true,
-                                                                                                   ## S
-                                                                                                   ## is
-                                                                                                   ## copied.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Checks
-                                                                                                   ## possibilities
-                                                                                                   ## of
-                                                                                                   ## producing
-                                                                                                   ## self-intersection
-                                                                                                   ## surface
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## returns
-                                                                                                   ## true
-                                                                                                   ## if
-                                                                                                   ## all
-                                                                                                   ## surfaces
-                                                                                                   ## are
-                                                                                                   ## valid
 
 
 proc revol*(s: TopoDS_Shape; a: Ax1Obj; d: cfloat; copy: bool = false): BRepPrimAPI_MakeRevol {.

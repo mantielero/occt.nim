@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,18 +19,6 @@
 ## ! The abstract class MultipleVarFunctionWithGradient
 ## ! describes the virtual functions associated with a multiple variable function.
 
-type
-  MathMultipleVarFunctionWithGradient* {.importcpp: "math_MultipleVarFunctionWithGradient", header: "math_MultipleVarFunctionWithGradient.hxx",
-                                        bycopy.} = object of MathMultipleVarFunction ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## the
-                                                                                ## number
-                                                                                ## of
-                                                                                ## variables
-                                                                                ## of
-                                                                                ## the
-                                                                                ## function.
 
 
 proc nbVariables*(this: MathMultipleVarFunctionWithGradient): cint {.noSideEffect,

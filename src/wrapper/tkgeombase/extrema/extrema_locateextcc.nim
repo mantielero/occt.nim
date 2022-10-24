@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,17 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Extrema_POnCurv"
-type
-  ExtremaLocateExtCC* {.importcpp: "Extrema_LocateExtCC",
-                       header: "Extrema_LocateExtCC.hxx", bycopy.} = object ## !
-                                                                       ## Calculates the distance with a close point. The
-                                                                       ## ! close point is defined by a parameter value on each
-                                                                       ## ! curve.
-                                                                       ## ! The function
-                                                                       ## F(u,v)=distance(C1(u),C2(v)) has an
-                                                                       ## ! extremun when
-                                                                       ## gradient(f)=0. The algorithm searchs
-                                                                       ## ! the zero near the close point.
 
 
 proc newExtremaLocateExtCC*(c1: Adaptor3dCurve; c2: Adaptor3dCurve; u0: cfloat;

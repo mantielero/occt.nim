@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Geom2d_Curve"
-type
-  TopOpeBRepDS_Curve* {.importcpp: "TopOpeBRepDS_Curve",
-                       header: "TopOpeBRepDS_Curve.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Curve*(): TopOpeBRepDS_Curve {.cdecl, constructor,

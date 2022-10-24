@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created by: Ilya SEVRIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -14,17 +16,6 @@
 
 ## ! Entity owner for selection management of AIS_Trihedron object.
 
-type
-  AIS_TrihedronOwner* {.importcpp: "AIS_TrihedronOwner",
-                       header: "AIS_TrihedronOwner.hxx", bycopy.} = object of SelectMgrEntityOwner ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## owner
-                                                                                            ## of
-                                                                                            ## AIS_Trihedron
-                                                                                            ## object.
-    ## !< part of datum selected
 
 
 proc newAIS_TrihedronOwner*(theSelObject: Handle[SelectMgrSelectableObject];
@@ -42,5 +33,4 @@ proc isHilighted*(this: AIS_TrihedronOwner;
 proc unhilight*(this: var AIS_TrihedronOwner;
                thePM: Handle[PrsMgrPresentationManager]; theMode: cint) {.cdecl,
     importcpp: "Unhilight", header: "AIS_TrihedronOwner.hxx".}
-type
-  HandleAIS_TrihedronOwner* = Handle[AIS_TrihedronOwner]
+

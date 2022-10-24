@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1998-01-21
 ##  Created by: Kernel
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TCollection_SeqNode"
-type
-  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
-  TCollectionSeqNode* {.importcpp: "TCollection_SeqNode",
-                       header: "TCollection_SeqNode.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTCollectionSeqNode*(n: TCollectionSeqNodePtr; p: TCollectionSeqNodePtr): TCollectionSeqNode {.

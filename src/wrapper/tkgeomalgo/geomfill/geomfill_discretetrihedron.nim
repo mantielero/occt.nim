@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 2013-02-05
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2001-2013 OPEN CASCADE SAS
@@ -20,17 +22,8 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_DiscreteTrihedron"
-type
-  HandleGeomFillDiscreteTrihedron* = Handle[GeomFillDiscreteTrihedron]
 
-## ! Defined Discrete Trihedron Law.
-## ! The requirement for path curve is only G1.
-## ! The result is C0-continuous surface
-## ! that can be later approximated to C1.
 
-type
-  GeomFillDiscreteTrihedron* {.importcpp: "GeomFill_DiscreteTrihedron",
-                              header: "GeomFill_DiscreteTrihedron.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillDiscreteTrihedron*(): GeomFillDiscreteTrihedron {.cdecl,

@@ -1,3 +1,5 @@
+import brepfilletapi_types
+
 ##  Created on: 1995-06-22
 ##  Created by: Flore Lantheaume
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,35 +22,6 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopOpeBRepBuild_HBuilder"
-type
-  BRepFilletAPI_MakeChamfer* {.importcpp: "BRepFilletAPI_MakeChamfer",
-                              header: "BRepFilletAPI_MakeChamfer.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation ##
-                                                                                                                  ## !
-                                                                                                                  ## Initializes
-                                                                                                                  ## an
-                                                                                                                  ## algorithm
-                                                                                                                  ## for
-                                                                                                                  ## computing
-                                                                                                                  ## chamfers
-                                                                                                                  ## on
-                                                                                                                  ## the
-                                                                                                                  ## shape
-                                                                                                                  ## S.
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## The
-                                                                                                                  ## edges
-                                                                                                                  ## on
-                                                                                                                  ## which
-                                                                                                                  ## chamfers
-                                                                                                                  ## are
-                                                                                                                  ## built
-                                                                                                                  ## are
-                                                                                                                  ## defined
-                                                                                                                  ## using
-                                                                                                                  ## the
-                                                                                                                  ## Add
-                                                                                                                  ## function.
 
 
 proc newBRepFilletAPI_MakeChamfer*(s: TopoDS_Shape): BRepFilletAPI_MakeChamfer {.

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -21,16 +23,8 @@ discard "forward decl of gp_Mat"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_LocationLaw"
-type
-  HandleGeomFillLocationLaw* = Handle[GeomFillLocationLaw]
 
-## ! To define location  law in Sweeping location is --
-## ! defined   by an  Matrix  M and  an Vector  V,  and
-## ! transform an point P in MP+V.
 
-type
-  GeomFillLocationLaw* {.importcpp: "GeomFill_LocationLaw",
-                        header: "GeomFill_LocationLaw.hxx", bycopy.} = object of StandardTransient
 
 
 proc setCurve*(this: var GeomFillLocationLaw; c: Handle[Adaptor3dHCurve]) {.cdecl,

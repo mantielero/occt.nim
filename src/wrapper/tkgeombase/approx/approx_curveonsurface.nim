@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1997-09-30
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -20,58 +22,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HSurface"
-type
-  ApproxCurveOnSurface* {.importcpp: "Approx_CurveOnSurface",
-                         header: "Approx_CurveOnSurface.hxx", bycopy.} = object ## ! This
-                                                                           ## constructor calls
-                                                                           ## perform
-                                                                           ## method. This
-                                                                           ## constructor is
-                                                                           ## deprecated.
-                                                                           ## !
-                                                                           ## Checks
-                                                                           ## whether the 2d curve is a
-                                                                           ## isoline. It can be
-                                                                           ## represented by
-                                                                           ## b-spline,
-                                                                           ## bezier,
-                                                                           ## ! or
-                                                                           ## geometric line. This line
-                                                                           ## should have
-                                                                           ## natural
-                                                                           ## parameterization.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## theC2D
-                                                                           ## Trimmed curve to be
-                                                                           ## checked.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## theIsU       Flag
-                                                                           ## indicating that line is u
-                                                                           ## const.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## theParam     Line
-                                                                           ## parameter.
-                                                                           ## !
-                                                                           ## @param
-                                                                           ## theIsForward Flag
-                                                                           ## indicating
-                                                                           ## forward
-                                                                           ## parameterization on a
-                                                                           ## isoline.
-                                                                           ## !
-                                                                           ## @return
-                                                                           ## Standard_True when 2d curve is a line and
-                                                                           ## Standard_False
-                                                                           ## otherwise.
-                                                                           ## ! Input
-                                                                           ## curve.
-    ## ! Input surface.
-    ## ! First parameter of the result.
-    ## ! Last parameter of the result.
-    ## ! Tolerance.
 
 
 proc newApproxCurveOnSurface*(c2d: Handle[Adaptor2dHCurve2d];

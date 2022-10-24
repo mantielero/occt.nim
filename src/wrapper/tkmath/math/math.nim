@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-01-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -54,8 +56,6 @@ discard "forward decl of math_EigenValuesSearcher"
 discard "forward decl of math_ComputeGaussPointsAndWeights"
 discard "forward decl of math_ComputeKronrodPointsAndWeights"
 discard "forward decl of math_DoubleTab"
-type
-  Math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
 
 
 proc gaussPointsMax*(): cint {.cdecl, importcpp: "math::GaussPointsMax(@)",

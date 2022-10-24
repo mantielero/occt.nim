@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1999-09-21
 ##  Created by: Edward AGAPOV
 ##  Copyright (c) 1999 Matra Datavision
@@ -20,16 +22,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Extrema_POnSurf"
 discard "forward decl of Extrema_ExtPRevS"
-type
-  HandleExtremaExtPRevS* = Handle[ExtremaExtPRevS]
 
-## ! It calculates all the extremum (minimum and
-## ! maximum) distances between a point and a surface
-## ! of revolution.
 
-type
-  ExtremaExtPRevS* {.importcpp: "Extrema_ExtPRevS", header: "Extrema_ExtPRevS.hxx",
-                    bycopy.} = object of StandardTransient
 
 
 proc newExtremaExtPRevS*(): ExtremaExtPRevS {.cdecl, constructor,

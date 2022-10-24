@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2014-08-13
 ##  Created by: Maxim GLIBIN
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,89 +16,9 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TColStd_HPackedMapOfInteger"
-type
-  AIS_PointCloud* {.importcpp: "AIS_PointCloud", header: "AIS_PointCloud.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                                ## !
-                                                                                                                ## Display
-                                                                                                                ## modes
-                                                                                                                ## supported
-                                                                                                                ## by
-                                                                                                                ## this
-                                                                                                                ## Point
-                                                                                                                ## Cloud
-                                                                                                                ## object
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Constructor.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Get
-                                                                                                                ## the
-                                                                                                                ## points
-                                                                                                                ## array.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Method
-                                                                                                                ## might
-                                                                                                                ## be
-                                                                                                                ## overridden
-                                                                                                                ## to
-                                                                                                                ## fill
-                                                                                                                ## in
-                                                                                                                ## points
-                                                                                                                ## array
-                                                                                                                ## dynamically
-                                                                                                                ## from
-                                                                                                                ## application
-                                                                                                                ## data
-                                                                                                                ## structures.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## @return
-                                                                                                                ## the
-                                                                                                                ## array
-                                                                                                                ## of
-                                                                                                                ## points
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Setup
-                                                                                                                ## custom
-                                                                                                                ## color.
-                                                                                                                ## Affects
-                                                                                                                ## presentation
-                                                                                                                ## only
-                                                                                                                ## when
-                                                                                                                ## no
-                                                                                                                ## per-point
-                                                                                                                ## color
-                                                                                                                ## attribute
-                                                                                                                ## has
-                                                                                                                ## been
-                                                                                                                ## assigned.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Prepare
-                                                                                                                ## presentation
-                                                                                                                ## for
-                                                                                                                ## this
-                                                                                                                ## object.
-    ## !< points array for presentation
-    ## !< bounding box for presentation
-
-  AIS_PointCloudDisplayMode* {.size: sizeof(cint),
-                              importcpp: "AIS_PointCloud::DisplayMode",
-                              header: "AIS_PointCloud.hxx".} = enum
-    DM_Points = 0,              ## !< display as normal points, default presentation
-    DM_BndBox = 2
 
 
-type
-  AIS_PointCloudSelectionMode* {.size: sizeof(cint),
-                                importcpp: "AIS_PointCloud::SelectionMode",
-                                header: "AIS_PointCloud.hxx".} = enum
-    SM_Points = 0,              ## !< detected by points
-    SM_SubsetOfPoints = 1,      ## !< detect point(s) within Point Cloud rather than object as whole
-    SM_BndBox = 2               ## !< detected by bounding box
+
 
 
 proc newAIS_PointCloud*(): AIS_PointCloud {.cdecl, constructor,
@@ -119,19 +41,8 @@ proc setMaterial*(this: var AIS_PointCloud; theMat: Graphic3dMaterialAspect) {.c
     importcpp: "SetMaterial", header: "AIS_PointCloud.hxx".}
 proc unsetMaterial*(this: var AIS_PointCloud) {.cdecl, importcpp: "UnsetMaterial",
     header: "AIS_PointCloud.hxx".}
-type
-  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
 
-## ! Custom owner for highlighting selected points.
 
-type
-  AIS_PointCloudOwner* {.importcpp: "AIS_PointCloudOwner",
-                        header: "AIS_PointCloud.hxx", bycopy.} = object of SelectMgrEntityOwner ##
-                                                                                         ## !
-                                                                                         ## Main
-                                                                                         ## constructor.
-    ## !< last detected points
-    ## !< selected points
 
 
 proc newAIS_PointCloudOwner*(theOrigin: Handle[AIS_PointCloud]): AIS_PointCloudOwner {.

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,101 +22,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TCollection_AsciiString"
-type
-  TopOpeBRepBuildWireEdgeSet* {.importcpp: "TopOpeBRepBuild_WireEdgeSet",
-                               header: "TopOpeBRepBuild_WireEdgeSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet ##
-                                                                                                                ## !
-                                                                                                                ## Creates
-                                                                                                                ## a
-                                                                                                                ## WireEdgeSet
-                                                                                                                ## to
-                                                                                                                ## build
-                                                                                                                ## edges
-                                                                                                                ## connected
-                                                                                                                ## by
-                                                                                                                ## vertices
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## on
-                                                                                                                ## face
-                                                                                                                ## F.
-                                                                                                                ## Edges
-                                                                                                                ## of
-                                                                                                                ## the
-                                                                                                                ## WireEdgeSet
-                                                                                                                ## must
-                                                                                                                ## have
-                                                                                                                ## a
-                                                                                                                ## representation
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## on
-                                                                                                                ## surface
-                                                                                                                ## of
-                                                                                                                ## face
-                                                                                                                ## F.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Indicates
-                                                                                                                ## whether
-                                                                                                                ## vertex
-                                                                                                                ## V
-                                                                                                                ## is
-                                                                                                                ## a
-                                                                                                                ## good
-                                                                                                                ## connexity
-                                                                                                                ## vertex
-                                                                                                                ## between
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## edges
-                                                                                                                ## E1
-                                                                                                                ## and
-                                                                                                                ## E2.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## i.e,
-                                                                                                                ## returns
-                                                                                                                ## True
-                                                                                                                ## if
-                                                                                                                ## V
-                                                                                                                ## is
-                                                                                                                ## shared
-                                                                                                                ## by
-                                                                                                                ## E1
-                                                                                                                ## and
-                                                                                                                ## E2
-                                                                                                                ## and
-                                                                                                                ## if
-                                                                                                                ## V
-                                                                                                                ## has
-                                                                                                                ## different
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## orientations
-                                                                                                                ## on
-                                                                                                                ## E1
-                                                                                                                ## and
-                                                                                                                ## E2.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## If
-                                                                                                                ## V
-                                                                                                                ## is
-                                                                                                                ## shared
-                                                                                                                ## by
-                                                                                                                ## E1
-                                                                                                                ## and
-                                                                                                                ## E2,
-                                                                                                                ## returns
-                                                                                                                ## the
-                                                                                                                ## orientation
-                                                                                                                ## of
-                                                                                                                ## V
-                                                                                                                ## on
-                                                                                                                ## E1
-                                                                                                                ## and
-                                                                                                                ## E2
 
 
 proc newTopOpeBRepBuildWireEdgeSet*(f: TopoDS_Shape; `addr`: pointer = nil): TopOpeBRepBuildWireEdgeSet {.

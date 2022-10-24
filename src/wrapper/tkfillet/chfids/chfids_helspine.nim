@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,10 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of ChFiDS_ElSpine"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of ChFiDS_HElSpine"
-type
-  HandleChFiDS_HElSpine* = Handle[ChFiDS_HElSpine]
-  ChFiDS_HElSpine* {.importcpp: "ChFiDS_HElSpine", header: "ChFiDS_HElSpine.hxx",
-                    bycopy.} = object of Adaptor3dHCurve ## ! Creates an empty GenHCurve.
 
 
 proc newChFiDS_HElSpine*(): ChFiDS_HElSpine {.cdecl, constructor,
@@ -38,19 +36,5 @@ proc getCurve*(this: var ChFiDS_HElSpine): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "ChFiDS_HElSpine.hxx".}
 proc changeCurve*(this: var ChFiDS_HElSpine): var ChFiDS_ElSpine {.cdecl,
     importcpp: "ChangeCurve", header: "ChFiDS_HElSpine.hxx".}
-type
-  ChFiDS_HElSpinebaseType* = Adaptor3dHCurve
 
-##  #define TheCurve ChFiDS_ElSpine
-##  #define TheCurve_hxx <ChFiDS_ElSpine.hxx>
-##  #define Adaptor3d_GenHCurve ChFiDS_HElSpine
-##  #define Adaptor3d_GenHCurve_hxx <ChFiDS_HElSpine.hxx>
-##  #define Handle_Adaptor3d_GenHCurve Handle(ChFiDS_HElSpine)
-##
-##  #include <Adaptor3d_GenHCurve.lxx>
-##
-##  #undef TheCurve
-##  #undef TheCurve_hxx
-##  #undef Adaptor3d_GenHCurve
-##  #undef Adaptor3d_GenHCurve_hxx
-##  #undef Handle_Adaptor3d_GenHCurve
+

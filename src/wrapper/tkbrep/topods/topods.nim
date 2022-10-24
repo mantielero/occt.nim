@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -44,12 +46,6 @@ discard "forward decl of TopoDS_TCompound"
 discard "forward decl of TopoDS_Compound"
 discard "forward decl of TopoDS_Builder"
 discard "forward decl of TopoDS_Iterator"
-type
-  TopoDS* {.importcpp: "TopoDS", header: "TopoDS.hxx", bycopy.} = object ## ! Basic tool to access the data structure.
-                                                                 ## ! Casts shape S to the more specialized return type, Vertex.
-                                                                 ## ! Exceptions
-                                                                 ## !
-                                                                 ## Standard_TypeMismatch if S cannot be cast to this return type.
 
 
 proc vertex*(s: TopoDS_Shape): TopoDS_Vertex {.cdecl, importcpp: "TopoDS::Vertex(@)",

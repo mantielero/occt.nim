@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-22
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,18 +18,6 @@
 
 ## ! Directional light source for a viewer.
 
-type
-  V3dDirectionalLight* {.importcpp: "V3d_DirectionalLight",
-                        header: "V3d_DirectionalLight.hxx", bycopy.} = object of V3dPositionLight ##
-                                                                                           ## !
-                                                                                           ## Creates
-                                                                                           ## a
-                                                                                           ## directional
-                                                                                           ## light
-                                                                                           ## source
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## viewer.
 
 
 proc newV3dDirectionalLight*(theDirection: V3dTypeOfOrientation = v3dXposYposZpos;
@@ -62,5 +52,4 @@ proc setDirection*(this: var V3dDirectionalLight; theDirection: V3dTypeOfOrienta
 
 ## using statement
 
-type
-  HandleV3dDirectionalLight* = Handle[V3dDirectionalLight]
+

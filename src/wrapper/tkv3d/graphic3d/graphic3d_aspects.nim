@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,80 +15,6 @@
 
 ## ! This class defines graphic attributes.
 
-type
-  Graphic3dAspects* {.importcpp: "Graphic3d_Aspects",
-                     header: "Graphic3d_Aspects.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## context
-                                                                                      ## table
-                                                                                      ## for
-                                                                                      ## drawing
-                                                                                      ## primitives
-                                                                                      ## defined
-                                                                                      ## with
-                                                                                      ## the
-                                                                                      ## following
-                                                                                      ## default
-                                                                                      ## values:
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Return
-                                                                                      ## line
-                                                                                      ## type;
-                                                                                      ## Aspect_TOL_SOLID
-                                                                                      ## by
-                                                                                      ## default.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Return
-                                                                                      ## marker
-                                                                                      ## type;
-                                                                                      ## Aspect_TOM_POINT
-                                                                                      ## by
-                                                                                      ## default.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## the
-                                                                                      ## font;
-                                                                                      ## NULL
-                                                                                      ## string
-                                                                                      ## by
-                                                                                      ## default.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## true
-                                                                                      ## if
-                                                                                      ## mesh
-                                                                                      ## edges
-                                                                                      ## should
-                                                                                      ## be
-                                                                                      ## drawn
-                                                                                      ## (false
-                                                                                      ## by
-                                                                                      ## default).
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Returns
-                                                                                      ## the
-                                                                                      ## hatch
-                                                                                      ## type
-                                                                                      ## used
-                                                                                      ## when
-                                                                                      ## InteriorStyle
-                                                                                      ## is
-                                                                                      ## IS_HATCH
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Check
-                                                                                      ## for
-                                                                                      ## equality
-                                                                                      ## with
-                                                                                      ## another
-                                                                                      ## aspects.
 
 
 proc newGraphic3dAspects*(): Graphic3dAspects {.cdecl, constructor,
@@ -311,5 +239,4 @@ proc isEqual*(this: var Graphic3dAspects; theOther: Graphic3dAspects): bool {.cd
 proc dumpJson*(this: Graphic3dAspects; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Aspects.hxx".}
-type
-  HandleGraphic3dAspects* = Handle[Graphic3dAspects]
+

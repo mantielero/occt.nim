@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-23
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2013 OPEN CASCADE SAS
@@ -35,45 +37,7 @@
 ## ! at index 0  and stops at the index equal to (remembered_length-1).  It is OK
 ## ! to enlarge the vector during the iteration.
 
-type
-  NCollectionVector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
-                                   header: "NCollection_Vector.hxx", bycopy.} = object of NCollectionBaseVector ##
-                                                                                                         ## !
-                                                                                                         ## STL-compliant
-                                                                                                         ## typedef
-                                                                                                         ## for
-                                                                                                         ## value
-                                                                                                         ## type
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Nested
-                                                                                                         ## class
-                                                                                                         ## Iterator
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @name
-                                                                                                         ## public
-                                                                                                         ## methods
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Constructor
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @name
-                                                                                                         ## private
-                                                                                                         ## methods
 
-  NCollectionVectorvalueType*[TheItemType] = TheItemType
-  NCollectionVectorIterator*[TheItemType] {.
-      importcpp: "NCollection_Vector<\'0>::Iterator",
-      header: "NCollection_Vector.hxx", bycopy.} = object of RootObj ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
-                                                                                ## -
-                                                                                ## for
-                                                                                ## later
-                                                                                ## Init
 
 
 proc newNCollectionVectorIterator*[TheItemType](): NCollectionVectorIterator[
@@ -106,11 +70,6 @@ proc changeValue*[TheItemType](this: NCollectionVectorIterator[TheItemType]): va
 proc isEqual*[TheItemType](this: NCollectionVectorIterator[TheItemType];
                           theOther: NCollectionVectorIterator): bool {.
     noSideEffect, cdecl, importcpp: "IsEqual", header: "NCollection_Vector.hxx".}
-type
-#  NCollectionVectoriterator* = NCollectionStlIterator[RandomAccessIteratorTag,
-#      NCollectionVectorIterator, TheItemType, False]
-  NCollectionVectorconstIterator* = NCollectionStlIterator[
-      RandomAccessIteratorTag, NCollectionVectorIterator, TheItemType, true]
 
 proc begin*[TheItemType](this: NCollectionVector[TheItemType]): NCollectionVectoriterator {.
     noSideEffect, cdecl, importcpp: "begin", header: "NCollection_Vector.hxx".}
@@ -173,3 +132,4 @@ proc setValue*[TheItemType](this: var NCollectionVector[TheItemType];
                            theIndex: cint; theValue: TheItemType): var TheItemType {.
     cdecl, importcpp: "SetValue", header: "NCollection_Vector.hxx".}
 ## ignored statement
+

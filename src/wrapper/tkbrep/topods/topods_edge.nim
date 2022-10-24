@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -23,11 +25,6 @@
 ## ! of its geometry (as opposed to orientation in
 ## ! relation to other shapes).
 
-type
-  TopoDS_Edge* {.importcpp: "TopoDS_Edge", header: "TopoDS_Edge.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                              ## !
-                                                                                              ## Undefined
-                                                                                              ## Edge.
 
 
 proc newTopoDS_Edge*(): TopoDS_Edge {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1994-06-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  TopOpeBRepDS_InterferenceIterator* {.importcpp: "TopOpeBRepDS_InterferenceIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx",
-                                      bycopy.} = object of RootObj
 
 
 proc newTopOpeBRepDS_InterferenceIterator*(): TopOpeBRepDS_InterferenceIterator {.

@@ -1,3 +1,5 @@
+import gp_types
+
 ##  Created on: 1993-04-13
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,15 +17,6 @@
 ##  commercial license or contractual agreement.
 
 
-type
-  Gp* {.importcpp: "gp", header: "gp.hxx", bycopy.} = object ## ! Method of package gp
-                                                     ## !
-                                                     ## ! In geometric computations, defines the tolerance criterion
-                                                     ## ! used to determine when two numbers can be considered equal.
-                                                     ## ! Many class functions use this tolerance criterion, for
-                                                     ## ! example, to avoid division by zero in geometric
-                                                     ## ! computations. In the documentation, tolerance criterion is
-                                                     ## ! always referred to as gp::Resolution().
 
 
 proc resolution*(): cfloat {.cdecl, importcpp: "gp::Resolution(@)", header: "gp.hxx".}

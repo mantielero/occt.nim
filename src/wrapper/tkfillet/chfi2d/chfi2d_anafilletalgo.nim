@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 2013-05-20
 ##  Created by: Vlad ROMASHKO
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -16,26 +18,6 @@
 ## ! An analytical algorithm for calculation of the fillets.
 ## ! It is implemented for segments and arcs of circle only.
 
-type
-  ChFi2dAnaFilletAlgo* {.importcpp: "ChFi2d_AnaFilletAlgo",
-                        header: "ChFi2d_AnaFilletAlgo.hxx", bycopy.} = object ## ! An empty
-                                                                         ## constructor.
-                                                                         ## ! Use the method Init() to
-                                                                         ## initialize the class.
-                                                                         ##  WW5 method to compute fillet.
-                                                                         ##  It returns a
-                                                                         ## constructed fillet
-                                                                         ## definition:
-                                                                         ##      center point (xc, yc)
-                                                                         ##      point on the 1st segment
-                                                                         ## (xstart, ystart)
-                                                                         ##      point on the 2nd segment (xend, yend)
-                                                                         ##      is the arc of fillet
-                                                                         ## clockwise (cw = true) or
-                                                                         ## counterclockwise (cw = false).
-    ##  Left neighbour.
-    ##  Right neighbour.
-    ##  Fillet (result).
 
 
 proc newChFi2dAnaFilletAlgo*(): ChFi2dAnaFilletAlgo {.cdecl, constructor,

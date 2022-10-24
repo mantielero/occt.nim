@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-07-30
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -54,34 +56,7 @@
 ##  selected objects after search.
 ##
 
-type
-  NCollectionUBTree*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>", header: "NCollection_UBTree.hxx",
-      bycopy.} = object         ## ! Memory allocation
-                     ##  ---------- PUBLIC TYPES ----------
-                     ## *
-                     ##  Class defining the minimal interface of selector.
-                     ##
-                     ##  ---------- PROTECTED METHODS ----------
-                     ## *
-                     ##  @return
-                     ##    the last added node
-                     ##
-                     ##  ---------- PRIVATE METHODS ----------
-                     ## / Copy constructor (prohibited).
-    ## /< root of the tree
-    ## /< the last added node
-    ## /< Allocator for TreeNode
 
-  NCollectionUBTreeSelector*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>::Selector",
-      header: "NCollection_UBTree.hxx", bycopy.} = object ## *
-                                                     ##  Constructor
-                                                     ##
-                                                     ## *
-                                                     ##  The method Accept() should set this flag if the selection process
-                                                     ##  is to be stopped
-                                                     ##
 
 
 proc newNCollectionUBTreeSelector*[TheObjType; TheBndType](): NCollectionUBTreeSelector[
@@ -97,14 +72,6 @@ proc stop*[TheObjType; TheBndType](this: NCollectionUBTreeSelector[TheObjType,
 proc destroyNCollectionUBTreeSelector*[TheObjType; TheBndType](
     this: var NCollectionUBTreeSelector[TheObjType, TheBndType]) {.cdecl,
     importcpp: "#.~Selector()", header: "NCollection_UBTree.hxx".}
-type
-  NCollectionUBTreeTreeNode*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>::TreeNode",
-      header: "NCollection_UBTree.hxx", bycopy.} = object
-    ## /< bounding geometry
-    ## /< the object
-    ## /< 2 children forming a b-tree
-    ## /< the pointer to a parent node
 
 
 proc newNCollectionUBTreeTreeNode*[TheObjType; TheBndType](theObj: TheObjType;
@@ -185,3 +152,4 @@ proc allocator*[TheObjType; TheBndType](this: NCollectionUBTree[TheObjType,
 ##  _BNDTYPE      - the name of the bounding box type
 ##  _HPARENT      - the name of parent class (usually Standard_Transient)
 ##
+

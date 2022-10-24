@@ -1,3 +1,5 @@
+import geom2dadaptor_types
+
 ##  Created on: 1993-06-03
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,36 +21,6 @@ discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of Geom2dAdaptor_Curve"
 discard "forward decl of Geom2dAdaptor_GHCurve"
 discard "forward decl of Geom2dAdaptor_HCurve"
-type
-  Geom2dAdaptor* {.importcpp: "Geom2dAdaptor", header: "Geom2dAdaptor.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Inherited
-                                                                                      ## from
-                                                                                      ## GHCurve.
-                                                                                      ## Provides
-                                                                                      ## a
-                                                                                      ## curve
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## handled
-                                                                                      ## by
-                                                                                      ## reference.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## 2d
-                                                                                      ## curve
-                                                                                      ## from
-                                                                                      ## a
-                                                                                      ## HCurve2d.
-                                                                                      ## This
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## cannot
-                                                                                      ## process
-                                                                                      ## the
-                                                                                      ## OtherCurves.
 
 
 proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.cdecl,

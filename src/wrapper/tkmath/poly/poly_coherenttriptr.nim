@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 2007-12-08
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -19,23 +21,7 @@ discard "forward decl of Poly_CoherentTriangle"
 ##  round double-linked list of these nodes.
 ##
 
-type
-  PolyCoherentTriPtr* {.importcpp: "Poly_CoherentTriPtr",
-                       header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## *
-                                                                       ##  Iterator class for this list of triangles. Because the list is round,
-                                                                       ##  an iteration can be started from any member and it finishes before taking
-                                                                       ##  this member again. The iteration sense is always forward (Next).
-                                                                       ##
-                                                                       ##  ---------- PROTECTED METHODS ----------
-                                                                       ## *
-                                                                       ##  Constructor.
-                                                                       ##
-                                                                       ##  ---------- PRIVATE FIELDS ----------
 
-  PolyCoherentTriPtrIterator* {.importcpp: "Poly_CoherentTriPtr::Iterator",
-                               header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor
 
 
 proc newPolyCoherentTriPtrIterator*(): PolyCoherentTriPtrIterator {.cdecl,

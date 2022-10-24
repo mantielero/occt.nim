@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,83 +16,6 @@
 discard "forward decl of Message_Attribute"
 discard "forward decl of Message_Report"
 discard "forward decl of Message_CompositeAlerts"
-type
-  MessageAlertExtended* {.importcpp: "Message_AlertExtended",
-                         header: "Message_AlertExtended.hxx", bycopy.} = object of MessageAlert ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## new
-                                                                                         ## instance
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## alert
-                                                                                         ## and
-                                                                                         ## put
-                                                                                         ## it
-                                                                                         ## into
-                                                                                         ## report
-                                                                                         ## with
-                                                                                         ## Message_Info
-                                                                                         ## gravity.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## It
-                                                                                         ## does
-                                                                                         ## nothing
-                                                                                         ## if
-                                                                                         ## such
-                                                                                         ## kind
-                                                                                         ## of
-                                                                                         ## gravity
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## active
-                                                                                         ## in
-                                                                                         ## the
-                                                                                         ## report
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theReport
-                                                                                         ## the
-                                                                                         ## message
-                                                                                         ## report
-                                                                                         ## where
-                                                                                         ## new
-                                                                                         ## alert
-                                                                                         ## is
-                                                                                         ## placed
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @param
-                                                                                         ## theAttribute
-                                                                                         ## container
-                                                                                         ## of
-                                                                                         ## additional
-                                                                                         ## values
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## alert
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## created
-                                                                                         ## alert
-                                                                                         ## or
-                                                                                         ## NULL
-                                                                                         ## if
-                                                                                         ## Message_Info
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ## active
-                                                                                         ## in
-                                                                                         ## report
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Empty
-                                                                                         ## constructor
-    ## !< class provided hierarchical structure of alerts
-    ## !< container of the alert attributes
 
 
 proc addAlert*(theReport: Handle[MessageReport];
@@ -115,5 +40,4 @@ proc merge*(this: var MessageAlertExtended; theTarget: Handle[MessageAlert]): bo
 proc dumpJson*(this: MessageAlertExtended; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Message_AlertExtended.hxx".}
-type
-  HandleMessageAlertExtended* = Handle[MessageAlertExtended]
+

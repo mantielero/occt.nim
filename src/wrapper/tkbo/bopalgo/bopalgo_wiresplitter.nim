@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2012 OPEN CASCADE SAS
 ##
@@ -15,9 +17,6 @@
 discard "forward decl of BOPAlgo_WireEdgeSet"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
-type
-  BOPAlgoWireSplitter* {.importcpp: "BOPAlgo_WireSplitter",
-                        header: "BOPAlgo_WireSplitter.hxx", bycopy.} = object of BOPAlgoAlgo
 
 
 proc newBOPAlgoWireSplitter*(): BOPAlgoWireSplitter {.cdecl, constructor,

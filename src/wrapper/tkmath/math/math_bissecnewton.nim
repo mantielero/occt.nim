@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-03-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
-type
-  MathBissecNewton* {.importcpp: "math_BissecNewton",
-                     header: "math_BissecNewton.hxx", bycopy.} = object ## ! Constructor.
-                                                                   ## ! @param theXTolerance - algorithm tolerance.
 
 
 proc newMathBissecNewton*(theXTolerance: cfloat): MathBissecNewton {.cdecl,

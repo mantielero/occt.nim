@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1995-03-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PolyHArray1OfTriangle* {.importcpp: "Poly_HArray1OfTriangle",
-                          header: "Poly_HArray1OfTriangle.hxx", bycopy.} = object of PolyArray1OfTriangle
 
 
 proc newPolyHArray1OfTriangle*(theLower: cint; theUpper: cint): PolyHArray1OfTriangle {.

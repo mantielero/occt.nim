@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1997-08-22
 ##  Created by: Jeannine PANCIATICI,  Sergey SOKOLOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -21,16 +23,6 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HSurface"
-type
-  ApproxCurvilinearParameter* {.importcpp: "Approx_CurvilinearParameter",
-                               header: "Approx_CurvilinearParameter.hxx", bycopy.} = object ##
-                                                                                       ## !
-                                                                                       ## case
-                                                                                       ## of
-                                                                                       ## a
-                                                                                       ## free
-                                                                                       ## 3D
-                                                                                       ## curve
 
 
 proc newApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve]; tol: cfloat;

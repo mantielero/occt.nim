@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -18,16 +20,6 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Geometry*[T; N: static[cint]] {.importcpp: "BVH_Geometry<\'0,\'1>",
-                                   header: "BVH_Geometry.hxx", bycopy.} = object of BVH_ObjectSet[
-      T, N] ## ! Creates uninitialized BVH geometry.
-          ## ! Returns TRUE if geometry state should be updated.
-          ## ! Updates internal geometry state.
-    ## !< Is geometry state outdated?
-    ## !< Constructed hight-level BVH
-    ## !< Builder for hight-level BVH
-    ## !< Cached bounding box of geometric objects
 
 
 proc newBVH_Geometry*[T; N: static[cint]](): BVH_Geometry[T, N] {.cdecl, constructor,

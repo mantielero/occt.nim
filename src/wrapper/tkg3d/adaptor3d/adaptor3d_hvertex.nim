@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1994-03-25
 ##  Created by: model
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
-type
-  HandleAdaptor3dHVertex* = Handle[Adaptor3dHVertex]
-  Adaptor3dHVertex* {.importcpp: "Adaptor3d_HVertex",
-                     header: "Adaptor3d_HVertex.hxx", bycopy.} = object of StandardTransient
 
 
 proc newAdaptor3dHVertex*(): Adaptor3dHVertex {.cdecl, constructor,

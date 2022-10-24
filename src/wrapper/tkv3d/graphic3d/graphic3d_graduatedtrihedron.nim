@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2011-03-06
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -14,14 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_CView"
-type
-  Graphic3dAxisAspect* {.importcpp: "Graphic3d_AxisAspect",
-                        header: "Graphic3d_GraduatedTrihedron.hxx", bycopy.} = object
-    ## !< Number of splits along axes
-    ## !< Length of tickmarks
-    ## !< Color of axis and values
-    ## !< Offset for drawing values
-    ## !< Offset for drawing name of axis
 
 
 proc newGraphic3dAxisAspect*(theName: TCollectionExtendedString = newTCollectionExtendedString("");
@@ -78,47 +72,8 @@ proc setNameOffset*(this: var Graphic3dAxisAspect; theValue: cint) {.cdecl,
 ## ! It contains main style parameters for implementation of graduated trihedron
 ## ! @sa OpenGl_GraduatedTrihedron
 
-type
-  Graphic3dGraduatedTrihedron* {.importcpp: "Graphic3d_GraduatedTrihedron",
-                                header: "Graphic3d_GraduatedTrihedron.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Default
-                                                                                         ## constructor
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## the
-                                                                                         ## default
-                                                                                         ## graduated
-                                                                                         ## trihedron
-                                                                                         ## with
-                                                                                         ## grid,
-                                                                                         ## X,
-                                                                                         ## Y,
-                                                                                         ## Z
-                                                                                         ## axes,
-                                                                                         ## and
-                                                                                         ## tickmarks
-    cubicAxesCallback* {.importc: "CubicAxesCallback".}: Graphic3dGraduatedTrihedronMinMaxValuesCallback ## !< Callback function to define boundary box of displayed objects
-    ptrView* {.importc: "PtrView".}: ptr Graphic3dCView
-    ## !< Font name of names of axes: Courier, Arial, ...
-    ## !< Style of names of axes: OSD_FA_Regular, OSD_FA_Bold,..
-    ## !< Size of names of axes: 8, 10,..
-    ## !< Font name of values: Courier, Arial, ...
-    ## !< Style of values: OSD_FA_Regular, OSD_FA_Bold, ...
-    ## !< Size of values: 8, 10, 12, 14, ...
-    ## !< X, Y and Z axes parameters
 
-  Graphic3dGraduatedTrihedronMinMaxValuesCallback* = proc (a1: ptr Graphic3dCView) {.
-      cdecl.}
 
-#proc newGraphic3dGraduatedTrihedron*(theNamesFont: TCollectionAsciiString = "Arial";
-#    theNamesStyle: FontFontAspect = fontFA_Bold; theNamesSize: cint = 12; theValuesFont: TCollectionAsciiString = "Arial";
-#    theValuesStyle: FontFontAspect = fontFA_Regular; theValuesSize: cint = 12;
-#                                    theArrowsLength: StandardShortReal = 30.0f;
-#    theGridColor: QuantityColor = quantityNOC_WHITE; theToDrawGrid: bool = true;
-#                                    theToDrawAxes: bool = true): Graphic3dGraduatedTrihedron {.
-#    cdecl, constructor, importcpp: "Graphic3d_GraduatedTrihedron(@)", header: "Graphic3d_GraduatedTrihedron.hxx".}
 proc changeXAxisAspect*(this: var Graphic3dGraduatedTrihedron): var Graphic3dAxisAspect {.
     cdecl, importcpp: "ChangeXAxisAspect", header: "Graphic3d_GraduatedTrihedron.hxx".}
 proc changeYAxisAspect*(this: var Graphic3dGraduatedTrihedron): var Graphic3dAxisAspect {.

@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-10-22
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  ChFiDS_Map* {.importcpp: "ChFiDS_Map", header: "ChFiDS_Map.hxx", bycopy.} = object ## !
-                                                                             ## Create an
-                                                                             ## empty Map
 
 
 proc newChFiDS_Map*(): ChFiDS_Map {.cdecl, constructor, importcpp: "ChFiDS_Map(@)",

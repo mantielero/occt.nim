@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1991-01-21
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,11 +19,6 @@
 discard "forward decl of TopLoc_Datum3D"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopLoc_SListOfItemLocation"
-type
-  TopLocItemLocation* {.importcpp: "TopLoc_ItemLocation",
-                       header: "TopLoc_ItemLocation.hxx", bycopy.} = object ## ! Sets the
-                                                                       ## elementary Datum to <D>
-                                                                       ## ! Sets the exponent to <P>
 
 
 proc newTopLocItemLocation*(d: Handle[TopLocDatum3D]; p: cint): TopLocItemLocation {.

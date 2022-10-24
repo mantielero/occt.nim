@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2017-06-26
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -16,84 +18,8 @@
 discard "forward decl of Message_CompositeAlerts"
 discard "forward decl of Message_Messenger"
 discard "forward decl of Message_Report"
-type
-  HandleMessageReport* = Handle[MessageReport]
 
-## ! Container for alert messages, sorted according to their gravity.
-## !
-## ! For each gravity level, alerts are stored in simple list.
-## ! If alert being added can be merged with another alert of the same
-## ! type already in the list, it is merged and not added to the list.
-## !
-## ! This class is intended to be used as follows:
-## !
-## ! - In the process of execution, algorithm fills report by alert objects
-## !   using methods AddAlert()
-## !
-## ! - The result can be queried for presence of particular alert using
-## !   methods HasAlert()
-## !
-## ! - The reports produced by nested or sequentially executed algorithms
-## !   can be collected in one using method Merge()
-## !
-## ! - The report can be shown to the user either as plain text with method
-## !   Dump() or in more advanced way, by iterating over lists returned by GetAlerts()
-## !
-## ! - Report can be cleared by methods Clear() (usually after reporting)
-## !
-## ! Message_PrinterToReport is a printer in Messenger to convert data sent to messenger into report
 
-type
-  MessageReport* {.importcpp: "Message_Report", header: "Message_Report.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Empty
-                                                                                                           ## constructor
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## class
-                                                                                                           ## provided
-                                                                                                           ## hierarchy
-                                                                                                           ## of
-                                                                                                           ## alerts
-                                                                                                           ## if
-                                                                                                           ## created
-                                                                                                           ## or
-                                                                                                           ## create
-                                                                                                           ## if
-                                                                                                           ## the
-                                                                                                           ## parameter
-                                                                                                           ## is
-                                                                                                           ## true
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @param
-                                                                                                           ## isCreate
-                                                                                                           ## if
-                                                                                                           ## composite
-                                                                                                           ## alert
-                                                                                                           ## has
-                                                                                                           ## not
-                                                                                                           ## been
-                                                                                                           ## created
-                                                                                                           ## for
-                                                                                                           ## this
-                                                                                                           ## alert,
-                                                                                                           ## it
-                                                                                                           ## should
-                                                                                                           ## be
-                                                                                                           ## created
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @return
-                                                                                                           ## instance
-                                                                                                           ## or
-                                                                                                           ## NULL
-    ## !< container of alerts
-    ## !< container of active levels, new alerts are added below the latest level
-    ## !< metrics to compute on alerts
-    ## !< Maximum number of collected alerts on the top level
-    ## ! state whether the report is activated in messenger
 
 
 proc newMessageReport*(): MessageReport {.cdecl, constructor,

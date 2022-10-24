@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1999-09-29
 ##  Created by: Maxim ZVEREV
 ##  Copyright (c) 1999 Matra Datavision
@@ -24,9 +26,6 @@ discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
 discard "forward decl of TopOpeBRepBuild_PaveSet"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Face"
-type
-  TopOpeBRepBuildBuilder1* {.importcpp: "TopOpeBRepBuild_Builder1",
-                            header: "TopOpeBRepBuild_Builder1.hxx", bycopy.} = object of TopOpeBRepBuildBuilder
 
 
 proc newTopOpeBRepBuildBuilder1*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder1 {.

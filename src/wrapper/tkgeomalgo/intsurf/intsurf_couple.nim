@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-03-25
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,8 +18,6 @@
 
 ## ! creation d 'un couple de 2 entiers
 
-type
-  IntSurfCouple* {.importcpp: "IntSurf_Couple", header: "IntSurf_Couple.hxx", bycopy.} = object
 
 
 proc newIntSurfCouple*(): IntSurfCouple {.cdecl, constructor,

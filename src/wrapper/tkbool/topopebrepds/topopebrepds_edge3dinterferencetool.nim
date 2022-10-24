@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1997-12-24
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  TopOpeBRepDS_Edge3dInterferenceTool* {.importcpp: "TopOpeBRepDS_Edge3dInterferenceTool", header: "TopOpeBRepDS_Edge3dInterferenceTool.hxx",
-                                        bycopy.} = object
 
 
 proc newTopOpeBRepDS_Edge3dInterferenceTool*(): TopOpeBRepDS_Edge3dInterferenceTool {.

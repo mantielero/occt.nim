@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2001-07-02
 ##  Created by: Mathias BOSSHARD
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -15,123 +17,6 @@
 
 discard "forward decl of Graphic3d_AspectFillArea3d"
 discard "forward decl of Graphic3d_Texture2Dmanual"
-type
-  AIS_TexturedShape* {.importcpp: "AIS_TexturedShape",
-                      header: "AIS_TexturedShape.hxx", bycopy.} = object of AIS_Shape ## !
-                                                                               ## @name
-                                                                               ## main
-                                                                               ## methods
-                                                                               ## !
-                                                                               ## Initializes
-                                                                               ## the
-                                                                               ## textured
-                                                                               ## shape.
-                                                                               ## !
-                                                                               ## @name
-                                                                               ## methods
-                                                                               ## to
-                                                                               ## alter
-                                                                               ## texture
-                                                                               ## mapping
-                                                                               ## properties
-                                                                               ## !
-                                                                               ## Use
-                                                                               ## this
-                                                                               ## method
-                                                                               ## to
-                                                                               ## display
-                                                                               ## the
-                                                                               ## textured
-                                                                               ## shape
-                                                                               ## without
-                                                                               ## recomputing
-                                                                               ## the
-                                                                               ## whole
-                                                                               ## presentation.
-                                                                               ## !
-                                                                               ## Use
-                                                                               ## this
-                                                                               ## method
-                                                                               ## when
-                                                                               ## ONLY
-                                                                               ## the
-                                                                               ## texture
-                                                                               ## content
-                                                                               ## has
-                                                                               ## been
-                                                                               ## changed.
-                                                                               ## !
-                                                                               ## If
-                                                                               ## other
-                                                                               ## parameters
-                                                                               ## (ie:
-                                                                               ## scale
-                                                                               ## factors,
-                                                                               ## texture
-                                                                               ## origin,
-                                                                               ## texture
-                                                                               ## repeat...)
-                                                                               ## have
-                                                                               ## changed,
-                                                                               ## the
-                                                                               ## whole
-                                                                               ## presentation
-                                                                               ## has
-                                                                               ## to
-                                                                               ## be
-                                                                               ## recomputed:
-                                                                               ## !
-                                                                               ## @code
-                                                                               ## !
-                                                                               ## if
-                                                                               ## (myShape->DisplayMode()
-                                                                               ## ==
-                                                                               ## 3)
-                                                                               ## ! {
-                                                                               ## !
-                                                                               ## myAISContext->RecomputePrsOnly
-                                                                               ## (myShape);
-                                                                               ## ! }
-                                                                               ## !
-                                                                               ## else
-                                                                               ## ! {
-                                                                               ## !
-                                                                               ## myAISContext->SetDisplayMode
-                                                                               ## (myShape,
-                                                                               ## 3,
-                                                                               ## Standard_False);
-                                                                               ## !
-                                                                               ## myAISContext->Display
-                                                                               ## (myShape,
-                                                                               ## Standard_True);
-                                                                               ## ! }
-                                                                               ## !
-                                                                               ## @endcode
-                                                                               ## !
-                                                                               ## @name
-                                                                               ## overridden
-                                                                               ## methods
-                                                                               ## !
-                                                                               ## Compute
-                                                                               ## presentation
-                                                                               ## with
-                                                                               ## texture
-                                                                               ## mapping
-                                                                               ## support.
-                                                                               ## !
-                                                                               ## @name
-                                                                               ## presentation
-                                                                               ## fields
-                                                                               ## !
-                                                                               ## @name
-                                                                               ## texture
-                                                                               ## source
-                                                                               ## fields
-                                                                               ## !
-                                                                               ## @name
-                                                                               ## texture
-                                                                               ## mapping
-                                                                               ## properties
 
 
 proc newAIS_TexturedShape*(theShape: TopoDS_Shape): AIS_TexturedShape {.cdecl,
@@ -201,5 +86,4 @@ proc textureModulate*(this: AIS_TexturedShape): bool {.noSideEffect, cdecl,
     importcpp: "TextureModulate", header: "AIS_TexturedShape.hxx".}
 proc acceptDisplayMode*(this: AIS_TexturedShape; theMode: cint): bool {.noSideEffect,
     cdecl, importcpp: "AcceptDisplayMode", header: "AIS_TexturedShape.hxx".}
-type
-  HandleAIS_TexturedShape* = Handle[AIS_TexturedShape]
+

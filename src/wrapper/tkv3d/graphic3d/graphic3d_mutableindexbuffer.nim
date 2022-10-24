@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,13 +15,6 @@
 
 ## ! Mutable index buffer.
 
-type
-  Graphic3dMutableIndexBuffer* {.importcpp: "Graphic3d_MutableIndexBuffer",
-                                header: "Graphic3d_MutableIndexBuffer.hxx", bycopy.} = object of Graphic3dIndexBuffer ##
-                                                                                                               ## !
-                                                                                                               ## Empty
-                                                                                                               ## constructor.
-    ## !< invalidated buffer data range (as byte offsets)
 
 
 proc newGraphic3dMutableIndexBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dMutableIndexBuffer {.

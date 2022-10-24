@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1994-06-07
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -14,27 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_SurfaceIterator* {.importcpp: "TopOpeBRepDS_SurfaceIterator",
-                                 header: "TopOpeBRepDS_SurfaceIterator.hxx",
-                                 bycopy.} = object of TopOpeBRepDS_InterferenceIterator ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## an
-                                                                                   ## iterator
-                                                                                   ## on
-                                                                                   ## the
-                                                                                   ## Surfaces
-                                                                                   ## on
-                                                                                   ## solid
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## described
-                                                                                   ## by
-                                                                                   ## the
-                                                                                   ## interferences
-                                                                                   ## in
-                                                                                   ## <L>.
 
 
 proc newTopOpeBRepDS_SurfaceIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_SurfaceIterator {.

@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -39,10 +41,6 @@
 ## ! performs the necessary actions for the Splitter algorithm - it adds
 ## ! the split parts of only Objects into result, avoiding the split parts of Tools.
 
-type
-  BOPAlgoSplitter* {.importcpp: "BOPAlgo_Splitter", header: "BOPAlgo_Splitter.hxx",
-                    bycopy.} = object of BOPAlgoToolsProvider ## ! Empty constructor
-                                                         ## ! Checks the input data
 
 
 proc newBOPAlgoSplitter*(): BOPAlgoSplitter {.cdecl, constructor,

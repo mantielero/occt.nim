@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1998-11-19
 ##  Created by: Jean-Michel BOULCOURT
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,13 +19,6 @@
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepToolPurgeInternalEdges* {.importcpp: "TopOpeBRepTool_PurgeInternalEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx",
-                                     bycopy.} = object ## ! Initialize   members and  begin  exploration   of  shape
-                                                    ## ! depending of the value of PerformNow
-                                                    ## ! Do the main job. Explore all the  edges of myShape and
-                                                    ## ! build a map with  faces as a key  and list of internal
-                                                    ## ! edges(without connected faces) as value.
 
 
 proc newTopOpeBRepToolPurgeInternalEdges*(theShape: TopoDS_Shape;

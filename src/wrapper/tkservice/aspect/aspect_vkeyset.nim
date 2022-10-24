@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,27 +15,6 @@
 
 ## ! Structure defining key state.
 
-type
-  AspectVKeySet* {.importcpp: "Aspect_VKeySet", header: "Aspect_VKeySet.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Main
-                                                                                                           ## constructor.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Reset
-                                                                                                           ## the
-                                                                                                           ## key
-                                                                                                           ## state
-                                                                                                           ## into
-                                                                                                           ## unpressed
-                                                                                                           ## state.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Key
-                                                                                                           ## state.
-    ## !< keys state
-    ## !< mutex for thread-safe updates
-    ## !< active modifiers
 
 
 proc newAspectVKeySet*(): AspectVKeySet {.cdecl, constructor,

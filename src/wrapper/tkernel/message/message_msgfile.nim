@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2001-04-26
 ##  Created by: OCC Team
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -15,10 +17,6 @@
 
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TCollection_ExtendedString"
-type
-  MessageMsgFile* {.importcpp: "Message_MsgFile", header: "Message_MsgFile.hxx",
-                   bycopy.} = object ## ! Load message file <theFileName> from directory <theDirName>
-                                  ## ! or its sub-directory
 
 
 proc load*(theDirName: cstring; theFileName: cstring): bool {.cdecl,

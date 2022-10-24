@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2016-08-24
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -15,15 +17,6 @@
 
 ## ! Class defines presentation properties.
 
-type
-  Graphic3dPresentationAttributes* {.importcpp: "Graphic3d_PresentationAttributes", header: "Graphic3d_PresentationAttributes.hxx",
-                                    bycopy.} = object of StandardTransient ## ! Empty
-                                                                      ## constructor.
-    ## !< presentation fill area aspect
-    ## !< presentation color
-    ## !< box or color highlighting
-    ## !< Z-layer
-    ## !< display mode
 
 
 proc newGraphic3dPresentationAttributes*(): Graphic3dPresentationAttributes {.
@@ -66,5 +59,4 @@ proc setBasicFillAreaAspect*(this: var Graphic3dPresentationAttributes;
 proc dumpJson*(this: Graphic3dPresentationAttributes;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "Graphic3d_PresentationAttributes.hxx".}
-type
-  HandleGraphic3dPresentationAttributes* = Handle[Graphic3dPresentationAttributes]
+

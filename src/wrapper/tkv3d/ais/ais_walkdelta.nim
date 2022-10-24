@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,32 +15,12 @@
 
 ## ! Walking translation components.
 
-type
-  AIS_WalkTranslation* {.size: sizeof(cint), importcpp: "AIS_WalkTranslation",
-                        header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkTranslationForward = 0, ## !< translation delta, Forward walk
-    AIS_WalkTranslationSide,  ## !< translation delta, Side walk
-    AIS_WalkTranslationUp     ## !< translation delta, Up walk
 
 
-## ! Walking rotation components.
-
-type
-  AIS_WalkRotation* {.size: sizeof(cint), importcpp: "AIS_WalkRotation",
-                     header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkRotationYaw = 0,    ## !< yaw   rotation angle
-    AIS_WalkRotationPitch,    ## !< pitch rotation angle
-    AIS_WalkRotationRoll      ## !< roll  rotation angle
 
 
-## ! Walking value.
 
-type
-  AIS_WalkPart* {.importcpp: "AIS_WalkPart", header: "AIS_WalkDelta.hxx", bycopy.} = object
-    value* {.importc: "Value".}: cfloat ## !< value
-    pressure* {.importc: "Pressure".}: cfloat ## !< key pressure
-    duration* {.importc: "Duration".}: cfloat ## !< duration
-                                          ## ! Return TRUE if delta is empty.
+
 
 
 proc isEmpty*(this: AIS_WalkPart): bool {.noSideEffect, cdecl, importcpp: "IsEmpty",
@@ -47,11 +29,6 @@ proc newAIS_WalkPart*(): AIS_WalkPart {.cdecl, constructor,
                                      importcpp: "AIS_WalkPart(@)", header: "AIS_WalkDelta.hxx".}
 ## ! Walking values.
 
-type
-  AIS_WalkDelta* {.importcpp: "AIS_WalkDelta", header: "AIS_WalkDelta.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor.
 
 
 proc newAIS_WalkDelta*(): AIS_WalkDelta {.cdecl, constructor,

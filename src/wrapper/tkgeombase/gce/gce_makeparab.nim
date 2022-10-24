@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,83 +21,6 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Parab"
-type
-  GceMakeParab* {.importcpp: "gce_MakeParab", header: "gce_MakeParab.hxx", bycopy.} = object of GceRoot ##
-                                                                                              ## !
-                                                                                              ## ---
-                                                                                              ## Purpose
-                                                                                              ## ;
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## parabola
-                                                                                              ## with
-                                                                                              ## its
-                                                                                              ## local
-                                                                                              ## coordinate
-                                                                                              ## system
-                                                                                              ## "A2"
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## and
-                                                                                              ## it's
-                                                                                              ## focal
-                                                                                              ## length
-                                                                                              ## "Focal".
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## XDirection
-                                                                                              ## of
-                                                                                              ## A2
-                                                                                              ## defines
-                                                                                              ## the
-                                                                                              ## axis
-                                                                                              ## of
-                                                                                              ## symmetry
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## parabola.
-                                                                                              ## The
-                                                                                              ## YDirection
-                                                                                              ## of
-                                                                                              ## A2
-                                                                                              ## is
-                                                                                              ## parallel
-                                                                                              ## to
-                                                                                              ## the
-                                                                                              ## directrix
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## of
-                                                                                              ## the
-                                                                                              ## parabola.
-                                                                                              ## The
-                                                                                              ## Location
-                                                                                              ## point
-                                                                                              ## of
-                                                                                              ## A2
-                                                                                              ## is
-                                                                                              ## the
-                                                                                              ## vertex
-                                                                                              ## of
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## the
-                                                                                              ## parabola
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## status
-                                                                                              ## is
-                                                                                              ## "NullFocusLength"
-                                                                                              ## if
-                                                                                              ## Focal
-                                                                                              ## <
-                                                                                              ## 0.0
 
 
 proc newGceMakeParab*(a2: Ax2Obj; focal: cfloat): GceMakeParab {.cdecl, constructor,

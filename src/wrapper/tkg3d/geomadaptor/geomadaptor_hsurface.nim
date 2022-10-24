@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1995-08-25
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -18,17 +20,8 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomAdaptor_Surface"
 discard "forward decl of Geom_Surface"
 discard "forward decl of GeomAdaptor_HSurface"
-type
-  HandleGeomAdaptorHSurface* = Handle[GeomAdaptorHSurface]
 
-## ! An interface between the services provided by any
-## ! surface from the package Geom and those required
-## ! of the surface by algorithms which use it.
-## ! Provides a  surface handled by reference.
 
-type
-  GeomAdaptorHSurface* {.importcpp: "GeomAdaptor_HSurface",
-                        header: "GeomAdaptor_HSurface.hxx", bycopy.} = object of GeomAdaptorGHSurface
 
 
 proc newGeomAdaptorHSurface*(): GeomAdaptorHSurface {.cdecl, constructor,

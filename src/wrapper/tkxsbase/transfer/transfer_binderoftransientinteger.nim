@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1995-02-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,35 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Transfer_BinderOfTransientInteger"
-type
-  HandleTransferBinderOfTransientInteger* = Handle[
-      TransferBinderOfTransientInteger]
 
-## ! This type of Binder allows to attach as result, besides a
-## ! Transient Object, an Integer Value, which can be an Index
-## ! in the Object if it defines a List, for instance
-## !
-## ! This Binder is otherwise a kind of SimpleBinderOfTransient,
-## ! i.e. its basic result (for iterators, etc) is the Transient
 
-type
-  TransferBinderOfTransientInteger* {.importcpp: "Transfer_BinderOfTransientInteger", header: "Transfer_BinderOfTransientInteger.hxx",
-                                     bycopy.} = object of TransferSimpleBinderOfTransient ##
-                                                                                     ## !
-                                                                                     ## Creates
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## BinderOfTransientInteger;
-                                                                                     ## Default
-                                                                                     ## value
-                                                                                     ## for
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## integer
-                                                                                     ## part
-                                                                                     ## is
-                                                                                     ## zero
 
 
 proc newTransferBinderOfTransientInteger*(): TransferBinderOfTransientInteger {.

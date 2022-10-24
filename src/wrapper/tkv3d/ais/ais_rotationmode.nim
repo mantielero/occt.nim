@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,16 +15,9 @@
 
 ## ! Camera rotation mode.
 
-type
-  AIS_RotationMode* {.size: sizeof(cint), importcpp: "AIS_RotationMode",
-                     header: "AIS_RotationMode.hxx".} = enum
-    aIS_RotationModeBndBoxActive, ## !< default OCCT rotation
-    aIS_RotationModePickLast, ## !< rotate around last picked point
-    aIS_RotationModePickCenter, ## !< rotate around point at the center of window
-    aIS_RotationModeCameraAt, ## !< rotate around camera center
-    aIS_RotationModeBndBoxScene ## !< rotate around scene center
 
 
 const
   AIS_RotationModeLOWER* = 0
   AIS_RotationModeUPPER* = aIS_RotationModeBndBoxScene
+

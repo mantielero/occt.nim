@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,10 +19,6 @@
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of IntSurf_Transition"
-type
-  BRepBlendPointOnRst* {.importcpp: "BRepBlend_PointOnRst",
-                        header: "BRepBlend_PointOnRst.hxx", bycopy.} = object ## ! Empty
-                                                                         ## constructor.
 
 
 proc newBRepBlendPointOnRst*(): BRepBlendPointOnRst {.cdecl, constructor,

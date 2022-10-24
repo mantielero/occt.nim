@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 1995-03-02
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,29 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AspectGrid* {.importcpp: "Aspect_Grid", header: "Aspect_Grid.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## defines
-                                                                                                  ## the
-                                                                                                  ## x
-                                                                                                  ## Origin
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## grid.
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## a
-                                                                                                  ## new
-                                                                                                  ## grid.
-                                                                                                  ## By
-                                                                                                  ## default
-                                                                                                  ## this
-                                                                                                  ## grid
-                                                                                                  ## is
-                                                                                                  ## not
-                                                                                                  ## active.
 
 
 proc setXOrigin*(this: var AspectGrid; anOrigin: cfloat) {.cdecl,
@@ -83,5 +62,4 @@ proc isDisplayed*(this: AspectGrid): bool {.noSideEffect, cdecl,
 proc init*(this: var AspectGrid) {.cdecl, importcpp: "Init", header: "Aspect_Grid.hxx".}
 proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Aspect_Grid.hxx".}
-type
-  HandleAspectGrid* = Handle[AspectGrid]
+

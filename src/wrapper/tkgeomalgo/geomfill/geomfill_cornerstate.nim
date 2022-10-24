@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-12-08
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,9 +21,6 @@
 ## ! parallelism,  coons conditions and bounds tangents
 ## ! angle on the corner of contour to be filled.
 
-type
-  GeomFillCornerState* {.importcpp: "GeomFill_CornerState",
-                        header: "GeomFill_CornerState.hxx", bycopy.} = object
 
 
 proc newGeomFillCornerState*(): GeomFillCornerState {.cdecl, constructor,

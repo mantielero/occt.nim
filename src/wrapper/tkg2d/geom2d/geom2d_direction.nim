@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,17 +22,8 @@ discard "forward decl of Geom2d_Vector"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Direction"
-type
-  HandleGeom2dDirection* = Handle[Geom2dDirection]
 
-## ! The class Direction specifies a vector that is never null.
-## ! It is a unit vector.
 
-type
-  Geom2dDirection* {.importcpp: "Geom2d_Direction", header: "Geom2d_Direction.hxx",
-                    bycopy.} = object of Geom2dVector ## ! Creates a unit vector with it 2 cartesian coordinates.
-                                                 ## !
-                                                 ## ! Raised if Sqrt( X*X + Y*Y) <= Resolution from gp.
 
 
 proc newGeom2dDirection*(x: cfloat; y: cfloat): Geom2dDirection {.cdecl, constructor,

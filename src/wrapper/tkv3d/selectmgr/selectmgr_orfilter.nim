@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-12-04
 ##  Created by: Stephane MORTAUD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,22 +18,8 @@
 
 discard "forward decl of SelectMgr_EntityOwner"
 discard "forward decl of SelectMgr_OrFilter"
-type
-  HandleSelectMgrOrFilter* = Handle[SelectMgrOrFilter]
 
-## ! A framework to define an or selection filter.
-## ! This selects one or another type of sensitive entity.
 
-type
-  SelectMgrOrFilter* {.importcpp: "SelectMgr_OrFilter",
-                      header: "SelectMgr_OrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
-                                                                                                 ## !
-                                                                                                 ## Constructs
-                                                                                                 ## an
-                                                                                                 ## empty
-                                                                                                 ## or
-                                                                                                 ## selection
-                                                                                                 ## filter.
 
 
 proc newSelectMgrOrFilter*(): SelectMgrOrFilter {.cdecl, constructor,

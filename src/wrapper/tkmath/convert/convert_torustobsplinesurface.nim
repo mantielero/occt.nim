@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,63 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Torus"
-type
-  ConvertTorusToBSplineSurface* {.importcpp: "Convert_TorusToBSplineSurface",
-                                 header: "Convert_TorusToBSplineSurface.hxx",
-                                 bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
-                                                                                          ## !
-                                                                                          ## The
-                                                                                          ## equivalent
-                                                                                          ## B-spline
-                                                                                          ## surface
-                                                                                          ## as
-                                                                                          ## the
-                                                                                          ## same
-                                                                                          ## orientation
-                                                                                          ## as
-                                                                                          ## the
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## torus
-                                                                                          ## in
-                                                                                          ## the
-                                                                                          ## U
-                                                                                          ## and
-                                                                                          ## V
-                                                                                          ## parametric
-                                                                                          ## directions.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Raised
-                                                                                          ## if
-                                                                                          ## U1
-                                                                                          ## =
-                                                                                          ## U2
-                                                                                          ## or
-                                                                                          ## U1
-                                                                                          ## =
-                                                                                          ## U2
-                                                                                          ## +
-                                                                                          ## 2.0
-                                                                                          ## *
-                                                                                          ## Pi
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## Raised
-                                                                                          ## if
-                                                                                          ## V1
-                                                                                          ## =
-                                                                                          ## V2
-                                                                                          ## or
-                                                                                          ## V1
-                                                                                          ## =
-                                                                                          ## V2
-                                                                                          ## +
-                                                                                          ## 2.0
-                                                                                          ## *
-                                                                                          ## Pi
 
 
 proc newConvertTorusToBSplineSurface*(t: TorusObj; u1: cfloat; u2: cfloat; v1: cfloat;

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,36 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_FunctionSetWithDerivatives"
 discard "forward decl of math_Matrix"
-type
-  MathNewtonFunctionSetRoot* {.importcpp: "math_NewtonFunctionSetRoot",
-                              header: "math_NewtonFunctionSetRoot.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Initialize
-                                                                                     ## correctly
-                                                                                     ## all
-                                                                                     ## the
-                                                                                     ## fields
-                                                                                     ## of
-                                                                                     ## this
-                                                                                     ## class.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## range
-                                                                                     ## (1,
-                                                                                     ## F.NbVariables())
-                                                                                     ## must
-                                                                                     ## be
-                                                                                     ## especially
-                                                                                     ## respected
-                                                                                     ## for
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## all
-                                                                                     ## vectors
-                                                                                     ## and
-                                                                                     ## matrix
-                                                                                     ## declarations.
 
 
 proc newMathNewtonFunctionSetRoot*(theFunction: var MathFunctionSetWithDerivatives;

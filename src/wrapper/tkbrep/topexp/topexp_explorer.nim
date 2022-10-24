@@ -1,3 +1,5 @@
+import topexp_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
-type
-  TopExpExplorer* {.importcpp: "TopExp_Explorer", header: "TopExp_Explorer.hxx",
-                   bycopy.} = object of RootObj ## ! Creates an empty explorer, becomes usefull after Init.
 
 
 proc newExplorer*(): TopExpExplorer {.cdecl, constructor,

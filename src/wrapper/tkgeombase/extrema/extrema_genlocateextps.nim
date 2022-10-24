@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,12 +21,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaGenLocateExtPS* {.importcpp: "Extrema_GenLocateExtPS",
-                          header: "Extrema_GenLocateExtPS.hxx", bycopy.} = object ## !
-                                                                             ## Constructor.
-    ##  State.
-    ##  Result.
 
 
 proc newExtremaGenLocateExtPS*(theS: Adaptor3dSurface;

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-12-14
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,21 +21,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Geom_Curve"
 discard "forward decl of GeomFill_NSections"
-type
-  HandleGeomFillNSections* = Handle[GeomFillNSections]
 
-## ! Define a Section Law by N Sections
 
-type
-  GeomFillNSections* {.importcpp: "GeomFill_NSections",
-                      header: "GeomFill_NSections.hxx", bycopy.} = object of GeomFillSectionLaw ##
-                                                                                         ## !
-                                                                                         ## Make
-                                                                                         ## a
-                                                                                         ## SectionLaw
-                                                                                         ## with
-                                                                                         ## N
-                                                                                         ## Curves.
 
 
 proc newGeomFillNSections*(nc: TColGeomSequenceOfCurve): GeomFillNSections {.cdecl,

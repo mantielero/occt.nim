@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-04-13
 ##  Created by: Eric BONNARDEL
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,25 +24,6 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Dir"
-type
-  GeomFillPipe* {.importcpp: "GeomFill_Pipe", header: "GeomFill_Pipe.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## algorithm
-                                                                                     ## for
-                                                                                     ## building
-                                                                                     ## pipes.
-                                                                                     ## Use
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## the
-                                                                                     ## function
-                                                                                     ## Init
-                                                                                     ## to
-                                                                                     ## initialize
-                                                                                     ## it.
 
 
 proc newGeomFillPipe*(): GeomFillPipe {.cdecl, constructor,

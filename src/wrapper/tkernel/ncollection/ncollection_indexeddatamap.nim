@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-24
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -32,54 +34,7 @@
 ##               discussion about the number of buckets.
 ##
 
-type
-  NCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>",
-      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object of NCollectionBaseMap ##
-                                                                                 ## !
-                                                                                 ## STL-compliant
-                                                                                 ## typedef
-                                                                                 ## for
-                                                                                 ## key
-                                                                                 ## type
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Adaptation
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## TListNode
-                                                                                 ## to
-                                                                                 ## the
-                                                                                 ## INDEXEDDatamap
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Implementation
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## Iterator
-                                                                                 ## interface.
-                                                                                 ##
-                                                                                 ## ----------
-                                                                                 ## PUBLIC
-                                                                                 ## METHODS
-                                                                                 ## ------------
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor.
-                                                                                 ##
-                                                                                 ## -----------
-                                                                                 ## PRIVATE
-                                                                                 ## METHODS
-                                                                                 ## -----------
 
-  NCollectionIndexedDataMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionIndexedDataMapvalueType*[TheItemType] = TheItemType
-  NCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>::Iterator",
-      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object ## ! Empty constructor
-    ## !< Pointer to current node
-    ## !< Current index
 
 
 proc newNCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher](): NCollectionIndexedDataMapIterator[
@@ -107,11 +62,6 @@ proc isEqual*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMapIterator[TheKeyType, TheItemType, Hasher];
     theOther: NCollectionIndexedDataMapIterator): bool {.noSideEffect, cdecl,
     importcpp: "IsEqual", header: "NCollection_IndexedDataMap.hxx".}
-type
-#  NCollectionIndexedDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
-#      NCollectionIndexedDataMapIterator, TheItemType, False]
-  NCollectionIndexedDataMapconstIterator* = NCollectionStlIterator[
-      ForwardIteratorTag, NCollectionIndexedDataMapIterator, TheItemType, true]
 
 proc begin*[TheKeyType; TheItemType; Hasher](
     this: NCollectionIndexedDataMap[TheKeyType, TheItemType, Hasher]): NCollectionIndexedDataMapiterator {.

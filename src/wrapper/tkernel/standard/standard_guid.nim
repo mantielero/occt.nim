@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1997-06-19
 ##  Created by: Christophe LEYNADIER
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,8 +20,6 @@ const
   StandardGUID_SIZE* = 36
   StandardGUID_SIZE_ALLOC* = StandardGUID_SIZE + 1
 
-type
-  StandardGUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
 
 
 proc constructStandardGUID*(): StandardGUID {.cdecl, constructor,

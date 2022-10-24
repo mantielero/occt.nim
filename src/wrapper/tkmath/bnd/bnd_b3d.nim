@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 1991-01-08
 ##  Created by: Didier Piffault
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,8 +21,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Ax3"
-type
-  BndB3d* {.importcpp: "Bnd_B3d", header: "Bnd_B3d.hxx", bycopy.} = object ## ! Empty constructor.
 
 
 proc newBndB3d*(): BndB3d {.cdecl, constructor, importcpp: "Bnd_B3d(@)", header: "Bnd_B3d.hxx".}
@@ -70,3 +70,4 @@ proc setHSize*(this: var BndB3d; theHSize: XyzObj) {.cdecl, importcpp: "SetHSize
 ##  #define RealType_hxx <Standard_Real.hxx>
 ##  #define Bnd_B3x Bnd_B3d
 ##  #define Bnd_B3x_hxx <Bnd_B3d.hxx>
+

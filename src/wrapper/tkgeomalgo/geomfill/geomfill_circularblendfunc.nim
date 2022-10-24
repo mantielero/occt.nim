@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-07-11
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,88 +20,8 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_CircularBlendFunc"
-type
-  HandleGeomFillCircularBlendFunc* = Handle[GeomFillCircularBlendFunc]
 
-## ! Circular     Blend Function  to    approximate by
-## ! SweepApproximation from Approx
 
-type
-  GeomFillCircularBlendFunc* {.importcpp: "GeomFill_CircularBlendFunc",
-                              header: "GeomFill_CircularBlendFunc.hxx", bycopy.} = object of ApproxSweepFunction ##
-                                                                                                          ## !
-                                                                                                          ## Create
-                                                                                                          ## a
-                                                                                                          ## Blend
-                                                                                                          ## with
-                                                                                                          ## a
-                                                                                                          ## constant
-                                                                                                          ## radius
-                                                                                                          ## with
-                                                                                                          ## 2
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## guide-line.
-                                                                                                          ## <FShape>
-                                                                                                          ## sets
-                                                                                                          ## the
-                                                                                                          ## type
-                                                                                                          ## of
-                                                                                                          ## fillet
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## surface.
-                                                                                                          ## The
-                                                                                                          ## --
-                                                                                                          ## default
-                                                                                                          ## value
-                                                                                                          ## is
-                                                                                                          ## Convert_TgtThetaOver2
-                                                                                                          ## (classical
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## nurbs
-                                                                                                          ## --
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles).
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## ChFi3d_QuasiAngular
-                                                                                                          ## --
-                                                                                                          ## corresponds
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## nurbs
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles
-                                                                                                          ## --
-                                                                                                          ## which
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## parameterisation
-                                                                                                          ## matches
-                                                                                                          ## the
-                                                                                                          ## circle
-                                                                                                          ## one.
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## ChFi3d_Polynomial
-                                                                                                          ## corresponds
-                                                                                                          ## to
-                                                                                                          ## a
-                                                                                                          ## polynomial
-                                                                                                          ## --
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## representation
-                                                                                                          ## of
-                                                                                                          ## circles.
 
 
 proc newGeomFillCircularBlendFunc*(path: Handle[Adaptor3dHCurve];

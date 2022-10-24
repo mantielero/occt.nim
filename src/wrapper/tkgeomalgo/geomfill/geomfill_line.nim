@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-02-18
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,13 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of GeomFill_Line"
-type
-  HandleGeomFillLine* = Handle[GeomFillLine]
 
-## ! class for instantiation of AppBlend
 
-type
-  GeomFillLine* {.importcpp: "GeomFill_Line", header: "GeomFill_Line.hxx", bycopy.} = object of StandardTransient
 
 
 proc newGeomFillLine*(): GeomFillLine {.cdecl, constructor,

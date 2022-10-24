@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1994-02-14
 ##  Created by: model
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,30 +27,8 @@ discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of Adaptor3d_HSurface"
-type
-  HandleAdaptor3dHSurface* = Handle[Adaptor3dHSurface]
 
-## ! Root class for surfaces manipulated by handles, on
-## ! which geometric algorithms work.
-## ! An adapted surface is an interface between the
-## ! services provided by a surface and those required of
-## ! the surface by algorithms which use it.
-## ! A derived concrete class is provided:
-## ! GeomAdaptor_HSurface for a surface from the Geom package.
 
-type
-  Adaptor3dHSurface* {.importcpp: "Adaptor3d_HSurface",
-                      header: "Adaptor3d_HSurface.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Returns
-                                                                                        ## a
-                                                                                        ## reference
-                                                                                        ## to
-                                                                                        ## the
-                                                                                        ## Surface
-                                                                                        ## inside
-                                                                                        ## the
-                                                                                        ## HSurface.
 
 
 proc surface*(this: Adaptor3dHSurface): Adaptor3dSurface {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,22 +22,8 @@ discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
 discard "forward decl of BRep_PointRepresentation"
-type
-  HandleBRepPointRepresentation* = Handle[BRepPointRepresentation]
 
-## ! Root  class     for   the points  representations.
-## ! Contains a location and a parameter.
 
-type
-  BRepPointRepresentation* {.importcpp: "BRep_PointRepresentation",
-                            header: "BRep_PointRepresentation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## A
-                                                                                                    ## point
-                                                                                                    ## on
-                                                                                                    ## a
-                                                                                                    ## 3d
-                                                                                                    ## curve.
 
 
 proc isPointOnCurve*(this: BRepPointRepresentation): bool {.noSideEffect, cdecl,

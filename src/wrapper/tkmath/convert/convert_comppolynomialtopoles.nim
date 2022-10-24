@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1995-05-30
 ##  Created by: Xavier BENVENISTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,33 +18,6 @@
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_ConstructionError"
-type
-  ConvertCompPolynomialToPoles* {.importcpp: "Convert_CompPolynomialToPoles",
-                                 header: "Convert_CompPolynomialToPoles.hxx",
-                                 bycopy.} = object ## ! Warning!
-                                                ## ! Continuity can be at MOST the maximum degree of
-                                                ## ! the polynomial functions
-                                                ## ! TrueIntervals :
-                                                ## ! this is the true parameterisation for the composite curve
-                                                ## ! that is : the curve has myContinuity if the nth curve
-                                                ## ! is parameterized between myTrueIntervals(n) and myTrueIntervals(n+1)
-                                                ## !
-                                                ## ! Coefficients have to be the implicit "c form":
-                                                ## !
-                                                ## Coefficients[Numcurves][MaxDegree+1][Dimension]
-                                                ## !
-                                                ## ! Warning!
-                                                ## ! The NumberOfCoefficient of an polynome is his degree + 1
-                                                ## ! Example: To convert the linear function f(x) = 2*x + 1 on the
-                                                ## ! domaine [2,5] to BSpline with the bound [-1,1]. Arguments are :
-                                                ## ! NumCurves  = 1;
-                                                ## ! Continuity = 1;
-                                                ## ! Dimension  = 1;
-                                                ## ! MaxDegree  = 1;
-                                                ## ! NumCoeffPerCurve [1] = {2};
-                                                ## ! Coefficients[2] = {1, 2};
-                                                ## ! PolynomialIntervals[1,2] = {{2,5}}
-                                                ## ! TrueIntervals[2] = {-1, 1}
 
 
 proc newConvertCompPolynomialToPoles*(numCurves: cint; continuity: cint;

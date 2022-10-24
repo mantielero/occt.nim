@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,15 +15,8 @@
 
 ## ! Predefined tracked devices.
 
-type
-  AspectXRTrackedDeviceRole* {.size: sizeof(cint),
-                              importcpp: "Aspect_XRTrackedDeviceRole",
-                              header: "Aspect_XRTrackedDeviceRole.hxx".} = enum
-    aspectXRTrackedDeviceRoleHead, ## !< head
-    aspectXRTrackedDeviceRoleLeftHand, ## !< left hand
-    aspectXRTrackedDeviceRoleRightHand, ## !< right hand
-    aspectXRTrackedDeviceRoleOther ## !< other devices
 
 
 const
   aspectXRTrackedDeviceRoleNB* = aspectXRTrackedDeviceRoleOther.int + 1
+

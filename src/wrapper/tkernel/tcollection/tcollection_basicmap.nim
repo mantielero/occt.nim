@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1993-02-26
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,19 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TCollection_BasicMapIterator"
-type
-  TCollectionBasicMap* {.importcpp: "TCollection_BasicMap",
-                        header: "TCollection_BasicMap.hxx", bycopy.} = object of RootObj ## ! Returns the number of buckets in <me>.
-                                                                         ## !
-                                                                         ## Initialize the map.  Single is  True when the  map
-                                                                         ## ! uses only one table of
-                                                                         ## buckets.
-                                                                         ## !
-                                                                         ## ! One table  : Map, DataMap
-                                                                         ## ! Two tables :
-                                                                         ## DoubleMap,
-                                                                         ## IndexedMap,
-                                                                         ## IndexedDataMap
 
 
 proc nbBuckets*(this: TCollectionBasicMap): cint {.noSideEffect, cdecl,

@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHSequenceOfExtendedString* {.importcpp: "TColStd_HSequenceOfExtendedString", header: "TColStd_HSequenceOfExtendedString.hxx",
-                                     bycopy.} = object of TColStdSequenceOfExtendedString
 
 
 proc newTColStdHSequenceOfExtendedString*(): TColStdHSequenceOfExtendedString {.
@@ -33,6 +32,4 @@ proc append*(this: var TColStdHSequenceOfExtendedString;
     importcpp: "Append", header: "TColStd_HSequenceOfExtendedString.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfExtendedString): var TColStdSequenceOfExtendedString {.
     cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfExtendedString.hxx".}
-type
-  HandleTColStdHSequenceOfExtendedString* = Handle[
-      TColStdHSequenceOfExtendedString]
+

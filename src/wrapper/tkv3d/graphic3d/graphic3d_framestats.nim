@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,56 +14,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_CView"
-type
-  Graphic3dFrameStats* {.importcpp: "Graphic3d_FrameStats",
-                        header: "Graphic3d_FrameStats.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Default
-                                                                                            ## constructor.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## formatted
-                                                                                            ## string.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## value
-                                                                                            ## of
-                                                                                            ## specified
-                                                                                            ## counter
-                                                                                            ## for
-                                                                                            ## modification,
-                                                                                            ## should
-                                                                                            ## be
-                                                                                            ## called
-                                                                                            ## between
-                                                                                            ## ::FrameStart()
-                                                                                            ## and
-                                                                                            ## ::FrameEnd()
-                                                                                            ## calls.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Method
-                                                                                            ## to
-                                                                                            ## collect
-                                                                                            ## statistics
-                                                                                            ## from
-                                                                                            ## the
-                                                                                            ## View;
-                                                                                            ## called
-                                                                                            ## by
-                                                                                            ## FrameEnd().
-    ## !< timer for FPS measurements
-    ## !< time at the beginning of frame redraw
-    ## !< frame duration
-    ## !< interval to update meters
-    ## !< FPS counter (within short measurement time slice)
-    ## !< data frames history
-    ## !< data frame values filled to be filled between FrameStart() and FrameEnd() calls
-    ## !< data frame values with absolute maximum values in the history
-    ## !< last data frame index
-    ## !< prefer longer lines over greater number of lines
 
 
 proc newGraphic3dFrameStats*(): Graphic3dFrameStats {.cdecl, constructor,

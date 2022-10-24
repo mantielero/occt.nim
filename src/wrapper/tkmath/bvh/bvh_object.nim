@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -16,25 +18,6 @@
 ## ! A non-template class for using as base for BVH_Object
 ## ! (just to have a named base class).
 
-type
-  BVH_ObjectTransient* {.importcpp: "BVH_ObjectTransient",
-                        header: "BVH_Object.hxx", bycopy.} = object of StandardTransient ##
-                                                                                  ## !
-                                                                                  ## Returns
-                                                                                  ## properties
-                                                                                  ## of
-                                                                                  ## the
-                                                                                  ## geometric
-                                                                                  ## object.
-                                                                                  ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## new
-                                                                                  ## abstract
-                                                                                  ## geometric
-                                                                                  ## object.
-    ## !< Marks internal object state as outdated
-    ## !< Generic properties assigned to the object
 
 
 proc properties*(this: BVH_ObjectTransient): Handle[BVH_Properties] {.noSideEffect,
@@ -50,23 +33,6 @@ proc markDirty*(this: var BVH_ObjectTransient) {.cdecl, importcpp: "MarkDirty",
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Object*[T; N: static[cint]] {.importcpp: "BVH_Object<\'0,\'1>",
-                                 header: "BVH_Object.hxx", bycopy.} = object of BVH_ObjectTransient ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## new
-                                                                                             ## abstract
-                                                                                             ## geometric
-                                                                                             ## object.
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## Returns
-                                                                                             ## AABB
-                                                                                             ## of
-                                                                                             ## the
-                                                                                             ## geometric
-                                                                                             ## object.
 
 
 proc newBVH_Object*[T; N: static[cint]](): BVH_Object[T, N] {.cdecl, constructor,

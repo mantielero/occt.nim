@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1995-01-12
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,20 +19,8 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_Linear"
-type
-  HandleLawLinear* = Handle[LawLinear]
 
-## ! Describes an linear evolution law.
 
-type
-  LawLinear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of LawFunction ##
-                                                                                         ## !
-                                                                                         ## Constructs
-                                                                                         ## an
-                                                                                         ## empty
-                                                                                         ## linear
-                                                                                         ## evolution
-                                                                                         ## law.
 
 
 proc newLawLinear*(): LawLinear {.cdecl, constructor, importcpp: "Law_Linear(@)",

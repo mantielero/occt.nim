@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,87 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepToolGeomTool* {.importcpp: "TopOpeBRepTool_GeomTool",
-                           header: "TopOpeBRepTool_GeomTool.hxx", bycopy.} = object ## !
-                                                                               ## Boolean
-                                                                               ## flags
-                                                                               ## <CompC3D>,
-                                                                               ## <CompPC1>,
-                                                                               ## <CompPC2>
-                                                                               ## !
-                                                                               ## indicate
-                                                                               ## whether
-                                                                               ## the
-                                                                               ## corresponding
-                                                                               ## result
-                                                                               ## curves
-                                                                               ## !
-                                                                               ## <C3D>,
-                                                                               ## <PC1>,
-                                                                               ## <PC2>
-                                                                               ## of
-                                                                               ## MakeCurves
-                                                                               ## method
-                                                                               ## must
-                                                                               ## or
-                                                                               ## not
-                                                                               ## !
-                                                                               ## be
-                                                                               ## computed
-                                                                               ## from
-                                                                               ## an
-                                                                               ## intersection
-                                                                               ## line
-                                                                               ## <L>.
-                                                                               ## !
-                                                                               ## When
-                                                                               ## the
-                                                                               ## line
-                                                                               ## <L>
-                                                                               ## is a
-                                                                               ## walking
-                                                                               ## one,
-                                                                               ## <TypeC3D>
-                                                                               ## is
-                                                                               ## the
-                                                                               ## !
-                                                                               ## kind
-                                                                               ## of
-                                                                               ## the
-                                                                               ## 3D
-                                                                               ## curve
-                                                                               ## <C3D>
-                                                                               ## to
-                                                                               ## compute  :
-                                                                               ## ! -
-                                                                               ## BSPLINE1
-                                                                               ## to
-                                                                               ## compute  a
-                                                                               ## BSpline
-                                                                               ## of
-                                                                               ## degree 1
-                                                                               ## on
-                                                                               ## the
-                                                                               ## !
-                                                                               ## walking
-                                                                               ## points
-                                                                               ## of
-                                                                               ## <L>,
-                                                                               ## ! -
-                                                                               ## APPROX
-                                                                               ## to
-                                                                               ## build
-                                                                               ## an
-                                                                               ## approximation
-                                                                               ## curve
-                                                                               ## on
-                                                                               ## the
-                                                                               ## !
-                                                                               ## walking
-                                                                               ## points
-                                                                               ## of
-                                                                               ## <L>.
 
 
 proc newTopOpeBRepToolGeomTool*(typeC3D: TopOpeBRepToolOutCurveType = topOpeBRepToolBSPLINE1;

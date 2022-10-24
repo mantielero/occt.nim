@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-20
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -48,61 +50,6 @@
 ## ! @endcode
 ## ! The texture itself is parametrized in (0,1)x(0,1).
 
-type
-  AIS_Shape* {.importcpp: "AIS_Shape", header: "AIS_Shape.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                 ## !
-                                                                                                 ## Initializes
-                                                                                                 ## construction
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## shape
-                                                                                                 ## shap
-                                                                                                 ## from
-                                                                                                 ## wires,
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## edges
-                                                                                                 ## and
-                                                                                                 ## vertices.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## @name
-                                                                                                 ## methods
-                                                                                                 ## to
-                                                                                                 ## alter
-                                                                                                 ## texture
-                                                                                                 ## mapping
-                                                                                                 ## properties
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Return
-                                                                                                 ## texture
-                                                                                                 ## repeat
-                                                                                                 ## UV
-                                                                                                 ## values;
-                                                                                                 ## (1,
-                                                                                                 ## 1)
-                                                                                                 ## by
-                                                                                                 ## default.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Compute
-                                                                                                 ## normal
-                                                                                                 ## presentation.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Compute
-                                                                                                 ## HLR
-                                                                                                 ## presentation
-                                                                                                 ## for
-                                                                                                 ## specified
-                                                                                                 ## shape.
-    ## !< shape to display
-    ## !< cached bounding box of the shape
-    ## !< UV origin vector for generating texture coordinates
-    ## !< UV repeat vector for generating texture coordinates
-    ## !< UV scale  vector for generating texture coordinates
-    ## !< if TRUE, then bounding box should be recomputed
 
 
 proc newAIS_Shape*(shap: TopoDS_Shape): AIS_Shape {.cdecl, constructor,
@@ -189,12 +136,6 @@ proc computeHlrPresentation*(theProjector: Handle[Graphic3dCamera];
     cdecl, importcpp: "AIS_Shape::computeHlrPresentation(@)", header: "AIS_Shape.hxx".}
 proc dumpJson*(this: AIS_Shape; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "AIS_Shape.hxx".}
-type
-  #HandleAIS_Shape* = Handle[AIS_Shape]
-  HandleAIS_Shape* {.importcpp:"opencascade::handle<AIS_Shape>", header:"AIS_Shape.hxx", byref.} = object of HandleAIS_InteractiveObject
 
 
-#converter `toInheritableHandle`*(this: Handle[AIS_Shape]): HandleAISShape {.
-#    importcpp: "(@)",
-#    header: "Standard_Handle.hxx".}
     

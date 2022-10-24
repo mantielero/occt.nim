@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,21 +20,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectErrorEntities"
-type
-  HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
 
-## ! A SelectErrorEntities sorts the Entities which are qualified
-## ! as "Error" (their Type has not been recognized) during reading
-## ! a File. This does not concern Entities which are syntactically
-## ! correct, but with incorrect data (for integrity constraints).
 
-type
-  IFSelectSelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
-                                header: "IFSelect_SelectErrorEntities.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                                ## !
-                                                                                                                ## Creates
-                                                                                                                ## a
-                                                                                                                ## SelectErrorEntities
 
 
 proc newIFSelectSelectErrorEntities*(): IFSelectSelectErrorEntities {.cdecl,

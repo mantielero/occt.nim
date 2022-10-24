@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -17,11 +19,6 @@
 
 ## ! The class provides the root interface for the algorithms in Boolean Component.<br>
 
-type
-  BOPAlgoAlgo* {.importcpp: "BOPAlgo_Algo", header: "BOPAlgo_Algo.hxx", bycopy.} = object of BOPAlgoOptions ##
-                                                                                                  ## !
-                                                                                                  ## Default
-                                                                                                  ## constructor
 
 
 proc perform*(this: var BOPAlgoAlgo) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Algo.hxx".}

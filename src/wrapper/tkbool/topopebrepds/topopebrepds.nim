@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -61,13 +63,6 @@ discard "forward decl of TopOpeBRepDS_Association"
 discard "forward decl of TopOpeBRepDS_ListOfShapeOn1State"
 discard "forward decl of TopOpeBRepDS_Explorer"
 discard "forward decl of TopOpeBRepDS_ShapeWithState"
-type
-  TopOpeBRepDS* {.importcpp: "TopOpeBRepDS", header: "TopOpeBRepDS.hxx", bycopy.} = object ##
-                                                                                   ## !
-                                                                                   ## IN
-                                                                                   ## OU
-                                                                                   ## ON
-                                                                                   ## UN
 
 
 proc sPrint*(s: TopAbsState): TCollectionAsciiString {.cdecl,

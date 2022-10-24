@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-02-25
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepBuild_ShapeSet"
 discard "forward decl of TopOpeBRepBuild_BlockIterator"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepBuildBlockBuilder* {.importcpp: "TopOpeBRepBuild_BlockBuilder",
-                                header: "TopOpeBRepBuild_BlockBuilder.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildBlockBuilder*(): TopOpeBRepBuildBlockBuilder {.cdecl,

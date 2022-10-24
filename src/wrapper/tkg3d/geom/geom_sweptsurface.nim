@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,102 +19,8 @@
 discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Dir"
 discard "forward decl of Geom_SweptSurface"
-type
-  HandleGeomSweptSurface* = Handle[GeomSweptSurface]
 
-## ! Describes the common behavior for surfaces
-## ! constructed by sweeping a curve with another curve.
-## ! The Geom package provides two concrete derived
-## ! surfaces: surface of revolution (a revolved surface),
-## ! and surface of linear extrusion (an extruded surface).
 
-type
-  GeomSweptSurface* {.importcpp: "Geom_SweptSurface",
-                     header: "Geom_SweptSurface.hxx", bycopy.} = object of GeomSurface ##
-                                                                                ## !
-                                                                                ## returns
-                                                                                ## the
-                                                                                ## continuity
-                                                                                ## of
-                                                                                ## the
-                                                                                ## surface
-                                                                                ## :
-                                                                                ##
-                                                                                ## !
-                                                                                ## C0
-                                                                                ## :
-                                                                                ## only
-                                                                                ## geometric
-                                                                                ## continuity,
-                                                                                ##
-                                                                                ## !
-                                                                                ## C1
-                                                                                ## :
-                                                                                ## continuity
-                                                                                ## of
-                                                                                ## the
-                                                                                ## first
-                                                                                ## derivative
-                                                                                ## all
-                                                                                ## along
-                                                                                ## the
-                                                                                ## surface,
-                                                                                ##
-                                                                                ## !
-                                                                                ## C2
-                                                                                ## :
-                                                                                ## continuity
-                                                                                ## of
-                                                                                ## the
-                                                                                ## second
-                                                                                ## derivative
-                                                                                ## all
-                                                                                ## along
-                                                                                ## the
-                                                                                ## surface,
-                                                                                ##
-                                                                                ## !
-                                                                                ## C3
-                                                                                ## :
-                                                                                ## continuity
-                                                                                ## of
-                                                                                ## the
-                                                                                ## third
-                                                                                ## derivative
-                                                                                ## all
-                                                                                ## along
-                                                                                ## the
-                                                                                ## surface,
-                                                                                ##
-                                                                                ## !
-                                                                                ## G1
-                                                                                ## :
-                                                                                ## tangency
-                                                                                ## continuity
-                                                                                ## all
-                                                                                ## along
-                                                                                ## the
-                                                                                ## surface,
-                                                                                ##
-                                                                                ## !
-                                                                                ## G2
-                                                                                ## :
-                                                                                ## curvature
-                                                                                ## continuity
-                                                                                ## all
-                                                                                ## along
-                                                                                ## the
-                                                                                ## surface,
-                                                                                ##
-                                                                                ## !
-                                                                                ## CN
-                                                                                ## :
-                                                                                ## the
-                                                                                ## order
-                                                                                ## of
-                                                                                ## continuity
-                                                                                ## is
-                                                                                ## infinite.
 
 
 proc continuity*(this: GeomSweptSurface): GeomAbsShape {.noSideEffect, cdecl,

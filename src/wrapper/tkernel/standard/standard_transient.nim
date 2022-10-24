@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -17,16 +19,6 @@ discard "forward decl of handle"
 ## ! Abstract class which forms the root of the entire
 ## ! Transient class hierarchy.
 
-type
-  StandardTransient* {.importcpp: "Standard_Transient",
-                      header: "Standard_Transient.hxx", byref, pure, inheritable.} = object ##  Standard OCCT memory allocation stuff
-                                                                     ## ! Empty constructor
-                                                                     ## !@name Support of run-time type information (RTTI)
-                                                                     ## !@name Reference counting, for use by handle<>
-                                                                     ## ! Get the reference counter of this object
-                                                                     ## ! Reference counter.
-                                                                     ## ! Note use of underscore, aimed to reduce probability
-                                                                     ## ! of conflict with names of members of derived classes.
 
 
 proc constructStandardTransient*(): StandardTransient {.cdecl, constructor,
@@ -37,8 +29,6 @@ proc destroyStandardTransient*(this: var StandardTransient) {.cdecl,
     importcpp: "#.~Standard_Transient()", header: "Standard_Transient.hxx".}
 proc delete*(this: StandardTransient) {.noSideEffect, cdecl, importcpp: "Delete",
                                      header: "Standard_Transient.hxx".}
-type
-  StandardTransientbaseType* = void
 
 proc getTypeName*(): cstring {.cdecl,
                             importcpp: "Standard_Transient::get_type_name(@)",
@@ -72,5 +62,4 @@ proc hashCode*(theTransientObject: ptr StandardTransient; theUpperBound: cint): 
     cdecl, importcpp: "HashCode(@)", header: "Standard_Transient.hxx".}
 ## ! Definition of Handle_Standard_Transient as typedef for compatibility
 
-type
-  HandleStandardTransient* {.importcpp: "opencascade::handle<Standard_Transient>", header: "Standard_Transient.hxx", byref, pure, inheritable.} = object
+

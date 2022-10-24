@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -20,41 +22,8 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_ListEditor"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_EditForm"
-type
-  HandleIFSelectEditForm* = Handle[IFSelectEditForm]
 
-## ! An EditForm is the way to apply an Editor on an Entity or on
-## ! the Model
-## ! It gives read-only or read-write access, with or without undo
-## !
-## ! It can be complete (all the values of the Editor are present)
-## ! or partial (a sub-list of these value are present)
-## ! Anyway, all references to Number (argument <num>) refer to
-## ! Number of Value for the Editor
-## ! While references to Rank are for rank in the EditForm, which
-## ! may differ if it is not Complete
-## ! Two methods give the correspondance between this Number and
-## ! the Rank in the EditForm : RankFromNumber and NumberFromRank
 
-type
-  IFSelectEditForm* {.importcpp: "IFSelect_EditForm",
-                     header: "IFSelect_EditForm.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## a
-                                                                                      ## complete
-                                                                                      ## EditForm
-                                                                                      ## from
-                                                                                      ## an
-                                                                                      ## Editor
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## A
-                                                                                      ## specific
-                                                                                      ## Label
-                                                                                      ## can
-                                                                                      ## be
-                                                                                      ## given
 
 
 proc newIFSelectEditForm*(editor: Handle[IFSelectEditor]; readonly: bool;

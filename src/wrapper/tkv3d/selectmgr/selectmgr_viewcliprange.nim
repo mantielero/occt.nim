@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2015-12-15
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -15,18 +17,6 @@
 
 discard "forward decl of gp_Ax1"
 discard "forward decl of Graphic3d_SequenceOfHClipPlane"
-type
-  SelectMgrViewClipRange* {.importcpp: "SelectMgr_ViewClipRange",
-                           header: "SelectMgr_ViewClipRange.hxx", bycopy.} = object ## !
-                                                                               ## Creates
-                                                                               ## an
-                                                                               ## empty
-                                                                               ## clip
-                                                                               ## range.
-                                                                               ## !
-                                                                               ## Clears
-                                                                               ## clipping
-                                                                               ## range.
 
 
 proc newSelectMgrViewClipRange*(): SelectMgrViewClipRange {.cdecl, constructor,

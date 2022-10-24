@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2003-03-04
 ##  Created by: Pavel TELKOV
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -32,16 +34,6 @@
 ##  - Fail flags correspond to cases when algorithm failed to complete
 ##
 
-type
-  MessageExecStatus* {.importcpp: "Message_ExecStatus",
-                      header: "Message_ExecStatus.hxx", bycopy.} = object ## ! Mask to separate bits indicating status type and index within the type
-                                                                     ## !@name Creation and simple operations with statuses
-                                                                     ## !@{
-                                                                     ## ! Create empty execution status
-                                                                     ## !@name Advanced: Iteration and analysis of status flags
-                                                                     ## !@{
-                                                                     ## ! Definitions of range of available statuses
-                                                                     ##  ---------- PRIVATE FIELDS ----------
 
 
 proc newMessageExecStatus*(): MessageExecStatus {.cdecl, constructor,
@@ -87,11 +79,6 @@ proc `and`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
     importcpp: "And", header: "Message_ExecStatus.hxx".}
 proc `&=`*(this: var MessageExecStatus; theOther: MessageExecStatus) {.cdecl,
     importcpp: "(# &= #)", header: "Message_ExecStatus.hxx".}
-type
-  MessageExecStatusStatusRange* {.size: sizeof(cint),
-                                 importcpp: "Message_ExecStatus::StatusRange",
-                                 header: "Message_ExecStatus.hxx".} = enum
-    FirstStatus = 1, StatusesPerType = 32, NbStatuses = 128, LastStatus = 129
 
 
 proc statusIndex*(status: MessageStatus): cint {.cdecl,

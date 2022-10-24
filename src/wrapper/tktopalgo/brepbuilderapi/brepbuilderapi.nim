@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,13 +35,6 @@ discard "forward decl of BRepBuilderAPI_NurbsConvert"
 discard "forward decl of BRepBuilderAPI_GTransform"
 discard "forward decl of BRepBuilderAPI_Copy"
 discard "forward decl of BRepBuilderAPI_Collect"
-type
-  BRepBuilderAPI* {.importcpp: "BRepBuilderAPI", header: "BRepBuilderAPI.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Sets
-                                                                                         ## the
-                                                                                         ## current
-                                                                                         ## plane.
 
 
 proc plane*(p: Handle[GeomPlane]) {.cdecl, importcpp: "BRepBuilderAPI::Plane(@)",

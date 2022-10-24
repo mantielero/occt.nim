@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,55 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Sphere"
-type
-  ConvertSphereToBSplineSurface* {.importcpp: "Convert_SphereToBSplineSurface",
-                                  header: "Convert_SphereToBSplineSurface.hxx",
-                                  bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## equivalent
-                                                                                           ## B-spline
-                                                                                           ## surface
-                                                                                           ## as
-                                                                                           ## the
-                                                                                           ## same
-                                                                                           ## orientation
-                                                                                           ## as
-                                                                                           ## the
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## sphere
-                                                                                           ## in
-                                                                                           ## the
-                                                                                           ## U
-                                                                                           ## and
-                                                                                           ## V
-                                                                                           ## parametric
-                                                                                           ## directions.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raised
-                                                                                           ## if
-                                                                                           ## U1
-                                                                                           ## =
-                                                                                           ## U2
-                                                                                           ## or
-                                                                                           ## U1
-                                                                                           ## =
-                                                                                           ## U2
-                                                                                           ## +
-                                                                                           ## 2.0
-                                                                                           ## *
-                                                                                           ## Pi
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Raised
-                                                                                           ## if
-                                                                                           ## V1
-                                                                                           ## =
-                                                                                           ## V2.
 
 
 proc newConvertSphereToBSplineSurface*(sph: SphereObj; u1: cfloat; u2: cfloat; v1: cfloat;

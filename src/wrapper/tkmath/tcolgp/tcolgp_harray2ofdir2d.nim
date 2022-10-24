@@ -1,3 +1,5 @@
+import tcolgp_types
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColgpHArray2OfDir2d* {.importcpp: "TColgp_HArray2OfDir2d",
-                         header: "TColgp_HArray2OfDir2d.hxx", bycopy.} = object of TColgpArray2OfDir2d
 
 
 proc newTColgpHArray2OfDir2d*(theRowLow: cint; theRowUpp: cint; theColLow: cint;

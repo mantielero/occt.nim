@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -27,9 +29,6 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
-type
-  TopOpeBRepDS_BuildTool* {.importcpp: "TopOpeBRepDS_BuildTool",
-                           header: "TopOpeBRepDS_BuildTool.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_BuildTool*(): TopOpeBRepDS_BuildTool {.cdecl, constructor,

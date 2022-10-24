@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,57 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
 discard "forward decl of TopoDS_Face"
-type
-  BRepPrimCylinder* {.importcpp: "BRepPrim_Cylinder",
-                     header: "BRepPrim_Cylinder.hxx", bycopy.} = object of BRepPrimRevolution ##
-                                                                                       ## !
-                                                                                       ## the
-                                                                                       ## STEP
-                                                                                       ## definition
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Position
-                                                                                       ## :
-                                                                                       ## center
-                                                                                       ## of
-                                                                                       ## a
-                                                                                       ## Face
-                                                                                       ## and
-                                                                                       ## Axis
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Radius
-                                                                                       ## :
-                                                                                       ## radius
-                                                                                       ## of
-                                                                                       ## cylinder
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Height
-                                                                                       ## :
-                                                                                       ## distance
-                                                                                       ## between
-                                                                                       ## faces
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## on
-                                                                                       ## positive
-                                                                                       ## side
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Errors
-                                                                                       ## :
-                                                                                       ## Height
-                                                                                       ## <
-                                                                                       ## Resolution
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Radius
-                                                                                       ## <
-                                                                                       ## Resolution
-    ## !< cylinder radius
 
 
 proc newBRepPrimCylinder*(position: Ax2Obj; radius: cfloat; height: cfloat): BRepPrimCylinder {.

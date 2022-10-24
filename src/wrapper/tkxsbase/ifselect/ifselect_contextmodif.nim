@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-06-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,43 +27,6 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_GeneralModifier"
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
-type
-  IFSelectContextModif* {.importcpp: "IFSelect_ContextModif",
-                         header: "IFSelect_ContextModif.hxx", bycopy.} = object ## !
-                                                                           ## Prepares a
-                                                                           ## ContextModif with these
-                                                                           ## informations :
-                                                                           ## ! - the graph
-                                                                           ## established from
-                                                                           ## original model
-                                                                           ## (target
-                                                                           ## passed
-                                                                           ## !
-                                                                           ## directly to
-                                                                           ## Modifier)
-                                                                           ## ! - the
-                                                                           ## CopyTool which
-                                                                           ## detains the
-                                                                           ## CopyControl, which maps
-                                                                           ## !
-                                                                           ## starting (in
-                                                                           ## original) and
-                                                                           ## result (in
-                                                                           ## target)
-                                                                           ## entities
-                                                                           ## ! - an
-                                                                           ## optional file name (for file
-                                                                           ## output)
-                                                                           ## !
-                                                                           ## ! Such a
-                                                                           ## ContextModif is
-                                                                           ## considered to be
-                                                                           ## applied on all
-                                                                           ## !
-                                                                           ## transferred
-                                                                           ## entities (no
-                                                                           ## filter
-                                                                           ## active)
 
 
 proc newIFSelectContextModif*(graph: InterfaceGraph; tc: InterfaceCopyTool;

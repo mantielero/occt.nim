@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1995-03-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,18 +21,6 @@
 ## ! Each node is an index in the table of nodes specific to an existing
 ## ! triangulation of a shape, and represents a point on the surface.
 
-type
-  PolyTriangle* {.importcpp: "Poly_Triangle", header: "Poly_Triangle.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## a
-                                                                                     ## triangle
-                                                                                     ## and
-                                                                                     ## sets
-                                                                                     ## all
-                                                                                     ## indices
-                                                                                     ## to
-                                                                                     ## zero.
 
 
 proc newPolyTriangle*(): PolyTriangle {.cdecl, constructor,

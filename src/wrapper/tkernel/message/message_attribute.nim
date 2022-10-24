@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,19 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleMessageAttribute* = Handle[MessageAttribute]
 
-## ! Additional information of extended alert attribute
-## ! To provide other custom attribute container, it might be redefined.
 
-type
-  MessageAttribute* {.importcpp: "Message_Attribute",
-                     header: "Message_Attribute.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor
-    ## !< alert name, if defined is used in GetMessageKey
 
 
 proc newMessageAttribute*(theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttribute {.

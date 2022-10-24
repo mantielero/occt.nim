@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1993-01-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Standard_NoMoreObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
-type
-  TopoDS_Iterator* {.importcpp: "TopoDS_Iterator", header: "TopoDS_Iterator.hxx",
-                    bycopy.} = object ## ! Creates an empty Iterator.
 
 
 proc newTopoDS_Iterator*(): TopoDS_Iterator {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created on: 1993-10-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,12 +18,6 @@
 
 discard "forward decl of BOPAlgo_PaveFiller"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepAlgoAPI_Fuse* {.importcpp: "BRepAlgoAPI_Fuse",
-                     header: "BRepAlgoAPI_Fuse.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation ##
-                                                                                                ## !
-                                                                                                ## Empty
-                                                                                                ## constructor
 
 
 proc fuse*(): BRepAlgoAPI_Fuse {.cdecl, constructor,

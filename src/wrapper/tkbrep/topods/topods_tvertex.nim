@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -17,22 +19,8 @@
 discard "forward decl of TopoDS_TVertex"
 when defined(Convex):
   discard
-type
-  HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
 
-## ! A  Vertex is a topological  point in  two or three
-## ! dimensions.
 
-type
-  TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## VERTEX.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Construct
-                                                                                                        ## a
-                                                                                                        ## vertex.
 
 
 proc shapeType*(this: TopoDS_TVertex): TopAbsShapeEnum {.noSideEffect, cdecl,

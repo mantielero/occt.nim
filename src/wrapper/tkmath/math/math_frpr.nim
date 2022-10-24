@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,14 +19,6 @@
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_MultipleVarFunctionWithGradient"
-type
-  MathFRPR* {.importcpp: "math_FRPR", header: "math_FRPR.hxx", bycopy.} = object ## !
-                                                                         ## Initializes the
-                                                                         ## computation of the minimum of F.
-                                                                         ## !
-                                                                         ## Warning:
-                                                                         ## constructor does not perform
-                                                                         ## computations.
 
 
 proc newMathFRPR*(theFunction: MathMultipleVarFunctionWithGradient;

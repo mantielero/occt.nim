@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2009-01-30
 ##  Created by: Andrey BETENEV (abv)
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -21,14 +23,7 @@
 ## ! typical smart pointer), and that it can be handled as
 ## ! Handle(Standard_Transient) in OCCT components.
  
-type
-  NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
-                         header: "NCollection_Handle.hxx", bycopy.} = object of HandleStandardTransient
-#      StandardTransient] ## ! Internal adaptor class wrapping actual type
-#                        ## ! and enhancing it by reference counter inherited from
-#                        ## ! Standard_Transient
 
-  NCollectionHandleelementType*[T] = T
 
 proc newNCollectionHandle*[T](): NCollectionHandle[T] {.cdecl, constructor,
     importcpp: "NCollection_Handle<\'*0>(@)", header: "NCollection_Handle.hxx".}

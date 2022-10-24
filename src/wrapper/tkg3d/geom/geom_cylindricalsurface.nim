@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,131 +27,8 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_CylindricalSurface"
-type
-  HandleGeomCylindricalSurface* = Handle[GeomCylindricalSurface]
 
-## ! This class defines the infinite cylindrical surface.
-## !
-## ! Every cylindrical surface is set by the following equation:
-## ! S(U,V) = Location + R*cos(U)*XAxis + R*sin(U)*YAxis + V*ZAxis,
-## ! where R is cylinder radius.
-## !
-## ! The local coordinate system of the CylindricalSurface is defined
-## ! with an axis placement (see class ElementarySurface).
-## !
-## ! The "ZAxis" is the symmetry axis of the CylindricalSurface,
-## ! it gives the direction of increasing parametric value V.
-## !
-## ! The parametrization range is :
-## ! U [0, 2*PI],  V ]- infinite, + infinite[
-## !
-## ! The "XAxis" and the "YAxis" define the placement plane of the
-## ! surface (Z = 0, and parametric value V = 0)  perpendicular to
-## ! the symmetry axis. The "XAxis" defines the origin of the
-## ! parameter U = 0.  The trigonometric sense gives the positive
-## ! orientation for the parameter U.
-## !
-## ! When you create a CylindricalSurface the U and V directions of
-## ! parametrization are such that at each point of the surface the
-## ! normal is oriented towards the "outside region".
-## !
-## ! The methods UReverse VReverse change the orientation of the
-## ! surface.
 
-type
-  GeomCylindricalSurface* {.importcpp: "Geom_CylindricalSurface",
-                           header: "Geom_CylindricalSurface.hxx", bycopy.} = object of GeomElementarySurface ##
-                                                                                                      ## !
-                                                                                                      ## A3
-                                                                                                      ## defines
-                                                                                                      ## the
-                                                                                                      ## local
-                                                                                                      ## coordinate
-                                                                                                      ## system
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## cylindrical
-                                                                                                      ## surface.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## The
-                                                                                                      ## "ZDirection"
-                                                                                                      ## of
-                                                                                                      ## A3
-                                                                                                      ## defines
-                                                                                                      ## the
-                                                                                                      ## direction
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## surface's
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## axis
-                                                                                                      ## of
-                                                                                                      ## symmetry.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## At
-                                                                                                      ## the
-                                                                                                      ## creation
-                                                                                                      ## the
-                                                                                                      ## parametrization
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## surface
-                                                                                                      ## is
-                                                                                                      ## defined
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## such
-                                                                                                      ## that
-                                                                                                      ## the
-                                                                                                      ## normal
-                                                                                                      ## Vector
-                                                                                                      ## (N
-                                                                                                      ## =
-                                                                                                      ## D1U
-                                                                                                      ## ^
-                                                                                                      ## D1V)
-                                                                                                      ## is
-                                                                                                      ## oriented
-                                                                                                      ## towards
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## the
-                                                                                                      ## "outside
-                                                                                                      ## region"
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## surface.
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Warnings
-                                                                                                      ## :
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## It
-                                                                                                      ## is
-                                                                                                      ## not
-                                                                                                      ## forbidden
-                                                                                                      ## to
-                                                                                                      ## create
-                                                                                                      ## a
-                                                                                                      ## cylindrical
-                                                                                                      ## surface
-                                                                                                      ## with
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Radius
-                                                                                                      ## =
-                                                                                                      ## 0.0
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Raised
-                                                                                                      ## if
-                                                                                                      ## Radius
-                                                                                                      ## <
-                                                                                                      ## 0.0
 
 
 proc newGeomCylindricalSurface*(a3: Ax3Obj; radius: cfloat): GeomCylindricalSurface {.

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1995-12-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopOpeBRepDS_DataStructure"
 discard "forward decl of TopOpeBRepDS_Point"
-type
-  TopOpeBRepDS_PointExplorer* {.importcpp: "TopOpeBRepDS_PointExplorer",
-                               header: "TopOpeBRepDS_PointExplorer.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_PointExplorer*(): TopOpeBRepDS_PointExplorer {.cdecl,

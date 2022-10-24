@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,19 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectShared"
-type
-  HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
 
-## ! A SelectShared selects Entities which are directly Shared
-## ! by the Entities of the Input list
 
-type
-  IFSelectSelectShared* {.importcpp: "IFSelect_SelectShared",
-                         header: "IFSelect_SelectShared.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                                 ## !
-                                                                                                 ## Creates
-                                                                                                 ## a
-                                                                                                 ## SelectShared;
 
 
 proc newIFSelectSelectShared*(): IFSelectSelectShared {.cdecl, constructor,

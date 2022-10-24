@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,34 +19,8 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1D"
-type
-  HandleGraphic3dTexture1D* = Handle[Graphic3dTexture1D]
 
-## ! This is an abstract class for managing 1D textures.
 
-type
-  Graphic3dTexture1D* {.importcpp: "Graphic3d_Texture1D",
-                       header: "Graphic3d_Texture1D.hxx", bycopy.} = object of Graphic3dTextureMap ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## the
-                                                                                            ## name
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## predefined
-                                                                                            ## textures
-                                                                                            ## or
-                                                                                            ## NOT_1D_UNKNOWN
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## when
-                                                                                            ## the
-                                                                                            ## name
-                                                                                            ## is
-                                                                                            ## given
-                                                                                            ## as
-                                                                                            ## a
-                                                                                            ## filename.
 
 
 proc name*(this: Graphic3dTexture1D): Graphic3dNameOfTexture1D {.noSideEffect, cdecl,

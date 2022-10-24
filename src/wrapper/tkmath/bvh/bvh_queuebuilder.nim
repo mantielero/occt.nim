@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2014-09-15
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -24,18 +26,6 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_QueueBuilder*[T; N: static[cint]] {.importcpp: "BVH_QueueBuilder<\'0,\'1>",
-                                       header: "BVH_QueueBuilder.hxx", bycopy.} = object of BVH_Builder[
-      T, N] ## ! Creates new BVH queue based builder.
-          ## ! Builds BVH using specific algorithm.
-          ## ! Stores range of primitives belonging to a BVH node.
-          ## ! Performs splitting of the given BVH node.
-          ##    virtual typename BVH_QueueBuilder<T, N>::BVH_ChildNodes buildNode (BVH_Set<T, N>*         theSet,
-          ##                                                                       BVH_Tree<T, N>*        theBVH,
-          ##                                                                       const Standard_Integer theNode) const = 0;
-          ## ! Processes child nodes of the splitted BVH node.
-    ## !< Number of threads used to build BVH
 
 
 proc newBVH_QueueBuilder*[T; N: static[cint]](theLeafNodeSize: cint;
@@ -157,3 +147,4 @@ proc build*[T; N: static[cint]](this: BVH_QueueBuilder[T, N];
 ##      aThread.execute();
 ##    }
 ##  }
+

@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,38 +18,8 @@
 
 discard "forward decl of SelectMgr_SelectableObject"
 discard "forward decl of PrsMgr_PresentationManager"
-type
-  HandlePrsDimDimensionOwner* = Handle[PrsDimDimensionOwner]
 
-## ! The owner is the entity which makes it possible to link
-## ! the sensitive primitives and the reference shapes that
-## ! you want to detect. It stocks the various pieces of
-## ! information which make it possible to find objects. An
-## ! owner has a priority which you can modulate, so as to
-## ! make one entity more selectable than another. You
-## ! might want to make edges more selectable than
-## ! faces, for example. In that case, you could attribute sa
-## ! higher priority to the one compared to the other. An
-## ! edge, could have priority 5, for example, and a face,
-## ! priority 4. The default priority is 5.
 
-type
-  PrsDimDimensionOwner* {.importcpp: "PrsDim_DimensionOwner",
-                         header: "PrsDim_DimensionOwner.hxx", bycopy.} = object of SelectMgrEntityOwner ##
-                                                                                                 ## !
-                                                                                                 ## Initializes
-                                                                                                 ## the
-                                                                                                 ## dimension
-                                                                                                 ## owner,
-                                                                                                 ## theSO,
-                                                                                                 ## and
-                                                                                                 ## attributes
-                                                                                                 ## it
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## the
-                                                                                                 ## priority,
-                                                                                                 ## thePriority.
 
 
 proc newPrsDimDimensionOwner*(theSelObject: Handle[SelectMgrSelectableObject];

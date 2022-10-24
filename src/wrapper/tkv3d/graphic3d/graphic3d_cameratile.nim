@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,22 +15,6 @@
 
 ## ! Class defines the area (Tile) inside a view.
 
-type
-  Graphic3dCameraTile* {.importcpp: "Graphic3d_CameraTile",
-                        header: "Graphic3d_CameraTile.hxx", bycopy.} = object ## ! Default
-                                                                         ## constructor.
-                                                                         ## !
-                                                                         ## Initializes the empty Tile of zero size and
-                                                                         ## lower-left offset
-                                                                         ## orientation.
-                                                                         ## ! Such Tile is
-                                                                         ## considered
-                                                                         ## uninitialized
-                                                                         ## (invalid).
-    totalSize* {.importc: "TotalSize".}: Graphic3dVec2i ## !< total size of the View area, in pixels
-    tileSize* {.importc: "TileSize".}: Graphic3dVec2i ## !< size of the Tile, in pixels
-    offset* {.importc: "Offset".}: Graphic3dVec2i ## !< the lower-left corner of the Tile relative to the View area (or upper-left if IsTopDown is true), in pixels
-    isTopDown* {.importc: "IsTopDown".}: bool ## !< indicate the offset coordinate system - lower-left (default) or top-down
 
 
 proc newGraphic3dCameraTile*(): Graphic3dCameraTile {.cdecl, constructor,

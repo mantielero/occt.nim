@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-02-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,24 +23,8 @@ discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_ModifEditForm"
-type
-  HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
 
-## ! This modifier applies an EditForm on the entities selected
 
-type
-  IFSelectModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
-                          header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelectModifier ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## a
-                                                                                               ## ModifEditForm.
-                                                                                               ## It
-                                                                                               ## may
-                                                                                               ## not
-                                                                                               ## change
-                                                                                               ## the
-                                                                                               ## graph
 
 
 proc newIFSelectModifEditForm*(editform: Handle[IFSelectEditForm]): IFSelectModifEditForm {.

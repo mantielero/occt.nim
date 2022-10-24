@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Olga Suryaninova
 ##  Created on: 2019-11-25
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -15,13 +17,7 @@
 
 ## ! Describes a ray based on BVH vectors.
 
-type
-  BVH_Ray*[T; N: static[cint]] {.importcpp: "BVH_Ray<\'0,\'1>",
-                              header: "BVH_Ray.hxx", bycopy.} = object
-    origin* {.importc: "Origin".}: BVH_RayBVH_VecNt
-    direct* {.importc: "Direct".}: BVH_RayBVH_VecNt
 
-  BVH_RayBVH_VecNt*[T; N] = object
 
 proc newBVH_Ray*[T; N: static[cint]](theOrigin: BVH_RayBVH_VecNt;
                                   theDirect: BVH_RayBVH_VecNt): BVH_Ray[T, N] {.

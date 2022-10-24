@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1995-09-05
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,32 +22,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectFlag"
-type
-  HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
 
-## ! A SelectFlag queries a flag noted in the bitmap of the Graph.
-## ! The Flag is designated by its Name. Flag Names are defined
-## ! by Work Session and, as necessary, other functional objects
-## !
-## ! WorkSession from IFSelect defines flag "Incorrect"
-## ! Objects which control application running define some others
 
-type
-  IFSelectSelectFlag* {.importcpp: "IFSelect_SelectFlag",
-                       header: "IFSelect_SelectFlag.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## a
-                                                                                              ## Select
-                                                                                              ## Flag,
-                                                                                              ## to
-                                                                                              ## query
-                                                                                              ## a
-                                                                                              ## flag
-                                                                                              ## designated
-                                                                                              ## by
-                                                                                              ## its
-                                                                                              ## name
 
 
 proc newIFSelectSelectFlag*(flagname: cstring): IFSelectSelectFlag {.cdecl,

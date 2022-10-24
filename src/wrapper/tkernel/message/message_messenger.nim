@@ -1,3 +1,5 @@
+import message_types
+
 ##  Created on: 2007-06-28
 ##  Created by: OCC Team
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -17,144 +19,9 @@ discard "forward decl of Message_Printer"
 when defined(AddPrinter):
   discard
 discard "forward decl of Message_Messenger"
-type
-  HandleMessageMessenger* = Handle[MessageMessenger]
 
-## ! Messenger is API class providing general-purpose interface for
-## ! libraries that may issue text messages without knowledge
-## ! of how these messages will be further processed.
-## !
-## ! The messenger contains a sequence of "printers" which can be
-## ! customized by the application, and dispatches every received
-## ! message to all the printers.
-## !
-## ! For convenience, a set of methods Send...() returning a string
-## ! stream buffer is defined for use of stream-like syntax with operator <<
-## !
-## ! Example:
-## ! ~~~~~
-## ! Messenger->SendFail() << " Unknown fail at line " << aLineNo << " in file " << aFile;
-## ! ~~~~~
-## !
-## ! The message is sent to messenger on destruction of the stream buffer,
-## ! call to Flush(), or passing manipulator std::ends, std::endl, or std::flush.
-## ! Empty messages are not sent except if manipulator is used.
 
-type
-  MessageMessenger* {.importcpp: "Message_Messenger",
-                     header: "Message_Messenger.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Auxiliary
-                                                                                      ## class
-                                                                                      ## wrapping
-                                                                                      ## std::stringstream
-                                                                                      ## thus
-                                                                                      ## allowing
-                                                                                      ## constructing
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## message
-                                                                                      ## via
-                                                                                      ## stream
-                                                                                      ## interface,
-                                                                                      ## and
-                                                                                      ## putting
-                                                                                      ## result
-                                                                                      ## into
-                                                                                      ## its
-                                                                                      ## creator
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Message_Messenger
-                                                                                      ## within
-                                                                                      ## destructor.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## It
-                                                                                      ## is
-                                                                                      ## intended
-                                                                                      ## to
-                                                                                      ## be
-                                                                                      ## used
-                                                                                      ## either
-                                                                                      ## as
-                                                                                      ## temporary
-                                                                                      ## object
-                                                                                      ## or
-                                                                                      ## as
-                                                                                      ## local
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## variable,
-                                                                                      ## note
-                                                                                      ## that
-                                                                                      ## content
-                                                                                      ## will
-                                                                                      ## be
-                                                                                      ## lost
-                                                                                      ## if
-                                                                                      ## it
-                                                                                      ## is
-                                                                                      ## copied.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Empty
-                                                                                      ## constructor;
-                                                                                      ## initializes
-                                                                                      ## by
-                                                                                      ## single
-                                                                                      ## printer
-                                                                                      ## directed
-                                                                                      ## to
-                                                                                      ## std::cout.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## Note:
-                                                                                      ## the
-                                                                                      ## default
-                                                                                      ## messenger
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## empty
-                                                                                      ## but
-                                                                                      ## directed
-                                                                                      ## to
-                                                                                      ## cout
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## in
-                                                                                      ## order
-                                                                                      ## to
-                                                                                      ## protect
-                                                                                      ## against
-                                                                                      ## possibility
-                                                                                      ## to
-                                                                                      ## forget
-                                                                                      ## defining
-                                                                                      ## printers.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## If
-                                                                                      ## printing
-                                                                                      ## to
-                                                                                      ## cout
-                                                                                      ## is
-                                                                                      ## not
-                                                                                      ## needed,
-                                                                                      ## clear
-                                                                                      ## messenger
-                                                                                      ## by
-                                                                                      ## GetPrinters().Clear()
 
-  MessageMessengerStreamBuffer* {.importcpp: "Message_Messenger::StreamBuffer",
-                                 header: "Message_Messenger.hxx", bycopy.} = object ## !
-                                                                               ## Destructor
-                                                                               ## flushing
-                                                                               ## constructed
-                                                                               ## message.
-    ##  don't make a Handle since this object should be created on stack
 
 
 proc destroyMessageMessengerStreamBuffer*(this: var MessageMessengerStreamBuffer) {.

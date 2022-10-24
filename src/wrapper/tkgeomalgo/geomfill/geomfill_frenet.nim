@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-19
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -20,14 +22,8 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Frenet"
-type
-  HandleGeomFillFrenet* = Handle[GeomFillFrenet]
 
-## ! Defined Frenet Trihedron  Law
 
-type
-  GeomFillFrenet* {.importcpp: "GeomFill_Frenet", header: "GeomFill_Frenet.hxx",
-                   bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillFrenet*(): GeomFillFrenet {.cdecl, constructor,

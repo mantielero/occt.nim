@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Poly_Triangulation"
-type
-  Prs3d* {.importcpp: "Prs3d", header: "Prs3d.hxx", bycopy.} = object ## ! draws an arrow at a given location, with respect
-                                                              ## ! to a given direction.
 
 
 proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: PntObj; p2: PntObj;

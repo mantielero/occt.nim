@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of GeomFill_SectionGenerator"
 discard "forward decl of GeomFill_Line"
-type
-  GeomFillAppSurf* {.importcpp: "GeomFill_AppSurf", header: "GeomFill_AppSurf.hxx",
-                    bycopy.} = object of AppBlendApprox
 
 
 proc newGeomFillAppSurf*(): GeomFillAppSurf {.cdecl, constructor,
@@ -120,3 +119,4 @@ proc tolCurveOnSurf*(this: GeomFillAppSurf; index: cint): cfloat {.noSideEffect,
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+

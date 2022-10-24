@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Pnt"
-type
-  MakeHyperbola* {.importcpp: "GC_MakeHyperbola", header: "GC_MakeHyperbola.hxx",
-                  bycopy.} = object of Root ## ! Creates  an Hyperbola from a non persistent hyperbola  from package gp by conversion.
 
 
 proc hyperbola*(h: HyprObj): MakeHyperbola {.cdecl, constructor,

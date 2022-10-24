@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-01-21
 ##  Created by: Prestataire Christiane ARMAND
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,13 +18,6 @@
 
 discard "forward decl of Geom_Line"
 discard "forward decl of Geom_Point"
-type
-  AIS_Line* {.importcpp: "AIS_Line", header: "AIS_Line.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                              ## !
-                                                                                              ## Initializes
-                                                                                              ## the
-                                                                                              ## line
-                                                                                              ## aLine.
 
 
 proc newAIS_Line*(aLine: Handle[GeomLine]): AIS_Line {.cdecl, constructor,
@@ -49,5 +44,4 @@ proc setWidth*(this: var AIS_Line; aValue: cfloat) {.cdecl, importcpp: "SetWidth
     header: "AIS_Line.hxx".}
 proc unsetColor*(this: var AIS_Line) {.cdecl, importcpp: "UnsetColor", header: "AIS_Line.hxx".}
 proc unsetWidth*(this: var AIS_Line) {.cdecl, importcpp: "UnsetWidth", header: "AIS_Line.hxx".}
-type
-  HandleAIS_Line* = Handle[AIS_Line]
+

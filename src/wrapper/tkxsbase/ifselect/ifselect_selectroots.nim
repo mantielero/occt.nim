@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,28 +22,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRoots"
-type
-  HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
 
-## ! A SelectRoots sorts the Entities which are local roots of a
-## ! set of Entities (not shared by other Entities inside this set,
-## ! even if they are shared by other Entities outside it)
 
-type
-  IFSelectSelectRoots* {.importcpp: "IFSelect_SelectRoots",
-                        header: "IFSelect_SelectRoots.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SelectRoots
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## True,
-                                                                                                ## because
-                                                                                                ## RootResult
-                                                                                                ## assures
-                                                                                                ## uniqueness
 
 
 proc newIFSelectSelectRoots*(): IFSelectSelectRoots {.cdecl, constructor,

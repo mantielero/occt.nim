@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: JVC
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,54 +23,8 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
-type
-  HandleGeomGeometry* = Handle[GeomGeometry]
 
-## ! The abstract class Geometry for 3D space is the root
-## ! class of all geometric objects from the Geom
-## ! package. It describes the common behavior of these objects when:
-## ! - applying geometric transformations to objects, and
-## ! - constructing objects by geometric transformation (including copying).
-## ! Warning
-## ! Only transformations which do not modify the nature
-## ! of the geometry can be applied to Geom objects: this
-## ! is the case with translations, rotations, symmetries
-## ! and scales; this is also the case with gp_Trsf
-## ! composite transformations which are used to define
-## ! the geometric transformations applied using the
-## ! Transform or Transformed functions.
-## ! Note: Geometry defines the "prototype" of the
-## ! abstract method Transform which is defined for each
-## ! concrete type of derived object. All other
-## ! transformations are implemented using the Transform method.
 
-type
-  GeomGeometry* {.importcpp: "Geom_Geometry", header: "Geom_Geometry.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Performs
-                                                                                                        ## the
-                                                                                                        ## symmetrical
-                                                                                                        ## transformation
-                                                                                                        ## of
-                                                                                                        ## a
-                                                                                                        ## Geometry
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## with
-                                                                                                        ## respect
-                                                                                                        ## to
-                                                                                                        ## the
-                                                                                                        ## point
-                                                                                                        ## P
-                                                                                                        ## which
-                                                                                                        ## is
-                                                                                                        ## the
-                                                                                                        ## center
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## symmetry.
 
 
 proc mirror*(this: var GeomGeometry; p: PntObj) {.cdecl, importcpp: "Mirror", header: "Geom_Geometry.hxx".}

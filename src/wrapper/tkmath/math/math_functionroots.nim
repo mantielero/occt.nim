@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,15 +19,6 @@
 discard "forward decl of Standard_RangeError"
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
-type
-  MathFunctionRoots* {.importcpp: "math_FunctionRoots",
-                      header: "math_FunctionRoots.hxx", bycopy.} = object ## ! Calculates all the real roots of a function F-K within the range
-                                                                     ## ! A..B. whithout conditions on A and B
-                                                                     ## ! A solution X is found when
-                                                                     ## ! abs(Xi - Xi-1) <= Epsx and
-                                                                     ## abs(F(Xi)-K) <= EpsF.
-                                                                     ## ! The function is considered as null between A and B if
-                                                                     ## ! abs(F-K) <= EpsNull within this range.
 
 
 proc newMathFunctionRoots*(f: var MathFunctionWithDerivative; a: cfloat; b: cfloat;

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-09-05
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,91 +16,10 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dIndexedMapOfView* {.importcpp:"NCollection_IndexedMap<ptr Graphic3dCView>", header:"Graphic3d_StructureManager.hxx", bycopy.} = object
 
 discard "forward decl of Graphic3d_GraphicDriver"
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_DataStructureManager"
-type
-  Graphic3dStructureManager* {.importcpp: "Graphic3d_StructureManager",
-                              header: "Graphic3d_StructureManager.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Initializes
-                                                                                                        ## the
-                                                                                                        ## ViewManager.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Currently
-                                                                                                        ## creating
-                                                                                                        ## of
-                                                                                                        ## more
-                                                                                                        ## than
-                                                                                                        ## 100
-                                                                                                        ## viewer
-                                                                                                        ## instances
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## is
-                                                                                                        ## not
-                                                                                                        ## supported
-                                                                                                        ## and
-                                                                                                        ## leads
-                                                                                                        ## to
-                                                                                                        ## InitializationError
-                                                                                                        ## and
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## initialization
-                                                                                                        ## failure.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## This
-                                                                                                        ## limitation
-                                                                                                        ## might
-                                                                                                        ## be
-                                                                                                        ## addressed
-                                                                                                        ## in
-                                                                                                        ## some
-                                                                                                        ## future
-                                                                                                        ## OCCT
-                                                                                                        ## releases.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Warning:
-                                                                                                        ## Raises
-                                                                                                        ## InitialisationError
-                                                                                                        ## if
-                                                                                                        ## the
-                                                                                                        ## initialization
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## ViewManager
-                                                                                                        ## failed.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## the
-                                                                                                        ## number
-                                                                                                        ## of
-                                                                                                        ## structures
-                                                                                                        ## displayed
-                                                                                                        ## in
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## visualizer
-                                                                                                        ## <me>.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## the
-                                                                                                        ## structure
-                                                                                                        ## displayed
-                                                                                                        ## in
-                                                                                                        ## visualizer
-                                                                                                        ## <me>.
 
 
 proc newGraphic3dStructureManager*(theDriver: Handle[Graphic3dGraphicDriver]): Graphic3dStructureManager {.
@@ -198,5 +119,4 @@ proc setDeviceLost*(this: var Graphic3dStructureManager) {.cdecl,
 proc dumpJson*(this: Graphic3dStructureManager; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_StructureManager.hxx".}
-type
-  HandleGraphic3dStructureManager* = Handle[Graphic3dStructureManager]
+

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,34 +18,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TCollection_AsciiString"
-type
-  TopOpeBRepBuildShapeSet* {.importcpp: "TopOpeBRepBuild_ShapeSet",
-                            header: "TopOpeBRepBuild_ShapeSet.hxx", bycopy.} = object of RootObj ##
-                                                                                 ## !
-                                                                                 ## Creates
-                                                                                 ## a
-                                                                                 ## ShapeSet
-                                                                                 ## in
-                                                                                 ## order
-                                                                                 ## to
-                                                                                 ## build
-                                                                                 ## shapes
-                                                                                 ## connected
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## by
-                                                                                 ## <SubShapeType>
-                                                                                 ## shapes.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## <checkshape>:check
-                                                                                 ## (or
-                                                                                 ## not)
-                                                                                 ## the
-                                                                                 ## shapes,
-                                                                                 ## startelements,
-                                                                                 ## elements
-                                                                                 ## added.
 
 
 proc newTopOpeBRepBuildShapeSet*(subShapeType: TopAbsShapeEnum;

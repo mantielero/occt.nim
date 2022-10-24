@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-05-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
-type
-  IntSurfPntOn2S* {.importcpp: "IntSurf_PntOn2S", header: "IntSurf_PntOn2S.hxx",
-                   bycopy.} = object ## ! Empty constructor.
 
 
 proc newIntSurfPntOn2S*(): IntSurfPntOn2S {.cdecl, constructor,

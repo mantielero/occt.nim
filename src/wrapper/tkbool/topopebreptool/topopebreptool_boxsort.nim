@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-07-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepTool_HBoxTool"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Bnd_Box"
-type
-  TopOpeBRepToolBoxSort* {.importcpp: "TopOpeBRepTool_BoxSort",
-                          header: "TopOpeBRepTool_BoxSort.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolBoxSort*(): TopOpeBRepToolBoxSort {.cdecl, constructor,

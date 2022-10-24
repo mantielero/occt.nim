@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-08-15
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -13,20 +15,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  SelectMgrIndexedMapOfHSensitive*[HandleSelectMgrSensitiveEntity] {.importcpp:"NCollection_IndexedMap<'0>", header:"SelectMgr_SensitiveEntitySet.hxx", bycopy.} = object
 
-## ! This class is used to store all calculated sensitive entites of one selectable
-## ! object. It provides an interface for building BVH tree which is used to speed-up
-## ! the performance of searching for overlap among sensitives of one selectable object
 
-type
-  SelectMgrSensitiveEntitySet* {.importcpp: "SelectMgr_SensitiveEntitySet",
-                                header: "SelectMgr_SensitiveEntitySet.hxx", bycopy.} = object of BVH_PrimitiveSet3d ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor.
-    ## !< Map of entities and its corresponding index in BVH
 
 
 proc newSelectMgrSensitiveEntitySet*(theBuilder: Handle[Select3D_BVHBuilder3d]): SelectMgrSensitiveEntitySet {.

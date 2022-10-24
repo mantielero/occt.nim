@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillHArray1OfSectionLaw* {.importcpp: "GeomFill_HArray1OfSectionLaw",
-                                header: "GeomFill_HArray1OfSectionLaw.hxx", bycopy.} = object of GeomFillArray1OfSectionLaw
 
 
 proc newGeomFillHArray1OfSectionLaw*(theLower: cint; theUpper: cint): GeomFillHArray1OfSectionLaw {.

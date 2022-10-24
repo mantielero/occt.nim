@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 1992-05-13
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,27 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Aspect_IdentDefinitionError"
-type
-  AspectGenId* {.importcpp: "Aspect_GenId", header: "Aspect_GenId.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Creates
-                                                                                  ## an
-                                                                                  ## available
-                                                                                  ## set
-                                                                                  ## of
-                                                                                  ## identifiers
-                                                                                  ## with
-                                                                                  ## the
-                                                                                  ## lower
-                                                                                  ## bound
-                                                                                  ## 0
-                                                                                  ## and
-                                                                                  ## the
-                                                                                  ## upper
-                                                                                  ## bound
-                                                                                  ## INT_MAX
-                                                                                  ## /
-                                                                                  ## 2.
 
 
 proc newAspectGenId*(): AspectGenId {.cdecl, constructor,

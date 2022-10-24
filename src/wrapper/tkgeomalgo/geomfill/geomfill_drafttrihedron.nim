@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-04-14
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,10 +21,6 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of GeomFill_DraftTrihedron"
-type
-  HandleGeomFillDraftTrihedron* = Handle[GeomFillDraftTrihedron]
-  GeomFillDraftTrihedron* {.importcpp: "GeomFill_DraftTrihedron",
-                           header: "GeomFill_DraftTrihedron.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillDraftTrihedron*(biNormal: VecObj; angle: cfloat): GeomFillDraftTrihedron {.

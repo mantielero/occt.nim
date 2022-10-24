@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1994-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,26 +20,6 @@ discard "forward decl of BRepTools_Modification"
 discard "forward decl of Standard_NullObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_ModifyShape* {.importcpp: "BRepBuilderAPI_ModifyShape",
-                               header: "BRepBuilderAPI_ModifyShape.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                                ## !
-                                                                                                                ## Returns
-                                                                                                                ## the
-                                                                                                                ## list
-                                                                                                                ## of
-                                                                                                                ## shapes
-                                                                                                                ## modified
-                                                                                                                ## from
-                                                                                                                ## the
-                                                                                                                ## shape
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## <S>.
-                                                                                                                ##
-                                                                                                                ## !
-                                                                                                                ## Empty
-                                                                                                                ## constructor.
 
 
 proc modified*(this: var BRepBuilderAPI_ModifyShape; s: TopoDS_Shape): TopToolsListOfShape {.

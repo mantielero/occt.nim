@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 2014-01-20
 ##  Created by: Alexaner Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -16,9 +18,6 @@
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C0.
 
-type
-  ExtremaGlobOptFuncCCC0* {.importcpp: "Extrema_GlobOptFuncCCC0",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunction
 
 
 proc newExtremaGlobOptFuncCCC0*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC0 {.
@@ -32,9 +31,6 @@ proc value*(this: var ExtremaGlobOptFuncCCC0; x: MathVector; f: var cfloat): boo
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C1.
 
-type
-  ExtremaGlobOptFuncCCC1* {.importcpp: "Extrema_GlobOptFuncCCC1",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunctionWithGradient
 
 
 proc newExtremaGlobOptFuncCCC1*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC1 {.
@@ -52,9 +48,6 @@ proc values*(this: var ExtremaGlobOptFuncCCC1; x: MathVector; f: var cfloat;
 ## ! This class implements function which calculate Eucluidean distance
 ## ! between point on curve and point on other curve in case of C1 and C2 continuity is C2.
 
-type
-  ExtremaGlobOptFuncCCC2* {.importcpp: "Extrema_GlobOptFuncCCC2",
-                           header: "Extrema_GlobOptFuncCC.hxx", bycopy.} = object of MathMultipleVarFunctionWithHessian
 
 
 proc newExtremaGlobOptFuncCCC2*(c1: Adaptor3dCurve; c2: Adaptor3dCurve): ExtremaGlobOptFuncCCC2 {.

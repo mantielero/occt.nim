@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-08-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,57 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of math_Matrix"
-type
-  MathUzawa* {.importcpp: "math_Uzawa", header: "math_Uzawa.hxx", bycopy.} = object ## !
-                                                                            ## Given an
-                                                                            ## input
-                                                                            ## matrix
-                                                                            ## Cont, two
-                                                                            ## input
-                                                                            ## vectors
-                                                                            ## Secont
-                                                                            ## ! and
-                                                                            ## StartingPoint, it
-                                                                            ## solves
-                                                                            ## Cont*X =
-                                                                            ## Secont
-                                                                            ## (only
-                                                                            ## ! =
-                                                                            ## equations) with a
-                                                                            ## minimization of
-                                                                            ## Norme(X-X0).
-                                                                            ## ! The
-                                                                            ## maximun
-                                                                            ## iterations
-                                                                            ## number
-                                                                            ## allowed is
-                                                                            ## fixed to
-                                                                            ## !
-                                                                            ## NbIterations.
-                                                                            ## ! The
-                                                                            ## tolerance
-                                                                            ## EpsLic is
-                                                                            ## fixed for the dual
-                                                                            ## variable
-                                                                            ## !
-                                                                            ## convergence. The
-                                                                            ## tolerance
-                                                                            ## EpsLix is used for the
-                                                                            ## !
-                                                                            ## convergence of X.
-                                                                            ## !
-                                                                            ## Exception
-                                                                            ## ConstuctionError is
-                                                                            ## raised if the line
-                                                                            ## number
-                                                                            ## ! of Cont is
-                                                                            ## different from the
-                                                                            ## length of
-                                                                            ## Secont.
-                                                                            ## ! Is used
-                                                                            ## internally by the two
-                                                                            ## constructors
-                                                                            ## above.
 
 
 proc newMathUzawa*(cont: MathMatrix; secont: MathVector; startingPoint: MathVector;

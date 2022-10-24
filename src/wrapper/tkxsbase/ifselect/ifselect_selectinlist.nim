@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-01-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,33 +20,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectInList"
-type
-  HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
 
-## ! A SelectInList kind Selection selects a List of an Entity,
-## ! which is composed of single Entities
-## ! To know the list on which to work, SelectInList has two
-## ! deferred methods : NbItems (inherited from SelectAnyList) and
-## ! ListedEntity (which gives an item as an Entity) which must be
-## ! defined to get a List in an Entity of the required Type (and
-## ! consider that list is empty if Entity has not required Type)
-## !
-## ! As for SelectAnyList, if a type of Entity defines several
-## ! lists, a given sub-class of SelectInList is attached on one
 
-type
-  IFSelectSelectInList* {.importcpp: "IFSelect_SelectInList",
-                         header: "IFSelect_SelectInList.hxx", bycopy.} = object of IFSelectSelectAnyList ##
-                                                                                                  ## !
-                                                                                                  ## Returns
-                                                                                                  ## an
-                                                                                                  ## Entity,
-                                                                                                  ## given
-                                                                                                  ## its
-                                                                                                  ## rank
-                                                                                                  ## in
-                                                                                                  ## the
-                                                                                                  ## list
 
 
 proc listedEntity*(this: IFSelectSelectInList; num: cint;

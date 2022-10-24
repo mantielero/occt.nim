@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -54,25 +56,6 @@
 ##  once (when allocating a pool) and overheads induced by malloc are minimized.
 ##
 
-type
-  StandardMMgrOpt* {.importcpp: "Standard_MMgrOpt", header: "Standard_MMgrOpt.hxx",
-                    bycopy.} = object of StandardMMgrRoot ## ! Constructor. If aClear is True, the allocated emmory will be
-                                                     ## ! nullified. For description of other parameters, see description
-                                                     ## ! of the class above.
-                                                     ## ! Internal - initialization of buffers
-    ## !< option to clear allocated memory
-    ## !< last allocated index in the free blocks list
-    ## !< free blocks list
-    ## !< small blocks size
-    ## !< size (pages) for small block memory pools
-    ## !< system-dependent memory page size
-    ## !< list of memory pools for small blocks
-    ## !< next free address in the active memory pool
-    ## !< end of the active memory pool
-    ## !< non-null if using memory mapped files for allocation of large blocks
-    ## !< large block size
-    ## !< Mutex to protect free lists data
-    ## !< Mutex to protect small block pools data
 
 
 proc constructStandardMMgrOpt*(aClear: bool = true;
@@ -89,10 +72,6 @@ proc free*(this: var StandardMMgrOpt; thePtr: pointer) {.cdecl, importcpp: "Free
     header: "Standard_MMgrOpt.hxx".}
 proc purge*(this: var StandardMMgrOpt; isDestroyed: bool): cint {.cdecl,
     importcpp: "Purge", header: "Standard_MMgrOpt.hxx".}
-type
-  StandardMMgrOptTPCallBackFunc* = proc (theIsAlloc: bool; theStorage: pointer;
-                                      theRoundSize: csize_t; theSize: csize_t) {.
-      cdecl.}
 
 proc setCallBackFunction*(pFunc: StandardMMgrOptTPCallBackFunc) {.cdecl,
     importcpp: "Standard_MMgrOpt::SetCallBackFunction(@)", header: "Standard_MMgrOpt.hxx".}

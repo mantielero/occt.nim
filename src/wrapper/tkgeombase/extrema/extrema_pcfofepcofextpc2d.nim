@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of Extrema_Curve2dTool"
 discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
-type
-  ExtremaPCFOfEPCOfExtPC2d* {.importcpp: "Extrema_PCFOfEPCOfExtPC2d",
-                             header: "Extrema_PCFOfEPCOfExtPC2d.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
 proc newExtremaPCFOfEPCOfExtPC2d*(): ExtremaPCFOfEPCOfExtPC2d {.cdecl, constructor,

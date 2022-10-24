@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,16 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Elips2d"
-type
-  ConvertEllipseToBSplineCurve* {.importcpp: "Convert_EllipseToBSplineCurve",
-                                 header: "Convert_EllipseToBSplineCurve.hxx",
-                                 bycopy.} = object of ConvertConicToBSplineCurve ## ! The
-                                                                            ## equivalent
-                                                                            ## B-spline
-                                                                            ## curve has the same
-                                                                            ## orientation
-                                                                            ## ! as the
-                                                                            ## ellipse E.
 
 
 proc newConvertEllipseToBSplineCurve*(e: Elips2dObj; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertEllipseToBSplineCurve {.

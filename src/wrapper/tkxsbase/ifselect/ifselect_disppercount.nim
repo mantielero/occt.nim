@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,27 +22,8 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerCount"
-type
-  HandleIFSelectDispPerCount* = Handle[IFSelectDispPerCount]
 
-## ! A DispPerCount gathers all the input Entities into one or
-## ! several Packets, each containing a defined count of Entity
-## ! This count is a Parameter of the DispPerCount, given as an
-## ! IntParam, thus allowing external control of its Value
 
-type
-  IFSelectDispPerCount* {.importcpp: "IFSelect_DispPerCount",
-                         header: "IFSelect_DispPerCount.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                             ## !
-                                                                                             ## Creates
-                                                                                             ## a
-                                                                                             ## DispPerCount
-                                                                                             ## with
-                                                                                             ## no
-                                                                                             ## Count
-                                                                                             ## (default
-                                                                                             ## value
-                                                                                             ## 1)
 
 
 proc newIFSelectDispPerCount*(): IFSelectDispPerCount {.cdecl, constructor,

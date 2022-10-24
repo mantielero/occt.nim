@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -24,14 +26,6 @@
 ## ! orientation in relation to other shapes).
 ## ! Casts shape S to the more specialized return type, CompSolid.
 
-type
-  TopoDS_CompSolid* {.importcpp: "TopoDS_CompSolid",
-                     header: "TopoDS_CompSolid.hxx", bycopy.} = object of TopoDS_Shape ##
-                                                                                ## !
-                                                                                ## Constructs
-                                                                                ## an
-                                                                                ## Undefined
-                                                                                ## CompSolid.
 
 
 proc newTopoDS_CompSolid*(): TopoDS_CompSolid {.cdecl, constructor,

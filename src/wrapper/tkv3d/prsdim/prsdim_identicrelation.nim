@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1997-03-03
 ##  Created by: Jean-Pierre COMBE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -23,50 +25,8 @@ discard "forward decl of Geom_Ellipse"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of gp_Dir"
-type
-  HandlePrsDimIdenticRelation* = Handle[PrsDimIdenticRelation]
 
-## ! Constructs a constraint by a relation of identity
-## ! between two or more datums figuring in shape
-## ! Interactive Objects.
 
-type
-  PrsDimIdenticRelation* {.importcpp: "PrsDim_IdenticRelation",
-                          header: "PrsDim_IdenticRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                             ## !
-                                                                                             ## Initializes
-                                                                                             ## the
-                                                                                             ## relation
-                                                                                             ## of
-                                                                                             ## identity
-                                                                                             ## between
-                                                                                             ## the
-                                                                                             ## two
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## entities,
-                                                                                             ## FirstShape
-                                                                                             ## and
-                                                                                             ## SecondShape.
-                                                                                             ## The
-                                                                                             ## plane
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## aPlane
-                                                                                             ## is
-                                                                                             ## initialized
-                                                                                             ## in
-                                                                                             ## case
-                                                                                             ## a
-                                                                                             ## visual
-                                                                                             ## reference
-                                                                                             ## is
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## needed
-                                                                                             ## to
-                                                                                             ## show
-                                                                                             ## identity.
 
 
 proc newPrsDimIdenticRelation*(firstShape: TopoDS_Shape; secondShape: TopoDS_Shape;

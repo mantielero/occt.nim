@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,13 +15,6 @@
 
 ## ! Parameters for mouse scroll action.
 
-type
-  AspectScrollDelta* {.importcpp: "Aspect_ScrollDelta",
-                      header: "Aspect_ScrollDelta.hxx", bycopy.} = object
-    point* {.importc: "Point".}: NCollectionVec2[cint] ## !< scale position
-    delta* {.importc: "Delta".}: cfloat ## !< delta in pixels
-    flags* {.importc: "Flags".}: AspectVKeyFlags ## !< key flags
-                                             ## ! Return true if action has point defined.
 
 
 proc hasPoint*(this: AspectScrollDelta): bool {.noSideEffect, cdecl,

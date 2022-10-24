@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1993-03-17
 ##  Created by: Mireille MERCIEN
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,38 +23,8 @@ discard "forward decl of Standard_NegativeValue"
 discard "forward decl of TCollection_ExtendedString"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of TCollection_HExtendedString"
-type
-  HandleTCollectionHExtendedString* = Handle[TCollectionHExtendedString]
 
-## ! A variable-length sequence of "extended"
-## ! (UNICODE) characters (16-bit character
-## ! type). It provides editing operations with
-## ! built-in memory management to make
-## ! ExtendedString objects easier to use than
-## ! ordinary extended character arrays.
-## ! HExtendedString objects are handles to strings.
-## ! - HExtendedString strings may be shared by several objects.
-## ! - You may use an ExtendedString object to get the actual string.
-## ! Note: HExtendedString objects use an
-## ! ExtendedString string as a field.
 
-type
-  TCollectionHExtendedString* {.importcpp: "TCollection_HExtendedString",
-                               header: "TCollection_HExtendedString.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                          ## !
-                                                                                                          ## Initializes
-                                                                                                          ## a
-                                                                                                          ## HExtendedString
-                                                                                                          ## to
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## ExtendedString.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returns
-                                                                                                          ## the
-                                                                                                          ## field
-                                                                                                          ## myString
 
 
 proc newTCollectionHExtendedString*(): TCollectionHExtendedString {.cdecl,

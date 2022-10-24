@@ -1,3 +1,5 @@
+import intsurf_types
+
 ##  Created on: 1992-04-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of gp_Cone"
 discard "forward decl of gp_Torus"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  IntSurfQuadric* {.importcpp: "IntSurf_Quadric", header: "IntSurf_Quadric.hxx",
-                   bycopy.} = object
 
 
 proc newIntSurfQuadric*(): IntSurfQuadric {.cdecl, constructor,

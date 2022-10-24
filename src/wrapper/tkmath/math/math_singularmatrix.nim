@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-01-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of math_SingularMatrix"
-type
-  HandleMathSingularMatrix* = Handle[MathSingularMatrix]
 
 when not defined(noException) and not defined(noMathSingularMatrix):
   template mathSingularMatrixRaiseIf*(condition, message: untyped): void =

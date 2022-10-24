@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,31 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of BRep_TEdge"
-type
-  HandleBRepTEdge* = Handle[BRepTEdge]
 
-## ! The TEdge from BRep is  inherited from  the  TEdge
-## ! from TopoDS. It contains the geometric data.
-## !
-## ! The TEdge contains :
-## !
-## ! * A tolerance.
-## !
-## ! * A same parameter flag.
-## !
-## ! * A same range flag.
-## !
-## ! * A Degenerated flag.
-## !
-## ! *  A  list   of curve representation.
 
-type
-  BRepTEdge* {.importcpp: "BRep_TEdge", header: "BRep_TEdge.hxx", bycopy.} = object of TopoDS_TEdge ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## empty
-                                                                                          ## TEdge.
 
 
 proc newBRepTEdge*(): BRepTEdge {.cdecl, constructor, importcpp: "BRep_TEdge(@)",

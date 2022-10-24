@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2011-07-11
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -27,20 +29,6 @@
 ## ! and you shoould control that allocator is alive along all objects
 ## ! allocated with him.
 
-type
-  NCollectionWinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
-                                header: "NCollection_WinHeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
-                                                                                                                   ## !
-                                                                                                                   ## Main
-                                                                                                                   ## constructor
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## Copy
-                                                                                                                   ## constructor
-                                                                                                                   ## -
-                                                                                                                   ## prohibited
-#    when (defined(win32) or defined(win32)):
-#      discard
 
 
 proc newNCollectionWinHeapAllocator*(theInitSizeBytes: csize_t = 0x80000): NCollectionWinHeapAllocator {.
@@ -54,5 +42,4 @@ proc free*(this: var NCollectionWinHeapAllocator; theAddress: pointer) {.cdecl,
     importcpp: "Free", header: "NCollection_WinHeapAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
-type
-  HandleNCollectionWinHeapAllocator* = Handle[NCollectionWinHeapAllocator]
+

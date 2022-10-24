@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,12 +17,6 @@ discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_TransformPers"
 discard "forward decl of SelectMgr_Selection"
 discard "forward decl of gp_Trsf"
-type
-  SelectMgr* {.importcpp: "SelectMgr", header: "SelectMgr.hxx", bycopy.} = object ## !
-                                                                          ## Compute debug
-                                                                          ## presentation for
-                                                                          ## sensitive
-                                                                          ## objects.
 
 
 proc computeSensitivePrs*(theStructure: Handle[Graphic3dStructure];

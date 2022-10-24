@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1995-08-09
 ##  Created by: Arnaud BOUZY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,23 +18,6 @@
 
 discard "forward decl of Geom_Point"
 discard "forward decl of TopoDS_Vertex"
-type
-  AIS_Point* {.importcpp: "AIS_Point", header: "AIS_Point.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                 ## !
-                                                                                                 ## Initializes
-                                                                                                 ## the
-                                                                                                 ## point
-                                                                                                 ## aComponent
-                                                                                                 ## from
-                                                                                                 ## which
-                                                                                                 ## the
-                                                                                                 ## point
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## datum
-                                                                                                 ## will
-                                                                                                 ## be
-                                                                                                 ## built.
 
 
 proc newAIS_Point*(aComponent: Handle[GeomPoint]): AIS_Point {.cdecl, constructor,
@@ -57,5 +42,4 @@ proc hasMarker*(this: AIS_Point): bool {.noSideEffect, cdecl, importcpp: "HasMar
                                      header: "AIS_Point.hxx".}
 proc vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "AIS_Point.hxx".}
-type
-  HandleAIS_Point* = Handle[AIS_Point]
+

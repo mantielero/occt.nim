@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-07-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -18,41 +20,8 @@ discard "forward decl of Interface_TypedValue"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_ListEditor"
-type
-  HandleIFSelectListEditor* = Handle[IFSelectListEditor]
 
-## ! A ListEditor is an auxiliary operator for Editor/EditForm
-## ! I.E. it works on parameter values expressed as strings
-## !
-## ! For a parameter which is a list, it may not be edited in once
-## ! by just setting a new value (as a string)
-## !
-## ! Firstly, a list can be long (and tedious to be accessed flat)
-## ! then requires a better way of accessing
-## !
-## ! Moreover, not only its VALUES may be changed (SetValue), but
-## ! also its LENGTH : items may be added or removed ...
-## !
-## ! Hence, the way of editing a parameter as a list is :
-## ! - edit it separately, with the help of a ListEditor
-## ! - it remains possible to prepare a new list of values apart
-## ! - then give the new list in once to the EditForm
-## !
-## ! An EditList is produced by the Editor, with a basic definition
-## ! This definition (brought by this class) can be redefined
-## ! Hence the Editor may produce a specific ListEditor as needed
 
-type
-  IFSelectListEditor* {.importcpp: "IFSelect_ListEditor",
-                       header: "IFSelect_ListEditor.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## ListEditor
-                                                                                          ## with
-                                                                                          ## absolutely
-                                                                                          ## no
-                                                                                          ## constraint
 
 
 proc newIFSelectListEditor*(): IFSelectListEditor {.cdecl, constructor,

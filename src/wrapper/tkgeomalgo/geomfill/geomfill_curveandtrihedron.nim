@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -22,20 +24,8 @@ discard "forward decl of GeomFill_LocationLaw"
 discard "forward decl of gp_Vec"
 discard "forward decl of gp_Pnt"
 discard "forward decl of GeomFill_CurveAndTrihedron"
-type
-  HandleGeomFillCurveAndTrihedron* = Handle[GeomFillCurveAndTrihedron]
 
-## ! Define location law with an TrihedronLaw and an
-## ! curve
-## ! Definition Location is :
-## ! transformed  section   coordinates  in  (Curve(v)),
-## ! (Normal(v),   BiNormal(v), Tangente(v))) systeme are
-## ! the  same like section  shape coordinates in
-## ! (O,(OX, OY, OZ)) systeme.
 
-type
-  GeomFillCurveAndTrihedron* {.importcpp: "GeomFill_CurveAndTrihedron",
-                              header: "GeomFill_CurveAndTrihedron.hxx", bycopy.} = object of GeomFillLocationLaw
 
 
 proc newGeomFillCurveAndTrihedron*(trihedron: Handle[GeomFillTrihedronLaw]): GeomFillCurveAndTrihedron {.

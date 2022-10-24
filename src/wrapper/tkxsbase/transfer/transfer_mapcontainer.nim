@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 2001-09-10
 ##  Created by: Sergey KUUL
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -14,10 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Transfer_MapContainer"
-type
-  HandleTransferMapContainer* = Handle[TransferMapContainer]
-  TransferMapContainer* {.importcpp: "Transfer_MapContainer",
-                         header: "Transfer_MapContainer.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTransferMapContainer*(): TransferMapContainer {.cdecl, constructor,

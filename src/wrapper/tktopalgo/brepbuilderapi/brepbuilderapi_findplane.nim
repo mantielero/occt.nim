@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1995-11-02
 ##  Created by: Jing Cheng MEI
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,24 +19,6 @@
 discard "forward decl of Geom_Plane"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_FindPlane* {.importcpp: "BRepBuilderAPI_FindPlane",
-                             header: "BRepBuilderAPI_FindPlane.hxx", bycopy.} = object ##
-                                                                                  ## !
-                                                                                  ## Initializes
-                                                                                  ## an
-                                                                                  ## empty
-                                                                                  ## algorithm.
-                                                                                  ## The
-                                                                                  ## function
-                                                                                  ## Init
-                                                                                  ## is
-                                                                                  ## then
-                                                                                  ## used
-                                                                                  ## to
-                                                                                  ## define
-                                                                                  ## the
-                                                                                  ## shape.
 
 
 proc findPlane*(): BRepBuilderAPI_FindPlane {.cdecl, constructor,

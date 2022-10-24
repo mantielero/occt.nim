@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-12-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,33 +22,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRootComps"
-type
-  HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
 
-## ! A SelectRootComps sorts the Entities which are part of Strong
-## ! Componants, local roots of a set of Entities : they can be
-## ! Single Componants (containing one Entity) or Cycles
-## ! This class gives a more secure result than SelectRoots (which
-## ! considers only Single Componants) but is longer to work : it
-## ! can be used when there can be or there are cycles in a Model
-## ! For each cycle, one Entity is given arbitrarily
-## ! Reject works as for SelectRoots : Strong Componants defined in
-## ! the input list which are not local roots are given
 
-type
-  IFSelectSelectRootComps* {.importcpp: "IFSelect_SelectRootComps",
-                            header: "IFSelect_SelectRootComps.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## SelectRootComps
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Returns
-                                                                                                        ## True,
-                                                                                                        ## RootResult
-                                                                                                        ## assuring
-                                                                                                        ## uniqueness
 
 
 proc newIFSelectSelectRootComps*(): IFSelectSelectRootComps {.cdecl, constructor,

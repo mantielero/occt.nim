@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepBuild_ShellFaceSet"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_ShapeSet"
-type
-  TopOpeBRepBuildSolidBuilder* {.importcpp: "TopOpeBRepBuild_SolidBuilder",
-                                header: "TopOpeBRepBuild_SolidBuilder.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildSolidBuilder*(): TopOpeBRepBuildSolidBuilder {.cdecl,

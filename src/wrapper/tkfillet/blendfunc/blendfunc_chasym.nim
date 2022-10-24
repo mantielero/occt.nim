@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1998-06-02
 ##  Created by: Philippe NOUAILLE
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
-type
-  BlendFuncChAsym* {.importcpp: "BlendFunc_ChAsym", header: "BlendFunc_ChAsym.hxx",
-                    bycopy.} = object of BlendFunction
 
 
 proc newBlendFuncChAsym*(s1: Handle[Adaptor3dHSurface];

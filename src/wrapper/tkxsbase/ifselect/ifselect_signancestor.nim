@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1999-02-17
 ##  Created by: Pavel DURANDIN
 ##  Copyright (c) 1999 Matra Datavision
@@ -18,10 +20,6 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignAncestor"
-type
-  HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
-  IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
-                         header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
 
 
 proc newIFSelectSignAncestor*(nopk: bool = false): IFSelectSignAncestor {.cdecl,

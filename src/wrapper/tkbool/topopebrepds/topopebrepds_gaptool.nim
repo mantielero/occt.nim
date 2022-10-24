@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1998-08-20
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,10 +21,6 @@ discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_Curve"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_GapTool"
-type
-  HandleTopOpeBRepDS_GapTool* = Handle[TopOpeBRepDS_GapTool]
-  TopOpeBRepDS_GapTool* {.importcpp: "TopOpeBRepDS_GapTool",
-                         header: "TopOpeBRepDS_GapTool.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_GapTool*(): TopOpeBRepDS_GapTool {.cdecl, constructor,

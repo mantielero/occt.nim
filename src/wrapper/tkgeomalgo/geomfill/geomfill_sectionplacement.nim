@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-15
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Mat"
 discard "forward decl of gp_Vec"
-type
-  GeomFillSectionPlacement* {.importcpp: "GeomFill_SectionPlacement",
-                             header: "GeomFill_SectionPlacement.hxx", bycopy.} = object
 
 
 proc newGeomFillSectionPlacement*(L: Handle[GeomFillLocationLaw];

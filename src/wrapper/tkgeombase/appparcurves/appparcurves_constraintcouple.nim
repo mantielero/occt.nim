@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1993-02-24
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,10 +19,6 @@
 ## ! associates an index and a constraint for an object.
 ## ! This couple is used by AppDef_TheVariational when performing approximations.
 
-type
-  AppParCurvesConstraintCouple* {.importcpp: "AppParCurves_ConstraintCouple",
-                                 header: "AppParCurves_ConstraintCouple.hxx",
-                                 bycopy.} = object ## ! returns an indefinite ConstraintCouple.
 
 
 proc newAppParCurvesConstraintCouple*(): AppParCurvesConstraintCouple {.cdecl,

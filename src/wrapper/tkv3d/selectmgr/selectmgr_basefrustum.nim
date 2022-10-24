@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -19,32 +21,6 @@
 ## ! overlap by sensitive entity and initializes some data for building
 ## ! the selecting frustum
 
-type
-  SelectMgrBaseFrustum* {.importcpp: "SelectMgr_BaseFrustum",
-                         header: "SelectMgr_BaseFrustum.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## new
-                                                                                              ## selecting
-                                                                                              ## volume
-                                                                                              ## with
-                                                                                              ## pixel
-                                                                                              ## toletance
-                                                                                              ## set
-                                                                                              ## to
-                                                                                              ## 2,
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## orthographic
-                                                                                              ## camera
-                                                                                              ## and
-                                                                                              ## empty
-                                                                                              ## frustum
-                                                                                              ## builder
-    ## !< Pixel tolerance
-    ## !< Defines if current camera is orthographic
-    ## !< A tool implementing methods for volume build
-    ## !< camera definition
 
 
 proc newSelectMgrBaseFrustum*(): SelectMgrBaseFrustum {.cdecl, constructor,

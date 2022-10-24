@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,15 +20,8 @@ discard "forward decl of ChFiDS_FaceInterference"
 discard "forward decl of ChFiDS_CommonPoint"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of ChFiDS_SurfData"
-type
-  HandleChFiDS_SurfData* = Handle[ChFiDS_SurfData]
 
-## ! data structure for all information related to  the
-## ! fillet and to 2 faces vis a vis
 
-type
-  ChFiDS_SurfData* {.importcpp: "ChFiDS_SurfData", header: "ChFiDS_SurfData.hxx",
-                    bycopy.} = object of StandardTransient
 
 
 proc newChFiDS_SurfData*(): ChFiDS_SurfData {.cdecl, constructor,

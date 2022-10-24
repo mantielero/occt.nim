@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,18 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TWire"
-type
-  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
 
-## ! A set of edges connected by their vertices.
 
-type
-  TopoDS_TWire* {.importcpp: "TopoDS_TWire", header: "TopoDS_TWire.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                                  ## !
-                                                                                                  ## Creates
-                                                                                                  ## an
-                                                                                                  ## empty
-                                                                                                  ## TWire.
 
 
 proc newTopoDS_TWire*(): TopoDS_TWire {.cdecl, constructor,

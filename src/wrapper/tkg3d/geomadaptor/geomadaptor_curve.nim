@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-09-01
 ##  Created by: Modelistation
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -31,12 +33,6 @@ discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of Geom_OffsetCurve"
-type
-  GeomAdaptorCurve* {.importcpp: "GeomAdaptor_Curve",
-                     header: "GeomAdaptor_Curve.hxx", bycopy.} = object of Adaptor3dCurve
-    ## /< B-spline representation to prevent castings
-    ## /< Cached data for B-spline or Bezier curve
-    ## /< Calculates value of offset curve
 
 
 proc newGeomAdaptorCurve*(): GeomAdaptorCurve {.cdecl, constructor,

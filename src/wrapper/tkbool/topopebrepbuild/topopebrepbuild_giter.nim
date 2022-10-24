@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepBuild_GTopo"
-type
-  TopOpeBRepBuildGIter* {.importcpp: "TopOpeBRepBuild_GIter",
-                         header: "TopOpeBRepBuild_GIter.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.cdecl, constructor,

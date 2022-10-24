@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2019-02-25
 ##  Created by: Artem NOVIKOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -15,20 +17,6 @@
 
 ## ! Standard presentation algorithm that outputs graphical primitives for disk surface.
 
-type
-  Prs3dToolSector* {.importcpp: "Prs3d_ToolSector", header: "Prs3d_ToolSector.hxx",
-                    bycopy.} = object of Prs3dToolQuadric ## ! Generate primitives for 3D quadric surface.
-                                                     ## ! @param theRadius   [in] sector radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! @param theTrsf     [in] optional transformation to apply
-                                                     ## ! @return generated triangulation
-                                                     ## ! Initializes the algorithm creating a sector (quadrant).
-                                                     ## ! @param theRadius   [in] sector radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! Computes vertex at given parameter location of the surface.
-    ## !< sector radius
 
 
 proc create*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[

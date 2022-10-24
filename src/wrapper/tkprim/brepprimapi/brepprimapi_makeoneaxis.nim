@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,23 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
-type
-  BRepPrimAPI_MakeOneAxis* {.importcpp: "BRepPrimAPI_MakeOneAxis",
-                            header: "BRepPrimAPI_MakeOneAxis.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                          ## !
-                                                                                                          ## The
-                                                                                                          ## inherited
-                                                                                                          ## commands
-                                                                                                          ## should
-                                                                                                          ## provide
-                                                                                                          ## the
-                                                                                                          ## algorithm.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Returned
-                                                                                                          ## as
-                                                                                                          ## a
-                                                                                                          ## pointer.
 
 
 proc oneAxis*(this: var BRepPrimAPI_MakeOneAxis): pointer {.cdecl,

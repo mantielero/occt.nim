@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2014-12-30
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -13,12 +15,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dZLayerId* = cint
 
-## ! This enumeration defines the list of predefined layers, which can not be removed (but settings can be overridden).
-## ! Custom layers might be added with positive index (>= 1) if standard list is insufficient for application needs;
-## ! these layers will be displayed on top of predefined ones.
 
 const
   graphic3dZLayerIdUNKNOWN* = -1 ## !< identifier for invalid ZLayer
@@ -27,3 +24,4 @@ const
   graphic3dZLayerIdTopmost* = -3 ## !< overlay for 3D presentations with independent Depth
   graphic3dZLayerIdTopOSD* = -4 ## !< overlay for 2D presentations (On-Screen-Display)
   graphic3dZLayerIdBotOSD* = -5
+

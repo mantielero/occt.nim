@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -17,12 +19,6 @@ when defined(win32) and defined(max):
   discard
 ## ! Stores parameters of single bin (slice of AABB).
 
-type
-  BVH_Bin*[T; N: static[cint]] {.importcpp: "BVH_Bin<\'0,\'1>",
-                              header: "BVH_BinnedBuilder.hxx", bycopy.} = object ## !
-                                                                            ## Creates new node bin.
-    count* {.importc: "Count".}: cint ## !< Number of primitives in the bin
-    box* {.importc: "Box".}: BVH_Box[T, N] ## !< AABB of primitives in the bin
 
 
 proc newBVH_Bin*[T; N: static[cint]](): BVH_Bin[T, N] {.cdecl, constructor,
@@ -124,11 +120,7 @@ proc splitPrimitives*[T; N: static[cint]](theSet: ptr BVH_Set[T, N];
                                        theBins: cint): cint {.cdecl.} =
   discard
 
-type
-  BVH_AxisSelector*[T; N: static[cint]] {.importcpp: "BVH::BVH_AxisSelector<\'0,\'1>",
-                                       header: "BVH_BinnedBuilder.hxx", bycopy.} = object
 
-  BVH_AxisSelectorBVH_VecNt*[T; N] = object
 
 proc mainAxis*[T; N: static[cint]](theSize: BVH_AxisSelectorBVH_VecNt): cint {.cdecl,
     importcpp: "BVH::BVH_AxisSelector::MainAxis(@)", header: "BVH_BinnedBuilder.hxx".}
@@ -258,3 +250,4 @@ proc mainAxis*[T; N: static[cint]](theSize: BVH_AxisSelectorBVH_VecNt): cint {.c
 ##                                                            Range (aNodeBegPrimitive, aMiddle - 1),
 ##                                                            Range (aMiddle,     aNodeEndPrimitive));
 ##  }
+

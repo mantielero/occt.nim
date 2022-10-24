@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,54 +26,8 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Parabola"
-type
-  HandleGeomParabola* = Handle[GeomParabola]
 
-## ! Describes a parabola in 3D space.
-## ! A parabola is defined by its focal length (i.e. the
-## ! distance between its focus and its apex) and is
-## ! positioned in space with a coordinate system
-## ! (gp_Ax2 object) where:
-## ! - the origin is the apex of the parabola,
-## ! - the "X Axis" defines the axis of symmetry; the
-## ! parabola is on the positive side of this axis,
-## ! - the origin, "X Direction" and "Y Direction" define the
-## ! plane of the parabola.
-## ! This coordinate system is the local coordinate
-## ! system of the parabola.
-## ! The "main Direction" of this coordinate system is a
-## ! vector normal to the plane of the parabola. The axis,
-## ! of which the origin and unit vector are respectively the
-## ! origin and "main Direction" of the local coordinate
-## ! system, is termed the "Axis" or "main Axis" of the parabola.
-## ! The "main Direction" of the local coordinate system
-## ! gives an explicit orientation to the parabola,
-## ! determining the direction in which the parameter
-## ! increases along the parabola.
-## ! The Geom_Parabola parabola is parameterized as follows:
-## ! P(U) = O + U*U/(4.*F)*XDir + U*YDir
-## ! where:
-## ! - P is the point of parameter U,
-## ! - O, XDir and YDir are respectively the origin, "X
-## ! Direction" and "Y Direction" of its local coordinate system,
-## ! - F is the focal length of the parabola.
-## ! The parameter of the parabola is therefore its Y
-## ! coordinate in the local coordinate system, with the "X
-## ! Axis" of the local coordinate system defining the origin
-## ! of the parameter.
-## ! The parameter range is ] -infinite, +infinite [.
 
-type
-  GeomParabola* {.importcpp: "Geom_Parabola", header: "Geom_Parabola.hxx", bycopy.} = object of GeomConic ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## parabola
-                                                                                                ## from
-                                                                                                ## a
-                                                                                                ## non
-                                                                                                ## transient
-                                                                                                ## one.
 
 
 proc newGeomParabola*(prb: ParabObj): GeomParabola {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1994-08-04
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -24,9 +26,6 @@ discard "forward decl of Geom2d_BSplineCurve"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  TopOpeBRepDS_Dumper* {.importcpp: "TopOpeBRepDS_Dumper",
-                        header: "TopOpeBRepDS_Dumper.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_Dumper*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Dumper {.

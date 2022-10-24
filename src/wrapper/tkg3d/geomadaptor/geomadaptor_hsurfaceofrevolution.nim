@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,11 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_SurfaceOfRevolution"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_HSurfaceOfRevolution"
-type
-  HandleGeomAdaptorHSurfaceOfRevolution* = Handle[GeomAdaptorHSurfaceOfRevolution]
-  GeomAdaptorHSurfaceOfRevolution* {.importcpp: "GeomAdaptor_HSurfaceOfRevolution", header: "GeomAdaptor_HSurfaceOfRevolution.hxx",
-                                    bycopy.} = object of Adaptor3dHSurface ## ! Creates an empty
-                                                                      ## GenHSurface.
 
 
 proc newGeomAdaptorHSurfaceOfRevolution*(): GeomAdaptorHSurfaceOfRevolution {.
@@ -39,19 +36,5 @@ proc surface*(this: GeomAdaptorHSurfaceOfRevolution): Adaptor3dSurface {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfRevolution): var GeomAdaptorSurfaceOfRevolution {.
     cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
-type
-  GeomAdaptorHSurfaceOfRevolutionbaseType* = Adaptor3dHSurface
 
-##  #define TheSurface GeomAdaptor_SurfaceOfRevolution
-##  #define TheSurface_hxx <GeomAdaptor_SurfaceOfRevolution.hxx>
-##  #define Adaptor3d_GenHSurface GeomAdaptor_HSurfaceOfRevolution
-##  #define Adaptor3d_GenHSurface_hxx <GeomAdaptor_HSurfaceOfRevolution.hxx>
-##  #define Handle_Adaptor3d_GenHSurface Handle(GeomAdaptor_HSurfaceOfRevolution)
-##
-##  #include <Adaptor3d_GenHSurface.lxx>
-##
-##  #undef TheSurface
-##  #undef TheSurface_hxx
-##  #undef Adaptor3d_GenHSurface
-##  #undef Adaptor3d_GenHSurface_hxx
-##  #undef Handle_Adaptor3d_GenHSurface
+

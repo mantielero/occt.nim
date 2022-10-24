@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1993-12-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,13 +18,8 @@
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
-type
-  HandleLawFunction* = Handle[LawFunction]
 
-## ! Root class for evolution laws.
 
-type
-  LawFunction* {.importcpp: "Law_Function", header: "Law_Function.hxx", bycopy.} = object of StandardTransient
 
 
 proc continuity*(this: LawFunction): GeomAbsShape {.noSideEffect, cdecl,

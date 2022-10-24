@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,33 +21,6 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
-type
-  MakeLine* {.importcpp: "GC_MakeLine", header: "GC_MakeLine.hxx", bycopy.} = object of Root ##
-                                                                                   ## !
-                                                                                   ## Creates
-                                                                                   ## a
-                                                                                   ## line
-                                                                                   ## located
-                                                                                   ## in
-                                                                                   ## 3D
-                                                                                   ## space
-                                                                                   ## with
-                                                                                   ## the
-                                                                                   ## axis
-                                                                                   ## placement
-                                                                                   ## A1.
-                                                                                   ##
-                                                                                   ## !
-                                                                                   ## The
-                                                                                   ## Location
-                                                                                   ## of
-                                                                                   ## A1
-                                                                                   ## is
-                                                                                   ## the
-                                                                                   ## origin
-                                                                                   ## of
-                                                                                   ## the
-                                                                                   ## line.
 
 
 proc line*(a1: Ax1Obj): MakeLine {.cdecl, constructor,

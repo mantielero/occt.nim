@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -24,59 +26,6 @@
 ## ! Processing of this class is implemented in Message_Report, it is used only inside it.
 ## ! Levels using should be only through using OCCT_ADD_MESSAGE_LEVEL_SENTRY only. No other code is required outside.
 
-type
-  MessageLevel* {.importcpp: "Message_Level", header: "Message_Level.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## One
-                                                                                     ## string
-                                                                                     ## key
-                                                                                     ## is
-                                                                                     ## used
-                                                                                     ## for
-                                                                                     ## all
-                                                                                     ## alert
-                                                                                     ## meters.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## The
-                                                                                     ## perf
-                                                                                     ## meter
-                                                                                     ## is
-                                                                                     ## not
-                                                                                     ## started
-                                                                                     ## automatically,
-                                                                                     ## it
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ## done
-                                                                                     ## in
-                                                                                     ## AddAlert()
-                                                                                     ## method
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Remove
-                                                                                     ## the
-                                                                                     ## current
-                                                                                     ## level
-                                                                                     ## from
-                                                                                     ## the
-                                                                                     ## report.
-                                                                                     ## It
-                                                                                     ## stops
-                                                                                     ## metric
-                                                                                     ## collecting
-                                                                                     ## for
-                                                                                     ## the
-                                                                                     ## last
-                                                                                     ## and
-                                                                                     ## the
-                                                                                     ## root
-                                                                                     ## alerts.
-    ## !< root alert
-    ## !< last added alert on the root alert
 
 
 proc newMessageLevel*(theName: TCollectionAsciiString = TCollectionAsciiString()): MessageLevel {.
@@ -95,3 +44,4 @@ proc addAlert*(this: var MessageLevel; theGravity: MessageGravity;
 ## ! Creates a new level instance of Sentry. This row should be inserted before messages using in the method.
 ##  #define OCCT_ADD_MESSAGE_LEVEL_SENTRY(theMessage) \
 ##    Message_Level aLevel(theMessage);
+

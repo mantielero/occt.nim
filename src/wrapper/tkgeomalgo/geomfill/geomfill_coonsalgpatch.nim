@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,53 +21,8 @@ discard "forward decl of Law_Function"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_CoonsAlgPatch"
-type
-  HandleGeomFillCoonsAlgPatch* = Handle[GeomFillCoonsAlgPatch]
 
-## ! Provides  evaluation   methods on an   algorithmic
-## ! patch (based on 4 Curves) defined by  its   boundaries and  blending
-## ! functions.
 
-type
-  GeomFillCoonsAlgPatch* {.importcpp: "GeomFill_CoonsAlgPatch",
-                          header: "GeomFill_CoonsAlgPatch.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## Constructs
-                                                                                                ## the
-                                                                                                ## algorithmic
-                                                                                                ## patch.
-                                                                                                ## By
-                                                                                                ## Default
-                                                                                                ## the
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## constructed
-                                                                                                ## blending
-                                                                                                ## functions
-                                                                                                ## are
-                                                                                                ## linear.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Warning:
-                                                                                                ## No
-                                                                                                ## control
-                                                                                                ## is
-                                                                                                ## done
-                                                                                                ## on
-                                                                                                ## the
-                                                                                                ## bounds.
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## B1/B3
-                                                                                                ## and
-                                                                                                ## B2/B4
-                                                                                                ## must
-                                                                                                ## be
-                                                                                                ## same
-                                                                                                ## range
-                                                                                                ## and
-                                                                                                ## well
-                                                                                                ## oriented.
 
 
 proc newGeomFillCoonsAlgPatch*(b1: Handle[GeomFillBoundary];

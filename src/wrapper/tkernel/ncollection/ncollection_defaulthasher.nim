@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created by: Eugene Maltchikov
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -50,13 +52,6 @@ proc isEqualProxy*[TheKeyType](theKey1: TheKeyType; theKey2: TheKeyType): bool {
 ##               IsEqual.
 ##
 
-type
-  NCollectionDefaultHasher*[TheKeyType] {.
-      importcpp: "NCollection_DefaultHasher<\'0>",
-      header: "NCollection_DefaultHasher.hxx", bycopy.} = object ## ! Returns hash code for the given key, in the range [1, theUpperBound]
-                                                            ## ! @param theKey the key which hash code is to be computed
-                                                            ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
-                                                            ## ! @return a computed hash code, in the range [1, theUpperBound]
 
 
 proc hashCode*[TheKeyType](theKey: TheKeyType; theUpperBound: cint): cint {.cdecl,

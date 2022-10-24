@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,15 +23,8 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Pnt"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnSurface"
-type
-  HandleBRepCurveOnSurface* = Handle[BRepCurveOnSurface]
 
-## ! Representation  of a  curve   by a   curve  in the
-## ! parametric space of a surface.
 
-type
-  BRepCurveOnSurface* {.importcpp: "BRep_CurveOnSurface",
-                       header: "BRep_CurveOnSurface.hxx", bycopy.} = object of BRepGCurve
 
 
 proc newBRepCurveOnSurface*(pc: Handle[Geom2dCurve]; s: Handle[GeomSurface];

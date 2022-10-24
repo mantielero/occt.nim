@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of XSControl_WorkSession"
 discard "forward decl of StepData_StepModel"
 discard "forward decl of TopoDS_Shape"
-type
-  STEPControlWriter* {.importcpp: "STEPControl_Writer",
-                      header: "STEPControl_Writer.hxx", bycopy.} = object ## ! Creates a Writer from scratch
 
 
 proc newSTEPControlWriter*(): STEPControlWriter {.cdecl, constructor,

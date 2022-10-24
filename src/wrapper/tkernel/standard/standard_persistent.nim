@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -15,9 +17,6 @@
 ## ! Root of "persistent" classes, a legacy support of
 ## ! object oriented databases, now outdated.
 
-type
-  StandardPersistent* {.importcpp: "Standard_Persistent",
-                       header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
 
 proc constructStandardPersistent*(): StandardPersistent {.cdecl, constructor,

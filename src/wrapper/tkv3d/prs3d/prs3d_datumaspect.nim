@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-07-30
 ##  Created by: Jean-Louis FRENKEL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,19 +18,6 @@
 
 ## ! A framework to define the display of datums.
 
-type
-  Prs3dDatumAspect* {.importcpp: "Prs3d_DatumAspect",
-                     header: "Prs3d_DatumAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                     ## !
-                                                                                     ## An
-                                                                                     ## empty
-                                                                                     ## framework
-                                                                                     ## to
-                                                                                     ## define
-                                                                                     ## the
-                                                                                     ## display
-                                                                                     ## of
-                                                                                     ## datums.
 
 
 proc newPrs3dDatumAspect*(): Prs3dDatumAspect {.cdecl, constructor,
@@ -100,5 +89,4 @@ proc arrowPartForAxis*(this: Prs3dDatumAspect; thePart: Prs3dDatumParts): Prs3dD
 proc dumpJson*(this: Prs3dDatumAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_DatumAspect.hxx".}
-type
-  HandlePrs3dDatumAspect* = Handle[Prs3dDatumAspect]
+

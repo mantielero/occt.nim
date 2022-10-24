@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -25,9 +27,6 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Extrema_POnCurv2d"
 discard "forward decl of Extrema_EPCOfExtPC2d"
 discard "forward decl of Extrema_PCFOfEPCOfExtPC2d"
-type
-  ExtremaExtPC2d* {.importcpp: "Extrema_ExtPC2d", header: "Extrema_ExtPC2d.hxx",
-                   bycopy.} = object
 
 
 proc newExtremaExtPC2d*(): ExtremaExtPC2d {.cdecl, constructor,

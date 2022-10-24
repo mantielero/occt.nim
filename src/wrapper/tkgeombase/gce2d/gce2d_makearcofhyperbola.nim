@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,29 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeArcOfHyperbola* {.importcpp: "GCE2d_MakeArcOfHyperbola",
-                            header: "GCE2d_MakeArcOfHyperbola.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                            ## !
-                                                                                            ## Makes
-                                                                                            ## an
-                                                                                            ## arc
-                                                                                            ## of
-                                                                                            ## Hyperbola
-                                                                                            ## (TrimmedCurve
-                                                                                            ## from
-                                                                                            ## Geom2d)
-                                                                                            ## from
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## a
-                                                                                            ## Hyperbola
-                                                                                            ## between
-                                                                                            ## two
-                                                                                            ## parameters
-                                                                                            ## Alpha1
-                                                                                            ## and
-                                                                                            ## Alpha2.
 
 
 proc newGCE2dMakeArcOfHyperbola*(hypr: Hypr2dObj; alpha1: cfloat; alpha2: cfloat;

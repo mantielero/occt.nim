@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 1991-01-08
 ##  Created by: Didier Piffault
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BndHArray1OfBox* {.importcpp: "Bnd_HArray1OfBox", header: "Bnd_HArray1OfBox.hxx",
-                    bycopy.} = object
 
 
 proc newBndHArray1OfBox*(theLower: cint; theUpper: cint): BndHArray1OfBox {.cdecl,

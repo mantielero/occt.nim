@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,23 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Solid"
 discard "forward decl of TCollection_AsciiString"
-type
-  TopOpeBRepBuildShellFaceSet* {.importcpp: "TopOpeBRepBuild_ShellFaceSet",
-                                header: "TopOpeBRepBuild_ShellFaceSet.hxx", bycopy.} = object of TopOpeBRepBuildShapeSet ##
-                                                                                                                  ## !
-                                                                                                                  ## Creates
-                                                                                                                  ## a
-                                                                                                                  ## ShellFaceSet
-                                                                                                                  ## to
-                                                                                                                  ## build
-                                                                                                                  ## blocks
-                                                                                                                  ## of
-                                                                                                                  ## faces
-                                                                                                                  ##
-                                                                                                                  ## !
-                                                                                                                  ## connected
-                                                                                                                  ## by
-                                                                                                                  ## edges.
 
 
 proc newTopOpeBRepBuildShellFaceSet*(): TopOpeBRepBuildShellFaceSet {.cdecl,

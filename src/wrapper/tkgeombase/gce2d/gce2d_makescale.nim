@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,11 +18,6 @@
 
 discard "forward decl of Geom2d_Transformation"
 discard "forward decl of gp_Pnt2d"
-type
-  GCE2dMakeScale* {.importcpp: "GCE2d_MakeScale", header: "GCE2d_MakeScale.hxx",
-                   bycopy.} = object ## ! Constructs a scaling transformation with
-                                  ## ! -   Point as the center of the transformation, and
-                                  ## ! -   Scale as the scale factor.
 
 
 proc newGCE2dMakeScale*(point: Pnt2dObj; scale: cfloat): GCE2dMakeScale {.cdecl,

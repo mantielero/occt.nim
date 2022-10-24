@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,35 +26,6 @@ discard "forward decl of GeomAdaptor_GHSurface"
 discard "forward decl of GeomAdaptor_HSurface"
 discard "forward decl of GeomAdaptor_GHCurve"
 discard "forward decl of GeomAdaptor_HCurve"
-type
-  GeomAdaptor* {.importcpp: "GeomAdaptor", header: "GeomAdaptor.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Inherited
-                                                                                ## from
-                                                                                ## GHCurve.
-                                                                                ## Provides
-                                                                                ## a
-                                                                                ## curve
-                                                                                ##
-                                                                                ## !
-                                                                                ## handled
-                                                                                ## by
-                                                                                ## reference.
-                                                                                ##
-                                                                                ## !
-                                                                                ## Build
-                                                                                ## a
-                                                                                ## Geom_Curve
-                                                                                ## using
-                                                                                ## the
-                                                                                ## informations
-                                                                                ## from
-                                                                                ## the
-                                                                                ##
-                                                                                ## !
-                                                                                ## Curve
-                                                                                ## from
-                                                                                ## Adaptor3d
 
 
 proc makeCurve*(c: Adaptor3dCurve): Handle[GeomCurve] {.cdecl,

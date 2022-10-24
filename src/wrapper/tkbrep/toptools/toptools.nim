@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,11 +21,6 @@ discard "forward decl of TopTools_ShapeMapHasher"
 discard "forward decl of TopTools_OrientedShapeMapHasher"
 discard "forward decl of TopTools_LocationSet"
 discard "forward decl of TopTools_ShapeSet"
-type
-  TopTools* {.importcpp: "TopTools", header: "TopTools.hxx", bycopy.} = object ## ! A set of Shapes. Can be dump, wrote or read.
-                                                                       ## ! Dumps the
-                                                                       ## topological structure  of <Sh>  on the
-                                                                       ## ! stream <S>.
 
 
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.cdecl,

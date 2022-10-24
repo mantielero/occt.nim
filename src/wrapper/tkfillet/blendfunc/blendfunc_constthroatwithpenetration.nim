@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -20,9 +22,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Lin"
 discard "forward decl of Blend_Point"
-type
-  BlendFuncConstThroatWithPenetration* {.importcpp: "BlendFunc_ConstThroatWithPenetration", header: "BlendFunc_ConstThroatWithPenetration.hxx",
-                                        bycopy.} = object of BlendFuncConstThroat
 
 
 proc newBlendFuncConstThroatWithPenetration*(s1: Handle[Adaptor3dHSurface];

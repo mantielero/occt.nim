@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1996-01-29
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
-type
-  TopOpeBRepBuildWireToFace* {.importcpp: "TopOpeBRepBuild_WireToFace",
-                              header: "TopOpeBRepBuild_WireToFace.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildWireToFace*(): TopOpeBRepBuildWireToFace {.cdecl,

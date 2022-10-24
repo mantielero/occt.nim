@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -14,71 +16,6 @@
 
 discard "forward decl of Graphic3d_GraphicDriver"
 discard "forward decl of Graphic3d_StructureManager"
-type
-  Graphic3dCStructure* {.importcpp: "Graphic3d_CStructure",
-                        header: "Graphic3d_CStructure.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Auxiliary
-                                                                                            ## wrapper
-                                                                                            ## to
-                                                                                            ## iterate
-                                                                                            ## through
-                                                                                            ## structure
-                                                                                            ## list.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## @return
-                                                                                            ## graphic
-                                                                                            ## driver
-                                                                                            ## created
-                                                                                            ## this
-                                                                                            ## structure
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## FALSE
-                                                                                            ## if
-                                                                                            ## the
-                                                                                            ## structure
-                                                                                            ## hits
-                                                                                            ## the
-                                                                                            ## current
-                                                                                            ## view
-                                                                                            ## volume,
-                                                                                            ## otherwise
-                                                                                            ## returns
-                                                                                            ## TRUE.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Update
-                                                                                            ## structure
-                                                                                            ## visibility
-                                                                                            ## state
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Create
-                                                                                            ## empty
-                                                                                            ## structure.
-                                                                                            ##
-                                                                                            ## Type
-                                                                                            ## definition
-    id* {.importc: "Id".}: cint
-    myZLayer* {.importc: "myZLayer".}: Graphic3dZLayerId
-    priority* {.importc: "Priority".}: cint
-    previousPriority* {.importc: "PreviousPriority".}: cint
-    containsFacet* {.importc: "ContainsFacet".}: cint
-    viewAffinity* {.importc: "ViewAffinity".}: Handle[Graphic3dViewAffinity] ## !< view affinity mask
-    isInfinite* {.importc: "IsInfinite", bitsize: 1.}: cuint
-    stick* {.importc: "stick", bitsize: 1.}: cuint ## !< displaying state - should be set when structure has been added to scene graph (but can be in hidden state)
-    highlight* {.importc: "highlight", bitsize: 1.}: cuint
-    visible* {.importc: "visible", bitsize: 1.}: cuint ## !< visibility flag - can be used to suppress structure while leaving it in the scene graph
-    hLRValidation* {.importc: "HLRValidation", bitsize: 1.}: cuint
-    isForHighlight* {.importc: "IsForHighlight", bitsize: 1.}: cuint
-    isMutable* {.importc: "IsMutable", bitsize: 1.}: cuint
-    is2dText* {.importc: "Is2dText", bitsize: 1.}: cuint
-    ## ! Current highlight style; is set only if highlight flag is true
-    ## !< A status specifying is structure needs to be rendered after BVH tree traverse
-    ## !< Flag responsible for checking of bounding box clipping before drawing of object
 
 
 proc graphicDriver*(this: Graphic3dCStructure): Handle[Graphic3dGraphicDriver] {.
@@ -154,5 +91,4 @@ proc updateLayerTransformation*(this: var Graphic3dCStructure) {.cdecl,
 proc dumpJson*(this: Graphic3dCStructure; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CStructure.hxx".}
-type
-  HandleGraphic3dCStructure* = Handle[Graphic3dCStructure]
+

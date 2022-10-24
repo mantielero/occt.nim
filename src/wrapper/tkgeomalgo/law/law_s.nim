@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1993-12-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,15 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Law_S"
-type
-  HandleLawS* = Handle[LawS]
 
-## ! Describes an "S" evolution law.
 
-type
-  LawS* {.importcpp: "Law_S", header: "Law_S.hxx", bycopy.} = object of LawBSpFunc ## !
-                                                                         ## Constructs an empty "S"
-                                                                         ## evolution law.
 
 
 proc newLawS*(): LawS {.cdecl, constructor, importcpp: "Law_S(@)", header: "Law_S.hxx".}

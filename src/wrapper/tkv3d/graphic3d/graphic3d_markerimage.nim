@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-06-25
 ##  Created by: Dmitry BOBYLEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -14,26 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Image_PixMap"
-type
-  Graphic3dMarkerImage* {.importcpp: "Graphic3d_MarkerImage",
-                         header: "Graphic3d_MarkerImage.hxx", bycopy.} = object of StandardTransient ##
-                                                                                              ## !
-                                                                                              ## @param
-                                                                                              ## theImage
-                                                                                              ## -
-                                                                                              ## source
-                                                                                              ## image
-                                                                                              ##
-                                                                                              ## Type
-                                                                                              ## definition
-    ## !< resource identifier
-    ## !< resource identifier
-    ## !< bytes array with bitmap definition (for compatibility with old code)
-    ## !< full-color  marker definition
-    ## !< alpha-color marker definition (for dynamic hi-lighting)
-    ## !< extra margin from boundaries for bitmap -> point sprite conversion, 1 px by default
-    ## !< marker width
-    ## !< marker height
 
 
 proc newGraphic3dMarkerImage*(theImage: Handle[ImagePixMap]): Graphic3dMarkerImage {.
@@ -55,5 +37,4 @@ proc getImageAlphaId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.
 proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var cint;
                     theHeight: var cint) {.noSideEffect, cdecl,
                                         importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
-type
-  HandleGraphic3dMarkerImage* = Handle[Graphic3dMarkerImage]
+

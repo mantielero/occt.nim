@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1998-05-12
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -22,15 +24,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Approx_CurvlinFunc"
-type
-  HandleApproxCurvlinFunc* = Handle[ApproxCurvlinFunc]
 
-## ! defines an abstract curve with
-## ! curvilinear parametrization
 
-type
-  ApproxCurvlinFunc* {.importcpp: "Approx_CurvlinFunc",
-                      header: "Approx_CurvlinFunc.hxx", bycopy.} = object of StandardTransient
 
 
 proc newApproxCurvlinFunc*(c: Handle[Adaptor3dHCurve]; tol: cfloat): ApproxCurvlinFunc {.

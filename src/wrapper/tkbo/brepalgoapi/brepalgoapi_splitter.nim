@@ -1,3 +1,5 @@
+import brepalgoapi_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -39,67 +41,6 @@
 ## ! - *BOPAlgo_AlertIntersectionFailed* - in case the Intersection of the arguments has failed;<br>
 ## ! - *BOPAlgo_AlertBuilderFailed*      - in case the Building of the result has failed.
 
-type
-  BRepAlgoAPI_Splitter* {.importcpp: "BRepAlgoAPI_Splitter",
-                         header: "BRepAlgoAPI_Splitter.hxx", bycopy.} = object of BRepAlgoAPI_BuilderAlgo ##
-                                                                                                   ## !
-                                                                                                   ## @name
-                                                                                                   ## Constructors
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @name
-                                                                                                   ## Setters/Getters
-                                                                                                   ## for
-                                                                                                   ## the
-                                                                                                   ## Tools
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Sets
-                                                                                                   ## the
-                                                                                                   ## Tool
-                                                                                                   ## arguments
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @name
-                                                                                                   ## Performing
-                                                                                                   ## the
-                                                                                                   ## operation
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Performs
-                                                                                                   ## the
-                                                                                                   ## Split
-                                                                                                   ## operation.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Performs
-                                                                                                   ## the
-                                                                                                   ## intersection
-                                                                                                   ## of
-                                                                                                   ## the
-                                                                                                   ## argument
-                                                                                                   ## shapes
-                                                                                                   ## (both
-                                                                                                   ## objects
-                                                                                                   ## and
-                                                                                                   ## tools)
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## and
-                                                                                                   ## splits
-                                                                                                   ## objects
-                                                                                                   ## by
-                                                                                                   ## the
-                                                                                                   ## tools.
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## @name
-                                                                                                   ## Fields
-    ## !< Tool arguments of the operation
 
 
 proc newBRepAlgoAPI_Splitter*(): BRepAlgoAPI_Splitter {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2009-12-30
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -17,12 +19,6 @@
 ##  Allocator that uses the global dynamic heap (malloc / free).
 ##
 
-type
-  NCollectionHeapAllocator* {.importcpp: "NCollection_HeapAllocator",
-                             header: "NCollection_HeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  ---------- PUBLIC METHODS ----------
-                                                                                                             ## ! Constructor - prohibited
-                                                                                                             ## ! Copy constructor - prohibited
-                                                                                                             ##  Declaration of CASCADE RTTI
 
 
 proc allocate*(this: var NCollectionHeapAllocator; theSize: csize_t): pointer {.cdecl,
@@ -34,5 +30,4 @@ proc globalHeapAllocator*(): Handle[NCollectionHeapAllocator] {.cdecl,
     header: "NCollection_HeapAllocator.hxx".}
 ##  Definition of HANDLE object using Standard_DefineHandle.hxx
 
-type
-  HandleNCollectionHeapAllocator* = Handle[NCollectionHeapAllocator]
+

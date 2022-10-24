@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-03-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,63 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
-type
-  MathNewtonFunctionRoot* {.importcpp: "math_NewtonFunctionRoot",
-                           header: "math_NewtonFunctionRoot.hxx", bycopy.} = object ## !
-                                                                               ## The
-                                                                               ## Newton
-                                                                               ## method
-                                                                               ## is
-                                                                               ## done
-                                                                               ## to
-                                                                               ## find
-                                                                               ## the
-                                                                               ## root
-                                                                               ## of
-                                                                               ## the
-                                                                               ## function F
-                                                                               ## !
-                                                                               ## from
-                                                                               ## the
-                                                                               ## initial
-                                                                               ## guess
-                                                                               ## Guess.
-                                                                               ## !
-                                                                               ## The
-                                                                               ## tolerance
-                                                                               ## required
-                                                                               ## on
-                                                                               ## the
-                                                                               ## root
-                                                                               ## is
-                                                                               ## given
-                                                                               ## by
-                                                                               ## Tolerance.
-                                                                               ## !
-                                                                               ## The
-                                                                               ## solution
-                                                                               ## is
-                                                                               ## found
-                                                                               ## when :
-                                                                               ## !
-                                                                               ## abs(Xi -
-                                                                               ## Xi-1)
-                                                                               ## <=
-                                                                               ## EpsX
-                                                                               ## and
-                                                                               ## abs(F(Xi))<=
-                                                                               ## EpsF
-                                                                               ## !
-                                                                               ## The
-                                                                               ## maximum
-                                                                               ## number
-                                                                               ## of
-                                                                               ## iterations
-                                                                               ## allowed
-                                                                               ## is
-                                                                               ## given
-                                                                               ## by
-                                                                               ## NbIterations.
 
 
 proc newMathNewtonFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;

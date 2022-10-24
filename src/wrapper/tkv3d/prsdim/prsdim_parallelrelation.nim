@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,46 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimParallelRelation* = Handle[PrsDimParallelRelation]
 
-## ! A framework to display constraints of parallelism
-## ! between two or more Interactive Objects. These
-## ! entities can be faces or edges.
 
-type
-  PrsDimParallelRelation* {.importcpp: "PrsDim_ParallelRelation",
-                           header: "PrsDim_ParallelRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                               ## !
-                                                                                               ## Constructs
-                                                                                               ## an
-                                                                                               ## object
-                                                                                               ## to
-                                                                                               ## display
-                                                                                               ## parallel
-                                                                                               ## constraints.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## This
-                                                                                               ## object
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## the
-                                                                                               ## first
-                                                                                               ## shape
-                                                                                               ## aFShape
-                                                                                               ## and
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## the
-                                                                                               ## second
-                                                                                               ## shape
-                                                                                               ## aSShape
-                                                                                               ## and
-                                                                                               ## the
-                                                                                               ## plane
-                                                                                               ## aPlane.
 
 
 proc newPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;

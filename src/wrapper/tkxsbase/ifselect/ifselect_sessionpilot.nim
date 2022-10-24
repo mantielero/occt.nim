@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,75 +22,8 @@ discard "forward decl of IFSelect_WorkLibrary"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SignCounter"
 discard "forward decl of IFSelect_SessionPilot"
-type
-  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
 
-## ! A SessionPilot is intended to make easier the use of a
-## ! WorkSession. It receives commands, under alphanumeric form,
-## ! then calls a library of Activators to interprete and run them.
-## !
-## ! Then, WorkSession just records data required to work :
-## ! Rules for Selection, Dispatch ... ; File Data (InterfaceModel
-## ! and results of Evaluations and Transfer as required).
-## ! SessionPilot records and works with alphanumeric commands and
-## ! their results (under a very simple form). It calls a list of
-## ! Activators to perform the actions.
-## !
-## ! A Command can have several forms :
-## ! - classic execution, to list, evaluate, or enrich the session
-## ! - command which creates a new item (a Selection for instance)
-## ! such a command should not add it to the session, but make it
-## ! recorded by the Pilot (method RecordItem). The Pilot will
-## ! add the item in the session, with no name
-## ! -> such a command may be called :
-## ! - directly, it will add an item with no name
-## ! - by command xset, in the following form :
-## ! xset name command ...  calls the command and adds the item
-## ! to the session under the specified name (if not yet known)
-## !
-## ! Thus, to a specific Norm or way of working, only Activators
-## ! change. A specific Initialisation can be done by starting
-## ! with a specific set of commands.
-## !
-## ! In addition, SessionPilot is a sub-type of Activator, to
-## ! recognize some built-in commands : exit/x, help/?, control of
-## ! command line, and commands xstep xset ... See method Do
-## !
-## ! At least, empty lines and comment lines (beginning by '#')
-## ! are skipped (comment lines are display if read from file)
 
-type
-  IFSelectSessionPilot* {.importcpp: "IFSelect_SessionPilot",
-                         header: "IFSelect_SessionPilot.hxx", bycopy.} = object of IFSelectActivator ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## SessionPilot,
-                                                                                              ## with
-                                                                                              ## a
-                                                                                              ## prompt
-                                                                                              ## which
-                                                                                              ## will
-                                                                                              ## be
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## displayed
-                                                                                              ## on
-                                                                                              ## querying
-                                                                                              ## commands.
-                                                                                              ## If
-                                                                                              ## not
-                                                                                              ## precised
-                                                                                              ## (""),
-                                                                                              ## this
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## prompt
-                                                                                              ## is
-                                                                                              ## set
-                                                                                              ## to
-                                                                                              ## "Test-XSTEP>"
 
 
 proc newIFSelectSessionPilot*(prompt: cstring = ""): IFSelectSessionPilot {.cdecl,

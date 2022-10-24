@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  TopOpeBRepBuildBuilderON* {.importcpp: "TopOpeBRepBuild_BuilderON",
-                             header: "TopOpeBRepBuild_BuilderON.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildBuilderON*(): TopOpeBRepBuildBuilderON {.cdecl, constructor,

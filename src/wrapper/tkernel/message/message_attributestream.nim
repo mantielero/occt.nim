@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,15 +15,6 @@
 
 ## ! Alert object storing stream value
 
-type
-  MessageAttributeStream* {.importcpp: "Message_AttributeStream",
-                           header: "Message_AttributeStream.hxx", bycopy.} = object of MessageAttribute ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-                                                                                                 ## with
-                                                                                                 ## string
-                                                                                                 ## argument
-    ## !< container of values
 
 
 proc newMessageAttributeStream*(theStream: StandardSStream; theName: TCollectionAsciiString = TCollectionAsciiString()): MessageAttributeStream {.

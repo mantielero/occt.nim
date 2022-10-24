@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,24 +21,8 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_DispatchControl"
-type
-  HandleTransferDispatchControl* = Handle[TransferDispatchControl]
 
-## ! This is an auxiliary class for TransferDispatch, which allows
-## ! to record simple copies, as CopyControl from Interface, but
-## ! based on a TransientProcess. Hence, it allows in addition
-## ! more actions (such as recording results of adaptations)
 
-type
-  TransferDispatchControl* {.importcpp: "Transfer_DispatchControl",
-                            header: "Transfer_DispatchControl.hxx", bycopy.} = object of InterfaceCopyControl ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## the
-                                                                                                       ## DispatchControl,
-                                                                                                       ## ready
-                                                                                                       ## for
-                                                                                                       ## use
 
 
 proc newTransferDispatchControl*(model: Handle[InterfaceInterfaceModel];

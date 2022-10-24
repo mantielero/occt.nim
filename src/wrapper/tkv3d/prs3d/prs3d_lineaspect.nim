@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,13 +25,6 @@
 ## ! an argument may then be given the attribute manager
 ## ! as a substitute argument in the form of a field such as myDrawer for example.
 
-type
-  Prs3dLineAspect* {.importcpp: "Prs3d_LineAspect", header: "Prs3d_LineAspect.hxx",
-                    bycopy.} = object of Prs3dBasicAspect ## ! Constructs a framework for line aspect defined by
-                                                     ## ! -   the color aColor
-                                                     ## ! -   the type of line aType and
-                                                     ## ! -   the line thickness aWidth.
-                                                     ## ! Type of line refers to whether the line is solid or dotted, for example.
 
 
 proc newPrs3dLineAspect*(theColor: QuantityColor; theType: AspectTypeOfLine;
@@ -50,5 +45,4 @@ proc setAspect*(this: var Prs3dLineAspect; theAspect: Handle[Graphic3dAspectLine
 proc dumpJson*(this: Prs3dLineAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_LineAspect.hxx".}
-type
-  HandlePrs3dLineAspect* = Handle[Prs3dLineAspect]
+

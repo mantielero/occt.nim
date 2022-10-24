@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-01-11
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectUnion"
-type
-  HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
 
-## ! A SelectUnion cumulates the Entities issued from several other
-## ! Selections (union of results : "OR" operator)
 
-type
-  IFSelectSelectUnion* {.importcpp: "IFSelect_SelectUnion",
-                        header: "IFSelect_SelectUnion.hxx", bycopy.} = object of IFSelectSelectCombine ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## an
-                                                                                                ## empty
-                                                                                                ## SelectUnion
 
 
 proc newIFSelectSelectUnion*(): IFSelectSelectUnion {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1993-04-21
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,12 +32,6 @@ discard "forward decl of gp_Torus"
 discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Ax1"
-type
-  GeomAdaptorSurfaceOfLinearExtrusion* {.importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx",
-                                        bycopy.} = object of GeomAdaptorSurface
-    ## /< extruded curve
-    ## /< direction of extrusion
-    ## /< whether the direction of extrusion is initialized
 
 
 proc newGeomAdaptorSurfaceOfLinearExtrusion*(): GeomAdaptorSurfaceOfLinearExtrusion {.

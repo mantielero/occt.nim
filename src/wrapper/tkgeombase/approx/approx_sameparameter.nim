@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1995-06-02
 ##  Created by: Xavier BENVENISTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,22 +22,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Geom_Curve"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of Geom_Surface"
-type
-  ApproxSameParameter* {.importcpp: "Approx_SameParameter",
-                        header: "Approx_SameParameter.hxx", bycopy.} = object ## !
-                                                                         ## Warning: the C3D and C2D must have the same
-                                                                         ## parametric domain.
-                                                                         ## !
-                                                                         ## Internal data
-                                                                         ## structure to unify access to the most
-                                                                         ## actively used data.
-                                                                         ## ! This
-                                                                         ## structure is not
-                                                                         ## intended to be class field since
-                                                                         ## ! a lot of memory is used in
-                                                                         ## intermediate
-                                                                         ## computations.
-    ##  Initialization is allowed only for integral types.
 
 
 proc newApproxSameParameter*(c3d: Handle[GeomCurve]; c2d: Handle[Geom2dCurve];

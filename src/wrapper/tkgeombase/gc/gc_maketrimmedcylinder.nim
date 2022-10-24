@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,46 +21,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Cylinder"
-type
-  MakeTrimmedCylinder* {.importcpp: "GC_MakeTrimmedCylinder",
-                        header: "GC_MakeTrimmedCylinder.hxx", bycopy.} = object of Root ##
-                                                                                 ## !
-                                                                                 ## Make
-                                                                                 ## a
-                                                                                 ## cylindricalSurface
-                                                                                 ## <Cyl>
-                                                                                 ## from
-                                                                                 ## Geom
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Its
-                                                                                 ## axis
-                                                                                 ## is
-                                                                                 ## is
-                                                                                 ## <P1P2>
-                                                                                 ## and
-                                                                                 ## its
-                                                                                 ## radius
-                                                                                 ## is
-                                                                                 ## the
-                                                                                 ## distance
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## between
-                                                                                 ## <P3>
-                                                                                 ## and
-                                                                                 ## <P1P2>.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## The
-                                                                                 ## height
-                                                                                 ## is
-                                                                                 ## the
-                                                                                 ## distance
-                                                                                 ## between
-                                                                                 ## P1
-                                                                                 ## and
-                                                                                 ## P2.
 
 
 proc trimmedCylinder*(p1: PntObj; p2: PntObj; p3: PntObj): MakeTrimmedCylinder {.cdecl,

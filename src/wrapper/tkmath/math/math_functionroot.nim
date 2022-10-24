@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-03-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,15 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_FunctionWithDerivative"
-type
-  MathFunctionRoot* {.importcpp: "math_FunctionRoot",
-                     header: "math_FunctionRoot.hxx", bycopy.} = object ## ! The
-                                                                   ## Newton-Raphson method is done to find the root of the function F
-                                                                   ## ! from the initial guess Guess.The tolerance required on
-                                                                   ## ! the root is given by Tolerance. Iterations are stopped if
-                                                                   ## ! the expected solution does not stay in the range A..B.
-                                                                   ## ! The solution is found when abs(Xi - Xi-1) <= Tolerance;
-                                                                   ## ! The maximum number of iterations allowed is given by NbIterations.
 
 
 proc newMathFunctionRoot*(f: var MathFunctionWithDerivative; guess: cfloat;

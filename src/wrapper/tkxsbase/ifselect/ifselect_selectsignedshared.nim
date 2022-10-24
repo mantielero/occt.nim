@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1996-09-25
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -20,35 +22,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_SelectSignedShared"
-type
-  HandleIFSelectSelectSignedShared* = Handle[IFSelectSelectSignedShared]
 
-## ! In the graph, explore the Shareds of the input entities,
-## ! until it encounters some which match a given Signature
-## ! (for a limited level, filters the returned list)
-## ! By default, fitted for any level
 
-type
-  IFSelectSelectSignedShared* {.importcpp: "IFSelect_SelectSignedShared",
-                               header: "IFSelect_SelectSignedShared.hxx", bycopy.} = object of IFSelectSelectExplore ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## a
-                                                                                                              ## SelectSignedShared,
-                                                                                                              ## defaulted
-                                                                                                              ## for
-                                                                                                              ## any
-                                                                                                              ## level
-                                                                                                              ##
-                                                                                                              ## !
-                                                                                                              ## with
-                                                                                                              ## a
-                                                                                                              ## given
-                                                                                                              ## Signature
-                                                                                                              ## and
-                                                                                                              ## text
-                                                                                                              ## to
-                                                                                                              ## match
 
 
 proc newIFSelectSelectSignedShared*(matcher: Handle[IFSelectSignature];

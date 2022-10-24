@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_Function"
-type
-  MathBrentMinimum* {.importcpp: "math_BrentMinimum",
-                     header: "math_BrentMinimum.hxx", bycopy.} = object ## ! This constructor should be used in a sub-class to initialize
-                                                                   ## ! correctly all the fields of this class.
 
 
 proc newMathBrentMinimum*(tolX: cfloat; nbIterations: cint = 100;

@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1999-01-14
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Face"
-type
-  TopOpeBRepToolFace* {.importcpp: "TopOpeBRepTool_face",
-                       header: "TopOpeBRepTool_face.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolFace*(): TopOpeBRepToolFace {.cdecl, constructor,

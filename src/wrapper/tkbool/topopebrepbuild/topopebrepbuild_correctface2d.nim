@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 2000-01-25
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
@@ -21,10 +23,6 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of Bnd_Box2d"
-type
-  TopOpeBRepBuildCorrectFace2d* {.importcpp: "TopOpeBRepBuild_CorrectFace2d",
-                                 header: "TopOpeBRepBuild_CorrectFace2d.hxx",
-                                 bycopy.} = object
 
 
 proc newTopOpeBRepBuildCorrectFace2d*(): TopOpeBRepBuildCorrectFace2d {.cdecl,

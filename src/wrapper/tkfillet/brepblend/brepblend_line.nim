@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Blend_Point"
 discard "forward decl of BRepBlend_Extremity"
 discard "forward decl of BRepBlend_Line"
-type
-  HandleBRepBlendLine* = Handle[BRepBlendLine]
-  BRepBlendLine* {.importcpp: "BRepBlend_Line", header: "BRepBlend_Line.hxx", bycopy.} = object of StandardTransient
 
 
 proc newBRepBlendLine*(): BRepBlendLine {.cdecl, constructor,

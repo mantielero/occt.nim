@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2014-03-12
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -15,17 +17,6 @@
 
 ## ! Defines a "shadow" of existing presentation object with custom aspects.
 
-type
-  Prs3dPresentationShadow* {.importcpp: "Prs3d_PresentationShadow",
-                            header: "Prs3d_PresentationShadow.hxx", bycopy.} = object of Graphic3dStructure ##
-                                                                                                     ## !
-                                                                                                     ## Constructs
-                                                                                                     ## a
-                                                                                                     ## shadow
-                                                                                                     ## of
-                                                                                                     ## existing
-                                                                                                     ## presentation
-                                                                                                     ## object.
 
 
 proc newPrs3dPresentationShadow*(theViewer: Handle[Graphic3dStructureManager];
@@ -40,5 +31,4 @@ proc calculateBoundBox*(this: var Prs3dPresentationShadow) {.cdecl,
 proc dumpJson*(this: Prs3dPresentationShadow; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PresentationShadow.hxx".}
-type
-  HandlePrs3dPresentationShadow* = Handle[Prs3dPresentationShadow]
+

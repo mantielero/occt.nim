@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-06-23
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,15 +23,8 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_GuideTrihedronAC"
-type
-  HandleGeomFillGuideTrihedronAC* = Handle[GeomFillGuideTrihedronAC]
 
-## ! Trihedron in  the  case of a sweeping along a guide  curve.
-## ! defined by curviline  absciss
 
-type
-  GeomFillGuideTrihedronAC* {.importcpp: "GeomFill_GuideTrihedronAC",
-                             header: "GeomFill_GuideTrihedronAC.hxx", bycopy.} = object of GeomFillTrihedronWithGuide
 
 
 proc newGeomFillGuideTrihedronAC*(guide: Handle[Adaptor3dHCurve]): GeomFillGuideTrihedronAC {.

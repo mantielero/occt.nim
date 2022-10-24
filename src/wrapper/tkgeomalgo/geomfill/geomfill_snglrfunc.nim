@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-02-26
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  GeomFillSnglrFunc* {.importcpp: "GeomFill_SnglrFunc",
-                      header: "GeomFill_SnglrFunc.hxx", bycopy.} = object of Adaptor3dCurve
 
 
 proc newGeomFillSnglrFunc*(hc: Handle[Adaptor3dHCurve]): GeomFillSnglrFunc {.cdecl,

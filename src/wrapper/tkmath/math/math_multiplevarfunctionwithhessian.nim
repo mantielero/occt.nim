@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1996-02-28
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,18 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of math_Matrix"
-type
-  MathMultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
-                                       bycopy.} = object of MathMultipleVarFunctionWithGradient ##
-                                                                                           ## !
-                                                                                           ## returns
-                                                                                           ## the
-                                                                                           ## number
-                                                                                           ## of
-                                                                                           ## variables
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## function.
 
 
 proc nbVariables*(this: MathMultipleVarFunctionWithHessian): cint {.noSideEffect,

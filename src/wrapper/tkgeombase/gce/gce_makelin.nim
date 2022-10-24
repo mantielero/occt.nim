@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,17 +21,6 @@ discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Lin"
-type
-  GceMakeLin* {.importcpp: "gce_MakeLin", header: "gce_MakeLin.hxx", bycopy.} = object of GceRoot ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## a
-                                                                                        ## line
-                                                                                        ## located
-                                                                                        ## along
-                                                                                        ## the
-                                                                                        ## axis
-                                                                                        ## A1.
 
 
 proc newGceMakeLin*(a1: Ax1Obj): GceMakeLin {.cdecl, constructor,

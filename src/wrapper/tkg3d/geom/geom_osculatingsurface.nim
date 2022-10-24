@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1998-05-05
 ##  Created by: Stepan MISHIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,20 +19,6 @@
 discard "forward decl of Geom_Surface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Geom_OsculatingSurface"
-type
-  HandleGeomOsculatingSurface* = Handle[GeomOsculatingSurface]
-  GeomOsculatingSurface* {.importcpp: "Geom_OsculatingSurface",
-                          header: "Geom_OsculatingSurface.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                ## !
-                                                                                                ## returns
-                                                                                                ## False
-                                                                                                ## if
-                                                                                                ## the
-                                                                                                ## osculating
-                                                                                                ## surface
-                                                                                                ## can't
-                                                                                                ## be
-                                                                                                ## built
 
 
 proc newGeomOsculatingSurface*(): GeomOsculatingSurface {.cdecl, constructor,

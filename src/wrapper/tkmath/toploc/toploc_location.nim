@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1990-12-19
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -18,10 +20,6 @@ discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Trsf"
 discard "forward decl of TopLoc_Datum3D"
-type
-  TopLocLocation* {.importcpp: "TopLoc_Location", header: "TopLoc_Location.hxx",
-                   bycopy.} = object ## ! Constructs an empty local coordinate system object.
-                                  ## ! Note: A Location constructed from a default datum is said to be "empty".
 
 
 proc newTopLocLocation*(): TopLocLocation {.cdecl, constructor,
@@ -80,3 +78,4 @@ proc hashCode*(theLocation: TopLocLocation; theUpperBound: cint): cint {.cdecl.}
 
 proc shallowDump*(me: TopLocLocation; s: var StandardOStream) {.cdecl.} =
   discard
+

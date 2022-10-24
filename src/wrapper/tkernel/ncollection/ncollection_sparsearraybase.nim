@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2007-01-23
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -22,42 +24,6 @@
 ##  of block allocation, items creation / deletion etc.
 ##
 
-type
-  NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
-                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object of RootObj ## !@name Type-independent public interface
-                                                                                       ## !@{
-                                                                                       ## ! Clears all the data
-                                                                                       ## *
-                                                                                       ##  The block of data contains array of items, counter
-                                                                                       ##  and bit field, allocated as single piece of memory addressed
-                                                                                       ##  from the blocks array (myData).
-                                                                                       ##
-                                                                                       ##  The Block structure provides a logical view on the block,
-                                                                                       ##  and provides methods to work with bit map.
-                                                                                       ##
-                                                                                       ##  Note that NCollection_SparseArrayBase class takes responsibility
-                                                                                       ##  for correct allocation/deallocation of all the data.
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##  Iterator
-                                                                                       ##
-                                                                                       ##  Copy constructor and assignment operator are private thus not accessible
-                                                                                       ##  Object life
-                                                                                       ## ! Constructor; initialized by size of item and of block (in items)
-                                                                                       ##  Data access interface for descendants
-                                                                                       ## ! Creates Block structure for block pointed by theAddr
-                                                                                       ##  Methods to be provided by descendant
-                                                                                       ## ! Create new item at the specified address with default constructor
-                                                                                       ##   virtual void createItem (Standard_Address theAddress) = 0;
-                                                                                       ## ! Create new item at the specified address with copy constructor
-                                                                                       ## ! from existing item
-                                                                                       ##  Implementation of memory allocation/deallocation and access mechanics
-                                                                                       ## ! Allocate space for at least iBlock+1 blocks
-    ## !< size of item
-    ## !< block size (in items)
-    ## !< allocated size of blocks table
-    ## !< number of currently defined items
-    ## !< array of pointers to data blocks
 
 
 proc clear*(this: var NCollectionSparseArrayBase) {.cdecl, importcpp: "Clear",
@@ -68,12 +34,6 @@ proc hasValue*(this: NCollectionSparseArrayBase; theIndex: csize_t): bool {.
     noSideEffect, cdecl, importcpp: "HasValue", header: "NCollection_SparseArrayBase.hxx".}
 proc unsetValue*(this: var NCollectionSparseArrayBase; theIndex: csize_t): bool {.
     cdecl, importcpp: "UnsetValue", header: "NCollection_SparseArrayBase.hxx".}
-type
-  NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
-                                       bycopy.} = object of RootObj ##  Public interface
-                                                      ## ! Restart iterations on the same array
-                                                      ##  Methods for descendant
-                                                      ## ! Empty constructor
 
 
 proc restart*(this: var NCollectionSparseArrayBaseIterator) {.cdecl,

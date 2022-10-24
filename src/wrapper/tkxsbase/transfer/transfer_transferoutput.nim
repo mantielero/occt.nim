@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,16 +25,6 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Protocol"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_EntityIterator"
-type
-  TransferTransferOutput* {.importcpp: "Transfer_TransferOutput",
-                           header: "Transfer_TransferOutput.hxx", bycopy.} = object ## !
-                                                                               ## Creates a
-                                                                               ## TransferOutput
-                                                                               ## ready
-                                                                               ## to
-                                                                               ## use,
-                                                                               ## with a
-                                                                               ## TransientProcess
 
 
 proc newTransferTransferOutput*(actor: Handle[TransferActorOfTransientProcess];

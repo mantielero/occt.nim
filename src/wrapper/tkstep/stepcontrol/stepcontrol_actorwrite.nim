@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1995-01-31
 ##  Created by: Dieter THIEMANN
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -22,52 +24,8 @@ discard "forward decl of StepGeom_Axis2Placement3d"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
 discard "forward decl of STEPControl_ActorWrite"
-type
-  HandleSTEPControlActorWrite* = Handle[STEPControlActorWrite]
 
-## ! This class performs the transfer of a Shape from TopoDS
-## ! to AP203 or AP214 (CD2 or DIS)
 
-type
-  STEPControlActorWrite* {.importcpp: "STEPControl_ActorWrite",
-                          header: "STEPControl_ActorWrite.hxx", bycopy.} = object of TransferActorOfFinderProcess ##
-                                                                                                           ## !
-                                                                                                           ## Non-manifold
-                                                                                                           ## shapes
-                                                                                                           ## are
-                                                                                                           ## stored
-                                                                                                           ## in
-                                                                                                           ## NMSSR
-                                                                                                           ## group
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## (NON_MANIFOLD_SURFACE_SHAPE_REPRESENTATION).
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## Use
-                                                                                                           ## this
-                                                                                                           ## method
-                                                                                                           ## to
-                                                                                                           ## get
-                                                                                                           ## the
-                                                                                                           ## corresponding
-                                                                                                           ## NMSSR
-                                                                                                           ## (or
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## to
-                                                                                                           ## create
-                                                                                                           ## a
-                                                                                                           ## new
-                                                                                                           ## one
-                                                                                                           ## if
-                                                                                                           ## doesn't
-                                                                                                           ## exist
-                                                                                                           ## yet)
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## (ssv;
-                                                                                                           ## 13.11.2010)
 
 
 proc newSTEPControlActorWrite*(): STEPControlActorWrite {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 2012-06-27
 ##  Created by: Dmitry BOBYLEV
 ##  Copyright (c) 2012-2014 OPEN CASCADE SAS
@@ -15,11 +17,6 @@
 
 discard "forward decl of Standard_Mutex"
 discard "forward decl of TopoDS_Shape"
-type
-  TopToolsMutexForShapeProvider* {.importcpp: "TopTools_MutexForShapeProvider",
-                                  header: "TopTools_MutexForShapeProvider.hxx",
-                                  bycopy.} = object ## ! Constructor
-                                                 ## ! This method should not be called (prohibited).
 
 
 proc newTopToolsMutexForShapeProvider*(): TopToolsMutexForShapeProvider {.cdecl,

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_ShapeSet"
-type
-  TopOpeBRepBuildFaceBuilder* {.importcpp: "TopOpeBRepBuild_FaceBuilder",
-                               header: "TopOpeBRepBuild_FaceBuilder.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildFaceBuilder*(): TopOpeBRepBuildFaceBuilder {.cdecl,

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -14,41 +16,6 @@
 
 ## ! Contains points array definition.
 
-type
-  Graphic3dArrayOfPoints* {.importcpp: "Graphic3d_ArrayOfPoints",
-                           header: "Graphic3d_ArrayOfPoints.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## an
-                                                                                                           ## array
-                                                                                                           ## of
-                                                                                                           ## points
-                                                                                                           ## (Graphic3d_TOPA_POINTS).
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## The
-                                                                                                           ## array
-                                                                                                           ## must
-                                                                                                           ## be
-                                                                                                           ## filled
-                                                                                                           ## using
-                                                                                                           ## the
-                                                                                                           ## AddVertex(Point)
-                                                                                                           ## method.
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @param
-                                                                                                           ## theMaxVertexs
-                                                                                                           ## maximum
-                                                                                                           ## number
-                                                                                                           ## of
-                                                                                                           ## points
-                                                                                                           ##
-                                                                                                           ## !
-                                                                                                           ## @param
-                                                                                                           ## theArrayFlags
-                                                                                                           ## array
-                                                                                                           ## flags
 
 
 proc newGraphic3dArrayOfPoints*(theMaxVertexs: cint;
@@ -57,5 +24,4 @@ proc newGraphic3dArrayOfPoints*(theMaxVertexs: cint;
 proc newGraphic3dArrayOfPoints*(theMaxVertexs: cint; theHasVColors: bool = false;
                                theHasVNormals: bool = false): Graphic3dArrayOfPoints {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfPoints(@)", header: "Graphic3d_ArrayOfPoints.hxx".}
-type
-  HandleGraphic3dArrayOfPoints* = Handle[Graphic3dArrayOfPoints]
+

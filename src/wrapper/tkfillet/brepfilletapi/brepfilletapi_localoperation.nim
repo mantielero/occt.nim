@@ -1,3 +1,5 @@
+import brepfilletapi_types
+
 ##  Created on: 1998-01-29
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -16,17 +18,6 @@
 
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepFilletAPI_LocalOperation* {.importcpp: "BRepFilletAPI_LocalOperation",
-                                 header: "BRepFilletAPI_LocalOperation.hxx",
-                                 bycopy.} = object of BRepBuilderAPI_MakeShape ## ! Adds a
-                                                                          ## contour in  the
-                                                                          ## builder
-                                                                          ## (builds a
-                                                                          ## !
-                                                                          ## contour  of
-                                                                          ## tangent
-                                                                          ## edges).
 
 
 proc add*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.cdecl,

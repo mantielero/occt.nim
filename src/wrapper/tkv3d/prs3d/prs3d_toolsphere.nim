@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2016-02-04
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -15,20 +17,6 @@
 
 ## ! Standard presentation algorithm that outputs graphical primitives for spherical surface.
 
-type
-  Prs3dToolSphere* {.importcpp: "Prs3d_ToolSphere", header: "Prs3d_ToolSphere.hxx",
-                    bycopy.} = object of Prs3dToolQuadric ## ! Generate primitives for 3D quadric surface.
-                                                     ## ! @param theRadius   [in] sphere radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! @param theTrsf     [in] optional transformation to apply
-                                                     ## ! @return generated triangulation
-                                                     ## ! Initializes the algorithm creating a sphere.
-                                                     ## ! @param theRadius   [in] sphere radius
-                                                     ## ! @param theNbSlices [in] number of slices within U parameter
-                                                     ## ! @param theNbStacks [in] number of stacks within V parameter
-                                                     ## ! Computes vertex at given parameter location of the surface.
-    ## !< sphere radius
 
 
 proc toolSphereCreate*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: TrsfObj): Handle[

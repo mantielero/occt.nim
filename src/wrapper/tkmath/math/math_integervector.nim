@@ -1,3 +1,5 @@
+import math_types
+
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -46,13 +48,6 @@ when defined(Opposite):
 ## !    V1.Add(V3)  // --> will raise DimensionError;
 ## ! @endcode
 
-type
-  MathIntegerVector* {.importcpp: "math_IntegerVector",
-                      header: "math_IntegerVector.hxx", bycopy.} = object ## ! contructs an
-                                                                     ## IntegerVector in the range
-                                                                     ## [Lower..Upper]
-                                                                     ## ! is used internally to set the Lower value of the
-                                                                     ## IntegerVector.
 
 
 proc newMathIntegerVector*(theFirst: cint; theLast: cint): MathIntegerVector {.cdecl,

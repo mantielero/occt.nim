@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -20,21 +22,6 @@
 ## ! This class also has parameters of the text height and H/V alignments.
 ## ! Custom formatting is available using Font_TextFormatter.
 
-type
-  Graphic3dText* {.importcpp: "Graphic3d_Text", header: "Graphic3d_Text.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Creates
-                                                                                                           ## default
-                                                                                                           ## text
-                                                                                                           ## parameters.
-    ## !< text formatter
-    ## !< text value
-    ## !< Text orientation in 3D space.
-    ## !< height of text
-    ## !< horizontal alignment
-    ## !< vertical alignment
-    ## !< Check if text have orientation in 3D space.
-    ## !< flag if text uses position as point of attach
 
 
 proc newGraphic3dText*(theHeight: StandardShortReal): Graphic3dText {.cdecl,
@@ -84,5 +71,4 @@ proc verticalAlignment*(this: Graphic3dText): Graphic3dVerticalTextAlignment {.
 proc setVerticalAlignment*(this: var Graphic3dText;
                           theJustification: Graphic3dVerticalTextAlignment) {.
     cdecl, importcpp: "SetVerticalAlignment", header: "Graphic3d_Text.hxx".}
-type
-  HandleGraphic3dText* = Handle[Graphic3dText]
+

@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TColStdHSequenceOfTransient* {.importcpp: "TColStd_HSequenceOfTransient",
-                                header: "TColStd_HSequenceOfTransient.hxx", bycopy.} = object of TColStdSequenceOfTransient
 
 
 proc newTColStdHSequenceOfTransient*(): TColStdHSequenceOfTransient {.cdecl,
@@ -31,5 +30,4 @@ proc append*(this: var TColStdHSequenceOfTransient;
     importcpp: "Append", header: "TColStd_HSequenceOfTransient.hxx".}
 proc changeSequence*(this: var TColStdHSequenceOfTransient): var TColStdSequenceOfTransient {.
     cdecl, importcpp: "ChangeSequence", header: "TColStd_HSequenceOfTransient.hxx".}
-type
-  HandleTColStdHSequenceOfTransient* = Handle[TColStdHSequenceOfTransient]
+

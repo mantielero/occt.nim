@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2010-03-15
 ##  Created by: Sergey KUUL
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -20,25 +22,6 @@
 ## ! On configurations where TBB is not available standard RTL functions
 ## ! malloc() / free() are used.
 
-type
-  StandardMMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
-                         header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of StandardMMgrRoot ##
-                                                                                             ## !
-                                                                                             ## Constructor;
-                                                                                             ## if
-                                                                                             ## aClear
-                                                                                             ## is
-                                                                                             ## True,
-                                                                                             ## the
-                                                                                             ## memory
-                                                                                             ## will
-                                                                                             ## be
-                                                                                             ## nullified
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## upon
-                                                                                             ## allocation.
-    ## ! Option to nullify allocated memory
 
 
 proc constructStandardMMgrTBBalloc*(aClear: bool = false): StandardMMgrTBBalloc {.

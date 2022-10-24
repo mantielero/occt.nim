@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2015-05-28
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -15,40 +17,6 @@
 
 ## ! Command-queue for parallel building of BVH nodes.
 
-type
-  BVH_BuildQueue* {.importcpp: "BVH_BuildQueue", header: "BVH_BuildQueue.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## new
-                                                                                         ## BVH
-                                                                                         ## build
-                                                                                         ## queue.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Returns
-                                                                                         ## current
-                                                                                         ## size
-                                                                                         ## of
-                                                                                         ## BVH
-                                                                                         ## build
-                                                                                         ## queue.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Queue
-                                                                                         ## of
-                                                                                         ## BVH
-                                                                                         ## nodes
-                                                                                         ## to
-                                                                                         ## build.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Manages
-                                                                                         ## access
-                                                                                         ## serialization
-                                                                                         ## of
-                                                                                         ## working
-                                                                                         ## threads.
-    ## ! Number of active build threads.
 
 
 proc newBVH_BuildQueue*(): BVH_BuildQueue {.cdecl, constructor,

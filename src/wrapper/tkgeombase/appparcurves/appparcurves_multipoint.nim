@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1991-12-02
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,13 +21,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Pnt2d"
-type
-  AppParCurvesMultiPoint* {.importcpp: "AppParCurves_MultiPoint",
-                           header: "AppParCurves_MultiPoint.hxx", bycopy.} = object ## !
-                                                                               ## creates
-                                                                               ## an
-                                                                               ## indefinite
-                                                                               ## MultiPoint.
 
 
 proc newAppParCurvesMultiPoint*(): AppParCurvesMultiPoint {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 2005-12-19
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -13,9 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  MathComputeGaussPointsAndWeights* {.importcpp: "math_ComputeGaussPointsAndWeights", header: "math_ComputeGaussPointsAndWeights.hxx",
-                                     bycopy.} = object
 
 
 proc newMathComputeGaussPointsAndWeights*(number: cint): MathComputeGaussPointsAndWeights {.

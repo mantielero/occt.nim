@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-10-18
 ##  Created by: Michael SAZONOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -23,21 +25,7 @@
 ##  in a random order.
 ##
 
-type
-  NCollectionUBTreeFiller*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTreeFiller<\'0,\'1>",
-      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object ##  ---------- PUBLIC TYPES ----------
-                                                           ## ! Structure of pair (object, bnd box)
-                                                           ##  Assignment operator is made empty and private in order to
-                                                           ##  avoid warning on MSVC (C4512)
-                                                           ##  ---------- PRIVATE FIELDS ----------
-    ## !< random number generator
 
-  NCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTreeFiller<\'0,\'1>::ObjBnd",
-      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object
-    myObj* {.importc: "myObj".}: TheObjType
-    myBnd* {.importc: "myBnd".}: TheBndType
 
 
 proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](theObj: TheObjType;
@@ -47,9 +35,6 @@ proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](theObj: TheObjTyp
 proc newNCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType](): NCollectionUBTreeFillerObjBnd[
     TheObjType, TheBndType] {.cdecl, constructor, importcpp: "NCollection_UBTreeFiller<\'*0,\'*1>::ObjBnd(@)",
                             header: "NCollection_UBTreeFiller.hxx".}
-type
-  NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
-  NCollectionUBTreeFillerUBTreeNode* = TreeNode
 
 proc newNCollectionUBTreeFiller*[TheObjType; TheBndType](
     theTree: var NCollectionUBTreeFillerUBTree;

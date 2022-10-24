@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1994-12-12
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,24 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_Copy* {.importcpp: "BRepBuilderAPI_Copy",
-                        header: "BRepBuilderAPI_Copy.hxx", bycopy.} = object of BRepBuilderAPI_ModifyShape ##
-                                                                                                    ## !
-                                                                                                    ## Constructs
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## copy
-                                                                                                    ## framework.
-                                                                                                    ## Use
-                                                                                                    ## the
-                                                                                                    ## function
-                                                                                                    ##
-                                                                                                    ## !
-                                                                                                    ## Perform
-                                                                                                    ## to
-                                                                                                    ## copy
-                                                                                                    ## shapes.
 
 
 proc copy*(): BRepBuilderAPI_Copy {.cdecl, constructor,

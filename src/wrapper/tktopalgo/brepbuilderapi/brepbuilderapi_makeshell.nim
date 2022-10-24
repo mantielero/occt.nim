@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1994-02-16
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,48 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Shell"
-type
-  BRepBuilderAPI_MakeShell* {.importcpp: "BRepBuilderAPI_MakeShell",
-                             header: "BRepBuilderAPI_MakeShell.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                            ## !
-                                                                                                            ## Constructs
-                                                                                                            ## an
-                                                                                                            ## empty
-                                                                                                            ## shell
-                                                                                                            ## framework.
-                                                                                                            ## The
-                                                                                                            ## Init
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## function
-                                                                                                            ## is
-                                                                                                            ## used
-                                                                                                            ## to
-                                                                                                            ## define
-                                                                                                            ## the
-                                                                                                            ## construction
-                                                                                                            ## arguments.
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Warning
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## The
-                                                                                                            ## function
-                                                                                                            ## Error
-                                                                                                            ## will
-                                                                                                            ## return
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## BRepBuilderAPI_EmptyShell
-                                                                                                            ## if
-                                                                                                            ## it
-                                                                                                            ## is
-                                                                                                            ## called
-                                                                                                            ## before
-                                                                                                            ## the
-                                                                                                            ## function
-                                                                                                            ## Init.
 
 
 proc shell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,

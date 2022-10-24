@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -16,21 +18,6 @@ discard "forward decl of BOPDS_PaveBlock"
 discard "forward decl of BOPDS_CommonBlock"
 discard "forward decl of IntTools_Context"
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoTools* {.importcpp: "BOPAlgo_Tools", header: "BOPAlgo_Tools.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Makes
-                                                                                     ## the
-                                                                                     ## chains
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## connected
-                                                                                     ## elements
-                                                                                     ## from
-                                                                                     ## the
-                                                                                     ## given
-                                                                                     ## connexity
-                                                                                     ## map
 
 
 proc makeBlocks*[TheType; TheTypeHasher](theMILI: NCollectionIndexedDataMap[

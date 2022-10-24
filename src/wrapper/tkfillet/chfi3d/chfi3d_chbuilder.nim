@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1995-04-26
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -27,10 +29,6 @@ discard "forward decl of Adaptor3d_TopolTool"
 discard "forward decl of BRepAdaptor_HCurve2d"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ChFiDS_Stripe"
-type
-  ChFi3dChBuilder* {.importcpp: "ChFi3d_ChBuilder", header: "ChFi3d_ChBuilder.hxx",
-                    bycopy.} = object of ChFi3dBuilder ## ! initializes the Builder with the Shape <S> for the
-                                                  ## ! computation of chamfers
 
 
 proc newChFi3dChBuilder*(s: TopoDS_Shape; ta: cfloat = 1.0e-2): ChFi3dChBuilder {.cdecl,

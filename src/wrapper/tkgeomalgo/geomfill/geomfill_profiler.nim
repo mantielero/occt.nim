@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Geom_Curve"
-type
-  GeomFillProfiler* {.importcpp: "GeomFill_Profiler",
-                     header: "GeomFill_Profiler.hxx", bycopy.} = object of RootObj
 
 
 proc newGeomFillProfiler*(): GeomFillProfiler {.cdecl, constructor,

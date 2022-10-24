@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-05-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,46 +27,8 @@ discard "forward decl of Interface_CopyTool"
 discard "forward decl of Standard_Transient"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_TransformStandard"
-type
-  HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
 
-## ! This class runs transformations made by Modifiers, as
-## ! the ModelCopier does when it produces files (the same set
-## ! of Modifiers can then be used, as to transform the starting
-## ! Model, as at file sending time).
-## !
-## ! First, considering the resulting model, two options :
-## ! - modifications are made directly on the starting model
-## ! (OnTheSpot option), or
-## ! - data are copied by the standard service Copy, only the
-## ! remaining (not yet sent in a file) entities are copied
-## ! (StandardCopy option)
-## !
-## ! If a Selection is set, it forces the list of Entities on which
-## ! the Modifiers are applied. Else, each Modifier is considered
-## ! its Selection. By default, it is for the whole Model
-## !
-## ! Then, the Modifiers are sequentially applied
-## ! If at least one Modifier "May Change Graph", or if the option
-## ! StandardCopy is selected, the graph will be recomputed
-## ! (by the WorkSession, see method RunTransformer)
-## !
-## ! Remark that a TransformStandard with option StandardCopy
-## ! and no Modifier at all has the effect of computing the
-## ! remaining data (those not yet sent in any output file).
-## ! Moreover, the Protocol is not changed
 
-type
-  IFSelectTransformStandard* {.importcpp: "IFSelect_TransformStandard",
-                              header: "IFSelect_TransformStandard.hxx", bycopy.} = object of IFSelectTransformer ##
-                                                                                                          ## !
-                                                                                                          ## Creates
-                                                                                                          ## a
-                                                                                                          ## TransformStandard,
-                                                                                                          ## option
-                                                                                                          ## StandardCopy,
-                                                                                                          ## no
-                                                                                                          ## Modifier
 
 
 proc newIFSelectTransformStandard*(): IFSelectTransformStandard {.cdecl,

@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -19,11 +21,6 @@
 ## ! Overlap detection tests are implemented according to the terms of separating axis
 ## ! theorem (SAT).
 
-type
-  SelectMgrTriangularFrustum* {.importcpp: "SelectMgr_TriangularFrustum",
-                               header: "SelectMgr_TriangularFrustum.hxx", bycopy.} = object of SelectMgrFrustum[
-      3] ## ! Creates new triangular frustum with bases of triangles with vertices theP1,
-        ## ! theP2 and theP3 projections onto near and far view frustum planes
 
 
 proc newSelectMgrTriangularFrustum*(): SelectMgrTriangularFrustum {.cdecl,

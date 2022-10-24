@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -18,25 +20,8 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Transfer_TransientMapper"
 discard "forward decl of Transfer_Finder"
 discard "forward decl of Transfer_FinderProcess"
-type
-  HandleTransferFinderProcess* = Handle[TransferFinderProcess]
 
-## ! Adds specific features to the generic definition :
-## ! PrintTrace is adapted
 
-type
-  TransferFinderProcess* {.importcpp: "Transfer_FinderProcess",
-                          header: "Transfer_FinderProcess.hxx", bycopy.} = object of TransferProcessForFinder ##
-                                                                                                       ## !
-                                                                                                       ## Sets
-                                                                                                       ## FinderProcess
-                                                                                                       ## at
-                                                                                                       ## initial
-                                                                                                       ## state,
-                                                                                                       ## with
-                                                                                                       ## an
-                                                                                                       ## initial
-                                                                                                       ## size
 
 
 proc newTransferFinderProcess*(nb: cint = 10000): TransferFinderProcess {.cdecl,

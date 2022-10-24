@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,22 +19,8 @@
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_TextureEnv"
-type
-  HandleGraphic3dTextureEnv* = Handle[Graphic3dTextureEnv]
 
-## ! This class provides environment texture.
 
-type
-  Graphic3dTextureEnv* {.importcpp: "Graphic3d_TextureEnv",
-                        header: "Graphic3d_TextureEnv.hxx", bycopy.} = object of Graphic3dTextureRoot ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## environment
-                                                                                               ## texture
-                                                                                               ## from
-                                                                                               ## a
-                                                                                               ## file.
 
 
 proc newGraphic3dTextureEnv*(theFileName: TCollectionAsciiString): Graphic3dTextureEnv {.

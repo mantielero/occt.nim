@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1997-06-25
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,23 +20,8 @@ discard "forward decl of Standard_NotImplemented"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of gp_Pnt"
 discard "forward decl of Approx_SweepFunction"
-type
-  HandleApproxSweepFunction* = Handle[ApproxSweepFunction]
 
-## ! defined the function used by SweepApproximation to
-## ! perform sweeping application.
 
-type
-  ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
-                        header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## compute
-                                                                                            ## the
-                                                                                            ## section
-                                                                                            ## for
-                                                                                            ## v
-                                                                                            ## =
-                                                                                            ## param
 
 
 proc d0*(this: var ApproxSweepFunction; param: cfloat; first: cfloat; last: cfloat;

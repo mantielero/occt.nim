@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,14 +20,6 @@
 ## ! This framework can be used to modify the default
 ## ! setting for isoparameters in Prs3d_Drawer.
 
-type
-  Prs3dIsoAspect* {.importcpp: "Prs3d_IsoAspect", header: "Prs3d_IsoAspect.hxx",
-                   bycopy.} = object of Prs3dLineAspect ## ! Constructs a framework to define display attributes of isoparameters.
-                                                   ## ! These include:
-                                                   ## ! -   the color attribute aColor
-                                                   ## ! -   the type of line aType
-                                                   ## ! -   the width value aWidth
-                                                   ## ! -   aNumber, the number of isoparameters to be   displayed.
 
 
 proc newPrs3dIsoAspect*(theColor: QuantityColor; theType: AspectTypeOfLine;
@@ -35,5 +29,4 @@ proc setNumber*(this: var Prs3dIsoAspect; theNumber: cint) {.cdecl,
     importcpp: "SetNumber", header: "Prs3d_IsoAspect.hxx".}
 proc number*(this: Prs3dIsoAspect): cint {.noSideEffect, cdecl, importcpp: "Number",
                                        header: "Prs3d_IsoAspect.hxx".}
-type
-  HandlePrs3dIsoAspect* = Handle[Prs3dIsoAspect]
+

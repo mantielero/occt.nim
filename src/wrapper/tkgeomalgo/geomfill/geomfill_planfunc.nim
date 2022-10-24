@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-10-29
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  GeomFillPlanFunc* {.importcpp: "GeomFill_PlanFunc",
-                     header: "GeomFill_PlanFunc.hxx", bycopy.} = object of MathFunctionWithDerivative
 
 
 proc newGeomFillPlanFunc*(p: PntObj; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-07-15
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -25,15 +27,7 @@
 ## ! Note that defining (many) planes will lead to performance degradation, and Graphics Driver may limit
 ## ! the overall number of simultaneously active clipping planes - but at least 6 planes should be supported on all configurations.
 
-type
-  Graphic3dSequenceOfHClipPlane* {.importcpp: "Graphic3d_SequenceOfHClipPlane",
-                                  header: "Graphic3d_SequenceOfHClipPlane.hxx",
-                                  bycopy.} = object of StandardTransient ## ! Iterator through clipping planes.
-                                                                    ## ! Empty constructor.
 
-  Graphic3dSequenceOfHClipPlaneIterator* {.
-      importcpp: "Graphic3d_SequenceOfHClipPlane::Iterator",
-      header: "Graphic3d_SequenceOfHClipPlane.hxx", bycopy.} = object of RootObj
 
 
 proc newGraphic3dSequenceOfHClipPlaneIterator*(): Graphic3dSequenceOfHClipPlaneIterator {.
@@ -79,5 +73,4 @@ proc first*(this: Graphic3dSequenceOfHClipPlane): Handle[Graphic3dClipPlane] {.
 proc dumpJson*(this: Graphic3dSequenceOfHClipPlane;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
-type
-  HandleGraphic3dSequenceOfHClipPlane* = Handle[Graphic3dSequenceOfHClipPlane]
+

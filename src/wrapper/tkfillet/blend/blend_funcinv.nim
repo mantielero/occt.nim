@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,11 +18,6 @@
 
 discard "forward decl of math_Matrix"
 discard "forward decl of Adaptor2d_HCurve2d"
-type
-  BlendFuncInv* {.importcpp: "Blend_FuncInv", header: "Blend_FuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                                     ## !
-                                                                                                                     ## Returns
-                                                                                                                     ## 4.
 
 
 proc nbVariables*(this: BlendFuncInv): cint {.noSideEffect, cdecl,

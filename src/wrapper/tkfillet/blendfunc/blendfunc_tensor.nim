@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of math_Matrix"
-type
-  BlendFuncTensor* {.importcpp: "BlendFunc_Tensor", header: "BlendFunc_Tensor.hxx",
-                    bycopy.} = object
 
 
 proc newBlendFuncTensor*(nbRow: cint; nbCol: cint; nbMat: cint): BlendFuncTensor {.

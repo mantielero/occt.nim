@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -21,9 +23,6 @@ discard "forward decl of Extrema_CurveTool"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
-type
-  ExtremaPCLocFOfLocEPCOfLocateExtPC* {.importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx",
-                                       bycopy.} = object of MathFunctionWithDerivative
 
 
 proc newExtremaPCLocFOfLocEPCOfLocateExtPC*(): ExtremaPCLocFOfLocEPCOfLocateExtPC {.

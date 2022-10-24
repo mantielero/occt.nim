@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1995-10-09
 ##  Created by: Arnaud BOUZY/Odile Olivier
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,57 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Axis2Placement"
-type
-  AIS_Trihedron* {.importcpp: "AIS_Trihedron", header: "AIS_Trihedron.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                                             ## !
-                                                                                                             ## Initializes
-                                                                                                             ## a
-                                                                                                             ## trihedron
-                                                                                                             ## entity.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Method
-                                                                                                             ## which
-                                                                                                             ## clear
-                                                                                                             ## all
-                                                                                                             ## selected
-                                                                                                             ## owners
-                                                                                                             ## belonging
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## to
-                                                                                                             ## this
-                                                                                                             ## selectable
-                                                                                                             ## object
-                                                                                                             ## (
-                                                                                                             ## for
-                                                                                                             ## fast
-                                                                                                             ## presentation
-                                                                                                             ## draw
-                                                                                                             ## ).
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Compute
-                                                                                                             ## trihedron
-                                                                                                             ## presentation.
-                                                                                                             ##
-                                                                                                             ## !
-                                                                                                             ## Creates
-                                                                                                             ## a
-                                                                                                             ## sensitive
-                                                                                                             ## entity
-                                                                                                             ## for
-                                                                                                             ## the
-                                                                                                             ## datum
-                                                                                                             ## part
-                                                                                                             ## that
-                                                                                                             ## will
-                                                                                                             ## be
-                                                                                                             ## used
-                                                                                                             ## in
-                                                                                                             ## selection
-                                                                                                             ## owner
-                                                                                                             ## creation.
 
 
 proc newAIS_Trihedron*(theComponent: Handle[GeomAxis2Placement]): AIS_Trihedron {.
@@ -145,5 +96,4 @@ proc hilightOwnerWithColor*(this: var AIS_Trihedron;
                            theStyle: Handle[Prs3dDrawer];
                            theOwner: Handle[SelectMgrEntityOwner]) {.cdecl,
     importcpp: "HilightOwnerWithColor", header: "AIS_Trihedron.hxx".}
-type
-  HandleAIS_Trihedron* = Handle[AIS_Trihedron]
+

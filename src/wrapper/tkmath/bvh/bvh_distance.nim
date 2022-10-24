@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -24,23 +26,6 @@
 ## ! \tparam ObjectType Type of the object to which the distance is required
 ## ! \tparam BVHSetType Type of the set on which BVH is built
 
-type
-  BVH_Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType] {.
-      importcpp: "BVH_Distance<\'0,\'1,\'2,\'3>", header: "BVH_Distance.hxx", bycopy.} = object of BVH_Traverse[
-      NumType, Dimension, BVHSetType, NumType] ## ! @name Constructor
-                                           ## ! Constructor
-                                           ## ! @name Setting object for distance computation
-                                           ## ! Sets the object to which the distance is required
-                                           ## ! @name Compute the distance
-                                           ## ! Computes the distance between object and BVH tree
-                                           ## ! @name Accessing the results
-                                           ## ! Returns IsDone flag
-                                           ## ! @name Definition of the rules for tree descend
-                                           ## ! Compares the two metrics and chooses the best one
-                                           ## ! @name Fields
-    ## !< Distance
-    ## !< State of the algorithm
-    ## !< Object to compute the distance to
 
 
 proc newBVH_Distance*[NumType; Dimension: static[cint]; ObjectType; BVHSetType](): BVH_Distance[

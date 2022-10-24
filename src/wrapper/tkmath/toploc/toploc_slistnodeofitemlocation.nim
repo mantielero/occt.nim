@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1993-02-26
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,11 +19,6 @@
 discard "forward decl of TopLoc_ItemLocation"
 discard "forward decl of TopLoc_SListOfItemLocation"
 discard "forward decl of TopLoc_SListNodeOfItemLocation"
-type
-  HandleTopLocSListNodeOfItemLocation* = Handle[TopLocSListNodeOfItemLocation]
-  TopLocSListNodeOfItemLocation* {.importcpp: "TopLoc_SListNodeOfItemLocation",
-                                  header: "TopLoc_SListNodeOfItemLocation.hxx",
-                                  bycopy.} = object of StandardTransient
 
 
 proc newTopLocSListNodeOfItemLocation*(i: TopLocItemLocation;

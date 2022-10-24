@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
-type
-  TopOpeBRepBuildVertexInfo* {.importcpp: "TopOpeBRepBuild_VertexInfo",
-                              header: "TopOpeBRepBuild_VertexInfo.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildVertexInfo*(): TopOpeBRepBuildVertexInfo {.cdecl,

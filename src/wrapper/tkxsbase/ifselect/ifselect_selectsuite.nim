@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1998-10-19
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -21,30 +23,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectSuite"
-type
-  HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
 
-## ! A SelectSuite can describe a suite of SelectDeduct as a unique
-## ! one : in other words, it can be seen as a "macro selection"
-## !
-## ! It works by applying each of its items (which is a
-## ! SelectDeduct) on the result computed by the previous one
-## ! (by using Alternate Input)
-## !
-## ! But each of these Selections used as items may be used
-## ! independently, it will then give its own result
-## !
-## ! Hence, SelectSuite gives a way of defining a new Selection
-## ! from existing ones, without having to do copies or saves
 
-type
-  IFSelectSelectSuite* {.importcpp: "IFSelect_SelectSuite",
-                        header: "IFSelect_SelectSuite.hxx", bycopy.} = object of IFSelectSelectDeduct ##
-                                                                                               ## !
-                                                                                               ## Creates
-                                                                                               ## an
-                                                                                               ## empty
-                                                                                               ## SelectSuite
 
 
 proc newIFSelectSelectSuite*(): IFSelectSelectSuite {.cdecl, constructor,

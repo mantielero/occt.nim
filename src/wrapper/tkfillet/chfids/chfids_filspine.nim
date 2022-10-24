@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1995-04-24
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -21,15 +23,8 @@ discard "forward decl of Law_Function"
 discard "forward decl of Law_Composite"
 discard "forward decl of ChFiDS_HElSpine"
 discard "forward decl of ChFiDS_FilSpine"
-type
-  HandleChFiDS_FilSpine* = Handle[ChFiDS_FilSpine]
 
-## ! Provides  data specific to  the fillets -
-## ! vector or rule  of evolution (C2).
 
-type
-  ChFiDS_FilSpine* {.importcpp: "ChFiDS_FilSpine", header: "ChFiDS_FilSpine.hxx",
-                    bycopy.} = object of ChFiDS_Spine
 
 
 proc newChFiDS_FilSpine*(): ChFiDS_FilSpine {.cdecl, constructor,

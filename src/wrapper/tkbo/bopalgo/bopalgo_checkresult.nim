@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -14,10 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoCheckResult* {.importcpp: "BOPAlgo_CheckResult",
-                       header: "BOPAlgo_CheckResult.hxx", bycopy.} = object ## ! empty
-                                                                       ## constructor
 
 
 proc newBOPAlgoCheckResult*(): BOPAlgoCheckResult {.cdecl, constructor,

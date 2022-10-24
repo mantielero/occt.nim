@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: Philippe COICADAN
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,13 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_NoSuchObject"
-type
-  StandardFailure* {.importcpp: "Standard_Failure", header: "Standard_Failure.hxx",
-                    bycopy.} = object of StandardTransient ## ! Creates a status object of type "Failure".
-                                                      ## ! Used only if standard C++ exceptions are used.
-                                                      ## ! Throws exception of the same type as this by C++ throw,
-                                                      ## ! and stores current object as last thrown exception,
-                                                      ## ! to be accessible by method Caught()
 
 
 proc constructStandardFailure*(): StandardFailure {.cdecl, constructor,

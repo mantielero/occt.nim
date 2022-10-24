@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,12 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of math_MultipleVarFunction"
-type
-  MathGaussMultipleIntegration* {.importcpp: "math_GaussMultipleIntegration",
-                                 header: "math_GaussMultipleIntegration.hxx",
-                                 bycopy.} = object ## ! The Gauss-Legendre integration with Order = points of
-                                                ## ! integration for each unknow, is done on the function F
-                                                ## ! between the bounds Lower and Upper.
 
 
 proc newMathGaussMultipleIntegration*(f: var MathMultipleVarFunction;

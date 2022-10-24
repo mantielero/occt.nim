@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-05-29
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -16,93 +18,11 @@
 ## ! Forward declaration
 
 discard "forward decl of Graphic3d_WorldViewProjState"
-type
-  Graphic3dCamera* {.importcpp: "Graphic3d_Camera", header: "Graphic3d_Camera.hxx",
-                    bycopy.} = object of StandardTransient ## ! Template container for cached matrices or Real/ShortReal types.
-                                                      ## ! Enumerates supported monographic projections.
-                                                      ## ! - Projection_Orthographic : orthographic projection.
-                                                      ## ! - Projection_Perspective  : perspective projection.
-                                                      ## ! - Projection_Stereo       : stereographic projection.
-                                                      ## ! - Projection_MonoLeftEye  : mono projection for stereo left eye.
-                                                      ## ! - Projection_MonoRightEye : mono projection for stereo right eye.
-                                                      ## ! Default constructor.
-                                                      ## ! Initializes camera with the following properties:
-                                                      ## ! Eye (0, 0, -2); Center (0, 0, 0); Up (0, 1, 0);
-                                                      ## ! Type (Orthographic); FOVy (45); Scale (1000); IsStereo(false);
-                                                      ## ! ZNear (0.001); ZFar (3000.0); Aspect(1);
-                                                      ## ! ZFocus(1.0); ZFocusType(Relative); IOD(0.05); IODType(Relative)
-                                                      ## ! Get camera look direction.
-                                                      ## ! @return camera look direction.
-                                                      ## ! Transform orientation components of the camera:
-                                                      ## ! Eye, Up and Center points.
-                                                      ## ! @param theTrsf [in] the transformation to apply.
-                                                      ## ! Project point from world coordinate space to
-                                                      ## ! normalized device coordinates (mapping).
-                                                      ## ! @param thePnt [in] the 3D point in WCS.
-                                                      ## ! @return mapped point in NDC.
-                                                      ## ! @return projection modification state of the camera.
-                                                      ## ! Get orientation matrix.
-                                                      ## ! @return camera orientation matrix.
-                                                      ## ! Get stereo projection matrices.
-                                                      ## ! @param theProjL      [out] left  eye projection matrix
-                                                      ## ! @param theHeadToEyeL [out] left  head to eye translation matrix
-                                                      ## ! @param theProjR      [out] right eye projection matrix
-                                                      ## ! @param theHeadToEyeR [out] right head to eye translation matrix
-                                                      ## ! Get stereo projection matrices.
-                                                      ## ! @param theProjL      [out] left  eye projection matrix
-                                                      ## ! @param theHeadToEyeL [out] left  head to eye translation matrix
-                                                      ## ! @param theProjR      [out] right eye projection matrix
-                                                      ## ! @param theHeadToEyeR [out] right head to eye translation matrix
-                                                      ## ! Compose orthographic projection matrix for the passed camera volume mapping.
-                                                      ## ! @param theOutMx [out] the projection matrix
-                                                      ## ! @param theLRBT [in] the left/right/bottom/top mapping (clipping) coordinates
-                                                      ## ! @param theNear [in] the near mapping (clipping) coordinate
-                                                      ## ! @param theFar [in] the far mapping (clipping) coordinate
-                                                      ## ! Enumerates vertices of view volume.
-    ## !< Camera up direction vector
-    ## !< Camera view direction (from eye)
-    ## !< Camera eye position
-    ## !< distance from Eye to Center
-    ## !< World axial scale.
-    ## !< Projection type used for rendering.
-    ## !< Field Of View in y axis.
-    ## !< Field Of View in x axis.
-    ## !< Field Of View limit for 2d on-screen elements
-    ## !< Field Of View as Tan(DTR_HALF * myFOVy)
-    ## !< Distance to near clipping plane.
-    ## !< Distance to far clipping plane.
-    ## !< Width to height display ratio.
-    ## !< Specifies parallel scale for orthographic projection.
-    ## !< Stereographic focus value.
-    ## !< Stereographic focus definition type.
-    ## !< Intraocular distance value.
-    ## !< Intraocular distance definition type.
-    ## !< Tile defining sub-area for drawing
-    ## !< left  custom frustum
-    ## !< right custom frustum
-    ## !< flag indicating usage of custom projection matrix
-    ## !< flag indicating usage of custom stereo projection matrices
-    ## !< flag indicating usage of custom stereo frustums
-
-  Graphic3dCameraProjection* {.size: sizeof(cint),
-                              importcpp: "Graphic3d_Camera::Projection",
-                              header: "Graphic3d_Camera.hxx".} = enum
-    ProjectionOrthographic, ProjectionPerspective, ProjectionStereo,
-    ProjectionMonoLeftEye, ProjectionMonoRightEye
 
 
-type
-  Graphic3dCameraFocusType* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_Camera::FocusType",
-                             header: "Graphic3d_Camera.hxx".} = enum
-    FocusTypeAbsolute, FocusTypeRelative
 
 
-type
-  Graphic3dCameraIODType* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_Camera::IODType",
-                           header: "Graphic3d_Camera.hxx".} = enum
-    IODTypeAbsolute, IODTypeRelative
+
 
 
 proc newGraphic3dCamera*(): Graphic3dCamera {.cdecl, constructor,
@@ -305,27 +225,5 @@ const
 #                   thePoints: var NCollectionArray1[Graphic3dVec3d];
 #                   theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.noSideEffect,
 #    cdecl, importcpp: "FrustumPoints", header: "Graphic3d_Camera.hxx".}
-type
-  HandleGraphic3dCamera* = Handle[Graphic3dCamera]
 
-## ! Linear interpolation tool for camera orientation and position.
-## ! This tool interpolates camera parameters scale, eye, center, rotation (up and direction vectors) independently.
-## !
-## ! Eye/Center interpolation is performed through defining an anchor point in-between Center and Eye.
-## ! The anchor position is defined as point near to the camera point which has smaller translation part.
-## ! The main idea is to keep the distance between Center and Eye
-## ! (which will change if Center and Eye translation will be interpolated independently).
-## ! E.g.:
-## !  - When both Center and Eye are moved at the same vector -> both will be just translated by straight line
-## !  - When Center is not moved -> camera Eye    will move around Center through arc
-## !  - When Eye    is not moved -> camera Center will move around Eye    through arc
-## !  - When both Center and Eye are move by different vectors -> transformation will be something in between,
-## !    and will try interpolate linearly the distance between Center and Eye.
-## !
-## ! This transformation might be not in line with user expectations.
-## ! In this case, application might define intermediate camera positions for interpolation
-## ! or implement own interpolation logic.
-##  template<>
-##  Standard_EXPORT void NCollection_Lerp<Handle(Graphic3d_Camera)>::Interpolate (const double theT,
-##                                                                                Handle(Graphic3d_Camera)& theResult) const;
-##  typedef NCollection_Lerp<Handle(Graphic3d_Camera)> Graphic3d_CameraLerp;
+

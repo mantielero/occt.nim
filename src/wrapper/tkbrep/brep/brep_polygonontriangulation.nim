@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1995-03-15
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,15 +21,8 @@ discard "forward decl of Poly_Triangulation"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_PolygonOnTriangulation"
-type
-  HandleBRepPolygonOnTriangulation* = Handle[BRepPolygonOnTriangulation]
 
-## ! A representation by an array of nodes on a
-## ! triangulation.
 
-type
-  BRepPolygonOnTriangulation* {.importcpp: "BRep_PolygonOnTriangulation",
-                               header: "BRep_PolygonOnTriangulation.hxx", bycopy.} = object of BRepCurveRepresentation
 
 
 proc newBRepPolygonOnTriangulation*(p: Handle[PolyPolygonOnTriangulation];

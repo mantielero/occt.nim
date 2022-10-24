@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -35,12 +37,7 @@ discard "forward decl of Standard_Transient"
 ## !
 ## ! Weak pointers are not supported.
 
-type
-  Handle*[T] {.importcpp: "opencascade::handle<\'0>",
-              header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object ## ! STL-compliant typedef of contained type
-                                                          ## ! Empty constructor
 
-  HandleelementType*[T] = T
 
 proc newHandle*[T](): Handle[T] {.cdecl, constructor,
                                      importcpp: "opencascade::handle<\'*0>(@)",
@@ -81,3 +78,4 @@ converter `toHandle`*[T](this: ptr T): Handle[T] {.
     importcpp: "(@)",
     header: "Standard_Handle.hxx".}
     
+

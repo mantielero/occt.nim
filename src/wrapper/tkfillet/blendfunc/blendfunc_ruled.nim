@@ -1,3 +1,5 @@
+import blendfunc_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Blend_Point"
 discard "forward decl of gp_Ax1"
-type
-  BlendFuncRuled* {.importcpp: "BlendFunc_Ruled", header: "BlendFunc_Ruled.hxx",
-                   bycopy.} = object of BlendFunction
 
 
 proc newBlendFuncRuled*(s1: Handle[Adaptor3dHSurface];

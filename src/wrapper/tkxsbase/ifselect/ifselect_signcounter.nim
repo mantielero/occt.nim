@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -21,97 +23,8 @@ discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_HAsciiString"
 discard "forward decl of IFSelect_SignCounter"
-type
-  HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
 
-## ! SignCounter gives the frame to count signatures associated
-## ! with entities, deducted from them. Ex.: their Dynamic Type.
-## !
-## ! It can sort a set of Entities according a signature, i.e. :
-## ! - list of different values found for this Signature
-## ! - for each one, count and list of entities
-## ! Results are returned as a SignatureList, which can be queried
-## ! on the count (list of strings, count per signature, or list of
-## ! entities per signature)
-## !
-## ! A SignCounter can be filled, either directly from lists, or
-## ! from the result of a Selection : hence, its content can be
-## ! automatically recomputed as desired
-## !
-## ! SignCounter works by using a Signature in its method AddSign
-## !
-## ! Methods can be redefined to, either
-## ! - directly compute the value without a Signature
-## ! - compute the value in the context of a Graph
 
-type
-  IFSelectSignCounter* {.importcpp: "IFSelect_SignCounter",
-                        header: "IFSelect_SignCounter.hxx", bycopy.} = object of IFSelectSignatureList ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SignCounter,
-                                                                                                ## without
-                                                                                                ## proper
-                                                                                                ## Signature
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## If
-                                                                                                ## <withmap>
-                                                                                                ## is
-                                                                                                ## True
-                                                                                                ## (default),
-                                                                                                ## added
-                                                                                                ## entities
-                                                                                                ## are
-                                                                                                ## counted
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## only
-                                                                                                ## if
-                                                                                                ## they
-                                                                                                ## are
-                                                                                                ## not
-                                                                                                ## yet
-                                                                                                ## recorded
-                                                                                                ## in
-                                                                                                ## the
-                                                                                                ## map
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## Map
-                                                                                                ## control
-                                                                                                ## can
-                                                                                                ## be
-                                                                                                ## set
-                                                                                                ## off
-                                                                                                ## if
-                                                                                                ## the
-                                                                                                ## input
-                                                                                                ## garantees
-                                                                                                ## uniqueness
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## of
-                                                                                                ## data
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## <withlist>
-                                                                                                ## is
-                                                                                                ## transmitted
-                                                                                                ## to
-                                                                                                ## SignatureList
-                                                                                                ## (option
-                                                                                                ## to
-                                                                                                ## list
-                                                                                                ##
-                                                                                                ## !
-                                                                                                ## entities,
-                                                                                                ## not
-                                                                                                ## only
-                                                                                                ## to
-                                                                                                ## count
-                                                                                                ## them).
 
 
 proc newIFSelectSignCounter*(withmap: bool = true; withlist: bool = false): IFSelectSignCounter {.

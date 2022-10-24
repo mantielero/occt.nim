@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,44 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePrsDimChamf3dDimension* = Handle[PrsDimChamf3dDimension]
 
-## ! A framework to define display of 3D chamfers.
-## ! A chamfer is displayed with arrows and text. The text
-## ! gives the length of the chamfer if it is a symmetrical
-## ! chamfer, or the angle if it is not.
 
-type
-  PrsDimChamf3dDimension* {.importcpp: "PrsDim_Chamf3dDimension",
-                           header: "PrsDim_Chamf3dDimension.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                               ## !
-                                                                                               ## Constructs
-                                                                                               ## a
-                                                                                               ## display
-                                                                                               ## object
-                                                                                               ## for
-                                                                                               ## 3D
-                                                                                               ## chamfers.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## This
-                                                                                               ## object
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## the
-                                                                                               ## shape
-                                                                                               ## aFShape,
-                                                                                               ## the
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## dimension
-                                                                                               ## aVal
-                                                                                               ## and
-                                                                                               ## the
-                                                                                               ## text
-                                                                                               ## aText.
 
 
 proc newPrsDimChamf3dDimension*(aFShape: TopoDS_Shape; aVal: cfloat;

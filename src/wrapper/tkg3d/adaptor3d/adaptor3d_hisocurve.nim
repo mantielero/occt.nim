@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,15 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Adaptor3d_IsoCurve"
 discard "forward decl of Adaptor3d_Curve"
 discard "forward decl of Adaptor3d_HIsoCurve"
-type
-  HandleAdaptor3dHIsoCurve* = Handle[Adaptor3dHIsoCurve]
-  Adaptor3dHIsoCurve* {.importcpp: "Adaptor3d_HIsoCurve",
-                       header: "Adaptor3d_HIsoCurve.hxx", bycopy.} = object of Adaptor3dHCurve ##
-                                                                                        ## !
-                                                                                        ## Creates
-                                                                                        ## an
-                                                                                        ## empty
-                                                                                        ## GenHCurve.
 
 
 proc newAdaptor3dHIsoCurve*(): Adaptor3dHIsoCurve {.cdecl, constructor,
@@ -43,19 +36,5 @@ proc getCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "Adaptor3d_HIsoCurve.hxx".}
 proc changeCurve*(this: var Adaptor3dHIsoCurve): var Adaptor3dIsoCurve {.cdecl,
     importcpp: "ChangeCurve", header: "Adaptor3d_HIsoCurve.hxx".}
-type
-  Adaptor3dHIsoCurvebaseType* = Adaptor3dHCurve
 
-##  #define TheCurve Adaptor3d_IsoCurve
-##  #define TheCurve_hxx <Adaptor3d_IsoCurve.hxx>
-##  #define Adaptor3d_GenHCurve Adaptor3d_HIsoCurve
-##  #define Adaptor3d_GenHCurve_hxx <Adaptor3d_HIsoCurve.hxx>
-##  #define Handle_Adaptor3d_GenHCurve Handle(Adaptor3d_HIsoCurve)
-##
-##  #include <Adaptor3d_GenHCurve.lxx>
-##
-##  #undef TheCurve
-##  #undef TheCurve_hxx
-##  #undef Adaptor3d_GenHCurve
-##  #undef Adaptor3d_GenHCurve_hxx
-##  #undef Handle_Adaptor3d_GenHCurve
+

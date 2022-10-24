@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,39 +19,6 @@
 ## ! List of named materials (predefined presets).
 ## ! Each preset defines either physical (having natural color) or generic (mutable color) material (@sa Graphic3d_TypeOfMaterial).
 
-type
-  Graphic3dNameOfMaterial* {.size: sizeof(cint),
-                            importcpp: "Graphic3d_NameOfMaterial",
-                            header: "Graphic3d_NameOfMaterial.hxx".} = enum
-    graphic3dNameOfMaterialBrass, ## !< Brass        (Physic)
-    graphic3dNameOfMaterialBronze, ## !< Bronze       (Physic)
-    graphic3dNameOfMaterialCopper, ## !< Copper       (Physic)
-    graphic3dNameOfMaterialGold, ## !< Gold         (Physic)
-    graphic3dNameOfMaterialPewter, ## !< Pewter       (Physic)
-    graphic3dNameOfMaterialPlastered, ## !< Plastered    (Generic)
-    graphic3dNameOfMaterialPlastified, ## !< Plastified   (Generic)
-    graphic3dNameOfMaterialSilver, ## !< Silver       (Physic)
-    graphic3dNameOfMaterialSteel, ## !< Steel        (Physic)
-    graphic3dNameOfMaterialStone, ## !< Stone        (Physic)
-    graphic3dNameOfMaterialShinyPlastified, ## !< Shiny Plastified (Generic)
-    graphic3dNameOfMaterialSatin, ## !< Satin        (Generic)
-    graphic3dNameOfMaterialMetalized, ## !< Metalized    (Generic)
-    graphic3dNameOfMaterialIonized, ## !< Ionized      (Generic)
-    graphic3dNameOfMaterialChrome, ## !< Chrome       (Physic)
-    graphic3dNameOfMaterialAluminum, ## !< Aluminum     (Physic)
-    graphic3dNameOfMaterialObsidian, ## !< Obsidian     (Physic)
-    graphic3dNameOfMaterialNeon, ## !< Neon         (Physic)
-    graphic3dNameOfMaterialJade, ## !< Jade         (Physic)
-    graphic3dNameOfMaterialCharcoal, ## !< Charcoal     (Physic)
-    graphic3dNameOfMaterialWater, ## !< Water        (Physic)
-    graphic3dNameOfMaterialGlass, ## !< Glass        (Physic)
-    graphic3dNameOfMaterialDiamond, ## !< Diamond      (Physic)
-    graphic3dNameOfMaterialTransparent, ## !< Transparent  (Physic)
-    graphic3dNameOfMaterialDEFAULT, ## !< Default      (Generic);
-                                   ## !  normally used as out-of-range value pointing to some application default
-    graphic3dNameOfMaterialUserDefined ## !< User-defined (Physic);
-                                       ## !  used for any material with non-standard definition
-                                       ##  old aliases
 const
   Graphic3dNOM_BRASS = graphic3dNameOfMaterialBrass
   Graphic3dNOM_BRONZE = graphic3dNameOfMaterialBronze
@@ -77,4 +46,5 @@ const
   Graphic3dNOM_TRANSPARENT = graphic3dNameOfMaterialTransparent
   Graphic3dNOM_DEFAULT = graphic3dNameOfMaterialDEFAULT
   Graphic3dNOM_UserDefined = graphic3dNameOfMaterialUserDefined
+
 

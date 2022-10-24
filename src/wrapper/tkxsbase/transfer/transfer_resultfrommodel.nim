@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,33 +22,8 @@ discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ResultFromModel"
-type
-  HandleTransferResultFromModel* = Handle[TransferResultFromModel]
 
-## ! ResultFromModel is used to store a final result stored in a
-## ! TransientProcess, respectfully to its structuration in scopes
-## ! by using a set of ResultFromTransient
-## ! Hence, it can be regarded as a passive equivalent of the
-## ! stored data in the TransientProcess, while an Iterator gives
-## ! a flat view of it.
-## !
-## ! A ResultFromModel is intended to be attached to the transfer
-## ! of one entity (typically root entity but it is not mandatory)
-## !
-## ! It is then possible to :
-## ! - Create and fill a ResultFromModel from a TransientProcess,
-## ! by designating a starting entity
-## ! - Fill back the TransientProcess from a ResultFromModel, as it
-## ! were filled by the operation which filled it the first time
 
-type
-  TransferResultFromModel* {.importcpp: "Transfer_ResultFromModel",
-                            header: "Transfer_ResultFromModel.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Creates
-                                                                                                    ## a
-                                                                                                    ## ResultFromModel,
-                                                                                                    ## empty
 
 
 proc newTransferResultFromModel*(): TransferResultFromModel {.cdecl, constructor,

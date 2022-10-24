@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-09
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,33 +22,8 @@ discard "forward decl of gp_Dir"
 discard "forward decl of gp_Trsf"
 discard "forward decl of Geom_Geometry"
 discard "forward decl of Geom_Axis1Placement"
-type
-  HandleGeomAxis1Placement* = Handle[GeomAxis1Placement]
 
-## ! Describes an axis in 3D space.
-## ! An axis is defined by:
-## ! - its origin, also termed the "Location point" of the axis,
-## ! - its unit vector, termed the "Direction" of the axis.
-## ! Note: Geom_Axis1Placement axes provide the
-## ! same kind of "geometric" services as gp_Ax1 axes
-## ! but have more complex data structures. The
-## ! geometric objects provided by the Geom package
-## ! use gp_Ax1 objects to include axes in their data
-## ! structures, or to define an axis of symmetry or axis of rotation.
-## ! Geom_Axis1Placement axes are used in a context
-## ! where they can be shared by several objects
-## ! contained inside a common data structure.
 
-type
-  GeomAxis1Placement* {.importcpp: "Geom_Axis1Placement",
-                       header: "Geom_Axis1Placement.hxx", bycopy.} = object of GeomAxisPlacement ##
-                                                                                          ## !
-                                                                                          ## Returns
-                                                                                          ## a
-                                                                                          ## transient
-                                                                                          ## copy
-                                                                                          ## of
-                                                                                          ## A1.
 
 
 proc newGeomAxis1Placement*(a1: Ax1Obj): GeomAxis1Placement {.cdecl, constructor,

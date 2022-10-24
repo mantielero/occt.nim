@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of Geom_Curve"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Revolution"
-type
-  BRepPrimAPI_MakeRevolution* {.importcpp: "BRepPrimAPI_MakeRevolution",
-                               header: "BRepPrimAPI_MakeRevolution.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                               ## !
-                                                                                                               ## Make
-                                                                                                               ## a
-                                                                                                               ## revolution
-                                                                                                               ## body
-                                                                                                               ## by
-                                                                                                               ## rotating
-                                                                                                               ## a
-                                                                                                               ## curve
-                                                                                                               ## around
-                                                                                                               ## Z.
 
 
 proc revolution*(meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.

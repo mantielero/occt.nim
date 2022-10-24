@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 2007-12-08
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS
@@ -14,14 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of NCollection_BaseAllocator"
-type
-  PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
-                     header: "Poly_CoherentNode.hxx", bycopy.} = object of XyzObj ##  ---------- PUBLIC METHODS ----------
-                                                                        ## *
-                                                                        ##  Empty constructor.
-                                                                        ##
-                                                                        ##  ---------- PROTECTED METHODS ----------
-                                                                        ##  ---------- PRIVATE FIELDS ----------
 
 
 proc newPolyCoherentNode*(): PolyCoherentNode {.cdecl, constructor,

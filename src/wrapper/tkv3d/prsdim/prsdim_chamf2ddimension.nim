@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -15,47 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Plane"
-type
-  HandlePrsDimChamf2dDimension* = Handle[PrsDimChamf2dDimension]
 
-## ! A framework to define display of 2D chamfers.
-## ! A chamfer is displayed with arrows and text. The text
-## ! gives the length of the chamfer if it is a symmetrical
-## ! chamfer, or the angle if it is not.
 
-type
-  PrsDimChamf2dDimension* {.importcpp: "PrsDim_Chamf2dDimension",
-                           header: "PrsDim_Chamf2dDimension.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                               ## !
-                                                                                               ## Constructs
-                                                                                               ## the
-                                                                                               ## display
-                                                                                               ## object
-                                                                                               ## for
-                                                                                               ## 2D
-                                                                                               ## chamfers.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## This
-                                                                                               ## object
-                                                                                               ## is
-                                                                                               ## defined
-                                                                                               ## by
-                                                                                               ## the
-                                                                                               ## face
-                                                                                               ## aFShape,
-                                                                                               ## the
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## dimension
-                                                                                               ## aVal,
-                                                                                               ## the
-                                                                                               ## plane
-                                                                                               ## aPlane
-                                                                                               ## and
-                                                                                               ## the
-                                                                                               ## text
-                                                                                               ## aText.
 
 
 proc newPrsDimChamf2dDimension*(aFShape: TopoDS_Shape; aPlane: Handle[GeomPlane];

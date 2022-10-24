@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,34 +19,8 @@
 discard "forward decl of TopOpeBRepDS_Transition"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  HandleTopOpeBRepDS_Interference* = Handle[TopOpeBRepDS_Interference]
 
-## ! An interference    is   the   description  of  the
-## ! attachment of  a new  geometry on a  geometry. For
-## ! example an intersection point  on an Edge or on  a
-## ! Curve.
-## !
-## ! The Interference contains the following data :
-## !
-## ! - Transition :  How the interference  separates the
-## ! existing geometry in INSIDE and OUTSIDE.
-## !
-## ! - SupportType : Type of  the object supporting the
-## ! interference. (FACE, EDGE, VERTEX, SURFACE, CURVE).
-## !
-## ! - Support :  Index  in the data  structure  of the
-## ! object supporting the interference.
-## !
-## ! - GeometryType  :   Type  of the  geometry of  the
-## ! interference (SURFACE, CURVE, POINT).
-## !
-## ! - Geometry : Index  in the data structure  of the
-## ! geometry.
 
-type
-  TopOpeBRepDS_Interference* {.importcpp: "TopOpeBRepDS_Interference",
-                              header: "TopOpeBRepDS_Interference.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_Interference*(): TopOpeBRepDS_Interference {.cdecl,

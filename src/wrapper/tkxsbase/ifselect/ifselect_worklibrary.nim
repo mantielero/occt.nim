@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-01-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -21,108 +23,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_CopyTool"
 discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkLibrary"
-type
-  HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
 
-## ! This class defines the (empty) frame which can be used to
-## ! enrich a XSTEP set with new capabilities
-## ! In particular, a specific WorkLibrary must give the way for
-## ! Reading a File into a Model, and Writing a Model to a File
-## ! Thus, it is possible to define several Work Libraries for each
-## ! norm, but recommanded to define one general class for each one :
-## ! this general class will define the Read and Write methods.
-## !
-## ! Also a Dump service is provided, it can produce, according the
-## ! norm, either a parcel of a file for an entity, or any other
-## ! kind of informations relevant for the norm,
 
-type
-  IFSelectWorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
-                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## Gives
-                                                                                            ## the
-                                                                                            ## way
-                                                                                            ## to
-                                                                                            ## Read
-                                                                                            ## a
-                                                                                            ## File
-                                                                                            ## and
-                                                                                            ## transfer
-                                                                                            ## it
-                                                                                            ## to
-                                                                                            ## a
-                                                                                            ## Model
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## <mod>
-                                                                                            ## is
-                                                                                            ## the
-                                                                                            ## resulting
-                                                                                            ## Model,
-                                                                                            ## which
-                                                                                            ## has
-                                                                                            ## to
-                                                                                            ## be
-                                                                                            ## created
-                                                                                            ## by
-                                                                                            ## this
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## method.
-                                                                                            ## In
-                                                                                            ## case
-                                                                                            ## of
-                                                                                            ## error,
-                                                                                            ## <mod>
-                                                                                            ## must
-                                                                                            ## be
-                                                                                            ## returned
-                                                                                            ## Null
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Return
-                                                                                            ## value
-                                                                                            ## is
-                                                                                            ## a
-                                                                                            ## status
-                                                                                            ## with
-                                                                                            ## free
-                                                                                            ## values.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Simply,
-                                                                                            ## 0
-                                                                                            ## is
-                                                                                            ## for
-                                                                                            ## "Execution
-                                                                                            ## OK"
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## The
-                                                                                            ## Protocol
-                                                                                            ## can
-                                                                                            ## be
-                                                                                            ## used
-                                                                                            ## to
-                                                                                            ## work
-                                                                                            ## (e.g.
-                                                                                            ## create
-                                                                                            ## the
-                                                                                            ## Model,
-                                                                                            ## read
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## and
-                                                                                            ## recognize
-                                                                                            ## the
-                                                                                            ## Entities)
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Required
-                                                                                            ## to
-                                                                                            ## initialise
-                                                                                            ## fields
 
 
 proc readFile*(this: IFSelectWorkLibrary; name: cstring;

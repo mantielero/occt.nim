@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1995-05-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -30,8 +32,6 @@ discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Parab"
 discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
-type
-  ChFiDS_ElSpine* {.importcpp: "ChFiDS_ElSpine", header: "ChFiDS_ElSpine.hxx", bycopy.} = object of Adaptor3dCurve
 
 
 proc newChFiDS_ElSpine*(): ChFiDS_ElSpine {.cdecl, constructor,

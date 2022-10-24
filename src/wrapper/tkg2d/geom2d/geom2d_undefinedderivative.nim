@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,8 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom2d_UndefinedDerivative"
-type
-  HandleGeom2dUndefinedDerivative* = Handle[Geom2dUndefinedDerivative]
 
 when not defined(noException) and not defined(noGeom2dUndefinedDerivative):
   template geom2dUndefinedDerivativeRaiseIf*(condition, message: untyped): void =

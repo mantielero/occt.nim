@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Author: Roman Lygin, 2012.
 ##  This file is in the Public Domain and thus can freely be used for any purpose.
 ##  The author disclaims any rights and liabilities.
@@ -24,25 +26,9 @@
 ##   \endcode
 ##
 
-type
-  NCollectionStdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
-                               header: "NCollection_StdAllocator.hxx", bycopy.} = object
 
-  NCollectionStdAllocatorvalueType*[T] = T
-  NCollectionStdAllocatorpointer* = ptr NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorconstPointer* = ptr NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorreference* = var NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorconstReference* = NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorsizeType* = csize_t
-  NCollectionStdAllocatordifferenceType* = PtrdiffT
-  NCollectionStdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
-                                       header: "NCollection_StdAllocator.hxx",
-                                       bycopy.} = object
 
-#  NCollectionStdAllocatorrebindother* = NCollectionStdAllocator[U]
 
-#proc newNCollectionStdAllocator*[T](): NCollectionStdAllocator[T] {.cdecl,
-#    constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)", header: "NCollection_StdAllocator.hxx".}
 proc newNCollectionStdAllocator*[T](theAlloc: Handle[NCollectionBaseAllocator]): NCollectionStdAllocator[
     T] {.cdecl, constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)",
         header: "NCollection_StdAllocator.hxx".}

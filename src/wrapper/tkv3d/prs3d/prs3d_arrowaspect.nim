@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-06-11
 ##  Created by: Jean-Louis FRENKEL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,42 +18,6 @@
 
 ## ! A framework for displaying arrows in representations of dimensions and relations.
 
-type
-  Prs3dArrowAspect* {.importcpp: "Prs3d_ArrowAspect",
-                     header: "Prs3d_ArrowAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## an
-                                                                                     ## empty
-                                                                                     ## framework
-                                                                                     ## for
-                                                                                     ## displaying
-                                                                                     ## arrows
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## in
-                                                                                     ## representations
-                                                                                     ## of
-                                                                                     ## lengths.
-                                                                                     ## The
-                                                                                     ## lengths
-                                                                                     ## displayed
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## are
-                                                                                     ## either
-                                                                                     ## on
-                                                                                     ## their
-                                                                                     ## own
-                                                                                     ## or
-                                                                                     ## in
-                                                                                     ## chamfers,
-                                                                                     ## fillets,
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## diameters
-                                                                                     ## and
-                                                                                     ## radii.
 
 
 proc newPrs3dArrowAspect*(): Prs3dArrowAspect {.cdecl, constructor,
@@ -77,5 +43,4 @@ proc setAspect*(this: var Prs3dArrowAspect; theAspect: Handle[Graphic3dAspectLin
 proc dumpJson*(this: Prs3dArrowAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_ArrowAspect.hxx".}
-type
-  HandlePrs3dArrowAspect* = Handle[Prs3dArrowAspect]
+

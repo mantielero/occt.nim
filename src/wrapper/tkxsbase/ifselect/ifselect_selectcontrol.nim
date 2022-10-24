@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-02-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,32 +19,8 @@
 discard "forward decl of IFSelect_Selection"
 discard "forward decl of IFSelect_SelectionIterator"
 discard "forward decl of IFSelect_SelectControl"
-type
-  HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
 
-## ! A SelectControl kind Selection works with two input Selections
-## ! in a dissymmetric way : the Main Input which gives an input
-## ! list of Entities, to be processed, and the Second Input which
-## ! gives another list, to be used to filter the main input.
-## !
-## ! e.g. : SelectDiff retains the items of the Main Input which
-## ! are not in the Control Input (which acts as Diff Input)
-## ! or a specific selection which retains Entities from the Main
-## ! Input if and only if they are concerned by an entity from
-## ! the Control Input (such as Views in IGES, etc...)
-## !
-## ! The way RootResult and Label are produced are at charge of
-## ! each sub-class
 
-type
-  IFSelectSelectControl* {.importcpp: "IFSelect_SelectControl",
-                          header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelectSelection ##
-                                                                                                ## !
-                                                                                                ## Returns
-                                                                                                ## the
-                                                                                                ## Main
-                                                                                                ## Input
-                                                                                                ## Selection
 
 
 proc mainInput*(this: IFSelectSelectControl): Handle[IFSelectSelection] {.

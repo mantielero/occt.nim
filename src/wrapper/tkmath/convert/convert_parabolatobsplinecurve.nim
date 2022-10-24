@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,24 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Parab2d"
-type
-  ConvertParabolaToBSplineCurve* {.importcpp: "Convert_ParabolaToBSplineCurve",
-                                  header: "Convert_ParabolaToBSplineCurve.hxx",
-                                  bycopy.} = object of ConvertConicToBSplineCurve ## ! The
-                                                                             ## parabola Prb is
-                                                                             ## limited
-                                                                             ## between the
-                                                                             ## parametric
-                                                                             ## values U1, U2
-                                                                             ## ! and the
-                                                                             ## equivalent
-                                                                             ## B-spline
-                                                                             ## curve as the
-                                                                             ## same
-                                                                             ## orientation as the
-                                                                             ## !
-                                                                             ## parabola
-                                                                             ## Prb.
 
 
 proc newConvertParabolaToBSplineCurve*(prb: Parab2dObj; u1: cfloat; u2: cfloat): ConvertParabolaToBSplineCurve {.

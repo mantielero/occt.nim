@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 2013-06-06
 ##  Created by: Vlad ROMASHKO
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -30,15 +32,6 @@
 ## ! or via this ChFi2d_FilletAPI class. This class chooses an appropriate algorithm
 ## ! analyzing the arguments (a wire or two edges).
 
-type
-  ChFi2dFilletAPI* {.importcpp: "ChFi2d_FilletAPI", header: "ChFi2d_FilletAPI.hxx",
-                    bycopy.} = object ## ! An empty constructor of the fillet algorithm.
-                                   ## ! Call a method Init() to initialize the algorithm
-                                   ## ! before calling of a Perform() method.
-                                   ##  Decides whether the input parameters may use an analytical algorithm
-                                   ##  for calculation of the fillets, or an iteration-recursive method is needed.
-                                   ##  The analytical solution is applicable for linear and circular edges
-                                   ##  having a common point.
 
 
 proc newChFi2dFilletAPI*(): ChFi2dFilletAPI {.cdecl, constructor,

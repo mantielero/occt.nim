@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-04-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -21,69 +23,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_Graph"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of IFSelect_SelectSignature"
-type
-  HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
 
-## ! A SelectSignature sorts the Entities on a Signature Matching.
-## ! The signature to match is given at creation time. Also, the
-## ! required match is given at creation time : exact (IsEqual) or
-## ! contains (the Type's Name must contain the criterium Text)
-## !
-## ! Remark that no more interpretation is done, it is an
-## ! alpha-numeric signature : for instance, DynamicType is matched
-## ! as such, super-types are not considered
-## !
-## ! Also, numeric (integer) comparisons are supported : an item
-## ! can be <val ou <=val or >val or >=val , val being an Integer
-## !
-## ! A SelectSignature may also be created from a SignCounter,
-## ! which then just gives its LastValue as SignatureValue
 
-type
-  IFSelectSelectSignature* {.importcpp: "IFSelect_SelectSignature",
-                            header: "IFSelect_SelectSignature.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## SelectSignature
-                                                                                                        ## with
-                                                                                                        ## its
-                                                                                                        ## Signature
-                                                                                                        ## and
-                                                                                                        ## its
-                                                                                                        ## Text
-                                                                                                        ## to
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Match.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## <exact>
-                                                                                                        ## if
-                                                                                                        ## True
-                                                                                                        ## requires
-                                                                                                        ## exact
-                                                                                                        ## match,
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## if
-                                                                                                        ## False
-                                                                                                        ## requires
-                                                                                                        ## <signtext>
-                                                                                                        ## to
-                                                                                                        ## be
-                                                                                                        ## contained
-                                                                                                        ## in
-                                                                                                        ## the
-                                                                                                        ## Signature
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## entity
-                                                                                                        ## (default
-                                                                                                        ## is
-                                                                                                        ## "exact")
 
 
 proc newIFSelectSelectSignature*(matcher: Handle[IFSelectSignature];

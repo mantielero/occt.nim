@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-07-07
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,20 +21,6 @@ discard "forward decl of TopoDS_Face"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepTool* {.importcpp: "BRep_Tool", header: "BRep_Tool.hxx", bycopy.} = object ## ! If S is Shell, returns True if it has no free
-                                                                         ## boundaries
-                                                                         ## (edges).
-                                                                         ## ! If S is Wire, returns True if it has no free ends
-                                                                         ## (vertices).
-                                                                         ## !
-                                                                         ## (Internal and
-                                                                         ## External
-                                                                         ## sub-shepes are ignored in these checks)
-                                                                         ## ! If S is Edge, returns True if its
-                                                                         ## vertices are the same.
-                                                                         ## ! For other shape types returns
-                                                                         ## S.Closed().
 
 
 proc isClosed*(s: TopoDS_Shape): bool {.cdecl, importcpp: "BRep_Tool::IsClosed(@)",

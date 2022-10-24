@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,27 +22,8 @@ discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_InterfaceModel"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectRange"
-type
-  HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
 
-## ! A SelectRange keeps or rejects a sub-set of the input set,
-## ! that is the Entities of which rank in the iteration list
-## ! is in a given range (for instance form 2nd to 6th, etc...)
 
-type
-  IFSelectSelectRange* {.importcpp: "IFSelect_SelectRange",
-                        header: "IFSelect_SelectRange.hxx", bycopy.} = object of IFSelectSelectExtract ##
-                                                                                                ## !
-                                                                                                ## Creates
-                                                                                                ## a
-                                                                                                ## SelectRange.
-                                                                                                ## Default
-                                                                                                ## is
-                                                                                                ## Take
-                                                                                                ## all
-                                                                                                ## the
-                                                                                                ## input
-                                                                                                ## list
 
 
 proc newIFSelectSelectRange*(): IFSelectSelectRange {.cdecl, constructor,

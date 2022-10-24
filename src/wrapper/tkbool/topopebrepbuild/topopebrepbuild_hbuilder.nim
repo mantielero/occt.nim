@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,20 +22,8 @@ discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_Builder"
 discard "forward decl of TopOpeBRepBuild_HBuilder"
-type
-  HandleTopOpeBRepBuildHBuilder* = Handle[TopOpeBRepBuildHBuilder]
 
-## ! The HBuilder  algorithm    constructs   topological
-## ! objects  from   an    existing  topology  and  new
-## ! geometries attached to the topology. It is used to
-## ! construct the result of a topological operation;
-## ! the existing  topologies are the parts involved in
-## ! the  topological  operation and the new geometries
-## ! are the intersection lines and points.
 
-type
-  TopOpeBRepBuildHBuilder* {.importcpp: "TopOpeBRepBuild_HBuilder",
-                            header: "TopOpeBRepBuild_HBuilder.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepBuildHBuilder*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildHBuilder {.

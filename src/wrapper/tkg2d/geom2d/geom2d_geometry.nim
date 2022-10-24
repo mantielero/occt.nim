@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,38 +22,8 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
-type
-  HandleGeom2dGeometry* {.importcpp:"opencascade::handle<Geom2d_Geometry>", header:"Standard_Handle.hxx", bycopy, pure, inheritable.} = object
 
-## ! The general abstract class Geometry in 2D space describes
-## ! the common behaviour of all the geometric entities.
-## !
-## ! All the objects derived from this class can be move with a
-## ! geometric transformation. Only the transformations which
-## ! doesn't modify the nature of the geometry are available in
-## ! this package.
-## ! The method Transform which defines a general transformation
-## ! is deferred. The other specifics transformations used the
-## ! method Transform.
-## ! All the following transformations modify the object itself.
-## ! Warning
-## ! Only transformations which do not modify the nature
-## ! of the geometry can be applied to Geom2d objects:
-## ! this is the case with translations, rotations,
-## ! symmetries and scales; this is also the case with
-## ! gp_Trsf2d composite transformations which are
-## ! used to define the geometric transformations applied
-## ! using the Transform or Transformed functions.
-## ! Note: Geometry defines the "prototype" of the
-## ! abstract method Transform which is defined for each
-## ! concrete type of derived object. All other
-## ! transformations are implemented using the Transform method.
 
-type
-  Geom2dGeometry* {.importcpp: "Geom2d_Geometry", header: "Geom2d_Geometry.hxx",
-                   bycopy.} = object of StandardTransient ## ! Performs the symmetrical transformation of a Geometry
-                                                     ## ! with respect to the point P which is the center of the
-                                                     ## ! symmetry and assigns the result to this geometric object.
 
 
 proc mirror*(this: var Geom2dGeometry; p: Pnt2dObj) {.cdecl, importcpp: "Mirror",

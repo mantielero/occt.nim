@@ -1,3 +1,5 @@
+import brepprim_types
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,56 +22,6 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of gp_Pnt2d"
-type
-  BRepPrimRevolution* {.importcpp: "BRepPrim_Revolution",
-                       header: "BRepPrim_Revolution.hxx", bycopy.} = object of BRepPrimOneAxis ##
-                                                                                        ## !
-                                                                                        ## Create
-                                                                                        ## a
-                                                                                        ## revolution
-                                                                                        ## body
-                                                                                        ## <M>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ## meridian
-                                                                                        ## nd
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## must
-                                                                                        ## be
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane
-                                                                                        ## of
-                                                                                        ## <A>.
-                                                                                        ## <PM>
-                                                                                        ## is
-                                                                                        ## the
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## meridian
-                                                                                        ## in
-                                                                                        ## the
-                                                                                        ## XZ
-                                                                                        ## plane.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## Create
-                                                                                        ## a
-                                                                                        ## revolution
-                                                                                        ## body.
-                                                                                        ## The
-                                                                                        ## meridian
-                                                                                        ## is
-                                                                                        ## set
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## later.
-                                                                                        ## Reserved
-                                                                                        ## for
-                                                                                        ## derivated
-                                                                                        ## classes.
 
 
 proc newBRepPrimRevolution*(a: Ax2Obj; vMin: cfloat; vMax: cfloat; m: Handle[GeomCurve];

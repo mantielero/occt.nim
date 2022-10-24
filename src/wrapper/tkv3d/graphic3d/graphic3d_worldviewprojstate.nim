@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2015-06-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -16,77 +18,6 @@
 ## ! Helper class for keeping reference on world-view-projection state.
 ## ! Helpful for synchronizing state of WVP dependent data structures.
 
-type
-  Graphic3dWorldViewProjState* {.importcpp: "Graphic3d_WorldViewProjState",
-                                header: "Graphic3d_WorldViewProjState.hxx", bycopy.} = object ##
-                                                                                         ## !
-                                                                                         ## Default
-                                                                                         ## constructor.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Check
-                                                                                         ## state
-                                                                                         ## validity.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## true
-                                                                                         ## if
-                                                                                         ## state
-                                                                                         ## is
-                                                                                         ## set.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## projection
-                                                                                         ## state
-                                                                                         ## counter.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Compare
-                                                                                         ## projection
-                                                                                         ## with
-                                                                                         ## other
-                                                                                         ## state.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## true
-                                                                                         ## when
-                                                                                         ## the
-                                                                                         ## projection
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## given
-                                                                                         ## camera
-                                                                                         ## state
-                                                                                         ## differs
-                                                                                         ## from
-                                                                                         ## this
-                                                                                         ## one.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Compare
-                                                                                         ## with
-                                                                                         ## other
-                                                                                         ## world
-                                                                                         ## view
-                                                                                         ## projection
-                                                                                         ## state.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## @return
-                                                                                         ## true
-                                                                                         ## if
-                                                                                         ## the
-                                                                                         ## other
-                                                                                         ## projection
-                                                                                         ## state
-                                                                                         ## is
-                                                                                         ## different
-                                                                                         ## to
-                                                                                         ## this
-                                                                                         ## one.
 
 
 proc newGraphic3dWorldViewProjState*(): Graphic3dWorldViewProjState {.cdecl,

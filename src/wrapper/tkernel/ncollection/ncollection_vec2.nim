@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -17,12 +19,6 @@
 ## ! Defines the 2D-vector template.
 ## ! The main target for this class - to handle raw low-level arrays (from/to graphic driver etc.).
 
-type
-  NCollectionVec2*[ElementT] {.importcpp: "NCollection_Vec2<\'0>",
-                              header: "NCollection_Vec2.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
 
 
 proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec2::Length(@)",

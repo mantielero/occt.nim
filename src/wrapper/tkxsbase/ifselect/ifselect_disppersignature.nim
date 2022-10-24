@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-12-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -20,30 +22,8 @@ discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Interface_Graph"
 discard "forward decl of IFGraph_SubPartsIterator"
 discard "forward decl of IFSelect_DispPerSignature"
-type
-  HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
 
-## ! A DispPerSignature sorts input Entities according to a
-## ! Signature : it works with a SignCounter to do this.
 
-type
-  IFSelectDispPerSignature* {.importcpp: "IFSelect_DispPerSignature",
-                             header: "IFSelect_DispPerSignature.hxx", bycopy.} = object of IFSelectDispatch ##
-                                                                                                     ## !
-                                                                                                     ## Creates
-                                                                                                     ## a
-                                                                                                     ## DispPerSignature
-                                                                                                     ## with
-                                                                                                     ## no
-                                                                                                     ## SignCounter
-                                                                                                     ## (by
-                                                                                                     ## default,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## produces
-                                                                                                     ## only
-                                                                                                     ## one
-                                                                                                     ## packet)
 
 
 proc newIFSelectDispPerSignature*(): IFSelectDispPerSignature {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,15 +19,8 @@
 discard "forward decl of Law_BSpline"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtField"
-type
-  HandleGeomFillTgtField* = Handle[GeomFillTgtField]
 
-## ! Root class defining the methods we need to make an
-## ! algorithmic tangents field.
 
-type
-  GeomFillTgtField* {.importcpp: "GeomFill_TgtField",
-                     header: "GeomFill_TgtField.hxx", bycopy.} = object of StandardTransient
 
 
 proc isScalable*(this: GeomFillTgtField): bool {.noSideEffect, cdecl,

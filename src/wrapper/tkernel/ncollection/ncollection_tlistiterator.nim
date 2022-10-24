@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -19,11 +21,6 @@
 ##  Remark:      TListIterator is internal class
 ##
 
-type
-  NCollectionTListIterator*[TheItemType] {.
-      importcpp: "NCollection_TListIterator<\'0>",
-      header: "NCollection_TListIterator.hxx", bycopy.} = object of NCollectionBaseListIterator ## ! Empty
-                                                                      ## constructor - for later Init
 
 
 proc newNCollectionTListIterator*[TheItemType](): NCollectionTListIterator[

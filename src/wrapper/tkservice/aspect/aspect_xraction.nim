@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,6 @@
 
 ## ! XR action definition.
 
-type
-  AspectXRAction* {.importcpp: "Aspect_XRAction", header: "Aspect_XRAction.hxx",
-                   bycopy.} = object of StandardTransient ## ! Return action id.
-    ## !< action id
-    ## !< action handle
-    ## !< action type
 
 
 proc id*(this: AspectXRAction): TCollectionAsciiString {.noSideEffect, cdecl,
@@ -35,6 +31,4 @@ proc newAspectXRAction*(theId: TCollectionAsciiString; theType: AspectXRActionTy
     cdecl, constructor, importcpp: "Aspect_XRAction(@)", header: "Aspect_XRAction.hxx".}
 ## ! Map of actions with action Id as a key.
 
-type
-  AspectXRActionMap* = NCollectionIndexedDataMap[TCollectionAsciiString,
-      Handle[AspectXRAction], TCollectionAsciiString]
+

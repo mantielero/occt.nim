@@ -1,3 +1,5 @@
+import tcolstd_types
+
 ##  Created on: 2006-12-05
 ##  Created by: Sergey  KOCHETKOV
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -14,14 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TColStd_HPackedMapOfInteger"
-type
-  HandleTColStdHPackedMapOfInteger* = Handle[TColStdHPackedMapOfInteger]
 
-## ! Extension of TColStd_PackedMapOfInteger class to be manipulated by handle.
 
-type
-  TColStdHPackedMapOfInteger* {.importcpp: "TColStd_HPackedMapOfInteger",
-                               header: "TColStd_HPackedMapOfInteger.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTColStdHPackedMapOfInteger*(nbBuckets: cint = 1): TColStdHPackedMapOfInteger {.

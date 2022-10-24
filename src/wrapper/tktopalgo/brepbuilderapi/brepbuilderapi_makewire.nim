@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-08
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,79 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Wire"
 discard "forward decl of TopoDS_Vertex"
-type
-  BRepBuilderAPI_MakeWire* {.importcpp: "BRepBuilderAPI_MakeWire",
-                            header: "BRepBuilderAPI_MakeWire.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## an
-                                                                                                          ## empty
-                                                                                                          ## wire
-                                                                                                          ## framework,
-                                                                                                          ## to
-                                                                                                          ## which
-                                                                                                          ## edges
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## are
-                                                                                                          ## added
-                                                                                                          ## using
-                                                                                                          ## the
-                                                                                                          ## Add
-                                                                                                          ## function.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## As
-                                                                                                          ## soon
-                                                                                                          ## as
-                                                                                                          ## the
-                                                                                                          ## wire
-                                                                                                          ## contains
-                                                                                                          ## one
-                                                                                                          ## edge,
-                                                                                                          ## it
-                                                                                                          ## can
-                                                                                                          ## return
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## with
-                                                                                                          ## the
-                                                                                                          ## use
-                                                                                                          ## of
-                                                                                                          ## the
-                                                                                                          ## function
-                                                                                                          ## Wire.
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## Warning
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## The
-                                                                                                          ## function
-                                                                                                          ## Error
-                                                                                                          ## will
-                                                                                                          ## return
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## BRepBuilderAPI_EmptyWire
-                                                                                                          ## if
-                                                                                                          ## it
-                                                                                                          ## is
-                                                                                                          ## called
-                                                                                                          ## before
-                                                                                                          ## at
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## least
-                                                                                                          ## one
-                                                                                                          ## edge
-                                                                                                          ## is
-                                                                                                          ## added
-                                                                                                          ## to
-                                                                                                          ## the
-                                                                                                          ## wire
-                                                                                                          ## under
-                                                                                                          ## construction.
 
 
 proc wire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,

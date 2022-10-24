@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 2012-12-06
 ##  Created by: Sergey KHROMOV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -14,12 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Pnt"
-type
-  ExtremaPOnSurfParams* {.importcpp: "Extrema_POnSurfParams",
-                         header: "Extrema_POnSurfParams.hxx", bycopy.} = object of ExtremaPOnSurf ##
-                                                                                           ## !
-                                                                                           ## empty
-                                                                                           ## constructor
 
 
 proc newExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.cdecl, constructor,

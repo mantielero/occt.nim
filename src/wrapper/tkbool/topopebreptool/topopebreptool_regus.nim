@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1999-01-04
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of TopoDS_Edge"
-type
-  TopOpeBRepToolREGUS* {.importcpp: "TopOpeBRepTool_REGUS",
-                        header: "TopOpeBRepTool_REGUS.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepToolREGUS*(): TopOpeBRepToolREGUS {.cdecl, constructor,

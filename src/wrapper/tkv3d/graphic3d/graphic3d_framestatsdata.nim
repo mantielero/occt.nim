@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,51 +15,6 @@
 
 ## ! Data frame definition.
 
-type
-  Graphic3dFrameStatsData* {.importcpp: "Graphic3d_FrameStatsData",
-                            header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object of RootObj##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## FPS
-                                                                                 ## (frames
-                                                                                 ## per
-                                                                                 ## seconds,
-                                                                                 ## elapsed
-                                                                                 ## time).
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## This
-                                                                                 ## number
-                                                                                 ## indicates
-                                                                                 ## an
-                                                                                 ## actual
-                                                                                 ## frame
-                                                                                 ## rate
-                                                                                 ## averaged
-                                                                                 ## for
-                                                                                 ## several
-                                                                                 ## frames
-                                                                                 ## within
-                                                                                 ## UpdateInterval()
-                                                                                 ## duration,
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## basing
-                                                                                 ## on
-                                                                                 ## a
-                                                                                 ## real
-                                                                                 ## elapsed
-                                                                                 ## time
-                                                                                 ## between
-                                                                                 ## updates.
-    ## !< counters
-    ## !< timers
-    ## !< minimal values of timers
-    ## !< maximum values of timers
-    ## !< FPS     meter (frames per seconds, elapsed time)
-    ## !< CPU FPS meter (frames per seconds, CPU time)
-    ## !< FPS     meter for immediate redraws
-    ## !< CPU FPS meter for immediate redraws
 
 
 proc frameRate*(this: Graphic3dFrameStatsData): cfloat {.noSideEffect, cdecl,
@@ -85,14 +42,6 @@ proc fillMax*(this: var Graphic3dFrameStatsData; theOther: Graphic3dFrameStatsDa
     cdecl, importcpp: "FillMax", header: "Graphic3d_FrameStatsData.hxx".}
 ## ! Temporary data frame definition.
 
-type
-  Graphic3dFrameStatsDataTmp* {.importcpp: "Graphic3d_FrameStatsDataTmp",
-                               header: "Graphic3d_FrameStatsData.hxx", bycopy.} = object of Graphic3dFrameStatsData ##
-                                                                                                             ## !
-                                                                                                             ## Empty
-                                                                                                             ## constructor.
-    ## !< precise timers for time measurements
-    ## !< previous timers values
 
 
 proc newGraphic3dFrameStatsDataTmp*(): Graphic3dFrameStatsDataTmp {.cdecl,

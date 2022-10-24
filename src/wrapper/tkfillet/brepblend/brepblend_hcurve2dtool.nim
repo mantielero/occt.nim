@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1995-07-17
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
-type
-  BRepBlendHCurve2dTool* {.importcpp: "BRepBlend_HCurve2dTool",
-                          header: "BRepBlend_HCurve2dTool.hxx", bycopy.} = object
 
 
 proc firstParameter*(c: Handle[Adaptor2dHCurve2d]): cfloat {.cdecl,

@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-04-15
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,62 +19,6 @@
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
-type
-  Prs3dArrow* {.importcpp: "Prs3d_Arrow", header: "Prs3d_Arrow.hxx", bycopy.} = object ## !
-                                                                               ## Defines
-                                                                               ## the
-                                                                               ## representation
-                                                                               ## of
-                                                                               ## the
-                                                                               ## arrow
-                                                                               ## as
-                                                                               ## shaded
-                                                                               ## triangulation.
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theAxis
-                                                                               ## axis
-                                                                               ## definition
-                                                                               ## (arrow
-                                                                               ## origin
-                                                                               ## and
-                                                                               ## direction)
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theTubeRadius
-                                                                               ## tube
-                                                                               ## (cylinder)
-                                                                               ## radius
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theAxisLength
-                                                                               ## overall
-                                                                               ## arrow
-                                                                               ## length
-                                                                               ## (cylinder +
-                                                                               ## cone)
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theConeRadius
-                                                                               ## cone
-                                                                               ## radius
-                                                                               ## (arrow
-                                                                               ## tip)
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theConeLength
-                                                                               ## cone
-                                                                               ## length
-                                                                               ## (arrow
-                                                                               ## tip)
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theNbFacettes
-                                                                               ## tessellation
-                                                                               ## quality
-                                                                               ## for
-                                                                               ## each
-                                                                               ## part
 
 
 proc drawShaded*(theAxis: Ax1Obj; theTubeRadius: cfloat; theAxisLength: cfloat;

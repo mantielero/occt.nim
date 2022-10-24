@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -14,11 +16,6 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of BOPAlgo_PaveFiller"
-type
-  BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider ##
-                                                                                                     ## !
-                                                                                                     ## Empty
-                                                                                                     ## constructor
 
 
 proc newBOPAlgoBOP*(): BOPAlgoBOP {.cdecl, constructor, importcpp: "BOPAlgo_BOP(@)",

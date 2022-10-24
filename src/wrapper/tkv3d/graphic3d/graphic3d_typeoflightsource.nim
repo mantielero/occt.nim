@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,16 +18,7 @@
 
 ## ! Definition of all the type of light source.
 
-type
-  Graphic3dTypeOfLightSource* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_TypeOfLightSource",
-                               header: "Graphic3d_TypeOfLightSource.hxx".} = enum
-    graphic3dTOLS_AMBIENT,    ## !< ambient light
-    graphic3dTOLS_DIRECTIONAL, ## !< directional light
-    graphic3dTOLS_POSITIONAL, ## !< positional light
-    graphic3dTOLS_SPOT       ## !< spot light
 
-#  obsolete aliases
 const
   v3dAMBIENT     = graphic3dTOLS_AMBIENT
   v3dDIRECTIONAL = graphic3dTOLS_DIRECTIONAL
@@ -35,3 +28,4 @@ const
 
 const                         ## ! Auxiliary value defining the overall number of values in enumeration Graphic3d_TypeOfLightSource
   Graphic3dTypeOfLightSourceNB* = graphic3dTOLS_SPOT.int + 1
+

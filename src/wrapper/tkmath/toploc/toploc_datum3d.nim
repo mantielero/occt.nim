@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1991-01-23
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,22 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopLoc_Datum3D"
-type
-  HandleTopLocDatum3D* = Handle[TopLocDatum3D]
 
-## ! Describes a coordinate transformation, i.e. a change
-## ! to an elementary 3D coordinate system, or position in 3D space.
-## ! A Datum3D is always described relative to the default datum.
-## ! The default datum is described relative to itself: its
-## ! origin is (0,0,0), and its axes are (1,0,0) (0,1,0) (0,0,1).
 
-type
-  TopLocDatum3D* {.importcpp: "TopLoc_Datum3D", header: "TopLoc_Datum3D.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Constructs
-                                                                                                           ## a
-                                                                                                           ## default
-                                                                                                           ## Datum3D.
 
 
 proc newTopLocDatum3D*(): TopLocDatum3D {.cdecl, constructor,
@@ -51,3 +39,4 @@ proc shallowDump*(this: TopLocDatum3D; s: var StandardOStream) {.noSideEffect, c
     importcpp: "ShallowDump", header: "TopLoc_Datum3D.hxx".}
 proc shallowDump*(me: Handle[TopLocDatum3D]; s: var StandardOStream) {.cdecl.} =
   discard
+

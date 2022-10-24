@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 1993-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -14,20 +16,6 @@
 
 ## ! defines the attributes when drawing a Length Presentation.
 
-type
-  Prs3dDimensionAspect* {.importcpp: "Prs3d_DimensionAspect",
-                         header: "Prs3d_DimensionAspect.hxx", bycopy.} = object of Prs3dBasicAspect ##
-                                                                                             ## !
-                                                                                             ## Constructs
-                                                                                             ## an
-                                                                                             ## empty
-                                                                                             ## framework
-                                                                                             ## to
-                                                                                             ## define
-                                                                                             ## the
-                                                                                             ## display
-                                                                                             ## of
-                                                                                             ## dimensions.
 
 
 proc newPrs3dDimensionAspect*(): Prs3dDimensionAspect {.cdecl, constructor,
@@ -95,5 +83,4 @@ proc valueStringFormat*(this: Prs3dDimensionAspect): TCollectionAsciiString {.
 proc dumpJson*(this: Prs3dDimensionAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_DimensionAspect.hxx".}
-type
-  HandlePrs3dDimensionAspect* = Handle[Prs3dDimensionAspect]
+

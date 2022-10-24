@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-24
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -31,50 +33,7 @@
 ##               an item in the map.
 ##
 
-type
-  ForwardIteratorTag* {.importcpp:"std::forward_iterator_tag".} = object
-  NCollectionDataMap*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_DataMap<\'0,\'1,\'2>",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
-                                                                          ## STL-compliant
-                                                                          ## typedef for key type
-                                                                          ##
-                                                                          ## ****************
-                                                                          ## Adaptation of the
-                                                                          ## TListNode to the
-                                                                          ## DATAmap
-                                                                          ##
-                                                                          ## ****************
-                                                                          ## Implementation of the
-                                                                          ## Iterator
-                                                                          ## interface.
-                                                                          ##
-                                                                          ## ---------- PUBLIC
-                                                                          ## METHODS
-                                                                          ## ------------
-                                                                          ## ! Empty
-                                                                          ## Constructor.
-                                                                          ##
-                                                                          ## ----------
-                                                                          ## PROTECTED
-                                                                          ## METHODS
-                                                                          ## ----------
-                                                                          ## ! Lookup for
-                                                                          ## particular key in map.
-                                                                          ## Returns true if key is found and
-                                                                          ## !
-                                                                          ## thepNode points to binded node.
-                                                                          ## Returns false if key is not found,
-                                                                          ## !
-                                                                          ## thehNode value is this case is not
-                                                                          ## usable.
 
-  NCollectionDataMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionDataMapvalueType*[TheItemType] = TheItemType
-  NCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_DataMap<\'0,\'1,\'2>::DataMapNode",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionTListNode[
-      TheItemType]            ## ! Constructor with 'Next'
 
 
 proc newNCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher](
@@ -87,13 +46,6 @@ proc key*[TheKeyType; TheItemType; Hasher](this: NCollectionDataMapDataMapNode[
 proc delNode*[TheKeyType; TheItemType; Hasher](theNode: ptr NCollectionListNode;
     theAl: var Handle[NCollectionBaseAllocator]) {.cdecl,
     importcpp: "DataMapNode::delNode(@)", header: "NCollection_DataMap.hxx".}
-type
-  NCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_DataMap<\'0,\'1,\'2>::Iterator",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of RootObj ##
-                                                                                  ## !
-                                                                                  ## Empty
-                                                                                  ## constructor
 
 
 proc newNCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher](): NCollectionDataMapIterator[
@@ -118,11 +70,6 @@ proc changeValue*[TheKeyType; TheItemType; Hasher](
 proc key*[TheKeyType; TheItemType; Hasher](this: NCollectionDataMapIterator[
     TheKeyType, TheItemType, Hasher]): TheKeyType {.noSideEffect, cdecl,
     importcpp: "Key", header: "NCollection_DataMap.hxx".}
-type
-#  NCollectionDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
-#      NCollectionDataMapIterator, TheItemType, False]
-  NCollectionDataMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionDataMapIterator, TheItemType, true]
 
 proc begin*[TheKeyType; TheItemType; Hasher](
     this: NCollectionDataMap[TheKeyType, TheItemType, Hasher]): NCollectionDataMapiterator {.

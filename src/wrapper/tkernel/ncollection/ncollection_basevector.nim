@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-24
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2013 OPEN CASCADE SAS
@@ -21,38 +23,6 @@ proc getCapacity*(theIncrement: cint): cint {.cdecl.} =
 
 ## ! Class NCollection_BaseVector - base for NCollection_Vector template
 
-type
-  NCollectionBaseVector* {.importcpp: "NCollection_BaseVector",
-                          header: "NCollection_BaseVector.hxx", bycopy.} = object of RootObj ## !
-                                                                             ## Memory
-                                                                             ## allocation
-                                                                             ##
-                                                                             ## Auxiliary
-                                                                             ## structure for
-                                                                             ## memory
-                                                                             ## blocks
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Block
-                                                                             ## initializer
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## protected
-                                                                             ## methods
-                                                                             ## !
-                                                                             ## Empty
-                                                                             ## constructor
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## public API
-                                                                             ## !
-                                                                             ## Empty the
-                                                                             ## vector of its
-                                                                             ## objects
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## Protected
-                                                                             ## fields
 
 
 proc clear*(this: var NCollectionBaseVector) {.cdecl, importcpp: "Clear",

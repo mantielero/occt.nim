@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,15 +17,7 @@
 
 ## ! Interior types for primitive faces.
 
-type
-  AspectInteriorStyle* {.size: sizeof(cint), importcpp: "Aspect_InteriorStyle",
-                        header: "Aspect_InteriorStyle.hxx".} = enum
-    aspectIS_EMPTY = -1,        ## !< no interior
-    aspectIS_SOLID = 0,         ## !< normally filled surface interior
-    aspectIS_HATCH,           ## !< hatched surface interior
-    aspectIS_HIDDENLINE,      ## !< interior is filled with viewer background color
-    aspectIS_POINT           ## !< display only vertices of surface (obsolete)
-                   ##  obsolete aliases
 const
   aspectIS_HOLLOW = aspectIS_EMPTY.AspectInteriorStyle ## !< transparent surface interior
+
 

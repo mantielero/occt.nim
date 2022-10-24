@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1996-03-06
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Lin"
-type
-  ChFiDS_CircSection* {.importcpp: "ChFiDS_CircSection",
-                       header: "ChFiDS_CircSection.hxx", bycopy.} = object
 
 
 proc newChFiDS_CircSection*(): ChFiDS_CircSection {.cdecl, constructor,

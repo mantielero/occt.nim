@@ -1,3 +1,5 @@
+import gce2d_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,43 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
-type
-  GCE2dMakeArcOfCircle* {.importcpp: "GCE2d_MakeArcOfCircle",
-                         header: "GCE2d_MakeArcOfCircle.hxx", bycopy.} = object of GCE2dRoot ##
-                                                                                      ## !
-                                                                                      ## Makes
-                                                                                      ## an
-                                                                                      ## arc
-                                                                                      ## of
-                                                                                      ## circle
-                                                                                      ## (TrimmedCurve
-                                                                                      ## from
-                                                                                      ## Geom2d)
-                                                                                      ## from
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## a
-                                                                                      ## circle
-                                                                                      ## between
-                                                                                      ## two
-                                                                                      ## parameters
-                                                                                      ## Alpha1
-                                                                                      ## and
-                                                                                      ## Alpha2.
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## The
-                                                                                      ## two
-                                                                                      ## parameters
-                                                                                      ## are
-                                                                                      ## angles.
-                                                                                      ## The
-                                                                                      ## parameters
-                                                                                      ## are
-                                                                                      ##
-                                                                                      ## !
-                                                                                      ## in
-                                                                                      ## radians.
 
 
 proc newGCE2dMakeArcOfCircle*(circ: Circ2dObj; alpha1: cfloat; alpha2: cfloat;

@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,21 +21,8 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_VectorWithNullMagnitude"
 discard "forward decl of gp_Vec"
 discard "forward decl of Geom_Vector"
-type
-  HandleGeomVector* = Handle[GeomVector]
 
-## ! The abstract class Vector describes the common
-## ! behavior of vectors in 3D space.
-## ! The Geom package provides two concrete classes of
-## ! vectors: Geom_Direction (unit vector) and Geom_VectorWithMagnitude.
 
-type
-  GeomVector* {.importcpp: "Geom_Vector", header: "Geom_Vector.hxx", bycopy.} = object of GeomGeometry ##
-                                                                                             ## !
-                                                                                             ## Reverses
-                                                                                             ## the
-                                                                                             ## vector
-                                                                                             ## <me>.
 
 
 proc reverse*(this: var GeomVector) {.cdecl, importcpp: "Reverse", header: "Geom_Vector.hxx".}

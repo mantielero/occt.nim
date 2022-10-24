@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -124,40 +126,6 @@
 ## !
 ## ! \tparam MetricType Type of metric to perform more optimal tree descend
 
-type
-  BVH_BaseTraverse*[MetricType] {.importcpp: "BVH_BaseTraverse<\'0>",
-                                 header: "BVH_Traverse.hxx", bycopy.} = object of RootObj  ## ! @name
-                                                                          ## Metrics
-                                                                          ## comparison for
-                                                                          ## choosing the best branch
-                                                                          ## !
-                                                                          ## Compares the two
-                                                                          ## metrics and
-                                                                          ## chooses the best one.
-                                                                          ## !
-                                                                          ## Returns true if the first metric is better than the
-                                                                          ## second,
-                                                                          ## ! false
-                                                                          ## otherwise.
-                                                                          ## ! @name
-                                                                          ## Rejection of the node by metric
-                                                                          ## !
-                                                                          ## Rejects the node by the metric
-                                                                          ## ! @name
-                                                                          ## Condition to stop the
-                                                                          ## descend
-                                                                          ## !
-                                                                          ## Returns the flag
-                                                                          ## controlling the tree
-                                                                          ## descend.
-                                                                          ## !
-                                                                          ## Returns true if the tree
-                                                                          ## descend should be
-                                                                          ## stopped.
-                                                                          ## ! @name
-                                                                          ## Constructors
-                                                                          ## !
-                                                                          ## Constructor
 
 
 proc isMetricBetter*[MetricType](this: BVH_BaseTraverse[MetricType];
@@ -177,26 +145,7 @@ proc stop*[MetricType](this: BVH_BaseTraverse[MetricType]): bool {.noSideEffect,
 ## ! \tparam BVHSetType Type of set containing the BVH tree (required to access the elements by the index)
 ## ! \tparam MetricType Type of metric to perform more optimal tree descend
 
-type
-  BVH_Traverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType] {.
-      importcpp: "BVH_Traverse<\'0,\'1,\'2,\'3>", header: "BVH_Traverse.hxx", bycopy.} = object of BVH_BaseTraverse[
-      MetricType] ## ! @name public types
-                 ## ! @name Constructor
-                 ## ! Constructor
-                 ## ! @name Setting the set to access the elements and BVH tree
-                 ## ! Sets the BVH Set containing the BVH tree
-                 ## ! @name Rules for Accept/Reject
-                 ## ! Basing on the given metric, checks if the whole branch may be
-                 ## ! accepted without any further checks.
-                 ## ! Returns true if the metric is accepted, false otherwise.
-                 ## ! @name Selection
-                 ## ! Selection of the elements from the BVH tree by the
-                 ## ! rules defined in Accept/Reject methods.
-                 ## ! The method requires the BVHSet containing BVH tree to be set.
-                 ## ! Returns the number of accepted elements.
-                 ## ! @name Fields
 
-#  BVH_TraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
 
 proc newBVH_Traverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_Traverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,
@@ -233,26 +182,7 @@ proc select*[NumType; Dimension: static[cint]; BVHSetType; MetricType](
 ## ! \tparam BVHSetType Type of set containing the BVH tree (required to access the elements by the index)
 ## ! \tparam MetricType Type of metric to perform more optimal tree descend
 
-type
-  BVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType] {.
-      importcpp: "BVH_PairTraverse<\'0,\'1,\'2,\'3>", header: "BVH_Traverse.hxx",
-      bycopy.} = object of BVH_BaseTraverse[MetricType] ## ! @name public types
-                                                   ## ! @name Constructor
-                                                   ## ! Constructor
-                                                   ## ! @name Setting the sets to access the elements and BVH trees
-                                                   ## ! Sets the BVH Sets containing the BVH trees
-                                                   ## ! @name Rules for Accept/Reject
-                                                   ## ! Rejection of the pair of nodes by bounding boxes.
-                                                   ## ! Metric is computed to choose the best branch.
-                                                   ## ! Returns true if the pair of nodes should be rejected, false otherwise.
-                                                   ## ! @name Selection
-                                                   ## ! Selection of the pairs of elements of two BVH trees by the
-                                                   ## ! rules defined in Accept/Reject methods.
-                                                   ## ! The method requires the BVHSets containing BVH trees to be set.
-                                                   ## ! Returns the number of accepted pairs of elements.
-                                                   ## ! @name Fields
 
-#  BVH_PairTraverseBVH_VecNt*[NumType; Dimension] = BVH_VecNt[NumType, Dimension]
 
 proc newBVH_PairTraverse*[NumType; Dimension: static[cint]; BVHSetType; MetricType](): BVH_PairTraverse[
     NumType, Dimension, BVHSetType, MetricType] {.cdecl, constructor,

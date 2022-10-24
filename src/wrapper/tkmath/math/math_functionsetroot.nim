@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-14
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,19 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_FunctionSetWithDerivatives"
 discard "forward decl of math_Matrix"
-type
-  MathFunctionSetRoot* {.importcpp: "math_FunctionSetRoot",
-                        header: "math_FunctionSetRoot.hxx", bycopy.} = object ## ! is used in a
-                                                                         ## sub-class to
-                                                                         ## initialize
-                                                                         ## correctly all the fields
-                                                                         ## ! of this class.
-                                                                         ## ! The range (1,
-                                                                         ## F.NbVariables()) must be
-                                                                         ## especially
-                                                                         ## !
-                                                                         ## respected for all vectors and matrix
-                                                                         ## declarations.
 
 
 proc newMathFunctionSetRoot*(f: var MathFunctionSetWithDerivatives;

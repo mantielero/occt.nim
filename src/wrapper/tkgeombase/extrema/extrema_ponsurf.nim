@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of gp_Pnt"
-type
-  ExtremaPOnSurf* {.importcpp: "Extrema_POnSurf", header: "Extrema_POnSurf.hxx",
-                   bycopy.} = object of RootObj ## ! Creation of an indefinite point on surface.
 
 
 proc newExtremaPOnSurf*(): ExtremaPOnSurf {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,48 +23,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Dir"
 discard "forward decl of gp_Pln"
 discard "forward decl of gp_Ax1"
-type
-  GceMakeCirc* {.importcpp: "gce_MakeCirc", header: "gce_MakeCirc.hxx", bycopy.} = object of GceRoot ##
-                                                                                           ## !
-                                                                                           ## A2
-                                                                                           ## locates
-                                                                                           ## the
-                                                                                           ## circle
-                                                                                           ## and
-                                                                                           ## gives
-                                                                                           ## its
-                                                                                           ## orientation
-                                                                                           ## in
-                                                                                           ## 3D
-                                                                                           ## space.
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Warnings
-                                                                                           ## :
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## It
-                                                                                           ## is
-                                                                                           ## not
-                                                                                           ## forbidden
-                                                                                           ## to
-                                                                                           ## create
-                                                                                           ## a
-                                                                                           ## circle
-                                                                                           ## with
-                                                                                           ## Radius
-                                                                                           ## =
-                                                                                           ## 0.0
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## The
-                                                                                           ## status
-                                                                                           ## is
-                                                                                           ## "NegativeRadius"
-                                                                                           ## if
-                                                                                           ## Radius
-                                                                                           ## <
-                                                                                           ## 0.0
 
 
 proc newGceMakeCirc*(a2: Ax2Obj; radius: cfloat): GceMakeCirc {.cdecl, constructor,

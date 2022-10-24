@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-09-14
 ##  Created by: Jean-Louis FRENKEL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 ## ! Defines the attributes when displaying a text.
 
-type
-  Prs3dTextAspect* {.importcpp: "Prs3d_TextAspect", header: "Prs3d_TextAspect.hxx",
-                    bycopy.} = object of Prs3dBasicAspect ## ! Constructs an empty framework for defining display attributes of text.
 
 
 proc newPrs3dTextAspect*(): Prs3dTextAspect {.cdecl, constructor,
@@ -57,5 +56,4 @@ proc setAspect*(this: var Prs3dTextAspect; theAspect: Handle[Graphic3dAspectText
 proc dumpJson*(this: Prs3dTextAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_TextAspect.hxx".}
-type
-  HandlePrs3dTextAspect* = Handle[Prs3dTextAspect]
+

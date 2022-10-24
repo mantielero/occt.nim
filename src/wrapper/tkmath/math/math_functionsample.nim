@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-07-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Standard_OutOfRange"
-type
-  MathFunctionSample* {.importcpp: "math_FunctionSample",
-                       header: "math_FunctionSample.hxx", bycopy.} = object
 
 
 proc newMathFunctionSample*(a: cfloat; b: cfloat; n: cint): MathFunctionSample {.cdecl,

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,23 +18,8 @@
 
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of Graphic3d_Texture1Dmanual"
-type
-  HandleGraphic3dTexture1Dmanual* = Handle[Graphic3dTexture1Dmanual]
 
-## ! This class provides the implementation of a manual 1D texture.
-## ! you MUST provides texture coordinates on your facets if you want to see your texture.
 
-type
-  Graphic3dTexture1Dmanual* {.importcpp: "Graphic3d_Texture1Dmanual",
-                             header: "Graphic3d_Texture1Dmanual.hxx", bycopy.} = object of Graphic3dTexture1D ##
-                                                                                                       ## !
-                                                                                                       ## Creates
-                                                                                                       ## a
-                                                                                                       ## texture
-                                                                                                       ## from
-                                                                                                       ## the
-                                                                                                       ## file
-                                                                                                       ## FileName.
 
 
 proc newGraphic3dTexture1Dmanual*(theFileName: TCollectionAsciiString): Graphic3dTexture1Dmanual {.

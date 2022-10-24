@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2013 OPEN CASCADE SAS
 ##
@@ -54,53 +56,11 @@ const
   StandardFalse* = false
   StandardTrue* = true
 
-type
-#  cint* = cint
-  StandardReal* = cdouble
-#  bool* = bool
-  StandardShortReal* = cfloat
-#  cchar* = char
-  StandardByte* = cuchar
-#  pointer* = pointer
-#  csize_t* = csize_t
-  StandardTime* {.importcpp:"std::time_t".} = object
 
-##  Unicode primitives, char16_t, char32_t
 
-type
-  StandardUtf8Char* = char
 
-## !< signed   UTF-8 char
 
-type
-  StandardUtf8UChar* = cuchar
 
-## !< unsigned UTF-8 char
 
-#when ((defined(gnuc) and not defined(clang) and
-#    ((gnuc == 4 and gnuc_Minor <= 3) or gnuc < 4)) or
-#    (defined(msc_Ver) and (msc_Ver < 1600))):
-#  ##  compatibility with old GCC and MSVC compilers
-#  type
-#    StandardExtCharacter* = uint16T
-#    StandardUtf16Char* = uint16T
-#    StandardUtf32Char* = uint32T
-#else:
-#  type
-#    StandardExtCharacter* = char16T
-#    StandardUtf16Char* = char16T
-#  ## !< UTF-16 char (always unsigned)
-#  type
-#    StandardUtf32Char* = char32T
-#  ## !< UTF-32 char (always unsigned)
-#type
-#  StandardWideChar* = WcharT
-#
-## !< wide char (unsigned UTF-16 on Windows platform and signed UTF-32 on Linux)
-##
 
-type
-  StandardExtCharacter* = distinct int16
-  StandardUtf16Char* = distinct int16
-#  cstring* = ptr cchar
-  StandardExtString* = ptr StandardExtCharacter
+

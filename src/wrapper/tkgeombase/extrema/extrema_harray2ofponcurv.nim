@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ExtremaHArray2OfPOnCurv* {.importcpp: "Extrema_HArray2OfPOnCurv",
-                            header: "Extrema_HArray2OfPOnCurv.hxx", bycopy.} = object of ExtremaArray2OfPOnCurv
 
 
 proc newExtremaHArray2OfPOnCurv*(theRowLow: cint; theRowUpp: cint; theColLow: cint;

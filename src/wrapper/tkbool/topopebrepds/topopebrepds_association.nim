@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of TopOpeBRepDS_Interference"
 discard "forward decl of TopOpeBRepDS_Association"
-type
-  HandleTopOpeBRepDS_Association* = Handle[TopOpeBRepDS_Association]
-  TopOpeBRepDS_Association* {.importcpp: "TopOpeBRepDS_Association",
-                             header: "TopOpeBRepDS_Association.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepDS_Association*(): TopOpeBRepDS_Association {.cdecl, constructor,

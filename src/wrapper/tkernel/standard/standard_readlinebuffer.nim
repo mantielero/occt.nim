@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,44 +15,6 @@
 
 ## ! Auxiliary tool for buffered reading of lines from input stream.
 
-type
-  StandardReadLineBuffer* {.importcpp: "Standard_ReadLineBuffer",
-                           header: "Standard_ReadLineBuffer.hxx", bycopy.} = object ## !
-                                                                               ## Constructor
-                                                                               ## with
-                                                                               ## initialization.
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theMaxBufferSizeBytes
-                                                                               ## the
-                                                                               ## length
-                                                                               ## of
-                                                                               ## buffer
-                                                                               ## to
-                                                                               ## read
-                                                                               ## (in
-                                                                               ## bytes)
-                                                                               ## !
-                                                                               ## Read
-                                                                               ## from
-                                                                               ## stl
-                                                                               ## stream.
-                                                                               ## !
-                                                                               ## @return
-                                                                               ## true
-                                                                               ## if
-                                                                               ## reading
-                                                                               ## was
-                                                                               ## finished
-                                                                               ## without
-                                                                               ## errors.
-    ## !< Temp read buffer
-    ## !< Part of last string of myReadBuffer
-    ## !< Flag to use myReadBufferLastStr during next line reading
-    ## !< Flag to process of the special multi-line case at the end of the line
-    ## !< Flag to put gap space while joining lines in multi-line syntax
-    ## !< Current position in myReadBuffer
-    ## !< The number of characters that were read last time from myReadBuffer.
 
 
 proc constructStandardReadLineBuffer*(theMaxBufferSizeBytes: csize_t): StandardReadLineBuffer {.

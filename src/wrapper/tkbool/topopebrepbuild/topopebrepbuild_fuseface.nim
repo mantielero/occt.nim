@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1998-07-28
 ##  Created by: LECLERE Florence
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepBuildFuseFace* {.importcpp: "TopOpeBRepBuild_FuseFace",
-                            header: "TopOpeBRepBuild_FuseFace.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepBuildFuseFace*(): TopOpeBRepBuildFuseFace {.cdecl, constructor,

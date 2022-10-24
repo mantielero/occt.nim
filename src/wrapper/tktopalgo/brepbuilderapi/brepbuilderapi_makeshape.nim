@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,24 +18,6 @@
 
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of TopoDS_Shape"
-type
-  BRepBuilderAPI_MakeShape* {.importcpp: "BRepBuilderAPI_MakeShape",
-                             header: "BRepBuilderAPI_MakeShape.hxx", bycopy.} = object of BRepBuilderAPI_Command ##
-                                                                                                          ## !
-                                                                                                          ## This
-                                                                                                          ## is
-                                                                                                          ## called
-                                                                                                          ## by
-                                                                                                          ## Shape().
-                                                                                                          ## It
-                                                                                                          ## does
-                                                                                                          ## nothing
-                                                                                                          ## but
-                                                                                                          ##
-                                                                                                          ## !
-                                                                                                          ## may
-                                                                                                          ## be
-                                                                                                          ## redefined.
 
 
 proc build*(this: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Build",

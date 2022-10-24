@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2005-03-15
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -18,9 +20,6 @@
 ##  Defines only abstract interface functions.
 ##
 
-type
-  StandardMMgrRoot* {.importcpp: "Standard_MMgrRoot",
-                     header: "Standard_MMgrRoot.hxx", bycopy.} = object of RootObj ## ! Virtual destructor; required for correct inheritance
 
 
 proc destroyStandardMMgrRoot*(this: var StandardMMgrRoot) {.cdecl,

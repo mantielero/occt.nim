@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1998-11-26
 ##  Created by: Jean-Michel BOULCOURT
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,35 +21,6 @@ discard "forward decl of Standard_NullObject"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Edge"
-type
-  TopOpeBRepToolFuseEdges* {.importcpp: "TopOpeBRepTool_FuseEdges",
-                            header: "TopOpeBRepTool_FuseEdges.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Initialise
-                                                                                 ## members
-                                                                                 ## and
-                                                                                 ## build
-                                                                                 ## construction
-                                                                                 ## of
-                                                                                 ## map
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## of
-                                                                                 ## ancestors.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Build
-                                                                                 ## the
-                                                                                 ## all
-                                                                                 ## the
-                                                                                 ## lists
-                                                                                 ## of
-                                                                                 ## edges
-                                                                                 ## that
-                                                                                 ## are
-                                                                                 ## to
-                                                                                 ## be
-                                                                                 ## fused
 
 
 proc newTopOpeBRepToolFuseEdges*(theShape: TopoDS_Shape; performNow: bool = false): TopOpeBRepToolFuseEdges {.

@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -18,12 +20,7 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_Set*[T; N: static[cint]] {.importcpp: "BVH_Set<\'0,\'1>",
-                              header: "BVH_Set.hxx", bycopy.} = object of RootObj ## ! Creates new abstract set of objects.
-                                                                  ## ! Returns total number of objects.
 
-#  BVH_SetBVH_BoxNt* = BVH_Box[T, N]
 
 proc newBVH_Set*[T; N: static[cint]](): BVH_Set[T, N] {.cdecl, constructor,
     importcpp: "BVH_Set<\'*0,\'*1>(@)", header: "BVH_Set.hxx".}

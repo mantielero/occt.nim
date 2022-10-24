@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1999-09-16
 ##  Created by: Edward AGAPOV
 ##  Copyright (c) 1999 Matra Datavision
@@ -22,16 +24,8 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Extrema_POnSurf"
 discard "forward decl of gp_Ax2"
 discard "forward decl of Extrema_ExtPExtS"
-type
-  HandleExtremaExtPExtS* = Handle[ExtremaExtPExtS]
 
-## ! It calculates all the extremum (minimum and
-## ! maximum) distances between a point and a linear
-## ! extrusion surface.
 
-type
-  ExtremaExtPExtS* {.importcpp: "Extrema_ExtPExtS", header: "Extrema_ExtPExtS.hxx",
-                    bycopy.} = object of StandardTransient
 
 
 proc newExtremaExtPExtS*(): ExtremaExtPExtS {.cdecl, constructor,

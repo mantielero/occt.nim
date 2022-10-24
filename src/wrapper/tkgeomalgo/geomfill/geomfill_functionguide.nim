@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-07-09
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -22,9 +24,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of gp_XYZ"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Vec"
-type
-  GeomFillFunctionGuide* {.importcpp: "GeomFill_FunctionGuide",
-                          header: "GeomFill_FunctionGuide.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
 proc newGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];

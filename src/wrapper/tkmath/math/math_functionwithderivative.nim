@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent Painnot
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -18,34 +20,6 @@
 ## ! a function of a single variable for which the first derivative is
 ## ! available.
 
-type
-  MathFunctionWithDerivative* {.importcpp: "math_FunctionWithDerivative",
-                               header: "math_FunctionWithDerivative.hxx", bycopy.} = object of MathFunction ##
-                                                                                                     ## !
-                                                                                                     ## Computes
-                                                                                                     ## the
-                                                                                                     ## value
-                                                                                                     ## <F>of
-                                                                                                     ## the
-                                                                                                     ## function
-                                                                                                     ## for
-                                                                                                     ## the
-                                                                                                     ## variable
-                                                                                                     ## <X>.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## True
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## calculation
-                                                                                                     ## were
-                                                                                                     ## successfully
-                                                                                                     ## done,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## False
-                                                                                                     ## otherwise.
 
 
 proc value*(this: var MathFunctionWithDerivative; x: cfloat; f: var cfloat): bool {.cdecl,

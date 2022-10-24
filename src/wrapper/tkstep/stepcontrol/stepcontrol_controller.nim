@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1995-02-20
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -20,30 +22,8 @@ discard "forward decl of XSControl_WorkSession"
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of Transfer_FinderProcess"
 discard "forward decl of STEPControl_Controller"
-type
-  HandleSTEPControlController* = Handle[STEPControlController]
 
-## ! defines basic controller for STEP processor
 
-type
-  STEPControlController* {.importcpp: "STEPControl_Controller",
-                          header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController ##
-                                                                                                  ## !
-                                                                                                  ## Initializes
-                                                                                                  ## the
-                                                                                                  ## use
-                                                                                                  ## of
-                                                                                                  ## STEP
-                                                                                                  ## Norm
-                                                                                                  ## (the
-                                                                                                  ## first
-                                                                                                  ## time)
-                                                                                                  ## and
-                                                                                                  ##
-                                                                                                  ## !
-                                                                                                  ## returns
-                                                                                                  ## a
-                                                                                                  ## Controller
 
 
 proc newSTEPControlController*(): STEPControlController {.cdecl, constructor,

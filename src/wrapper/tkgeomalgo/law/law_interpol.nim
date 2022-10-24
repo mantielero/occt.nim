@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1995-02-03
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,32 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Law_Interpol"
-type
-  HandleLawInterpol* = Handle[LawInterpol]
 
-## ! Provides an evolution law that interpolates a set
-## ! of parameter and value pairs (wi, radi)
 
-type
-  LawInterpol* {.importcpp: "Law_Interpol", header: "Law_Interpol.hxx", bycopy.} = object of LawBSpFunc ##
-                                                                                              ## !
-                                                                                              ## Constructs
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## interpolative
-                                                                                              ## evolution
-                                                                                              ## law.
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## The
-                                                                                              ## function
-                                                                                              ## Set
-                                                                                              ## is
-                                                                                              ## used
-                                                                                              ## to
-                                                                                              ## define
-                                                                                              ## the
-                                                                                              ## law.
 
 
 proc newLawInterpol*(): LawInterpol {.cdecl, constructor,

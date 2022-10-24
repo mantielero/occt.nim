@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,15 +22,8 @@ discard "forward decl of TopLoc_Location"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of BRep_CurveRepresentation"
 discard "forward decl of BRep_CurveOnClosedSurface"
-type
-  HandleBRepCurveOnClosedSurface* = Handle[BRepCurveOnClosedSurface]
 
-## ! Representation  of a    curve by two  pcurves   on
-## ! a closed surface.
 
-type
-  BRepCurveOnClosedSurface* {.importcpp: "BRep_CurveOnClosedSurface",
-                             header: "BRep_CurveOnClosedSurface.hxx", bycopy.} = object of BRepCurveOnSurface
 
 
 proc newBRepCurveOnClosedSurface*(pc1: Handle[Geom2dCurve];

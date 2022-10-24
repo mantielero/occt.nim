@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-11-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,37 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of IFSelect_IntParam"
-type
-  HandleIFSelectIntParam* = Handle[IFSelectIntParam]
 
-## ! This class simply allows to access an Integer value through a
-## ! Handle, as a String can be (by using HString).
-## ! Hence, this value can be accessed : read and modified, without
-## ! passing through the specific object which detains it. Thus,
-## ! parameters of a Selection or a Dispatch (according its type)
-## ! can be controlled directly from the ShareOut which contains them
-## !
-## ! Additionnaly, an IntParam can be bound to a Static.
-## ! Remember that for a String, binding is immediate, because the
-## ! string value of a Static is a HAsciiString, it then suffices
-## ! to get its Handle.
-## ! For an Integer, an IntParam can designate (by its name) a
-## ! Static : each time its value is required or set, the Static
-## ! is aknowledged
 
-type
-  IFSelectIntParam* {.importcpp: "IFSelect_IntParam",
-                     header: "IFSelect_IntParam.hxx", bycopy.} = object of StandardTransient ##
-                                                                                      ## !
-                                                                                      ## Creates
-                                                                                      ## an
-                                                                                      ## IntParam.
-                                                                                      ## Initial
-                                                                                      ## value
-                                                                                      ## is
-                                                                                      ## set
-                                                                                      ## to
-                                                                                      ## zer
 
 
 proc newIFSelectIntParam*(): IFSelectIntParam {.cdecl, constructor,

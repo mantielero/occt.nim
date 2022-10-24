@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1997-11-21
 ##  Created by: ZOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,17 +18,8 @@
 
 ## ! Base class for Positional, Spot and Directional Light classes.
 
-type
-  V3dPositionLight* {.importcpp: "V3d_PositionLight",
-                     header: "V3d_PositionLight.hxx", bycopy.} = object of Graphic3dCLight ##
-                                                                                    ## !
-                                                                                    ## Protected
-                                                                                    ## constructor.
 
 
-## using statement
 
-## using statement
 
-type
-  HandleV3dPositionLight* = Handle[V3dPositionLight]
+

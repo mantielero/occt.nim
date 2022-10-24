@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,15 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of GeomAdaptor_Surface"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of GeomAdaptor_GHSurface"
-type
-  HandleGeomAdaptorGHSurface* = Handle[GeomAdaptorGHSurface]
-  GeomAdaptorGHSurface* {.importcpp: "GeomAdaptor_GHSurface",
-                         header: "GeomAdaptor_GHSurface.hxx", bycopy.} = object of Adaptor3dHSurface ##
-                                                                                              ## !
-                                                                                              ## Creates
-                                                                                              ## an
-                                                                                              ## empty
-                                                                                              ## GenHSurface.
 
 
 proc newGeomAdaptorGHSurface*(): GeomAdaptorGHSurface {.cdecl, constructor,
@@ -41,19 +34,5 @@ proc surface*(this: GeomAdaptorGHSurface): Adaptor3dSurface {.noSideEffect, cdec
     importcpp: "Surface", header: "GeomAdaptor_GHSurface.hxx".}
 proc changeSurface*(this: var GeomAdaptorGHSurface): var GeomAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "GeomAdaptor_GHSurface.hxx".}
-type
-  GeomAdaptorGHSurfacebaseType* = Adaptor3dHSurface
 
-##  #define TheSurface GeomAdaptor_Surface
-##  #define TheSurface_hxx <GeomAdaptor_Surface.hxx>
-##  #define Adaptor3d_GenHSurface GeomAdaptor_GHSurface
-##  #define Adaptor3d_GenHSurface_hxx <GeomAdaptor_GHSurface.hxx>
-##  #define Handle_Adaptor3d_GenHSurface Handle(GeomAdaptor_GHSurface)
-##
-##  #include <Adaptor3d_GenHSurface.lxx>
-##
-##  #undef TheSurface
-##  #undef TheSurface_hxx
-##  #undef Adaptor3d_GenHSurface
-##  #undef Adaptor3d_GenHSurface_hxx
-##  #undef Handle_Adaptor3d_GenHSurface
+

@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,26 +15,9 @@
 
 ## ! Kind of key in Json string
 
-type
-  StandardJsonKey* {.size: sizeof(cint), importcpp: "Standard_JsonKey",
-                    header: "Standard_Dump.hxx".} = enum
-    StandardJsonKeyNone,      ## !< no key
-    StandardJsonKeyOpenChild, ## !< "{"
-    StandardJsonKeyCloseChild, ## !< "}"
-    StandardJsonKeyOpenContainer, ## !< "["
-    StandardJsonKeyCloseContainer, ## !< "]"
-    StandardJsonKeyQuote,     ## !< "\""
-    StandardJsonKeySeparatorKeyToValue, ## !< ": "
-    StandardJsonKeySeparatorValueToValue ## !< ", "
 
 
-## ! Type for storing a dump value with the stream position
 
-type
-  StandardDumpValue* {.importcpp: "Standard_DumpValue",
-                      header: "Standard_Dump.hxx", bycopy.} = object
-    myValue* {.importc: "myValue".}: TCollectionAsciiString ## !< current string value
-    myStartPosition* {.importc: "myStartPosition".}: cint ## !< position of the value first char in the whole stream
 
 
 proc constructStandardDumpValue*(): StandardDumpValue {.cdecl, constructor,
@@ -42,112 +27,6 @@ proc constructStandardDumpValue*(theValue: TCollectionAsciiString;
     constructor, importcpp: "Standard_DumpValue(@)", header: "Standard_Dump.hxx".}
 ## ! This interface has some tool methods for stream (in JSON format) processing.
 
-type
-  StandardDump* {.importcpp: "Standard_Dump", header: "Standard_Dump.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Converts
-                                                                                     ## stream
-                                                                                     ## value
-                                                                                     ## to
-                                                                                     ## string
-                                                                                     ## value.
-                                                                                     ## The
-                                                                                     ## result
-                                                                                     ## is
-                                                                                     ## original
-                                                                                     ## stream
-                                                                                     ## value.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theStream
-                                                                                     ## source
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @return
-                                                                                     ## text
-                                                                                     ## presentation
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Extracts
-                                                                                     ## from
-                                                                                     ## the
-                                                                                     ## string
-                                                                                     ## value
-                                                                                     ## a
-                                                                                     ## pair
-                                                                                     ## (key,
-                                                                                     ## value),
-                                                                                     ## add
-                                                                                     ## it
-                                                                                     ## into
-                                                                                     ## output
-                                                                                     ## container,
-                                                                                     ## update
-                                                                                     ## index
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## Example:
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## stream
-                                                                                     ## string
-                                                                                     ## starting
-                                                                                     ## the
-                                                                                     ## index
-                                                                                     ## position
-                                                                                     ## contains:
-                                                                                     ## ..."key":
-                                                                                     ## <value>...
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## a
-                                                                                     ## pair
-                                                                                     ## key,
-                                                                                     ## value
-                                                                                     ## will
-                                                                                     ## be
-                                                                                     ## added
-                                                                                     ## into
-                                                                                     ## theValues
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## at
-                                                                                     ## beginning
-                                                                                     ## theIndex
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## position
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## quota
-                                                                                     ## before
-                                                                                     ## <key>,
-                                                                                     ## after
-                                                                                     ## the
-                                                                                     ## index
-                                                                                     ## is
-                                                                                     ## the
-                                                                                     ## next
-                                                                                     ## position
-                                                                                     ## after
-                                                                                     ## the
-                                                                                     ## value
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## splitDumped(aString)
-                                                                                     ## gives
-                                                                                     ## theSplitValue
-                                                                                     ## =
-                                                                                     ## "abc",
-                                                                                     ## theTailValue
-                                                                                     ## =
-                                                                                     ## "defg",
-                                                                                     ## theKey
-                                                                                     ## =
-                                                                                     ## "key"
 
 
 proc text*(theStream: StandardSStream): TCollectionAsciiString {.cdecl,

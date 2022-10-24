@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1996-11-25
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -18,62 +20,6 @@ discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Approx_SweepFunction"
-type
-  BRepBlendAppSurface* {.importcpp: "BRepBlend_AppSurface",
-                        header: "BRepBlend_AppSurface.hxx", bycopy.} = object of AppBlendApprox ##
-                                                                                         ## !
-                                                                                         ## Approximation
-                                                                                         ## of
-                                                                                         ## the
-                                                                                         ## new
-                                                                                         ## Surface
-                                                                                         ## (and
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## eventually
-                                                                                         ## the
-                                                                                         ## 2d
-                                                                                         ## Curves
-                                                                                         ## on
-                                                                                         ## the
-                                                                                         ## support
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## surfaces).
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## Normaly
-                                                                                         ## the
-                                                                                         ## 2d
-                                                                                         ## curve
-                                                                                         ## are
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## approximated
-                                                                                         ## with
-                                                                                         ## an
-                                                                                         ## tolerance
-                                                                                         ## given
-                                                                                         ## by
-                                                                                         ## the
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## resolution
-                                                                                         ## on
-                                                                                         ## support
-                                                                                         ## surfaces,
-                                                                                         ## but
-                                                                                         ## if
-                                                                                         ## this
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## tolerance
-                                                                                         ## is
-                                                                                         ## too
-                                                                                         ## large
-                                                                                         ## Tol2d
-                                                                                         ## is
-                                                                                         ## used.
 
 
 proc newBRepBlendAppSurface*(funct: Handle[ApproxSweepFunction]; first: cfloat;

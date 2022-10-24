@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1995-06-28
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,19 +18,8 @@
 
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopoDS_HShape"
-type
-  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
 
-## ! Class to manipulate a Shape with  handle.
 
-type
-  TopoDS_HShape* {.importcpp: "TopoDS_HShape", header: "TopoDS_HShape.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                         ## !
-                                                                                                         ## Constructs
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## shape
-                                                                                                         ## object
 
 
 proc newTopoDS_HShape*(): TopoDS_HShape {.cdecl, constructor,

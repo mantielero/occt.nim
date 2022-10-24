@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,19 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of AppParCurves_MultiCurve"
-type
-  ApproxFitAndDivide* {.importcpp: "Approx_FitAndDivide",
-                       header: "Approx_FitAndDivide.hxx", bycopy.} = object ## ! The MultiLine <Line> will be
-                                                                       ## approximated until
-                                                                       ## tolerances
-                                                                       ## ! will be reached.
-                                                                       ## ! The
-                                                                       ## approximation will be done from degreemin to degreemax
-                                                                       ## ! with a cutting if the
-                                                                       ## corresponding boolean is True.
-                                                                       ## ! is
-                                                                       ## internally used by the
-                                                                       ## algorithms.
 
 
 proc newApproxFitAndDivide*(line: AppContFunction; degreemin: cint = 3;

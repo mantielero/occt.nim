@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,11 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of math_Matrix"
-type
-  MathSVD* {.importcpp: "math_SVD", header: "math_SVD.hxx", bycopy.} = object ## ! Given as input an n X m matrix A with n < m, n = m or n > m
-                                                                      ## ! this
-                                                                      ## constructor performs the Singular Value
-                                                                      ## Decomposition.
 
 
 proc newMathSVD*(a: MathMatrix): MathSVD {.cdecl, constructor,

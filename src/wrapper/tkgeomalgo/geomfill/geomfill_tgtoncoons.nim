@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,15 +19,8 @@
 discard "forward decl of GeomFill_CoonsAlgPatch"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TgtOnCoons"
-type
-  HandleGeomFillTgtOnCoons* = Handle[GeomFillTgtOnCoons]
 
-## ! Defines   an   algorithmic  tangents  field   on a
-## ! boundary of a CoonsAlgPatch.
 
-type
-  GeomFillTgtOnCoons* {.importcpp: "GeomFill_TgtOnCoons",
-                       header: "GeomFill_TgtOnCoons.hxx", bycopy.} = object of GeomFillTgtField
 
 
 proc newGeomFillTgtOnCoons*(k: Handle[GeomFillCoonsAlgPatch]; i: cint): GeomFillTgtOnCoons {.

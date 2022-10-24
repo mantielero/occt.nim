@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 2011-11-24
 ##  Created by: ANNA MASALSKAYA
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -13,22 +15,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  VectorOfPoint* = NCollectionVector[XyzObj]
 
-## =======================================================================
-## ! Class BRepBuilderAPI_VertexInspector
-## !   derived from NCollection_CellFilter_InspectorXYZ
-## !   This class define the Inspector interface for CellFilter algorithm,
-## !   working with gp_XYZ points in 3d space.
-## !   Used in search of coincidence points with a certain tolerance.
-## =======================================================================
 
-type
-  BRepBuilderAPI_VertexInspector* {.importcpp: "BRepBuilderAPI_VertexInspector", header: "BRepBuilderAPI_VertexInspector.hxx",
-                                   bycopy.} = object of NCollectionCellFilterInspectorXYZ
 
-  BRepBuilderAPI_VertexInspectorTarget* = cint
 
 proc vertexInspector*(theTol: cfloat): BRepBuilderAPI_VertexInspector {.
     cdecl, constructor, importcpp: "BRepBuilderAPI_VertexInspector(@)",

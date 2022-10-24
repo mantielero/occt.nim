@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,22 +16,6 @@
 ## ! This class implements function which calculate square Eucluidean distance
 ## ! between point on surface and nearest point on Conic.
 
-type
-  ExtremaGlobOptFuncConicS* {.importcpp: "Extrema_GlobOptFuncConicS",
-                             header: "Extrema_GlobOptFuncConicS.hxx", bycopy.} = object of MathMultipleVarFunction ##
-                                                                                                            ## !
-                                                                                                            ## Curve
-                                                                                                            ## and
-                                                                                                            ## surface
-                                                                                                            ## should
-                                                                                                            ## exist
-                                                                                                            ## during
-                                                                                                            ## all
-                                                                                                            ## the
-                                                                                                            ## lifetime
-                                                                                                            ## of
-                                                                                                            ## Extrema_GlobOptFuncConicS.
-    ## Boundaries
 
 
 proc newExtremaGlobOptFuncConicS*(c: ptr Adaptor3dCurve; s: ptr Adaptor3dSurface): ExtremaGlobOptFuncConicS {.

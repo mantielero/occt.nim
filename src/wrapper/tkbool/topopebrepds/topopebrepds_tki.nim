@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1997-09-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_Interference"
-type
-  TopOpeBRepDS_TKI* {.importcpp: "TopOpeBRepDS_TKI",
-                     header: "TopOpeBRepDS_TKI.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_TKI*(): TopOpeBRepDS_TKI {.cdecl, constructor,

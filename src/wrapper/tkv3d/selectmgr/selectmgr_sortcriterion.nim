@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1998-03-26
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -17,20 +19,6 @@
 ## ! This class provides data and criterion for sorting candidate
 ## ! entities in the process of interactive selection by mouse click
 
-type
-  SelectMgrSortCriterion* {.importcpp: "SelectMgr_SortCriterion",
-                           header: "SelectMgr_SortCriterion.hxx", bycopy.} = object ## !
-                                                                               ## Empty
-                                                                               ## constructor.
-    entity* {.importc: "Entity".}: Handle[Select3D_SensitiveEntity] ## !< detected entity
-    point* {.importc: "Point".}: PntObj ## !< 3D point
-    normal* {.importc: "Normal".}: Graphic3dVec3 ## !< surface normal or 0 vector if undefined
-    depth* {.importc: "Depth".}: cfloat ## !< distance from the view plane to the entity
-    minDist* {.importc: "MinDist".}: cfloat ## !< distance from the clicked point to the entity on the view plane
-    tolerance* {.importc: "Tolerance".}: cfloat ## !< tolerance used for selecting candidates
-    priority* {.importc: "Priority".}: cint ## !< selection priority
-    zLayerPosition* {.importc: "ZLayerPosition".}: cint ## !< ZLayer rendering order index, stronger than a depth
-    nbOwnerMatches* {.importc: "NbOwnerMatches".}: cint ## !< overall number of entities collected for the same owner
 
 
 proc newSelectMgrSortCriterion*(): SelectMgrSortCriterion {.cdecl, constructor,

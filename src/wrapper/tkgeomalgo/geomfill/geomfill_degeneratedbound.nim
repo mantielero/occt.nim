@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1995-12-05
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,18 +19,8 @@
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_DegeneratedBound"
-type
-  HandleGeomFillDegeneratedBound* = Handle[GeomFillDegeneratedBound]
 
-## ! Description of a degenerated boundary (a point).
-## ! Class defining  a degenerated  boundary   for   a
-## ! constrained filling   with  a   point  and  no   other
-## ! constraint. Only used to  simulate an  ordinary bound,
-## ! may not be usefull and desapear soon.
 
-type
-  GeomFillDegeneratedBound* {.importcpp: "GeomFill_DegeneratedBound",
-                             header: "GeomFill_DegeneratedBound.hxx", bycopy.} = object of GeomFillBoundary
 
 
 proc newGeomFillDegeneratedBound*(point: PntObj; first: cfloat; last: cfloat;

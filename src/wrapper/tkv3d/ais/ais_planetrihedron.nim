@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-13
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,26 +19,6 @@
 discard "forward decl of AIS_Line"
 discard "forward decl of AIS_Point"
 discard "forward decl of Geom_Plane"
-type
-  AIS_PlaneTrihedron* {.importcpp: "AIS_PlaneTrihedron",
-                       header: "AIS_PlaneTrihedron.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                             ## !
-                                                                                             ## Initializes
-                                                                                             ## the
-                                                                                             ## plane
-                                                                                             ## aPlane.
-                                                                                             ## The
-                                                                                             ## plane
-                                                                                             ## trihedron
-                                                                                             ## is
-                                                                                             ##
-                                                                                             ## !
-                                                                                             ## constructed
-                                                                                             ## from
-                                                                                             ## this
-                                                                                             ## and
-                                                                                             ## an
-                                                                                             ## axis.
 
 
 proc newAIS_PlaneTrihedron*(aPlane: Handle[GeomPlane]): AIS_PlaneTrihedron {.cdecl,
@@ -67,5 +49,4 @@ proc setXLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) 
     cdecl, importcpp: "SetXLabel", header: "AIS_PlaneTrihedron.hxx".}
 proc setYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) {.
     cdecl, importcpp: "SetYLabel", header: "AIS_PlaneTrihedron.hxx".}
-type
-  HandleAIS_PlaneTrihedron* = Handle[AIS_PlaneTrihedron]
+

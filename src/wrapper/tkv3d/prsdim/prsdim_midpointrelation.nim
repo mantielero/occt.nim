@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 2000-10-20
 ##  Created by: Julia DOROVSKIKH
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
@@ -18,14 +20,8 @@ discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Circ"
 discard "forward decl of gp_Elips"
-type
-  HandlePrsDimMidPointRelation* = Handle[PrsDimMidPointRelation]
 
-## ! presentation of equal distance to point myMidPoint
 
-type
-  PrsDimMidPointRelation* {.importcpp: "PrsDim_MidPointRelation",
-                           header: "PrsDim_MidPointRelation.hxx", bycopy.} = object of PrsDimRelation
 
 
 proc newPrsDimMidPointRelation*(aSymmTool: TopoDS_Shape; firstShape: TopoDS_Shape;

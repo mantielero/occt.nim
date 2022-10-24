@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1999-01-25
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of TopOpeBRepDS_HDataStructure"
 discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepDS_TOOL* {.importcpp: "TopOpeBRepDS_TOOL",
-                      header: "TopOpeBRepDS_TOOL.hxx", bycopy.} = object
 
 
 proc eShareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; e: TopoDS_Edge;

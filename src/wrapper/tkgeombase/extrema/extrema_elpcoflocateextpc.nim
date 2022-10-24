@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -25,9 +27,6 @@ discard "forward decl of gp_Vec"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_EPCOfELPCOfLocateExtPC"
 discard "forward decl of Extrema_PCFOfEPCOfELPCOfLocateExtPC"
-type
-  ExtremaELPCOfLocateExtPC* {.importcpp: "Extrema_ELPCOfLocateExtPC",
-                             header: "Extrema_ELPCOfLocateExtPC.hxx", bycopy.} = object
 
 
 proc newExtremaELPCOfLocateExtPC*(): ExtremaELPCOfLocateExtPC {.cdecl, constructor,

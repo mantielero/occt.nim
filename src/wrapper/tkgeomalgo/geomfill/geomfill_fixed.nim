@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-09
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -19,13 +21,8 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of GeomFill_Fixed"
-type
-  HandleGeomFillFixed* = Handle[GeomFillFixed]
 
-## ! Defined an constant TrihedronLaw
 
-type
-  GeomFillFixed* {.importcpp: "GeomFill_Fixed", header: "GeomFill_Fixed.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillFixed*(tangent: VecObj; normal: VecObj): GeomFillFixed {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import gc_types
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,30 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of gp_Hypr"
 discard "forward decl of gp_Pnt"
-type
-  MakeArcOfHyperbola* {.importcpp: "GC_MakeArcOfHyperbola",
-                       header: "GC_MakeArcOfHyperbola.hxx", bycopy.} = object of Root ## !
-                                                                               ## Creates
-                                                                               ## an
-                                                                               ## arc
-                                                                               ## of
-                                                                               ## Hyperbola
-                                                                               ## (TrimmedCurve
-                                                                               ## from
-                                                                               ## Geom)
-                                                                               ## from
-                                                                               ## ! a
-                                                                               ## Hyperbola
-                                                                               ## between
-                                                                               ## two
-                                                                               ## parameters
-                                                                               ## Alpha1
-                                                                               ## and
-                                                                               ## Alpha2
-                                                                               ## !
-                                                                               ## (given
-                                                                               ## in
-                                                                               ## radians).
 
 
 proc arcHyperbola*(hypr: HyprObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfHyperbola {.

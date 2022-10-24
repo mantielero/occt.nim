@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -17,22 +19,6 @@
 ## !
 ## ! Window properties should be managed by application and assigned to this class as properties.
 
-type
-  AspectNeutralWindow* {.importcpp: "Aspect_NeutralWindow",
-                        header: "Aspect_NeutralWindow.hxx", bycopy.} = object of AspectWindow ##
-                                                                                       ## !
-                                                                                       ## Empty
-                                                                                       ## constructor.
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## Note
-                                                                                       ## that
-                                                                                       ## window
-                                                                                       ## is
-                                                                                       ## considered
-                                                                                       ## "mapped"
-                                                                                       ## by
-                                                                                       ## default.
 
 
 proc newAspectNeutralWindow*(): AspectNeutralWindow {.cdecl, constructor,
@@ -72,5 +58,4 @@ proc size*(this: AspectNeutralWindow; theWidth: var cint; theHeight: var cint) {
     noSideEffect, cdecl, importcpp: "Size", header: "Aspect_NeutralWindow.hxx".}
 proc setSize*(this: var AspectNeutralWindow; theWidth: cint; theHeight: cint): bool {.
     cdecl, importcpp: "SetSize", header: "Aspect_NeutralWindow.hxx".}
-type
-  HandleAspectNeutralWindow* = Handle[AspectNeutralWindow]
+

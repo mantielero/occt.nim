@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,9 +33,6 @@ discard "forward decl of Geom_BezierCurve"
 discard "forward decl of Geom_BSplineCurve"
 discard "forward decl of gp_Pnt2d"
 discard "forward decl of gp_Vec2d"
-type
-  Adaptor3dCurveOnSurface* {.importcpp: "Adaptor3d_CurveOnSurface",
-                            header: "Adaptor3d_CurveOnSurface.hxx", bycopy.} = object of Adaptor3dCurve
 
 
 proc newAdaptor3dCurveOnSurface*(): Adaptor3dCurveOnSurface {.cdecl, constructor,

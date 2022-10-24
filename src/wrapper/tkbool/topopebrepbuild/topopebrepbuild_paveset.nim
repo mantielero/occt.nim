@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-15
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,21 +20,6 @@ discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_Pave"
 discard "forward decl of TopOpeBRepBuild_Loop"
 discard "forward decl of TopoDS_Edge"
-type
-  TopOpeBRepBuildPaveSet* {.importcpp: "TopOpeBRepBuild_PaveSet",
-                           header: "TopOpeBRepBuild_PaveSet.hxx", bycopy.} = object of TopOpeBRepBuildLoopSet ##
-                                                                                                       ## !
-                                                                                                       ## Create
-                                                                                                       ## a
-                                                                                                       ## Pave
-                                                                                                       ## set
-                                                                                                       ## on
-                                                                                                       ## edge
-                                                                                                       ## <E>.
-                                                                                                       ## It
-                                                                                                       ## contains
-                                                                                                       ## <E>
-                                                                                                       ## vertices.
 
 
 proc newTopOpeBRepBuildPaveSet*(e: TopoDS_Shape): TopOpeBRepBuildPaveSet {.cdecl,

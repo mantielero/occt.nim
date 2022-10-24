@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1994-02-18
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,20 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BRepPrimAPI_MakeSweep* {.importcpp: "BRepPrimAPI_MakeSweep",
-                          header: "BRepPrimAPI_MakeSweep.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                      ## !
-                                                                                                      ## Returns
-                                                                                                      ## the
-                                                                                                      ## TopoDS
-                                                                                                      ## Shape
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## bottom
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## sweep.
 
 
 proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,

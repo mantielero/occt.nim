@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-07-24
 ##  Created by: Michel CHAUVAT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of gp_Pnt"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of math_Matrix"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaFuncPSNorm* {.importcpp: "Extrema_FuncPSNorm",
-                      header: "Extrema_FuncPSNorm.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
 proc newExtremaFuncPSNorm*(): ExtremaFuncPSNorm {.cdecl, constructor,

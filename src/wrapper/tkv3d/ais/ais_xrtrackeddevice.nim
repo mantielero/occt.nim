@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,23 +15,6 @@
 
 discard "forward decl of Graphic3d_ArrayOfTriangles"
 discard "forward decl of Image_Texture"
-type
-  AIS_XRTrackedDevice* {.importcpp: "AIS_XRTrackedDevice",
-                        header: "AIS_XRTrackedDevice.hxx", bycopy.} = object of AIS_InteractiveObject ##
-                                                                                               ## !
-                                                                                               ## Main
-                                                                                               ## constructor.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Returns
-                                                                                               ## true
-                                                                                               ## for
-                                                                                               ## 0
-                                                                                               ## mode.
-                                                                                               ##
-                                                                                               ## !
-                                                                                               ## Texture
-                                                                                               ## holder.
 
 
 proc newAIS_XRTrackedDevice*(theTris: Handle[Graphic3dArrayOfTriangles];

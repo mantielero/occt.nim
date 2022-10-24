@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-07-01
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,11 +19,6 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopTools_LocationSet"
 discard "forward decl of TCollection_AsciiString"
-type
-  TopToolsShapeSet* {.importcpp: "TopTools_ShapeSet",
-                     header: "TopTools_ShapeSet.hxx", bycopy.} = object ## ! Builds an empty ShapeSet.
-                                                                   ## ! Reads  from <IS>  a shape  and  returns  it in  S.
-                                                                   ## ! <NbShapes> is the number of tshapes in the set.
 
 
 proc newTopToolsShapeSet*(): TopToolsShapeSet {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import geom2d_types
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,38 +26,8 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Trsf2d"
 discard "forward decl of Geom2d_Geometry"
 discard "forward decl of Geom2d_Parabola"
-type
-  HandleGeom2dParabola* = Handle[Geom2dParabola]
 
-## ! Describes a parabola in the plane (2D space).
-## ! A parabola is defined by its focal length (i.e. the
-## ! distance between its focus and its apex) and is
-## ! positioned in the plane with a coordinate system
-## ! (gp_Ax22d object) where:
-## ! - the origin is the apex of the parabola, and
-## ! - the "X Axis" defines the axis of symmetry; the
-## ! parabola is on the positive side of this axis.
-## ! This coordinate system is the local coordinate
-## ! system of the parabola.
-## ! The orientation (direct or indirect) of the local
-## ! coordinate system gives an explicit orientation to the
-## ! parabola, determining the direction in which the
-## ! parameter increases along the parabola.
-## ! The Geom_Parabola parabola is parameterized as follows:
-## ! P(U) = O + U*U/(4.*F)*XDir + U*YDir, where:
-## ! - P is the point of parameter U,
-## ! - O, XDir and YDir are respectively the origin, "X
-## ! Direction" and "Y Direction" of its local coordinate system,
-## ! - F is the focal length of the parabola.
-## ! The parameter of the parabola is therefore its Y
-## ! coordinate in the local coordinate system, with the "X
-## ! Axis" of the local coordinate system defining the
-## ! origin of the parameter.
-## ! The parameter range is ] -infinite,+infinite [.
 
-type
-  Geom2dParabola* {.importcpp: "Geom2d_Parabola", header: "Geom2d_Parabola.hxx",
-                   bycopy.} = object of Geom2dConic ## ! Creates a parabola from a non persistent one.
 
 
 proc newGeom2dParabola*(prb: Parab2dObj): Geom2dParabola {.cdecl, constructor,

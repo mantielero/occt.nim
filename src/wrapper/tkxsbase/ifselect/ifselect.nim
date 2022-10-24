@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -93,14 +95,6 @@ discard "forward decl of IFSelect_Activator"
 discard "forward decl of IFSelect_SessionPilot"
 discard "forward decl of IFSelect_Act"
 discard "forward decl of IFSelect_Functions"
-type
-  IFSelect* {.importcpp: "IFSelect", header: "IFSelect.hxx", bycopy.} = object ## ! Saves the state of a
-                                                                       ## WorkSession from IFSelect, by using a
-                                                                       ## !
-                                                                       ## SessionFile from IFSelect. Returns True if Done, False in
-                                                                       ## ! case of Error on Writing. <file> gives the name of the File
-                                                                       ## ! to be produced (this avoids to export the class
-                                                                       ## SessionFile).
 
 
 proc saveSession*(ws: Handle[IFSelectWorkSession]; file: cstring): bool {.cdecl,

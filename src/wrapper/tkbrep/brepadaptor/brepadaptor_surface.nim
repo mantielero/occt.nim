@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,18 +35,6 @@ discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Ax1"
 discard "forward decl of gp_Dir"
 discard "forward decl of Adaptor3d_HCurve"
-type
-  BRepAdaptorSurface* {.importcpp: "BRepAdaptor_Surface",
-                       header: "BRepAdaptor_Surface.hxx", bycopy.} = object of Adaptor3dSurface ##
-                                                                                         ## !
-                                                                                         ## Creates
-                                                                                         ## an
-                                                                                         ## undefined
-                                                                                         ## surface
-                                                                                         ## with
-                                                                                         ## no
-                                                                                         ## face
-                                                                                         ## loaded.
 
 
 proc newBRepAdaptorSurface*(): BRepAdaptorSurface {.cdecl, constructor,

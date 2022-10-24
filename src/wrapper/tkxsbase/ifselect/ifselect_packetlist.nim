@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,36 +21,8 @@ discard "forward decl of Interface_InterfaceError"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Interface_EntityIterator"
 discard "forward decl of IFSelect_PacketList"
-type
-  HandleIFSelectPacketList* = Handle[IFSelectPacketList]
 
-## ! This class gives a simple way to return then consult a
-## ! list of packets, determined from the content of a Model,
-## ! by various criteria.
-## !
-## ! It allows to describe several lists with entities from a
-## ! given model, possibly more than one list knowing every entity,
-## ! and to determine the remaining list (entities in no lists) and
-## ! the duplications (with their count).
 
-type
-  IFSelectPacketList* {.importcpp: "IFSelect_PacketList",
-                       header: "IFSelect_PacketList.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## PackList,
-                                                                                          ## empty,
-                                                                                          ## ready
-                                                                                          ## to
-                                                                                          ## receive
-                                                                                          ## entities
-                                                                                          ## from
-                                                                                          ## a
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## given
-                                                                                          ## Model
 
 
 proc newIFSelectPacketList*(model: Handle[InterfaceInterfaceModel]): IFSelectPacketList {.

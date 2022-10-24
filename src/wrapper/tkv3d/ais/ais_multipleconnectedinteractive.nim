@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1997-04-22
 ##  Created by: Guest Design
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -20,70 +22,6 @@
 ## ! Connected objects. That way memory-costly
 ## ! calculations of presentation are avoided.
 
-type
-  AIS_MultipleConnectedInteractive* {.importcpp: "AIS_MultipleConnectedInteractive", header: "AIS_MultipleConnectedInteractive.hxx",
-                                     bycopy.} = object of AIS_InteractiveObject ## !
-                                                                           ## Initializes the
-                                                                           ## Interactive
-                                                                           ## Object with
-                                                                           ## multiple
-                                                                           ## !
-                                                                           ## connections to
-                                                                           ## AIS_Interactive
-                                                                           ## objects.
-                                                                           ##  short
-                                                                           ## aliases to
-                                                                           ## Connect()
-                                                                           ## method
-                                                                           ## !
-                                                                           ## Establishes the
-                                                                           ## connection
-                                                                           ## between the
-                                                                           ## Connected
-                                                                           ## Interactive
-                                                                           ## Object,
-                                                                           ## theInteractive, and its
-                                                                           ## reference.
-                                                                           ## !
-                                                                           ## Copies local
-                                                                           ## transformation and
-                                                                           ## transformation
-                                                                           ## persistence mode from
-                                                                           ## theInteractive.
-                                                                           ## !
-                                                                           ## @return
-                                                                           ## created
-                                                                           ## instance
-                                                                           ## object
-                                                                           ## (AIS_ConnectedInteractive or
-                                                                           ## AIS_MultipleConnectedInteractive)
-                                                                           ## ! this
-                                                                           ## method is
-                                                                           ## redefined
-                                                                           ## virtual;
-                                                                           ## ! when the
-                                                                           ## instance is
-                                                                           ## connected to
-                                                                           ## another
-                                                                           ## !
-                                                                           ## InteractiveObject,this
-                                                                           ## method
-                                                                           ## doesn't
-                                                                           ## !
-                                                                           ## compute
-                                                                           ## anything, but just uses the
-                                                                           ## !
-                                                                           ## presentation of this last
-                                                                           ## object, with
-                                                                           ## ! a
-                                                                           ## transformation if
-                                                                           ## there's one
-                                                                           ## stored.
-                                                                           ## !
-                                                                           ## Computes the
-                                                                           ## selection for whole
-                                                                           ## subtree in scene
-                                                                           ## hierarchy.
 
 
 proc newAIS_MultipleConnectedInteractive*(): AIS_MultipleConnectedInteractive {.
@@ -130,6 +68,4 @@ proc connect*(this: var AIS_MultipleConnectedInteractive;
              theInteractive: Handle[AIS_InteractiveObject]; theLocation: TrsfObj;
              theTrsfPersFlag: Graphic3dTransModeFlags; theTrsfPersPoint: PntObj): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
-type
-  HandleAIS_MultipleConnectedInteractive* = Handle[
-      AIS_MultipleConnectedInteractive]
+

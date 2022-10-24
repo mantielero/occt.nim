@@ -1,3 +1,5 @@
+import topods_types
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,19 +18,8 @@
 
 discard "forward decl of TopoDS_TShape"
 discard "forward decl of TopoDS_TCompound"
-type
-  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
 
-## ! A TCompound is an all-purpose set of Shapes.
 
-type
-  TopoDS_TCompound* {.importcpp: "TopoDS_TCompound",
-                     header: "TopoDS_TCompound.hxx", bycopy.} = object of TopoDS_TShape ##
-                                                                                 ## !
-                                                                                 ## Creates
-                                                                                 ## an
-                                                                                 ## empty
-                                                                                 ## TCompound.
 
 
 proc newTopoDS_TCompound*(): TopoDS_TCompound {.cdecl, constructor,

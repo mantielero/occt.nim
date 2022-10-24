@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1997-01-17
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -17,45 +19,6 @@
 discard "forward decl of Standard_DimensionError"
 discard "forward decl of Standard_RangeError"
 discard "forward decl of Law_BSpline"
-type
-  LawBSplineKnotSplitting* {.importcpp: "Law_BSplineKnotSplitting",
-                            header: "Law_BSplineKnotSplitting.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Locates
-                                                                                 ## the
-                                                                                 ## knot
-                                                                                 ## values
-                                                                                 ## which
-                                                                                 ## correspond
-                                                                                 ## to
-                                                                                 ## the
-                                                                                 ## segmentation
-                                                                                 ## of
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## the
-                                                                                 ## curve
-                                                                                 ## into
-                                                                                 ## arcs
-                                                                                 ## with
-                                                                                 ## a
-                                                                                 ## continuity
-                                                                                 ## equal
-                                                                                 ## to
-                                                                                 ## ContinuityRange.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Raised
-                                                                                 ## if
-                                                                                 ## ContinuityRange
-                                                                                 ## is
-                                                                                 ## not
-                                                                                 ## greater
-                                                                                 ## or
-                                                                                 ## equal
-                                                                                 ## zero.
 
 
 proc newLawBSplineKnotSplitting*(basisLaw: Handle[LawBSpline];

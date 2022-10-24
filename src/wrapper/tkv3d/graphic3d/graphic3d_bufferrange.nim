@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,6 @@
 
 ## ! Range of values defined as Start + Length pair.
 
-type
-  Graphic3dBufferRange* {.importcpp: "Graphic3d_BufferRange",
-                         header: "Graphic3d_BufferRange.hxx", bycopy.} = object
-    start* {.importc: "Start".}: cint ## !< first element within the range
-    length* {.importc: "Length".}: cint ## !< number of elements within the range
-                                    ## ! Empty constructor.
 
 
 proc newGraphic3dBufferRange*(): Graphic3dBufferRange {.cdecl, constructor,

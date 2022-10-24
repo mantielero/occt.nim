@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1996-02-21
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,41 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePolyPolygonOnTriangulation* = Handle[PolyPolygonOnTriangulation]
 
-## ! This class provides a polygon in 3D space, based on the triangulation
-## ! of a surface. It may be the approximate representation of a
-## ! curve on the surface, or more generally the shape.
-## ! A PolygonOnTriangulation is defined by a table of
-## ! nodes. Each node is an index in the table of nodes specific
-## ! to a triangulation, and represents a point on the surface. If
-## ! the polygon is closed, the index of the point of closure is
-## ! repeated at the end of the table of nodes.
-## ! If the polygon is an approximate representation of a curve
-## ! on a surface, you can associate with each of its nodes the
-## ! value of the parameter of the corresponding point on the
-## ! curve.represents a 3d Polygon
 
-type
-  PolyPolygonOnTriangulation* {.importcpp: "Poly_PolygonOnTriangulation",
-                               header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                          ## !
-                                                                                                          ## Constructs
-                                                                                                          ## a
-                                                                                                          ## 3D
-                                                                                                          ## polygon
-                                                                                                          ## on
-                                                                                                          ## the
-                                                                                                          ## triangulation
-                                                                                                          ## of
-                                                                                                          ## a
-                                                                                                          ## shape
-                                                                                                          ## with
-                                                                                                          ## specified
-                                                                                                          ## size
-                                                                                                          ## of
-                                                                                                          ## nodes.
 
 
 proc newPolyPolygonOnTriangulation*(theNbNodes: cint; theHasParams: bool): PolyPolygonOnTriangulation {.

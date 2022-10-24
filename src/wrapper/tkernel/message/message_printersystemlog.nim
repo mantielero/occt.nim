@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,30 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleMessagePrinterSystemLog* = Handle[MessagePrinterSystemLog]
 
-## ! Implementation of a message printer associated with system log.
-## ! Implemented for the following systems:
-## ! - Windows, through ReportEventW().
-## ! - Android, through __android_log_write().
-## ! - UNIX/Linux, through syslog().
 
-type
-  MessagePrinterSystemLog* {.importcpp: "Message_PrinterSystemLog",
-                            header: "Message_PrinterSystemLog.hxx", bycopy.} = object of MessagePrinter ##
-                                                                                                 ## !
-                                                                                                 ## Main
-                                                                                                 ## constructor.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Puts
-                                                                                                 ## a
-                                                                                                 ## message
-                                                                                                 ## to
-                                                                                                 ## the
-                                                                                                 ## system
-                                                                                                 ## log.
 
 
 proc newMessagePrinterSystemLog*(theEventSourceName: TCollectionAsciiString;

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillHSequenceOfAx2* {.importcpp: "GeomFill_HSequenceOfAx2",
-                           header: "GeomFill_HSequenceOfAx2.hxx", bycopy.} = object of GeomFillSequenceOfAx2
 
 
 proc newGeomFillHSequenceOfAx2*(): GeomFillHSequenceOfAx2 {.cdecl, constructor,
@@ -32,5 +31,4 @@ proc append*(this: var GeomFillHSequenceOfAx2;
     header: "GeomFill_HSequenceOfAx2.hxx".}
 proc changeSequence*(this: var GeomFillHSequenceOfAx2): var GeomFillSequenceOfAx2 {.
     cdecl, importcpp: "ChangeSequence", header: "GeomFill_HSequenceOfAx2.hxx".}
-type
-  HandleGeomFillHSequenceOfAx2* = Handle[GeomFillHSequenceOfAx2]
+

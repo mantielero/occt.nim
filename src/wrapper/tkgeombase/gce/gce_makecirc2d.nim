@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,72 +21,6 @@ discard "forward decl of gp_Ax2d"
 discard "forward decl of gp_Ax22d"
 discard "forward decl of gp_Circ2d"
 discard "forward decl of gp_Pnt2d"
-type
-  GceMakeCirc2d* {.importcpp: "gce_MakeCirc2d", header: "gce_MakeCirc2d.hxx", bycopy.} = object of GceRoot ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## location
-                                                                                                 ## point
-                                                                                                 ## of
-                                                                                                 ## XAxis
-                                                                                                 ## is
-                                                                                                 ## the
-                                                                                                 ## center
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## circle.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## Warnings
-                                                                                                 ## :
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## It
-                                                                                                 ## is
-                                                                                                 ## not
-                                                                                                 ## forbidden
-                                                                                                 ## to
-                                                                                                 ## create
-                                                                                                 ## a
-                                                                                                 ## circle
-                                                                                                 ## with
-                                                                                                 ## Radius
-                                                                                                 ## =
-                                                                                                 ## 0.0
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## If
-                                                                                                 ## Sense
-                                                                                                 ## is
-                                                                                                 ## true
-                                                                                                 ## the
-                                                                                                 ## local
-                                                                                                 ## coordinate
-                                                                                                 ## system
-                                                                                                 ## of
-                                                                                                 ## the
-                                                                                                 ## solution
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## is
-                                                                                                 ## direct
-                                                                                                 ## and
-                                                                                                 ## non
-                                                                                                 ## direct
-                                                                                                 ## in
-                                                                                                 ## the
-                                                                                                 ## other
-                                                                                                 ## case.
-                                                                                                 ##
-                                                                                                 ## !
-                                                                                                 ## The
-                                                                                                 ## status
-                                                                                                 ## is
-                                                                                                 ## "NegativeRadius"
-                                                                                                 ## if
-                                                                                                 ## Radius
-                                                                                                 ## <
-                                                                                                 ## 0.0.
 
 
 proc newGceMakeCirc2d*(xAxis: Ax2dObj; radius: cfloat; sense: bool = true): GceMakeCirc2d {.

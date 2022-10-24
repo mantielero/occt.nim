@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 1995-03-07
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,29 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandlePolyPolygon3D* = Handle[PolyPolygon3D]
 
-## ! This class Provides a polygon in 3D space. It is generally an approximate representation of a curve.
-## ! A Polygon3D is defined by a table of nodes. Each node is
-## ! a 3D point. If the polygon is closed, the point of closure is
-## ! repeated at the end of the table of nodes.
-## ! If the polygon is an approximate representation of a curve,
-## ! you can associate with each of its nodes the value of the
-## ! parameter of the corresponding point on the curve.
 
-type
-  PolyPolygon3D* {.importcpp: "Poly_Polygon3D", header: "Poly_Polygon3D.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                           ## !
-                                                                                                           ## Constructs
-                                                                                                           ## a
-                                                                                                           ## 3D
-                                                                                                           ## polygon
-                                                                                                           ## with
-                                                                                                           ## specific
-                                                                                                           ## number
-                                                                                                           ## of
-                                                                                                           ## nodes.
 
 
 proc newPolyPolygon3D*(theNbNodes: cint; theHasParams: bool): PolyPolygon3D {.cdecl,

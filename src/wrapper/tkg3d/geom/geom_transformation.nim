@@ -1,3 +1,5 @@
+import geom_types
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,52 +16,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleGeomTransformation* = Handle[GeomTransformation]
 
-## ! Describes how to construct the following elementary transformations
-## ! - translations,
-## ! - rotations,
-## ! - symmetries,
-## ! - scales.
-## ! The Transformation class can also be used to
-## ! construct complex transformations by combining these
-## ! elementary transformations.
-## ! However, these transformations can never change
-## ! the type of an object. For example, the projection
-## ! transformation can change a circle into an ellipse, and
-## ! therefore change the real type of the object. Such a
-## ! transformation is forbidden in this environment and
-## ! cannot be a Geom_Transformation.
-## ! The transformation can be represented as follow :
-## !
-## ! V1   V2   V3    T
-## ! | a11  a12  a13   a14 |   | x |      | x'|
-## ! | a21  a22  a23   a24 |   | y |      | y'|
-## ! | a31  a32  a33   a34 |   | z |   =  | z'|
-## ! |  0    0    0     1  |   | 1 |      | 1 |
-## !
-## ! where {V1, V2, V3} defines the vectorial part of the
-## ! transformation and T defines the translation part of
-## ! the transformation.
-## ! Note: Geom_Transformation transformations
-## ! provide the same kind of "geometric" services as
-## ! gp_Trsf ones but have more complex data structures.
-## ! The geometric objects provided by the Geom
-## ! package use gp_Trsf transformations in the syntaxes
-## ! Transform and Transformed.
-## ! Geom_Transformation transformations are used in
-## ! a context where they can be shared by several
-## ! objects contained inside a common data structure.
 
-type
-  GeomTransformation* {.importcpp: "Geom_Transformation",
-                       header: "Geom_Transformation.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## an
-                                                                                          ## identity
-                                                                                          ## transformation.
 
 
 proc newGeomTransformation*(): GeomTransformation {.cdecl, constructor,

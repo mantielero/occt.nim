@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,15 +22,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of BRepAdaptor_Curve2d"
 discard "forward decl of Adaptor2d_Curve2d"
 discard "forward decl of BRepAdaptor_HCurve2d"
-type
-  HandleBRepAdaptorHCurve2d* = Handle[BRepAdaptorHCurve2d]
-  BRepAdaptorHCurve2d* {.importcpp: "BRepAdaptor_HCurve2d",
-                        header: "BRepAdaptor_HCurve2d.hxx", bycopy.} = object of Adaptor2dHCurve2d ##
-                                                                                            ## !
-                                                                                            ## Creates
-                                                                                            ## an
-                                                                                            ## empty
-                                                                                            ## GenHCurve2d.
 
 
 proc newBRepAdaptorHCurve2d*(): BRepAdaptorHCurve2d {.cdecl, constructor,
@@ -41,19 +34,5 @@ proc curve2d*(this: BRepAdaptorHCurve2d): Adaptor2dCurve2d {.noSideEffect, cdecl
     importcpp: "Curve2d", header: "BRepAdaptor_HCurve2d.hxx".}
 proc changeCurve2d*(this: var BRepAdaptorHCurve2d): var BRepAdaptorCurve2d {.cdecl,
     importcpp: "ChangeCurve2d", header: "BRepAdaptor_HCurve2d.hxx".}
-type
-  BRepAdaptorHCurve2dbaseType* = Adaptor2dHCurve2d
 
-##  #define TheCurve BRepAdaptor_Curve2d
-##  #define TheCurve_hxx <BRepAdaptor_Curve2d.hxx>
-##  #define Adaptor2d_GenHCurve2d BRepAdaptor_HCurve2d
-##  #define Adaptor2d_GenHCurve2d_hxx <BRepAdaptor_HCurve2d.hxx>
-##  #define Handle_Adaptor2d_GenHCurve2d Handle(BRepAdaptor_HCurve2d)
-##
-##  #include <Adaptor2d_GenHCurve2d.lxx>
-##
-##  #undef TheCurve
-##  #undef TheCurve_hxx
-##  #undef Adaptor2d_GenHCurve2d
-##  #undef Adaptor2d_GenHCurve2d_hxx
-##  #undef Handle_Adaptor2d_GenHCurve2d
+

@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1998-11-26
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -27,9 +29,6 @@ discard "forward decl of gp_Vec2d"
 discard "forward decl of gp_Dir"
 discard "forward decl of Geom2d_Curve"
 discard "forward decl of gp_Pnt"
-type
-  TopOpeBRepToolTOOL* {.importcpp: "TopOpeBRepTool_TOOL",
-                       header: "TopOpeBRepTool_TOOL.hxx", bycopy.} = object
 
 
 proc oriinSor*(sub: TopoDS_Shape; s: TopoDS_Shape; checkclo: bool = false): cint {.cdecl,

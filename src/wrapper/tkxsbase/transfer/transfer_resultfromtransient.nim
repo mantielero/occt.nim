@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,26 +21,8 @@ discard "forward decl of Transfer_Binder"
 discard "forward decl of Interface_Check"
 discard "forward decl of Transfer_TransientProcess"
 discard "forward decl of Transfer_ResultFromTransient"
-type
-  HandleTransferResultFromTransient* = Handle[TransferResultFromTransient]
 
-## ! This class, in conjunction with ResultFromModel, allows to
-## ! record the result of a transfer initially stored in a
-## ! TransientProcess.
-## !
-## ! A ResultFromTransient records a couple (Transient,Binder for
-## ! the result and checks) plus a list of "sub-results", which
-## ! have been recorded in the TrabsientProcess, under scope
-## ! attached to the starting transient.
 
-type
-  TransferResultFromTransient* {.importcpp: "Transfer_ResultFromTransient",
-                                header: "Transfer_ResultFromTransient.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                            ## !
-                                                                                                            ## Creates
-                                                                                                            ## a
-                                                                                                            ## ResultFromTransient,
-                                                                                                            ## empty
 
 
 proc newTransferResultFromTransient*(): TransferResultFromTransient {.cdecl,

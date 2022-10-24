@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -13,51 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_ValidatedCubeMapOrder"
-type
-  Graphic3dCubeMapOrder* {.importcpp: "Graphic3d_CubeMapOrder",
-                          header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ## !
-                                                                             ## Default
-                                                                             ## constructor.
-                                                                             ## !
-                                                                             ## Creates
-                                                                             ## empty
-                                                                             ## order
-                                                                             ## with
-                                                                             ## zero
-                                                                             ## convolution.
-                                                                             ## !
-                                                                             ## Sets
-                                                                             ## number of
-                                                                             ## tile in
-                                                                             ## packed
-                                                                             ## cubemap
-                                                                             ## image
-                                                                             ## according
-                                                                             ## passed
-                                                                             ## cubemap
-                                                                             ## side.
-                                                                             ## !
-                                                                             ## Returns
-                                                                             ## default
-                                                                             ## order in
-                                                                             ## protector
-                                                                             ## container
-                                                                             ## class.
-                                                                             ## ! It is
-                                                                             ## guaranteed to be
-                                                                             ## valid.
-                                                                             ## !
-                                                                             ## Alias of
-                                                                             ## 'Get'
-                                                                             ## with
-                                                                             ## other
-                                                                             ## parameter's
-                                                                             ## type for
-                                                                             ## more
-                                                                             ## handful
-                                                                             ## iteration.
-    ## !< Contains all values of permutation as power convolution
-    ## !< Indicates if there are attempts to assign index greater than 5
 
 
 proc newGraphic3dCubeMapOrder*(): Graphic3dCubeMapOrder {.cdecl, constructor,
@@ -110,19 +67,6 @@ proc default*(): Graphic3dValidatedCubeMapOrder {.cdecl,
 ## ! It is supposed to be used in case of necessity of completely valid order (in function argument as example).
 ## ! It helps to automate order's valid checks.
 
-type
-  Graphic3dValidatedCubeMapOrder* {.importcpp: "Graphic3d_ValidatedCubeMapOrder",
-                                   header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Only
-                                                                                      ## Graphic3d_CubeMapOrder
-                                                                                      ## can
-                                                                                      ## generate
-                                                                                      ## Graphic3d_ValidatedCubeMapOrder
-                                                                                      ## in
-                                                                                      ## 'Validated'
-                                                                                      ## method.
-    order* {.importc: "Order".}: Graphic3dCubeMapOrder ## !< Completely valid order
 
 
 proc `->`*(this: Graphic3dValidatedCubeMapOrder): ptr Graphic3dCubeMapOrder {.

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-03-04
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,14 +21,8 @@ discard "forward decl of Standard_ConstructionError"
 discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Darboux"
-type
-  HandleGeomFillDarboux* = Handle[GeomFillDarboux]
 
-## ! Defines Darboux case of Frenet Trihedron Law
 
-type
-  GeomFillDarboux* {.importcpp: "GeomFill_Darboux", header: "GeomFill_Darboux.hxx",
-                    bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillDarboux*(): GeomFillDarboux {.cdecl, constructor,

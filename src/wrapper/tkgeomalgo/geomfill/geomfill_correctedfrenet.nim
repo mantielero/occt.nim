@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-19
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -22,15 +24,8 @@ discard "forward decl of GeomFill_TrihedronLaw"
 discard "forward decl of gp_Vec"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of GeomFill_CorrectedFrenet"
-type
-  HandleGeomFillCorrectedFrenet* = Handle[GeomFillCorrectedFrenet]
 
-## ! Defined an Corrected Frenet  Trihedron  Law It is
-## ! like Frenet with an Torsion's minimization
 
-type
-  GeomFillCorrectedFrenet* {.importcpp: "GeomFill_CorrectedFrenet",
-                            header: "GeomFill_CorrectedFrenet.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
 
 proc newGeomFillCorrectedFrenet*(): GeomFillCorrectedFrenet {.cdecl, constructor,

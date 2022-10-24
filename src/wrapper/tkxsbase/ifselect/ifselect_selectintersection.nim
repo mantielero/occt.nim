@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-01-11
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,8 @@ discard "forward decl of Interface_EntityIterator"
 discard "forward decl of Interface_Graph"
 discard "forward decl of TCollection_AsciiString"
 discard "forward decl of IFSelect_SelectIntersection"
-type
-  HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
 
-## ! A SelectIntersection filters the Entities issued from several
-## ! other Selections as Intersection of results : "AND" operator
 
-type
-  IFSelectSelectIntersection* {.importcpp: "IFSelect_SelectIntersection",
-                               header: "IFSelect_SelectIntersection.hxx", bycopy.} = object of IFSelectSelectCombine ##
-                                                                                                              ## !
-                                                                                                              ## Creates
-                                                                                                              ## an
-                                                                                                              ## empty
-                                                                                                              ## SelectIntersection
 
 
 proc newIFSelectSelectIntersection*(): IFSelectSelectIntersection {.cdecl,

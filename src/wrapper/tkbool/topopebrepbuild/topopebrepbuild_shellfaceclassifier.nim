@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,44 +18,6 @@
 
 discard "forward decl of TopOpeBRepBuild_BlockBuilder"
 discard "forward decl of TopoDS_Shape"
-type
-  TopOpeBRepBuildShellFaceClassifier* {.importcpp: "TopOpeBRepBuild_ShellFaceClassifier", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx",
-                                       bycopy.} = object of TopOpeBRepBuildCompositeClassifier ##
-                                                                                          ## !
-                                                                                          ## Creates
-                                                                                          ## a
-                                                                                          ## classifier
-                                                                                          ## in
-                                                                                          ## 3D
-                                                                                          ## space,
-                                                                                          ## to
-                                                                                          ## compare
-                                                                                          ## :
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## face
-                                                                                          ## with
-                                                                                          ## a
-                                                                                          ## set
-                                                                                          ## of
-                                                                                          ## faces
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## shell
-                                                                                          ## with
-                                                                                          ## a
-                                                                                          ## set
-                                                                                          ## of
-                                                                                          ## faces
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## a
-                                                                                          ## shell
-                                                                                          ## with
-                                                                                          ## a
-                                                                                          ## shell
 
 
 proc newTopOpeBRepBuildShellFaceClassifier*(bb: TopOpeBRepBuildBlockBuilder): TopOpeBRepBuildShellFaceClassifier {.

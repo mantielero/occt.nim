@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopToolsHSequenceOfShape* {.importcpp: "TopTools_HSequenceOfShape",
-                             header: "TopTools_HSequenceOfShape.hxx", bycopy.} = object of TopToolsSequenceOfShape
 
 
 proc newTopToolsHSequenceOfShape*(): TopToolsHSequenceOfShape {.cdecl, constructor,
@@ -32,5 +31,4 @@ proc append*(this: var TopToolsHSequenceOfShape;
     header: "TopTools_HSequenceOfShape.hxx".}
 proc changeSequence*(this: var TopToolsHSequenceOfShape): var TopToolsSequenceOfShape {.
     cdecl, importcpp: "ChangeSequence", header: "TopTools_HSequenceOfShape.hxx".}
-type
-  HandleTopToolsHSequenceOfShape* = Handle[TopToolsHSequenceOfShape]
+

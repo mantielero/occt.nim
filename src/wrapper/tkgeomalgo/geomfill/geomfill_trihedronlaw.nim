@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1997-12-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -19,14 +21,8 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_NotImplemented"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_TrihedronLaw"
-type
-  HandleGeomFillTrihedronLaw* = Handle[GeomFillTrihedronLaw]
 
-## ! To define Trihedron along one Curve
 
-type
-  GeomFillTrihedronLaw* {.importcpp: "GeomFill_TrihedronLaw",
-                         header: "GeomFill_TrihedronLaw.hxx", bycopy.} = object of StandardTransient
 
 
 proc setCurve*(this: var GeomFillTrihedronLaw; c: Handle[Adaptor3dHCurve]) {.cdecl,

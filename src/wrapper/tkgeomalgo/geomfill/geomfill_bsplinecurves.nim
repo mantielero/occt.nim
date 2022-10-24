@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-10-06
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,14 +19,6 @@
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of Geom_BSplineCurve"
-type
-  GeomFillBSplineCurves* {.importcpp: "GeomFill_BSplineCurves",
-                          header: "GeomFill_BSplineCurves.hxx", bycopy.} = object ## !
-                                                                             ## Constructs a
-                                                                             ## default
-                                                                             ## BSpline
-                                                                             ## surface
-                                                                             ## framework.
 
 
 proc newGeomFillBSplineCurves*(): GeomFillBSplineCurves {.cdecl, constructor,

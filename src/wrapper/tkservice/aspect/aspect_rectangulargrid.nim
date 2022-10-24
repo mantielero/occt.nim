@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created on: 1995-03-02
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,45 +19,6 @@
 discard "forward decl of Standard_NegativeValue"
 discard "forward decl of Standard_NullValue"
 discard "forward decl of Standard_NumericError"
-type
-  AspectRectangularGrid* {.importcpp: "Aspect_RectangularGrid",
-                          header: "Aspect_RectangularGrid.hxx", bycopy.} = object of AspectGrid ##
-                                                                                         ## !
-                                                                                         ## creates
-                                                                                         ## a
-                                                                                         ## new
-                                                                                         ## grid.
-                                                                                         ## By
-                                                                                         ## default
-                                                                                         ## this
-                                                                                         ## grid
-                                                                                         ## is
-                                                                                         ## not
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## active.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## first
-                                                                                         ## angle
-                                                                                         ## is
-                                                                                         ## given
-                                                                                         ## relatively
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## horizontal.
-                                                                                         ##
-                                                                                         ## !
-                                                                                         ## The
-                                                                                         ## second
-                                                                                         ## angle
-                                                                                         ## is
-                                                                                         ## given
-                                                                                         ## relatively
-                                                                                         ## to
-                                                                                         ## the
-                                                                                         ## vertical.
 
 
 proc newAspectRectangularGrid*(aXStep: cfloat; aYStep: cfloat; anXOrigin: cfloat = 0;
@@ -87,5 +50,4 @@ proc init*(this: var AspectRectangularGrid) {.cdecl, importcpp: "Init",
 proc dumpJson*(this: AspectRectangularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_RectangularGrid.hxx".}
-type
-  HandleAspectRectangularGrid* = Handle[AspectRectangularGrid]
+

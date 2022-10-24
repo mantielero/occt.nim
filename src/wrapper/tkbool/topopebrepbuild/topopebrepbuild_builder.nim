@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,24 +43,6 @@ when defined(FillSolid):
 ## ! the  topological  operation and the new geometries
 ## ! are the intersection lines and points.
 
-type
-  TopOpeBRepBuildBuilder* {.importcpp: "TopOpeBRepBuild_Builder",
-                           header: "TopOpeBRepBuild_Builder.hxx", bycopy.} = object of RootObj ## !
-                                                                               ## update
-                                                                               ## the
-                                                                               ## DS
-                                                                               ## by
-                                                                               ## creating
-                                                                               ## new
-                                                                               ## geometries.
-                                                                               ## !
-                                                                               ## create
-                                                                               ## edges
-                                                                               ## on
-                                                                               ## the
-                                                                               ## new
-                                                                               ## curve
-                                                                               ## <Icurv>.
 
 
 proc newTopOpeBRepBuildBuilder*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder {.

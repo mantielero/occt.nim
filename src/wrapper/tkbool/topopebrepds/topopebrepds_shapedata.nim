@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,9 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepDS_DataStructure"
-type
-  TopOpeBRepDS_ShapeData* {.importcpp: "TopOpeBRepDS_ShapeData",
-                           header: "TopOpeBRepDS_ShapeData.hxx", bycopy.} = object
 
 
 proc newTopOpeBRepDS_ShapeData*(): TopOpeBRepDS_ShapeData {.cdecl, constructor,

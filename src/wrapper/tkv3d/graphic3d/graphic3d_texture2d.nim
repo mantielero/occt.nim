@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,37 +18,6 @@
 
 ## ! This abstract class for managing 2D textures
 
-type
-  Graphic3dTexture2D* {.importcpp: "Graphic3d_Texture2D",
-                       header: "Graphic3d_Texture2D.hxx", bycopy.} = object of Graphic3dTextureMap ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## the
-                                                                                            ## number
-                                                                                            ## of
-                                                                                            ## predefined
-                                                                                            ## textures.
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## Returns
-                                                                                            ## the
-                                                                                            ## name
-                                                                                            ## of
-                                                                                            ## the
-                                                                                            ## predefined
-                                                                                            ## textures
-                                                                                            ## or
-                                                                                            ## NOT_2D_UNKNOWN
-                                                                                            ##
-                                                                                            ## !
-                                                                                            ## when
-                                                                                            ## the
-                                                                                            ## name
-                                                                                            ## is
-                                                                                            ## given
-                                                                                            ## as
-                                                                                            ## a
-                                                                                            ## filename.
 
 
 proc texture2dNumberOfTextures*(): cint {.cdecl, importcpp: "Graphic3d_Texture2D::NumberOfTextures(@)",
@@ -61,5 +32,4 @@ proc hasMipMaps*(this: Graphic3dTexture2D): bool {.noSideEffect, cdecl,
     importcpp: "HasMipMaps", header: "Graphic3d_Texture2D.hxx".}
 proc setMipMaps*(this: var Graphic3dTexture2D; theToUse: bool) {.cdecl,
     importcpp: "SetMipMaps", header: "Graphic3d_Texture2D.hxx".}
-type
-  HandleGraphic3dTexture2D* = Handle[Graphic3dTexture2D]
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,16 +15,6 @@
 
 ## ! Bounds buffer.
 
-type
-  Graphic3dBoundBuffer* {.importcpp: "Graphic3d_BoundBuffer",
-                         header: "Graphic3d_BoundBuffer.hxx", bycopy.} = object of NCollectionBuffer ##
-                                                                                              ## !
-                                                                                              ## Empty
-                                                                                              ## constructor.
-    colors* {.importc: "Colors".}: ptr Graphic3dVec4 ## !< pointer to facet color values
-    bounds* {.importc: "Bounds".}: ptr cint ## !< pointer to bounds array
-    nbBounds* {.importc: "NbBounds".}: cint ## !< number of bounds
-    nbMaxBounds* {.importc: "NbMaxBounds".}: cint ## !< number of allocated bounds
 
 
 proc newGraphic3dBoundBuffer*(theAlloc: Handle[NCollectionBaseAllocator]): Graphic3dBoundBuffer {.
@@ -32,5 +24,4 @@ proc init*(this: var Graphic3dBoundBuffer; theNbBounds: cint; theHasColors: bool
 proc dumpJson*(this: Graphic3dBoundBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_BoundBuffer.hxx".}
-type
-  HandleGraphic3dBoundBuffer* = Handle[Graphic3dBoundBuffer]
+

@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BRepAdaptorHArray1OfCurve* {.importcpp: "BRepAdaptor_HArray1OfCurve",
-                              header: "BRepAdaptor_HArray1OfCurve.hxx", bycopy.} = object of BRepAdaptorArray1OfCurve
 
 
 proc newBRepAdaptorHArray1OfCurve*(theLower: cint; theUpper: cint): BRepAdaptorHArray1OfCurve {.

@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,19 +22,6 @@ discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Wedge"
 discard "forward decl of TopoDS_Shell"
 discard "forward decl of TopoDS_Solid"
-type
-  BRepPrimAPI_MakeWedge* {.importcpp: "BRepPrimAPI_MakeWedge",
-                          header: "BRepPrimAPI_MakeWedge.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                      ## !
-                                                                                                      ## Make
-                                                                                                      ## a
-                                                                                                      ## STEP
-                                                                                                      ## right
-                                                                                                      ## angular
-                                                                                                      ## wedge.
-                                                                                                      ## (ltx
-                                                                                                      ## >=
-                                                                                                      ## 0)
 
 
 proc wedge*(dx: cfloat; dy: cfloat; dz: cfloat; ltx: cfloat): BRepPrimAPI_MakeWedge {.

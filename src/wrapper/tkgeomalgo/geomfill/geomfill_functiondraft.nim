@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1998-04-27
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -19,9 +21,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Vec"
 discard "forward decl of GeomFill_Tensor"
-type
-  GeomFillFunctionDraft* {.importcpp: "GeomFill_FunctionDraft",
-                          header: "GeomFill_FunctionDraft.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
 proc newGeomFillFunctionDraft*(s: Handle[Adaptor3dHSurface];

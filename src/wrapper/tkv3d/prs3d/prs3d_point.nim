@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,9 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Prs3dPoint*[AnyPoint; PointTool] {.importcpp: "Prs3d_Point<\'0,\'1>",
-                                   header: "Prs3d_Point.hxx", bycopy.} = object
 
 
 proc add*[AnyPoint; PointTool](thePrs: Handle[Prs3dPresentation];

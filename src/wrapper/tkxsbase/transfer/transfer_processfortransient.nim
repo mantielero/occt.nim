@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,98 +26,8 @@ discard "forward decl of Message_Msg"
 discard "forward decl of Interface_Check"
 discard "forward decl of Interface_CheckIterator"
 discard "forward decl of Transfer_ProcessForTransient"
-type
-  HandleTransferProcessForTransient* = Handle[TransferProcessForTransient]
 
-## ! Manages Transfer of Transient Objects. Produces also
-## ! ActorOfTransientProcess       (deferred class),
-## ! IteratorOfTransientProcess    (for Results),
-## ! TransferMapOfTransientProcess (internally used)
-## ! Normally uses as TransientProcess, which adds some specifics
 
-type
-  TransferProcessForTransient* {.importcpp: "Transfer_ProcessForTransient",
-                                header: "Transfer_ProcessForTransient.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                            ## !
-                                                                                                            ## Sets
-                                                                                                            ## TransferProcess
-                                                                                                            ## at
-                                                                                                            ## initial
-                                                                                                            ## state.
-                                                                                                            ## Gives
-                                                                                                            ## an
-                                                                                                            ## Initial
-                                                                                                            ## size
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## (indicative)
-                                                                                                            ## for
-                                                                                                            ## the
-                                                                                                            ## Map
-                                                                                                            ## when
-                                                                                                            ## known
-                                                                                                            ## (default
-                                                                                                            ## is
-                                                                                                            ## 10000).
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Sets
-                                                                                                            ## default
-                                                                                                            ## trace
-                                                                                                            ## file
-                                                                                                            ## as
-                                                                                                            ## a
-                                                                                                            ## printer
-                                                                                                            ## and
-                                                                                                            ## default
-                                                                                                            ## trace
-                                                                                                            ## level
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## (see
-                                                                                                            ## Message_TraceFile).
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Same
-                                                                                                            ## as
-                                                                                                            ## Find
-                                                                                                            ## but
-                                                                                                            ## stores
-                                                                                                            ## the
-                                                                                                            ## last
-                                                                                                            ## access
-                                                                                                            ## to
-                                                                                                            ## the
-                                                                                                            ## map,
-                                                                                                            ## for
-                                                                                                            ## a
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## faster
-                                                                                                            ## access
-                                                                                                            ## on
-                                                                                                            ## next
-                                                                                                            ## calls
-                                                                                                            ## (as
-                                                                                                            ## Bind
-                                                                                                            ## does
-                                                                                                            ## too)
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## Considers
-                                                                                                            ## a
-                                                                                                            ## category
-                                                                                                            ## number,
-                                                                                                            ## by
-                                                                                                            ## default
-                                                                                                            ## 0
-                                                                                                            ##
-                                                                                                            ## !
-                                                                                                            ## C++
-                                                                                                            ## :
-                                                                                                            ## return
-                                                                                                            ## const
-                                                                                                            ## &
 
 
 proc newTransferProcessForTransient*(nb: cint = 10000): TransferProcessForTransient {.
@@ -286,5 +198,4 @@ proc removeResult*(this: var TransferProcessForTransient;
                                       header: "Transfer_ProcessForTransient.hxx".}
 proc checkNum*(this: TransferProcessForTransient; start: Handle[StandardTransient]): cint {.
     noSideEffect, cdecl, importcpp: "CheckNum", header: "Transfer_ProcessForTransient.hxx".}
-type
-  TransferProcessForTransientbaseType* = StandardTransient
+

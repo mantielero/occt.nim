@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1996-01-09
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -18,9 +20,6 @@ discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Adaptor3d_Surface"
 discard "forward decl of math_Matrix"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaFuncExtSS* {.importcpp: "Extrema_FuncExtSS",
-                     header: "Extrema_FuncExtSS.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
 
 
 proc newExtremaFuncExtSS*(): ExtremaFuncExtSS {.cdecl, constructor,

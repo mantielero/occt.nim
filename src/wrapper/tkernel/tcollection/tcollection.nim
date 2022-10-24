@@ -1,3 +1,5 @@
+import tcollection_types
+
 ##  Created on: 1992-10-13
 ##  Created by: Ramin BARRETO
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -47,77 +49,6 @@ discard "forward decl of TCollection_IndexedMap"
 discard "forward decl of TCollection_IndexedMapNode"
 discard "forward decl of TCollection_IndexedDataMap"
 discard "forward decl of TCollection_IndexedDataMapNode"
-type
-  TCollection* {.importcpp: "TCollection", header: "TCollection.hxx", bycopy.} = object ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## a
-                                                                                ## prime
-                                                                                ## number
-                                                                                ## greater
-                                                                                ## than
-                                                                                ## <I>
-                                                                                ## suitable
-                                                                                ##
-                                                                                ## !
-                                                                                ## to
-                                                                                ## dimension
-                                                                                ## a
-                                                                                ## Map.
-                                                                                ## When
-                                                                                ## <I>
-                                                                                ## becomes
-                                                                                ## great
-                                                                                ## there
-                                                                                ##
-                                                                                ## !
-                                                                                ## is
-                                                                                ## a
-                                                                                ## limit
-                                                                                ## on
-                                                                                ## the
-                                                                                ## result
-                                                                                ## (today
-                                                                                ## the
-                                                                                ## limit
-                                                                                ## is
-                                                                                ##
-                                                                                ## !
-                                                                                ## around
-                                                                                ## 1
-                                                                                ## 000
-                                                                                ## 000).
-                                                                                ## This
-                                                                                ## is
-                                                                                ## not
-                                                                                ## a
-                                                                                ## limit
-                                                                                ## of
-                                                                                ## the
-                                                                                ## number
-                                                                                ## of
-                                                                                ##
-                                                                                ## !
-                                                                                ## items
-                                                                                ## but
-                                                                                ## a
-                                                                                ## limit
-                                                                                ## in
-                                                                                ## the
-                                                                                ## number
-                                                                                ## of
-                                                                                ## buckets.
-                                                                                ## i.e.
-                                                                                ##
-                                                                                ## !
-                                                                                ## there
-                                                                                ## will
-                                                                                ## be
-                                                                                ## more
-                                                                                ## collisions
-                                                                                ## in
-                                                                                ## the
-                                                                                ## map.
 
 
 proc nextPrimeForMap*(i: cint): cint {.cdecl, importcpp: "TCollection::NextPrimeForMap(@)",

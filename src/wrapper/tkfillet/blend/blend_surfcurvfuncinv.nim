@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1997-02-21
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -16,12 +18,6 @@
 
 discard "forward decl of math_Matrix"
 discard "forward decl of Adaptor2d_HCurve2d"
-type
-  BlendSurfCurvFuncInv* {.importcpp: "Blend_SurfCurvFuncInv",
-                         header: "Blend_SurfCurvFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives ##
-                                                                                                           ## !
-                                                                                                           ## Returns
-                                                                                                           ## 3.
 
 
 proc nbVariables*(this: BlendSurfCurvFuncInv): cint {.noSideEffect, cdecl,

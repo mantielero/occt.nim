@@ -1,3 +1,5 @@
+import geom2dadaptor_types
+
 ##  Created on: 1993-06-03
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,12 +31,6 @@ discard "forward decl of gp_Hypr2d"
 discard "forward decl of gp_Parab2d"
 discard "forward decl of Geom2d_BezierCurve"
 discard "forward decl of Geom2d_BSplineCurve"
-type
-  Geom2dAdaptorCurve* {.importcpp: "Geom2dAdaptor_Curve",
-                       header: "Geom2dAdaptor_Curve.hxx", bycopy.} = object of Adaptor2dCurve2d
-    ## /< B-spline representation to prevent castings
-    ## /< Cached data for B-spline or Bezier curve
-    ## /< Calculates value of offset curve
 
 
 proc newGeom2dAdaptorCurve*(): Geom2dAdaptorCurve {.cdecl, constructor,

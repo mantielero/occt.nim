@@ -1,3 +1,5 @@
+import bnd_types
+
 ##  Created on: 1991-01-28
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -20,10 +22,6 @@ discard "forward decl of gp_Dir"
 discard "forward decl of gp_Trsf"
 discard "forward decl of gp_Lin"
 discard "forward decl of gp_Pln"
-type
-  BndBox* {.importcpp: "Bnd_Box", header: "Bnd_Box.hxx", bycopy.} = object ## ! Creates an empty Box.
-                                                                   ## ! The constructed box is qualified Void. Its gap is null.
-                                                                   ## ! Bit flags.
 
 
 proc newBndBox*(): BndBox {.cdecl, constructor, importcpp: "Bnd_Box(@)", header: "Bnd_Box.hxx".}

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1995-12-19
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -17,16 +19,8 @@
 discard "forward decl of TopoDS_Shape"
 discard "forward decl of TopOpeBRepBuild_BlockIterator"
 discard "forward decl of TopOpeBRepBuild_Loop"
-type
-  HandleTopOpeBRepBuildLoop* = Handle[TopOpeBRepBuildLoop]
 
-## ! a Loop is an existing shape (Shell,Wire) or a set
-## ! of shapes (Faces,Edges) which are connex.
-## ! a set of connex shape is represented by a BlockIterator
 
-type
-  TopOpeBRepBuildLoop* {.importcpp: "TopOpeBRepBuild_Loop",
-                        header: "TopOpeBRepBuild_Loop.hxx", bycopy.} = object of StandardTransient
 
 
 proc newTopOpeBRepBuildLoop*(s: TopoDS_Shape): TopOpeBRepBuildLoop {.cdecl,

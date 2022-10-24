@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-23
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -18,12 +20,6 @@
 ##  Remark:      Internal class
 ##
 
-type
-  NCollectionTListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
-                                      header: "NCollection_TListNode.hxx", bycopy.} = object of NCollectionListNode ##
-                                                                                                             ## !
-                                                                                                             ## Constructor
-    ## !< The item stored in the node
 
 
 proc newNCollectionTListNode*[TheItemType](theItem: TheItemType;

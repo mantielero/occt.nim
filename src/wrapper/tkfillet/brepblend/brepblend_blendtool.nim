@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,6 @@ discard "forward decl of gp_Pnt2d"
 discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Adaptor3d_HVertex"
-type
-  BRepBlendBlendTool* {.importcpp: "BRepBlend_BlendTool",
-                       header: "BRepBlend_BlendTool.hxx", bycopy.} = object ## ! Projects the point P on the arc C.
-                                                                       ## ! If the methods returns
-                                                                       ## Standard_True, the
-                                                                       ## projection is
-                                                                       ## !
-                                                                       ## successful, and Paramproj is the parameter on the arc
-                                                                       ## ! of the projected point, Dist is the distance between
-                                                                       ## ! P and the curve..
-                                                                       ## ! If the method returns
-                                                                       ## Standard_False, Param proj and Dist
-                                                                       ## ! are not
-                                                                       ## significant.
 
 
 proc project*(p: Pnt2dObj; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];

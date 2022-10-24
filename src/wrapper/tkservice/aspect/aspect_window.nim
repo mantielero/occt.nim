@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,26 +16,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Aspect_DisplayConnection"
-type
-  HandleAspectWindow* = Handle[AspectWindow]
 
-## ! Defines a window.
 
-type
-  AspectWindow* {.importcpp: "Aspect_Window", header: "Aspect_Window.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Modifies
-                                                                                                        ## the
-                                                                                                        ## window
-                                                                                                        ## background.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Initializes
-                                                                                                        ## the
-                                                                                                        ## datas
-                                                                                                        ## of
-                                                                                                        ## a
-                                                                                                        ## Window.
 
 
 proc setBackground*(this: var AspectWindow; aBack: AspectBackground) {.cdecl,

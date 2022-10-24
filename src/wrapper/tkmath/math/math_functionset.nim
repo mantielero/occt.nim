@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,9 +19,6 @@
 ## ! This abstract class describes the virtual functions associated to
 ## ! a set on N Functions of M independant variables.
 
-type
-  MathFunctionSet* {.importcpp: "math_FunctionSet", header: "math_FunctionSet.hxx",
-                    bycopy.} = object of RootObj ## ! Returns the number of variables of the function.
 
 
 proc nbVariables*(this: MathFunctionSet): cint {.noSideEffect, cdecl,

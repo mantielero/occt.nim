@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -15,20 +17,6 @@
 ## ! Base class for cubemaps.
 ## ! It is iterator over cubemap sides.
 
-type
-  Graphic3dCubeMap* {.importcpp: "Graphic3d_CubeMap",
-                     header: "Graphic3d_CubeMap.hxx", bycopy.} = object of Graphic3dTextureMap ##
-                                                                                        ## !
-                                                                                        ## Constructor
-                                                                                        ## defining
-                                                                                        ## loading
-                                                                                        ## cubemap
-                                                                                        ## from
-                                                                                        ## file.
-    ## !< Iterator state
-    ## !< Indicates whether end of iteration has been reached or hasn't
-    ## !< Indicates whether Z axis is inverted that allows to synchronize vertical flip of cubemap
-    ## !< Indicates whether mipmaps of cubemap will be generated or not
 
 
 proc newGraphic3dCubeMap*(theFileName: TCollectionAsciiString;
@@ -59,5 +47,4 @@ proc reset*(this: var Graphic3dCubeMap): var Graphic3dCubeMap {.cdecl,
     importcpp: "Reset", header: "Graphic3d_CubeMap.hxx".}
 proc destroyGraphic3dCubeMap*(this: var Graphic3dCubeMap) {.cdecl,
     importcpp: "#.~Graphic3d_CubeMap()", header: "Graphic3d_CubeMap.hxx".}
-type
-  HandleGraphic3dCubeMap* = Handle[Graphic3dCubeMap]
+

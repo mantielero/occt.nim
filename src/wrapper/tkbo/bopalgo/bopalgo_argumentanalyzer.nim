@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -14,16 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  BOPAlgoArgumentAnalyzer* {.importcpp: "BOPAlgo_ArgumentAnalyzer",
-                            header: "BOPAlgo_ArgumentAnalyzer.hxx", bycopy.} = object of BOPAlgoAlgo ##
-                                                                                              ## !
-                                                                                              ## empty
-                                                                                              ## constructor
-                                                                                              ##
-                                                                                              ## !
-                                                                                              ## Prepares
-                                                                                              ## data;
 
 
 proc newBOPAlgoArgumentAnalyzer*(): BOPAlgoArgumentAnalyzer {.cdecl, constructor,

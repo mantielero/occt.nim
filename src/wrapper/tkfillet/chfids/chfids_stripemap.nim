@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-10
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,6 @@
 
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of ChFiDS_Stripe"
-type
-  ChFiDS_StripeMap* {.importcpp: "ChFiDS_StripeMap",
-                     header: "ChFiDS_StripeMap.hxx", bycopy.} = object
 
 
 proc newChFiDS_StripeMap*(): ChFiDS_StripeMap {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -22,17 +24,8 @@
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BVH_PrimitiveSet*[T; N: static[cint]] {.importcpp: "BVH_PrimitiveSet<\'0,\'1>",
-                                       header: "BVH_PrimitiveSet.hxx", bycopy.} = object of BVH_Object[
-      T, N]                    ## ! Returns AABB of primitive set.
-          ## ! Updates BVH of primitive set.
-    ## !< Constructed bottom-level BVH
-    ## !< Builder for bottom-level BVH
-    ## !< Cached bounding box of geometric primitives
 
 
-## using statement
 
 proc newBVH_PrimitiveSet*[T; N: static[cint]](): BVH_PrimitiveSet[T, N] {.cdecl,
     constructor, importcpp: "BVH_PrimitiveSet<\'*0,\'*1>(@)", header: "BVH_PrimitiveSet.hxx".}

@@ -1,3 +1,5 @@
+import message_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,37 +15,6 @@
 
 ## ! Class providing container of alerts
 
-type
-  MessageCompositeAlerts* {.importcpp: "Message_CompositeAlerts",
-                           header: "Message_CompositeAlerts.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                  ## !
-                                                                                                  ## Empty
-                                                                                                  ## constructor
-                                                                                                  ##
-                                                                                                  ## store
-                                                                                                  ## messages
-                                                                                                  ## in
-                                                                                                  ## a
-                                                                                                  ## lists
-                                                                                                  ## sorted
-                                                                                                  ## by
-                                                                                                  ## gravity;
-                                                                                                  ##
-                                                                                                  ## here
-                                                                                                  ## we
-                                                                                                  ## rely
-                                                                                                  ## on
-                                                                                                  ## knowledge
-                                                                                                  ## that
-                                                                                                  ## Message_Fail
-                                                                                                  ## is
-                                                                                                  ## the
-                                                                                                  ## last
-                                                                                                  ## element
-                                                                                                  ## of
-                                                                                                  ## the
-                                                                                                  ## enum
-    ## !< container of child alert for each type of gravity
 
 
 proc newMessageCompositeAlerts*(): MessageCompositeAlerts {.cdecl, constructor,
@@ -70,5 +41,4 @@ proc clear*(this: var MessageCompositeAlerts; theType: Handle[StandardType]) {.c
 proc dumpJson*(this: MessageCompositeAlerts; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Message_CompositeAlerts.hxx".}
-type
-  HandleMessageCompositeAlerts* = Handle[MessageCompositeAlerts]
+

@@ -1,3 +1,5 @@
+import bvh_types
+
 ##  Created on: 2013-12-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -18,27 +20,12 @@
 ## ! @tparam N             Vector dimension
 ## ! @tparam TheDerivedBox Template of derived class that defined axis aligned bounding box.
 
-type
-  TheDerivedBox*[T; N: static[cint]] {.importcpp: "TheDerivedBox<\'0,\'1>",
-                                    header: "BVH_Box.hxx", bycopy.} = object
-
-  BVH_BaseBox*[T; N: static[cint]; TheDerivedBox] {.
-      importcpp: "BVH_BaseBox<\'0,\'1,\'2>", header: "BVH_Box.hxx", bycopy.} = object of RootObj
 
 
-##  forward declaration
+
 
 discard "forward decl of BVH_Box"
-type
-  BVH_Box*[T; N: static[cint]] {.importcpp: "BVH_Box<\'0,\'1>",
-                              header: "BVH_Box.hxx", bycopy.} = object            ## ! Creates uninitialized bounding box.
-                  ## ! Clears bounding box.
-                  ## ! Checks if the Box is out of the other box.
-    ## !< Minimum point of bounding box
-    ## !< Maximum point of bounding box
-    ## !< Is bounding box initialized?
 
-  BVH_BoxBVH_VecNt*[T; N] = object
 
 proc newBVH_Box*[T; N: static[cint]](): BVH_Box[T, N] {.cdecl, constructor,
     importcpp: "BVH_Box<\'*0,\'*1>(@)", header: "BVH_Box.hxx".}
@@ -232,11 +219,7 @@ proc isOut*[T; N: static[cint]](this: BVH_Box[T, N]; thePoint: BVH_BoxBVH_VecNt)
 ## ! \tparam T Numeric data type
 ## ! \tparam N Vector dimension
 
-type
-  BoxMinMax*[T; N: static[cint]] {.importcpp: "BoxMinMax<\'0,\'1>",
-                                header: "BVH_Box.hxx", bycopy.} = object
 
-  BoxMinMaxBVH_VecNt*[T; N] = object
 
 proc cwiseMin*[T; N: static[cint]](theVec1: var BoxMinMaxBVH_VecNt;
                                 theVec2: BoxMinMaxBVH_VecNt) {.cdecl,
@@ -304,3 +287,4 @@ proc cwiseMax*[T; N: static[cint]](theVec1: var BoxMinMaxBVH_VecNt;
 ##  {
 ##    return BVH::CenterAxis<T, N>::Center (*this, theAxis);
 ##  }
+

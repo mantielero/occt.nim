@@ -1,3 +1,5 @@
+import appblend_types
+
 ##  Created on: 1996-08-27
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,9 +19,6 @@
 discard "forward decl of StdFail_NotDone"
 discard "forward decl of Standard_DomainError"
 discard "forward decl of Standard_OutOfRange"
-type
-  AppBlendApprox* {.importcpp: "AppBlend_Approx", header: "AppBlend_Approx.hxx",
-                   bycopy.} = object of RootObj
 
 
 proc isDone*(this: AppBlendApprox): bool {.noSideEffect, cdecl, importcpp: "IsDone",

@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,12 +14,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of SelectMgr_ViewerSelector"
-type
-  SelectMgrSelectionImageFiller* {.importcpp: "SelectMgr_SelectionImageFiller",
-                                  header: "SelectMgr_SelectionImageFiller.hxx",
-                                  bycopy.} = object of StandardTransient ## ! Create filler of specified type.
-                                                                    ## ! Main constructor.
-                                                                    ## ! Find the new unique random color.
 
 
 proc createFiller*(thePixMap: var ImagePixMap;

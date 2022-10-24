@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1995-03-21
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,8 +18,6 @@
 
 ## ! Storage of  a curve  and its 2 faces or surfaces of  support.
 
-type
-  ChFiDS_Regul* {.importcpp: "ChFiDS_Regul", header: "ChFiDS_Regul.hxx", bycopy.} = object
 
 
 proc newChFiDS_Regul*(): ChFiDS_Regul {.cdecl, constructor,

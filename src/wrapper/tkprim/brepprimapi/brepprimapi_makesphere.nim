@@ -1,3 +1,5 @@
+import brepprimapi_types
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,20 +20,6 @@ discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Pnt"
 discard "forward decl of gp_Ax2"
 discard "forward decl of BRepPrim_Sphere"
-type
-  BRepPrimAPI_MakeSphere* {.importcpp: "BRepPrimAPI_MakeSphere",
-                           header: "BRepPrimAPI_MakeSphere.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis ##
-                                                                                                       ## !
-                                                                                                       ## Make
-                                                                                                       ## a
-                                                                                                       ## sphere.
-                                                                                                       ##
-                                                                                                       ## !
-                                                                                                       ## @param
-                                                                                                       ## R
-                                                                                                       ## [in]
-                                                                                                       ## sphere
-                                                                                                       ## radius
 
 
 proc sphere*(r: cfloat): BRepPrimAPI_MakeSphere {.cdecl,

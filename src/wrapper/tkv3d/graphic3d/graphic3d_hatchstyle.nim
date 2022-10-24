@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2016-11-14
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -17,13 +19,6 @@
 ## ! defined in Aspect_HatchStyle enum or to create custom styles
 ## ! from a user-defined bitmap
 
-type
-  Graphic3dHatchStyle* {.importcpp: "Graphic3d_HatchStyle",
-                        header: "Graphic3d_HatchStyle.hxx", bycopy.} = object of StandardTransient ##  Type definition
-                                                                                            ## ! Creates a new custom hatch style with the given pattern and unique style id
-                                                                                            ## ! @warning Raises a program error if given pattern image is not a valid 32*32 bitmap
-    ## !< Image bitmap with custom hatch pattern
-    ## !< Index of used style
 
 
 proc newGraphic3dHatchStyle*(thePattern: Handle[ImagePixMap]): Graphic3dHatchStyle {.
@@ -37,5 +32,4 @@ proc hatchType*(this: Graphic3dHatchStyle): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dHatchStyle; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_HatchStyle.hxx".}
-type
-  HandleGraphic3dHatchStyle* = Handle[Graphic3dHatchStyle]
+

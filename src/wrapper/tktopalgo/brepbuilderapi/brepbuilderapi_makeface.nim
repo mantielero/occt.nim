@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-12
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,12 +25,6 @@ discard "forward decl of gp_Sphere"
 discard "forward decl of gp_Torus"
 discard "forward decl of Geom_Surface"
 discard "forward decl of TopoDS_Wire"
-type
-  BRepBuilderAPI_MakeFace* {.importcpp: "BRepBuilderAPI_MakeFace",
-                            header: "BRepBuilderAPI_MakeFace.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape ##
-                                                                                                          ## !
-                                                                                                          ## Not
-                                                                                                          ## done.
 
 
 proc face*(): BRepBuilderAPI_MakeFace {.cdecl, constructor,

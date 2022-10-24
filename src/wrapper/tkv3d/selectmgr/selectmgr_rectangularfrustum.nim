@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -25,14 +27,6 @@
 ## ! Overlap detection tests are implemented according to the terms of separating axis
 ## ! theorem (SAT).
 
-type
-  SelectMgrRectangularFrustum* {.importcpp: "SelectMgr_RectangularFrustum",
-                                header: "SelectMgr_RectangularFrustum.hxx", bycopy.} = object of SelectMgrFrustum[
-      4]
-    ## !< 3d projection of user-picked selection point onto near view plane
-    ## !< 3d projection of user-picked selection point onto far view plane
-    ## !< Mouse coordinates
-    ## !< Scale factor of applied transformation, if there was any
 
 
 proc newSelectMgrRectangularFrustum*(): SelectMgrRectangularFrustum {.cdecl,

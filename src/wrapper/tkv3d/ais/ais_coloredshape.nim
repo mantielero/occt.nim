@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2014-04-24
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,143 +16,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of StdSelect_BRepOwner"
-type
-  AIS_ColoredShape* {.importcpp: "AIS_ColoredShape",
-                     header: "AIS_ColoredShape.hxx", bycopy.} = object of AIS_Shape ## !
-                                                                             ## Default
-                                                                             ## constructor
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## sub-shape
-                                                                             ## aspects
-                                                                             ## !
-                                                                             ## Customize
-                                                                             ## properties of
-                                                                             ## specified
-                                                                             ## sub-shape.
-                                                                             ## ! The
-                                                                             ## shape
-                                                                             ## will be
-                                                                             ## stored in the map but
-                                                                             ## ignored, if it is not
-                                                                             ## sub-shape of
-                                                                             ## main
-                                                                             ## Shape!
-                                                                             ## !
-                                                                             ## This
-                                                                             ## method can be
-                                                                             ## used to
-                                                                             ## mark
-                                                                             ## sub-shapes
-                                                                             ## with
-                                                                             ## customizable
-                                                                             ## properties.
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## global
-                                                                             ## aspects
-                                                                             ## !
-                                                                             ## Setup
-                                                                             ## color of
-                                                                             ## entire
-                                                                             ## shape.
-                                                                             ## !
-                                                                             ## Removes the
-                                                                             ## setting for
-                                                                             ## transparency in the
-                                                                             ## reconstructed
-                                                                             ## compound
-                                                                             ## shape.
-                                                                             ## !
-                                                                             ## @name
-                                                                             ## override
-                                                                             ## presentation
-                                                                             ## computation
-                                                                             ## !
-                                                                             ## Compute
-                                                                             ## presentation
-                                                                             ## considering
-                                                                             ## sub-shape
-                                                                             ## color
-                                                                             ## map.
-                                                                             ## !
-                                                                             ## Recursive
-                                                                             ## function to map
-                                                                             ## shapes.
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theParentDrawer   the
-                                                                             ## drawer to be
-                                                                             ## used for
-                                                                             ## undetailed
-                                                                             ## shapes
-                                                                             ## (default
-                                                                             ## colors)
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theShapeToParse   the
-                                                                             ## subshape to be
-                                                                             ## recursively
-                                                                             ## parsed
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theShapeDrawerMap
-                                                                             ## shapes map
-                                                                             ## Subshape (in the
-                                                                             ## base
-                                                                             ## shape) ->
-                                                                             ## Drawer
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theParentType     the
-                                                                             ## parent
-                                                                             ## subshape
-                                                                             ## type
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theIsParentClosed
-                                                                             ## flag
-                                                                             ## indicating
-                                                                             ## that
-                                                                             ## specified
-                                                                             ## shape is
-                                                                             ## part of
-                                                                             ## closed
-                                                                             ## Solid
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theDrawerOpenedShapePerType the
-                                                                             ## array of
-                                                                             ## shape
-                                                                             ## types to
-                                                                             ## fill
-                                                                             ## !
-                                                                             ## @param
-                                                                             ## theDrawerClosedFaces        the map for
-                                                                             ## closed
-                                                                             ## faces
-                                                                             ## !
-                                                                             ## Extract
-                                                                             ## myShapeColors map
-                                                                             ## (KeyshapeColored ->
-                                                                             ## Color) to
-                                                                             ## subshapes map
-                                                                             ## (Subshape ->
-                                                                             ## Color).
-                                                                             ## !
-                                                                             ## This
-                                                                             ## needed
-                                                                             ## when
-                                                                             ## colored
-                                                                             ## shape is not
-                                                                             ## part of
-                                                                             ## BaseShape
-                                                                             ## (but
-                                                                             ## subshapes
-                                                                             ## are) and
-                                                                             ## actually
-                                                                             ## container for
-                                                                             ## subshapes.
 
 
 proc newAIS_ColoredShape*(theShape: TopoDS_Shape): AIS_ColoredShape {.cdecl,
@@ -189,5 +54,4 @@ proc unsetTransparency*(this: var AIS_ColoredShape) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_ColoredShape.hxx".}
 proc unsetWidth*(this: var AIS_ColoredShape) {.cdecl, importcpp: "UnsetWidth",
     header: "AIS_ColoredShape.hxx".}
-type
-  HandleAIS_ColoredShape* = Handle[AIS_ColoredShape]
+

@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,25 +13,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  HandleSelectMgrAndOrFilter* = Handle[SelectMgrAndOrFilter]
 
-## ! A framework to define an OR or AND selection filter.
-## ! To use an AND selection filter call SetUseOrFilter with False parameter.
-## ! By default the OR selection filter is used.
 
-type
-  SelectMgrAndOrFilter* {.importcpp: "SelectMgr_AndOrFilter",
-                         header: "SelectMgr_AndOrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter ##
-                                                                                                       ## !
-                                                                                                       ## Constructs
-                                                                                                       ## an
-                                                                                                       ## empty
-                                                                                                       ## selection
-                                                                                                       ## filter.
-    ## !< disabled objects.
-    ## !  Selection isn't applied to these objects.
-    ## !< selection filter type. SelectMgr_TypeFilter_OR by default.
 
 
 proc newSelectMgrAndOrFilter*(theFilterType: SelectMgrFilterType): SelectMgrAndOrFilter {.

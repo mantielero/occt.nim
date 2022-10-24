@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1994-10-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,17 +20,8 @@ discard "forward decl of Standard_TypeMismatch"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Standard_Transient"
 discard "forward decl of Transfer_TransientListBinder"
-type
-  HandleTransferTransientListBinder* = Handle[TransferTransientListBinder]
 
-## ! This binder binds several (a list of) Transients with a starting
-## ! entity, when this entity itself corresponds to a simple list
-## ! of Transients. Each part is not seen as a sub-result of an
-## ! independant componant, but as an item of a built-in list
 
-type
-  TransferTransientListBinder* {.importcpp: "Transfer_TransientListBinder",
-                                header: "Transfer_TransientListBinder.hxx", bycopy.} = object of TransferBinder
 
 
 proc newTransferTransientListBinder*(): TransferTransientListBinder {.cdecl,

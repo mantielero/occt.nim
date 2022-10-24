@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -21,16 +23,6 @@ discard "forward decl of Graphic3d_Camera"
 discard "forward decl of Prs3d_Drawer"
 discard "forward decl of Graphic3d_Structure"
 discard "forward decl of Graphic3d_DataStructureManager"
-type
-  HandlePrsMgrPresentation* = Handle[PrsMgrPresentation]
-  PrsMgrPresentation* {.importcpp: "PrsMgr_Presentation",
-                       header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure ##
-                                                                                           ## !
-                                                                                           ## Destructor
-                                                                                           ##
-                                                                                           ## !
-                                                                                           ## Main
-                                                                                           ## constructor.
 
 
 proc destroyPrsMgrPresentation*(this: var PrsMgrPresentation) {.cdecl,

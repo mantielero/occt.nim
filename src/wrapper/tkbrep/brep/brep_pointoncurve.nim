@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,14 +19,8 @@
 discard "forward decl of Geom_Curve"
 discard "forward decl of TopLoc_Location"
 discard "forward decl of BRep_PointOnCurve"
-type
-  HandleBRepPointOnCurve* = Handle[BRepPointOnCurve]
 
-## ! Representation by a parameter on a 3D curve.
 
-type
-  BRepPointOnCurve* {.importcpp: "BRep_PointOnCurve",
-                     header: "BRep_PointOnCurve.hxx", bycopy.} = object of BRepPointRepresentation
 
 
 proc newBRepPointOnCurve*(p: cfloat; c: Handle[GeomCurve]; L: TopLocLocation): BRepPointOnCurve {.

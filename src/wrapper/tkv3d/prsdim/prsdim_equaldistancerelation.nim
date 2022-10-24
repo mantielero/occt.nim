@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1998-01-24
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -15,86 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Geom_Plane"
-type
-  HandlePrsDimEqualDistanceRelation* = Handle[PrsDimEqualDistanceRelation]
 
-## ! A framework to display equivalent distances between
-## ! shapes and a given plane.
-## ! The distance is the length of a projection from the
-## ! shape to the plane.
-## ! These distances are used to compare shapes by this vector alone.
 
-type
-  PrsDimEqualDistanceRelation* {.importcpp: "PrsDim_EqualDistanceRelation",
-                                header: "PrsDim_EqualDistanceRelation.hxx", bycopy.} = object of PrsDimRelation ##
-                                                                                                         ## !
-                                                                                                         ## Constructs
-                                                                                                         ## a
-                                                                                                         ## framework
-                                                                                                         ## to
-                                                                                                         ## display
-                                                                                                         ## equivalent
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## distances
-                                                                                                         ## between
-                                                                                                         ## the
-                                                                                                         ## shapes
-                                                                                                         ## aShape1,
-                                                                                                         ## aShape2,
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## aShape3,
-                                                                                                         ## aShape4
-                                                                                                         ## and
-                                                                                                         ## the
-                                                                                                         ## plane
-                                                                                                         ## aPlane.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## The
-                                                                                                         ## distance
-                                                                                                         ## is
-                                                                                                         ## the
-                                                                                                         ## length
-                                                                                                         ## of
-                                                                                                         ## a
-                                                                                                         ## projection
-                                                                                                         ## from
-                                                                                                         ## the
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## shape
-                                                                                                         ## to
-                                                                                                         ## the
-                                                                                                         ## plane.
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Computes
-                                                                                                         ## the
-                                                                                                         ## location
-                                                                                                         ## of
-                                                                                                         ## an
-                                                                                                         ## intreval
-                                                                                                         ## between
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## between
-                                                                                                         ## two
-                                                                                                         ## edges.
-                                                                                                         ## FirstAttach
-                                                                                                         ## ,
-                                                                                                         ## SecondAttach
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## are
-                                                                                                         ## the
-                                                                                                         ## returned
-                                                                                                         ## extreme
-                                                                                                         ## points
-                                                                                                         ## of
-                                                                                                         ## the
-                                                                                                         ## interval.
 
 
 proc newPrsDimEqualDistanceRelation*(aShape1: TopoDS_Shape; aShape2: TopoDS_Shape;

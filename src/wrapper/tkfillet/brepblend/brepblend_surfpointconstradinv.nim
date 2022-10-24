@@ -1,3 +1,5 @@
+import brepblend_types
+
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,10 +20,6 @@ discard "forward decl of Adaptor3d_HSurface"
 discard "forward decl of Adaptor3d_HCurve"
 discard "forward decl of math_Matrix"
 discard "forward decl of gp_Pnt"
-type
-  BRepBlendSurfPointConstRadInv* {.importcpp: "BRepBlend_SurfPointConstRadInv",
-                                  header: "BRepBlend_SurfPointConstRadInv.hxx",
-                                  bycopy.} = object of BlendSurfPointFuncInv
 
 
 proc newBRepBlendSurfPointConstRadInv*(s: Handle[Adaptor3dHSurface];

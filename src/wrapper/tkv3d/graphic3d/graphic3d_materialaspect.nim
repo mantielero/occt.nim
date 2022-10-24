@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -19,43 +21,6 @@
 ## ! Specular, Transparency, Emissive, ReflectionMode,
 ## ! BackFace, FrontFace, Reflection, Absorbtion
 
-type
-  Graphic3dMaterialAspect* {.importcpp: "Graphic3d_MaterialAspect",
-                            header: "Graphic3d_MaterialAspect.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Returns
-                                                                                 ## the
-                                                                                 ## number
-                                                                                 ## of
-                                                                                 ## predefined
-                                                                                 ## textures.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Creates
-                                                                                 ## a
-                                                                                 ## material
-                                                                                 ## from
-                                                                                 ## default
-                                                                                 ## values.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Deactivates
-                                                                                 ## the
-                                                                                 ## reflective
-                                                                                 ## properties
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## surface
-                                                                                 ## with
-                                                                                 ## specified
-                                                                                 ## reflection
-                                                                                 ## type.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Initialize
-                                                                                 ## the
-                                                                                 ## standard
-                                                                                 ## material.
 
 
 proc numberOfMaterials*(): cint {.cdecl, importcpp: "Graphic3d_MaterialAspect::NumberOfMaterials(@)",

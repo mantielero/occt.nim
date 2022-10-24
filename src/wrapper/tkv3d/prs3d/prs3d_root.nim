@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-12-15
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,8 +18,6 @@
 
 ## ! A root class for the standard presentation algorithms of the StdPrs package.
 
-type
-  Prs3dRoot* {.importcpp: "Prs3d_Root", header: "Prs3d_Root.hxx", bycopy.} = object of RootObj
 
 
 proc currentGroup*(thePrs3d: Handle[Prs3dPresentation]): Handle[Graphic3dGroup] {.

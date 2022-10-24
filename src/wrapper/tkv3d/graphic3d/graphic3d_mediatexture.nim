@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -13,17 +15,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Media_Frame"
-type
-  MediaHMutex* = NCollectionShared[StandardMutex]
 
-## ! Texture adapter for Media_Frame.
 
-type
-  Graphic3dMediaTexture* {.importcpp: "Graphic3d_MediaTexture",
-                          header: "Graphic3d_MediaTexture.hxx", bycopy.} = object of Graphic3dTexture2D ##
-                                                                                                 ## !
-                                                                                                 ## Main
-                                                                                                 ## constructor.
 
 
 proc newGraphic3dMediaTexture*(theMutex: Handle[MediaHMutex]; thePlane: cint = -1): Graphic3dMediaTexture {.

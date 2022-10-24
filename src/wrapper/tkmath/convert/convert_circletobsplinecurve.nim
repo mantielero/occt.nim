@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,24 +18,6 @@
 
 discard "forward decl of Standard_DomainError"
 discard "forward decl of gp_Circ2d"
-type
-  ConvertCircleToBSplineCurve* {.importcpp: "Convert_CircleToBSplineCurve",
-                                header: "Convert_CircleToBSplineCurve.hxx", bycopy.} = object of ConvertConicToBSplineCurve ##
-                                                                                                                     ## !
-                                                                                                                     ## The
-                                                                                                                     ## equivalent
-                                                                                                                     ## B-spline
-                                                                                                                     ## curve
-                                                                                                                     ## has
-                                                                                                                     ## the
-                                                                                                                     ## same
-                                                                                                                     ## orientation
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## as
-                                                                                                                     ## the
-                                                                                                                     ## circle
-                                                                                                                     ## C.
 
 
 proc newConvertCircleToBSplineCurve*(c: Circ2dObj; parameterisation: ConvertParameterisationType = convertTgtThetaOver2): ConvertCircleToBSplineCurve {.

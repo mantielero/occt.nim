@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1992-07-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,9 +26,6 @@ discard "forward decl of gp_Circ"
 discard "forward decl of gp_Hypr"
 discard "forward decl of Extrema_POnCurv"
 discard "forward decl of Extrema_POnSurf"
-type
-  ExtremaExtElCS* {.importcpp: "Extrema_ExtElCS", header: "Extrema_ExtElCS.hxx",
-                   bycopy.} = object
 
 
 proc newExtremaExtElCS*(): ExtremaExtElCS {.cdecl, constructor,

@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1993-07-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,16 +19,6 @@
 discard "forward decl of Standard_Transient"
 discard "forward decl of IFSelect_WorkSession"
 discard "forward decl of IFSelect_Dispatch"
-type
-  IFSelectFunctions* {.importcpp: "IFSelect_Functions",
-                      header: "IFSelect_Functions.hxx", bycopy.} = object ## ! Takes the name of an entity, either as argument, or (if <name>
-                                                                     ## ! is empty) on keybord, and returns the entity
-                                                                     ## ! name can be a label or a number (in
-                                                                     ## alphanumeric), it is
-                                                                     ## ! searched by
-                                                                     ## NumberFromLabel from
-                                                                     ## WorkSession.
-                                                                     ## ! If <name> doesn't match en entity, a Null Handle is returned
 
 
 proc giveEntity*(ws: Handle[IFSelectWorkSession]; name: cstring = ""): Handle[

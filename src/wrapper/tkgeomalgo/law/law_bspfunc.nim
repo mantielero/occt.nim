@@ -1,3 +1,5 @@
+import law_types
+
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -18,16 +20,8 @@ discard "forward decl of Law_BSpline"
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of Law_Function"
 discard "forward decl of Law_BSpFunc"
-type
-  HandleLawBSpFunc* = Handle[LawBSpFunc]
 
-## ! Law Function based on a BSpline curve 1d.  Package
-## ! methods and classes are implemented in package Law
-## ! to    construct  the  basis    curve with  several
-## ! constraints.
 
-type
-  LawBSpFunc* {.importcpp: "Law_BSpFunc", header: "Law_BSpFunc.hxx", bycopy.} = object of LawFunction
 
 
 proc newLawBSpFunc*(): LawBSpFunc {.cdecl, constructor, importcpp: "Law_BSpFunc(@)",

@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-07-16
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,10 +18,6 @@
 
 discard "forward decl of Standard_OutOfRange"
 discard "forward decl of TopLoc_Location"
-type
-  TopToolsLocationSet* {.importcpp: "TopTools_LocationSet",
-                        header: "TopTools_LocationSet.hxx", bycopy.} = object ## ! Returns an empty set of
-                                                                         ## locations.
 
 
 proc newTopToolsLocationSet*(): TopToolsLocationSet {.cdecl, constructor,

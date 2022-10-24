@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -15,21 +17,8 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of IFSelect_SelectIncorrectEntities"
-type
-  HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
 
-## ! A SelectIncorrectEntities sorts the Entities which have been
-## ! noted as Incorrect in the Graph of the Session
-## ! (flag "Incorrect")
-## ! It can find a result only if ComputeCheck has formerly been
-## ! called on the WorkSession. Else, its result will be empty.
 
-type
-  IFSelectSelectIncorrectEntities* {.importcpp: "IFSelect_SelectIncorrectEntities", header: "IFSelect_SelectIncorrectEntities.hxx",
-                                    bycopy.} = object of IFSelectSelectFlag ## ! Creates a
-                                                                       ## SelectIncorrectEntities
-                                                                       ## ! i.e. a
-                                                                       ## SelectFlag("Incorrect")
 
 
 proc newIFSelectSelectIncorrectEntities*(): IFSelectSelectIncorrectEntities {.

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -13,11 +15,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Media_PlayerContext"
-type
-  AIS_MediaPlayer* {.importcpp: "AIS_MediaPlayer", header: "AIS_MediaPlayer.hxx",
-                    bycopy.} = object of AIS_InteractiveObject ## ! Empty constructor.
-                                                          ## ! Accept only display mode 0.
-                                                          ## ! Update frame size.
 
 
 proc newAIS_MediaPlayer*(): AIS_MediaPlayer {.cdecl, constructor,

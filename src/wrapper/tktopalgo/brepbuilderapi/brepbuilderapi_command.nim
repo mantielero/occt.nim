@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,12 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of StdFail_NotDone"
-type
-  BRepBuilderAPI_Command* {.importcpp: "BRepBuilderAPI_Command",
-                           header: "BRepBuilderAPI_Command.hxx", bycopy, pure, inheritable.} = object ## !
-                                                                              ## Set
-                                                                              ## done to
-                                                                              ## False.
 
 
 proc destroyBRepBuilderAPI_Command*(this: var BRepBuilderAPI_Command) {.cdecl,

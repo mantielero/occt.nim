@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-03-03
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,10 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopOpeBRepBuild_Loop"
-type
-  TopOpeBRepBuildLoopClassifier* {.importcpp: "TopOpeBRepBuild_LoopClassifier",
-                                  header: "TopOpeBRepBuild_LoopClassifier.hxx",
-                                  bycopy.} = object of RootObj
 
 
 proc destroyTopOpeBRepBuildLoopClassifier*(

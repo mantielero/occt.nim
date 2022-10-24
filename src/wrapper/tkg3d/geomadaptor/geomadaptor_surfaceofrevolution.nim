@@ -1,3 +1,5 @@
+import geomadaptor_types
+
 ##  Created on: 1993-04-21
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,13 +33,6 @@ discard "forward decl of Geom_BezierSurface"
 discard "forward decl of Geom_BSplineSurface"
 discard "forward decl of gp_Ax3"
 discard "forward decl of gp_Dir"
-type
-  GeomAdaptorSurfaceOfRevolution* {.importcpp: "GeomAdaptor_SurfaceOfRevolution", header: "GeomAdaptor_SurfaceOfRevolution.hxx",
-                                   bycopy.} = object of GeomAdaptorSurface
-    ## /< revolved curve
-    ## /< axis of revolution
-    ## /< whether axis of revolution is initialized
-    ## /< auxiliary trihedron according to the curve position
 
 
 proc newGeomAdaptorSurfaceOfRevolution*(): GeomAdaptorSurfaceOfRevolution {.cdecl,

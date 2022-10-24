@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2002-04-18
 ##  Created by: Alexander KARTOMIN (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -13,59 +15,9 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  NCollectionDelMapNode* = proc (a1: ptr NCollectionListNode;
-                              theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 
-## *
-##  Purpose:     This is a base class for all Maps:
-##                 Map
-##                 DataMap
-##                 DoubleMap
-##                 IndexedMap
-##                 IndexedDataMap
-##               Provides utilitites for managing the buckets.
-##
 
-type
-  NCollectionBaseMap* {.importcpp: "NCollection_BaseMap",
-                       header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj ## ! Memory
-                                                                       ## allocation
-                                                                       ##
-                                                                       ## **************************************** Class Iterator
-                                                                       ## ****************
-                                                                       ##
-                                                                       ## ---------- PUBLIC METHODS
-                                                                       ## ------------
-                                                                       ## ! NbBuckets
-                                                                       ##  -------- PROTECTED METHODS
-                                                                       ## -----------
-                                                                       ## !
-                                                                       ## Constructor
-                                                                       ##  --------- PROTECTED FIELDS
-                                                                       ## -----------
-                                                                       ##
-                                                                       ## ---------- PRIVATE FIELDS
-                                                                       ## ------------
-    ##  ---------- FRIEND CLASSES ------------
 
-  NCollectionBaseMapIterator* {.importcpp: "NCollection_BaseMap::Iterator",
-                               header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj ## !
-                                                                               ## Empty
-                                                                               ## constructor
-                                                                               ## !
-                                                                               ## Initialize
-                                                                               ## !
-                                                                               ## PMore
-                                                                               ##
-                                                                               ## ----------
-                                                                               ## PRIVATE
-                                                                               ## FIELDS
-                                                                               ## ------------
-    ## !< Total buckets in the map
-    ## !< Location in memory
-    ## !< Current bucket
-    ## !< Current node
 
 
 proc initialize*(this: var NCollectionBaseMapIterator; theMap: NCollectionBaseMap) {.

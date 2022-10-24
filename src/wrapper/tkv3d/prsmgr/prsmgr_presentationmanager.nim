@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -24,76 +26,8 @@ discard "forward decl of PrsMgr_Presentation"
 discard "forward decl of PrsMgr_PresentableObject"
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of V3d_Viewer"
-type
-  HandlePrsMgrPresentationManager* = Handle[PrsMgrPresentationManager]
 
-## ! A framework to manage 3D displays, graphic entities and their updates.
-## ! Used in the AIS package (Application Interactive Services), to enable the advanced user to define the
-## ! default display mode of a new interactive object which extends the list of signatures and types.
-## ! Definition of new display types is handled by calling the presentation algorithms provided by the StdPrs package.
 
-type
-  PrsMgrPresentationManager* {.importcpp: "PrsMgr_PresentationManager",
-                              header: "PrsMgr_PresentationManager.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                        ## !
-                                                                                                        ## Creates
-                                                                                                        ## a
-                                                                                                        ## framework
-                                                                                                        ## to
-                                                                                                        ## manage
-                                                                                                        ## displays
-                                                                                                        ## and
-                                                                                                        ## graphic
-                                                                                                        ## entities
-                                                                                                        ## with
-                                                                                                        ## the
-                                                                                                        ## 3D
-                                                                                                        ## view
-                                                                                                        ## theStructureManager.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Removes
-                                                                                                        ## a
-                                                                                                        ## presentation
-                                                                                                        ## of
-                                                                                                        ## the
-                                                                                                        ## presentable
-                                                                                                        ## object
-                                                                                                        ## thePrsObject
-                                                                                                        ## to
-                                                                                                        ## this
-                                                                                                        ## framework.
-                                                                                                        ## thePrsObject
-                                                                                                        ## has
-                                                                                                        ## the
-                                                                                                        ## display
-                                                                                                        ## mode
-                                                                                                        ## theMode.
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## Handles
-                                                                                                        ## the
-                                                                                                        ## structures
-                                                                                                        ## from
-                                                                                                        ## <myImmediateList>
-                                                                                                        ## and
-                                                                                                        ## displays
-                                                                                                        ## it
-                                                                                                        ## separating
-                                                                                                        ## view-dependent
-                                                                                                        ## structures
-                                                                                                        ## and
-                                                                                                        ## taking
-                                                                                                        ## into
-                                                                                                        ## account
-                                                                                                        ##
-                                                                                                        ## !
-                                                                                                        ## structure
-                                                                                                        ## visibility
-                                                                                                        ## by
-                                                                                                        ## setting
-                                                                                                        ## proper
-                                                                                                        ## affinity.
 
 
 proc newPrsMgrPresentationManager*(theStructureManager: Handle[

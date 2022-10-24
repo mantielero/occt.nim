@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1998-02-18
 ##  Created by: Jeanine PANCIATICI
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -16,23 +18,6 @@
 
 discard "forward decl of Adaptor2d_HCurve2d"
 discard "forward decl of Standard_ConstructionError"
-type
-  Adaptor3dInterFunc* {.importcpp: "Adaptor3d_InterFunc",
-                       header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative ##
-                                                                                                   ## !
-                                                                                                   ## build
-                                                                                                   ## the
-                                                                                                   ## function
-                                                                                                   ## U(t)=FixVal
-                                                                                                   ## if
-                                                                                                   ## Fix
-                                                                                                   ## =1
-                                                                                                   ## or
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## V(t)=FixVal
-                                                                                                   ## if
-                                                                                                   ## Fix=2
 
 
 proc newAdaptor3dInterFunc*(c: Handle[Adaptor2dHCurve2d]; fixVal: cfloat; fix: cint): Adaptor3dInterFunc {.

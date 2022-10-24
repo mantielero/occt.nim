@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,10 +15,7 @@
 
 ## ! Key modifier, for combining with general key from Aspect_VKey.
 
-type
-  AspectVKeyFlags* = cuint
 
-## ! Key modifier, for combining with general key from Aspect_VKey.
 
 const
   aspectVKeyFlagsNONE* = 0      ##  reserve first 8 bits to combine value with Aspect_VKey
@@ -30,10 +29,7 @@ const
 
 ## ! Mouse buttons, for combining with Aspect_VKey and Aspect_VKeyFlags.
 
-type
-  AspectVKeyMouse* = cuint
 
-## ! Mouse button bitmask
 
 const
   AspectVKeyMouseNONE* = 0      ## !< no buttons
@@ -42,3 +38,4 @@ const
   AspectVKeyMouseRightButton* = 1 shl 15 ## !< mouse right  button
   AspectVKeyMouseMainButtons* = AspectVKeyMouseLeftButton or
       AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
+

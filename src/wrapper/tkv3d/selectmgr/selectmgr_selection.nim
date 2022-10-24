@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-16
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,36 +17,6 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Select3D_SensitiveEntity"
-type
-  SelectMgrSelection* {.importcpp: "SelectMgr_Selection",
-                       header: "SelectMgr_Selection.hxx", bycopy.} = object of StandardTransient ##
-                                                                                          ## !
-                                                                                          ## Constructs
-                                                                                          ## a
-                                                                                          ## selection
-                                                                                          ## object
-                                                                                          ## defined
-                                                                                          ## by
-                                                                                          ## the
-                                                                                          ## selection
-                                                                                          ## mode
-                                                                                          ## IdMode.
-                                                                                          ##
-                                                                                          ## !
-                                                                                          ## The
-                                                                                          ## default
-                                                                                          ## setting
-                                                                                          ## 0
-                                                                                          ## is
-                                                                                          ## the
-                                                                                          ## selection
-                                                                                          ## mode
-                                                                                          ## for
-                                                                                          ## a
-                                                                                          ## shape
-                                                                                          ## in
-                                                                                          ## its
-                                                                                          ## entirety.
 
 
 proc newSelectMgrSelection*(theModeIdx: cint = 0): SelectMgrSelection {.cdecl,
@@ -88,5 +60,4 @@ proc setSensitivity*(this: var SelectMgrSelection; theNewSens: cint) {.cdecl,
 proc dumpJson*(this: SelectMgrSelection; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_Selection.hxx".}
-type
-  HandleSelectMgrSelection* = Handle[SelectMgrSelection]
+

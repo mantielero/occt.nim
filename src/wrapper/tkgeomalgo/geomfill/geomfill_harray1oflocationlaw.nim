@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillHArray1OfLocationLaw* {.importcpp: "GeomFill_HArray1OfLocationLaw",
-                                 header: "GeomFill_HArray1OfLocationLaw.hxx",
-                                 bycopy.} = object of GeomFillArray1OfLocationLaw
 
 
 proc newGeomFillHArray1OfLocationLaw*(theLower: cint; theUpper: cint): GeomFillHArray1OfLocationLaw {.

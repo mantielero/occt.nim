@@ -1,3 +1,6 @@
+# PROVIDES: QuantityColor QuantityColorHasher QuantityColorRGBA QuantityColorRGBAHasher QuantityDate
+# DEPENDS: QuantityArray1OfColor QuantityArray1OfColor
+
 type
   QuantityColor* {.importcpp: "Quantity_Color", header: "Quantity_Color.hxx", bycopy.} = object ##
                                                                                         ## !
@@ -111,6 +114,7 @@ type
                                                                                         ## to
                                                                                         ## the
                                                                                         ## mode.
+
 type
   QuantityColorHasher* {.importcpp: "Quantity_ColorHasher",
                         header: "Quantity_ColorHasher.hxx", bycopy.} = object ## ! Returns hash code for the given RGB color, in the range [1,
@@ -124,6 +128,7 @@ type
                                                                          ## ! @return a
                                                                          ## computed hash code, in the range [1,
                                                                          ## theUpperBound]
+
 type
   QuantityColorRGBA* {.importcpp: "Quantity_ColorRGBA",
                       header: "Quantity_ColorRGBA.hxx", bycopy.} = object ## ! Creates a color with the default value.
@@ -137,6 +142,7 @@ type
                                                                      ## ! @return false if the color name is unknown, or true if the search by color name was successful
                                                                      ## ! Convert linear RGB components into sRGB using OpenGL specs formula.
                                                                      ## ! Dumps the content of me into the stream
+
 type
   QuantityColorRGBAHasher* {.importcpp: "Quantity_ColorRGBAHasher",
                             header: "Quantity_ColorRGBAHasher.hxx", bycopy.} = object ##
@@ -198,6 +204,7 @@ type
                                                                                  ## range
                                                                                  ## [1,
                                                                                  ## theUpperBound]
+
 type
   QuantityDate* {.importcpp: "Quantity_Date", header: "Quantity_Date.hxx", bycopy.} = object ##
                                                                                      ## !
@@ -226,8 +233,11 @@ type
                                                                                      ## required
                                                                                      ## date;
                                                                                      ## or
+
 type
   QuantityHArray1OfColor* {.importcpp: "Quantity_HArray1OfColor",
+                           header: "Quantity_HArray1OfColor.hxx", bycopy.} = object of QuantityArray1OfColor
+
                            header: "Quantity_HArray1OfColor.hxx", bycopy.} = object of QuantityArray1OfColor
 type
   QuantityPeriod* {.importcpp: "Quantity_Period", header: "Quantity_Period.hxx",
@@ -238,3 +248,5 @@ type
                                   ## ! 0 <= ss
                                   ## ! 0 <= mis
                                   ## ! 0 <= mics
+
+

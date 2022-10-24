@@ -1,3 +1,9 @@
+# PROVIDES: TopAbs
+# DEPENDS:
+
+# PROVIDES: TopAbs
+# DEPENDS:
+
 type
   TopAbs* {.importcpp: "TopAbs", header: "TopAbs.hxx", bycopy.} = object ## ! Compose  the Orientation    <Or1>  and  <Or2>.    This
                                                                  ## ! composition is not symmetric (if  you switch <Or1> and
@@ -18,3 +24,7 @@ type
                                                                  ## ! EXTERNAL  | EXTERNAL EXTERNAL EXTERNAL EXTERNAL
                                                                  ## ! Note: The top corner in the table is the most important
                                                                  ## ! for the purposes of Open CASCADE topology and shape sharing.
+
+
+
+

@@ -1,37 +1,6 @@
-type
-  NCollectionAccAllocator* {.importcpp: "NCollection_AccAllocator",
-                            header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  --------- PUBLIC CONSTANTS ---------
-                                                                                                           ## ! Alignment of all allocated objects: 4 bytes
-                                                                                                           ## ! Constructor
-                                                                                                           ## ! Size value aligned to a 4 byte boundary
-                                                                                                           ## ! Calculate a key for the data map basing on the given address
-    ##  Declaration of CASCADE RTTI
-type
-  NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
-                                header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
-                                                                                                                   ## !
-                                                                                                                   ## Constructor.
-                                                                                                                   ## The
-                                                                                                                   ## alignment
-                                                                                                                   ## should
-                                                                                                                   ## be
-                                                                                                                   ## specified
-                                                                                                                   ## explicitly:
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 16
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## SSE
-                                                                                                                   ## instructions
-                                                                                                                   ##
-                                                                                                                   ## !
-                                                                                                                   ## 32
-                                                                                                                   ## bytes
-                                                                                                                   ## for
-                                                                                                                   ## AVX
-                                                                                                                   ## instructions
-    ## !< alignment in bytes
+# PROVIDES: NCollectionArray1Iterator NCollectionArray1constIterator NCollectionArray2Iterator NCollectionDelListNode NCollectionBaseListIterator NCollectionDelMapNode NCollectionBaseMapIterator NCollectionSeqNode NCollectionDelSeqNode NCollectionBaseSequenceIterator NCollectionBaseVector NCollectionCellFilterAction NCollectionCellFilterPoint NCollectionCellFilterInspectorXYZPoint NCollectionCellFilterInspectorXY NCollectionCellFilterInspectorXYPoint NCollectionDataMapIterator NCollectionDataMapconstIterator NCollectionDefaultHasher NCollectionDoubleMapIterator NCollectionEBTreeTreeNode NCollectionIndexedDataMapconstIterator NCollectionIndexedMapconstIterator NCollectionLerp NCollectionListNode NCollectionLocalArray NCollectionMapIterator NCollectionMapconstIterator NCollectionMat4 NCollectionSequenceIterator NCollectionSequenceconstIterator NCollectionSparseArrayBase NCollectionSparseArrayBaseIterator NCollectionStdAllocatorrebind NCollectionStlIterator NCollectionUBTreeSelector NCollectionUBTreeTreeNode NCollectionUBTreeFillerObjBnd NCollectionUBTreeFillerUBTreeNode NCollectionUtfIterator NCollectionUtfString NCollectionVec2 NCollectionVec3 NCollectionVec4 NCollectionVectorIterator NCollectionVectorconstIterator NCollectionSequenceNode NCollectionSparseArray NCollectionSparseArrayConstIterator NCollectionTListIterator NCollectionTListNode NCollectionDataMapDataMapNode NCollectionDoubleMapDoubleMapNode NCollectionMapMapNode NCollectionSparseArrayIterator
+# DEPENDS: NCollectionBaseAllocator NCollectionBaseAllocator StandardTransient RootObj## HandleStandardTransient NCollectionBaseAllocator NCollectionBaseAllocator NCollectionBaseMap NCollectionBaseMap NCollectionBaseList StandardTransient NCollectionBaseAllocator
+
 type
   PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object
   RandomAccessIteratorTag* {.importcpp:"std::random_access_iterator_tag".} = object
@@ -85,11 +54,13 @@ type
       header: "NCollection_Array1.hxx", bycopy.} = object of RootObj ## ! Empty constructor - for later Init
     ## !< Pointer to the current element in the array
     ## !< Pointer to the past-the-end element in the array
+
 type
 #  NCollectionArray1iterator* = NCollectionStlIterator[RandomAccessIteratorTag,
 #      NCollectionArray1Iterator, TheItemType, False]
   NCollectionArray1constIterator* = NCollectionStlIterator[
       RandomAccessIteratorTag, NCollectionArray1Iterator, TheItemType, true]
+
 type
   NCollectionArray2*[TheItemType] {.importcpp: "NCollection_Array2<\'0>",
                                    header: "NCollection_Array2.hxx", bycopy.} = object of RootObj ##
@@ -159,10 +130,12 @@ type
     ## !< Index of the current item
     ## !< Total amount of items
     ## !< Pointer to the array being iterated
+
 type
   NCollectionDelListNode* = proc (a1: ptr NCollectionListNode;
                                theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
 ##  ********************************************************** BaseList class
+
 type
   NCollectionBaseList* {.importcpp: "NCollection_BaseList",
                         header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ## ! Memory
@@ -196,6 +169,7 @@ type
                                 header: "NCollection_BaseList.hxx", bycopy.} = object of RootObj ##  ******** Empty constructor
     myCurrent* {.importc: "myCurrent".}: ptr NCollectionListNode ##  Pointer to the current node
     myPrevious* {.importc: "myPrevious".}: ptr NCollectionListNode ##  Pointer to the previous one
+
 type
   NCollectionDelMapNode* = proc (a1: ptr NCollectionListNode;
                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
@@ -208,6 +182,7 @@ type
 ##                 IndexedDataMap
 ##               Provides utilitites for managing the buckets.
 ##
+
 type
   NCollectionBaseMap* {.importcpp: "NCollection_BaseMap",
                        header: "NCollection_BaseMap.hxx", bycopy.} = object of RootObj ## ! Memory
@@ -246,9 +221,11 @@ type
     ## !< Location in memory
     ## !< Current bucket
     ## !< Current node
+
 type
   NCollectionSeqNode* {.importcpp: "NCollection_SeqNode",
                        header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
+
 type
   NCollectionDelSeqNode* = proc (a1: ptr NCollectionSeqNode;
                               theAl: var Handle[NCollectionBaseAllocator]) {.cdecl.}
@@ -256,6 +233,7 @@ type
 ##  Purpose:     This  is  a base  class  for  the  Sequence.  It  deals with
 ##               an indexed bidirectional list of NCollection_SeqNode's.
 ##
+
 type
   NCollectionBaseSequence* {.importcpp: "NCollection_BaseSequence",
                             header: "NCollection_BaseSequence.hxx", bycopy.} = object of RootObj ##
@@ -285,6 +263,7 @@ type
                                                                                          ## constructor
     ## !< Pointer to the current node
     ## !< Pointer to the previous node
+
 type
   NCollectionBaseVector* {.importcpp: "NCollection_BaseVector",
                           header: "NCollection_BaseVector.hxx", bycopy.} = object of RootObj ## !
@@ -317,55 +296,7 @@ type
                                                                              ## @name
                                                                              ## Protected
                                                                              ## fields
-type
-  NCollectionBuffer* {.importcpp: "NCollection_Buffer",
-                      header: "NCollection_Buffer.hxx", bycopy.} = object of StandardTransient ##
-                                                                                        ## !
-                                                                                        ## Default
-                                                                                        ## constructor.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## When
-                                                                                        ## theData
-                                                                                        ## is
-                                                                                        ## NULL
-                                                                                        ## but
-                                                                                        ## theSize
-                                                                                        ## is
-                                                                                        ## not
-                                                                                        ## 0
-                                                                                        ## than
-                                                                                        ## buffer
-                                                                                        ## of
-                                                                                        ## specified
-                                                                                        ## size
-                                                                                        ## will
-                                                                                        ## be
-                                                                                        ## allocated.
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @param
-                                                                                        ## theAlloc
-                                                                                        ## memory
-                                                                                        ## allocator
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @param
-                                                                                        ## theSize
-                                                                                        ## buffer
-                                                                                        ## size
-                                                                                        ##
-                                                                                        ## !
-                                                                                        ## @param
-                                                                                        ## theData
-                                                                                        ## buffer
-                                                                                        ## data
-                                                                                        ## allocated
-                                                                                        ## by
-                                                                                        ## theAlloc
-    ## !< data pointer
-    ## !< buffer length in bytes
-    ## !< buffer allocator
+
 type
   NCollectionCellFilterAction* {.size: sizeof(cint),
                                 importcpp: "NCollection_CellFilter_Action",
@@ -451,6 +382,7 @@ type
 ##
 ##    Note that method Inspect() can be const and/or virtual.
 ##
+
 type
   NCollectionCellFilter*[Inspector] {.importcpp: "NCollection_CellFilter<\'0>",
                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##
@@ -574,65 +506,20 @@ type
                                                                                         ## one
   NCollectionCellFilterTarget* {.importcpp:"typename Inspector::Target".} = object
   NCollectionCellFilterPoint* {.importcpp:"typename Inspector::Point".} = object
-type
-  NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
-                                      header: "NCollection_CellFilter.hxx", bycopy.} = object of RootObj##
-                                                                                         ## !
-                                                                                         ## Points
-                                                                                         ## dimension
+
 type
   NCollectionCellFilterInspectorXYZPoint* = XyzObj
+
 type
   NCollectionCellFilterInspectorXY* {.importcpp: "NCollection_CellFilter_InspectorXY",
                                      header: "NCollection_CellFilter.hxx", bycopy.} = object ##
                                                                                         ## !
                                                                                         ## Points
                                                                                         ## dimension
+
 type
   NCollectionCellFilterInspectorXYPoint* = XyObj
-type
-  ForwardIteratorTag* {.importcpp:"std::forward_iterator_tag".} = object
-  NCollectionDataMap*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_DataMap<\'0,\'1,\'2>",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
-                                                                          ## STL-compliant
-                                                                          ## typedef for key type
-                                                                          ##
-                                                                          ## ****************
-                                                                          ## Adaptation of the
-                                                                          ## TListNode to the
-                                                                          ## DATAmap
-                                                                          ##
-                                                                          ## ****************
-                                                                          ## Implementation of the
-                                                                          ## Iterator
-                                                                          ## interface.
-                                                                          ##
-                                                                          ## ---------- PUBLIC
-                                                                          ## METHODS
-                                                                          ## ------------
-                                                                          ## ! Empty
-                                                                          ## Constructor.
-                                                                          ##
-                                                                          ## ----------
-                                                                          ## PROTECTED
-                                                                          ## METHODS
-                                                                          ## ----------
-                                                                          ## ! Lookup for
-                                                                          ## particular key in map.
-                                                                          ## Returns true if key is found and
-                                                                          ## !
-                                                                          ## thepNode points to binded node.
-                                                                          ## Returns false if key is not found,
-                                                                          ## !
-                                                                          ## thehNode value is this case is not
-                                                                          ## usable.
-  NCollectionDataMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionDataMapvalueType*[TheItemType] = TheItemType
-  NCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_DataMap<\'0,\'1,\'2>::DataMapNode",
-      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionTListNode[
-      TheItemType]            ## ! Constructor with 'Next'
+
 type
   NCollectionDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
       importcpp: "NCollection_DataMap<\'0,\'1,\'2>::Iterator",
@@ -640,11 +527,13 @@ type
                                                                                   ## !
                                                                                   ## Empty
                                                                                   ## constructor
+
 type
 #  NCollectionDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
 #      NCollectionDataMapIterator, TheItemType, False]
   NCollectionDataMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
       NCollectionDataMapIterator, TheItemType, true]
+
 type
   NCollectionDefaultHasher*[TheKeyType] {.
       importcpp: "NCollection_DefaultHasher<\'0>",
@@ -652,36 +541,7 @@ type
                                                             ## ! @param theKey the key which hash code is to be computed
                                                             ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
                                                             ## ! @return a computed hash code, in the range [1, theUpperBound]
-type
-  NCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
-      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
-                                                                            ## STL-compliant
-                                                                            ## typedef for key1 type
-                                                                            ##
-                                                                            ## ****************
-                                                                            ## Adaptation of the
-                                                                            ## TListNode to the
-                                                                            ## DOUBLEmap
-                                                                            ##
-                                                                            ## ****************
-                                                                            ## Implementation of the
-                                                                            ## Iterator
-                                                                            ## interface.
-                                                                            ##
-                                                                            ## ----------
-                                                                            ## PUBLIC
-                                                                            ## METHODS
-                                                                            ## ------------
-                                                                            ## !
-                                                                            ## Empty
-                                                                            ## constructor.
-  NCollectionDoubleMapkey1Type*[TheKey1Type] = TheKey1Type
-  NCollectionDoubleMapkey2Type*[TheKey2Type] = TheKey2Type
-  NCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
-      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::DoubleMapNode",
-      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionTListNode[
-      TheKey2Type]            ## ! Constructor with 'Next'
+
 type
   NCollectionDoubleMapIterator*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
       importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::Iterator",
@@ -689,6 +549,7 @@ type
                                                                                       ## !
                                                                                       ## Empty
                                                                                       ## constructor
+
 type
   TheObjType* = object
   TheBndType* = object
@@ -698,113 +559,18 @@ type
       bycopy.} = object of RootObj
   NCollectionEBTreeUBTree* = NCollectionUBTree[TheObjType, TheBndType]
   NCollectionEBTreeTreeNode* = TreeNode
-type
-  NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
-                         header: "NCollection_Handle.hxx", bycopy.} = object of HandleStandardTransient
-#      StandardTransient] ## ! Internal adaptor class wrapping actual type
-#                        ## ! and enhancing it by reference counter inherited from
-#                        ## ! Standard_Transient
-  NCollectionHandleelementType*[T] = T
-type
-  NCollectionHeapAllocator* {.importcpp: "NCollection_HeapAllocator",
-                             header: "NCollection_HeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  ---------- PUBLIC METHODS ----------
-                                                                                                             ## ! Constructor - prohibited
-                                                                                                             ## ! Copy constructor - prohibited
-                                                                                                             ##  Declaration of CASCADE RTTI
-type
-  NCollectionIncAllocator* {.importcpp: "NCollection_IncAllocator::NCollection_IncAllocator",
-                            header: "NCollection_IncAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  The type defining the alignement of allocated objects
-                                                                                                           ##  Prohibited methods
-                                                                                                           ##  ----- PROTECTED CLASS IBlock -------
-                                                                                                           ##  --------- PROTECTED FIELDS ---------
-                                                                                                           ##  Declaration of CASCADE RTTI
-  NCollectionIncAllocatoralignedT* = pointer
-type
-  NCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>",
-      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object of NCollectionBaseMap ##
-                                                                                 ## !
-                                                                                 ## STL-compliant
-                                                                                 ## typedef
-                                                                                 ## for
-                                                                                 ## key
-                                                                                 ## type
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Adaptation
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## TListNode
-                                                                                 ## to
-                                                                                 ## the
-                                                                                 ## INDEXEDDatamap
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Implementation
-                                                                                 ## of
-                                                                                 ## the
-                                                                                 ## Iterator
-                                                                                 ## interface.
-                                                                                 ##
-                                                                                 ## ----------
-                                                                                 ## PUBLIC
-                                                                                 ## METHODS
-                                                                                 ## ------------
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Empty
-                                                                                 ## constructor.
-                                                                                 ##
-                                                                                 ## -----------
-                                                                                 ## PRIVATE
-                                                                                 ## METHODS
-                                                                                 ## -----------
-  NCollectionIndexedDataMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionIndexedDataMapvalueType*[TheItemType] = TheItemType
-  NCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
-      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>::Iterator",
-      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object ## ! Empty constructor
-    ## !< Pointer to current node
-    ## !< Current index
+
 type
 #  NCollectionIndexedDataMapiterator* = NCollectionStlIterator[ForwardIteratorTag,
 #      NCollectionIndexedDataMapIterator, TheItemType, False]
   NCollectionIndexedDataMapconstIterator* = NCollectionStlIterator[
       ForwardIteratorTag, NCollectionIndexedDataMapIterator, TheItemType, true]
-type
-  NCollectionIndexedMap*[TheKeyType; Hasher] {.
-      importcpp: "NCollection_IndexedMap<\'0,\'1>",
-      header: "NCollection_IndexedMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
-                                                                             ## STL-compliant
-                                                                             ## typedef for key
-                                                                             ## type
-                                                                             ## !
-                                                                             ## Adaptation of the
-                                                                             ## TListNode to the
-                                                                             ## INDEXEDmap
-                                                                             ##
-                                                                             ## ****************
-                                                                             ## Implementation of the
-                                                                             ## Iterator
-                                                                             ## interface.
-                                                                             ##
-                                                                             ## ----------
-                                                                             ## PUBLIC
-                                                                             ## METHODS
-                                                                             ## ------------
-                                                                             ## !
-                                                                             ## Empty
-                                                                             ## constructor.
-  NCollectionIndexedMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionIndexedMapIterator*[TheKeyType; Hasher] {.
-      importcpp: "NCollection_IndexedMap<\'0,\'1>::Iterator",
-      header: "NCollection_IndexedMap.hxx", bycopy.} = object ## ! Empty constructor
-    ##  Pointer to the map being iterated
-    ##  Current index
+
 type
   TheKeyType* = object
   NCollectionIndexedMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
       NCollectionIndexedMapIterator, TheKeyType, true]
+
 type
   NCollectionLerp*[T] {.importcpp: "NCollection_Lerp<\'0>",
                        header: "NCollection_Lerp.hxx", bycopy.} = object ## ! Compute interpolated value between two values.
@@ -814,119 +580,29 @@ type
                                                                     ## interpolation coefficient within [0, 1] range,
                                                                     ## !             with 0 pointing to theStart and 1 to theEnd.
                                                                     ## ! Empty constructor
-type
-  TheValueType* = object
-  NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
-                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
-                                                                                                   ## !
-                                                                                                   ## STL-compliant
-                                                                                                   ## typedef
-                                                                                                   ## for
-                                                                                                   ## value
-                                                                                                   ## type
-                                                                                                   ##
-                                                                                                   ## ----------
-                                                                                                   ## PUBLIC
-                                                                                                   ## METHODS
-                                                                                                   ## ------------
-                                                                                                   ##
-                                                                                                   ## !
-                                                                                                   ## Empty
-                                                                                                   ## constructor.
-                                                                                                   ##
-                                                                                                   ## -----------
-                                                                                                   ## PRIVATE
-                                                                                                   ## METHODS
-                                                                                                   ## -----------
-  NCollectionListvalueType*[TheItemType] = TheItemType
-  NCollectionListListNode* = NCollectionTListNode[TheItemType]
-  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
-#  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
-#      NCollectionListIterator, TheItemType, False]
-  NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
-      NCollectionListIterator, TheItemType, true]
+
 type
   NCollectionListNode* {.importcpp: "NCollection_ListNode",
                         header: "NCollection_ListNode.hxx", bycopy.} = object of RootObj ##  define new operator for use with NCollection allocators
                                                                          ## ! The only constructor
                                                                          ## ! operator= - forbidden
     ## !< Pointer to the next node
+
 type
   NCollectionLocalArray*[TheItem; Max_Array_Size: static[cint]] {.
       importcpp: "NCollection_LocalArray<\'0,\'1>",
       header: "NCollection_LocalArray.hxx", bycopy.} = object
-type
-  NCollectionMap*[TheKeyType; Hasher] {.importcpp: "NCollection_Map<\'0,\'1>",
-                                      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionBaseMap ##
-                                                                                                      ## !
-                                                                                                      ## STL-compliant
-                                                                                                      ## typedef
-                                                                                                      ## for
-                                                                                                      ## key
-                                                                                                      ## type
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Adaptation
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## TListNode
-                                                                                                      ## to
-                                                                                                      ## the
-                                                                                                      ## map
-                                                                                                      ## notations
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Implementation
-                                                                                                      ## of
-                                                                                                      ## the
-                                                                                                      ## Iterator
-                                                                                                      ## interface.
-                                                                                                      ##
-                                                                                                      ## ----------
-                                                                                                      ## PUBLIC
-                                                                                                      ## METHODS
-                                                                                                      ## ------------
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## Empty
-                                                                                                      ## constructor.
-                                                                                                      ##
-                                                                                                      ## !@name
-                                                                                                      ## Boolean
-                                                                                                      ## operations
-                                                                                                      ## with
-                                                                                                      ## maps
-                                                                                                      ## as
-                                                                                                      ## sets
-                                                                                                      ## of
-                                                                                                      ## keys
-                                                                                                      ##
-                                                                                                      ## !@{
-                                                                                                      ##
-                                                                                                      ## !
-                                                                                                      ## @return
-                                                                                                      ## true
-                                                                                                      ## if
-                                                                                                      ## two
-                                                                                                      ## maps
-                                                                                                      ## contains
-                                                                                                      ## exactly
-                                                                                                      ## the
-                                                                                                      ## same
-                                                                                                      ## keys
-  NCollectionMapkeyType*[TheKeyType] = TheKeyType
-  NCollectionMapMapNode*[TheKeyType; Hasher] {.
-      importcpp: "NCollection_Map<\'0,\'1>::MapNode",
-      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionTListNode[
-      TheKeyType]             ## ! Constructor with 'Next'
+
 type
   NCollectionMapIterator*[TheKeyType; Hasher] {.
       importcpp: "NCollection_Map<\'0,\'1>::Iterator",
       header: "NCollection_Map.hxx", bycopy.} = object of RootObj ## ! Empty
                                                                           ## constructor
+
 type
   NCollectionMapconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
       NCollectionMapIterator, TheKeyType, true]
+
 type
   NCollectionMat4*[ElementT] {.importcpp: "NCollection_Mat4<\'0>",
                               header: "NCollection_Mat4.hxx", bycopy.} = object ## ! Get
@@ -934,6 +610,253 @@ type
                                                                            ## !
                                                                            ## @return
                                                                            ## number of rows.
+
+type
+  NCollectionSequenceIterator*[TheItemType] {.
+      importcpp: "NCollection_Sequence<\'0>::Iterator",
+      header: "NCollection_Sequence.hxx", bycopy.} = object of RootObj ##
+                                                                                    ## !
+                                                                                    ## Empty
+                                                                                    ## constructor
+                                                                                    ## -
+                                                                                    ## for
+                                                                                    ## later
+                                                                                    ## Init
+
+type
+#  NCollectionSequenceiterator* = NCollectionStlIterator[BidirectionalIteratorTag,
+#      NCollectionSequenceIterator, TheItemType, False]
+  NCollectionSequenceconstIterator* = NCollectionStlIterator[
+      BidirectionalIteratorTag, NCollectionSequenceIterator, TheItemType, true]
+
+type
+  NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
+                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object of RootObj ## !@name Type-independent public interface
+                                                                                       ## !@{
+                                                                                       ## ! Clears all the data
+                                                                                       ## *
+                                                                                       ##  The block of data contains array of items, counter
+                                                                                       ##  and bit field, allocated as single piece of memory addressed
+                                                                                       ##  from the blocks array (myData).
+                                                                                       ##
+                                                                                       ##  The Block structure provides a logical view on the block,
+                                                                                       ##  and provides methods to work with bit map.
+                                                                                       ##
+                                                                                       ##  Note that NCollection_SparseArrayBase class takes responsibility
+                                                                                       ##  for correct allocation/deallocation of all the data.
+                                                                                       ##
+                                                                                       ## *
+                                                                                       ##  Iterator
+                                                                                       ##
+                                                                                       ##  Copy constructor and assignment operator are private thus not accessible
+                                                                                       ##  Object life
+                                                                                       ## ! Constructor; initialized by size of item and of block (in items)
+                                                                                       ##  Data access interface for descendants
+                                                                                       ## ! Creates Block structure for block pointed by theAddr
+                                                                                       ##  Methods to be provided by descendant
+                                                                                       ## ! Create new item at the specified address with default constructor
+                                                                                       ##   virtual void createItem (Standard_Address theAddress) = 0;
+                                                                                       ## ! Create new item at the specified address with copy constructor
+                                                                                       ## ! from existing item
+                                                                                       ##  Implementation of memory allocation/deallocation and access mechanics
+                                                                                       ## ! Allocate space for at least iBlock+1 blocks
+    ## !< size of item
+    ## !< block size (in items)
+    ## !< allocated size of blocks table
+    ## !< number of currently defined items
+    ## !< array of pointers to data blocks
+
+type
+  NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
+                                       bycopy.} = object of RootObj ##  Public interface
+                                                      ## ! Restart iterations on the same array
+                                                      ##  Methods for descendant
+                                                      ## ! Empty constructor
+
+type
+  NCollectionStdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
+                               header: "NCollection_StdAllocator.hxx", bycopy.} = object
+  NCollectionStdAllocatorvalueType*[T] = T
+  NCollectionStdAllocatorpointer* = ptr NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorconstPointer* = ptr NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorreference* = var NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorconstReference* = NCollectionStdAllocatorvalueType
+  NCollectionStdAllocatorsizeType* = csize_t
+  NCollectionStdAllocatordifferenceType* = PtrdiffT
+  NCollectionStdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
+                                       header: "NCollection_StdAllocator.hxx",
+                                       bycopy.} = object
+#  NCollectionStdAllocatorrebindother* = NCollectionStdAllocator[U]
+#proc newNCollectionStdAllocator*[T](): NCollectionStdAllocator[T] {.cdecl,
+#    constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)", header: "NCollection_StdAllocator.hxx".}
+
+type
+  NCollectionStlIterator*[Category; BaseIterator; ItemType;
+                          IsConstant: static[bool]] {.
+      importcpp: "NCollection_StlIterator<\'0,\'1,\'2,\'3>",
+      header: "NCollection_StlIterator.hxx", bycopy.} = object ## ! Default constructor
+    myIterator* {.importc: "myIterator".}: BaseIterator
+
+type
+  NCollectionUBTree*[TheObjType; TheBndType] {.
+      importcpp: "NCollection_UBTree<\'0,\'1>", header: "NCollection_UBTree.hxx",
+      bycopy.} = object         ## ! Memory allocation
+                     ##  ---------- PUBLIC TYPES ----------
+                     ## *
+                     ##  Class defining the minimal interface of selector.
+                     ##
+                     ##  ---------- PROTECTED METHODS ----------
+                     ## *
+                     ##  @return
+                     ##    the last added node
+                     ##
+                     ##  ---------- PRIVATE METHODS ----------
+                     ## / Copy constructor (prohibited).
+    ## /< root of the tree
+    ## /< the last added node
+    ## /< Allocator for TreeNode
+  NCollectionUBTreeSelector*[TheObjType; TheBndType] {.
+      importcpp: "NCollection_UBTree<\'0,\'1>::Selector",
+      header: "NCollection_UBTree.hxx", bycopy.} = object ## *
+                                                     ##  Constructor
+                                                     ##
+                                                     ## *
+                                                     ##  The method Accept() should set this flag if the selection process
+                                                     ##  is to be stopped
+                                                     ##
+
+type
+  NCollectionUBTreeTreeNode*[TheObjType; TheBndType] {.
+      importcpp: "NCollection_UBTree<\'0,\'1>::TreeNode",
+      header: "NCollection_UBTree.hxx", bycopy.} = object
+    ## /< bounding geometry
+    ## /< the object
+    ## /< 2 children forming a b-tree
+    ## /< the pointer to a parent node
+
+type
+  NCollectionUBTreeFiller*[TheObjType; TheBndType] {.
+      importcpp: "NCollection_UBTreeFiller<\'0,\'1>",
+      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object ##  ---------- PUBLIC TYPES ----------
+                                                           ## ! Structure of pair (object, bnd box)
+                                                           ##  Assignment operator is made empty and private in order to
+                                                           ##  avoid warning on MSVC (C4512)
+                                                           ##  ---------- PRIVATE FIELDS ----------
+    ## !< random number generator
+  NCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType] {.
+      importcpp: "NCollection_UBTreeFiller<\'0,\'1>::ObjBnd",
+      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object
+    myObj* {.importc: "myObj".}: TheObjType
+    myBnd* {.importc: "myBnd".}: TheBndType
+
+type
+  NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
+  NCollectionUBTreeFillerUBTreeNode* = TreeNode
+
+type
+  StandardUtf32Char* = object
+  StandardWideChar*  = object
+  NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
+                                 header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructor.
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## @param
+                                                                                     ## theString
+                                                                                     ## buffer
+                                                                                     ## to
+                                                                                     ## iterate
+
+type
+  NCollectionUtfString*[Type] {.importcpp: "NCollection_UtfString<\'0>",
+                               header: "NCollection_UtfString.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## assign
+                                                                                 ## operators
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Copy
+                                                                                 ## from
+                                                                                 ## another
+                                                                                 ## string.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## @name
+                                                                                 ## compare
+                                                                                 ## operators
+
+type
+  NCollectionVec2*[ElementT] {.importcpp: "NCollection_Vec2<\'0>",
+                              header: "NCollection_Vec2.hxx", bycopy.} = object ## !
+                                                                           ## Returns the
+                                                                           ## number of
+                                                                           ## components.
+
+type
+  NCollectionVec3*[ElementT] {.importcpp: "NCollection_Vec3<\'0>",
+                              header: "NCollection_Vec3.hxx", bycopy.} = object ## !
+                                                                           ## Returns the
+                                                                           ## number of
+                                                                           ## components.
+    ## !< define the vector as array to avoid structure alignment issues
+#proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
+#                              header: "NCollection_Vec3.hxx".}
+
+type
+  NCollectionVec4*[ElementT] {.importcpp: "NCollection_Vec4<\'0>",
+                              header: "NCollection_Vec4.hxx", bycopy.} = object ## !
+                                                                           ## Returns the
+                                                                           ## number of
+                                                                           ## components.
+    ## !< define the vector as array to avoid structure alignment issues
+
+type
+  NCollectionVector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
+                                   header: "NCollection_Vector.hxx", bycopy.} = object of NCollectionBaseVector ##
+                                                                                                         ## !
+                                                                                                         ## STL-compliant
+                                                                                                         ## typedef
+                                                                                                         ## for
+                                                                                                         ## value
+                                                                                                         ## type
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Nested
+                                                                                                         ## class
+                                                                                                         ## Iterator
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @name
+                                                                                                         ## public
+                                                                                                         ## methods
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## Constructor
+                                                                                                         ##
+                                                                                                         ## !
+                                                                                                         ## @name
+                                                                                                         ## private
+                                                                                                         ## methods
+  NCollectionVectorvalueType*[TheItemType] = TheItemType
+  NCollectionVectorIterator*[TheItemType] {.
+      importcpp: "NCollection_Vector<\'0>::Iterator",
+      header: "NCollection_Vector.hxx", bycopy.} = object of RootObj ##
+                                                                                ## !
+                                                                                ## Empty
+                                                                                ## constructor
+                                                                                ## -
+                                                                                ## for
+                                                                                ## later
+                                                                                ## Init
+
+type
+#  NCollectionVectoriterator* = NCollectionStlIterator[RandomAccessIteratorTag,
+#      NCollectionVectorIterator, TheItemType, False]
+  NCollectionVectorconstIterator* = NCollectionStlIterator[
+      RandomAccessIteratorTag, NCollectionVectorIterator, TheItemType, true]
+
 type
   BidirectionalIteratorTag* {.importcpp:"std::bidirectional_iterator_tag".} = object
   NCollectionSequence*[TheItemType] {.importcpp: "NCollection_Sequence<\'0>",
@@ -977,28 +900,7 @@ type
       importcpp: "NCollection_Sequence<\'0>::Node",
       header: "NCollection_Sequence.hxx", bycopy.} = object of NCollectionSeqNode ## !
                                                                            ## Constructor
-type
-  NCollectionSequenceIterator*[TheItemType] {.
-      importcpp: "NCollection_Sequence<\'0>::Iterator",
-      header: "NCollection_Sequence.hxx", bycopy.} = object of RootObj ##
-                                                                                    ## !
-                                                                                    ## Empty
-                                                                                    ## constructor
-                                                                                    ## -
-                                                                                    ## for
-                                                                                    ## later
-                                                                                    ## Init
-type
-#  NCollectionSequenceiterator* = NCollectionStlIterator[BidirectionalIteratorTag,
-#      NCollectionSequenceIterator, TheItemType, False]
-  NCollectionSequenceconstIterator* = NCollectionStlIterator[
-      BidirectionalIteratorTag, NCollectionSequenceIterator, TheItemType, true]
-type
-  NCollectionShared*[T] {.importcpp: "NCollection_Shared<\'0>",
-                         header: "NCollection_Shared.hxx", bycopy.} = object of StandardTransient ##
-                                                                                           ## !
-                                                                                           ## Default
-                                                                                           ## constructor
+
 type
   NCollectionSparseArray*[TheItemType] {.importcpp: "NCollection_SparseArray<\'0>",
                                         header: "NCollection_SparseArray.hxx",
@@ -1107,10 +1009,165 @@ type
                                                                                    ## from
                                                                                    ## existing
                                                                                    ## item
+
 type
   NCollectionSparseArrayConstIterator*[TheItemType] {.
       importcpp: "NCollection_SparseArray<\'0>::ConstIterator",
       header: "NCollection_SparseArray.hxx", bycopy.} = object of NCollectionSparseArrayBaseIterator ## ! Empty constructor - for later Init
+
+type
+  NCollectionTListIterator*[TheItemType] {.
+      importcpp: "NCollection_TListIterator<\'0>",
+      header: "NCollection_TListIterator.hxx", bycopy.} = object of NCollectionBaseListIterator ## ! Empty
+                                                                      ## constructor - for later Init
+
+type
+  NCollectionTListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
+                                      header: "NCollection_TListNode.hxx", bycopy.} = object of NCollectionListNode ##
+                                                                                                             ## !
+                                                                                                             ## Constructor
+    ## !< The item stored in the node
+
+type
+  ForwardIteratorTag* {.importcpp:"std::forward_iterator_tag".} = object
+  NCollectionDataMap*[TheKeyType; TheItemType; Hasher] {.
+      importcpp: "NCollection_DataMap<\'0,\'1,\'2>",
+      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
+                                                                          ## STL-compliant
+                                                                          ## typedef for key type
+                                                                          ##
+                                                                          ## ****************
+                                                                          ## Adaptation of the
+                                                                          ## TListNode to the
+                                                                          ## DATAmap
+                                                                          ##
+                                                                          ## ****************
+                                                                          ## Implementation of the
+                                                                          ## Iterator
+                                                                          ## interface.
+                                                                          ##
+                                                                          ## ---------- PUBLIC
+                                                                          ## METHODS
+                                                                          ## ------------
+                                                                          ## ! Empty
+                                                                          ## Constructor.
+                                                                          ##
+                                                                          ## ----------
+                                                                          ## PROTECTED
+                                                                          ## METHODS
+                                                                          ## ----------
+                                                                          ## ! Lookup for
+                                                                          ## particular key in map.
+                                                                          ## Returns true if key is found and
+                                                                          ## !
+                                                                          ## thepNode points to binded node.
+                                                                          ## Returns false if key is not found,
+                                                                          ## !
+                                                                          ## thehNode value is this case is not
+                                                                          ## usable.
+  NCollectionDataMapkeyType*[TheKeyType] = TheKeyType
+  NCollectionDataMapvalueType*[TheItemType] = TheItemType
+  NCollectionDataMapDataMapNode*[TheKeyType; TheItemType; Hasher] {.
+      importcpp: "NCollection_DataMap<\'0,\'1,\'2>::DataMapNode",
+      header: "NCollection_DataMap.hxx", bycopy.} = object of NCollectionTListNode[
+      TheItemType]            ## ! Constructor with 'Next'
+
+type
+  NCollectionDoubleMap*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
+      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>",
+      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
+                                                                            ## STL-compliant
+                                                                            ## typedef for key1 type
+                                                                            ##
+                                                                            ## ****************
+                                                                            ## Adaptation of the
+                                                                            ## TListNode to the
+                                                                            ## DOUBLEmap
+                                                                            ##
+                                                                            ## ****************
+                                                                            ## Implementation of the
+                                                                            ## Iterator
+                                                                            ## interface.
+                                                                            ##
+                                                                            ## ----------
+                                                                            ## PUBLIC
+                                                                            ## METHODS
+                                                                            ## ------------
+                                                                            ## !
+                                                                            ## Empty
+                                                                            ## constructor.
+  NCollectionDoubleMapkey1Type*[TheKey1Type] = TheKey1Type
+  NCollectionDoubleMapkey2Type*[TheKey2Type] = TheKey2Type
+  NCollectionDoubleMapDoubleMapNode*[TheKey1Type; TheKey2Type; Hasher1; Hasher2] {.
+      importcpp: "NCollection_DoubleMap<\'0,\'1,\'2,\'3>::DoubleMapNode",
+      header: "NCollection_DoubleMap.hxx", bycopy.} = object of NCollectionTListNode[
+      TheKey2Type]            ## ! Constructor with 'Next'
+
+type
+  NCollectionMap*[TheKeyType; Hasher] {.importcpp: "NCollection_Map<\'0,\'1>",
+                                      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionBaseMap ##
+                                                                                                      ## !
+                                                                                                      ## STL-compliant
+                                                                                                      ## typedef
+                                                                                                      ## for
+                                                                                                      ## key
+                                                                                                      ## type
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Adaptation
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## TListNode
+                                                                                                      ## to
+                                                                                                      ## the
+                                                                                                      ## map
+                                                                                                      ## notations
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Implementation
+                                                                                                      ## of
+                                                                                                      ## the
+                                                                                                      ## Iterator
+                                                                                                      ## interface.
+                                                                                                      ##
+                                                                                                      ## ----------
+                                                                                                      ## PUBLIC
+                                                                                                      ## METHODS
+                                                                                                      ## ------------
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## Empty
+                                                                                                      ## constructor.
+                                                                                                      ##
+                                                                                                      ## !@name
+                                                                                                      ## Boolean
+                                                                                                      ## operations
+                                                                                                      ## with
+                                                                                                      ## maps
+                                                                                                      ## as
+                                                                                                      ## sets
+                                                                                                      ## of
+                                                                                                      ## keys
+                                                                                                      ##
+                                                                                                      ## !@{
+                                                                                                      ##
+                                                                                                      ## !
+                                                                                                      ## @return
+                                                                                                      ## true
+                                                                                                      ## if
+                                                                                                      ## two
+                                                                                                      ## maps
+                                                                                                      ## contains
+                                                                                                      ## exactly
+                                                                                                      ## the
+                                                                                                      ## same
+                                                                                                      ## keys
+  NCollectionMapkeyType*[TheKeyType] = TheKeyType
+  NCollectionMapMapNode*[TheKeyType; Hasher] {.
+      importcpp: "NCollection_Map<\'0,\'1>::MapNode",
+      header: "NCollection_Map.hxx", bycopy.} = object of NCollectionTListNode[
+      TheKeyType]             ## ! Constructor with 'Next'
+
 type
   NCollectionSparseArrayIterator*[TheItemType] {.
       importcpp: "NCollection_SparseArray<\'0>::Iterator",
@@ -1122,229 +1179,242 @@ type
                                                                                                ## for
                                                                                                ## later
                                                                                                ## Init
+
 type
-  NCollectionSparseArrayBase* {.importcpp: "NCollection_SparseArrayBase",
-                               header: "NCollection_SparseArrayBase.hxx", bycopy.} = object of RootObj ## !@name Type-independent public interface
-                                                                                       ## !@{
-                                                                                       ## ! Clears all the data
-                                                                                       ## *
-                                                                                       ##  The block of data contains array of items, counter
-                                                                                       ##  and bit field, allocated as single piece of memory addressed
-                                                                                       ##  from the blocks array (myData).
-                                                                                       ##
-                                                                                       ##  The Block structure provides a logical view on the block,
-                                                                                       ##  and provides methods to work with bit map.
-                                                                                       ##
-                                                                                       ##  Note that NCollection_SparseArrayBase class takes responsibility
-                                                                                       ##  for correct allocation/deallocation of all the data.
-                                                                                       ##
-                                                                                       ## *
-                                                                                       ##  Iterator
-                                                                                       ##
-                                                                                       ##  Copy constructor and assignment operator are private thus not accessible
-                                                                                       ##  Object life
-                                                                                       ## ! Constructor; initialized by size of item and of block (in items)
-                                                                                       ##  Data access interface for descendants
-                                                                                       ## ! Creates Block structure for block pointed by theAddr
-                                                                                       ##  Methods to be provided by descendant
-                                                                                       ## ! Create new item at the specified address with default constructor
-                                                                                       ##   virtual void createItem (Standard_Address theAddress) = 0;
-                                                                                       ## ! Create new item at the specified address with copy constructor
-                                                                                       ## ! from existing item
-                                                                                       ##  Implementation of memory allocation/deallocation and access mechanics
-                                                                                       ## ! Allocate space for at least iBlock+1 blocks
-    ## !< size of item
-    ## !< block size (in items)
-    ## !< allocated size of blocks table
-    ## !< number of currently defined items
-    ## !< array of pointers to data blocks
+  NCollectionAccAllocator* {.importcpp: "NCollection_AccAllocator",
+                            header: "NCollection_AccAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  --------- PUBLIC CONSTANTS ---------
+                                                                                                           ## ! Alignment of all allocated objects: 4 bytes
+                                                                                                           ## ! Constructor
+                                                                                                           ## ! Size value aligned to a 4 byte boundary
+                                                                                                           ## ! Calculate a key for the data map basing on the given address
+    ##  Declaration of CASCADE RTTI
+
 type
-  NCollectionSparseArrayBaseIterator* {.importcpp: "NCollection_SparseArrayBase::Iterator", header: "NCollection_SparseArrayBase.hxx",
-                                       bycopy.} = object of RootObj ##  Public interface
-                                                      ## ! Restart iterations on the same array
-                                                      ##  Methods for descendant
-                                                      ## ! Empty constructor
+  NCollectionAlignedAllocator* {.importcpp: "NCollection_AlignedAllocator",
+                                header: "NCollection_AlignedAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##
+                                                                                                                   ## !
+                                                                                                                   ## Constructor.
+                                                                                                                   ## The
+                                                                                                                   ## alignment
+                                                                                                                   ## should
+                                                                                                                   ## be
+                                                                                                                   ## specified
+                                                                                                                   ## explicitly:
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 16
+                                                                                                                   ## bytes
+                                                                                                                   ## for
+                                                                                                                   ## SSE
+                                                                                                                   ## instructions
+                                                                                                                   ##
+                                                                                                                   ## !
+                                                                                                                   ## 32
+                                                                                                                   ## bytes
+                                                                                                                   ## for
+                                                                                                                   ## AVX
+                                                                                                                   ## instructions
+    ## !< alignment in bytes
+
 type
-  NCollectionStdAllocator*[T] {.importcpp: "NCollection_StdAllocator<\'0>",
-                               header: "NCollection_StdAllocator.hxx", bycopy.} = object
-  NCollectionStdAllocatorvalueType*[T] = T
-  NCollectionStdAllocatorpointer* = ptr NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorconstPointer* = ptr NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorreference* = var NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorconstReference* = NCollectionStdAllocatorvalueType
-  NCollectionStdAllocatorsizeType* = csize_t
-  NCollectionStdAllocatordifferenceType* = PtrdiffT
-  NCollectionStdAllocatorrebind*[T; U] {.importcpp: "NCollection_StdAllocator<\'0>::rebind<\'1>",
-                                       header: "NCollection_StdAllocator.hxx",
-                                       bycopy.} = object
-#  NCollectionStdAllocatorrebindother* = NCollectionStdAllocator[U]
-#proc newNCollectionStdAllocator*[T](): NCollectionStdAllocator[T] {.cdecl,
-#    constructor, importcpp: "NCollection_StdAllocator<\'*0>(@)", header: "NCollection_StdAllocator.hxx".}
+  NCollectionBuffer* {.importcpp: "NCollection_Buffer",
+                      header: "NCollection_Buffer.hxx", bycopy.} = object of StandardTransient ##
+                                                                                        ## !
+                                                                                        ## Default
+                                                                                        ## constructor.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## When
+                                                                                        ## theData
+                                                                                        ## is
+                                                                                        ## NULL
+                                                                                        ## but
+                                                                                        ## theSize
+                                                                                        ## is
+                                                                                        ## not
+                                                                                        ## 0
+                                                                                        ## than
+                                                                                        ## buffer
+                                                                                        ## of
+                                                                                        ## specified
+                                                                                        ## size
+                                                                                        ## will
+                                                                                        ## be
+                                                                                        ## allocated.
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theAlloc
+                                                                                        ## memory
+                                                                                        ## allocator
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theSize
+                                                                                        ## buffer
+                                                                                        ## size
+                                                                                        ##
+                                                                                        ## !
+                                                                                        ## @param
+                                                                                        ## theData
+                                                                                        ## buffer
+                                                                                        ## data
+                                                                                        ## allocated
+                                                                                        ## by
+                                                                                        ## theAlloc
+    ## !< data pointer
+    ## !< buffer length in bytes
+    ## !< buffer allocator
+
 type
-  NCollectionStlIterator*[Category; BaseIterator; ItemType;
-                          IsConstant: static[bool]] {.
-      importcpp: "NCollection_StlIterator<\'0,\'1,\'2,\'3>",
-      header: "NCollection_StlIterator.hxx", bycopy.} = object ## ! Default constructor
-    myIterator* {.importc: "myIterator".}: BaseIterator
+  NCollectionCellFilterInspectorXYZ* {.importcpp: "NCollection_CellFilter_InspectorXYZ",
+                                      header: "NCollection_CellFilter.hxx", bycopy.} = object of RootObj##
+                                                                                         ## !
+                                                                                         ## Points
+                                                                                         ## dimension
+
 type
-  NCollectionTListIterator*[TheItemType] {.
-      importcpp: "NCollection_TListIterator<\'0>",
-      header: "NCollection_TListIterator.hxx", bycopy.} = object of NCollectionBaseListIterator ## ! Empty
-                                                                      ## constructor - for later Init
+  NCollectionHandle*[T] {.importcpp: "NCollection_Handle<\'0>",
+                         header: "NCollection_Handle.hxx", bycopy.} = object of HandleStandardTransient
+#      StandardTransient] ## ! Internal adaptor class wrapping actual type
+#                        ## ! and enhancing it by reference counter inherited from
+#                        ## ! Standard_Transient
+  NCollectionHandleelementType*[T] = T
+
 type
-  NCollectionTListNode*[TheItemType] {.importcpp: "NCollection_TListNode<\'0>",
-                                      header: "NCollection_TListNode.hxx", bycopy.} = object of NCollectionListNode ##
-                                                                                                             ## !
-                                                                                                             ## Constructor
-    ## !< The item stored in the node
+  NCollectionHeapAllocator* {.importcpp: "NCollection_HeapAllocator",
+                             header: "NCollection_HeapAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  ---------- PUBLIC METHODS ----------
+                                                                                                             ## ! Constructor - prohibited
+                                                                                                             ## ! Copy constructor - prohibited
+                                                                                                             ##  Declaration of CASCADE RTTI
+
 type
-  NCollectionUBTree*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>", header: "NCollection_UBTree.hxx",
-      bycopy.} = object         ## ! Memory allocation
-                     ##  ---------- PUBLIC TYPES ----------
-                     ## *
-                     ##  Class defining the minimal interface of selector.
-                     ##
-                     ##  ---------- PROTECTED METHODS ----------
-                     ## *
-                     ##  @return
-                     ##    the last added node
-                     ##
-                     ##  ---------- PRIVATE METHODS ----------
-                     ## / Copy constructor (prohibited).
-    ## /< root of the tree
-    ## /< the last added node
-    ## /< Allocator for TreeNode
-  NCollectionUBTreeSelector*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>::Selector",
-      header: "NCollection_UBTree.hxx", bycopy.} = object ## *
-                                                     ##  Constructor
-                                                     ##
-                                                     ## *
-                                                     ##  The method Accept() should set this flag if the selection process
-                                                     ##  is to be stopped
-                                                     ##
+  NCollectionIncAllocator* {.importcpp: "NCollection_IncAllocator::NCollection_IncAllocator",
+                            header: "NCollection_IncAllocator.hxx", bycopy.} = object of NCollectionBaseAllocator ##  The type defining the alignement of allocated objects
+                                                                                                           ##  Prohibited methods
+                                                                                                           ##  ----- PROTECTED CLASS IBlock -------
+                                                                                                           ##  --------- PROTECTED FIELDS ---------
+                                                                                                           ##  Declaration of CASCADE RTTI
+  NCollectionIncAllocatoralignedT* = pointer
+
 type
-  NCollectionUBTreeTreeNode*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTree<\'0,\'1>::TreeNode",
-      header: "NCollection_UBTree.hxx", bycopy.} = object
-    ## /< bounding geometry
-    ## /< the object
-    ## /< 2 children forming a b-tree
-    ## /< the pointer to a parent node
-type
-  NCollectionUBTreeFiller*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTreeFiller<\'0,\'1>",
-      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object ##  ---------- PUBLIC TYPES ----------
-                                                           ## ! Structure of pair (object, bnd box)
-                                                           ##  Assignment operator is made empty and private in order to
-                                                           ##  avoid warning on MSVC (C4512)
-                                                           ##  ---------- PRIVATE FIELDS ----------
-    ## !< random number generator
-  NCollectionUBTreeFillerObjBnd*[TheObjType; TheBndType] {.
-      importcpp: "NCollection_UBTreeFiller<\'0,\'1>::ObjBnd",
-      header: "NCollection_UBTreeFiller.hxx", bycopy.} = object
-    myObj* {.importc: "myObj".}: TheObjType
-    myBnd* {.importc: "myBnd".}: TheBndType
-type
-  NCollectionUBTreeFillerUBTree* = NCollectionUBTree[TheObjType, TheBndType]
-  NCollectionUBTreeFillerUBTreeNode* = TreeNode
-type
-  StandardUtf32Char* = object
-  StandardWideChar*  = object
-  NCollectionUtfIterator*[Type] {.importcpp: "NCollection_UtfIterator<\'0>",
-                                 header: "NCollection_UtfIterator.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructor.
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## @param
-                                                                                     ## theString
-                                                                                     ## buffer
-                                                                                     ## to
-                                                                                     ## iterate
-type
-  NCollectionUtfString*[Type] {.importcpp: "NCollection_UtfString<\'0>",
-                               header: "NCollection_UtfString.hxx", bycopy.} = object ##
+  NCollectionIndexedDataMap*[TheKeyType; TheItemType; Hasher] {.
+      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>",
+      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object of NCollectionBaseMap ##
                                                                                  ## !
-                                                                                 ## @name
-                                                                                 ## assign
-                                                                                 ## operators
+                                                                                 ## STL-compliant
+                                                                                 ## typedef
+                                                                                 ## for
+                                                                                 ## key
+                                                                                 ## type
                                                                                  ##
                                                                                  ## !
-                                                                                 ## Copy
-                                                                                 ## from
-                                                                                 ## another
-                                                                                 ## string.
+                                                                                 ## Adaptation
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## TListNode
+                                                                                 ## to
+                                                                                 ## the
+                                                                                 ## INDEXEDDatamap
                                                                                  ##
                                                                                  ## !
-                                                                                 ## @name
-                                                                                 ## compare
-                                                                                 ## operators
+                                                                                 ## Implementation
+                                                                                 ## of
+                                                                                 ## the
+                                                                                 ## Iterator
+                                                                                 ## interface.
+                                                                                 ##
+                                                                                 ## ----------
+                                                                                 ## PUBLIC
+                                                                                 ## METHODS
+                                                                                 ## ------------
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Empty
+                                                                                 ## constructor.
+                                                                                 ##
+                                                                                 ## -----------
+                                                                                 ## PRIVATE
+                                                                                 ## METHODS
+                                                                                 ## -----------
+  NCollectionIndexedDataMapkeyType*[TheKeyType] = TheKeyType
+  NCollectionIndexedDataMapvalueType*[TheItemType] = TheItemType
+  NCollectionIndexedDataMapIterator*[TheKeyType; TheItemType; Hasher] {.
+      importcpp: "NCollection_IndexedDataMap<\'0,\'1,\'2>::Iterator",
+      header: "NCollection_IndexedDataMap.hxx", bycopy.} = object ## ! Empty constructor
+    ## !< Pointer to current node
+    ## !< Current index
+
 type
-  NCollectionVec2*[ElementT] {.importcpp: "NCollection_Vec2<\'0>",
-                              header: "NCollection_Vec2.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
+  NCollectionIndexedMap*[TheKeyType; Hasher] {.
+      importcpp: "NCollection_IndexedMap<\'0,\'1>",
+      header: "NCollection_IndexedMap.hxx", bycopy.} = object of NCollectionBaseMap ## !
+                                                                             ## STL-compliant
+                                                                             ## typedef for key
+                                                                             ## type
+                                                                             ## !
+                                                                             ## Adaptation of the
+                                                                             ## TListNode to the
+                                                                             ## INDEXEDmap
+                                                                             ##
+                                                                             ## ****************
+                                                                             ## Implementation of the
+                                                                             ## Iterator
+                                                                             ## interface.
+                                                                             ##
+                                                                             ## ----------
+                                                                             ## PUBLIC
+                                                                             ## METHODS
+                                                                             ## ------------
+                                                                             ## !
+                                                                             ## Empty
+                                                                             ## constructor.
+  NCollectionIndexedMapkeyType*[TheKeyType] = TheKeyType
+  NCollectionIndexedMapIterator*[TheKeyType; Hasher] {.
+      importcpp: "NCollection_IndexedMap<\'0,\'1>::Iterator",
+      header: "NCollection_IndexedMap.hxx", bycopy.} = object ## ! Empty constructor
+    ##  Pointer to the map being iterated
+    ##  Current index
+
 type
-  NCollectionVec3*[ElementT] {.importcpp: "NCollection_Vec3<\'0>",
-                              header: "NCollection_Vec3.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
-    ## !< define the vector as array to avoid structure alignment issues
-#proc length*[ElementT](): cint {.cdecl, importcpp: "NCollection_Vec3::Length(@)",
-#                              header: "NCollection_Vec3.hxx".}
+  TheValueType* = object
+  NCollectionList*[TheItemType] {.importcpp: "NCollection_List<\'0>",
+                                 header: "NCollection_List.hxx", bycopy.} = object of NCollectionBaseList ##
+                                                                                                   ## !
+                                                                                                   ## STL-compliant
+                                                                                                   ## typedef
+                                                                                                   ## for
+                                                                                                   ## value
+                                                                                                   ## type
+                                                                                                   ##
+                                                                                                   ## ----------
+                                                                                                   ## PUBLIC
+                                                                                                   ## METHODS
+                                                                                                   ## ------------
+                                                                                                   ##
+                                                                                                   ## !
+                                                                                                   ## Empty
+                                                                                                   ## constructor.
+                                                                                                   ##
+                                                                                                   ## -----------
+                                                                                                   ## PRIVATE
+                                                                                                   ## METHODS
+                                                                                                   ## -----------
+  NCollectionListvalueType*[TheItemType] = TheItemType
+  NCollectionListListNode* = NCollectionTListNode[TheItemType]
+  NCollectionListIterator* = NCollectionTListIterator[TheItemType]
+#  NCollectionListiterator* = NCollectionStlIterator[ForwardIteratorTag,
+#      NCollectionListIterator, TheItemType, False]
+  NCollectionListconstIterator* = NCollectionStlIterator[ForwardIteratorTag,
+      NCollectionListIterator, TheItemType, true]
+
 type
-  NCollectionVec4*[ElementT] {.importcpp: "NCollection_Vec4<\'0>",
-                              header: "NCollection_Vec4.hxx", bycopy.} = object ## !
-                                                                           ## Returns the
-                                                                           ## number of
-                                                                           ## components.
-    ## !< define the vector as array to avoid structure alignment issues
-type
-  NCollectionVector*[TheItemType] {.importcpp: "NCollection_Vector<\'0>",
-                                   header: "NCollection_Vector.hxx", bycopy.} = object of NCollectionBaseVector ##
-                                                                                                         ## !
-                                                                                                         ## STL-compliant
-                                                                                                         ## typedef
-                                                                                                         ## for
-                                                                                                         ## value
-                                                                                                         ## type
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Nested
-                                                                                                         ## class
-                                                                                                         ## Iterator
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @name
-                                                                                                         ## public
-                                                                                                         ## methods
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## Constructor
-                                                                                                         ##
-                                                                                                         ## !
-                                                                                                         ## @name
-                                                                                                         ## private
-                                                                                                         ## methods
-  NCollectionVectorvalueType*[TheItemType] = TheItemType
-  NCollectionVectorIterator*[TheItemType] {.
-      importcpp: "NCollection_Vector<\'0>::Iterator",
-      header: "NCollection_Vector.hxx", bycopy.} = object of RootObj ##
-                                                                                ## !
-                                                                                ## Empty
-                                                                                ## constructor
-                                                                                ## -
-                                                                                ## for
-                                                                                ## later
-                                                                                ## Init
-type
-#  NCollectionVectoriterator* = NCollectionStlIterator[RandomAccessIteratorTag,
-#      NCollectionVectorIterator, TheItemType, False]
-  NCollectionVectorconstIterator* = NCollectionStlIterator[
+  NCollectionShared*[T] {.importcpp: "NCollection_Shared<\'0>",
+                         header: "NCollection_Shared.hxx", bycopy.} = object of StandardTransient ##
+                                                                                           ## !
+                                                                                           ## Default
+                                                                                           ## constructor
+
       RandomAccessIteratorTag, NCollectionVectorIterator, TheItemType, true]
 type
   NCollectionWinHeapAllocator* {.importcpp: "NCollection_WinHeapAllocator",
@@ -1360,3 +1430,5 @@ type
                                                                                                                    ## prohibited
 #    when (defined(win32) or defined(win32)):
 #      discard
+
+

@@ -1,3 +1,6 @@
+# PROVIDES: TopOpeBRepTool TopOpeBRepToolAncestorsTool TopOpeBRepToolBoxSort TopOpeBRepToolC2DF TopOpeBRepToolCLASSI TopOpeBRepToolConnexity TopOpeBRepToolCORRISO TopOpeBRepToolCurveTool TopOpeBRepToolFace TopOpeBRepToolFuseEdges TopOpeBRepToolGeomTool TopOpeBRepToolMakeTransition TopOpeBRepToolMkTondgE TopOpeBRepToolPurgeInternalEdges TopOpeBRepToolREGUS TopOpeBRepToolREGUW TopOpeBRepToolShapeClassifier TopOpeBRepToolShapeTool TopOpeBRepToolSolidClassifier TopOpeBRepToolTOOL
+# DEPENDS: StandardTransient TopExpExplorer
+
 type
   TopOpeBRepTool* {.importcpp: "TopOpeBRepTool", header: "TopOpeBRepTool.hxx", bycopy.} = object ##
                                                                                          ## !
@@ -95,6 +98,7 @@ type
                                                                                          ## if
                                                                                          ## purge
                                                                                          ## fails
+
 type
   TopOpeBRepToolAncestorsTool* {.importcpp: "TopOpeBRepTool_AncestorsTool",
                                 header: "TopOpeBRepTool_AncestorsTool.hxx", bycopy.} = object ##
@@ -104,27 +108,35 @@ type
                                                                                          ## package
                                                                                          ## method
                                                                                          ## TopExp::MapShapeListOfShapes()
+
 type
   TopOpeBRepToolBoxSort* {.importcpp: "TopOpeBRepTool_BoxSort",
                           header: "TopOpeBRepTool_BoxSort.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolC2DF* {.importcpp: "TopOpeBRepTool_C2DF",
                        header: "TopOpeBRepTool_C2DF.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolCLASSI* {.importcpp: "TopOpeBRepTool_CLASSI",
                          header: "TopOpeBRepTool_CLASSI.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolConnexity* {.importcpp: "TopOpeBRepTool_connexity",
                             header: "TopOpeBRepTool_connexity.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolCORRISO* {.importcpp: "TopOpeBRepTool_CORRISO",
                           header: "TopOpeBRepTool_CORRISO.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolCurveTool* {.importcpp: "TopOpeBRepTool_CurveTool",
                             header: "TopOpeBRepTool_CurveTool.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolFace* {.importcpp: "TopOpeBRepTool_face",
                        header: "TopOpeBRepTool_face.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolFuseEdges* {.importcpp: "TopOpeBRepTool_FuseEdges",
                             header: "TopOpeBRepTool_FuseEdges.hxx", bycopy.} = object ##
@@ -154,6 +166,7 @@ type
                                                                                  ## to
                                                                                  ## be
                                                                                  ## fused
+
 type
   TopOpeBRepToolGeomTool* {.importcpp: "TopOpeBRepTool_GeomTool",
                            header: "TopOpeBRepTool_GeomTool.hxx", bycopy.} = object ## !
@@ -235,17 +248,16 @@ type
                                                                                ## points
                                                                                ## of
                                                                                ## <L>.
-type
-  HandleTopOpeBRepToolHBoxTool* = Handle[TopOpeBRepToolHBoxTool]
-  TopOpeBRepToolHBoxTool* {.importcpp: "TopOpeBRepTool_HBoxTool",
-                           header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+
 type
   TopOpeBRepToolMakeTransition* {.importcpp: "TopOpeBRepTool_makeTransition",
                                  header: "TopOpeBRepTool_makeTransition.hxx",
                                  bycopy.} = object
+
 type
   TopOpeBRepToolMkTondgE* {.importcpp: "TopOpeBRepTool_mkTondgE",
                            header: "TopOpeBRepTool_mkTondgE.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolPurgeInternalEdges* {.importcpp: "TopOpeBRepTool_PurgeInternalEdges", header: "TopOpeBRepTool_PurgeInternalEdges.hxx",
                                      bycopy.} = object ## ! Initialize   members and  begin  exploration   of  shape
@@ -253,28 +265,20 @@ type
                                                     ## ! Do the main job. Explore all the  edges of myShape and
                                                     ## ! build a map with  faces as a key  and list of internal
                                                     ## ! edges(without connected faces) as value.
+
 type
   TopOpeBRepToolREGUS* {.importcpp: "TopOpeBRepTool_REGUS",
                         header: "TopOpeBRepTool_REGUS.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolREGUW* {.importcpp: "TopOpeBRepTool_REGUW",
                         header: "TopOpeBRepTool_REGUW.hxx", bycopy.} = object
+
 type
   TopOpeBRepToolShapeClassifier* {.importcpp: "TopOpeBRepTool_ShapeClassifier",
                                   header: "TopOpeBRepTool_ShapeClassifier.hxx",
                                   bycopy.} = object
-type
-  TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
-                                header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer ##
-                                                                                                         ## !
-                                                                                                         ## Creates
-                                                                                                         ## an
-                                                                                                         ## empty
-                                                                                                         ## explorer,
-                                                                                                         ## becomes
-                                                                                                         ## usefull
-                                                                                                         ## after
-                                                                                                         ## Init.
+
 type
   TopOpeBRepToolShapeTool* {.importcpp: "TopOpeBRepTool_ShapeTool",
                             header: "TopOpeBRepTool_ShapeTool.hxx", bycopy.} = object ##
@@ -296,10 +300,33 @@ type
                                                                                  ## Null,
                                                                                  ## returns
                                                                                  ## 0.
+
 type
   TopOpeBRepToolSolidClassifier* {.importcpp: "TopOpeBRepTool_SolidClassifier",
                                   header: "TopOpeBRepTool_SolidClassifier.hxx",
                                   bycopy.} = object
+
+                                  bycopy.} = object
 type
   TopOpeBRepToolTOOL* {.importcpp: "TopOpeBRepTool_TOOL",
                        header: "TopOpeBRepTool_TOOL.hxx", bycopy.} = object
+
+
+type
+  HandleTopOpeBRepToolHBoxTool* = Handle[TopOpeBRepToolHBoxTool]
+  TopOpeBRepToolHBoxTool* {.importcpp: "TopOpeBRepTool_HBoxTool",
+                           header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+
+type
+  TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
+                                header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer ##
+                                                                                                         ## !
+                                                                                                         ## Creates
+                                                                                                         ## an
+                                                                                                         ## empty
+                                                                                                         ## explorer,
+                                                                                                         ## becomes
+                                                                                                         ## usefull
+                                                                                                         ## after
+                                                                                                         ## Init.
+

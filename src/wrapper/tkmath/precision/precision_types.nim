@@ -1,3 +1,6 @@
+# PROVIDES: Precision
+# DEPENDS:
+
 type
   Precision* {.importcpp: "Precision", header: "Precision.hxx", bycopy.} = object ## !
                                                                           ## Returns the
@@ -54,3 +57,5 @@ type
                                                                           ## function
                                                                           ## IsNormal does
                                                                           ## exist).
+
+

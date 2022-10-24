@@ -1,7 +1,6 @@
-type
-  STEPControlActorRead* {.importcpp: "STEPControl_ActorRead",
-                         header: "STEPControl_ActorRead.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
-                                                                                                            ## !
+# PROVIDES: HandleSTEPControlActorRead HandleSTEPControlActorWrite HandleSTEPControlController STEPControlWriter
+# DEPENDS: TransferActorOfTransientProcess TransferActorOfFinderProcess XSControlController XSControlReader
+
 type
   HandleSTEPControlActorRead* = Handle[STEPControlActorRead]                                                                                                            ## Transfers
                                                                                                             ## product
@@ -22,10 +21,27 @@ type
                                                                                                             ## transform
                                                                                                             ## root
                                                                                                             ## shape
+
 type
   HandleSTEPControlActorWrite* = Handle[STEPControlActorWrite]
 ## ! This class performs the transfer of a Shape from TopoDS
 ## ! to AP203 or AP214 (CD2 or DIS)
+
+type
+  HandleSTEPControlController* = Handle[STEPControlController]
+## ! defines basic controller for STEP processor
+
+                                                                                      ## representations
+type
+  STEPControlWriter* {.importcpp: "STEPControl_Writer",
+                      header: "STEPControl_Writer.hxx", bycopy.} = object ## ! Creates a Writer from scratch
+
+
+type
+  STEPControlActorRead* {.importcpp: "STEPControl_ActorRead",
+                         header: "STEPControl_ActorRead.hxx", bycopy.} = object of TransferActorOfTransientProcess ##
+                                                                                                            ## !
+
 type
   STEPControlActorWrite* {.importcpp: "STEPControl_ActorWrite",
                           header: "STEPControl_ActorWrite.hxx", bycopy.} = object of TransferActorOfFinderProcess ##
@@ -66,9 +82,7 @@ type
                                                                                                            ## !
                                                                                                            ## (ssv;
                                                                                                            ## 13.11.2010)
-type
-  HandleSTEPControlController* = Handle[STEPControlController]
-## ! defines basic controller for STEP processor
+
 type
   STEPControlController* {.importcpp: "STEPControl_Controller",
                           header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController ##
@@ -88,6 +102,7 @@ type
                                                                                                   ## returns
                                                                                                   ## a
                                                                                                   ## Controller
+
 type
   STEPControlReader* {.importcpp: "STEPControl_Reader",
                       header: "STEPControl_Reader.hxx", bycopy.} = object of XSControlReader ##
@@ -114,6 +129,4 @@ type
                                                                                       ## for
                                                                                       ## shape
                                                                                       ## representations
-type
-  STEPControlWriter* {.importcpp: "STEPControl_Writer",
-                      header: "STEPControl_Writer.hxx", bycopy.} = object ## ! Creates a Writer from scratch
+

@@ -1,5 +1,10 @@
+# PROVIDES: AppContFunction AppContLeastSquare
+# DEPENDS:
+
 type
   AppContFunction* {.importcpp: "AppCont_Function", header: "AppCont_Function.hxx",
+                    bycopy.} = object
+
                     bycopy.} = object
 type
   PeriodicityInfo* {.importcpp: "PeriodicityInfo",
@@ -9,3 +14,5 @@ type
   AppContLeastSquare* {.importcpp: "AppCont_LeastSquare",
                        header: "AppCont_LeastSquare.hxx", bycopy.} = object ## ! Fix border point
                                                                        ## evaluation.
+
+

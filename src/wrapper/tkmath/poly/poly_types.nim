@@ -1,3 +1,6 @@
+# PROVIDES: Poly PolyCoherentLink PolyCoherentTriangle PolyBaseIteratorOfCoherentLink HandlePolyCoherentTriangulation PolyCoherentTriangulationTwoIntegers PolyCoherentTriPtrIterator PolyConnect PolyMakeLoopsLink PolyMakeLoopsHelper PolyMakeLoopsHeapOfInteger PolyMakeLoopsResultCode HandlePolyPolygon2D HandlePolyPolygon3D HandlePolyPolygonOnTriangulation PolyTriangle HandlePolyTriangulation PolyCoherentTriangulationIteratorOfLink PolyMakeLoops3DHelper PolyMakeLoops2DHelper
+# DEPENDS: XyzObj PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyArray1OfTriangle RootObj## StandardTransient StandardTransient StandardTransient StandardTransient
+
 type
   Poly* {.importcpp: "Poly", header: "Poly.hxx", bycopy.} = object ## ! Computes and  stores  the    link from   nodes  to
                                                            ## ! triangles     and from triangles to   neighbouring
@@ -9,6 +12,7 @@ type
                                                            ## ! The new triangulation is just a mechanical sum of input
                                                            ## ! triangulations, without node sharing. UV coordinates are
                                                            ## ! dropped in the result.
+
 type
   PolyCoherentLink* {.importcpp: "Poly_CoherentLink",
                      header: "Poly_CoherentLink.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
@@ -17,14 +21,7 @@ type
                                                                    ##
                                                                    ##  ---------- PROTECTED METHODS ----------
                                                                    ##  ---------- PRIVATE FIELDS ----------
-type
-  PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
-                     header: "Poly_CoherentNode.hxx", bycopy.} = object of XyzObj ##  ---------- PUBLIC METHODS ----------
-                                                                        ## *
-                                                                        ##  Empty constructor.
-                                                                        ##
-                                                                        ##  ---------- PROTECTED METHODS ----------
-                                                                        ##  ---------- PRIVATE FIELDS ----------
+
 type
   PolyCoherentTriangle* {.importcpp: "Poly_CoherentTriangle",
                          header: "Poly_CoherentTriangle.hxx", bycopy.} = object ##  ---------- PUBLIC METHODS ----------
@@ -33,11 +30,13 @@ type
                                                                            ##
                                                                            ##  ---------- PROTECTED METHODS ----------
                                                                            ##  ---------- PRIVATE FIELDS ----------
+
 type
   PolyBaseIteratorOfCoherentTriangle* {.importcpp:"NCollection_Vector<Poly_CoherentTriangle>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj
   PolyBaseIteratorOfCoherentNode* {.importcpp:"NCollection_Vector<PolyCoherentNode>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj
   PolyBaseIteratorOfCoherentLink* {.importcpp:"NCollection_Vector<PolyCoherentLink>::Iterator", header:"Poly_CoherentTriangulation.hxx",bycopy.} = object of RootObj
 ## ! Definition of HANDLE object using Standard_DefineHandle.hxx
+
 type
   HandlePolyCoherentTriangulation* = Handle[PolyCoherentTriangulation]
 ## *
@@ -98,41 +97,13 @@ type
 ##  But if you need to increase the performance you can use NCollection_IncAllocator instead.
 ##  </ul>
 ##
-type
-  PolyCoherentTriangulation* {.importcpp: "Poly_CoherentTriangulation",
-                              header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of StandardTransient ## *
-                                                                                                        ##  Subclass Iterator - allows to iterate all triangles skipping those that
-                                                                                                        ##  have been removed.
-                                                                                                        ##
-                                                                                                        ##  ---------- PUBLIC METHODS ----------
-                                                                                                        ## *
-                                                                                                        ##  Empty constructor.
-                                                                                                        ##
-                                                                                                        ##  ---------- PROTECTED METHODS ----------
-                                                                                                        ##  ---------- PROTECTED FIELDS ----------
-                                                                                                        ##  Declaration of CASCADE RTTI
-  PolyCoherentTriangulationIteratorOfTriangle* {.
-      importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentTriangle ##
-                                                                                                 ## !
-                                                                                                 ## Constructor
-type
-  PolyCoherentTriangulationIteratorOfNode* {.
-      importcpp: "Poly_CoherentTriangulation::IteratorOfNode",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentNode ##
-                                                                                             ## !
-                                                                                             ## Constructor
-type
-  PolyCoherentTriangulationIteratorOfLink* {.
-      importcpp: "Poly_CoherentTriangulation::IteratorOfLink",
-      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentLink ##
-                                                                                             ## !
-                                                                                             ## Constructor
+
 type
   PolyCoherentTriangulationTwoIntegers* {.
       importcpp: "Poly_CoherentTriangulation::TwoIntegers",
       header: "Poly_CoherentTriangulation.hxx", bycopy.} = object
     myValue* {.importc: "myValue".}: array[2, cint]
+
 type
   PolyCoherentTriPtr* {.importcpp: "Poly_CoherentTriPtr",
                        header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## *
@@ -149,6 +120,7 @@ type
                                header: "Poly_CoherentTriPtr.hxx", bycopy.} = object ## !
                                                                                ## Empty
                                                                                ## constructor
+
 type
   PolyConnect* {.importcpp: "Poly_Connect", header: "Poly_Connect.hxx", bycopy.} = object ##
                                                                                   ## !
@@ -292,9 +264,168 @@ type
                                                                                   ##
                                                                                   ## !
                                                                                   ## }
+
+type
+  PolyMakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
+                      header: "Poly_MakeLoops.hxx", bycopy.} = object
+    node1* {.importc: "node1".}: cint
+    node2* {.importc: "node2".}: cint
+    flags* {.importc: "flags".}: cint
+
+type
+  PolyMakeLoopsListOfLink* = NCollectionList[PolyMakeLoopsLink]
+  PolyMakeLoopsLoop* = PolyMakeLoopsListOfLink
+  PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
+                        header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj ## ! returns the links adjacent to the given node
+
+type
+  PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
+                               header: "Poly_MakeLoops.hxx", bycopy.} = object
+
+type
+  PolyMakeLoopsResultCode* {.size: sizeof(cint),
+                            importcpp: "Poly_MakeLoops::ResultCode",
+                            header: "Poly_MakeLoops.hxx".} = enum
+    RC_LoopsDone = 1, RC_HangingLinks = 2, RC_Failure = 4
+
+type
+  HandlePolyPolygon2D* = Handle[PolyPolygon2D]
+## ! Provides a polygon in 2D space (for example, in the
+## ! parametric space of a surface). It is generally an
+## ! approximate representation of a curve.
+## ! A Polygon2D is defined by a table of nodes. Each node is
+## ! a 2D point. If the polygon is closed, the point of closure is
+## ! repeated at the end of the table of nodes.
+
+type
+  HandlePolyPolygon3D* = Handle[PolyPolygon3D]
+## ! This class Provides a polygon in 3D space. It is generally an approximate representation of a curve.
+## ! A Polygon3D is defined by a table of nodes. Each node is
+## ! a 3D point. If the polygon is closed, the point of closure is
+## ! repeated at the end of the table of nodes.
+## ! If the polygon is an approximate representation of a curve,
+## ! you can associate with each of its nodes the value of the
+## ! parameter of the corresponding point on the curve.
+
+type
+  HandlePolyPolygonOnTriangulation* = Handle[PolyPolygonOnTriangulation]
+## ! This class provides a polygon in 3D space, based on the triangulation
+## ! of a surface. It may be the approximate representation of a
+## ! curve on the surface, or more generally the shape.
+## ! A PolygonOnTriangulation is defined by a table of
+## ! nodes. Each node is an index in the table of nodes specific
+## ! to a triangulation, and represents a point on the surface. If
+## ! the polygon is closed, the index of the point of closure is
+## ! repeated at the end of the table of nodes.
+## ! If the polygon is an approximate representation of a curve
+## ! on a surface, you can associate with each of its nodes the
+## ! value of the parameter of the corresponding point on the
+## ! curve.represents a 3d Polygon
+
+type
+  PolyTriangle* {.importcpp: "Poly_Triangle", header: "Poly_Triangle.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## triangle
+                                                                                     ## and
+                                                                                     ## sets
+                                                                                     ## all
+                                                                                     ## indices
+                                                                                     ## to
+                                                                                     ## zero.
+
+type
+  HandlePolyTriangulation* = Handle[PolyTriangulation]
+## ! Provides a triangulation for a surface, a set of surfaces, or
+## ! more generally a shape.
+## ! A triangulation consists of an approximate representation
+## ! of the actual shape, using a collection of points and
+## ! triangles. The points are located on the surface. The
+## ! edges of the triangles connect adjacent points with a
+## ! straight line that approximates the true curve on the surface.
+## ! A triangulation comprises:
+## ! -   A table of 3D nodes (3D points on the surface).
+## ! -   A table of triangles. Each triangle (Poly_Triangle
+## ! object) comprises a triplet of indices in the table of 3D
+## ! nodes specific to the triangulation.
+## ! -   A table of 2D nodes (2D points), parallel to the table of
+## ! 3D nodes. This table is optional. If it exists, the
+## ! coordinates of a 2D point are the (u, v) parameters
+## ! of the corresponding 3D point on the surface
+## ! approximated by the triangulation.
+## ! -   A deflection (optional), which maximizes the distance
+## ! from a point on the surface to the corresponding point
+## ! on its approximate triangulation.
+## ! In many cases, algorithms do not need to work with the
+## ! exact representation of a surface. A triangular
+## ! representation induces simpler and more robust adjusting,
+## ! faster performances, and the results are as good.
+## ! This is a Transient class.
+
+type
+  PolyCoherentTriangulationIteratorOfLink* {.
+      importcpp: "Poly_CoherentTriangulation::IteratorOfLink",
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentLink ##
+                                                                                             ## !
+                                                                                             ## Constructor
+
+type
+  PolyMakeLoops3D* {.importcpp: "Poly_MakeLoops3D", header: "Poly_MakeLoops.hxx",
+                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
+  PolyMakeLoops3DHelper* {.importcpp: "Poly_MakeLoops3D::Helper",
+                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
+                                                                                          ##  it is impossible to return a valid direction
+                                                                                          ## ! returns the tangent vector at the first node of a link
+
+type
+  PolyMakeLoops2D* {.importcpp: "Poly_MakeLoops2D", header: "Poly_MakeLoops.hxx",
+                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
+                                                  ## ! this flag says that chooseLeftWay must choose the right way instead
+  PolyMakeLoops2DHelper* {.importcpp: "Poly_MakeLoops2D::Helper",
+                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
+                                                                                          ##  it is impossible to return a valid direction
+                                                                                          ## ! returns the tangent vector at the first node of a link
+
+type
+  PolyCoherentNode* {.importcpp: "Poly_CoherentNode",
+                     header: "Poly_CoherentNode.hxx", bycopy.} = object of XyzObj ##  ---------- PUBLIC METHODS ----------
+                                                                        ## *
+                                                                        ##  Empty constructor.
+                                                                        ##
+                                                                        ##  ---------- PROTECTED METHODS ----------
+                                                                        ##  ---------- PRIVATE FIELDS ----------
+
+type
+  PolyCoherentTriangulation* {.importcpp: "Poly_CoherentTriangulation",
+                              header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of StandardTransient ## *
+                                                                                                        ##  Subclass Iterator - allows to iterate all triangles skipping those that
+                                                                                                        ##  have been removed.
+                                                                                                        ##
+                                                                                                        ##  ---------- PUBLIC METHODS ----------
+                                                                                                        ## *
+                                                                                                        ##  Empty constructor.
+                                                                                                        ##
+                                                                                                        ##  ---------- PROTECTED METHODS ----------
+                                                                                                        ##  ---------- PROTECTED FIELDS ----------
+                                                                                                        ##  Declaration of CASCADE RTTI
+  PolyCoherentTriangulationIteratorOfTriangle* {.
+      importcpp: "Poly_CoherentTriangulation::IteratorOfTriangle",
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentTriangle ##
+                                                                                                 ## !
+                                                                                                 ## Constructor
+
+type
+  PolyCoherentTriangulationIteratorOfNode* {.
+      importcpp: "Poly_CoherentTriangulation::IteratorOfNode",
+      header: "Poly_CoherentTriangulation.hxx", bycopy.} = object of PolyBaseIteratorOfCoherentNode ##
+                                                                                             ## !
+                                                                                             ## Constructor
+
 type
   PolyHArray1OfTriangle* {.importcpp: "Poly_HArray1OfTriangle",
                           header: "Poly_HArray1OfTriangle.hxx", bycopy.} = object of PolyArray1OfTriangle
+
 type
   PolyMakeLoops* {.importcpp: "Poly_MakeLoops", header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj##
                                                                                         ## !
@@ -335,48 +466,7 @@ type
     LF_Rev = 2,                 ##  reversed orientation
     LF_Both = 3,                ##  both ways oriented
     LF_Reversed = 4
-type
-  PolyMakeLoopsLink* {.importcpp: "Poly_MakeLoops::Link",
-                      header: "Poly_MakeLoops.hxx", bycopy.} = object
-    node1* {.importc: "node1".}: cint
-    node2* {.importc: "node2".}: cint
-    flags* {.importc: "flags".}: cint
-type
-  PolyMakeLoopsListOfLink* = NCollectionList[PolyMakeLoopsLink]
-  PolyMakeLoopsLoop* = PolyMakeLoopsListOfLink
-  PolyMakeLoopsHelper* {.importcpp: "Poly_MakeLoops::Helper",
-                        header: "Poly_MakeLoops.hxx", bycopy.} = object of RootObj ## ! returns the links adjacent to the given node
-type
-  PolyMakeLoopsHeapOfInteger* {.importcpp: "Poly_MakeLoops::HeapOfInteger",
-                               header: "Poly_MakeLoops.hxx", bycopy.} = object
-type
-  PolyMakeLoopsResultCode* {.size: sizeof(cint),
-                            importcpp: "Poly_MakeLoops::ResultCode",
-                            header: "Poly_MakeLoops.hxx".} = enum
-    RC_LoopsDone = 1, RC_HangingLinks = 2, RC_Failure = 4
-type
-  PolyMakeLoops3D* {.importcpp: "Poly_MakeLoops3D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
-  PolyMakeLoops3DHelper* {.importcpp: "Poly_MakeLoops3D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
-type
-  PolyMakeLoops2D* {.importcpp: "Poly_MakeLoops2D", header: "Poly_MakeLoops.hxx",
-                    bycopy.} = object of PolyMakeLoops ## ! The abstract helper class
-                                                  ## ! this flag says that chooseLeftWay must choose the right way instead
-  PolyMakeLoops2DHelper* {.importcpp: "Poly_MakeLoops2D::Helper",
-                          header: "Poly_MakeLoops.hxx", bycopy.} = object of PolyMakeLoopsHelper ##  all the following methods should return False if
-                                                                                          ##  it is impossible to return a valid direction
-                                                                                          ## ! returns the tangent vector at the first node of a link
-type
-  HandlePolyPolygon2D* = Handle[PolyPolygon2D]
-## ! Provides a polygon in 2D space (for example, in the
-## ! parametric space of a surface). It is generally an
-## ! approximate representation of a curve.
-## ! A Polygon2D is defined by a table of nodes. Each node is
-## ! a 2D point. If the polygon is closed, the point of closure is
-## ! repeated at the end of the table of nodes.
+
 type
   PolyPolygon2D* {.importcpp: "Poly_Polygon2D", header: "Poly_Polygon2D.hxx", bycopy.} = object of StandardTransient ##
                                                                                                            ## !
@@ -389,15 +479,7 @@ type
                                                                                                            ## number
                                                                                                            ## of
                                                                                                            ## nodes.
-type
-  HandlePolyPolygon3D* = Handle[PolyPolygon3D]
-## ! This class Provides a polygon in 3D space. It is generally an approximate representation of a curve.
-## ! A Polygon3D is defined by a table of nodes. Each node is
-## ! a 3D point. If the polygon is closed, the point of closure is
-## ! repeated at the end of the table of nodes.
-## ! If the polygon is an approximate representation of a curve,
-## ! you can associate with each of its nodes the value of the
-## ! parameter of the corresponding point on the curve.
+
 type
   PolyPolygon3D* {.importcpp: "Poly_Polygon3D", header: "Poly_Polygon3D.hxx", bycopy.} = object of StandardTransient ##
                                                                                                            ## !
@@ -410,20 +492,7 @@ type
                                                                                                            ## number
                                                                                                            ## of
                                                                                                            ## nodes.
-type
-  HandlePolyPolygonOnTriangulation* = Handle[PolyPolygonOnTriangulation]
-## ! This class provides a polygon in 3D space, based on the triangulation
-## ! of a surface. It may be the approximate representation of a
-## ! curve on the surface, or more generally the shape.
-## ! A PolygonOnTriangulation is defined by a table of
-## ! nodes. Each node is an index in the table of nodes specific
-## ! to a triangulation, and represents a point on the surface. If
-## ! the polygon is closed, the index of the point of closure is
-## ! repeated at the end of the table of nodes.
-## ! If the polygon is an approximate representation of a curve
-## ! on a surface, you can associate with each of its nodes the
-## ! value of the parameter of the corresponding point on the
-## ! curve.represents a 3d Polygon
+
 type
   PolyPolygonOnTriangulation* {.importcpp: "Poly_PolygonOnTriangulation",
                                header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient ##
@@ -443,44 +512,7 @@ type
                                                                                                           ## size
                                                                                                           ## of
                                                                                                           ## nodes.
-type
-  PolyTriangle* {.importcpp: "Poly_Triangle", header: "Poly_Triangle.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## a
-                                                                                     ## triangle
-                                                                                     ## and
-                                                                                     ## sets
-                                                                                     ## all
-                                                                                     ## indices
-                                                                                     ## to
-                                                                                     ## zero.
-type
-  HandlePolyTriangulation* = Handle[PolyTriangulation]
-## ! Provides a triangulation for a surface, a set of surfaces, or
-## ! more generally a shape.
-## ! A triangulation consists of an approximate representation
-## ! of the actual shape, using a collection of points and
-## ! triangles. The points are located on the surface. The
-## ! edges of the triangles connect adjacent points with a
-## ! straight line that approximates the true curve on the surface.
-## ! A triangulation comprises:
-## ! -   A table of 3D nodes (3D points on the surface).
-## ! -   A table of triangles. Each triangle (Poly_Triangle
-## ! object) comprises a triplet of indices in the table of 3D
-## ! nodes specific to the triangulation.
-## ! -   A table of 2D nodes (2D points), parallel to the table of
-## ! 3D nodes. This table is optional. If it exists, the
-## ! coordinates of a 2D point are the (u, v) parameters
-## ! of the corresponding 3D point on the surface
-## ! approximated by the triangulation.
-## ! -   A deflection (optional), which maximizes the distance
-## ! from a point on the surface to the corresponding point
-## ! on its approximate triangulation.
-## ! In many cases, algorithms do not need to work with the
-## ! exact representation of a surface. A triangular
-## ! representation induces simpler and more robust adjusting,
-## ! faster performances, and the results are as good.
+
 ## ! This is a Transient class.
 type
   PolyTriangulation* {.importcpp: "Poly_Triangulation",
@@ -543,3 +575,5 @@ type
                                                                                         ## a
                                                                                         ## 2D
                                                                                         ## representation).
+
+

@@ -1,3 +1,75 @@
+# PROVIDES: GceMakeMirror GceMakeMirror2d GceMakeRotation GceMakeRotation2d GceMakeScale GceMakeScale2d GceMakeTranslation GceMakeTranslation2d GceRoot GceMakeCirc GceMakeCirc2d GceMakeCone GceMakeCylinder GceMakeDir GceMakeDir2d GceMakeElips GceMakeElips2d GceMakeHypr GceMakeHypr2d GceMakeLin GceMakeLin2d GceMakeParab GceMakeParab2d GceMakePln
+# DEPENDS:
+
+type
+  GceMakeMirror* {.importcpp: "gce_MakeMirror", header: "gce_MakeMirror.hxx", bycopy.} = object
+
+type
+  GceMakeMirror2d* {.importcpp: "gce_MakeMirror2d", header: "gce_MakeMirror2d.hxx",
+                    bycopy.} = object
+
+type
+  GceMakeRotation* {.importcpp: "gce_MakeRotation", header: "gce_MakeRotation.hxx",
+                    bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
+
+type
+  GceMakeRotation2d* {.importcpp: "gce_MakeRotation2d",
+                      header: "gce_MakeRotation2d.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
+
+type
+  GceMakeScale* {.importcpp: "gce_MakeScale", header: "gce_MakeScale.hxx", bycopy.} = object ##
+                                                                                     ## !
+                                                                                     ## Constructs
+                                                                                     ## a
+                                                                                     ## scaling
+                                                                                     ## transformation
+                                                                                     ## with
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## Point
+                                                                                     ## as
+                                                                                     ## the
+                                                                                     ## center
+                                                                                     ## of
+                                                                                     ## the
+                                                                                     ## transformation,
+                                                                                     ## and
+                                                                                     ##
+                                                                                     ## !
+                                                                                     ## -
+                                                                                     ## Scale
+                                                                                     ## as
+                                                                                     ## the
+                                                                                     ## scale
+                                                                                     ## factor.
+
+type
+  GceMakeScale2d* {.importcpp: "gce_MakeScale2d", header: "gce_MakeScale2d.hxx",
+                   bycopy.} = object ## ! Constructs a scaling transformation with:
+                                  ## ! -   Point as the center of the transformation, and
+                                  ## ! -   Scale as the scale factor.
+
+type
+  GceMakeTranslation* {.importcpp: "gce_MakeTranslation",
+                       header: "gce_MakeTranslation.hxx", bycopy.} = object ## !
+                                                                       ## Constructs a
+                                                                       ## translation along the vector " Vect"
+
+type
+  GceMakeTranslation2d* {.importcpp: "gce_MakeTranslation2d",
+                         header: "gce_MakeTranslation2d.hxx", bycopy.} = object ## !
+                                                                           ## Constructs a
+                                                                           ## translation along the
+                                                                           ## vector Vect.
+
+                                                                           ## vector Vect.
+type
+  GceRoot* {.importcpp: "gce_Root", header: "gce_Root.hxx", bycopy.} = object of RootObj ## ! Returns true if the
+                                                                      ## construction is
+                                                                      ## successful.
+
+
 type
   GceMakeCirc* {.importcpp: "gce_MakeCirc", header: "gce_MakeCirc.hxx", bycopy.} = object of GceRoot ##
                                                                                            ## !
@@ -40,6 +112,7 @@ type
                                                                                            ## Radius
                                                                                            ## <
                                                                                            ## 0.0
+
 type
   GceMakeCirc2d* {.importcpp: "gce_MakeCirc2d", header: "gce_MakeCirc2d.hxx", bycopy.} = object of GceRoot ##
                                                                                                  ## !
@@ -106,6 +179,7 @@ type
                                                                                                  ## Radius
                                                                                                  ## <
                                                                                                  ## 0.0.
+
 type
   GceMakeCone* {.importcpp: "gce_MakeCone", header: "gce_MakeCone.hxx", bycopy.} = object of GceRoot ##
                                                                                            ## !
@@ -188,10 +262,12 @@ type
                                                                                            ## (PI/2)
                                                                                            ## -
                                                                                            ## Resolution.
+
 type
   GceMakeCylinder* {.importcpp: "gce_MakeCylinder", header: "gce_MakeCylinder.hxx",
                     bycopy.} = object of GceRoot ## ! <A2> is the local cartesian coordinate system of <me>.
                                             ## ! The status is "NegativeRadius" if R < 0.0
+
 type
   GceMakeDir* {.importcpp: "gce_MakeDir", header: "gce_MakeDir.hxx", bycopy.} = object of GceRoot ##
                                                                                         ## !
@@ -212,6 +288,7 @@ type
                                                                                         ## V.Magnitude()
                                                                                         ## <=
                                                                                         ## Resolution.
+
 type
   GceMakeDir2d* {.importcpp: "gce_MakeDir2d", header: "gce_MakeDir2d.hxx", bycopy.} = object of GceRoot ##
                                                                                               ## !
@@ -232,6 +309,7 @@ type
                                                                                               ## V.Magnitude()
                                                                                               ## <=
                                                                                               ## Resolution.
+
 type
   GceMakeElips* {.importcpp: "gce_MakeElips", header: "gce_MakeElips.hxx", bycopy.} = object of GceRoot ##
                                                                                               ## !
@@ -301,6 +379,7 @@ type
                                                                                               ## MajorRadius
                                                                                               ## =
                                                                                               ## MinorRadius.
+
 type
   GceMakeElips2d* {.importcpp: "gce_MakeElips2d", header: "gce_MakeElips2d.hxx",
                    bycopy.} = object of GceRoot ## ! Creates an ellipse with the major axis, the major and the
@@ -310,6 +389,7 @@ type
                                            ## ! It is possible to create an ellipse with MajorRadius = MinorRadius.
                                            ## ! the status is "InvertRadius" if MajorRadius < MinorRadius or
                                            ## ! "NegativeRadius" if MinorRadius < 0.0
+
 type
   GceMakeHypr* {.importcpp: "gce_MakeHypr", header: "gce_MakeHypr.hxx", bycopy.} = object of GceRoot ##
                                                                                            ## !
@@ -399,6 +479,7 @@ type
                                                                                            ## MinorRadius
                                                                                            ## >
                                                                                            ## MajorRadius.
+
 type
   GceMakeHypr2d* {.importcpp: "gce_MakeHypr2d", header: "gce_MakeHypr2d.hxx", bycopy.} = object of GceRoot ##
                                                                                                  ## !
@@ -459,6 +540,7 @@ type
                                                                                                  ## the
                                                                                                  ## major
                                                                                                  ## axis.
+
 type
   GceMakeLin* {.importcpp: "gce_MakeLin", header: "gce_MakeLin.hxx", bycopy.} = object of GceRoot ##
                                                                                         ## !
@@ -470,6 +552,7 @@ type
                                                                                         ## the
                                                                                         ## axis
                                                                                         ## A1.
+
 type
   GceMakeLin2d* {.importcpp: "gce_MakeLin2d", header: "gce_MakeLin2d.hxx", bycopy.} = object of GceRoot ##
                                                                                               ## !
@@ -479,11 +562,7 @@ type
                                                                                               ## located
                                                                                               ## with
                                                                                               ## A.
-type
-  GceMakeMirror* {.importcpp: "gce_MakeMirror", header: "gce_MakeMirror.hxx", bycopy.} = object
-type
-  GceMakeMirror2d* {.importcpp: "gce_MakeMirror2d", header: "gce_MakeMirror2d.hxx",
-                    bycopy.} = object
+
 type
   GceMakeParab* {.importcpp: "gce_MakeParab", header: "gce_MakeParab.hxx", bycopy.} = object of GceRoot ##
                                                                                               ## !
@@ -561,12 +640,14 @@ type
                                                                                               ## Focal
                                                                                               ## <
                                                                                               ## 0.0
+
 type
   GceMakeParab2d* {.importcpp: "gce_MakeParab2d", header: "gce_MakeParab2d.hxx",
                    bycopy.} = object of GceRoot ## ! Creates a parabola with its axis of symmetry ("MirrorAxis")
                                            ## ! and its focal length.
                                            ## ! Warnings : It is possible to have Focal = 0.
                                            ## ! The status is "NullFocalLength" Raised if Focal < 0.0
+
 type
   GceMakePln* {.importcpp: "gce_MakePln", header: "gce_MakePln.hxx", bycopy.} = object of GceRoot ##
                                                                                         ## !
@@ -634,56 +715,4 @@ type
                                                                                         ## parametrize
                                                                                         ## the
                                                                                         ## plane.
-type
-  GceMakeRotation* {.importcpp: "gce_MakeRotation", header: "gce_MakeRotation.hxx",
-                    bycopy.} = object ## ! Constructs a rotation through angle Angle about the axis defined by the line Line.
-type
-  GceMakeRotation2d* {.importcpp: "gce_MakeRotation2d",
-                      header: "gce_MakeRotation2d.hxx", bycopy.} = object ## ! Constructs a rotation through angle Angle about the center Point.
-type
-  GceMakeScale* {.importcpp: "gce_MakeScale", header: "gce_MakeScale.hxx", bycopy.} = object ##
-                                                                                     ## !
-                                                                                     ## Constructs
-                                                                                     ## a
-                                                                                     ## scaling
-                                                                                     ## transformation
-                                                                                     ## with
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## -
-                                                                                     ## Point
-                                                                                     ## as
-                                                                                     ## the
-                                                                                     ## center
-                                                                                     ## of
-                                                                                     ## the
-                                                                                     ## transformation,
-                                                                                     ## and
-                                                                                     ##
-                                                                                     ## !
-                                                                                     ## -
-                                                                                     ## Scale
-                                                                                     ## as
-                                                                                     ## the
-                                                                                     ## scale
-                                                                                     ## factor.
-type
-  GceMakeScale2d* {.importcpp: "gce_MakeScale2d", header: "gce_MakeScale2d.hxx",
-                   bycopy.} = object ## ! Constructs a scaling transformation with:
-                                  ## ! -   Point as the center of the transformation, and
-                                  ## ! -   Scale as the scale factor.
-type
-  GceMakeTranslation* {.importcpp: "gce_MakeTranslation",
-                       header: "gce_MakeTranslation.hxx", bycopy.} = object ## !
-                                                                       ## Constructs a
-                                                                       ## translation along the vector " Vect"
-type
-  GceMakeTranslation2d* {.importcpp: "gce_MakeTranslation2d",
-                         header: "gce_MakeTranslation2d.hxx", bycopy.} = object ## !
-                                                                           ## Constructs a
-                                                                           ## translation along the
-                                                                           ## vector Vect.
-type
-  GceRoot* {.importcpp: "gce_Root", header: "gce_Root.hxx", bycopy.} = object of RootObj ## ! Returns true if the
-                                                                      ## construction is
-                                                                      ## successful.
+

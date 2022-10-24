@@ -1,5 +1,9 @@
+# PROVIDES: Math MathBFGS MathBissecNewton MathBracketedRoot MathBracketMinimum MathBrentMinimum MathBullardGenerator MathComputeGaussPointsAndWeights MathComputeKronrodPointsAndWeights MathCrout MathDirectPolynomialRoots MathDoubleTab MathEigenValuesSearcher MathFRPR MathFunction MathFunctionAllRoots MathFunctionRoot MathFunctionRoots MathFunctionSample MathFunctionSet MathFunctionSetRoot MathGauss MathGaussLeastSquare MathGaussMultipleIntegration MathGaussSetIntegration MathGaussSingleIntegration MathGlobOptMin MathHouseholder MathIntegerVector MathJacobi MathKronrodSingleIntegration MathMatrix MathMultipleVarFunction MathNewtonFunctionRoot MathNewtonFunctionSetRoot MathNewtonMinimum HandleMathNotSquare MathPowell MathPSO PSO_Particle MathPSOParticlesPool HandleMathSingularMatrix MathSVD MathTrigonometricFunctionRoots MathUzawa MathValueAndWeight MathVector MathFunctionSetWithDerivatives MathFunctionWithDerivative MathMultipleVarFunctionWithGradient MathMultipleVarFunctionWithHessian MathTrigonometricEquationFunction
+# DEPENDS:
+
 type
   Math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
+
 type
   MathBFGS* {.importcpp: "math_BFGS", header: "math_BFGS.hxx", bycopy.} = object ## !
                                                                          ## Initializes the
@@ -20,10 +24,12 @@ type
                                                                          ## effectively compute the minimum of the
                                                                          ## !
                                                                          ## function F.
+
 type
   MathBissecNewton* {.importcpp: "math_BissecNewton",
                      header: "math_BissecNewton.hxx", bycopy.} = object ## ! Constructor.
                                                                    ## ! @param theXTolerance - algorithm tolerance.
+
 type
   MathBracketedRoot* {.importcpp: "math_BracketedRoot",
                       header: "math_BracketedRoot.hxx", bycopy.} = object ## ! The Brent method is used to find the root of the function F between
@@ -35,28 +41,34 @@ type
                                                                      ## ! abs(Xi - Xi-1) <= Tolerance;
                                                                      ## ! The maximum number of iterations allowed is given by
                                                                      ## NbIterations.
+
 type
   MathBracketMinimum* {.importcpp: "math_BracketMinimum",
                        header: "math_BracketMinimum.hxx", bycopy.} = object ## !
                                                                        ## Constructor preparing A and B
                                                                        ## parameters only. It does not perform the job.
                                                                        ## ! Limit the given value to become within the range [myLeft, myRight].
+
 type
   MathBrentMinimum* {.importcpp: "math_BrentMinimum",
                      header: "math_BrentMinimum.hxx", bycopy.} = object ## ! This constructor should be used in a sub-class to initialize
                                                                    ## ! correctly all the fields of this class.
+
 type
   MathBullardGenerator* {.importcpp: "math_BullardGenerator",
                          header: "math_BullardGenerator.hxx", bycopy.} = object ## !
                                                                            ## Creates new
                                                                            ## Xorshift
                                                                            ## 64-bit RNG.
+
 type
   MathComputeGaussPointsAndWeights* {.importcpp: "math_ComputeGaussPointsAndWeights", header: "math_ComputeGaussPointsAndWeights.hxx",
                                      bycopy.} = object
+
 type
   MathComputeKronrodPointsAndWeights* {.importcpp: "math_ComputeKronrodPointsAndWeights", header: "math_ComputeKronrodPointsAndWeights.hxx",
                                        bycopy.} = object
+
 type
   MathCrout* {.importcpp: "math_Crout", header: "math_Crout.hxx", bycopy.} = object ## !
                                                                             ## Given an
@@ -92,6 +104,7 @@ type
                                                                             ## raised if A is not a
                                                                             ## square
                                                                             ## matrix.
+
 type
   MathDirectPolynomialRoots* {.importcpp: "math_DirectPolynomialRoots",
                               header: "math_DirectPolynomialRoots.hxx", bycopy.} = object ##
@@ -119,11 +132,14 @@ type
                                                                                      ## a
                                                                                      ## direct
                                                                                      ## method.
+
 type
   MathDoubleTab* {.importcpp: "math_DoubleTab", header: "math_DoubleTab.hxx", bycopy.} = object
+
 type
   MathEigenValuesSearcher* {.importcpp: "math_EigenValuesSearcher",
                             header: "math_EigenValuesSearcher.hxx", bycopy.} = object
+
 type
   MathFRPR* {.importcpp: "math_FRPR", header: "math_FRPR.hxx", bycopy.} = object ## !
                                                                          ## Initializes the
@@ -132,6 +148,7 @@ type
                                                                          ## Warning:
                                                                          ## constructor does not perform
                                                                          ## computations.
+
 type
   MathFunction* {.importcpp: "math_Function", header: "math_Function.hxx", bycopy.} = object of RootObj ##
                                                                                      ## !
@@ -140,6 +157,7 @@ type
                                                                                      ## for
                                                                                      ## safe
                                                                                      ## inheritance
+
 type
   MathFunctionAllRoots* {.importcpp: "math_FunctionAllRoots",
                          header: "math_FunctionAllRoots.hxx", bycopy.} = object ## ! The
@@ -171,6 +189,7 @@ type
                                                                            ## calculated using the
                                                                            ## FunctionRoots
                                                                            ## algorithm.
+
 type
   MathFunctionRoot* {.importcpp: "math_FunctionRoot",
                      header: "math_FunctionRoot.hxx", bycopy.} = object ## ! The
@@ -180,6 +199,7 @@ type
                                                                    ## ! the expected solution does not stay in the range A..B.
                                                                    ## ! The solution is found when abs(Xi - Xi-1) <= Tolerance;
                                                                    ## ! The maximum number of iterations allowed is given by NbIterations.
+
 type
   MathFunctionRoots* {.importcpp: "math_FunctionRoots",
                       header: "math_FunctionRoots.hxx", bycopy.} = object ## ! Calculates all the real roots of a function F-K within the range
@@ -189,12 +209,15 @@ type
                                                                      ## abs(F(Xi)-K) <= EpsF.
                                                                      ## ! The function is considered as null between A and B if
                                                                      ## ! abs(F-K) <= EpsNull within this range.
+
 type
   MathFunctionSample* {.importcpp: "math_FunctionSample",
                        header: "math_FunctionSample.hxx", bycopy.} = object
+
 type
   MathFunctionSet* {.importcpp: "math_FunctionSet", header: "math_FunctionSet.hxx",
                     bycopy.} = object of RootObj ## ! Returns the number of variables of the function.
+
 type
   MathFunctionSetRoot* {.importcpp: "math_FunctionSetRoot",
                         header: "math_FunctionSetRoot.hxx", bycopy.} = object ## ! is used in a
@@ -208,37 +231,7 @@ type
                                                                          ## !
                                                                          ## respected for all vectors and matrix
                                                                          ## declarations.
-type
-  MathFunctionSetWithDerivatives* {.importcpp: "math_FunctionSetWithDerivatives", header: "math_FunctionSetWithDerivatives.hxx",
-                                   bycopy.} = object of MathFunctionSet ## ! Returns the number of variables of the function.
-type
-  MathFunctionWithDerivative* {.importcpp: "math_FunctionWithDerivative",
-                               header: "math_FunctionWithDerivative.hxx", bycopy.} = object of MathFunction ##
-                                                                                                     ## !
-                                                                                                     ## Computes
-                                                                                                     ## the
-                                                                                                     ## value
-                                                                                                     ## <F>of
-                                                                                                     ## the
-                                                                                                     ## function
-                                                                                                     ## for
-                                                                                                     ## the
-                                                                                                     ## variable
-                                                                                                     ## <X>.
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## Returns
-                                                                                                     ## True
-                                                                                                     ## if
-                                                                                                     ## the
-                                                                                                     ## calculation
-                                                                                                     ## were
-                                                                                                     ## successfully
-                                                                                                     ## done,
-                                                                                                     ##
-                                                                                                     ## !
-                                                                                                     ## False
-                                                                                                     ## otherwise.
+
 type
   MathGauss* {.importcpp: "math_Gauss", header: "math_Gauss.hxx", bycopy.} = object ## !
                                                                             ## Given an
@@ -274,6 +267,7 @@ type
                                                                             ## raised if A is not a
                                                                             ## square
                                                                             ## matrix.
+
 type
   MathGaussLeastSquare* {.importcpp: "math_GaussLeastSquare",
                          header: "math_GaussLeastSquare.hxx", bycopy.} = object ## ! Given an input n X m
@@ -302,12 +296,14 @@ type
                                                                            ## ! is
                                                                            ## considered as
                                                                            ## singular.
+
 type
   MathGaussMultipleIntegration* {.importcpp: "math_GaussMultipleIntegration",
                                  header: "math_GaussMultipleIntegration.hxx",
                                  bycopy.} = object ## ! The Gauss-Legendre integration with Order = points of
                                                 ## ! integration for each unknow, is done on the function F
                                                 ## ! between the bounds Lower and Upper.
+
 type
   MathGaussSetIntegration* {.importcpp: "math_GaussSetIntegration",
                             header: "math_GaussSetIntegration.hxx", bycopy.} = object ##
@@ -340,6 +336,7 @@ type
                                                                                  ## Lower
                                                                                  ## and
                                                                                  ## Upper.
+
 type
   MathGaussSingleIntegration* {.importcpp: "math_GaussSingleIntegration",
                                header: "math_GaussSingleIntegration.hxx", bycopy.} = object ##
@@ -347,6 +344,7 @@ type
                                                                                        ## perfoms
                                                                                        ## actual
                                                                                        ## computation
+
 type
   MathGlobOptMin* {.importcpp: "math_GlobOptMin", header: "math_GlobOptMin.hxx",
                    bycopy.} = object ## ! Constructor. Perform method is not called from it.
@@ -384,6 +382,7 @@ type
     ##  Last step.
     ##  Continuity of local borders.
     ##  Current value of Global optimum.
+
 type
   MathHouseholder* {.importcpp: "math_Householder", header: "math_Householder.hxx",
                     bycopy.} = object ## ! Given an input matrix A with n>= m, given an input matrix B
@@ -395,6 +394,7 @@ type
                                    ## ! is different from the A row number.
                                    ## ! This method is used internally for each constructor
                                    ## ! above and can't be used directly.
+
 type
   MathIntegerVector* {.importcpp: "math_IntegerVector",
                       header: "math_IntegerVector.hxx", bycopy.} = object ## ! contructs an
@@ -402,6 +402,7 @@ type
                                                                      ## [Lower..Upper]
                                                                      ## ! is used internally to set the Lower value of the
                                                                      ## IntegerVector.
+
 type
   MathJacobi* {.importcpp: "math_Jacobi", header: "math_Jacobi.hxx", bycopy.} = object ## !
                                                                                ## Given a
@@ -444,10 +445,12 @@ type
                                                                                ## symmetric
                                                                                ## is
                                                                                ## done.
+
 type
   MathKronrodSingleIntegration* {.importcpp: "math_KronrodSingleIntegration",
                                  header: "math_KronrodSingleIntegration.hxx",
                                  bycopy.} = object ## ! An empty constructor.
+
 type
   MathMatrix* {.importcpp: "math_Matrix", header: "math_Matrix.hxx", bycopy.} = object ## !
                                                                                ## Constructs a
@@ -508,6 +511,7 @@ type
                                                                                ## set
                                                                                ## to
                                                                                ## <LowerRow>
+
 type
   MathMultipleVarFunction* {.importcpp: "math_MultipleVarFunction",
                             header: "math_MultipleVarFunction.hxx", bycopy.} = object of RootObj ##
@@ -520,30 +524,7 @@ type
                                                                                  ## of
                                                                                  ## the
                                                                                  ## function
-type
-  MathMultipleVarFunctionWithGradient* {.importcpp: "math_MultipleVarFunctionWithGradient", header: "math_MultipleVarFunctionWithGradient.hxx",
-                                        bycopy.} = object of MathMultipleVarFunction ##
-                                                                                ## !
-                                                                                ## Returns
-                                                                                ## the
-                                                                                ## number
-                                                                                ## of
-                                                                                ## variables
-                                                                                ## of
-                                                                                ## the
-                                                                                ## function.
-type
-  MathMultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
-                                       bycopy.} = object of MathMultipleVarFunctionWithGradient ##
-                                                                                           ## !
-                                                                                           ## returns
-                                                                                           ## the
-                                                                                           ## number
-                                                                                           ## of
-                                                                                           ## variables
-                                                                                           ## of
-                                                                                           ## the
-                                                                                           ## function.
+
 type
   MathNewtonFunctionRoot* {.importcpp: "math_NewtonFunctionRoot",
                            header: "math_NewtonFunctionRoot.hxx", bycopy.} = object ## !
@@ -601,6 +582,7 @@ type
                                                                                ## given
                                                                                ## by
                                                                                ## NbIterations.
+
 type
   MathNewtonFunctionSetRoot* {.importcpp: "math_NewtonFunctionSetRoot",
                               header: "math_NewtonFunctionSetRoot.hxx", bycopy.} = object ##
@@ -631,6 +613,7 @@ type
                                                                                      ## and
                                                                                      ## matrix
                                                                                      ## declarations.
+
 type
   MathNewtonMinimum* {.importcpp: "math_NewtonMinimum",
                       header: "math_NewtonMinimum.hxx", bycopy.} = object ## ! The tolerance required on the solution is given by Tolerance.
@@ -641,14 +624,17 @@ type
                                                                      ## IsConverged() returns True for 2 successives Iterations.
                                                                      ## ! Warning: This constructor does not perform
                                                                      ## computation.
+
 type
   HandleMathNotSquare* = Handle[MathNotSquare]
+
 type
   MathPowell* {.importcpp: "math_Powell", header: "math_Powell.hxx", bycopy.} = object ## !
                                                                                ## Constructor.
                                                                                ## Initialize
                                                                                ## new
                                                                                ## entity.
+
 type
   MathPSO* {.importcpp: "math_PSO", header: "math_PSO.hxx", bycopy.} = object ## *
                                                                       ##  Constructor.
@@ -666,6 +652,7 @@ type
     ##  steps used in PSO algorithm.
     ##  Dimension count.
     ##  Particles number.
+
 type
   PSO_Particle* {.importcpp: "PSO_Particle", header: "math_PSOParticlesPool.hxx",
                  bycopy.} = object
@@ -674,20 +661,21 @@ type
     bestPosition* {.importc: "BestPosition".}: ptr cfloat
     distance* {.importc: "Distance".}: cfloat
     bestDistance* {.importc: "BestDistance".}: cfloat
+
 type
   MathPSOParticlesPool* {.importcpp: "math_PSOParticlesPool",
                          header: "math_PSOParticlesPool.hxx", bycopy.} = object
     ##  Stores particles vector data.
+
 type
   HandleMathSingularMatrix* = Handle[MathSingularMatrix]
+
 type
   MathSVD* {.importcpp: "math_SVD", header: "math_SVD.hxx", bycopy.} = object ## ! Given as input an n X m matrix A with n < m, n = m or n > m
                                                                       ## ! this
                                                                       ## constructor performs the Singular Value
                                                                       ## Decomposition.
-type
-  MathTrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
-                                      bycopy.} = object of MathFunctionWithDerivative
+
 type
   MathTrigonometricFunctionRoots* {.importcpp: "math_TrigonometricFunctionRoots", header: "math_TrigonometricFunctionRoots.hxx",
                                    bycopy.} = object ## ! Given coefficients a, b, c, d , e, this constructor
@@ -695,6 +683,7 @@ type
                                                   ## ! The solutions must be contained in [InfBound, SupBound].
                                                   ## ! InfBound and SupBound can be set by default to 0 and 2*PI.
                                                   ## ! is used by the constructors above.
+
 type
   MathUzawa* {.importcpp: "math_Uzawa", header: "math_Uzawa.hxx", bycopy.} = object ## !
                                                                             ## Given an
@@ -746,8 +735,11 @@ type
                                                                             ## internally by the two
                                                                             ## constructors
                                                                             ## above.
+
 type
   MathValueAndWeight* {.importcpp: "math_ValueAndWeight",
+                       header: "math_ValueAndWeight.hxx", bycopy.} = object
+
                        header: "math_ValueAndWeight.hxx", bycopy.} = object
 type
   MathVector* {.importcpp: "math_Vector", header: "math_Vector.hxx", bycopy.} = object ## !
@@ -787,3 +779,68 @@ type
                                                                                ## of
                                                                                ## the
                                                                                ## vector.
+
+
+type
+  MathFunctionSetWithDerivatives* {.importcpp: "math_FunctionSetWithDerivatives", header: "math_FunctionSetWithDerivatives.hxx",
+                                   bycopy.} = object of MathFunctionSet ## ! Returns the number of variables of the function.
+
+type
+  MathFunctionWithDerivative* {.importcpp: "math_FunctionWithDerivative",
+                               header: "math_FunctionWithDerivative.hxx", bycopy.} = object of MathFunction ##
+                                                                                                     ## !
+                                                                                                     ## Computes
+                                                                                                     ## the
+                                                                                                     ## value
+                                                                                                     ## <F>of
+                                                                                                     ## the
+                                                                                                     ## function
+                                                                                                     ## for
+                                                                                                     ## the
+                                                                                                     ## variable
+                                                                                                     ## <X>.
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## Returns
+                                                                                                     ## True
+                                                                                                     ## if
+                                                                                                     ## the
+                                                                                                     ## calculation
+                                                                                                     ## were
+                                                                                                     ## successfully
+                                                                                                     ## done,
+                                                                                                     ##
+                                                                                                     ## !
+                                                                                                     ## False
+                                                                                                     ## otherwise.
+
+type
+  MathMultipleVarFunctionWithGradient* {.importcpp: "math_MultipleVarFunctionWithGradient", header: "math_MultipleVarFunctionWithGradient.hxx",
+                                        bycopy.} = object of MathMultipleVarFunction ##
+                                                                                ## !
+                                                                                ## Returns
+                                                                                ## the
+                                                                                ## number
+                                                                                ## of
+                                                                                ## variables
+                                                                                ## of
+                                                                                ## the
+                                                                                ## function.
+
+type
+  MathMultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
+                                       bycopy.} = object of MathMultipleVarFunctionWithGradient ##
+                                                                                           ## !
+                                                                                           ## returns
+                                                                                           ## the
+                                                                                           ## number
+                                                                                           ## of
+                                                                                           ## variables
+                                                                                           ## of
+                                                                                           ## the
+                                                                                           ## function.
+
+type
+  MathTrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
+                                      bycopy.} = object of MathFunctionWithDerivative
+

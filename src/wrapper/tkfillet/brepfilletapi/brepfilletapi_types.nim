@@ -1,3 +1,6 @@
+# PROVIDES:
+# DEPENDS: BRepBuilderAPI_MakeShape BRepFilletAPI_LocalOperation BRepFilletAPI_LocalOperation BRepBuilderAPI_MakeShape
+
 type
   BRepFilletAPI_LocalOperation* {.importcpp: "BRepFilletAPI_LocalOperation",
                                  header: "BRepFilletAPI_LocalOperation.hxx",
@@ -9,6 +12,7 @@ type
                                                                           ## contour  of
                                                                           ## tangent
                                                                           ## edges).
+
 type
   BRepFilletAPI_MakeChamfer* {.importcpp: "BRepFilletAPI_MakeChamfer",
                               header: "BRepFilletAPI_MakeChamfer.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation ##
@@ -38,6 +42,7 @@ type
                                                                                                                   ## the
                                                                                                                   ## Add
                                                                                                                   ## function.
+
 type
   BRepFilletAPI_MakeFillet* {.importcpp: "BRepFilletAPI_MakeFillet",
                              header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation ##
@@ -100,6 +105,8 @@ type
                                                                                                                 ## !
                                                                                                                 ## representation
                                                                                                                 ## of
+                                                                                                                ## circles.
+
                                                                                                                 ## circles.
 type
   BRepFilletAPI_MakeFillet2d* {.importcpp: "BRepFilletAPI_MakeFillet2d",
@@ -207,3 +214,5 @@ type
                                                                                                                 ## a
                                                                                                                 ## null
                                                                                                                 ## face.
+
+

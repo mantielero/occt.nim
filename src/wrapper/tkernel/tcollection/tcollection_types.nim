@@ -1,3 +1,6 @@
+# PROVIDES: TCollection TCollectionAsciiString TCollectionBaseSequence TCollectionBasicMap TCollectionBasicMapIterator TCollectionExtendedString HandleTCollectionHAsciiString HandleTCollectionHExtendedString HandleTCollectionMapNode
+# DEPENDS: StandardTransient StandardTransient StandardTransient StandardTransient
+
 type
   TCollection* {.importcpp: "TCollection", header: "TCollection.hxx", bycopy.} = object ##
                                                                                 ## !
@@ -69,6 +72,7 @@ type
                                                                                 ## in
                                                                                 ## the
                                                                                 ## map.
+
 type
   TCollectionAsciiString* {.importcpp: "TCollection_AsciiString",
                            header: "TCollection_AsciiString.hxx", bycopy.} = object ## !
@@ -80,6 +84,7 @@ type
                                                                                ## AsciiString.
     ## !< NULL-terminated string
     ## !< length in bytes (excluding terminating NULL symbol)
+
 type
   TCollectionBaseSequence* {.importcpp: "TCollection_BaseSequence",
                             header: "TCollection_BaseSequence.hxx", bycopy.} = object ##
@@ -126,6 +131,7 @@ type
                                                                                  ## the
                                                                                  ## operator
                                                                                  ## =.
+
 type
   TCollectionBasicMap* {.importcpp: "TCollection_BasicMap",
                         header: "TCollection_BasicMap.hxx", bycopy.} = object of RootObj ## ! Returns the number of buckets in <me>.
@@ -139,6 +145,7 @@ type
                                                                          ## DoubleMap,
                                                                          ## IndexedMap,
                                                                          ## IndexedDataMap
+
 type
   TCollectionBasicMapIterator* {.importcpp: "TCollection_BasicMapIterator",
                                 header: "TCollection_BasicMapIterator.hxx", bycopy.} = object of RootObj ##
@@ -156,6 +163,7 @@ type
                                                                                          ## an
                                                                                          ## empty
                                                                                          ## iterator.
+
 type
   TCollectionExtendedString* {.importcpp: "TCollection_ExtendedString",
                               header: "TCollection_ExtendedString.hxx", bycopy.} = object ##
@@ -185,6 +193,7 @@ type
                                                                                      ## coding
     ## !< NULL-terminated string
     ## !< length in 16-bit code units (excluding terminating NULL symbol)
+
 type
   HandleTCollectionHAsciiString* = Handle[TCollectionHAsciiString]
 ## ! A variable-length sequence of ASCII characters
@@ -195,17 +204,7 @@ type
 ## ! -   HAsciiString strings may be shared by several objects.
 ## ! -   You may use an AsciiString object to get the actual string.
 ## ! Note: HAsciiString objects use an AsciiString string as a field.
-type
-  TCollectionHAsciiString* {.importcpp: "TCollection_HAsciiString",
-                            header: "TCollection_HAsciiString.hxx", bycopy.} = object of StandardTransient ##
-                                                                                                    ## !
-                                                                                                    ## Initializes
-                                                                                                    ## a
-                                                                                                    ## HAsciiString
-                                                                                                    ## to
-                                                                                                    ## an
-                                                                                                    ## empty
-                                                                                                    ## AsciiString.
+
 type
   HandleTCollectionHExtendedString* = Handle[TCollectionHExtendedString]
 ## ! A variable-length sequence of "extended"
@@ -219,6 +218,23 @@ type
 ## ! - You may use an ExtendedString object to get the actual string.
 ## ! Note: HExtendedString objects use an
 ## ! ExtendedString string as a field.
+
+type
+  HandleTCollectionMapNode* = Handle[TCollectionMapNode]
+## ! Basic class root of all the Maps.
+
+type
+  TCollectionHAsciiString* {.importcpp: "TCollection_HAsciiString",
+                            header: "TCollection_HAsciiString.hxx", bycopy.} = object of StandardTransient ##
+                                                                                                    ## !
+                                                                                                    ## Initializes
+                                                                                                    ## a
+                                                                                                    ## HAsciiString
+                                                                                                    ## to
+                                                                                                    ## an
+                                                                                                    ## empty
+                                                                                                    ## AsciiString.
+
 type
   TCollectionHExtendedString* {.importcpp: "TCollection_HExtendedString",
                                header: "TCollection_HExtendedString.hxx", bycopy.} = object of StandardTransient ##
@@ -236,13 +252,15 @@ type
                                                                                                           ## the
                                                                                                           ## field
                                                                                                           ## myString
-type
-  HandleTCollectionMapNode* = Handle[TCollectionMapNode]
-## ! Basic class root of all the Maps.
+
 type
   TCollectionMapNode* {.importcpp: "TCollection_MapNode",
+                       header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
+
                        header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
 type
   HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
   TCollectionSeqNode* {.importcpp: "TCollection_SeqNode",
                        header: "TCollection_SeqNode.hxx", bycopy.} = object of StandardTransient
+
+

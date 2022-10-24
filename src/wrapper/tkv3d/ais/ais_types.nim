@@ -1,9 +1,13 @@
+# PROVIDES: AIS_AnimationProgress HandleAIS_Animation HandleAIS_AttributeFilter HandleAIS_BadEdgeFilter HandleAIS_ColorScale HandleAIS_ExclusionFilter HandleAIS_GlobalStatus AIS_GraphicTool HandleAIS_ManipulatorObjectSequenceAIS_Manipulator AIS_ManipulatorOptionsForAttach AIS_ManipulatorBehaviorOnTransform HandleAIS_ManipulatorOwner AIS_MouseGesture AIS_NavigationMode AIS_PointCloudSelectionMode HandleAIS_PointCloud AIS_RotationMode HandleAIS_RubberBand HandleAIS_SignatureFilter HandleAIS_Triangulation HandleAIS_TypeFilter AIS_ViewController AIS_ViewSelectionTool AIS_ViewInputBufferType AIS_ViewInputBufferOrientation AIS_ViewInputBufferHighlighting AIS_ViewInputBufferSelection AIS_ViewInputBufferPanningParams AIS_ViewInputBufferDraggingParams AIS_ViewInputBufferOrbitRotation AIS_ViewInputBufferViewRotation AIS_ViewInputBufferZrotateParams AIS_WalkTranslation AIS_WalkRotation AIS_WalkPart AIS_WalkDelta
+# DEPENDS: StandardTransient AIS_Animation AIS_Animation SelectMgrFilter AIS_InteractiveObject SelectMgrFilter SelectMgrFilter AIS_InteractiveObject AIS_InteractiveObject Prs3dDrawer AIS_Shape AIS_InteractiveObject AIS_InteractiveObject SelectMgrFilter StandardTransient StandardTransient SelectMgrSelectableObject AIS_InteractiveObject NCollectionSequence AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject StandardTransient AIS_InteractiveObject AIS_TypeFilter AIS_InteractiveObject AIS_Shape AIS_InteractiveObject AIS_InteractiveObject SelectMgrEntityOwner SelectMgrFilter AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject
+
 type
   AIS_AnimationProgress* {.importcpp: "AIS_AnimationProgress",
                           header: "AIS_Animation.hxx", bycopy.} = object
     pts* {.importc: "Pts".}: cfloat ## !< global presentation timestamp
     localPts* {.importc: "LocalPts".}: cfloat ## !< presentation within current animation
     localNormalized* {.importc: "LocalNormalized".}: cfloat ## !< normalized position within current animation within 0..1 range
+
 type
   HandleAIS_Animation* = Handle[AIS_Animation]
 ## ! Class represents a basic animation class.
@@ -36,6 +40,515 @@ type
 ## ! Application should avoid using implicit and immediate Viewer updates to ensure that AIS_Animation::UpdateTimer() is called before each redrawing of a Viewer content.
 ## ! Redrawing logic should be also managed at application level for managing a smooth animation
 ## ! (by defining a multimedia timer provided by used GUI framework executing updates at desired framerate, or as continuous redraws in loop).
+
+type
+  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
+## ! Selects Interactive Objects, which have the desired width or color.
+## ! The filter questions each Interactive Object in local
+## ! context to determine whether it has an non-null
+## ! owner, and if so, whether it has the required color
+## ! and width attributes. If the object returns true in each
+## ! case, it is kept. If not, it is rejected.
+## ! This filter is used only in an open local context.
+## ! In the Collector viewer, you can only locate
+## ! Interactive Objects, which answer positively to the
+## ! filters, which are in position when a local context is open.
+
+type
+  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
+## ! A Class
+
+type
+  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
+## ! Class for drawing a custom color scale.
+## !
+## ! The color scale consists of rectangular color bar (composed of fixed
+## ! number of color intervals), optional labels, and title.
+## ! The labels can be positioned either at the boundaries of the intervals,
+## ! or at the middle of each interval.
+## ! Colors and labels can be either defined automatically or set by the user.
+## ! Automatic labels are calculated from numerical limits of the scale,
+## ! its type (logarithmic or plain), and formatted by specified format string.
+
+type
+  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
+## ! A framework to reject or to accept only objects of
+## ! given types and/or signatures.
+## ! Objects are stored, and the stored objects - along
+## ! with the flag settings - are used to define the filter.
+## ! Objects to be filtered are compared with the stored
+## ! objects added to the filter, and are accepted or
+## ! rejected according to the exclusion flag setting.
+## ! -   Exclusion flag on
+## ! -   the function IsOk answers true for all objects,
+## ! except those of the types and signatures stored
+## ! in the filter framework
+## ! -   Exclusion flag off
+## ! -   the funciton IsOk answers true for all objects
+## ! which have the same type and signature as the stored ones.
+
+type
+  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
+## ! Stores  information  about objects in graphic context:
+## ! - Status Of Display : in the main viewer
+## ! hidden in the main viewer
+## ! - Displayed Modes
+## ! - Active Selection Modes
+## ! - is the Interactive Object Current ?
+## ! - Layer Index
+
+type
+  AIS_GraphicTool* {.importcpp: "AIS_GraphicTool", header: "AIS_GraphicTool.hxx",
+                    bycopy.} = object
+
+type
+  HandleAIS_ManipulatorObjectSequence* = Handle[AIS_ManipulatorObjectSequence]
+  HandleAIS_ManipulatorObjectSequenceAIS_Manipulator* = Handle[AIS_Manipulator]
+## ! Interactive object class to manipulate local transformation of another interactive
+## ! object or a group of objects via mouse.
+## ! It manages three types of manipulations in 3D space:
+## ! - translation through axis
+## ! - scaling within axis
+## ! - rotation around axis
+## ! To enable one of this modes, selection mode (from 1 to 3) is to be activated.
+## ! There are three orthogonal transformation axes defined by position property of
+## ! the manipulator. Particular transformation mode can be disabled for each
+## ! of the axes or all of them. Furthermore each of the axes can be hidden or
+## ! made visible.
+## ! The following steps demonstrate how to attach, configure and use manipulator
+## ! for an interactive object:
+## ! Step 1. Create manipulator object and adjust it appearance:
+## ! @code
+## ! Handle(AIS_Manipulator) aManipulator = new AIS_Manipulator();
+## ! aManipulator->SetPart (0, AIS_Manipulator::Scaling, Standard_False);
+## ! aManipulator->SetPart (1, AIS_Manipulator::Rotation, Standard_False);
+## ! // Attach manipulator to already displayed object and manage manipulation modes
+## ! aManipulator->AttachToObject (anAISObject);
+## ! aManipulator->EnableMode (AIS_Manipulator::Translation);
+## ! aManipulator->EnableMode (AIS_Manipulator::Rotation);
+## ! aManipulator->EnableMode (AIS_Manipulator::Scaling);
+## ! @endcode
+## ! Note that you can enable only one manipulation mode but have all visual parts displayed.
+## ! This code allows you to view manipulator and select its manipulation parts.
+## ! Note that manipulator activates mode on part selection.
+## ! If this mode is activated, no selection will be performed for manipulator.
+## ! It can be activated with highlighting. To enable this:
+## ! @code
+## ! aManipulator->SetModeActivationOnDetection (Standard_True);
+## ! @endcode
+## ! Step 2. To perform transformation of object use next code in your event processing chain:
+## ! @code
+## ! // catch mouse button down event
+## ! if (aManipulator->HasActiveMode())
+## ! {
+## !   aManipulator->StartTransform (anXPix, anYPix, aV3dView);
+## ! }
+## ! ...
+## ! // or track mouse move event
+## ! if (aManipulator->HasActiveMode())
+## ! {
+## !   aManipulator->Transform (anXPix, anYPix, aV3dView);
+## !   aV3dView->Redraw();
+## ! }
+## ! ...
+## ! // or catch mouse button up event (apply) or escape event (cancel)
+## ! aManipulator->StopTransform(/*Standard_Boolean toApply*/);
+## ! @endcode
+## ! Step 3. To deactivate current manipulation mode use:
+## ! @code aManipulator->DeactivateCurrentMode();
+## ! @endcode
+## ! Step 4. To detach manipulator from object use:
+## ! @code
+## ! aManipulator->Detach();
+## ! @endcode
+## ! The last method erases manipulator object.
+
+type
+  AIS_ManipulatorOptionsForAttach* {.importcpp: "AIS_Manipulator::OptionsForAttach",
+                                    header: "AIS_Manipulator.hxx", bycopy.} = object
+    adjustPosition* {.importc: "AdjustPosition".}: bool
+    adjustSize* {.importc: "AdjustSize".}: bool
+    enableModes* {.importc: "EnableModes".}: bool
+
+type
+  AIS_ManipulatorBehaviorOnTransform* {.importcpp: "AIS_Manipulator::BehaviorOnTransform",
+                                       header: "AIS_Manipulator.hxx", bycopy.} = object
+    followTranslation* {.importc: "FollowTranslation".}: bool
+    followRotation* {.importc: "FollowRotation".}: bool
+    followDragging* {.importc: "FollowDragging".}: bool
+
+type
+  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
+## ! Entity owner for selection management of AIS_Manipulator object.
+
+type
+  AIS_MouseGesture* {.size: sizeof(cint), importcpp: "AIS_MouseGesture",
+                     header: "AIS_MouseGesture.hxx".} = enum
+    aIS_MouseGestureNONE,     ## !< no active gesture
+                         ##
+    aIS_MouseGestureSelectRectangle, ## !< rectangular selection;
+                                    ## !  press button to start, move mouse to define rectangle, release to finish
+    aIS_MouseGestureSelectLasso, ## !< polygonal selection;
+                                ## !  press button to start, move mouse to define polygonal path, release to finish
+                                ##
+    aIS_MouseGestureZoom,     ## !< view zoom gesture;
+                         ## !  move mouse left to zoom-out, and to the right to zoom-in
+    aIS_MouseGestureZoomWindow, ## !< view zoom by window gesture;
+                               ## !  press button to start, move mouse to define rectangle, release to finish
+    aIS_MouseGesturePan,      ## !< view panning gesture
+    aIS_MouseGestureRotateOrbit, ## !< orbit rotation gesture
+    aIS_MouseGestureRotateView ## !< view  rotation gesture
+## ! Map defining mouse gestures.
+
+type
+  AIS_NavigationMode* {.size: sizeof(cint), importcpp: "AIS_NavigationMode",
+                       header: "AIS_NavigationMode.hxx".} = enum
+    aIS_NavigationModeOrbit,  ## !< orbit rotation
+    aIS_NavigationModeFirstPersonFlight, ## !< flight rotation (first person)
+    aIS_NavigationModeFirstPersonWalk ## !< walking mode (first person)
+
+type
+  AIS_PointCloudSelectionMode* {.size: sizeof(cint),
+                                importcpp: "AIS_PointCloud::SelectionMode",
+                                header: "AIS_PointCloud.hxx".} = enum
+    SM_Points = 0,              ## !< detected by points
+    SM_SubsetOfPoints = 1,      ## !< detect point(s) within Point Cloud rather than object as whole
+    SM_BndBox = 2               ## !< detected by bounding box
+
+type
+  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
+## ! Custom owner for highlighting selected points.
+
+type
+  AIS_RotationMode* {.size: sizeof(cint), importcpp: "AIS_RotationMode",
+                     header: "AIS_RotationMode.hxx".} = enum
+    aIS_RotationModeBndBoxActive, ## !< default OCCT rotation
+    aIS_RotationModePickLast, ## !< rotate around last picked point
+    aIS_RotationModePickCenter, ## !< rotate around point at the center of window
+    aIS_RotationModeCameraAt, ## !< rotate around camera center
+    aIS_RotationModeBndBoxScene ## !< rotate around scene center
+
+type
+  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
+## ! Presentation for drawing rubber band selection.
+## ! It supports rectangle and polygonal selection.
+## ! It is constructed in 2d overlay.
+## ! Default configaration is built without filling.
+## ! For rectangle selection use SetRectangle() method.
+## ! For polygonal selection use AddPoint() and GetPoints() methods.
+
+type
+  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
+## ! Selects Interactive Objects through their signatures
+## ! and types. The signature provides an
+## ! additional   characterization of an object's type, and
+## ! takes the form of an index. The filter questions each
+## ! Interactive Object in local context to determine
+## ! whether it has an non-null owner, and if so, whether
+## ! it has the desired signature. If the object returns true
+## ! in each case, it is kept. If not, it is rejected.
+## ! By default, the   interactive object has a None   type
+## ! and a signature of 0. If you want to give a particular
+## ! type and signature to your Interactive Object, you
+## ! must redefine two virtual methods:   Type and Signature.
+## ! This filter is only used in an open local contexts.
+## ! In the Collector viewer, you can only locate
+## ! Interactive Objects which answer positively to the
+## ! positioned filters when a local context is open.
+## ! Warning
+## ! Some signatures have already been used by standard
+## ! objects delivered in AIS. These include:
+## ! -   signature 0 - Shape
+## ! -   signature 1 - Point
+## ! -   signature 2 - Axis
+## ! -   signature 3 - Trihedron
+## ! -   signature 4 - PlaneTrihedron
+## ! -   signature 5 - Line
+## ! -   signature 6 - Circle
+## ! -   signature 7 - Plane
+
+type
+  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
+## ! Interactive object that draws data from  Poly_Triangulation, optionally with colors associated
+## ! with each triangulation vertex. For maximum efficiency colors are represented as 32-bit integers
+## ! instead of classic Quantity_Color values.
+## ! Interactive selection of triangles and vertices is not yet implemented.
+
+type
+  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
+## ! Selects Interactive Objects through their types. The
+## ! filter questions each Interactive Object in local context
+## ! to determine whether it has an non-null owner, and if
+## ! so, whether it is of the desired type. If the object
+## ! returns true in each case, it is kept. If not, it is rejected.
+## ! By default, the   interactive object has a None   type
+## ! and a signature of 0. A filter for type specifies a
+## ! choice of type out of a range at any level enumerated
+## ! for type or kind. The choice could be for kind of
+## ! interactive object, of dimension, of unit, or type of axis,
+## ! plane or attribute.
+## ! If you want to give a particular type and signature to
+## ! your Interactive Object, you must redefine two virtual
+## ! methods:   Type and Signature.
+## ! This filter is used in both Neutral Point and open local contexts.
+## ! In the Collector viewer, you can only locate
+## ! Interactive Objects which answer positively to the
+## ! positioned filters when a local context is open.
+## ! Warning
+## ! When you close a local context, all temporary
+## ! interactive objects are deleted, all selection modes
+## ! concerning the context are cancelled, and all content
+## ! filters are emptied.
+
+type
+  AIS_ViewController* {.importcpp: "AIS_ViewController",
+                       header: "AIS_ViewController.hxx", bycopy.} = object ## ! Empty
+                                                                      ## constructor.
+                                                                      ## ! @name global parameters
+                                                                      ## ! Return camera rotation mode,
+                                                                      ## AIS_RotationMode_BndBoxActive by default.
+                                                                      ## ! @name keyboard input
+                                                                      ## ! Return keyboard state.
+                                                                      ## ! @name mouse input
+                                                                      ## ! Return map defining mouse gestures.
+                                                                      ## ! @name
+                                                                      ## multi-touch input
+                                                                      ## ! Return scale factor for adjusting tolerances for starting
+                                                                      ## multi-touch gestures; 1.0 by default
+                                                                      ## ! This scale factor is expected to be computed from touch screen
+                                                                      ## resolution.
+                                                                      ## ! @name 3d mouse input
+                                                                      ## ! Return
+                                                                      ## acceleration ratio for
+                                                                      ## translation event; 2.0 by default.
+                                                                      ## ! Return event time (e.g. current time).
+                                                                      ## ! Callback called by
+                                                                      ## handleMoveTo() on Selection in 3D Viewer.
+                                                                      ## ! This method is expected to be called from rendering thread.
+                                                                      ## ! Handle hot-keys defining new camera
+                                                                      ## orientation
+                                                                      ## (Aspect_VKey_ViewTop and similar keys).
+                                                                      ## ! Default
+                                                                      ## implementation starts an animated
+                                                                      ## transaction from the current to the target camera
+                                                                      ## orientation, when specific action key was pressed.
+                                                                      ## ! This method is expected to be called from rendering thread.
+                                                                      ## ! Perform XR input.
+                                                                      ## ! This method is expected to be called from rendering thread.
+                                                                      ## ! Flush buffers.
+                                                                      ## ! @name XR input variables
+                                                                      ## ! @name keyboard input variables
+                                                                      ## ! @name mouse input variables
+                                                                      ## ! @name
+                                                                      ## multi-touch input variables
+                                                                      ## ! @name 3d mouse input variables
+                                                                      ## ! @name
+                                                                      ## rotation/panning transient state variables
+    ## !< buffer for UI thread
+    ## !< buffer for rendering thread
+    ## !< timer for timestamping events
+    ## !< last fetched events timer value for computing delta/progress
+    ## !< flag indicating that another frame should be drawn right after this one
+    ## !< minimal camera distance for zoom operation
+    ## !< rotation mode
+    ## !< navigation mode (orbit rotation / first person)
+    ## !< mouse input acceleration ratio in First Person mode
+    ## !< Orbit rotation acceleration ratio
+    ## !< option displaying panning  anchor point
+    ## !< option displaying rotation center point
+    ## !< force camera up orientation within AIS_NavigationMode_Orbit rotation mode
+    ## !< flag inverting pitch direction while processing Aspect_VKey_NavLookUp/Aspect_VKey_NavLookDown
+    ## !< enable z-rotation two-touches gesture; FALSE by default
+    ## !< enable rotation; TRUE by default
+    ## !< enable panning; TRUE by default
+    ## !< enable zooming; TRUE by default
+    ## !< enable ZFocus change; TRUE by default
+    ## !< enable dynamic highlight on mouse move; TRUE by default
+    ## !< enable dragging object; TRUE by default
+    ## !< project picked point to ray while zooming at point, TRUE by default
+    ## !< project picked point to ray while rotating around point; TRUE by default
+    ## !< normal walking speed, in m/s; 1.5 by default
+    ## !< walking speed relative to scene bounding box; 0.1 by default
+    ## !< active thrust value
+    ## !< flag indicating active thrust
+    ## !< view animation
+    ## !< Rubber-band presentation
+    ## !< detected owner of currently dragged object
+    ## !< currently dragged object
+    ## !< previous position of MoveTo event in 3D viewer
+    ## !< flag for restoring Computed mode after rotation
+    ## !< array of XR tracked devices presentations
+    ## !< temporary camera
+    ## !< color of teleport laser
+    ## !< color of picking  laser
+    ## !< active hand for teleport
+    ## !< active hand for picking objects
+    ## !< vibration on picking teleport destination
+    ## !< vibration on dynamic highlighting
+    ## !< vibration on selection
+    ## !< last picking depth for left  hand
+    ## !< last picking depth for right hand
+    ## !< discrete turn angle for XR trackpad
+    ## !< flag to display auxiliary tracked XR devices
+    ## !< flag to display XR hands
+    ## !< keyboard state
+    ## !< mouse click threshold in pixels; 3 by default
+    ## !< double click interval in seconds; 0.4 by default
+    ## !< distance ratio for mapping mouse scroll event to zoom; 15.0 by default
+    ## !< map defining mouse gestures
+    ## !< initiated mouse gesture (by pressing mouse button)
+    ## !< flag indicating view idle rotation state
+    ## !< last mouse position
+    ## !< mouse position where active gesture was been initiated
+    ## !< gesture progress
+    ## !< timer for handling double-click event
+    ## !< counter for handling double-click event
+    ## !< active mouse buttons
+    ## !< active key modifiers passed with last mouse event
+    ## !< index of mouse button pressed alone (>0)
+    ## !< queue stop dragging even with at next mouse unclick
+    ## !< tolerance scale factor; 1.0 by default
+    ## !< threshold for starting one-touch rotation     gesture in pixels;  6 by default
+    ## !< threshold for starting two-touch Z-rotation   gesture in radians; 2 degrees by default
+    ## !< threshold for starting two-touch panning      gesture in pixels;  4 by default
+    ## !< threshold for starting two-touch zoom (pitch) gesture in pixels;  6 by default
+    ## !< distance ratio for mapping two-touch zoom (pitch) gesture from pixels to zoom; 0.13 by default
+    ## !< map of active touches
+    ## !< touch coordinates at the moment of starting panning  gesture
+    ## !< touch coordinates at the moment of starting rotating gesture
+    ## !< number of touches within previous gesture flush to track gesture changes
+    ## !< flag indicating that new anchor  point should be picked for starting panning    gesture
+    ## !< flag indicating that new gravity point should be picked for starting rotation   gesture
+    ## !< flag indicating that new gravity point should be picked for starting Z-rotation gesture
+    ## !< cached button state
+    ## !< ignore  3d mouse rotation axes
+    ## !< reverse 3d mouse rotation axes
+    ## !< acceleration ratio for translation event
+    ## !< acceleration ratio for rotation event
+    ## !< quadric acceleration
+    ## !< anchor point presentation (Graphic3d_ZLayerId_Top)
+    ## !< anchor point presentation (Graphic3d_ZLayerId_Topmost)
+    ## !< active panning anchor point
+    ## !< active rotation center of gravity
+    ## !< camera Up    direction at the beginning of rotation
+    ## !< camera View  direction at the beginning of rotation
+    ## !< camera Eye    position at the beginning of rotation
+    ## !< camera Center position at the beginning of rotation
+    ## !< vector from rotation gravity point to camera Center at the beginning of rotation
+    ## !< vector from rotation gravity point to camera Eye    at the beginning of rotation
+    ## !< camera yaw pitch roll at the beginning of rotation
+
+type
+  AIS_ViewSelectionTool* {.size: sizeof(cint), importcpp: "AIS_ViewSelectionTool",
+                          header: "AIS_ViewInputBuffer.hxx".} = enum
+    AIS_ViewSelectionToolPicking, ## !< pick to select
+    AIS_ViewSelectionToolRubberBand, ## !< rubber-band to select
+    AIS_ViewSelectionToolPolygon, ## !< polyline to select
+    AIS_ViewSelectionToolZoomWindow ## !< zoom-in window (no selection)
+## ! Input buffer type.
+
+type
+  AIS_ViewInputBufferType* {.size: sizeof(cint),
+                            importcpp: "AIS_ViewInputBufferType",
+                            header: "AIS_ViewInputBuffer.hxx".} = enum
+    AIS_ViewInputBufferTypeUI, ## !< input buffer for filling from UI thread
+    AIS_ViewInputBufferTypeGL ## !< input buffer accessible  from GL thread
+## ! Auxiliary structure defining viewer events
+
+type
+  AIS_ViewInputBuffer* {.importcpp: "AIS_ViewInputBuffer",
+                        header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    isNewGesture* {.importc: "IsNewGesture".}: bool ## !< transition from one action to another
+    zoomActions* {.importc: "ZoomActions".}: NCollectionSequence[AspectScrollDelta] ## !< the queue with zoom actions
+  AIS_ViewInputBufferOrientation* {.importcpp: "AIS_ViewInputBuffer::_orientation",
+                                   header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toFitAll* {.importc: "ToFitAll".}: bool ## !< perform FitAll operation
+    toSetViewOrient* {.importc: "ToSetViewOrient".}: bool ## !< set new view orientation
+    viewOrient* {.importc: "ViewOrient".}: V3dTypeOfOrientation ## !< new view orientation
+
+type
+  AIS_ViewInputBufferHighlighting* {.importcpp: "AIS_ViewInputBuffer::_highlighting",
+                                    header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toHilight* {.importc: "ToHilight".}: bool ## !< perform dynamic highlighting at specified point
+    point* {.importc: "Point".}: Graphic3dVec2i ## !< the new point for dynamic highlighting
+
+type
+  AIS_ViewInputBufferSelection* {.importcpp: "AIS_ViewInputBuffer::_selection",
+                                 header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    tool* {.importc: "Tool".}: AIS_ViewSelectionTool ## !< perform selection
+    isXOR* {.importc: "IsXOR".}: bool ## !< perform shift selection
+    points* {.importc: "Points".}: NCollectionSequence[Graphic3dVec2i] ## !< the points for selection
+    toApplyTool* {.importc: "ToApplyTool".}: bool ## !< apply rubber-band selection tool
+
+type
+  AIS_ViewInputBufferPanningParams* {.importcpp: "AIS_ViewInputBuffer::_panningParams",
+                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toStart* {.importc: "ToStart".}: bool ## !< start panning
+    pointStart* {.importc: "PointStart".}: Graphic3dVec2i ## !< panning start point
+    toPan* {.importc: "ToPan".}: bool ## !< perform panning
+    delta* {.importc: "Delta".}: Graphic3dVec2i ## !< panning delta
+
+type
+  AIS_ViewInputBufferDraggingParams* {.importcpp: "AIS_ViewInputBuffer::_draggingParams",
+                                      header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toStart* {.importc: "ToStart".}: bool ## !< start dragging
+    toStop* {.importc: "ToStop".}: bool ## !< stop  dragging
+    toAbort* {.importc: "ToAbort".}: bool ## !< abort dragging (restore previous position)
+    pointStart* {.importc: "PointStart".}: Graphic3dVec2i ## !< drag start point
+    pointTo* {.importc: "PointTo".}: Graphic3dVec2i ## !< drag end point
+
+type
+  AIS_ViewInputBufferOrbitRotation* {.importcpp: "AIS_ViewInputBuffer::_orbitRotation",
+                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toStart* {.importc: "ToStart".}: bool ## !< start orbit rotation
+    pointStart* {.importc: "PointStart".}: Graphic3dVec2d ## !< orbit rotation start point
+    toRotate* {.importc: "ToRotate".}: bool ## !< perform orbit rotation
+    pointTo* {.importc: "PointTo".}: Graphic3dVec2d ## !< orbit rotation end point
+
+type
+  AIS_ViewInputBufferViewRotation* {.importcpp: "AIS_ViewInputBuffer::_viewRotation",
+                                    header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    toStart* {.importc: "ToStart".}: bool ## !< start view rotation
+    pointStart* {.importc: "PointStart".}: Graphic3dVec2d ## !< view rotation start point
+    toRotate* {.importc: "ToRotate".}: bool ## !< perform view rotation
+    pointTo* {.importc: "PointTo".}: Graphic3dVec2d ## !< view rotation end point
+
+type
+  AIS_ViewInputBufferZrotateParams* {.importcpp: "AIS_ViewInputBuffer::_zrotateParams",
+                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
+    point* {.importc: "Point".}: Graphic3dVec2i ## !< Z rotation start point
+    angle* {.importc: "Angle".}: cdouble ## !< Z rotation angle
+    toRotate* {.importc: "ToRotate".}: bool ## !< start Z rotation
+
+type
+  AIS_WalkTranslation* {.size: sizeof(cint), importcpp: "AIS_WalkTranslation",
+                        header: "AIS_WalkDelta.hxx".} = enum
+    AIS_WalkTranslationForward = 0, ## !< translation delta, Forward walk
+    AIS_WalkTranslationSide,  ## !< translation delta, Side walk
+    AIS_WalkTranslationUp     ## !< translation delta, Up walk
+## ! Walking rotation components.
+
+type
+  AIS_WalkRotation* {.size: sizeof(cint), importcpp: "AIS_WalkRotation",
+                     header: "AIS_WalkDelta.hxx".} = enum
+    AIS_WalkRotationYaw = 0,    ## !< yaw   rotation angle
+    AIS_WalkRotationPitch,    ## !< pitch rotation angle
+    AIS_WalkRotationRoll      ## !< roll  rotation angle
+## ! Walking value.
+
+type
+  AIS_WalkPart* {.importcpp: "AIS_WalkPart", header: "AIS_WalkDelta.hxx", bycopy.} = object
+    value* {.importc: "Value".}: cfloat ## !< value
+    pressure* {.importc: "Pressure".}: cfloat ## !< key pressure
+    duration* {.importc: "Duration".}: cfloat ## !< duration
+                                          ## ! Return TRUE if delta is empty.
+
+type
+  AIS_WalkDelta* {.importcpp: "AIS_WalkDelta", header: "AIS_WalkDelta.hxx", bycopy.} = object ##
+                                                                                      ## !
+                                                                                      ## Empty
+                                                                                      ## constructor.
+
 type
   AIS_Animation* {.importcpp: "AIS_Animation", header: "AIS_Animation.hxx", bycopy.} = object of StandardTransient ##
                                                                                                          ## !
@@ -241,6 +754,7 @@ type
     ## !< time of start in the timeline
     ## !< duration of animation excluding children
     ## !< duration of animation including children
+
 type
   AIS_AnimationCamera* {.importcpp: "AIS_AnimationCamera",
                         header: "AIS_AnimationCamera.hxx", bycopy.} = object of AIS_Animation ##
@@ -255,6 +769,7 @@ type
     ## !< view to setup camera
     ## !< starting camera position
     ## !< end camera position
+
 type
   AIS_AnimationObject* {.importcpp: "AIS_AnimationObject",
                         header: "AIS_AnimationObject.hxx", bycopy.} = object of AIS_Animation ##
@@ -345,18 +860,7 @@ type
     ## !< context where object is displayed
     ## !< presentation object to set location
     ## !< interpolation tool
-type
-  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
-## ! Selects Interactive Objects, which have the desired width or color.
-## ! The filter questions each Interactive Object in local
-## ! context to determine whether it has an non-null
-## ! owner, and if so, whether it has the required color
-## ! and width attributes. If the object returns true in each
-## ! case, it is kept. If not, it is rejected.
-## ! This filter is used only in an open local context.
-## ! In the Collector viewer, you can only locate
-## ! Interactive Objects, which answer positively to the
-## ! filters, which are in position when a local context is open.
+
 type
   AIS_AttributeFilter* {.importcpp: "AIS_AttributeFilter",
                         header: "AIS_AttributeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
@@ -383,6 +887,7 @@ type
                                                                                          ## a
                                                                                          ## non-null
                                                                                          ## owner.
+
 type
   AIS_Axis* {.importcpp: "AIS_Axis", header: "AIS_Axis.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                               ## !
@@ -390,9 +895,7 @@ type
                                                                                               ## the
                                                                                               ## line
                                                                                               ## aComponent
-type
-  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
-## ! A Class
+
 type
   AIS_BadEdgeFilter* {.importcpp: "AIS_BadEdgeFilter",
                       header: "AIS_BadEdgeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
@@ -405,10 +908,12 @@ type
                                                                                      ## for
                                                                                      ## bad
                                                                                      ## edges.
+
 type
   HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
   AIS_C0RegularityFilter* {.importcpp: "AIS_C0RegularityFilter",
                            header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgrFilter
+
 type
   AIS_CameraFrustum* {.importcpp: "AIS_CameraFrustum",
                       header: "AIS_CameraFrustum.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -451,6 +956,7 @@ type
                                    header: "AIS_CameraFrustum.hxx".} = enum
     SelectionModeEdges = 0,     ## !< detect by edges (default)
     SelectionModeVolume = 1     ## !< detect by volume
+
 type
   AIS_Circle* {.importcpp: "AIS_Circle", header: "AIS_Circle.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                     ## !
@@ -468,6 +974,7 @@ type
                                                                                                     ## the
                                                                                                     ## circle
                                                                                                     ## aCircle
+
 type
   AIS_ColoredDrawer* {.importcpp: "AIS_ColoredDrawer",
                       header: "AIS_ColoredDrawer.hxx", bycopy.} = object of Prs3dDrawer ##
@@ -486,6 +993,7 @@ type
     myHasOwnColor* {.importc: "myHasOwnColor".}: bool
     myHasOwnTransp* {.importc: "myHasOwnTransp".}: bool
     myHasOwnWidth* {.importc: "myHasOwnWidth".}: bool
+
 type
   AIS_ColoredShape* {.importcpp: "AIS_ColoredShape",
                      header: "AIS_ColoredShape.hxx", bycopy.} = object of AIS_Shape ## !
@@ -623,17 +1131,7 @@ type
                                                                              ## actually
                                                                              ## container for
                                                                              ## subshapes.
-type
-  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
-## ! Class for drawing a custom color scale.
-## !
-## ! The color scale consists of rectangular color bar (composed of fixed
-## ! number of color intervals), optional labels, and title.
-## ! The labels can be positioned either at the boundaries of the intervals,
-## ! or at the middle of each interval.
-## ! Colors and labels can be either defined automatically or set by the user.
-## ! Automatic labels are calculated from numerical limits of the scale,
-## ! its type (logarithmic or plain), and formatted by specified format string.
+
 type
   AIS_ColorScale* {.importcpp: "AIS_ColorScale", header: "AIS_ColorScale.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                                 ## !
@@ -737,6 +1235,7 @@ type
     ## !< height of the color scale
     ## !< extra spacing between element
     ## !< label font height
+
 type
   AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
                              header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -840,22 +1339,7 @@ type
                                                                                                          ## there's
                                                                                                          ## one
                                                                                                          ## stored.
-type
-  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
-## ! A framework to reject or to accept only objects of
-## ! given types and/or signatures.
-## ! Objects are stored, and the stored objects - along
-## ! with the flag settings - are used to define the filter.
-## ! Objects to be filtered are compared with the stored
-## ! objects added to the filter, and are accepted or
-## ! rejected according to the exclusion flag setting.
-## ! -   Exclusion flag on
-## ! -   the function IsOk answers true for all objects,
-## ! except those of the types and signatures stored
-## ! in the filter framework
-## ! -   Exclusion flag off
-## ! -   the funciton IsOk answers true for all objects
-## ! which have the same type and signature as the stored ones.
+
 type
   AIS_ExclusionFilter* {.importcpp: "AIS_ExclusionFilter",
                         header: "AIS_ExclusionFilter.hxx", bycopy.} = object of SelectMgrFilter ##
@@ -884,21 +1368,11 @@ type
                                                                                          ## set
                                                                                          ## to
                                                                                          ## true.
-type
-  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
-## ! Stores  information  about objects in graphic context:
-## ! - Status Of Display : in the main viewer
-## ! hidden in the main viewer
-## ! - Displayed Modes
-## ! - Active Selection Modes
-## ! - is the Interactive Object Current ?
-## ! - Layer Index
+
 type
   AIS_GlobalStatus* {.importcpp: "AIS_GlobalStatus",
                      header: "AIS_GlobalStatus.hxx", bycopy.} = object of StandardTransient
-type
-  AIS_GraphicTool* {.importcpp: "AIS_GraphicTool", header: "AIS_GraphicTool.hxx",
-                    bycopy.} = object
+
 type
   AIS_InteractiveContext* {.importcpp: "AIS_InteractiveContext",
                            header: "AIS_InteractiveContext.hxx", bycopy.} = object of StandardTransient ##
@@ -1786,6 +2260,7 @@ type
     ## !< context filter (the content active filters
     ## !  can be applied with AND or OR operation)
     ## !< picking strategy to be applied within MoveTo()
+
 type
   AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
                           header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject ##
@@ -1832,6 +2307,7 @@ type
                                                                                                        ## Display.
     ## !< pointer to Interactive Context, where object is currently displayed; @sa SetContext()
     ## !< application-specific owner object
+
 type
   AIS_Line* {.importcpp: "AIS_Line", header: "AIS_Line.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                               ## !
@@ -1839,71 +2315,12 @@ type
                                                                                               ## the
                                                                                               ## line
                                                                                               ## aLine.
+
 type
   AIS_ManipulatorObjectSequence* {.importcpp: "AIS_ManipulatorObjectSequence",
                                   header: "AIS_Manipulator.hxx", bycopy.} = object of NCollectionSequence[
       Handle[AIS_InteractiveObject]]
-type
-  HandleAIS_ManipulatorObjectSequence* = Handle[AIS_ManipulatorObjectSequence]
-  HandleAIS_ManipulatorObjectSequenceAIS_Manipulator* = Handle[AIS_Manipulator]
-## ! Interactive object class to manipulate local transformation of another interactive
-## ! object or a group of objects via mouse.
-## ! It manages three types of manipulations in 3D space:
-## ! - translation through axis
-## ! - scaling within axis
-## ! - rotation around axis
-## ! To enable one of this modes, selection mode (from 1 to 3) is to be activated.
-## ! There are three orthogonal transformation axes defined by position property of
-## ! the manipulator. Particular transformation mode can be disabled for each
-## ! of the axes or all of them. Furthermore each of the axes can be hidden or
-## ! made visible.
-## ! The following steps demonstrate how to attach, configure and use manipulator
-## ! for an interactive object:
-## ! Step 1. Create manipulator object and adjust it appearance:
-## ! @code
-## ! Handle(AIS_Manipulator) aManipulator = new AIS_Manipulator();
-## ! aManipulator->SetPart (0, AIS_Manipulator::Scaling, Standard_False);
-## ! aManipulator->SetPart (1, AIS_Manipulator::Rotation, Standard_False);
-## ! // Attach manipulator to already displayed object and manage manipulation modes
-## ! aManipulator->AttachToObject (anAISObject);
-## ! aManipulator->EnableMode (AIS_Manipulator::Translation);
-## ! aManipulator->EnableMode (AIS_Manipulator::Rotation);
-## ! aManipulator->EnableMode (AIS_Manipulator::Scaling);
-## ! @endcode
-## ! Note that you can enable only one manipulation mode but have all visual parts displayed.
-## ! This code allows you to view manipulator and select its manipulation parts.
-## ! Note that manipulator activates mode on part selection.
-## ! If this mode is activated, no selection will be performed for manipulator.
-## ! It can be activated with highlighting. To enable this:
-## ! @code
-## ! aManipulator->SetModeActivationOnDetection (Standard_True);
-## ! @endcode
-## ! Step 2. To perform transformation of object use next code in your event processing chain:
-## ! @code
-## ! // catch mouse button down event
-## ! if (aManipulator->HasActiveMode())
-## ! {
-## !   aManipulator->StartTransform (anXPix, anYPix, aV3dView);
-## ! }
-## ! ...
-## ! // or track mouse move event
-## ! if (aManipulator->HasActiveMode())
-## ! {
-## !   aManipulator->Transform (anXPix, anYPix, aV3dView);
-## !   aV3dView->Redraw();
-## ! }
-## ! ...
-## ! // or catch mouse button up event (apply) or escape event (cancel)
-## ! aManipulator->StopTransform(/*Standard_Boolean toApply*/);
-## ! @endcode
-## ! Step 3. To deactivate current manipulation mode use:
-## ! @code aManipulator->DeactivateCurrentMode();
-## ! @endcode
-## ! Step 4. To detach manipulator from object use:
-## ! @code
-## ! aManipulator->Detach();
-## ! @endcode
-## ! The last method erases manipulator object.
+
 type
   AIS_Manipulator* {.importcpp: "AIS_Manipulator", header: "AIS_Manipulator.hxx",
                     bycopy.} = object of AIS_InteractiveObject ## ! Constructs a manipulator object with default placement and all parts to be displayed.
@@ -1946,49 +2363,19 @@ type
     ## ! Previous value of angle during rotation.
     ## ! Aspect used to color current detected part and current selected part.
     ## ! Aspect used to color sector part when it's selected.
-type
-  AIS_ManipulatorOptionsForAttach* {.importcpp: "AIS_Manipulator::OptionsForAttach",
-                                    header: "AIS_Manipulator.hxx", bycopy.} = object
-    adjustPosition* {.importc: "AdjustPosition".}: bool
-    adjustSize* {.importc: "AdjustSize".}: bool
-    enableModes* {.importc: "EnableModes".}: bool
-type
-  AIS_ManipulatorBehaviorOnTransform* {.importcpp: "AIS_Manipulator::BehaviorOnTransform",
-                                       header: "AIS_Manipulator.hxx", bycopy.} = object
-    followTranslation* {.importc: "FollowTranslation".}: bool
-    followRotation* {.importc: "FollowRotation".}: bool
-    followDragging* {.importc: "FollowDragging".}: bool
-type
-  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
-## ! Entity owner for selection management of AIS_Manipulator object.
+
 type
   AIS_ManipulatorOwner* {.importcpp: "AIS_ManipulatorOwner",
                          header: "AIS_ManipulatorOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
     ## !< index of manipulator axis.
     ## !< manipulation (highlight) mode.
+
 type
   AIS_MediaPlayer* {.importcpp: "AIS_MediaPlayer", header: "AIS_MediaPlayer.hxx",
                     bycopy.} = object of AIS_InteractiveObject ## ! Empty constructor.
                                                           ## ! Accept only display mode 0.
                                                           ## ! Update frame size.
-type
-  AIS_MouseGesture* {.size: sizeof(cint), importcpp: "AIS_MouseGesture",
-                     header: "AIS_MouseGesture.hxx".} = enum
-    aIS_MouseGestureNONE,     ## !< no active gesture
-                         ##
-    aIS_MouseGestureSelectRectangle, ## !< rectangular selection;
-                                    ## !  press button to start, move mouse to define rectangle, release to finish
-    aIS_MouseGestureSelectLasso, ## !< polygonal selection;
-                                ## !  press button to start, move mouse to define polygonal path, release to finish
-                                ##
-    aIS_MouseGestureZoom,     ## !< view zoom gesture;
-                         ## !  move mouse left to zoom-out, and to the right to zoom-in
-    aIS_MouseGestureZoomWindow, ## !< view zoom by window gesture;
-                               ## !  press button to start, move mouse to define rectangle, release to finish
-    aIS_MouseGesturePan,      ## !< view panning gesture
-    aIS_MouseGestureRotateOrbit, ## !< orbit rotation gesture
-    aIS_MouseGestureRotateView ## !< view  rotation gesture
-## ! Map defining mouse gestures.
+
 type
   AIS_MultipleConnectedInteractive* {.importcpp: "AIS_MultipleConnectedInteractive", header: "AIS_MultipleConnectedInteractive.hxx",
                                      bycopy.} = object of AIS_InteractiveObject ## !
@@ -2053,12 +2440,7 @@ type
                                                                            ## selection for whole
                                                                            ## subtree in scene
                                                                            ## hierarchy.
-type
-  AIS_NavigationMode* {.size: sizeof(cint), importcpp: "AIS_NavigationMode",
-                       header: "AIS_NavigationMode.hxx".} = enum
-    aIS_NavigationModeOrbit,  ## !< orbit rotation
-    aIS_NavigationModeFirstPersonFlight, ## !< flight rotation (first person)
-    aIS_NavigationModeFirstPersonWalk ## !< walking mode (first person)
+
 type
   AIS_Plane* {.importcpp: "AIS_Plane", header: "AIS_Plane.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                  ## !
@@ -2083,6 +2465,7 @@ type
                                                                                                  ## is
                                                                                                  ## not
                                                                                                  ## initialized.
+
 type
   AIS_PlaneTrihedron* {.importcpp: "AIS_PlaneTrihedron",
                        header: "AIS_PlaneTrihedron.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -2103,6 +2486,7 @@ type
                                                                                              ## and
                                                                                              ## an
                                                                                              ## axis.
+
 type
   AIS_Point* {.importcpp: "AIS_Point", header: "AIS_Point.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                  ## !
@@ -2120,6 +2504,7 @@ type
                                                                                                  ## will
                                                                                                  ## be
                                                                                                  ## built.
+
 type
   AIS_PointCloud* {.importcpp: "AIS_PointCloud", header: "AIS_PointCloud.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                                 ## !
@@ -2193,16 +2578,7 @@ type
                               header: "AIS_PointCloud.hxx".} = enum
     DM_Points = 0,              ## !< display as normal points, default presentation
     DM_BndBox = 2
-type
-  AIS_PointCloudSelectionMode* {.size: sizeof(cint),
-                                importcpp: "AIS_PointCloud::SelectionMode",
-                                header: "AIS_PointCloud.hxx".} = enum
-    SM_Points = 0,              ## !< detected by points
-    SM_SubsetOfPoints = 1,      ## !< detect point(s) within Point Cloud rather than object as whole
-    SM_BndBox = 2               ## !< detected by bounding box
-type
-  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
-## ! Custom owner for highlighting selected points.
+
 type
   AIS_PointCloudOwner* {.importcpp: "AIS_PointCloudOwner",
                         header: "AIS_PointCloud.hxx", bycopy.} = object of SelectMgrEntityOwner ##
@@ -2211,22 +2587,7 @@ type
                                                                                          ## constructor.
     ## !< last detected points
     ## !< selected points
-type
-  AIS_RotationMode* {.size: sizeof(cint), importcpp: "AIS_RotationMode",
-                     header: "AIS_RotationMode.hxx".} = enum
-    aIS_RotationModeBndBoxActive, ## !< default OCCT rotation
-    aIS_RotationModePickLast, ## !< rotate around last picked point
-    aIS_RotationModePickCenter, ## !< rotate around point at the center of window
-    aIS_RotationModeCameraAt, ## !< rotate around camera center
-    aIS_RotationModeBndBoxScene ## !< rotate around scene center
-type
-  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
-## ! Presentation for drawing rubber band selection.
-## ! It supports rectangle and polygonal selection.
-## ! It is constructed in 2d overlay.
-## ! Default configaration is built without filling.
-## ! For rectangle selection use SetRectangle() method.
-## ! For polygonal selection use AddPoint() and GetPoints() methods.
+
 type
   AIS_RubberBand* {.importcpp: "AIS_RubberBand", header: "AIS_RubberBand.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                                 ## !
@@ -2263,6 +2624,7 @@ type
     ## !< Triangles for rubber band filling
     ## !< Polylines for rubber band borders
     ## !< automatic closing of rubber-band flag
+
 type
   AIS_Selection* {.importcpp: "AIS_Selection", header: "AIS_Selection.hxx", bycopy.} = object of StandardTransient ##
                                                                                                          ## !
@@ -2277,6 +2639,7 @@ type
                                                                                                          ## through
                                                                                                          ## selected
                                                                                                          ## objects.
+
 type
   AIS_Shape* {.importcpp: "AIS_Shape", header: "AIS_Shape.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                  ## !
@@ -2332,35 +2695,7 @@ type
     ## !< UV repeat vector for generating texture coordinates
     ## !< UV scale  vector for generating texture coordinates
     ## !< if TRUE, then bounding box should be recomputed
-type
-  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
-## ! Selects Interactive Objects through their signatures
-## ! and types. The signature provides an
-## ! additional   characterization of an object's type, and
-## ! takes the form of an index. The filter questions each
-## ! Interactive Object in local context to determine
-## ! whether it has an non-null owner, and if so, whether
-## ! it has the desired signature. If the object returns true
-## ! in each case, it is kept. If not, it is rejected.
-## ! By default, the   interactive object has a None   type
-## ! and a signature of 0. If you want to give a particular
-## ! type and signature to your Interactive Object, you
-## ! must redefine two virtual methods:   Type and Signature.
-## ! This filter is only used in an open local contexts.
-## ! In the Collector viewer, you can only locate
-## ! Interactive Objects which answer positively to the
-## ! positioned filters when a local context is open.
-## ! Warning
-## ! Some signatures have already been used by standard
-## ! objects delivered in AIS. These include:
-## ! -   signature 0 - Shape
-## ! -   signature 1 - Point
-## ! -   signature 2 - Axis
-## ! -   signature 3 - Trihedron
-## ! -   signature 4 - PlaneTrihedron
-## ! -   signature 5 - Line
-## ! -   signature 6 - Circle
-## ! -   signature 7 - Plane
+
 type
   AIS_SignatureFilter* {.importcpp: "AIS_SignatureFilter",
                         header: "AIS_SignatureFilter.hxx", bycopy.} = object of AIS_TypeFilter ##
@@ -2385,6 +2720,7 @@ type
                                                                                         ## aGivenKind,
                                                                                         ## in
                                                                                         ## AIS_TypeFilter.
+
 type
   AIS_TextLabel* {.importcpp: "AIS_TextLabel", header: "AIS_TextLabel.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                              ## !
@@ -2397,6 +2733,7 @@ type
                                                                                                              ## !
                                                                                                              ## CASCADE
                                                                                                              ## RTTI
+
 type
   AIS_TexturedShape* {.importcpp: "AIS_TexturedShape",
                       header: "AIS_TexturedShape.hxx", bycopy.} = object of AIS_Shape ## !
@@ -2514,12 +2851,7 @@ type
                                                                                ## texture
                                                                                ## mapping
                                                                                ## properties
-type
-  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
-## ! Interactive object that draws data from  Poly_Triangulation, optionally with colors associated
-## ! with each triangulation vertex. For maximum efficiency colors are represented as 32-bit integers
-## ! instead of classic Quantity_Color values.
-## ! Interactive selection of triangles and vertices is not yet implemented.
+
 type
   AIS_Triangulation* {.importcpp: "AIS_Triangulation",
                       header: "AIS_Triangulation.hxx", bycopy.} = object of AIS_InteractiveObject ##
@@ -2529,6 +2861,7 @@ type
                                                                                            ## Triangulation
                                                                                            ## display
                                                                                            ## object
+
 type
   AIS_Trihedron* {.importcpp: "AIS_Trihedron", header: "AIS_Trihedron.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                              ## !
@@ -2580,6 +2913,7 @@ type
                                                                                                              ## selection
                                                                                                              ## owner
                                                                                                              ## creation.
+
 type
   AIS_TrihedronOwner* {.importcpp: "AIS_TrihedronOwner",
                        header: "AIS_TrihedronOwner.hxx", bycopy.} = object of SelectMgrEntityOwner ##
@@ -2591,31 +2925,7 @@ type
                                                                                             ## AIS_Trihedron
                                                                                             ## object.
     ## !< part of datum selected
-type
-  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
-## ! Selects Interactive Objects through their types. The
-## ! filter questions each Interactive Object in local context
-## ! to determine whether it has an non-null owner, and if
-## ! so, whether it is of the desired type. If the object
-## ! returns true in each case, it is kept. If not, it is rejected.
-## ! By default, the   interactive object has a None   type
-## ! and a signature of 0. A filter for type specifies a
-## ! choice of type out of a range at any level enumerated
-## ! for type or kind. The choice could be for kind of
-## ! interactive object, of dimension, of unit, or type of axis,
-## ! plane or attribute.
-## ! If you want to give a particular type and signature to
-## ! your Interactive Object, you must redefine two virtual
-## ! methods:   Type and Signature.
-## ! This filter is used in both Neutral Point and open local contexts.
-## ! In the Collector viewer, you can only locate
-## ! Interactive Objects which answer positively to the
-## ! positioned filters when a local context is open.
-## ! Warning
-## ! When you close a local context, all temporary
-## ! interactive objects are deleted, all selection modes
-## ! concerning the context are cancelled, and all content
-## ! filters are emptied.
+
 type
   AIS_TypeFilter* {.importcpp: "AIS_TypeFilter", header: "AIS_TypeFilter.hxx", bycopy.} = object of SelectMgrFilter ##
                                                                                                           ## !
@@ -2624,143 +2934,7 @@ type
                                                                                                           ## for
                                                                                                           ## type,
                                                                                                           ## aGivenKind.
-type
-  AIS_ViewController* {.importcpp: "AIS_ViewController",
-                       header: "AIS_ViewController.hxx", bycopy.} = object ## ! Empty
-                                                                      ## constructor.
-                                                                      ## ! @name global parameters
-                                                                      ## ! Return camera rotation mode,
-                                                                      ## AIS_RotationMode_BndBoxActive by default.
-                                                                      ## ! @name keyboard input
-                                                                      ## ! Return keyboard state.
-                                                                      ## ! @name mouse input
-                                                                      ## ! Return map defining mouse gestures.
-                                                                      ## ! @name
-                                                                      ## multi-touch input
-                                                                      ## ! Return scale factor for adjusting tolerances for starting
-                                                                      ## multi-touch gestures; 1.0 by default
-                                                                      ## ! This scale factor is expected to be computed from touch screen
-                                                                      ## resolution.
-                                                                      ## ! @name 3d mouse input
-                                                                      ## ! Return
-                                                                      ## acceleration ratio for
-                                                                      ## translation event; 2.0 by default.
-                                                                      ## ! Return event time (e.g. current time).
-                                                                      ## ! Callback called by
-                                                                      ## handleMoveTo() on Selection in 3D Viewer.
-                                                                      ## ! This method is expected to be called from rendering thread.
-                                                                      ## ! Handle hot-keys defining new camera
-                                                                      ## orientation
-                                                                      ## (Aspect_VKey_ViewTop and similar keys).
-                                                                      ## ! Default
-                                                                      ## implementation starts an animated
-                                                                      ## transaction from the current to the target camera
-                                                                      ## orientation, when specific action key was pressed.
-                                                                      ## ! This method is expected to be called from rendering thread.
-                                                                      ## ! Perform XR input.
-                                                                      ## ! This method is expected to be called from rendering thread.
-                                                                      ## ! Flush buffers.
-                                                                      ## ! @name XR input variables
-                                                                      ## ! @name keyboard input variables
-                                                                      ## ! @name mouse input variables
-                                                                      ## ! @name
-                                                                      ## multi-touch input variables
-                                                                      ## ! @name 3d mouse input variables
-                                                                      ## ! @name
-                                                                      ## rotation/panning transient state variables
-    ## !< buffer for UI thread
-    ## !< buffer for rendering thread
-    ## !< timer for timestamping events
-    ## !< last fetched events timer value for computing delta/progress
-    ## !< flag indicating that another frame should be drawn right after this one
-    ## !< minimal camera distance for zoom operation
-    ## !< rotation mode
-    ## !< navigation mode (orbit rotation / first person)
-    ## !< mouse input acceleration ratio in First Person mode
-    ## !< Orbit rotation acceleration ratio
-    ## !< option displaying panning  anchor point
-    ## !< option displaying rotation center point
-    ## !< force camera up orientation within AIS_NavigationMode_Orbit rotation mode
-    ## !< flag inverting pitch direction while processing Aspect_VKey_NavLookUp/Aspect_VKey_NavLookDown
-    ## !< enable z-rotation two-touches gesture; FALSE by default
-    ## !< enable rotation; TRUE by default
-    ## !< enable panning; TRUE by default
-    ## !< enable zooming; TRUE by default
-    ## !< enable ZFocus change; TRUE by default
-    ## !< enable dynamic highlight on mouse move; TRUE by default
-    ## !< enable dragging object; TRUE by default
-    ## !< project picked point to ray while zooming at point, TRUE by default
-    ## !< project picked point to ray while rotating around point; TRUE by default
-    ## !< normal walking speed, in m/s; 1.5 by default
-    ## !< walking speed relative to scene bounding box; 0.1 by default
-    ## !< active thrust value
-    ## !< flag indicating active thrust
-    ## !< view animation
-    ## !< Rubber-band presentation
-    ## !< detected owner of currently dragged object
-    ## !< currently dragged object
-    ## !< previous position of MoveTo event in 3D viewer
-    ## !< flag for restoring Computed mode after rotation
-    ## !< array of XR tracked devices presentations
-    ## !< temporary camera
-    ## !< color of teleport laser
-    ## !< color of picking  laser
-    ## !< active hand for teleport
-    ## !< active hand for picking objects
-    ## !< vibration on picking teleport destination
-    ## !< vibration on dynamic highlighting
-    ## !< vibration on selection
-    ## !< last picking depth for left  hand
-    ## !< last picking depth for right hand
-    ## !< discrete turn angle for XR trackpad
-    ## !< flag to display auxiliary tracked XR devices
-    ## !< flag to display XR hands
-    ## !< keyboard state
-    ## !< mouse click threshold in pixels; 3 by default
-    ## !< double click interval in seconds; 0.4 by default
-    ## !< distance ratio for mapping mouse scroll event to zoom; 15.0 by default
-    ## !< map defining mouse gestures
-    ## !< initiated mouse gesture (by pressing mouse button)
-    ## !< flag indicating view idle rotation state
-    ## !< last mouse position
-    ## !< mouse position where active gesture was been initiated
-    ## !< gesture progress
-    ## !< timer for handling double-click event
-    ## !< counter for handling double-click event
-    ## !< active mouse buttons
-    ## !< active key modifiers passed with last mouse event
-    ## !< index of mouse button pressed alone (>0)
-    ## !< queue stop dragging even with at next mouse unclick
-    ## !< tolerance scale factor; 1.0 by default
-    ## !< threshold for starting one-touch rotation     gesture in pixels;  6 by default
-    ## !< threshold for starting two-touch Z-rotation   gesture in radians; 2 degrees by default
-    ## !< threshold for starting two-touch panning      gesture in pixels;  4 by default
-    ## !< threshold for starting two-touch zoom (pitch) gesture in pixels;  6 by default
-    ## !< distance ratio for mapping two-touch zoom (pitch) gesture from pixels to zoom; 0.13 by default
-    ## !< map of active touches
-    ## !< touch coordinates at the moment of starting panning  gesture
-    ## !< touch coordinates at the moment of starting rotating gesture
-    ## !< number of touches within previous gesture flush to track gesture changes
-    ## !< flag indicating that new anchor  point should be picked for starting panning    gesture
-    ## !< flag indicating that new gravity point should be picked for starting rotation   gesture
-    ## !< flag indicating that new gravity point should be picked for starting Z-rotation gesture
-    ## !< cached button state
-    ## !< ignore  3d mouse rotation axes
-    ## !< reverse 3d mouse rotation axes
-    ## !< acceleration ratio for translation event
-    ## !< acceleration ratio for rotation event
-    ## !< quadric acceleration
-    ## !< anchor point presentation (Graphic3d_ZLayerId_Top)
-    ## !< anchor point presentation (Graphic3d_ZLayerId_Topmost)
-    ## !< active panning anchor point
-    ## !< active rotation center of gravity
-    ## !< camera Up    direction at the beginning of rotation
-    ## !< camera View  direction at the beginning of rotation
-    ## !< camera Eye    position at the beginning of rotation
-    ## !< camera Center position at the beginning of rotation
-    ## !< vector from rotation gravity point to camera Center at the beginning of rotation
-    ## !< vector from rotation gravity point to camera Eye    at the beginning of rotation
-    ## !< camera yaw pitch roll at the beginning of rotation
+
 type
   AIS_ViewCube* {.importcpp: "AIS_ViewCube", header: "AIS_ViewCube.hxx", bycopy.} = object of AIS_InteractiveObject ##
                                                                                                           ## !
@@ -3094,106 +3268,12 @@ type
     ## !< fixed-loop animation
     ## !< fit selected or fit entire scene
     ## !< always reset camera up direction to default
+
 type
   AIS_ViewCubeOwner* {.importcpp: "AIS_ViewCubeOwner", header: "AIS_ViewCube.hxx",
                       bycopy.} = object of SelectMgrEntityOwner ## ! Main constructor.
     ## !< new orientation to set
-type
-  AIS_ViewSelectionTool* {.size: sizeof(cint), importcpp: "AIS_ViewSelectionTool",
-                          header: "AIS_ViewInputBuffer.hxx".} = enum
-    AIS_ViewSelectionToolPicking, ## !< pick to select
-    AIS_ViewSelectionToolRubberBand, ## !< rubber-band to select
-    AIS_ViewSelectionToolPolygon, ## !< polyline to select
-    AIS_ViewSelectionToolZoomWindow ## !< zoom-in window (no selection)
-## ! Input buffer type.
-type
-  AIS_ViewInputBufferType* {.size: sizeof(cint),
-                            importcpp: "AIS_ViewInputBufferType",
-                            header: "AIS_ViewInputBuffer.hxx".} = enum
-    AIS_ViewInputBufferTypeUI, ## !< input buffer for filling from UI thread
-    AIS_ViewInputBufferTypeGL ## !< input buffer accessible  from GL thread
-## ! Auxiliary structure defining viewer events
-type
-  AIS_ViewInputBuffer* {.importcpp: "AIS_ViewInputBuffer",
-                        header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    isNewGesture* {.importc: "IsNewGesture".}: bool ## !< transition from one action to another
-    zoomActions* {.importc: "ZoomActions".}: NCollectionSequence[AspectScrollDelta] ## !< the queue with zoom actions
-  AIS_ViewInputBufferOrientation* {.importcpp: "AIS_ViewInputBuffer::_orientation",
-                                   header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toFitAll* {.importc: "ToFitAll".}: bool ## !< perform FitAll operation
-    toSetViewOrient* {.importc: "ToSetViewOrient".}: bool ## !< set new view orientation
-    viewOrient* {.importc: "ViewOrient".}: V3dTypeOfOrientation ## !< new view orientation
-type
-  AIS_ViewInputBufferHighlighting* {.importcpp: "AIS_ViewInputBuffer::_highlighting",
-                                    header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toHilight* {.importc: "ToHilight".}: bool ## !< perform dynamic highlighting at specified point
-    point* {.importc: "Point".}: Graphic3dVec2i ## !< the new point for dynamic highlighting
-type
-  AIS_ViewInputBufferSelection* {.importcpp: "AIS_ViewInputBuffer::_selection",
-                                 header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    tool* {.importc: "Tool".}: AIS_ViewSelectionTool ## !< perform selection
-    isXOR* {.importc: "IsXOR".}: bool ## !< perform shift selection
-    points* {.importc: "Points".}: NCollectionSequence[Graphic3dVec2i] ## !< the points for selection
-    toApplyTool* {.importc: "ToApplyTool".}: bool ## !< apply rubber-band selection tool
-type
-  AIS_ViewInputBufferPanningParams* {.importcpp: "AIS_ViewInputBuffer::_panningParams",
-                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toStart* {.importc: "ToStart".}: bool ## !< start panning
-    pointStart* {.importc: "PointStart".}: Graphic3dVec2i ## !< panning start point
-    toPan* {.importc: "ToPan".}: bool ## !< perform panning
-    delta* {.importc: "Delta".}: Graphic3dVec2i ## !< panning delta
-type
-  AIS_ViewInputBufferDraggingParams* {.importcpp: "AIS_ViewInputBuffer::_draggingParams",
-                                      header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toStart* {.importc: "ToStart".}: bool ## !< start dragging
-    toStop* {.importc: "ToStop".}: bool ## !< stop  dragging
-    toAbort* {.importc: "ToAbort".}: bool ## !< abort dragging (restore previous position)
-    pointStart* {.importc: "PointStart".}: Graphic3dVec2i ## !< drag start point
-    pointTo* {.importc: "PointTo".}: Graphic3dVec2i ## !< drag end point
-type
-  AIS_ViewInputBufferOrbitRotation* {.importcpp: "AIS_ViewInputBuffer::_orbitRotation",
-                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toStart* {.importc: "ToStart".}: bool ## !< start orbit rotation
-    pointStart* {.importc: "PointStart".}: Graphic3dVec2d ## !< orbit rotation start point
-    toRotate* {.importc: "ToRotate".}: bool ## !< perform orbit rotation
-    pointTo* {.importc: "PointTo".}: Graphic3dVec2d ## !< orbit rotation end point
-type
-  AIS_ViewInputBufferViewRotation* {.importcpp: "AIS_ViewInputBuffer::_viewRotation",
-                                    header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    toStart* {.importc: "ToStart".}: bool ## !< start view rotation
-    pointStart* {.importc: "PointStart".}: Graphic3dVec2d ## !< view rotation start point
-    toRotate* {.importc: "ToRotate".}: bool ## !< perform view rotation
-    pointTo* {.importc: "PointTo".}: Graphic3dVec2d ## !< view rotation end point
-type
-  AIS_ViewInputBufferZrotateParams* {.importcpp: "AIS_ViewInputBuffer::_zrotateParams",
-                                     header: "AIS_ViewInputBuffer.hxx", bycopy.} = object
-    point* {.importc: "Point".}: Graphic3dVec2i ## !< Z rotation start point
-    angle* {.importc: "Angle".}: cdouble ## !< Z rotation angle
-    toRotate* {.importc: "ToRotate".}: bool ## !< start Z rotation
-type
-  AIS_WalkTranslation* {.size: sizeof(cint), importcpp: "AIS_WalkTranslation",
-                        header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkTranslationForward = 0, ## !< translation delta, Forward walk
-    AIS_WalkTranslationSide,  ## !< translation delta, Side walk
-    AIS_WalkTranslationUp     ## !< translation delta, Up walk
-## ! Walking rotation components.
-type
-  AIS_WalkRotation* {.size: sizeof(cint), importcpp: "AIS_WalkRotation",
-                     header: "AIS_WalkDelta.hxx".} = enum
-    AIS_WalkRotationYaw = 0,    ## !< yaw   rotation angle
-    AIS_WalkRotationPitch,    ## !< pitch rotation angle
-    AIS_WalkRotationRoll      ## !< roll  rotation angle
-## ! Walking value.
-type
-  AIS_WalkPart* {.importcpp: "AIS_WalkPart", header: "AIS_WalkDelta.hxx", bycopy.} = object
-    value* {.importc: "Value".}: cfloat ## !< value
-    pressure* {.importc: "Pressure".}: cfloat ## !< key pressure
-    duration* {.importc: "Duration".}: cfloat ## !< duration
-                                          ## ! Return TRUE if delta is empty.
-type
-  AIS_WalkDelta* {.importcpp: "AIS_WalkDelta", header: "AIS_WalkDelta.hxx", bycopy.} = object ##
-                                                                                      ## !
-                                                                                      ## Empty
+
                                                                                       ## constructor.
 type
   AIS_XRTrackedDevice* {.importcpp: "AIS_XRTrackedDevice",
@@ -3212,3 +3292,5 @@ type
                                                                                                ## !
                                                                                                ## Texture
                                                                                                ## holder.
+
+

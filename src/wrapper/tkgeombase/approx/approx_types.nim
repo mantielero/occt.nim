@@ -1,5 +1,9 @@
+# PROVIDES: ApproxCurve2d ApproxCurve3d ApproxCurveOnSurface ApproxCurvilinearParameter HandleApproxCurvlinFunc ApproxFitAndDivide ApproxFitAndDivide2d ApproxMCurvesToBSpCurve ApproxSameParameter ApproxSweepApproximation HandleApproxSweepFunction ApproxIntKnotTools ApproxIntSvSurfaces
+# DEPENDS: StandardTransient ApproxArray1OfAdHSurface ApproxArray1OfGTrsf2d StandardTransient
+
 type
   ApproxCurve2d* {.importcpp: "Approx_Curve2d", header: "Approx_Curve2d.hxx", bycopy.} = object
+
 type
   ApproxCurve3d* {.importcpp: "Approx_Curve3d", header: "Approx_Curve3d.hxx", bycopy.} = object ##
                                                                                         ## !
@@ -16,6 +20,7 @@ type
                                                                                         ## requiered
                                                                                         ## tolerance
                                                                                         ## Tol3D.
+
 type
   ApproxCurveOnSurface* {.importcpp: "Approx_CurveOnSurface",
                          header: "Approx_CurveOnSurface.hxx", bycopy.} = object ## ! This
@@ -68,6 +73,7 @@ type
     ## ! First parameter of the result.
     ## ! Last parameter of the result.
     ## ! Tolerance.
+
 type
   ApproxCurvilinearParameter* {.importcpp: "Approx_CurvilinearParameter",
                                header: "Approx_CurvilinearParameter.hxx", bycopy.} = object ##
@@ -78,13 +84,12 @@ type
                                                                                        ## free
                                                                                        ## 3D
                                                                                        ## curve
+
 type
   HandleApproxCurvlinFunc* = Handle[ApproxCurvlinFunc]
 ## ! defines an abstract curve with
 ## ! curvilinear parametrization
-type
-  ApproxCurvlinFunc* {.importcpp: "Approx_CurvlinFunc",
-                      header: "Approx_CurvlinFunc.hxx", bycopy.} = object of StandardTransient
+
 type
   ApproxFitAndDivide* {.importcpp: "Approx_FitAndDivide",
                        header: "Approx_FitAndDivide.hxx", bycopy.} = object ## ! The MultiLine <Line> will be
@@ -98,6 +103,7 @@ type
                                                                        ## ! is
                                                                        ## internally used by the
                                                                        ## algorithms.
+
 type
   ApproxFitAndDivide2d* {.importcpp: "Approx_FitAndDivide2d",
                          header: "Approx_FitAndDivide2d.hxx", bycopy.} = object ## ! The
@@ -118,15 +124,11 @@ type
                                                                            ## ! is
                                                                            ## internally used by the
                                                                            ## algorithms.
-type
-  ApproxHArray1OfAdHSurface* {.importcpp: "Approx_HArray1OfAdHSurface",
-                              header: "Approx_HArray1OfAdHSurface.hxx", bycopy.} = object of ApproxArray1OfAdHSurface
-type
-  ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
-                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+
 type
   ApproxMCurvesToBSpCurve* {.importcpp: "Approx_MCurvesToBSpCurve",
                             header: "Approx_MCurvesToBSpCurve.hxx", bycopy.} = object
+
 type
   ApproxSameParameter* {.importcpp: "Approx_SameParameter",
                         header: "Approx_SameParameter.hxx", bycopy.} = object ## !
@@ -143,24 +145,16 @@ type
                                                                          ## intermediate
                                                                          ## computations.
     ##  Initialization is allowed only for integral types.
+
 type
   ApproxSweepApproximation* {.importcpp: "Approx_SweepApproximation",
                              header: "Approx_SweepApproximation.hxx", bycopy.} = object
+
 type
   HandleApproxSweepFunction* = Handle[ApproxSweepFunction]
 ## ! defined the function used by SweepApproximation to
 ## ! perform sweeping application.
-type
-  ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
-                        header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient ##
-                                                                                            ## !
-                                                                                            ## compute
-                                                                                            ## the
-                                                                                            ## section
-                                                                                            ## for
-                                                                                            ## v
-                                                                                            ## =
-                                                                                            ## param
+
 type
   ApproxIntKnotTools* {.importcpp: "ApproxInt_KnotTools",
                        header: "ApproxInt_KnotTools.hxx", bycopy.} = object ## ! Main function to build optimal knot sequence.
@@ -198,8 +192,36 @@ type
                                                                        ## !
                                                                        ## ! IV: Put
                                                                        ## additional knots near extrema points.
+
+                                                                       ## additional knots near extrema points.
 type
   ApproxIntSvSurfaces* {.importcpp: "ApproxInt_SvSurfaces",
                         header: "ApproxInt_SvSurfaces.hxx", bycopy.} = object ## ! returns True if
                                                                          ## Tg,Tguv1 Tguv2 can be
                                                                          ## computed.
+
+
+type
+  ApproxCurvlinFunc* {.importcpp: "Approx_CurvlinFunc",
+                      header: "Approx_CurvlinFunc.hxx", bycopy.} = object of StandardTransient
+
+type
+  ApproxHArray1OfAdHSurface* {.importcpp: "Approx_HArray1OfAdHSurface",
+                              header: "Approx_HArray1OfAdHSurface.hxx", bycopy.} = object of ApproxArray1OfAdHSurface
+
+type
+  ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
+                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+
+type
+  ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
+                        header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient ##
+                                                                                            ## !
+                                                                                            ## compute
+                                                                                            ## the
+                                                                                            ## section
+                                                                                            ## for
+                                                                                            ## v
+                                                                                            ## =
+                                                                                            ## param
+

@@ -1,3 +1,6 @@
+# PROVIDES: Law HandleLawBSpFunc HandleLawBSpline LawBSplineKnotSplitting HandleLawComposite HandleLawConstant HandleLawFunction HandleLawInterpol LawInterpolate HandleLawLinear HandleLawS
+# DEPENDS: LawFunction StandardTransient LawFunction LawFunction StandardTransient LawBSpFunc LawFunction LawBSpFunc
+
 type
   Law* {.importcpp: "Law", header: "Law.hxx", bycopy.} = object ## ! This algorithm searches the knot values corresponding to the
                                                         ## ! splitting of a given B-spline law into  several arcs with
@@ -5,14 +8,14 @@ type
                                                         ## ! construction time.
                                                         ## ! Builds a 1d bspline that   is near from Lin with  null
                                                         ## ! derivatives at the extremities.
+
 type
   HandleLawBSpFunc* = Handle[LawBSpFunc]
 ## ! Law Function based on a BSpline curve 1d.  Package
 ## ! methods and classes are implemented in package Law
 ## ! to    construct  the  basis    curve with  several
 ## ! constraints.
-type
-  LawBSpFunc* {.importcpp: "Law_BSpFunc", header: "Law_BSpFunc.hxx", bycopy.} = object of LawFunction
+
 type
   HandleLawBSpline* = Handle[LawBSpline]
 ## ! Definition of the 1D B_spline curve.
@@ -67,6 +70,92 @@ type
 ## ! . Modelisation des surfaces en CAO, Henri GIAUME Peugeot SA
 ## ! . Curves and Surfaces for Computer Aided Geometric Design,
 ## ! a practical guide Gerald Farin
+
+type
+  LawBSplineKnotSplitting* {.importcpp: "Law_BSplineKnotSplitting",
+                            header: "Law_BSplineKnotSplitting.hxx", bycopy.} = object ##
+                                                                                 ## !
+                                                                                 ## Locates
+                                                                                 ## the
+                                                                                 ## knot
+                                                                                 ## values
+                                                                                 ## which
+                                                                                 ## correspond
+                                                                                 ## to
+                                                                                 ## the
+                                                                                 ## segmentation
+                                                                                 ## of
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## the
+                                                                                 ## curve
+                                                                                 ## into
+                                                                                 ## arcs
+                                                                                 ## with
+                                                                                 ## a
+                                                                                 ## continuity
+                                                                                 ## equal
+                                                                                 ## to
+                                                                                 ## ContinuityRange.
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ##
+                                                                                 ## !
+                                                                                 ## Raised
+                                                                                 ## if
+                                                                                 ## ContinuityRange
+                                                                                 ## is
+                                                                                 ## not
+                                                                                 ## greater
+                                                                                 ## or
+                                                                                 ## equal
+                                                                                 ## zero.
+
+type
+  HandleLawComposite* = Handle[LawComposite]
+## ! Loi  composite constituee  d une liste  de lois de
+## ! ranges consecutifs.
+## ! Cette implementation un peu lourde permet de reunir
+## ! en une seule loi des portions de loi construites de
+## ! facon independantes (par exemple en interactif) et
+## ! de lancer le walking d un coup a l echelle d une
+## ! ElSpine.
+## ! CET OBJET REPOND DONC A UN PROBLEME D IMPLEMENTATION
+## ! SPECIFIQUE AUX CONGES!!!
+
+type
+  HandleLawConstant* = Handle[LawConstant]
+## ! Loi constante
+
+type
+  HandleLawFunction* = Handle[LawFunction]
+## ! Root class for evolution laws.
+
+type
+  HandleLawInterpol* = Handle[LawInterpol]
+## ! Provides an evolution law that interpolates a set
+## ! of parameter and value pairs (wi, radi)
+
+type
+  LawInterpolate* {.importcpp: "Law_Interpolate", header: "Law_Interpolate.hxx",
+                   bycopy.} = object ## ! Tolerance is to check if  the points are not too close
+                                  ## ! to one an  other.  It is  also  used to check   if the
+                                  ## ! tangent vector  is not too small.   There should be at
+                                  ## ! least 2 points. If PeriodicFlag is True then the curve
+                                  ## ! will be periodic be periodic
+                                  ## ! Interpolates in a non periodic fashion.
+
+type
+  HandleLawLinear* = Handle[LawLinear]
+## ! Describes an linear evolution law.
+
+type
+  HandleLawS* = Handle[LawS]
+## ! Describes an "S" evolution law.
+
+type
+  LawBSpFunc* {.importcpp: "Law_BSpFunc", header: "Law_BSpFunc.hxx", bycopy.} = object of LawFunction
+
 type
   LawBSpline* {.importcpp: "Law_BSpline", header: "Law_BSpline.hxx", bycopy.} = object of StandardTransient ##
                                                                                                   ## !
@@ -126,56 +215,7 @@ type
                                                                                                   ## will
                                                                                                   ## be
                                                                                                   ## false
-type
-  LawBSplineKnotSplitting* {.importcpp: "Law_BSplineKnotSplitting",
-                            header: "Law_BSplineKnotSplitting.hxx", bycopy.} = object ##
-                                                                                 ## !
-                                                                                 ## Locates
-                                                                                 ## the
-                                                                                 ## knot
-                                                                                 ## values
-                                                                                 ## which
-                                                                                 ## correspond
-                                                                                 ## to
-                                                                                 ## the
-                                                                                 ## segmentation
-                                                                                 ## of
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## the
-                                                                                 ## curve
-                                                                                 ## into
-                                                                                 ## arcs
-                                                                                 ## with
-                                                                                 ## a
-                                                                                 ## continuity
-                                                                                 ## equal
-                                                                                 ## to
-                                                                                 ## ContinuityRange.
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ##
-                                                                                 ## !
-                                                                                 ## Raised
-                                                                                 ## if
-                                                                                 ## ContinuityRange
-                                                                                 ## is
-                                                                                 ## not
-                                                                                 ## greater
-                                                                                 ## or
-                                                                                 ## equal
-                                                                                 ## zero.
-type
-  HandleLawComposite* = Handle[LawComposite]
-## ! Loi  composite constituee  d une liste  de lois de
-## ! ranges consecutifs.
-## ! Cette implementation un peu lourde permet de reunir
-## ! en une seule loi des portions de loi construites de
-## ! facon independantes (par exemple en interactif) et
-## ! de lancer le walking d un coup a l echelle d une
-## ! ElSpine.
-## ! CET OBJET REPOND DONC A UN PROBLEME D IMPLEMENTATION
-## ! SPECIFIQUE AUX CONGES!!!
+
 type
   LawComposite* {.importcpp: "Law_Composite", header: "Law_Composite.hxx", bycopy.} = object of LawFunction ##
                                                                                                   ## !
@@ -189,20 +229,13 @@ type
                                                                                                   ## the
                                                                                                   ## current
                                                                                                   ## function.
-type
-  HandleLawConstant* = Handle[LawConstant]
-## ! Loi constante
+
 type
   LawConstant* {.importcpp: "Law_Constant", header: "Law_Constant.hxx", bycopy.} = object of LawFunction
-type
-  HandleLawFunction* = Handle[LawFunction]
-## ! Root class for evolution laws.
+
 type
   LawFunction* {.importcpp: "Law_Function", header: "Law_Function.hxx", bycopy.} = object of StandardTransient
-type
-  HandleLawInterpol* = Handle[LawInterpol]
-## ! Provides an evolution law that interpolates a set
-## ! of parameter and value pairs (wi, radi)
+
 type
   LawInterpol* {.importcpp: "Law_Interpol", header: "Law_Interpol.hxx", bycopy.} = object of LawBSpFunc ##
                                                                                               ## !
@@ -223,17 +256,7 @@ type
                                                                                               ## define
                                                                                               ## the
                                                                                               ## law.
-type
-  LawInterpolate* {.importcpp: "Law_Interpolate", header: "Law_Interpolate.hxx",
-                   bycopy.} = object ## ! Tolerance is to check if  the points are not too close
-                                  ## ! to one an  other.  It is  also  used to check   if the
-                                  ## ! tangent vector  is not too small.   There should be at
-                                  ## ! least 2 points. If PeriodicFlag is True then the curve
-                                  ## ! will be periodic be periodic
-                                  ## ! Interpolates in a non periodic fashion.
-type
-  HandleLawLinear* = Handle[LawLinear]
-## ! Describes an linear evolution law.
+
 type
   LawLinear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of LawFunction ##
                                                                                          ## !
@@ -243,10 +266,11 @@ type
                                                                                          ## linear
                                                                                          ## evolution
                                                                                          ## law.
-type
-  HandleLawS* = Handle[LawS]
+
 ## ! Describes an "S" evolution law.
 type
   LawS* {.importcpp: "Law_S", header: "Law_S.hxx", bycopy.} = object of LawBSpFunc ## !
                                                                          ## Constructs an empty "S"
                                                                          ## evolution law.
+
+

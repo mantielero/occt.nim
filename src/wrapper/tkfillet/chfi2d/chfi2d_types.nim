@@ -1,3 +1,6 @@
+# PROVIDES: ChFi2dAnaFilletAlgo ChFi2dBuilder ChFi2dChamferAPI ChFi2dFilletAlgo FilletPoint ChFi2dFilletAPI
+# DEPENDS:
+
 type
   ChFi2dAnaFilletAlgo* {.importcpp: "ChFi2d_AnaFilletAlgo",
                         header: "ChFi2d_AnaFilletAlgo.hxx", bycopy.} = object ## ! An empty
@@ -18,6 +21,7 @@ type
     ##  Left neighbour.
     ##  Right neighbour.
     ##  Fillet (result).
+
 type
   ChFi2dBuilder* {.importcpp: "ChFi2d_Builder", header: "ChFi2d_Builder.hxx", bycopy.} = object ##
                                                                                         ## !
@@ -45,9 +49,11 @@ type
                                                                                         ## equal
                                                                                         ## to
                                                                                         ## <IsDone>
+
 type
   ChFi2dChamferAPI* {.importcpp: "ChFi2d_ChamferAPI",
                      header: "ChFi2d_ChamferAPI.hxx", bycopy.} = object ## ! An empty constructor.
+
 type
   ChFi2dFilletAlgo* {.importcpp: "ChFi2d_FilletAlgo",
                      header: "ChFi2d_FilletAlgo.hxx", bycopy.} = object ## ! An empty constructor of the fillet algorithm.
@@ -64,6 +70,7 @@ type
     ## ! are initial edges where exchanged in the beginning: to make first edge
     ## ! more simple and minimize number of iterations
     ## ! Number to avoid infinity recursion: indicates how deep the recursion is performed.
+
 type
   FilletPoint* {.importcpp: "FilletPoint", header: "ChFi2d_FilletAlgo.hxx", bycopy.} = object ##
                                                                                       ## !
@@ -95,6 +102,8 @@ type
     ## ! Center of the fillet arc.
     ## ! Flags for storage the validity of solutions. Indexes corresponds to indexes
     ## ! in sequences myV, myD.
+
+    ## ! in sequences myV, myD.
 type
   ChFi2dFilletAPI* {.importcpp: "ChFi2d_FilletAPI", header: "ChFi2d_FilletAPI.hxx",
                     bycopy.} = object ## ! An empty constructor of the fillet algorithm.
@@ -104,3 +113,5 @@ type
                                    ##  for calculation of the fillets, or an iteration-recursive method is needed.
                                    ##  The analytical solution is applicable for linear and circular edges
                                    ##  having a common point.
+
+

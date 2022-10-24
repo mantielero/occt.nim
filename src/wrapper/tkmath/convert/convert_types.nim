@@ -1,21 +1,6 @@
-type
-  ConvertCircleToBSplineCurve* {.importcpp: "Convert_CircleToBSplineCurve",
-                                header: "Convert_CircleToBSplineCurve.hxx", bycopy.} = object of ConvertConicToBSplineCurve ##
-                                                                                                                     ## !
-                                                                                                                     ## The
-                                                                                                                     ## equivalent
-                                                                                                                     ## B-spline
-                                                                                                                     ## curve
-                                                                                                                     ## has
-                                                                                                                     ## the
-                                                                                                                     ## same
-                                                                                                                     ## orientation
-                                                                                                                     ##
-                                                                                                                     ## !
-                                                                                                                     ## as
-                                                                                                                     ## the
-                                                                                                                     ## circle
-                                                                                                                     ## C.
+# PROVIDES: ConvertCompBezierCurves2dToBSplineCurve2d ConvertCompBezierCurvesToBSplineCurve ConvertCompPolynomialToPoles ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertGridPolynomialToPoles ConvertCircleToBSplineCurve ConvertConeToBSplineSurface ConvertCylinderToBSplineSurface ConvertEllipseToBSplineCurve ConvertHyperbolaToBSplineCurve ConvertParabolaToBSplineCurve ConvertSphereToBSplineSurface ConvertTorusToBSplineSurface
+# DEPENDS:
+
 type
   ConvertCompBezierCurves2dToBSplineCurve2d* {.
       importcpp: "Convert_CompBezierCurves2dToBSplineCurve2d",
@@ -113,6 +98,7 @@ type
                                                                              ## construct the
                                                                              ## BSpline
                                                                              ## curve.
+
 type
   ConvertCompBezierCurvesToBSplineCurve* {.
       importcpp: "Convert_CompBezierCurvesToBSplineCurve",
@@ -161,6 +147,7 @@ type
                                                                          ## !
                                                                          ## computed data. This data may be used to
                                                                          ## construct the BSpline curve.
+
 type
   ConvertCompPolynomialToPoles* {.importcpp: "Convert_CompPolynomialToPoles",
                                  header: "Convert_CompPolynomialToPoles.hxx",
@@ -188,6 +175,64 @@ type
                                                 ## ! Coefficients[2] = {1, 2};
                                                 ## ! PolynomialIntervals[1,2] = {{2,5}}
                                                 ## ! TrueIntervals[2] = {-1, 1}
+
+type
+  ConvertConicToBSplineCurve* {.importcpp: "Convert_ConicToBSplineCurve",
+                               header: "Convert_ConicToBSplineCurve.hxx", bycopy.} = object of RootObj ##
+                                                                                       ## !
+                                                                                       ## Returns
+                                                                                       ## the
+                                                                                       ## degree
+                                                                                       ## of
+                                                                                       ## the
+                                                                                       ## BSpline
+                                                                                       ## curve
+                                                                                       ## whose
+                                                                                       ## data
+                                                                                       ## is
+                                                                                       ##
+                                                                                       ## !
+                                                                                       ## computed
+                                                                                       ## in
+                                                                                       ## this
+                                                                                       ## framework.
+
+type
+  ConvertElementarySurfaceToBSplineSurface* {.
+      importcpp: "Convert_ElementarySurfaceToBSplineSurface",
+      header: "Convert_ElementarySurfaceToBSplineSurface.hxx", bycopy.} = object of RootObj
+
+type
+  ConvertGridPolynomialToPoles* {.importcpp: "Convert_GridPolynomialToPoles",
+                                 header: "Convert_GridPolynomialToPoles.hxx",
+                                 bycopy.} = object ## ! To    only  one   polynomial  Surface.
+                                                ## ! The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
+                                                ## ! have to be 2.
+                                                ## ! This values defined the parametric domain of the Polynomial Equation.
+                                                ## !
+                                                ## ! Coefficients :
+                                                ## ! The <Coefficients> have to be formated than an "C array"
+                                                ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
+
+type
+  ConvertCircleToBSplineCurve* {.importcpp: "Convert_CircleToBSplineCurve",
+                                header: "Convert_CircleToBSplineCurve.hxx", bycopy.} = object of ConvertConicToBSplineCurve ##
+                                                                                                                     ## !
+                                                                                                                     ## The
+                                                                                                                     ## equivalent
+                                                                                                                     ## B-spline
+                                                                                                                     ## curve
+                                                                                                                     ## has
+                                                                                                                     ## the
+                                                                                                                     ## same
+                                                                                                                     ## orientation
+                                                                                                                     ##
+                                                                                                                     ## !
+                                                                                                                     ## as
+                                                                                                                     ## the
+                                                                                                                     ## circle
+                                                                                                                     ## C.
+
 type
   ConvertConeToBSplineSurface* {.importcpp: "Convert_ConeToBSplineSurface",
                                 header: "Convert_ConeToBSplineSurface.hxx", bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
@@ -236,26 +281,7 @@ type
                                                                                                                                    ## V1
                                                                                                                                    ## =
                                                                                                                                    ## V2.
-type
-  ConvertConicToBSplineCurve* {.importcpp: "Convert_ConicToBSplineCurve",
-                               header: "Convert_ConicToBSplineCurve.hxx", bycopy.} = object of RootObj ##
-                                                                                       ## !
-                                                                                       ## Returns
-                                                                                       ## the
-                                                                                       ## degree
-                                                                                       ## of
-                                                                                       ## the
-                                                                                       ## BSpline
-                                                                                       ## curve
-                                                                                       ## whose
-                                                                                       ## data
-                                                                                       ## is
-                                                                                       ##
-                                                                                       ## !
-                                                                                       ## computed
-                                                                                       ## in
-                                                                                       ## this
-                                                                                       ## framework.
+
 type
   ConvertCylinderToBSplineSurface* {.importcpp: "Convert_CylinderToBSplineSurface", header: "Convert_CylinderToBSplineSurface.hxx",
                                     bycopy.} = object of ConvertElementarySurfaceToBSplineSurface ##
@@ -303,10 +329,7 @@ type
                                                                                              ## V1
                                                                                              ## =
                                                                                              ## V2.
-type
-  ConvertElementarySurfaceToBSplineSurface* {.
-      importcpp: "Convert_ElementarySurfaceToBSplineSurface",
-      header: "Convert_ElementarySurfaceToBSplineSurface.hxx", bycopy.} = object of RootObj
+
 type
   ConvertEllipseToBSplineCurve* {.importcpp: "Convert_EllipseToBSplineCurve",
                                  header: "Convert_EllipseToBSplineCurve.hxx",
@@ -317,17 +340,7 @@ type
                                                                             ## orientation
                                                                             ## ! as the
                                                                             ## ellipse E.
-type
-  ConvertGridPolynomialToPoles* {.importcpp: "Convert_GridPolynomialToPoles",
-                                 header: "Convert_GridPolynomialToPoles.hxx",
-                                 bycopy.} = object ## ! To    only  one   polynomial  Surface.
-                                                ## ! The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
-                                                ## ! have to be 2.
-                                                ## ! This values defined the parametric domain of the Polynomial Equation.
-                                                ## !
-                                                ## ! Coefficients :
-                                                ## ! The <Coefficients> have to be formated than an "C array"
-                                                ## ! [MaxUDegree+1] [MaxVDegree+1] [3]
+
 type
   ConvertHyperbolaToBSplineCurve* {.importcpp: "Convert_HyperbolaToBSplineCurve", header: "Convert_HyperbolaToBSplineCurve.hxx",
                                    bycopy.} = object of ConvertConicToBSplineCurve ## !
@@ -352,6 +365,7 @@ type
                                                                               ## the
                                                                               ## !
                                                                               ## hyperbola.
+
 type
   ConvertParabolaToBSplineCurve* {.importcpp: "Convert_ParabolaToBSplineCurve",
                                   header: "Convert_ParabolaToBSplineCurve.hxx",
@@ -370,6 +384,7 @@ type
                                                                              ## !
                                                                              ## parabola
                                                                              ## Prb.
+
 type
   ConvertSphereToBSplineSurface* {.importcpp: "Convert_SphereToBSplineSurface",
                                   header: "Convert_SphereToBSplineSurface.hxx",
@@ -418,6 +433,8 @@ type
                                                                                            ## if
                                                                                            ## V1
                                                                                            ## =
+                                                                                           ## V2.
+
                                                                                            ## V2.
 type
   ConvertTorusToBSplineSurface* {.importcpp: "Convert_TorusToBSplineSurface",
@@ -476,3 +493,5 @@ type
                                                                                           ## 2.0
                                                                                           ## *
                                                                                           ## Pi
+
+

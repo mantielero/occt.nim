@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat, sequtils, parseutils, tables]
+import std/[os, strutils, strformat, sequtils, parseutils, tables, sets]
 import system/io
 # Once we have the headers, we will modify them
 
@@ -194,14 +194,11 @@ type
   TypOb = object
     lines:seq[string]
     name:string
-    depend:string
+    depend:string  # Should be a seq
+    needs:seq[string]
 
-proc reorderContent(fname:string) =
-  var typs:seq[TypOb] = @[]
-  var txt = fname.readFile()
-  var lines = txt.splitLines()
+proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
   var lineNumbers:seq[int]
-
   for i in 0..lines.high:
     var line = lines[i]
     if line == "type":
@@ -211,40 +208,71 @@ proc reorderContent(fname:string) =
   var pairs:seq[tuple[a,b:int]]
   for i in 0..lineNumbers.high-1:  
     pairs &= (lineNumbers[i], (lineNumbers[i+1] - 1))    
-    #for n in lineNumbers[i] .. (lineNumbers[i+1] - 1):
-  #echo pairs[pairs.high].b, lines.high
-  #echo pairs
+
   if pairs == @[]:
     pairs &= (lines.low, lines.high)
   else:
     pairs &= (pairs[pairs.high].b, lines.high)
-  #echo pairs
 
-  #for i in 0..lineNumbers.high-1:
+  return pairs
+
+proc likelyImports():Table[string,string] =
+  for i in walkDirs("./tk*/*"):
+    var tmp = i.split('/')
+    var name = tmp[tmp.high]
+    result[name] = i[2..i.high] & fmt"/{name}_types"
+    #result &= (name, )
+
+proc getTypeName(data:var string; line:string) =
+  # Get type name
+  var ident = line.skipWhile({' '})
+  if ident == 2:
+    var typName:string
+    discard line.parseUntil(typName, '*')
+    typName = typName.strip
+    data = typName    
+
+proc reorderContent(fname:string) =
+  var paths = likelyImports()
+  var typs:seq[TypOb] = @[]
+  var txt = fname.readFile()
+  var lines = txt.splitLines()
+
+
+  var pairs = getLinesPairs( lines )
+
   for (a,b) in pairs:
     var tmp:TypOb
-    #for n in lineNumbers[i] .. (lineNumbers[i+1] - 1):
     for n in a .. b:
       var line = lines[n]
       tmp.lines &= lines[n]
+
       # Get type name
-      var ident = line.skipWhile({' '})
-      if ident == 2:
-        var typName:string
-        discard line.parseUntil(typName, '*')
-        typName = typName.strip
-        tmp.name = typName
+      getTypeName(tmp.name, line)
 
       # Get dependency
       if line.contains("= object of "):
-        var items = line.split("= object of ")
+        var items  = line.split("= object of ")
         var depend = items[1].split()[0]
+
         if depend.contains('['):
           depend = depend.split('[')[0]
         tmp.depend = depend
+      
+      elif line.contains("= enum\n"):  # FIXME
+        discard
+
+      elif line.contains('='):
+        var tmp1 = line.split('=')[1]
+        if tmp1.contains('['):
+          #tmp1 = tmp1.split('[')[1]
+          #tmp1 = tmp1.split(']')[0]
+          tmp.depend = tmp1
+
     typs &= tmp
 
-  # Reorder
+
+  # ----------------------------------------------Reorder
   var neworder:seq[int]
   # 1. We include those that don't depend on anything
   var items:seq[int] #= toSeq(0..typs.high)
@@ -254,50 +282,100 @@ proc reorderContent(fname:string) =
     else:
       items &= i
 
+  # 2. Include those dependences that are outside of the this package
+  var requiredImports:HashSet[string]
+  var remove:seq[int]
+  for i in items:
+    var dependency = toLower(typs[i].depend).strip    
+    if not dependency.startsWith("message") and not dependency.startsWith("handle["): # FIXME
+      echo ">> ", dependency
+      for k in paths.keys:
+        if dependency.startsWith(k):
+          requiredImports.incl(k)
+          remove &= i
+
+  for i in remove:
+    items.delete(items.find(i))
+    neworder &= i  
+
+  echo requiredImports
+
+  echo "===="
+
+  # 3. 
+
   var nItems = typs.len
+
   while items.len > 0:
     var remove:seq[int]
+
     for i in items:
+      # Take the depend, because that should go first
       var depend = typs[i].depend
+
+      if depend.contains('['):
+        var tmp1 = depend.split('[')
+        if tmp1[0].strip == "Handle":
+           requiredImports.incl("standard")
+        depend = tmp1[1][0..(tmp1[1].high - 1)]
+
+      # Remove from the list when the dependency is covered
       for n in neworder:
         if typs[n].name == depend:
           remove &= i
           break
+
     for i in remove:
       items.delete(items.find(i))
       neworder &= i
     if items.len == nItems:
+      for i in items:
+        #echo typs[i].name, " ", typs[i].depend      
+        if typs[i].depend != "":
+          echo toLower(typs[i].depend)
       break
+      # Stuck with some external dependency
+      #for i in items:
+      #  echo typs[i].name, " ", typs[i].depend
     else:
       nItems = items.len
+  echo requiredImports
 
   # Create needed imports
   var depends:seq[string]
   for i in items:
     depends &= typs[i].depend
 
-
   var provides:seq[string]
   for i in neworder:
     provides &= typs[i].name
 
-
+  #-----------------------------------
   # Create the new file
   var newtxt = ""
   newtxt &= "# PROVIDES: " 
   for i in provides:
     newtxt &= i & " "
+
+
   newtxt = newtxt.strip  
   newtxt &= "\n# DEPENDS: " 
   for i in depends:
     newtxt &= i & " "
   newtxt = newtxt.strip
   newtxt &= "\n\n"
+  #echo flagHandle
+  #if flagHandle:
+  #  newtxt &= "import tkernel/standard/standard_types\n"
+  for i in requiredImports:
+    echo paths[i]
+  #  for name in paths:
+  #    if i == name:
+  #      echo paths[i]
   
   for i in neworder:
     for line in typs[i].lines:
       newtxt &= line & "\n"
-
     newtxt &= "\n"
 
   for i in items:   
@@ -349,7 +427,7 @@ proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
       elif f == "RootObj##":
         discard
       else:
-        echo f
+        echo "   - not found: " & f
 
 
 
@@ -394,12 +472,12 @@ proc appendBeg*(fname, append:string) =
 #createTypesFile("./tkernel/standard")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-#reorderContent("./tkg3d/topabs/topabs_types.nim")
+reorderContent("./tkernel/message/message_types.nim")
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)
 
-addImportsToTypes("./tk*/*/*_types.nim")
+#addImportsToTypes("./tk*/*/*_types.nim")
 #correctIncludes("./tk*/*")
 
 # 2. Rename types
@@ -440,3 +518,4 @@ var replaceProcs: seq[tuple[a,b:string]]
 
 
 # TODO: reorder types "object of ..."
+

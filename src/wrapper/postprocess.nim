@@ -201,8 +201,11 @@ proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
   var lineNumbers:seq[int]
   for i in 0..lines.high:
     var line = lines[i]
-    if line == "type":
-      lineNumbers &= i
+    #if line == "type":
+    #  lineNumbers &= i
+    if line.len > 2:
+      if line[0..1] == "  " and line[2] != ' ' and line[2] != '#':
+        lineNumbers &= i
 
   # Split each type
   var pairs:seq[tuple[a,b:int]]
@@ -233,6 +236,7 @@ proc getTypeName(data:var string; line:string) =
     data = typName    
 
 proc reorderContent(fname:string) =
+  var folder = fname.split('/')[2]
   var paths = likelyImports()
   var typs:seq[TypOb] = @[]
   var txt = fname.readFile()
@@ -245,7 +249,8 @@ proc reorderContent(fname:string) =
     var tmp:TypOb
     for n in a .. b:
       var line = lines[n]
-      tmp.lines &= lines[n]
+      if line != "type":
+        tmp.lines &= line
 
       # Get type name
       getTypeName(tmp.name, line)
@@ -271,7 +276,11 @@ proc reorderContent(fname:string) =
 
     typs &= tmp
 
+  #for i in 0..typs.high:
+  #  if typs[i].name.contains("MessageMessenger"):
+  #    echo i, " ", typs[i].name
 
+  #echo "----"
   # ----------------------------------------------Reorder
   var neworder:seq[int]
   # 1. We include those that don't depend on anything
@@ -285,10 +294,11 @@ proc reorderContent(fname:string) =
   # 2. Include those dependences that are outside of the this package
   var requiredImports:HashSet[string]
   var remove:seq[int]
+  # 2.1 First those without Handle
   for i in items:
     var dependency = toLower(typs[i].depend).strip    
-    if not dependency.startsWith("message") and not dependency.startsWith("handle["): # FIXME
-      echo ">> ", dependency
+    if not dependency.startsWith(folder) and not dependency.startsWith("handle["): 
+      #echo ">> ", dependency
       for k in paths.keys:
         if dependency.startsWith(k):
           requiredImports.incl(k)
@@ -298,9 +308,26 @@ proc reorderContent(fname:string) =
     items.delete(items.find(i))
     neworder &= i  
 
-  echo requiredImports
+  # 2.2 Then those with Handle
+  remove = @[]
+  for i in items:
+    var dependency = toLower(typs[i].depend).strip    
+    if not dependency.startsWith(folder) and dependency.startsWith("handle["): 
+      var dependency = dependency.split("handle[")[1]
+      dependency = dependency[0 .. ( dependency.high - 1)]
+      #echo dependency
+      if not dependency.startsWith(folder): 
+        for k in paths.keys:
+          echo "bad"
+          if dependency.startsWith(k):
+            requiredImports.incl(k)
+            remove &= i
 
-  echo "===="
+  for i in remove:
+    items.delete(items.find(i))
+    neworder &= i  
+
+  remove = @[]
 
   # 3. 
 
@@ -320,26 +347,26 @@ proc reorderContent(fname:string) =
         depend = tmp1[1][0..(tmp1[1].high - 1)]
 
       # Remove from the list when the dependency is covered
-      for n in neworder:
+      for n in neworder:      
+        if items.len == 1:
+          echo n, " ", typs[n].name 
         if typs[n].name == depend:
+          if items.len == 1:
+            echo depend
+            echo n, " ", typs[n].name            
           remove &= i
           break
 
     for i in remove:
       items.delete(items.find(i))
       neworder &= i
+
     if items.len == nItems:
-      for i in items:
-        #echo typs[i].name, " ", typs[i].depend      
-        if typs[i].depend != "":
-          echo toLower(typs[i].depend)
       break
-      # Stuck with some external dependency
-      #for i in items:
-      #  echo typs[i].name, " ", typs[i].depend
+
     else:
       nItems = items.len
-  echo requiredImports
+  #echo requiredImports
 
   # Create needed imports
   var depends:seq[string]
@@ -368,14 +395,16 @@ proc reorderContent(fname:string) =
   #if flagHandle:
   #  newtxt &= "import tkernel/standard/standard_types\n"
   for i in requiredImports:
-    echo paths[i]
+    newtxt &= "import " & paths[i] & "\n"
   #  for name in paths:
   #    if i == name:
   #      echo paths[i]
   
+  newtxt &= "type\n"
   for i in neworder:
     for line in typs[i].lines:
-      newtxt &= line & "\n"
+      if line != "":
+        newtxt &= line & "\n"
     newtxt &= "\n"
 
   for i in items:   

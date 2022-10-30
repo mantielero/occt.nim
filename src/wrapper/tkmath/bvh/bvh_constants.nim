@@ -11,17 +11,3 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-const                         ## ! The optimal tree depth.
-     ## ! Should be in sync with maximum stack size while traversing the tree - don't pass the trees of greater depth to OCCT algorithms!
-  BVH_ConstantsMaxTreeDepth* = 32 ## ! Leaf node size optimal for complex nodes,
-                               ## ! e.g. for upper-level BVH trees within multi-level structure (nodes point to another BVH trees).
-  BVH_ConstantsLeafNodeSizeSingle* = 1 ## ! Average leaf node size (4 primitive per leaf), optimal for average tree nodes.
-  BVH_ConstantsLeafNodeSizeAverage* = 4 ## ! Default leaf node size (5 primitives per leaf).
-  BVH_ConstantsLeafNodeSizeDefault* = 5 ## ! Leaf node size (8 primitives per leaf), optimal for small tree nodes (e.g. triangles).
-  BVH_ConstantsLeafNodeSizeSmall* = 8 ## ! The optimal number of bins for binned builder.
-  BVH_ConstantsNbBinsOptimal* = 32 ## ! The maximum number of bins for binned builder (giving the best traversal time at cost of longer tree construction time).
-  BVH_ConstantsNbBinsBest* = 48
-
-## ! Minimum node size to split.
-
-var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE", header: "BVH_Constants.hxx".}: cdouble

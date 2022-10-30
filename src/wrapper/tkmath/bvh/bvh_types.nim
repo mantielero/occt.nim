@@ -1,9 +1,32 @@
 # PROVIDES: BVH_Box BVH_Bin BVH_AxisSelector BVH_AxisSelectorBVH_VecNt TheDerivedBox BVH_BaseBox BVH_BoxBVH_VecNt BoxMinMax BoxMinMaxBVH_VecNt BVH_BuildQueue BVH_BuildTool BVH_DistanceField BVH_DistanceFieldBVH_VecNt BoundData UpdateBoundTask MatrixOp BitPredicate BitComparator BVH_Ray BVH_RayBVH_VecNt BVH_SpatialMedianBuilder BVH_Tools BVH_ToolsBVH_VecNt BVH_BaseTraverse BVH_QuadTree VectorType MatrixType BVH_Vec2i BVH_Vec3i BVH_Vec4i BVH_Array2i BVH_Array3i BVH_Array4i BVH_Vec2f BVH_Vec3f BVH_Vec4f BVH_Array2f BVH_Array3f BVH_Array4f BVH_Vec2d BVH_Vec3d BVH_Vec4d BVH_Array2d BVH_Array3d BVH_Array4d BVH_Mat4f BVH_Mat4d VecComp BVH_PairDistanceBVH_VecNt BVH_LinearBuilderBVH_VecNt BVH_TransformBVH_MatNt BVH_RadixSorterBVH_VecNt BVH_TriangulationBVH_VecNt BVH_Set BVH_Sorter
 # DEPENDS:  BVH_PrimitiveSet[cfloat, 3]  Pair[cuint, cint] BVH_Set BVH_BaseTraverse BVH_BaseTraverse BVH_Traverse BVH_ObjectSet BVH_PairTraverse BVH_PrimitiveSet StandardTransient BVH_BuilderTransient StandardTransient BVH_BoxSet BVH_Builder StandardTransient BVH_ObjectTransient BVH_Object StandardTransient BVH_Properties BVH_Builder BVH_Sorter BVH_Sorter BVH_QueueBuilder StandardTransient BVH_TreeBaseTransient BVH_PrimitiveSet
 
-import tkmath/bvh/bvh_types
-import tkernel/standard/standard_types
+
+import ../../tkernel/standard/standard_types
+
+const                         ## ! The optimal tree depth.
+     ## ! Should be in sync with maximum stack size while traversing the tree - don't pass the trees of greater depth to OCCT algorithms!
+  BVH_ConstantsMaxTreeDepth* = 32 ## ! Leaf node size optimal for complex nodes,
+                               ## ! e.g. for upper-level BVH trees within multi-level structure (nodes point to another BVH trees).
+  BVH_ConstantsLeafNodeSizeSingle* = 1 ## ! Average leaf node size (4 primitive per leaf), optimal for average tree nodes.
+  BVH_ConstantsLeafNodeSizeAverage* = 4 ## ! Default leaf node size (5 primitives per leaf).
+  BVH_ConstantsLeafNodeSizeDefault* = 5 ## ! Leaf node size (8 primitives per leaf), optimal for small tree nodes (e.g. triangles).
+  BVH_ConstantsLeafNodeSizeSmall* = 8 ## ! The optimal number of bins for binned builder.
+  BVH_ConstantsNbBinsOptimal* = 32 ## ! The maximum number of bins for binned builder (giving the best traversal time at cost of longer tree construction time).
+  BVH_ConstantsNbBinsBest* = 48
+
+## ! Minimum node size to split.
+
+var THE_NODE_MIN_SIZE* {.importcpp: "BVH::THE_NODE_MIN_SIZE", header: "BVH_Constants.hxx".}: cdouble
+
+
 type
+  BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",
+                                   header: "BVH_Tree.hxx", bycopy.} = object
+
+  BVH_TraverseBVH_VecNt* = object  # FIXME
+  BVH_VecNt* = object              # FIXME
+
   BVH_Box*[T; N: static[cint]] {.importcpp: "BVH_Box<\'0,\'1>",
                               header: "BVH_Box.hxx", bycopy.} = object            
 
@@ -41,11 +64,11 @@ type
 
   BoundData*[T; N: static[cint]] {.importcpp: "BVH::BoundData<\'0,\'1>",
                                 header: "BVH_LinearBuilder.hxx", bycopy.} = object
-    mySet* {.importc: "mySet".}: ptr BVH_Set[T, N] 
-    myBVH* {.importc: "myBVH".}: ptr BVH_Tree[T, N] 
-    myNode* {.importc: "myNode".}: cint 
-    myLevel* {.importc: "myLevel".}: cint 
-    myHeight* {.importc: "myHeight".}: ptr cint 
+    # mySet* {.importc: "mySet".}: ptr BVH_Set[T, N] 
+    # myBVH* {.importc: "myBVH".}: ptr BVH_Tree[T, N] 
+    # myNode* {.importc: "myNode".}: cint 
+    # myLevel* {.importc: "myLevel".}: cint 
+    # myHeight* {.importc: "myHeight".}: ptr cint 
 
   UpdateBoundTask*[T; N: static[cint]] {.importcpp: "BVH::UpdateBoundTask<\'0,\'1>",
                                       header: "BVH_LinearBuilder.hxx", bycopy.} = object
@@ -146,9 +169,19 @@ type
 
   BVH_Sorter*[T; N: static[cint]] {.importcpp: "BVH_Sorter<\'0,\'1>",
                                  header: "BVH_Sorter.hxx", bycopy.} = object of RootObj
+  BVH_ObjectTransient* {.importcpp: "BVH_ObjectTransient",
+                        header: "BVH_Object.hxx", bycopy.} = object of StandardTransient 
 
-  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[cfloat, 3]
+  BVH_Object*[T; N: static[cint]] {.importcpp: "BVH_Object<\'0,\'1>",
+                                 header: "BVH_Object.hxx", bycopy.} = object of BVH_ObjectTransient 
 
+  BVH_PrimitiveSet*[T; N: static[cint]] {.importcpp: "BVH_PrimitiveSet<\'0,\'1>",
+                                       header: "BVH_PrimitiveSet.hxx", bycopy.} = object of BVH_Object[
+      T, N]                    
+  
+  BVH_PrimitiveSet3d* = BVH_PrimitiveSet[cfloat, 3]  # FIXME
+
+  Pair*[T:cuint; N:cint] = object # FIXME nim-cppstd
   BVH_EncodedLink* = Pair[cuint, cint]
 
   BVH_ObjectSet*[T; N: static[cint]] {.importcpp: "BVH_ObjectSet<\'0,\'1>",
@@ -197,15 +230,6 @@ type
                                         header: "BVH_LinearBuilder.hxx", bycopy.} = object of BVH_Builder[
       T, N]                    
 
-  BVH_ObjectTransient* {.importcpp: "BVH_ObjectTransient",
-                        header: "BVH_Object.hxx", bycopy.} = object of StandardTransient 
-
-  BVH_Object*[T; N: static[cint]] {.importcpp: "BVH_Object<\'0,\'1>",
-                                 header: "BVH_Object.hxx", bycopy.} = object of BVH_ObjectTransient 
-
-  BVH_PrimitiveSet*[T; N: static[cint]] {.importcpp: "BVH_PrimitiveSet<\'0,\'1>",
-                                       header: "BVH_PrimitiveSet.hxx", bycopy.} = object of BVH_Object[
-      T, N]                    
 
   BVH_Properties* {.importcpp: "BVH_Properties", header: "BVH_Properties.hxx", bycopy.} = object of StandardTransient 
 
@@ -236,7 +260,6 @@ type
     myNodeInfoBuffer* {.importc: "myNodeInfoBuffer".}: BVH_Array4i 
     myDepth* {.importc: "myDepth".}: cint
 
-    myDepth* {.importc: "myDepth".}: cint
   BVH_Triangulation*[T; N: static[cint]] {.importcpp: "BVH_Triangulation<\'0,\'1>",
                                         header: "BVH_Triangulation.hxx", bycopy.} = object of BVH_PrimitiveSet[
       T, N]                    

@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -33,5 +35,4 @@
 ## ! by the square of the speed of light.
 ## ! It is measured in joules (newton-metres).
 
-type
-  QuantityEnergy* = cfloat
+

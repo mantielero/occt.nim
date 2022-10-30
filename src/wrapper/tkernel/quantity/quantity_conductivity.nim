@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,5 +20,4 @@
 ## ! field strength. It is also the reciprocal of resistivity.
 ## ! It is measured in Siemens per metre.
 
-type
-  QuantityConductivity* = cfloat
+

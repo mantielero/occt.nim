@@ -35,7 +35,7 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
   var lines = txt.splitLines()
   for line in lines:
     if line.strip == "":  # Línea vacía
-      newFile &= line & "\n"
+      newFile &= line.strip & "\n"
     else:
       currentIndent = line.skipWhile({' '}) #line.countPrefixSpaces
       # Stop being a `type`
@@ -60,15 +60,18 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
         isType = true
         indent = currentIndent 
         typ.push = push
-
+        #if fname.contains("quantity_acceleration"):
+        #  echo "--->",line
       # We handle the information depending on if we are within a type block or not.
       if isType:
         typ.txt &= line
       else:
         newFile &= line & "\n"
-    
+  if typ.txt.len > 0:
+    typs &= typ  
     # 
-
+  #if fname.contains("quantity_acceleration"):    
+  #  echo typs
   return (typs, newFile)
 
 proc createTypesFile*(pattern:string) =
@@ -543,11 +546,11 @@ proc appendBeg*(fname, append:string) =
 # 1. Create types with files
 
 #"./tkmath/gp"
-#createTypesFile("./tk*/*")
-#createTypesFile("./tkernel/standard")
+createTypesFile("./tk*/*")
+#createTypesFile("./tkernel/quantity")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-#reorderContent("./tkernel/message/message_types.nim")
+#reorderContent("./tkernel/quantity/quantity_types.nim")
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)
@@ -589,7 +592,7 @@ var replaceProcs: seq[tuple[a,b:string]]
 
 
 
-convertIncludesToImports()
+#convertIncludesToImports()
 
 
 # TODO: reorder types "object of ..."

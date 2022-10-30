@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,5 +24,4 @@
 ## ! It is measured in farads (coulomb per volt).
 ## ! In practice micro-, nano-, and pico-farads are used.
 
-type
-  QuantityCapacitance* = cfloat
+

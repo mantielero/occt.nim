@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,5 +20,4 @@
 ## ! and the distance of its centre of gravity from an axis.
 ## ! It is measured in kilogram-square-metres per second.
 
-type
-  QuantityKineticMoment* = cfloat
+

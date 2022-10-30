@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,5 +21,4 @@
 ## ! per unit length per unit of temperature.
 ## ! It is measured in watts per metre per degee kelvin.
 
-type
-  QuantityThermalConductivity* = cfloat
+

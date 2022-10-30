@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -21,5 +23,4 @@
 ## ! in potential e.g. the electromotive force generated when
 ## ! a conductor cuts a magnetic field.
 
-type
-  QuantityElectricPotential* = cfloat
+

@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,5 +19,4 @@
 ## ! Defined as mass per unit volume.
 ## ! It is measured in kilograms per cubic metre.
 
-type
-  QuantityDensity* = cfloat
+

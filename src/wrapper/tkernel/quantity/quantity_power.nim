@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -22,5 +24,4 @@
 ## ! are multiplied by the cosine of the phase angle.
 ## ! It is measured in watts (joules per second).
 
-type
-  QuantityPower* = cfloat
+

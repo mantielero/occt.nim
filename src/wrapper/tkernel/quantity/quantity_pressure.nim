@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,5 +21,4 @@
 ## ! of the depth, density, and free fall acceleration.
 ## ! It is measured in pascals (newtons per square metre).
 
-type
-  QuantityPressure* = cfloat
+

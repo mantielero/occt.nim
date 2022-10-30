@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -21,5 +23,4 @@
 ## ! given point the same as that of the magnetic field.
 ## ! It is measured in teslas (webers per square metre).
 
-type
-  QuantityMagneticFluxDensity* = cfloat
+

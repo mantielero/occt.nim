@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,5 +20,4 @@
 ## ! angle in a given direction by a point source.
 ## ! It is measured in candelas.
 
-type
-  QuantityLuminousIntensity* = cfloat
+

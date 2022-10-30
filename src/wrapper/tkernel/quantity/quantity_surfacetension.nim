@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -18,5 +20,4 @@
 ## ! of a plane liquid surface.
 ## ! It is measured in newtons per metre.
 
-type
-  QuantitySurfaceTension* = cfloat
+

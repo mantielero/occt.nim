@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -17,5 +19,4 @@
 ## ! Defined as volume per unit time.
 ## ! It is measured in cubic metres per second.
 
-type
-  QuantityVolumeFlow* = cfloat
+

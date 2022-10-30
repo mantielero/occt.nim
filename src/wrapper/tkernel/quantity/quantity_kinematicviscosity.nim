@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -20,5 +22,4 @@
 ## ! It is quantified as area per unit time.
 ## ! It is measured in square metres per second.
 
-type
-  QuantityKinematicViscosity* = cfloat
+

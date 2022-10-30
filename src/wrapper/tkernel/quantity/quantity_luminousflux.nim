@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -21,5 +23,4 @@
 ## ! spectral luminous efficiency.
 ## ! It is measured in lumens.
 
-type
-  QuantityLuminousFlux* = cfloat
+

@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,5 +21,4 @@
 ## ! the product of a force couple.
 ## ! It is measured in newtons x metres.
 
-type
-  QuantityTorque* = cfloat
+

@@ -1,3 +1,5 @@
+import quantity_types
+
 ##  Created on: 1994-02-08
 ##  Created by: Gilles DEBARBOUILLE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -19,5 +21,4 @@
 ## ! logarithm of the ratio of the two pressures. In practice
 ## ! the decibel (one tenth of a bel) is used.
 
-type
-  QuantityAcousticIntensity* = cfloat
+

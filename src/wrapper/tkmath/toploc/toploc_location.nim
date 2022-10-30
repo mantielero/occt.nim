@@ -16,6 +16,8 @@ import toploc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
+import ../gp/gp_types
+import ../../tkernel/standard/standard_types
 discard "forward decl of Standard_NoSuchObject"
 discard "forward decl of Standard_ConstructionError"
 discard "forward decl of gp_Trsf"

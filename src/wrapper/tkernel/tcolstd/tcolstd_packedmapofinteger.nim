@@ -1,5 +1,5 @@
 import tcolstd_types
-
+import ../standard/standard_types
 ##  Created on: 2005-11-05
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS

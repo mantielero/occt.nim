@@ -1,8 +1,8 @@
 # PROVIDES: TCollection TCollectionAsciiString TCollectionBaseSequence TCollectionBasicMap TCollectionBasicMapIterator TCollectionExtendedString
 # DEPENDS:  Handle[TCollectionHAsciiString]  Handle[TCollectionHExtendedString]  Handle[TCollectionMapNode] StandardTransient StandardTransient StandardTransient  Handle[TCollectionSeqNode]  Handle[TCollectionSeqNode] StandardTransient
 
-import tkernel/tcollection/tcollection_types
-import tkernel/standard/standard_types
+#import tkernel/tcollection/tcollection_types
+import ../standard/standard_types
 type
   TCollection* {.importcpp: "TCollection", header: "TCollection.hxx", bycopy.} = object 
                                                                                 
@@ -85,6 +85,11 @@ type
                                                                                
     
     
+
+  TCollectionMapNodePtr* = ptr TCollectionMapNode
+
+
+
 
   TCollectionBaseSequence* {.importcpp: "TCollection_BaseSequence",
                             header: "TCollection_BaseSequence.hxx", bycopy.} = object 
@@ -258,20 +263,22 @@ type
   TCollectionMapNode* {.importcpp: "TCollection_MapNode",
                        header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
 
-                       header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
+                       #header: "TCollection_MapNode.hxx", bycopy.} = object of StandardTransient
 
 
-  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
 
 
-  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
 
-  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
+  #HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
+
+  #HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
   TCollectionSeqNode* {.importcpp: "TCollection_SeqNode",
                        header: "TCollection_SeqNode.hxx", bycopy.} = object of StandardTransient
 
 
+  HandleTCollectionSeqNode* = Handle[TCollectionSeqNode]
 
+  TCollectionSeqNodePtr* = ptr TCollectionSeqNode
 
 
 

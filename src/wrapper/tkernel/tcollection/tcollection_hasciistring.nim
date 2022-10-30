@@ -1,4 +1,5 @@
 import tcollection_types
+import ../standard/standard_types
 
 ##  Created on: 1992-12-15
 ##  Created by: Mireille MERCIEN

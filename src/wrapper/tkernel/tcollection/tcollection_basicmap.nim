@@ -1,4 +1,5 @@
 import tcollection_types
+import ../standard/standard_types
 
 ##  Created on: 1993-02-26
 ##  Created by: Remi LEQUETTE

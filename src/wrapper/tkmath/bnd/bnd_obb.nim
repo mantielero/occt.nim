@@ -1,5 +1,8 @@
 import bnd_types
-
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../gp/gp_types
+import ../tcolgp/tcolgp_types
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##

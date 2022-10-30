@@ -1,5 +1,5 @@
 import bnd_types
-
+import ../gp/gp_types
 ##  Created on: 1991-01-08
 ##  Created by: Didier Piffault
 ##  Copyright (c) 1991-1999 Matra Datavision

@@ -1,5 +1,5 @@
 import bnd_types
-
+import ../bvh/bvh_types
 ##  Created by: Eugeny MALTCHIKOV
 ##  Created on: 2019-04-17
 ##  Copyright (c) 2019 OPEN CASCADE SAS

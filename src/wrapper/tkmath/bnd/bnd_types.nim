@@ -1,9 +1,10 @@
 # PROVIDES: BndB2d BndB2f BndB3d BndB3f BndBoundSortBox BndBoundSortBox2d BndBox BndBox2d BndHArray1OfBox BndHArray1OfBox2d BndOBB BndRange BndSphere BndTools
 # DEPENDS:  NCollectionArray1[BndBox]  NCollectionArray1[BndSphere]  NCollectionSequence[BndBox] BndArray1OfSphere
 
-import tkmath/bnd/bnd_types
-import tkernel/ncollection/ncollection_types
+import ../../tkernel/ncollection/ncollection_types
+
 type
+  BndArray1OfBox2d* = object # FIXME  
   BndB2d* {.importcpp: "Bnd_B2d", header: "Bnd_B2d.hxx", bycopy.} = object 
 
   BndB2f* {.importcpp: "Bnd_B2f", header: "Bnd_B2f.hxx", bycopy.} = object 
@@ -42,7 +43,7 @@ type
 
   BndSeqOfBox* = NCollectionSequence[BndBox]
 
-  BndTools* {.importcpp: "Bnd_Tools", header: "Bnd_Tools.hxx", bycopy.} = object 
+  #BndTools* {.importcpp: "Bnd_Tools", header: "Bnd_Tools.hxx", bycopy.} = object 
   BndHArray1OfSphere* {.importcpp: "Bnd_HArray1OfSphere",
                        header: "Bnd_HArray1OfSphere.hxx", bycopy.} = object of BndArray1OfSphere
 

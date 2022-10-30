@@ -13,7 +13,7 @@ type
 
 
 
-  BndArray1OfBox2d* = object
+
   #BVH_Box* = object
   BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",
                                    header: "BVH_Tree.hxx", bycopy.} = object

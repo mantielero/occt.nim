@@ -1,5 +1,7 @@
 import bnd_types
-
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../gp/gp_types
 ##  Created on: 1993-03-05
 ##  Created by: Didier PIFFAULT
 ##  Copyright (c) 1993-1999 Matra Datavision

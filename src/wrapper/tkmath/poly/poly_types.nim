@@ -1,10 +1,13 @@
 # PROVIDES: Poly PolyCoherentLink PolyCoherentTriangle PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyBaseIteratorOfCoherentLink PolyCoherentTriangulationTwoIntegers PolyCoherentTriPtr PolyCoherentTriPtrIterator PolyConnect PolyMakeLoopsLink PolyMakeLoopsLoop PolyMakeLoopsHelper PolyMakeLoopsHeapOfInteger PolyMakeLoopsResultCode PolyTriangle PolyMakeLoopsLinkFlag PolyMakeLoops
 # DEPENDS:  NCollectionArray1[PolyTriangle]  NCollectionList[Handle[PolyTriangulation]]  Handle[PolyCoherentTriangulation]  NCollectionList[PolyMakeLoopsLink]  Handle[PolyPolygon2D]  Handle[PolyPolygon3D]  Handle[PolyPolygonOnTriangulation]  Handle[PolyTriangulation] PolyBaseIteratorOfCoherentLink PolyMakeLoops PolyMakeLoopsHelper PolyMakeLoops PolyMakeLoopsHelper XyzObj StandardTransient PolyBaseIteratorOfCoherentTriangle PolyBaseIteratorOfCoherentNode PolyArray1OfTriangle StandardTransient StandardTransient StandardTransient StandardTransient
 
-import tkmath/poly/poly_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
+import ../gp/gp_types
 type
+  Link* = object # FIXME  
+  TShortHArray1OfShortReal* = object # FIXME
+  TShortArray1OfShortReal* = object  # FIXME
   Poly* {.importcpp: "Poly", header: "Poly.hxx", bycopy.} = object 
 
   PolyCoherentLink* {.importcpp: "Poly_CoherentLink",
@@ -119,7 +122,7 @@ type
   PolyPolygonOnTriangulation* {.importcpp: "Poly_PolygonOnTriangulation",
                                header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient 
 
-                               header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient 
+                               #header: "Poly_PolygonOnTriangulation.hxx", bycopy.} = object of StandardTransient 
   PolyTriangulation* {.importcpp: "Poly_Triangulation",
                       header: "Poly_Triangulation.hxx", bycopy.} = object of StandardTransient 
 

@@ -9,9 +9,8 @@ type
   #StandardSStream* = object
   VectorWithNullMagnitude* = object
   ValueType* = object
-  Link* = object
-  TShortHArray1OfShortReal* = object
-  TShortArray1OfShortReal* = object
+
+
   MathNotSquare* = object
   MathSingularMatrix* = object
   BndArray1OfBox2d* = object

@@ -1,5 +1,9 @@
 import poly_types
-
+import ../../tkernel/standard/standard_types
+import ../gp/gp_types
+#import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolgp/tcolgp_types
 ##  Created on: 1995-03-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision

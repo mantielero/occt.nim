@@ -1,5 +1,6 @@
 import convert_types
-
+import ../tcolgp/tcolgp_types
+import ../../tkernel/tcolstd/tcolstd_types
 ##  Created on: 1993-11-09
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision

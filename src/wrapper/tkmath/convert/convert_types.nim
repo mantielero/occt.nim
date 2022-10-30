@@ -1,9 +1,11 @@
 # PROVIDES: ConvertCosAndSinEvalFunction ConvertParameterisationType ConvertSequenceOfArray1OfPoles2d ConvertCompBezierCurves2dToBSplineCurve2d ConvertCompBezierCurvesToBSplineCurve ConvertCompPolynomialToPoles ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertGridPolynomialToPoles
 # DEPENDS:  NCollectionSequence[Handle[TColgpHArray1OfPnt]] ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertElementarySurfaceToBSplineSurface ConvertConicToBSplineCurve ConvertConicToBSplineCurve ConvertConicToBSplineCurve ConvertElementarySurfaceToBSplineSurface ConvertElementarySurfaceToBSplineSurface
 
-import tkmath/convert/convert_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tcolgp/tcolgp_types
+
 type
   ConvertCosAndSinEvalFunction* = proc (a1: cfloat; a2: cint; a3: TColgpArray1OfPnt2d;
                                      a4: TColStdArray1OfReal;
@@ -68,7 +70,7 @@ type
                                   header: "Convert_SphereToBSplineSurface.hxx",
                                   bycopy.} = object of ConvertElementarySurfaceToBSplineSurface 
 
-                                  bycopy.} = object of ConvertElementarySurfaceToBSplineSurface 
+                                  #bycopy.} = object of ConvertElementarySurfaceToBSplineSurface 
   ConvertTorusToBSplineSurface* {.importcpp: "Convert_TorusToBSplineSurface",
                                  header: "Convert_TorusToBSplineSurface.hxx",
                                  bycopy.} = object of ConvertElementarySurfaceToBSplineSurface 

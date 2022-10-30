@@ -16,7 +16,7 @@ import tcolgp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-
+import ../../tkernel/tcolstd/tcolstd_types
 
 proc newTColgpHSequenceOfPnt2d*(): TColgpHSequenceOfPnt2d {.cdecl, constructor,
     importcpp: "TColgp_HSequenceOfPnt2d(@)", header: "TColgp_HSequenceOfPnt2d.hxx".}

@@ -16,7 +16,7 @@ import tcolgp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-
+import ../../tkernel/tcolstd/tcolstd_types
 
 proc newTColgpHArray1OfVec*(theLower: cint; theUpper: cint): TColgpHArray1OfVec {.
     cdecl, constructor, importcpp: "TColgp_HArray1OfVec(@)", header: "TColgp_HArray1OfVec.hxx".}

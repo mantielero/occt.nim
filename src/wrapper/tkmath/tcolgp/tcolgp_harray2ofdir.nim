@@ -16,7 +16,7 @@ import tcolgp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-
+import ../../tkernel/tcolstd/tcolstd_types
 
 proc newTColgpHArray2OfDir*(theRowLow: cint; theRowUpp: cint; theColLow: cint;
                            theColUpp: cint): TColgpHArray2OfDir {.cdecl,

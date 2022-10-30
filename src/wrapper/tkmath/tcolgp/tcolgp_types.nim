@@ -1,9 +1,10 @@
 # PROVIDES:
 # DEPENDS:  NCollectionArray1[Circ2dObj]  NCollectionArray1[DirObj]  NCollectionArray1[Dir2dObj]  NCollectionArray1[Lin2dObj]  NCollectionArray1[PntObj]  NCollectionArray1[Pnt2dObj]  NCollectionArray1[VecObj]  NCollectionArray1[Vec2dObj]  NCollectionArray1[XyObj]  NCollectionArray1[XyzObj]  NCollectionArray2[Circ2dObj]  NCollectionArray2[DirObj]  NCollectionArray2[Dir2dObj]  NCollectionArray2[Lin2dObj]  NCollectionArray2[PntObj]  NCollectionArray2[Pnt2dObj]  NCollectionArray2[VecObj]  NCollectionArray2[Vec2dObj]  NCollectionArray2[XyObj]  NCollectionArray2[XyzObj]  NCollectionSequence[  NCollectionSequence[Ax1Obj]  NCollectionSequence[DirObj]  NCollectionSequence[Dir2dObj]  NCollectionSequence[PntObj]  NCollectionSequence[Pnt2dObj]  NCollectionSequence[VecObj]  NCollectionSequence[Vec2dObj]  NCollectionSequence[XyObj]  NCollectionSequence[XyzObj] TColgpArray1OfCirc2d TColgpArray1OfDir TColgpArray1OfDir2d TColgpArray1OfLin2d TColgpArray1OfPnt TColgpArray1OfPnt2d TColgpArray1OfVec TColgpArray1OfVec2d TColgpArray1OfXY TColgpArray1OfXYZ TColgpArray2OfCirc2d TColgpArray2OfDir TColgpArray2OfDir2d TColgpArray2OfLin2d TColgpArray2OfPnt TColgpArray2OfPnt2d TColgpArray2OfVec TColgpArray2OfVec2d TColgpArray2OfXY TColgpArray2OfXYZ TColgpSequenceOfDir TColgpSequenceOfDir2d TColgpSequenceOfPnt TColgpSequenceOfPnt2d TColgpSequenceOfVec TColgpSequenceOfVec2d TColgpSequenceOfXY TColgpSequenceOfXYZ
 
-import tkmath/tcolgp/tcolgp_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../gp/gp_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TColgpArray1OfCirc2d* = NCollectionArray1[Circ2dObj]
 
@@ -146,9 +147,9 @@ type
 
   TColgpHSequenceOfXY* {.importcpp: "TColgp_HSequenceOfXY",
                         header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
-                        header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
+                        #header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
 
-                        header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
+                        #header: "TColgp_HSequenceOfXY.hxx", bycopy.} = object of TColgpSequenceOfXY
   TColgpHSequenceOfXYZ* {.importcpp: "TColgp_HSequenceOfXYZ",
                          header: "TColgp_HSequenceOfXYZ.hxx", bycopy.} = object of TColgpSequenceOfXYZ
 

@@ -1,17 +1,100 @@
 # PROVIDES: Message MessageExecStatus MessageExecStatusStatusRange MessageLevel MessageMsg MessageMsgFile MessageProgressRange MessageProgressScope MessageMessengerStreamBuffer
 # DEPENDS: MessageProgressScope StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient  Handle[MessageAlert]  Handle[MessageAlgorithm]  Handle[MessageAttribute]  Handle[MessagePrinter]  Handle[MessageProgressIndicator]  Handle[MessageReport] MessageAlert MessageAttribute MessageAttribute MessageAttribute MessagePrinter MessagePrinter MessagePrinter  Handle[MessageMessenger]  Handle[MessagePrinterOStream]  Handle[MessagePrinterSystemLog]
 
-import tkernel/message/message_types
-import tkernel/standard/standard_types
+
+import ../standard/standard_types
+import ../ncollection/ncollection_types
+
 type
   Message* {.importcpp: "Message", header: "Message.hxx", bycopy.} = object 
                                                                     
+  MessageMsg* {.importcpp: "Message_Msg", header: "Message_Msg.hxx", bycopy.} = object                                                                    
                                                                     
+type
+  MessageGravity* {.size: sizeof(cint), importcpp: "Message_Gravity",
+                   header: "Message_Gravity.hxx".} = enum
+    MessageTrace, MessageInfo, MessageWarning, MessageAlarm, MessageFail
+
                                                                     
-                                                                    
-                                                                    
-                                                                    
-                                                                    
+  StreamBuffer* = object  # FIXME                                                                    
+  Counter* = object       # FIXME    
+  MessageProgressScopeNullString* = object
+  MessageAlert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of StandardTransient 
+                                                                                                        
+  MessagePrinter* {.importcpp: "Message_Printer", header: "Message_Printer.hxx",
+                   bycopy.} = object of StandardTransient 
+
+
+type
+  MessageArrayOfMsg* = NCollectionArray1[NCollectionHandle[MessageMsg]]
+  MessageHArrayOfMsg* = NCollectionHandle[MessageArrayOfMsg]
+        
+type
+  MessageMetricType* {.size: sizeof(cint), importcpp: "Message_MetricType",
+                      header: "Message_MetricType.hxx".} = enum
+    MessageMetricTypeNone,    ## !< no computation
+    MessageMetricTypeThreadCPUUserTime, ## !< OSD_Chronometer::GetThreadCPU user time
+    MessageMetricTypeThreadCPUSystemTime, ## !< OSD_Chronometer::GetThreadCPU system time
+    MessageMetricTypeProcessCPUUserTime, ## !< OSD_Chronometer::GetProcessCPU user time
+    MessageMetricTypeProcessCPUSystemTime, ## !< OSD_Chronometer::GetProcessCPU system time
+    MessageMetricTypeMemPrivate, ## !< OSD_MemInfo::MemPrivate
+    MessageMetricTypeMemVirtual, ## !< OSD_MemInfo::MemVirtual
+    MessageMetricTypeMemWorkingSet, ## !< OSD_MemInfo::MemWorkingSet
+    MessageMetricTypeMemWorkingSetPeak, ## !< OSD_MemInfo::MemWorkingSetPeak
+    MessageMetricTypeMemSwapUsage, ## !< OSD_MemInfo::MemSwapUsage
+    MessageMetricTypeMemSwapUsagePeak, ## !< OSD_MemInfo::MemSwapUsagePeak
+    MessageMetricTypeMemHeapUsage ## !< OSD_MemInfo::MemHeapUsage
+
+type
+  MessageConsoleColor* {.size: sizeof(cint), importcpp: "Message_ConsoleColor",
+                        header: "Message_ConsoleColor.hxx".} = enum
+    MessageConsoleColorDefault, ## !< default (white) color
+    MessageConsoleColorBlack, ## !< black   color
+    MessageConsoleColorWhite, ## !< white   color
+    MessageConsoleColorRed,   ## !< red     color
+    MessageConsoleColorBlue,  ## !< blue    color
+    MessageConsoleColorGreen, ## !< green   color
+    MessageConsoleColorYellow, ## !< yellow  color
+    MessageConsoleColorCyan,  ## !< cyan    color
+    MessageConsoleColorMagenta ## !< magenta color
+
+ 
+type
+  MessageStatus* {.size: sizeof(cint), importcpp: "Message_Status",
+                  header: "Message_Status.hxx".} = enum ## ! Empty status
+    MessageNone = 0,            ## ! Something done, 32 variants
+    MessageDone1 = 256, MessageDone2, MessageDone3, MessageDone4,
+    MessageDone5, MessageDone6, MessageDone7, MessageDone8, MessageDone9,
+    MessageDone10, MessageDone11, MessageDone12, MessageDone13, MessageDone14,
+    MessageDone15, MessageDone16, MessageDone17, MessageDone18, MessageDone19,
+    MessageDone20, MessageDone21, MessageDone22, MessageDone23, MessageDone24,
+    MessageDone25, MessageDone26, MessageDone27, MessageDone28, MessageDone29,
+    MessageDone30, MessageDone31, MessageDone32, ## ! Warning for possible problem encountered, 32 variants
+    MessageWarn1 = 512, MessageWarn2, MessageWarn3, MessageWarn4,
+    MessageWarn5, MessageWarn6, MessageWarn7, MessageWarn8, MessageWarn9,
+    MessageWarn10, MessageWarn11, MessageWarn12, MessageWarn13, MessageWarn14,
+    MessageWarn15, MessageWarn16, MessageWarn17, MessageWarn18, MessageWarn19,
+    MessageWarn20, MessageWarn21, MessageWarn22, MessageWarn23, MessageWarn24,
+    MessageWarn25, MessageWarn26, MessageWarn27, MessageWarn28, MessageWarn29,
+    MessageWarn30, MessageWarn31, MessageWarn32, ## ! Alarm (severe warning) for problem encountered, 32 variants
+    MessageAlarm1 = 1024, MessageAlarm2, MessageAlarm3, MessageAlarm4,
+    MessageAlarm5, MessageAlarm6, MessageAlarm7, MessageAlarm8, MessageAlarm9,
+    MessageAlarm10, MessageAlarm11, MessageAlarm12, MessageAlarm13, MessageAlarm14,
+    MessageAlarm15, MessageAlarm16, MessageAlarm17, MessageAlarm18, MessageAlarm19,
+    MessageAlarm20, MessageAlarm21, MessageAlarm22, MessageAlarm23, MessageAlarm24,
+    MessageAlarm25, MessageAlarm26, MessageAlarm27, MessageAlarm28, MessageAlarm29,
+    MessageAlarm30, MessageAlarm31, MessageAlarm32, ## ! Execution failed, 32 variants
+    MessageFail1 = 2048, MessageFail2, MessageFail3, MessageFail4,
+    MessageFail5, MessageFail6, MessageFail7, MessageFail8, MessageFail9,
+    MessageFail10, MessageFail11, MessageFail12, MessageFail13, MessageFail14,
+    MessageFail15, MessageFail16, MessageFail17, MessageFail18, MessageFail19,
+    MessageFail20, MessageFail21, MessageFail22, MessageFail23, MessageFail24,
+    MessageFail25, MessageFail26, MessageFail27, MessageFail28, MessageFail29,
+    MessageFail30, MessageFail31, MessageFail32
+
+type
+  MessageListOfAlert* = NCollectionList[Handle[MessageAlert]]
+                                                              
                                                                     
                                                                     
                                                                     
@@ -54,7 +137,20 @@ type
   MessageLevel* {.importcpp: "Message_Level", header: "Message_Level.hxx", bycopy.} = object 
                                                                                      
                                                                                      
-                                                                                     
+
+type
+  MessageStatusType* {.size: sizeof(cint), importcpp: "Message_StatusType",
+                      header: "Message_StatusType.hxx".} = enum
+    mstDONE = 0x00000100, mstWARN = 0x00000200, mstALARM = 0x00000400,
+    mstFAIL = 0x00000800
+
+type
+  MessageSequenceOfPrinters* = NCollectionSequence[Handle[MessagePrinter]]
+
+
+type
+  MessageListOfMsg* = NCollectionList[MessageMsg]
+  MessageListIteratorOfListOfMsg* {.importcpp:"NCollection_List<\'*0>::Iterator", header: "Message_Messenger.hxx".} = object
                                                                                      
                                                                                      
                                                                                      
@@ -104,9 +200,7 @@ type
     
     
 
-  MessageMsg* {.importcpp: "Message_Msg", header: "Message_Msg.hxx", bycopy.} = object 
-                                                                               
-                                                                               
+                                                                          
 
   MessageMsgFile* {.importcpp: "Message_MsgFile", header: "Message_MsgFile.hxx",
                    bycopy.} = object 
@@ -222,9 +316,7 @@ type
 
 
 
-  MessageAlert* {.importcpp: "Message_Alert", header: "Message_Alert.hxx", bycopy.} = object of StandardTransient 
-                                                                                                        
-                                                                                                        
+                                                                                                      
                                                                                                         
                                                                                                         
                                                                                                         
@@ -527,10 +619,7 @@ type
 
 
 
-  MessagePrinter* {.importcpp: "Message_Printer", header: "Message_Printer.hxx",
-                   bycopy.} = object of StandardTransient 
-                                                     
-                                                     
+                                               
 
 
 

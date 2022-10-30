@@ -3,6 +3,8 @@
 
 import tkernel/quantity/quantity_types
 type
+  QuantityAbsorbedDose* = cfloat
+type
   QuantityColor* {.importcpp: "Quantity_Color", header: "Quantity_Color.hxx", bycopy.} = object 
                                                                                         
                                                                                         

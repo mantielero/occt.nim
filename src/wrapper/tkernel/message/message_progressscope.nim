@@ -1,5 +1,5 @@
 import message_types
-
+import ../tcollection/tcollection_types
 ##  Created on: 2002-02-22
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS

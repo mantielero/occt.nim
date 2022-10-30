@@ -18,5 +18,4 @@
 ## ! irradiated medium.
 ## ! It is measured in grays.
 
-type
-  QuantityAbsorbedDose* = cfloat
+

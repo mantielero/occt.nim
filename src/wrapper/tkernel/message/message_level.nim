@@ -1,4 +1,6 @@
 import message_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##

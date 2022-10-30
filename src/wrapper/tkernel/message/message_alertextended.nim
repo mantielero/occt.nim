@@ -1,4 +1,5 @@
 import message_types
+import ../standard/standard_types
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##

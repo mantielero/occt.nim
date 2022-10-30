@@ -238,3 +238,5 @@ type
                               header: "Standard_ArrayStreamBuffer.hxx", bycopy.} = object of Streambuf 
                                                                                                 
   HandleStandardTransient* {.importcpp: "opencascade::handle<Standard_Transient>", header: "Standard_Transient.hxx", byref, pure, inheritable.} = object of RootObj
+type
+  Ostream* = StandardOStream # FIXME

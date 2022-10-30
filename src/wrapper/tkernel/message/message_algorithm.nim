@@ -1,5 +1,7 @@
 import message_types
-
+import ../standard/standard_types 
+import ../tcollection/tcollection_types  
+import ../tcolstd/tcolstd_types  
 ##  Created on: 2007-07-06
 ##  Created by: Pavel TELKOV
 ##  Copyright (c) 2007-2014 OPEN CASCADE SAS

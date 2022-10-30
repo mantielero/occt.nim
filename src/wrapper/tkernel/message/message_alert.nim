@@ -1,4 +1,5 @@
 import message_types
+import ../standard/standard_types
 
 ##  Created on: 2017-06-26
 ##  Created by: Andrey Betenev

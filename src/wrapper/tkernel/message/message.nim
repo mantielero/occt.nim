@@ -1,5 +1,6 @@
 import message_types
-
+import ../standard/standard_types
+import ../tcollection/tcollection_types
 ##  Created on: 1999-07-29
 ##  Created by: Roman LYGIN
 ##  Copyright (c) 1999 Matra Datavision

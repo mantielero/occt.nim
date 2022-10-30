@@ -1,5 +1,5 @@
 import message_types
-
+import ../standard/standard_types   
 ##  Created on: 2002-02-20
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS

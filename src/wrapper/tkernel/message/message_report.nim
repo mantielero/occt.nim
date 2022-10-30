@@ -1,5 +1,6 @@
 import message_types
-
+import ../standard/standard_types
+import ../tcollection/tcollection_types
 ##  Created on: 2017-06-26
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2017 OPEN CASCADE SAS

@@ -1,5 +1,5 @@
 import message_types
-
+import ../tcollection/tcollection_types
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.

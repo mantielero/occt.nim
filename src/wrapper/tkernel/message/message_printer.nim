@@ -1,4 +1,6 @@
 import message_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 
 ##  Created on: 2001-01-06
 ##  Created by: OCC Team

@@ -15,11 +15,9 @@ else:
 import standard/standard_types
 
 
-type
-  Ostream* = StandardOStream #object
-  StreamBuffer* = object
-  Counter* = object
-  MessageProgressScopeNullString* = object
+
+
+
 
 
 import standard/standard

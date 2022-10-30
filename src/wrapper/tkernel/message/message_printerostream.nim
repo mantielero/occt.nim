@@ -1,5 +1,6 @@
 import message_types
-
+import ../standard/standard_types
+    
 ##  Created on: 2001-01-06
 ##  Created by: OCC Team
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS

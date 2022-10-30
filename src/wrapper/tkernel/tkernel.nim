@@ -1,6 +1,6 @@
 {.passL:"-lTKernel".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
 when defined(windows):
   const tkernel* = "TKernel.dll"

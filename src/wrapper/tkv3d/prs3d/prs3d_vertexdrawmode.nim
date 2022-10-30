@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -19,8 +21,5 @@
 ## ! VDM_All       - all vertices of the shape are displayed.
 ## ! VDM_Inherited - the global settings are inherited and applied to the shape's presentation.
 
-type
-  Prs3dVertexDrawMode* {.size: sizeof(cint), importcpp: "Prs3d_VertexDrawMode",
-                        header: "Prs3d_VertexDrawMode.hxx".} = enum
-    Prs3dVDM_Isolated, Prs3dVDM_All, Prs3dVDM_Inherited
+
 

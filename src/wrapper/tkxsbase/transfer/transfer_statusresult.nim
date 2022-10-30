@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! result status of transferring an entity (see Transcriptor)
 
-type
-  TransferStatusResult* {.size: sizeof(cint), importcpp: "Transfer_StatusResult",
-                         header: "Transfer_StatusResult.hxx".} = enum
-    TransferStatusVoid, TransferStatusDefined, TransferStatusUsed
+
 

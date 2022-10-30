@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -15,15 +17,5 @@
 
 ## ! Type of the shader object.
 
-type
-  Graphic3dTypeOfShaderObject* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_TypeOfShaderObject",
-                                header: "Graphic3d_TypeOfShaderObject.hxx".} = enum ##  rendering shaders
-    Graphic3dTOS_VERTEX = 0x01, ## !< vertex shader object, mandatory
-    Graphic3dTOS_TESS_CONTROL = 0x02, ## !< tessellation control shader object, optional
-    Graphic3dTOS_TESS_EVALUATION = 0x04, ## !< tessellation evaluation shader object, optional
-    Graphic3dTOS_GEOMETRY = 0x08, ## !< geometry shader object, optional
-    Graphic3dTOS_FRAGMENT = 0x10, ## !< fragment shader object, mandatory
-                               ##  general-purpose compute shader
-    Graphic3dTOS_COMPUTE = 0x20
+
 

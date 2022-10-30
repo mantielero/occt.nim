@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -16,10 +18,5 @@
 ## ! Defines the fill methods to
 ## ! write gradient background in a window.
 
-type
-  AspectGradientFillMethod* {.size: sizeof(cint),
-                             importcpp: "Aspect_GradientFillMethod",
-                             header: "Aspect_GradientFillMethod.hxx".} = enum
-    aspectGFM_NONE, aspectGFM_HOR, aspectGFM_VER, aspectGFM_DIAG1, aspectGFM_DIAG2,
-    aspectGFM_CORNER1, aspectGFM_CORNER2, aspectGFM_CORNER3, aspectGFM_CORNER4
+
 

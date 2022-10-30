@@ -1,3 +1,5 @@
+import adaptor3d_types
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -15,5 +17,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Adaptor3d_CurveOnSurface"
-type
-  Adaptor3dCurveOnSurfacePtr* = ptr Adaptor3dCurveOnSurface
+

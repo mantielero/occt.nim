@@ -1,112 +1,112 @@
+# PROVIDES: QuantityAcceleration QuantityAcousticIntensity QuantityActivity QuantityAdmittance QuantityAmountOfSubstance QuantityAngularVelocity QuantityArea QuantityCapacitance QuantityCoefficient QuantityCoefficientOfExpansion QuantityConcentration QuantityConductivity QuantityConstant QuantityConsumption QuantityContent QuantityDensity QuantityDoseEquivalent QuantityElectricCapacitance QuantityElectricCharge QuantityElectricCurrent QuantityElectricFieldStrength QuantityElectricPotential QuantityEnergy QuantityEnthalpy QuantityEntropy QuantityFactor QuantityForce QuantityFrequency QuantityIlluminance QuantityImpedance QuantityIndex QuantityInductance QuantityKinematicViscosity QuantityKineticMoment QuantityLength QuantityLuminance QuantityLuminousEfficacity QuantityLuminousExposition QuantityLuminousFlux QuantityLuminousIntensity QuantityMagneticFieldStrength QuantityMagneticFlux QuantityMagneticFluxDensity QuantityMass QuantityMassFlow QuantityMolarConcentration QuantityMolarity QuantityMolarMass QuantityMolarVolume QuantityMomentOfAForce QuantityMomentOfInertia QuantityMomentum QuantityNameOfColor QuantityNormality QuantityParameter quantityPhysicalquantity QuantityPlaneAngle QuantityPower QuantityPressure QuantityQuotient QuantityRate QuantityRatio QuantityReluctance QuantityResistance QuantityResistivity QuantityScalaire QuantitySolidAngle QuantitySoundIntensity QuantitySpecificHeatCapacity QuantitySpeed QuantitySurfaceTension QuantityTemperature QuantityThermalConductivity QuantityTorque QuantityVelocity QuantityViscosity QuantityVolume QuantityVolumeFlow QuantityWeight QuantityWork
+# DEPENDS:  NCollectionArray1[QuantityColor]  NCollectionArray2[QuantityColor]  enum ## ! Normalized linear RGB (red, green, blue) values within range [0..1] for each component
+
+import ../ncollection/ncollection_types
 type
   QuantityAcceleration* = cfloat
-type
+
   QuantityAcousticIntensity* = cfloat
-type
+
   QuantityActivity* = cfloat
-type
+
   QuantityAdmittance* = cfloat
-type
+
   QuantityAmountOfSubstance* = cfloat
-type
+
   QuantityAngularVelocity* = cfloat
-type
+
   QuantityArea* = cfloat
-type
-  QuantityArray1OfColor* = NCollectionArray1[QuantityColor]
-type
-  QuantityArray2OfColor* = NCollectionArray2[QuantityColor]
-type
+
   QuantityCapacitance* = cfloat
-type
+
   QuantityCoefficient* = cfloat
-type
+
   QuantityCoefficientOfExpansion* = cfloat
-type
+
   QuantityConcentration* = cfloat
-type
+
   QuantityConductivity* = cfloat
-type
+
   QuantityConstant* = cfloat
-type
+
   QuantityConsumption* = cfloat
-type
+
   QuantityContent* = cfloat
-type
+
   QuantityDensity* = cfloat
-type
+
   QuantityDoseEquivalent* = cfloat
-type
+
   QuantityElectricCapacitance* = cfloat
-type
+
   QuantityElectricCharge* = cfloat
-type
+
   QuantityElectricCurrent* = cfloat
-type
+
   QuantityElectricFieldStrength* = cfloat
-type
+
   QuantityElectricPotential* = cfloat
-type
+
   QuantityEnergy* = cfloat
-type
+
   QuantityEnthalpy* = cfloat
-type
+
   QuantityEntropy* = cfloat
-type
+
   QuantityFactor* = cfloat
-type
+
   QuantityForce* = cfloat
-type
+
   QuantityFrequency* = cfloat
-type
+
   QuantityIlluminance* = cfloat
-type
+
   QuantityImpedance* = cfloat
-type
+
   QuantityIndex* = cfloat
-type
+
   QuantityInductance* = cfloat
-type
+
   QuantityKinematicViscosity* = cfloat
-type
+
   QuantityKineticMoment* = cfloat
-type
+
   QuantityLength* = cfloat
-type
+
   QuantityLuminance* = cfloat
-type
+
   QuantityLuminousEfficacity* = cfloat
-type
+
   QuantityLuminousExposition* = cfloat
-type
+
   QuantityLuminousFlux* = cfloat
-type
+
   QuantityLuminousIntensity* = cfloat
-type
+
   QuantityMagneticFieldStrength* = cfloat
-type
+
   QuantityMagneticFlux* = cfloat
-type
+
   QuantityMagneticFluxDensity* = cfloat
-type
+
   QuantityMass* = cfloat
-type
+
   QuantityMassFlow* = cfloat
-type
+
   QuantityMolarConcentration* = cfloat
-type
+
   QuantityMolarity* = cfloat
-type
+
   QuantityMolarMass* = cfloat
-type
+
   QuantityMolarVolume* = cfloat
-type
+
   QuantityMomentOfAForce* = cfloat
-type
+
   QuantityMomentOfInertia* = cfloat
-type
+
   QuantityMomentum* = cfloat
-type
+
   QuantityNameOfColor* {.size: sizeof(cint), importcpp: "Quantity_NameOfColor",
                         header: "Quantity_NameOfColor.hxx".} = enum
     quantityNOC_BLACK, quantityNOC_MATRABLUE, quantityNOC_MATRAGRAY,
@@ -285,11 +285,11 @@ type
     quantityNOC_YELLOW2,
     quantityNOC_YELLOW3, quantityNOC_YELLOW4, quantityNOC_YELLOWGREEN,
     quantityNOC_WHITE
-type
+
   QuantityNormality* = cfloat
-type
+
   QuantityParameter* = cfloat
-type
+
   quantityPhysicalquantity* {.size: sizeof(cint),
                              importcpp: "Quantity_Physicalquantity",
                              header: "Quantity_Physicalquantity.hxx".} = enum
@@ -315,89 +315,100 @@ type
     quantityMOLARVOLUME, quantityCONCENTRATION, quantityMOLARCONCENTRATION,
     quantityMOLARITY, quantitySOUNDINTENSITY, quantityACOUSTICINTENSITY,
     quantityACTIVITY, quantityABSORBEDDOSE, quantityDOSEEQUIVALENT
-type
+
   QuantityPlaneAngle* = cfloat
-type
+
   QuantityPower* = cfloat
-type
+
   QuantityPressure* = cfloat
-type
+
   QuantityQuotient* = cfloat
-type
+
   QuantityRate* = cfloat
-type
+
   QuantityRatio* = cfloat
-type
+
   QuantityReluctance* = cfloat
-type
+
   QuantityResistance* = cfloat
-type
+
   QuantityResistivity* = cfloat
-type
+
   QuantityScalaire* = cfloat
-type
+
   QuantitySolidAngle* = cfloat
-type
+
   QuantitySoundIntensity* = cfloat
-type
+
   QuantitySpecificHeatCapacity* = cfloat
-type
+
   QuantitySpeed* = cfloat
-type
+
   QuantitySurfaceTension* = cfloat
-type
+
   QuantityTemperature* = cfloat
-type
+
   QuantityThermalConductivity* = cfloat
-type
+
   QuantityTorque* = cfloat
-type
-  QuantityTypeOfColor* {.size: sizeof(cint), importcpp: "Quantity_TypeOfColor",
-                        header: "Quantity_TypeOfColor.hxx".} = enum ## ! Normalized linear RGB (red, green, blue) values within range [0..1] for each component
-    QuantityTOC_RGB,          ## ! Normalized non-linear gamma-shifted RGB (red, green, blue) values within range [0..1] for each component
-    QuantityTOC_sRGB, ## ! Hue + light + saturation components, where:
-                     ## ! - First component is the Hue (H) angle in degrees within range [0.0; 360.0], 0.0 being Red;
-                     ## !   value -1.0 is a special value reserved for grayscale color (S should be 0.0).
-                     ## ! - Second component is the Lightness (L) within range [0.0; 1.0]
-                     ## ! - Third component is the Saturation (S) within range [0.0; 1.0]
-    QuantityTOC_HLS, ## ! CIE L*a*b* color space, constructed to be perceptually uniform for human eye.
-                    ## ! The values are assumed to be with respect to D65 2&deg; white point.
-                    ## !
-                    ## ! The color is defined by:
-                    ## ! - L: lightness in range [0, 100] (from black to white)
-                    ## ! - a: green-to-red axis, approximately in range [-90, 100]
-                    ## ! - b: blue-to-yellow axis, approximately in range [-110, 95]
-                    ## !
-                    ## ! Note that not all combinations of L, a, and b values represent visible
-                    ## ! colors, and RGB cube takes only part of visible color space.
-                    ## !
-                    ## ! When Lab color is converted to RGB, a and b components may be reduced
-                    ## ! (with the same proportion) to fit the result into the RGB range.
-    QuantityTOC_CIELab, ## ! CIE L*c*h* color space, same as L*a*b* in cylindrical coordinates:
-                       ## ! - L: lightness in range [0, 100] (from black to white)
-                       ## ! - c: chroma, approximately in range [0, 135], 0 corresponds to greyscale
-                       ## ! - h: hue angle, in range [0., 360.]
-                       ## !
-                       ## ! The hue values of standard colors are approximately:
-                       ## ! - red at 40,
-                       ## ! - yellow at 103,
-                       ## ! - green at 136,
-                       ## ! - cyan at 196,
-                       ## ! - blue at 306,
-                       ## ! - magenta at 328.
-                       ## !
-                       ## ! When Lch color is converted to RGB, chroma component may be reduced
-                       ## ! to fit the color into the RGB range.
-    QuantityTOC_CIELch
-type
+
   QuantityVelocity* = cfloat
-type
+
   QuantityViscosity* = cfloat
-type
+
   QuantityVolume* = cfloat
-type
+
   QuantityVolumeFlow* = cfloat
-type
+
   QuantityWeight* = cfloat
-type
+
   QuantityWork* = cfloat
+
+  QuantityColor* = object # FIXME
+  QuantityColorRGBA* = object # FIXME
+  QuantityDate* = object # FIXME
+  QuantityPeriod* = object # FIXME
+  QuantityHArray1OfColor* = object # FIXME
+
+  QuantityArray1OfColor* = NCollectionArray1[QuantityColor]
+
+  QuantityArray2OfColor* = NCollectionArray2[QuantityColor]
+
+  QuantityTypeOfColor* {.size: sizeof(cint), importcpp: "Quantity_TypeOfColor",
+                        header: "Quantity_TypeOfColor.hxx".} = enum 
+    QuantityTOC_RGB,          
+    QuantityTOC_sRGB, 
+                     
+                     
+                     
+                     
+    QuantityTOC_HLS, 
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+    QuantityTOC_CIELab, 
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+    QuantityTOC_CIELch
+

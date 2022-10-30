@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Type of the texture projection.
 
-type
-  Graphic3dTypeOfTextureMode* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_TypeOfTextureMode",
-                               header: "Graphic3d_TypeOfTextureMode.hxx".} = enum
-    Graphic3dTOTM_OBJECT, Graphic3dTOTM_SPHERE, Graphic3dTOTM_EYE,
-    Graphic3dTOTM_MANUAL, Graphic3dTOTM_SPRITE
+
 

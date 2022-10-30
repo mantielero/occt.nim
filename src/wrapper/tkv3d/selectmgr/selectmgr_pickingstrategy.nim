@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,10 +15,5 @@
 
 ## ! Enumeration defines picking strategy - which entities detected by picking line will be accepted, considering selection filters.
 
-type
-  SelectMgrPickingStrategy* {.size: sizeof(cint),
-                             importcpp: "SelectMgr_PickingStrategy",
-                             header: "SelectMgr_PickingStrategy.hxx".} = enum
-    SelectMgrPickingStrategyFirstAcceptable, ## !< the first detected entity passing selection filter is accepted (e.g. any)
-    SelectMgrPickingStrategyOnlyTopmost ## !< only topmost detected entity passing selection filter is accepted
+
 

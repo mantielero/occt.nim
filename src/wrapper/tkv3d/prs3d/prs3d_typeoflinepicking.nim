@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Prs3dTypeOfLinePicking* {.size: sizeof(cint),
-                           importcpp: "Prs3d_TypeOfLinePicking",
-                           header: "Prs3d_TypeOfLinePicking.hxx".} = enum
-    Prs3dTOLP_Point, Prs3dTOLP_Segment
+
 

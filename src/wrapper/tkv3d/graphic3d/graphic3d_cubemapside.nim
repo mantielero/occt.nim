@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -14,13 +16,5 @@
 
 ## ! Sides of cubemap in order of OpenGL rules
 
-type
-  Graphic3dCubeMapSide* {.size: sizeof(cint), importcpp: "Graphic3d_CubeMapSide",
-                         header: "Graphic3d_CubeMapSide.hxx".} = enum
-    Graphic3dCMS_POS_X,       ## !< X axis positive direction side
-    Graphic3dCMS_NEG_X,       ## !< X axis negative direction side
-    Graphic3dCMS_POS_Y,       ## !< Y axis positive direction side
-    Graphic3dCMS_NEG_Y,       ## !< Y axis negative direction side
-    Graphic3dCMS_POS_Z,       ## !< Z axis positive direction side
-    Graphic3dCMS_NEG_Z        ## !< Z axis negative direction side
+
 

@@ -1,3 +1,5 @@
+import stepcontrol_types
+
 ##  Created on: 1996-04-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -27,12 +29,5 @@
 ## ! - STEPControl_GeometricCurveSet
 ## ! translates an Open CASCADE shape into a STEP geometric_curve_set entity.
 
-type
-  STEPControlStepModelType* {.size: sizeof(cint),
-                             importcpp: "STEPControl_StepModelType",
-                             header: "STEPControl_StepModelType.hxx".} = enum
-    STEPControlAsIs, STEPControlManifoldSolidBrep, STEPControlBrepWithVoids,
-    STEPControlFacetedBrep, STEPControlFacetedBrepAndBrepWithVoids,
-    STEPControlShellBasedSurfaceModel, STEPControlGeometricCurveSet,
-    STEPControlHybrid
+
 

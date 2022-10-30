@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,8 +15,5 @@
 
 ## ! Enumeration defining a mode of datum graphic presentation, see Prs3d_Datum.
 
-type
-  Prs3dDatumMode* {.size: sizeof(cint), importcpp: "Prs3d_DatumMode",
-                   header: "Prs3d_DatumMode.hxx".} = enum
-    Prs3dDM_WireFrame = 0, Prs3dDM_Shaded
+
 

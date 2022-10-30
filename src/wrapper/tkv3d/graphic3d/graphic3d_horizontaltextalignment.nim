@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,7 +19,5 @@
 ## ! Defines the horizontal position of the text
 ## ! relative to its anchor.
 
-type
-  Graphic3dHorizontalTextAlignment* {.size: sizeof(cint), importcpp: "Graphic3d_HorizontalTextAlignment", header: "Graphic3d_HorizontalTextAlignment.hxx".} = enum
-    Graphic3dHTA_LEFT, Graphic3dHTA_CENTER, Graphic3dHTA_RIGHT
+
 

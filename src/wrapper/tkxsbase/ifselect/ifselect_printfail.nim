@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,8 +23,5 @@
 ## ! - IFSelect_FailAndWarn gives information on both
 ## ! failures and warnings. used to pilot PrintCheckList
 
-type
-  IFSelectPrintFail* {.size: sizeof(cint), importcpp: "IFSelect_PrintFail",
-                      header: "IFSelect_PrintFail.hxx".} = enum
-    IFSelectFailOnly, IFSelectFailAndWarn
+
 

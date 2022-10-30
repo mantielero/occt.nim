@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,6 +13,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  V3dListOfLight* = NCollectionList[Handle[Graphic3dCLight]]
-  V3dListOfLightIterator* {.importcpp:"V3d_ListOfLight::Iterator", bycopy, header:"V3d_ListOfLight.hxx".} = object
+

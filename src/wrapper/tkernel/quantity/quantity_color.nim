@@ -22,7 +22,9 @@ import quantity_types
 ## ! Therefore, take a look into methods converting to and from non-linear sRGB color space, if needed;
 ## ! for instance, application usually providing color picking within 0..255 range in sRGB color space.
 
-
+import ../ncollection/ncollection_types
+import ../tcollection/tcollection_types
+import ../standard/standard_types
 
 proc newQuantityColor*(): QuantityColor {.cdecl, constructor,
                                        importcpp: "Quantity_Color(@)",

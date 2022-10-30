@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! Declares the type of isoparameter displayed.
 
-type
-  AIS_TypeOfIso* {.size: sizeof(cint), importcpp: "AIS_TypeOfIso",
-                  header: "AIS_TypeOfIso.hxx".} = enum
-    aIS_TOI_IsoU, aIS_TOI_IsoV, aIS_TOI_Both
+
 

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! Type of the texture projection plane for both S and T texture coordinate.
 
-type
-  Graphic3dNameOfTexturePlane* {.size: sizeof(cint),
-                                importcpp: "Graphic3d_NameOfTexturePlane",
-                                header: "Graphic3d_NameOfTexturePlane.hxx".} = enum
-    Graphic3dNOTP_XY, Graphic3dNOTP_YZ, Graphic3dNOTP_ZX, Graphic3dNOTP_UNKNOWN
+
 

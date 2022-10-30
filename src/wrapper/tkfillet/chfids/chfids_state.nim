@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -26,9 +28,5 @@
 ## ! concave side different than one of the two other edges
 ## ! and identical to the third edge.
 
-type
-  ChFiDS_State* {.size: sizeof(cint), importcpp: "ChFiDS_State",
-                 header: "ChFiDS_State.hxx".} = enum
-    ChFiDS_OnSame, ChFiDS_OnDiff, ChFiDS_AllSame, ChFiDS_BreakPoint,
-    ChFiDS_FreeBoundary, ChFiDS_Closed, ChFiDS_Tangent
+
 

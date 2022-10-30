@@ -1,3 +1,5 @@
+import appparcurves_types
+
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,10 +21,5 @@
 ## ! -   TangencyPoint: this point has a tangency constraint.
 ## ! -   CurvaturePoint: this point has a curvature constraint.
 
-type
-  AppParCurvesConstraint* {.size: sizeof(cint),
-                           importcpp: "AppParCurves_Constraint",
-                           header: "AppParCurves_Constraint.hxx".} = enum
-    appParCurvesNoConstraint, appParCurvesPassPoint, appParCurvesTangencyPoint,
-    appParCurvesCurvaturePoint
+
 

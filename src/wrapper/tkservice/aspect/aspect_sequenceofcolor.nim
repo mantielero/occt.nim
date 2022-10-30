@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -13,5 +15,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AspectSequenceOfColor* = NCollectionSequence[QuantityColor]
+

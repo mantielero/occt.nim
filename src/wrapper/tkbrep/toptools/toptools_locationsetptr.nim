@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,5 +17,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopTools_LocationSet"
-type
-  TopToolsLocationSetPtr* = ptr TopToolsLocationSet
+

@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,8 +17,5 @@
 
 ## ! Defines the grid type : Rectangular or Circular.
 
-type
-  AspectGridType* {.size: sizeof(cint), importcpp: "Aspect_GridType",
-                   header: "Aspect_GridType.hxx".} = enum
-    AspectGT_Rectangular, AspectGT_Circular
+
 

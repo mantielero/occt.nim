@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -13,9 +15,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AspectTypeOfFacingModel* {.size: sizeof(cint),
-                            importcpp: "Aspect_TypeOfFacingModel",
-                            header: "Aspect_TypeOfFacingModel.hxx".} = enum
-    aspectTOFM_BOTH_SIDE, aspectTOFM_BACK_SIDE, aspectTOFM_FRONT_SIDE
+
 

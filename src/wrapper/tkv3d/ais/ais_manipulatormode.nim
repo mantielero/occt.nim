@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 2015-02-05
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -15,9 +17,5 @@
 
 ## ! Mode to make definite kind of transformations with AIS_Manipulator object.
 
-type
-  AIS_ManipulatorMode* {.size: sizeof(cint), importcpp: "AIS_ManipulatorMode",
-                        header: "AIS_ManipulatorMode.hxx".} = enum
-    AIS_MM_None = 0, AIS_MM_Translation = 1, AIS_MM_Rotation, AIS_MM_Scaling,
-    AIS_MM_TranslationPlane
+
 

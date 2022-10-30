@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  V3dTypeOfRepresentation* {.size: sizeof(cint),
-                            importcpp: "V3d_TypeOfRepresentation",
-                            header: "V3d_TypeOfRepresentation.hxx".} = enum
-    V3dSIMPLE, V3dCOMPLETE, V3dPARTIAL, V3dSAMELAST
+
 

@@ -1,18 +1,19 @@
-# PROVIDES: IntSurf IntSurfCouple IntSurfInteriorPoint IntSurfInteriorPointTool IntSurfPathPoint IntSurfPathPointTool IntSurfPntOn2S IntSurfQuadric IntSurfQuadricTool IntSurfTransition
-# DEPENDS:  Handle[IntSurfLineOn2S]  Handle[IntSurfLineOn2S] StandardTransient
+# PROVIDES: IntSurfListOfPntOn2S IntSurfListIteratorOfListOfPntOn2S IntSurfSituation IntSurf IntSurfCouple IntSurfInteriorPoint IntSurfInteriorPointTool IntSurfPathPoint IntSurfPathPointTool IntSurfPntOn2S IntSurfQuadric IntSurfQuadricTool IntSurfTransition IntSurfTypeTrans
+# DEPENDS:  Handle[NCollectionBaseAllocator]  NCollectionSequence[IntSurfCouple]  NCollectionSequence[IntSurfInteriorPoint]  NCollectionSequence[IntSurfPathPoint]  NCollectionSequence[IntSurfPntOn2S]  Handle[IntSurfLineOn2S]  Handle[IntSurfLineOn2S]  Handle[IntSurfLineOn2S] StandardTransient
 
 import tkgeomalgo/intsurf/intsurf_types
+import tkernel/ncollection/ncollection_types
 import tkernel/standard/standard_types
 type
+  IntSurfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object
+
+  IntSurfListIteratorOfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>::Iterator", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object
+
+  IntSurfSituation* {.size: sizeof(cint), importcpp: "IntSurf_Situation",
+                     header: "IntSurf_Situation.hxx".} = enum
+    IntSurfInside, IntSurfOutside, IntSurfUnknown
+
   IntSurf* {.importcpp: "IntSurf", header: "IntSurf.hxx", bycopy.} = object 
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
-                                                                    
 
   IntSurfCouple* {.importcpp: "IntSurf_Couple", header: "IntSurf_Couple.hxx", bycopy.} = object
 
@@ -21,25 +22,12 @@ type
 
   IntSurfInteriorPointTool* {.importcpp: "IntSurf_InteriorPointTool",
                              header: "IntSurf_InteriorPointTool.hxx", bycopy.} = object 
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
 
   IntSurfPathPoint* {.importcpp: "IntSurf_PathPoint",
                      header: "IntSurf_PathPoint.hxx", bycopy.} = object
 
   IntSurfPathPointTool* {.importcpp: "IntSurf_PathPointTool",
                          header: "IntSurf_PathPointTool.hxx", bycopy.} = object 
-                                                                           
-                                                                           
-                                                                           
-                                                                           
 
   IntSurfPntOn2S* {.importcpp: "IntSurf_PntOn2S", header: "IntSurf_PntOn2S.hxx",
                    bycopy.} = object 
@@ -53,18 +41,27 @@ type
 
   IntSurfTransition* {.importcpp: "IntSurf_Transition",
                       header: "IntSurf_Transition.hxx", bycopy.} = object 
-                                                                     
+
+  IntSurfTypeTrans* {.size: sizeof(cint), importcpp: "IntSurf_TypeTrans",
+                     header: "IntSurf_TypeTrans.hxx".} = enum
+    IntSurfIn, IntSurfOut, IntSurfTouch, IntSurfUndecided
+
+  IntSurfAllocator* = Handle[NCollectionBaseAllocator]
+
+  IntSurfSequenceOfCouple* = NCollectionSequence[IntSurfCouple]
+
+  IntSurfSequenceOfInteriorPoint* = NCollectionSequence[IntSurfInteriorPoint]
+
+  IntSurfSequenceOfPathPoint* = NCollectionSequence[IntSurfPathPoint]
+
+  IntSurfSequenceOfPntOn2S* = NCollectionSequence[IntSurfPntOn2S]
 
   HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
 
-
   HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
 
   HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
+
   IntSurfLineOn2S* {.importcpp: "IntSurf_LineOn2S", header: "IntSurf_LineOn2S.hxx",
                     bycopy.} = object of StandardTransient
-
-
-
-
 

@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Option to manage  discontinuities in  Sweep
 
-type
-  BRepBuilderAPI_TransitionMode* {.size: sizeof(cint),
-                                  importcpp: "BRepBuilderAPI_TransitionMode",
-                                  header: "BRepBuilderAPI_TransitionMode.hxx".} = enum
-    BRepBuilderAPI_Transformed, BRepBuilderAPI_RightCorner,
-    BRepBuilderAPI_RoundCorner
+
 

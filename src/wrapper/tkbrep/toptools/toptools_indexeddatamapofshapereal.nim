@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -12,6 +14,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopToolsIndexedDataMapOfShapeReal* = NCollectionIndexedDataMap[TopoDS_Shape,
-      cfloat, TopToolsShapeMapHasher]
+

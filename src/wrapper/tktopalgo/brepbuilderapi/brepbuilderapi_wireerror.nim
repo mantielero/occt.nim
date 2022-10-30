@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,10 +27,5 @@
 ## ! -      BRepBuilderAPI_NonManifoldWire
 ## ! The wire with some singularity.
 
-type
-  BRepBuilderAPI_WireError* {.size: sizeof(cint),
-                             importcpp: "BRepBuilderAPI_WireError",
-                             header: "BRepBuilderAPI_WireError.hxx".} = enum
-    BRepBuilderAPI_WireDone, BRepBuilderAPI_EmptyWire,
-    BRepBuilderAPI_DisconnectedWire, BRepBuilderAPI_NonManifoldWire
+
 

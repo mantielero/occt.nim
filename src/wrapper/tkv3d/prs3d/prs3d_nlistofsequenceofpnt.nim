@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 2006-04-20
 ##  Created by: Sergey Kochetkov	
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -13,5 +15,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Prs3dNListOfSequenceOfPnt* = NCollectionList[Handle[TColgpHSequenceOfPnt]]
+

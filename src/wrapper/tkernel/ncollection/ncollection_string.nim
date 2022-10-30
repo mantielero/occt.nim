@@ -1,3 +1,5 @@
+import ncollection_types
+
 ##  Created on: 2013-01-28
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -16,8 +18,5 @@
 #import
 #  nCollectionUtfString
 
-type
-  NCollectionUtf8String* = object # FIXME
 
-type
-  NCollectionString* = NCollectionUtf8String
+

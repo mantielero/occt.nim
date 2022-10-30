@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -12,6 +14,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of V3d_View"
-type
-  V3dListOfView* = NCollectionList[Handle[V3dView]]
-  V3dListOfViewIterator* {.importcpp:"V3d_ListOfView::Iterator", bycopy, header:"V3d_ListOfView.hxx".} = object
+

@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -15,61 +17,5 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Shape"
-type
-  TopToolsShapeMapHasher* {.importcpp: "TopTools_ShapeMapHasher",
-                           header: "TopTools_ShapeMapHasher.hxx", bycopy.} = object ## !
-                                                                               ## Computes a
-                                                                               ## hash
-                                                                               ## code
-                                                                               ## for
-                                                                               ## the
-                                                                               ## given
-                                                                               ## shape,
-                                                                               ## in
-                                                                               ## the
-                                                                               ## range
-                                                                               ## [1,
-                                                                               ## theUpperBound]
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theShape
-                                                                               ## the
-                                                                               ## shape
-                                                                               ## which
-                                                                               ## hash
-                                                                               ## code
-                                                                               ## is
-                                                                               ## to
-                                                                               ## be
-                                                                               ## computed
-                                                                               ## !
-                                                                               ## @param
-                                                                               ## theUpperBound
-                                                                               ## the
-                                                                               ## upper
-                                                                               ## bound
-                                                                               ## of
-                                                                               ## the
-                                                                               ## range a
-                                                                               ## computing
-                                                                               ## hash
-                                                                               ## code
-                                                                               ## must
-                                                                               ## be
-                                                                               ## within
-                                                                               ## !
-                                                                               ## @return a
-                                                                               ## computed
-                                                                               ## hash
-                                                                               ## code,
-                                                                               ## in
-                                                                               ## the
-                                                                               ## range
-                                                                               ## [1,
-                                                                               ## theUpperBound]
 
 
-#proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl,
-#    importcpp: "TopTools_ShapeMapHasher::HashCode(@)", header: "TopTools_ShapeMapHasher.hxx".}
-#proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.cdecl,
-#    importcpp: "TopTools_ShapeMapHasher::IsEqual(@)", header: "TopTools_ShapeMapHasher.hxx".}

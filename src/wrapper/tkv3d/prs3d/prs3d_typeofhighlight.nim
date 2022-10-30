@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,14 +15,5 @@
 
 ## ! Type of highlighting to apply specific style.
 
-type
-  Prs3dTypeOfHighlight* {.size: sizeof(cint), importcpp: "Prs3d_TypeOfHighlight",
-                         header: "Prs3d_TypeOfHighlight.hxx".} = enum
-    Prs3dTypeOfHighlightNone = 0, ## !< no highlighting
-    Prs3dTypeOfHighlightSelected, ## !< entire object is selected
-    Prs3dTypeOfHighlightDynamic, ## !< entire object is dynamically highlighted
-    Prs3dTypeOfHighlightLocalSelected, ## !< part of the object is selected
-    Prs3dTypeOfHighlightLocalDynamic, ## !< part of the object is dynamically highlighted
-    Prs3dTypeOfHighlightSubIntensity, ## !< sub-intensity style
-    Prs3dTypeOfHighlightNB
+
 

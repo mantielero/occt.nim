@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -17,9 +19,5 @@
 ## ! Determines the type of visualization in the view, either
 ## ! WIREFRAME or ZBUFFER (shading).
 
-type
-  V3dTypeOfVisualization* {.size: sizeof(cint),
-                           importcpp: "V3d_TypeOfVisualization",
-                           header: "V3d_TypeOfVisualization.hxx".} = enum
-    V3dWIREFRAME, V3dZBUFFER
+
 

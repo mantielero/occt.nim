@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,8 +23,5 @@
 ## ! For more details see Prs3d_Drawer class, AIS_Shape::Compute() method and
 ## ! HLRAlgo package from TKHLR toolkit.
 
-type
-  Prs3dTypeOfHLR* {.size: sizeof(cint), importcpp: "Prs3d_TypeOfHLR",
-                   header: "Prs3d_TypeOfHLR.hxx".} = enum
-    Prs3dTOH_NotSet, Prs3dTOH_PolyAlgo, Prs3dTOH_Algo
+
 

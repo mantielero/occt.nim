@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,5 +17,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of SelectMgr_EntityOwner"
-type
-  SelectMgrSequenceOfOwner* = NCollectionSequence[Handle[SelectMgrEntityOwner]]
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,10 +19,5 @@
 ## ! Defines the vertical position of the text
 ## ! relative to its anchor.
 
-type
-  Graphic3dVerticalTextAlignment* {.size: sizeof(cint), importcpp: "Graphic3d_VerticalTextAlignment", header: "Graphic3d_VerticalTextAlignment.hxx".} = enum
-    Graphic3dVTA_BOTTOM,      ## !< The anchor lies on the last line of the text.
-    Graphic3dVTA_CENTER,      ## !< The anchor lies on the center of the text (not bounding box).
-    Graphic3dVTA_TOP,         ## !< The anchor lies on the line preceding to the first line of the text.
-    Graphic3dVTA_TOPFIRSTLINE ## !< The anchor lies on the first line of the text.
+
 

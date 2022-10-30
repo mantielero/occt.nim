@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1995-08-23
 ##  Created by: Xavier BENVENISTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,8 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ConvertCosAndSinEvalFunction* = proc (a1: cfloat; a2: cint; a3: TColgpArray1OfPnt2d;
-                                     a4: TColStdArray1OfReal;
-                                     a5: ptr TColStdArray1OfInteger;
-                                     result: array[2, cfloat]): void {.cdecl.}
+

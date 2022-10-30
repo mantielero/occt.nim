@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,8 +22,5 @@
 ## ! less depth than those of Curved
 ## ! -   GeomFill_Curved - the style with the most rounded patches.
 
-type
-  GeomFillFillingStyle* {.size: sizeof(cint), importcpp: "GeomFill_FillingStyle",
-                         header: "GeomFill_FillingStyle.hxx".} = enum
-    GeomFillStretchStyle, GeomFillCoonsStyle, GeomFillCurvedStyle
+
 

@@ -1,3 +1,5 @@
+import poly_types
+
 ##  Created on: 2008-04-21
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2008-2014 OPEN CASCADE SAS
@@ -17,5 +19,4 @@
 ##  List of Poly_Triangulation instances.
 ##
 
-type
-  PolyListOfTriangulation* = NCollectionList[Handle[PolyTriangulation]]
+

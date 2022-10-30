@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,5 @@
 
 ## ! XR action type.
 
-type
-  AspectXRActionType* {.size: sizeof(cint), importcpp: "Aspect_XRActionType",
-                       header: "Aspect_XRActionType.hxx".} = enum
-    AspectXRActionTypeInputDigital, ## !< boolean input (like button)
-    AspectXRActionTypeInputAnalog, ## !< analog input (1/2/3 axes)
-    AspectXRActionTypeInputPose, ## !< positional input
-    AspectXRActionTypeInputSkeletal, ## !< skeletal input
-    AspectXRActionTypeOutputHaptic ## !< haptic output (vibration)
+
 

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[cint,
-      TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference* {.importcpp:"NCollection_DataMap<Standard_Integer,TopOpeBRepDS_ListOfInterference,TColStd_MapIntegerHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfIntegerListOfInterference.hxx", bycopy.} = object
+

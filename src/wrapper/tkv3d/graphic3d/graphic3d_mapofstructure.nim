@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2014-12-18
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,5 +16,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of Graphic3d_Structure"
-type
-  Graphic3dMapOfStructure*[HandleGraphic3dStructure] {.importcpp:"NCollection_Map<'0>", header:"Graphic3d_MapOfStructure.hxx", bycopy.} = object
+

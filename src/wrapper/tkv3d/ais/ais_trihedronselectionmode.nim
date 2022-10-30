@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,5 @@
 
 ## ! Enumeration defining selection modes supported by AIS_Trihedron.
 
-type
-  AIS_TrihedronSelectionMode* {.size: sizeof(cint),
-                               importcpp: "AIS_TrihedronSelectionMode",
-                               header: "AIS_TrihedronSelectionMode.hxx".} = enum
-    AIS_TrihedronSelectionModeEntireObject = 0, ## !< select trihedron as whole
-    AIS_TrihedronSelectionModeOrigin = 1, ## !< origin
-    AIS_TrihedronSelectionModeAxes = 2, ## !< axes
-    AIS_TrihedronSelectionModeMainPlanes = 3
+
 

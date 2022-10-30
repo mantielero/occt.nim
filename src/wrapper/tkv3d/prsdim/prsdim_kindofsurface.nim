@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,10 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PrsDimKindOfSurface* {.size: sizeof(cint), importcpp: "PrsDim_KindOfSurface",
-                        header: "PrsDim_KindOfSurface.hxx".} = enum
-    PrsDimKOS_Plane, PrsDimKOS_Cylinder, PrsDimKOS_Cone, PrsDimKOS_Sphere,
-    PrsDimKOS_Torus, PrsDimKOS_Revolution, PrsDimKOS_Extrusion,
-    PrsDimKOS_OtherSurface
+
 

@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -21,9 +23,5 @@
 ## ! removal mode, where every new point of view
 ## ! entails recalculation of the display.
 
-type
-  PrsMgrTypeOfPresentation3d* {.size: sizeof(cint),
-                               importcpp: "PrsMgr_TypeOfPresentation3d",
-                               header: "PrsMgr_TypeOfPresentation3d.hxx".} = enum
-    prsMgrTOP_AllView, prsMgrTOP_ProjectorDependant
+
 

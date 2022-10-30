@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-01-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  MathStatus* {.size: sizeof(cint), importcpp: "math_Status",
-               header: "math_Status.hxx".} = enum
-    mathOK, mathTooManyIterations, mathFunctionError, mathDirectionSearchError,
-    mathNotBracketed
+
 

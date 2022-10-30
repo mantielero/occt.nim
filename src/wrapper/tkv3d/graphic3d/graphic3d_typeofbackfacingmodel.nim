@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -20,7 +22,5 @@
 ## ! TOBM_FORCE     force display of back faces
 ## ! TOBM_DISABLE   disable display of back faces
 
-type
-  Graphic3dTypeOfBackfacingModel* {.size: sizeof(cint), importcpp: "Graphic3d_TypeOfBackfacingModel", header: "Graphic3d_TypeOfBackfacingModel.hxx".} = enum
-    Graphic3dTOBM_AUTOMATIC, Graphic3dTOBM_FORCE, Graphic3dTOBM_DISABLE
+
 

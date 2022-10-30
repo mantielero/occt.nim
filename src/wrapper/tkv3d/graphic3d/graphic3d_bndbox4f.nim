@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2014-04-09
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -16,5 +18,4 @@
 ## ! Redefines BVH_Box<Standard_ShortReal, 4> for AABB representation
 ## ! Describes rendering parameters and effects.
 
-type
-  Graphic3dBndBox4f* = BVH_Box[StandardShortReal, 4]
+

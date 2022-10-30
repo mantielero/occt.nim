@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,5 @@
 ## ! - RM_RASTERIZATION: enables OpenGL rasterization mode;
 ## ! - RM_RAYTRACING: enables GPU ray-tracing mode.
 
-type
-  Graphic3dRenderingMode* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_RenderingMode",
-                           header: "Graphic3d_RenderingMode.hxx".} = enum
-    Graphic3dRM_RASTERIZATION, Graphic3dRM_RAYTRACING
+
 

@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 2016-11-25
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -12,11 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PrsDimKindOfRelation* {.size: sizeof(cint), importcpp: "PrsDim_KindOfRelation",
-                         header: "PrsDim_KindOfRelation.hxx".} = enum
-    PrsDimKOR_NONE = 0, PrsDimKOR_CONCENTRIC, PrsDimKOR_EQUALDISTANCE,
-    PrsDimKOR_EQUALRADIUS, PrsDimKOR_FIX, PrsDimKOR_IDENTIC, PrsDimKOR_OFFSET,
-    PrsDimKOR_PARALLEL, PrsDimKOR_PERPENDICULAR, PrsDimKOR_TANGENT,
-    PrsDimKOR_SYMMETRIC
+
 

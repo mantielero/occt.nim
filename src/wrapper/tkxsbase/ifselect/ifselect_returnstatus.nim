@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,9 +24,5 @@
 ## ! RetFail  : execution was run and has failed
 ## ! RetStop  : indicates end or stop (such as Raise)
 
-type
-  IFSelectReturnStatus* {.size: sizeof(cint), importcpp: "IFSelect_ReturnStatus",
-                         header: "IFSelect_ReturnStatus.hxx".} = enum
-    IFSelectRetVoid, IFSelectRetDone, IFSelectRetError, IFSelectRetFail,
-    IFSelectRetStop
+
 

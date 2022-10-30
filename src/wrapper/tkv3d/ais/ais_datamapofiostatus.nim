@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AIS_DataMapOfIOStatus* = NCollectionDataMap[Handle[AIS_InteractiveObject],
-      Handle[AIS_GlobalStatus], TColStdMapTransientHasher]
-  AIS_DataMapIteratorOfDataMapOfIOStatus* [ HandleAIS_InteractiveObject, HandleAIS_GlobalStatus, TColStdMapTransientHasher] {.importcpp:"NCollection_DataMap<'0,'1,'2>::Iterator", header:"AIS_DataMapOfIOStatus.hxx", bycopy.} = object
+

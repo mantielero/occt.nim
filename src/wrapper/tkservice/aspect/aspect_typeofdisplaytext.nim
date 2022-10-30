@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,14 +17,5 @@
 
 ## ! Define the display type of the text.
 
-type
-  AspectTypeOfDisplayText* {.size: sizeof(cint),
-                            importcpp: "Aspect_TypeOfDisplayText",
-                            header: "Aspect_TypeOfDisplayText.hxx".} = enum
-    aspectTODT_NORMAL,        ## !< default display, text only
-    aspectTODT_SUBTITLE,      ## !< there is a subtitle under the text
-    aspectTODT_DEKALE,        ## !< the text is displayed with a 3D style
-    aspectTODT_BLEND,         ## !< the text is displayed in XOR
-    aspectTODT_DIMENSION,     ## !< dimension line under text will be invisible
-    aspectTODT_SHADOW         ## !< the text will have a shadow at the right-bottom corner
+
 

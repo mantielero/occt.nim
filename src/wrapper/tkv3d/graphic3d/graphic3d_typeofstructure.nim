@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,10 +19,5 @@
 ## ! Structural attribute indicating if it can be displayed
 ## ! in wireframe, shadow mode, or both.
 
-type
-  Graphic3dTypeOfStructure* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_TypeOfStructure",
-                             header: "Graphic3d_TypeOfStructure.hxx".} = enum
-    Graphic3dTOS_WIREFRAME, Graphic3dTOS_SHADING, Graphic3dTOS_COMPUTED,
-    Graphic3dTOS_ALL
+
 

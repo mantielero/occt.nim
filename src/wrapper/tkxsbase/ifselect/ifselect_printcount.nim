@@ -1,3 +1,5 @@
+import ifselect_types
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -42,10 +44,5 @@
 ## ! CASCADE shape (including type and form of the IGES entity
 ## ! and type of the resulting shape).
 
-type
-  IFSelectPrintCount* {.size: sizeof(cint), importcpp: "IFSelect_PrintCount",
-                       header: "IFSelect_PrintCount.hxx".} = enum
-    iFSelectItemsByEntity, iFSelectCountByItem, iFSelectShortByItem,
-    iFSelectListByItem, iFSelectEntitiesByItem, iFSelectCountSummary,
-    iFSelectGeneralInfo, iFSelectMapping, iFSelectResultCount
+
 

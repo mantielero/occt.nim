@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -51,8 +53,5 @@
 ## ! **BOPAlgo_GlueFull** - Glue option for shapes with full coincidence.
 ## !
 
-type
-  BOPAlgoGlueEnum* {.size: sizeof(cint), importcpp: "BOPAlgo_GlueEnum",
-                    header: "BOPAlgo_GlueEnum.hxx".} = enum
-    BOPAlgoGlueOff, BOPAlgoGlueShift, BOPAlgoGlueFull
+
 

@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! Determines the axis type through the coordinates X, Y, Z.
 
-type
-  V3dTypeOfAxe* {.size: sizeof(cint), importcpp: "V3d_TypeOfAxe",
-                 header: "V3d_TypeOfAxe.hxx".} = enum
-    V3dX, V3dY, V3dZ
+
 

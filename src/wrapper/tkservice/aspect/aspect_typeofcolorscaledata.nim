@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,9 +17,5 @@
 
 ## ! Defines the using type of colors and labels
 
-type
-  AspectTypeOfColorScaleData* {.size: sizeof(cint),
-                               importcpp: "Aspect_TypeOfColorScaleData",
-                               header: "Aspect_TypeOfColorScaleData.hxx".} = enum
-    AspectTOCSD_AUTO, AspectTOCSD_USER
+
 

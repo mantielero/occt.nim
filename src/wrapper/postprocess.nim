@@ -546,14 +546,14 @@ proc appendBeg*(fname, append:string) =
 # 1. Create types with files
 
 #"./tkmath/gp"
-createTypesFile("./tk*/*")
+#createTypesFile("./tk*/*")
 #createTypesFile("./tkernel/quantity")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
 #reorderContent("./tkernel/quantity/quantity_types.nim")
 
-#for fname in walkFiles("./tk*/*/*_types.nim"):
-#  reorderContent(fname)
+for fname in walkFiles("./tk*/*/*_types.nim"):
+  reorderContent(fname)
 
 #addImportsToTypes("./tk*/*/*_types.nim")
 #correctIncludes("./tk*/*")

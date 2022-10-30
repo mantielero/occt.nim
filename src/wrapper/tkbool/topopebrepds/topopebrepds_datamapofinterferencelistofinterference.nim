@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,8 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_DataMapOfInterferenceListOfInterference* = NCollectionDataMap[
-      Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
-      TColStdMapTransientHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference* {.importcpp:"NCollection_DataMap<Handle(TopOpeBRepDS_Interference),TopOpeBRepDS_ListOfInterference,TColStd_MapTransientHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfInterferenceListOfInterference.hxx", bycopy.} = object
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2014-04-09
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -13,5 +15,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dBndBox4d* = BVH_Box[cfloat, 4]
+

@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! --- Purpose statuts concernant la cause de l'erreur
 
-type
-  ChFiDS_ErrorStatus* {.size: sizeof(cint), importcpp: "ChFiDS_ErrorStatus",
-                       header: "ChFiDS_ErrorStatus.hxx".} = enum
-    ChFiDS_Ok, ChFiDS_Error, ChFiDS_WalkingFailure, ChFiDS_StartsolFailure,
-    ChFiDS_TwistedSurface
+
 

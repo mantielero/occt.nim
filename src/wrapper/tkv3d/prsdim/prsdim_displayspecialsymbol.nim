@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Specifies dimension special symbol display options
 
-type
-  PrsDimDisplaySpecialSymbol* {.size: sizeof(cint),
-                               importcpp: "PrsDim_DisplaySpecialSymbol",
-                               header: "PrsDim_DisplaySpecialSymbol.hxx".} = enum
-    PrsDimDisplaySpecialSymbolNo, PrsDimDisplaySpecialSymbolBefore,
-    PrsDimDisplaySpecialSymbolAfter
+
 

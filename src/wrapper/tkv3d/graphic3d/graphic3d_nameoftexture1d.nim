@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! Types of standard textures.
 
-type
-  Graphic3dNameOfTexture1D* {.size: sizeof(cint),
-                             importcpp: "Graphic3d_NameOfTexture1D",
-                             header: "Graphic3d_NameOfTexture1D.hxx".} = enum
-    Graphic3dNOT_1D_ELEVATION, Graphic3dNOT_1D_UNKNOWN
+
 

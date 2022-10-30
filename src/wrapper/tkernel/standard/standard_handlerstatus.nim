@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 1991-09-05
 ##  Created by: J.P. TIRAUlt
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,8 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  StandardHandlerStatus* {.size: sizeof(cint), importcpp: "Standard_HandlerStatus",
-                          header: "Standard_HandlerStatus.hxx".} = enum
-    StandardHandlerVoid, StandardHandlerJumped, StandardHandlerProcessed
+
 

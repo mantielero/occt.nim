@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! Identifies the type of a curve.
 
-type
-  GeomAbsCurveType* {.size: sizeof(cint), importcpp: "GeomAbs_CurveType",
-                     header: "GeomAbs_CurveType.hxx".} = enum
-    GeomAbsLine, GeomAbsCircle, GeomAbsEllipse, GeomAbsHyperbola, GeomAbsParabola,
-    GeomAbsBezierCurve, GeomAbsBSplineCurve, GeomAbsOffsetCurve, GeomAbsOtherCurve
+
 

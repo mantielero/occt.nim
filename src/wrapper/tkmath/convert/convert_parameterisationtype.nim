@@ -1,3 +1,5 @@
+import convert_types
+
 ##  Created on: 1991-10-10
 ##  Created by: Jean Claude VAUTHIER
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -78,11 +80,5 @@
 ## ! However, the result is an approximation of the circle or ellipse (i.e. computing the point of
 ## ! parameter t on the BSpline curve does not give an exact point on the circle or the ellipse).
 
-type
-  ConvertParameterisationType* {.size: sizeof(cint),
-                                importcpp: "Convert_ParameterisationType",
-                                header: "Convert_ParameterisationType.hxx".} = enum
-    convertTgtThetaOver2, convertTgtThetaOver21, convertTgtThetaOver22,
-    convertTgtThetaOver23, convertTgtThetaOver24, convertQuasiAngular,
-    convertRationalC1, convertPolynomial
+
 

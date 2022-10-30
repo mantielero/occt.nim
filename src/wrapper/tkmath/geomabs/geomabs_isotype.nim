@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,8 +19,5 @@
 ## ! this enumeration describes if a curve is an U isoparaetric
 ## ! or V isoparametric
 
-type
-  GeomAbsIsoType* {.size: sizeof(cint), importcpp: "GeomAbs_IsoType",
-                   header: "GeomAbs_IsoType.hxx".} = enum
-    GeomAbsIsoU, GeomAbsIsoV, GeomAbsNoneIso
+
 

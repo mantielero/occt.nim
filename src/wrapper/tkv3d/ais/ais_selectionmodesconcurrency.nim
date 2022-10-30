@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,11 +15,5 @@
 
 ## ! The mode specifying how multiple active Selection Modes should be treated during activation of new one.
 
-type
-  AIS_SelectionModesConcurrency* {.size: sizeof(cint),
-                                  importcpp: "AIS_SelectionModesConcurrency",
-                                  header: "AIS_SelectionModesConcurrency.hxx".} = enum
-    aIS_SelectionModesConcurrencySingle, ## !< only one selection mode can be activated at the same moment - previously activated should be deactivated
-    aIS_SelectionModesConcurrencyGlobalOrLocal, ## !< either Global (AIS_InteractiveObject::GlobalSelectionMode() or Local (multiple) selection modes can be active at the same moment
-    aIS_SelectionModesConcurrencyMultiple ## !< any combination of selection modes can be activated
+
 

@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AIS_StatusOfDetection* {.size: sizeof(cint), importcpp: "AIS_StatusOfDetection",
-                          header: "AIS_StatusOfDetection.hxx".} = enum
-    AIS_SOD_Error, AIS_SOD_Nothing, AIS_SOD_AllBad, AIS_SOD_Selected,
-    AIS_SOD_OnlyOneDetected, AIS_SOD_OnlyOneGood, AIS_SOD_SeveralGood
+
 

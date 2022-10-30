@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! used on processing Undefined Entities (see TransferOutput)
 
-type
-  TransferUndefMode* {.size: sizeof(cint), importcpp: "Transfer_UndefMode",
-                      header: "Transfer_UndefMode.hxx".} = enum
-    TransferUndefIgnore, TransferUndefFailure, TransferUndefContent,
-    TransferUndefUser
+
 

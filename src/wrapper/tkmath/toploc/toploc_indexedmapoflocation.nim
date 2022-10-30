@@ -1,3 +1,5 @@
+import toploc_types
+
 ##  Created on: 1990-12-19
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -14,6 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopLocIndexedMapOfLocation* = NCollectionIndexedMap[TopLocLocation,
-      TopLocMapLocationHasher]
+

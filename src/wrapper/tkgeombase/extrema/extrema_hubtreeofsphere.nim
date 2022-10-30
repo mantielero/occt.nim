@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 2005-03-17
 ##  Created by: OPEN CASCADE Support
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -13,7 +15,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ExtremaUBTreeOfSphere* = NCollectionUBTree[cint, BndSphere]
-  ExtremaUBTreeFillerOfSphere* = NCollectionUBTreeFiller[cint, BndSphere]
-  ExtremaHUBTreeOfSphere* = NCollectionHandle[ExtremaUBTreeOfSphere]
+

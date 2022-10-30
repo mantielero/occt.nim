@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,7 +15,5 @@
 
 ## ! Camera eye index within stereoscopic pair.
 
-type
-  AspectEye* {.size: sizeof(cint), importcpp: "Aspect_Eye", header: "Aspect_Eye.hxx".} = enum
-    AspectEyeLeft, AspectEyeRight
+
 

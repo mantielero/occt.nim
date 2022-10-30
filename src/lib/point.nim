@@ -7,8 +7,8 @@ import tkmath/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
 converter toCfloat*[T:SomeNumber](val:T):cfloat =
   val.cfloat
 
-#proc newPnt*[A,B,C:SomeNumber](x:A,y:B,z:C):PntObj = 
-#  pnt(x.cfloat, y.cfloat, z.cfloat)
+proc pnt*[A,B,C:SomeNumber](x:A,y:B,z:C):PntObj = 
+  pnt(x.cfloat, y.cfloat, z.cfloat)
 
 type
   P3* = tuple[x,y,z:float]  # Nim way

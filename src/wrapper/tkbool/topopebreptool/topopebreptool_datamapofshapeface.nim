@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepToolDataMapOfShapeface* = NCollectionDataMap[TopoDS_Shape,
-      TopOpeBRepToolFace, TopToolsShapeMapHasher]
-  TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_face,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeface.hxx", bycopy.} = object
+

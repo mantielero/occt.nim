@@ -1,3 +1,5 @@
+import transfer_types
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! execution status of an individual transfer (see Transcriptor)
 
-type
-  TransferStatusExec* {.size: sizeof(cint), importcpp: "Transfer_StatusExec",
-                       header: "Transfer_StatusExec.hxx".} = enum
-    TransferStatusInitial, TransferStatusRun, TransferStatusDone,
-    TransferStatusError, TransferStatusLoop
+
 

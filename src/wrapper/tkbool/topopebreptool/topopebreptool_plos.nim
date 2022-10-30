@@ -1,3 +1,5 @@
+import topopebreptool_types
+
 ##  Created on: 1994-03-10
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -14,5 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepToolPlos* = ptr TopToolsListOfShape
+

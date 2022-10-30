@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! To give the display status of an Interactive Object.
 
-type
-  AIS_DisplayStatus* {.size: sizeof(cint), importcpp: "AIS_DisplayStatus",
-                      header: "AIS_DisplayStatus.hxx".} = enum
-    aIS_DS_Displayed,         ## !< the Interactive Object is displayed in the main viewer
-    aIS_DS_Erased,            ## !< the Interactive Object is hidden in main viewer
-    aIS_DS_None               ## !< the Interactive Object is nowhere displayed
+
 

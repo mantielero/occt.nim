@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,5 +17,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of PrsMgr_Presentation"
-type
-  PrsMgrPresentations* = NCollectionSequence[Handle[PrsMgrPresentation]]
+

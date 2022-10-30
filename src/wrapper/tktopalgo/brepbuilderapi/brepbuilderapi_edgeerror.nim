@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,14 +41,5 @@
 ## ! Two identical points were given to define a line (construction
 ## ! of an edge without curve); gp::Resolution is used for the    confusion test.
 
-type
-  BRepBuilderAPI_EdgeError* {.size: sizeof(cint),
-                             importcpp: "BRepBuilderAPI_EdgeError",
-                             header: "BRepBuilderAPI_EdgeError.hxx".} = enum
-    BRepBuilderAPI_EdgeDone, BRepBuilderAPI_PointProjectionFailed,
-    BRepBuilderAPI_ParameterOutOfRange,
-    BRepBuilderAPI_DifferentPointsOnClosedCurve,
-    BRepBuilderAPI_PointWithInfiniteParameter,
-    BRepBuilderAPI_DifferentsPointAndParameter,
-    BRepBuilderAPI_LineThroughIdenticPoints
+
 

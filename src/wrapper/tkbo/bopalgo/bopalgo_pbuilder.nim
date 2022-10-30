@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -13,5 +15,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of BOPAlgo_Builder"
-type
-  BOPAlgoPBuilder* = ptr BOPAlgoBuilder
+

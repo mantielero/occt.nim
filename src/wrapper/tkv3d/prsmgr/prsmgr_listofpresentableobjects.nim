@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 2014-08-11
 ##  Created by: duv
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,7 +16,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of PrsMgr_PresentableObject"
-type
-  PrsMgrListOfPresentableObjects* = NCollectionList[
-      Handle[PrsMgrPresentableObject]]
-  PrsMgrListOfPresentableObjectsIter*[HandlePrsMgrPresentableObject] {.importcpp:"NCollection_List<'0>::Iterator", header:"PrsMgr_ListOfPresentableObjects.hxx", bycopy.} = object
+

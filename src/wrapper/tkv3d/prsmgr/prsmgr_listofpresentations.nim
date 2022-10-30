@@ -1,3 +1,5 @@
+import prsmgr_types
+
 ##  Created on: 2013-11-24
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2013 OPEN CASCADE SAS
@@ -13,5 +15,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  PrsMgrListOfPresentations* = NCollectionList[Handle[Prs3dPresentation]]
+

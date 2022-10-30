@@ -1,3120 +1,423 @@
-# PROVIDES: IFSelect IFSelectContextModif IFSelectContextWrite IFSelectFunctions IFSelectSelectionIterator IFSelectSessionFile IFSelectShareOutResult
-# DEPENDS:  Handle[IFSelectAct]  Handle[IFSelectActivator]  Handle[IFSelectAppliedModifiers]  Handle[IFSelectBasicDumper]  Handle[IFSelectCheckCounter]  Handle[IFSelectDispatch]  Handle[IFSelectDispGlobal]  Handle[IFSelectDispPerCount]  Handle[IFSelectDispPerFiles]  Handle[IFSelectDispPerOne]  Handle[IFSelectDispPerSignature]  Handle[IFSelectEditForm]  Handle[IFSelectEditor]  Handle[IFSelectGeneralModifier]  Handle[IFSelectGraphCounter]  Handle[IFSelectIntParam]  Handle[IFSelectListEditor]  Handle[IFSelectModelCopier]  Handle[IFSelectModifEditForm]  Handle[IFSelectModifier]  Handle[IFSelectModifReorder]  Handle[IFSelectPacketList]  Handle[IFSelectParamEditor]  Handle[IFSelectSelectAnyList]  Handle[IFSelectSelectAnyType]  Handle[IFSelectSelectBase]  Handle[IFSelectSelectCombine]  Handle[IFSelectSelectControl]  Handle[IFSelectSelectDeduct]  Handle[IFSelectSelectDiff]  Handle[IFSelectSelectEntityNumber]  Handle[IFSelectSelectErrorEntities]  Handle[IFSelectSelectExplore]  Handle[IFSelectSelectExtract]  Handle[IFSelectSelectFlag]  Handle[IFSelectSelectIncorrectEntities]  Handle[IFSelectSelectInList]  Handle[IFSelectSelectIntersection]  Handle[IFSelectSelection]  Handle[IFSelectSelectModelEntities]  Handle[IFSelectSelectModelRoots]  Handle[IFSelectSelectPointed]  Handle[IFSelectSelectRange]  Handle[IFSelectSelectRootComps]  Handle[IFSelectSelectRoots]  Handle[IFSelectSelectSent]  Handle[IFSelectSelectShared]  Handle[IFSelectSelectSharing]  Handle[IFSelectSelectSignature]  Handle[IFSelectSelectSignedShared]  Handle[IFSelectSelectSignedSharing]  Handle[IFSelectSelectSuite]  Handle[IFSelectSelectType]  Handle[IFSelectSelectUnion]  Handle[IFSelectSelectUnknownEntities]  Handle[IFSelectSessionDumper]  Handle[IFSelectSessionPilot]  Handle[IFSelectShareOut]  Handle[IFSelectSignature]  Handle[IFSelectSignatureList]  Handle[IFSelectSignCategory]  Handle[IFSelectSignCounter]  Handle[IFSelectSignMultiple]  Handle[IFSelectSignType]  Handle[IFSelectSignValidity]  Handle[IFSelectTransformer]  Handle[IFSelectTransformStandard]  Handle[IFSelectWorkLibrary]  Handle[IFSelectWorkSession] IFSelectActivator StandardTransient StandardTransient IFSelectSessionDumper IFSelectSignatureList StandardTransient IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch StandardTransient StandardTransient StandardTransient IFSelectSignCounter IFSelectTSeqOfSelection StandardTransient StandardTransient StandardTransient IFSelectModifier IFSelectGeneralModifier IFSelectModifier StandardTransient IFSelectEditor IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelectControl IFSelectSelectBase IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectFlag IFSelectSelectAnyList IFSelectSelectCombine StandardTransient IFSelectSelectBase IFSelectSelectBase IFSelectSelectBase IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectExplore IFSelectSelectExplore IFSelectSelectDeduct IFSelectSelectAnyType IFSelectSelectCombine IFSelectSelectExtract StandardTransient IFSelectActivator StandardTransient  Handle[IFSelectSignAncestor] IFSelectSignType InterfaceSignType StandardTransient IFSelectSignature IFSelectSignatureList IFSelectSignature IFSelectSignature IFSelectSignature StandardTransient IFSelectTransformer StandardTransient StandardTransient
+# PROVIDES: IFSelectEditValue IFSelectPrintCount IFSelectPrintFail IFSelectRemainMode IFSelectReturnStatus IFSelect IFSelectContextModif IFSelectContextWrite IFSelectFunctions IFSelectSelectionIterator IFSelectSessionFile IFSelectShareOutResult
+# DEPENDS:  proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.  NCollectionSequence[  NCollectionSequence[  NCollectionSequence[  NCollectionSequence[Handle[IFSelectDispatch]]  NCollectionSequence[Handle[IFSelectSelection]]  Handle[IFSelectAct]  Handle[IFSelectActivator]  Handle[IFSelectAppliedModifiers]  Handle[IFSelectBasicDumper]  Handle[IFSelectCheckCounter]  Handle[IFSelectDispatch]  Handle[IFSelectDispGlobal]  Handle[IFSelectDispPerCount]  Handle[IFSelectDispPerFiles]  Handle[IFSelectDispPerOne]  Handle[IFSelectDispPerSignature]  Handle[IFSelectEditForm]  Handle[IFSelectEditor]  Handle[IFSelectGeneralModifier]  Handle[IFSelectGraphCounter]  Handle[IFSelectIntParam]  Handle[IFSelectListEditor]  Handle[IFSelectModelCopier]  Handle[IFSelectModifEditForm]  Handle[IFSelectModifier]  Handle[IFSelectModifReorder]  Handle[IFSelectPacketList]  Handle[IFSelectParamEditor]  Handle[IFSelectSelectAnyList]  Handle[IFSelectSelectAnyType]  Handle[IFSelectSelectBase]  Handle[IFSelectSelectCombine]  Handle[IFSelectSelectControl]  Handle[IFSelectSelectDeduct]  Handle[IFSelectSelectDiff]  Handle[IFSelectSelectEntityNumber]  Handle[IFSelectSelectErrorEntities]  Handle[IFSelectSelectExplore]  Handle[IFSelectSelectExtract]  Handle[IFSelectSelectFlag]  Handle[IFSelectSelectIncorrectEntities]  Handle[IFSelectSelectInList]  Handle[IFSelectSelectIntersection]  Handle[IFSelectSelection]  Handle[IFSelectSelectModelEntities]  Handle[IFSelectSelectModelRoots]  Handle[IFSelectSelectPointed]  Handle[IFSelectSelectRange]  Handle[IFSelectSelectRootComps]  Handle[IFSelectSelectRoots]  Handle[IFSelectSelectSent]  Handle[IFSelectSelectShared]  Handle[IFSelectSelectSharing]  Handle[IFSelectSelectSignature]  Handle[IFSelectSelectSignedShared]  Handle[IFSelectSelectSignedSharing]  Handle[IFSelectSelectSuite]  Handle[IFSelectSelectType]  Handle[IFSelectSelectUnion]  Handle[IFSelectSelectUnknownEntities]  Handle[IFSelectSessionDumper]  Handle[IFSelectSessionPilot]  Handle[IFSelectShareOut]  Handle[IFSelectSignature]  Handle[IFSelectSignatureList]  Handle[IFSelectSignCategory]  Handle[IFSelectSignCounter]  Handle[IFSelectSignMultiple]  Handle[IFSelectSignType]  Handle[IFSelectSignValidity]  Handle[IFSelectTransformer]  Handle[IFSelectTransformStandard]  Handle[IFSelectWorkLibrary]  Handle[IFSelectWorkSession] IFSelectActivator StandardTransient StandardTransient IFSelectSessionDumper IFSelectSignatureList StandardTransient IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch StandardTransient StandardTransient StandardTransient IFSelectSignCounter IFSelectTSeqOfSelection StandardTransient StandardTransient StandardTransient IFSelectModifier IFSelectGeneralModifier IFSelectModifier StandardTransient IFSelectEditor IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelectControl IFSelectSelectBase IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectFlag IFSelectSelectAnyList IFSelectSelectCombine StandardTransient IFSelectSelectBase IFSelectSelectBase IFSelectSelectBase IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectExplore IFSelectSelectExplore IFSelectSelectDeduct IFSelectSelectAnyType IFSelectSelectCombine IFSelectSelectExtract StandardTransient IFSelectActivator StandardTransient  Handle[IFSelectSignAncestor] IFSelectSignType InterfaceSignType StandardTransient IFSelectSignature IFSelectSignatureList IFSelectSignature IFSelectSignature IFSelectSignature StandardTransient IFSelectTransformer StandardTransient StandardTransient
 
 import tkxsbase/ifselect/ifselect_types
+import tkernel/ncollection/ncollection_types
 import tkernel/standard/standard_types
 type
+  IFSelectEditValue* {.size: sizeof(cint), importcpp: "IFSelect_EditValue",
+                      header: "IFSelect_EditValue.hxx".} = enum
+    iFSelectOptional, iFSelectEditable, iFSelectEditProtected,
+    iFSelectEditComputed, iFSelectEditRead, iFSelectEditDynamic
+
+  IFSelectPrintCount* {.size: sizeof(cint), importcpp: "IFSelect_PrintCount",
+                       header: "IFSelect_PrintCount.hxx".} = enum
+    iFSelectItemsByEntity, iFSelectCountByItem, iFSelectShortByItem,
+    iFSelectListByItem, iFSelectEntitiesByItem, iFSelectCountSummary,
+    iFSelectGeneralInfo, iFSelectMapping, iFSelectResultCount
+
+  IFSelectPrintFail* {.size: sizeof(cint), importcpp: "IFSelect_PrintFail",
+                      header: "IFSelect_PrintFail.hxx".} = enum
+    IFSelectFailOnly, IFSelectFailAndWarn
+
+  IFSelectRemainMode* {.size: sizeof(cint), importcpp: "IFSelect_RemainMode",
+                       header: "IFSelect_RemainMode.hxx".} = enum
+    IFSelectRemainForget, IFSelectRemainCompute, IFSelectRemainDisplay,
+    IFSelectRemainUndo
+
+  IFSelectReturnStatus* {.size: sizeof(cint), importcpp: "IFSelect_ReturnStatus",
+                         header: "IFSelect_ReturnStatus.hxx".} = enum
+    IFSelectRetVoid, IFSelectRetDone, IFSelectRetError, IFSelectRetFail,
+    IFSelectRetStop
+
   IFSelect* {.importcpp: "IFSelect", header: "IFSelect.hxx", bycopy.} = object 
-                                                                       
-                                                                       
-                                                                       
-                                                                       
-                                                                       
-                                                                       
 
   IFSelectContextModif* {.importcpp: "IFSelect_ContextModif",
                          header: "IFSelect_ContextModif.hxx", bycopy.} = object 
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
 
   IFSelectContextWrite* {.importcpp: "IFSelect_ContextWrite",
                          header: "IFSelect_ContextWrite.hxx", bycopy.} = object 
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
 
   IFSelectFunctions* {.importcpp: "IFSelect_Functions",
                       header: "IFSelect_Functions.hxx", bycopy.} = object 
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
 
   IFSelectSelectionIterator* {.importcpp: "IFSelect_SelectionIterator",
                               header: "IFSelect_SelectionIterator.hxx", bycopy.} = object 
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
 
   IFSelectSessionFile* {.importcpp: "IFSelect_SessionFile",
                         header: "IFSelect_SessionFile.hxx", bycopy.} = object 
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
-                                                                         
 
   IFSelectShareOutResult* {.importcpp: "IFSelect_ShareOutResult",
                            header: "IFSelect_ShareOutResult.hxx", bycopy.} = object 
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
+
+  IFSelectActFunc* = proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
+      cdecl.}
+
+  IFSelectSequenceOfAppliedModifiers* = NCollectionSequence[
+      Handle[IFSelectAppliedModifiers]]
+
+  IFSelectSequenceOfGeneralModifier* = NCollectionSequence[
+      Handle[IFSelectGeneralModifier]]
+
+  IFSelectSequenceOfInterfaceModel* = NCollectionSequence[
+      Handle[InterfaceInterfaceModel]]
+
+  IFSelectTSeqOfDispatch* = NCollectionSequence[Handle[IFSelectDispatch]]
+
+  IFSelectTSeqOfSelection* = NCollectionSequence[Handle[IFSelectSelection]]
 
   HandleIFSelectAct* = Handle[IFSelectAct]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectActivator* = Handle[IFSelectActivator]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
-
-
-
-
-
 
   HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
 
-
-
-
-
-
-
   HandleIFSelectDispatch* = Handle[IFSelectDispatch]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
 
-
-
-
-
   HandleIFSelectDispPerCount* = Handle[IFSelectDispPerCount]
-
-
-
-
-
-
 
   HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
 
-
-
-
-
-
-
-
-
-
   HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
-
-
-
-
-
 
   HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
 
-
-
-
-
   HandleIFSelectEditForm* = Handle[IFSelectEditForm]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectEditor* = Handle[IFSelectEditor]
 
-
-
-
-
-
-
-
-
   HandleIFSelectGeneralModifier* = Handle[IFSelectGeneralModifier]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
 
-
-
-
-
-
-
-
-
   HandleIFSelectIntParam* = Handle[IFSelectIntParam]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectListEditor* = Handle[IFSelectListEditor]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectModelCopier* = Handle[IFSelectModelCopier]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
 
-
-
-
   HandleIFSelectModifier* = Handle[IFSelectModifier]
-
-
-
-
-
-
-
-
 
   HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
 
-
-
-
-
-
-
-
   HandleIFSelectPacketList* = Handle[IFSelectPacketList]
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
 
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
 
-
-
-
-
-
   HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
-
-
-
-
 
   HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
 
-
-
-
-
-
-
   HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
-
-
-
-
 
   HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
 
-
-
-
-
-
-
-
   HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
-
-
-
-
-
-
 
   HandleIFSelectSelectExplore* = Handle[IFSelectSelectExplore]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectExtract* = Handle[IFSelectSelectExtract]
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
 
-
-
-
-
-
-
-
-
   HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
-
-
-
-
-
-
-
 
   HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
 
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
-
-
-
-
 
   HandleIFSelectSelection* = Handle[IFSelectSelection]
 
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
-
-
-
-
 
   HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
 
-
-
-
-
-
-
   HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
 
-
-
-
-
-
   HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
 
-
-
-
-
-
   HandleIFSelectSelectSent* = Handle[IFSelectSelectSent]
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
 
-
-
-
-
   HandleIFSelectSelectSharing* = Handle[IFSelectSelectSharing]
-
-
-
-
-
-
 
   HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectSelectSignedShared* = Handle[IFSelectSelectSignedShared]
-
-
-
-
-
-
 
   HandleIFSelectSelectSignedSharing* = Handle[IFSelectSelectSignedSharing]
 
-
-
-
-
-
-
   HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSelectType* = Handle[IFSelectSelectType]
 
-
-
-
-
   HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
-
-
-
-
 
   HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
 
-
-
-
-
   HandleIFSelectSessionDumper* = Handle[IFSelectSessionDumper]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectShareOut* = Handle[IFSelectShareOut]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSignature* = Handle[IFSelectSignature]
 
-
-
-
-
-
-
-
-
-
   HandleIFSelectSignatureList* = Handle[IFSelectSignatureList]
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSignCategory* = Handle[IFSelectSignCategory]
 
-
-
-
-
   HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
 
-
-
-
-
-
-
-
   HandleIFSelectSignType* = Handle[IFSelectSignType]
-
-
-
-
-
-
 
   HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
 
-
-
-
-
-
-
   HandleIFSelectTransformer* = Handle[IFSelectTransformer]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   HandleIFSelectWorkSession* = Handle[IFSelectWorkSession]
 
-
-
-
-
-
-
-
-
   IFSelectAct* {.importcpp: "IFSelect_Act", header: "IFSelect_Act.hxx", bycopy.} = object of IFSelectActivator 
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-
-
 
   IFSelectActivator* {.importcpp: "IFSelect_Activator",
                       header: "IFSelect_Activator.hxx", bycopy.} = object of StandardTransient 
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-
-
 
   IFSelectAppliedModifiers* {.importcpp: "IFSelect_AppliedModifiers",
                              header: "IFSelect_AppliedModifiers.hxx", bycopy.} = object of StandardTransient 
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-                                                                                                      
-
-
 
   IFSelectBasicDumper* {.importcpp: "IFSelect_BasicDumper",
                         header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelectSessionDumper 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectCheckCounter* {.importcpp: "IFSelect_CheckCounter",
                          header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelectSignatureList 
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-
-
 
   IFSelectDispatch* {.importcpp: "IFSelect_Dispatch",
                      header: "IFSelect_Dispatch.hxx", bycopy.} = object of StandardTransient 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-
-
 
   IFSelectDispGlobal* {.importcpp: "IFSelect_DispGlobal",
                        header: "IFSelect_DispGlobal.hxx", bycopy.} = object of IFSelectDispatch 
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-
 
   IFSelectDispPerCount* {.importcpp: "IFSelect_DispPerCount",
                          header: "IFSelect_DispPerCount.hxx", bycopy.} = object of IFSelectDispatch 
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-
-
 
   IFSelectDispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
                          header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelectDispatch 
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-
-
 
   IFSelectDispPerOne* {.importcpp: "IFSelect_DispPerOne",
                        header: "IFSelect_DispPerOne.hxx", bycopy.} = object of IFSelectDispatch 
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-
 
   IFSelectDispPerSignature* {.importcpp: "IFSelect_DispPerSignature",
                              header: "IFSelect_DispPerSignature.hxx", bycopy.} = object of IFSelectDispatch 
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-                                                                                                     
-
-
 
   IFSelectEditForm* {.importcpp: "IFSelect_EditForm",
                      header: "IFSelect_EditForm.hxx", bycopy.} = object of StandardTransient 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-
-
 
   IFSelectEditor* {.importcpp: "IFSelect_Editor", header: "IFSelect_Editor.hxx",
                    bycopy.} = object of StandardTransient 
-                                                     
-                                                     
-                                                     
-                                                     
-
-
 
   IFSelectGeneralModifier* {.importcpp: "IFSelect_GeneralModifier",
                             header: "IFSelect_GeneralModifier.hxx", bycopy.} = object of StandardTransient 
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-
-
 
   IFSelectGraphCounter* {.importcpp: "IFSelect_GraphCounter",
                          header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelectSignCounter 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectHSeqOfSelection* {.importcpp: "IFSelect_HSeqOfSelection",
                             header: "IFSelect_HSeqOfSelection.hxx", bycopy.} = object of IFSelectTSeqOfSelection
 
-
-
   IFSelectIntParam* {.importcpp: "IFSelect_IntParam",
                      header: "IFSelect_IntParam.hxx", bycopy.} = object of StandardTransient 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-
-
 
   IFSelectListEditor* {.importcpp: "IFSelect_ListEditor",
                        header: "IFSelect_ListEditor.hxx", bycopy.} = object of StandardTransient 
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-
-
 
   IFSelectModelCopier* {.importcpp: "IFSelect_ModelCopier",
                         header: "IFSelect_ModelCopier.hxx", bycopy.} = object of StandardTransient 
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-
-
 
   IFSelectModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
                           header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelectModifier 
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-
-
 
   IFSelectModifier* {.importcpp: "IFSelect_Modifier",
                      header: "IFSelect_Modifier.hxx", bycopy.} = object of IFSelectGeneralModifier 
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-
-
 
   IFSelectModifReorder* {.importcpp: "IFSelect_ModifReorder",
                          header: "IFSelect_ModifReorder.hxx", bycopy.} = object of IFSelectModifier 
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-
-
 
   IFSelectPacketList* {.importcpp: "IFSelect_PacketList",
                        header: "IFSelect_PacketList.hxx", bycopy.} = object of StandardTransient 
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-
-
 
   IFSelectParamEditor* {.importcpp: "IFSelect_ParamEditor",
                         header: "IFSelect_ParamEditor.hxx", bycopy.} = object of IFSelectEditor 
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-                                                                                         
-
-
 
   IFSelectSelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
                           header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-
-
 
   IFSelectSelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
                           header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-                                                                                                    
-
-
 
   IFSelectSelectBase* {.importcpp: "IFSelect_SelectBase",
                        header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelectSelection 
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-
-
 
   IFSelectSelectCombine* {.importcpp: "IFSelect_SelectCombine",
                           header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelectSelection 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSelectControl* {.importcpp: "IFSelect_SelectControl",
                           header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelectSelection 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSelectDeduct* {.importcpp: "IFSelect_SelectDeduct",
                          header: "IFSelect_SelectDeduct.hxx", bycopy.} = object of IFSelectSelection 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSelectDiff* {.importcpp: "IFSelect_SelectDiff",
                        header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelectSelectControl 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
                                header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelectSelectBase 
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-
-
 
   IFSelectSelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
                                 header: "IFSelect_SelectErrorEntities.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-
-
 
   IFSelectSelectExplore* {.importcpp: "IFSelect_SelectExplore",
                           header: "IFSelect_SelectExplore.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-
-
 
   IFSelectSelectExtract* {.importcpp: "IFSelect_SelectExtract",
                           header: "IFSelect_SelectExtract.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-
-
 
   IFSelectSelectFlag* {.importcpp: "IFSelect_SelectFlag",
                        header: "IFSelect_SelectFlag.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSelectIncorrectEntities* {.importcpp: "IFSelect_SelectIncorrectEntities", header: "IFSelect_SelectIncorrectEntities.hxx",
                                     bycopy.} = object of IFSelectSelectFlag 
-                                                                       
-                                                                       
-                                                                       
-
-
 
   IFSelectSelectInList* {.importcpp: "IFSelect_SelectInList",
                          header: "IFSelect_SelectInList.hxx", bycopy.} = object of IFSelectSelectAnyList 
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-
-
 
   IFSelectSelectIntersection* {.importcpp: "IFSelect_SelectIntersection",
                                header: "IFSelect_SelectIntersection.hxx", bycopy.} = object of IFSelectSelectCombine 
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-
-
 
   IFSelectSelection* {.importcpp: "IFSelect_Selection",
                       header: "IFSelect_Selection.hxx", bycopy.} = object of StandardTransient 
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-
-
 
   IFSelectSelectModelEntities* {.importcpp: "IFSelect_SelectModelEntities",
                                 header: "IFSelect_SelectModelEntities.hxx", bycopy.} = object of IFSelectSelectBase 
-                                                                                                             
-                                                                                                             
-                                                                                                             
-                                                                                                             
-
-
 
   IFSelectSelectModelRoots* {.importcpp: "IFSelect_SelectModelRoots",
                              header: "IFSelect_SelectModelRoots.hxx", bycopy.} = object of IFSelectSelectBase 
-                                                                                                       
-                                                                                                       
-                                                                                                       
-                                                                                                       
-
-
 
   IFSelectSelectPointed* {.importcpp: "IFSelect_SelectPointed",
                           header: "IFSelect_SelectPointed.hxx", bycopy.} = object of IFSelectSelectBase 
-                                                                                                 
-                                                                                                 
-                                                                                                 
-                                                                                                 
-
-
 
   IFSelectSelectRange* {.importcpp: "IFSelect_SelectRange",
                         header: "IFSelect_SelectRange.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSelectRootComps* {.importcpp: "IFSelect_SelectRootComps",
                             header: "IFSelect_SelectRootComps.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-
-
 
   IFSelectSelectRoots* {.importcpp: "IFSelect_SelectRoots",
                         header: "IFSelect_SelectRoots.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSelectSent* {.importcpp: "IFSelect_SelectSent",
                        header: "IFSelect_SelectSent.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSelectShared* {.importcpp: "IFSelect_SelectShared",
                          header: "IFSelect_SelectShared.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                                 
-                                                                                                 
-                                                                                                 
-                                                                                                 
-
-
 
   IFSelectSelectSharing* {.importcpp: "IFSelect_SelectSharing",
                           header: "IFSelect_SelectSharing.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                                   
-                                                                                                   
-                                                                                                   
-                                                                                                   
-
-
 
   IFSelectSelectSignature* {.importcpp: "IFSelect_SelectSignature",
                             header: "IFSelect_SelectSignature.hxx", bycopy.} = object of IFSelectSelectExtract 
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-
-
 
   IFSelectSelectSignedShared* {.importcpp: "IFSelect_SelectSignedShared",
                                header: "IFSelect_SelectSignedShared.hxx", bycopy.} = object of IFSelectSelectExplore 
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-                                                                                                              
-
-
 
   IFSelectSelectSignedSharing* {.importcpp: "IFSelect_SelectSignedSharing",
                                 header: "IFSelect_SelectSignedSharing.hxx", bycopy.} = object of IFSelectSelectExplore 
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-                                                                                                                
-
-
 
   IFSelectSelectSuite* {.importcpp: "IFSelect_SelectSuite",
                         header: "IFSelect_SelectSuite.hxx", bycopy.} = object of IFSelectSelectDeduct 
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-
-
 
   IFSelectSelectType* {.importcpp: "IFSelect_SelectType",
                        header: "IFSelect_SelectType.hxx", bycopy.} = object of IFSelectSelectAnyType 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSelectUnion* {.importcpp: "IFSelect_SelectUnion",
                         header: "IFSelect_SelectUnion.hxx", bycopy.} = object of IFSelectSelectCombine 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSelectUnknownEntities* {.importcpp: "IFSelect_SelectUnknownEntities",
                                   header: "IFSelect_SelectUnknownEntities.hxx",
                                   bycopy.} = object of IFSelectSelectExtract 
-                                                                        
-
-
 
   IFSelectSessionDumper* {.importcpp: "IFSelect_SessionDumper",
                           header: "IFSelect_SessionDumper.hxx", bycopy.} = object of StandardTransient 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSessionPilot* {.importcpp: "IFSelect_SessionPilot",
                          header: "IFSelect_SessionPilot.hxx", bycopy.} = object of IFSelectActivator 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectShareOut* {.importcpp: "IFSelect_ShareOut",
                      header: "IFSelect_ShareOut.hxx", bycopy.} = object of StandardTransient 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-
-
 
   HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
-
 
   IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
                          header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
 
-
-
   IFSelectSignature* {.importcpp: "IFSelect_Signature",
                       header: "IFSelect_Signature.hxx", bycopy.} = object of InterfaceSignType 
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                        
-
-
 
   IFSelectSignatureList* {.importcpp: "IFSelect_SignatureList",
                           header: "IFSelect_SignatureList.hxx", bycopy.} = object of StandardTransient 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSignCategory* {.importcpp: "IFSelect_SignCategory",
                          header: "IFSelect_SignCategory.hxx", bycopy.} = object of IFSelectSignature 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSignCounter* {.importcpp: "IFSelect_SignCounter",
                         header: "IFSelect_SignCounter.hxx", bycopy.} = object of IFSelectSignatureList 
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-                                                                                                
-
-
 
   IFSelectSignMultiple* {.importcpp: "IFSelect_SignMultiple",
                          header: "IFSelect_SignMultiple.hxx", bycopy.} = object of IFSelectSignature 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectSignType* {.importcpp: "IFSelect_SignType",
                      header: "IFSelect_SignType.hxx", bycopy.} = object of IFSelectSignature 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-
-
 
   IFSelectSignValidity* {.importcpp: "IFSelect_SignValidity",
                          header: "IFSelect_SignValidity.hxx", bycopy.} = object of IFSelectSignature 
-                                                                                              
-                                                                                              
-                                                                                              
-                                                                                              
-
-
 
   IFSelectTransformer* {.importcpp: "IFSelect_Transformer",
                         header: "IFSelect_Transformer.hxx", bycopy.} = object of StandardTransient 
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-
-
 
   IFSelectTransformStandard* {.importcpp: "IFSelect_TransformStandard",
                               header: "IFSelect_TransformStandard.hxx", bycopy.} = object of IFSelectTransformer 
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                                                                                                          
-                                                                                                          
-
-
 
   IFSelectWorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
                         header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
 
-
-
-
-
+                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
   IFSelectWorkSession* {.importcpp: "IFSelect_WorkSession",
                         header: "IFSelect_WorkSession.hxx", bycopy.} = object of StandardTransient 
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-                                                                                            
-
-
-
-
 
 

@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -21,9 +23,5 @@
 ## ! WOL_VERYTHICK       very thick width of 1.5 MM
 ## ! WOL_USERDEFINED     defined by Users
 
-type
-  AspectWidthOfLine* {.size: sizeof(cint), importcpp: "Aspect_WidthOfLine",
-                      header: "Aspect_WidthOfLine.hxx".} = enum
-    AspectWOL_THIN, AspectWOL_MEDIUM, AspectWOL_THICK, AspectWOL_VERYTHICK,
-    AspectWOL_USERDEFINED
+
 

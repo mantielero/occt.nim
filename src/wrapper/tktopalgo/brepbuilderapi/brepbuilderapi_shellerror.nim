@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,10 +26,5 @@
 ## ! -   BRepBuilderAPI_ShellParametersOutOfRange
 ## ! The parameters given to limit the surface are out of its bounds.
 
-type
-  BRepBuilderAPI_ShellError* {.size: sizeof(cint),
-                              importcpp: "BRepBuilderAPI_ShellError",
-                              header: "BRepBuilderAPI_ShellError.hxx".} = enum
-    BRepBuilderAPI_ShellDone, BRepBuilderAPI_EmptyShell,
-    BRepBuilderAPI_DisconnectedShell, BRepBuilderAPI_ShellParametersOutOfRange
+
 

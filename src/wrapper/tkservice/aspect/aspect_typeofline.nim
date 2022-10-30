@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,13 +17,5 @@
 
 ## ! Definition of line types
 
-type
-  AspectTypeOfLine* {.size: sizeof(cint), importcpp: "Aspect_TypeOfLine",
-                     header: "Aspect_TypeOfLine.hxx".} = enum
-    aspectTOL_EMPTY = -1,       ## !< hidden
-    aspectTOL_SOLID = 0,        ## !< continuous
-    aspectTOL_DASH,           ## !< dashed 2.0,1.0 (MM)
-    aspectTOL_DOT,            ## !< dotted 0.2,0.5 (MM)
-    aspectTOL_DOTDASH,        ## !< mixed  10.0,1.0,2.0,1.0 (MM)
-    aspectTOL_USERDEFINED     ## !< defined by Users
+
 

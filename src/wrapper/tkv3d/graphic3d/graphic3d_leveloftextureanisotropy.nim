@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,8 +19,5 @@
 ## ! Level of anisotropy filter.
 ## ! Notice that actual quality depends on hardware capabilities!
 
-type
-  Graphic3dLevelOfTextureAnisotropy* {.size: sizeof(cint), importcpp: "Graphic3d_LevelOfTextureAnisotropy", header: "Graphic3d_LevelOfTextureAnisotropy.hxx".} = enum
-    Graphic3dLOTA_OFF, Graphic3dLOTA_FAST, Graphic3dLOTA_MIDDLE,
-    Graphic3dLOTA_QUALITY
+
 

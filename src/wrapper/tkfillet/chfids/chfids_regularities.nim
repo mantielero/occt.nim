@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,6 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_Regularities* = NCollectionList[ChFiDS_Regul]
-  ChFiDS_ListIteratorOfRegularities* {.importcpp:"NCollection_List<ChFiDS_Regul>::Iterator", header:"ChFiDS_Regularities.hxx",bycopy.}  = object
+

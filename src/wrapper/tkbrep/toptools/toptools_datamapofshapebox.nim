@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -12,7 +14,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopToolsDataMapOfShapeBox* = NCollectionDataMap[TopoDS_Shape, BndBox,
-      TopToolsShapeMapHasher]
-  TopToolsDataMapIteratorOfDataMapOfShapeBox* {.importcpp:"TopTools_DataMapOfShapeBox::Iterator", header:"TopTools_DataMapOfShapeBox.hxx",bycopy.} = object
+

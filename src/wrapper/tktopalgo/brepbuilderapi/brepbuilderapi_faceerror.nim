@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,10 +30,5 @@
 ## ! -      BRepBuilderAPI_ParametersOutOfRange
 ## ! The parameters given to limit the surface are out of its    bounds.
 
-type
-  BRepBuilderAPI_FaceError* {.size: sizeof(cint),
-                             importcpp: "BRepBuilderAPI_FaceError",
-                             header: "BRepBuilderAPI_FaceError.hxx".} = enum
-    BRepBuilderAPI_FaceDone, BRepBuilderAPI_NoFace, BRepBuilderAPI_NotPlanar,
-    BRepBuilderAPI_CurveProjectionFailed, BRepBuilderAPI_ParametersOutOfRange
+
 

@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,9 +20,5 @@
 ## ! BSplineSurface to describe the repartition of set of knots.
 ## ! (comments in classes BSplineCurve and BSplineSurface)
 
-type
-  GeomAbsBSplKnotDistribution* {.size: sizeof(cint),
-                                importcpp: "GeomAbs_BSplKnotDistribution",
-                                header: "GeomAbs_BSplKnotDistribution.hxx".} = enum
-    GeomAbsNonUniform, GeomAbsUniform, GeomAbsQuasiUniform, GeomAbsPiecewiseBezier
+
 

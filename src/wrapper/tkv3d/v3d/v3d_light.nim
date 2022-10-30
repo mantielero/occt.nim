@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-01-17
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,6 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  V3dLight* = Graphic3dCLight
-  HandleV3dLight* = HandleGraphic3dCLight
+

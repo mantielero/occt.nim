@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,8 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_ChamfMethod* {.size: sizeof(cint), importcpp: "ChFiDS_ChamfMethod",
-                       header: "ChFiDS_ChamfMethod.hxx".} = enum
-    ChFiDS_Sym, ChFiDS_TwoDist, ChFiDS_DistAngle
+
 

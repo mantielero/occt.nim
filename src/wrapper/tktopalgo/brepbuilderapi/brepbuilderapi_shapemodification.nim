@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -23,8 +25,5 @@
 ## ! to determine what has happened to the shapes which
 ## ! constitute the list of operands.
 
-type
-  BRepBuilderAPI_ShapeModification* {.size: sizeof(cint), importcpp: "BRepBuilderAPI_ShapeModification", header: "BRepBuilderAPI_ShapeModification.hxx".} = enum
-    BRepBuilderAPI_Preserved, BRepBuilderAPI_Deleted, BRepBuilderAPI_Trimmed,
-    BRepBuilderAPI_Merged, BRepBuilderAPI_BoundaryModified
+
 

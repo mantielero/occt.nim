@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,12 +15,5 @@
 
 ## ! Define buffers available for dump
 
-type
-  Graphic3dBufferType* {.size: sizeof(cint), importcpp: "Graphic3d_BufferType",
-                        header: "Graphic3d_BufferType.hxx".} = enum
-    Graphic3dBT_RGB,          ## !< color buffer without alpha component
-    Graphic3dBT_RGBA,         ## !< color buffer
-    Graphic3dBT_Depth,        ## !< depth buffer
-    Graphic3dBT_RGB_RayTraceHdrLeft, ## !< left view HDR color buffer for Ray-Tracing
-    Graphic3dBT_Red           ## !< color buffer, red channel
+
 

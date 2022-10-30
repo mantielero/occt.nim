@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,6 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  SelectMgrListOfFilter* = NCollectionList[Handle[SelectMgrFilter]]
-  SelectMgrListIteratorOfListOfFilter*[HandleSelectMgrFilter] {.importcpp:"NCollection_List<'0>::Iterator", header:"SelectMgr_ListOfFilter.hxx", bycopy.} = object
+

@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2006-03-10
 ##  Created by: data exchange team
 ##  Copyright (c) 2006-2014 OPEN CASCADE SAS
@@ -15,5 +17,4 @@
 
 ##  Platform-independent definition of the thread identifier type
 
-type
-  StandardThreadId* = csize_t
+

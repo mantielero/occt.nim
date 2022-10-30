@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,10 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomAbsSurfaceType* {.size: sizeof(cint), importcpp: "GeomAbs_SurfaceType",
-                       header: "GeomAbs_SurfaceType.hxx".} = enum
-    GeomAbsPlane, GeomAbsCylinder, GeomAbsCone, GeomAbsSphere, GeomAbsTorus,
-    GeomAbsBezierSurface, GeomAbsBSplineSurface, GeomAbsSurfaceOfRevolution,
-    GeomAbsSurfaceOfExtrusion, GeomAbsOffsetSurface, GeomAbsOtherSurface
+
 

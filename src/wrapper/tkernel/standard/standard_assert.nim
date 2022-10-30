@@ -1,3 +1,5 @@
+import standard_types
+
 ##  Created on: 2001-03-20
 ##  Created by: Andrey BETENEV
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -16,11 +18,6 @@
 ## ! Static assert --
 ## ! empty default template
 
-type
-  StandardStaticAssert*[Condition: static[bool]] {.
-      importcpp: "Standard_Static_Assert<\'0>", header: "Standard_Assert.hxx",
-      bycopy.} = object
 
 
-## ! Cause compiler error if argument is not constant expression or
-## ! evaluates to false
+

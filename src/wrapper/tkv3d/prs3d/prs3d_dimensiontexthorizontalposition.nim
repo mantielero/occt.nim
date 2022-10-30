@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,9 +23,5 @@
 ## ! DTHP_Fit    - value label located automatically at left side if does not fits
 ## ! the dimension space, otherwise the value label is placed at center.
 
-type
-  Prs3dDimensionTextHorizontalPosition* {.size: sizeof(cint),
-      importcpp: "Prs3d_DimensionTextHorizontalPosition",
-      header: "Prs3d_DimensionTextHorizontalPosition.hxx".} = enum
-    Prs3dDTHP_Left, Prs3dDTHP_Right, Prs3dDTHP_Center, Prs3dDTHP_Fit
+
 

@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,9 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BOPAlgoOperation* {.size: sizeof(cint), importcpp: "BOPAlgo_Operation",
-                     header: "BOPAlgo_Operation.hxx".} = enum
-    bOPAlgoCOMMON, bOPAlgoFUSE, bOPAlgoCUT, bOPAlgoCUT21, bOPAlgoSECTION,
-    bOPAlgoUNKNOWN
+
 

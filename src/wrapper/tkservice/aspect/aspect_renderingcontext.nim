@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -37,8 +39,5 @@
 ##    #endif
 ##  #else
 
-type
-  AspectRenderingContext* = pointer
 
-##  GLXContext under UNIX
-##  #endif
+

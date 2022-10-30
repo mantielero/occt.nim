@@ -1,3 +1,5 @@
+import brepbuilderapi_types
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Errors that can occur at (shell)pipe construction.
 
-type
-  BRepBuilderAPI_PipeError* {.size: sizeof(cint),
-                             importcpp: "BRepBuilderAPI_PipeError",
-                             header: "BRepBuilderAPI_PipeError.hxx".} = enum
-    BRepBuilderAPI_PipeDone, BRepBuilderAPI_PipeNotDone,
-    BRepBuilderAPI_PlaneNotIntersectGuide, BRepBuilderAPI_ImpossibleContact
+
 

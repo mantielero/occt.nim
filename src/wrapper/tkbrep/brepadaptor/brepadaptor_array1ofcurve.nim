@@ -1,3 +1,5 @@
+import brepadaptor_types
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,5 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BRepAdaptorArray1OfCurve* = NCollectionArray1[BRepAdaptorCurve]
+

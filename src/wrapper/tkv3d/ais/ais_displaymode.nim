@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -19,8 +21,5 @@
 ## ! -   wireframe,
 ## ! -   shaded,
 
-type
-  AIS_DisplayMode* {.size: sizeof(cint), importcpp: "AIS_DisplayMode",
-                    header: "AIS_DisplayMode.hxx".} = enum
-    AIS_WireFrame, AIS_Shaded
+
 

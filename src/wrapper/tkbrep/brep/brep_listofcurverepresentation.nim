@@ -1,3 +1,5 @@
+import brep_types
+
 ##  Created on: 1991-06-27
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,6 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BRepListOfCurveRepresentation* = NCollectionList[Handle[BRepCurveRepresentation]]
-  BRepListIteratorOfListOfCurveRepresentation* {.importcpp:"NCollection_List<Handle(BRep_CurveRepresentation)>::Iterator", header:"BRep_ListOfCurveRepresentation.hxx", bycopy.} = object
+

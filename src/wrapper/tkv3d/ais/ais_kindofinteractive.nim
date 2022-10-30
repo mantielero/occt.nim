@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -29,9 +31,5 @@
 ## ! When the object is of an unknown type, the None
 ## ! type is declared.
 
-type
-  AIS_KindOfInteractive* {.size: sizeof(cint), importcpp: "AIS_KindOfInteractive",
-                          header: "AIS_KindOfInteractive.hxx".} = enum
-    aIS_KOI_None, aIS_KOI_Datum, aIS_KOI_Shape, aIS_KOI_Object, aIS_KOI_Relation,
-    aIS_KOI_Dimension
+
 

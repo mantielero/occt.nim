@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -14,8 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  AIS_SelectStatus* {.size: sizeof(cint), importcpp: "AIS_SelectStatus",
-                     header: "AIS_SelectStatus.hxx".} = enum
-    AIS_SS_Added, AIS_SS_Removed, AIS_SS_NotDone
+
 

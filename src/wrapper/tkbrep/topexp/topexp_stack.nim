@@ -1,3 +1,5 @@
+import topexp_types
+
 ##  Created on: 1990-12-20
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -15,5 +17,4 @@
 ##  commercial license or contractual agreement.
 
 discard "forward decl of TopoDS_Iterator"
-type
-  TopExpStack* = ptr TopoDS_Iterator
+

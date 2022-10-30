@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  V3dTypeOfPickLight* {.size: sizeof(cint), importcpp: "V3d_TypeOfPickLight",
-                       header: "V3d_TypeOfPickLight.hxx".} = enum
-    v3dPOSITIONLIGHT, v3dSPACELIGHT, v3dRADIUSTEXTLIGHT, v3dExtRADIUSLIGHT,
-    v3dIntRADIUSLIGHT, v3dNOTHING
+
 

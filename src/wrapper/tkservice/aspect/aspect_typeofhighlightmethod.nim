@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -20,9 +22,5 @@
 ## ! TOHM_BOUNDBOX       enclosed by the boundary box
 ## ! (default white)
 
-type
-  AspectTypeOfHighlightMethod* {.size: sizeof(cint),
-                                importcpp: "Aspect_TypeOfHighlightMethod",
-                                header: "Aspect_TypeOfHighlightMethod.hxx".} = enum
-    AspectTOHM_COLOR, AspectTOHM_BOUNDBOX
+
 

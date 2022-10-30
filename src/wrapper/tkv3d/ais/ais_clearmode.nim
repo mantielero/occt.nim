@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -21,9 +23,5 @@
 ## ! process. By means of these enumerations, they can
 ## ! be cleared from local context.
 
-type
-  AIS_ClearMode* {.size: sizeof(cint), importcpp: "AIS_ClearMode",
-                  header: "AIS_ClearMode.hxx".} = enum
-    AIS_CM_All, AIS_CM_Interactive, AIS_CM_Filters, AIS_CM_StandardModes,
-    AIS_CM_TemporaryShapePrs
+
 

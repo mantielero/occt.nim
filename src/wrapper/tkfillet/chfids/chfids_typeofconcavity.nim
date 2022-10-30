@@ -1,3 +1,5 @@
+import chfids_types
+
 ##  Created on: 1995-10-12
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ChFiDS_TypeOfConcavity* {.size: sizeof(cint),
-                           importcpp: "ChFiDS_TypeOfConcavity",
-                           header: "ChFiDS_TypeOfConcavity.hxx".} = enum
-    ChFiDS_Concave, ChFiDS_Convex, ChFiDS_Tangential, ChFiDS_FreeBound, ChFiDS_Other
+
 

@@ -1,3 +1,5 @@
+import geomfill_types
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,8 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  GeomFillApproxStyle* {.size: sizeof(cint), importcpp: "GeomFill_ApproxStyle",
-                        header: "GeomFill_ApproxStyle.hxx".} = enum
-    geomFillSection, geomFillLocation
+
 

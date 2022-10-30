@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,9 +15,5 @@
 
 ## ! Enumeration defines the filter type.
 
-type
-  SelectMgrFilterType* {.size: sizeof(cint), importcpp: "SelectMgr_FilterType",
-                        header: "SelectMgr_FilterType.hxx".} = enum
-    SelectMgrFilterTypeAND,   ## !< an object should be suitable for all filters.
-    SelectMgrFilterTypeOR     ## !< an object should be suitable at least one filter.
+
 

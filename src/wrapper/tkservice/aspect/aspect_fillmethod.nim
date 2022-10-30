@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -16,8 +18,5 @@
 ## ! Defines the fill methods to
 ## ! write bitmaps in a window.
 
-type
-  AspectFillMethod* {.size: sizeof(cint), importcpp: "Aspect_FillMethod",
-                     header: "Aspect_FillMethod.hxx".} = enum
-    AspectFM_NONE, AspectFM_CENTERED, AspectFM_TILED, AspectFM_STRETCH
+
 

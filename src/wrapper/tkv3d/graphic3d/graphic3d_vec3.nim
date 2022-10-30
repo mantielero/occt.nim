@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,10 +13,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Graphic3dVec3* = NCollectionVec3[StandardShortReal]
-  Graphic3dVec3d* = NCollectionVec3[cfloat]
-  Graphic3dVec3i* = NCollectionVec3[cint]
-  Graphic3dVec3u* = NCollectionVec3[cuint]
-  Graphic3dVec3ub* = NCollectionVec3[StandardByte]
-  Graphic3dVec3b* = NCollectionVec3[cchar]
+

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -17,9 +19,5 @@
 ## ! Type of the texture filter.
 ## ! Notice that for textures without mipmaps linear interpolation will be used instead of TOTF_BILINEAR and TOTF_TRILINEAR.
 
-type
-  Graphic3dTypeOfTextureFilter* {.size: sizeof(cint),
-                                 importcpp: "Graphic3d_TypeOfTextureFilter",
-                                 header: "Graphic3d_TypeOfTextureFilter.hxx".} = enum
-    Graphic3dTOTF_NEAREST, Graphic3dTOTF_BILINEAR, Graphic3dTOTF_TRILINEAR
+
 

@@ -1,3 +1,5 @@
+import blend_types
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,9 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BlendStatus* {.size: sizeof(cint), importcpp: "Blend_Status",
-                header: "Blend_Status.hxx".} = enum
-    BlendStepTooLarge, BlendStepTooSmall, BlendBackward, BlendSamePoints,
-    BlendOnRst1, BlendOnRst2, BlendOnRst12, BlendOK
+
 

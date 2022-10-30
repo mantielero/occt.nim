@@ -1,3 +1,5 @@
+import topabs_types
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -35,8 +37,5 @@
 ## ! default region. This allows you to apply changes of
 ## ! orientation to the shape as a whole.
 
-type
-  TopAbsOrientation* {.size: sizeof(cint), importcpp: "TopAbs_Orientation",
-                      header: "TopAbs_Orientation.hxx".} = enum
-    TopAbsFORWARD, TopAbsREVERSED, TopAbsINTERNAL, TopAbsEXTERNAL
+
 

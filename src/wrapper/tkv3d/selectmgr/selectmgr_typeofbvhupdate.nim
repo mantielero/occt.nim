@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -24,10 +26,5 @@
 ## ! - Invalidate : the 2nd level BVH needs to be rebuilt;
 ## ! - None       : entities of the selection are up to date.
 
-type
-  SelectMgrTypeOfBVHUpdate* {.size: sizeof(cint),
-                             importcpp: "SelectMgr_TypeOfBVHUpdate",
-                             header: "SelectMgr_TypeOfBVHUpdate.hxx".} = enum
-    SelectMgrTBU_Add, SelectMgrTBU_Remove, SelectMgrTBU_Renew,
-    SelectMgrTBU_Invalidate, SelectMgrTBU_None
+
 

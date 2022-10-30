@@ -1,3 +1,5 @@
+import v3d_types
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,9 +22,5 @@
 ## ! TOBM_ALWAYS_DISPLAYED     force display of back faces
 ## ! TOBM_NEVER_DISPLAYED      disable display of back faces
 
-type
-  V3dTypeOfBackfacingModel* {.size: sizeof(cint),
-                             importcpp: "V3d_TypeOfBackfacingModel",
-                             header: "V3d_TypeOfBackfacingModel.hxx".} = enum
-    V3dTOBM_AUTOMATIC, V3dTOBM_ALWAYS_DISPLAYED, V3dTOBM_NEVER_DISPLAYED
+
 

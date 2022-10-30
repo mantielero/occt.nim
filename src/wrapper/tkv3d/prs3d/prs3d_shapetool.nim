@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1993-01-27
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,5 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  Prs3dShapeTool* = StdPrsShapeTool
+

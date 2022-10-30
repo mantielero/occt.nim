@@ -1,3 +1,5 @@
+import chfi3d_types
+
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,8 +26,5 @@
 ## ! polynomial approximation of circles. This type
 ## ! facilitates the implementation of the construction algorithm.
 
-type
-  ChFi3dFilletShape* {.size: sizeof(cint), importcpp: "ChFi3d_FilletShape",
-                      header: "ChFi3d_FilletShape.hxx".} = enum
-    chFi3dRational, chFi3dQuasiAngular, chFi3dPolynomial
+
 

@@ -1,3 +1,5 @@
+import math_types
+
 ##  Created on: 1991-01-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,5 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  MathArray1OfValueAndWeight* = NCollectionArray1[MathValueAndWeight]
+

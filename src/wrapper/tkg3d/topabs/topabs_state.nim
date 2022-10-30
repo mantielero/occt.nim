@@ -1,3 +1,5 @@
+import topabs_types
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,8 +22,5 @@
 ## ! vertices found in various parts of the edge relative
 ## ! to the face which it intersects.
 
-type
-  TopAbsState* {.size: sizeof(cint), importcpp: "TopAbs_State",
-                header: "TopAbs_State.hxx".} = enum
-    TopAbsIN, TopAbsOUT, TopAbsON, TopAbsUNKNOWN
+
 

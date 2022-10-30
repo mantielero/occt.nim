@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_DataMapOfShapeState* = NCollectionDataMap[TopoDS_Shape, TopAbsState,
-      TopToolsShapeMapHasher]
-  TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeState* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopAbs_State,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_DataMapOfShapeState.hxx", bycopy.} = object
+

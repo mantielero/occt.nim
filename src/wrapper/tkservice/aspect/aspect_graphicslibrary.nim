@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,8 +15,5 @@
 
 ## ! Graphics API enumeration.
 
-type
-  AspectGraphicsLibrary* {.size: sizeof(cint), importcpp: "Aspect_GraphicsLibrary",
-                          header: "Aspect_GraphicsLibrary.hxx".} = enum
-    AspectGraphicsLibraryOpenGL, AspectGraphicsLibraryOpenGLES
+
 

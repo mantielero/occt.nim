@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Copyright (c) 2018-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,11 +15,5 @@
 
 ## ! Dragging action.
 
-type
-  AIS_DragAction* {.size: sizeof(cint), importcpp: "AIS_DragAction",
-                   header: "AIS_DragAction.hxx".} = enum
-    AIS_DragActionStart,      ## !< (try) start dragging object
-    AIS_DragActionUpdate,     ## !< perform dragging (update position)
-    AIS_DragActionStop,       ## !< stop dragging (save position)
-    AIS_DragActionAbort       ## !< abort dragging (restore initial position)
+
 

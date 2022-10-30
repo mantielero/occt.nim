@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,5 +18,4 @@
 
 ## ! Alias for porting code.
 
-type
-  Prs3dPresentation* = Graphic3dStructure
+

@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! To declare the type of distance.
 
-type
-  PrsDimTypeOfDist* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfDist",
-                     header: "PrsDim_TypeOfDist.hxx".} = enum
-    PrsDimTypeOfDistUnknown, PrsDimTypeOfDistHorizontal, PrsDimTypeOfDistVertical
+
 

@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepDS_ShapeSurface* = NCollectionDataMap[TopoDS_Shape,
-      Handle[GeomSurface], TopToolsShapeMapHasher]
-  TopOpeBRepDS_DataMapIteratorOfShapeSurface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,Handle(Geom_Surface),TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepDS_ShapeSurface.hxx", bycopy.} = object
+

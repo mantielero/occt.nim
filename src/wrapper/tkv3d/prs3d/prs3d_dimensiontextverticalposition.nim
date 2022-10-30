@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,7 +22,5 @@
 ## ! DTVP_Below - text label is located below the dimension or extension line.
 ## ! DTVP_Center - the text label middle-point is in line with dimension or extension line.
 
-type
-  Prs3dDimensionTextVerticalPosition* {.size: sizeof(cint), importcpp: "Prs3d_DimensionTextVerticalPosition", header: "Prs3d_DimensionTextVerticalPosition.hxx".} = enum
-    Prs3dDTVP_Above, Prs3dDTVP_Below, Prs3dDTVP_Center
+
 

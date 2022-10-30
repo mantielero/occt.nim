@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! To manage the transformation matrices of structures.
 
-type
-  Graphic3dTypeOfComposition* {.size: sizeof(cint),
-                               importcpp: "Graphic3d_TypeOfComposition",
-                               header: "Graphic3d_TypeOfComposition.hxx".} = enum
-    Graphic3dTOC_REPLACE, Graphic3dTOC_POSTCONCATENATE
+
 

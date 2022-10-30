@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! Direction in which text is displayed.
 
-type
-  Graphic3dTextPath* {.size: sizeof(cint), importcpp: "Graphic3d_TextPath",
-                      header: "Graphic3d_TextPath.hxx".} = enum
-    Graphic3dTP_UP, Graphic3dTP_DOWN, Graphic3dTP_LEFT, Graphic3dTP_RIGHT
+
 

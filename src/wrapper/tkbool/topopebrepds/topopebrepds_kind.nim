@@ -1,3 +1,5 @@
+import topopebrepds_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,11 +18,5 @@
 
 ## ! different types of objects in DataStructure
 
-type
-  TopOpeBRepDS_Kind* {.size: sizeof(cint), importcpp: "TopOpeBRepDS_Kind",
-                      header: "TopOpeBRepDS_Kind.hxx".} = enum
-    tobrdsPOINT, tobrdsCURVE, tobrdsSURFACE,
-    tobrdsVERTEX, tobrdsEDGE, tobrdsWIRE, tobrdsFACE,
-    tobrdsSHELL, tobrdsSOLID, tobrdsCOMPSOLID,
-    tobrdsCOMPOUND, tobrdsUNKNOWN
+
 

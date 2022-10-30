@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Types of materials specifies if a material can change color.
 
-type
-  Graphic3dTypeOfMaterial* {.size: sizeof(cint),
-                            importcpp: "Graphic3d_TypeOfMaterial",
-                            header: "Graphic3d_TypeOfMaterial.hxx".} = enum
-    graphic3dMATERIAL_ASPECT, ## !< aspect   material definition with configurable color (like plastic)
-    graphic3dMATERIAL_PHYSIC  ## !< physical material definition with fixed color (like gold)
+
 

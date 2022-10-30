@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -17,11 +19,5 @@
 ## ! Declares the kinds of dimensions needed in the
 ## ! display of Interactive Objects.
 
-type
-  PrsDimKindOfDimension* {.size: sizeof(cint), importcpp: "PrsDim_KindOfDimension",
-                          header: "PrsDim_KindOfDimension.hxx".} = enum
-    PrsDimKOD_NONE, PrsDimKOD_LENGTH, PrsDimKOD_PLANEANGLE, PrsDimKOD_SOLIDANGLE,
-    PrsDimKOD_AREA, PrsDimKOD_VOLUME, PrsDimKOD_MASS, PrsDimKOD_TIME,
-    PrsDimKOD_RADIUS, PrsDimKOD_DIAMETER, PrsDimKOD_CHAMF2D, PrsDimKOD_CHAMF3D,
-    PrsDimKOD_OFFSET, PrsDimKOD_ELLIPSERADIUS
+
 

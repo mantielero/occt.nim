@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 2017-04-25
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -15,8 +17,5 @@
 
 ## ! Enumerates transparency rendering methods supported by rasterization mode.
 
-type
-  Graphic3dRenderTransparentMethod* {.size: sizeof(cint), importcpp: "Graphic3d_RenderTransparentMethod", header: "Graphic3d_RenderTransparentMethod.hxx".} = enum
-    Graphic3dRTM_BLEND_UNORDERED, ## !< Basic blend transparency with non-commuting blend operator without sorting
-    Graphic3dRTM_BLEND_OIT    ## !< Weighted Blended Order-Independent Transparency with depth weight factor
+
 

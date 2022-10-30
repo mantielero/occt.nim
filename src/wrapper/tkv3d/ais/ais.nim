@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -61,6 +63,5 @@
 ## ! By the same token, the interactive context has a set of graphic attributes, the Drawer which is valid by default for the objects it controls.
 ## ! When an interactive object is visualized, the required graphic attributes are first taken from the object's own Drawer if one exists, or from the context drawer for the others.
 
-type
-  Ais* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
+
 

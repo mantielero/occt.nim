@@ -11,9 +11,9 @@ type
     isPeriodic* {.importc: "isPeriodic".}: bool
     myPeriod* {.importc: "myPeriod".}: cfloat
     myPeriod* {.importc: "myPeriod".}: cfloat
+    myPeriod* {.importc: "myPeriod".}: cfloat
 
     myPeriod* {.importc: "myPeriod".}: cfloat
   AppContLeastSquare* {.importcpp: "AppCont_LeastSquare",
                        header: "AppCont_LeastSquare.hxx", bycopy.} = object 
-                                                                       
 

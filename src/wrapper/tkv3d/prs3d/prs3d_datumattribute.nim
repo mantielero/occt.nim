@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -13,11 +15,5 @@
 
 ## ! Enumeration defining a part of datum aspect, see Prs3d_Datum.
 
-type
-  Prs3dDatumAttribute* {.size: sizeof(cint), importcpp: "Prs3d_DatumAttribute",
-                        header: "Prs3d_DatumAttribute.hxx".} = enum
-    prs3dDA_XAxisLength = 0, prs3dDA_YAxisLength, prs3dDA_ZAxisLength,
-    Prs3dDP_ShadingTubeRadiusPercent, Prs3dDP_ShadingConeRadiusPercent,
-    Prs3dDP_ShadingConeLengthPercent, Prs3dDP_ShadingOriginRadiusPercent,
-    Prs3dDP_ShadingNumberOfFacettes
+
 

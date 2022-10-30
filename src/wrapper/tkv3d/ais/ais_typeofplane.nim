@@ -1,3 +1,5 @@
+import ais_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! Declares the type of plane.
 
-type
-  AIS_TypeOfPlane* {.size: sizeof(cint), importcpp: "AIS_TypeOfPlane",
-                    header: "AIS_TypeOfPlane.hxx".} = enum
-    AIS_TOPL_Unknown, AIS_TOPL_XYPlane, AIS_TOPL_XZPlane, AIS_TOPL_YZPlane
+
 

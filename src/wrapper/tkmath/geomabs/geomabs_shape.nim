@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -42,8 +44,5 @@
 ## ! to indicate the continuity of its derivatives up to the order
 ## ! i in the u parametric direction, and j in the v parametric direction.
 
-type
-  GeomAbsShape* {.size: sizeof(cint), importcpp: "GeomAbs_Shape",
-                 header: "GeomAbs_Shape.hxx".} = enum
-    geomAbsC0, geomAbsG1, geomAbsC1, geomAbsG2, geomAbsC2, geomAbsC3, geomAbsCN
+
 

@@ -1,3 +1,5 @@
+import toptools_types
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopToolsDataMapOfShapeListOfInteger* = NCollectionDataMap[TopoDS_Shape,
-      TColStdListOfInteger, TopToolsShapeMapHasher]
-  TopToolsDataMapIteratorOfDataMapOfShapeListOfInteger* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TColStd_ListOfInteger,TopTools_ShapeMapHasher>::Iterator", header:"TopTools_DataMapOfShapeListOfInteger.hxx",bycopy.} = object
+

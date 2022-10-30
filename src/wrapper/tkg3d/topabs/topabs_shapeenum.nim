@@ -1,3 +1,5 @@
+import topabs_types
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -40,9 +42,5 @@
 ## ! to a curve, and bound by a vertex at each extremity.
 ## ! - VERTEX: A zero-dimensional shape corresponding to a point in geometry.
 
-type
-  TopAbsShapeEnum* {.size: sizeof(cint), importcpp: "TopAbs_ShapeEnum",
-                    header: "TopAbs_ShapeEnum.hxx".} = enum
-    topAbsCOMPOUND, topAbsCOMPSOLID, topAbsSOLID, topAbsSHELL, topAbsFACE,
-    topAbsWIRE, topAbsEDGE, topAbsVERTEX, topAbsSHAPE
+
 

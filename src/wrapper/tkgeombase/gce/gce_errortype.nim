@@ -1,3 +1,5 @@
+import gce_types
+
 ##  Created on: 1992-04-30
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -33,10 +35,5 @@
 ## ! gce_BadEquation: Coefficients are
 ## ! incorrect (applies to the equation of a geometric object).
 
-type
-  GceErrorType* {.size: sizeof(cint), importcpp: "gce_ErrorType",
-                 header: "gce_ErrorType.hxx".} = enum
-    gceDone, gceConfusedPoints, gceNegativeRadius, gceColinearPoints,
-    gceIntersectionError, gceNullAxis, gceNullAngle, gceNullRadius, gceInvertAxis,
-    gceBadAngle, gceInvertRadius, gceNullFocusLength, gceNullVector, gceBadEquation
+
 

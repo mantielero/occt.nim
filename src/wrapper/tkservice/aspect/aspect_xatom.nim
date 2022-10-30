@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -17,8 +19,5 @@
 ## !
 ## ! Category: Instantiated classes
 
-type
-  AspectXAtom* {.size: sizeof(cint), importcpp: "Aspect_XAtom",
-                header: "Aspect_XAtom.hxx".} = enum
-    AspectXA_DELETE_WINDOW
+
 

@@ -1,3 +1,5 @@
+import topopebrepbuild_types
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,7 +16,4 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  TopOpeBRepBuildListOfShapeListOfShape* = NCollectionList[
-      TopOpeBRepBuildShapeListOfShape]
-  TopOpeBRepBuildListIteratorOfListOfShapeListOfShape* {.importcpp:"NCollection_List<TopOpeBRepBuild_ShapeListOfShape>::Iterator", header:"TopOpeBRepBuild_ListOfShapeListOfShape.hxx", bycopy.} = object
+

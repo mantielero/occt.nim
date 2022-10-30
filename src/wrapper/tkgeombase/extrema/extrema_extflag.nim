@@ -1,3 +1,5 @@
+import extrema_types
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -14,8 +16,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  ExtremaExtFlag* {.size: sizeof(cint), importcpp: "Extrema_ExtFlag",
-                   header: "Extrema_ExtFlag.hxx".} = enum
-    extremaExtFlagMIN, extremaExtFlagMAX, extremaExtFlagMINMAX
+
 

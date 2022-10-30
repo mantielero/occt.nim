@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -19,8 +21,5 @@
 ## ! -   partial
 ## ! -   none.
 
-type
-  SelectMgrTypeOfUpdate* {.size: sizeof(cint), importcpp: "SelectMgr_TypeOfUpdate",
-                          header: "SelectMgr_TypeOfUpdate.hxx".} = enum
-    SelectMgrTOU_Full, SelectMgrTOU_Partial, SelectMgrTOU_None
+
 

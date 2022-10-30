@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,12 +18,5 @@
 
 ## ! different state of a Selection in a ViewerSelector...
 
-type
-  SelectMgrStateOfSelection* {.size: sizeof(cint),
-                              importcpp: "SelectMgr_StateOfSelection",
-                              header: "SelectMgr_StateOfSelection.hxx".} = enum
-    selectMgrSOS_Any = -2,      ## !< ANY selection state (for querying selections)
-    selectMgrSOS_Unknown = -1,  ## !< selection, which has  never been in SelectMgr_SOS_Activated state (almost the same thing as SelectMgr_SOS_Deactivated)
-    selectMgrSOS_Deactivated = 0, ## !< deactivated selection, once been in SelectMgr_SOS_Activated state
-    selectMgrSOS_Activated    ## !< activated selection
+
 

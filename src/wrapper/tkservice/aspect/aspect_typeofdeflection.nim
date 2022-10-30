@@ -1,3 +1,5 @@
+import aspect_types
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -17,9 +19,5 @@
 ## ! drawing an object is absolute  or relative to the size
 ## ! of the object.
 
-type
-  AspectTypeOfDeflection* {.size: sizeof(cint),
-                           importcpp: "Aspect_TypeOfDeflection",
-                           header: "Aspect_TypeOfDeflection.hxx".} = enum
-    AspectTOD_RELATIVE, AspectTOD_ABSOLUTE
+
 

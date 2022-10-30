@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -18,6 +20,5 @@ discard "forward decl of TopoDS_Edge"
 discard "forward decl of TopoDS_Vertex"
 discard "forward decl of TopoDS_Face"
 discard "forward decl of ChFi2d_Builder"
-type
-  ChFi2d* {.importcpp: "ChFi2d", header: "ChFi2d.hxx", bycopy.} = object
+
 

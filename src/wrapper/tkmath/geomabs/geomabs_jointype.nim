@@ -1,3 +1,5 @@
+import geomabs_types
+
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,8 +20,5 @@
 ## ! constructing parallel curves, between two consecutive
 ## ! arcs of a contour parallel to a given contour.
 
-type
-  GeomAbsJoinType* {.size: sizeof(cint), importcpp: "GeomAbs_JoinType",
-                    header: "GeomAbs_JoinType.hxx".} = enum
-    GeomAbsArc, GeomAbsTangent, GeomAbsIntersection
+
 

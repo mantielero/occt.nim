@@ -1,3 +1,5 @@
+import approx_types
+
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,8 +18,5 @@
 
 ## ! It is an auxiliary flag being used in inner computations
 
-type
-  ApproxStatus* {.size: sizeof(cint), importcpp: "Approx_Status",
-                 header: "Approx_Status.hxx".} = enum
-    ApproxPointsAdded, ApproxNoPointsAdded, ApproxNoApproximation
+
 

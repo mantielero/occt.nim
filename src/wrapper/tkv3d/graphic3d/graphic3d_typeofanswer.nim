@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -21,8 +23,5 @@
 ## ! TOA_NO  no
 ## ! TOA_COMPUTE yes but we have to compute the representation
 
-type
-  Graphic3dTypeOfAnswer* {.size: sizeof(cint), importcpp: "Graphic3d_TypeOfAnswer",
-                          header: "Graphic3d_TypeOfAnswer.hxx".} = enum
-    Graphic3dTOA_YES, Graphic3dTOA_NO, Graphic3dTOA_COMPUTE
+
 

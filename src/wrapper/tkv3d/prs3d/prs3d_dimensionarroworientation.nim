@@ -1,3 +1,5 @@
+import prs3d_types
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -20,7 +22,5 @@
 ## ! DAO_Fit      - arrows oriented inside if value label with arrowtips fit the dimension line,
 ## ! otherwise - externally
 
-type
-  Prs3dDimensionArrowOrientation* {.size: sizeof(cint), importcpp: "Prs3d_DimensionArrowOrientation", header: "Prs3d_DimensionArrowOrientation.hxx".} = enum
-    Prs3dDAO_Internal, Prs3dDAO_External, Prs3dDAO_Fit
+
 

@@ -1,3 +1,5 @@
+import chfi2d_types
+
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -23,12 +25,5 @@
 ## ! One or the two  edges connected to the  vertex
 ## ! is not a line or a circle
 
-type
-  ChFi2dConstructionError* {.size: sizeof(cint),
-                            importcpp: "ChFi2d_ConstructionError",
-                            header: "ChFi2d_ConstructionError.hxx".} = enum
-    ChFi2dNotPlanar, ChFi2dNoFace, ChFi2dInitialisationError,
-    ChFi2dParametersError, ChFi2dReady, ChFi2dIsDone, ChFi2dComputationError,
-    ChFi2dConnexionError, ChFi2dTangencyError, ChFi2dFirstEdgeDegenerated,
-    ChFi2dLastEdgeDegenerated, ChFi2dBothEdgesDegenerated, ChFi2dNotAuthorized
+
 

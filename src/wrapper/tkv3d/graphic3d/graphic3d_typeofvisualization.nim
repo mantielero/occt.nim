@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,9 +21,5 @@
 ## ! TOV_WIREFRAME   wireframe visualisation
 ## ! TOV_SHADING     shaded visualisation
 
-type
-  Graphic3dTypeOfVisualization* {.size: sizeof(cint),
-                                 importcpp: "Graphic3d_TypeOfVisualization",
-                                 header: "Graphic3d_TypeOfVisualization.hxx".} = enum
-    Graphic3dTOV_WIREFRAME, Graphic3dTOV_SHADING
+
 

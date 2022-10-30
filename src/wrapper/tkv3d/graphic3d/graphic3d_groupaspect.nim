@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -20,9 +22,5 @@
 ## ! - ASPECT_MARKER: aspect for marker primitives;
 ## ! - ASPECT_FILL_AREA: aspect for face primitives.
 
-type
-  Graphic3dGroupAspect* {.size: sizeof(cint), importcpp: "Graphic3d_GroupAspect",
-                         header: "Graphic3d_GroupAspect.hxx".} = enum
-    Graphic3dASPECT_LINE, Graphic3dASPECT_TEXT, Graphic3dASPECT_MARKER,
-    Graphic3dASPECT_FILL_AREA
+
 

@@ -1,3 +1,5 @@
+import graphic3d_types
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,5 @@
 
 ## ! Type of the texture file format.
 
-type
-  Graphic3dTypeOfTexture* {.size: sizeof(cint),
-                           importcpp: "Graphic3d_TypeOfTexture",
-                           header: "Graphic3d_TypeOfTexture.hxx".} = enum
-    Graphic3dTOT_1D, Graphic3dTOT_2D, Graphic3dTOT_2D_MIPMAP, Graphic3dTOT_CUBEMAP
+
 

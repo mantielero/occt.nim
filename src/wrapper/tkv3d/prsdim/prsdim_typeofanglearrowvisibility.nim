@@ -1,3 +1,5 @@
+import prsdim_types
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,10 +18,5 @@
 
 ## ! Declares what arrows are visible on angle presentation
 
-type
-  PrsDimTypeOfAngleArrowVisibility* {.size: sizeof(cint), importcpp: "PrsDim_TypeOfAngleArrowVisibility", header: "PrsDim_TypeOfAngleArrowVisibility.hxx".} = enum
-    PrsDimTypeOfAngleArrowVisibilityBoth, ## !< both arrows of the first and the second angle tips
-    PrsDimTypeOfAngleArrowVisibilityFirst, ## !< only first point arrow
-    PrsDimTypeOfAngleArrowVisibilitySecond, ## !< only second point arrow
-    PrsDimTypeOfAngleArrowVisibilityNone ## !< arrows are not visible
+
 

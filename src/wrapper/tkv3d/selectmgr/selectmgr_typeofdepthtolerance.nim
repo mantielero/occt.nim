@@ -1,3 +1,5 @@
+import selectmgr_types
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,11 +16,5 @@
 ## ! Define the type of depth tolerance for considering picked entities to lie on the same depth (distance from eye to entity).
 ## ! @sa SelectMgr_SortCriterion, SelectMgr_ViewerSelector
 
-type
-  SelectMgrTypeOfDepthTolerance* {.size: sizeof(cint),
-                                  importcpp: "SelectMgr_TypeOfDepthTolerance",
-                                  header: "SelectMgr_TypeOfDepthTolerance.hxx".} = enum
-    SelectMgrTypeOfDepthToleranceUniform, ## !< use a predefined tolerance value (defined in 3D world scale) to compare any entities
-    SelectMgrTypeOfDepthToleranceUniformPixels, ## !< use a predefined tolerance value (defined in pixels) to compare any entities
-    SelectMgrTypeOfDepthToleranceSensitivityFactor ## !< use sensitivity factor (in pixels) assigned to specific entity
+
 

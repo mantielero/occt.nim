@@ -1,3 +1,5 @@
+import bopalgo_types
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -12,12 +14,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-type
-  BOPAlgoCheckStatus* {.size: sizeof(cint), importcpp: "BOPAlgo_CheckStatus",
-                       header: "BOPAlgo_CheckStatus.hxx".} = enum
-    bOPAlgoCheckUnknown, bOPAlgoBadType, bOPAlgoSelfIntersect, bOPAlgoTooSmallEdge,
-    bOPAlgoNonRecoverableFace, bOPAlgoIncompatibilityOfVertex,
-    bOPAlgoIncompatibilityOfEdge, bOPAlgoIncompatibilityOfFace,
-    bOPAlgoOperationAborted, bOPAlgoGeomAbsC0, bOPAlgoInvalidCurveOnSurface,
-    bOPAlgoNotValid
+
 

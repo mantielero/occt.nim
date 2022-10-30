@@ -9,8 +9,14 @@ elif defined(macosx):
 else:
   const tkernel* = "libTKernel.so" 
 
+# --------
+# STANDARD
+# --------
+import standard/standard_types
+
+
 type
-  Ostream* = object
+  Ostream* = StandardOStream #object
   StreamBuffer* = object
   Counter* = object
   MessageProgressScopeNullString* = object
@@ -99,7 +105,26 @@ import standard/standard_version
 #include standard/standard_warningsdisable
 #include standard/standard_warningsrestore
 
+export standard_types, standard, standard_address, standard_arraystreambuffer
+export standard_assert, standard_atomic, standard_boolean, standard_byte
+export standard_character, standard_clocalesentry, standard_condition
+export standard_cstring, standard_definealloc, standard_defineexception
+export standard_definehandle, standard_errorhandler, standard_extcharacter
+export standard_extstring, standard_failure, standard_guid, standard_handle
+export standard_handlerstatus, standard_integer
+export standard_jmpbuf, standard_macro, standard_math, standard_mmgropt
+export standard_mmgrraw, standard_mmgrroot, standard_mmgrtbballoc, standard_mutex
+export standard_pcharacter
+export standard_persistent, standard_primitivetypes
+export standard_readbuffer, standard_readlinebuffer, standard_real
+export standard_shortreal, standard_size, standard_std
+export standard_threadid, standard_time, standard_transient
+export standard_type, standard_typedef, standard_uuid, standard_version
 
+# -----------
+# NCOLLECTION
+# -----------
+import ncollection/ncollection_types
 
 import ncollection/ncollection_accallocator
 import ncollection/ncollection_alignedallocator
@@ -164,9 +189,34 @@ import ncollection/ncollection_vec4
 import ncollection/ncollection_vector
 import ncollection/ncollection_winheapallocator
 
+
+
+export ncollection_types
+export ncollection_accallocator, ncollection_alignedallocator, ncollection_array1
+export ncollection_array2, ncollection_baseallocator, ncollection_baselist
+export ncollection_basemap, ncollection_basesequence, ncollection_basevector
+export ncollection_buffer, ncollection_cellfilter, ncollection_datamap
+export ncollection_defaulthasher, ncollection_definealloc, ncollection_defineharray1
+export ncollection_defineharray2, ncollection_definehsequence, ncollection_doublemap
+export ncollection_ebtree, ncollection_handle, ncollection_harray1, ncollection_harray2
+export ncollection_heapallocator, ncollection_hsequence, ncollection_incallocator
+export ncollection_indexeddatamap, ncollection_indexedmap, ncollection_lerp
+export ncollection_list, ncollection_listnode, ncollection_localarray, ncollection_map
+export ncollection_mat4, ncollection_sequence, ncollection_shared, ncollection_sparsearray
+export ncollection_sparsearraybase, ncollection_stdallocator, ncollection_stliterator
+export ncollection_string, ncollection_tlistiterator, ncollection_tlistnode
+export ncollection_typedef, ncollection_ubtree, ncollection_ubtreefiller
+export ncollection_utfiterator, ncollection_utfstring, ncollection_vec2
+export ncollection_vec3, ncollection_vec4, ncollection_vector
+export ncollection_winheapallocator
+
+# ------------------------------------------
+# TCOLSTD | TCOLLECTION | MESSAGE | QUANTITY
+# ------------------------------------------
 import tcolstd/tcolstd_includes
 import tcollection/tcollection_includes
 import message/message_includes
 
 import quantity/quantity_includes
-export standard, standard_address, standard_arraystreambuffer, standard_assert, standard_atomic, standard_boolean, standard_byte, standard_character, standard_clocalesentry, standard_condition, standard_cstring, standard_definealloc, standard_defineexception, standard_definehandle, standard_errorhandler, standard_extcharacter, standard_extstring, standard_failure, standard_guid, standard_handle, standard_handlerstatus, standard_integer, standard_istream, standard_jmpbuf, standard_macro, standard_math, standard_mmgropt, standard_mmgrraw, standard_mmgrroot, standard_mmgrtbballoc, standard_mutex, standard_ostream, standard_pbyte, standard_pcharacter, standard_perrorhandler, standard_persistent, standard_pextcharacter, standard_primitivetypes, standard_readbuffer, standard_readlinebuffer, standard_real, standard_shortreal, standard_size, standard_sstream, standard_std, standard_stream, standard_threadid, standard_time, standard_transient, standard_type, standard_typedef, standard_uuid, standard_version, ncollection_accallocator, ncollection_alignedallocator, ncollection_array1, ncollection_array2, ncollection_baseallocator, ncollection_baselist, ncollection_basemap, ncollection_basesequence, ncollection_basevector, ncollection_buffer, ncollection_cellfilter, ncollection_datamap, ncollection_defaulthasher, ncollection_definealloc, ncollection_defineharray1, ncollection_defineharray2, ncollection_definehsequence, ncollection_doublemap, ncollection_ebtree, ncollection_handle, ncollection_harray1, ncollection_harray2, ncollection_heapallocator, ncollection_hsequence, ncollection_incallocator, ncollection_indexeddatamap, ncollection_indexedmap, ncollection_lerp, ncollection_list, ncollection_listnode, ncollection_localarray, ncollection_map, ncollection_mat4, ncollection_sequence, ncollection_shared, ncollection_sparsearray, ncollection_sparsearraybase, ncollection_stdallocator, ncollection_stliterator, ncollection_string, ncollection_tlistiterator, ncollection_tlistnode, ncollection_typedef, ncollection_ubtree, ncollection_ubtreefiller, ncollection_utfiterator, ncollection_utfstring, ncollection_vec2, ncollection_vec3, ncollection_vec4, ncollection_vector, ncollection_winheapallocator, tcolstd_includes, tcollection_includes, message_includes, quantity_includes
+
+export tcolstd_includes, tcollection_includes, message_includes, quantity_includes

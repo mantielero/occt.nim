@@ -44,10 +44,11 @@ elif defined(macosx):
 else:
   const tkv3d* = "libTKV3d.so" 
 
-include v3d/v3d_includes
-include ais/ais_includes
-include selectmgr/selectmgr_includes
-include prsdim/prsdim_includes
-include prs3d/prs3d_includes
-include prsmgr/prsmgr_includes
-include graphic3d/graphic3d_includes
+import v3d/v3d_includes
+import ais/ais_includes
+import selectmgr/selectmgr_includes
+import prsdim/prsdim_includes
+import prs3d/prs3d_includes
+import prsmgr/prsmgr_includes
+import graphic3d/graphic3d_includes
+export v3d_includes, ais_includes, selectmgr_includes, prsdim_includes, prs3d_includes, prsmgr_includes, graphic3d_includes

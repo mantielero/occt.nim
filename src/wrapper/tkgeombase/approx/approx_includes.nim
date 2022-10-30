@@ -2,23 +2,25 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include approx_array1ofadhsurface
-include approx_array1ofgtrsf2d
-include approx_curve2d
-include approx_curve3d
-include approx_curveonsurface
-include approx_curvilinearparameter
-include approx_curvlinfunc
-include approx_fitanddivide
-include approx_fitanddivide2d
-include approx_harray1ofadhsurface
-include approx_harray1ofgtrsf2d
-include approx_mcurvestobspcurve
-include approx_parametrizationtype
-include approx_sameparameter
-include approx_sequenceofharray1ofreal
-include approx_status
-include approx_sweepapproximation
-include approx_sweepfunction
-include approxint_knottools
-include approxint_svsurfaces
+import approx_array1ofadhsurface
+import approx_array1ofgtrsf2d
+import approx_curve2d
+import approx_curve3d
+import approx_curveonsurface
+import approx_curvilinearparameter
+import approx_curvlinfunc
+import approx_fitanddivide
+import approx_fitanddivide2d
+import approx_harray1ofadhsurface
+import approx_harray1ofgtrsf2d
+import approx_mcurvestobspcurve
+import approx_parametrizationtype
+import approx_sameparameter
+import approx_sequenceofharray1ofreal
+import approx_status
+import approx_sweepapproximation
+import approx_sweepfunction
+import approxint_knottools
+import approxint_svsurfaces
+
+export approx_array1ofadhsurface, approx_array1ofgtrsf2d, approx_curve2d, approx_curve3d, approx_curveonsurface, approx_curvilinearparameter, approx_curvlinfunc, approx_fitanddivide, approx_fitanddivide2d, approx_harray1ofadhsurface, approx_harray1ofgtrsf2d, approx_mcurvestobspcurve, approx_parametrizationtype, approx_sameparameter, approx_sequenceofharray1ofreal, approx_status, approx_sweepapproximation, approx_sweepfunction, approxint_knottools, approxint_svsurfaces

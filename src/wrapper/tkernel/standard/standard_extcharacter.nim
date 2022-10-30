@@ -26,6 +26,7 @@
 ##  ------------------------------------------------------------------
 ##  ToExtCharacter : Returns an ExtCharacter from a Character
 ##  ------------------------------------------------------------------
+import standard_types
 
 proc toExtCharacter*(achar: cchar): StandardExtCharacter {.cdecl.} =
   discard

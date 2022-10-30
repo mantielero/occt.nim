@@ -22,6 +22,7 @@
 ## ! @param theExtString the wide character string which hash code is to be computed
 ## ! @param theUpperBound the upper bound of the range a computing hash code must be within
 ## ! @return a computed hash code, in the range [1, theUpperBound]
+import standard_types
 
 proc hashCode*(theExtString: StandardExtString; theUpperBound: cint): cint {.cdecl,
     importcpp: "HashCode(@)", header: "Standard_ExtString.hxx".}

@@ -23,6 +23,7 @@ type
   Selector* = object of RootObj
   BRepToolsReShape* = object ]#
 
-include topopebrepbuild/topopebrepbuild_includes
-include topopebrepds/topopebrepds_includes
-include topopebreptool/topopebreptool_includes
+import topopebrepbuild/topopebrepbuild_includes
+import topopebrepds/topopebrepds_includes
+import topopebreptool/topopebreptool_includes
+export topopebrepbuild_includes, topopebrepds_includes, topopebreptool_includes

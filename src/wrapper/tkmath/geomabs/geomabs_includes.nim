@@ -2,9 +2,11 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include geomabs_bsplknotdistribution
-include geomabs_curvetype
-include geomabs_isotype
-include geomabs_jointype
-include geomabs_shape
-include geomabs_surfacetype
+import geomabs_bsplknotdistribution
+import geomabs_curvetype
+import geomabs_isotype
+import geomabs_jointype
+import geomabs_shape
+import geomabs_surfacetype
+
+export geomabs_bsplknotdistribution, geomabs_curvetype, geomabs_isotype, geomabs_jointype, geomabs_shape, geomabs_surfacetype

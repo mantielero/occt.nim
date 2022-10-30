@@ -2,13 +2,15 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include brepalgoapi_algo
-include brepalgoapi_booleanoperation
-include brepalgoapi_builderalgo
-include brepalgoapi_check
-include brepalgoapi_common
-include brepalgoapi_cut
-include brepalgoapi_defeaturing
-include brepalgoapi_fuse
-include brepalgoapi_section
-include brepalgoapi_splitter
+import brepalgoapi_algo
+import brepalgoapi_booleanoperation
+import brepalgoapi_builderalgo
+import brepalgoapi_check
+import brepalgoapi_common
+import brepalgoapi_cut
+import brepalgoapi_defeaturing
+import brepalgoapi_fuse
+import brepalgoapi_section
+import brepalgoapi_splitter
+
+export brepalgoapi_algo, brepalgoapi_booleanoperation, brepalgoapi_builderalgo, brepalgoapi_check, brepalgoapi_common, brepalgoapi_cut, brepalgoapi_defeaturing, brepalgoapi_fuse, brepalgoapi_section, brepalgoapi_splitter

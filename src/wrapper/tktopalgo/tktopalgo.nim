@@ -15,4 +15,6 @@ type
   Selector* = object of RootObj
   BRepToolsReShape* = object
 
-include brepbuilderapi/brepbuilderapi_includes
+import brepbuilderapi/brepbuilderapi_includes
+
+export brepbuilderapi_includes

@@ -2,4 +2,6 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include appblend_approx
+import appblend_approx
+
+export appblend_approx

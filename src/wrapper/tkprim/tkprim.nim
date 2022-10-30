@@ -15,5 +15,7 @@ type
   BRepSweepPrism* = object
   BRepSweepRevol* = object
 
-include brepprim/brepprim_includes
-include brepprimapi/brepprimapi_includes
+import brepprim/brepprim_includes
+import brepprimapi/brepprimapi_includes
+
+export brepprim_includes, brepprimapi_includes

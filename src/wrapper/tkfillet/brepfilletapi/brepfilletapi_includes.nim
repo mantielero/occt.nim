@@ -2,7 +2,9 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include brepfilletapi_localoperation
-include brepfilletapi_makechamfer
-include brepfilletapi_makefillet
-include brepfilletapi_makefillet2d
+import brepfilletapi_localoperation
+import brepfilletapi_makechamfer
+import brepfilletapi_makefillet
+import brepfilletapi_makefillet2d
+
+export brepfilletapi_localoperation, brepfilletapi_makechamfer, brepfilletapi_makefillet, brepfilletapi_makefillet2d

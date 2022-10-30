@@ -15,10 +15,11 @@ else:
   Selector* = object of RootObj
   BRepToolsReShape* = object ]#
 
-include brepfilletapi/brepfilletapi_includes
-include chfids/chfids_includes
-include chfi3d/chfi3d_includes
-include chfi2d/chfi2d_includes
-include brepblend/brepblend_includes
-include blend/blend_includes
-include blendfunc/blendfunc_includes
+import brepfilletapi/brepfilletapi_includes
+import chfids/chfids_includes
+import chfi3d/chfi3d_includes
+import chfi2d/chfi2d_includes
+import brepblend/brepblend_includes
+import blend/blend_includes
+import blendfunc/blendfunc_includes
+export brepfilletapi_includes, chfids_includes, chfi3d_includes, chfi2d_includes, brepblend_includes, blend_includes, blendfunc_includes

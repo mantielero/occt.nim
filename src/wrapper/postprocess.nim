@@ -195,7 +195,7 @@ type
     lines:seq[string]
     name:string
     depend:string  # Should be a seq
-    needs:seq[string]
+    needs:HashSet[string]
 
 proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
   var lineNumbers:seq[int]
@@ -203,8 +203,9 @@ proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
     var line = lines[i]
     #if line == "type":
     #  lineNumbers &= i
+
     if line.len > 2:
-      if line[0..1] == "  " and line[2] != ' ' and line[2] != '#':
+      if line[0..1] == "  " and line[2] != ' ' and line[2] != '#' and line[0] != '#':
         lineNumbers &= i
 
   # Split each type
@@ -235,7 +236,70 @@ proc getTypeName(data:var string; line:string) =
     typName = typName.strip
     data = typName    
 
+proc removeComments(line:string):string =
+  if line.contains('#'):  
+    return line.split('#')[0].strip
+  return line.strip
+
+proc getDependencies(typs:var seq[TypOb]; i:int) =
+  var needs:HashSet[string]
+  var flagFirstEqual = false
+  var txt = ""
+  echo "=============="
+  for n in 0..typs[i].lines.high:
+    var line = typs[i].lines[n]
+    echo ">>", line    
+    line = line.removeComments()
+    
+    if line.contains('=') and not flagFirstEqual:
+      flagFirstEqual = true
+      txt = line.split('=')[1]
+    elif flagFirstEqual:
+      txt &= line
+
+  txt = txt.strip
+
+  echo txt
+  # Option 1: object of
+  if txt.startsWith("object of"):
+    txt = txt.split("object of")[1].strip
+  
+  # Option 2:
+  if txt.startsWith("enum "):
+    txt = txt.split("enum ")[1].strip
+    # FIXME
+
+  # Otherwise:
+  else:
+    if txt.contains('['):
+      var tmp = txt.split('[')
+      needs.incl( tmp[0].strip )
+      #if tmp[1].contains(']'):
+      var tmp1 = tmp[1].rsplit(']')[0]
+      if tmp1.contains(','):
+        var tmp2 = tmp1.split(',')
+        for val in tmp2:
+          needs.incl(val.strip)
+      else:
+        needs.incl( tmp1.strip )
+    
+    else:
+      needs.incl( txt.strip )
+        
+  var remove = toHashSet(["RootObj", "", "true", "false"])
+  typs[i].needs = needs - remove
+
+
+proc removeDocumentationComments(typs:var seq[TypOb]; i:int) =
+  for n in 0..typs[i].lines.high:
+    var line = typs[i].lines[n]
+    if line.contains('#'):
+      line = line.split('#')[0]
+    typs[i].lines[n] = line
+
+
 proc reorderContent(fname:string) =
+  echo fname
   var folder = fname.split('/')[2]
   var paths = likelyImports()
   var typs:seq[TypOb] = @[]
@@ -270,17 +334,12 @@ proc reorderContent(fname:string) =
       elif line.contains('='):
         var tmp1 = line.split('=')[1]
         if tmp1.contains('['):
-          #tmp1 = tmp1.split('[')[1]
-          #tmp1 = tmp1.split(']')[0]
           tmp.depend = tmp1
 
     typs &= tmp
 
-  #for i in 0..typs.high:
-  #  if typs[i].name.contains("MessageMessenger"):
-  #    echo i, " ", typs[i].name
-
-  #echo "----"
+  for i in 0..typs.high:
+    typs.removeDocumentationComments(i)
   # ----------------------------------------------Reorder
   var neworder:seq[int]
   # 1. We include those that don't depend on anything
@@ -291,74 +350,61 @@ proc reorderContent(fname:string) =
     else:
       items &= i
 
-  # 2. Include those dependences that are outside of the this package
+  # 2. Include those dependences that are outside of this package
   var requiredImports:HashSet[string]
   var remove:seq[int]
-  # 2.1 First those without Handle
+
+  echo fname
   for i in items:
-    var dependency = toLower(typs[i].depend).strip    
-    if not dependency.startsWith(folder) and not dependency.startsWith("handle["): 
-      #echo ">> ", dependency
-      for k in paths.keys:
-        if dependency.startsWith(k):
-          requiredImports.incl(k)
-          remove &= i
+    typs.getDependencies(i)    
+    echo "NEEDS: ", typs[i].needs
+
+    for need in typs[i].needs:
+      var tmp = need.toLower.strip
+      if tmp == "handle":
+        requiredImports.incl("standard")
+      else:
+        for k in paths.keys:
+          if tmp.startsWith( k ):
+            requiredImports.incl(k)
+            if not i in remove:
+              remove &= i
 
   for i in remove:
     items.delete(items.find(i))
     neworder &= i  
-
+    
   # 2.2 Then those with Handle
   remove = @[]
-  for i in items:
-    var dependency = toLower(typs[i].depend).strip    
-    if not dependency.startsWith(folder) and dependency.startsWith("handle["): 
-      var dependency = dependency.split("handle[")[1]
-      dependency = dependency[0 .. ( dependency.high - 1)]
-      #echo dependency
-      if not dependency.startsWith(folder): 
-        for k in paths.keys:
-          echo "bad"
-          if dependency.startsWith(k):
-            requiredImports.incl(k)
-            remove &= i
 
-  for i in remove:
-    items.delete(items.find(i))
-    neworder &= i  
-
-  remove = @[]
-
-  # 3. 
-
+  # 3. Reorder
   var nItems = typs.len
 
   while items.len > 0:
     var remove:seq[int]
 
     for i in items:
-      # Take the depend, because that should go first
-      var depend = typs[i].depend
+      # The same as before
+      var flag = true
+      for need in typs[i].needs:
+        var tmp = need.toLower.strip
+        var f = false
+        if tmp == "handle":
+          requiredImports.incl("standard")
+          f = true
+        else:
+          for k in paths.keys:
+            if tmp.startsWith( k ):
+              requiredImports.incl( k )
+              f = true
+        if not f:
+          flag = false 
 
-      if depend.contains('['):
-        var tmp1 = depend.split('[')
-        if tmp1[0].strip == "Handle":
-           requiredImports.incl("standard")
-        depend = tmp1[1][0..(tmp1[1].high - 1)]
-
-      # Remove from the list when the dependency is covered
-      for n in neworder:      
-        if items.len == 1:
-          echo n, " ", typs[n].name 
-        if typs[n].name == depend:
-          if items.len == 1:
-            echo depend
-            echo n, " ", typs[n].name            
-          remove &= i
-          break
+      if flag and not i in remove:
+        remove &= i
 
     for i in remove:
-      items.delete(items.find(i))
+      items.delete( items.find(i) )
       neworder &= i
 
     if items.len == nItems:
@@ -420,7 +466,7 @@ proc reorderContent(fname:string) =
 #
 # 8. Add import statements: *_types.nim content
 #
-proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
+#[ proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
   var providedBy = initTable[string,string]()
   var needed = initTable[string,seq[string]]()
 
@@ -456,7 +502,7 @@ proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
       elif f == "RootObj##":
         discard
       else:
-        echo "   - not found: " & f
+        echo "   - not found: " & f ]#
 
 
 
@@ -501,7 +547,7 @@ proc appendBeg*(fname, append:string) =
 #createTypesFile("./tkernel/standard")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-reorderContent("./tkernel/message/message_types.nim")
+#reorderContent("./tkernel/message/message_types.nim")
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)
@@ -543,7 +589,7 @@ var replaceProcs: seq[tuple[a,b:string]]
 
 
 
-#convertIncludesToImports()
+convertIncludesToImports()
 
 
 # TODO: reorder types "object of ..."

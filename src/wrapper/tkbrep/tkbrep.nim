@@ -17,8 +17,9 @@ type
   TopoDS_UnCompatibleShapes* = object
 
 
-include topods/topods_includes
-include toptools/toptools_includes
-include brep/brep_includes
-include brepadaptor/brepadaptor_includes
-include topexp/topexp_includes
+import topods/topods_includes
+import toptools/toptools_includes
+import brep/brep_includes
+import brepadaptor/brepadaptor_includes
+import topexp/topexp_includes
+export topods_includes, toptools_includes, brep_includes, brepadaptor_includes, topexp_includes

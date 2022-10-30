@@ -2,9 +2,11 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include stepcontrol_actorread
-include stepcontrol_actorwrite
-include stepcontrol_controller
-include stepcontrol_reader
-include stepcontrol_stepmodeltype
-include stepcontrol_writer
+import stepcontrol_actorread
+import stepcontrol_actorwrite
+import stepcontrol_controller
+import stepcontrol_reader
+import stepcontrol_stepmodeltype
+import stepcontrol_writer
+
+export stepcontrol_actorread, stepcontrol_actorwrite, stepcontrol_controller, stepcontrol_reader, stepcontrol_stepmodeltype, stepcontrol_writer

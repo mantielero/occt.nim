@@ -18,4 +18,6 @@ elif defined(macosx):
 else:
   const tkservice* = "libTKService.so" 
 
-include aspect/aspect_includes
+import aspect/aspect_includes
+
+export aspect_includes

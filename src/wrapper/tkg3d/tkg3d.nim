@@ -16,8 +16,9 @@ elif defined(macosx):
 else:
   const tkg3d* = "libTKG3d.so" 
 
-include geom/geom_includes
-include topabs/topabs_includes
-include adaptor3d/adaptor3d_includes
-include geomadaptor/geomadaptor_includes
-include tcolgeom/tcolgeom_includes
+import geom/geom_includes
+import topabs/topabs_includes
+import adaptor3d/adaptor3d_includes
+import geomadaptor/geomadaptor_includes
+import tcolgeom/tcolgeom_includes
+export geom_includes, topabs_includes, adaptor3d_includes, geomadaptor_includes, tcolgeom_includes

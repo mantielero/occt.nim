@@ -13,10 +13,11 @@ elif defined(macosx):
 else:
   const tkgeombase* = "libTKGeomBase.so"
 
-include gc/gc_includes
-include gce/gce_includes
-include approx/approx_includes
-include appcont/appcont_includes
-include appparcurves/appparcurves_includes
-include extrema/extrema_includes
-include gce2d/gce2d_includes
+import gc/gc_includes
+import gce/gce_includes
+import approx/approx_includes
+import appcont/appcont_includes
+import appparcurves/appparcurves_includes
+import extrema/extrema_includes
+import gce2d/gce2d_includes
+export gc_includes, gce_includes, approx_includes, appcont_includes, appparcurves_includes, extrema_includes, gce2d_includes

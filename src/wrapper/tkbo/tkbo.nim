@@ -16,5 +16,7 @@ elif defined(macosx):
 else:
   const tkbo* = "libTKBO.so" 
 
-include brepalgoapi/brepalgoapi_includes
-include bopalgo/bopalgo_includes
+import brepalgoapi/brepalgoapi_includes
+import bopalgo/bopalgo_includes
+
+export brepalgoapi_includes, bopalgo_includes

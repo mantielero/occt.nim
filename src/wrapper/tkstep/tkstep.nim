@@ -28,4 +28,6 @@ elif defined(macosx):
 else:
   const tkstep* = "libTKSTEP.so" 
 
-include stepcontrol/stepcontrol_includes
+import stepcontrol/stepcontrol_includes
+
+export stepcontrol_includes

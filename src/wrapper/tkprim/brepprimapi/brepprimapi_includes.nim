@@ -2,15 +2,17 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include brepprimapi_makebox
-include brepprimapi_makecone
-include brepprimapi_makecylinder
-include brepprimapi_makehalfspace
-include brepprimapi_makeoneaxis
-include brepprimapi_makeprism
-include brepprimapi_makerevol
-include brepprimapi_makerevolution
-include brepprimapi_makesphere
-include brepprimapi_makesweep
-include brepprimapi_maketorus
-include brepprimapi_makewedge
+import brepprimapi_makebox
+import brepprimapi_makecone
+import brepprimapi_makecylinder
+import brepprimapi_makehalfspace
+import brepprimapi_makeoneaxis
+import brepprimapi_makeprism
+import brepprimapi_makerevol
+import brepprimapi_makerevolution
+import brepprimapi_makesphere
+import brepprimapi_makesweep
+import brepprimapi_maketorus
+import brepprimapi_makewedge
+
+export brepprimapi_makebox, brepprimapi_makecone, brepprimapi_makecylinder, brepprimapi_makehalfspace, brepprimapi_makeoneaxis, brepprimapi_makeprism, brepprimapi_makerevol, brepprimapi_makerevolution, brepprimapi_makesphere, brepprimapi_makesweep, brepprimapi_maketorus, brepprimapi_makewedge

@@ -2,9 +2,11 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include adaptor2d_curve2d
-include adaptor2d_hcurve2d
-include adaptor2d_hline2d
-include adaptor2d_hoffsetcurve
-include adaptor2d_line2d
-include adaptor2d_offsetcurve
+import adaptor2d_curve2d
+import adaptor2d_hcurve2d
+import adaptor2d_hline2d
+import adaptor2d_hoffsetcurve
+import adaptor2d_line2d
+import adaptor2d_offsetcurve
+
+export adaptor2d_curve2d, adaptor2d_hcurve2d, adaptor2d_hline2d, adaptor2d_hoffsetcurve, adaptor2d_line2d, adaptor2d_offsetcurve

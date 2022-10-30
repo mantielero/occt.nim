@@ -15,7 +15,9 @@ else:
   Selector* = object of RootObj
   BRepToolsReShape* = object ]#
 
-include law/law_includes
-include geomfill/geomfill_includes
-include intsurf/intsurf_includes
-include appblend/appblend_includes
+import law/law_includes
+import geomfill/geomfill_includes
+import intsurf/intsurf_includes
+import appblend/appblend_includes
+
+export law_includes, geomfill_includes, intsurf_includes, appblend_includes

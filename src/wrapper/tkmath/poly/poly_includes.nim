@@ -2,19 +2,21 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include poly
-include poly_array1oftriangle
-include poly_coherentlink
-include poly_coherentnode
-include poly_coherenttriangle
-include poly_coherenttriangulation
-include poly_coherenttriptr
-include poly_connect
-include poly_harray1oftriangle
-include poly_listoftriangulation
-include poly_makeloops
-include poly_polygon2d
-include poly_polygon3d
-include poly_polygonontriangulation
-include poly_triangle
-include poly_triangulation
+import poly
+import poly_array1oftriangle
+import poly_coherentlink
+import poly_coherentnode
+import poly_coherenttriangle
+import poly_coherenttriangulation
+import poly_coherenttriptr
+import poly_connect
+import poly_harray1oftriangle
+import poly_listoftriangulation
+import poly_makeloops
+import poly_polygon2d
+import poly_polygon3d
+import poly_polygonontriangulation
+import poly_triangle
+import poly_triangulation
+
+export poly, poly_array1oftriangle, poly_coherentlink, poly_coherentnode, poly_coherenttriangle, poly_coherenttriangulation, poly_coherenttriptr, poly_connect, poly_harray1oftriangle, poly_listoftriangulation, poly_makeloops, poly_polygon2d, poly_polygon3d, poly_polygonontriangulation, poly_triangle, poly_triangulation

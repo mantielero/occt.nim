@@ -2,12 +2,14 @@
 {.passC:"-I/usr/include/opencascade/" .}
 {.experimental: "codeReordering".}
 
-include toploc_datum3d
-include toploc_indexedmapoflocation
-include toploc_itemlocation
-include toploc_location
-include toploc_mapiteratorofmapoflocation
-include toploc_maplocationhasher
-include toploc_mapoflocation
-include toploc_slistnodeofitemlocation
-include toploc_slistofitemlocation
+import toploc_datum3d
+import toploc_indexedmapoflocation
+import toploc_itemlocation
+import toploc_location
+import toploc_mapiteratorofmapoflocation
+import toploc_maplocationhasher
+import toploc_mapoflocation
+import toploc_slistnodeofitemlocation
+import toploc_slistofitemlocation
+
+export toploc_datum3d, toploc_indexedmapoflocation, toploc_itemlocation, toploc_location, toploc_mapiteratorofmapoflocation, toploc_maplocationhasher, toploc_mapoflocation, toploc_slistnodeofitemlocation, toploc_slistofitemlocation

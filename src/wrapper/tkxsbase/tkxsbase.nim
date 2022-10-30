@@ -16,6 +16,7 @@ elif defined(macosx):
 else:
   const tkxsbase* = "libTKXSBase.so" 
 
-include transfer/transfer_includes
-include intface/interface_includes
-include ifselect/ifselect_includes
+import transfer/transfer_includes
+import intface/interface_includes
+import ifselect/ifselect_includes
+export transfer_includes, interface_includes, ifselect_includes

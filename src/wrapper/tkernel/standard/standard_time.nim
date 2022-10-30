@@ -15,6 +15,7 @@
 ##  Methods from Standard_Entity class which are redefined:
 ##     - IsEqual
 ##  ===============================================
+import standard_types
 
 when not defined(QNX):          ##  same as Standard_Size
   ##  ------------------------------------------------------------------

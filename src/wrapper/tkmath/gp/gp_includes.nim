@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import gp_types
 import gp
 import gp_ax1
 import gp_ax2
@@ -44,7 +45,8 @@ import gp_vectorwithnullmagnitude
 import gp_xy
 import gp_xyz
 
-import gp_types
+
+
 export gp_types
 export gp, gp_ax1, gp_ax2, gp_ax22d, gp_ax2d, gp_ax3, gp_circ
 export gp_circ2d, gp_cone, gp_cylinder, gp_dir, gp_dir2d

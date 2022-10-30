@@ -17,4 +17,7 @@
 #  nCollectionUtfString
 
 type
+  NCollectionUtf8String* = object # FIXME
+
+type
   NCollectionString* = NCollectionUtf8String

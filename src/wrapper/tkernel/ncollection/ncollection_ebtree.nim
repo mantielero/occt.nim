@@ -1,4 +1,5 @@
 import ncollection_types
+import ../standard/standard_types
 
 ##  Created on: 2002-07-30
 ##  Created by: Michael SAZONOV

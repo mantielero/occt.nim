@@ -1,4 +1,5 @@
 import ncollection_types
+import ../standard/standard_types
 
 ##  Author: Roman Lygin, 2012.
 ##  This file is in the Public Domain and thus can freely be used for any purpose.

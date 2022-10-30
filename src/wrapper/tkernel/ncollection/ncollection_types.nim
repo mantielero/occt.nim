@@ -3,7 +3,11 @@
 
 #import tkernel/ncollection/ncollection_types
 
-import tkernel/standard/standard_types
+import ../standard/standard_types
+import ../../tkmath/gp/gp_types
+
+const
+  DefaultBlockSize*:csize_t = 24600
 
 type
   PtrdiffT* {.importcpp:"std::ptrdiff_t".} = object

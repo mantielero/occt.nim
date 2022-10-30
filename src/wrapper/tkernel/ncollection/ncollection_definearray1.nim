@@ -1,3 +1,4 @@
+import ../standard/standard_types
 ##  Created on: 2002-04-15
 ##  Created by: Alexander Kartomin (akm)
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS

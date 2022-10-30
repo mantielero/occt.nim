@@ -1,5 +1,5 @@
 import ncollection_types
-
+import ../standard/standard_types
 ##  Created on: 2009-12-30
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS

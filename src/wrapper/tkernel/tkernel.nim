@@ -130,7 +130,7 @@ import ncollection/ncollection_accallocator
 import ncollection/ncollection_alignedallocator
 import ncollection/ncollection_array1
 import ncollection/ncollection_array2
-import ncollection/ncollection_baseallocator
+#import ncollection/ncollection_baseallocator
 import ncollection/ncollection_baselist
 import ncollection/ncollection_basemap
 import ncollection/ncollection_basesequence
@@ -193,7 +193,7 @@ import ncollection/ncollection_winheapallocator
 
 export ncollection_types
 export ncollection_accallocator, ncollection_alignedallocator, ncollection_array1
-export ncollection_array2, ncollection_baseallocator, ncollection_baselist
+export ncollection_array2,  ncollection_baselist # ncollection_baseallocator,
 export ncollection_basemap, ncollection_basesequence, ncollection_basevector
 export ncollection_buffer, ncollection_cellfilter, ncollection_datamap
 export ncollection_defaulthasher, ncollection_definealloc, ncollection_defineharray1

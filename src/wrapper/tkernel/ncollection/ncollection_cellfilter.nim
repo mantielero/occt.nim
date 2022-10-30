@@ -1,4 +1,5 @@
 import ncollection_types
+import ../standard/standard_types
 
 ##  Created on: 2007-05-26
 ##  Created by: Andrey BETENEV

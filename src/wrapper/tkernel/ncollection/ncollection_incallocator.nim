@@ -1,7 +1,6 @@
 import ncollection_types
+import ../standard/standard_types
 
-const
-  DefaultBlockSize:csize_t = 24600
 ##  Created on: 2002-04-12
 ##  Created by: Alexander GRIGORIEV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS

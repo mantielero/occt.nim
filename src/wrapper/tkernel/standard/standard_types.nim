@@ -6,7 +6,7 @@
 type
   Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object 
   
-  StandardTransient* {.importcpp: "Standard_Transient",
+  StandardTransient* {.importcpp: "Standard_Transient",  
                       header: "Standard_Transient.hxx".} = object of RootObj  #, byref, pure, inheritable.} = object 
   
   StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
@@ -122,7 +122,8 @@ type
   StandardUUID* = object # FIXME: tkernel/standard/standard_guid.nim(38, 36) Error: undeclared identifier: 'StandardUUID'
   StandardPCharacter* = object # FIXME: tkernel/standard/standard_guid.nim(44, 47) Error: undeclared identifier: 'StandardPCharacter'
   #StandardPExtCharacter* = object # FIXED
-  
+  StandardUtf16Char* = object # FIXME: tkernel/ncollection/ncollection_utfiterator.nim(55, 35) Error: undeclared identifier: 'StandardUtf8Char'
+
   #StandardByte* = object  # FIXME: tkernel/standard/standard_pbyte.nim(15, 24) Error: undeclared identifier: 'StandardByte'  
 
  
@@ -236,4 +237,4 @@ type
   StandardArrayStreamBuffer* {.importcpp: "Standard_ArrayStreamBuffer",
                               header: "Standard_ArrayStreamBuffer.hxx", bycopy.} = object of Streambuf 
                                                                                                 
-    
+  HandleStandardTransient* {.importcpp: "opencascade::handle<Standard_Transient>", header: "Standard_Transient.hxx", byref, pure, inheritable.} = object of RootObj

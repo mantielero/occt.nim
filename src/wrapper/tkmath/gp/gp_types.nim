@@ -96,10 +96,9 @@ type
 
   PlnObj* {.importcpp: "gp_Pln", header: "gp_Pln.hxx", bycopy.} = object 
                                                               
-{.push header: "gp_Pnt.hxx".}
 
-  PntObj* {.importcpp: "gp_Pnt", bycopy.} = object 
-{.pop.}
+  PntObj* {.importcpp: "gp_Pnt", header: "gp_Pnt.hxx", bycopy.} = object 
+
 
   Pnt2dObj* {.importcpp: "gp_Pnt2d", header: "gp_Pnt2d.hxx", bycopy.} = object 
 
@@ -154,6 +153,8 @@ type
   VecObj* {.importcpp: "gp_Vec", header: "gp_Vec.hxx", bycopy.} = object 
 
   XyObj* {.importcpp: "gp_XY", header: "gp_XY.hxx", bycopy.} = object 
+
+  XyzObj* {.importcpp: "gp_XYZ", header: "gp_XYZ.hxx", bycopy, pure, inheritable.} = object ## ! Creates an XYZ object with zero co-ordinates (0,0,0)
 
 
   Vec2dObj* {.importcpp: "gp_Vec2d", header: "gp_Vec2d.hxx", bycopy.} = object 

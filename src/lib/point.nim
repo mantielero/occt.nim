@@ -1,6 +1,6 @@
 #import ../wrapper/tkmath/tkmath#gp/gp_Pnt
 import std/strformat
-import tkmath/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
+import ../wrapper/tkmath/gp/[gp_types, gp_pnt, gp_vec, gp_dir, gp_xyz]
 #import gp_Pnt, gp_XYZ, gp_Dir, gp_Ax1, gp_Trsf, gp_Vec, gp_Ax2
 #export gp_Pnt, gp_XYZ, gp_Dir, gp_Ax1, gp_Trsf, gp_Vec, gp_Ax2
 
@@ -8,7 +8,7 @@ converter toCfloat*[T:SomeNumber](val:T):cfloat =
   val.cfloat
 
 proc pnt*[A,B,C:SomeNumber](x:A,y:B,z:C):PntObj = 
-  pnt(x.cfloat, y.cfloat, z.cfloat)
+  gp_pnt.pnt(x.cfloat, y.cfloat, z.cfloat)
 
 type
   P3* = tuple[x,y,z:float]  # Nim way

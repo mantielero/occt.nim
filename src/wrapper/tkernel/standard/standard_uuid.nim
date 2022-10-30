@@ -17,6 +17,6 @@ type
     data1* {.importc: "Data1".}: culong
     data2* {.importc: "Data2".}: cushort
     data3* {.importc: "Data3".}: cushort
-    data4* {.importc: "Data4".}: array[8, cuchar]
+    data4* {.importc: "Data4".}: array[8, uint8]
 
   StandardUUID* = Guid

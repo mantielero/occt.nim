@@ -1,4 +1,4 @@
-import standard_types
+#import standard_types
 
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2013 OPEN CASCADE SAS

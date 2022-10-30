@@ -5,27 +5,15 @@
 #import tkernel/tcollection/tcollection_types
 type
   Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object 
-                                                                       
+  
   StandardTransient* {.importcpp: "Standard_Transient",
                       header: "Standard_Transient.hxx".} = object of RootObj  #, byref, pure, inheritable.} = object 
-
+  
   StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
                           header: "Standard_CLocaleSentry.hxx", bycopy.} = object 
-                                                                             
-                                                                             
-                                                                             
-                                                                             
-                                                                             
-                                                                             
-                                                                             
-    
 
   StandardCondition* {.importcpp: "Standard_Condition",
                       header: "Standard_Condition.hxx", bycopy.} = object 
-                                                                     
-                                                                     
-                                                                     
-                                                                     
 
   StandardJsonKey* {.size: sizeof(cint), importcpp: "Standard_JsonKey",
                     header: "Standard_Dump.hxx".} = enum
@@ -44,224 +32,14 @@ type
     #myStartPosition* {.importc: "myStartPosition".}: cint 
 
   StandardDump* {.importcpp: "Standard_Dump", header: "Standard_Dump.hxx", bycopy.} = object 
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-                                                                                     
-
+     
   StandardErrorHandler* {.importcpp: "Standard_ErrorHandler",
                          header: "Standard_ErrorHandler.hxx", bycopy.} = object 
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
-                                                                           
                                                                            
 
   StandardErrorHandlerCallback* {.importcpp: "Standard_ErrorHandler::Callback",
                                  header: "Standard_ErrorHandler.hxx", bycopy.} = object 
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-                                                                                   
-
+  
   StandardGUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
 
   Handle*[T] {.importcpp: "opencascade::handle<\'0>",
@@ -279,84 +57,16 @@ type
 
   StandardMutex* {.importcpp: "Standard_Mutex", header: "Standard_Mutex.hxx", bycopy.} = object 
                                                                                                   
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-                                                                                                  
-
   StandardMutexSentry* {.importcpp: "Standard_Mutex::Sentry",
                         header: "Standard_Mutex.hxx", bycopy.} = object 
-                                                                   
-                                                                   
-
+  
   StandardReadBuffer* {.importcpp: "Standard_ReadBuffer",
                        header: "Standard_ReadBuffer.hxx", bycopy.} = object 
-                                                                       
-                                                                       
-                                                                       
-                                                                       
-    
-    
-    
-    
-    
-    
-    
-    
-
+ 
   StandardReadLineBuffer* {.importcpp: "Standard_ReadLineBuffer",
                            header: "Standard_ReadLineBuffer.hxx", bycopy.} = object 
                                                                                
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-    
-    
-    
-    
-    
-    
-    
-
-
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
-                                                                     
+                                         
 
   StandardTransientbaseType* = void
 
@@ -367,13 +77,13 @@ type
 
   StandardShortReal* = cfloat
 
-  StandardByte* = cuchar
+  StandardByte* = uint8
 
   StandardTime* {.importcpp:"std::time_t".} = object
 
   StandardUtf8Char* = char
 
-  StandardUtf8UChar* = cuchar
+  StandardUtf8UChar* = uint8
 
   Streambuf* {.importcpp:"std::streambuf".} = object of RootObj
 
@@ -420,54 +130,27 @@ type
   StandardPByte* = ptr StandardByte  # FIXME: tkernel/standard/standard_pbyte.nim(15, 24) Error: undeclared identifier: 'StandardByte'
 
 
-
   StandardPExtCharacter* = ptr StandardExtCharacter
 
   StandardPErrorHandler* = ptr StandardErrorHandler
 
   StandardOutOfMemory* {.importcpp: "Standard_OutOfMemory",
                         header: "Standard_OutOfMemory.hxx", bycopy.} = object of StandardProgramError 
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-                                                                                               
-
-
-
-
-
-
+    
   HandleStandardAbortiveTransaction* = Handle[StandardAbortiveTransaction]
-
 
 
   HandleStandardConstructionError* = Handle[StandardConstructionError]
 
-
-
   HandleStandardDimensionError* = Handle[StandardDimensionError]
-
-
 
   HandleStandardDimensionMismatch* = Handle[StandardDimensionMismatch]
 
-
-
   HandleStandardDivideByZero* = Handle[StandardDivideByZero]
-
-
 
   HandleStandardDomainError* = Handle[StandardDomainError]
 
-
-
   HandleStandardImmutableObject* = Handle[StandardImmutableObject]
-
-
 
   HandleStandardLicenseError* = Handle[StandardLicenseError]
 
@@ -533,97 +216,24 @@ type
 
   HandleStandardUnderflow* = Handle[StandardUnderflow]
 
-
-
-
   StandardFailure* {.importcpp: "Standard_Failure", header: "Standard_Failure.hxx",
                     bycopy.} = object of StandardTransient 
-                                                      
-                                                      
-                                                      
-                                                      
-
-
-
+ 
   StandardMMgrOpt* {.importcpp: "Standard_MMgrOpt", header: "Standard_MMgrOpt.hxx",
                     bycopy.} = object of StandardMMgrRoot 
                                                      
-                                                     
-                                                     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
   StandardMMgrRaw* {.importcpp: "Standard_MMgrRaw", header: "Standard_MMgrRaw.hxx",
                     bycopy.} = object of StandardMMgrRoot 
-                                                     
-    
-
-
-
+  
   StandardMMgrTBBalloc* {.importcpp: "Standard_MMgrTBBalloc",
                          header: "Standard_MMgrTBBalloc.hxx", bycopy.} = object of StandardMMgrRoot 
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-                                                                                             
-    
-
-
-
+ 
   StandardPersistent* {.importcpp: "Standard_Persistent",
                        header: "Standard_Persistent.hxx", bycopy.} = object of StandardTransient
 
-
-
   StandardType* {.importcpp: "Standard_Type", header: "Standard_Type.hxx", bycopy.} = object of StandardTransient 
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-                                                                                                        
-    
-    
-    
-    
-
-
-
+                                                                                                   
   StandardArrayStreamBuffer* {.importcpp: "Standard_ArrayStreamBuffer",
                               header: "Standard_ArrayStreamBuffer.hxx", bycopy.} = object of Streambuf 
                                                                                                 
-                                                                                                
-                                                                                                
+    

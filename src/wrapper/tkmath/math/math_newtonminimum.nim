@@ -1,5 +1,6 @@
 import math_types
-
+import ../../tkernel/standard/standard_types
+import ../precision/precision  # confusion
 ##  Created on: 1996-02-28
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision

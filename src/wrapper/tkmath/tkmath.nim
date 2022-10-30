@@ -1,7 +1,7 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
-{.experimental: "callOperator".}
+#{.experimental: "codeReordering".}
+#{.experimental: "callOperator".}
 
 type
   #TColStdArray1OfReal* = object
@@ -11,8 +11,8 @@ type
   ValueType* = object
 
 
-  MathNotSquare* = object
-  MathSingularMatrix* = object
+
+
   BndArray1OfBox2d* = object
   #BVH_Box* = object
   BVH_Tree*[T; N: static[cint]] {.importcpp: "BVH_Tree<\'0,\'1>",

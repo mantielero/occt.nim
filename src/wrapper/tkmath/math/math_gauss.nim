@@ -1,5 +1,7 @@
 import math_types
-
+import ../../tkernel/message/message_types
+import ../../tkernel/message/message_progressrange
+import ../../tkernel/standard/standard_types
 ##  Created on: 1991-05-13
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision

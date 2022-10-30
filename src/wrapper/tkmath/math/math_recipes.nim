@@ -1,3 +1,6 @@
+import math_types
+import ../../tkernel/message/message_types
+import ../../tkernel/message/message_progressrange
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -15,12 +18,7 @@
 discard "forward decl of math_IntegerVector"
 discard "forward decl of math_Vector"
 discard "forward decl of math_Matrix"
-const
-  mathStatusUserAborted*    = -1
-  mathStatusOK*             = 0
-  mathStatusSingularMatrix* = 1
-  mathStatusArgumentError*  = 2
-  mathStatusNoConvergence*  = 3  
+ 
 
 
 

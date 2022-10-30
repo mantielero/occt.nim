@@ -1,17 +1,26 @@
 # PROVIDES: MathStatus Math MathBFGS MathBissecNewton MathBracketedRoot MathBracketMinimum MathBrentMinimum MathBullardGenerator MathComputeGaussPointsAndWeights MathComputeKronrodPointsAndWeights MathCrout MathDirectPolynomialRoots MathDoubleTab MathEigenValuesSearcher MathFRPR MathFunction MathFunctionAllRoots MathFunctionRoot MathFunctionRoots MathFunctionSample MathFunctionSet MathFunctionSetRoot MathGauss MathGaussLeastSquare MathGaussMultipleIntegration MathGaussSetIntegration MathGaussSingleIntegration MathGlobOptMin MathHouseholder MathIntegerVector MathJacobi MathKronrodSingleIntegration MathMatrix MathMultipleVarFunction MathNewtonFunctionRoot MathNewtonFunctionSetRoot MathNewtonMinimum MathPowell MathPSO PSO_Particle MathPSOParticlesPool MathSVD MathTrigonometricFunctionRoots MathUzawa MathValueAndWeight MathVector
 # DEPENDS:  NCollectionArray1[MathValueAndWeight]  Handle[MathNotSquare]  Handle[MathSingularMatrix] MathFunctionSet MathFunction MathMultipleVarFunction MathMultipleVarFunctionWithGradient MathFunctionWithDerivative
 
-import tkmath/math/math_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
+
+const
+  mathStatusUserAborted*    = -1
+  mathStatusOK*             = 0
+  mathStatusSingularMatrix* = 1
+  mathStatusArgumentError*  = 2
+  mathStatusNoConvergence*  = 3 
+  
 type
+  MathNotSquare* = object # FIXME  
+  MathSingularMatrix* = object # FIXME  
   MathStatus* {.size: sizeof(cint), importcpp: "math_Status",
                header: "math_Status.hxx".} = enum
-    mathOK, mathTooManyIterations, mathFunctionError, mathDirectionSearchError,
-    mathNotBracketed
+    mathOK, mathTooManyIterations, mathFunctionError, mathDirectionSearchError, mathNotBracketed
 
   Math* {.importcpp: "math", header: "math.hxx", bycopy.} = object
-
+  
   MathBFGS* {.importcpp: "math_BFGS", header: "math_BFGS.hxx", bycopy.} = object 
 
   MathBissecNewton* {.importcpp: "math_BissecNewton",
@@ -135,7 +144,7 @@ type
 
   MathValueAndWeight* {.importcpp: "math_ValueAndWeight",
                        header: "math_ValueAndWeight.hxx", bycopy.} = object
-                       header: "math_ValueAndWeight.hxx", bycopy.} = object
+                       #header: "math_ValueAndWeight.hxx", bycopy.} = object
 
   MathVector* {.importcpp: "math_Vector", header: "math_Vector.hxx", bycopy.} = object 
 
@@ -157,7 +166,7 @@ type
   MathMultipleVarFunctionWithHessian* {.importcpp: "math_MultipleVarFunctionWithHessian", header: "math_MultipleVarFunctionWithHessian.hxx",
                                        bycopy.} = object of MathMultipleVarFunctionWithGradient 
 
-                                       bycopy.} = object of MathMultipleVarFunctionWithGradient 
+                                       #bycopy.} = object of MathMultipleVarFunctionWithGradient 
   MathTrigonometricEquationFunction* {.importcpp: "math_TrigonometricEquationFunction", header: "math_TrigonometricEquationFunction.hxx",
                                       bycopy.} = object of MathFunctionWithDerivative
 

@@ -18,7 +18,7 @@ import ../../tkernel/standard/standard_types
 {.push header: "gp_Pnt.hxx".}
 
 # Constructors
-proc pnt*(): PntObj {.cdecl, constructor, importcpp: "gp_Pnt(@)".}
+proc pnt*(): PntObj {.cdecl, constructor, importcpp: "gp_Pnt()".}
 proc pnt*(coord: XyzObj): PntObj {.cdecl, constructor, importcpp: "gp_Pnt(@)".}
 proc pnt*(xp: cfloat; yp: cfloat; zp: cfloat): PntObj {.cdecl, constructor,
     importcpp: "gp_Pnt(@)".}

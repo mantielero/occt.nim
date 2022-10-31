@@ -1,7 +1,9 @@
 import prs3d_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -33,4 +35,5 @@ proc newPrs3dToolDisk*(theInnerRadius: cfloat; theOuterRadius: cfloat;
 proc setAngleRange*(this: var Prs3dToolDisk; theStartAngle: cfloat;
                    theEndAngle: cfloat) {.cdecl, importcpp: "SetAngleRange",
                                         header: "Prs3d_ToolDisk.hxx".}
+
 

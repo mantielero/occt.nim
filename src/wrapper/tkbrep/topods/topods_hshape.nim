@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1995-06-28
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc shape*(this: TopoDS_HShape): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "TopoDS_HShape.hxx".}
 proc changeShape*(this: var TopoDS_HShape): var TopoDS_Shape {.cdecl,
     importcpp: "ChangeShape", header: "TopoDS_HShape.hxx".}
+
 

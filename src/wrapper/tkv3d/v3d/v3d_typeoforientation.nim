@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -45,6 +47,7 @@ const
   v3dTypeOfOrientationYupBottom = v3dYneg ## !< +Y-up -Z-forward Bottom (-X-Z) view
   v3dTypeOfOrientationYupLeft = v3dXpos ## !< +Y-up -Z-forward Left   (-Z+Y) view
   v3dTypeOfOrientationYupRight = v3dXneg ## !< +Y-up -Z-forward Right  (+Z+Y) view
+
 
 
 

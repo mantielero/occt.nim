@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-12-08
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -73,4 +75,5 @@ proc removeOldConnexity*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex;
     importcpp: "RemoveOldConnexity", header: "TopOpeBRepTool_REGUW.hxx".}
 proc updateMultiple*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex): bool {.cdecl,
     importcpp: "UpdateMultiple", header: "TopOpeBRepTool_REGUW.hxx".}
+
 

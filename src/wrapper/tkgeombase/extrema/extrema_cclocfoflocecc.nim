@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -77,5 +79,6 @@ proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC; c: pointer): cfloat {.c
 ##  #define Extrema_SeqPOnC_hxx <Extrema_SequenceOfPOnCurv.hxx>
 ##  #define Extrema_FuncExtCC Extrema_CCLocFOfLocECC
 ##  #define Extrema_FuncExtCC_hxx <Extrema_CCLocFOfLocECC.hxx>
+
 
 

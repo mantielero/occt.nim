@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-10-13
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc checkApprox*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
     importcpp: "CheckApprox", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkResult*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
     importcpp: "CheckResult", header: "GeomFill_ConstrainedFilling.hxx".}
+
 

@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1991-02-21
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc add*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEf
     cdecl, importcpp: "Add", header: "TopoDS_Builder.hxx".}
 proc remove*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
     cdecl, importcpp: "Remove", header: "TopoDS_Builder.hxx".}
+
 

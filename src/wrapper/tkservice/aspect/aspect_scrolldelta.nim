@@ -3,6 +3,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -32,4 +34,5 @@ proc newAspectScrollDelta*(thePnt: NCollectionVec2[cint]; theValue: cfloat;
 proc newAspectScrollDelta*(theValue: cfloat;
                           theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
     cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
+
 

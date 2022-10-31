@@ -5,6 +5,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: bool) {.cdecl,
 proc adjustCase*(p1: cfloat; o: TopAbsOrientation; first: cfloat; period: cfloat;
                 tol: cfloat; cas: var cint): cfloat {.cdecl,
     importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+
 

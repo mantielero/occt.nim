@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,6 +20,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Errors that can occur at (shell)pipe construction.
+
 
 
 

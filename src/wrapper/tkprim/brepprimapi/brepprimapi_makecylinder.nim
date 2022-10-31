@@ -3,6 +3,8 @@ import brepprimapi_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}
 proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.cdecl,
     importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1994-06-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -53,4 +55,5 @@ proc value*(this: TopOpeBRepDS_InterferenceIterator): Handle[
                                 header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc changeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
     cdecl, importcpp: "ChangeIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+
 

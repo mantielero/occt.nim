@@ -4,6 +4,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-10
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc `()`*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.noSideEffect,
 proc findKey*(this: ChFiDS_StripeMap; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
 proc clear*(this: var ChFiDS_StripeMap) {.cdecl, importcpp: "Clear", header: "ChFiDS_StripeMap.hxx".}
+
 

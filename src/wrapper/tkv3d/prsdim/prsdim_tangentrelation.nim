@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc externRef*(this: var PrsDimTangentRelation): cint {.cdecl,
     importcpp: "ExternRef", header: "PrsDim_TangentRelation.hxx".}
 proc setExternRef*(this: var PrsDimTangentRelation; aRef: cint) {.cdecl,
     importcpp: "SetExternRef", header: "PrsDim_TangentRelation.hxx".}
+
 

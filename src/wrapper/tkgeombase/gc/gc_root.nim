@@ -1,5 +1,7 @@
 import gc_types
-import ../tkgeombase/gce/gce_types
+import ../gce/gce_types
+
+
 
 
 
@@ -32,4 +34,5 @@ proc isDone*(this: Root): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                              header: "GC_Root.hxx".}
 proc status*(this: Root): GceErrorType {.noSideEffect, cdecl, importcpp: "Status",
                                      header: "GC_Root.hxx".}
+
 

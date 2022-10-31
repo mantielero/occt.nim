@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc meridianValue*(this: BRepPrimRevolution; v: cfloat): Pnt2dObj {.noSideEffec
     importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
 proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}
+
 

@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2013-06-06
 ##  Created by: Vlad ROMASHKO
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -55,4 +57,5 @@ proc nbResults*(this: var ChFi2dFilletAPI; thePoint: PntObj): cint {.cdecl,
 proc result*(this: var ChFi2dFilletAPI; thePoint: PntObj; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; iSolution: cint = -1): TopoDS_Edge {.cdecl,
     importcpp: "Result", header: "ChFi2d_FilletAPI.hxx".}
+
 

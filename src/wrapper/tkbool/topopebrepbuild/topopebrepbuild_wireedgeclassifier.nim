@@ -5,6 +5,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc compareElement*(this: var TopOpeBRepBuildWireEdgeClassifier; e: TopoDS_Shap
     cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildWireEdgeClassifier): TopAbsState {.cdecl,
     importcpp: "State", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx".}
+
 

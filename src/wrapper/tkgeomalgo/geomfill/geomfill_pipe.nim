@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1994-04-13
 ##  Created by: Eric BONNARDEL
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -96,4 +98,5 @@ proc errorOnSurf*(this: GeomFillPipe): cfloat {.noSideEffect, cdecl,
     importcpp: "ErrorOnSurf", header: "GeomFill_Pipe.hxx".}
 proc isDone*(this: GeomFillPipe): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                      header: "GeomFill_Pipe.hxx".}
+
 

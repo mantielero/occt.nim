@@ -1,6 +1,8 @@
 import brepblend_types
 import ../../tkgeomalgo/intsurf/intsurf_types
-import ../tkfillet/blend/blend_types
+import ../blend/blend_types
+
+
 
 
 
@@ -62,4 +64,5 @@ proc endPointOnSecond*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect,
     cdecl, importcpp: "EndPointOnSecond", header: "BRepBlend_Line.hxx".}
 proc transitionOnS*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect, cdecl,
     importcpp: "TransitionOnS", header: "BRepBlend_Line.hxx".}
+
 

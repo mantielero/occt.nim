@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -77,4 +79,5 @@ proc updateList*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint
 proc apply*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
            ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, cdecl, importcpp: "Apply", header: "IFSelect_Editor.hxx".}
+
 

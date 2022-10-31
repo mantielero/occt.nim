@@ -3,6 +3,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc precision*(p: cfloat) {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
                           header: "BRepBuilderAPI.hxx".}
 proc precision*(): cfloat {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
                          header: "BRepBuilderAPI.hxx".}
+
 

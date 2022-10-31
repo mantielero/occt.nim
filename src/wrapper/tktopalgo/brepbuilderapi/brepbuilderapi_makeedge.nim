@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -146,4 +148,5 @@ proc vertex1*(this: EdgeObj): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex1", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc vertex2*(this: EdgeObj): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex2", header: "BRepBuilderAPI_MakeEdge.hxx".}
+
 

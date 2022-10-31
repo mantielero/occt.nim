@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc file*(this: IFSelectActivator): cstring {.noSideEffect, cdecl, importcpp: "
     header: "IFSelect_Activator.hxx".}
 proc setForGroup*(this: var IFSelectActivator; group: cstring; file: cstring = "") {.
     cdecl, importcpp: "SetForGroup", header: "IFSelect_Activator.hxx".}
+
 

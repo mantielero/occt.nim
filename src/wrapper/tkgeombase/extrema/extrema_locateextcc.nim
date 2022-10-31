@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc squareDistance*(this: ExtremaLocateExtCC): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "Extrema_LocateExtCC.hxx".}
 proc point*(this: ExtremaLocateExtCC; p1: var ExtremaPOnCurv; p2: var ExtremaPOnCurv) {.
     noSideEffect, cdecl, importcpp: "Point", header: "Extrema_LocateExtCC.hxx".}
+
 

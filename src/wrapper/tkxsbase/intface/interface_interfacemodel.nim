@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created by: Christian CAILLET <cky@phobox>
 ##  Copyright (c) 1992-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -216,3 +218,4 @@ proc setTemplate*(name: cstring; model: Handle[InterfaceInterfaceModel]): bool {
     cdecl, importcpp: "Interface_InterfaceModel::SetTemplate(@)", header: "Interface_InterfaceModel.hxx".}
 proc listTemplates*(): Handle[TColStdHSequenceOfHAsciiString] {.cdecl,
     importcpp: "Interface_InterfaceModel::ListTemplates(@)", header: "Interface_InterfaceModel.hxx".}
+

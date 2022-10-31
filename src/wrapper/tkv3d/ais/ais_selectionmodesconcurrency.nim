@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,6 +17,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! The mode specifying how multiple active Selection Modes should be treated during activation of new one.
+
 
 
 

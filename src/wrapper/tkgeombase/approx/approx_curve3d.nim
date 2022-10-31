@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1998-08-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc maxError*(this: ApproxCurve3d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError", header: "Approx_Curve3d.hxx".}
 proc dump*(this: ApproxCurve3d; o: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "Approx_Curve3d.hxx".}
+
 

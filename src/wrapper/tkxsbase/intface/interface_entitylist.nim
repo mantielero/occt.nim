@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-11-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -50,3 +52,4 @@ proc nbTypedEntities*(this: InterfaceEntityList; atype: Handle[StandardType]): c
 proc typedEntity*(this: InterfaceEntityList; atype: Handle[StandardType];
                  num: cint = 0): Handle[StandardTransient] {.noSideEffect, cdecl,
     importcpp: "TypedEntity", header: "Interface_EntityList.hxx".}
+

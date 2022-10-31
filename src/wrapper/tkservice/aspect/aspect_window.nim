@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -74,4 +76,5 @@ proc invalidateContent*(this: var AspectWindow;
 proc dumpJson*(this: AspectWindow; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_Window.hxx".}
+
 

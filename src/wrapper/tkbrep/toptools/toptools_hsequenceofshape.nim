@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,5 +36,6 @@ proc append*(this: var TopToolsHSequenceOfShape;
     header: "TopTools_HSequenceOfShape.hxx".}
 proc changeSequence*(this: var TopToolsHSequenceOfShape): var TopToolsSequenceOfShape {.
     cdecl, importcpp: "ChangeSequence", header: "TopTools_HSequenceOfShape.hxx".}
+
 
 

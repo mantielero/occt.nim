@@ -5,6 +5,8 @@ import gce2d_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc value*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.noSideEffect, cdecl,
 converter `constopencascade`*(this: GCE2dMakeCircle): Handle[Geom2dCircle] {.
     noSideEffect, cdecl, importcpp: "GCE2d_MakeCircle::operator constopencascade",
     header: "GCE2d_MakeCircle.hxx".}
+
 

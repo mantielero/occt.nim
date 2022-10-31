@@ -1,7 +1,9 @@
-import ../tkfillet/chfids/chfids_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkbrep/brepadaptor/brepadaptor_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
+
+
 
 
 
@@ -43,4 +45,5 @@ proc sameSide*(`or`: TopAbsOrientation; orSave1: TopAbsOrientation;
               orSave2: TopAbsOrientation; orFace1: TopAbsOrientation;
               orFace2: TopAbsOrientation): bool {.cdecl,
     importcpp: "ChFi3d::SameSide(@)", header: "ChFi3d.hxx".}
+
 

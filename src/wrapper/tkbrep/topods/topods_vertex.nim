@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -32,4 +34,5 @@ import topods_types
 proc newTopoDS_Vertex*(): TopoDS_Vertex {.cdecl, constructor,
                                        importcpp: "TopoDS_Vertex(@)",
                                        header: "TopoDS_Vertex.hxx".}
+
 

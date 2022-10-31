@@ -6,6 +6,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -92,4 +94,5 @@ proc getPlanes*(this: SelectMgrRectangularFrustum;
 proc dumpJson*(this: SelectMgrRectangularFrustum; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_RectangularFrustum.hxx".}
+
 

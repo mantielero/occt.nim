@@ -1,7 +1,9 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import v3d_types
+
+
 
 
 
@@ -41,4 +43,5 @@ proc typeOfOrientationFromString*(theTypeString: cstring): V3dTypeOfOrientation 
 proc typeOfOrientationFromString*(theTypeString: cstring;
                                  theType: var V3dTypeOfOrientation): bool {.cdecl,
     importcpp: "V3d::TypeOfOrientationFromString(@)", header: "V3d.hxx".}
+
 

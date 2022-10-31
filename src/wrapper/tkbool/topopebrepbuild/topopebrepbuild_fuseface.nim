@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1998-07-28
 ##  Created by: LECLERE Florence
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -55,4 +57,5 @@ proc lExternVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, cdecl, importcpp: "LExternVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
 proc lModifVertex*(this: TopOpeBRepBuildFuseFace): TopToolsListOfShape {.
     noSideEffect, cdecl, importcpp: "LModifVertex", header: "TopOpeBRepBuild_FuseFace.hxx".}
+
 

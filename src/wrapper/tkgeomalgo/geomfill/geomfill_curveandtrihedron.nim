@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -74,4 +76,5 @@ proc isRotation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsRotation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc rotation*(this: GeomFillCurveAndTrihedron; center: var PntObj) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_CurveAndTrihedron.hxx".}
+
 

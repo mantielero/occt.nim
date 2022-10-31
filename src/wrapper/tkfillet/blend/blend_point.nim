@@ -3,6 +3,8 @@ import blend_types
 
 
 
+
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -122,4 +124,5 @@ proc tangentOnC1*(this: BlendPoint): VecObj {.noSideEffect, cdecl,
                                        importcpp: "TangentOnC1", header: "Blend_Point.hxx".}
 proc tangentOnC2*(this: BlendPoint): VecObj {.noSideEffect, cdecl,
                                        importcpp: "TangentOnC2", header: "Blend_Point.hxx".}
+
 

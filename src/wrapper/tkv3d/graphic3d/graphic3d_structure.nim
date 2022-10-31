@@ -6,6 +6,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 1991-06-12
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -188,4 +190,5 @@ proc cStructure*(this: Graphic3dStructure): Handle[Graphic3dCStructure] {.
 proc dumpJson*(this: Graphic3dStructure; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Structure.hxx".}
+
 

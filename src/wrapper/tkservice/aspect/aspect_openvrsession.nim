@@ -5,6 +5,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -71,4 +73,5 @@ proc getPoseActionDataForNextFrame*(this: AspectOpenVRSession;
 proc setTrackingOrigin*(this: var AspectOpenVRSession;
                        theOrigin: TrackingUniverseOrigin) {.cdecl,
     importcpp: "SetTrackingOrigin", header: "Aspect_OpenVRSession.hxx".}
+
 

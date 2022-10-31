@@ -1,10 +1,12 @@
 import topopebrepds_types
 import ../../tkg3d/topabs/topabs_types
-import ../tkbool/topopebreptool/topopebreptool_types
+import ../topopebreptool/topopebreptool_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkg2d/geom2d/geom2d_types
+
+
 
 
 
@@ -144,4 +146,5 @@ proc translate*(this: TopOpeBRepDS_BuildTool): bool {.noSideEffect, cdecl,
     importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
 proc translate*(this: var TopOpeBRepDS_BuildTool; t: bool) {.cdecl,
     importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
+
 

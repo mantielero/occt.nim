@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/message/message_types
 
 
+
+
 ##  Created on: 1993-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -98,3 +100,4 @@ proc endRead*(this: var InterfaceFileReaderTool;
     importcpp: "EndRead", header: "Interface_FileReaderTool.hxx".}
 proc clear*(this: var InterfaceFileReaderTool) {.cdecl, importcpp: "Clear",
     header: "Interface_FileReaderTool.hxx".}
+

@@ -7,6 +7,8 @@ import ../../tkg2d/adaptor2d/adaptor2d_types
 
 
 
+
+
 ##  Created on: 1994-01-25
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -70,4 +72,5 @@ proc parameter*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "BRepBlend_Extremity.hxx".}
 proc parameterOnGuide*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnGuide", header: "BRepBlend_Extremity.hxx".}
+
 

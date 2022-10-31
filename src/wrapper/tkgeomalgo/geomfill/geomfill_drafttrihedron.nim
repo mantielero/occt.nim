@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-04-14
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc isConstant*(this: GeomFillDraftTrihedron): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_DraftTrihedron.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillDraftTrihedron): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_DraftTrihedron.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1997-01-21
 ##  Created by: Prestataire Christiane ARMAND
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -52,5 +54,6 @@ proc isFilledCircleSens*(this: AIS_Circle): bool {.noSideEffect, cdecl,
     importcpp: "IsFilledCircleSens", header: "AIS_Circle.hxx".}
 proc setFilledCircleSens*(this: var AIS_Circle; theIsFilledCircleSens: bool) {.cdecl,
     importcpp: "SetFilledCircleSens", header: "AIS_Circle.hxx".}
+
 
 

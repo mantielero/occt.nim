@@ -2,6 +2,8 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-02-10
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -234,3 +236,4 @@ proc destroyInterfaceFileReaderData*(this: var InterfaceFileReaderData) {.cdecl,
     importcpp: "#.~Interface_FileReaderData()", header: "Interface_FileReaderData.hxx".}
 proc fastof*(str: cstring): cfloat {.cdecl, importcpp: "Interface_FileReaderData::Fastof(@)",
                                  header: "Interface_FileReaderData.hxx".}
+

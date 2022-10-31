@@ -2,6 +2,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -60,5 +62,6 @@ proc size*(this: AspectNeutralWindow; theWidth: var cint; theHeight: var cint) {
     noSideEffect, cdecl, importcpp: "Size", header: "Aspect_NeutralWindow.hxx".}
 proc setSize*(this: var AspectNeutralWindow; theWidth: cint; theHeight: cint): bool {.
     cdecl, importcpp: "SetSize", header: "Aspect_NeutralWindow.hxx".}
+
 
 

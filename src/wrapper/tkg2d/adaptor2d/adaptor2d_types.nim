@@ -5,7 +5,7 @@ type
 
   Adaptor2dLine2d* {.importcpp: "Adaptor2d_Line2d", header: "Adaptor2d_Line2d.hxx",
                     bycopy.} = object of Adaptor2dCurve2d
-                    bycopy.} = object of Adaptor2dCurve2d
+                    #bycopy.} = object of Adaptor2dCurve2d
 
   Adaptor2dOffsetCurve* {.importcpp: "Adaptor2d_OffsetCurve",
                          header: "Adaptor2d_OffsetCurve.hxx", bycopy.} = object of Adaptor2dCurve2d 
@@ -20,7 +20,7 @@ type
 
   HandleAdaptor2dHLine2d* = Handle[Adaptor2dHLine2d]
 
-  HandleAdaptor2dHOffsetCurve* = Handle[Adaptor2dHOffsetCurve]
+  #HandleAdaptor2dHOffsetCurve* = Handle[Adaptor2dHOffsetCurve]
   Adaptor2dHOffsetCurve* {.importcpp: "Adaptor2d_HOffsetCurve",
                           header: "Adaptor2d_HOffsetCurve.hxx", bycopy.} = object of Adaptor2dHCurve2d 
 

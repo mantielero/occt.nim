@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2015-06-05
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -17,6 +19,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! This enumeration defines the list of stereoscopic output modes.
+
 
 
 

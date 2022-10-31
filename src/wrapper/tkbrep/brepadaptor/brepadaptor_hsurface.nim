@@ -3,6 +3,8 @@ import ../../tkg3d/adaptor3d/adaptor3d_types
 
 
 
+
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,6 +33,7 @@ proc surface*(this: BRepAdaptorHSurface): Adaptor3dSurface {.noSideEffect, cdecl
     importcpp: "Surface", header: "BRepAdaptor_HSurface.hxx".}
 proc changeSurface*(this: var BRepAdaptorHSurface): var BRepAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "BRepAdaptor_HSurface.hxx".}
+
 
 
 

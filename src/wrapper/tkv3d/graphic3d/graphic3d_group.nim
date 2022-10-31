@@ -5,6 +5,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1991-09-06
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -114,5 +116,6 @@ proc text*(this: var Graphic3dGroup; theText: TCollectionExtendedString;
 proc dumpJson*(this: Graphic3dGroup; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Group.hxx".}
+
 
 

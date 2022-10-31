@@ -1,6 +1,8 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -33,4 +35,5 @@ proc cut*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Cut {.cdecl,
 proc cut*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller;
                         bFWD: bool = true): BRepAlgoAPI_Cut {.cdecl, constructor,
     importcpp: "BRepAlgoAPI_Cut(@)", header: "BRepAlgoAPI_Cut.hxx".}
+
 

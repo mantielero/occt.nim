@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -75,4 +77,5 @@ proc edgeConnexity*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape): cint {.
 proc addEdgeWire*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape;
                  w: var TopoDS_Shape): cint {.noSideEffect, cdecl,
     importcpp: "AddEdgeWire", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+
 

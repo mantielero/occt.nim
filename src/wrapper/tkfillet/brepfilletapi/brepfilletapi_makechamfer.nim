@@ -1,9 +1,11 @@
 import ../../tkbool/topopebrepbuild/topopebrepbuild_types
-import ../tkfillet/chfids/chfids_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import brepfilletapi_types
+
+
 
 
 
@@ -104,4 +106,5 @@ proc nbSurf*(this: BRepFilletAPI_MakeChamfer; ic: cint): cint {.noSideEffect, cd
     importcpp: "NbSurf", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc sect*(this: BRepFilletAPI_MakeChamfer; ic: cint; `is`: cint): Handle[
     ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_MakeChamfer.hxx".}
+
 

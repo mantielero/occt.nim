@@ -3,6 +3,8 @@ import law_types
 
 
 
+
+
 ##  Created on: 1995-02-03
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: cfloat; df:
 proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
                    uf: cfloat; dd: cfloat; df: cfloat; periodic: bool = false) {.cdecl,
     importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
+
 

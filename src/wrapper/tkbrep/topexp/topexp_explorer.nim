@@ -1,6 +1,8 @@
+import ../topods/topods_types
 import ../../tkg3d/topabs/topabs_types
 import topexp_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -44,4 +46,5 @@ proc clear*(this: var TopExpExplorer) {.cdecl, importcpp: "Clear", header: "TopE
 proc destroy*(this: var TopExpExplorer) {.cdecl, importcpp: "Destroy", header: "TopExp_Explorer.hxx".}
 proc destroyTopExpExplorer*(this: var TopExpExplorer) {.cdecl,
     importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkg2d/adaptor2d/adaptor2d_types
 
 
 
+
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,6 +33,7 @@ proc curve2d*(this: BRepAdaptorHCurve2d): Adaptor2dCurve2d {.noSideEffect, cdecl
     importcpp: "Curve2d", header: "BRepAdaptor_HCurve2d.hxx".}
 proc changeCurve2d*(this: var BRepAdaptorHCurve2d): var BRepAdaptorCurve2d {.cdecl,
     importcpp: "ChangeCurve2d", header: "BRepAdaptor_HCurve2d.hxx".}
+
 
 
 

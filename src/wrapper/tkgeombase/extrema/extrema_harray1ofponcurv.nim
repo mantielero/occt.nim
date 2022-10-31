@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc newExtremaHArray1OfPOnCurv*(theOther: ExtremaArray1OfPOnCurv): ExtremaHArra
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnCurv(@)", header: "Extrema_HArray1OfPOnCurv.hxx".}
 proc array1*(this: ExtremaHArray1OfPOnCurv): ExtremaArray1OfPOnCurv {.noSideEffect,
     cdecl, importcpp: "Array1", header: "Extrema_HArray1OfPOnCurv.hxx".}
+
 

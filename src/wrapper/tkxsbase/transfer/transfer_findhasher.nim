@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,4 +27,5 @@ proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: cint): cint {.c
     importcpp: "Transfer_FindHasher::HashCode(@)", header: "Transfer_FindHasher.hxx".}
 proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): bool {.cdecl,
     importcpp: "Transfer_FindHasher::IsEqual(@)", header: "Transfer_FindHasher.hxx".}
+
 

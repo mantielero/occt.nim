@@ -1,5 +1,6 @@
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../geom/geom_types
 type
   TColGeomArray1OfBezierCurve* = NCollectionArray1[Handle[GeomBezierCurve]]
 
@@ -38,10 +39,7 @@ type
 
   TColGeomHSequenceOfBoundedCurve* {.importcpp: "TColGeom_HSequenceOfBoundedCurve", header: "TColGeom_HSequenceOfBoundedCurve.hxx",
                                     bycopy.} = object of TColGeomSequenceOfBoundedCurve
-                                    bycopy.} = object of TColGeomSequenceOfBoundedCurve
-                                    bycopy.} = object of TColGeomSequenceOfBoundedCurve
 
-                                    bycopy.} = object of TColGeomSequenceOfBoundedCurve
   TColGeomHSequenceOfCurve* {.importcpp: "TColGeom_HSequenceOfCurve",
                              header: "TColGeom_HSequenceOfCurve.hxx", bycopy.} = object of TColGeomSequenceOfCurve
 

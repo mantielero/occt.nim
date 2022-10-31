@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 1996-10-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -27,3 +29,4 @@ when defined(OCCT_DEBUG):
   proc stop*(this: var Topkro) {.cdecl, importcpp: "Stop", header: "TopOpeBRepTool_KRO.hxx".}
   proc print*(this: var Topkro; os: var StandardOStream) {.cdecl, importcpp: "Print",
       header: "TopOpeBRepTool_KRO.hxx".}
+

@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1995-11-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -53,3 +55,4 @@ proc number*(theName: cstring): cint {.cdecl,
                                    importcpp: "Interface_Category::Number(@)",
                                    header: "Interface_Category.hxx".}
 proc init*() {.cdecl, importcpp: "Interface_Category::Init(@)", header: "Interface_Category.hxx".}
+

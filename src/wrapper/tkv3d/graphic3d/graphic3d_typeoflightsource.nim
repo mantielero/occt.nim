@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -29,5 +31,6 @@ const
 
 const                         ## ! Auxiliary value defining the overall number of values in enumeration Graphic3d_TypeOfLightSource
   Graphic3dTypeOfLightSourceNB* = graphic3dTOLS_SPOT.int + 1
+
 
 

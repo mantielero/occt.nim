@@ -2,8 +2,10 @@ import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -126,4 +128,5 @@ proc basisSurface*(this: Adaptor3dHSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, cdecl, importcpp: "BasisSurface", header: "Adaptor3d_HSurface.hxx".}
 proc offsetValue*(this: Adaptor3dHSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "OffsetValue", header: "Adaptor3d_HSurface.hxx".}
+
 

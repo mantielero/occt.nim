@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc `bind`*(this: var TransferDispatchControl; ent: Handle[StandardTransient];
 proc search*(this: TransferDispatchControl; ent: Handle[StandardTransient];
             res: var Handle[StandardTransient]): bool {.noSideEffect, cdecl,
     importcpp: "Search", header: "Transfer_DispatchControl.hxx".}
+
 

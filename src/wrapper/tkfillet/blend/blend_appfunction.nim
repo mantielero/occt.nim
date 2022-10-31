@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -91,4 +93,5 @@ proc resolution*(this: BlendAppFunction; iC2d: cint; tol: cfloat; tolU: var cflo
                                  header: "Blend_AppFunction.hxx".}
 proc parameter*(this: BlendAppFunction; p: BlendPoint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Blend_AppFunction.hxx".}
+
 

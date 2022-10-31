@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, cdecl, importcpp: "Ke
     header: "TopOpeBRepDS_Point.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_Point.hxx".}
+
 

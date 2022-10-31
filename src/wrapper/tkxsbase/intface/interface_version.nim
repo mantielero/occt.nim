@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -17,4 +19,5 @@
 ##  #define XSTEP_SYSTEM_VERSION    "Open CASCADE " OCC_VERSION_STRING
 ##  #define XSTEP_Config            OCC_VERSION_STRING
 ##  #define XSTEP_ULNames           OCC_VERSION_STRING
+
 

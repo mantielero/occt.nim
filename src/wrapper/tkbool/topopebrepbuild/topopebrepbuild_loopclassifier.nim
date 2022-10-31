@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-03-03
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc destroyTopOpeBRepBuildLoopClassifier*(
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     cdecl, importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+
 

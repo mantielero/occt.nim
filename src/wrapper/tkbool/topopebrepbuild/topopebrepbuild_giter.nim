@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsSta
     noSideEffect, cdecl, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}
+
 

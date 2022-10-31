@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -47,4 +49,5 @@ converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.cd
     header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.cdecl,
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}
+
 

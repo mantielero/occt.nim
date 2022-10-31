@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-19
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc isConstant*(this: GeomFillFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_Frenet.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Frenet.hxx".}
+
 

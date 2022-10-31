@@ -2,8 +2,10 @@ import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -103,4 +105,5 @@ proc bezier*(this: Adaptor3dIsoCurve): Handle[GeomBezierCurve] {.noSideEffect, c
     importcpp: "Bezier", header: "Adaptor3d_IsoCurve.hxx".}
 proc bSpline*(this: Adaptor3dIsoCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "Adaptor3d_IsoCurve.hxx".}
+
 

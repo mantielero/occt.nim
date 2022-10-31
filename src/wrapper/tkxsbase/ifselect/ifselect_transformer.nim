@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-05-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc updated*(this: IFSelectTransformer; entfrom: Handle[StandardTransient];
     importcpp: "Updated", header: "IFSelect_Transformer.hxx".}
 proc label*(this: IFSelectTransformer): TCollectionAsciiString {.noSideEffect, cdecl,
     importcpp: "Label", header: "IFSelect_Transformer.hxx".}
+
 

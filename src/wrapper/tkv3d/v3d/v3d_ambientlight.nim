@@ -2,6 +2,8 @@ import v3d_types
 
 
 
+
+
 ##  Created on: 1992-01-21
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -57,6 +59,7 @@ proc newV3dAmbientLight*(theColor: QuantityColor = newQuantityColor(quantityNOC_
 ## using statement
 
 ## using statement
+
 
 
 

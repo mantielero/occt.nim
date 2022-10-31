@@ -5,6 +5,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1998-03-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc isPC*(this: TopOpeBRepToolC2DF; pc: Handle[Geom2dCurve]): bool {.noSideEffe
     cdecl, importcpp: "IsPC", header: "TopOpeBRepTool_C2DF.hxx".}
 proc isFace*(this: TopOpeBRepToolC2DF; f: TopoDS_Face): bool {.noSideEffect, cdecl,
     importcpp: "IsFace", header: "TopOpeBRepTool_C2DF.hxx".}
+
 

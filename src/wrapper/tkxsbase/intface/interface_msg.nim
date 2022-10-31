@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1995-03-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -128,3 +130,4 @@ proc blanks*(count: cint): cstring {.cdecl, importcpp: "Interface_MSG::Blanks(@)
                                  header: "Interface_MSG.hxx".}
 proc print*(s: var StandardOStream; val: cstring; max: cint; just: cint = -1) {.cdecl,
     importcpp: "Interface_MSG::Print(@)", header: "Interface_MSG.hxx".}
+

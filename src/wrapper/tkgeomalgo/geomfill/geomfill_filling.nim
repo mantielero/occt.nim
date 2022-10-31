@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc isRational*(this: GeomFillFilling): bool {.noSideEffect, cdecl,
     importcpp: "isRational", header: "GeomFill_Filling.hxx".}
 proc weights*(this: GeomFillFilling; weights: var TColStdArray2OfReal) {.noSideEffect,
     cdecl, importcpp: "Weights", header: "GeomFill_Filling.hxx".}
+
 

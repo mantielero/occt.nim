@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -31,4 +33,5 @@ proc fill*(this: var SelectMgrSelectionImageFiller; theCol: cint; theRow: cint;
           thePicked: cint) {.cdecl, importcpp: "Fill", header: "SelectMgr_SelectionImageFiller.hxx".}
 proc flush*(this: var SelectMgrSelectionImageFiller) {.cdecl, importcpp: "Flush",
     header: "SelectMgr_SelectionImageFiller.hxx".}
+
 

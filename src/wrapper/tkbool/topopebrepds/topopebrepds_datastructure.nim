@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -241,4 +243,5 @@ proc changeMapOfRejectedShapesObj*(this: var TopOpeBRepDS_DataStructure): var To
     cdecl, importcpp: "ChangeMapOfRejectedShapesObj", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfRejectedShapesTool*(this: var TopOpeBRepDS_DataStructure): var TopToolsIndexedMapOfShape {.
     cdecl, importcpp: "ChangeMapOfRejectedShapesTool", header: "TopOpeBRepDS_DataStructure.hxx".}
+
 

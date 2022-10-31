@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 2014-06-23
 ##  Created by: Alexander Malyshev
 ##  Copyright (c) 2014-2014 OPEN CASCADE SAS
@@ -38,4 +40,5 @@ proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
 proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector; theH: var MathMatrix): bool {.cdecl,
     importcpp: "Values", header: "Extrema_GlobOptFuncCS.hxx".}
+
 

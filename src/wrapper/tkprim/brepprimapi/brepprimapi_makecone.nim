@@ -3,6 +3,8 @@ import brepprimapi_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc oneAxis*(this: var BRepPrimAPI_MakeCone): pointer {.cdecl, importcpp: "OneA
     header: "BRepPrimAPI_MakeCone.hxx".}
 proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.cdecl,
     importcpp: "Cone", header: "BRepPrimAPI_MakeCone.hxx".}
+
 

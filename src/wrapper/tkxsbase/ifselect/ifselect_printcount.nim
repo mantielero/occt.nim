@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -44,6 +46,7 @@
 ## ! -       Mapping of the IGES root entities to the resulting Open
 ## ! CASCADE shape (including type and form of the IGES entity
 ## ! and type of the resulting shape).
+
 
 
 

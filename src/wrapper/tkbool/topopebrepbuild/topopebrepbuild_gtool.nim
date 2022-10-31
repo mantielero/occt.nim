@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {
 proc dump*(os: var StandardOStream) {.cdecl,
                                   importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
                                   header: "TopOpeBRepBuild_GTool.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 2001-09-10
 ##  Created by: Sergey KUUL
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
@@ -27,4 +29,5 @@ proc setMapObjects*(this: var TransferMapContainer;
     importcpp: "SetMapObjects", header: "Transfer_MapContainer.hxx".}
 proc getMapObjects*(this: var TransferMapContainer): var TColStdDataMapOfTransientTransient {.
     cdecl, importcpp: "GetMapObjects", header: "Transfer_MapContainer.hxx".}
+
 

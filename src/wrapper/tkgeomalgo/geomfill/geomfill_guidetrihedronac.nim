@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-06-23
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc isOnlyBy3dCurve*(this: GeomFillGuideTrihedronAC): bool {.noSideEffect, cdec
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_GuideTrihedronAC.hxx".}
 proc origine*(this: var GeomFillGuideTrihedronAC; orACR1: cfloat; orACR2: cfloat) {.
     cdecl, importcpp: "Origine", header: "GeomFill_GuideTrihedronAC.hxx".}
+
 

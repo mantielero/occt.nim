@@ -6,6 +6,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -82,5 +84,6 @@ proc copy*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
 proc dumpJson*(this: GeomTransformation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_Transformation.hxx".}
+
 
 

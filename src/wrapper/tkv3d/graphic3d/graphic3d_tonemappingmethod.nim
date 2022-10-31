@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2017-05-26
 ##  Created by: Andrey GOLODYAEV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -17,6 +19,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Enumerates tone mapping methods.
+
 
 
 

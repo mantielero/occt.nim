@@ -3,6 +3,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-10-17
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc tolang*(this: GeomFillBoundary): cfloat {.noSideEffect, cdecl,
     importcpp: "Tolang", header: "GeomFill_Boundary.hxx".}
 proc tolang*(this: var GeomFillBoundary; tol: cfloat) {.cdecl, importcpp: "Tolang",
     header: "GeomFill_Boundary.hxx".}
+
 

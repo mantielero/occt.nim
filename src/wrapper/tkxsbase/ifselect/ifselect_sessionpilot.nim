@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc `do`*(this: var IFSelectSessionPilot; number: cint;
     importcpp: "Do", header: "IFSelect_SessionPilot.hxx".}
 proc help*(this: IFSelectSessionPilot; number: cint): cstring {.noSideEffect, cdecl,
     importcpp: "Help", header: "IFSelect_SessionPilot.hxx".}
+
 

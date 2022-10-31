@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc derivatives*(this: var BlendFuncRuledInv; x: MathVector; d: var MathMatrix)
     cdecl, importcpp: "Derivatives", header: "BlendFunc_RuledInv.hxx".}
 proc values*(this: var BlendFuncRuledInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_RuledInv.hxx".}
+
 

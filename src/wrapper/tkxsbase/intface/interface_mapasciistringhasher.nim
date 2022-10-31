@@ -1,6 +1,8 @@
 import ../../tkernel/tcollection/tcollection_types
 
 
+
+
 ##  Created on: 2003-05-06
 ##  Created by: Galina KULIKOVA
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -30,3 +32,4 @@ type
 #    header: "Interface_MapAsciiStringHasher.hxx".}
 proc isEqual*(k1: TCollectionAsciiString; k2: TCollectionAsciiString): bool {.cdecl,
     importcpp: "Interface_MapAsciiStringHasher::IsEqual(@)", header: "Interface_MapAsciiStringHasher.hxx".}
+

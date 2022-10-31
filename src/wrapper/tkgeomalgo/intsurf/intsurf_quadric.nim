@@ -4,6 +4,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1992-04-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -74,4 +76,5 @@ proc parameters*(this: IntSurfQuadric; p: PntObj; u: var cfloat; v: var cfloat) 
     noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_Quadric.hxx".}
 proc normale*(this: IntSurfQuadric; p: PntObj): VecObj {.noSideEffect, cdecl,
     importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
+
 

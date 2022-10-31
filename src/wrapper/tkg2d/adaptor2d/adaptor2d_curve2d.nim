@@ -1,9 +1,11 @@
-import ../tkg2d/geom2d/geom2d_types
 import ../../tkmath/gp/gp_types
 import adaptor2d_types
 import ../../tkernel/standard/standard_types
+import ../geom2d/geom2d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -85,4 +87,5 @@ proc bSpline*(this: Adaptor2dCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffect
     cdecl, importcpp: "BSpline", header: "Adaptor2d_Curve2d.hxx".}
 proc destroyAdaptor2dCurve2d*(this: var Adaptor2dCurve2d) {.cdecl,
     importcpp: "#.~Adaptor2d_Curve2d()", header: "Adaptor2d_Curve2d.hxx".}
+
 

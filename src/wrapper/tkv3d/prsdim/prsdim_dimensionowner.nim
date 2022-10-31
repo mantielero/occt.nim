@@ -1,8 +1,10 @@
+import ../selectmgr/selectmgr_types
 import prsdim_types
 import ../../tkernel/standard/standard_types
-import ../tkv3d/selectmgr/selectmgr_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
+
+
 
 
 
@@ -42,4 +44,5 @@ proc isHilighted*(this: PrsDimDimensionOwner;
 proc unhilight*(this: var PrsDimDimensionOwner;
                thePM: Handle[PrsMgrPresentationManager]; theMode: cint = 0) {.cdecl,
     importcpp: "Unhilight", header: "PrsDim_DimensionOwner.hxx".}
+
 

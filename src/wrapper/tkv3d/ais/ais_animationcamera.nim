@@ -1,8 +1,10 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ais_types
-import ../tkv3d/v3d/v3d_types
+import ../v3d/v3d_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -39,5 +41,6 @@ proc cameraEnd*(this: AIS_AnimationCamera): Handle[Graphic3dCamera] {.noSideEffe
 proc setCameraEnd*(this: var AIS_AnimationCamera;
                   theCameraEnd: Handle[Graphic3dCamera]) {.cdecl,
     importcpp: "SetCameraEnd", header: "AIS_AnimationCamera.hxx".}
+
 
 

@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-04-22
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -49,3 +51,4 @@ proc graph*(this: InterfaceHGraph): InterfaceGraph {.noSideEffect, cdecl,
     importcpp: "Graph", header: "Interface_HGraph.hxx".}
 proc cGraph*(this: var InterfaceHGraph): var InterfaceGraph {.cdecl,
     importcpp: "CGraph", header: "Interface_HGraph.hxx".}
+

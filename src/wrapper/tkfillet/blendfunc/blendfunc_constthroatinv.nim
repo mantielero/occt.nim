@@ -5,6 +5,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -35,4 +37,5 @@ proc derivatives*(this: var BlendFuncConstThroatInv; x: MathVector; d: var MathM
 
 proc set*(this: var BlendFuncConstThroatInv; theThroat: cfloat; a3: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ConstThroatInv.hxx".}
+
 

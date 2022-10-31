@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -69,4 +71,5 @@ proc sign*(this: IFSelectSignCounter; ent: Handle[StandardTransient];
 proc computedSign*(this: var IFSelectSignCounter; ent: Handle[StandardTransient];
                   g: InterfaceGraph): cstring {.cdecl, importcpp: "ComputedSign",
     header: "IFSelect_SignCounter.hxx".}
+
 

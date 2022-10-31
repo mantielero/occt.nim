@@ -2,6 +2,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -39,4 +41,5 @@ proc customTolerance*(this: SelectMgrToleranceMap): cint {.noSideEffect, cdecl,
     importcpp: "CustomTolerance", header: "SelectMgr_ToleranceMap.hxx".}
 proc isCustomTolSet*(this: SelectMgrToleranceMap): bool {.noSideEffect, cdecl,
     importcpp: "IsCustomTolSet", header: "SelectMgr_ToleranceMap.hxx".}
+
 

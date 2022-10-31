@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1997-03-04
 ##  Created by: Jean-Pierre COMBE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc isMovable*(this: PrsDimOffsetDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_OffsetDimension.hxx".}
 proc setRelativePos*(this: var PrsDimOffsetDimension; aTrsf: TrsfObj) {.cdecl,
     importcpp: "SetRelativePos", header: "PrsDim_OffsetDimension.hxx".}
+
 

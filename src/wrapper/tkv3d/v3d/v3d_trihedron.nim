@@ -5,6 +5,8 @@ import v3d_types
 
 
 
+
+
 ##  Created on: 2016-10-11
 ##  Created by: Ilya SEVRIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -49,5 +51,6 @@ proc erase*(this: var V3dTrihedron) {.cdecl, importcpp: "Erase", header: "V3d_Tr
 proc dumpJson*(this: V3dTrihedron; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_Trihedron.hxx".}
+
 
 

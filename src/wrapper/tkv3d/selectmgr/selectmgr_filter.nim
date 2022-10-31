@@ -4,6 +4,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 1997-03-05
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc isOk*(this: SelectMgrFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "SelectMgr_Filter.hxx".}
 proc actsOn*(this: SelectMgrFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, cdecl, importcpp: "ActsOn", header: "SelectMgr_Filter.hxx".}
+
 

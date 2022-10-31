@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc sort*(this: IFSelectSelectErrorEntities; rank: cint;
     noSideEffect, cdecl, importcpp: "Sort", header: "IFSelect_SelectErrorEntities.hxx".}
 proc extractLabel*(this: IFSelectSelectErrorEntities): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectErrorEntities.hxx".}
+
 

@@ -5,6 +5,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -32,4 +34,5 @@ proc value*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
 proc derivatives*(this: var BlendFuncConstThroatWithPenetrationInv; x: MathVector;
                  d: var MathMatrix): bool {.cdecl, importcpp: "Derivatives",
                                         header: "BlendFunc_ConstThroatWithPenetrationInv.hxx".}
+
 

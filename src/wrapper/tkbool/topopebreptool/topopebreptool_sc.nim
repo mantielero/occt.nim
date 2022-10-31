@@ -4,6 +4,8 @@ import topopebreptool_types
 import ../../tkbrep/topods/topods_types
 
 
+
+
 ##  Created on: 1998-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -34,3 +36,4 @@ proc fSC_StatePonFace*(p: PntObj; f: TopoDS_Shape;
 proc fSC_StateEonFace*(e: TopoDS_Shape; t: cfloat; f: TopoDS_Shape;
                       psc: var TopOpeBRepToolShapeClassifier): TopAbsState {.cdecl,
     importcpp: "FSC_StateEonFace(@)", header: "TopOpeBRepTool_SC.hxx".}
+

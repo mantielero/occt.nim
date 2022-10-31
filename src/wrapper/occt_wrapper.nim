@@ -7,7 +7,7 @@ import tkernel/tkernel
 import tkmath/tkmath
 #import tkgeombase/tkgeombase
 import tkg3d/tkg3d
-# import tkg2d/tkg2d
+import tkg2d/tkg2d
 # import tkbrep/tkbrep
 # import tktopalgo/tktopalgo
 # import tkprim/tkprim
@@ -24,7 +24,7 @@ export tkernel
 export tkmath
 #export tkgeombase
 export tkg3d
-#, tkg2d
+export tkg2d
 # export tkbrep, tktopalgo, tkprim, tkfillet, tkbool
 # export tkgeomalgo, tkbo, tkxsbase, tkstep
 # export tkv3d, tkservice

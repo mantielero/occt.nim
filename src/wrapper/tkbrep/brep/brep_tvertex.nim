@@ -1,7 +1,9 @@
 import brep_types
 import ../../tkmath/gp/gp_types
+import ../topods/topods_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -45,4 +47,5 @@ proc emptyCopy*(this: BRepTVertex): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
 proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_TVertex.hxx".}
+
 

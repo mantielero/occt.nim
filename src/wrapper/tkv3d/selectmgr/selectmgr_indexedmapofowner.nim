@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 2015-05-14
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -18,4 +20,5 @@
 #type
 #  SelectMgrIndexedMapOfOwner* = NCollectionShared[
 #      NCollectionIndexedMap[Handle[SelectMgrEntityOwner]]]
+
 

@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 2000-06-16
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
 ##
@@ -242,4 +244,5 @@ proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
 proc setBoundColor*(this: var Graphic3dArrayOfPrimitives; theIndex: cint;
                    theR: cfloat; theG: cfloat; theB: cfloat) {.cdecl,
     importcpp: "SetBoundColor", header: "Graphic3d_ArrayOfPrimitives.hxx".}
+
 

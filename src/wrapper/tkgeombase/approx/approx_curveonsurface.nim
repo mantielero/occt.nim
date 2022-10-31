@@ -8,6 +8,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1997-09-30
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc perform*(this: var ApproxCurveOnSurface; theMaxSegments: cint;
              theMaxDegree: cint; theContinuity: GeomAbsShape;
              theOnly3d: bool = false; theOnly2d: bool = false) {.cdecl,
     importcpp: "Perform", header: "Approx_CurveOnSurface.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Copyright (c) 1993-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -88,5 +90,6 @@ proc valueStringFormat*(this: Prs3dDimensionAspect): TCollectionAsciiString {.
 proc dumpJson*(this: Prs3dDimensionAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_DimensionAspect.hxx".}
+
 
 

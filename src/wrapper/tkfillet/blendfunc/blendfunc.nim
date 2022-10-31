@@ -8,6 +8,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-12-03
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -45,4 +47,5 @@ proc computeNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var 
 proc computeDNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var VecObj;
                     dNu: var VecObj; dNv: var VecObj): bool {.cdecl,
     importcpp: "BlendFunc::ComputeDNormal(@)", header: "BlendFunc.hxx".}
+
 

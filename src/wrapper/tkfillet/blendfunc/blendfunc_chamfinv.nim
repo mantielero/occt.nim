@@ -5,6 +5,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1996-06-06
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc derivatives*(this: var BlendFuncChamfInv; x: MathVector; d: var MathMatrix)
 
 proc set*(this: var BlendFuncChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BlendFunc_ChamfInv.hxx".}
+
 

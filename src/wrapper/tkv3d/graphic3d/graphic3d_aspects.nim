@@ -6,6 +6,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -245,5 +247,6 @@ proc isEqual*(this: var Graphic3dAspects; theOther: Graphic3dAspects): bool {.cd
 proc dumpJson*(this: Graphic3dAspects; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Aspects.hxx".}
+
 
 

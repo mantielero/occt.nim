@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1995-09-05
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc sort*(this: IFSelectSelectFlag; rank: cint; ent: Handle[StandardTransient];
     importcpp: "Sort", header: "IFSelect_SelectFlag.hxx".}
 proc extractLabel*(this: IFSelectSelectFlag): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectFlag.hxx".}
+
 

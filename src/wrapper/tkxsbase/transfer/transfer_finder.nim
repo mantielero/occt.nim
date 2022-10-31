@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -69,4 +71,5 @@ proc sameAttributes*(this: var TransferFinder; other: Handle[TransferFinder]) {.
 proc getAttributes*(this: var TransferFinder; other: Handle[TransferFinder];
                    fromname: cstring = ""; copied: bool = true) {.cdecl,
     importcpp: "GetAttributes", header: "Transfer_Finder.hxx".}
+
 

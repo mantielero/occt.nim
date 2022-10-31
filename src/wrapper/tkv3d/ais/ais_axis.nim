@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1995-08-09
 ##  Created by: Arnaud BOUZY/Odile Olivier
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -59,5 +61,6 @@ proc setWidth*(this: var AIS_Axis; aValue: cfloat) {.cdecl, importcpp: "SetWidth
     header: "AIS_Axis.hxx".}
 proc unsetColor*(this: var AIS_Axis) {.cdecl, importcpp: "UnsetColor", header: "AIS_Axis.hxx".}
 proc unsetWidth*(this: var AIS_Axis) {.cdecl, importcpp: "UnsetWidth", header: "AIS_Axis.hxx".}
+
 
 

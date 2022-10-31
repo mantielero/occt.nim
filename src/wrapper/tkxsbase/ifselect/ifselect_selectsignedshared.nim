@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1996-09-25
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc explore*(this: IFSelectSelectSignedShared; level: cint;
     importcpp: "Explore", header: "IFSelect_SelectSignedShared.hxx".}
 proc exploreLabel*(this: IFSelectSelectSignedShared): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExploreLabel", header: "IFSelect_SelectSignedShared.hxx".}
+
 

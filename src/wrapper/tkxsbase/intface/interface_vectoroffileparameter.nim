@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 2008-01-21
 ##  Created by: Galina KULIKOVA
 ##  Copyright (c) 2008-2014 OPEN CASCADE SAS
@@ -21,4 +23,5 @@
 
 type
   InterfaceVectorOfFileParameter* = NCollectionVector[InterfaceFileParameter]
+
 

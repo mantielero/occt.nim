@@ -1,7 +1,9 @@
 import prs3d_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -29,4 +31,5 @@ proc toolSphereCreate*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; 
                                 header: "Prs3d_ToolSphere.hxx".}
 proc newPrs3dToolSphere*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolSphere {.
     cdecl, constructor, importcpp: "Prs3d_ToolSphere(@)", header: "Prs3d_ToolSphere.hxx".}
+
 

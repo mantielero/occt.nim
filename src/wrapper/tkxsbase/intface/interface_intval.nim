@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 1997-09-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -32,3 +34,4 @@ proc value*(this: InterfaceIntVal): cint {.noSideEffect, cdecl, importcpp: "Valu
                                        header: "Interface_IntVal.hxx".}
 proc cValue*(this: var InterfaceIntVal): var cint {.cdecl, importcpp: "CValue",
     header: "Interface_IntVal.hxx".}
+

@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-07-11
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -80,4 +82,5 @@ proc maximalSection*(this: GeomFillCircularBlendFunc): cfloat {.noSideEffect, cd
 proc getMinimalWeight*(this: GeomFillCircularBlendFunc;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "GetMinimalWeight", header: "GeomFill_CircularBlendFunc.hxx".}
+
 

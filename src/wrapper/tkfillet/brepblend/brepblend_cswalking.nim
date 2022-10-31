@@ -1,8 +1,10 @@
 import brepblend_types
 import ../../tkmath/math/math_types
+import ../blend/blend_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../tkfillet/blend/blend_types
+
+
 
 
 
@@ -105,5 +107,6 @@ proc line*(this: BRepBlendCSWalking): Handle[BRepBlendLine] {.noSideEffect, cdec
 ##  #undef TheLine_hxx
 ##  #undef Blend_CSWalking
 ##  #undef Blend_CSWalking_hxx
+
 
 

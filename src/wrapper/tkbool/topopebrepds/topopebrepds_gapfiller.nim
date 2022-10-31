@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc reBuildGeom*(this: var TopOpeBRepDS_GapFiller;
                  i1: Handle[TopOpeBRepDS_Interference];
                  done: var TColStdMapOfInteger) {.cdecl, importcpp: "ReBuildGeom",
     header: "TopOpeBRepDS_GapFiller.hxx".}
+
 

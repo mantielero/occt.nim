@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -53,4 +55,5 @@ proc nextFace*(this: var TopOpeBRepBuildSolidBuilder) {.cdecl, importcpp: "NextF
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc face*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Face", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+
 

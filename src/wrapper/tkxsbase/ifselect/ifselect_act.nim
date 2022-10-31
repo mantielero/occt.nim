@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1996-03-05
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc addFunc*(name: cstring; help: cstring; `func`: IFSelectActFunc) {.cdecl,
     importcpp: "IFSelect_Act::AddFunc(@)", header: "IFSelect_Act.hxx".}
 proc addFSet*(name: cstring; help: cstring; `func`: IFSelectActFunc) {.cdecl,
     importcpp: "IFSelect_Act::AddFSet(@)", header: "IFSelect_Act.hxx".}
+
 

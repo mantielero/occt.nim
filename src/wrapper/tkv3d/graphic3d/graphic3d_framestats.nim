@@ -6,6 +6,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -75,4 +77,5 @@ proc changeTimer*(this: var Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTi
     cdecl, importcpp: "ChangeTimer", header: "Graphic3d_FrameStats.hxx".}
 proc activeDataFrame*(this: var Graphic3dFrameStats): var Graphic3dFrameStatsDataTmp {.
     cdecl, importcpp: "ActiveDataFrame", header: "Graphic3d_FrameStats.hxx".}
+
 

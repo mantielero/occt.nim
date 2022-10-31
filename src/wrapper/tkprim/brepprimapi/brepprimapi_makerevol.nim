@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-10-12
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool {.noSideEffect, cdecl,
     importcpp: "HasDegenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
 proc degenerated*(this: BRepPrimAPI_MakeRevol): TopToolsListOfShape {.noSideEffect,
     cdecl, importcpp: "Degenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
+
 

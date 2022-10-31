@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc textureEnvNumberOfTextures*(): cint {.cdecl, importcpp: "Graphic3d_TextureE
                               header: "Graphic3d_TextureEnv.hxx".}
 proc textureEnvTextureName*(theRank: cint): TCollectionAsciiString {.cdecl,
     importcpp: "Graphic3d_TextureEnv::TextureName(@)", header: "Graphic3d_TextureEnv.hxx".}
+
 

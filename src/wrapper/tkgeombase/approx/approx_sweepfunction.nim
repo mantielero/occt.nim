@@ -6,6 +6,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1997-06-25
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -73,4 +75,5 @@ proc maximalSection*(this: ApproxSweepFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "Approx_SweepFunction.hxx".}
 proc getMinimalWeight*(this: ApproxSweepFunction; weigths: var TColStdArray1OfReal) {.
     noSideEffect, cdecl, importcpp: "GetMinimalWeight", header: "Approx_SweepFunction.hxx".}
+
 

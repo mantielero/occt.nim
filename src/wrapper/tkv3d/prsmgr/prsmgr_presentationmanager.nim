@@ -1,9 +1,11 @@
 import ../../tkmath/toploc/toploc_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
 import prsmgr_types
-import ../tkv3d/v3d/v3d_types
-import ../tkv3d/prs3d/prs3d_types
+import ../v3d/v3d_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -123,4 +125,5 @@ proc updateHighlightTrsf*(this: var PrsMgrPresentationManager;
                          theMode: cint = 0;
                          theSelObj: Handle[PrsMgrPresentableObject] = cast[Handle[PrsMgrPresentableObject]](nil)) {.cdecl,
     importcpp: "UpdateHighlightTrsf", header: "PrsMgr_PresentationManager.hxx".}
+
 

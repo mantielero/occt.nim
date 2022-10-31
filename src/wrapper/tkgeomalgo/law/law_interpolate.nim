@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc curve*(this: LawInterpolate): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Curve", header: "Law_Interpolate.hxx".}
 proc isDone*(this: LawInterpolate): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Law_Interpolate.hxx".}
+
 

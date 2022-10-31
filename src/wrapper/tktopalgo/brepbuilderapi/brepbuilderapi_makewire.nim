@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-08
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -55,4 +57,5 @@ proc edge*(this: BRepBuilderAPI_MakeWire): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc vertex*(this: BRepBuilderAPI_MakeWire): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeWire.hxx".}
+
 

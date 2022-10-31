@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -28,4 +30,5 @@ import ../../tkg3d/geom/geom_types
 proc newPrsDimConcentricRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
                                  aPlane: Handle[GeomPlane]): PrsDimConcentricRelation {.
     cdecl, constructor, importcpp: "PrsDim_ConcentricRelation(@)", header: "PrsDim_ConcentricRelation.hxx".}
+
 

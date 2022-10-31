@@ -1,6 +1,8 @@
 import prs3d_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -35,5 +37,6 @@ proc calculateBoundBox*(this: var Prs3dPresentationShadow) {.cdecl,
 proc dumpJson*(this: Prs3dPresentationShadow; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PresentationShadow.hxx".}
+
 
 

@@ -1,6 +1,8 @@
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
 import ais_types
-import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 
 
@@ -28,4 +30,5 @@ proc newAIS_TypeFilter*(aGivenKind: AIS_KindOfInteractive): AIS_TypeFilter {.cde
     constructor, importcpp: "AIS_TypeFilter(@)", header: "AIS_TypeFilter.hxx".}
 proc isOk*(this: AIS_TypeFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "AIS_TypeFilter.hxx".}
+
 

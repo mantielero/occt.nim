@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc compareElement*(this: var TopOpeBRepBuildShellFaceClassifier; f: TopoDS_Sha
     cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildShellFaceClassifier): TopAbsState {.cdecl,
     importcpp: "State", header: "TopOpeBRepBuild_ShellFaceClassifier.hxx".}
+
 

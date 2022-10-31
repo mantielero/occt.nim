@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -52,3 +54,4 @@ proc module*(this: InterfaceGeneralLib): Handle[InterfaceGeneralModule] {.
     noSideEffect, cdecl, importcpp: "Module", header: "Interface_GeneralLib.hxx".}
 proc protocol*(this: InterfaceGeneralLib): Handle[InterfaceProtocol] {.noSideEffect,
     cdecl, importcpp: "Protocol", header: "Interface_GeneralLib.hxx".}
+

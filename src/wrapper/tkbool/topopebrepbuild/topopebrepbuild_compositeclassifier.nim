@@ -5,6 +5,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1996-01-05
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc compareElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Sha
     cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildCompositeClassifier): TopAbsState {.cdecl,
     importcpp: "State", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+
 

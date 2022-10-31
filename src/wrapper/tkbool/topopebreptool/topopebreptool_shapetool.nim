@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1994-02-09
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -73,4 +75,5 @@ proc resolution3d*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc resolution3d*(f: TopoDS_Face; tol2d: cfloat): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
+
 

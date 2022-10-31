@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2016-11-14
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -36,5 +38,6 @@ proc hatchType*(this: Graphic3dHatchStyle): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dHatchStyle; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_HatchStyle.hxx".}
+
 
 

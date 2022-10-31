@@ -1,7 +1,9 @@
 import brepblend_types
 import ../../tkmath/math/math_types
+import ../blend/blend_types
 import ../../tkernel/standard/standard_types
-import ../tkfillet/blend/blend_types
+
+
 
 
 
@@ -33,4 +35,5 @@ proc point*(this: BRepBlendAppFunc; `func`: BlendAppFunction; param: cfloat;
     importcpp: "Point", header: "BRepBlend_AppFunc.hxx".}
 proc vec*(this: BRepBlendAppFunc; sol: var MathVector; pnt: BlendPoint) {.noSideEffect,
     cdecl, importcpp: "Vec", header: "BRepBlend_AppFunc.hxx".}
+
 

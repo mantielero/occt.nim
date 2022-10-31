@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1992-10-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -68,4 +70,5 @@ proc hasWarnings*(this: TransferTransferIterator): bool {.noSideEffect, cdecl,
     importcpp: "HasWarnings", header: "Transfer_TransferIterator.hxx".}
 proc check*(this: TransferTransferIterator): Handle[InterfaceCheck] {.noSideEffect,
     cdecl, importcpp: "Check", header: "Transfer_TransferIterator.hxx".}
+
 

@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2018-03-16
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2018 OPEN CASCADE SAS
@@ -208,4 +210,5 @@ proc getTwins*(this: BOPAlgoMakePeriodic; theS: TopoDS_Shape): TopToolsListOfSha
 proc clear*(this: var BOPAlgoMakePeriodic) {.cdecl, importcpp: "Clear", header: "BOPAlgo_MakePeriodic.hxx".}
 proc toDirectionID*(theDirectionID: cint): cint {.cdecl,
     importcpp: "BOPAlgo_MakePeriodic::ToDirectionID(@)", header: "BOPAlgo_MakePeriodic.hxx".}
+
 

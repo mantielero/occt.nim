@@ -1,12 +1,14 @@
 import ../../tkmath/gp/gp_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/tcollection/tcollection_types
-import ../tkbool/topopebreptool/topopebreptool_types
+import ../topopebreptool/topopebreptool_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
+import ../topopebrepds/topopebrepds_types
 import ../../tkbrep/topods/topods_types
-import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 
 
@@ -541,4 +543,5 @@ proc stringState*(s: TopAbsState): TCollectionAsciiString {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::StringState(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gcheckNBOUNDS*(e: TopoDS_Shape): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::GcheckNBOUNDS(@)", header: "TopOpeBRepBuild_Builder.hxx".}
+
 

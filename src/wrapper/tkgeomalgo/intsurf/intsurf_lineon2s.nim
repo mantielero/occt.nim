@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-02-22
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -49,4 +51,5 @@ proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: Pnt2dObj): bool {.cdecl,
     importcpp: "IsOutSurf2Box", header: "IntSurf_LineOn2S.hxx".}
 proc isOutBox*(this: var IntSurfLineOn2S; theP: PntObj): bool {.cdecl,
     importcpp: "IsOutBox", header: "IntSurf_LineOn2S.hxx".}
+
 

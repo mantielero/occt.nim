@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1997-03-03
 ##  Created by: Jean-Pierre COMBE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc setTool*(this: var PrsDimSymmetricRelation; aSymmetricTool: TopoDS_Shape) {
     cdecl, importcpp: "SetTool", header: "PrsDim_SymmetricRelation.hxx".}
 proc getTool*(this: PrsDimSymmetricRelation): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetTool", header: "PrsDim_SymmetricRelation.hxx".}
+
 

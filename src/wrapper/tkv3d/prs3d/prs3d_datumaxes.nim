@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -21,6 +23,7 @@ const
   prs3dDA_YZAxis*  = prs3dDA_YAxis.int or prs3dDA_ZAxis.int ## !< YOZ 2D axes
   prs3dDA_XZAxis*  = prs3dDA_XAxis.int or prs3dDA_ZAxis.int ## !< XOZ 2D axes
   prs3dDA_XYZAxis* = prs3dDA_XAxis.int or prs3dDA_YAxis.int or prs3dDA_ZAxis.int
+
 
 
 

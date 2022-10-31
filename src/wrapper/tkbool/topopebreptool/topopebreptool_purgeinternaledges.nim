@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-11-19
 ##  Created by: Jean-Michel BOULCOURT
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect, cdecl
     importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.cdecl,
     importcpp: "Perform", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+
 

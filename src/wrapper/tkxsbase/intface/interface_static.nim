@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -116,3 +118,4 @@ proc items*(mode: cint = 0; criter: cstring = ""): Handle[TColStdHSequenceOfHAsc
     cdecl, importcpp: "Interface_Static::Items(@)", header: "Interface_Static.hxx".}
 proc standards*() {.cdecl, importcpp: "Interface_Static::Standards(@)",
                   header: "Interface_Static.hxx".}
+

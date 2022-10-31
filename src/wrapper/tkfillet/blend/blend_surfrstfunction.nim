@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created by: Jacques  GOUSSARD Author:    Laurent    BOURESCHE --
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -110,4 +112,5 @@ proc section*(this: var BlendSurfRstFunction; p: BlendPoint;
              poles: var TColgpArray1OfPnt; poles2d: var TColgpArray1OfPnt2d;
              weigths: var TColStdArray1OfReal) {.cdecl, importcpp: "Section",
     header: "Blend_SurfRstFunction.hxx".}
+
 

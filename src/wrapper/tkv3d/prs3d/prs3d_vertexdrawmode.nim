@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -21,6 +23,7 @@
 ## ! VDM_Isolated  - only isolated vertices (not belonging to a face) are displayed.
 ## ! VDM_All       - all vertices of the shape are displayed.
 ## ! VDM_Inherited - the global settings are inherited and applied to the shape's presentation.
+
 
 
 

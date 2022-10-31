@@ -2,8 +2,10 @@ import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -116,4 +118,5 @@ proc nbSamplesU*(s: Handle[Adaptor3dHSurface]; u1: cfloat; u2: cfloat): cint {.c
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesU(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
 proc nbSamplesV*(s: Handle[Adaptor3dHSurface]; v1: cfloat; v2: cfloat): cint {.cdecl,
     importcpp: "Adaptor3d_HSurfaceTool::NbSamplesV(@)", header: "Adaptor3d_HSurfaceTool.hxx".}
+
 

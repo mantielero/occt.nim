@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 1997-10-22
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -38,3 +40,4 @@ when defined(OCCT_DEBUG):
       header: "TopOpeBRepTool_STATE.hxx".}
   proc print*(this: var TopOpeBRepToolSTATE) {.cdecl, importcpp: "Print",
       header: "TopOpeBRepTool_STATE.hxx".}
+

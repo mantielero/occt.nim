@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-02-11
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -49,4 +51,5 @@ proc mkT3dproj*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
     importcpp: "MkT3dproj", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMakeTransition; stb: var TopAbsState;
             sta: var TopAbsState): bool {.cdecl, importcpp: "MkTonE", header: "TopOpeBRepTool_makeTransition.hxx".}
+
 

@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1993-10-06
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc init*(this: var GeomFillBezierCurves; c1: Handle[GeomBezierCurve];
     importcpp: "Init", header: "GeomFill_BezierCurves.hxx".}
 proc surface*(this: GeomFillBezierCurves): Handle[GeomBezierSurface] {.noSideEffect,
     cdecl, importcpp: "Surface", header: "GeomFill_BezierCurves.hxx".}
+
 

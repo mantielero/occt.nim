@@ -3,6 +3,8 @@ import brepprimapi_types
 
 
 
+
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc oneAxis*(this: var BRepPrimAPI_MakeSphere): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeSphere.hxx".}
 proc sphere*(this: var BRepPrimAPI_MakeSphere): var BRepPrimSphere {.cdecl,
     importcpp: "Sphere", header: "BRepPrimAPI_MakeSphere.hxx".}
+
 

@@ -4,6 +4,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc pCurve*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[Geom2dCurve] {
     noSideEffect, cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc pCurve*(this: var TopOpeBRepDS_SurfaceCurveInterference;
             pc: Handle[Geom2dCurve]) {.cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+
 

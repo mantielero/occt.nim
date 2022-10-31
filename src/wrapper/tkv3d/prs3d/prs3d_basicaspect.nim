@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2000-02-15
 ##  Created by: Gerard GRAS
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
@@ -18,6 +20,7 @@
 
 ## ! All basic Prs3d_xxxAspect must inherits from this class
 ## ! The aspect classes qualifies how to represent a given kind of object.
+
 
 
 

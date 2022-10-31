@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,4 +26,5 @@ proc newTopOpeBRepDS_CurveData*(): TopOpeBRepDS_CurveData {.cdecl, constructor,
     importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}
 proc newTopOpeBRepDS_CurveData*(c: TopOpeBRepDS_Curve): TopOpeBRepDS_CurveData {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_CurveData(@)", header: "TopOpeBRepDS_CurveData.hxx".}
+
 

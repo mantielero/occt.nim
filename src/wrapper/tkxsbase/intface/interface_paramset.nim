@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-10-29
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -93,3 +95,4 @@ proc destroy*(this: var InterfaceParamSet) {.cdecl, importcpp: "Destroy",
     header: "Interface_ParamSet.hxx".}
 proc destroyInterfaceParamSet*(this: var InterfaceParamSet) {.cdecl,
     importcpp: "#.~Interface_ParamSet()", header: "Interface_ParamSet.hxx".}
+

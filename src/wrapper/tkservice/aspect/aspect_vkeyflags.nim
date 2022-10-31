@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -39,5 +41,6 @@ const
   AspectVKeyMouseRightButton* = 1 shl 15 ## !< mouse right  button
   AspectVKeyMouseMainButtons* = AspectVKeyMouseLeftButton or
       AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
+
 
 

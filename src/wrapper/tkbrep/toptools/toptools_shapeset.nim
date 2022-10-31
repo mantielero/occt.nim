@@ -1,8 +1,10 @@
+import ../topods/topods_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import toptools_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -84,4 +86,5 @@ proc check*(this: var TopToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape)
     importcpp: "Check", header: "TopTools_ShapeSet.hxx".}
 proc nbShapes*(this: TopToolsShapeSet): cint {.noSideEffect, cdecl,
     importcpp: "NbShapes", header: "TopTools_ShapeSet.hxx".}
+
 

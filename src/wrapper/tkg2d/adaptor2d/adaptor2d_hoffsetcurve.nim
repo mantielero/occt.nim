@@ -2,6 +2,8 @@ import adaptor2d_types
 
 
 
+
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -30,6 +32,7 @@ proc curve2d*(this: Adaptor2dHOffsetCurve): Adaptor2dCurve2d {.noSideEffect, cde
     importcpp: "Curve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc changeCurve2d*(this: var Adaptor2dHOffsetCurve): var Adaptor2dOffsetCurve {.
     cdecl, importcpp: "ChangeCurve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
+
 
 
 

@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 2000-10-20
 ##  Created by: Julia DOROVSKIKH
 ##  Copyright (c) 2000-2014 OPEN CASCADE SAS
@@ -34,4 +36,5 @@ proc setTool*(this: var PrsDimMidPointRelation; aMidPointTool: TopoDS_Shape) {.c
     importcpp: "SetTool", header: "PrsDim_MidPointRelation.hxx".}
 proc getTool*(this: PrsDimMidPointRelation): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetTool", header: "PrsDim_MidPointRelation.hxx".}
+
 

@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -48,4 +50,5 @@ proc values*(this: var BlendFuncConstRadInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_ConstRadInv.hxx".}
 proc set*(this: var BlendFuncConstRadInv; r: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BlendFunc_ConstRadInv.hxx".}
+
 

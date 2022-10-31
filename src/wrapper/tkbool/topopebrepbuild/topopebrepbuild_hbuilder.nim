@@ -1,9 +1,11 @@
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
+import ../topopebrepds/topopebrepds_types
 import ../../tkbrep/topods/topods_types
-import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 
 
@@ -110,4 +112,5 @@ proc mergeKPart*(this: var TopOpeBRepBuildHBuilder; tb1: TopAbsState; tb2: TopAb
     cdecl, importcpp: "MergeKPart", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc changeBuilder*(this: var TopOpeBRepBuildHBuilder): var TopOpeBRepBuildBuilder {.
     cdecl, importcpp: "ChangeBuilder", header: "TopOpeBRepBuild_HBuilder.hxx".}
+
 

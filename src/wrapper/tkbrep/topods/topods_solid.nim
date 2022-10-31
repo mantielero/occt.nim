@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -31,4 +33,5 @@ import topods_types
 
 proc newTopoDS_Solid*(): TopoDS_Solid {.cdecl, constructor,
                                      importcpp: "TopoDS_Solid(@)", header: "TopoDS_Solid.hxx".}
+
 

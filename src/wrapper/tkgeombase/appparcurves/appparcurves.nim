@@ -2,6 +2,8 @@ import ../../tkmath/math/math_types
 
 
 
+
+
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc splineFunction*(nbPoles: cint; degree: cint; parameters: MathVector;
                     flatKnots: MathVector; a: var MathMatrix; da: var MathMatrix;
                     index: var MathIntegerVector) {.cdecl,
     importcpp: "AppParCurves::SplineFunction(@)", header: "AppParCurves.hxx".}
+
 

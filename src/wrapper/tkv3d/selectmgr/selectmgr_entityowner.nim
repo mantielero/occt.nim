@@ -1,11 +1,13 @@
 import ../../tkmath/toploc/toploc_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
-import ../tkv3d/v3d/v3d_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
+import ../v3d/v3d_types
+import ../graphic3d/graphic3d_types
 import selectmgr_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 
 
@@ -105,6 +107,7 @@ proc set*(this: var SelectMgrEntityOwner;
     header: "SelectMgr_EntityOwner.hxx".}
 proc set*(this: var SelectMgrEntityOwner; thePriority: cint) {.cdecl, importcpp: "Set",
     header: "SelectMgr_EntityOwner.hxx".}
+
 
 
 

@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -68,3 +70,4 @@ proc newRead*(this: InterfaceReaderModule; casenum: cint;
              data: Handle[InterfaceFileReaderData]; num: cint;
              ach: var Handle[InterfaceCheck]; ent: var Handle[StandardTransient]): bool {.
     noSideEffect, cdecl, importcpp: "NewRead", header: "Interface_ReaderModule.hxx".}
+

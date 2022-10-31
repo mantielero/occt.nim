@@ -3,6 +3,8 @@ import aspect_types
 
 
 
+
+
 ##  Created on: 1995-03-02
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -50,5 +52,6 @@ proc init*(this: var AspectRectangularGrid) {.cdecl, importcpp: "Init",
 proc dumpJson*(this: AspectRectangularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_RectangularGrid.hxx".}
+
 
 

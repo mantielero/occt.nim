@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-11-10
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc multiplicity*(this: IntSurfPathPoint): cint {.noSideEffect, cdecl,
     importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}
 proc parameters*(this: IntSurfPathPoint; index: cint; u: var cfloat; v: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_PathPoint.hxx".}
+
 

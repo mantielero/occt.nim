@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2017-04-25
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -17,6 +19,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Enumerates transparency rendering methods supported by rasterization mode.
+
 
 
 

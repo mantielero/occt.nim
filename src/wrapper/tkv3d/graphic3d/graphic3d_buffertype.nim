@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,6 +17,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Define buffers available for dump
+
 
 
 

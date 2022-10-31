@@ -1,13 +1,15 @@
-import ../tkv3d/graphic3d/graphic3d_types
+import ../selectmgr/selectmgr_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
-import ../tkv3d/selectmgr/selectmgr_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 
 
@@ -188,4 +190,5 @@ proc compute*(this: var AIS_ColorScale;
     importcpp: "Compute", header: "AIS_ColorScale.hxx".}
 proc computeSelection*(this: var AIS_ColorScale; a2: Handle[SelectMgrSelection]; ## aSelection
                       a3: cint) {.cdecl, importcpp: "ComputeSelection", header: "AIS_ColorScale.hxx".}
+
 

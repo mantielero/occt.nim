@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -121,5 +123,6 @@ proc tolCurveOnSurf*(this: GeomFillAppSurf; index: cint): cfloat {.noSideEffect,
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+
 
 

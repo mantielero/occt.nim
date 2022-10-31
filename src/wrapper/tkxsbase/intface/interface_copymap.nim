@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-03-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -51,3 +53,4 @@ proc `bind`*(this: var InterfaceCopyMap; ent: Handle[StandardTransient];
 proc search*(this: InterfaceCopyMap; ent: Handle[StandardTransient];
             res: var Handle[StandardTransient]): bool {.noSideEffect, cdecl,
     importcpp: "Search", header: "Interface_CopyMap.hxx".}
+

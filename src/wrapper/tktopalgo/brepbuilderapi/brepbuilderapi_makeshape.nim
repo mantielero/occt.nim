@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsLis
     cdecl, importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.cdecl,
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
+
 

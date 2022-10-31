@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-10-29
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; dv: VecObj; df: va
 proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; d2p: VecObj; dv: VecObj; d2v: VecObj;
          dfdt: var cfloat; d2fdt2: var cfloat; d2fdtdx: var cfloat) {.cdecl,
     importcpp: "D2E", header: "GeomFill_PlanFunc.hxx".}
+
 

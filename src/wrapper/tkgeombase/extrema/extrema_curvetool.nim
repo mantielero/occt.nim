@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc bezier*(c: Adaptor3dCurve): Handle[GeomBezierCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::Bezier(@)", header: "Extrema_CurveTool.hxx".}
 proc bSpline*(c: Adaptor3dCurve): Handle[GeomBSplineCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::BSpline(@)", header: "Extrema_CurveTool.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -22,6 +24,7 @@
 ## ! TOBM_AUTOMATIC graphic's structure setting is in use
 ## ! TOBM_FORCE     force display of back faces
 ## ! TOBM_DISABLE   disable display of back faces
+
 
 
 

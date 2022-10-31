@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc newApproxHArray1OfAdHSurface*(theOther: ApproxArray1OfAdHSurface): ApproxHA
     header: "Approx_HArray1OfAdHSurface.hxx".}
 proc array1*(this: ApproxHArray1OfAdHSurface): ApproxArray1OfAdHSurface {.
     noSideEffect, cdecl, importcpp: "Array1", header: "Approx_HArray1OfAdHSurface.hxx".}
+
 

@@ -7,6 +7,8 @@ import ../../tkgeomalgo/law/law_types
 
 
 
+
+
 ##  Created on: 1993-12-21
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -49,4 +51,5 @@ proc values*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_EvolRadInv.hxx".}
 proc set*(this: var BlendFuncEvolRadInv; choix: cint) {.cdecl, importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
+
 

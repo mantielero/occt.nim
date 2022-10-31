@@ -1,9 +1,11 @@
-import ../tkg2d/geom2d/geom2d_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import adaptor2d_types
+import ../geom2d/geom2d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -88,4 +90,5 @@ proc bezier*(this: Adaptor2dLine2d): Handle[Geom2dBezierCurve] {.noSideEffect, c
     importcpp: "Bezier", header: "Adaptor2d_Line2d.hxx".}
 proc bSpline*(this: Adaptor2dLine2d): Handle[Geom2dBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "Adaptor2d_Line2d.hxx".}
+
 

@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-09
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -48,4 +50,5 @@ proc getAverageLaw*(this: var GeomFillFixed; aTangent: var VecObj; aNormal: var 
                                       header: "GeomFill_Fixed.hxx".}
 proc isConstant*(this: GeomFillFixed): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_Fixed.hxx".}
+
 

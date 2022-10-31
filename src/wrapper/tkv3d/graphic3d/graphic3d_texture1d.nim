@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc numberOfTextures*(): cint {.cdecl, importcpp: "Graphic3d_Texture1D::NumberO
                               header: "Graphic3d_Texture1D.hxx".}
 proc textureName*(aRank: cint): TCollectionAsciiString {.cdecl,
     importcpp: "Graphic3d_Texture1D::TextureName(@)", header: "Graphic3d_Texture1D.hxx".}
+
 

@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-02-25
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -56,4 +58,5 @@ proc setValid*(this: var TopOpeBRepBuildBlockBuilder; i: cint; isvalid: bool) {.
     importcpp: "SetValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc currentBlockIsRegular*(this: var TopOpeBRepBuildBlockBuilder): bool {.cdecl,
     importcpp: "CurrentBlockIsRegular", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
+
 

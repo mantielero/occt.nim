@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2013-05-20
 ##  Created by: Mikhail PONIKAROV
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -37,4 +39,5 @@ proc perform*(this: var ChFi2dChamferAPI): bool {.cdecl, importcpp: "Perform",
 proc result*(this: var ChFi2dChamferAPI; theEdge1: var TopoDS_Edge;
             theEdge2: var TopoDS_Edge; theLength1: cfloat; theLength2: cfloat): TopoDS_Edge {.
     cdecl, importcpp: "Result", header: "ChFi2d_ChamferAPI.hxx".}
+
 

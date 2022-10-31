@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-03-04
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc isConstant*(this: GeomFillDarboux): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_Darboux.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillDarboux): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_Darboux.hxx".}
+
 

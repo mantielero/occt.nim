@@ -4,6 +4,8 @@ import ../../tkernel/message/message_types
 
 
 
+
+
 ##  Created on: 2017-06-27
 ##  Created by: Andrey Betenev
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -43,5 +45,6 @@ template define_Alert_With_Shape*(alert: untyped): void =
       importcpp: "Alert(@)", header: "TopoDS_AlertWithShape.hxx".}
   type
     AlertbaseType* = TopoDS_AlertWithShape
+
 
 

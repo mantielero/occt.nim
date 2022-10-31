@@ -49,9 +49,9 @@ type
 
   Adaptor3dInterFunc* {.importcpp: "Adaptor3d_InterFunc",
                        header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative 
-                       header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative 
+                       #header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative 
 
-                       header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative 
+                       #header: "Adaptor3d_InterFunc.hxx", bycopy.} = object of MathFunctionWithDerivative 
   Adaptor3dTopolTool* {.importcpp: "Adaptor3d_TopolTool",
                        header: "Adaptor3d_TopolTool.hxx", bycopy.} = object of StandardTransient
 

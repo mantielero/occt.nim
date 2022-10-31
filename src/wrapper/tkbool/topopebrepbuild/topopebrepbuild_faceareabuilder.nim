@@ -2,6 +2,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc initFaceAreaBuilder*(this: var TopOpeBRepBuildFaceAreaBuilder;
                          lc: var TopOpeBRepBuildLoopClassifier;
                          forceClass: bool = false) {.cdecl,
     importcpp: "InitFaceAreaBuilder", header: "TopOpeBRepBuild_FaceAreaBuilder.hxx".}
+
 

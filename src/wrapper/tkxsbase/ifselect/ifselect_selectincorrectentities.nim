@@ -2,6 +2,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,4 +27,5 @@ import ifselect_types
 proc newIFSelectSelectIncorrectEntities*(): IFSelectSelectIncorrectEntities {.
     cdecl, constructor, importcpp: "IFSelect_SelectIncorrectEntities(@)",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
+
 

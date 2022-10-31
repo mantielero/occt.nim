@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc newBRepPrimSphere*(axes: Ax2Obj; radius: cfloat): BRepPrimSphere {.cdecl,
     constructor, importcpp: "BRepPrim_Sphere(@)", header: "BRepPrim_Sphere.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimSphere): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Sphere.hxx".}
+
 

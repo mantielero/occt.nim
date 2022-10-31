@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-11-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): bool {.noSideEff
 proc transition*(this: TopOpeBRepDS_FaceInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
     importcpp: "Transition", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+
 

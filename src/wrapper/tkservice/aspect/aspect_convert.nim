@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -36,4 +38,5 @@ proc fitIn*(theParentPxSizeX: cint; theParentPxSizeY: cint; thePxLeft: var cint;
   discard
 
 ##  namespace Aspect_Convert
+
 

@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1994-02-01
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -55,4 +57,5 @@ proc setFlag*(this: var ExtremaExtPS; f: ExtremaExtFlag) {.cdecl, importcpp: "Se
     header: "Extrema_ExtPS.hxx".}
 proc setAlgo*(this: var ExtremaExtPS; a: ExtremaExtAlgo) {.cdecl, importcpp: "SetAlgo",
     header: "Extrema_ExtPS.hxx".}
+
 

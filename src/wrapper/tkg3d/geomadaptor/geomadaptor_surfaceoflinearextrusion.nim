@@ -1,10 +1,12 @@
 import ../../tkmath/gp/gp_types
 import geomadaptor_types
+import ../adaptor3d/adaptor3d_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -113,4 +115,5 @@ proc direction*(this: GeomAdaptorSurfaceOfLinearExtrusion): DirObj {.noSideEffec
     cdecl, importcpp: "Direction", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
 proc basisCurve*(this: GeomAdaptorSurfaceOfLinearExtrusion): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx".}
+
 

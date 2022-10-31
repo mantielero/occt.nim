@@ -1,6 +1,8 @@
-import ../tkg2d/geom2d/geom2d_types
 import ../../tkernel/standard/standard_types
+import ../geom2d/geom2d_types
 import geom2dadaptor_types
+
+
 
 
 
@@ -32,4 +34,5 @@ proc newGeom2dAdaptorHCurve*(s: Handle[Geom2dCurve]): Geom2dAdaptorHCurve {.cdec
     constructor, importcpp: "Geom2dAdaptor_HCurve(@)", header: "Geom2dAdaptor_HCurve.hxx".}
 proc newGeom2dAdaptorHCurve*(s: Handle[Geom2dCurve]; uFirst: cfloat; uLast: cfloat): Geom2dAdaptorHCurve {.
     cdecl, constructor, importcpp: "Geom2dAdaptor_HCurve(@)", header: "Geom2dAdaptor_HCurve.hxx".}
+
 

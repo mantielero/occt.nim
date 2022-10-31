@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -65,4 +67,5 @@ proc printStats*(this: TransferTransientProcess; mode: cint; s: var StandardOStr
 proc rootsForTransfer*(this: var TransferTransientProcess): Handle[
     TColStdHSequenceOfTransient] {.cdecl, importcpp: "RootsForTransfer",
                                   header: "Transfer_TransientProcess.hxx".}
+
 

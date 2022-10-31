@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,6 +24,7 @@
 ## ! TOBM_AUTOMATIC graphic's structure setting is in use
 ## ! TOBM_ALWAYS_DISPLAYED     force display of back faces
 ## ! TOBM_NEVER_DISPLAYED      disable display of back faces
+
 
 
 

@@ -2,6 +2,8 @@ import adaptor3d_types
 
 
 
+
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -32,6 +34,7 @@ proc getCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
 proc changeCurve*(this: var Adaptor3dHCurveOnSurface): var Adaptor3dCurveOnSurface {.
     cdecl, importcpp: "ChangeCurve", header: "Adaptor3d_HCurveOnSurface.hxx".}
+
 
 
 

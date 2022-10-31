@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1998-05-12
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -70,4 +72,5 @@ proc evalCase2*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
 proc evalCase3*(this: var ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.cdecl,
     importcpp: "EvalCase3", header: "Approx_CurvlinFunc.hxx".}
+
 

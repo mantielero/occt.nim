@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1997-01-17
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc splitting*(this: LawBSplineKnotSplitting;
     importcpp: "Splitting", header: "Law_BSplineKnotSplitting.hxx".}
 proc splitValue*(this: LawBSplineKnotSplitting; index: cint): cint {.noSideEffect,
     cdecl, importcpp: "SplitValue", header: "Law_BSplineKnotSplitting.hxx".}
+
 

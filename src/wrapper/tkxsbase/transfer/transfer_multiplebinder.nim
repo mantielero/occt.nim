@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-04-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc multipleResult*(this: TransferMultipleBinder): Handle[
 proc setMultipleResult*(this: var TransferMultipleBinder;
                        mulres: Handle[TColStdHSequenceOfTransient]) {.cdecl,
     importcpp: "SetMultipleResult", header: "Transfer_MultipleBinder.hxx".}
+
 

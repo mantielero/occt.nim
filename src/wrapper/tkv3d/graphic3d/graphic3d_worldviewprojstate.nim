@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2015-06-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -56,4 +58,5 @@ proc `==`*(this: Graphic3dWorldViewProjState; theOther: Graphic3dWorldViewProjSt
     noSideEffect, cdecl, importcpp: "(# == #)", header: "Graphic3d_WorldViewProjState.hxx".}
 proc dumpJson*(this: Graphic3dWorldViewProjState; theOStream: var StandardOStream;
               a3: cint) {.noSideEffect, cdecl, importcpp: "DumpJson", header: "Graphic3d_WorldViewProjState.hxx".}
+
 

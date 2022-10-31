@@ -4,6 +4,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 1996-01-29
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc clear*(this: var SelectMgrCompositionFilter) {.cdecl, importcpp: "Clear",
     header: "SelectMgr_CompositionFilter.hxx".}
 proc actsOn*(this: SelectMgrCompositionFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, cdecl, importcpp: "ActsOn", header: "SelectMgr_CompositionFilter.hxx".}
+
 

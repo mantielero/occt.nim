@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1998-01-17
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -27,4 +29,5 @@ proc newPrsDimEqualRadiusRelation*(aFirstEdge: TopoDS_Edge;
                                   aSecondEdge: TopoDS_Edge;
                                   aPlane: Handle[GeomPlane]): PrsDimEqualRadiusRelation {.
     cdecl, constructor, importcpp: "PrsDim_EqualRadiusRelation(@)", header: "PrsDim_EqualRadiusRelation.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1996-02-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -110,3 +112,4 @@ proc where*(phase: bool = true): cstring {.cdecl,
 proc percent*(phase: bool = false): cint {.cdecl,
                                      importcpp: "Interface_STAT::Percent(@)",
                                      header: "Interface_STAT.hxx".}
+

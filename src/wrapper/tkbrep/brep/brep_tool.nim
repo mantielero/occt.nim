@@ -1,12 +1,14 @@
 import ../../tkmath/toploc/toploc_types
 import ../../tkmath/gp/gp_types
+import ../topods/topods_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
 import ../../tkmath/poly/poly_types
 import ../../tkg2d/geom2d/geom2d_types
+
+
 
 
 
@@ -158,4 +160,5 @@ proc parameters*(v: TopoDS_Vertex; f: TopoDS_Face): Pnt2dObj {.cdecl,
     importcpp: "BRep_Tool::Parameters(@)", header: "BRep_Tool.hxx".}
 proc maxTolerance*(theShape: TopoDS_Shape; theSubShape: TopAbsShapeEnum): cfloat {.
     cdecl, importcpp: "BRep_Tool::MaxTolerance(@)", header: "BRep_Tool.hxx".}
+
 

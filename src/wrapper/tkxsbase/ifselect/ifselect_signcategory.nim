@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc newIFSelectSignCategory*(): IFSelectSignCategory {.cdecl, constructor,
 proc value*(this: IFSelectSignCategory; ent: Handle[StandardTransient];
            model: Handle[InterfaceInterfaceModel]): cstring {.noSideEffect, cdecl,
     importcpp: "Value", header: "IFSelect_SignCategory.hxx".}
+
 

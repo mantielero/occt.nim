@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-11-26
 ##  Created by: Jean-Michel BOULCOURT
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc nbVertices*(this: var TopOpeBRepToolFuseEdges): cint {.cdecl,
     importcpp: "NbVertices", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolFuseEdges) {.cdecl, importcpp: "Perform",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
+
 

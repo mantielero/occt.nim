@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-08-20
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc setParameterOnEdge*(this: var TopOpeBRepDS_GapTool;
                         i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
                         u: cfloat) {.cdecl, importcpp: "SetParameterOnEdge",
                                    header: "TopOpeBRepDS_GapTool.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,6 +24,7 @@
 ## ! DTVP_Above - text label is located above the dimension or extension line.
 ## ! DTVP_Below - text label is located below the dimension or extension line.
 ## ! DTVP_Center - the text label middle-point is in line with dimension or extension line.
+
 
 
 

@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -55,4 +57,5 @@ proc set*(this: var BlendFuncConstThroat; aThroat: cfloat; a3: cfloat; choix: ci
     cdecl, importcpp: "Set", header: "BlendFunc_ConstThroat.hxx".}
 proc getSectionSize*(this: BlendFuncConstThroat): cfloat {.noSideEffect, cdecl,
     importcpp: "GetSectionSize", header: "BlendFunc_ConstThroat.hxx".}
+
 

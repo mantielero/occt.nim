@@ -5,6 +5,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -56,4 +58,5 @@ proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+
 

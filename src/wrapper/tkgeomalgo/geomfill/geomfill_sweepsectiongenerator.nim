@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1994-02-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -89,4 +91,5 @@ proc transformation*(this: GeomFillSweepSectionGenerator; index: cint): TrsfObj 
     noSideEffect, cdecl, importcpp: "Transformation", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc parameter*(this: GeomFillSweepSectionGenerator; p: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "GeomFill_SweepSectionGenerator.hxx".}
+
 

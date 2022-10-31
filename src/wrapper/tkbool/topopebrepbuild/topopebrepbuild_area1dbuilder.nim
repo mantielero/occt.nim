@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildArea1dBuilder;
     noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
 proc dumpList*(L: TopOpeBRepBuildListOfLoop) {.cdecl,
     importcpp: "TopOpeBRepBuild_Area1dBuilder::DumpList(@)", header: "TopOpeBRepBuild_Area1dBuilder.hxx".}
+
 

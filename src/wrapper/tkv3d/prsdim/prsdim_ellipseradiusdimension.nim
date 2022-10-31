@@ -2,6 +2,8 @@ import prsdim_types
 
 
 
+
+
 ##  Created on: 1998-01-22
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc isMovable*(this: PrsDimEllipseRadiusDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_EllipseRadiusDimension.hxx".}
 proc computeGeometry*(this: var PrsDimEllipseRadiusDimension) {.cdecl,
     importcpp: "ComputeGeometry", header: "PrsDim_EllipseRadiusDimension.hxx".}
+
 

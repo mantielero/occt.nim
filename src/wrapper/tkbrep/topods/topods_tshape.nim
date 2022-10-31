@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -91,5 +93,6 @@ proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TopoDS_TShape.hxx".}
+
 
 

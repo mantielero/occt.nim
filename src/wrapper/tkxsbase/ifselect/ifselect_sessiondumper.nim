@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-11-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc writeOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
 proc readOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
              `type`: TCollectionAsciiString; item: var Handle[StandardTransient]): bool {.
     noSideEffect, cdecl, importcpp: "ReadOwn", header: "IFSelect_SessionDumper.hxx".}
+
 

@@ -1,12 +1,14 @@
 import ../../tkmath/gp/gp_types
+import ../topods/topods_types
 import brepadaptor_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import ../../tkg3d/geomadaptor/geomadaptor_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -142,4 +144,5 @@ proc basisSurface*(this: BRepAdaptorSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, cdecl, importcpp: "BasisSurface", header: "BRepAdaptor_Surface.hxx".}
 proc offsetValue*(this: BRepAdaptorSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "OffsetValue", header: "BRepAdaptor_Surface.hxx".}
+
 

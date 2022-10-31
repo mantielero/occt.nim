@@ -1,8 +1,10 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -42,4 +44,5 @@ proc unitFactor*(this: AIS_XRTrackedDevice): StandardShortReal {.noSideEffect, c
     importcpp: "UnitFactor", header: "AIS_XRTrackedDevice.hxx".}
 proc setUnitFactor*(this: var AIS_XRTrackedDevice; theFactor: StandardShortReal) {.
     cdecl, importcpp: "SetUnitFactor", header: "AIS_XRTrackedDevice.hxx".}
+
 

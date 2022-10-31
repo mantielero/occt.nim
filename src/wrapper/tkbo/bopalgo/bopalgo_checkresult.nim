@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -59,4 +61,5 @@ proc getMaxParameter1*(this: BOPAlgoCheckResult): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
 proc getMaxParameter2*(this: BOPAlgoCheckResult): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
+
 

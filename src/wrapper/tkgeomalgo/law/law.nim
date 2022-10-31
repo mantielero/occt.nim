@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-04-07
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc scale*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
 proc scaleCub*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
               vLast: cfloat): Handle[LawBSpline] {.cdecl,
     importcpp: "Law::ScaleCub(@)", header: "Law.hxx".}
+
 

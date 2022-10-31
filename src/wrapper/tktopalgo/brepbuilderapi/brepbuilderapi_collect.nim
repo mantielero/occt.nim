@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1996-04-09
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc modification*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfSh
     noSideEffect, cdecl, importcpp: "Modification", header: "BRepBuilderAPI_Collect.hxx".}
 proc generated*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, cdecl, importcpp: "Generated", header: "BRepBuilderAPI_Collect.hxx".}
+
 

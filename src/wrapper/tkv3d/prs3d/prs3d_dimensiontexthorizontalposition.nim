@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,6 +25,7 @@
 ## ! DTHP_Center - value label located at center of dimension line.
 ## ! DTHP_Fit    - value label located automatically at left side if does not fits
 ## ! the dimension space, otherwise the value label is placed at center.
+
 
 
 

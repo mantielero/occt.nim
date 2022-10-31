@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -71,4 +73,5 @@ proc checkStatus*(this: TransferResultFromModel): InterfaceCheckStatus {.
     noSideEffect, cdecl, importcpp: "CheckStatus", header: "Transfer_ResultFromModel.hxx".}
 proc computeCheckStatus*(this: var TransferResultFromModel; enforce: bool): InterfaceCheckStatus {.
     cdecl, importcpp: "ComputeCheckStatus", header: "Transfer_ResultFromModel.hxx".}
+
 

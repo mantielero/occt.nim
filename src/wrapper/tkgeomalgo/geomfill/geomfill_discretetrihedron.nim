@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 2013-02-05
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2001-2013 OPEN CASCADE SAS
@@ -56,4 +58,5 @@ proc isConstant*(this: GeomFillDiscreteTrihedron): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_DiscreteTrihedron.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillDiscreteTrihedron): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_DiscreteTrihedron.hxx".}
+
 

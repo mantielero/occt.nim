@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-10-17
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc bounds*(this: GeomFillBoundWithSurf; first: var cfloat; last: var cfloat) {
     noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_BoundWithSurf.hxx".}
 proc isDegenerated*(this: GeomFillBoundWithSurf): bool {.noSideEffect, cdecl,
     importcpp: "IsDegenerated", header: "GeomFill_BoundWithSurf.hxx".}
+
 

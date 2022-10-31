@@ -1,6 +1,8 @@
 import brep_types
+import ../topods/topods_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -52,4 +54,5 @@ proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
 proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TEdge.hxx".}
+
 

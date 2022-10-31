@@ -7,6 +7,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -108,4 +110,5 @@ proc sName*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
 proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_ShapeSet.hxx".}
+
 

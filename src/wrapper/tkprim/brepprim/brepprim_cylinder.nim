@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc newBRepPrimCylinder*(center: PntObj; r: cfloat; h: cfloat): BRepPrimCylinde
     constructor, importcpp: "BRepPrim_Cylinder(@)", header: "BRepPrim_Cylinder.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimCylinder): TopoDS_Face {.noSideEffect,
     cdecl, importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Cylinder.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 1999-01-13
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -43,4 +45,5 @@ proc getface*(this: TopOpeBRepToolCLASSI; s: TopoDS_Shape; fa: var TopOpeBRepToo
 proc classilist*(this: var TopOpeBRepToolCLASSI; lS: TopToolsListOfShape;
                 mapgreasma: var TopToolsDataMapOfShapeListOfShape): bool {.cdecl,
     importcpp: "Classilist", header: "TopOpeBRepTool_CLASSI.hxx".}
+
 

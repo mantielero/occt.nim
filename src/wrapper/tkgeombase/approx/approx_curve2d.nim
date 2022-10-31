@@ -6,6 +6,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1997-10-28
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc maxError2dU*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError2dU", header: "Approx_Curve2d.hxx".}
 proc maxError2dV*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError2dV", header: "Approx_Curve2d.hxx".}
+
 

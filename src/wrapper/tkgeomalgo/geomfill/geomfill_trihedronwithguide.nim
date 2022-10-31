@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc origine*(this: var GeomFillTrihedronWithGuide; param1: cfloat; param2: cflo
     cdecl, importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
 proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): PntObj {.noSideEffect,
     cdecl, importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}
+
 

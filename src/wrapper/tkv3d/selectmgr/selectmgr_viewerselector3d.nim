@@ -1,8 +1,10 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
-import ../tkv3d/v3d/v3d_types
+import ../v3d/v3d_types
 import selectmgr_types
+
+
 
 
 
@@ -48,5 +50,6 @@ proc displaySensitive*(this: var SelectMgrViewerSelector3d;
 proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_ViewerSelector3d.hxx".}
+
 
 

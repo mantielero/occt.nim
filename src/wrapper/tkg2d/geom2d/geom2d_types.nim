@@ -1,6 +1,11 @@
 import ../../tkg3d/geom/geom_types
 import ../../tkernel/standard/standard_types
+
 type
+  Geom2dUndefinedDerivative* = object # FIXME
+  
+  Geom2dUndefinedValue* = object      # FIXME
+  
   HandleGeom2dGeometry* {.importcpp:"opencascade::handle<Geom2d_Geometry>", header:"Standard_Handle.hxx", bycopy, pure, inheritable.} = object
 
   HandleGeom2dUndefinedDerivative* = Handle[Geom2dUndefinedDerivative]
@@ -93,7 +98,7 @@ type
 
   HandleGeom2dDirection* = Handle[Geom2dDirection]
 
-  Geom2dVector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2dGeometry 
+  #Geom2dVector* {.importcpp: "Geom2d_Vector", header: "Geom2d_Vector.hxx", bycopy.} = object of Geom2dGeometry 
   Geom2dVectorWithMagnitude* {.importcpp: "Geom2d_VectorWithMagnitude",
                               header: "Geom2d_VectorWithMagnitude.hxx", bycopy.} = object of Geom2dVector 
 

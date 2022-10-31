@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1998-07-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -66,4 +68,5 @@ proc isAdded*(this: IFSelectListEditor; num: cint): bool {.noSideEffect, cdecl,
     importcpp: "IsAdded", header: "IFSelect_ListEditor.hxx".}
 proc isTouched*(this: IFSelectListEditor): bool {.noSideEffect, cdecl,
     importcpp: "IsTouched", header: "IFSelect_ListEditor.hxx".}
+
 

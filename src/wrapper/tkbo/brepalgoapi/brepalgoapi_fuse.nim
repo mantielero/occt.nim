@@ -1,6 +1,8 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -32,4 +34,5 @@ proc fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Fuse {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
 proc fuse*(s1: TopoDS_Shape; s2: TopoDS_Shape; aDSF: BOPAlgoPaveFiller): BRepAlgoAPI_Fuse {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Fuse(@)", header: "BRepAlgoAPI_Fuse.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-11-13
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -18,6 +20,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Defines the type of projection of the view.
+
 
 
 

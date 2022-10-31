@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -147,4 +149,5 @@ proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
                              li: TopOpeBRepDS_ListOfInterference; `is`: cint;
                              str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "ClearStoreInterferences", header: "TopOpeBRepDS_HDataStructure.hxx".}
+
 

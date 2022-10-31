@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-11-25
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -87,4 +89,5 @@ proc addNewConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
 proc removeOldConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
                         e: TopoDS_Edge): bool {.cdecl,
     importcpp: "RemoveOldConnexity", header: "TopOpeBRepTool_CORRISO.hxx".}
+
 

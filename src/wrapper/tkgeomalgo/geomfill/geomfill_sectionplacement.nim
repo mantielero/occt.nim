@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-15
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc section*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
 proc modifiedSection*(this: GeomFillSectionPlacement; withTranslation: bool): Handle[
     GeomCurve] {.noSideEffect, cdecl, importcpp: "ModifiedSection",
                 header: "GeomFill_SectionPlacement.hxx".}
+
 

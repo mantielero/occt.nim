@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc copy*(this: BRepCurveOn2Surfaces): Handle[BRepCurveRepresentation] {.
 proc dumpJson*(this: BRepCurveOn2Surfaces; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_CurveOn2Surfaces.hxx".}
+
 

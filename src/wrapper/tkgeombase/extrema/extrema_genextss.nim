@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1996-01-18
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc pointOnS1*(this: ExtremaGenExtSS; n: cint): ExtremaPOnSurf {.noSideEffect, 
     importcpp: "PointOnS1", header: "Extrema_GenExtSS.hxx".}
 proc pointOnS2*(this: ExtremaGenExtSS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "Extrema_GenExtSS.hxx".}
+
 

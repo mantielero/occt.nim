@@ -2,8 +2,10 @@ import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -85,4 +87,5 @@ proc offsetCurve*(this: Adaptor3dCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     cdecl, importcpp: "OffsetCurve", header: "Adaptor3d_Curve.hxx".}
 proc destroyAdaptor3dCurve*(this: var Adaptor3dCurve) {.cdecl,
     importcpp: "#.~Adaptor3d_Curve()", header: "Adaptor3d_Curve.hxx".}
+
 

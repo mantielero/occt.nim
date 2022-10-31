@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -124,6 +126,7 @@ proc pushVariableVec4i*(this: var Graphic3dShaderProgram;
     cdecl, importcpp: "PushVariableVec4i", header: "Graphic3d_ShaderProgram.hxx".}
 proc shadersFolder*(): TCollectionAsciiString {.cdecl,
     importcpp: "Graphic3d_ShaderProgram::ShadersFolder(@)", header: "Graphic3d_ShaderProgram.hxx".}
+
 
 
 

@@ -3,6 +3,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -28,4 +30,5 @@ proc newAspectTouch*(thePnt: NCollectionVec2[cfloat]; theIsPreciseDevice: bool):
     cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
 proc newAspectTouch*(theX: cfloat; theY: cfloat; theIsPreciseDevice: bool): AspectTouch {.
     cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+
 

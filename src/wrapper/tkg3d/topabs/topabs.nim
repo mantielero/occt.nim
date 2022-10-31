@@ -3,6 +3,8 @@ import topabs_types
 
 
 
+
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -63,4 +65,5 @@ proc shapeOrientationFromString*(theOrientationString: cstring): TopAbsOrientati
 proc shapeOrientationFromString*(theOrientationString: cstring;
                                 theOrientation: var TopAbsOrientation): bool {.
     cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
+
 

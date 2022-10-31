@@ -3,6 +3,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc newChFiDS_SecHArray1*(theOther: ChFiDS_SecArray1): ChFiDS_SecHArray1 {.cdec
     constructor, importcpp: "ChFiDS_SecHArray1(@)", header: "ChFiDS_SecHArray1.hxx".}
 proc array1*(this: ChFiDS_SecHArray1): ChFiDS_SecArray1 {.noSideEffect, cdecl,
     importcpp: "Array1", header: "ChFiDS_SecHArray1.hxx".}
+
 

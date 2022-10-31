@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc limitedMax*(this: IFSelectDispGlobal; nbent: cint; max: var cint): bool {.
 proc packets*(this: IFSelectDispGlobal; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect, cdecl,
     importcpp: "Packets", header: "IFSelect_DispGlobal.hxx".}
+
 

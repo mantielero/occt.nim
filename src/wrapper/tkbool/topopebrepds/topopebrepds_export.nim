@@ -5,6 +5,8 @@ import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 
 
+
+
 ##  Created on: 1997-12-15
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -180,3 +182,4 @@ proc fDS_LOIinfsup*(bds: TopOpeBRepDS_DataStructure; e: TopoDS_Edge; pE: cfloat;
 proc fUN_dsFEIGb1TO0*(hds: var Handle[TopOpeBRepDS_HDataStructure];
                      mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     cdecl, importcpp: "FUN_ds_FEIGb1TO0(@)", header: "TopOpeBRepDS_EXPORT.hxx".}
+

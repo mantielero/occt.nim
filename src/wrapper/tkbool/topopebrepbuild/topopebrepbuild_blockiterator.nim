@@ -2,6 +2,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-02-25
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc value*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
     importcpp: "Value", header: "TopOpeBRepBuild_BlockIterator.hxx".}
 proc extent*(this: TopOpeBRepBuildBlockIterator): cint {.noSideEffect, cdecl,
     importcpp: "Extent", header: "TopOpeBRepBuild_BlockIterator.hxx".}
+
 

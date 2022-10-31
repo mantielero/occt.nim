@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -86,3 +88,4 @@ proc unknownEntity*(this: InterfaceProtocol): Handle[StandardTransient] {.
     noSideEffect, cdecl, importcpp: "UnknownEntity", header: "Interface_Protocol.hxx".}
 proc isUnknownEntity*(this: InterfaceProtocol; ent: Handle[StandardTransient]): bool {.
     noSideEffect, cdecl, importcpp: "IsUnknownEntity", header: "Interface_Protocol.hxx".}
+

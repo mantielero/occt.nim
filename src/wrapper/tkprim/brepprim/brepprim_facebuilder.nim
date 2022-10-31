@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc edge*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Edge {.noSideEffect, cdec
     importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
 proc vertex*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}
+
 

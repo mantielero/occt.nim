@@ -1,8 +1,10 @@
+import ../selectmgr/selectmgr_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
 import ais_types
 import ../../tkbrep/topods/topods_types
-import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 
 
@@ -30,4 +32,5 @@ proc actsOn*(this: AIS_C0RegularityFilter; aType: TopAbsShapeEnum): bool {.
     noSideEffect, cdecl, importcpp: "ActsOn", header: "AIS_C0RegularityFilter.hxx".}
 proc isOk*(this: AIS_C0RegularityFilter; eo: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "AIS_C0RegularityFilter.hxx".}
+
 

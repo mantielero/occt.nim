@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1995-07-17
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -75,4 +77,5 @@ proc bSpline*(c: Handle[Adaptor3dHCurve]): Handle[GeomBSplineCurve] {.cdecl,
     importcpp: "BRepBlend_HCurveTool::BSpline(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc nbSamples*(c: Handle[Adaptor3dHCurve]; u0: cfloat; u1: cfloat): cint {.cdecl,
     importcpp: "BRepBlend_HCurveTool::NbSamples(@)", header: "BRepBlend_HCurveTool.hxx".}
+
 

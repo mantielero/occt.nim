@@ -4,6 +4,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -28,4 +30,5 @@ proc buildKnots*(thePntsXYZ: TColgpArray1OfPnt; thePntsU1V1: TColgpArray1OfPnt2d
                 theApproxXYZ: bool; theApproxU1V1: bool; theApproxU2V2: bool;
                 theMinNbPnts: cint; theKnots: var NCollectionVector[cint]) {.cdecl,
     importcpp: "ApproxInt_KnotTools::BuildKnots(@)", header: "ApproxInt_KnotTools.hxx".}
+
 

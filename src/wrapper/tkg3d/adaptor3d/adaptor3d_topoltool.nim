@@ -1,9 +1,11 @@
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../tkg3d/topabs/topabs_types
+import ../topabs/topabs_types
 import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+
+
 
 
 
@@ -96,4 +98,5 @@ proc bSplSamplePnts*(this: var Adaptor3dTopolTool; theDefl: cfloat; theNUmin: ci
                                     header: "Adaptor3d_TopolTool.hxx".}
 proc isUniformSampling*(this: Adaptor3dTopolTool): bool {.noSideEffect, cdecl,
     importcpp: "IsUniformSampling", header: "Adaptor3d_TopolTool.hxx".}
+
 

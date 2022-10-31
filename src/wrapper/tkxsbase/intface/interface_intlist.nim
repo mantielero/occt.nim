@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1995-05-12
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -88,3 +90,4 @@ proc remove*(this: var InterfaceIntList; num: cint): bool {.cdecl, importcpp: "R
 proc clear*(this: var InterfaceIntList) {.cdecl, importcpp: "Clear", header: "Interface_IntList.hxx".}
 proc adjustSize*(this: var InterfaceIntList; margin: cint = 0) {.cdecl,
     importcpp: "AdjustSize", header: "Interface_IntList.hxx".}
+

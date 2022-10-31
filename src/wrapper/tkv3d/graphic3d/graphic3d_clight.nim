@@ -6,6 +6,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -113,5 +115,6 @@ proc revision*(this: Graphic3dCLight): csize_t {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dCLight; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CLight.hxx".}
+
 
 

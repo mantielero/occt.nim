@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -38,4 +40,5 @@ proc face*(this: BOPAlgoBuilderFace): TopoDS_Face {.noSideEffect, cdecl,
 proc perform*(this: var BOPAlgoBuilderFace) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BuilderFace.hxx".}
 proc orientation*(this: BOPAlgoBuilderFace): TopAbsOrientation {.noSideEffect, cdecl,
     importcpp: "Orientation", header: "BOPAlgo_BuilderFace.hxx".}
+
 

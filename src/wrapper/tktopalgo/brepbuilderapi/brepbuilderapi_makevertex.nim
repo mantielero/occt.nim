@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.cdecl,
 converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     cdecl, importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
     header: "BRepBuilderAPI_MakeVertex.hxx".}
+
 

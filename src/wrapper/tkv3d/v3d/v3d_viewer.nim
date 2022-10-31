@@ -1,9 +1,11 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
 import v3d_types
+
+
 
 
 
@@ -254,5 +256,6 @@ proc definedLight*(this: V3dViewer): Handle[V3dLight] {.noSideEffect, cdecl,
     importcpp: "DefinedLight", header: "V3d_Viewer.hxx".}
 proc dumpJson*(this: V3dViewer; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "V3d_Viewer.hxx".}
+
 
 

@@ -7,6 +7,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -73,4 +75,5 @@ proc origins*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, cdecl, importcpp: "Origins", header: "BOPAlgo_Builder.hxx".}
 proc shapesSD*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeShape {.noSideEffect,
     cdecl, importcpp: "ShapesSD", header: "BOPAlgo_Builder.hxx".}
+
 

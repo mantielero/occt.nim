@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,4 +39,5 @@ converter toHandleGeomTrimmedCurve*(this: MakeConicalSurface): Handle[GeomConica
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeConicalSurface.hxx".}
+
 

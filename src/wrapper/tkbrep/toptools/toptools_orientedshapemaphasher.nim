@@ -1,4 +1,6 @@
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
+
+
 
 
 
@@ -22,4 +24,5 @@ import ../tkbrep/topods/topods_types
 
 proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.cdecl,
     importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)", header: "TopTools_OrientedShapeMapHasher.hxx".}
+
 

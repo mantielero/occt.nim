@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,6 +26,7 @@
 ## ! RetError : error in command or input data, no execution
 ## ! RetFail  : execution was run and has failed
 ## ! RetStop  : indicates end or stop (such as Raise)
+
 
 
 

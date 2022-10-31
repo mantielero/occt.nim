@@ -9,6 +9,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -99,4 +101,5 @@ proc setOrigine*(this: var GeomFillLocationGuide; param1: cfloat; param2: cfloat
 proc computeAutomaticLaw*(this: GeomFillLocationGuide;
                          parAndRad: var Handle[TColgpHArray1OfPnt2d]): GeomFillPipeError {.
     noSideEffect, cdecl, importcpp: "ComputeAutomaticLaw", header: "GeomFill_LocationGuide.hxx".}
+
 

@@ -1,10 +1,12 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ais_types
 import ../../tkernel/ncollection/ncollection_types
-import ../tkv3d/v3d/v3d_types
+import ../v3d/v3d_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -356,4 +358,5 @@ proc handleXRMoveTo*(this: var AIS_ViewController;
                     theCtx: Handle[AIS_InteractiveContext];
                     theView: Handle[V3dView]; thePose: TrsfObj; theToHighlight: bool): cint {.
     cdecl, importcpp: "handleXRMoveTo", header: "AIS_ViewController.hxx".}
+
 

@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -94,4 +96,5 @@ proc extension*(this: IFSelectShareOut): Handle[TCollectionHAsciiString] {.
     noSideEffect, cdecl, importcpp: "Extension", header: "IFSelect_ShareOut.hxx".}
 proc fileName*(this: var IFSelectShareOut; dnum: cint; pnum: cint; nbpack: cint = 0): TCollectionAsciiString {.
     cdecl, importcpp: "FileName", header: "IFSelect_ShareOut.hxx".}
+
 

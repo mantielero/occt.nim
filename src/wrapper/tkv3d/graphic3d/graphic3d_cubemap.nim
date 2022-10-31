@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -51,5 +53,6 @@ proc reset*(this: var Graphic3dCubeMap): var Graphic3dCubeMap {.cdecl,
     importcpp: "Reset", header: "Graphic3d_CubeMap.hxx".}
 proc destroyGraphic3dCubeMap*(this: var Graphic3dCubeMap) {.cdecl,
     importcpp: "#.~Graphic3d_CubeMap()", header: "Graphic3d_CubeMap.hxx".}
+
 
 

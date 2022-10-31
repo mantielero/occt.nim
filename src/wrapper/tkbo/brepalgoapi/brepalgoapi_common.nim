@@ -1,6 +1,8 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -32,4 +34,5 @@ proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape): BRepAlgoAPI_Com
     cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
 proc newBRepAlgoAPI_Common*(s1: TopoDS_Shape; s2: TopoDS_Shape; pf: BOPAlgoPaveFiller): BRepAlgoAPI_Common {.
     cdecl, constructor, importcpp: "BRepAlgoAPI_Common(@)", header: "BRepAlgoAPI_Common.hxx".}
+
 

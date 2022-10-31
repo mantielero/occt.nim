@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-07-09
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: XyzObj; dD
 proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: XyzObj; dDir: XyzObj;
              dfdt: var MathVector; d2ft: var MathVector): bool {.cdecl,
     importcpp: "Deriv2T", header: "GeomFill_FunctionGuide.hxx".}
+
 

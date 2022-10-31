@@ -1,6 +1,8 @@
+import ../topods/topods_types
 import ../../tkg3d/topabs/topabs_types
-import ../tkbrep/topods/topods_types
-import ../tkbrep/toptools/toptools_types
+import ../toptools/toptools_types
+
+
 
 
 
@@ -47,4 +49,5 @@ proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vert
     cdecl, importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
 proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.cdecl,
     importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}
+
 

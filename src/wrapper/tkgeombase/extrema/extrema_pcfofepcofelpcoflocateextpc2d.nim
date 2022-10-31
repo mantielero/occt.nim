@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc subIntervalInitialize*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d;
     importcpp: "SubIntervalInitialize", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
 proc searchOfTolerance*(this: var ExtremaPCFOfEPCOfELPCOfLocateExtPC2d): cfloat {.
     cdecl, importcpp: "SearchOfTolerance", header: "Extrema_PCFOfEPCOfELPCOfLocateExtPC2d.hxx".}
+
 

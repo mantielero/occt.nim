@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -49,4 +51,5 @@ proc knotsAndMults*(this: GeomFillProfiler; knots: var TColStdArray1OfReal;
     importcpp: "KnotsAndMults", header: "GeomFill_Profiler.hxx".}
 proc curve*(this: GeomFillProfiler; index: cint): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "Curve", header: "GeomFill_Profiler.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkbrep/toptools/toptools_types
 
 
 
+
+
 ##  Created on: 1997-04-10
 ##  Created by: Prestataire Mary FABIEN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -56,4 +58,5 @@ proc printShape*(this: var TopOpeBRepDS_Check; se: TopAbsShapeEnum;
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
 proc printShape*(this: var TopOpeBRepDS_Check; index: cint; s: var StandardOStream): var StandardOStream {.
     cdecl, importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
+
 

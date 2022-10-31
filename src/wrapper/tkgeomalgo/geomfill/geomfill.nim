@@ -7,6 +7,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -60,4 +62,5 @@ proc getMinimalWeights*(tConv: ConvertParameterisationType; angleMin: cfloat;
 proc getTolerance*(tConv: ConvertParameterisationType; angleMin: cfloat;
                   radius: cfloat; angularTol: cfloat; spatialTol: cfloat): cfloat {.
     cdecl, importcpp: "GeomFill::GetTolerance(@)", header: "GeomFill.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,6 +24,7 @@
 ## ! DAO_External - arrows "outside", pointing inwards.
 ## ! DAO_Fit      - arrows oriented inside if value label with arrowtips fit the dimension line,
 ## ! otherwise - externally
+
 
 
 

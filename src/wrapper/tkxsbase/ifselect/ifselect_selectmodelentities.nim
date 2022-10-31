@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc completeResult*(this: IFSelectSelectModelEntities; g: InterfaceGraph): Inte
     noSideEffect, cdecl, importcpp: "CompleteResult", header: "IFSelect_SelectModelEntities.hxx".}
 proc label*(this: IFSelectSelectModelEntities): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "Label", header: "IFSelect_SelectModelEntities.hxx".}
+
 

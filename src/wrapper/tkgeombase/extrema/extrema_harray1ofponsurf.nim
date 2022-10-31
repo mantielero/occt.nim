@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc newExtremaHArray1OfPOnSurf*(theOther: ExtremaArray1OfPOnSurf): ExtremaHArra
     cdecl, constructor, importcpp: "Extrema_HArray1OfPOnSurf(@)", header: "Extrema_HArray1OfPOnSurf.hxx".}
 proc array1*(this: ExtremaHArray1OfPOnSurf): ExtremaArray1OfPOnSurf {.noSideEffect,
     cdecl, importcpp: "Array1", header: "Extrema_HArray1OfPOnSurf.hxx".}
+
 

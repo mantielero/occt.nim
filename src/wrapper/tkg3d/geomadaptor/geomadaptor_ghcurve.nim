@@ -1,5 +1,7 @@
 import geomadaptor_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor3d/adaptor3d_types
+
+
 
 
 
@@ -33,6 +35,7 @@ proc getCurve*(this: var GeomAdaptorGHCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "GeomAdaptor_GHCurve.hxx".}
 proc changeCurve*(this: var GeomAdaptorGHCurve): var GeomAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve", header: "GeomAdaptor_GHCurve.hxx".}
+
 
 
 

@@ -1,6 +1,8 @@
 import ../../tkernel/tcollection/tcollection_types
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -42,3 +44,4 @@ proc destroy*(this: var InterfaceFileParameter) {.cdecl, importcpp: "Destroy",
     header: "Interface_FileParameter.hxx".}
 proc destroyInterfaceFileParameter*(this: var InterfaceFileParameter) {.cdecl,
     importcpp: "#.~Interface_FileParameter()", header: "Interface_FileParameter.hxx".}
+

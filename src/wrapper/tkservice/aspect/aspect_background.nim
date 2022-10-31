@@ -4,6 +4,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 1991-10-02
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc color*(this: AspectBackground): QuantityColor {.noSideEffect, cdecl,
 proc dumpJson*(this: AspectBackground; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_Background.hxx".}
+
 

@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-04-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc isExact*(this: IFSelectSelectSignature): bool {.noSideEffect, cdecl,
     importcpp: "IsExact", header: "IFSelect_SelectSignature.hxx".}
 proc extractLabel*(this: IFSelectSelectSignature): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectSignature.hxx".}
+
 

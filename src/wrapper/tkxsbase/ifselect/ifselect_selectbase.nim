@@ -2,6 +2,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,4 +26,5 @@ import ifselect_types
 
 proc fillIterator*(this: IFSelectSelectBase; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectBase.hxx".}
+
 

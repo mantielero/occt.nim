@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1996-08-27
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -72,4 +74,5 @@ proc tolCurveOnSurf*(this: AppBlendApprox; index: cint): cfloat {.noSideEffect, 
     importcpp: "TolCurveOnSurf", header: "AppBlend_Approx.hxx".}
 proc destroyAppBlendApprox*(this: var AppBlendApprox) {.cdecl,
     importcpp: "#.~AppBlend_Approx()", header: "AppBlend_Approx.hxx".}
+
 

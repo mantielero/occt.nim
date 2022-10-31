@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1998-01-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc matches*(this: IFSelectSignMultiple; ent: Handle[StandardTransient];
              model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
              exact: bool): bool {.noSideEffect, cdecl, importcpp: "Matches",
                                header: "IFSelect_SignMultiple.hxx".}
+
 

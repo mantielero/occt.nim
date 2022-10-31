@@ -5,6 +5,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-11-16
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc lastParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect, cdecl
     importcpp: "LastParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc parameter*(this: ChFiDS_FaceInterference; isFirst: bool): cfloat {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "ChFiDS_FaceInterference.hxx".}
+
 

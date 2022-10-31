@@ -1,9 +1,11 @@
 import prs3d_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -332,5 +334,6 @@ proc hasOwnHLRDeviationAngle*(this: Prs3dDrawer): bool {.noSideEffect, cdecl,
     importcpp: "HasOwnHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
 proc previousHLRDeviationAngle*(this: Prs3dDrawer): cfloat {.noSideEffect, cdecl,
     importcpp: "PreviousHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
+
 
 

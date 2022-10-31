@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -40,5 +42,6 @@ proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: cfloat) {.cdecl,
     importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
 #proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: StandardShortReal) {.cdecl,
 #    importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
+
 
 

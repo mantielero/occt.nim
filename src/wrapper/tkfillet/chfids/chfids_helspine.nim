@@ -3,6 +3,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,6 +35,7 @@ proc getCurve*(this: var ChFiDS_HElSpine): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "ChFiDS_HElSpine.hxx".}
 proc changeCurve*(this: var ChFiDS_HElSpine): var ChFiDS_ElSpine {.cdecl,
     importcpp: "ChangeCurve", header: "ChFiDS_HElSpine.hxx".}
+
 
 
 

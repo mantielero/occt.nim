@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -71,4 +73,5 @@ proc intersectVertices*(theVertices: TopToolsIndexedDataMapOfShapeReal;
 #proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var TrsfObj;
 #                 thePoint: PntObj = pnt(0.0, 0.0, 0.0); theCriteria: cfloat = 1.e+5): bool {.
 #    cdecl, importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", header: "BOPAlgo_Tools.hxx".}
+
 

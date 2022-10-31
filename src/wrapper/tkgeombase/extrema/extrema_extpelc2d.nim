@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1993-12-13
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -53,4 +55,5 @@ proc isMin*(this: ExtremaExtPElC2d; n: cint): bool {.noSideEffect, cdecl,
     importcpp: "IsMin", header: "Extrema_ExtPElC2d.hxx".}
 proc point*(this: ExtremaExtPElC2d; n: cint): ExtremaPOnCurv2d {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPElC2d.hxx".}
+
 

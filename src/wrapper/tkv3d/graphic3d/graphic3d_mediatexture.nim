@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -32,4 +34,5 @@ proc setFrame*(this: var Graphic3dMediaTexture; theFrame: Handle[MediaFrame]) {.
     importcpp: "SetFrame", header: "Graphic3d_MediaTexture.hxx".}
 proc generateNewId*(this: var Graphic3dMediaTexture) {.cdecl,
     importcpp: "GenerateNewId", header: "Graphic3d_MediaTexture.hxx".}
+
 

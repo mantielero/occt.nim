@@ -1,9 +1,11 @@
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
+import ../topopebrepds/topopebrepds_types
 import ../../tkbrep/topods/topods_types
-import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 
 
@@ -110,4 +112,5 @@ proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfSha
     importcpp: "TwoPiecesON", header: "TopOpeBRepBuild_Builder1.hxx".}
 proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): cint {.
     cdecl, importcpp: "CorrectResult2d", header: "TopOpeBRepBuild_Builder1.hxx".}
+
 

@@ -1,12 +1,14 @@
 import ../../tkbool/topopebrepbuild/topopebrepbuild_types
-import ../tkfillet/chfids/chfids_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import chfi3d_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -97,4 +99,5 @@ proc splitKPart*(this: var ChFi3dBuilder; data: Handle[ChFiDS_SurfData];
     header: "ChFi3d_Builder.hxx".}
 proc performTwoCornerbyInter*(this: var ChFi3dBuilder; index: cint): bool {.cdecl,
     importcpp: "PerformTwoCornerbyInter", header: "ChFi3d_Builder.hxx".}
+
 

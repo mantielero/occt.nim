@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2015-01-15
 ##  Created by: Danila ULYANOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -83,4 +85,5 @@ proc `==`*(this: Graphic3dBSDF; theOther: Graphic3dBSDF): bool {.noSideEffect, c
 proc dumpJson*(this: Graphic3dBSDF; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_BSDF.hxx".}
+
 

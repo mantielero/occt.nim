@@ -5,6 +5,8 @@ import stepcontrol_types
 
 
 
+
+
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -45,4 +47,5 @@ proc write*(this: var STEPControlWriter; filename: cstring): IFSelectReturnStatu
     cdecl, importcpp: "Write", header: "STEPControl_Writer.hxx".}
 proc printStatsTransfer*(this: STEPControlWriter; what: cint; mode: cint = 0) {.
     noSideEffect, cdecl, importcpp: "PrintStatsTransfer", header: "STEPControl_Writer.hxx".}
+
 

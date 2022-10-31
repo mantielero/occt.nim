@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1997-04-21
 ##  Created by: Prestataire Mary FABIEN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc processCurveInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processCurveInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.cdecl,
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
+
 

@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -51,4 +53,5 @@ proc value*(this: Graphic3dTextureSet; theIndex: cint): Handle[Graphic3dTextureM
 proc setValue*(this: var Graphic3dTextureSet; theIndex: cint;
               theTexture: Handle[Graphic3dTextureMap]) {.cdecl,
     importcpp: "SetValue", header: "Graphic3d_TextureSet.hxx".}
+
 

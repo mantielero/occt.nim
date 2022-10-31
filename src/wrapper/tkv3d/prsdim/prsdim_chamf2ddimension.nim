@@ -7,6 +7,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.
     noSideEffect, cdecl, importcpp: "KindOfDimension", header: "PrsDim_Chamf2dDimension.hxx".}
 proc isMovable*(this: PrsDimChamf2dDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_Chamf2dDimension.hxx".}
+
 

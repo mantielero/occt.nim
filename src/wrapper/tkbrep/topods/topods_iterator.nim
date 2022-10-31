@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1993-01-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc more*(this: TopoDS_Iterator): bool {.noSideEffect, cdecl, importcpp: "More"
 proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", header: "TopoDS_Iterator.hxx".}
 proc value*(this: TopoDS_Iterator): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Value", header: "TopoDS_Iterator.hxx".}
+
 

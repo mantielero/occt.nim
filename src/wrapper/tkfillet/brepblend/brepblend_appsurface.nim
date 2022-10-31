@@ -6,6 +6,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1996-11-25
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -84,4 +86,5 @@ proc tolCurveOnSurf*(this: BRepBlendAppSurface; index: cint): cfloat {.noSideEff
     cdecl, importcpp: "TolCurveOnSurf", header: "BRepBlend_AppSurface.hxx".}
 proc dump*(this: BRepBlendAppSurface; o: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "BRepBlend_AppSurface.hxx".}
+
 

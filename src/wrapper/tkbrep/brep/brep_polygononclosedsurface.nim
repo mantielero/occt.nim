@@ -6,6 +6,8 @@ import ../../tkmath/poly/poly_types
 
 
 
+
+
 ##  Created on: 1995-03-15
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc copy*(this: BRepPolygonOnClosedSurface): Handle[BRepCurveRepresentation] {.
 proc dumpJson*(this: BRepPolygonOnClosedSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_PolygonOnClosedSurface.hxx".}
+
 

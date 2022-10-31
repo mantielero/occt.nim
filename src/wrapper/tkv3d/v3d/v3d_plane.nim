@@ -1,6 +1,8 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import v3d_types
+
+
 
 
 
@@ -38,4 +40,5 @@ proc isDisplayed*(this: V3dPlane): bool {.noSideEffect, cdecl,
                                       importcpp: "IsDisplayed", header: "V3d_Plane.hxx".}
 proc clipPlane*(this: V3dPlane): Handle[Graphic3dClipPlane] {.noSideEffect, cdecl,
     importcpp: "ClipPlane", header: "V3d_Plane.hxx".}
+
 

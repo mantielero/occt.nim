@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -53,4 +55,5 @@ proc invalidate*(this: var Graphic3dAttribBuffer; theVertexLower: cint;
                 theVertexUpper: cint) {.cdecl, importcpp: "Invalidate", header: "Graphic3d_AttribBuffer.hxx".}
 proc invalidate*(this: var Graphic3dAttribBuffer; theRange: Graphic3dBufferRange) {.
     cdecl, importcpp: "invalidate", header: "Graphic3d_AttribBuffer.hxx".}
+
 

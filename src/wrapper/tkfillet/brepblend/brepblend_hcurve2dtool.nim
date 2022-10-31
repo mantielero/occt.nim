@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1995-07-17
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -77,4 +79,5 @@ proc bSpline*(c: Handle[Adaptor2dHCurve2d]): Handle[Geom2dBSplineCurve] {.cdecl,
     importcpp: "BRepBlend_HCurve2dTool::BSpline(@)", header: "BRepBlend_HCurve2dTool.hxx".}
 proc nbSamples*(c: Handle[Adaptor2dHCurve2d]; u0: cfloat; u1: cfloat): cint {.cdecl,
     importcpp: "BRepBlend_HCurve2dTool::NbSamples(@)", header: "BRepBlend_HCurve2dTool.hxx".}
+
 

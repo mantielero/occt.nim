@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 2012-12-06
 ##  Created by: Sergey KHROMOV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -37,4 +39,5 @@ proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: cint; theIndexV: cin
     cdecl, importcpp: "SetIndices", header: "Extrema_POnSurfParams.hxx".}
 proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var cint; theIndexV: var cint) {.
     noSideEffect, cdecl, importcpp: "GetIndices", header: "Extrema_POnSurfParams.hxx".}
+
 

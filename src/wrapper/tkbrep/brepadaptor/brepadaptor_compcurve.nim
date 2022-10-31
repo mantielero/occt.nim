@@ -1,11 +1,13 @@
 import ../../tkmath/gp/gp_types
+import ../topods/topods_types
 import brepadaptor_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -102,4 +104,5 @@ proc bezier*(this: BRepAdaptorCompCurve): Handle[GeomBezierCurve] {.noSideEffect
     cdecl, importcpp: "Bezier", header: "BRepAdaptor_CompCurve.hxx".}
 proc bSpline*(this: BRepAdaptorCompCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "BRepAdaptor_CompCurve.hxx".}
+
 

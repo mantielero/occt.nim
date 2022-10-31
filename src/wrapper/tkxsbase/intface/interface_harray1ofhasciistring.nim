@@ -1,6 +1,8 @@
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,3 +36,4 @@ proc newInterfaceHArray1OfHAsciiString*(theOther: InterfaceArray1OfHAsciiString)
     header: "Interface_HArray1OfHAsciiString.hxx".}
 proc array1*(this: InterfaceHArray1OfHAsciiString): InterfaceArray1OfHAsciiString {.
     noSideEffect, cdecl, importcpp: "Array1", header: "Interface_HArray1OfHAsciiString.hxx".}
+

@@ -2,9 +2,11 @@ import ../../tkmath/tcolgp/tcolgp_types
 import brepblend_types
 import ../../tkmath/math/math_types
 import ../../tkmath/gp/gp_types
+import ../blend/blend_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkfillet/blend/blend_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -81,4 +83,5 @@ proc point*(this: BRepBlendAppFuncRoot; `func`: BlendAppFunction; param: cfloat;
     importcpp: "Point", header: "BRepBlend_AppFuncRoot.hxx".}
 proc vec*(this: BRepBlendAppFuncRoot; sol: var MathVector; pnt: BlendPoint) {.
     noSideEffect, cdecl, importcpp: "Vec", header: "BRepBlend_AppFuncRoot.hxx".}
+
 

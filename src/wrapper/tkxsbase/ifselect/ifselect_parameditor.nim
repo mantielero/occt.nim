@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1998-07-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -48,4 +50,5 @@ proc apply*(this: IFSelectParamEditor; form: Handle[IFSelectEditForm];
 proc staticEditor*(list: Handle[TColStdHSequenceOfHAsciiString];
                   label: cstring = ""): Handle[IFSelectParamEditor] {.cdecl,
     importcpp: "IFSelect_ParamEditor::StaticEditor(@)", header: "IFSelect_ParamEditor.hxx".}
+
 

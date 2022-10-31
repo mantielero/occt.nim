@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1997-06-24
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -89,4 +91,5 @@ proc tolCurveOnSurf*(this: ApproxSweepApproximation; index: cint): cfloat {.
     noSideEffect, cdecl, importcpp: "TolCurveOnSurf", header: "Approx_SweepApproximation.hxx".}
 proc dump*(this: ApproxSweepApproximation; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "Approx_SweepApproximation.hxx".}
+
 

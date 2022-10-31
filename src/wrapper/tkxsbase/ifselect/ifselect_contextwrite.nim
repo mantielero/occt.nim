@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -74,4 +76,5 @@ proc cCheck*(this: var IFSelectContextWrite; start: Handle[StandardTransient]): 
     InterfaceCheck] {.cdecl, importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
 proc checkList*(this: IFSelectContextWrite): InterfaceCheckIterator {.noSideEffect,
     cdecl, importcpp: "CheckList", header: "IFSelect_ContextWrite.hxx".}
+
 

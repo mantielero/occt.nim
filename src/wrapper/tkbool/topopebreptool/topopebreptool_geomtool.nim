@@ -2,6 +2,8 @@ import topopebreptool_types
 
 
 
+
+
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -53,4 +55,5 @@ proc compPC1*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect, cdecl,
     importcpp: "CompPC1", header: "TopOpeBRepTool_GeomTool.hxx".}
 proc compPC2*(this: TopOpeBRepToolGeomTool): bool {.noSideEffect, cdecl,
     importcpp: "CompPC2", header: "TopOpeBRepTool_GeomTool.hxx".}
+
 

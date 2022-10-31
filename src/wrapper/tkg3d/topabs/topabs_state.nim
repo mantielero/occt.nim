@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -22,6 +24,7 @@
 ## ! The figure shown above illustrates the states of
 ## ! vertices found in various parts of the edge relative
 ## ! to the face which it intersects.
+
 
 
 

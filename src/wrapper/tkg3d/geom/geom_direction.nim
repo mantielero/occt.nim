@@ -6,6 +6,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -56,5 +58,6 @@ proc transform*(this: var GeomDirection; t: TrsfObj) {.cdecl, importcpp: "Transf
     header: "Geom_Direction.hxx".}
 proc copy*(this: GeomDirection): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Direction.hxx".}
+
 
 

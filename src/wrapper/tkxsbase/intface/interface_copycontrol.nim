@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-04-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -55,3 +57,4 @@ proc `bind`*(this: var InterfaceCopyControl; ent: Handle[StandardTransient];
 proc search*(this: InterfaceCopyControl; ent: Handle[StandardTransient];
             res: var Handle[StandardTransient]): bool {.noSideEffect, cdecl,
     importcpp: "Search", header: "Interface_CopyControl.hxx".}
+

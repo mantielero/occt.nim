@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -40,4 +42,5 @@ proc values*(this: var BlendFuncGenChamfInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_GenChamfInv.hxx".}
 proc set*(this: var BlendFuncGenChamfInv; dist1: cfloat; dist2: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_GenChamfInv.hxx".}
+
 

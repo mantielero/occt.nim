@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Copyright (c) 1999-2013 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -74,4 +76,5 @@ proc getTextPosition*(this: PrsDimLengthDimension): PntObj {.noSideEffect, cdecl
 proc setDirection*(this: var PrsDimLengthDimension; theDirection: DirObj;
                   theUseDirection: bool = true) {.cdecl, importcpp: "SetDirection",
     header: "PrsDim_LengthDimension.hxx".}
+
 

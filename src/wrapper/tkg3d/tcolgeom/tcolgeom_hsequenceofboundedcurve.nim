@@ -2,6 +2,13 @@ import tcolgeom_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+when defined(windows):
+  const tkg3d* = "TKG3d.dll"
+elif defined(macosx):
+  const tkg3d* = "libTKG3d.dylib"
+else:
+  const tkg3d* = "libTKG3d.so" 
+
 
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
@@ -36,5 +43,6 @@ proc append*(this: var TColGeomHSequenceOfBoundedCurve;
     importcpp: "Append", dynlib: tkg3d.}
 proc changeSequence*(this: var TColGeomHSequenceOfBoundedCurve): var TColGeomSequenceOfBoundedCurve {.
     cdecl, importcpp: "ChangeSequence", dynlib: tkg3d.}
+
 
 

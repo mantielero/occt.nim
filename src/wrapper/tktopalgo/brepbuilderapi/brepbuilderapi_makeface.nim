@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-07-12
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -93,4 +95,5 @@ proc face*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect, cdecl,
 converter `topoDS_Face`*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect,
     cdecl, importcpp: "BRepBuilderAPI_MakeFace::operator TopoDS_Face",
     header: "BRepBuilderAPI_MakeFace.hxx".}
+
 

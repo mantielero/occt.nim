@@ -5,6 +5,8 @@ import ../../tkmath/poly/poly_types
 
 
 
+
+
 ##  Created on: 1995-03-15
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc copy*(this: BRepPolygonOnTriangulation): Handle[BRepCurveRepresentation] {.
 proc dumpJson*(this: BRepPolygonOnTriangulation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_PolygonOnTriangulation.hxx".}
+
 

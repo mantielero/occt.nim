@@ -7,6 +7,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 1993-07-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect, 
     importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.cdecl,
     importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}
+
 

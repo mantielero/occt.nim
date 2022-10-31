@@ -8,6 +8,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 2015-06-18
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -133,4 +135,5 @@ proc dumpJson*(this: Graphic3dTransformPers; theOStream: var StandardOStream;
 #             theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
 #             theViewportWidth: cint; theViewportHeight: cint): NCollectionMat4[T] {.
 #    noSideEffect, cdecl, importcpp: "Compute", header: "Graphic3d_TransformPers.hxx".}
+
 

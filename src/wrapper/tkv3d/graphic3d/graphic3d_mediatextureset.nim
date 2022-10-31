@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -47,4 +49,5 @@ proc duration*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect, cdecl,
     importcpp: "Duration", header: "Graphic3d_MediaTextureSet.hxx".}
 proc progress*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect, cdecl,
     importcpp: "Progress", header: "Graphic3d_MediaTextureSet.hxx".}
+
 

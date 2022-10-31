@@ -1,11 +1,13 @@
+import ../selectmgr/selectmgr_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
 import ../../tkernel/quantity/quantity_types
-import ../tkv3d/selectmgr/selectmgr_types
 import ../../tkg3d/geom/geom_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 
 
@@ -104,5 +106,6 @@ proc hilightOwnerWithColor*(this: var AIS_Trihedron;
                            theStyle: Handle[Prs3dDrawer];
                            theOwner: Handle[SelectMgrEntityOwner]) {.cdecl,
     importcpp: "HilightOwnerWithColor", header: "AIS_Trihedron.hxx".}
+
 
 

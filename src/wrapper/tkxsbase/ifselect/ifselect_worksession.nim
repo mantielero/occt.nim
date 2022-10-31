@@ -6,6 +6,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1992-12-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -436,4 +438,5 @@ proc evaluateComplete*(this: IFSelectWorkSession; mode: cint = 0) {.noSideEffect
 proc listEntities*(this: IFSelectWorkSession; iter: InterfaceEntityIterator;
                   mode: cint; s: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "ListEntities", header: "IFSelect_WorkSession.hxx".}
+
 

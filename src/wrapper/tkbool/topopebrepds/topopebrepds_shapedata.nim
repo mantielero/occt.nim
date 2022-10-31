@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, cdecl,
     importcpp: "Keep", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_ShapeData.hxx".}
+
 

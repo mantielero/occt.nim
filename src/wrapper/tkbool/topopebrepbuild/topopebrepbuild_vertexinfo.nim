@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -60,4 +62,5 @@ proc listPassed*(this: TopOpeBRepBuildVertexInfo): TopToolsListOfShape {.
     noSideEffect, cdecl, importcpp: "ListPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc prepare*(this: var TopOpeBRepBuildVertexInfo; aL: TopToolsListOfShape) {.cdecl,
     importcpp: "Prepare", header: "TopOpeBRepBuild_VertexInfo.hxx".}
+
 

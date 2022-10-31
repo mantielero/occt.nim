@@ -6,6 +6,8 @@ import ../../tkmath/geomabs/geomabs_types
 import ../../tkg2d/geom2d/geom2d_types
 
 
+
+
 ##  Created on: 1998-10-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -61,3 +63,4 @@ proc fUN_toolNCinsideS*(tgC: DirObj; ngS: DirObj): DirObj {.cdecl,
     importcpp: "FUN_tool_nCinsideS(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
 proc fUN_toolNC2dINSIDES*(tgC2d: Dir2dObj): Dir2dObj {.cdecl,
     importcpp: "FUN_tool_nC2dINSIDES(@)", header: "TopOpeBRepTool_GEOMETRY.hxx".}
+

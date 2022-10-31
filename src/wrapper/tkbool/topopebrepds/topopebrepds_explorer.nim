@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-01-05
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1999 Matra Datavision
@@ -48,4 +50,5 @@ proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
 proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}
+
 

@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1993-06-10
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc getTypedResult*(bnd: Handle[TransferBinder]; atype: Handle[StandardType];
                     res: var Handle[StandardTransient]): bool {.cdecl,
     importcpp: "Transfer_SimpleBinderOfTransient::GetTypedResult(@)",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
+
 

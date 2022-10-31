@@ -1,9 +1,11 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../prs3d/prs3d_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/quantity/quantity_types
-import ../tkv3d/prs3d/prs3d_types
+
+
 
 
 
@@ -49,4 +51,5 @@ proc getInteriorColor*(aDrawer: Handle[Prs3dDrawer]; aColor: var QuantityColor) 
     cdecl, importcpp: "AIS_GraphicTool::GetInteriorColor(@)", header: "AIS_GraphicTool.hxx".}
 proc getMaterial*(aDrawer: Handle[Prs3dDrawer]): Graphic3dMaterialAspect {.cdecl,
     importcpp: "AIS_GraphicTool::GetMaterial(@)", header: "AIS_GraphicTool.hxx".}
+
 

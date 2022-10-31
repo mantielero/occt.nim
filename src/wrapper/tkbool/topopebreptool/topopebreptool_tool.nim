@@ -9,6 +9,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1998-11-26
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -149,4 +151,5 @@ proc wireToFace*(fref: TopoDS_Face; mapWlow: TopToolsDataMapOfShapeListOfShape;
 proc edgeONFace*(par: cfloat; ed: TopoDS_Edge; uv: Pnt2dObj; fa: TopoDS_Face;
                 isonfa: var bool): bool {.cdecl, importcpp: "TopOpeBRepTool_TOOL::EdgeONFace(@)",
                                       header: "TopOpeBRepTool_TOOL.hxx".}
+
 

@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-12-09
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc isFaulty*(this: TopOpeBRepToolConnexity): bool {.noSideEffect, cdecl,
     importcpp: "IsFaulty", header: "TopOpeBRepTool_connexity.hxx".}
 proc isInternal*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
     noSideEffect, cdecl, importcpp: "IsInternal", header: "TopOpeBRepTool_connexity.hxx".}
+
 

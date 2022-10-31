@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc array2*(this: ExtremaHArray2OfPOnCurv2d): ExtremaArray2OfPOnCurv2d {.
     noSideEffect, cdecl, importcpp: "Array2", header: "Extrema_HArray2OfPOnCurv2d.hxx".}
 proc changeArray2*(this: var ExtremaHArray2OfPOnCurv2d): var ExtremaArray2OfPOnCurv2d {.
     cdecl, importcpp: "ChangeArray2", header: "Extrema_HArray2OfPOnCurv2d.hxx".}
+
 

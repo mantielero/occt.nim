@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc remove*(this: var IFSelectSelectCombine; num: cint): bool {.cdecl,
     importcpp: "Remove", header: "IFSelect_SelectCombine.hxx".}
 proc fillIterator*(this: IFSelectSelectCombine; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectCombine.hxx".}
+
 

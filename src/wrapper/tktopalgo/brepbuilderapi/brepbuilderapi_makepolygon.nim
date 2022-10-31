@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-29
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -71,4 +73,5 @@ proc wire*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
 converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
     importcpp: "BRepBuilderAPI_MakePolygon::operator TopoDS_Wire",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
+
 

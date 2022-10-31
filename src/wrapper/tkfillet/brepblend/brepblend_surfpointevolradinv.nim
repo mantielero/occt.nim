@@ -7,6 +7,8 @@ import ../../tkgeomalgo/law/law_types
 
 
 
+
+
 ##  Created on: 1997-07-29
 ##  Created by: Jerome LEMONIER
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc getBounds*(this: BRepBlendSurfPointEvolRadInv; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
 proc isSolution*(this: var BRepBlendSurfPointEvolRadInv; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfPointEvolRadInv.hxx".}
+
 

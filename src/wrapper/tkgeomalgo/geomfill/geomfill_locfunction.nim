@@ -3,6 +3,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-02-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc d2*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cflo
 proc dn*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat;
         order: cint; result: var cfloat; ier: var cint) {.cdecl, importcpp: "DN",
     header: "GeomFill_LocFunction.hxx".}
+
 

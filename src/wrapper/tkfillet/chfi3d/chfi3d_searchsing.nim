@@ -4,6 +4,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1997-03-28
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc derivative*(this: var ChFi3dSearchSing; x: cfloat; d: var cfloat): bool {.c
     importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
 proc values*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     cdecl, importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}
+
 

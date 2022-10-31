@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc operator*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeHypr2d.hxx".}
 converter `hypr2d`*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", header: "gce_MakeHypr2d.hxx".}
+
 

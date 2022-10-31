@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -42,6 +44,7 @@
 ## ! - EDGE: A single dimensional shape corresponding
 ## ! to a curve, and bound by a vertex at each extremity.
 ## ! - VERTEX: A zero-dimensional shape corresponding to a point in geometry.
+
 
 
 

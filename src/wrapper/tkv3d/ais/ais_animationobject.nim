@@ -5,6 +5,8 @@ import ais_types
 
 
 
+
+
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -28,5 +30,6 @@ proc newAIS_AnimationObject*(theAnimationName: TCollectionAsciiString;
                             theObject: Handle[AIS_InteractiveObject];
                             theTrsfStart: TrsfObj; theTrsfEnd: TrsfObj): AIS_AnimationObject {.
     cdecl, constructor, importcpp: "AIS_AnimationObject(@)", header: "AIS_AnimationObject.hxx".}
+
 
 

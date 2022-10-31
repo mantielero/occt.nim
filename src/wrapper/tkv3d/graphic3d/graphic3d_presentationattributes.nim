@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 2016-08-24
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -64,5 +66,6 @@ proc setBasicFillAreaAspect*(this: var Graphic3dPresentationAttributes;
 proc dumpJson*(this: Graphic3dPresentationAttributes;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "Graphic3d_PresentationAttributes.hxx".}
+
 
 

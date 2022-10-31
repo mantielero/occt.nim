@@ -1,6 +1,8 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -61,4 +63,5 @@ proc isValid*(this: var BRepAlgoAPI_Check): bool {.cdecl, importcpp: "IsValid",
     header: "BRepAlgoAPI_Check.hxx".}
 proc result*(this: var BRepAlgoAPI_Check): BOPAlgoListOfCheckResult {.cdecl,
     importcpp: "Result", header: "BRepAlgoAPI_Check.hxx".}
+
 

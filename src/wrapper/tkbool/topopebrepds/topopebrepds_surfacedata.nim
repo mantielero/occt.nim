@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -24,4 +26,5 @@ proc newTopOpeBRepDS_SurfaceData*(): TopOpeBRepDS_SurfaceData {.cdecl, construct
     importcpp: "TopOpeBRepDS_SurfaceData(@)", header: "TopOpeBRepDS_SurfaceData.hxx".}
 proc newTopOpeBRepDS_SurfaceData*(s: TopOpeBRepDS_Surface): TopOpeBRepDS_SurfaceData {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_SurfaceData(@)", header: "TopOpeBRepDS_SurfaceData.hxx".}
+
 

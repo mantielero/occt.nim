@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc newBRepPrimTorus*(center: PntObj; major: cfloat; minor: cfloat): BRepPrimTo
     cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}
+
 

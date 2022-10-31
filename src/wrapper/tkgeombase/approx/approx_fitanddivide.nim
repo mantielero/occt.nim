@@ -1,6 +1,8 @@
-import ../tkgeombase/appcont/appcont_types
-import ../tkgeombase/appparcurves/appparcurves_types
+import ../appparcurves/appparcurves_types
 import approx_types
+import ../appcont/appcont_types
+
+
 
 
 
@@ -61,4 +63,5 @@ proc value*(this: ApproxFitAndDivide; index: cint = 1): AppParCurvesMultiCurve {
 proc parameters*(this: ApproxFitAndDivide; index: cint; firstp: var cfloat;
                 lastp: var cfloat) {.noSideEffect, cdecl, importcpp: "Parameters",
                                   header: "Approx_FitAndDivide.hxx".}
+
 

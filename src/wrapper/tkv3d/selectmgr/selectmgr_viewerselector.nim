@@ -7,6 +7,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 1995-02-15
 ##  Created by: Roberc Coublanc
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -157,5 +159,6 @@ proc waitForBVHBuild*(this: var SelectMgrViewerSelector) {.cdecl,
     importcpp: "WaitForBVHBuild", header: "SelectMgr_ViewerSelector.hxx".}
 proc toPrebuildBVH*(this: SelectMgrViewerSelector): bool {.noSideEffect, cdecl,
     importcpp: "ToPrebuildBVH", header: "SelectMgr_ViewerSelector.hxx".}
+
 
 

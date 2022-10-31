@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -65,4 +67,5 @@ proc packetContent*(this: var IFSelectShareOutResult): InterfaceEntityIterator {
     cdecl, importcpp: "PacketContent", header: "IFSelect_ShareOutResult.hxx".}
 proc fileName*(this: IFSelectShareOutResult): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "FileName", header: "IFSelect_ShareOutResult.hxx".}
+
 

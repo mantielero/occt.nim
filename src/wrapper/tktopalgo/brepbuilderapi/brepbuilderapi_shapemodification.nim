@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,6 +27,7 @@
 ## ! each API function. The MakeShape class then uses this
 ## ! to determine what has happened to the shapes which
 ## ! constitute the list of operands.
+
 
 
 

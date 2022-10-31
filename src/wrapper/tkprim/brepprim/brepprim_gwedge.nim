@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1991-09-18
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -89,4 +91,5 @@ proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirecti
            d3: BRepPrimDirection): PntObj {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
 proc isDegeneratedShape*(this: var BRepPrimGWedge): bool {.cdecl,
     importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}
+
 

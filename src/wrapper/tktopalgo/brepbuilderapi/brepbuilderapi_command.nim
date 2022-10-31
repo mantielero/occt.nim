@@ -2,6 +2,8 @@ import brepbuilderapi_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -26,4 +28,5 @@ proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "BRepBuilderAPI_Command.hxx".}
 proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, cdecl, importcpp: "Check",
     header: "BRepBuilderAPI_Command.hxx".}
+
 

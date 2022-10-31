@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 2014-08-15
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -50,4 +52,5 @@ proc getSensitiveById*(this: SelectMgrSensitiveEntitySet; theIndex: cint): Handl
                                header: "SelectMgr_SensitiveEntitySet.hxx".}
 proc sensitives*(this: SelectMgrSensitiveEntitySet): SelectMgrIndexedMapOfHSensitive {.
     noSideEffect, cdecl, importcpp: "Sensitives", header: "SelectMgr_SensitiveEntitySet.hxx".}
+
 

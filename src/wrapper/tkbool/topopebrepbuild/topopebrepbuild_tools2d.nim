@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999 Matra Datavision
@@ -30,4 +32,5 @@ proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexI
     header: "TopOpeBRepBuild_Tools2d.hxx".}
 proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools2d::Path(@)", header: "TopOpeBRepBuild_Tools2d.hxx".}
+
 

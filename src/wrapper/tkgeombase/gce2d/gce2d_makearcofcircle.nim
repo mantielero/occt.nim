@@ -5,6 +5,8 @@ import gce2d_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc value*(this: GCE2dMakeArcOfCircle): Handle[Geom2dTrimmedCurve] {.noSideEffe
 converter `constopencascade`*(this: GCE2dMakeArcOfCircle): Handle[
     Geom2dTrimmedCurve] {.noSideEffect, cdecl, importcpp: "GCE2d_MakeArcOfCircle::operator constopencascade",
                          header: "GCE2d_MakeArcOfCircle.hxx".}
+
 

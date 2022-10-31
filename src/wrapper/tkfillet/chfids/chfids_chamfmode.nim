@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -16,6 +18,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! this enumeration defines several modes of chamfer
+
 
 
 

@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -190,4 +192,5 @@ proc getAllParts*(this: BOPAlgoCellsBuilder): TopoDS_Shape {.noSideEffect, cdecl
     importcpp: "GetAllParts", header: "BOPAlgo_CellsBuilder.hxx".}
 proc makeContainers*(this: var BOPAlgoCellsBuilder) {.cdecl,
     importcpp: "MakeContainers", header: "BOPAlgo_CellsBuilder.hxx".}
+
 

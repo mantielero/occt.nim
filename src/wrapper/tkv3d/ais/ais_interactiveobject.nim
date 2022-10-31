@@ -1,9 +1,11 @@
-import ../tkv3d/graphic3d/graphic3d_types
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
 import ais_types
-import ../tkv3d/selectmgr/selectmgr_types
-import ../tkv3d/v3d/v3d_types
-import ../tkv3d/prs3d/prs3d_types
+import ../prs3d/prs3d_types
+import ../v3d/v3d_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -65,5 +67,6 @@ proc setAspect*(this: var AIS_InteractiveObject; anAspect: Handle[Prs3dBasicAspe
 proc dumpJson*(this: AIS_InteractiveObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "AIS_InteractiveObject.hxx".}
+
 
 

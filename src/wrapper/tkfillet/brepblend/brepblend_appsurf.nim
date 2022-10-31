@@ -1,10 +1,12 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import brepblend_types
 import ../../tkgeombase/approx/approx_types
+import ../blend/blend_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkfillet/blend/blend_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -120,5 +122,6 @@ proc tolCurveOnSurf*(this: BRepBlendAppSurf; index: cint): cfloat {.noSideEffect
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+
 
 

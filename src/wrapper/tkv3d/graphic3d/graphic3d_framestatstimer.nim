@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -20,5 +22,6 @@
 
 const
   graphic3dFrameStatsTimerNB* = graphic3dFrameStatsTimerCpuDynamics.int + 1
+
 
 

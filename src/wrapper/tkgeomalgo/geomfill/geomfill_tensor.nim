@@ -3,6 +3,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc `()`*(this: var GeomFillTensor; row: cint; col: cint; mat: cint): var cfloa
     importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
 proc multiply*(this: GeomFillTensor; right: MathVector; product: var MathMatrix) {.
     noSideEffect, cdecl, importcpp: "Multiply", header: "GeomFill_Tensor.hxx".}
+
 

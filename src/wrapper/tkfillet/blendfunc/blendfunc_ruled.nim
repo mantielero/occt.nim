@@ -1,12 +1,14 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import ../../tkmath/math/math_types
 import ../../tkmath/gp/gp_types
+import ../blend/blend_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkfillet/blend/blend_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -112,4 +114,5 @@ proc axeRot*(this: var BlendFuncRuled; prm: cfloat): Ax1Obj {.cdecl, importcpp: 
 proc resolution*(this: BlendFuncRuled; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",
                                  header: "BlendFunc_Ruled.hxx".}
+
 

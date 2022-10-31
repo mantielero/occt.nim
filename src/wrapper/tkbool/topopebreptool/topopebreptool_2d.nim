@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 import ../../tkg2d/geom2d/geom2d_types
 
 
+
+
 ##  Created on: 1998-03-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -58,3 +60,4 @@ proc fC2D_EditableCurveOnSurface*(e: TopoDS_Edge; f: TopoDS_Face; f1: var cfloat
 proc fC2D_AddNewCurveOnSurface*(pc: Handle[Geom2dCurve]; e: TopoDS_Edge;
                                f: TopoDS_Face; f1: cfloat; l: cfloat; tol: cfloat): cint {.
     cdecl, importcpp: "FC2D_AddNewCurveOnSurface(@)", header: "TopOpeBRepTool_2d.hxx".}
+

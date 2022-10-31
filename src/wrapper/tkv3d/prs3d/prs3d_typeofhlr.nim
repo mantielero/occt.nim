@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -23,6 +25,7 @@
 ## ! TOH_NotSet is used by Prs3d_Drawer class, it means that the drawer should return the global value.
 ## ! For more details see Prs3d_Drawer class, AIS_Shape::Compute() method and
 ## ! HLRAlgo package from TKHLR toolkit.
+
 
 
 

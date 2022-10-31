@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1993-10-06
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
     importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
 proc surface*(this: GeomFillBSplineCurves): Handle[GeomBSplineSurface] {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomFill_BSplineCurves.hxx".}
+
 

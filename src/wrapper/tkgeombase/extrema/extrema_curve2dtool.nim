@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -83,4 +85,5 @@ proc bezier*(c: Adaptor2dCurve2d): Handle[Geom2dBezierCurve] {.cdecl,
     importcpp: "Extrema_Curve2dTool::Bezier(@)", header: "Extrema_Curve2dTool.hxx".}
 proc bSpline*(c: Adaptor2dCurve2d): Handle[Geom2dBSplineCurve] {.cdecl,
     importcpp: "Extrema_Curve2dTool::BSpline(@)", header: "Extrema_Curve2dTool.hxx".}
+
 

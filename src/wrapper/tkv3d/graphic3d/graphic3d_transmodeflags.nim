@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2004-10-29
 ##  Created by: Alexander BORODIN
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -20,6 +22,7 @@
 
 const
   graphic3dTMF_ZoomRotatePers = (graphic3dTMF_ZoomPers.int or graphic3dTMF_RotatePers.int).Graphic3dTransModeFlags
+
 
 
 

@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1994-02-18
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -49,4 +51,5 @@ proc section*(this: GeomFillSectionGenerator; p: cint; poles: var TColgpArray1Of
     noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
 proc parameter*(this: GeomFillSectionGenerator; p: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "GeomFill_SectionGenerator.hxx".}
+
 

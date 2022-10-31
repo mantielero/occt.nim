@@ -1,7 +1,9 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import selectmgr_types
+
+
 
 
 
@@ -24,4 +26,5 @@ proc computeSensitivePrs*(theStructure: Handle[Graphic3dStructure];
                          theSel: Handle[SelectMgrSelection]; theLoc: TrsfObj;
                          theTrsfPers: Handle[Graphic3dTransformPers]) {.cdecl,
     importcpp: "SelectMgr::ComputeSensitivePrs(@)", header: "SelectMgr.hxx".}
+
 

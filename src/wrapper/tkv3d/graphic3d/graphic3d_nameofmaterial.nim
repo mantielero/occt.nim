@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -47,6 +49,7 @@ const
   Graphic3dNOM_TRANSPARENT = graphic3dNameOfMaterialTransparent
   Graphic3dNOM_DEFAULT = graphic3dNameOfMaterialDEFAULT
   Graphic3dNOM_UserDefined = graphic3dNameOfMaterialUserDefined
+
 
 
 

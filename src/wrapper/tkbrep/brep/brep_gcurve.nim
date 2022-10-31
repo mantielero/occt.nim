@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc d0*(this: BRepGCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, impo
 proc update*(this: var BRepGCurve) {.cdecl, importcpp: "Update", header: "BRep_GCurve.hxx".}
 proc dumpJson*(this: BRepGCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_GCurve.hxx".}
+
 

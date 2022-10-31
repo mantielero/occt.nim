@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -42,4 +44,5 @@ proc setAvoidInternalShapes*(this: var BOPAlgoMakerVolume; theAvoidInternal: boo
 proc isAvoidInternalShapes*(this: BOPAlgoMakerVolume): bool {.noSideEffect, cdecl,
     importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
 proc perform*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Perform", header: "BOPAlgo_MakerVolume.hxx".}
+
 

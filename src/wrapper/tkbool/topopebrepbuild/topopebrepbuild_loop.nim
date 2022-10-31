@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-19
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
     noSideEffect, cdecl, importcpp: "BlockIterator", header: "TopOpeBRepBuild_Loop.hxx".}
 proc dump*(this: TopOpeBRepBuildLoop) {.noSideEffect, cdecl, importcpp: "Dump",
                                      header: "TopOpeBRepBuild_Loop.hxx".}
+
 

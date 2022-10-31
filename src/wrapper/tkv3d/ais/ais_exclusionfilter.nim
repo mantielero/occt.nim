@@ -1,7 +1,9 @@
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
 import ais_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 
 
@@ -56,4 +58,5 @@ proc listOfStoredTypes*(this: AIS_ExclusionFilter;
 proc listOfSignature*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive;
                      theStoredList: var TColStdListOfInteger) {.noSideEffect, cdecl,
     importcpp: "ListOfSignature", header: "AIS_ExclusionFilter.hxx".}
+
 

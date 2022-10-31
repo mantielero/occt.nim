@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -60,3 +62,4 @@ proc warningCheckList*(this: var InterfaceCheckTool): InterfaceCheckIterator {.c
     importcpp: "WarningCheckList", header: "Interface_CheckTool.hxx".}
 proc unknownEntities*(this: var InterfaceCheckTool): InterfaceEntityIterator {.cdecl,
     importcpp: "UnknownEntities", header: "Interface_CheckTool.hxx".}
+

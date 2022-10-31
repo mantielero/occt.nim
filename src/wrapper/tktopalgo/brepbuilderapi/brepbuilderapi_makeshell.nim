@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1994-02-16
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -43,4 +45,5 @@ converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, cdecl,
     importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
     header: "BRepBuilderAPI_MakeShell.hxx".}
+
 

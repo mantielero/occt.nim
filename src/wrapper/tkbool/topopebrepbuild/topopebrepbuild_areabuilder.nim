@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -60,4 +62,5 @@ proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
                                  lol2: var TopOpeBRepBuildListOfLoop;
                                  s: pointer = nil; s1: pointer = nil; s2: pointer = nil) {.
     noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+
 

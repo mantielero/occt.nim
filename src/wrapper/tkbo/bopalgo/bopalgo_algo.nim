@@ -12,6 +12,8 @@ import bopalgo_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -34,6 +36,7 @@ import bopalgo_types
 
 
 proc perform*(this: var BOPAlgoAlgo) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Algo.hxx".}
+
 
 
 

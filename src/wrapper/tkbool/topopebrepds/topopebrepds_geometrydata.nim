@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1994-05-26
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS
 proc addInterference*(this: var TopOpeBRepDS_GeometryData;
                      i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
     importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}
+
 

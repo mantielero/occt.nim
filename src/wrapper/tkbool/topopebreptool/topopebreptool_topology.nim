@@ -9,6 +9,8 @@ import ../../tkmath/geomabs/geomabs_types
 import ../../tkg2d/geom2d/geom2d_types
 
 
+
+
 ##  Created on: 1998-10-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -236,3 +238,4 @@ proc fUN_dsParameter*(e: TopoDS_Shape; v: TopoDS_Shape; p: cfloat) {.cdecl,
     importcpp: "FUN_ds_Parameter(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
 proc fUN_toolMakeWire*(loE: TopToolsListOfShape; newW: var TopoDS_Wire): bool {.cdecl,
     importcpp: "FUN_tool_MakeWire(@)", header: "TopOpeBRepTool_TOPOLOGY.hxx".}
+

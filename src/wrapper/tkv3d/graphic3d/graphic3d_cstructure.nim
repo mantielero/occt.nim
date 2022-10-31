@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -93,5 +95,6 @@ proc updateLayerTransformation*(this: var Graphic3dCStructure) {.cdecl,
 proc dumpJson*(this: Graphic3dCStructure; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CStructure.hxx".}
+
 
 

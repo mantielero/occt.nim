@@ -4,6 +4,8 @@ import stepcontrol_types
 
 
 
+
+
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc fileUnits*(this: var STEPControlReader;
                theUnitAngleNames: var TColStdSequenceOfAsciiString;
                theUnitSolidAngleNames: var TColStdSequenceOfAsciiString) {.cdecl,
     importcpp: "FileUnits", header: "STEPControl_Reader.hxx".}
+
 

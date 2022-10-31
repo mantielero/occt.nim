@@ -5,6 +5,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrien
     noSideEffect, cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
     cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}
+
 

@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-01-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -56,4 +58,5 @@ proc setDumpHelp*(this: var IFSelectWorkLibrary; level: cint; help: cstring) {.c
     importcpp: "SetDumpHelp", header: "IFSelect_WorkLibrary.hxx".}
 proc dumpHelp*(this: IFSelectWorkLibrary; level: cint): cstring {.noSideEffect, cdecl,
     importcpp: "DumpHelp", header: "IFSelect_WorkLibrary.hxx".}
+
 

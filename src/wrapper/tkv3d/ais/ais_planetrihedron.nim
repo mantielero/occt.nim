@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-13
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -52,5 +54,6 @@ proc setXLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) 
     cdecl, importcpp: "SetXLabel", header: "AIS_PlaneTrihedron.hxx".}
 proc setYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) {.
     cdecl, importcpp: "SetYLabel", header: "AIS_PlaneTrihedron.hxx".}
+
 
 

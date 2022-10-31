@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-08-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -83,4 +85,5 @@ proc addSentFile*(this: var IFSelectModelCopier; filename: cstring) {.cdecl,
     importcpp: "AddSentFile", header: "IFSelect_ModelCopier.hxx".}
 proc sentFiles*(this: IFSelectModelCopier): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, cdecl, importcpp: "SentFiles", header: "IFSelect_ModelCopier.hxx".}
+
 

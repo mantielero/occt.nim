@@ -4,6 +4,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -54,4 +56,5 @@ proc destroyBOPAlgoSplitter*(this: var BOPAlgoSplitter) {.cdecl,
 proc newBOPAlgoSplitter*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSplitter {.
     cdecl, constructor, importcpp: "BOPAlgo_Splitter(@)", header: "BOPAlgo_Splitter.hxx".}
 proc perform*(this: var BOPAlgoSplitter) {.cdecl, importcpp: "Perform", header: "BOPAlgo_Splitter.hxx".}
+
 

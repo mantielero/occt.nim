@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,6 +17,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Mouse gesture - only one can be active at one moment.
+
 
 
 

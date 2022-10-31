@@ -5,6 +5,8 @@ import appparcurves_types
 
 
 
+
+
 ##  Created on: 1993-09-20
 ##  Created by: Modelistation
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -64,4 +66,5 @@ proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2
                                   header: "AppParCurves_MultiBSpCurve.hxx".}
 proc dump*(this: AppParCurvesMultiBSpCurve; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "AppParCurves_MultiBSpCurve.hxx".}
+
 

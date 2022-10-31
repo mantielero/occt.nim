@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-09-01
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc operator*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeMirror2d.hxx".}
 converter `trsf2d`*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror2d::operator gp_Trsf2d", header: "gce_MakeMirror2d.hxx".}
+
 

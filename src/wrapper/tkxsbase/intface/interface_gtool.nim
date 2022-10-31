@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1998-01-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -59,3 +61,4 @@ proc clearEntities*(this: var InterfaceGTool) {.cdecl, importcpp: "ClearEntities
 proc select*(this: var InterfaceGTool; ent: Handle[StandardTransient];
             gmod: var Handle[InterfaceGeneralModule]; cn: var cint;
             enforce: bool = false): bool {.cdecl, importcpp: "Select", header: "Interface_GTool.hxx".}
+

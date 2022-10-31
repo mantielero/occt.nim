@@ -1,6 +1,8 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import selectmgr_types
+
+
 
 
 
@@ -86,4 +88,5 @@ proc bvh*(this: SelectMgrSelectableObjectSet;
 proc dumpJson*(this: SelectMgrSelectableObjectSet; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_SelectableObjectSet.hxx".}
+
 

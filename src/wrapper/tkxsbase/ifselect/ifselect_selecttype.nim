@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc typeForMatch*(this: IFSelectSelectType): Handle[StandardType] {.noSideEffec
     cdecl, importcpp: "TypeForMatch", header: "IFSelect_SelectType.hxx".}
 proc extractLabel*(this: IFSelectSelectType): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectType.hxx".}
+
 

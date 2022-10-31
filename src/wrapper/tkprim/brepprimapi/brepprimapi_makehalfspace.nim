@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1995-03-08
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect, cdecl
 converter `topoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
     noSideEffect, cdecl,
     importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+
 

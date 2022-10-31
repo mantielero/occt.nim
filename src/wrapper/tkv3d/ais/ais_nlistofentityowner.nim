@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2003-05-04
 ##  Created by: Alexander Grigoriev (a-grigoriev@opencascade.com)
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -15,6 +17,7 @@
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 
 

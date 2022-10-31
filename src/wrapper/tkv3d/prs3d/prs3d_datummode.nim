@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,6 +17,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Enumeration defining a mode of datum graphic presentation, see Prs3d_Datum.
+
 
 
 

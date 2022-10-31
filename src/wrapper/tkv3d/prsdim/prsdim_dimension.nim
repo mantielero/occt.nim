@@ -1,9 +1,11 @@
 import prsdim_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
-import ../tkv3d/ais/ais_types
+import ../ais/ais_types
 import ../../tkernel/standard/standard_types
-import ../tkv3d/prs3d/prs3d_types
+import ../prs3d/prs3d_types
+
+
 
 
 
@@ -97,4 +99,5 @@ proc setFlyout*(this: var PrsDimDimension; theFlyout: cfloat) {.cdecl,
     importcpp: "SetFlyout", header: "PrsDim_Dimension.hxx".}
 proc isValid*(this: PrsDimDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsValid", header: "PrsDim_Dimension.hxx".}
+
 

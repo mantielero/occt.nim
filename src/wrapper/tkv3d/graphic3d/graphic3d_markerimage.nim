@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 2013-06-25
 ##  Created by: Dmitry BOBYLEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -41,5 +43,6 @@ proc getImageAlphaId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.
 proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var cint;
                     theHeight: var cint) {.noSideEffect, cdecl,
                                         importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
+
 
 

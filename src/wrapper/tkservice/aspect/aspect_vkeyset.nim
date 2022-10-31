@@ -2,6 +2,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -49,4 +51,5 @@ proc holdDuration*(this: var AspectVKeySet; theKey: AspectVKey; theTime: cdouble
 proc holdDuration*(this: var AspectVKeySet; theKey: AspectVKey; theTime: cdouble;
                   theDuration: var cdouble; thePressure: var cdouble): bool {.cdecl,
     importcpp: "HoldDuration", header: "Aspect_VKeySet.hxx".}
+
 

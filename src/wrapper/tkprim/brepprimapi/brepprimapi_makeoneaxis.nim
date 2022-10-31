@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc solid*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
     importcpp: "Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}
+
 

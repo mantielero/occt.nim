@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1994-10-28
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -26,4 +28,5 @@ proc newTopOpeBRepDS_FaceEdgeInterference*(t: TopOpeBRepDS_Transition; s: cint;
     g: cint; gIsBound: bool; c: TopOpeBRepDS_Config): TopOpeBRepDS_FaceEdgeInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_FaceEdgeInterference(@)",
     header: "TopOpeBRepDS_FaceEdgeInterference.hxx".}
+
 

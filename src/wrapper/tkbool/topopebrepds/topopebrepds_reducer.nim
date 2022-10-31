@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Copyright (c) 1997-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -26,4 +28,5 @@ proc processFaceInterferences*(this: var TopOpeBRepDS_Reducer;
     cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_Reducer) {.cdecl,
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_Reducer.hxx".}
+
 

@@ -7,6 +7,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 2013-07-12
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -143,5 +145,6 @@ proc mCountEquation*(this: Graphic3dClipPlane): cuint {.noSideEffect, cdecl,
     importcpp: "MCountEquation", header: "Graphic3d_ClipPlane.hxx".}
 proc mCountAspect*(this: Graphic3dClipPlane): cuint {.noSideEffect, cdecl,
     importcpp: "MCountAspect", header: "Graphic3d_ClipPlane.hxx".}
+
 
 

@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc inputResult*(this: IFSelectSelectDeduct; g: InterfaceGraph): InterfaceEntit
     noSideEffect, cdecl, importcpp: "InputResult", header: "IFSelect_SelectDeduct.hxx".}
 proc fillIterator*(this: IFSelectSelectDeduct; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectDeduct.hxx".}
+
 

@@ -3,6 +3,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -33,6 +35,7 @@ proc setRawHandle*(this: var AspectXRAction; theHande: uint64) {.cdecl,
 proc newAspectXRAction*(theId: TCollectionAsciiString; theType: AspectXRActionType): AspectXRAction {.
     cdecl, constructor, importcpp: "Aspect_XRAction(@)", header: "Aspect_XRAction.hxx".}
 ## ! Map of actions with action Id as a key.
+
 
 
 

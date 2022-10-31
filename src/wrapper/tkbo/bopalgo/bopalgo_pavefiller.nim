@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -60,4 +62,5 @@ proc setAvoidBuildPCurve*(this: var BOPAlgoPaveFiller; theValue: bool) {.cdecl,
     importcpp: "SetAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
 proc isAvoidBuildPCurve*(this: BOPAlgoPaveFiller): bool {.noSideEffect, cdecl,
     importcpp: "IsAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
+
 

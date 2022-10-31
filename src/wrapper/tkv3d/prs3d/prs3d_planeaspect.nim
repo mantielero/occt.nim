@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1994-01-17
 ##  Created by: Modelistation
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -72,5 +74,6 @@ proc isoDistance*(this: Prs3dPlaneAspect): cfloat {.noSideEffect, cdecl,
 proc dumpJson*(this: Prs3dPlaneAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PlaneAspect.hxx".}
+
 
 

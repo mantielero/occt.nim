@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-08-26
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -27,4 +29,5 @@ proc perform*(this: IFSelectModifier; ctx: var IFSelectContextModif;
              target: Handle[InterfaceInterfaceModel];
              protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, cdecl, importcpp: "Perform", header: "IFSelect_Modifier.hxx".}
+
 

@@ -8,6 +8,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1995-05-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -112,4 +114,5 @@ proc bezier*(this: ChFiDS_ElSpine): Handle[GeomBezierCurve] {.noSideEffect, cdec
     importcpp: "Bezier", header: "ChFiDS_ElSpine.hxx".}
 proc bSpline*(this: ChFiDS_ElSpine): Handle[GeomBSplineCurve] {.noSideEffect, cdecl,
     importcpp: "BSpline", header: "ChFiDS_ElSpine.hxx".}
+
 

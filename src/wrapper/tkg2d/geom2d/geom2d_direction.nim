@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc transform*(this: var Geom2dDirection; t: Trsf2dObj) {.cdecl, importcpp: "Tr
     header: "Geom2d_Direction.hxx".}
 proc copy*(this: Geom2dDirection): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom2d_Direction.hxx".}
+
 

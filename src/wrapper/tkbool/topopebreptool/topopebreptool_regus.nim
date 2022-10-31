@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-01-04
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -58,4 +60,5 @@ proc nextinBlock*(this: var TopOpeBRepToolREGUS): bool {.cdecl,
 proc nearestF*(this: TopOpeBRepToolREGUS; e: TopoDS_Edge; lof: TopToolsListOfShape;
               ffound: var TopoDS_Face): bool {.noSideEffect, cdecl,
     importcpp: "NearestF", header: "TopOpeBRepTool_REGUS.hxx".}
+
 

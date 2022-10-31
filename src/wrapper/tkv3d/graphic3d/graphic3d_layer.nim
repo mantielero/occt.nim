@@ -4,6 +4,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Copyright (c) 2011-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -96,4 +98,5 @@ proc cullableTrsfPersStructuresBVH*(this: Graphic3dLayer): Graphic3dBvhCStructur
 proc dumpJson*(this: Graphic3dLayer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Layer.hxx".}
+
 

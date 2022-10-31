@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -59,4 +61,5 @@ proc setTextPosition*(this: var PrsDimRadiusDimension; theTextPos: PntObj) {.cde
     importcpp: "SetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
 proc getTextPosition*(this: PrsDimRadiusDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_RadiusDimension.hxx".}
+
 

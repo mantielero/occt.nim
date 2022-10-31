@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-06-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
     cdecl, importcpp: "Shape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
 proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
     cdecl, importcpp: "ChangeShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+
 

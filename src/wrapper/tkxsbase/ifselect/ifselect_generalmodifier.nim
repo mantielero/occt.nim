@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-10-19
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc selection*(this: IFSelectGeneralModifier): Handle[IFSelectSelection] {.
     noSideEffect, cdecl, importcpp: "Selection", header: "IFSelect_GeneralModifier.hxx".}
 proc label*(this: IFSelectGeneralModifier): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_GeneralModifier.hxx".}
+
 

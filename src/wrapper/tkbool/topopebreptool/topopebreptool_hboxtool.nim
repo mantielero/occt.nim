@@ -5,6 +5,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 1993-07-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc changeIMS*(this: var TopOpeBRepToolHBoxTool): var TopOpeBRepToolIndexedData
     cdecl, importcpp: "ChangeIMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc ims*(this: TopOpeBRepToolHBoxTool): TopOpeBRepToolIndexedDataMapOfShapeBox {.
     noSideEffect, cdecl, importcpp: "IMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
+
 

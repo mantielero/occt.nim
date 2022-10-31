@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc transferTransient*(this: var TransferActorOfFinderProcess;
                        start: Handle[StandardTransient];
                        tp: Handle[TransferFinderProcess]; theProgress: MessageProgressRange = newMessageProgressRange()): Handle[
     StandardTransient] {.cdecl, importcpp: "TransferTransient", header: "Transfer_ActorOfFinderProcess.hxx".}
+
 

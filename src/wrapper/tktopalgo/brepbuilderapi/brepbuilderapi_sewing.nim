@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1995-03-23
 ##  Created by: Jing Cheng MEI
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -120,4 +122,5 @@ proc setNonManifoldMode*(this: var BRepBuilderAPI_Sewing; theNonManifoldMode: bo
     cdecl, importcpp: "SetNonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
 proc nonManifoldMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
     importcpp: "NonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
+
 

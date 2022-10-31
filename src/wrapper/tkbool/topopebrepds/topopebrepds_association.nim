@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc areAssociated*(this: TopOpeBRepDS_Association;
                    i: Handle[TopOpeBRepDS_Interference];
                    k: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
     cdecl, importcpp: "AreAssociated", header: "TopOpeBRepDS_Association.hxx".}
+
 

@@ -3,6 +3,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1996-03-06
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc get*(this: ChFiDS_CircSection; c: var CircObj; f: var cfloat; L: var cfloat
     noSideEffect, cdecl, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
 proc get*(this: ChFiDS_CircSection; c: var LinObj; f: var cfloat; L: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
+
 

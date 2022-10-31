@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1992-03-12
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -76,4 +78,5 @@ proc completeFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cd
     importcpp: "CompleteFace", header: "BRepPrim_Builder.hxx".}
 proc completeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
     importcpp: "CompleteShell", header: "BRepPrim_Builder.hxx".}
+
 

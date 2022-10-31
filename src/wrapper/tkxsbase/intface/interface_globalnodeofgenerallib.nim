@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc next*(this: InterfaceGlobalNodeOfGeneralLib): Handle[
                                       header: "Interface_GlobalNodeOfGeneralLib.hxx".}
 type
   InterfaceGlobalNodeOfGeneralLibbaseType* = StandardTransient
+
 

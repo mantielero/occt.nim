@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -27,6 +29,7 @@
 ## ! AIS_ConnectedInteractive. Transform indicates
 ## ! that the Interactive Object reference geometry has
 ## ! changed location relative to the reference geometry.
+
 
 
 

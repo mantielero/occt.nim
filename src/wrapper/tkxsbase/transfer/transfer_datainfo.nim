@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -24,4 +26,5 @@ proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.cdecl,
     importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".}
 proc typeName*(ent: Handle[StandardTransient]): cstring {.cdecl,
     importcpp: "Transfer_DataInfo::TypeName(@)", header: "Transfer_DataInfo.hxx".}
+
 

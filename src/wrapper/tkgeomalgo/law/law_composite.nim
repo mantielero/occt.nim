@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1996-03-29
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc isPeriodic*(this: LawComposite): bool {.noSideEffect, cdecl,
     importcpp: "IsPeriodic", header: "Law_Composite.hxx".}
 proc setPeriodic*(this: var LawComposite) {.cdecl, importcpp: "SetPeriodic",
                                         header: "Law_Composite.hxx".}
+
 

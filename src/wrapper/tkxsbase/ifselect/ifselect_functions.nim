@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-07-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc giveDispatch*(ws: Handle[IFSelectWorkSession]; name: cstring; mode: bool = 
     IFSelectDispatch] {.cdecl, importcpp: "IFSelect_Functions::GiveDispatch(@)",
                        header: "IFSelect_Functions.hxx".}
 proc initIFSelectFunctions*() {.cdecl, importcpp: "IFSelect_Functions::Init(@)", header: "IFSelect_Functions.hxx".}
+
 

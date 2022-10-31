@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-01-25
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -39,4 +41,5 @@ proc getConfig*(hds: Handle[TopOpeBRepDS_HDataStructure];
                mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; ie: cint;
                iesd: cint; conf: var cint): bool {.cdecl,
     importcpp: "TopOpeBRepDS_TOOL::GetConfig(@)", header: "TopOpeBRepDS_TOOL.hxx".}
+
 

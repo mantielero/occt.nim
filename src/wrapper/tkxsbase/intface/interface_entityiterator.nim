@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -76,3 +78,4 @@ proc destroy*(this: var InterfaceEntityIterator) {.cdecl, importcpp: "Destroy",
     header: "Interface_EntityIterator.hxx".}
 proc destroyInterfaceEntityIterator*(this: var InterfaceEntityIterator) {.cdecl,
     importcpp: "#.~Interface_EntityIterator()", header: "Interface_EntityIterator.hxx".}
+

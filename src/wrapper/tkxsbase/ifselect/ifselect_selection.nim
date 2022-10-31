@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc fillIterator*(this: IFSelectSelection; iter: var IFSelectSelectionIterator)
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_Selection.hxx".}
 proc label*(this: IFSelectSelection): TCollectionAsciiString {.noSideEffect, cdecl,
     importcpp: "Label", header: "IFSelect_Selection.hxx".}
+
 

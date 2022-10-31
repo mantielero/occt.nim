@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -22,12 +24,13 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 proc newTColGeomHArray1OfBezierCurve*(theLower: cint; theUpper: cint): TColGeomHArray1OfBezierCurve {.
-    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", header: "TColGeom_HArray1OfBezierCurve.hxx".}
 proc newTColGeomHArray1OfBezierCurve*(theLower: cint; theUpper: cint;
                                      theValue: ValueType): TColGeomHArray1OfBezierCurve {.
-    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", header: "TColGeom_HArray1OfBezierCurve.hxx".}
 proc newTColGeomHArray1OfBezierCurve*(theOther: TColGeomArray1OfBezierCurve): TColGeomHArray1OfBezierCurve {.
-    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", dynlib: tkg3d.}
+    cdecl, constructor, importcpp: "TColGeom_HArray1OfBezierCurve(@)", header: "TColGeom_HArray1OfBezierCurve.hxx".}
 proc array1*(this: TColGeomHArray1OfBezierCurve): TColGeomArray1OfBezierCurve {.
-    noSideEffect, cdecl, importcpp: "Array1", dynlib: tkg3d.}
+    noSideEffect, cdecl, importcpp: "Array1", header: "TColGeom_HArray1OfBezierCurve.hxx".}
+
 

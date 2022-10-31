@@ -3,6 +3,8 @@ import appparcurves_types
 
 
 
+
+
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc newAppParCurvesHArray1OfMultiPoint*(theOther: AppParCurvesArray1OfMultiPoin
     header: "AppParCurves_HArray1OfMultiPoint.hxx".}
 proc array1*(this: AppParCurvesHArray1OfMultiPoint): AppParCurvesArray1OfMultiPoint {.
     noSideEffect, cdecl, importcpp: "Array1", header: "AppParCurves_HArray1OfMultiPoint.hxx".}
+
 

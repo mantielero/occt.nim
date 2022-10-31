@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-02-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -66,4 +68,5 @@ proc p2d*(this: TopOpeBRepToolShapeClassifier): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "P2D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc p3d*(this: TopOpeBRepToolShapeClassifier): PntObj {.noSideEffect, cdecl,
     importcpp: "P3D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
+
 

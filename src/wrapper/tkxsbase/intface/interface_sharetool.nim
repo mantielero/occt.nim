@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -64,3 +66,4 @@ proc all*(this: InterfaceShareTool; ent: Handle[StandardTransient];
 proc print*(this: InterfaceShareTool; iter: InterfaceEntityIterator;
            s: var StandardOStream) {.noSideEffect, cdecl, importcpp: "Print",
                                   header: "Interface_ShareTool.hxx".}
+

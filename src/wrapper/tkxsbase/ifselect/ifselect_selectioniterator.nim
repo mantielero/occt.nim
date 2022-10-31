@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc next*(this: var IFSelectSelectionIterator) {.cdecl, importcpp: "Next",
     header: "IFSelect_SelectionIterator.hxx".}
 proc value*(this: IFSelectSelectionIterator): Handle[IFSelectSelection] {.
     noSideEffect, cdecl, importcpp: "Value", header: "IFSelect_SelectionIterator.hxx".}
+
 

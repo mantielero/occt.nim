@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc value*(this: MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
 converter toHandleGeomTrimmedCurve*(this: MakeEllipse): Handle[GeomEllipse] {.
     noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeEllipse.hxx".}
+
 

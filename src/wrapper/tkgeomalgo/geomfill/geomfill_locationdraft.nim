@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-04-21
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -88,4 +90,5 @@ proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
 proc direction*(this: GeomFillLocationDraft): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}
+
 

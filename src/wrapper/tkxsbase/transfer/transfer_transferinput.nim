@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc fillModel*(this: TransferTransferInput; `proc`: Handle[TransferFinderProces
                amodel: Handle[InterfaceInterfaceModel];
                proto: Handle[InterfaceProtocol]; roots: bool = true) {.noSideEffect,
     cdecl, importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
+
 

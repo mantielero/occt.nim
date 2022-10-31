@@ -6,6 +6,8 @@ import ../../tkgeomalgo/law/law_types
 
 
 
+
+
 ##  Created on: 1995-04-24
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -64,4 +66,5 @@ proc changeLaw*(this: var ChFiDS_FilSpine; e: TopoDS_Edge): var Handle[LawFuncti
     cdecl, importcpp: "ChangeLaw", header: "ChFiDS_FilSpine.hxx".}
 proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxRadFromSeqAndLaws", header: "ChFiDS_FilSpine.hxx".}
+
 

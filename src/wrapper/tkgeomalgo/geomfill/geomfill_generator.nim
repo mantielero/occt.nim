@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc perform*(this: var GeomFillGenerator; pTol: cfloat) {.cdecl, importcpp: "Pe
     header: "GeomFill_Generator.hxx".}
 proc surface*(this: GeomFillGenerator): Handle[GeomSurface] {.noSideEffect, cdecl,
     importcpp: "Surface", header: "GeomFill_Generator.hxx".}
+
 

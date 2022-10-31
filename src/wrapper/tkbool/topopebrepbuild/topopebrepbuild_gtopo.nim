@@ -1,7 +1,9 @@
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
-import ../tkbool/topopebrepds/topopebrepds_types
+import ../topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 
 
@@ -83,4 +85,5 @@ proc reverse*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, cdecl,
     importcpp: "Reverse", header: "TopOpeBRepBuild_GTopo.hxx".}
 proc copyPermuted*(this: TopOpeBRepBuildGTopo): TopOpeBRepBuildGTopo {.noSideEffect,
     cdecl, importcpp: "CopyPermuted", header: "TopOpeBRepBuild_GTopo.hxx".}
+
 

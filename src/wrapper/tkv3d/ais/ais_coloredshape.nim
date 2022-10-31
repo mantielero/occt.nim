@@ -1,8 +1,10 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../graphic3d/graphic3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -59,5 +61,6 @@ proc unsetTransparency*(this: var AIS_ColoredShape) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_ColoredShape.hxx".}
 proc unsetWidth*(this: var AIS_ColoredShape) {.cdecl, importcpp: "UnsetWidth",
     header: "AIS_ColoredShape.hxx".}
+
 
 

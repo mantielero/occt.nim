@@ -1,10 +1,12 @@
 import ../../tkmath/gp/gp_types
 import geomadaptor_types
+import ../adaptor3d/adaptor3d_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -97,4 +99,5 @@ proc bSpline*(this: GeomAdaptorCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "GeomAdaptor_Curve.hxx".}
 proc offsetCurve*(this: GeomAdaptorCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     cdecl, importcpp: "OffsetCurve", header: "GeomAdaptor_Curve.hxx".}
+
 

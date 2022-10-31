@@ -6,6 +6,8 @@ import ../../tkg3d/adaptor3d/adaptor3d_types
 
 
 
+
+
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc getBounds*(this: BRepBlendSurfPointConstRadInv; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfPointConstRadInv.hxx".}
+
 

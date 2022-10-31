@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-05
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -83,4 +85,5 @@ proc isConstant*(this: GeomFillUniformSection; error: var cfloat): bool {.noSide
     cdecl, importcpp: "IsConstant", header: "GeomFill_UniformSection.hxx".}
 proc constantSection*(this: GeomFillUniformSection): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "ConstantSection", header: "GeomFill_UniformSection.hxx".}
+
 

@@ -3,6 +3,8 @@ import v3d_types
 
 
 
+
+
 ##  Created on: 1992-01-22
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -47,6 +49,7 @@ proc newV3dPositionalLight*(thePos: PntObj;
 ## using statement
 
 ## using statement
+
 
 
 

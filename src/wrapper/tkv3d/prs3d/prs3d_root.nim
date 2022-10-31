@@ -1,6 +1,8 @@
 import prs3d_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -28,4 +30,5 @@ proc currentGroup*(thePrs3d: Handle[Prs3dPresentation]): Handle[Graphic3dGroup] 
     cdecl, importcpp: "Prs3d_Root::CurrentGroup(@)", header: "Prs3d_Root.hxx".}
 proc newGroup*(thePrs3d: Handle[Prs3dPresentation]): Handle[Graphic3dGroup] {.cdecl,
     importcpp: "Prs3d_Root::NewGroup(@)", header: "Prs3d_Root.hxx".}
+
 

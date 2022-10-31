@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1991-09-05
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -120,5 +122,6 @@ proc setDeviceLost*(this: var Graphic3dStructureManager) {.cdecl,
 proc dumpJson*(this: Graphic3dStructureManager; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_StructureManager.hxx".}
+
 
 

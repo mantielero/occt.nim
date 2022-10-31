@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-05-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc itemList*(this: IFSelectAppliedModifiers): Handle[TColStdHSequenceOfInteger
     noSideEffect, cdecl, importcpp: "ItemList", header: "IFSelect_AppliedModifiers.hxx".}
 proc isForAll*(this: IFSelectAppliedModifiers): bool {.noSideEffect, cdecl,
     importcpp: "IsForAll", header: "IFSelect_AppliedModifiers.hxx".}
+
 

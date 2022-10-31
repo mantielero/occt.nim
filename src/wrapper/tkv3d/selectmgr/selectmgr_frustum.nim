@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 2015-03-16
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -53,4 +55,5 @@ proc newSelectMgrFrustum*[N: static[cint]](): SelectMgrFrustum[N] {.cdecl,
 proc dumpJson*[N: static[cint]](this: SelectMgrFrustum[N];
                               theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "SelectMgr_Frustum.hxx".}
+
 

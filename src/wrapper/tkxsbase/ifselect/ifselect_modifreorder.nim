@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1996-03-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc perform*(this: IFSelectModifReorder; ctx: var IFSelectContextModif;
     noSideEffect, cdecl, importcpp: "Perform", header: "IFSelect_ModifReorder.hxx".}
 proc label*(this: IFSelectModifReorder): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_ModifReorder.hxx".}
+
 

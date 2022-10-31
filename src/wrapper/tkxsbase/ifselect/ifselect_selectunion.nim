@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-01-11
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc rootResult*(this: IFSelectSelectUnion; g: InterfaceGraph): InterfaceEntityI
     noSideEffect, cdecl, importcpp: "RootResult", header: "IFSelect_SelectUnion.hxx".}
 proc label*(this: IFSelectSelectUnion): TCollectionAsciiString {.noSideEffect, cdecl,
     importcpp: "Label", header: "IFSelect_SelectUnion.hxx".}
+
 

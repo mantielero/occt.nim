@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc packeted*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterat
     noSideEffect, cdecl, importcpp: "Packeted", header: "IFSelect_Dispatch.hxx".}
 proc remainder*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, cdecl, importcpp: "Remainder", header: "IFSelect_Dispatch.hxx".}
+
 

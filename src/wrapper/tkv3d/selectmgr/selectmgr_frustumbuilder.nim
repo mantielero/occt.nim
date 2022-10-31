@@ -1,6 +1,8 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
+import ../graphic3d/graphic3d_types
 import selectmgr_types
+
+
 
 
 
@@ -58,5 +60,6 @@ proc signedPlanePntDist*(this: SelectMgrFrustumBuilder; theEq: SelectMgrVec3;
 proc projectPntOnViewPlane*(this: SelectMgrFrustumBuilder; theX: cfloat;
                            theY: cfloat; theZ: cfloat): PntObj {.noSideEffect, cdecl,
     importcpp: "ProjectPntOnViewPlane", header: "SelectMgr_FrustumBuilder.hxx".}
+
 
 

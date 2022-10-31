@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -52,5 +54,6 @@ proc setColorMap*(this: var Graphic3dTextureRoot; theIsColor: bool) {.cdecl,
     importcpp: "SetColorMap", header: "Graphic3d_TextureRoot.hxx".}
 proc isTopDown*(this: Graphic3dTextureRoot): bool {.noSideEffect, cdecl,
     importcpp: "IsTopDown", header: "Graphic3d_TextureRoot.hxx".}
+
 
 

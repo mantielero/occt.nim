@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1991-07-23
 ##  Created by: Christophe MARION
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -123,4 +125,5 @@ proc bottomEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
     importcpp: "BottomEndVertex", header: "BRepPrim_OneAxis.hxx".}
 proc destroyBRepPrimOneAxis*(this: var BRepPrimOneAxis) {.cdecl,
     importcpp: "#.~BRepPrim_OneAxis()", header: "BRepPrim_OneAxis.hxx".}
+
 

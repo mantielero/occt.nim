@@ -3,6 +3,8 @@ import aspect_types
 
 
 
+
+
 ##  Created on: 1992-05-13
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc upper*(this: AspectGenId): cint {.noSideEffect, cdecl, importcpp: "Upper",
 proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_GenId.hxx".}
+
 

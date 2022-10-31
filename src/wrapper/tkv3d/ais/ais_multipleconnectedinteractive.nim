@@ -1,9 +1,11 @@
+import ../selectmgr/selectmgr_types
 import ../../tkmath/toploc/toploc_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
 import ais_types
-import ../tkv3d/selectmgr/selectmgr_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -75,5 +77,6 @@ proc connect*(this: var AIS_MultipleConnectedInteractive;
              theInteractive: Handle[AIS_InteractiveObject]; theLocation: TrsfObj;
              theTrsfPersFlag: Graphic3dTransModeFlags; theTrsfPersPoint: PntObj): Handle[
     AIS_InteractiveObject] {.cdecl, importcpp: "Connect", header: "AIS_MultipleConnectedInteractive.hxx".}
+
 
 

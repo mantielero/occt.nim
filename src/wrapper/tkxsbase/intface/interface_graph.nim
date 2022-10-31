@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1992-09-22
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -145,3 +147,4 @@ proc sharingTable*(this: InterfaceGraph): Handle[TColStdHArray1OfListOfInteger] 
     noSideEffect, cdecl, importcpp: "SharingTable", header: "Interface_Graph.hxx".}
 proc modeStat*(this: InterfaceGraph): bool {.noSideEffect, cdecl,
     importcpp: "ModeStat", header: "Interface_Graph.hxx".}
+

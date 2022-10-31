@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,6 +43,7 @@
 ## ! -      BRepBuilderAPI_LineThroughIdenticPoints
 ## ! Two identical points were given to define a line (construction
 ## ! of an edge without curve); gp::Resolution is used for the    confusion test.
+
 
 
 

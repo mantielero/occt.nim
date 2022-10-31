@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,6 +21,7 @@
 
 ## ! Type of the texture filter.
 ## ! Notice that for textures without mipmaps linear interpolation will be used instead of TOTF_BILINEAR and TOTF_TRILINEAR.
+
 
 
 

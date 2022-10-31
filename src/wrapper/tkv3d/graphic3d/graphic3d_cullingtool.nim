@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2013-12-25
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -88,4 +90,5 @@ proc isTooSmall*(this: Graphic3dCullingTool;
                 theCtx: Graphic3dCullingToolCullingContext;
                 theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d): bool {.
     noSideEffect, cdecl, importcpp: "IsTooSmall", header: "Graphic3d_CullingTool.hxx".}
+
 

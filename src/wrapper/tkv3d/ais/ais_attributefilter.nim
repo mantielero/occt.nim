@@ -1,7 +1,9 @@
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
 import ais_types
 import ../../tkernel/quantity/quantity_types
-import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 
 
@@ -45,4 +47,5 @@ proc unsetWidth*(this: var AIS_AttributeFilter) {.cdecl, importcpp: "UnsetWidth"
     header: "AIS_AttributeFilter.hxx".}
 proc isOk*(this: AIS_AttributeFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "AIS_AttributeFilter.hxx".}
+
 

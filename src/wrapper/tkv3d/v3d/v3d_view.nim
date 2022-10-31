@@ -9,6 +9,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 1992-01-15
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -412,4 +414,5 @@ proc nextActiveLights*(this: var V3dView) {.cdecl, importcpp: "NextActiveLights"
                                         header: "V3d_View.hxx".}
 proc activeLight*(this: V3dView): Handle[V3dLight] {.noSideEffect, cdecl,
     importcpp: "ActiveLight", header: "V3d_View.hxx".}
+
 

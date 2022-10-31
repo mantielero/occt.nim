@@ -5,6 +5,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.cdecl,
     importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
 proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.cdecl,
     importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}
+
 

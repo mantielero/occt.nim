@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -48,4 +50,5 @@ proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrimRevolution {.
     cdecl, importcpp: "Revolution", header: "BRepPrimAPI_MakeRevolution.hxx".}
+
 

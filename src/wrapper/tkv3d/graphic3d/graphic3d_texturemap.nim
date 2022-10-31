@@ -2,6 +2,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -43,5 +45,6 @@ proc anisoFilter*(this: Graphic3dTextureMap): Graphic3dLevelOfTextureAnisotropy 
 proc setAnisoFilter*(this: var Graphic3dTextureMap;
                     theLevel: Graphic3dLevelOfTextureAnisotropy) {.cdecl,
     importcpp: "SetAnisoFilter", header: "Graphic3d_TextureMap.hxx".}
+
 
 

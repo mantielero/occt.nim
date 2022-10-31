@@ -5,6 +5,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-10-22
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc findFromIndex*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffe
     cdecl, importcpp: "FindFromIndex", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
+
 

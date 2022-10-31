@@ -5,6 +5,8 @@ import blend_types
 
 
 
+
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc getBounds*(this: BlendFuncInv; infBound: var MathVector; supBound: var Math
     noSideEffect, cdecl, importcpp: "GetBounds", header: "Blend_FuncInv.hxx".}
 proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "Blend_FuncInv.hxx".}
+
 

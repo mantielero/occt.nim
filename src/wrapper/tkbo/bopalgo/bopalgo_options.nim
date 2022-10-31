@@ -5,6 +5,8 @@ import ../../tkernel/message/message_types
 
 
 
+
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -70,4 +72,5 @@ proc setUseOBB*(this: var BOPAlgoOptions; theUseOBB: bool) {.cdecl,
     importcpp: "SetUseOBB", header: "BOPAlgo_Options.hxx".}
 proc useOBB*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl, importcpp: "UseOBB",
                                        header: "BOPAlgo_Options.hxx".}
+
 

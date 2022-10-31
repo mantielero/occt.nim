@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-05-15
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc direction*(this: IntSurfInteriorPoint): VecObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "IntSurf_InteriorPoint.hxx".}
 proc direction2d*(this: IntSurfInteriorPoint): Vec2dObj {.noSideEffect, cdecl,
     importcpp: "Direction2d", header: "IntSurf_InteriorPoint.hxx".}
+
 

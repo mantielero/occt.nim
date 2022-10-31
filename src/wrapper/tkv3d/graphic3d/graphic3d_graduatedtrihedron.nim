@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 2011-03-06
 ##  Created by: Sergey ZERCHANINOV
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -139,4 +141,5 @@ proc valuesSize*(this: Graphic3dGraduatedTrihedron): cint {.noSideEffect, cdecl,
     importcpp: "ValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
 proc setValuesSize*(this: var Graphic3dGraduatedTrihedron; theValue: cint) {.cdecl,
     importcpp: "SetValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
+
 

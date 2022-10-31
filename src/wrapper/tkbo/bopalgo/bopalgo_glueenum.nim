@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -53,6 +55,7 @@
 ## ! **BOPAlgo_GlueShift** - Glue option for shapes with partial coincidence;<br>
 ## ! **BOPAlgo_GlueFull** - Glue option for shapes with full coincidence.
 ## !
+
 
 
 

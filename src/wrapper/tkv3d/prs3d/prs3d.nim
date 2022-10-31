@@ -1,10 +1,12 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import prs3d_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkmath/poly/poly_types
+
+
 
 
 
@@ -46,4 +48,5 @@ proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
 proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
                   thePolyTri: Handle[PolyTriangulation]; theLocation: TrsfObj) {.cdecl,
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}
+
 

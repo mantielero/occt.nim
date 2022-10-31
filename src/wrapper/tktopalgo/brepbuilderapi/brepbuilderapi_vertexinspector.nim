@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 2011-11-24
 ##  Created by: ANNA MASALSKAYA
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -36,4 +38,5 @@ proc resInd*(this: var BRepBuilderAPI_VertexInspector): TColStdListOfInteger {.c
     importcpp: "ResInd", header: "BRepBuilderAPI_VertexInspector.hxx".}
 proc inspect*(this: var BRepBuilderAPI_VertexInspector; theTarget: cint): NCollectionCellFilterAction {.
     cdecl, importcpp: "Inspect", header: "BRepBuilderAPI_VertexInspector.hxx".}
+
 

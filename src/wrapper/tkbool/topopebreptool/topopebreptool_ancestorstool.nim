@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-08-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -25,4 +27,5 @@ import ../../tkbrep/topods/topods_types
 proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;
                    m: var TopToolsIndexedDataMapOfShapeListOfShape) {.cdecl,
     importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)", header: "TopOpeBRepTool_AncestorsTool.hxx".}
+
 

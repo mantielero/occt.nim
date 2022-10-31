@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc operator*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl, importcpp: "Op
                                       header: "gce_MakeCirc.hxx".}
 converter `circ`*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCirc::operator gp_Circ", header: "gce_MakeCirc.hxx".}
+
 

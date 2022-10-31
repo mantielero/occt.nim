@@ -1,9 +1,11 @@
 import ../../tkmath/gp/gp_types
 import ../../tkg3d/topabs/topabs_types
-import ../tkbool/topopebreptool/topopebreptool_types
+import ../topopebreptool/topopebreptool_types
 import ../../tkbrep/toptools/toptools_types
+import ../topopebrepds/topopebrepds_types
 import ../../tkbrep/topods/topods_types
-import ../tkbool/topopebrepds/topopebrepds_types
+
+
 
 
 
@@ -99,4 +101,5 @@ proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::CorrectPointOnCurve(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc checkFaceClosed2d*(theFace: TopoDS_Face): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::CheckFaceClosed2d(@)", header: "TopOpeBRepBuild_Tools.hxx".}
+
 

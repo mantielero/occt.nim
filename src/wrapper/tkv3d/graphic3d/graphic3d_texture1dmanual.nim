@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc newGraphic3dTexture1Dmanual*(theNOT: Graphic3dNameOfTexture1D): Graphic3dTe
     cdecl, constructor, importcpp: "Graphic3d_Texture1Dmanual(@)", header: "Graphic3d_Texture1Dmanual.hxx".}
 proc newGraphic3dTexture1Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture1Dmanual {.
     cdecl, constructor, importcpp: "Graphic3d_Texture1Dmanual(@)", header: "Graphic3d_Texture1Dmanual.hxx".}
+
 

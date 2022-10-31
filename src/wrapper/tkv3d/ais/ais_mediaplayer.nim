@@ -1,7 +1,9 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -41,4 +43,5 @@ proc setClosePlayer*(this: var AIS_MediaPlayer) {.cdecl, importcpp: "SetClosePla
     header: "AIS_MediaPlayer.hxx".}
 proc duration*(this: AIS_MediaPlayer): cdouble {.noSideEffect, cdecl,
     importcpp: "Duration", header: "AIS_MediaPlayer.hxx".}
+
 

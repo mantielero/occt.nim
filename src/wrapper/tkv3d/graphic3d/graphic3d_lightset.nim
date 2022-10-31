@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -74,5 +76,6 @@ proc keyEnabledLong*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "KeyEnabledLong", header: "Graphic3d_LightSet.hxx".}
 proc keyEnabledShort*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "KeyEnabledShort", header: "Graphic3d_LightSet.hxx".}
+
 
 

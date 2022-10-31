@@ -2,6 +2,8 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1998-05-20
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -35,3 +37,4 @@ proc name*(this: InterfaceSignLabel): cstring {.noSideEffect, cdecl,
 proc text*(this: InterfaceSignLabel; ent: Handle[StandardTransient];
           context: Handle[StandardTransient]): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "Text", header: "Interface_SignLabel.hxx".}
+

@@ -1,12 +1,14 @@
 import brep_types
 import ../../tkmath/toploc/toploc_types
 import ../../tkmath/gp/gp_types
+import ../topods/topods_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
 import ../../tkmath/poly/poly_types
 import ../../tkg2d/geom2d/geom2d_types
+
+
 
 
 
@@ -176,4 +178,5 @@ proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; tol: cfloat) {.noSideEff
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge;
                vin: TopoDS_Vertex; vout: TopoDS_Vertex) {.noSideEffect, cdecl,
     importcpp: "Transfert", header: "BRep_Builder.hxx".}
+
 

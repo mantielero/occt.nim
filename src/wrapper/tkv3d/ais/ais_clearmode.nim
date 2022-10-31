@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -23,6 +25,7 @@
 ## ! for example, are only created for the selection
 ## ! process. By means of these enumerations, they can
 ## ! be cleared from local context.
+
 
 
 

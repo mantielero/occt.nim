@@ -1,7 +1,9 @@
-import ../tkfillet/chfids/chfids_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import brepfilletapi_types
+
+
 
 
 
@@ -59,4 +61,5 @@ proc nbSurf*(this: BRepFilletAPI_LocalOperation; ic: cint): cint {.noSideEffect,
     importcpp: "NbSurf", header: "BRepFilletAPI_LocalOperation.hxx".}
 proc sect*(this: BRepFilletAPI_LocalOperation; ic: cint; `is`: cint): Handle[
     ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_LocalOperation.hxx".}
+
 

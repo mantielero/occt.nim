@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1996-01-29
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.cdecl,
 proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
                lf: var TopToolsListOfShape) {.cdecl, importcpp: "MakeFaces",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
+
 

@@ -1,5 +1,7 @@
 import geomadaptor_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../adaptor3d/adaptor3d_types
+
+
 
 
 
@@ -33,6 +35,7 @@ proc surface*(this: GeomAdaptorHSurfaceOfRevolution): Adaptor3dSurface {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfRevolution): var GeomAdaptorSurfaceOfRevolution {.
     cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfRevolution.hxx".}
+
 
 
 

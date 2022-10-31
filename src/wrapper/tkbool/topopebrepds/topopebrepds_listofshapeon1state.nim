@@ -3,6 +3,8 @@ import ../../tkbrep/toptools/toptools_types
 
 
 
+
+
 ##  Created on: 1995-06-12
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc split*(this: var TopOpeBRepDS_ListOfShapeOn1State; b: bool = true) {.cdecl,
     importcpp: "Split", header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
 proc clear*(this: var TopOpeBRepDS_ListOfShapeOn1State) {.cdecl, importcpp: "Clear",
     header: "TopOpeBRepDS_ListOfShapeOn1State.hxx".}
+
 

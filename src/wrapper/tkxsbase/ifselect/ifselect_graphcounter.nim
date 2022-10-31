@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1998-10-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc setApplied*(this: var IFSelectGraphCounter; sel: Handle[IFSelectSelectDeduc
 proc addWithGraph*(this: var IFSelectGraphCounter;
                   list: Handle[TColStdHSequenceOfTransient]; graph: InterfaceGraph) {.
     cdecl, importcpp: "AddWithGraph", header: "IFSelect_GraphCounter.hxx".}
+
 

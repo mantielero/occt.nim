@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-02-26
 ##  Created by: Roman BORISOV
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc resolution*(this: GeomFillSnglrFunc; r3d: cfloat): cfloat {.noSideEffect, c
     importcpp: "Resolution", header: "GeomFill_SnglrFunc.hxx".}
 proc getType*(this: GeomFillSnglrFunc): GeomAbsCurveType {.noSideEffect, cdecl,
     importcpp: "GetType", header: "GeomFill_SnglrFunc.hxx".}
+
 

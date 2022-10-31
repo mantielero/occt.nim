@@ -3,6 +3,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -44,5 +46,6 @@ proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString 
     cdecl, importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
 proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
     importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
+
 
 

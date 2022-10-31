@@ -1,9 +1,11 @@
 import brepblend_types
 import ../../tkmath/math/math_types
+import ../blend/blend_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../tkfillet/blend/blend_types
+
+
 
 
 
@@ -66,4 +68,5 @@ proc decroch2Start*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect, cdec
     importcpp: "Decroch2Start", header: "BRepBlend_RstRstLineBuilder.hxx".}
 proc decroch2End*(this: BRepBlendRstRstLineBuilder): bool {.noSideEffect, cdecl,
     importcpp: "Decroch2End", header: "BRepBlend_RstRstLineBuilder.hxx".}
+
 

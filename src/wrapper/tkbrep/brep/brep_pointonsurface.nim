@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc parameter2*(this: BRepPointOnSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
 proc parameter2*(this: var BRepPointOnSurface; p: cfloat) {.cdecl,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
+
 

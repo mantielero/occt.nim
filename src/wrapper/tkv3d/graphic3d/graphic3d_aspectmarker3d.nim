@@ -6,6 +6,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -55,5 +57,6 @@ proc getMarkerImage*(this: Graphic3dAspectMarker3d): Handle[Graphic3dMarkerImage
 proc setBitMap*(this: var Graphic3dAspectMarker3d; theWidth: cint; theHeight: cint;
                theTexture: Handle[TColStdHArray1OfByte]) {.cdecl,
     importcpp: "SetBitMap", header: "Graphic3d_AspectMarker3d.hxx".}
+
 
 

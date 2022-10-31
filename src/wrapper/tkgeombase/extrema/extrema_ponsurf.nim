@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-21
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc setParameters*(this: var ExtremaPOnSurf; theU: cfloat; theV: cfloat; thePnt
     cdecl, importcpp: "SetParameters", header: "Extrema_POnSurf.hxx".}
 proc parameter*(this: ExtremaPOnSurf; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}
+
 

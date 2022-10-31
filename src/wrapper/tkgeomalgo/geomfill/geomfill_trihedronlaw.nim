@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-12-02
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -59,4 +61,5 @@ proc isConstant*(this: GeomFillTrihedronLaw): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_TrihedronLaw.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillTrihedronLaw): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_TrihedronLaw.hxx".}
+
 

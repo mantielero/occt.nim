@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-11-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -29,4 +31,5 @@ proc rootResult*(this: IFSelectSelectSharing; g: InterfaceGraph): InterfaceEntit
     noSideEffect, cdecl, importcpp: "RootResult", header: "IFSelect_SelectSharing.hxx".}
 proc label*(this: IFSelectSelectSharing): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_SelectSharing.hxx".}
+
 

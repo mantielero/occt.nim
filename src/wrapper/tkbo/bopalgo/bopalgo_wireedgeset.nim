@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -44,4 +46,5 @@ proc addShape*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.cdecl,
     importcpp: "AddShape", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc shapes*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Shapes", header: "BOPAlgo_WireEdgeSet.hxx".}
+
 

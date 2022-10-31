@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-03-22
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -41,4 +43,5 @@ proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var cint; par1: var cfloat;
 proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var cint;
             par1: var cfloat; par2: var cfloat): bool {.cdecl, importcpp: "MkTonE",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
+
 

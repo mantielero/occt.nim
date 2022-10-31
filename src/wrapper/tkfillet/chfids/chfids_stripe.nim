@@ -5,6 +5,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1994-03-09
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -129,4 +131,5 @@ proc inDS*(this: var ChFiDS_Stripe; first: bool; nb: cint = 1) {.cdecl, importcp
     header: "ChFiDS_Stripe.hxx".}
 proc isInDS*(this: ChFiDS_Stripe; first: bool): cint {.noSideEffect, cdecl,
     importcpp: "IsInDS", header: "ChFiDS_Stripe.hxx".}
+
 

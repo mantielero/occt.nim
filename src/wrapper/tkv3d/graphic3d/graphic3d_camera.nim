@@ -6,6 +6,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 2013-05-29
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -230,6 +232,7 @@ const
 #                   thePoints: var NCollectionArray1[Graphic3dVec3d];
 #                   theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.noSideEffect,
 #    cdecl, importcpp: "FrustumPoints", header: "Graphic3d_Camera.hxx".}
+
 
 
 

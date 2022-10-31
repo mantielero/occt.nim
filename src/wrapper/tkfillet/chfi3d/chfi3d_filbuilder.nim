@@ -1,9 +1,11 @@
-import ../tkfillet/chfids/chfids_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import chfi3d_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import ../../tkgeomalgo/law/law_types
+
+
 
 
 
@@ -72,4 +74,5 @@ proc nbSurf*(this: ChFi3dFilBuilder; ic: cint): cint {.noSideEffect, cdecl,
     importcpp: "NbSurf", header: "ChFi3d_FilBuilder.hxx".}
 proc sect*(this: ChFi3dFilBuilder; ic: cint; `is`: cint): Handle[ChFiDS_SecHArray1] {.
     noSideEffect, cdecl, importcpp: "Sect", header: "ChFi3d_FilBuilder.hxx".}
+
 

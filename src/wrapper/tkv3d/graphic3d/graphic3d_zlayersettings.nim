@@ -5,6 +5,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -103,4 +105,5 @@ proc setDepthOffsetNegative*(this: var Graphic3dZLayerSettings) {.cdecl,
 proc dumpJson*(this: Graphic3dZLayerSettings; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_ZLayerSettings.hxx".}
+
 

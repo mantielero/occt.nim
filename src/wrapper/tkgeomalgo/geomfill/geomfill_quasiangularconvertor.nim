@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-08-06
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: PntObj; dFirstP
              d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.
     cdecl, importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
+
 

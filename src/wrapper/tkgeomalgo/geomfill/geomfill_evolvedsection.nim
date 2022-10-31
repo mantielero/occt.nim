@@ -1,11 +1,13 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
-import ../tkgeomalgo/law/law_types
+import ../law/law_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 
 
@@ -83,4 +85,5 @@ proc isConstant*(this: GeomFillEvolvedSection; error: var cfloat): bool {.noSide
     cdecl, importcpp: "IsConstant", header: "GeomFill_EvolvedSection.hxx".}
 proc constantSection*(this: GeomFillEvolvedSection): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "ConstantSection", header: "GeomFill_EvolvedSection.hxx".}
+
 

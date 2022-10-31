@@ -1,6 +1,10 @@
+import ../adaptor3d/adaptor3d_types
 import ../../tkernel/standard/standard_types
-import ../tkg3d/adaptor3d/adaptor3d_types
-import ../tkg3d/geom/geom_types
+import ../geom/geom_types
+
+
+
+
 
 
 
@@ -26,4 +30,6 @@ proc makeCurve*(c: Adaptor3dCurve): Handle[GeomCurve] {.cdecl,
     importcpp: "GeomAdaptor::MakeCurve(@)", header: "GeomAdaptor.hxx".}
 proc makeSurface*(theS: Adaptor3dSurface; theTrimFlag: bool = true): Handle[GeomSurface] {.
     cdecl, importcpp: "GeomAdaptor::MakeSurface(@)", header: "GeomAdaptor.hxx".}
+
+
 

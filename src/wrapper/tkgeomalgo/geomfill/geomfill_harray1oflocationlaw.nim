@@ -3,6 +3,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc newGeomFillHArray1OfLocationLaw*(theOther: GeomFillArray1OfLocationLaw): Ge
     header: "GeomFill_HArray1OfLocationLaw.hxx".}
 proc array1*(this: GeomFillHArray1OfLocationLaw): GeomFillArray1OfLocationLaw {.
     noSideEffect, cdecl, importcpp: "Array1", header: "GeomFill_HArray1OfLocationLaw.hxx".}
+
 

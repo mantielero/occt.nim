@@ -5,6 +5,8 @@ import gce2d_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc value*(this: GCE2dMakeTranslation): Handle[Geom2dTransformation] {.
 converter `constopencascade`*(this: GCE2dMakeTranslation): Handle[
     Geom2dTransformation] {.noSideEffect, cdecl, importcpp: "GCE2d_MakeTranslation::operator constopencascade",
                            header: "GCE2d_MakeTranslation.hxx".}
+
 

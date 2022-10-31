@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-02-18
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -25,4 +27,5 @@ proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
     importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}
+
 

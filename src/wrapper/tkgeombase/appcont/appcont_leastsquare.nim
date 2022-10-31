@@ -1,5 +1,7 @@
 import appcont_types
-import ../tkgeombase/appparcurves/appparcurves_types
+import ../appparcurves/appparcurves_types
+
+
 
 
 
@@ -34,4 +36,5 @@ proc error*(this: AppContLeastSquare; f: var cfloat; maxE3d: var cfloat;
                               header: "AppCont_LeastSquare.hxx".}
 proc isDone*(this: AppContLeastSquare): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "AppCont_LeastSquare.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-07-30
 ##  Created by: Jean-Louis FRENKEL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -92,5 +94,6 @@ proc arrowPartForAxis*(this: Prs3dDatumAspect; thePart: Prs3dDatumParts): Prs3dD
 proc dumpJson*(this: Prs3dDatumAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_DatumAspect.hxx".}
+
 
 

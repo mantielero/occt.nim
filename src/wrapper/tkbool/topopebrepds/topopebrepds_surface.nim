@@ -4,6 +4,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc keep*(this: TopOpeBRepDS_Surface): bool {.noSideEffect, cdecl, importcpp: "
     header: "TopOpeBRepDS_Surface.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Surface; theToKeep: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_Surface.hxx".}
+
 

@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-02-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc setSecondInput*(this: var IFSelectSelectControl; sel: Handle[IFSelectSelect
     cdecl, importcpp: "SetSecondInput", header: "IFSelect_SelectControl.hxx".}
 proc fillIterator*(this: IFSelectSelectControl; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectControl.hxx".}
+
 

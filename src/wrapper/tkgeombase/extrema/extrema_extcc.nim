@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -59,4 +61,5 @@ proc setSingleSolutionFlag*(this: var ExtremaExtCC; theSingleSolutionFlag: bool)
     cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ExtCC.hxx".}
 proc getSingleSolutionFlag*(this: ExtremaExtCC): bool {.noSideEffect, cdecl,
     importcpp: "GetSingleSolutionFlag", header: "Extrema_ExtCC.hxx".}
+
 

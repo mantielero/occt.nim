@@ -4,6 +4,8 @@ import adaptor3d_types
 
 
 
+
+
 ##  Created on: 1998-02-18
 ##  Created by: Jeanine PANCIATICI
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc derivative*(this: var Adaptor3dInterFunc; x: cfloat; d: var cfloat): bool {
     importcpp: "Derivative", header: "Adaptor3d_InterFunc.hxx".}
 proc values*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     cdecl, importcpp: "Values", header: "Adaptor3d_InterFunc.hxx".}
+
 

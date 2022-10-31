@@ -4,6 +4,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Created on: 2011-11-29
 ##  Created by: ANNA MASALSKAYA
 ##  Copyright (c) 2011-2014 OPEN CASCADE SAS
@@ -36,4 +38,5 @@ proc setCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStdListOfInteger {.
     cdecl, importcpp: "ResInd", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+
 

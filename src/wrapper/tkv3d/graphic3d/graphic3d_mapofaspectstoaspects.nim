@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -15,4 +17,5 @@
 
 #type
 #  Graphic3dMapOfAspectsToAspects*[HandleGraphic3dAspects, HandleGraphic3dAspects] {.importcpp:"NCollection_DataMap<'0, '1>", header:"Graphic3d_MapOfAspectsToAspects.hxx", bycopy.} = object
+
 

@@ -1,9 +1,13 @@
 import occt
 
-var aPnt:Handle[CartesianPointObj]
+#var aPnt:Handle[CartesianPoint]
 
-aPnt = newHandle( cnew cartesianPoint(1.1, 2.2, 3.3) )
-echo `*`(aPnt).x
-`*`(aPnt).setY(1.3)
+var aPnt:Handle[GeomCartesianPoint]
+var a = newGeomCartesianPoint(1.1,2.2,3.3)
+# aPnt = newHandle( cnew cartesianPoint(1.1, 2.2, 3.3) )
 
-echo `*`(aPnt).y
+# #newGeomCartesianPoint
+# echo `*`(aPnt).x
+# `*`(aPnt).setY(1.3)
+
+# echo `*`(aPnt).y

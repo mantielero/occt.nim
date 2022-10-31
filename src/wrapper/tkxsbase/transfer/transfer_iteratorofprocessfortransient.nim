@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc hasStarting*(this: TransferIteratorOfProcessForTransient): bool {.noSideEff
     cdecl, importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
 proc starting*(this: TransferIteratorOfProcessForTransient): Handle[
     StandardTransient] {.noSideEffect, cdecl, importcpp: "Starting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+
 

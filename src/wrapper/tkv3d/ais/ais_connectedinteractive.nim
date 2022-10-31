@@ -5,6 +5,8 @@ import ais_types
 
 
 
+
+
 ##  Created on: 1997-01-08
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -62,5 +64,6 @@ proc acceptShapeDecomposition*(this: AIS_ConnectedInteractive): bool {.noSideEff
     cdecl, importcpp: "AcceptShapeDecomposition", header: "AIS_ConnectedInteractive.hxx".}
 proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: cint): bool {.
     noSideEffect, cdecl, importcpp: "AcceptDisplayMode", header: "AIS_ConnectedInteractive.hxx".}
+
 
 

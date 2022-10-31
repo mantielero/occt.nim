@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -91,4 +93,5 @@ proc transform*(this: var Geom2dVectorWithMagnitude; t: Trsf2dObj) {.cdecl,
     importcpp: "Transform", header: "Geom2d_VectorWithMagnitude.hxx".}
 proc copy*(this: Geom2dVectorWithMagnitude): Handle[Geom2dGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom2d_VectorWithMagnitude.hxx".}
+
 

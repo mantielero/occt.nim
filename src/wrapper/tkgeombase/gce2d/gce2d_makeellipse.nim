@@ -5,6 +5,8 @@ import gce2d_types
 
 
 
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc value*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.noSideEffect, cdecl
 converter `constopencascade`*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.
     noSideEffect, cdecl,
     importcpp: "GCE2d_MakeEllipse::operator constopencascade", header: "GCE2d_MakeEllipse.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-12-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc trim*(this: LawFunction; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handl
     LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_Function.hxx".}
 proc bounds*(this: var LawFunction; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
     importcpp: "Bounds", header: "Law_Function.hxx".}
+
 

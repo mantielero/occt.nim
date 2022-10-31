@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -25,6 +27,7 @@
 ## ! is a fillet or a chamfer
 ## ! One or the two  edges connected to the  vertex
 ## ! is not a line or a circle
+
 
 
 

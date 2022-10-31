@@ -3,6 +3,8 @@ import aspect_types
 
 
 
+
+
 ##  Created on: 1995-03-17
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -43,5 +45,6 @@ proc init*(this: var AspectCircularGrid) {.cdecl, importcpp: "Init", header: "As
 proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_CircularGrid.hxx".}
+
 
 

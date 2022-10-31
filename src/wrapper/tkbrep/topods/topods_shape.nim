@@ -5,6 +5,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -135,5 +137,6 @@ proc dumpJson*(this: TopoDS_Shape; theOStream: var StandardOStream;
 
 proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl.} =
   discard
+
 
 

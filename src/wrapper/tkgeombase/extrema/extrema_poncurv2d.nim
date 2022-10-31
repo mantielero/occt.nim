@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -35,5 +37,6 @@ proc parameter*(this: ExtremaPOnCurv2d): cfloat {.noSideEffect, cdecl,
 ##  #define Pnt_hxx <gp_Pnt2d.hxx>
 ##  #define Extrema_Point Extrema_POnCurv2d
 ##  #define Extrema_Point_hxx <Extrema_POnCurv2d.hxx>
+
 
 

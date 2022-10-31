@@ -4,6 +4,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -26,4 +28,5 @@ proc destroyBOPAlgoSection*(this: var BOPAlgoSection) {.cdecl,
     importcpp: "#.~BOPAlgo_Section()", header: "BOPAlgo_Section.hxx".}
 proc newBOPAlgoSection*(theAllocator: Handle[NCollectionBaseAllocator]): BOPAlgoSection {.
     cdecl, constructor, importcpp: "BOPAlgo_Section(@)", header: "BOPAlgo_Section.hxx".}
+
 

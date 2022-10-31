@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc newBRepAdaptorHArray1OfCurve*(theOther: BRepAdaptorArray1OfCurve): BRepAdap
     cdecl, constructor, importcpp: "BRepAdaptor_HArray1OfCurve(@)", header: "BRepAdaptor_HArray1OfCurve.hxx".}
 proc array1*(this: BRepAdaptorHArray1OfCurve): BRepAdaptorArray1OfCurve {.
     noSideEffect, cdecl, importcpp: "Array1", header: "BRepAdaptor_HArray1OfCurve.hxx".}
+
 

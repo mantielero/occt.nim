@@ -1,9 +1,11 @@
 import prs3d_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -55,5 +57,6 @@ proc getTexture*(this: Prs3dPointAspect): Handle[Graphic3dMarkerImage] {.
 proc dumpJson*(this: Prs3dPointAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_PointAspect.hxx".}
+
 
 

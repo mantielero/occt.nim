@@ -3,6 +3,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-12-05
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -38,4 +40,5 @@ proc bounds*(this: GeomFillDegeneratedBound; first: var cfloat; last: var cfloat
     noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_DegeneratedBound.hxx".}
 proc isDegenerated*(this: GeomFillDegeneratedBound): bool {.noSideEffect, cdecl,
     importcpp: "IsDegenerated", header: "GeomFill_DegeneratedBound.hxx".}
+
 

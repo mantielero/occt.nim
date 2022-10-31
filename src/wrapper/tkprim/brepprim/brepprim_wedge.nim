@@ -3,6 +3,8 @@ import brepprim_types
 
 
 
+
+
 ##  Created on: 1995-01-09
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc newBRepPrimWedge*(axes: Ax2Obj; xmin: cfloat; ymin: cfloat; zmin: cfloat;
                       z2min: cfloat; x2min: cfloat; xmax: cfloat; ymax: cfloat;
                       zmax: cfloat; z2max: cfloat; x2max: cfloat): BRepPrimWedge {.
     cdecl, constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
+
 

@@ -5,6 +5,8 @@ import ../../tkg3d/adaptor3d/adaptor3d_types
 
 
 
+
+
 ##  Created on: 1992-08-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];
                theSecondSurf: Handle[Adaptor3dHSurface];
                theArrOfPeriod: array[4, cfloat]) {.cdecl,
     importcpp: "IntSurf::SetPeriod(@)", header: "IntSurf.hxx".}
+
 

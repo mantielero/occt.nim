@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 2004-03-22
 ##  Created by: Sergey ANIKIN
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -22,6 +24,7 @@ const
   aspectPOM_All = (aspectPOM_Fill.int or aspectPOM_Line.int or aspectPOM_Point.int).AspectPolygonOffsetMode
   aspectPOM_None = 0x08 ##  do not change current polygon offset mode
   aspectPOM_Mask = (aspectPOM_All.int or aspectPOM_None.int).AspectPolygonOffsetMode
+
 
 
 

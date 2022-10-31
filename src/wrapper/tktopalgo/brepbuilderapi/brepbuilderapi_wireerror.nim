@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -27,6 +29,7 @@
 ## ! The last edge which you attempted to add was not connected to the wire.
 ## ! -      BRepBuilderAPI_NonManifoldWire
 ## ! The wire with some singularity.
+
 
 
 

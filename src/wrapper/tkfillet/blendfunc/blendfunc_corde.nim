@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1996-06-04
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2dObj) {
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
 proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}
+
 

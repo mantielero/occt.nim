@@ -1,5 +1,7 @@
-import ../tkgeombase/appparcurves/appparcurves_types
+import ../appparcurves/appparcurves_types
 import approx_types
+
+
 
 
 
@@ -36,4 +38,5 @@ proc value*(this: ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     noSideEffect, cdecl, importcpp: "Value", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc changeValue*(this: var ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     cdecl, importcpp: "ChangeValue", header: "Approx_MCurvesToBSpCurve.hxx".}
+
 

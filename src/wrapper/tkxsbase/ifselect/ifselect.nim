@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -25,4 +27,5 @@ proc saveSession*(ws: Handle[IFSelectWorkSession]; file: cstring): bool {.cdecl,
     importcpp: "IFSelect::SaveSession(@)", header: "IFSelect.hxx".}
 proc restoreSession*(ws: Handle[IFSelectWorkSession]; file: cstring): bool {.cdecl,
     importcpp: "IFSelect::RestoreSession(@)", header: "IFSelect.hxx".}
+
 

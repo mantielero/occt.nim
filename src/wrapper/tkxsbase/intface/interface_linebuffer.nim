@@ -2,6 +2,8 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-04-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -75,3 +77,4 @@ proc add*(this: var InterfaceLineBuffer; text: TCollectionAsciiString) {.cdecl,
     importcpp: "Add", header: "Interface_LineBuffer.hxx".}
 proc add*(this: var InterfaceLineBuffer; text: cchar) {.cdecl, importcpp: "Add",
     header: "Interface_LineBuffer.hxx".}
+

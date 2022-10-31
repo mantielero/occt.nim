@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-12-12
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -28,4 +30,5 @@ proc copy*(s: TopoDS_Shape; copyGeom: bool = true;
     constructor, importcpp: "BRepBuilderAPI_Copy(@)", header: "BRepBuilderAPI_Copy.hxx".}
 proc perform*(this: var BRepBuilderAPI_Copy; s: TopoDS_Shape; copyGeom: bool = true;
              copyMesh: bool = false) {.cdecl, importcpp: "Perform", header: "BRepBuilderAPI_Copy.hxx".}
+
 

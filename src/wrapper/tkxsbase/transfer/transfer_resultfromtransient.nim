@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -67,4 +69,5 @@ proc strip*(this: var TransferResultFromTransient) {.cdecl, importcpp: "Strip",
 proc fillBack*(this: TransferResultFromTransient;
               tp: Handle[TransferTransientProcess]) {.noSideEffect, cdecl,
     importcpp: "FillBack", header: "Transfer_ResultFromTransient.hxx".}
+
 

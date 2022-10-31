@@ -3,6 +3,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2015-06-30
 ##  Created by: Anton POLETAEV
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -57,4 +59,5 @@ proc builder*(this: Graphic3dBvhCStructureSetTrsfPers): Handle[
 proc setBuilder*(this: var Graphic3dBvhCStructureSetTrsfPers;
                 theBuilder: Handle[Select3D_BVHBuilder3d]) {.cdecl,
     importcpp: "SetBuilder", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
+
 

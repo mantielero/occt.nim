@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc operator*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "Oper
                                     header: "gce_MakePln.hxx".}
 converter `pln`*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
                                       header: "gce_MakePln.hxx".}
+
 

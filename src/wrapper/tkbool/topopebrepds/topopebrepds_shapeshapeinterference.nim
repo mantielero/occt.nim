@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1994-08-30
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc gBound*(this: TopOpeBRepDS_ShapeShapeInterference): bool {.noSideEffect, cd
     importcpp: "GBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
 proc setGBound*(this: var TopOpeBRepDS_ShapeShapeInterference; b: bool) {.cdecl,
     importcpp: "SetGBound", header: "TopOpeBRepDS_ShapeShapeInterference.hxx".}
+
 

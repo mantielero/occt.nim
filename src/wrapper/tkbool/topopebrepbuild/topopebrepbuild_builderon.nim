@@ -1,8 +1,10 @@
-import ../tkbool/topopebreptool/topopebreptool_types
+import ../topopebreptool/topopebreptool_types
 import ../../tkernel/standard/standard_types
+import ../topopebrepds/topopebrepds_types
 import ../../tkbrep/topods/topods_types
-import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 
 
@@ -51,4 +53,5 @@ proc perform2d*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
 proc gFillONParts2dWES2*(this: var TopOpeBRepBuildBuilderON;
                         i: Handle[TopOpeBRepDS_Interference]; espON: TopoDS_Shape) {.
     cdecl, importcpp: "GFillONParts2dWES2", header: "TopOpeBRepBuild_BuilderON.hxx".}
+
 

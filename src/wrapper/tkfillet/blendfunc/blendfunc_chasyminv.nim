@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1998-06-04
 ##  Created by: Philippe NOUAILLE
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc values*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_ChAsymInv.hxx".}
 proc set*(this: var BlendFuncChAsymInv; dist1: cfloat; angle: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ChAsymInv.hxx".}
+
 

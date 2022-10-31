@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc isMin*(this: ExtremaLocateExtPC): bool {.noSideEffect, cdecl, importcpp: "I
     header: "Extrema_LocateExtPC.hxx".}
 proc point*(this: ExtremaLocateExtPC): ExtremaPOnCurv {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_LocateExtPC.hxx".}
+
 

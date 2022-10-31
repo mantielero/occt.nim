@@ -6,6 +6,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1998-04-27
 ##  Created by: Stephanie HUMEAU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc derivTX*(this: var GeomFillFunctionDraft; dN: VecObj; teta: cfloat; d: var 
     cdecl, importcpp: "DerivTX", header: "GeomFill_FunctionDraft.hxx".}
 proc deriv2X*(this: var GeomFillFunctionDraft; x: MathVector; t: var GeomFillTensor): bool {.
     cdecl, importcpp: "Deriv2X", header: "GeomFill_FunctionDraft.hxx".}
+
 

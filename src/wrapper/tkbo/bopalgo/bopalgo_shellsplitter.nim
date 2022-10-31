@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -38,4 +40,5 @@ proc shells*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect, cd
     importcpp: "Shells", header: "BOPAlgo_ShellSplitter.hxx".}
 #proc splitBlock*(theCB: var BOPToolsConnexityBlock) {.cdecl,
 #    importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)", header: "BOPAlgo_ShellSplitter.hxx".}
+
 

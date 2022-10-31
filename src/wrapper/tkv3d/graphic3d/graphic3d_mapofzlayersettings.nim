@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -16,4 +18,5 @@
 #type
 #  Graphic3dMapOfZLayerSettings* = NCollectionDataMap[Graphic3dZLayerId,
 #      Graphic3dZLayerSettings]
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -64,4 +66,5 @@ proc hasSameSupport*(this: TopOpeBRepDS_Interference;
 proc hasSameGeometry*(this: TopOpeBRepDS_Interference;
                      other: Handle[TopOpeBRepDS_Interference]): bool {.
     noSideEffect, cdecl, importcpp: "HasSameGeometry", header: "TopOpeBRepDS_Interference.hxx".}
+
 

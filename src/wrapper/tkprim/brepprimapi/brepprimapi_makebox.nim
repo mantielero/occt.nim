@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -63,4 +65,5 @@ proc rightFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "RightFace", header: "BRepPrimAPI_MakeBox.hxx".}
 proc topFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "TopFace", header: "BRepPrimAPI_MakeBox.hxx".}
+
 

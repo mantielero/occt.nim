@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-12-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc limitedMax*(this: IFSelectDispPerFiles; nbent: cint; max: var cint): bool {
 proc packets*(this: IFSelectDispPerFiles; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect, cdecl,
     importcpp: "Packets", header: "IFSelect_DispPerFiles.hxx".}
+
 

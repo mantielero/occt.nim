@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -28,4 +30,5 @@ when not defined(noException) and not defined(noTopoDS_UnCompatibleShapes):
 
 else:
   discard
+
 

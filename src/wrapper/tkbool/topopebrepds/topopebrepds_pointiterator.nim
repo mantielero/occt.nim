@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc sameOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl
     importcpp: "SameOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc support*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect, cdecl,
     importcpp: "Support", header: "TopOpeBRepDS_PointIterator.hxx".}
+
 

@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,5 +21,6 @@ import selectmgr_types
 
 proc transform*(theTrsf: TrsfObj; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
   discard
+
 
 

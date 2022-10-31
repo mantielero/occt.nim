@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -43,4 +45,5 @@ proc tangent2dOnS2*(this: BlendFuncConstThroatWithPenetration): Vec2dObj {.
     noSideEffect, cdecl, importcpp: "Tangent2dOnS2", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
 proc getSectionSize*(this: BlendFuncConstThroatWithPenetration): cfloat {.
     noSideEffect, cdecl, importcpp: "GetSectionSize", header: "BlendFunc_ConstThroatWithPenetration.hxx".}
+
 

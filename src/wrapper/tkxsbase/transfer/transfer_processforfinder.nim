@@ -4,6 +4,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -183,5 +185,6 @@ proc removeResult*(this: var TransferProcessForFinder;
     cdecl, importcpp: "RemoveResult", header: "Transfer_ProcessForFinder.hxx".}
 proc checkNum*(this: TransferProcessForFinder; start: Handle[TransferFinder]): cint {.
     noSideEffect, cdecl, importcpp: "CheckNum", header: "Transfer_ProcessForFinder.hxx".}
+
 
 

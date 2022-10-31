@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-09-30
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc valueAndGradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat;
     importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc tolerance*(quad: IntSurfQuadric): cfloat {.cdecl,
     importcpp: "IntSurf_QuadricTool::Tolerance(@)", header: "IntSurf_QuadricTool.hxx".}
+
 

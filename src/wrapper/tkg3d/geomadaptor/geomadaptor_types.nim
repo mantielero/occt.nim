@@ -1,5 +1,5 @@
-import ../tkg3d/adaptor3d/adaptor3d_types
-import ../tkg3d/geom/geom_types
+import ../adaptor3d/adaptor3d_types
+import ../geom/geom_types
 import ../../tkernel/standard/standard_types
 type
   GeomAdaptor* {.importcpp: "GeomAdaptor", header: "GeomAdaptor.hxx", bycopy.} = object 
@@ -44,9 +44,9 @@ type
 
   GeomAdaptorSurfaceOfLinearExtrusion* {.importcpp: "GeomAdaptor_SurfaceOfLinearExtrusion", header: "GeomAdaptor_SurfaceOfLinearExtrusion.hxx",
                                         bycopy.} = object of GeomAdaptorSurface
-                                        bycopy.} = object of GeomAdaptorSurface
+                                        #bycopy.} = object of GeomAdaptorSurface
 
-                                        bycopy.} = object of GeomAdaptorSurface
+                                        #bycopy.} = object of GeomAdaptorSurface
   GeomAdaptorSurfaceOfRevolution* {.importcpp: "GeomAdaptor_SurfaceOfRevolution", header: "GeomAdaptor_SurfaceOfRevolution.hxx",
                                    bycopy.} = object of GeomAdaptorSurface
 

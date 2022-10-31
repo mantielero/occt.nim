@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -78,5 +80,6 @@ proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Line.hxx".}
 proc dumpJson*(this: GeomLine; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Line.hxx".}
+
 
 

@@ -6,6 +6,8 @@ import stepcontrol_types
 
 
 
+
+
 ##  Created on: 1995-02-20
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
     noSideEffect, cdecl, importcpp: "TransferWriteShape", header: "STEPControl_Controller.hxx".}
 proc init*(): bool {.cdecl, importcpp: "STEPControl_Controller::Init(@)",
                   header: "STEPControl_Controller.hxx".}
+
 

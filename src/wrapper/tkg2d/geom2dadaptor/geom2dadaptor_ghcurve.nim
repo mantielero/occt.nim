@@ -1,5 +1,7 @@
-import ../tkg2d/adaptor2d/adaptor2d_types
+import ../adaptor2d/adaptor2d_types
 import geom2dadaptor_types
+
+
 
 
 
@@ -31,6 +33,7 @@ proc curve2d*(this: Geom2dAdaptorGHCurve): Adaptor2dCurve2d {.noSideEffect, cdec
     importcpp: "Curve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc changeCurve2d*(this: var Geom2dAdaptorGHCurve): var Geom2dAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
+
 
 
 

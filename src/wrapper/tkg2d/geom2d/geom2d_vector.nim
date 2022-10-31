@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffec
     cdecl, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
 proc vec2d*(this: Geom2dVector): Vec2dObj {.noSideEffect, cdecl, importcpp: "Vec2d",
                                      header: "Geom2d_Vector.hxx".}
+
 

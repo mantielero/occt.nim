@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc operator*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeTranslation2d.hxx".}
 converter `trsf2d`*(this: GceMakeTranslation2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeTranslation2d::operator gp_Trsf2d", header: "gce_MakeTranslation2d.hxx".}
+
 

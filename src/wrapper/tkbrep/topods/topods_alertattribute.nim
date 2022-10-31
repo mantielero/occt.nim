@@ -4,6 +4,8 @@ import ../../tkernel/message/message_types
 
 
 
+
+
 ##  Created on: 2018-06-10
 ##  Created by: Natalia Ermolaeva
 ##  Copyright (c) 2018-2020 OPEN CASCADE SAS
@@ -32,4 +34,5 @@ proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
                                  header: "TopoDS_AlertAttribute.hxx".}
 proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
     MessageMessenger] {.cdecl, importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}
+
 

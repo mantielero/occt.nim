@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1998-01-22
 ##  Created by: Sergey ZARITCHNY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc newPrsDimMinRadiusDimension*(aShape: TopoDS_Shape; aVal: cfloat;
                                  aSymbolPrs: DsgPrsArrowSide;
                                  anArrowSize: cfloat = 0.0): PrsDimMinRadiusDimension {.
     cdecl, constructor, importcpp: "PrsDim_MinRadiusDimension(@)", header: "PrsDim_MinRadiusDimension.hxx".}
+
 

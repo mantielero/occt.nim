@@ -1,8 +1,10 @@
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
 import ais_types
-import ../tkv3d/selectmgr/selectmgr_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
+
+
 
 
 
@@ -39,5 +41,6 @@ proc isHilighted*(this: AIS_TrihedronOwner;
 proc unhilight*(this: var AIS_TrihedronOwner;
                thePM: Handle[PrsMgrPresentationManager]; theMode: cint) {.cdecl,
     importcpp: "Unhilight", header: "AIS_TrihedronOwner.hxx".}
+
 
 

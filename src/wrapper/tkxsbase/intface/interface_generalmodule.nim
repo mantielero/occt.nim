@@ -2,6 +2,8 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -142,3 +144,4 @@ proc categoryNumber*(this: InterfaceGeneralModule; cn: cint;
 proc name*(this: InterfaceGeneralModule; cn: cint; ent: Handle[StandardTransient];
           shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
     noSideEffect, cdecl, importcpp: "Name", header: "Interface_GeneralModule.hxx".}
+

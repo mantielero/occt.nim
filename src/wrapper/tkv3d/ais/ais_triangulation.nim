@@ -5,6 +5,8 @@ import ../../tkmath/poly/poly_types
 
 
 
+
+
 ##  Created on: 2009-12-10
 ##  Created by: Paul SUPRYATKIN
 ##  Copyright (c) 2009-2014 OPEN CASCADE SAS
@@ -41,4 +43,5 @@ proc setTransparency*(this: var AIS_Triangulation; aValue: cfloat = 0.6) {.cdecl
     importcpp: "SetTransparency", header: "AIS_Triangulation.hxx".}
 proc unsetTransparency*(this: var AIS_Triangulation) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_Triangulation.hxx".}
+
 

@@ -1,7 +1,9 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -41,4 +43,5 @@ proc operation*(this: BRepAlgoAPI_BooleanOperation): BOPAlgoOperation {.
     noSideEffect, cdecl, importcpp: "Operation", header: "BRepAlgoAPI_BooleanOperation.hxx".}
 proc build*(this: var BRepAlgoAPI_BooleanOperation) {.cdecl, importcpp: "Build",
     header: "BRepAlgoAPI_BooleanOperation.hxx".}
+
 

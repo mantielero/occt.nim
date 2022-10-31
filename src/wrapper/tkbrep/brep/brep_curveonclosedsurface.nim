@@ -8,6 +8,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc update*(this: var BRepCurveOnClosedSurface) {.cdecl, importcpp: "Update",
 proc dumpJson*(this: BRepCurveOnClosedSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_CurveOnClosedSurface.hxx".}
+
 

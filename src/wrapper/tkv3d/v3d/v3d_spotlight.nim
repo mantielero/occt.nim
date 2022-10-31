@@ -3,6 +3,8 @@ import v3d_types
 
 
 
+
+
 ##  Created on: 1992-01-22
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -44,6 +46,7 @@ proc setDirection*(this: var V3dSpotLight; theOrientation: V3dTypeOfOrientation)
 ## using statement
 
 ## using statement
+
 
 
 

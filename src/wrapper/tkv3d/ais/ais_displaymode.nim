@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -21,6 +23,7 @@
 ## ! for interactive objects. The possibilities include:
 ## ! -   wireframe,
 ## ! -   shaded,
+
 
 
 

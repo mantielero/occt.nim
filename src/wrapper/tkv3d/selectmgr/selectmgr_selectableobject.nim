@@ -1,9 +1,11 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
+import ../prsmgr/prsmgr_types
+import ../graphic3d/graphic3d_types
 import ../../tkmath/bnd/bnd_types
 import selectmgr_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 
 
@@ -100,5 +102,6 @@ proc getAssemblyOwner*(this: SelectMgrSelectableObject): Handle[
 proc dumpJson*(this: SelectMgrSelectableObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_SelectableObject.hxx".}
+
 
 

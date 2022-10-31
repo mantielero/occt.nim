@@ -5,6 +5,8 @@ import stepcontrol_types
 
 
 
+
+
 ##  Created on: 1994-12-21
 ##  Created by: Dieter THIEMANN
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc computeSRRWT*(this: var STEPControlActorRead;
                   srr: Handle[StepReprRepresentationRelationship];
                   tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.cdecl,
     importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".}
+
 

@@ -4,6 +4,8 @@ import ../../tkgeomalgo/intsurf/intsurf_types
 
 
 
+
+
 ##  Created on: 1993-03-17
 ##  Created by: Laurent BUCHARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -41,4 +43,5 @@ proc tangencyOnSurf2*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2:
     importcpp: "TangencyOnSurf2", header: "ApproxInt_SvSurfaces.hxx".}
 proc destroyApproxIntSvSurfaces*(this: var ApproxIntSvSurfaces) {.cdecl,
     importcpp: "#.~ApproxInt_SvSurfaces()", header: "ApproxInt_SvSurfaces.hxx".}
+
 

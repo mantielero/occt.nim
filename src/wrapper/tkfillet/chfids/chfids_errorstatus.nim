@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,6 +20,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! --- Purpose statuts concernant la cause de l'erreur
+
 
 
 

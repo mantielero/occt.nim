@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-01-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc fillResult*(this: IFSelectSelectInList; n1: cint; n2: cint;
                 ent: Handle[StandardTransient];
                 result: var InterfaceEntityIterator) {.noSideEffect, cdecl,
     importcpp: "FillResult", header: "IFSelect_SelectInList.hxx".}
+
 

@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1994-11-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc shape*(this: TopOpeBRepBuildPave): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Shape", header: "TopOpeBRepBuild_Pave.hxx".}
 proc dump*(this: TopOpeBRepBuildPave) {.noSideEffect, cdecl, importcpp: "Dump",
                                      header: "TopOpeBRepBuild_Pave.hxx".}
+
 

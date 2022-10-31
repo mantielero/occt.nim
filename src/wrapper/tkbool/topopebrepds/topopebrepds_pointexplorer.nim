@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): cint {.cdecl,
     importcpp: "NbPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_PointExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepDS_PointExplorer.hxx".}
+
 

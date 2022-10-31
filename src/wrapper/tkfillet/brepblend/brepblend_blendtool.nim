@@ -5,6 +5,8 @@ import ../../tkg2d/adaptor2d/adaptor2d_types
 
 
 
+
+
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var cfloat; ulast: var cfloat
 proc curveOnSurf*(c: Handle[Adaptor2dHCurve2d]; s: Handle[Adaptor3dHSurface]): Handle[
     Adaptor2dHCurve2d] {.cdecl, importcpp: "BRepBlend_BlendTool::CurveOnSurf(@)",
                         header: "BRepBlend_BlendTool.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -41,5 +43,6 @@ const
                                                          ## ! Lookup table for approximated PBR environment lighting.
                                                          ## ! Configured as index at the end of available texture units - 3.
   graphic3dTextureUnitNB* = (graphic3dTextureUnit15.int + 1)#.Graphic3dTextureUnit
+
 
 

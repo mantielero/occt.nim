@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1995-10-20
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -165,4 +167,5 @@ proc resolution*(this: LawBSpline; tolerance3D: cfloat; uTolerance: var cfloat) 
     noSideEffect, cdecl, importcpp: "Resolution", header: "Law_BSpline.hxx".}
 proc copy*(this: LawBSpline): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Law_BSpline.hxx".}
+
 

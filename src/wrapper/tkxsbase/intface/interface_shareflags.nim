@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-04-05
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -63,3 +65,4 @@ proc nbRoots*(this: InterfaceShareFlags): cint {.noSideEffect, cdecl,
     importcpp: "NbRoots", header: "Interface_ShareFlags.hxx".}
 proc root*(this: InterfaceShareFlags; num: cint = 1): Handle[StandardTransient] {.
     noSideEffect, cdecl, importcpp: "Root", header: "Interface_ShareFlags.hxx".}
+

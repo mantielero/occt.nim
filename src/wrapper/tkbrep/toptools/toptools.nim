@@ -1,5 +1,7 @@
+import ../topods/topods_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -24,4 +26,5 @@ import ../tkbrep/topods/topods_types
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.cdecl,
     importcpp: "TopTools::Dump(@)", header: "TopTools.hxx".}
 proc dummy*(i: cint) {.cdecl, importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}
+
 

@@ -2,6 +2,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -23,4 +25,5 @@ proc isValid*(this: AspectXRHapticActionData): bool {.noSideEffect, cdecl,
     importcpp: "IsValid", header: "Aspect_XRHapticActionData.hxx".}
 proc newAspectXRHapticActionData*(): AspectXRHapticActionData {.cdecl, constructor,
     importcpp: "Aspect_XRHapticActionData(@)", header: "Aspect_XRHapticActionData.hxx".}
+
 

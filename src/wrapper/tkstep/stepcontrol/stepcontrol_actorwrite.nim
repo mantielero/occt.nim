@@ -5,6 +5,8 @@ import stepcontrol_types
 
 
 
+
+
 ##  Created on: 1995-01-31
 ##  Created by: Dieter THIEMANN
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -65,4 +67,5 @@ proc setTolerance*(this: var STEPControlActorWrite; tol: cfloat) {.cdecl,
     importcpp: "SetTolerance", header: "STEPControl_ActorWrite.hxx".}
 proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): bool {.
     noSideEffect, cdecl, importcpp: "IsAssembly", header: "STEPControl_ActorWrite.hxx".}
+
 

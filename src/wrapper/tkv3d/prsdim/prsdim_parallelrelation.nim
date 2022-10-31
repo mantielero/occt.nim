@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc newPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
     cdecl, constructor, importcpp: "PrsDim_ParallelRelation(@)", header: "PrsDim_ParallelRelation.hxx".}
 proc isMovable*(this: PrsDimParallelRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_ParallelRelation.hxx".}
+
 

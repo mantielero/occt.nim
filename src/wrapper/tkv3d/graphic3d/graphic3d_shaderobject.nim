@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
@@ -43,5 +45,6 @@ proc createFromSource*(theType: Graphic3dTypeOfShaderObject;
                       theSource: TCollectionAsciiString): Handle[
     Graphic3dShaderObject] {.cdecl, importcpp: "Graphic3d_ShaderObject::CreateFromSource(@)",
                             header: "Graphic3d_ShaderObject.hxx".}
+
 
 

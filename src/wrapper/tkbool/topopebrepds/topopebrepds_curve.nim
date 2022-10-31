@@ -6,6 +6,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -90,4 +92,5 @@ proc dSIndex*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, cdecl,
     importcpp: "DSIndex", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: cint) {.cdecl,
     importcpp: "ChangeDSIndex", header: "TopOpeBRepDS_Curve.hxx".}
+
 

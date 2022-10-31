@@ -2,6 +2,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -32,5 +34,6 @@ proc newGraphic3dArrayOfTriangleStrips*(theMaxVertexs: cint;
                                        theHasVTexels: bool = false): Graphic3dArrayOfTriangleStrips {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfTriangleStrips(@)",
     header: "Graphic3d_ArrayOfTriangleStrips.hxx".}
+
 
 

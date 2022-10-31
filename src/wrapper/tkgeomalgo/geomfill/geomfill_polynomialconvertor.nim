@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-07-18
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -42,4 +44,5 @@ proc section*(this: GeomFillPolynomialConvertor; firstPnt: PntObj; dFirstPnt: Ve
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec) {.noSideEffect, cdecl,
     importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
+
 

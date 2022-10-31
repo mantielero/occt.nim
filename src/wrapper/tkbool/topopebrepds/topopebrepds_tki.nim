@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1997-09-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc value*(this: TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): TopO
     noSideEffect, cdecl, importcpp: "Value", header: "TopOpeBRepDS_TKI.hxx".}
 proc changeValue*(this: var TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): var TopOpeBRepDS_ListOfInterference {.
     cdecl, importcpp: "ChangeValue", header: "TopOpeBRepDS_TKI.hxx".}
+
 

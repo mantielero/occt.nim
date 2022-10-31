@@ -7,6 +7,8 @@ import ../../tkv3d/graphic3d/graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -112,4 +114,5 @@ proc genericAction*(this: AspectXRSession; theDevice: AspectXRTrackedDeviceRole;
 
 proc getString*(this: AspectXRSession; theInfo: AspectXRSessionInfoString): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "GetString", header: "Aspect_XRSession.hxx".}
+
 

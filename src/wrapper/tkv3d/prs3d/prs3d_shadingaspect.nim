@@ -1,7 +1,9 @@
 import prs3d_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -59,5 +61,6 @@ proc setAspect*(this: var Prs3dShadingAspect;
 proc dumpJson*(this: Prs3dShadingAspect; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Prs3d_ShadingAspect.hxx".}
+
 
 

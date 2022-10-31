@@ -6,6 +6,8 @@ import blendfunc_types
 
 
 
+
+
 ##  Created on: 1996-06-06
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc set*(this: var BlendFuncChamfer; dist1: cfloat; dist2: cfloat; choix: cint)
     importcpp: "Set", header: "BlendFunc_Chamfer.hxx".}
 proc getSectionSize*(this: BlendFuncChamfer): cfloat {.noSideEffect, cdecl,
     importcpp: "GetSectionSize", header: "BlendFunc_Chamfer.hxx".}
+
 

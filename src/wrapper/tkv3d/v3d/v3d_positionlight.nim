@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1997-11-21
 ##  Created by: ZOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -18,6 +20,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Base class for Positional, Spot and Directional Light classes.
+
 
 
 

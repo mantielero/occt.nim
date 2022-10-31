@@ -2,6 +2,8 @@ import aspect_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -23,4 +25,5 @@ proc isChanged*(this: var AspectXRAnalogActionData): bool {.cdecl,
     importcpp: "IsChanged", header: "Aspect_XRAnalogActionData.hxx".}
 proc newAspectXRAnalogActionData*(): AspectXRAnalogActionData {.cdecl, constructor,
     importcpp: "Aspect_XRAnalogActionData(@)", header: "Aspect_XRAnalogActionData.hxx".}
+
 

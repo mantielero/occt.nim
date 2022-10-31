@@ -5,6 +5,8 @@ import appparcurves_types
 
 
 
+
+
 ##  Created on: 1991-12-02
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -77,4 +79,5 @@ proc d2*(this: AppParCurvesMultiCurve; cuIndex: cint; u: cfloat; pt: var Pnt2dOb
                                   header: "AppParCurves_MultiCurve.hxx".}
 proc dump*(this: AppParCurvesMultiCurve; o: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "AppParCurves_MultiCurve.hxx".}
+
 

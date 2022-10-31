@@ -13,6 +13,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
 ##  Copyright (c) 2004-2014 OPEN CASCADE SAS
@@ -70,6 +72,7 @@ proc hasFaulty*(this: BOPAlgoArgumentAnalyzer): bool {.noSideEffect, cdecl,
     importcpp: "HasFaulty", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
 proc getCheckResult*(this: BOPAlgoArgumentAnalyzer): BOPAlgoListOfCheckResult {.
     noSideEffect, cdecl, importcpp: "GetCheckResult", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
+
 
 
 

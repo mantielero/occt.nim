@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -36,4 +38,5 @@ proc invalidate*(this: var Graphic3dMutableIndexBuffer; theIndexLower: cint;
 proc invalidate*(this: var Graphic3dMutableIndexBuffer;
                 theRange: Graphic3dBufferRange) {.cdecl, importcpp: "invalidate",
     header: "Graphic3d_MutableIndexBuffer.hxx".}
+
 

@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc numberOfTrace*(this: GeomFillSweep): cint {.noSideEffect, cdecl,
     importcpp: "NumberOfTrace", header: "GeomFill_Sweep.hxx".}
 proc trace*(this: GeomFillSweep; indexOfTrace: cint): Handle[Geom2dCurve] {.
     noSideEffect, cdecl, importcpp: "Trace", header: "GeomFill_Sweep.hxx".}
+
 

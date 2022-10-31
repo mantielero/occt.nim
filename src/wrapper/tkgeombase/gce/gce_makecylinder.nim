@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc operator*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeCylinder.hxx".}
 converter `cylinder`*(this: GceMakeCylinder): CylinderObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCylinder::operator gp_Cylinder", header: "gce_MakeCylinder.hxx".}
+
 

@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -41,4 +43,5 @@ proc value*(this: var ExtremaGlobOptFuncConicS; theX: MathVector; theF: var cflo
     cdecl, importcpp: "Value", header: "Extrema_GlobOptFuncConicS.hxx".}
 proc conicParameter*(this: ExtremaGlobOptFuncConicS; theUV: MathVector): cfloat {.
     noSideEffect, cdecl, importcpp: "ConicParameter", header: "Extrema_GlobOptFuncConicS.hxx".}
+
 

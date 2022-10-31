@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -18,6 +20,7 @@
 ##  commercial license or contractual agreement.
 
 ## ! Type of the texture projection plane for both S and T texture coordinate.
+
 
 
 

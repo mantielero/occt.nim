@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -36,5 +38,6 @@ proc hasMipMaps*(this: Graphic3dTexture2D): bool {.noSideEffect, cdecl,
     importcpp: "HasMipMaps", header: "Graphic3d_Texture2D.hxx".}
 proc setMipMaps*(this: var Graphic3dTexture2D; theToUse: bool) {.cdecl,
     importcpp: "SetMipMaps", header: "Graphic3d_Texture2D.hxx".}
+
 
 

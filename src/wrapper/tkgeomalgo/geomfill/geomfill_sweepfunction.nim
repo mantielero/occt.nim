@@ -7,6 +7,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc maximalSection*(this: GeomFillSweepFunction): cfloat {.noSideEffect, cdecl,
 proc getMinimalWeight*(this: GeomFillSweepFunction;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "GetMinimalWeight", header: "GeomFill_SweepFunction.hxx".}
+
 

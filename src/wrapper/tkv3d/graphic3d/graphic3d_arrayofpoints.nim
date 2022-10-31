@@ -2,6 +2,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -26,5 +28,6 @@ proc newGraphic3dArrayOfPoints*(theMaxVertexs: cint;
 proc newGraphic3dArrayOfPoints*(theMaxVertexs: cint; theHasVColors: bool = false;
                                theHasVNormals: bool = false): Graphic3dArrayOfPoints {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfPoints(@)", header: "Graphic3d_ArrayOfPoints.hxx".}
+
 
 

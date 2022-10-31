@@ -1,7 +1,9 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 
 
@@ -101,4 +103,5 @@ proc builder*(this: BRepAlgoAPI_BuilderAlgo): BOPAlgoPBuilder {.noSideEffect, cd
     importcpp: "Builder", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
 #proc history*(this: BRepAlgoAPI_BuilderAlgo): Handle[BRepToolsHistory] {.
 #    noSideEffect, cdecl, importcpp: "History", header: "BRepAlgoAPI_BuilderAlgo.hxx".}
+
 

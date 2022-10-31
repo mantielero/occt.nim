@@ -3,6 +3,8 @@ import ../../tkbrep/toptools/toptools_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -34,4 +36,5 @@ proc setAvoidInternalShapes*(this: var BOPAlgoBuilderArea; theAvoidInternal: boo
     cdecl, importcpp: "SetAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
 proc isAvoidInternalShapes*(this: BOPAlgoBuilderArea): bool {.noSideEffect, cdecl,
     importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_BuilderArea.hxx".}
+
 

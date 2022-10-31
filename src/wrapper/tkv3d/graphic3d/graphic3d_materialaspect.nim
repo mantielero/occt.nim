@@ -5,6 +5,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -126,4 +128,5 @@ proc dumpJson*(this: Graphic3dMaterialAspect; theOStream: var StandardOStream;
 proc setReflectionModeOff*(this: var Graphic3dMaterialAspect;
                           theType: Graphic3dTypeOfReflection) {.cdecl,
     importcpp: "SetReflectionModeOff", header: "Graphic3d_MaterialAspect.hxx".}
+
 

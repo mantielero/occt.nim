@@ -2,6 +2,8 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -99,3 +101,4 @@ proc getFromAnother*(this: var InterfaceUndefinedContent;
                     other: Handle[InterfaceUndefinedContent];
                     tc: var InterfaceCopyTool) {.cdecl, importcpp: "GetFromAnother",
     header: "Interface_UndefinedContent.hxx".}
+

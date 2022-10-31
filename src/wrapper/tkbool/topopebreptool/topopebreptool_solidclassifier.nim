@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1996-08-27
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc classify*(this: var TopOpeBRepToolSolidClassifier; s: TopoDS_Shell; p: PntO
               tol: cfloat): TopAbsState {.cdecl, importcpp: "Classify", header: "TopOpeBRepTool_SolidClassifier.hxx".}
 proc state*(this: TopOpeBRepToolSolidClassifier): TopAbsState {.noSideEffect, cdecl,
     importcpp: "State", header: "TopOpeBRepTool_SolidClassifier.hxx".}
+
 

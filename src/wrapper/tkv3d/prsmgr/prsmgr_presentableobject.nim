@@ -1,13 +1,15 @@
 import ../../tkmath/toploc/toploc_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
 import prsmgr_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
 import ../../tkmath/bnd/bnd_types
-import ../tkv3d/prs3d/prs3d_types
+
+
 
 
 
@@ -228,5 +230,6 @@ proc toPropagateVisualState*(this: PrsMgrPresentableObject): bool {.noSideEffect
     cdecl, importcpp: "ToPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}
 proc setPropagateVisualState*(this: var PrsMgrPresentableObject; theFlag: bool) {.
     cdecl, importcpp: "SetPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}
+
 
 

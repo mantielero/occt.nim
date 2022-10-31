@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -21,5 +23,6 @@
 const
   AIS_RotationModeLOWER* = 0
   AIS_RotationModeUPPER* = aIS_RotationModeBndBoxScene
+
 
 

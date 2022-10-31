@@ -1,8 +1,10 @@
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkg2d/adaptor2d/adaptor2d_types
-import ../tkg3d/topabs/topabs_types
+import ../topabs/topabs_types
 import adaptor3d_types
+
+
 
 
 
@@ -38,4 +40,5 @@ proc orientation*(this: var Adaptor3dHVertex): TopAbsOrientation {.cdecl,
     importcpp: "Orientation", header: "Adaptor3d_HVertex.hxx".}
 proc isSame*(this: var Adaptor3dHVertex; other: Handle[Adaptor3dHVertex]): bool {.
     cdecl, importcpp: "IsSame", header: "Adaptor3d_HVertex.hxx".}
+
 

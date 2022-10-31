@@ -5,6 +5,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1995-11-02
 ##  Created by: Jing Cheng MEI
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc found*(this: BRepBuilderAPI_FindPlane): bool {.noSideEffect, cdecl,
     importcpp: "Found", header: "BRepBuilderAPI_FindPlane.hxx".}
 proc plane*(this: BRepBuilderAPI_FindPlane): Handle[GeomPlane] {.noSideEffect, cdecl,
     importcpp: "Plane", header: "BRepBuilderAPI_FindPlane.hxx".}
+
 

@@ -1,10 +1,12 @@
 import ../../tkmath/gp/gp_types
 import geomadaptor_types
+import ../adaptor3d/adaptor3d_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkg3d/adaptor3d/adaptor3d_types
+import ../geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
-import ../tkg3d/geom/geom_types
+
+
 
 
 
@@ -114,4 +116,5 @@ proc axis*(this: GeomAdaptorSurfaceOfRevolution): Ax3Obj {.noSideEffect, cdecl,
     importcpp: "Axis", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
 proc basisCurve*(this: GeomAdaptorSurfaceOfRevolution): Handle[Adaptor3dHCurve] {.
     noSideEffect, cdecl, importcpp: "BasisCurve", header: "GeomAdaptor_SurfaceOfRevolution.hxx".}
+
 

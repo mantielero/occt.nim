@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-09-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -50,3 +52,4 @@ proc begin*(this: var InterfaceGraphContent) {.cdecl, importcpp: "Begin",
     header: "Interface_GraphContent.hxx".}
 proc evaluate*(this: var InterfaceGraphContent) {.cdecl, importcpp: "Evaluate",
     header: "Interface_GraphContent.hxx".}
+

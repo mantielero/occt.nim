@@ -1,6 +1,8 @@
+import ../topods/topods_types
 import ../../tkg3d/topabs/topabs_types
 import toptools_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -36,4 +38,5 @@ proc getMutex*(this: TopToolsMutexForShapeProvider; theShape: TopoDS_Shape): ptr
     noSideEffect, cdecl, importcpp: "GetMutex", header: "TopTools_MutexForShapeProvider.hxx".}
 proc removeAllMutexes*(this: var TopToolsMutexForShapeProvider) {.cdecl,
     importcpp: "RemoveAllMutexes", header: "TopTools_MutexForShapeProvider.hxx".}
+
 

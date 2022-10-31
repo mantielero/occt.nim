@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -23,6 +25,7 @@
 ## ! -   ProjectorDependant for display in hidden line
 ## ! removal mode, where every new point of view
 ## ! entails recalculation of the display.
+
 
 
 

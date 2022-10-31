@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -49,4 +51,5 @@ proc curve*(this: LawBSpFunc): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Curve", header: "Law_BSpFunc.hxx".}
 proc setCurve*(this: var LawBSpFunc; c: Handle[LawBSpline]) {.cdecl,
     importcpp: "SetCurve", header: "Law_BSpFunc.hxx".}
+
 

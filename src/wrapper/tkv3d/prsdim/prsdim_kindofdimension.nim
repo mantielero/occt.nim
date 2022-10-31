@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -19,6 +21,7 @@
 
 ## ! Declares the kinds of dimensions needed in the
 ## ! display of Interactive Objects.
+
 
 
 

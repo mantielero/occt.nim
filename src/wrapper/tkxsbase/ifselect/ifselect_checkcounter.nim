@@ -3,6 +3,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc newIFSelectCheckCounter*(withlist: bool = false): IFSelectCheckCounter {.cd
 proc analyse*(this: var IFSelectCheckCounter; list: InterfaceCheckIterator;
              model: Handle[InterfaceInterfaceModel]; original: bool = false;
              failsonly: bool = false) {.cdecl, importcpp: "Analyse", header: "IFSelect_CheckCounter.hxx".}
+
 

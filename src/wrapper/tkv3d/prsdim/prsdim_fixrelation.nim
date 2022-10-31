@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc setWire*(this: var PrsDimFixRelation; aWire: TopoDS_Wire) {.cdecl,
     importcpp: "SetWire", header: "PrsDim_FixRelation.hxx".}
 proc isMovable*(this: PrsDimFixRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_FixRelation.hxx".}
+
 

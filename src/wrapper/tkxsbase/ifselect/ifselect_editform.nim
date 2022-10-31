@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -133,4 +135,5 @@ proc applyData*(this: var IFSelectEditForm; ent: Handle[StandardTransient];
     importcpp: "ApplyData", header: "IFSelect_EditForm.hxx".}
 proc undo*(this: var IFSelectEditForm): bool {.cdecl, importcpp: "Undo",
     header: "IFSelect_EditForm.hxx".}
+
 

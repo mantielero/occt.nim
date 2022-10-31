@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1996-03-29
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -46,4 +48,5 @@ proc trim*(this: LawConstant; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handl
     LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_Constant.hxx".}
 proc bounds*(this: var LawConstant; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
     importcpp: "Bounds", header: "Law_Constant.hxx".}
+
 

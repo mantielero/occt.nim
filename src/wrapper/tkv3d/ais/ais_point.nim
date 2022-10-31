@@ -7,6 +7,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1995-08-09
 ##  Created by: Arnaud BOUZY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -47,5 +49,6 @@ proc hasMarker*(this: AIS_Point): bool {.noSideEffect, cdecl, importcpp: "HasMar
                                      header: "AIS_Point.hxx".}
 proc vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "AIS_Point.hxx".}
+
 
 

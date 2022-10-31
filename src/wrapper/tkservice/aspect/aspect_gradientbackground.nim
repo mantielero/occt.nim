@@ -4,6 +4,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 2010-05-21
 ##  Created by: PAUL SUPRYATKIN
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -38,4 +40,5 @@ proc bgGradientFillMethod*(this: AspectGradientBackground): AspectGradientFillMe
 proc dumpJson*(this: AspectGradientBackground; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_GradientBackground.hxx".}
+
 

@@ -2,6 +2,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
 
 
+
+
 ##  Created on: 1992-10-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -94,3 +96,4 @@ proc destroy*(this: var InterfaceCheckIterator) {.cdecl, importcpp: "Destroy",
     header: "Interface_CheckIterator.hxx".}
 proc destroyInterfaceCheckIterator*(this: var InterfaceCheckIterator) {.cdecl,
     importcpp: "#.~Interface_CheckIterator()", header: "Interface_CheckIterator.hxx".}
+

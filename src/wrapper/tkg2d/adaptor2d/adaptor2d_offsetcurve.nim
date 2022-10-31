@@ -1,9 +1,11 @@
-import ../tkg2d/geom2d/geom2d_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import adaptor2d_types
+import ../geom2d/geom2d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkmath/geomabs/geomabs_types
+
+
 
 
 
@@ -103,4 +105,5 @@ proc bSpline*(this: Adaptor2dOffsetCurve): Handle[Geom2dBSplineCurve] {.
     noSideEffect, cdecl, importcpp: "BSpline", header: "Adaptor2d_OffsetCurve.hxx".}
 proc nbSamples*(this: Adaptor2dOffsetCurve): cint {.noSideEffect, cdecl,
     importcpp: "NbSamples", header: "Adaptor2d_OffsetCurve.hxx".}
+
 

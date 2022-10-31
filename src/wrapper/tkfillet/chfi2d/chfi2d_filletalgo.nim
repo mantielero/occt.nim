@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 2013-05-20
 ##  Created by: Mikhail PONIKAROV
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -81,4 +83,5 @@ proc lowerValue*(this: var FilletPoint): cfloat {.cdecl, importcpp: "LowerValue"
     header: "ChFi2d_FilletAlgo.hxx".}
 proc remove*(this: var FilletPoint; theIndex: cint) {.cdecl, importcpp: "remove",
     header: "ChFi2d_FilletAlgo.hxx".}
+
 

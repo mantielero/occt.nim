@@ -1,7 +1,9 @@
-import ../tkfillet/chfi2d/chfi2d_types
+import ../chfi2d/chfi2d_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 import brepfilletapi_types
+
+
 
 
 
@@ -93,4 +95,5 @@ proc status*(this: BRepFilletAPI_MakeFillet2d): ChFi2dConstructionError {.
     noSideEffect, cdecl, importcpp: "Status", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc build*(this: var BRepFilletAPI_MakeFillet2d) {.cdecl, importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
+
 

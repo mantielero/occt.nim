@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
 
 
+
+
 ##  Created on: 1997-02-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -124,3 +126,4 @@ proc fUN_select3dinterference*(six: cint; bds: var TopOpeBRepDS_DataStructure;
                               l3dFEresi: var TopOpeBRepDS_ListOfInterference;
                               l2dFE: var TopOpeBRepDS_ListOfInterference) {.cdecl,
     importcpp: "FUN_select3dinterference(@)", header: "TopOpeBRepDS_ProcessInterferencesTool.hxx".}
+

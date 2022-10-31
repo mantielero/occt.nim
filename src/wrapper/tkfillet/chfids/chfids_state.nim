@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -28,6 +30,7 @@
 ## ! - OnSame  means  that the  edge of  the  fillet  has a
 ## ! concave side different than one of the two other edges
 ## ! and identical to the third edge.
+
 
 
 

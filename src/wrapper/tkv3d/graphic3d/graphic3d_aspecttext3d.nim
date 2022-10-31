@@ -6,6 +6,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -65,5 +67,6 @@ proc getTextFontAspect*(this: Graphic3dAspectText3d): FontFontAspect {.noSideEff
 proc dumpJson*(this: Graphic3dAspectText3d; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_AspectText3d.hxx".}
+
 
 

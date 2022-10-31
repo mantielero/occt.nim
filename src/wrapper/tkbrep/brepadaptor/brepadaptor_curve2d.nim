@@ -1,5 +1,7 @@
+import ../topods/topods_types
 import brepadaptor_types
-import ../tkbrep/topods/topods_types
+
+
 
 
 
@@ -31,4 +33,5 @@ proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "BRepAdaptor_Curve2d.hxx".}
 proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Face", header: "BRepAdaptor_Curve2d.hxx".}
+
 

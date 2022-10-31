@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,5 +36,6 @@ proc append*(this: var IFSelectHSeqOfSelection;
     header: "IFSelect_HSeqOfSelection.hxx".}
 proc changeSequence*(this: var IFSelectHSeqOfSelection): var IFSelectTSeqOfSelection {.
     cdecl, importcpp: "ChangeSequence", header: "IFSelect_HSeqOfSelection.hxx".}
+
 
 

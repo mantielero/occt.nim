@@ -2,6 +2,8 @@ import topods_types
 
 
 
+
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc compound*(s: TopoDS_Shape): TopoDS_Compound {.cdecl,
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
 proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.cdecl,
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
+
 

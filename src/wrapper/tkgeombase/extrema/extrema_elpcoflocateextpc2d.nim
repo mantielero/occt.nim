@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -50,4 +52,5 @@ proc point*(this: ExtremaELPCOfLocateExtPC2d; n: cint): ExtremaPOnCurv2d {.
 proc trimmedSquareDistances*(this: ExtremaELPCOfLocateExtPC2d; dist1: var cfloat;
                             dist2: var cfloat; p1: var Pnt2dObj; p2: var Pnt2dObj) {.
     noSideEffect, cdecl, importcpp: "TrimmedSquareDistances", header: "Extrema_ELPCOfLocateExtPC2d.hxx".}
+
 

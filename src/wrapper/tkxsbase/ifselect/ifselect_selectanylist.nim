@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-12-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -59,4 +61,5 @@ proc label*(this: IFSelectSelectAnyList): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_SelectAnyList.hxx".}
 proc listLabel*(this: IFSelectSelectAnyList): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "ListLabel", header: "IFSelect_SelectAnyList.hxx".}
+
 

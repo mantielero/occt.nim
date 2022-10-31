@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -81,4 +83,5 @@
 ##  #define InitHandleVal(type,var,value) \
 ##  if(!var##_s) { var##_s=new type##_struc; var##_s->H=value; }\
 ##  Handle(type)& var = var##_s->H;
+
 

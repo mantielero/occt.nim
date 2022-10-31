@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -76,3 +78,4 @@ proc rootResult*(this: InterfaceCopyTool; withreports: bool = false): InterfaceE
     noSideEffect, cdecl, importcpp: "RootResult", header: "Interface_CopyTool.hxx".}
 proc destroyInterfaceCopyTool*(this: var InterfaceCopyTool) {.cdecl,
     importcpp: "#.~Interface_CopyTool()", header: "Interface_CopyTool.hxx".}
+

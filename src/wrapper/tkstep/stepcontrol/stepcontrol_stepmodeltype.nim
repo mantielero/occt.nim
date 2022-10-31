@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1996-04-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -29,6 +31,7 @@
 ## ! into a STEP shell_based_surface_model entity.
 ## ! - STEPControl_GeometricCurveSet
 ## ! translates an Open CASCADE shape into a STEP geometric_curve_set entity.
+
 
 
 

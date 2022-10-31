@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc parameter*(this: TopOpeBRepDS_CurvePointInterference): cfloat {.noSideEffec
     cdecl, importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
 proc parameter*(this: var TopOpeBRepDS_CurvePointInterference; p: cfloat) {.cdecl,
     importcpp: "Parameter", header: "TopOpeBRepDS_CurvePointInterference.hxx".}
+
 

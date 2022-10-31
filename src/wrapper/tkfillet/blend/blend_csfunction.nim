@@ -6,6 +6,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -93,4 +95,5 @@ proc section*(this: var BlendCSFunction; p: BlendPoint; poles: var TColgpArray1O
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
     cdecl, importcpp: "Section", header: "Blend_CSFunction.hxx".}
+
 

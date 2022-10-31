@@ -24,6 +24,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-09
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -60,6 +62,7 @@ proc transform*(this: var GeomAxis1Placement; t: TrsfObj) {.cdecl, importcpp: "T
     header: "Geom_Axis1Placement.hxx".}
 proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}
+
 
 
 

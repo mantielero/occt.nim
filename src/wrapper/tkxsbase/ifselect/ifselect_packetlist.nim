@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -51,4 +53,5 @@ proc nbDuplicated*(this: IFSelectPacketList; count: cint; andmore: bool): cint {
     noSideEffect, cdecl, importcpp: "NbDuplicated", header: "IFSelect_PacketList.hxx".}
 proc duplicated*(this: IFSelectPacketList; count: cint; andmore: bool): InterfaceEntityIterator {.
     noSideEffect, cdecl, importcpp: "Duplicated", header: "IFSelect_PacketList.hxx".}
+
 

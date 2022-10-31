@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1996-01-22
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc pointsOnCurve*(this: var ExtremaFuncExtCS): var ExtremaSequenceOfPOnCurv {.
     importcpp: "PointsOnCurve", header: "Extrema_FuncExtCS.hxx".}
 proc pointsOnSurf*(this: var ExtremaFuncExtCS): var ExtremaSequenceOfPOnSurf {.cdecl,
     importcpp: "PointsOnSurf", header: "Extrema_FuncExtCS.hxx".}
+
 

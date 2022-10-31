@@ -3,6 +3,8 @@ import brepalgoapi_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -50,5 +52,6 @@ proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape
 ## using statement
 
 ## using statement
+
 
 

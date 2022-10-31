@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc operator*(this: GceMakeParab2d): Parab2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeParab2d.hxx".}
 converter `parab2d`*(this: GceMakeParab2d): Parab2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeParab2d::operator gp_Parab2d", header: "gce_MakeParab2d.hxx".}
+
 

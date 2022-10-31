@@ -402,7 +402,7 @@ proc addImport(fname:string;
           imports.incl( "import ../../" & paths[i] & "\n" )
         else:
           if currentFolders[1] != tmp2[1]:
-            imports.incl(  "import ../" & paths[i] & "\n"  )
+            imports.incl(  "import ../" & paths[i].split('/',1)[1] & "\n"  )
 
   for i in toSeq(imports):
     result &= i
@@ -515,7 +515,7 @@ proc findProcDependencies(fname:string):HashSet[string] =
     # Get the types for arguments and return values
 
     for p in procs:
-      echo p
+      #echo p
       var tmp = p.split('(', 1)[1]
       tmp = tmp.split("{.", 1)[0]
       # Split params and return type
@@ -642,7 +642,7 @@ for fname in walkFiles("tk*/*/*.nim"):
     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
       echo "Functions: ", fname
       addImports(fname)
-
+#addImports("tkg3d/geomadaptor/geomadaptor.nim")
 
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):

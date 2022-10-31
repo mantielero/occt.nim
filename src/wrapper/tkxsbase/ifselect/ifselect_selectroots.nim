@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc sort*(this: IFSelectSelectRoots; rank: cint; ent: Handle[StandardTransient]
     importcpp: "Sort", header: "IFSelect_SelectRoots.hxx".}
 proc extractLabel*(this: IFSelectSelectRoots): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectRoots.hxx".}
+
 

@@ -1,10 +1,12 @@
 import prsdim_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkg3d/geom/geom_types
-import ../tkv3d/prs3d/prs3d_types
+
+
 
 
 
@@ -132,4 +134,5 @@ proc computeProjVertexPresentation*(aPres: Handle[Prs3dPresentation];
                                    aWidth: cfloat = 2; aProjTOM: AspectTypeOfMarker = aspectTOM_PLUS;
                                    aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     cdecl, importcpp: "PrsDim::ComputeProjVertexPresentation(@)", header: "PrsDim.hxx".}
+
 

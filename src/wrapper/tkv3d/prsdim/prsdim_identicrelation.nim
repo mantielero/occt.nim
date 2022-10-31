@@ -6,6 +6,8 @@ import ../../tkg3d/geom/geom_types
 
 
 
+
+
 ##  Created on: 1997-03-03
 ##  Created by: Jean-Pierre COMBE
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc clearUsers*(this: var PrsDimIdenticRelation) {.cdecl, importcpp: "ClearUser
     header: "PrsDim_IdenticRelation.hxx".}
 proc isMovable*(this: PrsDimIdenticRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_IdenticRelation.hxx".}
+
 

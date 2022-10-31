@@ -14,6 +14,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -42,6 +44,7 @@ proc setOperation*(this: var BOPAlgoBOP; theOperation: BOPAlgoOperation) {.cdecl
 proc operation*(this: BOPAlgoBOP): BOPAlgoOperation {.noSideEffect, cdecl,
     importcpp: "Operation", header: "BOPAlgo_BOP.hxx".}
 proc perform*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}
+
 
 
 

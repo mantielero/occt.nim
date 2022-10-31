@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1994-05-26
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -27,4 +29,5 @@ proc newTopOpeBRepDS_SolidSurfaceInterference*(
     support: cint; geometryType: TopOpeBRepDS_Kind; geometry: cint): TopOpeBRepDS_SolidSurfaceInterference {.
     cdecl, constructor, importcpp: "TopOpeBRepDS_SolidSurfaceInterference(@)",
     header: "TopOpeBRepDS_SolidSurfaceInterference.hxx".}
+
 

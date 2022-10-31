@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1993-06-09
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -57,4 +59,5 @@ proc cCheck*(this: var TransferBinder): Handle[InterfaceCheck] {.cdecl,
     importcpp: "CCheck", header: "Transfer_Binder.hxx".}
 proc destroyTransferBinder*(this: var TransferBinder) {.cdecl,
     importcpp: "#.~Transfer_Binder()", header: "Transfer_Binder.hxx".}
+
 

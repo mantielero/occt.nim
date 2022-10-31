@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -36,4 +38,5 @@ proc operator*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "Oper
                                     header: "gce_MakeLin.hxx".}
 converter `lin`*(this: GceMakeLin): LinObj {.noSideEffect, cdecl, importcpp: "gce_MakeLin::operator gp_Lin",
                                       header: "gce_MakeLin.hxx".}
+
 

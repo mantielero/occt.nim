@@ -6,6 +6,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -77,5 +79,6 @@ proc verticalAlignment*(this: Graphic3dText): Graphic3dVerticalTextAlignment {.
 proc setVerticalAlignment*(this: var Graphic3dText;
                           theJustification: Graphic3dVerticalTextAlignment) {.
     cdecl, importcpp: "SetVerticalAlignment", header: "Graphic3d_Text.hxx".}
+
 
 

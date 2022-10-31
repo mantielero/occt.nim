@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc operator*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeElips2d.hxx".}
 converter `elips2d`*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeElips2d::operator gp_Elips2d", header: "gce_MakeElips2d.hxx".}
+
 

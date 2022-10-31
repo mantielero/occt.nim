@@ -5,6 +5,8 @@ import ../../tkg2d/adaptor2d/adaptor2d_types
 
 
 
+
+
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc transitionOnArc*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEffe
     cdecl, importcpp: "TransitionOnArc", header: "BRepBlend_PointOnRst.hxx".}
 proc parameterOnArc*(this: BRepBlendPointOnRst): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnArc", header: "BRepBlend_PointOnRst.hxx".}
+
 

@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1993-11-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -99,4 +101,5 @@ proc destroy*(this: var IFSelectSessionFile) {.cdecl, importcpp: "Destroy",
     header: "IFSelect_SessionFile.hxx".}
 proc destroyIFSelectSessionFile*(this: var IFSelectSessionFile) {.cdecl,
     importcpp: "#.~IFSelect_SessionFile()", header: "IFSelect_SessionFile.hxx".}
+
 

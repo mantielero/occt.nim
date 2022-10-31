@@ -1,7 +1,9 @@
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
-import ../tkgeomalgo/law/law_types
+import ../law/law_types
 import geomfill_types
+
+
 
 
 
@@ -50,4 +52,5 @@ proc bound*(this: GeomFillCoonsAlgPatch; i: cint): Handle[GeomFillBoundary] {.
     noSideEffect, cdecl, importcpp: "Bound", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc `func`*(this: GeomFillCoonsAlgPatch; i: cint): Handle[LawFunction] {.
     noSideEffect, cdecl, importcpp: "Func", header: "GeomFill_CoonsAlgPatch.hxx".}
+
 

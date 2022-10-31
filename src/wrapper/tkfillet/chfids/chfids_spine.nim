@@ -7,6 +7,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -169,4 +171,5 @@ proc errorStatus*(this: ChFiDS_Spine): ChFiDS_ErrorStatus {.noSideEffect, cdecl,
     importcpp: "ErrorStatus", header: "ChFiDS_Spine.hxx".}
 proc mode*(this: ChFiDS_Spine): ChFiDS_ChamfMode {.noSideEffect, cdecl,
     importcpp: "Mode", header: "ChFiDS_Spine.hxx".}
+
 

@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 1995-02-13
 ##  Created by: Mister rmi
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -73,5 +75,6 @@ proc setSelectionSensitivity*(this: var SelectMgrSelectionManager;
 proc updateSelection*(this: var SelectMgrSelectionManager;
                      theObj: Handle[SelectMgrSelectableObject]) {.cdecl,
     importcpp: "UpdateSelection", header: "SelectMgr_SelectionManager.hxx".}
+
 
 

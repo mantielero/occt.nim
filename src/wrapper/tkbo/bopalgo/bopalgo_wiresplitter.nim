@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2012 OPEN CASCADE SAS
 ##
@@ -43,4 +45,5 @@ proc makeWire*(theLE: var TopToolsListOfShape; theW: var TopoDS_Wire) {.cdecl,
 #proc splitBlock*(theF: TopoDS_Face; theCB: var BOPToolsConnexityBlock;
 #                theContext: Handle[IntToolsContext]) {.cdecl,
 #    importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)", header: "BOPAlgo_WireSplitter.hxx".}
+
 

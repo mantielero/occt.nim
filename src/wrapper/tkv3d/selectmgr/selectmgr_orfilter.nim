@@ -3,6 +3,8 @@ import selectmgr_types
 
 
 
+
+
 ##  Created on: 1995-12-04
 ##  Created by: Stephane MORTAUD
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -27,4 +29,5 @@ proc newSelectMgrOrFilter*(): SelectMgrOrFilter {.cdecl, constructor,
     importcpp: "SelectMgr_OrFilter(@)", header: "SelectMgr_OrFilter.hxx".}
 proc isOk*(this: SelectMgrOrFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "SelectMgr_OrFilter.hxx".}
+
 

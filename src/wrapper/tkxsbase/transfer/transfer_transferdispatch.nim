@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1992-02-07
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc transientProcess*(this: TransferTransferDispatch): Handle[
 proc copy*(this: var TransferTransferDispatch; entfrom: Handle[StandardTransient];
           entto: var Handle[StandardTransient]; mapped: bool; errstat: bool): bool {.
     cdecl, importcpp: "Copy", header: "Transfer_TransferDispatch.hxx".}
+
 

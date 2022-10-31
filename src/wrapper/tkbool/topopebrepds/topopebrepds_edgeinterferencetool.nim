@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-11-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
 proc transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
     importcpp: "Transition", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+
 

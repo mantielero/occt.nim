@@ -4,6 +4,8 @@ import graphic3d_types
 
 
 
+
+
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc segment*(this: Graphic3dTexture1Dsegment; theX1: var StandardShortReal;
              theX2: var StandardShortReal; theY2: var StandardShortReal;
              theZ2: var StandardShortReal) {.noSideEffect, cdecl,
     importcpp: "Segment", header: "Graphic3d_Texture1Dsegment.hxx".}
+
 

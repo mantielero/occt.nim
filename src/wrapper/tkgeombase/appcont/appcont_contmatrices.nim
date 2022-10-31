@@ -1,6 +1,8 @@
 import ../../tkmath/math/math_types
 
 
+
+
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -30,3 +32,4 @@ proc iBTMatrix*(classe: cint; m: var MathMatrix) {.cdecl, importcpp: "IBTMatrix(
     header: "AppCont_ContMatrices.hxx".}
 proc vBernstein*(classe: cint; nbpoints: cint; m: var MathMatrix) {.cdecl,
     importcpp: "VBernstein(@)", header: "AppCont_ContMatrices.hxx".}
+

@@ -1,9 +1,11 @@
 import brep_types
 import ../../tkmath/toploc/toploc_types
+import ../topods/topods_types
 import ../../tkernel/standard/standard_types
-import ../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/poly/poly_types
+
+
 
 
 
@@ -53,4 +55,5 @@ proc emptyCopy*(this: BRepTFace): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "BRep_TFace.hxx".}
 proc dumpJson*(this: BRepTFace; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TFace.hxx".}
+
 

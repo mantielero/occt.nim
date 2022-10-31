@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created by: Oleg AGASHIN
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -35,4 +37,5 @@ proc setTools*(this: var BOPAlgoToolsProvider; theShapes: TopToolsListOfShape) {
     cdecl, importcpp: "SetTools", header: "BOPAlgo_ToolsProvider.hxx".}
 proc tools*(this: BOPAlgoToolsProvider): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Tools", header: "BOPAlgo_ToolsProvider.hxx".}
+
 

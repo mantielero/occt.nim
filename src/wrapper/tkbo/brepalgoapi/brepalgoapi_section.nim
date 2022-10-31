@@ -1,9 +1,11 @@
+import ../bopalgo/bopalgo_types
 import ../../tkmath/gp/gp_types
-import ../tkbo/bopalgo/bopalgo_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
 import brepalgoapi_types
+
+
 
 
 
@@ -73,4 +75,5 @@ proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
 proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
                         f: var TopoDS_Shape): bool {.noSideEffect, cdecl,
     importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}
+
 

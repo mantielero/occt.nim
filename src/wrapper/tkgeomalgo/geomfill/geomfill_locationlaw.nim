@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -84,4 +86,5 @@ proc isRotation*(this: GeomFillLocationLaw; error: var cfloat): bool {.noSideEff
     cdecl, importcpp: "IsRotation", header: "GeomFill_LocationLaw.hxx".}
 proc rotation*(this: GeomFillLocationLaw; center: var PntObj) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_LocationLaw.hxx".}
+
 

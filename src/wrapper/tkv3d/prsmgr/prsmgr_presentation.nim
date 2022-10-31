@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
 import prsmgr_types
-import ../tkv3d/prs3d/prs3d_types
+
+
 
 
 
@@ -51,4 +53,5 @@ proc compute*(this: var PrsMgrPresentation) {.cdecl, importcpp: "Compute",
 proc dumpJson*(this: PrsMgrPresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "PrsMgr_Presentation.hxx".}
+
 

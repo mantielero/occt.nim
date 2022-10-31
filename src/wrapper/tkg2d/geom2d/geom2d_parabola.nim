@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -79,4 +81,5 @@ proc copy*(this: Geom2dParabola): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
 proc dumpJson*(this: Geom2dParabola; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_Parabola.hxx".}
+
 

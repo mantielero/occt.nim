@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-05-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -65,4 +67,5 @@ proc rootResult*(this: IFSelectSelectPointed; g: InterfaceGraph): InterfaceEntit
     noSideEffect, cdecl, importcpp: "RootResult", header: "IFSelect_SelectPointed.hxx".}
 proc label*(this: IFSelectSelectPointed): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_SelectPointed.hxx".}
+
 

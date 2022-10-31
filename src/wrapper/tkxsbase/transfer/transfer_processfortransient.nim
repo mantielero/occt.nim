@@ -4,6 +4,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -192,5 +194,6 @@ proc removeResult*(this: var TransferProcessForTransient;
                                       header: "Transfer_ProcessForTransient.hxx".}
 proc checkNum*(this: TransferProcessForTransient; start: Handle[StandardTransient]): cint {.
     noSideEffect, cdecl, importcpp: "CheckNum", header: "Transfer_ProcessForTransient.hxx".}
+
 
 

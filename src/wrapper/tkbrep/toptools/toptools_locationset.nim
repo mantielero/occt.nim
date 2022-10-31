@@ -4,6 +4,8 @@ import toptools_types
 
 
 
+
+
 ##  Created on: 1993-07-16
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc write*(this: TopToolsLocationSet; os: var StandardOStream;
 proc read*(this: var TopToolsLocationSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = newMessageProgressRange()) {.cdecl,
     importcpp: "Read", header: "TopTools_LocationSet.hxx".}
+
 

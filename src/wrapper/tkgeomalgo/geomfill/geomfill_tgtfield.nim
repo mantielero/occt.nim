@@ -1,7 +1,9 @@
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
-import ../tkgeomalgo/law/law_types
+import ../law/law_types
 import geomfill_types
+
+
 
 
 
@@ -35,4 +37,5 @@ proc d1*(this: GeomFillTgtField; w: cfloat): VecObj {.noSideEffect, cdecl, impor
     header: "GeomFill_TgtField.hxx".}
 proc d1*(this: GeomFillTgtField; w: cfloat; v: var VecObj; dv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtField.hxx".}
+
 

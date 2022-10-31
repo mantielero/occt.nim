@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -16,6 +18,7 @@
 
 ## ! Define the type of depth tolerance for considering picked entities to lie on the same depth (distance from eye to entity).
 ## ! @sa SelectMgr_SortCriterion, SelectMgr_ViewerSelector
+
 
 
 

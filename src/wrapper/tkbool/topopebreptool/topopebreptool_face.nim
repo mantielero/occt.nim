@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1999-01-14
 ##  Created by: Xuan PHAM PHU
 ##  Copyright (c) 1999 Matra Datavision
@@ -35,4 +37,5 @@ proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
 proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}
+
 

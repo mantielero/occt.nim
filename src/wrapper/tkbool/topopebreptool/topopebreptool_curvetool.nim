@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -55,4 +57,5 @@ proc makePCurveOnFace*(s: TopoDS_Shape; c: Handle[GeomCurve];
     Geom2dCurve] {.cdecl,
                   importcpp: "TopOpeBRepTool_CurveTool::MakePCurveOnFace(@)",
                   header: "TopOpeBRepTool_CurveTool.hxx".}
+
 

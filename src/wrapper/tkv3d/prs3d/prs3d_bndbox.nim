@@ -1,8 +1,10 @@
 import prs3d_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkmath/bnd/bnd_types
+
+
 
 
 
@@ -41,4 +43,5 @@ proc fillSegments*(theSegments: Handle[Graphic3dArrayOfSegments]; theBox: BndBox
     cdecl, importcpp: "Prs3d_BndBox::FillSegments(@)", header: "Prs3d_BndBox.hxx".}
 proc fillSegments*(theSegments: Handle[Graphic3dArrayOfSegments]; theBox: ptr PntObj) {.
     cdecl, importcpp: "Prs3d_BndBox::fillSegments(@)", header: "Prs3d_BndBox.hxx".}
+
 

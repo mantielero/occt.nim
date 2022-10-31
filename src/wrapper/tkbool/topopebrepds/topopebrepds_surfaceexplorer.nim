@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1996-10-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -43,4 +45,5 @@ proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): cint {.cdecl,
     importcpp: "NbSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_SurfaceExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+
 

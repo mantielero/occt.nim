@@ -1,6 +1,8 @@
 import geomadaptor_types
 import ../../tkernel/standard/standard_types
-import ../tkg3d/geom/geom_types
+import ../geom/geom_types
+
+
 
 
 
@@ -34,4 +36,5 @@ proc newGeomAdaptorHSurface*(s: Handle[GeomSurface]; uFirst: cfloat; uLast: cflo
                             vFirst: cfloat; vLast: cfloat; tolU: cfloat = 0.0;
                             tolV: cfloat = 0.0): GeomAdaptorHSurface {.cdecl,
     constructor, importcpp: "GeomAdaptor_HSurface(@)", header: "GeomAdaptor_HSurface.hxx".}
+
 

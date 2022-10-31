@@ -2,6 +2,8 @@ import gce_types
 
 
 
+
+
 ##  Created on: 1992-09-29
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc isDone*(this: GceRoot): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                 header: "gce_Root.hxx".}
 proc status*(this: GceRoot): GceErrorType {.noSideEffect, cdecl, importcpp: "Status",
                                         header: "gce_Root.hxx".}
+
 

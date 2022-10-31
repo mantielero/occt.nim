@@ -2,6 +2,8 @@ import topopebrepds_types
 
 
 
+
+
 ##  Created on: 1999-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1999 Matra Datavision
@@ -31,4 +33,5 @@ proc getI*(this: TopOpeBRepDS_Marker; i: cint): bool {.noSideEffect, cdecl,
     importcpp: "GetI", header: "TopOpeBRepDS_Marker.hxx".}
 proc allocate*(this: var TopOpeBRepDS_Marker; n: cint) {.cdecl, importcpp: "Allocate",
     header: "TopOpeBRepDS_Marker.hxx".}
+
 

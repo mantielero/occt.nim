@@ -4,6 +4,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1997-10-02
 ##  Created by: Xuan Trang PHAM PHU
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -31,4 +33,5 @@ proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.cdecl,
 proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
                 lSo: var TopToolsListOfShape) {.cdecl, importcpp: "MakeSolids",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+
 

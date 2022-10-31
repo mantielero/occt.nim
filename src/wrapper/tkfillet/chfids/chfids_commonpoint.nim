@@ -5,6 +5,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-29
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -60,4 +62,5 @@ proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
     importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}
 proc vector*(this: ChFiDS_CommonPoint): VecObj {.noSideEffect, cdecl,
     importcpp: "Vector", header: "ChFiDS_CommonPoint.hxx".}
+
 

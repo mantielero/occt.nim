@@ -3,6 +3,8 @@ import ../../tkg3d/adaptor3d/adaptor3d_types
 
 
 
+
+
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,6 +35,7 @@ proc getCurve*(this: var BRepAdaptorHCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "BRepAdaptor_HCurve.hxx".}
 proc changeCurve*(this: var BRepAdaptorHCurve): var BRepAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve", header: "BRepAdaptor_HCurve.hxx".}
+
 
 
 

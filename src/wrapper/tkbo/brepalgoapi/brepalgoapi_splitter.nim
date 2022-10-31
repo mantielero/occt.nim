@@ -1,6 +1,8 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/toptools/toptools_types
 import brepalgoapi_types
+
+
 
 
 
@@ -56,4 +58,5 @@ proc setTools*(this: var BRepAlgoAPI_Splitter; theLS: TopToolsListOfShape) {.cde
 proc tools*(this: BRepAlgoAPI_Splitter): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Tools", header: "BRepAlgoAPI_Splitter.hxx".}
 proc build*(this: var BRepAlgoAPI_Splitter) {.cdecl, importcpp: "Build", header: "BRepAlgoAPI_Splitter.hxx".}
+
 

@@ -1,14 +1,16 @@
 import ../../tkmath/tcolgp/tcolgp_types
 import ../../tkbool/topopebrepbuild/topopebrepbuild_types
-import ../tkfillet/chfids/chfids_types
-import ../tkfillet/chfi3d/chfi3d_types
+import ../chfi3d/chfi3d_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import brepfilletapi_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
 import ../../tkgeomalgo/law/law_types
+
+
 
 
 
@@ -147,4 +149,5 @@ proc badShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect, cde
     importcpp: "BadShape", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: cint): ChFiDS_ErrorStatus {.
     noSideEffect, cdecl, importcpp: "StripeStatus", header: "BRepFilletAPI_MakeFillet.hxx".}
+
 

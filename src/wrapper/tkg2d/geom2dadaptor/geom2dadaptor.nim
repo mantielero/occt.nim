@@ -1,6 +1,8 @@
-import ../tkg2d/geom2d/geom2d_types
+import ../adaptor2d/adaptor2d_types
 import ../../tkernel/standard/standard_types
-import ../tkg2d/adaptor2d/adaptor2d_types
+import ../geom2d/geom2d_types
+
+
 
 
 
@@ -24,4 +26,5 @@ import ../tkg2d/adaptor2d/adaptor2d_types
 
 proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.cdecl,
     importcpp: "Geom2dAdaptor::MakeCurve(@)", header: "Geom2dAdaptor.hxx".}
+
 

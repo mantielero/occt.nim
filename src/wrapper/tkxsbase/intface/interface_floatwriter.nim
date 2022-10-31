@@ -1,5 +1,7 @@
 
 
+
+
 ##  Created on: 1994-04-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -78,3 +80,4 @@ proc write*(this: InterfaceFloatWriter; val: cfloat; text: cstring): cint {.
 proc convert*(val: cfloat; text: cstring; zerosup: bool; range1: cfloat; range2: cfloat;
              mainform: cstring; rangeform: cstring): cint {.cdecl,
     importcpp: "Interface_FloatWriter::Convert(@)", header: "Interface_FloatWriter.hxx".}
+

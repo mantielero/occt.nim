@@ -5,6 +5,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -54,4 +56,5 @@ proc regularizeShells*(aSolid: TopoDS_Solid;
     importcpp: "TopOpeBRepTool::RegularizeShells(@)", header: "TopOpeBRepTool.hxx".}
 proc print*(oct: TopOpeBRepToolOutCurveType; s: var StandardOStream): var StandardOStream {.
     cdecl, importcpp: "TopOpeBRepTool::Print(@)", header: "TopOpeBRepTool.hxx".}
+
 

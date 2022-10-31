@@ -1,8 +1,6 @@
 import ../../tkbool/topopebrepds/topopebrepds_types
-import ../tkfillet/chfids/chfids_types
 import ../../tkmath/gp/gp_types
 import ../../tkg3d/topabs/topabs_types
-import ../tkfillet/brepblend/brepblend_types
 import ../../tkgeomalgo/intsurf/intsurf_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
@@ -12,10 +10,14 @@ import ../../tkbrep/toptools/toptools_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkgeomalgo/geomfill/geomfill_types
 import ../../tkbrep/topods/topods_types
+import ../chfids/chfids_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkg3d/geom/geom_types
 import ../../tkmath/geomabs/geomabs_types
 import ../../tkg2d/geom2d/geom2d_types
+import ../brepblend/brepblend_types
+
+
 
 
 ##  Created on: 1994-03-24
@@ -308,3 +310,4 @@ proc chFi3dApproxByC2*(c: Handle[GeomCurve]): Handle[GeomBSplineCurve] {.cdecl,
     importcpp: "ChFi3d_ApproxByC2(@)", header: "ChFi3d_Builder_0.hxx".}
 proc chFi3dIsSmooth*(c: Handle[GeomCurve]): bool {.cdecl,
     importcpp: "ChFi3d_IsSmooth(@)", header: "ChFi3d_Builder_0.hxx".}
+

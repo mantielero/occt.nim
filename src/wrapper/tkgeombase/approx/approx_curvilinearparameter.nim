@@ -8,6 +8,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1997-08-22
 ##  Created by: Jeannine PANCIATICI,  Sergey SOKOLOV
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -63,4 +65,5 @@ proc maxError2d2*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect, cdec
     importcpp: "MaxError2d2", header: "Approx_CurvilinearParameter.hxx".}
 proc dump*(this: ApproxCurvilinearParameter; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "Approx_CurvilinearParameter.hxx".}
+
 

@@ -6,6 +6,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -56,5 +58,6 @@ proc dot*(this: GeomVector; other: Handle[GeomVector]): cfloat {.noSideEffect, c
 proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): cfloat {.
     noSideEffect, cdecl, importcpp: "DotCross", header: "Geom_Vector.hxx".}
 proc vec*(this: GeomVector): VecObj {.noSideEffect, cdecl, importcpp: "Vec", header: "Geom_Vector.hxx".}
+
 
 

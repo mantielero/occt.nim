@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1993-03-24
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc transforms*(this: Geom2dTransformation; x: var cfloat; y: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Transforms", header: "Geom2d_Transformation.hxx".}
 proc copy*(this: Geom2dTransformation): Handle[Geom2dTransformation] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom2d_Transformation.hxx".}
+
 

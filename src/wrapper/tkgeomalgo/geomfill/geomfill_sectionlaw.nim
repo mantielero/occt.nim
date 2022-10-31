@@ -8,6 +8,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -84,4 +86,5 @@ proc isConicalLaw*(this: GeomFillSectionLaw; error: var cfloat): bool {.noSideEf
     cdecl, importcpp: "IsConicalLaw", header: "GeomFill_SectionLaw.hxx".}
 proc circlSection*(this: GeomFillSectionLaw; param: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "CirclSection", header: "GeomFill_SectionLaw.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -21,5 +23,6 @@
 const
   AIS_NavigationModeLOWER* = 0
   AIS_NavigationModeUPPER* = aIS_NavigationModeFirstPersonWalk
+
 
 

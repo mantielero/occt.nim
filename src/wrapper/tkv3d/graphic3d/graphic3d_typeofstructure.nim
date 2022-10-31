@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -19,6 +21,7 @@
 
 ## ! Structural attribute indicating if it can be displayed
 ## ! in wireframe, shadow mode, or both.
+
 
 
 

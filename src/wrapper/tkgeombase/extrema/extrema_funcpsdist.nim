@@ -5,6 +5,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 2016-05-10
 ##  Created by: Alexander MALYSHEV
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc gradient*(this: var ExtremaFuncPSDist; x: MathVector; g: var MathVector): b
     cdecl, importcpp: "Gradient", header: "Extrema_FuncPSDist.hxx".}
 proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat; g: var MathVector): bool {.
     cdecl, importcpp: "Values", header: "Extrema_FuncPSDist.hxx".}
+
 

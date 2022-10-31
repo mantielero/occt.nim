@@ -4,6 +4,8 @@ import ifselect_types
 
 
 
+
+
 ##  Created on: 1998-02-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc perform*(this: IFSelectModifEditForm; ctx: var IFSelectContextModif;
     noSideEffect, cdecl, importcpp: "Perform", header: "IFSelect_ModifEditForm.hxx".}
 proc label*(this: IFSelectModifEditForm): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_ModifEditForm.hxx".}
+
 

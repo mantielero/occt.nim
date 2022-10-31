@@ -3,6 +3,13 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+when defined(windows):
+  const tkg3d* = "TKG3d.dll"
+elif defined(macosx):
+  const tkg3d* = "libTKG3d.dylib"
+else:
+  const tkg3d* = "libTKG3d.so" 
+
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,4 +40,5 @@ proc array2*(this: TColGeomHArray2OfSurface): TColGeomArray2OfSurface {.
     noSideEffect, cdecl, importcpp: "Array2", dynlib: tkg3d.}
 proc changeArray2*(this: var TColGeomHArray2OfSurface): var TColGeomArray2OfSurface {.
     cdecl, importcpp: "ChangeArray2", dynlib: tkg3d.}
+
 

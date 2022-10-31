@@ -5,6 +5,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-11-03
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc bounds*(this: GeomFillSimpleBound; first: var cfloat; last: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_SimpleBound.hxx".}
 proc isDegenerated*(this: GeomFillSimpleBound): bool {.noSideEffect, cdecl,
     importcpp: "IsDegenerated", header: "GeomFill_SimpleBound.hxx".}
+
 

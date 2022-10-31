@@ -7,6 +7,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -53,5 +55,6 @@ proc isCN*(this: GeomConic; n: cint): bool {.noSideEffect, cdecl, importcpp: "Is
                                        header: "Geom_Conic.hxx".}
 proc dumpJson*(this: GeomConic; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Conic.hxx".}
+
 
 

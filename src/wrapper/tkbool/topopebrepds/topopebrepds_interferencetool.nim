@@ -4,6 +4,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -55,4 +57,5 @@ proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]): cfloat {.cdecl,
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]; par: cfloat) {.cdecl,
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}
+
 

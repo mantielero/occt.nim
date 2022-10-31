@@ -3,6 +3,8 @@ import transfer_types
 
 
 
+
+
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc printTrace*(this: TransferFinderProcess; start: Handle[TransferFinder];
                                        importcpp: "PrintTrace", header: "Transfer_FinderProcess.hxx".}
 proc printStats*(this: TransferFinderProcess; mode: cint; s: var StandardOStream) {.
     noSideEffect, cdecl, importcpp: "PrintStats", header: "Transfer_FinderProcess.hxx".}
+
 

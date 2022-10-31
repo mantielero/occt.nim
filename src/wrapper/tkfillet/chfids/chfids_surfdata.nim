@@ -5,6 +5,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-26
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -132,4 +134,5 @@ proc twistOnS1*(this: var ChFiDS_SurfData; t: bool) {.cdecl, importcpp: "TwistOn
     header: "ChFiDS_SurfData.hxx".}
 proc twistOnS2*(this: var ChFiDS_SurfData; t: bool) {.cdecl, importcpp: "TwistOnS2",
     header: "ChFiDS_SurfData.hxx".}
+
 

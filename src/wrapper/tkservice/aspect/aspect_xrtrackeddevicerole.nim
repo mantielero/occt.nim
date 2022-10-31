@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -20,5 +22,6 @@
 
 const
   aspectXRTrackedDeviceRoleNB* = aspectXRTrackedDeviceRoleOther.int + 1
+
 
 

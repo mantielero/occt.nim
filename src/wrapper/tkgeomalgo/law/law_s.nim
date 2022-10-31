@@ -2,6 +2,8 @@ import law_types
 
 
 
+
+
 ##  Created on: 1993-12-24
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -27,4 +29,5 @@ proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; pfin: cfloat; valfin: cf
     cdecl, importcpp: "Set", header: "Law_S.hxx".}
 proc set*(this: var LawS; pdeb: cfloat; valdeb: cfloat; ddeb: cfloat; pfin: cfloat;
          valfin: cfloat; dfin: cfloat) {.cdecl, importcpp: "Set", header: "Law_S.hxx".}
+
 

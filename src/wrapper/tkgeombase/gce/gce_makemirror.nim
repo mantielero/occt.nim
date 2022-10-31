@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-09-01
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -39,4 +41,5 @@ proc operator*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeMirror.hxx".}
 converter `trsf`*(this: GceMakeMirror): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror::operator gp_Trsf", header: "gce_MakeMirror.hxx".}
+
 

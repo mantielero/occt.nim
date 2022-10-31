@@ -3,6 +3,8 @@ import ../../tkbrep/topods/topods_types
 import ../../tkmath/bnd/bnd_types
 
 
+
+
 ##  Created on: 1997-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -38,3 +40,4 @@ proc fTOL_FaceTolerances2d*(b1: BndBox; b2: BndBox; myFace1: TopoDS_Face;
                            mySurface2: BRepAdaptorSurface; myTol1: var cfloat;
                            myTol2: var cfloat) {.cdecl,
     importcpp: "FTOL_FaceTolerances2d(@)", header: "TopOpeBRepTool_tol.hxx".}
+

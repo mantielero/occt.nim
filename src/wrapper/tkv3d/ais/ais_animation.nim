@@ -5,6 +5,8 @@ import ../../tkernel/ncollection/ncollection_types
 
 
 
+
+
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -78,4 +80,5 @@ proc isStopped*(this: var AIS_Animation): bool {.cdecl, importcpp: "IsStopped",
     header: "AIS_Animation.hxx".}
 proc update*(this: var AIS_Animation; thePts: cfloat): bool {.cdecl,
     importcpp: "Update", header: "AIS_Animation.hxx".}
+
 

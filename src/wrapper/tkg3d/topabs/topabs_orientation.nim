@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -37,6 +39,7 @@
 ## ! region. A change in orientation implies a switch of
 ## ! default region. This allows you to apply changes of
 ## ! orientation to the shape as a whole.
+
 
 
 

@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1993-02-05
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -94,3 +96,4 @@ proc isError*(this: InterfaceReportEntity): bool {.noSideEffect, cdecl,
     importcpp: "IsError", header: "Interface_ReportEntity.hxx".}
 proc isUnknown*(this: InterfaceReportEntity): bool {.noSideEffect, cdecl,
     importcpp: "IsUnknown", header: "Interface_ReportEntity.hxx".}
+

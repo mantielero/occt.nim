@@ -6,6 +6,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1994-08-04
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape;
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopToolsListOfShape;
                        b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
+
 

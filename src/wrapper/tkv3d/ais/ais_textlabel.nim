@@ -1,10 +1,12 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -91,5 +93,6 @@ proc textFormatter*(this: AIS_TextLabel): Handle[FontTextFormatter] {.noSideEffe
 proc setTextFormatter*(this: var AIS_TextLabel;
                       theFormatter: Handle[FontTextFormatter]) {.cdecl,
     importcpp: "SetTextFormatter", header: "AIS_TextLabel.hxx".}
+
 
 

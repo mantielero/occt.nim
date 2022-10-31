@@ -7,6 +7,8 @@ import ../../tkg2d/geom2d/geom2d_types
 
 
 
+
+
 ##  Created on: 1995-06-02
 ##  Created by: Xavier BENVENISTE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc isSameParameter*(this: ApproxSameParameter): bool {.noSideEffect, cdecl,
     importcpp: "IsSameParameter", header: "Approx_SameParameter.hxx".}
 proc curve2d*(this: ApproxSameParameter): Handle[Geom2dCurve] {.noSideEffect, cdecl,
     importcpp: "Curve2d", header: "Approx_SameParameter.hxx".}
+
 

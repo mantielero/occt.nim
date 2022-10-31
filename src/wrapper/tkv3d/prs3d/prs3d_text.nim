@@ -1,8 +1,10 @@
 import prs3d_types
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
+
+
 
 
 
@@ -41,4 +43,5 @@ proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect]
 proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect];
           theText: TCollectionExtendedString; theAttachmentPoint: PntObj) {.cdecl,
     importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
+
 

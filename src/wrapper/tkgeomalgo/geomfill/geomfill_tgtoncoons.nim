@@ -4,6 +4,8 @@ import geomfill_types
 
 
 
+
+
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -32,4 +34,5 @@ proc d1*(this: GeomFillTgtOnCoons; w: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 proc d1*(this: GeomFillTgtOnCoons; w: cfloat; t: var VecObj; dt: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
+
 

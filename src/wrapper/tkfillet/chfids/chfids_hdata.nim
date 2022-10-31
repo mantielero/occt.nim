@@ -3,6 +3,8 @@ import chfids_types
 
 
 
+
+
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,5 +36,6 @@ proc append*(this: var ChFiDS_HData; theSequence: var ChFiDS_SequenceOfSurfData)
     cdecl, importcpp: "Append", header: "ChFiDS_HData.hxx".}
 proc changeSequence*(this: var ChFiDS_HData): var ChFiDS_SequenceOfSurfData {.cdecl,
     importcpp: "ChangeSequence", header: "ChFiDS_HData.hxx".}
+
 
 

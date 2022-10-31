@@ -1,10 +1,12 @@
 import prsdim_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkg3d/geom/geom_types
-import ../tkv3d/prs3d/prs3d_types
+
+
 
 
 
@@ -73,4 +75,5 @@ proc computeOneEdgeOneVertexLength*(aPresentation: Handle[Prs3dPresentation];
                                    secondExtreme: var PntObj;
                                    symbolPrs: var DsgPrsArrowSide) {.cdecl, importcpp: "PrsDim_EqualDistanceRelation::ComputeOneEdgeOneVertexLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
+
 

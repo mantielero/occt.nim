@@ -1,5 +1,7 @@
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -18,4 +20,5 @@
 ## ==== "Xw" & "WNT"
 ## ==== Implementation:  This is a primitive type implemented with typedef
 ## ============================================================================
+
 

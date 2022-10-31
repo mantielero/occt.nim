@@ -5,6 +5,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1994-04-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -47,4 +49,5 @@ proc matchValue*(val: cstring; text: TCollectionAsciiString; exact: bool): bool 
 proc intValue*(val: cint): cstring {.cdecl,
                                  importcpp: "IFSelect_Signature::IntValue(@)",
                                  header: "IFSelect_Signature.hxx".}
+
 

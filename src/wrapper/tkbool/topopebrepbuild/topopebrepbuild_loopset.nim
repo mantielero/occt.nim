@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1993-03-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.cdecl, importcpp: "NextLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, cdecl, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}
+
 

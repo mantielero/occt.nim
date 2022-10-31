@@ -4,6 +4,8 @@ import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 
 
+
+
 ##  Created on: 1997-11-25
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -43,3 +45,4 @@ proc fDSCNX_Dump*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.cdecl,
     importcpp: "FDSCNX_Dump(@)", header: "TopOpeBRepDS_connex.hxx".}
 proc fDSCNX_DumpIndex*(hds: Handle[TopOpeBRepDS_HDataStructure]; i: cint) {.cdecl,
     importcpp: "FDSCNX_DumpIndex(@)", header: "TopOpeBRepDS_connex.hxx".}
+

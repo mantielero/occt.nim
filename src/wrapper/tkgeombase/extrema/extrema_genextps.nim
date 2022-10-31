@@ -4,6 +4,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -53,4 +55,5 @@ proc squareDistance*(this: ExtremaGenExtPS; n: cint): cfloat {.noSideEffect, cde
     importcpp: "SquareDistance", header: "Extrema_GenExtPS.hxx".}
 proc point*(this: ExtremaGenExtPS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_GenExtPS.hxx".}
+
 

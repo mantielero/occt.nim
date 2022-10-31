@@ -1,6 +1,8 @@
 import ../../tkernel/standard/standard_types
 
 
+
+
 ##  Created on: 1992-11-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -89,3 +91,4 @@ proc fillIterator*(this: InterfaceEntityCluster; iter: var InterfaceEntityIterat
     noSideEffect, cdecl, importcpp: "FillIterator", header: "Interface_EntityCluster.hxx".}
 proc destroyInterfaceEntityCluster*(this: var InterfaceEntityCluster) {.cdecl,
     importcpp: "#.~Interface_EntityCluster()", header: "Interface_EntityCluster.hxx".}
+

@@ -4,6 +4,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -30,4 +32,5 @@ proc shapeType*(this: TopoDS_TFace): TopAbsShapeEnum {.noSideEffect, cdecl,
     importcpp: "ShapeType", header: "TopoDS_TFace.hxx".}
 proc emptyCopy*(this: TopoDS_TFace): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "TopoDS_TFace.hxx".}
+
 

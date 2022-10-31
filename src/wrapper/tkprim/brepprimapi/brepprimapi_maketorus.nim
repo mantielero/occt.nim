@@ -3,6 +3,8 @@ import brepprimapi_types
 
 
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -44,4 +46,5 @@ proc oneAxis*(this: var BRepPrimAPI_MakeTorus): pointer {.cdecl, importcpp: "One
     header: "BRepPrimAPI_MakeTorus.hxx".}
 proc torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrimTorus {.cdecl,
     importcpp: "Torus", header: "BRepPrimAPI_MakeTorus.hxx".}
+
 

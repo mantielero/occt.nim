@@ -4,6 +4,8 @@ import ../../tkbrep/topods/topods_types
 
 
 
+
+
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -76,4 +78,5 @@ proc basisEdge*(this: ChFi2dBuilder; e: TopoDS_Edge): TopoDS_Edge {.noSideEffect
     cdecl, importcpp: "BasisEdge", header: "ChFi2d_Builder.hxx".}
 proc status*(this: ChFi2dBuilder): ChFi2dConstructionError {.noSideEffect, cdecl,
     importcpp: "Status", header: "ChFi2d_Builder.hxx".}
+
 

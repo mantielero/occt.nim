@@ -4,6 +4,8 @@ import ../../tkernel/quantity/quantity_types
 
 
 
+
+
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -33,5 +35,6 @@ proc setNumber*(this: var Prs3dIsoAspect; theNumber: cint) {.cdecl,
     importcpp: "SetNumber", header: "Prs3d_IsoAspect.hxx".}
 proc number*(this: Prs3dIsoAspect): cint {.noSideEffect, cdecl, importcpp: "Number",
                                        header: "Prs3d_IsoAspect.hxx".}
+
 
 

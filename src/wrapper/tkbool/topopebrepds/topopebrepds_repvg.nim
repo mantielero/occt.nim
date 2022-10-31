@@ -1,6 +1,8 @@
 import topopebrepds_types
 
 
+
+
 ##  Created on: 1998-02-14
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -25,3 +27,4 @@ proc fDS_repvg2*(bds: TopOpeBRepDS_DataStructure; eix: cint; gt: TopOpeBRepDS_Ki
                 li: var TopOpeBRepDS_ListOfInterference;
                 reducedLI: var TopOpeBRepDS_ListOfInterference) {.cdecl,
     importcpp: "FDS_repvg2(@)", header: "TopOpeBRepDS_repvg.hxx".}
+

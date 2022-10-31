@@ -1,8 +1,10 @@
+import ../selectmgr/selectmgr_types
 import ../../tkg3d/topabs/topabs_types
 import ../../tkernel/standard/standard_types
 import ais_types
 import ../../tkbrep/topods/topods_types
-import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 
 
@@ -38,4 +40,5 @@ proc addEdge*(this: var AIS_BadEdgeFilter; anEdge: TopoDS_Edge; index: cint) {.c
     importcpp: "AddEdge", header: "AIS_BadEdgeFilter.hxx".}
 proc removeEdges*(this: var AIS_BadEdgeFilter; index: cint) {.cdecl,
     importcpp: "RemoveEdges", header: "AIS_BadEdgeFilter.hxx".}
+
 

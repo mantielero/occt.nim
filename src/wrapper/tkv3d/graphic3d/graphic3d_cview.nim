@@ -9,6 +9,8 @@ import ../../tkmath/bnd/bnd_types
 
 
 
+
+
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -264,4 +266,5 @@ proc graduatedTrihedronMinMaxValues*(this: var Graphic3dCView;
 proc dumpJson*(this: Graphic3dCView; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CView.hxx".}
+
 

@@ -3,6 +3,8 @@ import ../../tkernel/standard/standard_types
 
 
 
+
+
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -27,4 +29,5 @@ proc processFaceInterferences*(this: var TopOpeBRepDS_FIR;
 proc processFaceInterferences*(this: var TopOpeBRepDS_FIR; i: cint;
                               m: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State) {.
     cdecl, importcpp: "ProcessFaceInterferences", header: "TopOpeBRepDS_FIR.hxx".}
+
 

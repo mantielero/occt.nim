@@ -4,6 +4,8 @@ import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 
 
+
+
 ##  Created on: 1998-06-15
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -42,3 +44,4 @@ proc fDSSDM_copylist*(lin: TopToolsListOfShape; i1: cint; i2: cint;
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
 proc fDSSDM_copylist*(lin: TopToolsListOfShape; lou: var TopToolsListOfShape) {.cdecl,
     importcpp: "FDSSDM_copylist(@)", header: "TopOpeBRepDS_samdom.hxx".}
+

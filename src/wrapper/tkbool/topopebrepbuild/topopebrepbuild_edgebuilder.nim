@@ -3,6 +3,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -48,4 +50,5 @@ proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect, cde
     importcpp: "Vertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc parameter*(this: TopOpeBRepBuildEdgeBuilder): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+
 

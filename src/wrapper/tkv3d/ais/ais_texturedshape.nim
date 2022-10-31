@@ -1,9 +1,11 @@
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ais_types
+import ../graphic3d/graphic3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkernel/quantity/quantity_types
+
+
 
 
 
@@ -91,5 +93,6 @@ proc textureModulate*(this: AIS_TexturedShape): bool {.noSideEffect, cdecl,
     importcpp: "TextureModulate", header: "AIS_TexturedShape.hxx".}
 proc acceptDisplayMode*(this: AIS_TexturedShape; theMode: cint): bool {.noSideEffect,
     cdecl, importcpp: "AcceptDisplayMode", header: "AIS_TexturedShape.hxx".}
+
 
 

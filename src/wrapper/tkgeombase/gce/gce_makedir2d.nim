@@ -3,6 +3,8 @@ import ../../tkmath/gp/gp_types
 
 
 
+
+
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -35,4 +37,5 @@ proc operator*(this: GceMakeDir2d): Dir2dObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeDir2d.hxx".}
 converter `dir2d`*(this: GceMakeDir2d): Dir2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeDir2d::operator gp_Dir2d", header: "gce_MakeDir2d.hxx".}
+
 

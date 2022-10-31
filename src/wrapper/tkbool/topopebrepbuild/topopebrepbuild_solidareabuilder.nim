@@ -2,6 +2,8 @@ import topopebrepbuild_types
 
 
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -33,4 +35,5 @@ proc initSolidAreaBuilder*(this: var TopOpeBRepBuildSolidAreaBuilder;
                           lc: var TopOpeBRepBuildLoopClassifier;
                           forceClass: bool = false) {.cdecl,
     importcpp: "InitSolidAreaBuilder", header: "TopOpeBRepBuild_SolidAreaBuilder.hxx".}
+
 

@@ -3,6 +3,8 @@ import extrema_types
 
 
 
+
+
 ##  Created on: 1996-01-25
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -37,4 +39,5 @@ proc pointOnCurve*(this: ExtremaGenLocateExtCS): ExtremaPOnCurv {.noSideEffect,
     cdecl, importcpp: "PointOnCurve", header: "Extrema_GenLocateExtCS.hxx".}
 proc pointOnSurface*(this: ExtremaGenLocateExtCS): ExtremaPOnSurf {.noSideEffect,
     cdecl, importcpp: "PointOnSurface", header: "Extrema_GenLocateExtCS.hxx".}
+
 

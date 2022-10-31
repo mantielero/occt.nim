@@ -1,8 +1,10 @@
 import ../../tkmath/gp/gp_types
-import ../tkv3d/graphic3d/graphic3d_types
 import ../../tkernel/standard/standard_types
+import ../graphic3d/graphic3d_types
 import ../../tkmath/bnd/bnd_types
 import selectmgr_types
+
+
 
 
 
@@ -42,4 +44,5 @@ proc addClipSubRange*(this: var SelectMgrViewClipRange; theRange: BndRange) {.cd
 proc dumpJson*(this: SelectMgrViewClipRange; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_ViewClipRange.hxx".}
+
 

@@ -1,6 +1,8 @@
 
 
 
+
+
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -24,6 +26,7 @@
 ## ! EditComputed  : why write it ?  it will be recomputed
 ## ! EditRead      : no way to write it, only for read
 ## ! EditDynamic   : not a field, only to be displayed
+
 
 
 

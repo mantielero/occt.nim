@@ -226,6 +226,7 @@ proc getLinesPairs(lines:seq[string]):seq[tuple[a,b:int]] =
   return pairs
 
 proc likelyImports():Table[string,string] =
+  # creates a table relating as follows: gp --> tkmath/gp/gp_types
   for i in walkDirs("./tk*/*"):
     var tmp = i.split('/')
     var name = tmp[tmp.high]
@@ -246,14 +247,14 @@ proc removeComments(line:string):string =
     return line.split('#')[0].strip
   return line.strip
 
-proc getDependencies(typs:var seq[TypOb]; i:int) =
+proc populateDependencies(typ:var TypOb) =
   var needs:HashSet[string]
   var flagFirstEqual = false
   var txt = ""
-  echo "=============="
-  for n in 0..typs[i].lines.high:
-    var line = typs[i].lines[n]
-    echo ">>", line    
+  #echo "=============="
+  for n in 0..typ.lines.high:
+    var line = typ.lines[n]
+    #echo ">>", line    
     line = line.removeComments()
     
     if line.contains('=') and not flagFirstEqual:
@@ -264,14 +265,15 @@ proc getDependencies(typs:var seq[TypOb]; i:int) =
 
   txt = txt.strip
 
-  echo txt
   # Option 1: object of
   if txt.startsWith("object of"):
     txt = txt.split("object of")[1].strip
+    needs.incl(txt)
   
   # Option 2:
-  if txt.startsWith("enum "):
+  elif txt.startsWith("enum "):
     txt = txt.split("enum ")[1].strip
+    #needs.incl(txt)    
     # FIXME
 
   # Otherwise:
@@ -290,9 +292,11 @@ proc getDependencies(typs:var seq[TypOb]; i:int) =
     
     else:
       needs.incl( txt.strip )
-        
+  if typ.name == "GeomAxis1Placement":
+    echo txt
+    echo "--> ", needs        
   var remove = toHashSet(["RootObj", "", "true", "false"])
-  typs[i].needs = needs - remove
+  typ.needs = needs - remove
 
 
 proc removeDocumentationComments(typs:var seq[TypOb]; i:int) =
@@ -303,16 +307,73 @@ proc removeDocumentationComments(typs:var seq[TypOb]; i:int) =
     typs[i].lines[n] = line
 
 
+proc reorderTypes*(typs:var seq[TypOb]) = 
+  # # First those not having any needs
+  # var remove:seq[int]  
+  # for i in 0..typs.high:
+  #   if typ.needs.len == 0:
+  #     result &= typ
+  #     remove &= i
+  # # Remove those already processed
+  # for i in remove.high..0:
+  #   typs.delete( i )
+  # remove = @[]
+
+  var flag = true
+  var n = 0 
+  while flag:
+    n = n + 1
+    flag = false
+    block sorting:
+      # Process all items
+      #echo "========================================================"
+      for i in 0..<typs.high:
+        var typ = typs[i]
+        #if typ.name == "GeomAxis1Placement":
+        #  echo "NEEDS-------------", typ.needs        
+        #echo typ.lines[0]
+        # Comprobamos con todos los siguientes
+        for k in (i+1)..typs.high:
+          #echo i, " ", k
+          var nextTyp = typs[k]
+            
+          if nextTyp.name in typ.needs: # Move after
+            typs.insert(typ, k+1)
+            typs.delete(i)
+            flag = true
+            echo "Moving:   i:",i,  " to:",k+1
+            if n > 1000:
+              flag = false
+            break sorting
+  
+proc getRequiredImports(typs:seq[TypOb];paths:Table[string,string]):HashSet[string] =      
+  for i in 0..typs.high:
+    #typs.getDependencies(i)    
+    echo "NEEDS: ", typs[i].needs
+
+    for need in typs[i].needs:
+      var tmp = need.toLower.strip
+      if tmp == "handle":
+        result.incl("standard")
+      else:
+        for k in paths.keys:
+          if tmp.startsWith( k ):
+            result.incl(k)
+
+
+    
+
+
+
 proc reorderContent(fname:string) =
   echo fname
   var folder = fname.split('/')[2]
-  var paths = likelyImports()
+  var paths = likelyImports()  # Table: gp --> tkmath/gp/gp_types, and so on
   var typs:seq[TypOb] = @[]
   var txt = fname.readFile()
   var lines = txt.splitLines()
+  var pairs = getLinesPairs( lines )  # Get type definition blocks
 
-
-  var pairs = getLinesPairs( lines )
 
   for (a,b) in pairs:
     var tmp:TypOb
@@ -324,124 +385,114 @@ proc reorderContent(fname:string) =
       # Get type name
       getTypeName(tmp.name, line)
 
-      # Get dependency
-      if line.contains("= object of "):
-        var items  = line.split("= object of ")
-        var depend = items[1].split()[0]
-
-        if depend.contains('['):
-          depend = depend.split('[')[0]
-        tmp.depend = depend
-      
-      elif line.contains("= enum\n"):  # FIXME
-        discard
-
-      elif line.contains('='):
-        var tmp1 = line.split('=')[1]
-        if tmp1.contains('['):
-          tmp.depend = tmp1
+      # Get dependencies
+      tmp.populateDependencies()
 
     typs &= tmp
 
   for i in 0..typs.high:
     typs.removeDocumentationComments(i)
   # ----------------------------------------------Reorder
+  typs.reorderTypes()
+
   var neworder:seq[int]
   # 1. We include those that don't depend on anything
   var items:seq[int] #= toSeq(0..typs.high)
   for i in 0..typs.high:
-    if typs[i].depend == "" or typs[i].depend == "RootObj":
+    if typs[i].needs.len == 0:
       neworder &= i
     else:
       items &= i
 
   # 2. Include those dependences that are outside of this package
-  var requiredImports:HashSet[string]
+  var requiredImports:HashSet[string] = getRequiredImports(typs, paths)
+  echo "RequiredImports: ", requiredImports
   var remove:seq[int]
 
   echo fname
-  for i in items:
-    typs.getDependencies(i)    
-    echo "NEEDS: ", typs[i].needs
+  # for i in items:
+  #   #typs.getDependencies(i)    
+  #   echo "NEEDS: ", typs[i].needs
 
-    for need in typs[i].needs:
-      var tmp = need.toLower.strip
-      if tmp == "handle":
-        requiredImports.incl("standard")
-      else:
-        for k in paths.keys:
-          if tmp.startsWith( k ):
-            requiredImports.incl(k)
-            if not i in remove:
-              remove &= i
+  #   for need in typs[i].needs:
+  #     var tmp = need.toLower.strip
+  #     if tmp == "handle":
+  #       requiredImports.incl("standard")
+  #     else:
+  #       for k in paths.keys:
+  #         if tmp.startsWith( k ):
+  #           requiredImports.incl(k)
+  #           if not i in remove:
+  #             remove &= i
 
-  for i in remove:
-    items.delete(items.find(i))
-    neworder &= i  
+  # for i in remove:
+  #   items.delete(items.find(i))
+  #   neworder &= i  
     
-  # 2.2 Then those with Handle
-  remove = @[]
+  # # 2.2 Then those with Handle
+  # remove = @[]
 
   # 3. Reorder
-  var nItems = typs.len
+  #var nItems = typs.len
 
-  while items.len > 0:
-    var remove:seq[int]
+  # FIXME
+  # while items.len > 0:
+  #   var remove:seq[int]
 
-    for i in items:
-      # The same as before
-      var flag = true
-      for need in typs[i].needs:
-        var tmp = need.toLower.strip
-        var f = false
-        if tmp == "handle":
-          requiredImports.incl("standard")
-          f = true
-        else:
-          for k in paths.keys:
-            if tmp.startsWith( k ):
-              requiredImports.incl( k )
-              f = true
-        if not f:
-          flag = false 
+  #   for i in items:
+  #     # The same as before
+  #     var flag = true
+  #     for need in typs[i].needs:
+  #       var tmp = need.toLower.strip
+  #       var f = false
+  #       if tmp == "handle":
+  #         requiredImports.incl("standard")
+  #         f = true
+  #       else:
+  #         for k in paths.keys:
+  #           if tmp.startsWith( k ):
+  #             requiredImports.incl( k )
+  #             f = true
+  #       if not f:
+  #         flag = false 
 
-      if flag and not i in remove:
-        remove &= i
+  #     if flag and not i in remove:
+  #       remove &= i
 
-    for i in remove:
-      items.delete( items.find(i) )
-      neworder &= i
+  #   for i in remove:
+  #     items.delete( items.find(i) )
+  #     neworder &= i
 
-    if items.len == nItems:
-      break
+  #   if items.len == nItems:
+  #     break
 
-    else:
-      nItems = items.len
+  #   else:
+  #     nItems = items.len
   #echo requiredImports
 
   # Create needed imports
-  var depends:seq[string]
-  for i in items:
-    depends &= typs[i].depend
+  # var depends:seq[string]
+  # for i in items:
+  #   depends &= typs[i].depend
 
-  var provides:seq[string]
-  for i in neworder:
-    provides &= typs[i].name
+  # var provides:seq[string]
+  # for i in neworder:
+  #   provides &= typs[i].name
 
-  #-----------------------------------
-  # Create the new file
+  # #-----------------------------------
+  # # Create the new file
   var newtxt = ""
-  newtxt &= "# PROVIDES: " 
-  for i in provides:
-    newtxt &= i & " "
+  # newtxt &= "# PROVIDES: " 
+  # for i in provides:
+  #   newtxt &= i & " "
 
 
-  newtxt = newtxt.strip  
-  newtxt &= "\n# DEPENDS: " 
-  for i in depends:
-    newtxt &= i & " "
-  newtxt = newtxt.strip
-  newtxt &= "\n\n"
+  # newtxt = newtxt.strip  
+  # newtxt &= "\n# DEPENDS: " 
+  # for i in depends:
+  #   newtxt &= i & " "
+  # newtxt = newtxt.strip
+  # newtxt &= "\n\n"
   #echo flagHandle
   #if flagHandle:
   #  newtxt &= "import tkernel/standard/standard_types\n"
@@ -467,25 +518,27 @@ proc reorderContent(fname:string) =
   
   newtxt &= "type\n"
   var filter:HashSet[string]
-  for i in neworder:
+  #for i in neworder:
+  for i in 0..typs.high:
     #echo typs[i].lines[0]
-    if not (typs[i].lines[0] in filter):
+    if not (typs[i].name in filter):
       for line in typs[i].lines:
-        if line != "":
+        if line.strip != "":
           newtxt &= line & "\n"
 
       newtxt &= "\n"
-    filter.incl(typs[i].lines[0])
+    filter.incl(typs[i].name)
   
   clear(filter)
-  for i in items:   
-    if not (typs[i].lines[0] in filter):
-      for line in typs[i].lines:
-        if line != "":  
-          newtxt &= line & "\n"
+  #for i in items:   
+  # for i in 0..typs.high:
+  #   if not (typs[i].lines[0] in filter):
+  #     for line in typs[i].lines:
+  #       if line.strip != "":  
+  #         newtxt &= line & "\n"
       
-      newtxt &= "\n"
-    filter.incl(typs[i].lines[0])
+  #     newtxt &= "\n"
+  #   filter.incl(typs[i].lines[0])
 
   #for typ in typs:
   #  echo typ.name, " ", typ.depend
@@ -543,10 +596,10 @@ for typ in typs:
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
-createTypesFile("./tkg3d/geom")
+#createTypesFile("./tkg3d/geom")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-#reorderContent("./tkg3d/geom/geom_types.nim")
+reorderContent("./tkg3d/geom/geom_types.nim")
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)

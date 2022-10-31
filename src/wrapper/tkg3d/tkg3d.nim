@@ -1,10 +1,8 @@
 {.passL:"-lTKG3d".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
-type
-  GeomUndefinedDerivative* = object
-  GeomUndefinedValue* = object
+
 #[ type
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#

@@ -4,6 +4,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -63,4 +65,5 @@ proc copy*(this: GeomCircle): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Circle.hxx".}
 proc dumpJson*(this: GeomCircle; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Circle.hxx".}
+
 

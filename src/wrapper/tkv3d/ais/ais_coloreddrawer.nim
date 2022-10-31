@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -48,4 +53,5 @@ proc unsetOwnWidth*(this: var AIS_ColoredDrawer) {.cdecl, importcpp: "UnsetOwnWi
     header: "AIS_ColoredDrawer.hxx".}
 proc setOwnWidth*(this: var AIS_ColoredDrawer; a2: cfloat) {.cdecl,
     importcpp: "SetOwnWidth", header: "AIS_ColoredDrawer.hxx".}
+
 

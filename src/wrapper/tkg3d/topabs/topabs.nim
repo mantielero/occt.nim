@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import topabs_types
+
+
 
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
@@ -60,3 +63,4 @@ proc shapeOrientationFromString*(theOrientationString: cstring): TopAbsOrientati
 proc shapeOrientationFromString*(theOrientationString: cstring;
                                 theOrientation: var TopAbsOrientation): bool {.
     cdecl, importcpp: "TopAbs::ShapeOrientationFromString(@)", header: "TopAbs.hxx".}
+

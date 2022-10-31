@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Define buffers available for dump
+
 
 
 

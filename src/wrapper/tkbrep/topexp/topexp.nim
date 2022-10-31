@@ -1,4 +1,8 @@
-import topexp_types
+import ../../tkg3d/topabs/topabs_types
+import ../tkbrep/topods/topods_types
+import ../tkbrep/toptools/toptools_types
+
+
 
 ##  Created on: 1990-12-20
 ##  Created by: Remi Lequette
@@ -16,11 +20,6 @@ import topexp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopExp_Explorer"
 
 
 proc mapShapes*(s: TopoDS_Shape; t: TopAbsShapeEnum; m: var TopToolsIndexedMapOfShape) {.
@@ -48,3 +47,4 @@ proc vertices*(w: TopoDS_Wire; vfirst: var TopoDS_Vertex; vlast: var TopoDS_Vert
     cdecl, importcpp: "TopExp::Vertices(@)", header: "TopExp.hxx".}
 proc commonVertex*(e1: TopoDS_Edge; e2: TopoDS_Edge; v: var TopoDS_Vertex): bool {.cdecl,
     importcpp: "TopExp::CommonVertex(@)", header: "TopExp.hxx".}
+

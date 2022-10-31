@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -62,4 +64,5 @@ proc value*(this: GeomCurve; u: cfloat): PntObj {.noSideEffect, cdecl, importcpp
     header: "Geom_Curve.hxx".}
 proc dumpJson*(this: GeomCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Curve.hxx".}
+
 

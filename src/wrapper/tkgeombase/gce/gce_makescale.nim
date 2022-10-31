@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,8 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Trsf"
 
 
 proc newGceMakeScale*(point: PntObj; scale: cfloat): GceMakeScale {.cdecl, constructor,
@@ -28,3 +29,4 @@ proc operator*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl, importcpp: "O
                                        header: "gce_MakeScale.hxx".}
 converter `trsf`*(this: GceMakeScale): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeScale::operator gp_Trsf", header: "gce_MakeScale.hxx".}
+

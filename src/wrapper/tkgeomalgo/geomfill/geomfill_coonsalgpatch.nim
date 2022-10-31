@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../tkgeomalgo/law/law_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
@@ -16,11 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_Boundary"
-discard "forward decl of Law_Function"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_CoonsAlgPatch"
 
 
 
@@ -50,3 +50,4 @@ proc bound*(this: GeomFillCoonsAlgPatch; i: cint): Handle[GeomFillBoundary] {.
     noSideEffect, cdecl, importcpp: "Bound", header: "GeomFill_CoonsAlgPatch.hxx".}
 proc `func`*(this: GeomFillCoonsAlgPatch; i: cint): Handle[LawFunction] {.
     noSideEffect, cdecl, importcpp: "Func", header: "GeomFill_CoonsAlgPatch.hxx".}
+

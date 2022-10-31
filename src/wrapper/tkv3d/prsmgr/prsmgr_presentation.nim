@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import prsmgr_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
@@ -16,13 +20,6 @@ import prsmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PrsMgr_PresentationManager"
-discard "forward decl of PrsMgr_PresentableObject"
-discard "forward decl of Quantity_Color"
-discard "forward decl of Graphic3d_Camera"
-discard "forward decl of Prs3d_Drawer"
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_DataStructureManager"
 
 
 proc destroyPrsMgrPresentation*(this: var PrsMgrPresentation) {.cdecl,
@@ -54,3 +51,4 @@ proc compute*(this: var PrsMgrPresentation) {.cdecl, importcpp: "Compute",
 proc dumpJson*(this: PrsMgrPresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "PrsMgr_Presentation.hxx".}
+

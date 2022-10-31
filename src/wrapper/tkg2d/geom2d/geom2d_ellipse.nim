@@ -1,4 +1,8 @@
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: JCV
@@ -16,16 +20,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Ax2d"
-discard "forward decl of gp_Ax22d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Trsf2d"
-discard "forward decl of Geom2d_Geometry"
-discard "forward decl of Geom2d_Ellipse"
 
 
 
@@ -90,3 +84,4 @@ proc copy*(this: Geom2dEllipse): Handle[Geom2dGeometry] {.noSideEffect, cdecl,
 proc dumpJson*(this: Geom2dEllipse; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_Ellipse.hxx".}
+

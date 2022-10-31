@@ -1,4 +1,14 @@
+import ../../tkbool/topopebrepbuild/topopebrepbuild_types
+import ../tkfillet/chfids/chfids_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import chfi3d_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
@@ -16,38 +26,6 @@ import chfi3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopOpeBRepBuild_HBuilder"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of ChFiDS_Spine"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of Geom_Surface"
-discard "forward decl of ChFiDS_SurfData"
-discard "forward decl of ChFiDS_HElSpine"
-discard "forward decl of BRepAdaptor_HSurface"
-discard "forward decl of Adaptor3d_TopolTool"
-discard "forward decl of BRepAdaptor_HCurve2d"
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Blend_Function"
-discard "forward decl of Blend_FuncInv"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Blend_SurfRstFunction"
-discard "forward decl of Blend_SurfPointFuncInv"
-discard "forward decl of Blend_SurfCurvFuncInv"
-discard "forward decl of Blend_RstRstFunction"
-discard "forward decl of Blend_CurvPointFuncInv"
-discard "forward decl of ChFiDS_Stripe"
-discard "forward decl of BRepTopAdaptor_TopolTool"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of ChFiDS_CommonPoint"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of AppBlend_Approx"
-discard "forward decl of Geom2d_Curve"
 
 
 proc destroyChFi3dBuilder*(this: var ChFi3dBuilder) {.cdecl,
@@ -119,3 +97,4 @@ proc splitKPart*(this: var ChFi3dBuilder; data: Handle[ChFiDS_SurfData];
     header: "ChFi3d_Builder.hxx".}
 proc performTwoCornerbyInter*(this: var ChFi3dBuilder; index: cint): bool {.cdecl,
     importcpp: "PerformTwoCornerbyInter", header: "ChFi3d_Builder.hxx".}
+

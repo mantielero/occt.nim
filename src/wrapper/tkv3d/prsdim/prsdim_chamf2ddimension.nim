@@ -1,4 +1,11 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
@@ -16,7 +23,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
 
 
 
@@ -33,3 +39,4 @@ proc kindOfDimension*(this: PrsDimChamf2dDimension): PrsDimKindOfDimension {.
     noSideEffect, cdecl, importcpp: "KindOfDimension", header: "PrsDim_Chamf2dDimension.hxx".}
 proc isMovable*(this: PrsDimChamf2dDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_Chamf2dDimension.hxx".}
+

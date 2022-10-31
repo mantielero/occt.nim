@@ -1,3 +1,14 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 ##  Created on: 1998-10-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision

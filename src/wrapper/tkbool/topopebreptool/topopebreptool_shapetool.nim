@@ -1,4 +1,10 @@
-import topopebreptool_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1994-02-09
 ##  Created by: Jean Yves LEBEY
@@ -16,15 +22,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Curve"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of BRepAdaptor_Surface"
-discard "forward decl of BRepAdaptor_Curve"
-discard "forward decl of gp_Dir"
 
 
 proc tolerance*(s: TopoDS_Shape): cfloat {.cdecl, importcpp: "TopOpeBRepTool_ShapeTool::Tolerance(@)",
@@ -76,3 +73,4 @@ proc resolution3d*(su: Handle[GeomSurface]; tol2d: cfloat): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
 proc resolution3d*(f: TopoDS_Face; tol2d: cfloat): cfloat {.cdecl,
     importcpp: "TopOpeBRepTool_ShapeTool::Resolution3d(@)", header: "TopOpeBRepTool_ShapeTool.hxx".}
+

@@ -1,4 +1,7 @@
 import geomadaptor_types
+import ../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
@@ -16,12 +19,6 @@ import geomadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of GeomAdaptor_Surface"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of GeomAdaptor_GHSurface"
 
 
 proc newGeomAdaptorGHSurface*(): GeomAdaptorGHSurface {.cdecl, constructor,
@@ -34,5 +31,6 @@ proc surface*(this: GeomAdaptorGHSurface): Adaptor3dSurface {.noSideEffect, cdec
     importcpp: "Surface", header: "GeomAdaptor_GHSurface.hxx".}
 proc changeSurface*(this: var GeomAdaptorGHSurface): var GeomAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "GeomAdaptor_GHSurface.hxx".}
+
 
 

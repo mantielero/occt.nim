@@ -1,4 +1,9 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 2019-02-25
 ##  Created by: Artem NOVIKOV
@@ -24,3 +29,4 @@ proc create*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint; theTrsf: T
                                 header: "Prs3d_ToolSector.hxx".}
 proc newPrs3dToolSector*(theRadius: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolSector {.
     cdecl, constructor, importcpp: "Prs3d_ToolSector(@)", header: "Prs3d_ToolSector.hxx".}
+

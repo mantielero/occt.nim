@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Transfer_TransientMapper"
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_FinderProcess"
 
 
 
@@ -41,3 +40,4 @@ proc printTrace*(this: TransferFinderProcess; start: Handle[TransferFinder];
                                        importcpp: "PrintTrace", header: "Transfer_FinderProcess.hxx".}
 proc printStats*(this: TransferFinderProcess; mode: cint; s: var StandardOStream) {.
     noSideEffect, cdecl, importcpp: "PrintStats", header: "Transfer_FinderProcess.hxx".}
+

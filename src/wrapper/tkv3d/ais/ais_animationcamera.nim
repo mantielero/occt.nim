@@ -1,4 +1,10 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../tkv3d/v3d/v3d_types
+
+
 
 ##  Created by: Anastasia BORISOVA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -14,8 +20,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Camera"
-discard "forward decl of V3d_View"
 
 
 proc newAIS_AnimationCamera*(theAnimationName: TCollectionAsciiString;
@@ -35,4 +39,5 @@ proc cameraEnd*(this: AIS_AnimationCamera): Handle[Graphic3dCamera] {.noSideEffe
 proc setCameraEnd*(this: var AIS_AnimationCamera;
                   theCameraEnd: Handle[Graphic3dCamera]) {.cdecl,
     importcpp: "SetCameraEnd", header: "AIS_AnimationCamera.hxx".}
+
 

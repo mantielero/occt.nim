@@ -1,5 +1,7 @@
 import transfer_types
 
+
+
 ##  Created on: 1995-02-27
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,7 +18,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_BinderOfTransientInteger"
 
 
 
@@ -28,3 +29,4 @@ proc setInteger*(this: var TransferBinderOfTransientInteger; value: cint) {.cdec
     importcpp: "SetInteger", header: "Transfer_BinderOfTransientInteger.hxx".}
 proc integer*(this: TransferBinderOfTransientInteger): cint {.noSideEffect, cdecl,
     importcpp: "Integer", header: "Transfer_BinderOfTransientInteger.hxx".}
+

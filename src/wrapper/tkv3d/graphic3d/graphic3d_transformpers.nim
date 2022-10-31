@@ -1,4 +1,12 @@
+import ../../tkmath/gp/gp_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkmath/bvh/bvh_types
 import graphic3d_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 2015-06-18
 ##  Created by: Anton POLETAEV
@@ -125,3 +133,4 @@ proc dumpJson*(this: Graphic3dTransformPers; theOStream: var StandardOStream;
 #             theProjection: NCollectionMat4[T]; theWorldView: NCollectionMat4[T];
 #             theViewportWidth: cint; theViewportHeight: cint): NCollectionMat4[T] {.
 #    noSideEffect, cdecl, importcpp: "Compute", header: "Graphic3d_TransformPers.hxx".}
+

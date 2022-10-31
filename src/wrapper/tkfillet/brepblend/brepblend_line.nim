@@ -1,4 +1,8 @@
 import brepblend_types
+import ../../tkgeomalgo/intsurf/intsurf_types
+import ../tkfillet/blend/blend_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -16,10 +20,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Blend_Point"
-discard "forward decl of BRepBlend_Extremity"
-discard "forward decl of BRepBlend_Line"
 
 
 proc newBRepBlendLine*(): BRepBlendLine {.cdecl, constructor,
@@ -62,3 +62,4 @@ proc endPointOnSecond*(this: BRepBlendLine): BRepBlendExtremity {.noSideEffect,
     cdecl, importcpp: "EndPointOnSecond", header: "BRepBlend_Line.hxx".}
 proc transitionOnS*(this: BRepBlendLine): IntSurfTypeTrans {.noSideEffect, cdecl,
     importcpp: "TransitionOnS", header: "BRepBlend_Line.hxx".}
+

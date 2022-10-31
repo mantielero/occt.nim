@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import approx_types
+import ../../tkgeomalgo/intsurf/intsurf_types
+
+
 
 ##  Created on: 1993-03-17
 ##  Created by: Laurent BUCHARD
@@ -16,10 +20,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of IntSurf_PntOn2S"
 
 
 proc compute*(this: var ApproxIntSvSurfaces; u1: var cfloat; v1: var cfloat;
@@ -41,3 +41,4 @@ proc tangencyOnSurf2*(this: var ApproxIntSvSurfaces; u1: cfloat; v1: cfloat; u2:
     importcpp: "TangencyOnSurf2", header: "ApproxInt_SvSurfaces.hxx".}
 proc destroyApproxIntSvSurfaces*(this: var ApproxIntSvSurfaces) {.cdecl,
     importcpp: "#.~ApproxInt_SvSurfaces()", header: "ApproxInt_SvSurfaces.hxx".}
+

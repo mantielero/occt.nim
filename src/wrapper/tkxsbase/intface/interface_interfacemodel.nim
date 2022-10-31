@@ -1,3 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 ##  Created by: Christian CAILLET <cky@phobox>
 ##  Copyright (c) 1992-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -13,19 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Check"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Interface_GTool"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Interface_InterfaceMismatch"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_ReportEntity"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Interface_GeneralLib"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_InterfaceModel"
 type
   HandleInterfaceInterfaceModel* = Handle[InterfaceInterfaceModel]
 

@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,11 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Trsf"
 
 
 proc newGceMakeRotation*(line: LinObj; angle: cfloat): GceMakeRotation {.cdecl,
@@ -35,3 +33,4 @@ proc operator*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeRotation.hxx".}
 converter `trsf`*(this: GceMakeRotation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeRotation::operator gp_Trsf", header: "gce_MakeRotation.hxx".}
+

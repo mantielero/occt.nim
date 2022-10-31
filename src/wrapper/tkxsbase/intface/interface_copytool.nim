@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,15 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_CopyControl"
-discard "forward decl of Interface_CopyMap"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_GeneralModule"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_GeneralLib"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_EntityIterator"
 type
   InterfaceCopyTool* {.importcpp: "Interface_CopyTool",
                       header: "Interface_CopyTool.hxx", bycopy.} = object of RootObj ## ! Creates a CopyTool adapted to work from a Model. Works

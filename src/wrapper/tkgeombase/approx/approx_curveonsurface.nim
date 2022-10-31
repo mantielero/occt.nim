@@ -1,4 +1,12 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1997-09-30
 ##  Created by: Roman BORISOV
@@ -16,12 +24,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_BSplineCurve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HSurface"
 
 
 proc newApproxCurveOnSurface*(c2d: Handle[Adaptor2dHCurve2d];
@@ -52,3 +54,4 @@ proc perform*(this: var ApproxCurveOnSurface; theMaxSegments: cint;
              theMaxDegree: cint; theContinuity: GeomAbsShape;
              theOnly3d: bool = false; theOnly2d: bool = false) {.cdecl,
     importcpp: "Perform", header: "Approx_CurveOnSurface.hxx".}
+

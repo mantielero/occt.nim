@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import brepprim_types
+
+
 
 ##  Created on: 1995-01-09
 ##  Created by: Modelistation
@@ -16,8 +19,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Ax2"
 
 
 proc newBRepPrimWedge*(): BRepPrimWedge {.cdecl, constructor,
@@ -31,3 +32,4 @@ proc newBRepPrimWedge*(axes: Ax2Obj; xmin: cfloat; ymin: cfloat; zmin: cfloat;
                       z2min: cfloat; x2min: cfloat; xmax: cfloat; ymax: cfloat;
                       zmax: cfloat; z2max: cfloat; x2max: cfloat): BRepPrimWedge {.
     cdecl, constructor, importcpp: "BRepPrim_Wedge(@)", header: "BRepPrim_Wedge.hxx".}
+

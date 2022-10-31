@@ -1,4 +1,10 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -239,4 +245,5 @@ proc isEqual*(this: var Graphic3dAspects; theOther: Graphic3dAspects): bool {.cd
 proc dumpJson*(this: Graphic3dAspects; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Aspects.hxx".}
+
 

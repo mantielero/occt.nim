@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkv3d/graphic3d/graphic3d_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -13,8 +20,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ArrayOfTriangles"
-discard "forward decl of Image_Texture"
 
 
 
@@ -107,3 +112,4 @@ proc genericAction*(this: AspectXRSession; theDevice: AspectXRTrackedDeviceRole;
 
 proc getString*(this: AspectXRSession; theInfo: AspectXRSessionInfoString): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "GetString", header: "Aspect_XRSession.hxx".}
+

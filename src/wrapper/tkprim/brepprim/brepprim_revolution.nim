@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import brepprim_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
@@ -16,12 +23,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of gp_Ax2"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newBRepPrimRevolution*(a: Ax2Obj; vMin: cfloat; vMax: cfloat; m: Handle[GeomCurve];
@@ -35,3 +36,4 @@ proc meridianValue*(this: BRepPrimRevolution; v: cfloat): Pnt2dObj {.noSideEffec
     importcpp: "MeridianValue", header: "BRepPrim_Revolution.hxx".}
 proc setMeridianPCurve*(this: BRepPrimRevolution; e: var TopoDS_Edge; f: TopoDS_Face) {.
     noSideEffect, cdecl, importcpp: "SetMeridianPCurve", header: "BRepPrim_Revolution.hxx".}
+

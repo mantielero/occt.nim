@@ -1,4 +1,9 @@
 import gc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,10 +21,6 @@ import gc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Pnt"
 
 
 proc ellipse*(e: ElipsObj): MakeEllipse {.cdecl, constructor,
@@ -33,3 +34,4 @@ proc value*(this: MakeEllipse): Handle[GeomEllipse] {.noSideEffect, cdecl,
 converter toHandleGeomTrimmedCurve*(this: MakeEllipse): Handle[GeomEllipse] {.
     noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeEllipse.hxx".}
+

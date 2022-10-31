@@ -1,3 +1,5 @@
+
+
 ##  Created on: 2008-01-21
 ##  Created by: Galina KULIKOVA
 ##  Copyright (c) 2008-2014 OPEN CASCADE SAS
@@ -13,11 +15,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_OutOfMemory"
-discard "forward decl of Interface_FileParameter"
-discard "forward decl of Interface_ParamList"
 type
   HandleInterfaceParamList* = Handle[InterfaceParamList]
   InterfaceParamList* {.importcpp: "Interface_ParamList",

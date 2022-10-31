@@ -1,4 +1,17 @@
 import bopalgo_types
+import ../../tkbrep/topods/topods_types
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
@@ -15,7 +28,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newBOPAlgoArgumentAnalyzer*(): BOPAlgoArgumentAnalyzer {.cdecl, constructor,
@@ -58,3 +70,9 @@ proc hasFaulty*(this: BOPAlgoArgumentAnalyzer): bool {.noSideEffect, cdecl,
     importcpp: "HasFaulty", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
 proc getCheckResult*(this: BOPAlgoArgumentAnalyzer): BOPAlgoListOfCheckResult {.
     noSideEffect, cdecl, importcpp: "GetCheckResult", header: "BOPAlgo_ArgumentAnalyzer.hxx".}
+
+
+
+
+
+

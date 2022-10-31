@@ -1,4 +1,8 @@
 import brep_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1995-03-09
 ##  Created by: Laurent PAINNOT
@@ -16,9 +20,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopLoc_Location"
-discard "forward decl of gp_Pnt"
-discard "forward decl of BRep_GCurve"
 
 
 
@@ -38,3 +39,4 @@ proc d0*(this: BRepGCurve; u: cfloat; p: var PntObj) {.noSideEffect, cdecl, impo
 proc update*(this: var BRepGCurve) {.cdecl, importcpp: "Update", header: "BRep_GCurve.hxx".}
 proc dumpJson*(this: BRepGCurve; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_GCurve.hxx".}
+

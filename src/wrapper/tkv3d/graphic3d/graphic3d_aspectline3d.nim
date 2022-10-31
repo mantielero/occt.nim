@@ -1,4 +1,9 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -35,4 +40,5 @@ proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: cfloat) {.cdecl,
     importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
 #proc setWidth*(this: var Graphic3dAspectLine3d; theWidth: StandardShortReal) {.cdecl,
 #    importcpp: "SetWidth", header: "Graphic3d_AspectLine3d.hxx".}
+
 

@@ -1,4 +1,15 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import prsmgr_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkmath/bnd/bnd_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
@@ -16,7 +27,6 @@ import prsmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PrsMgr_PresentationManager"
 
 
 
@@ -218,4 +228,5 @@ proc toPropagateVisualState*(this: PrsMgrPresentableObject): bool {.noSideEffect
     cdecl, importcpp: "ToPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}
 proc setPropagateVisualState*(this: var PrsMgrPresentableObject; theFlag: bool) {.
     cdecl, importcpp: "SetPropagateVisualState", header: "PrsMgr_PresentableObject.hxx".}
+
 

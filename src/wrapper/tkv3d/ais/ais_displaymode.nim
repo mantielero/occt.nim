@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -20,6 +21,7 @@ import ais_types
 ## ! for interactive objects. The possibilities include:
 ## ! -   wireframe,
 ## ! -   shaded,
+
 
 
 

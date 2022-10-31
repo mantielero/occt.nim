@@ -1,4 +1,11 @@
-import extrema_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
@@ -16,11 +23,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
 
 
 proc firstParameter*(c: Adaptor3dCurve): cfloat {.cdecl,
@@ -79,3 +81,4 @@ proc bezier*(c: Adaptor3dCurve): Handle[GeomBezierCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::Bezier(@)", header: "Extrema_CurveTool.hxx".}
 proc bSpline*(c: Adaptor3dCurve): Handle[GeomBSplineCurve] {.cdecl,
     importcpp: "Extrema_CurveTool::BSpline(@)", header: "Extrema_CurveTool.hxx".}
+

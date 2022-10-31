@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
@@ -16,11 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Extrema_POnCurv"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Extrema_ExtElC"
-discard "forward decl of Extrema_ECC"
 
 
 proc newExtremaExtCC*(tolC1: cfloat = 1.0e-10; tolC2: cfloat = 1.0e-10): ExtremaExtCC {.
@@ -60,3 +59,4 @@ proc setSingleSolutionFlag*(this: var ExtremaExtCC; theSingleSolutionFlag: bool)
     cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ExtCC.hxx".}
 proc getSingleSolutionFlag*(this: ExtremaExtCC): bool {.noSideEffect, cdecl,
     importcpp: "GetSingleSolutionFlag", header: "Extrema_ExtCC.hxx".}
+

@@ -1,4 +1,10 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-03-03
 ##  Created by: Jean-Pierre COMBE
@@ -16,15 +22,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Geom_Plane"
-discard "forward decl of Geom_Line"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Circle"
-discard "forward decl of Geom_Ellipse"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Dir"
 
 
 
@@ -42,3 +39,4 @@ proc clearUsers*(this: var PrsDimIdenticRelation) {.cdecl, importcpp: "ClearUser
     header: "PrsDim_IdenticRelation.hxx".}
 proc isMovable*(this: PrsDimIdenticRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_IdenticRelation.hxx".}
+

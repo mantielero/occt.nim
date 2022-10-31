@@ -1,4 +1,9 @@
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../tkfillet/blend/blend_types
+
+
 
 ##  Created on: 1996-11-25
 ##  Created by: Philippe MANGIN
@@ -16,12 +21,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of Blend_Function"
-discard "forward decl of Blend_AppFunction"
-discard "forward decl of Blend_Point"
-discard "forward decl of BRepBlend_AppFunc"
 
 
 
@@ -34,3 +33,4 @@ proc point*(this: BRepBlendAppFunc; `func`: BlendAppFunction; param: cfloat;
     importcpp: "Point", header: "BRepBlend_AppFunc.hxx".}
 proc vec*(this: BRepBlendAppFunc; sol: var MathVector; pnt: BlendPoint) {.noSideEffect,
     cdecl, importcpp: "Vec", header: "BRepBlend_AppFunc.hxx".}
+

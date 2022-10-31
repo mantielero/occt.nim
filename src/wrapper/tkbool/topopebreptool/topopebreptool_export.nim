@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1997-11-28
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -13,3 +15,4 @@
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+

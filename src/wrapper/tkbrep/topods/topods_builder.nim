@@ -1,5 +1,7 @@
 import topods_types
 
+
+
 ##  Created on: 1991-02-21
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -16,16 +18,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NullObject"
-discard "forward decl of TopoDS_FrozenShape"
-discard "forward decl of TopoDS_UnCompatibleShapes"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopoDS_CompSolid"
-discard "forward decl of TopoDS_Compound"
 
 
 proc makeWire*(this: TopoDS_Builder; w: var TopoDS_Wire) {.noSideEffect, cdecl,
@@ -42,3 +34,4 @@ proc add*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEf
     cdecl, importcpp: "Add", header: "TopoDS_Builder.hxx".}
 proc remove*(this: TopoDS_Builder; s: var TopoDS_Shape; c: TopoDS_Shape) {.noSideEffect,
     cdecl, importcpp: "Remove", header: "TopoDS_Builder.hxx".}
+

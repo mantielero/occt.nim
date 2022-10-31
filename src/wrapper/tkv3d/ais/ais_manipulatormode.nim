@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 2015-02-05
 ##  Created by: Anastasia BORISOVA
@@ -16,6 +17,7 @@ import ais_types
 ##  commercial license or contractual agreement.
 
 ## ! Mode to make definite kind of transformations with AIS_Manipulator object.
+
 
 
 

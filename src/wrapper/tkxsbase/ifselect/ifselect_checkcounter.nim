@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of MoniTool_SignText"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_CheckCounter"
 
 
 
@@ -33,3 +32,4 @@ proc newIFSelectCheckCounter*(withlist: bool = false): IFSelectCheckCounter {.cd
 proc analyse*(this: var IFSelectCheckCounter; list: InterfaceCheckIterator;
              model: Handle[InterfaceInterfaceModel]; original: bool = false;
              failsonly: bool = false) {.cdecl, importcpp: "Analyse", header: "IFSelect_CheckCounter.hxx".}
+

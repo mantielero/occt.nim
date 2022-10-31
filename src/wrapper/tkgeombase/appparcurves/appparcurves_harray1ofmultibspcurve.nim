@@ -1,4 +1,7 @@
+import ../../tkernel/tcolstd/tcolstd_types
 import appparcurves_types
+
+
 
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
@@ -30,3 +33,4 @@ proc newAppParCurvesHArray1OfMultiBSpCurve*(
     header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
 proc array1*(this: AppParCurvesHArray1OfMultiBSpCurve): AppParCurvesArray1OfMultiBSpCurve {.
     noSideEffect, cdecl, importcpp: "Array1", header: "AppParCurves_HArray1OfMultiBSpCurve.hxx".}
+

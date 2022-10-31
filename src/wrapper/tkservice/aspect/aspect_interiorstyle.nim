@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -19,5 +20,6 @@ import aspect_types
 
 const
   aspectIS_HOLLOW = aspectIS_EMPTY.AspectInteriorStyle ## !< transparent surface interior
+
 
 

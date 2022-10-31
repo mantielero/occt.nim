@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../tkg3d/topabs/topabs_types
 import adaptor3d_types
+
+
 
 ##  Created on: 1994-03-25
 ##  Created by: model
@@ -16,9 +22,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HVertex"
 
 
 proc newAdaptor3dHVertex*(): Adaptor3dHVertex {.cdecl, constructor,
@@ -35,3 +38,4 @@ proc orientation*(this: var Adaptor3dHVertex): TopAbsOrientation {.cdecl,
     importcpp: "Orientation", header: "Adaptor3d_HVertex.hxx".}
 proc isSame*(this: var Adaptor3dHVertex; other: Handle[Adaptor3dHVertex]): bool {.
     cdecl, importcpp: "IsSame", header: "Adaptor3d_HVertex.hxx".}
+

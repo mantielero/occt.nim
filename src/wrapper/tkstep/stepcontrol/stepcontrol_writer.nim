@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkxsbase/ifselect/ifselect_types
+import ../../tkbrep/topods/topods_types
 import stepcontrol_types
+
+
 
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
@@ -16,9 +21,6 @@ import stepcontrol_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XSControl_WorkSession"
-discard "forward decl of StepData_StepModel"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newSTEPControlWriter*(): STEPControlWriter {.cdecl, constructor,
@@ -43,3 +45,4 @@ proc write*(this: var STEPControlWriter; filename: cstring): IFSelectReturnStatu
     cdecl, importcpp: "Write", header: "STEPControl_Writer.hxx".}
 proc printStatsTransfer*(this: STEPControlWriter; what: cint; mode: cint = 0) {.
     noSideEffect, cdecl, importcpp: "PrintStatsTransfer", header: "STEPControl_Writer.hxx".}
+

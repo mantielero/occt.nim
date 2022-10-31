@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-10-19
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of IFSelect_Dispatch"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_GeneralModifier"
 
 
 
@@ -42,3 +42,4 @@ proc selection*(this: IFSelectGeneralModifier): Handle[IFSelectSelection] {.
     noSideEffect, cdecl, importcpp: "Selection", header: "IFSelect_GeneralModifier.hxx".}
 proc label*(this: IFSelectGeneralModifier): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_GeneralModifier.hxx".}
+

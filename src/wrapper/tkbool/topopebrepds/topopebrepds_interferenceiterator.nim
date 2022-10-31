@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1994-06-06
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepDS_InterferenceIterator*(): TopOpeBRepDS_InterferenceIterator {.
@@ -51,3 +53,4 @@ proc value*(this: TopOpeBRepDS_InterferenceIterator): Handle[
                                 header: "TopOpeBRepDS_InterferenceIterator.hxx".}
 proc changeIterator*(this: var TopOpeBRepDS_InterferenceIterator): var TopOpeBRepDS_ListIteratorOfListOfInterference {.
     cdecl, importcpp: "ChangeIterator", header: "TopOpeBRepDS_InterferenceIterator.hxx".}
+

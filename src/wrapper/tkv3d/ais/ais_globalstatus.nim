@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1997-01-24
 ##  Created by: Robert COUBLANC
@@ -61,3 +66,4 @@ proc isSModeIn*(this: AIS_GlobalStatus; aMode: cint): bool {.noSideEffect, cdecl
     importcpp: "IsSModeIn", header: "AIS_GlobalStatus.hxx".}
 proc getLayerIndex*(this: AIS_GlobalStatus): cint {.noSideEffect, cdecl,
     importcpp: "GetLayerIndex", header: "AIS_GlobalStatus.hxx".}
+

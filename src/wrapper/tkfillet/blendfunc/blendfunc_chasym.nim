@@ -1,4 +1,14 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkfillet/blend/blend_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1998-06-02
 ##  Created by: Philippe NOUAILLE
@@ -16,14 +26,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Lin"
-discard "forward decl of Blend_Point"
 
 
 proc newBlendFuncChAsym*(s1: Handle[Adaptor3dHSurface];
@@ -115,3 +117,4 @@ proc resolution*(this: BlendFuncChAsym; iC2d: cint; tol: cfloat; tolU: var cfloa
                                  header: "BlendFunc_ChAsym.hxx".}
 proc set*(this: var BlendFuncChAsym; dist1: cfloat; angle: cfloat; choix: cint) {.cdecl,
     importcpp: "Set", header: "BlendFunc_ChAsym.hxx".}
+

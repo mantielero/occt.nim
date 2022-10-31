@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-08-26
 ##  Created by: Christian CAILLET
@@ -16,18 +21,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_ShareOut"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_AppliedModifiers"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of IFSelect_ShareOutResult"
-discard "forward decl of IFSelect_WorkLibrary"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_CopyTool"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of IFSelect_ModelCopier"
 
 
 
@@ -90,3 +83,4 @@ proc addSentFile*(this: var IFSelectModelCopier; filename: cstring) {.cdecl,
     importcpp: "AddSentFile", header: "IFSelect_ModelCopier.hxx".}
 proc sentFiles*(this: IFSelectModelCopier): Handle[TColStdHSequenceOfHAsciiString] {.
     noSideEffect, cdecl, importcpp: "SentFiles", header: "IFSelect_ModelCopier.hxx".}
+

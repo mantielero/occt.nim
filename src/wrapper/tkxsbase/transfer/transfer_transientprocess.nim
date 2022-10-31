@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
@@ -16,11 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_HGraph"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Transfer_TransientProcess"
 
 
 
@@ -66,3 +65,4 @@ proc printStats*(this: TransferTransientProcess; mode: cint; s: var StandardOStr
 proc rootsForTransfer*(this: var TransferTransientProcess): Handle[
     TColStdHSequenceOfTransient] {.cdecl, importcpp: "RootsForTransfer",
                                   header: "Transfer_TransientProcess.hxx".}
+

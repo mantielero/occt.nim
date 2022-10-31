@@ -1,4 +1,6 @@
-import transfer_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
@@ -16,10 +18,10 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
 
 
 proc `type`*(ent: Handle[StandardTransient]): Handle[StandardType] {.cdecl,
     importcpp: "Transfer_DataInfo::Type(@)", header: "Transfer_DataInfo.hxx".}
 proc typeName*(ent: Handle[StandardTransient]): cstring {.cdecl,
     importcpp: "Transfer_DataInfo::TypeName(@)", header: "Transfer_DataInfo.hxx".}
+

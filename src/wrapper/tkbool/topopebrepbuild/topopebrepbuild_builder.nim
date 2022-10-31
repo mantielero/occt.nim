@@ -1,4 +1,14 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/tcollection/tcollection_types
+import ../tkbool/topopebreptool/topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
@@ -16,23 +26,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopOpeBRepBuild_HBuilder"
-discard "forward decl of TopOpeBRepTool_ShapeExplorer"
-discard "forward decl of TopOpeBRepBuild_ShapeSet"
-discard "forward decl of TopOpeBRepBuild_EdgeBuilder"
-discard "forward decl of TopOpeBRepBuild_FaceBuilder"
-discard "forward decl of TopOpeBRepBuild_SolidBuilder"
-discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
-discard "forward decl of TopOpeBRepDS_PointIterator"
-discard "forward decl of TopOpeBRepBuild_PaveSet"
-discard "forward decl of TopOpeBRepBuild_GTopo"
-discard "forward decl of TopOpeBRepBuild_ShellFaceSet"
-discard "forward decl of TopOpeBRepDS_SurfaceIterator"
-discard "forward decl of TopOpeBRepDS_CurveIterator"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Pnt"
 when defined(FillSolid):
   discard
 ## ! The Builder  algorithm    constructs   topological
@@ -548,3 +541,4 @@ proc stringState*(s: TopAbsState): TCollectionAsciiString {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::StringState(@)", header: "TopOpeBRepBuild_Builder.hxx".}
 proc gcheckNBOUNDS*(e: TopoDS_Shape): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Builder::GcheckNBOUNDS(@)", header: "TopOpeBRepBuild_Builder.hxx".}
+

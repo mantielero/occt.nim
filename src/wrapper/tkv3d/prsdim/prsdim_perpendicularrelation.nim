@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
@@ -25,3 +30,4 @@ proc newPrsDimPerpendicularRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shap
     cdecl, constructor, importcpp: "PrsDim_PerpendicularRelation(@)", header: "PrsDim_PerpendicularRelation.hxx".}
 proc newPrsDimPerpendicularRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape): PrsDimPerpendicularRelation {.
     cdecl, constructor, importcpp: "PrsDim_PerpendicularRelation(@)", header: "PrsDim_PerpendicularRelation.hxx".}
+

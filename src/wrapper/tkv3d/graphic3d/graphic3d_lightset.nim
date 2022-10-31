@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -70,4 +74,5 @@ proc keyEnabledLong*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "KeyEnabledLong", header: "Graphic3d_LightSet.hxx".}
 proc keyEnabledShort*(this: Graphic3dLightSet): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "KeyEnabledShort", header: "Graphic3d_LightSet.hxx".}
+
 

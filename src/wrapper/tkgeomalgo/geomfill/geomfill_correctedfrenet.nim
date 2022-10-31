@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-12-19
 ##  Created by: Philippe MANGIN
@@ -16,14 +23,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_Frenet"
-discard "forward decl of Law_Function"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of GeomFill_TrihedronLaw"
-discard "forward decl of gp_Vec"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of GeomFill_CorrectedFrenet"
 
 
 
@@ -62,3 +61,4 @@ proc isConstant*(this: GeomFillCorrectedFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsConstant", header: "GeomFill_CorrectedFrenet.hxx".}
 proc isOnlyBy3dCurve*(this: GeomFillCorrectedFrenet): bool {.noSideEffect, cdecl,
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_CorrectedFrenet.hxx".}
+

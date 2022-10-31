@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,8 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of TopOpeBRepDS_Point"
 
 
 proc newTopOpeBRepDS_PointExplorer*(): TopOpeBRepDS_PointExplorer {.cdecl,
@@ -43,3 +43,4 @@ proc nbPoint*(this: var TopOpeBRepDS_PointExplorer): cint {.cdecl,
     importcpp: "NbPoint", header: "TopOpeBRepDS_PointExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_PointExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepDS_PointExplorer.hxx".}
+

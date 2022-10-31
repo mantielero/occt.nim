@@ -1,4 +1,7 @@
+import ../../tkernel/tcolstd/tcolstd_types
 import geomfill_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -31,4 +34,5 @@ proc append*(this: var GeomFillHSequenceOfAx2;
     header: "GeomFill_HSequenceOfAx2.hxx".}
 proc changeSequence*(this: var GeomFillHSequenceOfAx2): var GeomFillSequenceOfAx2 {.
     cdecl, importcpp: "ChangeSequence", header: "GeomFill_HSequenceOfAx2.hxx".}
+
 

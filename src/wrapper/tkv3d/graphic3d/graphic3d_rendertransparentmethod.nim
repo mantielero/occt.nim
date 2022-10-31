@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2017-04-25
 ##  Created by: Anton POLETAEV
@@ -16,6 +17,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Enumerates transparency rendering methods supported by rasterization mode.
+
 
 
 

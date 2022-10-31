@@ -1,4 +1,7 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-05-06
 ##  Created by: Jacques GOUSSARD
@@ -16,8 +19,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newIntSurfPntOn2S*(): IntSurfPntOn2S {.cdecl, constructor,
@@ -50,3 +51,4 @@ proc parameters*(this: IntSurfPntOn2S; u1: var cfloat; v1: var cfloat; u2: var c
 proc isSame*(this: IntSurfPntOn2S; theOtherPoint: IntSurfPntOn2S;
             theTol3D: cfloat = 0.0; theTol2D: cfloat = -1.0): bool {.noSideEffect, cdecl,
     importcpp: "IsSame", header: "IntSurf_PntOn2S.hxx".}
+

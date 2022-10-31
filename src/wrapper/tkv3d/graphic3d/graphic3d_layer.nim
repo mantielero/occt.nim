@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Copyright (c) 2011-2019 OPEN CASCADE SAS
 ##
@@ -24,7 +28,6 @@ import graphic3d_types
 #  Graphic3dArrayOfIndexedMapOfStructure* = NCollectionArray1[
 #      Graphic3dIndexedMapOfStructure]
 
-discard "forward decl of Graphic3d_CullingTool"
 
 
 proc newGraphic3dLayer*(theId: Graphic3dZLayerId; theNbPriorities: cint;
@@ -93,3 +96,4 @@ proc cullableTrsfPersStructuresBVH*(this: Graphic3dLayer): Graphic3dBvhCStructur
 proc dumpJson*(this: Graphic3dLayer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Layer.hxx".}
+

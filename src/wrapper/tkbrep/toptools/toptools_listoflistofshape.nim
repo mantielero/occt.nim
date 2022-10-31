@@ -1,4 +1,5 @@
-import toptools_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -13,5 +14,6 @@ import toptools_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

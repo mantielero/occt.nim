@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import extrema_types
+
+
 
 ##  Created on: 1994-07-06
 ##  Created by: Laurent PAINNOT
@@ -16,11 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Extrema_ExtElC2d"
-discard "forward decl of Extrema_ECC2d"
 
 
 proc newExtremaExtCC2d*(): ExtremaExtCC2d {.cdecl, constructor,
@@ -57,3 +56,4 @@ proc setSingleSolutionFlag*(this: var ExtremaExtCC2d; theSingleSolutionFlag: boo
     cdecl, importcpp: "SetSingleSolutionFlag", header: "Extrema_ExtCC2d.hxx".}
 proc getSingleSolutionFlag*(this: ExtremaExtCC2d): bool {.noSideEffect, cdecl,
     importcpp: "GetSingleSolutionFlag", header: "Extrema_ExtCC2d.hxx".}
+

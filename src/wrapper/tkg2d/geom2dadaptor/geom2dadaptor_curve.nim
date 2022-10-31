@@ -1,4 +1,12 @@
+import ../tkg2d/geom2d/geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+import ../tkg2d/adaptor2d/adaptor2d_types
 import geom2dadaptor_types
+
+
 
 ##  Created on: 1993-06-03
 ##  Created by: Bruno DUMORTIER
@@ -16,21 +24,6 @@ import geom2dadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Circ2d"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Hypr2d"
-discard "forward decl of gp_Parab2d"
-discard "forward decl of Geom2d_BezierCurve"
-discard "forward decl of Geom2d_BSplineCurve"
 
 
 proc newGeom2dAdaptorCurve*(): Geom2dAdaptorCurve {.cdecl, constructor,
@@ -104,3 +97,4 @@ proc bezier*(this: Geom2dAdaptorCurve): Handle[Geom2dBezierCurve] {.noSideEffect
     cdecl, importcpp: "Bezier", header: "Geom2dAdaptor_Curve.hxx".}
 proc bSpline*(this: Geom2dAdaptorCurve): Handle[Geom2dBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "Geom2dAdaptor_Curve.hxx".}
+

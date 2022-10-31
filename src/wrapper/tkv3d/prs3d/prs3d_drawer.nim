@@ -1,4 +1,11 @@
 import prs3d_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,16 +21,6 @@ import prs3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Prs3d_IsoAspect"
-discard "forward decl of Prs3d_LineAspect"
-discard "forward decl of Prs3d_TextAspect"
-discard "forward decl of Prs3d_ShadingAspect"
-discard "forward decl of Prs3d_PointAspect"
-discard "forward decl of Prs3d_PlaneAspect"
-discard "forward decl of Prs3d_ArrowAspect"
-discard "forward decl of Prs3d_DatumAspect"
-discard "forward decl of Prs3d_DimensionAspect"
-discard "forward decl of TCollection_AsciiString"
 
 
 
@@ -335,4 +332,5 @@ proc hasOwnHLRDeviationAngle*(this: Prs3dDrawer): bool {.noSideEffect, cdecl,
     importcpp: "HasOwnHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
 proc previousHLRDeviationAngle*(this: Prs3dDrawer): cfloat {.noSideEffect, cdecl,
     importcpp: "PreviousHLRDeviationAngle", header: "Prs3d_Drawer.hxx".}
+
 

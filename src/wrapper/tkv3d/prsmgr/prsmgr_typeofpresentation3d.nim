@@ -1,4 +1,5 @@
-import prsmgr_types
+
+
 
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
@@ -22,6 +23,7 @@ import prsmgr_types
 ## ! -   ProjectorDependant for display in hidden line
 ## ! removal mode, where every new point of view
 ## ! entails recalculation of the display.
+
 
 
 

@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
@@ -16,12 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Transfer_ResultFromTransient"
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Transfer_ResultFromModel"
 
 
 
@@ -73,3 +71,4 @@ proc checkStatus*(this: TransferResultFromModel): InterfaceCheckStatus {.
     noSideEffect, cdecl, importcpp: "CheckStatus", header: "Transfer_ResultFromModel.hxx".}
 proc computeCheckStatus*(this: var TransferResultFromModel; enforce: bool): InterfaceCheckStatus {.
     cdecl, importcpp: "ComputeCheckStatus", header: "Transfer_ResultFromModel.hxx".}
+

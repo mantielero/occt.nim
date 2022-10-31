@@ -1,3 +1,6 @@
+import ../../tkernel/tcollection/tcollection_types
+
+
 ##  Created on: 2003-05-06
 ##  Created by: Galina KULIKOVA
 ##  Copyright (c) 2003-2014 OPEN CASCADE SAS
@@ -13,7 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
 type
   InterfaceMapAsciiStringHasher* {.importcpp: "Interface_MapAsciiStringHasher",
                                   header: "Interface_MapAsciiStringHasher.hxx",

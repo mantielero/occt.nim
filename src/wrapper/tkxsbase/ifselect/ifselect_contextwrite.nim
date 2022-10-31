@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
@@ -16,16 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of IFSelect_AppliedModifiers"
-discard "forward decl of Interface_HGraph"
-discard "forward decl of IFSelect_GeneralModifier"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_Check"
-discard "forward decl of Interface_CheckIterator"
 
 
 proc newIFSelectContextWrite*(model: Handle[InterfaceInterfaceModel];
@@ -81,3 +74,4 @@ proc cCheck*(this: var IFSelectContextWrite; start: Handle[StandardTransient]): 
     InterfaceCheck] {.cdecl, importcpp: "CCheck", header: "IFSelect_ContextWrite.hxx".}
 proc checkList*(this: IFSelectContextWrite): InterfaceCheckIterator {.noSideEffect,
     cdecl, importcpp: "CheckList", header: "IFSelect_ContextWrite.hxx".}
+

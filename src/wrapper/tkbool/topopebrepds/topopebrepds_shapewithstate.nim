@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-09-20
 ##  Created by: Peter KURNEV
@@ -16,7 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepDS_ShapeWithState*(): TopOpeBRepDS_ShapeWithState {.cdecl,
@@ -36,3 +40,4 @@ proc setIsSplitted*(this: var TopOpeBRepDS_ShapeWithState; anIsSplitted: bool) {
     cdecl, importcpp: "SetIsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
 proc isSplitted*(this: TopOpeBRepDS_ShapeWithState): bool {.noSideEffect, cdecl,
     importcpp: "IsSplitted", header: "TopOpeBRepDS_ShapeWithState.hxx".}
+

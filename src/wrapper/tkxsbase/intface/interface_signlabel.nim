@@ -1,3 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1998-05-20
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -14,9 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_SignLabel"
 type
   HandleInterfaceSignLabel* = Handle[InterfaceSignLabel]
 

@@ -1,4 +1,7 @@
-import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -16,25 +19,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
-discard "forward decl of BRepBuilderAPI_Command"
-discard "forward decl of BRepBuilderAPI_MakeShape"
-discard "forward decl of BRepBuilderAPI_MakeVertex"
-discard "forward decl of BRepBuilderAPI_MakeEdge"
-discard "forward decl of BRepBuilderAPI_MakeEdge2d"
-discard "forward decl of BRepBuilderAPI_MakePolygon"
-discard "forward decl of BRepBuilderAPI_MakeFace"
-discard "forward decl of BRepBuilderAPI_FindPlane"
-discard "forward decl of BRepBuilderAPI_Sewing"
-discard "forward decl of BRepBuilderAPI_MakeWire"
-discard "forward decl of BRepBuilderAPI_MakeShell"
-discard "forward decl of BRepBuilderAPI_MakeSolid"
-discard "forward decl of BRepBuilderAPI_ModifyShape"
-discard "forward decl of BRepBuilderAPI_Transform"
-discard "forward decl of BRepBuilderAPI_NurbsConvert"
-discard "forward decl of BRepBuilderAPI_GTransform"
-discard "forward decl of BRepBuilderAPI_Copy"
-discard "forward decl of BRepBuilderAPI_Collect"
 
 
 proc plane*(p: Handle[GeomPlane]) {.cdecl, importcpp: "BRepBuilderAPI::Plane(@)",
@@ -45,3 +29,4 @@ proc precision*(p: cfloat) {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
                           header: "BRepBuilderAPI.hxx".}
 proc precision*(): cfloat {.cdecl, importcpp: "BRepBuilderAPI::Precision(@)",
                          header: "BRepBuilderAPI.hxx".}
+

@@ -1,4 +1,9 @@
+import ../tkfillet/chfi2d/chfi2d_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import brepfilletapi_types
+
+
 
 ##  Created on: 1995-08-31
 ##  Created by: Remi LEQUETTE
@@ -16,10 +21,6 @@ import brepfilletapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Shape"
 when defined(Status):
   discard
 ## ! Describes functions to build fillets and chamfers on the
@@ -92,3 +93,4 @@ proc status*(this: BRepFilletAPI_MakeFillet2d): ChFi2dConstructionError {.
     noSideEffect, cdecl, importcpp: "Status", header: "BRepFilletAPI_MakeFillet2d.hxx".}
 proc build*(this: var BRepFilletAPI_MakeFillet2d) {.cdecl, importcpp: "Build",
     header: "BRepFilletAPI_MakeFillet2d.hxx".}
+

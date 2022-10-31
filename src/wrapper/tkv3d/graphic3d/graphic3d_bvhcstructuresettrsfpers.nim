@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2015-06-30
 ##  Created by: Anton POLETAEV
@@ -15,8 +18,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Camera"
-discard "forward decl of Graphic3d_CStructure"
 
 
 proc newGraphic3dBvhCStructureSetTrsfPers*(
@@ -56,3 +57,4 @@ proc builder*(this: Graphic3dBvhCStructureSetTrsfPers): Handle[
 proc setBuilder*(this: var Graphic3dBvhCStructureSetTrsfPers;
                 theBuilder: Handle[Select3D_BVHBuilder3d]) {.cdecl,
     importcpp: "SetBuilder", header: "Graphic3d_BvhCStructureSetTrsfPers.hxx".}
+

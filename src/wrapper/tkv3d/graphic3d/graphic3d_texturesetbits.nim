@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Standard texture units combination bits.
+
 
 
 

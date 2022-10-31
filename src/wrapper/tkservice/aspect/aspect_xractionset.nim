@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import aspect_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -29,4 +33,5 @@ proc actions*(this: AspectXRActionSet): AspectXRActionMap {.noSideEffect, cdecl,
     importcpp: "Actions", header: "Aspect_XRActionSet.hxx".}
 proc newAspectXRActionSet*(theId: TCollectionAsciiString): AspectXRActionSet {.
     cdecl, constructor, importcpp: "Aspect_XRActionSet(@)", header: "Aspect_XRActionSet.hxx".}
+
 

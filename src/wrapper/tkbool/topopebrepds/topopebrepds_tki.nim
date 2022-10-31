@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1997-09-17
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepDS_TKI*(): TopOpeBRepDS_TKI {.cdecl, constructor,
@@ -50,3 +52,4 @@ proc value*(this: TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): TopO
     noSideEffect, cdecl, importcpp: "Value", header: "TopOpeBRepDS_TKI.hxx".}
 proc changeValue*(this: var TopOpeBRepDS_TKI; k: var TopOpeBRepDS_Kind; g: var cint): var TopOpeBRepDS_ListOfInterference {.
     cdecl, importcpp: "ChangeValue", header: "TopOpeBRepDS_TKI.hxx".}
+

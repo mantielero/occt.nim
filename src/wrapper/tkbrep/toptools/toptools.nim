@@ -1,4 +1,7 @@
-import toptools_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
@@ -16,13 +19,9 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopTools_ShapeMapHasher"
-discard "forward decl of TopTools_OrientedShapeMapHasher"
-discard "forward decl of TopTools_LocationSet"
-discard "forward decl of TopTools_ShapeSet"
 
 
 proc dump*(sh: TopoDS_Shape; s: var StandardOStream) {.cdecl,
     importcpp: "TopTools::Dump(@)", header: "TopTools.hxx".}
 proc dummy*(i: cint) {.cdecl, importcpp: "TopTools::Dummy(@)", header: "TopTools.hxx".}
+

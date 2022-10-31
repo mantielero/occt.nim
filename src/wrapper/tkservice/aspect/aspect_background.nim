@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 1991-10-02
 ##  Created by: NW,JPB,CAL
@@ -16,7 +20,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Quantity_Color"
 
 
 proc newAspectBackground*(): AspectBackground {.cdecl, constructor,
@@ -30,3 +33,4 @@ proc color*(this: AspectBackground): QuantityColor {.noSideEffect, cdecl,
 proc dumpJson*(this: AspectBackground; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_Background.hxx".}
+

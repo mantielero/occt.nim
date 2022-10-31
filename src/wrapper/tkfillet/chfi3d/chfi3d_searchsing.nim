@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import chfi3d_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-03-28
 ##  Created by: Philippe MANGIN
@@ -16,7 +20,6 @@ import chfi3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
 
 
 proc newChFi3dSearchSing*(c1: Handle[GeomCurve]; c2: Handle[GeomCurve]): ChFi3dSearchSing {.
@@ -27,3 +30,4 @@ proc derivative*(this: var ChFi3dSearchSing; x: cfloat; d: var cfloat): bool {.c
     importcpp: "Derivative", header: "ChFi3d_SearchSing.hxx".}
 proc values*(this: var ChFi3dSearchSing; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     cdecl, importcpp: "Values", header: "ChFi3d_SearchSing.hxx".}
+

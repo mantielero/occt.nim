@@ -1,4 +1,5 @@
-import geom2d_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: JCV
@@ -16,7 +17,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_UndefinedValue"
 
 when not defined(noException) and not defined(noGeom2dUndefinedValue):
   template geom2dUndefinedValueRaiseIf*(condition, message: untyped): void =
@@ -26,3 +26,4 @@ when not defined(noException) and not defined(noGeom2dUndefinedValue):
 
 else:
   discard
+

@@ -1,4 +1,10 @@
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-07-09
 ##  Created by: Stephanie HUMEAU
@@ -16,14 +22,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_XYZ"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Vec"
 
 
 proc newGeomFillFunctionGuide*(s: Handle[GeomFillSectionLaw];
@@ -48,3 +46,4 @@ proc derivT*(this: var GeomFillFunctionGuide; x: MathVector; dCentre: XyzObj; dD
 proc deriv2T*(this: var GeomFillFunctionGuide; dCentre: XyzObj; dDir: XyzObj;
              dfdt: var MathVector; d2ft: var MathVector): bool {.cdecl,
     importcpp: "Deriv2T", header: "GeomFill_FunctionGuide.hxx".}
+

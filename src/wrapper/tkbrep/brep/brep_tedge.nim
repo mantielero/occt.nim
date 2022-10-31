@@ -1,4 +1,8 @@
 import brep_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
@@ -16,8 +20,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of BRep_TEdge"
 
 
 
@@ -50,3 +52,4 @@ proc emptyCopy*(this: BRepTEdge): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "BRep_TEdge.hxx".}
 proc dumpJson*(this: BRepTEdge; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TEdge.hxx".}
+

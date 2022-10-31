@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/message/message_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,16 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Message_Messenger"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_ActorOfProcessForTransient"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Transfer_IteratorOfProcessForTransient"
-discard "forward decl of Message_Msg"
-discard "forward decl of Interface_Check"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Transfer_ProcessForTransient"
 
 
 
@@ -198,4 +192,5 @@ proc removeResult*(this: var TransferProcessForTransient;
                                       header: "Transfer_ProcessForTransient.hxx".}
 proc checkNum*(this: TransferProcessForTransient; start: Handle[StandardTransient]): cint {.
     noSideEffect, cdecl, importcpp: "CheckNum", header: "Transfer_ProcessForTransient.hxx".}
+
 

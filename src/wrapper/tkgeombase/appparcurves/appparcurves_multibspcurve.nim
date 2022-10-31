@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import appparcurves_types
+
+
 
 ##  Created on: 1993-09-20
 ##  Created by: Modelistation
@@ -16,14 +21,6 @@ import appparcurves_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of AppParCurves_MultiCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
 
 
 proc newAppParCurvesMultiBSpCurve*(): AppParCurvesMultiBSpCurve {.cdecl,
@@ -67,3 +64,4 @@ proc d2*(this: AppParCurvesMultiBSpCurve; cuIndex: cint; u: cfloat; pt: var Pnt2
                                   header: "AppParCurves_MultiBSpCurve.hxx".}
 proc dump*(this: AppParCurvesMultiBSpCurve; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "AppParCurves_MultiBSpCurve.hxx".}
+

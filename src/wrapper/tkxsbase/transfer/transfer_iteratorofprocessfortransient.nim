@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,11 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_ProcessForTransient"
-discard "forward decl of Transfer_ActorOfProcessForTransient"
-discard "forward decl of Transfer_Binder"
 
 
 proc newTransferIteratorOfProcessForTransient*(withstarts: bool): TransferIteratorOfProcessForTransient {.
@@ -38,3 +37,4 @@ proc hasStarting*(this: TransferIteratorOfProcessForTransient): bool {.noSideEff
     cdecl, importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
 proc starting*(this: TransferIteratorOfProcessForTransient): Handle[
     StandardTransient] {.noSideEffect, cdecl, importcpp: "Starting", header: "Transfer_IteratorOfProcessForTransient.hxx".}
+

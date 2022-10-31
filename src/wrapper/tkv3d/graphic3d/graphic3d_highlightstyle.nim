@@ -1,3 +1,5 @@
+
+
 ##  Created on: 2016-08-24
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -14,3 +16,4 @@
 ##  commercial license or contractual agreement.
 
 ##  header file for deprecated type Graphic3d_HighlightStyle
+

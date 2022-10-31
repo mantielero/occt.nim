@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1999-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1999 Matra Datavision
@@ -16,7 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Marker"
 
 
 proc newTopOpeBRepDS_Marker*(): TopOpeBRepDS_Marker {.cdecl, constructor,
@@ -30,3 +31,4 @@ proc getI*(this: TopOpeBRepDS_Marker; i: cint): bool {.noSideEffect, cdecl,
     importcpp: "GetI", header: "TopOpeBRepDS_Marker.hxx".}
 proc allocate*(this: var TopOpeBRepDS_Marker; n: cint) {.cdecl, importcpp: "Allocate",
     header: "TopOpeBRepDS_Marker.hxx".}
+

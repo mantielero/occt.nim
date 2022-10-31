@@ -1,5 +1,7 @@
 import topods_types
 
+
+
 ##  Created on: 1993-01-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,9 +18,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoMoreObject"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopoDS_Iterator*(): TopoDS_Iterator {.cdecl, constructor,
@@ -32,3 +31,4 @@ proc more*(this: TopoDS_Iterator): bool {.noSideEffect, cdecl, importcpp: "More"
 proc next*(this: var TopoDS_Iterator) {.cdecl, importcpp: "Next", header: "TopoDS_Iterator.hxx".}
 proc value*(this: TopoDS_Iterator): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Value", header: "TopoDS_Iterator.hxx".}
+

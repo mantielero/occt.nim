@@ -1,4 +1,11 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1998-05-12
 ##  Created by: Roman BORISOV
@@ -16,14 +23,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Approx_CurvlinFunc"
 
 
 
@@ -71,3 +70,4 @@ proc evalCase2*(this: ApproxCurvlinFunc; s: cfloat; order: cint;
 proc evalCase3*(this: var ApproxCurvlinFunc; s: cfloat; order: cint;
                result: var TColStdArray1OfReal): bool {.cdecl,
     importcpp: "EvalCase3", header: "Approx_CurvlinFunc.hxx".}
+

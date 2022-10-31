@@ -1,4 +1,10 @@
+import ../tkbool/topopebreptool/topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +22,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepBuildBuilderON*(): TopOpeBRepBuildBuilderON {.cdecl, constructor,
@@ -47,3 +51,4 @@ proc perform2d*(this: var TopOpeBRepBuildBuilderON; pb: TopOpeBRepBuildPBuilder;
 proc gFillONParts2dWES2*(this: var TopOpeBRepBuildBuilderON;
                         i: Handle[TopOpeBRepDS_Interference]; espON: TopoDS_Shape) {.
     cdecl, importcpp: "GFillONParts2dWES2", header: "TopOpeBRepBuild_BuilderON.hxx".}
+

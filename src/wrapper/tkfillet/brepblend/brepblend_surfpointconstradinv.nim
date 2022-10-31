@@ -1,4 +1,10 @@
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
@@ -16,10 +22,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
 
 
 proc newBRepBlendSurfPointConstRadInv*(s: Handle[Adaptor3dHSurface];
@@ -48,3 +50,4 @@ proc getBounds*(this: BRepBlendSurfPointConstRadInv; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BRepBlend_SurfPointConstRadInv.hxx".}
 proc isSolution*(this: var BRepBlendSurfPointConstRadInv; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfPointConstRadInv.hxx".}
+

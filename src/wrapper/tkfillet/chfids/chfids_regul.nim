@@ -1,5 +1,7 @@
 import chfids_types
 
+
+
 ##  Created on: 1995-03-21
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -39,3 +41,4 @@ proc s1*(this: ChFiDS_Regul): cint {.noSideEffect, cdecl, importcpp: "S1",
                                  header: "ChFiDS_Regul.hxx".}
 proc s2*(this: ChFiDS_Regul): cint {.noSideEffect, cdecl, importcpp: "S2",
                                  header: "ChFiDS_Regul.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import v3d_types
+
+
 
 ##  Created on: 1992-11-13
 ##  Created by: GG
@@ -16,8 +21,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Group"
-discard "forward decl of V3d_View"
 
 
 proc getProjAxis*(theOrientation: V3dTypeOfOrientation): DirObj {.cdecl,
@@ -38,3 +41,4 @@ proc typeOfOrientationFromString*(theTypeString: cstring): V3dTypeOfOrientation 
 proc typeOfOrientationFromString*(theTypeString: cstring;
                                  theType: var V3dTypeOfOrientation): bool {.cdecl,
     importcpp: "V3d::TypeOfOrientationFromString(@)", header: "V3d.hxx".}
+

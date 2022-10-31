@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1996-10-17
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -16,8 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of TopOpeBRepDS_Surface"
 
 
 proc newTopOpeBRepDS_SurfaceExplorer*(): TopOpeBRepDS_SurfaceExplorer {.cdecl,
@@ -43,3 +43,4 @@ proc nbSurface*(this: var TopOpeBRepDS_SurfaceExplorer): cint {.cdecl,
     importcpp: "NbSurface", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_SurfaceExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepDS_SurfaceExplorer.hxx".}
+

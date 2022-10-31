@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
@@ -78,3 +83,4 @@ proc reverse*(this: TopOpeBRepBuildGTopo): bool {.noSideEffect, cdecl,
     importcpp: "Reverse", header: "TopOpeBRepBuild_GTopo.hxx".}
 proc copyPermuted*(this: TopOpeBRepBuildGTopo): TopOpeBRepBuildGTopo {.noSideEffect,
     cdecl, importcpp: "CopyPermuted", header: "TopOpeBRepBuild_GTopo.hxx".}
+

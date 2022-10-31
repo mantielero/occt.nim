@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
@@ -27,3 +32,4 @@ proc externRef*(this: var PrsDimTangentRelation): cint {.cdecl,
     importcpp: "ExternRef", header: "PrsDim_TangentRelation.hxx".}
 proc setExternRef*(this: var PrsDimTangentRelation; aRef: cint) {.cdecl,
     importcpp: "SetExternRef", header: "PrsDim_TangentRelation.hxx".}
+

@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,15 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of IFSelect_SelectionIterator"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_Graph"
-discard "forward decl of IFGraph_SubPartsIterator"
-discard "forward decl of IFSelect_Dispatch"
 
 
 
@@ -56,3 +51,4 @@ proc packeted*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterat
     noSideEffect, cdecl, importcpp: "Packeted", header: "IFSelect_Dispatch.hxx".}
 proc remainder*(this: IFSelectDispatch; g: InterfaceGraph): InterfaceEntityIterator {.
     noSideEffect, cdecl, importcpp: "Remainder", header: "IFSelect_Dispatch.hxx".}
+

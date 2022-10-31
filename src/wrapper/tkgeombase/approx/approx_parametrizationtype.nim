@@ -1,4 +1,5 @@
-import approx_types
+
+
 
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
@@ -15,6 +16,7 @@ import approx_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 
 

@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
@@ -16,13 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of Geom_Surface"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Geom2d_Curve"
 
 
 proc newGeomFillSweep*(location: Handle[GeomFillLocationLaw];
@@ -64,3 +62,4 @@ proc numberOfTrace*(this: GeomFillSweep): cint {.noSideEffect, cdecl,
     importcpp: "NumberOfTrace", header: "GeomFill_Sweep.hxx".}
 proc trace*(this: GeomFillSweep; indexOfTrace: cint): Handle[Geom2dCurve] {.
     noSideEffect, cdecl, importcpp: "Trace", header: "GeomFill_Sweep.hxx".}
+

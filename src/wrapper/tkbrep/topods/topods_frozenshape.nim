@@ -1,4 +1,5 @@
-import topods_types
+
+
 
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
@@ -19,7 +20,6 @@ import topods_types
 ## ! An  attempt was  made to   modify  a Shape  already
 ## ! shared or protected.
 
-discard "forward decl of TopoDS_FrozenShape"
 
 when not defined(noException) and not defined(noTopoDS_FrozenShape):
   template topoDS_FrozenShapeRaiseIf*(condition, message: untyped): void =
@@ -29,3 +29,4 @@ when not defined(noException) and not defined(noTopoDS_FrozenShape):
 
 else:
   discard
+

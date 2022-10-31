@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-11-07
 ##  Created by: Christian CAILLET
@@ -16,13 +21,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Signature"
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Graph"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of IFSelect_SignCounter"
 
 
 
@@ -71,3 +69,4 @@ proc sign*(this: IFSelectSignCounter; ent: Handle[StandardTransient];
 proc computedSign*(this: var IFSelectSignCounter; ent: Handle[StandardTransient];
                   g: InterfaceGraph): cstring {.cdecl, importcpp: "ComputedSign",
     header: "IFSelect_SignCounter.hxx".}
+

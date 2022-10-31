@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1995-07-13
 ##  Created by: Jean Yves LEBEY
@@ -35,3 +40,4 @@ proc index*(this: TopOpeBRepToolShapeExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
 proc dumpCurrent*(this: TopOpeBRepToolShapeExplorer; os: var StandardOStream): var StandardOStream {.
     noSideEffect, cdecl, importcpp: "DumpCurrent", header: "TopOpeBRepTool_ShapeExplorer.hxx".}
+

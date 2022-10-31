@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,9 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Trsf"
 
 
 proc newGceMakeTranslation*(vect: VecObj): GceMakeTranslation {.cdecl, constructor,
@@ -31,3 +31,4 @@ proc operator*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeTranslation.hxx".}
 converter `trsf`*(this: GceMakeTranslation): TrsfObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeTranslation::operator gp_Trsf", header: "gce_MakeTranslation.hxx".}
+

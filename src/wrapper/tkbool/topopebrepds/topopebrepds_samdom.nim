@@ -1,3 +1,9 @@
+import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 ##  Created on: 1998-06-15
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision

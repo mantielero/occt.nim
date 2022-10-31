@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import aspect_types
+
+
 
 ##  Created on: 1995-03-17
 ##  Created by: Mister rmi
@@ -16,9 +19,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NegativeValue"
-discard "forward decl of Standard_NullValue"
-discard "forward decl of Standard_NumericError"
 
 
 proc newAspectCircularGrid*(aRadiusStep: cfloat; aDivisionNumber: cint;
@@ -43,4 +43,5 @@ proc init*(this: var AspectCircularGrid) {.cdecl, importcpp: "Init", header: "As
 proc dumpJson*(this: AspectCircularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_CircularGrid.hxx".}
+
 

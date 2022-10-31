@@ -1,4 +1,5 @@
-import prsmgr_types
+
+
 
 ##  Created on: 2013-11-24
 ##  Created by: Kirill Gavrilov
@@ -14,5 +15,6 @@ import prsmgr_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

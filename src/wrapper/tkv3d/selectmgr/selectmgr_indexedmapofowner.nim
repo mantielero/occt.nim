@@ -1,3 +1,5 @@
+
+
 ##  Created on: 2015-05-14
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 2005-2014 OPEN CASCADE SAS
@@ -13,7 +15,7 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
 #type
 #  SelectMgrIndexedMapOfOwner* = NCollectionShared[
 #      NCollectionIndexedMap[Handle[SelectMgrEntityOwner]]]
+

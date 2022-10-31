@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -26,6 +27,7 @@ import ais_types
 ## ! AIS_ConnectedInteractive. Transform indicates
 ## ! that the Interactive Object reference geometry has
 ## ! changed location relative to the reference geometry.
+
 
 
 

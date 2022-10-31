@@ -4,6 +4,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc transform*(this: var GeomVectorWithMagnitude; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_VectorWithMagnitude.hxx".}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}
+
 

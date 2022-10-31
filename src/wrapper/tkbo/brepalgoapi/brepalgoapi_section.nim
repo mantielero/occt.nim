@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../tkbo/bopalgo/bopalgo_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
 import brepalgoapi_types
+
+
 
 ##  Created on: 1994-02-18
 ##  Created by: Remi LEQUETTE
@@ -16,10 +23,6 @@ import brepalgoapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BOPAlgo_PaveFiller"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Pln"
-discard "forward decl of Geom_Surface"
 
 
 proc newBRepAlgoAPI_Section*(): BRepAlgoAPI_Section {.cdecl, constructor,
@@ -70,3 +73,4 @@ proc hasAncestorFaceOn1*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
 proc hasAncestorFaceOn2*(this: BRepAlgoAPI_Section; e: TopoDS_Shape;
                         f: var TopoDS_Shape): bool {.noSideEffect, cdecl,
     importcpp: "HasAncestorFaceOn2", header: "BRepAlgoAPI_Section.hxx".}
+

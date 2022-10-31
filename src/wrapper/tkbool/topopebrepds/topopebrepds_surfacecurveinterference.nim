@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,10 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of TopOpeBRepDS_Transition"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
 
 
 
@@ -41,3 +41,4 @@ proc pCurve*(this: TopOpeBRepDS_SurfaceCurveInterference): Handle[Geom2dCurve] {
     noSideEffect, cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
 proc pCurve*(this: var TopOpeBRepDS_SurfaceCurveInterference;
             pc: Handle[Geom2dCurve]) {.cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_SurfaceCurveInterference.hxx".}
+

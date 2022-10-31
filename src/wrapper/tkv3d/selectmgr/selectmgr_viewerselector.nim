@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/tcolstd/tcolstd_types
 import selectmgr_types
+
+
 
 ##  Created on: 1995-02-15
 ##  Created by: Roberc Coublanc
@@ -16,10 +23,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_SelectionManager"
-discard "forward decl of SelectMgr_SensitiveEntitySet"
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of Select3D_SensitiveEntity"
 when defined(Status):
   discard
 
@@ -154,4 +157,5 @@ proc waitForBVHBuild*(this: var SelectMgrViewerSelector) {.cdecl,
     importcpp: "WaitForBVHBuild", header: "SelectMgr_ViewerSelector.hxx".}
 proc toPrebuildBVH*(this: SelectMgrViewerSelector): bool {.noSideEffect, cdecl,
     importcpp: "ToPrebuildBVH", header: "SelectMgr_ViewerSelector.hxx".}
+
 

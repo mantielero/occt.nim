@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
@@ -16,13 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Transfer_TransferIterator"
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Transfer_FinderProcess"
 
 
 proc newTransferTransferInput*(): TransferTransferInput {.cdecl, constructor,
@@ -45,3 +41,4 @@ proc fillModel*(this: TransferTransferInput; `proc`: Handle[TransferFinderProces
                amodel: Handle[InterfaceInterfaceModel];
                proto: Handle[InterfaceProtocol]; roots: bool = true) {.noSideEffect,
     cdecl, importcpp: "FillModel", header: "Transfer_TransferInput.hxx".}
+

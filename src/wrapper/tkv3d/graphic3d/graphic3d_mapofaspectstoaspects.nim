@@ -1,3 +1,5 @@
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -11,6 +13,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Aspects"
 #type
 #  Graphic3dMapOfAspectsToAspects*[HandleGraphic3dAspects, HandleGraphic3dAspects] {.importcpp:"NCollection_DataMap<'0, '1>", header:"Graphic3d_MapOfAspectsToAspects.hxx", bycopy.} = object
+

@@ -1,4 +1,8 @@
 import brepbuilderapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-12-09
 ##  Created by: Jacques GOUSSARD
@@ -16,7 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc nurbsConvert*(): BRepBuilderAPI_NurbsConvert {.cdecl,
@@ -30,3 +33,4 @@ proc modified*(this: var BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopTools
     cdecl, importcpp: "Modified", header: "BRepBuilderAPI_NurbsConvert.hxx".}
 proc modifiedShape*(this: BRepBuilderAPI_NurbsConvert; s: TopoDS_Shape): TopoDS_Shape {.
     noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_NurbsConvert.hxx".}
+

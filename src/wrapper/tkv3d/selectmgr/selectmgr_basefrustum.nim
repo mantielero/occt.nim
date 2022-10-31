@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import selectmgr_types
+
+
 
 ##  Created on: 2014-05-22
 ##  Created by: Varvara POSKONINA
@@ -106,3 +113,4 @@ proc getPlanes*(this: SelectMgrBaseFrustum;
 proc dumpJson*(this: SelectMgrBaseFrustum; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_BaseFrustum.hxx".}
+

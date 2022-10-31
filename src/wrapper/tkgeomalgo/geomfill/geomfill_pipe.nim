@@ -1,4 +1,12 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg3d/tcolgeom/tcolgeom_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
 import geomfill_types
+
+
 
 ##  Created on: 1994-04-13
 ##  Created by: Eric BONNARDEL
@@ -16,14 +24,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of gp_Dir"
 
 
 proc newGeomFillPipe*(): GeomFillPipe {.cdecl, constructor,
@@ -96,3 +96,4 @@ proc errorOnSurf*(this: GeomFillPipe): cfloat {.noSideEffect, cdecl,
     importcpp: "ErrorOnSurf", header: "GeomFill_Pipe.hxx".}
 proc isDone*(this: GeomFillPipe): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                      header: "GeomFill_Pipe.hxx".}
+

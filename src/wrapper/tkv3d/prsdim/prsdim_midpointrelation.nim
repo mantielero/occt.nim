@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 2000-10-20
 ##  Created by: Julia DOROVSKIKH
@@ -15,11 +20,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
 
 
 
@@ -34,3 +34,4 @@ proc setTool*(this: var PrsDimMidPointRelation; aMidPointTool: TopoDS_Shape) {.c
     importcpp: "SetTool", header: "PrsDim_MidPointRelation.hxx".}
 proc getTool*(this: PrsDimMidPointRelation): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetTool", header: "PrsDim_MidPointRelation.hxx".}
+

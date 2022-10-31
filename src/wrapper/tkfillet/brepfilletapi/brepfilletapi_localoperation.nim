@@ -1,4 +1,9 @@
+import ../tkfillet/chfids/chfids_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import brepfilletapi_types
+
+
 
 ##  Created on: 1998-01-29
 ##  Created by: Laurent BOURESCHE
@@ -16,8 +21,6 @@ import brepfilletapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc add*(this: var BRepFilletAPI_LocalOperation; e: TopoDS_Edge) {.cdecl,
@@ -56,3 +59,4 @@ proc nbSurf*(this: BRepFilletAPI_LocalOperation; ic: cint): cint {.noSideEffect,
     importcpp: "NbSurf", header: "BRepFilletAPI_LocalOperation.hxx".}
 proc sect*(this: BRepFilletAPI_LocalOperation; ic: cint; `is`: cint): Handle[
     ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_LocalOperation.hxx".}
+

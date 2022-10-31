@@ -1,4 +1,9 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import ais_types
+
+
 
 ##  Created on: 1997-01-08
 ##  Created by: Robert COUBLANC
@@ -57,4 +62,5 @@ proc acceptShapeDecomposition*(this: AIS_ConnectedInteractive): bool {.noSideEff
     cdecl, importcpp: "AcceptShapeDecomposition", header: "AIS_ConnectedInteractive.hxx".}
 proc acceptDisplayMode*(this: AIS_ConnectedInteractive; theMode: cint): bool {.
     noSideEffect, cdecl, importcpp: "AcceptDisplayMode", header: "AIS_ConnectedInteractive.hxx".}
+
 

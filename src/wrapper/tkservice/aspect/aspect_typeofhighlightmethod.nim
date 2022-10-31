@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -21,6 +22,7 @@ import aspect_types
 ## ! (default white)
 ## ! TOHM_BOUNDBOX       enclosed by the boundary box
 ## ! (default white)
+
 
 
 

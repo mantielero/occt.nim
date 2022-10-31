@@ -1,4 +1,9 @@
-import chfi3d_types
+import ../tkfillet/chfids/chfids_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
@@ -16,13 +21,6 @@ import chfi3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepAdaptor_Surface"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of ChFi3d_Builder"
-discard "forward decl of ChFi3d_ChBuilder"
-discard "forward decl of ChFi3d_FilBuilder"
-discard "forward decl of ChFi3d_SearchSing"
 
 
 proc defineConnectType*(e: TopoDS_Edge; f1: TopoDS_Face; f2: TopoDS_Face;
@@ -45,3 +43,4 @@ proc sameSide*(`or`: TopAbsOrientation; orSave1: TopAbsOrientation;
               orSave2: TopAbsOrientation; orFace1: TopAbsOrientation;
               orFace2: TopAbsOrientation): bool {.cdecl,
     importcpp: "ChFi3d::SameSide(@)", header: "ChFi3d.hxx".}
+

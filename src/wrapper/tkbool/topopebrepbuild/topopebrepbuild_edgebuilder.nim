@@ -1,4 +1,7 @@
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
@@ -16,11 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_PaveSet"
-discard "forward decl of TopOpeBRepBuild_PaveClassifier"
-discard "forward decl of TopOpeBRepBuild_LoopSet"
-discard "forward decl of TopOpeBRepBuild_LoopClassifier"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepBuildEdgeBuilder*(): TopOpeBRepBuildEdgeBuilder {.cdecl,
@@ -50,3 +48,4 @@ proc vertex*(this: TopOpeBRepBuildEdgeBuilder): TopoDS_Shape {.noSideEffect, cde
     importcpp: "Vertex", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
 proc parameter*(this: TopOpeBRepBuildEdgeBuilder): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "TopOpeBRepBuild_EdgeBuilder.hxx".}
+

@@ -1,4 +1,13 @@
+import ../../tkmath/gp/gp_types
 import brepadaptor_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1998-08-20
 ##  Created by: Philippe MANGIN
@@ -16,22 +25,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NullObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
 
 
 proc newBRepAdaptorCompCurve*(): BRepAdaptorCompCurve {.cdecl, constructor,
@@ -109,3 +102,4 @@ proc bezier*(this: BRepAdaptorCompCurve): Handle[GeomBezierCurve] {.noSideEffect
     cdecl, importcpp: "Bezier", header: "BRepAdaptor_CompCurve.hxx".}
 proc bSpline*(this: BRepAdaptorCompCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "BRepAdaptor_CompCurve.hxx".}
+

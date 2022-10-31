@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -22,6 +23,7 @@ import ais_types
 ## ! for example, are only created for the selection
 ## ! process. By means of these enumerations, they can
 ## ! be cleared from local context.
+
 
 
 

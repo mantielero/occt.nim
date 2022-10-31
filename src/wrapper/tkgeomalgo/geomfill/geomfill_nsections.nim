@@ -1,4 +1,13 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/tcolgeom/tcolgeom_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-12-14
 ##  Created by: Joelle CHAUVET
@@ -16,11 +25,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Curve"
-discard "forward decl of GeomFill_NSections"
 
 
 
@@ -98,3 +102,4 @@ proc isConicalLaw*(this: GeomFillNSections; error: var cfloat): bool {.noSideEff
     cdecl, importcpp: "IsConicalLaw", header: "GeomFill_NSections.hxx".}
 proc circlSection*(this: GeomFillNSections; param: cfloat): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "CirclSection", header: "GeomFill_NSections.hxx".}
+

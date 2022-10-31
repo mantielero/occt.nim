@@ -18,6 +18,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-09
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,6 +54,7 @@ proc direction*(this: GeomAxisPlacement): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
 proc location*(this: GeomAxisPlacement): PntObj {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_AxisPlacement.hxx".}
+
 
 
 

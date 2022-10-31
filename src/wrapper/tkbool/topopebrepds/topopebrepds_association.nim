@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
@@ -16,8 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_Association"
 
 
 proc newTopOpeBRepDS_Association*(): TopOpeBRepDS_Association {.cdecl, constructor,
@@ -40,3 +41,4 @@ proc areAssociated*(this: TopOpeBRepDS_Association;
                    i: Handle[TopOpeBRepDS_Interference];
                    k: Handle[TopOpeBRepDS_Interference]): bool {.noSideEffect,
     cdecl, importcpp: "AreAssociated", header: "TopOpeBRepDS_Association.hxx".}
+

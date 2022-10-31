@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1992-11-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,11 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Standard_NullObject"
-discard "forward decl of Interface_EntityIterator"
 type
   InterfaceEntityList* {.importcpp: "Interface_EntityList",
                         header: "Interface_EntityList.hxx", bycopy.} = object ## ! Creates a List as beeing empty

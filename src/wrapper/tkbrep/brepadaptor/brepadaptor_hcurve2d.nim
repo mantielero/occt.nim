@@ -1,4 +1,7 @@
 import brepadaptor_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+
+
 
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
@@ -16,12 +19,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of BRepAdaptor_Curve2d"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of BRepAdaptor_HCurve2d"
 
 
 proc newBRepAdaptorHCurve2d*(): BRepAdaptorHCurve2d {.cdecl, constructor,
@@ -34,5 +31,6 @@ proc curve2d*(this: BRepAdaptorHCurve2d): Adaptor2dCurve2d {.noSideEffect, cdecl
     importcpp: "Curve2d", header: "BRepAdaptor_HCurve2d.hxx".}
 proc changeCurve2d*(this: var BRepAdaptorHCurve2d): var BRepAdaptorCurve2d {.cdecl,
     importcpp: "ChangeCurve2d", header: "BRepAdaptor_HCurve2d.hxx".}
+
 
 

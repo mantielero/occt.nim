@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 ##  Created on: 1997-03-06
 ##  Created by: Robert COUBLANC
@@ -16,8 +20,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of AIS_TypeFilter"
 
 
 
@@ -26,3 +28,4 @@ proc newAIS_TypeFilter*(aGivenKind: AIS_KindOfInteractive): AIS_TypeFilter {.cde
     constructor, importcpp: "AIS_TypeFilter(@)", header: "AIS_TypeFilter.hxx".}
 proc isOk*(this: AIS_TypeFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "AIS_TypeFilter.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -81,3 +86,4 @@ proc perform*(this: var BOPAlgoBuilderSolid) {.cdecl, importcpp: "Perform",
     header: "BOPAlgo_BuilderSolid.hxx".}
 proc getBoxesMap*(this: BOPAlgoBuilderSolid): TopToolsDataMapOfShapeBox {.
     noSideEffect, cdecl, importcpp: "GetBoxesMap", header: "BOPAlgo_BuilderSolid.hxx".}
+

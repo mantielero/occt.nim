@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-05-30
 ##  Created by: Christian CAILLET
@@ -16,14 +21,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_CopyControl"
-discard "forward decl of IFSelect_Transformer"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_Graph"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SelectPointed"
 
 
 
@@ -68,3 +65,4 @@ proc rootResult*(this: IFSelectSelectPointed; g: InterfaceGraph): InterfaceEntit
     noSideEffect, cdecl, importcpp: "RootResult", header: "IFSelect_SelectPointed.hxx".}
 proc label*(this: IFSelectSelectPointed): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_SelectPointed.hxx".}
+

@@ -1,4 +1,11 @@
+import ../../tkbool/topopebrepbuild/topopebrepbuild_types
+import ../tkfillet/chfids/chfids_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import brepfilletapi_types
+
+
 
 ##  Created on: 1995-06-22
 ##  Created by: Flore Lantheaume
@@ -16,12 +23,6 @@ import brepfilletapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopOpeBRepBuild_HBuilder"
 
 
 proc newBRepFilletAPI_MakeChamfer*(s: TopoDS_Shape): BRepFilletAPI_MakeChamfer {.
@@ -103,3 +104,4 @@ proc nbSurf*(this: BRepFilletAPI_MakeChamfer; ic: cint): cint {.noSideEffect, cd
     importcpp: "NbSurf", header: "BRepFilletAPI_MakeChamfer.hxx".}
 proc sect*(this: BRepFilletAPI_MakeChamfer; ic: cint; `is`: cint): Handle[
     ChFiDS_SecHArray1] {.noSideEffect, cdecl, importcpp: "Sect", header: "BRepFilletAPI_MakeChamfer.hxx".}
+

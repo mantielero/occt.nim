@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1995-03-08
 ##  Created by: Bruno DUMORTIER
@@ -16,11 +20,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
 
 
 proc halfSpace*(face: TopoDS_Face; refPnt: PntObj): BRepPrimAPI_MakeHalfSpace {.
@@ -32,3 +31,4 @@ proc solid*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.noSideEffect, cdecl
 converter `topoDS_Solid`*(this: BRepPrimAPI_MakeHalfSpace): TopoDS_Solid {.
     noSideEffect, cdecl,
     importcpp: "BRepPrimAPI_MakeHalfSpace::operator TopoDS_Solid", header: "BRepPrimAPI_MakeHalfSpace.hxx".}
+

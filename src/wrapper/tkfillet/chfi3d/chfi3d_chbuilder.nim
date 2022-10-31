@@ -1,4 +1,13 @@
+import ../../tkmath/math/math_types
+import ../tkfillet/chfids/chfids_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
 import chfi3d_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1995-04-26
 ##  Created by: Modelistation
@@ -16,19 +25,6 @@ import chfi3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of ChFiDS_SurfData"
-discard "forward decl of ChFiDS_HElSpine"
-discard "forward decl of ChFiDS_Spine"
-discard "forward decl of BRepAdaptor_HSurface"
-discard "forward decl of Adaptor3d_TopolTool"
-discard "forward decl of BRepAdaptor_HCurve2d"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of ChFiDS_Stripe"
 
 
 proc newChFi3dChBuilder*(s: TopoDS_Shape; ta: cfloat = 1.0e-2): ChFi3dChBuilder {.cdecl,
@@ -153,3 +149,4 @@ proc performSurf*(this: var ChFi3dChBuilder; data: var ChFiDS_SequenceOfSurfData
                  appro: bool; forward: bool; recP1: bool; recRst1: bool; recP2: bool;
                  recRst2: bool; soldep: MathVector) {.cdecl,
     importcpp: "PerformSurf", header: "ChFi3d_ChBuilder.hxx".}
+

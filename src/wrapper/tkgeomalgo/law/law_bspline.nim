@@ -1,4 +1,9 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1995-10-20
 ##  Created by: Laurent BOURESCHE
@@ -16,13 +21,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Law_BSpline"
 
 
 
@@ -167,3 +165,4 @@ proc resolution*(this: LawBSpline; tolerance3D: cfloat; uTolerance: var cfloat) 
     noSideEffect, cdecl, importcpp: "Resolution", header: "Law_BSpline.hxx".}
 proc copy*(this: LawBSpline): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Law_BSpline.hxx".}
+

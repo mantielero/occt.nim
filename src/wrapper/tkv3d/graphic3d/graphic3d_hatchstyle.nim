@@ -1,4 +1,8 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2016-11-14
 ##  Created by: Varvara POSKONINA
@@ -32,4 +36,5 @@ proc hatchType*(this: Graphic3dHatchStyle): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dHatchStyle; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_HatchStyle.hxx".}
+
 

@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,7 +20,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newBOPAlgoShellSplitter*(): BOPAlgoShellSplitter {.cdecl, constructor,
@@ -33,3 +38,4 @@ proc shells*(this: BOPAlgoShellSplitter): TopToolsListOfShape {.noSideEffect, cd
     importcpp: "Shells", header: "BOPAlgo_ShellSplitter.hxx".}
 #proc splitBlock*(theCB: var BOPToolsConnexityBlock) {.cdecl,
 #    importcpp: "BOPAlgo_ShellSplitter::SplitBlock(@)", header: "BOPAlgo_ShellSplitter.hxx".}
+

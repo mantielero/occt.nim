@@ -1,4 +1,7 @@
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -16,14 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Extrema_Curve2dTool"
-discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Extrema_CCLocFOfLocECC2d"
 
 
 proc newExtremaLocECC2d*(c1: Adaptor2dCurve2d; c2: Adaptor2dCurve2d; u0: cfloat;
@@ -35,3 +30,4 @@ proc squareDistance*(this: ExtremaLocECC2d): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "Extrema_LocECC2d.hxx".}
 proc point*(this: ExtremaLocECC2d; p1: var ExtremaPOnCurv2d; p2: var ExtremaPOnCurv2d) {.
     noSideEffect, cdecl, importcpp: "Point", header: "Extrema_LocECC2d.hxx".}
+

@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-01-05
 ##  Created by: Jean Yves LEBEY
@@ -16,13 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of Standard_NoMoreObject"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc newTopOpeBRepDS_Explorer*(): TopOpeBRepDS_Explorer {.cdecl, constructor,
@@ -50,3 +48,4 @@ proc edge*(this: TopOpeBRepDS_Explorer): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "TopOpeBRepDS_Explorer.hxx".}
 proc vertex*(this: TopOpeBRepDS_Explorer): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "TopOpeBRepDS_Explorer.hxx".}
+

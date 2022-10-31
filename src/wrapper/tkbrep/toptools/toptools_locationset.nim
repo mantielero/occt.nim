@@ -1,4 +1,8 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
 import toptools_types
+
+
 
 ##  Created on: 1993-07-16
 ##  Created by: Remi LEQUETTE
@@ -16,8 +20,6 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of TopLoc_Location"
 
 
 proc newTopToolsLocationSet*(): TopToolsLocationSet {.cdecl, constructor,
@@ -37,3 +39,4 @@ proc write*(this: TopToolsLocationSet; os: var StandardOStream;
 proc read*(this: var TopToolsLocationSet; `is`: var StandardIStream;
           theProgress: MessageProgressRange = newMessageProgressRange()) {.cdecl,
     importcpp: "Read", header: "TopTools_LocationSet.hxx".}
+

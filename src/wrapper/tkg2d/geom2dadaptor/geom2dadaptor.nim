@@ -1,4 +1,8 @@
-import geom2dadaptor_types
+import ../tkg2d/geom2d/geom2d_types
+import ../../tkernel/standard/standard_types
+import ../tkg2d/adaptor2d/adaptor2d_types
+
+
 
 ##  Created on: 1993-06-03
 ##  Created by: Bruno DUMORTIER
@@ -16,12 +20,8 @@ import geom2dadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Geom2dAdaptor_Curve"
-discard "forward decl of Geom2dAdaptor_GHCurve"
-discard "forward decl of Geom2dAdaptor_HCurve"
 
 
 proc makeCurve*(hc: Adaptor2dCurve2d): Handle[Geom2dCurve] {.cdecl,
     importcpp: "Geom2dAdaptor::MakeCurve(@)", header: "Geom2dAdaptor.hxx".}
+

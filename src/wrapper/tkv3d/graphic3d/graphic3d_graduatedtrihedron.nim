@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2011-03-06
 ##  Created by: Sergey ZERCHANINOV
@@ -15,7 +20,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_CView"
 
 
 proc newGraphic3dAxisAspect*(theName: TCollectionExtendedString = newTCollectionExtendedString("");
@@ -135,3 +139,4 @@ proc valuesSize*(this: Graphic3dGraduatedTrihedron): cint {.noSideEffect, cdecl,
     importcpp: "ValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
 proc setValuesSize*(this: var Graphic3dGraduatedTrihedron; theValue: cint) {.cdecl,
     importcpp: "SetValuesSize", header: "Graphic3d_GraduatedTrihedron.hxx".}
+

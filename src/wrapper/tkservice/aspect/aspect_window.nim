@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,7 +20,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_DisplayConnection"
 
 
 
@@ -70,3 +74,4 @@ proc invalidateContent*(this: var AspectWindow;
 proc dumpJson*(this: AspectWindow; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_Window.hxx".}
+

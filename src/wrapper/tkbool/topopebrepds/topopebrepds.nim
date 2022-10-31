@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,53 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_InterferenceIterator"
-discard "forward decl of TopOpeBRepDS_TKI"
-discard "forward decl of TopOpeBRepDS_Transition"
-discard "forward decl of TopOpeBRepDS_CurvePointInterference"
-discard "forward decl of TopOpeBRepDS_SurfaceCurveInterference"
-discard "forward decl of TopOpeBRepDS_SolidSurfaceInterference"
-discard "forward decl of TopOpeBRepDS_ShapeShapeInterference"
-discard "forward decl of TopOpeBRepDS_EdgeVertexInterference"
-discard "forward decl of TopOpeBRepDS_FaceEdgeInterference"
-discard "forward decl of TopOpeBRepDS_Surface"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of TopOpeBRepDS_Point"
-discard "forward decl of TopOpeBRepDS_GeometryData"
-discard "forward decl of TopOpeBRepDS_SurfaceData"
-discard "forward decl of TopOpeBRepDS_CurveData"
-discard "forward decl of TopOpeBRepDS_PointData"
-discard "forward decl of TopOpeBRepDS_ShapeData"
-discard "forward decl of TopOpeBRepDS_DSS"
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of TopOpeBRepDS_SurfaceIterator"
-discard "forward decl of TopOpeBRepDS_CurveIterator"
-discard "forward decl of TopOpeBRepDS_PointIterator"
-discard "forward decl of TopOpeBRepDS_SurfaceExplorer"
-discard "forward decl of TopOpeBRepDS_CurveExplorer"
-discard "forward decl of TopOpeBRepDS_PointExplorer"
-discard "forward decl of TopOpeBRepDS_InterferenceTool"
-discard "forward decl of TopOpeBRepDS_BuildTool"
-discard "forward decl of TopOpeBRepDS_Dumper"
-discard "forward decl of TopOpeBRepDS_Marker"
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopOpeBRepDS_EdgeInterferenceTool"
-discard "forward decl of TopOpeBRepDS_Edge3dInterferenceTool"
-discard "forward decl of TopOpeBRepDS_FaceInterferenceTool"
-discard "forward decl of TopOpeBRepDS_Filter"
-discard "forward decl of TopOpeBRepDS_Reducer"
-discard "forward decl of TopOpeBRepDS_TOOL"
-discard "forward decl of TopOpeBRepDS_FIR"
-discard "forward decl of TopOpeBRepDS_EIR"
-discard "forward decl of TopOpeBRepDS_Check"
-discard "forward decl of TopOpeBRepDS_GapFiller"
-discard "forward decl of TopOpeBRepDS_GapTool"
-discard "forward decl of TopOpeBRepDS_Association"
-discard "forward decl of TopOpeBRepDS_ListOfShapeOn1State"
-discard "forward decl of TopOpeBRepDS_Explorer"
-discard "forward decl of TopOpeBRepDS_ShapeWithState"
 
 
 proc sPrint*(s: TopAbsState): TCollectionAsciiString {.cdecl,
@@ -99,3 +57,4 @@ proc kindToShape*(k: TopOpeBRepDS_Kind): TopAbsShapeEnum {.cdecl,
     importcpp: "TopOpeBRepDS::KindToShape(@)", header: "TopOpeBRepDS.hxx".}
 proc shapeToKind*(s: TopAbsShapeEnum): TopOpeBRepDS_Kind {.cdecl,
     importcpp: "TopOpeBRepDS::ShapeToKind(@)", header: "TopOpeBRepDS.hxx".}
+

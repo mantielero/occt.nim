@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1997-09-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -14,7 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_IntVal"
 type
   HandleInterfaceIntVal* = Handle[InterfaceIntVal]
 

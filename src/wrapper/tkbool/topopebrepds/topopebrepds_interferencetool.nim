@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-06-24
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_Transition"
-discard "forward decl of Geom2d_Curve"
 
 
 proc makeEdgeInterference*(t: TopOpeBRepDS_Transition; sk: TopOpeBRepDS_Kind;
@@ -54,3 +55,4 @@ proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]): cfloat {.cdecl,
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}
 proc parameter*(cpi: Handle[TopOpeBRepDS_Interference]; par: cfloat) {.cdecl,
     importcpp: "TopOpeBRepDS_InterferenceTool::Parameter(@)", header: "TopOpeBRepDS_InterferenceTool.hxx".}
+

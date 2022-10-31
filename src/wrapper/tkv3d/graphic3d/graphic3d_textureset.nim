@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -48,3 +51,4 @@ proc value*(this: Graphic3dTextureSet; theIndex: cint): Handle[Graphic3dTextureM
 proc setValue*(this: var Graphic3dTextureSet; theIndex: cint;
               theTexture: Handle[Graphic3dTextureMap]) {.cdecl,
     importcpp: "SetValue", header: "Graphic3d_TextureSet.hxx".}
+

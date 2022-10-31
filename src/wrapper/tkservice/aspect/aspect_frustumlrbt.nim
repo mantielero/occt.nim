@@ -1,5 +1,7 @@
 import aspect_types
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -26,3 +28,4 @@ proc multiply*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT) {.cde
     importcpp: "Multiply", header: "Aspect_FrustumLRBT.hxx".}
 proc multiplied*[ElemT](this: var AspectFrustumLRBT[ElemT]; theScale: ElemT): AspectFrustumLRBT[
     ElemT] {.cdecl, importcpp: "Multiplied", header: "Aspect_FrustumLRBT.hxx".}
+

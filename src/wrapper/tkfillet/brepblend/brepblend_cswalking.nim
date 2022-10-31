@@ -1,4 +1,10 @@
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../tkfillet/blend/blend_types
+
+
 
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
@@ -16,25 +22,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor3d_TopolTool"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Adaptor3d_HVertex"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of BRepBlend_HCurve2dTool"
-discard "forward decl of Adaptor3d_HSurfaceTool"
-discard "forward decl of BRepBlend_HCurveTool"
-discard "forward decl of BRepBlend_BlendTool"
-discard "forward decl of BRepBlend_PointOnRst"
-discard "forward decl of BRepBlend_Extremity"
-discard "forward decl of Blend_CSFunction"
-discard "forward decl of IntSurf_Transition"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
 
 
 proc newBRepBlendCSWalking*(curv: Handle[Adaptor3dHCurve];
@@ -118,4 +105,5 @@ proc line*(this: BRepBlendCSWalking): Handle[BRepBlendLine] {.noSideEffect, cdec
 ##  #undef TheLine_hxx
 ##  #undef Blend_CSWalking
 ##  #undef Blend_CSWalking_hxx
+
 

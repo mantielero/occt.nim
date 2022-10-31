@@ -1,4 +1,5 @@
-import chfi2d_types
+
+
 
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
@@ -24,6 +25,7 @@ import chfi2d_types
 ## ! is a fillet or a chamfer
 ## ! One or the two  edges connected to the  vertex
 ## ! is not a line or a circle
+
 
 
 

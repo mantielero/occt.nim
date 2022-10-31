@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -15,6 +16,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Sides of cubemap in order of OpenGL rules
+
 
 
 

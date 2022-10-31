@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-04-07
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_MultipleBinder"
 
 
 
@@ -44,3 +44,4 @@ proc multipleResult*(this: TransferMultipleBinder): Handle[
 proc setMultipleResult*(this: var TransferMultipleBinder;
                        mulres: Handle[TColStdHSequenceOfTransient]) {.cdecl,
     importcpp: "SetMultipleResult", header: "Transfer_MultipleBinder.hxx".}
+

@@ -1,4 +1,8 @@
 import topods_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/message/message_types
+
+
 
 ##  Created on: 2018-06-10
 ##  Created by: Natalia Ermolaeva
@@ -15,7 +19,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Message_Messenger"
 
 
 proc newTopoDS_AlertAttribute*(theShape: TopoDS_Shape; theName: TCollectionAsciiString = TCollectionAsciiString()): TopoDS_AlertAttribute {.
@@ -29,3 +32,4 @@ proc dumpJson*(this: TopoDS_AlertAttribute; theOStream: var StandardOStream;
                                  header: "TopoDS_AlertAttribute.hxx".}
 proc `<<`*(theMessenger: Handle[MessageMessenger]; theShape: TopoDS_Shape): var Handle[
     MessageMessenger] {.cdecl, importcpp: "(# << #)", header: "TopoDS_AlertAttribute.hxx".}
+

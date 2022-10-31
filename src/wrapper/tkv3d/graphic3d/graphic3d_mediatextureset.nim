@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -14,8 +18,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ShaderProgram"
-discard "forward decl of Media_PlayerContext"
 
 
 proc newGraphic3dMediaTextureSet*(): Graphic3dMediaTextureSet {.cdecl, constructor,
@@ -45,3 +47,4 @@ proc duration*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect, cdecl,
     importcpp: "Duration", header: "Graphic3d_MediaTextureSet.hxx".}
 proc progress*(this: Graphic3dMediaTextureSet): cdouble {.noSideEffect, cdecl,
     importcpp: "Progress", header: "Graphic3d_MediaTextureSet.hxx".}
+

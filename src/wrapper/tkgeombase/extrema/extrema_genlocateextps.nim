@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1995-07-18
 ##  Created by: Modelistation
@@ -16,11 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaGenLocateExtPS*(theS: Adaptor3dSurface;
@@ -36,3 +35,4 @@ proc squareDistance*(this: ExtremaGenLocateExtPS): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "Extrema_GenLocateExtPS.hxx".}
 proc point*(this: ExtremaGenLocateExtPS): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_GenLocateExtPS.hxx".}
+

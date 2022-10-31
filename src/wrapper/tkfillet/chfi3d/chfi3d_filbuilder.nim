@@ -1,4 +1,11 @@
+import ../tkfillet/chfids/chfids_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import chfi3d_types
+import ../../tkbrep/topods/topods_types
+import ../../tkgeomalgo/law/law_types
+
+
 
 ##  Created on: 1995-04-25
 ##  Created by: Modelistation
@@ -16,19 +23,6 @@ import chfi3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of Law_Function"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_XY"
-discard "forward decl of ChFiDS_SurfData"
-discard "forward decl of ChFiDS_HElSpine"
-discard "forward decl of ChFiDS_Spine"
-discard "forward decl of BRepAdaptor_HSurface"
-discard "forward decl of Adaptor3d_TopolTool"
-discard "forward decl of BRepAdaptor_HCurve2d"
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of ChFiDS_Stripe"
 
 
 proc newChFi3dFilBuilder*(s: TopoDS_Shape;
@@ -78,3 +72,4 @@ proc nbSurf*(this: ChFi3dFilBuilder; ic: cint): cint {.noSideEffect, cdecl,
     importcpp: "NbSurf", header: "ChFi3d_FilBuilder.hxx".}
 proc sect*(this: ChFi3dFilBuilder; ic: cint; `is`: cint): Handle[ChFiDS_SecHArray1] {.
     noSideEffect, cdecl, importcpp: "Sect", header: "ChFi3d_FilBuilder.hxx".}
+

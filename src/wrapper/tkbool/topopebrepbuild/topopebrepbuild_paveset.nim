@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-15
 ##  Created by: Jean Yves LEBEY
@@ -16,10 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_Pave"
-discard "forward decl of TopOpeBRepBuild_Loop"
-discard "forward decl of TopoDS_Edge"
 
 
 proc newTopOpeBRepBuildPaveSet*(e: TopoDS_Shape): TopOpeBRepBuildPaveSet {.cdecl,
@@ -46,3 +46,4 @@ proc closedVertices*(this: var TopOpeBRepBuildPaveSet): bool {.cdecl,
     importcpp: "ClosedVertices", header: "TopOpeBRepBuild_PaveSet.hxx".}
 proc sortPave*(lin: TopOpeBRepBuildListOfPave; lout: var TopOpeBRepBuildListOfPave) {.
     cdecl, importcpp: "TopOpeBRepBuild_PaveSet::SortPave(@)", header: "TopOpeBRepBuild_PaveSet.hxx".}
+

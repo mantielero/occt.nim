@@ -1,4 +1,12 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1997-08-22
 ##  Created by: Jeannine PANCIATICI,  Sergey SOKOLOV
@@ -16,13 +24,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Geom2d_BSplineCurve"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HSurface"
 
 
 proc newApproxCurvilinearParameter*(c3d: Handle[Adaptor3dHCurve]; tol: cfloat;
@@ -62,3 +63,4 @@ proc maxError2d2*(this: ApproxCurvilinearParameter): cfloat {.noSideEffect, cdec
     importcpp: "MaxError2d2", header: "Approx_CurvilinearParameter.hxx".}
 proc dump*(this: ApproxCurvilinearParameter; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "Approx_CurvilinearParameter.hxx".}
+

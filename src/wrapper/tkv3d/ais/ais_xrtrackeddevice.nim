@@ -1,4 +1,10 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -13,8 +19,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ArrayOfTriangles"
-discard "forward decl of Image_Texture"
 
 
 proc newAIS_XRTrackedDevice*(theTris: Handle[Graphic3dArrayOfTriangles];
@@ -38,3 +42,4 @@ proc unitFactor*(this: AIS_XRTrackedDevice): StandardShortReal {.noSideEffect, c
     importcpp: "UnitFactor", header: "AIS_XRTrackedDevice.hxx".}
 proc setUnitFactor*(this: var AIS_XRTrackedDevice; theFactor: StandardShortReal) {.
     cdecl, importcpp: "SetUnitFactor", header: "AIS_XRTrackedDevice.hxx".}
+

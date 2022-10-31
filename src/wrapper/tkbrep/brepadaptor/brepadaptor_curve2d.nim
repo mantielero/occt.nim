@@ -1,4 +1,7 @@
 import brepadaptor_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-13
 ##  Created by: Remi LEQUETTE
@@ -16,9 +19,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NullObject"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
 
 
 proc newBRepAdaptorCurve2d*(): BRepAdaptorCurve2d {.cdecl, constructor,
@@ -31,3 +31,4 @@ proc edge*(this: BRepAdaptorCurve2d): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "BRepAdaptor_Curve2d.hxx".}
 proc face*(this: BRepAdaptorCurve2d): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Face", header: "BRepAdaptor_Curve2d.hxx".}
+

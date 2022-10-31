@@ -1,4 +1,11 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -17,10 +24,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IntTools_Context"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of BOPAlgo_PaveFiller"
-discard "forward decl of TopoDS_Solid"
 
 
 proc newBOPAlgoBuilder*(): BOPAlgoBuilder {.cdecl, constructor,
@@ -70,3 +73,4 @@ proc origins*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, cdecl, importcpp: "Origins", header: "BOPAlgo_Builder.hxx".}
 proc shapesSD*(this: BOPAlgoBuilder): TopToolsDataMapOfShapeShape {.noSideEffect,
     cdecl, importcpp: "ShapesSD", header: "BOPAlgo_Builder.hxx".}
+

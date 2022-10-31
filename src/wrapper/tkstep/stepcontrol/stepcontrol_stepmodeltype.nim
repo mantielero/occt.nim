@@ -1,4 +1,5 @@
-import stepcontrol_types
+
+
 
 ##  Created on: 1996-04-09
 ##  Created by: Christian CAILLET
@@ -28,6 +29,7 @@ import stepcontrol_types
 ## ! into a STEP shell_based_surface_model entity.
 ## ! - STEPControl_GeometricCurveSet
 ## ! translates an Open CASCADE shape into a STEP geometric_curve_set entity.
+
 
 
 

@@ -1,4 +1,9 @@
 import brep_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
@@ -16,9 +21,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of BRep_TVertex"
 
 
 
@@ -43,3 +45,4 @@ proc emptyCopy*(this: BRepTVertex): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
 proc dumpJson*(this: BRepTVertex; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_TVertex.hxx".}
+

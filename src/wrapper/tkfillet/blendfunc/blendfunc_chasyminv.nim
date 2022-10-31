@@ -1,4 +1,10 @@
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import blendfunc_types
+
+
 
 ##  Created on: 1998-06-04
 ##  Created by: Philippe NOUAILLE
@@ -16,10 +22,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of math_Matrix"
 
 
 proc newBlendFuncChAsymInv*(s1: Handle[Adaptor3dHSurface];
@@ -48,3 +50,4 @@ proc values*(this: var BlendFuncChAsymInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_ChAsymInv.hxx".}
 proc set*(this: var BlendFuncChAsymInv; dist1: cfloat; angle: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ChAsymInv.hxx".}
+

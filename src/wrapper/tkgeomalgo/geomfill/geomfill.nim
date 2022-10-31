@@ -1,4 +1,11 @@
-import geomfill_types
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/convert/convert_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -16,64 +23,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_Filling"
-discard "forward decl of GeomFill_Stretch"
-discard "forward decl of GeomFill_Coons"
-discard "forward decl of GeomFill_Curved"
-discard "forward decl of GeomFill_BezierCurves"
-discard "forward decl of GeomFill_BSplineCurves"
-discard "forward decl of GeomFill_Profiler"
-discard "forward decl of GeomFill_SectionGenerator"
-discard "forward decl of GeomFill_Line"
-discard "forward decl of GeomFill_AppSurf"
-discard "forward decl of GeomFill_SweepSectionGenerator"
-discard "forward decl of GeomFill_AppSweep"
-discard "forward decl of GeomFill_Generator"
-discard "forward decl of GeomFill_Pipe"
-discard "forward decl of GeomFill_Tensor"
-discard "forward decl of GeomFill_ConstrainedFilling"
-discard "forward decl of GeomFill_Boundary"
-discard "forward decl of GeomFill_DegeneratedBound"
-discard "forward decl of GeomFill_SimpleBound"
-discard "forward decl of GeomFill_BoundWithSurf"
-discard "forward decl of GeomFill_CoonsAlgPatch"
-discard "forward decl of GeomFill_TgtField"
-discard "forward decl of GeomFill_TgtOnCoons"
-discard "forward decl of GeomFill_CornerState"
-discard "forward decl of GeomFill_CircularBlendFunc"
-discard "forward decl of GeomFill_SweepFunction"
-discard "forward decl of GeomFill_LocFunction"
-discard "forward decl of GeomFill_PolynomialConvertor"
-discard "forward decl of GeomFill_QuasiAngularConvertor"
-discard "forward decl of GeomFill_SnglrFunc"
-discard "forward decl of GeomFill_FunctionDraft"
-discard "forward decl of GeomFill_PlanFunc"
-discard "forward decl of GeomFill_FunctionGuide"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of GeomFill_UniformSection"
-discard "forward decl of GeomFill_EvolvedSection"
-discard "forward decl of GeomFill_NSections"
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of GeomFill_CurveAndTrihedron"
-discard "forward decl of GeomFill_LocationDraft"
-discard "forward decl of GeomFill_LocationGuide"
-discard "forward decl of GeomFill_TrihedronLaw"
-discard "forward decl of GeomFill_Fixed"
-discard "forward decl of GeomFill_Frenet"
-discard "forward decl of GeomFill_CorrectedFrenet"
-discard "forward decl of GeomFill_DiscreteTrihedron"
-discard "forward decl of GeomFill_ConstantBiNormal"
-discard "forward decl of GeomFill_Darboux"
-discard "forward decl of GeomFill_DraftTrihedron"
-discard "forward decl of GeomFill_TrihedronWithGuide"
-discard "forward decl of GeomFill_GuideTrihedronAC"
-discard "forward decl of GeomFill_GuideTrihedronPlan"
-discard "forward decl of GeomFill_Sweep"
-discard "forward decl of GeomFill_SectionPlacement"
 
 
 proc surface*(curve1: Handle[GeomCurve]; curve2: Handle[GeomCurve]): Handle[
@@ -111,3 +60,4 @@ proc getMinimalWeights*(tConv: ConvertParameterisationType; angleMin: cfloat;
 proc getTolerance*(tConv: ConvertParameterisationType; angleMin: cfloat;
                   radius: cfloat; angularTol: cfloat; spatialTol: cfloat): cfloat {.
     cdecl, importcpp: "GeomFill::GetTolerance(@)", header: "GeomFill.hxx".}
+

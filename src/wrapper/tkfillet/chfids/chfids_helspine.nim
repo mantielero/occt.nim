@@ -1,4 +1,7 @@
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import chfids_types
+
+
 
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
@@ -16,12 +19,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of ChFiDS_ElSpine"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of ChFiDS_HElSpine"
 
 
 proc newChFiDS_HElSpine*(): ChFiDS_HElSpine {.cdecl, constructor,
@@ -36,5 +33,6 @@ proc getCurve*(this: var ChFiDS_HElSpine): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "ChFiDS_HElSpine.hxx".}
 proc changeCurve*(this: var ChFiDS_HElSpine): var ChFiDS_ElSpine {.cdecl,
     importcpp: "ChangeCurve", header: "ChFiDS_HElSpine.hxx".}
+
 
 

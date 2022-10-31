@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-12-05
 ##  Created by: Philippe MANGIN
@@ -16,12 +24,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_UniformSection"
 
 
 
@@ -81,3 +83,4 @@ proc isConstant*(this: GeomFillUniformSection; error: var cfloat): bool {.noSide
     cdecl, importcpp: "IsConstant", header: "GeomFill_UniformSection.hxx".}
 proc constantSection*(this: GeomFillUniformSection): Handle[GeomCurve] {.
     noSideEffect, cdecl, importcpp: "ConstantSection", header: "GeomFill_UniformSection.hxx".}
+

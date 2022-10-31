@@ -1,4 +1,13 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/quantity/quantity_types
 import v3d_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 1992-01-15
 ##  Created by: GG
@@ -16,16 +25,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_Grid"
-discard "forward decl of Aspect_Window"
-discard "forward decl of Graphic3d_Group"
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_TextureEnv"
-discard "forward decl of Standard_MultiplyDefined"
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of V3d_BadValue"
-discard "forward decl of V3d_UnMapped"
-discard "forward decl of V3d_View"
 
 
 
@@ -413,3 +412,4 @@ proc nextActiveLights*(this: var V3dView) {.cdecl, importcpp: "NextActiveLights"
                                         header: "V3d_View.hxx".}
 proc activeLight*(this: V3dView): Handle[V3dLight] {.noSideEffect, cdecl,
     importcpp: "ActiveLight", header: "V3d_View.hxx".}
+

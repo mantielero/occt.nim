@@ -1,4 +1,5 @@
-import chfi3d_types
+
+
 
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
@@ -25,6 +26,7 @@ import chfi3d_types
 ## ! -   ChFi3d_Polynomial, which corresponds to a
 ## ! polynomial approximation of circles. This type
 ## ! facilitates the implementation of the construction algorithm.
+
 
 
 

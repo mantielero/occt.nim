@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/poly/poly_types
+
+
 
 ##  Created on: 2009-12-10
 ##  Created by: Paul SUPRYATKIN
@@ -15,7 +20,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Poly_Triangulation"
 
 
 
@@ -37,3 +41,4 @@ proc setTransparency*(this: var AIS_Triangulation; aValue: cfloat = 0.6) {.cdecl
     importcpp: "SetTransparency", header: "AIS_Triangulation.hxx".}
 proc unsetTransparency*(this: var AIS_Triangulation) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_Triangulation.hxx".}
+

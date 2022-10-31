@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-11-08
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_Point"
 
 
 proc newTopOpeBRepDS_EdgeInterferenceTool*(): TopOpeBRepDS_EdgeInterferenceTool {.
@@ -36,3 +37,4 @@ proc add*(this: var TopOpeBRepDS_EdgeInterferenceTool; e: TopoDS_Shape;
 proc transition*(this: TopOpeBRepDS_EdgeInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
     importcpp: "Transition", header: "TopOpeBRepDS_EdgeInterferenceTool.hxx".}
+

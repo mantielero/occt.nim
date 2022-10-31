@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +21,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TCollection_AsciiString"
 
 
 proc newTopOpeBRepBuildShellFaceSet*(): TopOpeBRepBuildShellFaceSet {.cdecl,
@@ -47,3 +49,4 @@ proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildShellFaceSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_ShellFaceSet.hxx".}
+

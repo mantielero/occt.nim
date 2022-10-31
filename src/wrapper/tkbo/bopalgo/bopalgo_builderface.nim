@@ -1,4 +1,10 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -17,7 +23,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
 
 
 proc newBOPAlgoBuilderFace*(): BOPAlgoBuilderFace {.cdecl, constructor,
@@ -33,3 +38,4 @@ proc face*(this: BOPAlgoBuilderFace): TopoDS_Face {.noSideEffect, cdecl,
 proc perform*(this: var BOPAlgoBuilderFace) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BuilderFace.hxx".}
 proc orientation*(this: BOPAlgoBuilderFace): TopAbsOrientation {.noSideEffect, cdecl,
     importcpp: "Orientation", header: "BOPAlgo_BuilderFace.hxx".}
+

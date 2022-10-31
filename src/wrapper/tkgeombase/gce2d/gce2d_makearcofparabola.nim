@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
 import gce2d_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,9 +21,6 @@ import gce2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Parab2d"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newGCE2dMakeArcOfParabola*(parab: Parab2dObj; alpha1: cfloat; alpha2: cfloat;
@@ -35,3 +37,4 @@ proc value*(this: GCE2dMakeArcOfParabola): Handle[Geom2dTrimmedCurve] {.
 converter `constopencascade`*(this: GCE2dMakeArcOfParabola): Handle[
     Geom2dTrimmedCurve] {.noSideEffect, cdecl, importcpp: "GCE2d_MakeArcOfParabola::operator constopencascade",
                          header: "GCE2d_MakeArcOfParabola.hxx".}
+

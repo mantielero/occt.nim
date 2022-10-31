@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -14,7 +16,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ValidatedCubeMapOrder"
 
 
 proc newGraphic3dCubeMapOrder*(): Graphic3dCubeMapOrder {.cdecl, constructor,
@@ -74,3 +75,4 @@ proc `->`*(this: Graphic3dValidatedCubeMapOrder): ptr Graphic3dCubeMapOrder {.
 proc newGraphic3dValidatedCubeMapOrder*(theOther: Graphic3dValidatedCubeMapOrder): Graphic3dValidatedCubeMapOrder {.
     cdecl, constructor, importcpp: "Graphic3d_ValidatedCubeMapOrder(@)",
     header: "Graphic3d_CubeMapOrder.hxx".}
+

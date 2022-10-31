@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Christian CAILLET
@@ -16,11 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_DispatchControl"
 
 
 
@@ -41,3 +39,4 @@ proc `bind`*(this: var TransferDispatchControl; ent: Handle[StandardTransient];
 proc search*(this: TransferDispatchControl; ent: Handle[StandardTransient];
             res: var Handle[StandardTransient]): bool {.noSideEffect, cdecl,
     importcpp: "Search", header: "Transfer_DispatchControl.hxx".}
+

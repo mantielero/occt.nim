@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Transition"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 
@@ -64,3 +64,4 @@ proc hasSameSupport*(this: TopOpeBRepDS_Interference;
 proc hasSameGeometry*(this: TopOpeBRepDS_Interference;
                      other: Handle[TopOpeBRepDS_Interference]): bool {.
     noSideEffect, cdecl, importcpp: "HasSameGeometry", header: "TopOpeBRepDS_Interference.hxx".}
+

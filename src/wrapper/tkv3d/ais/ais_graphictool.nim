@@ -1,4 +1,11 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1997-02-10
 ##  Created by: Robert COUBLANC
@@ -16,8 +23,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Quantity_Color"
-discard "forward decl of Graphic3d_MaterialAspect"
 
 
 proc getLineColor*(aDrawer: Handle[Prs3dDrawer];
@@ -44,3 +49,4 @@ proc getInteriorColor*(aDrawer: Handle[Prs3dDrawer]; aColor: var QuantityColor) 
     cdecl, importcpp: "AIS_GraphicTool::GetInteriorColor(@)", header: "AIS_GraphicTool.hxx".}
 proc getMaterial*(aDrawer: Handle[Prs3dDrawer]): Graphic3dMaterialAspect {.cdecl,
     importcpp: "AIS_GraphicTool::GetMaterial(@)", header: "AIS_GraphicTool.hxx".}
+

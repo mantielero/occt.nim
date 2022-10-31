@@ -1,4 +1,7 @@
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-21
 ##  Created by: Isabelle GRIGNON
@@ -16,11 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaExtSS*(): ExtremaExtSS {.cdecl, constructor,
@@ -50,3 +48,4 @@ proc squareDistance*(this: ExtremaExtSS; n: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "SquareDistance", header: "Extrema_ExtSS.hxx".}
 proc points*(this: ExtremaExtSS; n: cint; p1: var ExtremaPOnSurf; p2: var ExtremaPOnSurf) {.
     noSideEffect, cdecl, importcpp: "Points", header: "Extrema_ExtSS.hxx".}
+

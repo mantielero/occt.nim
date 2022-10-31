@@ -1,4 +1,12 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../tkbool/topopebreptool/topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,19 +24,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepTool_GeomTool"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_Point"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of Geom_Curve"
-discard "forward decl of TopOpeBRepDS_Surface"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Surface"
 
 
 proc newTopOpeBRepDS_BuildTool*(): TopOpeBRepDS_BuildTool {.cdecl, constructor,
@@ -149,3 +144,4 @@ proc translate*(this: TopOpeBRepDS_BuildTool): bool {.noSideEffect, cdecl,
     importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
 proc translate*(this: var TopOpeBRepDS_BuildTool; t: bool) {.cdecl,
     importcpp: "Translate", header: "TopOpeBRepDS_BuildTool.hxx".}
+

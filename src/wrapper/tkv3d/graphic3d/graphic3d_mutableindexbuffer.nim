@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -32,3 +36,4 @@ proc invalidate*(this: var Graphic3dMutableIndexBuffer; theIndexLower: cint;
 proc invalidate*(this: var Graphic3dMutableIndexBuffer;
                 theRange: Graphic3dBufferRange) {.cdecl, importcpp: "invalidate",
     header: "Graphic3d_MutableIndexBuffer.hxx".}
+

@@ -1,4 +1,10 @@
 import topopebrepds_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-08-04
 ##  Created by: Jean Yves LEBEY
@@ -16,16 +22,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Geom2d_BSplineCurve"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepDS_Dumper*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_Dumper {.
@@ -44,3 +40,4 @@ proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; s: TopoDS_Shape;
 proc sPrintShapeRefOri*(this: TopOpeBRepDS_Dumper; L: TopToolsListOfShape;
                        b: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SPrintShapeRefOri", header: "TopOpeBRepDS_Dumper.hxx".}
+

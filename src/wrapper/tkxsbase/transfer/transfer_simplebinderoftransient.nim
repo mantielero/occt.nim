@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1993-06-10
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_SimpleBinderOfTransient"
 
 
 
@@ -40,3 +39,4 @@ proc getTypedResult*(bnd: Handle[TransferBinder]; atype: Handle[StandardType];
                     res: var Handle[StandardTransient]): bool {.cdecl,
     importcpp: "Transfer_SimpleBinderOfTransient::GetTypedResult(@)",
     header: "Transfer_SimpleBinderOfTransient.hxx".}
+

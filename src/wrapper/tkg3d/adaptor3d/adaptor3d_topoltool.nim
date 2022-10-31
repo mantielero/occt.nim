@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../tkg3d/topabs/topabs_types
+import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+
+
 
 ##  Created on: 1994-03-24
 ##  Created by: model
@@ -16,14 +23,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_HLine2d"
-discard "forward decl of Adaptor3d_HVertex"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Adaptor3d_TopolTool"
 
 
 
@@ -97,3 +96,4 @@ proc bSplSamplePnts*(this: var Adaptor3dTopolTool; theDefl: cfloat; theNUmin: ci
                                     header: "Adaptor3d_TopolTool.hxx".}
 proc isUniformSampling*(this: Adaptor3dTopolTool): bool {.noSideEffect, cdecl,
     importcpp: "IsUniformSampling", header: "Adaptor3d_TopolTool.hxx".}
+

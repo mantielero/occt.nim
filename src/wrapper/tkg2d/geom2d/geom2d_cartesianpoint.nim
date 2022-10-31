@@ -1,4 +1,8 @@
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: Philippe DAUTRY
@@ -16,10 +20,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Trsf2d"
-discard "forward decl of Geom2d_Geometry"
-discard "forward decl of Geom2d_CartesianPoint"
 
 
 
@@ -51,3 +51,4 @@ proc copy*(this: Geom2dCartesianPoint): Handle[Geom2dGeometry] {.noSideEffect, c
 proc dumpJson*(this: Geom2dCartesianPoint; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_CartesianPoint.hxx".}
+

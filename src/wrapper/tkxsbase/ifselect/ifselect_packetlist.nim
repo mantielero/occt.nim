@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
@@ -16,11 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of IFSelect_PacketList"
 
 
 
@@ -52,3 +51,4 @@ proc nbDuplicated*(this: IFSelectPacketList; count: cint; andmore: bool): cint {
     noSideEffect, cdecl, importcpp: "NbDuplicated", header: "IFSelect_PacketList.hxx".}
 proc duplicated*(this: IFSelectPacketList; count: cint; andmore: bool): InterfaceEntityIterator {.
     noSideEffect, cdecl, importcpp: "Duplicated", header: "IFSelect_PacketList.hxx".}
+

@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -27,4 +29,5 @@ proc newGraphic3dArrayOfPolylines*(theMaxVertexs: cint; theMaxBounds: cint = 0;
                                   theHasVColors: bool = false;
                                   theHasBColors: bool = false): Graphic3dArrayOfPolylines {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfPolylines(@)", header: "Graphic3d_ArrayOfPolylines.hxx".}
+
 

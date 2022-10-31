@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
@@ -17,6 +18,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! The type of primitive array in a group in a structure.
+
 
 
 

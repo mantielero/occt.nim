@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,12 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Ax1"
 
 
 proc newGceMakePln*(a2: Ax2Obj): GceMakePln {.cdecl, constructor,
@@ -47,3 +44,4 @@ proc operator*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "Oper
                                     header: "gce_MakePln.hxx".}
 converter `pln`*(this: GceMakePln): PlnObj {.noSideEffect, cdecl, importcpp: "gce_MakePln::operator gp_Pln",
                                       header: "gce_MakePln.hxx".}
+

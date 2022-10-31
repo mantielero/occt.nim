@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2015-06-05
 ##  Created by: Kirill Gavrilov
@@ -16,6 +17,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! This enumeration defines the list of stereoscopic output modes.
+
 
 
 

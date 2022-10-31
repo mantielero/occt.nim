@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-06-12
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepBuildShapeListOfShape*(): TopOpeBRepBuildShapeListOfShape {.
@@ -36,3 +39,4 @@ proc shape*(this: TopOpeBRepBuildShapeListOfShape): TopoDS_Shape {.noSideEffect,
     cdecl, importcpp: "Shape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
 proc changeShape*(this: var TopOpeBRepBuildShapeListOfShape): var TopoDS_Shape {.
     cdecl, importcpp: "ChangeShape", header: "TopOpeBRepBuild_ShapeListOfShape.hxx".}
+

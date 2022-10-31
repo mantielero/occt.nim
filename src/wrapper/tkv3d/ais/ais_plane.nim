@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1995-08-02
 ##  Created by: Arnaud BOUZY/Odile Olivier
@@ -16,9 +23,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
-discard "forward decl of Geom_Axis2Placement"
-discard "forward decl of gp_Pnt"
 
 
 proc newAIS_Plane*(aComponent: Handle[GeomPlane]; aCurrentMode: bool = false): AIS_Plane {.
@@ -87,4 +91,5 @@ proc computeSelection*(this: var AIS_Plane;
 proc setColor*(this: var AIS_Plane; aColor: QuantityColor) {.cdecl,
     importcpp: "SetColor", header: "AIS_Plane.hxx".}
 proc unsetColor*(this: var AIS_Plane) {.cdecl, importcpp: "UnsetColor", header: "AIS_Plane.hxx".}
+
 

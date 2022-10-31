@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/geomabs/geomabs_types
 import chfids_types
+
+
 
 ##  Created on: 1993-11-09
 ##  Created by: Laurent BOURESCHE
@@ -16,14 +23,8 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of ChFiDS_HElSpine"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of TopoDS_Vertex"
 when defined(Status):
   discard
-discard "forward decl of ChFiDS_Spine"
 
 
 
@@ -168,3 +169,4 @@ proc errorStatus*(this: ChFiDS_Spine): ChFiDS_ErrorStatus {.noSideEffect, cdecl,
     importcpp: "ErrorStatus", header: "ChFiDS_Spine.hxx".}
 proc mode*(this: ChFiDS_Spine): ChFiDS_ChamfMode {.noSideEffect, cdecl,
     importcpp: "Mode", header: "ChFiDS_Spine.hxx".}
+

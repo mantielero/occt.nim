@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
 import geomfill_types
+
+
 
 ##  Created on: 1993-10-06
 ##  Created by: Bruno DUMORTIER
@@ -16,9 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Geom_BSplineCurve"
 
 
 proc newGeomFillBSplineCurves*(): GeomFillBSplineCurves {.cdecl, constructor,
@@ -51,3 +52,4 @@ proc init*(this: var GeomFillBSplineCurves; c1: Handle[GeomBSplineCurve];
     importcpp: "Init", header: "GeomFill_BSplineCurves.hxx".}
 proc surface*(this: GeomFillBSplineCurves): Handle[GeomBSplineSurface] {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomFill_BSplineCurves.hxx".}
+

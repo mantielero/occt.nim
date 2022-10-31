@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1992-09-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,9 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Graph"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_EntityIterator"
 type
   InterfaceGraphContent* {.importcpp: "Interface_GraphContent",
                           header: "Interface_GraphContent.hxx", bycopy.} = object of InterfaceEntityIterator ##

@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geomadaptor/geomadaptor_types
 import extrema_types
+
+
 
 ##  Created on: 1999-09-21
 ##  Created by: Edward AGAPOV
@@ -16,12 +21,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomAdaptor_HSurfaceOfRevolution"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Extrema_POnSurf"
-discard "forward decl of Extrema_ExtPRevS"
 
 
 
@@ -49,3 +48,4 @@ proc squareDistance*(this: ExtremaExtPRevS; n: cint): cfloat {.noSideEffect, cde
     importcpp: "SquareDistance", header: "Extrema_ExtPRevS.hxx".}
 proc point*(this: ExtremaExtPRevS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPRevS.hxx".}
+

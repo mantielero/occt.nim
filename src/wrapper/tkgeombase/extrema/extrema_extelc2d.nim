@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import extrema_types
+
+
 
 ##  Created on: 1994-01-04
 ##  Created by: Christophe MARION
@@ -16,12 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Circ2d"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Hypr2d"
-discard "forward decl of gp_Parab2d"
-discard "forward decl of Extrema_POnCurv2d"
 
 
 proc newExtremaExtElC2d*(): ExtremaExtElC2d {.cdecl, constructor,
@@ -55,3 +52,4 @@ proc squareDistance*(this: ExtremaExtElC2d; n: cint = 1): cfloat {.noSideEffect,
 proc points*(this: ExtremaExtElC2d; n: cint; p1: var ExtremaPOnCurv2d;
             p2: var ExtremaPOnCurv2d) {.noSideEffect, cdecl, importcpp: "Points",
                                      header: "Extrema_ExtElC2d.hxx".}
+

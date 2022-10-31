@@ -1,4 +1,10 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
 import ais_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2015-11-23
 ##  Created by: Anastasia BORISOVA
@@ -72,3 +78,4 @@ proc isPolygonClosed*(this: AIS_RubberBand): bool {.noSideEffect, cdecl,
     importcpp: "IsPolygonClosed", header: "AIS_RubberBand.hxx".}
 proc setPolygonClosed*(this: var AIS_RubberBand; theIsPolygonClosed: bool) {.cdecl,
     importcpp: "SetPolygonClosed", header: "AIS_RubberBand.hxx".}
+

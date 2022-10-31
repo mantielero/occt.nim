@@ -1,4 +1,7 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-10-01
 ##  Created by: Jacques GOUSSARD
@@ -16,7 +19,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IntSurf_InteriorPoint"
 
 
 proc value3d*(pStart: IntSurfInteriorPoint): PntObj {.cdecl,
@@ -27,3 +29,4 @@ proc direction3d*(pStart: IntSurfInteriorPoint): VecObj {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction3d(@)", header: "IntSurf_InteriorPointTool.hxx".}
 proc direction2d*(pStart: IntSurfInteriorPoint): Dir2dObj {.cdecl,
     importcpp: "IntSurf_InteriorPointTool::Direction2d(@)", header: "IntSurf_InteriorPointTool.hxx".}
+

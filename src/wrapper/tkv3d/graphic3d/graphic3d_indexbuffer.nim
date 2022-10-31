@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -30,4 +34,5 @@ proc setIndex*(this: var Graphic3dIndexBuffer; theIndex: cint; theValue: cint) {
 proc dumpJson*(this: Graphic3dIndexBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_IndexBuffer.hxx".}
+
 

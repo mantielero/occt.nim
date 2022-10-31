@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -21,6 +22,7 @@ import prs3d_types
 ## ! DTVP_Above - text label is located above the dimension or extension line.
 ## ! DTVP_Below - text label is located below the dimension or extension line.
 ## ! DTVP_Center - the text label middle-point is in line with dimension or extension line.
+
 
 
 

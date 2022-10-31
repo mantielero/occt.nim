@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -13,13 +18,10 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_TransformPers"
-discard "forward decl of SelectMgr_Selection"
-discard "forward decl of gp_Trsf"
 
 
 proc computeSensitivePrs*(theStructure: Handle[Graphic3dStructure];
                          theSel: Handle[SelectMgrSelection]; theLoc: TrsfObj;
                          theTrsfPers: Handle[Graphic3dTransformPers]) {.cdecl,
     importcpp: "SelectMgr::ComputeSensitivePrs(@)", header: "SelectMgr.hxx".}
+

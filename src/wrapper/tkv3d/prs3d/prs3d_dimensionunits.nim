@@ -1,4 +1,7 @@
 import prs3d_types
+import ../../tkernel/tcollection/tcollection_types
+
+
 
 ##  Created on: 2013-11-11
 ##  Created by: Anastasia BORISOVA
@@ -33,3 +36,4 @@ proc setLengthUnits*(this: var Prs3dDimensionUnits; theUnits: TCollectionAsciiSt
     cdecl, importcpp: "SetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}
 proc getLengthUnits*(this: Prs3dDimensionUnits): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "GetLengthUnits", header: "Prs3d_DimensionUnits.hxx".}
+

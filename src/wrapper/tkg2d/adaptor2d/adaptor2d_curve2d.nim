@@ -1,4 +1,11 @@
+import ../tkg2d/geom2d/geom2d_types
+import ../../tkmath/gp/gp_types
 import adaptor2d_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-04-02
 ##  Created by: Bruno DUMORTIER
@@ -16,19 +23,6 @@ import adaptor2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Circ2d"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Hypr2d"
-discard "forward decl of gp_Parab2d"
-discard "forward decl of Geom2d_BezierCurve"
-discard "forward decl of Geom2d_BSplineCurve"
 
 
 proc firstParameter*(this: Adaptor2dCurve2d): cfloat {.noSideEffect, cdecl,
@@ -91,3 +85,4 @@ proc bSpline*(this: Adaptor2dCurve2d): Handle[Geom2dBSplineCurve] {.noSideEffect
     cdecl, importcpp: "BSpline", header: "Adaptor2d_Curve2d.hxx".}
 proc destroyAdaptor2dCurve2d*(this: var Adaptor2dCurve2d) {.cdecl,
     importcpp: "#.~Adaptor2d_Curve2d()", header: "Adaptor2d_Curve2d.hxx".}
+

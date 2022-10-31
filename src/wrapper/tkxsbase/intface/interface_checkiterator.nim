@@ -1,3 +1,7 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 ##  Created on: 1992-10-28
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,11 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_IntVal"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Interface_Check"
-discard "forward decl of Standard_Transient"
 when defined(Status):
   discard
 ## ! Result of a Check operation (especially from InterfaceModel)

@@ -1,4 +1,5 @@
-import ifselect_types
+
+
 
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
@@ -22,6 +23,7 @@ import ifselect_types
 ## ! - IFSelect_FailOnly gives information on failures only
 ## ! - IFSelect_FailAndWarn gives information on both
 ## ! failures and warnings. used to pilot PrintCheckList
+
 
 
 

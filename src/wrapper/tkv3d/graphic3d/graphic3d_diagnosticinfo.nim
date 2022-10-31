@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -22,5 +23,6 @@ const
         graphic3dDiagnosticInfoNativePlatform.int or graphic3dDiagnosticInfoMemory.int).Graphic3dDiagnosticInfo ## !< basic information, without extension list
   graphic3dDiagnosticInfoComplete = (graphic3dDiagnosticInfoBasic.int or
         graphic3dDiagnosticInfoExtensions.int).Graphic3dDiagnosticInfo
+
 
 

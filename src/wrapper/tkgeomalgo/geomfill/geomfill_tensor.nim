@@ -1,4 +1,7 @@
+import ../../tkmath/math/math_types
 import geomfill_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Philippe MANGIN
@@ -16,9 +19,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of math_Matrix"
 
 
 proc newGeomFillTensor*(nbRow: cint; nbCol: cint; nbMat: cint): GeomFillTensor {.cdecl,
@@ -35,3 +35,4 @@ proc `()`*(this: var GeomFillTensor; row: cint; col: cint; mat: cint): var cfloa
     importcpp: "#(@)", header: "GeomFill_Tensor.hxx".}
 proc multiply*(this: GeomFillTensor; right: MathVector; product: var MathMatrix) {.
     noSideEffect, cdecl, importcpp: "Multiply", header: "GeomFill_Tensor.hxx".}
+

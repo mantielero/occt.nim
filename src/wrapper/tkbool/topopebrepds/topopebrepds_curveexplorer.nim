@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,8 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of TopOpeBRepDS_Curve"
 
 
 proc newTopOpeBRepDS_CurveExplorer*(): TopOpeBRepDS_CurveExplorer {.cdecl,
@@ -43,3 +43,4 @@ proc nbCurve*(this: var TopOpeBRepDS_CurveExplorer): cint {.cdecl,
     importcpp: "NbCurve", header: "TopOpeBRepDS_CurveExplorer.hxx".}
 proc index*(this: TopOpeBRepDS_CurveExplorer): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "TopOpeBRepDS_CurveExplorer.hxx".}
+

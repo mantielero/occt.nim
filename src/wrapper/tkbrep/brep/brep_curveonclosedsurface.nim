@@ -1,4 +1,12 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -16,12 +24,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of BRep_CurveRepresentation"
-discard "forward decl of BRep_CurveOnClosedSurface"
 
 
 
@@ -60,3 +62,4 @@ proc update*(this: var BRepCurveOnClosedSurface) {.cdecl, importcpp: "Update",
 proc dumpJson*(this: BRepCurveOnClosedSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_CurveOnClosedSurface.hxx".}
+

@@ -1,4 +1,8 @@
 import appcont_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/ncollection/ncollection_types
+
+
 
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -44,3 +48,4 @@ proc d1*(this: AppContFunction; theU: cfloat; theVec2d: var NCollectionArray1[Ve
 proc periodInformation*(this: AppContFunction; a2: cint; isPeriodic: var bool;
                        thePeriod: var cfloat) {.noSideEffect, cdecl,
     importcpp: "PeriodInformation", header: "AppCont_Function.hxx".}
+

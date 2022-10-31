@@ -1,4 +1,10 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2014-04-24
 ##  Created by: Kirill Gavrilov
@@ -15,7 +21,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdSelect_BRepOwner"
 
 
 proc newAIS_ColoredShape*(theShape: TopoDS_Shape): AIS_ColoredShape {.cdecl,
@@ -54,4 +59,5 @@ proc unsetTransparency*(this: var AIS_ColoredShape) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_ColoredShape.hxx".}
 proc unsetWidth*(this: var AIS_ColoredShape) {.cdecl, importcpp: "UnsetWidth",
     header: "AIS_ColoredShape.hxx".}
+
 

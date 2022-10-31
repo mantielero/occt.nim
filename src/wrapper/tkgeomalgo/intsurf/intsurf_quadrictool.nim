@@ -1,4 +1,7 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-09-30
 ##  Created by: Jacques GOUSSARD
@@ -16,8 +19,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IntSurf_Quadric"
-discard "forward decl of gp_Vec"
 
 
 proc value*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat): cfloat {.cdecl,
@@ -29,3 +30,4 @@ proc valueAndGradient*(quad: IntSurfQuadric; x: cfloat; y: cfloat; z: cfloat;
     importcpp: "IntSurf_QuadricTool::ValueAndGradient(@)", header: "IntSurf_QuadricTool.hxx".}
 proc tolerance*(quad: IntSurfQuadric): cfloat {.cdecl,
     importcpp: "IntSurf_QuadricTool::Tolerance(@)", header: "IntSurf_QuadricTool.hxx".}
+

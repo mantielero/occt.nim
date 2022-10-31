@@ -1,4 +1,7 @@
 import aspect_types
+import ../../tkernel/ncollection/ncollection_types
+
+
 
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
@@ -25,3 +28,4 @@ proc newAspectTouch*(thePnt: NCollectionVec2[cfloat]; theIsPreciseDevice: bool):
     cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
 proc newAspectTouch*(theX: cfloat; theY: cfloat; theIsPreciseDevice: bool): AspectTouch {.
     cdecl, constructor, importcpp: "Aspect_Touch(@)", header: "Aspect_Touch.hxx".}
+

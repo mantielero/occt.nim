@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SessionPilot"
-discard "forward decl of IFSelect_Activator"
 
 
 
@@ -51,3 +51,4 @@ proc file*(this: IFSelectActivator): cstring {.noSideEffect, cdecl, importcpp: "
     header: "IFSelect_Activator.hxx".}
 proc setForGroup*(this: var IFSelectActivator; group: cstring; file: cstring = "") {.
     cdecl, importcpp: "SetForGroup", header: "IFSelect_Activator.hxx".}
+

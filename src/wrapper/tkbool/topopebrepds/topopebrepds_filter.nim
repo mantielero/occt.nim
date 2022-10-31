@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1997-04-21
 ##  Created by: Prestataire Mary FABIEN
@@ -16,7 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
 
 
 proc newTopOpeBRepDS_Filter*(hds: Handle[TopOpeBRepDS_HDataStructure];
@@ -36,3 +38,4 @@ proc processCurveInterferences*(this: var TopOpeBRepDS_Filter) {.cdecl,
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
 proc processCurveInterferences*(this: var TopOpeBRepDS_Filter; i: cint) {.cdecl,
     importcpp: "ProcessCurveInterferences", header: "TopOpeBRepDS_Filter.hxx".}
+

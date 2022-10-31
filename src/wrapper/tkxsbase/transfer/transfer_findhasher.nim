@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
@@ -16,10 +19,10 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_Finder"
 
 
 proc hashCode*(theFinder: Handle[TransferFinder]; theUpperBound: cint): cint {.cdecl,
     importcpp: "Transfer_FindHasher::HashCode(@)", header: "Transfer_FindHasher.hxx".}
 proc isEqual*(k1: Handle[TransferFinder]; k2: Handle[TransferFinder]): bool {.cdecl,
     importcpp: "Transfer_FindHasher::IsEqual(@)", header: "Transfer_FindHasher.hxx".}
+

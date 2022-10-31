@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
@@ -46,5 +47,6 @@ const
   Graphic3dNOM_TRANSPARENT = graphic3dNameOfMaterialTransparent
   Graphic3dNOM_DEFAULT = graphic3dNameOfMaterialDEFAULT
   Graphic3dNOM_UserDefined = graphic3dNameOfMaterialUserDefined
+
 
 

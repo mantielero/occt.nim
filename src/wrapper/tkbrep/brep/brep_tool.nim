@@ -1,4 +1,14 @@
-import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkmath/poly/poly_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-07-07
 ##  Created by: Remi LEQUETTE
@@ -16,11 +26,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc isClosed*(s: TopoDS_Shape): bool {.cdecl, importcpp: "BRep_Tool::IsClosed(@)",
@@ -153,3 +158,4 @@ proc parameters*(v: TopoDS_Vertex; f: TopoDS_Face): Pnt2dObj {.cdecl,
     importcpp: "BRep_Tool::Parameters(@)", header: "BRep_Tool.hxx".}
 proc maxTolerance*(theShape: TopoDS_Shape; theSubShape: TopAbsShapeEnum): cfloat {.
     cdecl, importcpp: "BRep_Tool::MaxTolerance(@)", header: "BRep_Tool.hxx".}
+

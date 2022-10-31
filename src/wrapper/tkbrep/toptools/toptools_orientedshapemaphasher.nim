@@ -1,4 +1,6 @@
-import toptools_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-08-30
 ##  Created by: Modelistation
@@ -16,8 +18,8 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc isEqual*(s1: TopoDS_Shape; s2: TopoDS_Shape): bool {.cdecl,
     importcpp: "TopTools_OrientedShapeMapHasher::IsEqual(@)", header: "TopTools_OrientedShapeMapHasher.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 1993-07-08
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Bnd_Box"
-discard "forward decl of TopOpeBRepTool_HBoxTool"
 
 
 proc newTopOpeBRepToolHBoxTool*(): TopOpeBRepToolHBoxTool {.cdecl, constructor,
@@ -52,3 +54,4 @@ proc changeIMS*(this: var TopOpeBRepToolHBoxTool): var TopOpeBRepToolIndexedData
     cdecl, importcpp: "ChangeIMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
 proc ims*(this: TopOpeBRepToolHBoxTool): TopOpeBRepToolIndexedDataMapOfShapeBox {.
     noSideEffect, cdecl, importcpp: "IMS", header: "TopOpeBRepTool_HBoxTool.hxx".}
+

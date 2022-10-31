@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1999-02-17
 ##  Created by: Pavel DURANDIN
@@ -16,10 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SignAncestor"
 
 
 proc newIFSelectSignAncestor*(nopk: bool = false): IFSelectSignAncestor {.cdecl,
@@ -28,3 +28,4 @@ proc matches*(this: IFSelectSignAncestor; ent: Handle[StandardTransient];
              model: Handle[InterfaceInterfaceModel]; text: TCollectionAsciiString;
              exact: bool): bool {.noSideEffect, cdecl, importcpp: "Matches",
                                header: "IFSelect_SignAncestor.hxx".}
+

@@ -1,5 +1,7 @@
 import bopalgo_types
 
+
+
 ##  Created on: 2002-03-04
 ##  Created by: Michael KLOKOV
 ##  Copyright (c) 2002-2014 OPEN CASCADE SAS
@@ -37,3 +39,4 @@ proc pCurveOnS1*(this: BOPAlgoSectionAttribute): bool {.noSideEffect, cdecl,
     importcpp: "PCurveOnS1", header: "BOPAlgo_SectionAttribute.hxx".}
 proc pCurveOnS2*(this: BOPAlgoSectionAttribute): bool {.noSideEffect, cdecl,
     importcpp: "PCurveOnS2", header: "BOPAlgo_SectionAttribute.hxx".}
+

@@ -1,3 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1993-04-15
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision

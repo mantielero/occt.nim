@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import prs3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Enumeration defining a mode of datum graphic presentation, see Prs3d_Datum.
+
 
 
 

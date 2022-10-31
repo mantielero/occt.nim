@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
@@ -21,6 +22,7 @@ import graphic3d_types
 ## ! TOBM_AUTOMATIC graphic's structure setting is in use
 ## ! TOBM_FORCE     force display of back faces
 ## ! TOBM_DISABLE   disable display of back faces
+
 
 
 

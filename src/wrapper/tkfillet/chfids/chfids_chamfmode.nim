@@ -1,4 +1,5 @@
-import chfids_types
+
+
 
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -15,6 +16,7 @@ import chfids_types
 ##  commercial license or contractual agreement.
 
 ## ! this enumeration defines several modes of chamfer
+
 
 
 

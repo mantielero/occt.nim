@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Created on: 1992-11-13
 ##  Created by: GG
@@ -18,5 +19,6 @@ import v3d_types
 
 ## ! User-defined coordinate in the reference plane of
 ## ! view (Projection or Mapping).
+
 
 

@@ -1,4 +1,7 @@
 import brepadaptor_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
@@ -16,12 +19,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of BRepAdaptor_CompCurve"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of BRepAdaptor_HCompCurve"
 
 
 proc newBRepAdaptorHCompCurve*(): BRepAdaptorHCompCurve {.cdecl, constructor,
@@ -36,5 +33,6 @@ proc getCurve*(this: var BRepAdaptorHCompCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "BRepAdaptor_HCompCurve.hxx".}
 proc changeCurve*(this: var BRepAdaptorHCompCurve): var BRepAdaptorCompCurve {.cdecl,
     importcpp: "ChangeCurve", header: "BRepAdaptor_HCompCurve.hxx".}
+
 
 

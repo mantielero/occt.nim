@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-11-04
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_SessionFile"
-discard "forward decl of Standard_Transient"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SessionDumper"
 
 
 
@@ -34,3 +34,4 @@ proc writeOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
 proc readOwn*(this: IFSelectSessionDumper; file: var IFSelectSessionFile;
              `type`: TCollectionAsciiString; item: var Handle[StandardTransient]): bool {.
     noSideEffect, cdecl, importcpp: "ReadOwn", header: "IFSelect_SessionDumper.hxx".}
+

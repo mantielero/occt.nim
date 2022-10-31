@@ -1,4 +1,5 @@
-import brepbuilderapi_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -29,6 +30,7 @@ import brepbuilderapi_types
 ## ! Not used so far.
 ## ! -      BRepBuilderAPI_ParametersOutOfRange
 ## ! The parameters given to limit the surface are out of its    bounds.
+
 
 
 

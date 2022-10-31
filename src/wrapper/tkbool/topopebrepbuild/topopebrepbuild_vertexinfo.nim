@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
@@ -16,8 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
 
 
 proc newTopOpeBRepBuildVertexInfo*(): TopOpeBRepBuildVertexInfo {.cdecl,
@@ -58,3 +60,4 @@ proc listPassed*(this: TopOpeBRepBuildVertexInfo): TopToolsListOfShape {.
     noSideEffect, cdecl, importcpp: "ListPassed", header: "TopOpeBRepBuild_VertexInfo.hxx".}
 proc prepare*(this: var TopOpeBRepBuildVertexInfo; aL: TopToolsListOfShape) {.cdecl,
     importcpp: "Prepare", header: "TopOpeBRepBuild_VertexInfo.hxx".}
+

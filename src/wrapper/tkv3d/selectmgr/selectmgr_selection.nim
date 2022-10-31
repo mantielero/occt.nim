@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import selectmgr_types
+
+
 
 ##  Created on: 1995-02-16
 ##  Created by: Mister rmi
@@ -16,7 +20,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Select3D_SensitiveEntity"
 
 
 proc newSelectMgrSelection*(theModeIdx: cint = 0): SelectMgrSelection {.cdecl,
@@ -60,4 +63,5 @@ proc setSensitivity*(this: var SelectMgrSelection; theNewSens: cint) {.cdecl,
 proc dumpJson*(this: SelectMgrSelection; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_Selection.hxx".}
+
 

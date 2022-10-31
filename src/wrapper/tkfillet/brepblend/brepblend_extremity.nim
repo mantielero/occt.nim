@@ -1,4 +1,11 @@
 import brepblend_types
+import ../../tkmath/gp/gp_types
+import ../../tkgeomalgo/intsurf/intsurf_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+
+
 
 ##  Created on: 1994-01-25
 ##  Created by: Jacques GOUSSARD
@@ -16,14 +23,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HVertex"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of IntSurf_Transition"
-discard "forward decl of BRepBlend_PointOnRst"
 
 
 proc newBRepBlendExtremity*(): BRepBlendExtremity {.cdecl, constructor,
@@ -71,3 +70,4 @@ proc parameter*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "BRepBlend_Extremity.hxx".}
 proc parameterOnGuide*(this: BRepBlendExtremity): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnGuide", header: "BRepBlend_Extremity.hxx".}
+

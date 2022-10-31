@@ -1,4 +1,11 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2001-07-02
 ##  Created by: Mathias BOSSHARD
@@ -15,8 +22,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_AspectFillArea3d"
-discard "forward decl of Graphic3d_Texture2Dmanual"
 
 
 proc newAIS_TexturedShape*(theShape: TopoDS_Shape): AIS_TexturedShape {.cdecl,
@@ -86,4 +91,5 @@ proc textureModulate*(this: AIS_TexturedShape): bool {.noSideEffect, cdecl,
     importcpp: "TextureModulate", header: "AIS_TexturedShape.hxx".}
 proc acceptDisplayMode*(this: AIS_TexturedShape; theMode: cint): bool {.noSideEffect,
     cdecl, importcpp: "AcceptDisplayMode", header: "AIS_TexturedShape.hxx".}
+
 

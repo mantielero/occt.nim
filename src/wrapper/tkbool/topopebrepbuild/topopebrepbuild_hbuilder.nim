@@ -1,4 +1,11 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-14
 ##  Created by: Jean Yves LEBEY
@@ -16,12 +23,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopOpeBRepDS_BuildTool"
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_Builder"
-discard "forward decl of TopOpeBRepBuild_HBuilder"
 
 
 
@@ -109,3 +110,4 @@ proc mergeKPart*(this: var TopOpeBRepBuildHBuilder; tb1: TopAbsState; tb2: TopAb
     cdecl, importcpp: "MergeKPart", header: "TopOpeBRepBuild_HBuilder.hxx".}
 proc changeBuilder*(this: var TopOpeBRepBuildHBuilder): var TopOpeBRepBuildBuilder {.
     cdecl, importcpp: "ChangeBuilder", header: "TopOpeBRepBuild_HBuilder.hxx".}
+

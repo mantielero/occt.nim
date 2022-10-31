@@ -1,4 +1,8 @@
-import approx_types
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/math/math_types
+import ../../tkernel/ncollection/ncollection_types
+
+
 
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -17,10 +21,6 @@ import approx_types
 #  discard
 #when not defined(_Standard_Boolean_HeaderFile):
 #  discard
-discard "forward decl of math_Vector"
-discard "forward decl of NCollection_Sequence"
-discard "forward decl of NCollection_List"
-discard "forward decl of NCollection_Vector"
 
 
 proc buildKnots*(thePntsXYZ: TColgpArray1OfPnt; thePntsU1V1: TColgpArray1OfPnt2d;
@@ -28,3 +28,4 @@ proc buildKnots*(thePntsXYZ: TColgpArray1OfPnt; thePntsU1V1: TColgpArray1OfPnt2d
                 theApproxXYZ: bool; theApproxU1V1: bool; theApproxU2V2: bool;
                 theMinNbPnts: cint; theKnots: var NCollectionVector[cint]) {.cdecl,
     importcpp: "ApproxInt_KnotTools::BuildKnots(@)", header: "ApproxInt_KnotTools.hxx".}
+

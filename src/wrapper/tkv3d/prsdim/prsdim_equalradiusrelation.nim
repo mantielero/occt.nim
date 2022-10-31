@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1998-01-17
 ##  Created by: Julia GERASIMOVA
@@ -16,10 +21,10 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
 
 
 proc newPrsDimEqualRadiusRelation*(aFirstEdge: TopoDS_Edge;
                                   aSecondEdge: TopoDS_Edge;
                                   aPlane: Handle[GeomPlane]): PrsDimEqualRadiusRelation {.
     cdecl, constructor, importcpp: "PrsDim_EqualRadiusRelation(@)", header: "PrsDim_EqualRadiusRelation.hxx".}
+

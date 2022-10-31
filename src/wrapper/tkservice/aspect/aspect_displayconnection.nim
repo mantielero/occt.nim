@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import aspect_types
+
+
 
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -41,4 +44,5 @@ proc getDisplayName*(this: var AspectDisplayConnection): TCollectionAsciiString 
     cdecl, importcpp: "GetDisplayName", header: "Aspect_DisplayConnection.hxx".}
 proc init*(this: var AspectDisplayConnection; theDisplay: ptr Display) {.cdecl,
     importcpp: "Init", header: "Aspect_DisplayConnection.hxx".}
+
 

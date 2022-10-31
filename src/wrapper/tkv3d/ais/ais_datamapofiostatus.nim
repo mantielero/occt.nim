@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -15,5 +16,6 @@ import ais_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

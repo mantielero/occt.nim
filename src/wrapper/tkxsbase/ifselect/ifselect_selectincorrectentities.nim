@@ -1,5 +1,7 @@
 import ifselect_types
 
+
+
 ##  Created on: 1994-09-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,7 +18,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_SelectIncorrectEntities"
 
 
 
@@ -24,3 +25,4 @@ discard "forward decl of IFSelect_SelectIncorrectEntities"
 proc newIFSelectSelectIncorrectEntities*(): IFSelectSelectIncorrectEntities {.
     cdecl, constructor, importcpp: "IFSelect_SelectIncorrectEntities(@)",
     header: "IFSelect_SelectIncorrectEntities.hxx".}
+

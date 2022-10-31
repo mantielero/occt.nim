@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import aspect_types
+
+
 
 ##  Created on: 1992-05-13
 ##  Created by: NW,JPB,CAL
@@ -16,7 +19,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_IdentDefinitionError"
 
 
 proc newAspectGenId*(): AspectGenId {.cdecl, constructor,
@@ -40,3 +42,4 @@ proc upper*(this: AspectGenId): cint {.noSideEffect, cdecl, importcpp: "Upper",
 proc dumpJson*(this: AspectGenId; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_GenId.hxx".}
+

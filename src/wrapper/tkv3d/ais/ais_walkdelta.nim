@@ -1,5 +1,7 @@
 import ais_types
 
+
+
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -60,3 +62,4 @@ proc toMove*(this: AIS_WalkDelta): bool {.noSideEffect, cdecl, importcpp: "ToMov
                                       header: "AIS_WalkDelta.hxx".}
 proc toRotate*(this: AIS_WalkDelta): bool {.noSideEffect, cdecl,
                                         importcpp: "ToRotate", header: "AIS_WalkDelta.hxx".}
+

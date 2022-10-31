@@ -1,4 +1,8 @@
 import bopalgo_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 2004-09-03
 ##  Created by: Oleg FEDYAEV
@@ -15,7 +19,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newBOPAlgoCheckResult*(): BOPAlgoCheckResult {.cdecl, constructor,
@@ -56,3 +59,4 @@ proc getMaxParameter1*(this: BOPAlgoCheckResult): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMaxParameter1", header: "BOPAlgo_CheckResult.hxx".}
 proc getMaxParameter2*(this: BOPAlgoCheckResult): cfloat {.noSideEffect, cdecl,
     importcpp: "GetMaxParameter2", header: "BOPAlgo_CheckResult.hxx".}
+

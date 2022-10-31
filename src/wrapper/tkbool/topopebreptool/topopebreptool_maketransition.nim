@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-02-11
 ##  Created by: Xuan PHAM PHU
@@ -16,9 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newTopOpeBRepToolMakeTransition*(): TopOpeBRepToolMakeTransition {.cdecl,
@@ -47,3 +49,4 @@ proc mkT3dproj*(this: TopOpeBRepToolMakeTransition; stb: var TopAbsState;
     importcpp: "MkT3dproj", header: "TopOpeBRepTool_makeTransition.hxx".}
 proc mkTonE*(this: var TopOpeBRepToolMakeTransition; stb: var TopAbsState;
             sta: var TopAbsState): bool {.cdecl, importcpp: "MkTonE", header: "TopOpeBRepTool_makeTransition.hxx".}
+

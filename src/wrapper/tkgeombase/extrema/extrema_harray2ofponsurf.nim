@@ -1,4 +1,7 @@
+import ../../tkernel/tcolstd/tcolstd_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -30,3 +33,4 @@ proc array2*(this: ExtremaHArray2OfPOnSurf): ExtremaArray2OfPOnSurf {.noSideEffe
     cdecl, importcpp: "Array2", header: "Extrema_HArray2OfPOnSurf.hxx".}
 proc changeArray2*(this: var ExtremaHArray2OfPOnSurf): var ExtremaArray2OfPOnSurf {.
     cdecl, importcpp: "ChangeArray2", header: "Extrema_HArray2OfPOnSurf.hxx".}
+

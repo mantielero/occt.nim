@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-05-02
 ##  Created by: Christian CAILLET
@@ -16,8 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_GeneralModifier"
-discard "forward decl of IFSelect_AppliedModifiers"
 
 
 
@@ -40,3 +42,4 @@ proc itemList*(this: IFSelectAppliedModifiers): Handle[TColStdHSequenceOfInteger
     noSideEffect, cdecl, importcpp: "ItemList", header: "IFSelect_AppliedModifiers.hxx".}
 proc isForAll*(this: IFSelectAppliedModifiers): bool {.noSideEffect, cdecl,
     importcpp: "IsForAll", header: "IFSelect_AppliedModifiers.hxx".}
+

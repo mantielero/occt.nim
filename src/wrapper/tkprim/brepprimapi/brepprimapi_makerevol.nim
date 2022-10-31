@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-10-12
 ##  Created by: Remi LEQUETTE
@@ -16,9 +21,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Ax1"
-discard "forward decl of BRepSweep_Revol"
 
 
 proc revol*(s: TopoDS_Shape; a: Ax1Obj; d: cfloat; copy: bool = false): BRepPrimAPI_MakeRevol {.
@@ -45,3 +47,4 @@ proc hasDegenerated*(this: BRepPrimAPI_MakeRevol): bool {.noSideEffect, cdecl,
     importcpp: "HasDegenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
 proc degenerated*(this: BRepPrimAPI_MakeRevol): TopToolsListOfShape {.noSideEffect,
     cdecl, importcpp: "Degenerated", header: "BRepPrimAPI_MakeRevol.hxx".}
+

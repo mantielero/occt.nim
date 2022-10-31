@@ -1,4 +1,9 @@
-import brepblend_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+
+
 
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
@@ -16,10 +21,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HVertex"
 
 
 proc project*(p: Pnt2dObj; s: Handle[Adaptor3dHSurface]; c: Handle[Adaptor2dHCurve2d];
@@ -49,3 +50,4 @@ proc bounds*(c: Handle[Adaptor2dHCurve2d]; ufirst: var cfloat; ulast: var cfloat
 proc curveOnSurf*(c: Handle[Adaptor2dHCurve2d]; s: Handle[Adaptor3dHSurface]): Handle[
     Adaptor2dHCurve2d] {.cdecl, importcpp: "BRepBlend_BlendTool::CurveOnSurf(@)",
                         header: "BRepBlend_BlendTool.hxx".}
+

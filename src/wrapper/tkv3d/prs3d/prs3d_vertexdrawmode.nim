@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -20,6 +21,7 @@ import prs3d_types
 ## ! VDM_Isolated  - only isolated vertices (not belonging to a face) are displayed.
 ## ! VDM_All       - all vertices of the shape are displayed.
 ## ! VDM_Inherited - the global settings are inherited and applied to the shape's presentation.
+
 
 
 

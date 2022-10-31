@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-18
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SelectUnknownEntities"
 
 
 
@@ -31,3 +31,4 @@ proc sort*(this: IFSelectSelectUnknownEntities; rank: cint;
     noSideEffect, cdecl, importcpp: "Sort", header: "IFSelect_SelectUnknownEntities.hxx".}
 proc extractLabel*(this: IFSelectSelectUnknownEntities): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectUnknownEntities.hxx".}
+

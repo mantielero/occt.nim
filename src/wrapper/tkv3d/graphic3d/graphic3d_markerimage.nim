@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 2013-06-25
 ##  Created by: Dmitry BOBYLEV
@@ -15,7 +20,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Image_PixMap"
 
 
 proc newGraphic3dMarkerImage*(theImage: Handle[ImagePixMap]): Graphic3dMarkerImage {.
@@ -37,4 +41,5 @@ proc getImageAlphaId*(this: Graphic3dMarkerImage): TCollectionAsciiString {.
 proc getTextureSize*(this: Graphic3dMarkerImage; theWidth: var cint;
                     theHeight: var cint) {.noSideEffect, cdecl,
                                         importcpp: "GetTextureSize", header: "Graphic3d_MarkerImage.hxx".}
+
 

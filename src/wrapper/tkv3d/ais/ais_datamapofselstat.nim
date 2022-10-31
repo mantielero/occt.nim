@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1996-1999 Matra Datavision
@@ -20,3 +22,4 @@
 #  AIS_DataMapIteratorOfDataMapOfSelStat* = Iterator[
 #      Handle[SelectMgrSelectableObject], Handle[AIS_LocalStatus],
 #      TColStdMapTransientHasher]
+

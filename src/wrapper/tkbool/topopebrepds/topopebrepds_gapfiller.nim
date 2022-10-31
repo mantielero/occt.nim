@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-08-18
 ##  Created by: Yves FRICAUD
@@ -16,13 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopOpeBRepDS_GapTool"
-discard "forward decl of TopOpeBRepDS_Association"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
 
 
 proc newTopOpeBRepDS_GapFiller*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_GapFiller {.
@@ -64,3 +62,4 @@ proc reBuildGeom*(this: var TopOpeBRepDS_GapFiller;
                  i1: Handle[TopOpeBRepDS_Interference];
                  done: var TColStdMapOfInteger) {.cdecl, importcpp: "ReBuildGeom",
     header: "TopOpeBRepDS_GapFiller.hxx".}
+

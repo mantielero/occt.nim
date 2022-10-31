@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Interface_Graph"
-discard "forward decl of IFGraph_SubPartsIterator"
-discard "forward decl of IFSelect_DispGlobal"
 
 
 
@@ -33,3 +32,4 @@ proc limitedMax*(this: IFSelectDispGlobal; nbent: cint; max: var cint): bool {.
 proc packets*(this: IFSelectDispGlobal; g: InterfaceGraph;
              packs: var IFGraphSubPartsIterator) {.noSideEffect, cdecl,
     importcpp: "Packets", header: "IFSelect_DispGlobal.hxx".}
+

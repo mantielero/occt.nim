@@ -1,4 +1,5 @@
-import selectmgr_types
+
+
 
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
@@ -17,6 +18,7 @@ import selectmgr_types
 ##  commercial license or contractual agreement.
 
 ## ! different state of a Selection in a ViewerSelector...
+
 
 
 

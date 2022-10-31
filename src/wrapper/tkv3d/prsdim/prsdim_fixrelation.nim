@@ -1,4 +1,10 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
@@ -16,7 +22,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
 
 
 
@@ -39,3 +44,4 @@ proc setWire*(this: var PrsDimFixRelation; aWire: TopoDS_Wire) {.cdecl,
     importcpp: "SetWire", header: "PrsDim_FixRelation.hxx".}
 proc isMovable*(this: PrsDimFixRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_FixRelation.hxx".}
+

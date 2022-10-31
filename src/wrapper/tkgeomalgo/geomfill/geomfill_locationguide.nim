@@ -1,4 +1,13 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
@@ -16,18 +25,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_TrihedronWithGuide"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Mat"
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Curve"
-discard "forward decl of GeomFill_LocationGuide"
 
 
 proc newGeomFillLocationGuide*(triedre: Handle[GeomFillTrihedronWithGuide]): GeomFillLocationGuide {.
@@ -102,3 +99,4 @@ proc setOrigine*(this: var GeomFillLocationGuide; param1: cfloat; param2: cfloat
 proc computeAutomaticLaw*(this: GeomFillLocationGuide;
                          parAndRad: var Handle[TColgpHArray1OfPnt2d]): GeomFillPipeError {.
     noSideEffect, cdecl, importcpp: "ComputeAutomaticLaw", header: "GeomFill_LocationGuide.hxx".}
+

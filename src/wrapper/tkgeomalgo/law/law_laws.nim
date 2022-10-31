@@ -1,4 +1,5 @@
-import law_types
+
+
 
 ##  Created on: 1994-04-07
 ##  Created by: Isabelle GRIGNON
@@ -15,5 +16,6 @@ import law_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

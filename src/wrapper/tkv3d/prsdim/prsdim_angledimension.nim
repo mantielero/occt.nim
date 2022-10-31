@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2013 OPEN CASCADE SAS
@@ -87,3 +92,4 @@ proc setArrowsVisibility*(this: var PrsDimAngleDimension;
     importcpp: "SetArrowsVisibility", header: "PrsDim_AngleDimension.hxx".}
 proc getArrowsVisibility*(this: PrsDimAngleDimension): PrsDimTypeOfAngleArrowVisibility {.
     noSideEffect, cdecl, importcpp: "GetArrowsVisibility", header: "PrsDim_AngleDimension.hxx".}
+

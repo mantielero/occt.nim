@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -17,6 +18,7 @@ import ais_types
 ##  commercial license or contractual agreement.
 
 ## ! To give the display status of an Interactive Object.
+
 
 
 

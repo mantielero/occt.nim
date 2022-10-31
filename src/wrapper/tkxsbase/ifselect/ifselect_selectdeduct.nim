@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,13 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of IFSelect_SelectPointed"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_Graph"
-discard "forward decl of IFSelect_SelectionIterator"
-discard "forward decl of IFSelect_SelectDeduct"
 
 
 
@@ -41,3 +37,4 @@ proc inputResult*(this: IFSelectSelectDeduct; g: InterfaceGraph): InterfaceEntit
     noSideEffect, cdecl, importcpp: "InputResult", header: "IFSelect_SelectDeduct.hxx".}
 proc fillIterator*(this: IFSelectSelectDeduct; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectDeduct.hxx".}
+

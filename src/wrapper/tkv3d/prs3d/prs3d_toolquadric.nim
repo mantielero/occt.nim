@@ -1,4 +1,10 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/poly/poly_types
+
+
 
 ##  Created on: 2016-02-04
 ##  Created by: Anastasia BORISOVA
@@ -36,3 +42,4 @@ proc fillArray*(this: Prs3dToolQuadric;
                theArray: var Handle[Graphic3dArrayOfTriangles];
                theTriangulation: var Handle[PolyTriangulation]; theTrsf: TrsfObj) {.
     noSideEffect, cdecl, importcpp: "FillArray", header: "Prs3d_ToolQuadric.hxx".}
+

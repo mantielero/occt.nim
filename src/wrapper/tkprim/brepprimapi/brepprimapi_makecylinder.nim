@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,9 +19,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Ax2"
-discard "forward decl of BRepPrim_Cylinder"
 
 
 proc cylinder*(r: cfloat; h: cfloat): BRepPrimAPI_MakeCylinder {.
@@ -33,3 +33,4 @@ proc oneAxis*(this: var BRepPrimAPI_MakeCylinder): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeCylinder.hxx".}
 proc cylinder*(this: var BRepPrimAPI_MakeCylinder): var BRepPrimCylinder {.cdecl,
     importcpp: "Cylinder", header: "BRepPrimAPI_MakeCylinder.hxx".}
+

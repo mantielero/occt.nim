@@ -1,4 +1,11 @@
-import topopebrepbuild_types
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../tkbool/topopebreptool/topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../tkbool/topopebrepds/topopebrepds_types
+
+
 
 ##  Created on: 1999-11-02
 ##  Created by: Peter KURNEV
@@ -16,12 +23,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepTool_ShapeClassifier"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Vec"
-discard "forward decl of TopoDS_Wire"
 
 
 proc findState*(aVertex: TopoDS_Shape; aState: TopAbsState;
@@ -98,3 +99,4 @@ proc correctPointOnCurve*(`aS`: TopoDS_Shape; aTolMax: cfloat = 0.0001) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::CorrectPointOnCurve(@)", header: "TopOpeBRepBuild_Tools.hxx".}
 proc checkFaceClosed2d*(theFace: TopoDS_Face): bool {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools::CheckFaceClosed2d(@)", header: "TopOpeBRepBuild_Tools.hxx".}
+

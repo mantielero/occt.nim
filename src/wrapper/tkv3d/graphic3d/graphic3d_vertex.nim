@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2012-06-20
 ##  Created by: Sergey ZERCHANINOV
@@ -47,3 +50,4 @@ proc distance*(this: Graphic3dVertex; theOther: Graphic3dVertex): StandardShortR
 proc dumpJson*(this: Graphic3dVertex; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Vertex.hxx".}
+

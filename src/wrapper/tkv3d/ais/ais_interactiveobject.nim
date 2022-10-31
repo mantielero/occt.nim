@@ -1,4 +1,11 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/v3d/v3d_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -16,11 +23,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AIS_InteractiveContext"
-discard "forward decl of Graphic3d_MaterialAspect"
-discard "forward decl of Prs3d_BasicAspect"
-discard "forward decl of Bnd_Box"
-discard "forward decl of V3d_View"
 
 
 proc `type`*(this: AIS_InteractiveObject): AIS_KindOfInteractive {.noSideEffect,
@@ -63,4 +65,5 @@ proc setAspect*(this: var AIS_InteractiveObject; anAspect: Handle[Prs3dBasicAspe
 proc dumpJson*(this: AIS_InteractiveObject; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "AIS_InteractiveObject.hxx".}
+
 

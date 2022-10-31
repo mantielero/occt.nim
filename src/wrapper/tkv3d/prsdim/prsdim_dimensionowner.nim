@@ -1,4 +1,10 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Odile Olivier
@@ -16,8 +22,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_SelectableObject"
-discard "forward decl of PrsMgr_PresentationManager"
 
 
 
@@ -38,3 +42,4 @@ proc isHilighted*(this: PrsDimDimensionOwner;
 proc unhilight*(this: var PrsDimDimensionOwner;
                thePM: Handle[PrsMgrPresentationManager]; theMode: cint = 0) {.cdecl,
     importcpp: "Unhilight", header: "PrsDim_DimensionOwner.hxx".}
+

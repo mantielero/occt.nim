@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import v3d_types
+
+
 
 ##  Created on: 1992-01-22
 ##  Created by: GG
@@ -44,5 +47,6 @@ proc newV3dPositionalLight*(thePos: PntObj;
 ## using statement
 
 ## using statement
+
 
 

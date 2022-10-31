@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,3 +18,4 @@
 
 type
   InterfaceSequenceOfCheck* = NCollectionSequence[Handle[InterfaceCheck]]
+

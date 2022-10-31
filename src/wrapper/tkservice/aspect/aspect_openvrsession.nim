@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/ncollection/ncollection_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -66,3 +71,4 @@ proc getPoseActionDataForNextFrame*(this: AspectOpenVRSession;
 proc setTrackingOrigin*(this: var AspectOpenVRSession;
                        theOrigin: TrackingUniverseOrigin) {.cdecl,
     importcpp: "SetTrackingOrigin", header: "Aspect_OpenVRSession.hxx".}
+

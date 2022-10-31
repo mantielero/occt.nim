@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-07-08
 ##  Created by: Stephanie HUMEAU
@@ -16,11 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_TrihedronWithGuide"
 
 
 
@@ -31,3 +31,4 @@ proc origine*(this: var GeomFillTrihedronWithGuide; param1: cfloat; param2: cflo
     cdecl, importcpp: "Origine", header: "GeomFill_TrihedronWithGuide.hxx".}
 proc currentPointOnGuide*(this: GeomFillTrihedronWithGuide): PntObj {.noSideEffect,
     cdecl, importcpp: "CurrentPointOnGuide", header: "GeomFill_TrihedronWithGuide.hxx".}
+

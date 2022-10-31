@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_LoopSet"
-discard "forward decl of TopOpeBRepBuild_LoopClassifier"
-discard "forward decl of TopOpeBRepBuild_Loop"
 
 
 proc newTopOpeBRepBuildAreaBuilder*(): TopOpeBRepBuildAreaBuilder {.cdecl,
@@ -60,3 +60,4 @@ proc aDD_LISTOFLoopTO_LISTOFLoop*(this: TopOpeBRepBuildAreaBuilder;
                                  lol2: var TopOpeBRepBuildListOfLoop;
                                  s: pointer = nil; s1: pointer = nil; s2: pointer = nil) {.
     noSideEffect, cdecl, importcpp: "ADD_LISTOFLoop_TO_LISTOFLoop", header: "TopOpeBRepBuild_AreaBuilder.hxx".}
+

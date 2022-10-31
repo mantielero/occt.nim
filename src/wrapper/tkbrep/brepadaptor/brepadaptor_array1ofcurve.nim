@@ -1,4 +1,5 @@
-import brepadaptor_types
+
+
 
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
@@ -15,5 +16,6 @@ import brepadaptor_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

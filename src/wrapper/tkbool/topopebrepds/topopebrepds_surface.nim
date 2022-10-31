@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
 
 
 proc newTopOpeBRepDS_Surface*(): TopOpeBRepDS_Surface {.cdecl, constructor,
@@ -37,3 +40,4 @@ proc keep*(this: TopOpeBRepDS_Surface): bool {.noSideEffect, cdecl, importcpp: "
     header: "TopOpeBRepDS_Surface.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Surface; theToKeep: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_Surface.hxx".}
+

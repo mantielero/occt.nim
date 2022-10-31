@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2012 OPEN CASCADE SAS
@@ -14,9 +20,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BOPAlgo_WireEdgeSet"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Face"
 
 
 proc newBOPAlgoWireSplitter*(): BOPAlgoWireSplitter {.cdecl, constructor,
@@ -40,3 +43,4 @@ proc makeWire*(theLE: var TopToolsListOfShape; theW: var TopoDS_Wire) {.cdecl,
 #proc splitBlock*(theF: TopoDS_Face; theCB: var BOPToolsConnexityBlock;
 #                theContext: Handle[IntToolsContext]) {.cdecl,
 #    importcpp: "BOPAlgo_WireSplitter::SplitBlock(@)", header: "BOPAlgo_WireSplitter.hxx".}
+

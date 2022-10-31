@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1994-05-26
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +19,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepDS_GeometryData*(): TopOpeBRepDS_GeometryData {.cdecl,
@@ -32,3 +34,4 @@ proc changeInterferences*(this: var TopOpeBRepDS_GeometryData): var TopOpeBRepDS
 proc addInterference*(this: var TopOpeBRepDS_GeometryData;
                      i: Handle[TopOpeBRepDS_Interference]) {.cdecl,
     importcpp: "AddInterference", header: "TopOpeBRepDS_GeometryData.hxx".}
+

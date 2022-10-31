@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -19,4 +20,5 @@ import graphic3d_types
 
 const
   graphic3dFrameStatsTimerNB* = graphic3dFrameStatsTimerCpuDynamics.int + 1
+
 

@@ -1,4 +1,5 @@
-import bopalgo_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -52,6 +53,7 @@ import bopalgo_types
 ## ! **BOPAlgo_GlueShift** - Glue option for shapes with partial coincidence;<br>
 ## ! **BOPAlgo_GlueFull** - Glue option for shapes with full coincidence.
 ## !
+
 
 
 

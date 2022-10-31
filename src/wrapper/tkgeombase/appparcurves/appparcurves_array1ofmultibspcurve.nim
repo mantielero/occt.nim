@@ -1,4 +1,5 @@
-import appparcurves_types
+
+
 
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
@@ -15,5 +16,6 @@ import appparcurves_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

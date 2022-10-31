@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-03-03
 ##  Created by: Jean-Pierre COMBE
@@ -30,3 +35,4 @@ proc setTool*(this: var PrsDimSymmetricRelation; aSymmetricTool: TopoDS_Shape) {
     cdecl, importcpp: "SetTool", header: "PrsDim_SymmetricRelation.hxx".}
 proc getTool*(this: PrsDimSymmetricRelation): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "GetTool", header: "PrsDim_SymmetricRelation.hxx".}
+

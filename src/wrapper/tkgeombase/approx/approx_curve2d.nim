@@ -1,4 +1,10 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1997-10-28
 ##  Created by: Roman BORISOV
@@ -16,7 +22,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_HCurve2d"
 
 
 proc newApproxCurve2d*(c2d: Handle[Adaptor2dHCurve2d]; first: cfloat; last: cfloat;
@@ -33,3 +38,4 @@ proc maxError2dU*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError2dU", header: "Approx_Curve2d.hxx".}
 proc maxError2dV*(this: ApproxCurve2d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError2dV", header: "Approx_Curve2d.hxx".}
+

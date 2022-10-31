@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-11-08
 ##  Created by: Jean Yves LEBEY
@@ -16,10 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of gp_Pnt"
 
 
 proc newTopOpeBRepDS_FaceInterferenceTool*(p: TopOpeBRepDS_PDataStructure): TopOpeBRepDS_FaceInterferenceTool {.
@@ -45,3 +46,4 @@ proc isEdgePntParDef*(this: TopOpeBRepDS_FaceInterferenceTool): bool {.noSideEff
 proc transition*(this: TopOpeBRepDS_FaceInterferenceTool;
                 i: Handle[TopOpeBRepDS_Interference]) {.noSideEffect, cdecl,
     importcpp: "Transition", header: "TopOpeBRepDS_FaceInterferenceTool.hxx".}
+

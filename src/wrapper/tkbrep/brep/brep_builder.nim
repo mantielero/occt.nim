@@ -1,4 +1,14 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkmath/poly/poly_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1991-07-01
 ##  Created by: Remi LEQUETTE
@@ -16,21 +26,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NullObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of Poly_Triangulation"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Poly_Polygon3D"
-discard "forward decl of Poly_PolygonOnTriangulation"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Poly_Polygon2D"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Pnt"
 
 
 proc makeFace*(this: BRepBuilder; f: var TopoDS_Face) {.noSideEffect, cdecl,
@@ -181,3 +176,4 @@ proc updateVertex*(this: BRepBuilder; v: TopoDS_Vertex; tol: cfloat) {.noSideEff
 proc transfert*(this: BRepBuilder; ein: TopoDS_Edge; eout: TopoDS_Edge;
                vin: TopoDS_Vertex; vout: TopoDS_Vertex) {.noSideEffect, cdecl,
     importcpp: "Transfert", header: "BRep_Builder.hxx".}
+

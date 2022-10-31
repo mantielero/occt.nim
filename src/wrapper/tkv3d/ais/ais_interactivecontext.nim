@@ -1,4 +1,20 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkbrep/topods/topods_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkmath/bnd/bnd_types
+import ../tkv3d/v3d/v3d_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 1996-12-18
 ##  Created by: Robert COUBLANC
@@ -16,16 +32,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_SelectionManager"
-discard "forward decl of V3d_Viewer"
-discard "forward decl of V3d_View"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of Prs3d_LineAspect"
-discard "forward decl of Prs3d_BasicAspect"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of SelectMgr_Filter"
 
 
 proc newAIS_InteractiveContext*(mainViewer: Handle[V3dViewer]): AIS_InteractiveContext {.
@@ -646,4 +652,5 @@ proc setSelection*(this: var AIS_InteractiveContext;
 proc dumpJson*(this: AIS_InteractiveContext; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "AIS_InteractiveContext.hxx".}
+
 

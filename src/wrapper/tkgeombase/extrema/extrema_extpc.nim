@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -16,17 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Extrema_CurveTool"
-discard "forward decl of Extrema_ExtPElC"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Extrema_POnCurv"
-discard "forward decl of Extrema_EPCOfExtPC"
-discard "forward decl of Extrema_PCFOfEPCOfExtPC"
 
 
 proc newExtremaExtPC*(): ExtremaExtPC {.cdecl, constructor,
@@ -55,3 +48,4 @@ proc point*(this: ExtremaExtPC; n: cint): ExtremaPOnCurv {.noSideEffect, cdecl,
 proc trimmedSquareDistances*(this: ExtremaExtPC; dist1: var cfloat; dist2: var cfloat;
                             p1: var PntObj; p2: var PntObj) {.noSideEffect, cdecl,
     importcpp: "TrimmedSquareDistances", header: "Extrema_ExtPC.hxx".}
+

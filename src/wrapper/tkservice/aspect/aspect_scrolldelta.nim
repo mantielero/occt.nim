@@ -1,4 +1,7 @@
 import aspect_types
+import ../../tkernel/ncollection/ncollection_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -29,3 +32,4 @@ proc newAspectScrollDelta*(thePnt: NCollectionVec2[cint]; theValue: cfloat;
 proc newAspectScrollDelta*(theValue: cfloat;
                           theFlags: AspectVKeyFlags = aspectVKeyFlagsNONE): AspectScrollDelta {.
     cdecl, constructor, importcpp: "Aspect_ScrollDelta(@)", header: "Aspect_ScrollDelta.hxx".}
+

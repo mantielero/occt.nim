@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 ##  Created on: 1995-03-21
 ##  Created by: Jean-Louis Frenkel
@@ -45,4 +49,5 @@ proc more*(this: AIS_Selection): bool {.noSideEffect, cdecl, importcpp: "More",
 proc next*(this: var AIS_Selection) {.cdecl, importcpp: "Next", header: "AIS_Selection.hxx".}
 proc value*(this: AIS_Selection): Handle[SelectMgrEntityOwner] {.noSideEffect, cdecl,
     importcpp: "Value", header: "AIS_Selection.hxx".}
+
 

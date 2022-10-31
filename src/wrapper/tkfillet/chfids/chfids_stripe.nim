@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import chfids_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1994-03-09
 ##  Created by: Isabelle GRIGNON
@@ -16,9 +21,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of ChFiDS_Spine"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of ChFiDS_Stripe"
 
 
 
@@ -127,3 +129,4 @@ proc inDS*(this: var ChFiDS_Stripe; first: bool; nb: cint = 1) {.cdecl, importcp
     header: "ChFiDS_Stripe.hxx".}
 proc isInDS*(this: ChFiDS_Stripe; first: bool): cint {.noSideEffect, cdecl,
     importcpp: "IsInDS", header: "ChFiDS_Stripe.hxx".}
+

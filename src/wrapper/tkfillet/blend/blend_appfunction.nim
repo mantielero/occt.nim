@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
 import blend_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
@@ -16,10 +23,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Blend_Point"
 
 
 proc nbVariables*(this: BlendAppFunction): cint {.noSideEffect, cdecl,
@@ -88,3 +91,4 @@ proc resolution*(this: BlendAppFunction; iC2d: cint; tol: cfloat; tolU: var cflo
                                  header: "Blend_AppFunction.hxx".}
 proc parameter*(this: BlendAppFunction; p: BlendPoint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Blend_AppFunction.hxx".}
+

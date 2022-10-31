@@ -1,4 +1,7 @@
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 2001-09-10
 ##  Created by: Sergey KUUL
@@ -15,7 +18,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_MapContainer"
 
 
 proc newTransferMapContainer*(): TransferMapContainer {.cdecl, constructor,
@@ -25,3 +27,4 @@ proc setMapObjects*(this: var TransferMapContainer;
     importcpp: "SetMapObjects", header: "Transfer_MapContainer.hxx".}
 proc getMapObjects*(this: var TransferMapContainer): var TColStdDataMapOfTransientTransient {.
     cdecl, importcpp: "GetMapObjects", header: "Transfer_MapContainer.hxx".}
+

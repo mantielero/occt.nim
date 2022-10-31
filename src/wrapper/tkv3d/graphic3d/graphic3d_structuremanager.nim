@@ -1,4 +1,8 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1991-09-05
 ##  Created by: NW,JPB,CAL
@@ -17,9 +21,6 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 
-discard "forward decl of Graphic3d_GraphicDriver"
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_DataStructureManager"
 
 
 proc newGraphic3dStructureManager*(theDriver: Handle[Graphic3dGraphicDriver]): Graphic3dStructureManager {.
@@ -119,4 +120,5 @@ proc setDeviceLost*(this: var Graphic3dStructureManager) {.cdecl,
 proc dumpJson*(this: Graphic3dStructureManager; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_StructureManager.hxx".}
+
 

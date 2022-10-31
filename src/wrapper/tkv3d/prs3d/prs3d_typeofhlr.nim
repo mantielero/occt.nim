@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -22,6 +23,7 @@ import prs3d_types
 ## ! TOH_NotSet is used by Prs3d_Drawer class, it means that the drawer should return the global value.
 ## ! For more details see Prs3d_Drawer class, AIS_Shape::Compute() method and
 ## ! HLRAlgo package from TKHLR toolkit.
+
 
 
 

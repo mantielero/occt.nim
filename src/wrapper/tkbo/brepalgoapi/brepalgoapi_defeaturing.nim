@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2018 OPEN CASCADE SAS
@@ -125,3 +129,4 @@ proc hasDeleted*(this: BRepAlgoAPI_Defeaturing): bool {.noSideEffect, cdecl,
     importcpp: "HasDeleted", header: "BRepAlgoAPI_Defeaturing.hxx".}
 #proc history*(this: var BRepAlgoAPI_Defeaturing): Handle[BRepToolsHistory] {.cdecl,
 #    importcpp: "History", header: "BRepAlgoAPI_Defeaturing.hxx".}
+

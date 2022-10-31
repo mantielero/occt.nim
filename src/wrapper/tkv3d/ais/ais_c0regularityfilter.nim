@@ -1,4 +1,10 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 ##  Created on: 1998-02-04
 ##  Created by: Julia GERASIMOVA
@@ -16,9 +22,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of AIS_C0RegularityFilter"
 
 
 proc newAIS_C0RegularityFilter*(aShape: TopoDS_Shape): AIS_C0RegularityFilter {.
@@ -27,3 +30,4 @@ proc actsOn*(this: AIS_C0RegularityFilter; aType: TopAbsShapeEnum): bool {.
     noSideEffect, cdecl, importcpp: "ActsOn", header: "AIS_C0RegularityFilter.hxx".}
 proc isOk*(this: AIS_C0RegularityFilter; eo: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "AIS_C0RegularityFilter.hxx".}
+

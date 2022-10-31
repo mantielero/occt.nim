@@ -1,4 +1,13 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -13,11 +22,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_XRSession"
-discard "forward decl of Graphic3d_CView"
-discard "forward decl of Graphic3d_GraphicDriver"
-discard "forward decl of Graphic3d_Layer"
-discard "forward decl of Graphic3d_StructureManager"
 
 
 
@@ -260,3 +264,4 @@ proc graduatedTrihedronMinMaxValues*(this: var Graphic3dCView;
 proc dumpJson*(this: Graphic3dCView; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CView.hxx".}
+

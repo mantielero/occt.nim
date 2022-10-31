@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import chfids_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-11-16
 ##  Created by: Laurent BOURESCHE
@@ -16,7 +21,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
 
 
 proc newChFiDS_FaceInterference*(): ChFiDS_FaceInterference {.cdecl, constructor,
@@ -53,3 +57,4 @@ proc lastParameter*(this: ChFiDS_FaceInterference): cfloat {.noSideEffect, cdecl
     importcpp: "LastParameter", header: "ChFiDS_FaceInterference.hxx".}
 proc parameter*(this: ChFiDS_FaceInterference; isFirst: bool): cfloat {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "ChFiDS_FaceInterference.hxx".}
+

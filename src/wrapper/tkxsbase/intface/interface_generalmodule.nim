@@ -1,3 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,14 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_ShareTool"
-discard "forward decl of Interface_Check"
-discard "forward decl of Interface_CopyTool"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Interface_GeneralModule"
 type
   HandleInterfaceGeneralModule* = Handle[InterfaceGeneralModule]
 

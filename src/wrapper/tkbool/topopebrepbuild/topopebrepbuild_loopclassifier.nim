@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-03-03
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_Loop"
 
 
 proc destroyTopOpeBRepBuildLoopClassifier*(
@@ -25,3 +28,4 @@ proc destroyTopOpeBRepBuildLoopClassifier*(
 proc compare*(this: var TopOpeBRepBuildLoopClassifier;
              l1: Handle[TopOpeBRepBuildLoop]; l2: Handle[TopOpeBRepBuildLoop]): TopAbsState {.
     cdecl, importcpp: "Compare", header: "TopOpeBRepBuild_LoopClassifier.hxx".}
+

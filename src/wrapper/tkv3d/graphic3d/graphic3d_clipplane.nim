@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2013-07-12
 ##  Created by: Anton POLETAEV
@@ -136,4 +143,5 @@ proc mCountEquation*(this: Graphic3dClipPlane): cuint {.noSideEffect, cdecl,
     importcpp: "MCountEquation", header: "Graphic3d_ClipPlane.hxx".}
 proc mCountAspect*(this: Graphic3dClipPlane): cuint {.noSideEffect, cdecl,
     importcpp: "MCountAspect", header: "Graphic3d_ClipPlane.hxx".}
+
 

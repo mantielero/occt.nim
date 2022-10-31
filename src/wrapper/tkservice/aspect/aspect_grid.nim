@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 1995-03-02
 ##  Created by: Jean-Louis Frenkel
@@ -62,4 +66,5 @@ proc isDisplayed*(this: AspectGrid): bool {.noSideEffect, cdecl,
 proc init*(this: var AspectGrid) {.cdecl, importcpp: "Init", header: "Aspect_Grid.hxx".}
 proc dumpJson*(this: AspectGrid; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Aspect_Grid.hxx".}
+
 

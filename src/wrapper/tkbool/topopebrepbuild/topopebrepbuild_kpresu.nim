@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1998-04-06
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -35,3 +37,4 @@ const
   SHEGARDCOUR* = (4)            ##  prendre le shell courant sans classifier
   SHEGARDAUTR* = (5)            ##  prendre tous les autres shells sans classifier
   SHEGARDTOUS* = (6)            ##  prendre tous les shells sans classifier
+

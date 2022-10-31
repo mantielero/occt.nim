@@ -1,5 +1,7 @@
 import topods_types
 
+
+
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -28,3 +30,4 @@ import topods_types
 
 proc newTopoDS_Shell*(): TopoDS_Shell {.cdecl, constructor,
                                      importcpp: "TopoDS_Shell(@)", header: "TopoDS_Shell.hxx".}
+

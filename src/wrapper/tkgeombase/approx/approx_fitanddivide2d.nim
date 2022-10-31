@@ -1,4 +1,8 @@
+import ../tkgeombase/appcont/appcont_types
+import ../tkgeombase/appparcurves/appparcurves_types
 import approx_types
+
+
 
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
@@ -16,7 +20,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AppParCurves_MultiCurve"
 
 
 proc newApproxFitAndDivide2d*(line: AppContFunction; degreemin: cint = 3;
@@ -59,3 +62,4 @@ proc value*(this: ApproxFitAndDivide2d; index: cint = 1): AppParCurvesMultiCurve
 proc parameters*(this: ApproxFitAndDivide2d; index: cint; firstp: var cfloat;
                 lastp: var cfloat) {.noSideEffect, cdecl, importcpp: "Parameters",
                                   header: "Approx_FitAndDivide2d.hxx".}
+

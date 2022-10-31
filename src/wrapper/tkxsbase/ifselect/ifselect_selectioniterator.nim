@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,8 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of IFSelect_Selection"
 
 
 proc newIFSelectSelectionIterator*(): IFSelectSelectionIterator {.cdecl,
@@ -37,3 +38,4 @@ proc next*(this: var IFSelectSelectionIterator) {.cdecl, importcpp: "Next",
     header: "IFSelect_SelectionIterator.hxx".}
 proc value*(this: IFSelectSelectionIterator): Handle[IFSelectSelection] {.
     noSideEffect, cdecl, importcpp: "Value", header: "IFSelect_SelectionIterator.hxx".}
+

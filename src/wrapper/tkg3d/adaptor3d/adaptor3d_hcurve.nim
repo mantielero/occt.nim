@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1994-02-23
 ##  Created by: model
@@ -16,16 +23,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Geom_OffsetCurve"
-discard "forward decl of Adaptor3d_HCurve"
 
 
 
@@ -92,3 +89,4 @@ proc bSpline*(this: Adaptor3dHCurve): Handle[GeomBSplineCurve] {.noSideEffect, c
     importcpp: "BSpline", header: "Adaptor3d_HCurve.hxx".}
 proc offsetCurve*(this: Adaptor3dHCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     cdecl, importcpp: "OffsetCurve", header: "Adaptor3d_HCurve.hxx".}
+

@@ -1,4 +1,5 @@
-import brep_types
+
+
 
 ##  Created on: 1991-06-27
 ##  Created by: Remi LEQUETTE
@@ -15,5 +16,6 @@ import brep_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

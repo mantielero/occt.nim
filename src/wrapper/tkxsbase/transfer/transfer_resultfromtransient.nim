@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1995-11-16
 ##  Created by: Christian CAILLET
@@ -16,11 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Interface_Check"
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Transfer_ResultFromTransient"
 
 
 
@@ -68,3 +67,4 @@ proc strip*(this: var TransferResultFromTransient) {.cdecl, importcpp: "Strip",
 proc fillBack*(this: TransferResultFromTransient;
               tp: Handle[TransferTransientProcess]) {.noSideEffect, cdecl,
     importcpp: "FillBack", header: "Transfer_ResultFromTransient.hxx".}
+

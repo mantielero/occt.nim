@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-11-20
 ##  Created by: Philippe MANGIN
@@ -16,11 +23,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of GeomFill_SectionLaw"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_SweepFunction"
 
 
 
@@ -79,3 +81,4 @@ proc maximalSection*(this: GeomFillSweepFunction): cfloat {.noSideEffect, cdecl,
 proc getMinimalWeight*(this: GeomFillSweepFunction;
                       weigths: var TColStdArray1OfReal) {.noSideEffect, cdecl,
     importcpp: "GetMinimalWeight", header: "GeomFill_SweepFunction.hxx".}
+

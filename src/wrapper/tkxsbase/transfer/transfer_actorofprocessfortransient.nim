@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,13 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_ProcessForTransient"
-discard "forward decl of Transfer_IteratorOfProcessForTransient"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_SimpleBinderOfTransient"
-discard "forward decl of Transfer_ActorOfProcessForTransient"
 
 
 proc newTransferActorOfProcessForTransient*(): TransferActorOfProcessForTransient {.
@@ -53,4 +49,5 @@ proc setNext*(this: var TransferActorOfProcessForTransient;
 proc next*(this: TransferActorOfProcessForTransient): Handle[
     TransferActorOfProcessForTransient] {.noSideEffect, cdecl, importcpp: "Next",
     header: "Transfer_ActorOfProcessForTransient.hxx".}
+
 

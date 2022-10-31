@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -80,4 +82,5 @@ proc value*(this: GeomSurface; u: cfloat; v: cfloat): PntObj {.noSideEffect, cde
 proc dumpJson*(this: GeomSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_Surface.hxx".}
+
 

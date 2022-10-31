@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -13,5 +14,5 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of V3d_View"
+
 

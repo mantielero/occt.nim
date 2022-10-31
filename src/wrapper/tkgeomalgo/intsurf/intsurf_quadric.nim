@@ -1,4 +1,8 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1992-04-13
 ##  Created by: Jacques GOUSSARD
@@ -16,13 +20,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Cylinder"
-discard "forward decl of gp_Sphere"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Torus"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc newIntSurfQuadric*(): IntSurfQuadric {.cdecl, constructor,
@@ -77,3 +74,4 @@ proc parameters*(this: IntSurfQuadric; p: PntObj; u: var cfloat; v: var cfloat) 
     noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_Quadric.hxx".}
 proc normale*(this: IntSurfQuadric; p: PntObj): VecObj {.noSideEffect, cdecl,
     importcpp: "Normale", header: "IntSurf_Quadric.hxx".}
+

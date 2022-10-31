@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-10-28
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_Check"
 when defined(Status):
   discard
 ## ! Defines an Iterator on the result of a Transfer
@@ -69,3 +68,4 @@ proc hasWarnings*(this: TransferTransferIterator): bool {.noSideEffect, cdecl,
     importcpp: "HasWarnings", header: "Transfer_TransferIterator.hxx".}
 proc check*(this: TransferTransferIterator): Handle[InterfaceCheck] {.noSideEffect,
     cdecl, importcpp: "Check", header: "Transfer_TransferIterator.hxx".}
+

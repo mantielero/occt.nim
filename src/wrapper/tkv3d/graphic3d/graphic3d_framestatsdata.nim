@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -72,3 +74,4 @@ proc changeTimerValue*(this: var Graphic3dFrameStatsDataTmp;
     importcpp: "ChangeTimerValue", header: "Graphic3d_FrameStatsData.hxx".}
 proc `[]`*(this: var Graphic3dFrameStatsDataTmp; theIndex: Graphic3dFrameStatsTimer): var cfloat {.
     cdecl, importcpp: "#[@]", header: "Graphic3d_FrameStatsData.hxx".}
+

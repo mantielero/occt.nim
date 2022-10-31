@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of Geom2d_Curve"
 
 
 proc newTopOpeBRepDS_CurveIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_CurveIterator {.
@@ -31,3 +34,4 @@ proc orientation*(this: TopOpeBRepDS_CurveIterator; s: TopAbsState): TopAbsOrien
     noSideEffect, cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_CurveIterator.hxx".}
 proc pCurve*(this: TopOpeBRepDS_CurveIterator): Handle[Geom2dCurve] {.noSideEffect,
     cdecl, importcpp: "PCurve", header: "TopOpeBRepDS_CurveIterator.hxx".}
+

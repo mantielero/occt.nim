@@ -1,4 +1,14 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkmath/bnd/bnd_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1996-12-20
 ##  Created by: Robert COUBLANC
@@ -139,3 +149,4 @@ proc dumpJson*(this: AIS_Shape; theOStream: var StandardOStream; theDepth: cint 
 
 
     
+

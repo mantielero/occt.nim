@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -87,4 +91,5 @@ proc invalidate*(this: var Graphic3dBuffer) {.cdecl, importcpp: "Invalidate",
 proc dumpJson*(this: Graphic3dBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Buffer.hxx".}
+
 

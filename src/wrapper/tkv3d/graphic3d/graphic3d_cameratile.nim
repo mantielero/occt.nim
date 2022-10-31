@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
@@ -30,3 +33,4 @@ proc `==`*(this: Graphic3dCameraTile; theOther: Graphic3dCameraTile): bool {.
 proc dumpJson*(this: Graphic3dCameraTile; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CameraTile.hxx".}
+

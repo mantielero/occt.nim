@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1997-10-02
 ##  Created by: Xuan Trang PHAM PHU
@@ -16,8 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
 
 
 proc newTopOpeBRepBuildShellToSolid*(): TopOpeBRepBuildShellToSolid {.cdecl,
@@ -29,3 +31,4 @@ proc addShell*(this: var TopOpeBRepBuildShellToSolid; sh: TopoDS_Shell) {.cdecl,
 proc makeSolids*(this: var TopOpeBRepBuildShellToSolid; so: TopoDS_Solid;
                 lSo: var TopToolsListOfShape) {.cdecl, importcpp: "MakeSolids",
     header: "TopOpeBRepBuild_ShellToSolid.hxx".}
+

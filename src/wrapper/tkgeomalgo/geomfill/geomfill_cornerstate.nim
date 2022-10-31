@@ -1,5 +1,7 @@
 import geomfill_types
 
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Laurent BOURESCHE
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -45,3 +47,4 @@ proc isToKill*(this: GeomFillCornerState; scal: var cfloat): bool {.noSideEffect
     importcpp: "IsToKill", header: "GeomFill_CornerState.hxx".}
 proc doKill*(this: var GeomFillCornerState; scal: cfloat) {.cdecl, importcpp: "DoKill",
     header: "GeomFill_CornerState.hxx".}
+

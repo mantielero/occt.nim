@@ -1,4 +1,9 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
 import blend_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-09-13
 ##  Created by: Jacques GOUSSARD
@@ -16,12 +21,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Blend_Point"
 
 
 proc nbVariables*(this: BlendFunction): cint {.noSideEffect, cdecl,
@@ -60,3 +59,4 @@ proc section*(this: var BlendFunction; p: BlendPoint; poles: var TColgpArray1OfP
              d2Poles2d: var TColgpArray1OfVec2d; weigths: var TColStdArray1OfReal;
              dWeigths: var TColStdArray1OfReal; d2Weigths: var TColStdArray1OfReal): bool {.
     cdecl, importcpp: "Section", header: "Blend_Function.hxx".}
+

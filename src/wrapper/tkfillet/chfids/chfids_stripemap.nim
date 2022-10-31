@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import chfids_types
+
+
 
 ##  Created on: 1993-11-10
 ##  Created by: Laurent BOURESCHE
@@ -16,8 +20,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of ChFiDS_Stripe"
 
 
 proc newChFiDS_StripeMap*(): ChFiDS_StripeMap {.cdecl, constructor,
@@ -37,3 +39,4 @@ proc `()`*(this: ChFiDS_StripeMap; i: cint): ChFiDS_ListOfStripe {.noSideEffect,
 proc findKey*(this: ChFiDS_StripeMap; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "FindKey", header: "ChFiDS_StripeMap.hxx".}
 proc clear*(this: var ChFiDS_StripeMap) {.cdecl, importcpp: "Clear", header: "ChFiDS_StripeMap.hxx".}
+

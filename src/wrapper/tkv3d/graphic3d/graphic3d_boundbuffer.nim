@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -24,4 +28,5 @@ proc init*(this: var Graphic3dBoundBuffer; theNbBounds: cint; theHasColors: bool
 proc dumpJson*(this: Graphic3dBoundBuffer; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_BoundBuffer.hxx".}
+
 

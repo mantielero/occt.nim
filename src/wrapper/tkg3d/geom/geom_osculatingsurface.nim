@@ -3,6 +3,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1998-05-05
 ##  Created by: Stepan MISHIN
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -40,4 +42,5 @@ proc vOscSurf*(this: GeomOsculatingSurface; u: cfloat; v: cfloat; t: var bool;
 proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_OsculatingSurface.hxx".}
+
 

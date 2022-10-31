@@ -1,4 +1,10 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-13
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
@@ -16,9 +22,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AIS_Line"
-discard "forward decl of AIS_Point"
-discard "forward decl of Geom_Plane"
 
 
 proc newAIS_PlaneTrihedron*(aPlane: Handle[GeomPlane]): AIS_PlaneTrihedron {.cdecl,
@@ -49,4 +52,5 @@ proc setXLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) 
     cdecl, importcpp: "SetXLabel", header: "AIS_PlaneTrihedron.hxx".}
 proc setYLabel*(this: var AIS_PlaneTrihedron; theLabel: TCollectionAsciiString) {.
     cdecl, importcpp: "SetYLabel", header: "AIS_PlaneTrihedron.hxx".}
+
 

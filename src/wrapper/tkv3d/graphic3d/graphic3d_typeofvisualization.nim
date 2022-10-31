@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
@@ -20,6 +21,7 @@ import graphic3d_types
 ## !
 ## ! TOV_WIREFRAME   wireframe visualisation
 ## ! TOV_SHADING     shaded visualisation
+
 
 
 

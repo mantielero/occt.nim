@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,7 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_TransferDeadLoop"
 #type
 #  HandleTransferTransferDeadLoop* = Handle[TransferTransferDeadLoop]
 #

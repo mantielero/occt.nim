@@ -1,3 +1,7 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/message/message_types
+
+
 ##  Created on: 1993-02-04
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,16 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_FileReaderData"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Message_Messenger"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Interface_Check"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_GeneralLib"
-discard "forward decl of Interface_ReaderLib"
 type
   InterfaceFileReaderTool* {.importcpp: "Interface_FileReaderTool",
                             header: "Interface_FileReaderTool.hxx", bycopy.} = object ##

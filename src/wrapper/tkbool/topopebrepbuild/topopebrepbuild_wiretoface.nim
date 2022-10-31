@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1996-01-29
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Face"
 
 
 proc newTopOpeBRepBuildWireToFace*(): TopOpeBRepBuildWireToFace {.cdecl,
@@ -29,3 +31,4 @@ proc addWire*(this: var TopOpeBRepBuildWireToFace; w: TopoDS_Wire) {.cdecl,
 proc makeFaces*(this: var TopOpeBRepBuildWireToFace; f: TopoDS_Face;
                lf: var TopToolsListOfShape) {.cdecl, importcpp: "MakeFaces",
     header: "TopOpeBRepBuild_WireToFace.hxx".}
+

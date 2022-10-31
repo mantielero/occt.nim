@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1999-11-29
 ##  Created by: Peter KURNEV
@@ -16,7 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Wire"
 
 
 proc makeMapOfShapeVertexInfo*(aWire: TopoDS_Wire; aMap: var TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo) {.
@@ -27,3 +30,4 @@ proc dumpMapOfShapeVertexInfo*(aMap: TopOpeBRepBuildIndexedDataMapOfShapeVertexI
     header: "TopOpeBRepBuild_Tools2d.hxx".}
 proc path*(aWire: TopoDS_Wire; aResList: var TopToolsListOfShape) {.cdecl,
     importcpp: "TopOpeBRepBuild_Tools2d::Path(@)", header: "TopOpeBRepBuild_Tools2d.hxx".}
+

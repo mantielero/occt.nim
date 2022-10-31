@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
@@ -16,9 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_CoonsAlgPatch"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_TgtOnCoons"
 
 
 
@@ -31,3 +32,4 @@ proc d1*(this: GeomFillTgtOnCoons; w: cfloat): VecObj {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
 proc d1*(this: GeomFillTgtOnCoons; w: cfloat; t: var VecObj; dt: var VecObj) {.noSideEffect,
     cdecl, importcpp: "D1", header: "GeomFill_TgtOnCoons.hxx".}
+

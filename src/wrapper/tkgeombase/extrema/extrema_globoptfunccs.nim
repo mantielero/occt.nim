@@ -1,4 +1,8 @@
+import ../../tkmath/math/math_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 2014-06-23
 ##  Created by: Alexander Malyshev
@@ -34,3 +38,4 @@ proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
 proc values*(this: var ExtremaGlobOptFuncCS; theX: MathVector; theF: var cfloat;
             theG: var MathVector; theH: var MathMatrix): bool {.cdecl,
     importcpp: "Values", header: "Extrema_GlobOptFuncCS.hxx".}
+

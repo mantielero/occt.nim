@@ -1,4 +1,5 @@
-import appparcurves_types
+
+
 
 ##  Created on: 1991-04-11
 ##  Created by: Laurent PAINNOT
@@ -20,6 +21,7 @@ import appparcurves_types
 ## ! -   PassPoint: the approximation curve passes through this point.
 ## ! -   TangencyPoint: this point has a tangency constraint.
 ## ! -   CurvaturePoint: this point has a curvature constraint.
+
 
 
 

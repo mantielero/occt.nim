@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
@@ -16,8 +20,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Graphic3d_Texture1Dsegment"
 
 
 
@@ -38,3 +40,4 @@ proc segment*(this: Graphic3dTexture1Dsegment; theX1: var StandardShortReal;
              theX2: var StandardShortReal; theY2: var StandardShortReal;
              theZ2: var StandardShortReal) {.noSideEffect, cdecl,
     importcpp: "Segment", header: "Graphic3d_Texture1Dsegment.hxx".}
+

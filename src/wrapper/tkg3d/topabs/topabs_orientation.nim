@@ -1,4 +1,5 @@
-import topabs_types
+
+
 
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
@@ -36,6 +37,7 @@ import topabs_types
 ## ! region. A change in orientation implies a switch of
 ## ! default region. This allows you to apply changes of
 ## ! orientation to the shape as a whole.
+
 
 
 

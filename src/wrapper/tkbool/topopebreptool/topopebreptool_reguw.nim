@@ -1,4 +1,8 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-12-08
 ##  Created by: Xuan PHAM PHU
@@ -16,11 +20,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopOpeBRepTool_connexity"
 
 
 proc newTopOpeBRepToolREGUW*(fRef: TopoDS_Face): TopOpeBRepToolREGUW {.cdecl,
@@ -74,3 +73,4 @@ proc removeOldConnexity*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex;
     importcpp: "RemoveOldConnexity", header: "TopOpeBRepTool_REGUW.hxx".}
 proc updateMultiple*(this: var TopOpeBRepToolREGUW; v: TopoDS_Vertex): bool {.cdecl,
     importcpp: "UpdateMultiple", header: "TopOpeBRepTool_REGUW.hxx".}
+

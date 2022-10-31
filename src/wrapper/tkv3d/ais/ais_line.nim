@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-01-21
 ##  Created by: Prestataire Christiane ARMAND
@@ -16,8 +21,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Line"
-discard "forward decl of Geom_Point"
 
 
 proc newAIS_Line*(aLine: Handle[GeomLine]): AIS_Line {.cdecl, constructor,
@@ -44,4 +47,5 @@ proc setWidth*(this: var AIS_Line; aValue: cfloat) {.cdecl, importcpp: "SetWidth
     header: "AIS_Line.hxx".}
 proc unsetColor*(this: var AIS_Line) {.cdecl, importcpp: "UnsetColor", header: "AIS_Line.hxx".}
 proc unsetWidth*(this: var AIS_Line) {.cdecl, importcpp: "UnsetWidth", header: "AIS_Line.hxx".}
+
 

@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-01-11
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_Graph"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SelectIntersection"
 
 
 
@@ -30,3 +29,4 @@ proc rootResult*(this: IFSelectSelectIntersection; g: InterfaceGraph): Interface
     noSideEffect, cdecl, importcpp: "RootResult", header: "IFSelect_SelectIntersection.hxx".}
 proc label*(this: IFSelectSelectIntersection): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "Label", header: "IFSelect_SelectIntersection.hxx".}
+

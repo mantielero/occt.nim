@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Created on: 1992-11-13
 ##  Created by: GG
@@ -18,6 +19,7 @@ import v3d_types
 
 ## ! Determines the type of visualization in the view, either
 ## ! WIREFRAME or ZBUFFER (shading).
+
 
 
 

@@ -1,4 +1,5 @@
-import topabs_types
+
+
 
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
@@ -41,6 +42,7 @@ import topabs_types
 ## ! - EDGE: A single dimensional shape corresponding
 ## ! to a curve, and bound by a vertex at each extremity.
 ## ! - VERTEX: A zero-dimensional shape corresponding to a point in geometry.
+
 
 
 

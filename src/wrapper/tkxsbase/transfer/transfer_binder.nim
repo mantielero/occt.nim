@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1993-06-09
 ##  Created by: Christian CAILLET
@@ -16,11 +19,8 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Check"
-discard "forward decl of Transfer_TransferFailure"
 when defined(Status):
   discard
-discard "forward decl of Transfer_Binder"
 
 
 
@@ -57,3 +57,4 @@ proc cCheck*(this: var TransferBinder): Handle[InterfaceCheck] {.cdecl,
     importcpp: "CCheck", header: "Transfer_Binder.hxx".}
 proc destroyTransferBinder*(this: var TransferBinder) {.cdecl,
     importcpp: "#.~Transfer_Binder()", header: "Transfer_Binder.hxx".}
+

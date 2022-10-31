@@ -1,4 +1,12 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkg3d/geom/geom_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1998-01-24
 ##  Created by: Julia GERASIMOVA
@@ -16,7 +24,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
 
 
 
@@ -66,3 +73,4 @@ proc computeOneEdgeOneVertexLength*(aPresentation: Handle[Prs3dPresentation];
                                    secondExtreme: var PntObj;
                                    symbolPrs: var DsgPrsArrowSide) {.cdecl, importcpp: "PrsDim_EqualDistanceRelation::ComputeOneEdgeOneVertexLength(@)",
     header: "PrsDim_EqualDistanceRelation.hxx".}
+

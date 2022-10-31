@@ -1,5 +1,7 @@
 import selectmgr_types
 
+
+
 ##  Created on: 1998-03-26
 ##  Created by: Robert COUBLANC
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -28,3 +30,4 @@ proc isCloserDepth*(this: SelectMgrSortCriterion; theOther: SelectMgrSortCriteri
 proc isHigherPriority*(this: SelectMgrSortCriterion;
                       theOther: SelectMgrSortCriterion): bool {.noSideEffect, cdecl,
     importcpp: "IsHigherPriority", header: "SelectMgr_SortCriterion.hxx".}
+

@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-01-07
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of IFSelect_SelectInList"
 
 
 
@@ -31,3 +30,4 @@ proc fillResult*(this: IFSelectSelectInList; n1: cint; n2: cint;
                 ent: Handle[StandardTransient];
                 result: var InterfaceEntityIterator) {.noSideEffect, cdecl,
     importcpp: "FillResult", header: "IFSelect_SelectInList.hxx".}
+

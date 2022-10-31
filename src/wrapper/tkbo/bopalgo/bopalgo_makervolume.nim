@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,8 +20,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of BOPAlgo_PaveFiller"
 
 
 proc newBOPAlgoMakerVolume*(): BOPAlgoMakerVolume {.cdecl, constructor,
@@ -38,3 +42,4 @@ proc setAvoidInternalShapes*(this: var BOPAlgoMakerVolume; theAvoidInternal: boo
 proc isAvoidInternalShapes*(this: BOPAlgoMakerVolume): bool {.noSideEffect, cdecl,
     importcpp: "IsAvoidInternalShapes", header: "BOPAlgo_MakerVolume.hxx".}
 proc perform*(this: var BOPAlgoMakerVolume) {.cdecl, importcpp: "Perform", header: "BOPAlgo_MakerVolume.hxx".}
+

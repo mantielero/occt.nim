@@ -1,4 +1,10 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 ##  Created on: 1998-03-04
 ##  Created by: Julia Gerasimova
@@ -16,9 +22,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of AIS_BadEdgeFilter"
 
 
 
@@ -35,3 +38,4 @@ proc addEdge*(this: var AIS_BadEdgeFilter; anEdge: TopoDS_Edge; index: cint) {.c
     importcpp: "AddEdge", header: "AIS_BadEdgeFilter.hxx".}
 proc removeEdges*(this: var AIS_BadEdgeFilter; index: cint) {.cdecl,
     importcpp: "RemoveEdges", header: "AIS_BadEdgeFilter.hxx".}
+

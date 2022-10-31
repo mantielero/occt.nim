@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-03-23
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_Loop"
 
 
 proc newTopOpeBRepBuildLoopSet*(): TopOpeBRepBuildLoopSet {.cdecl, constructor,
@@ -33,3 +35,4 @@ proc nextLoop*(this: var TopOpeBRepBuildLoopSet) {.cdecl, importcpp: "NextLoop",
     header: "TopOpeBRepBuild_LoopSet.hxx".}
 proc loop*(this: TopOpeBRepBuildLoopSet): Handle[TopOpeBRepBuildLoop] {.
     noSideEffect, cdecl, importcpp: "Loop", header: "TopOpeBRepBuild_LoopSet.hxx".}
+

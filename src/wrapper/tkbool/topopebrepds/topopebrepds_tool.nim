@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-01-25
 ##  Created by: Xuan PHAM PHU
@@ -16,9 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Shape"
 
 
 proc eShareG*(hds: Handle[TopOpeBRepDS_HDataStructure]; e: TopoDS_Edge;
@@ -37,3 +39,4 @@ proc getConfig*(hds: Handle[TopOpeBRepDS_HDataStructure];
                mEspON: TopOpeBRepDS_DataMapOfShapeListOfShapeOn1State; ie: cint;
                iesd: cint; conf: var cint): bool {.cdecl,
     importcpp: "TopOpeBRepDS_TOOL::GetConfig(@)", header: "TopOpeBRepDS_TOOL.hxx".}
+

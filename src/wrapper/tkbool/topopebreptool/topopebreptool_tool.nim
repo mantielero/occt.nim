@@ -1,4 +1,13 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1998-11-26
 ##  Created by: Xuan PHAM PHU
@@ -16,19 +25,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of TopOpeBRepTool_C2DF"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Dir2d"
-discard "forward decl of BRepAdaptor_Curve"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Dir"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of gp_Pnt"
 
 
 proc oriinSor*(sub: TopoDS_Shape; s: TopoDS_Shape; checkclo: bool = false): cint {.cdecl,
@@ -153,3 +149,4 @@ proc wireToFace*(fref: TopoDS_Face; mapWlow: TopToolsDataMapOfShapeListOfShape;
 proc edgeONFace*(par: cfloat; ed: TopoDS_Edge; uv: Pnt2dObj; fa: TopoDS_Face;
                 isonfa: var bool): bool {.cdecl, importcpp: "TopOpeBRepTool_TOOL::EdgeONFace(@)",
                                       header: "TopOpeBRepTool_TOOL.hxx".}
+

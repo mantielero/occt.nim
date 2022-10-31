@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,11 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2d"
-discard "forward decl of gp_Ax22d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Elips2d"
 
 
 proc newGceMakeElips2d*(majorAxis: Ax2dObj; majorRadius: cfloat; minorRadius: cfloat;
@@ -36,3 +34,4 @@ proc operator*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeElips2d.hxx".}
 converter `elips2d`*(this: GceMakeElips2d): Elips2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeElips2d::operator gp_Elips2d", header: "gce_MakeElips2d.hxx".}
+

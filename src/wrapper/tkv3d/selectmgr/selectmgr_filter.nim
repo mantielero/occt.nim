@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Created on: 1997-03-05
 ##  Created by: Robert COUBLANC
@@ -16,8 +20,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of SelectMgr_Filter"
 
 
 
@@ -26,3 +28,4 @@ proc isOk*(this: SelectMgrFilter; anObj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "SelectMgr_Filter.hxx".}
 proc actsOn*(this: SelectMgrFilter; aStandardMode: TopAbsShapeEnum): bool {.
     noSideEffect, cdecl, importcpp: "ActsOn", header: "SelectMgr_Filter.hxx".}
+

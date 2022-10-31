@@ -1,4 +1,15 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/v3d/v3d_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 2017-07-25
 ##  Created by: Anastasia BOBYLEVA
@@ -15,10 +26,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AIS_AnimationCamera"
-discard "forward decl of AIS_ViewCubeOwner"
-discard "forward decl of Graphic3d_ArrayOfTriangles"
-discard "forward decl of V3d_View"
 
 
 proc isBoxSide*(theOrient: V3dTypeOfOrientation): bool {.cdecl,
@@ -216,3 +223,4 @@ proc handleMouseClick*(this: var AIS_ViewCubeOwner; thePoint: Graphic3dVec2i;
                       theButton: AspectVKeyMouse; theModifiers: AspectVKeyFlags;
                       theIsDoubleClick: bool): bool {.cdecl,
     importcpp: "HandleMouseClick", header: "AIS_ViewCube.hxx".}
+

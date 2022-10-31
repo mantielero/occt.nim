@@ -1,4 +1,8 @@
+import ../../tkmath/math/math_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -38,3 +42,4 @@ proc value*(this: var ExtremaGlobOptFuncCQuadric; theX: MathVector; theF: var cf
 proc quadricParameters*(this: ExtremaGlobOptFuncCQuadric; theCT: MathVector;
                        theUV: var MathVector) {.noSideEffect, cdecl,
     importcpp: "QuadricParameters", header: "Extrema_GlobOptFuncCQuadric.hxx".}
+

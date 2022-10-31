@@ -1,4 +1,8 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import v3d_types
+
+
 
 ##  Created by: GG
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -15,7 +19,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of V3d_Plane"
 
 
 
@@ -35,3 +38,4 @@ proc isDisplayed*(this: V3dPlane): bool {.noSideEffect, cdecl,
                                       importcpp: "IsDisplayed", header: "V3d_Plane.hxx".}
 proc clipPlane*(this: V3dPlane): Handle[Graphic3dClipPlane] {.noSideEffect, cdecl,
     importcpp: "ClipPlane", header: "V3d_Plane.hxx".}
+

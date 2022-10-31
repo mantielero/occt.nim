@@ -1,4 +1,5 @@
-import ifselect_types
+
+
 
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
@@ -43,6 +44,7 @@ import ifselect_types
 ## ! -       Mapping of the IGES root entities to the resulting Open
 ## ! CASCADE shape (including type and form of the IGES entity
 ## ! and type of the resulting shape).
+
 
 
 

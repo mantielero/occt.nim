@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
@@ -19,6 +20,7 @@ import graphic3d_types
 ## ! Describes rendering modes.
 ## ! - RM_RASTERIZATION: enables OpenGL rasterization mode;
 ## ! - RM_RAYTRACING: enables GPU ray-tracing mode.
+
 
 
 

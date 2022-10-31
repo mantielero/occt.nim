@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -14,7 +17,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Media_Frame"
 
 
 
@@ -30,3 +32,4 @@ proc setFrame*(this: var Graphic3dMediaTexture; theFrame: Handle[MediaFrame]) {.
     importcpp: "SetFrame", header: "Graphic3d_MediaTexture.hxx".}
 proc generateNewId*(this: var Graphic3dMediaTexture) {.cdecl,
     importcpp: "GenerateNewId", header: "Graphic3d_MediaTexture.hxx".}
+

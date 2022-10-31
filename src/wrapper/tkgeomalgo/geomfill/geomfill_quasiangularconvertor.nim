@@ -1,4 +1,9 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcolstd/tcolstd_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-08-06
 ##  Created by: Philippe MANGIN
@@ -16,9 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc newGeomFillQuasiAngularConvertor*(): GeomFillQuasiAngularConvertor {.cdecl,
@@ -44,3 +46,4 @@ proc section*(this: var GeomFillQuasiAngularConvertor; firstPnt: PntObj; dFirstP
              d2Poles: var TColgpArray1OfVec; weights: var TColStdArray1OfReal;
              dWeights: var TColStdArray1OfReal; d2Weights: var TColStdArray1OfReal) {.
     cdecl, importcpp: "Section", header: "GeomFill_QuasiAngularConvertor.hxx".}
+

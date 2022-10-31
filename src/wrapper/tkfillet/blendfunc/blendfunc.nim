@@ -1,4 +1,12 @@
+import ../../tkmath/convert/convert_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-12-03
 ##  Created by: Jacques GOUSSARD
@@ -16,23 +24,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec"
-discard "forward decl of BlendFunc_ConstRad"
-discard "forward decl of BlendFunc_ConstRadInv"
-discard "forward decl of BlendFunc_Ruled"
-discard "forward decl of BlendFunc_RuledInv"
-discard "forward decl of BlendFunc_EvolRad"
-discard "forward decl of BlendFunc_EvolRadInv"
-discard "forward decl of BlendFunc_CSConstRad"
-discard "forward decl of BlendFunc_CSCircular"
-discard "forward decl of BlendFunc_Corde"
-discard "forward decl of BlendFunc_Chamfer"
-discard "forward decl of BlendFunc_ChamfInv"
-discard "forward decl of BlendFunc_ChAsym"
-discard "forward decl of BlendFunc_ChAsymInv"
-discard "forward decl of BlendFunc_Tensor"
 
 
 proc getShape*(sectShape: BlendFuncSectionShape; maxAng: cfloat; nbPoles: var cint;
@@ -54,3 +45,4 @@ proc computeNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var 
 proc computeDNormal*(surf: Handle[Adaptor3dHSurface]; p2d: Pnt2dObj; normal: var VecObj;
                     dNu: var VecObj; dNv: var VecObj): bool {.cdecl,
     importcpp: "BlendFunc::ComputeDNormal(@)", header: "BlendFunc.hxx".}
+

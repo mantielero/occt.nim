@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,7 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_DataStructure"
 
 
 proc newTopOpeBRepDS_ShapeData*(): TopOpeBRepDS_ShapeData {.cdecl, constructor,
@@ -29,3 +30,4 @@ proc keep*(this: TopOpeBRepDS_ShapeData): bool {.noSideEffect, cdecl,
     importcpp: "Keep", header: "TopOpeBRepDS_ShapeData.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_ShapeData; b: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_ShapeData.hxx".}
+

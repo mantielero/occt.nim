@@ -1,4 +1,11 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../tkbool/topopebrepds/topopebrepds_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1999-09-29
 ##  Created by: Maxim ZVEREV
@@ -16,16 +23,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_HBuilder"
-discard "forward decl of TopOpeBRepDS_BuildTool"
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_GTopo"
-discard "forward decl of TopOpeBRepBuild_ShellFaceSet"
-discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
-discard "forward decl of TopOpeBRepBuild_PaveSet"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
 
 
 proc newTopOpeBRepBuildBuilder1*(bt: TopOpeBRepDS_BuildTool): TopOpeBRepBuildBuilder1 {.
@@ -113,3 +110,4 @@ proc twoPiecesON*(this: var TopOpeBRepBuildBuilder1; aSeq: TopToolsSequenceOfSha
     importcpp: "TwoPiecesON", header: "TopOpeBRepBuild_Builder1.hxx".}
 proc correctResult2d*(this: var TopOpeBRepBuildBuilder1; aResult: var TopoDS_Shape): cint {.
     cdecl, importcpp: "CorrectResult2d", header: "TopOpeBRepBuild_Builder1.hxx".}
+

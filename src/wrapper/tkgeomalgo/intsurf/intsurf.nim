@@ -1,4 +1,9 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1992-08-24
 ##  Created by: Jacques GOUSSARD
@@ -16,10 +21,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of IntSurf_Transition"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Vec"
 
 
 proc makeTransition*(tgFirst: VecObj; tgSecond: VecObj; normal: DirObj;
@@ -29,3 +30,4 @@ proc setPeriod*(theFirstSurf: Handle[Adaptor3dHSurface];
                theSecondSurf: Handle[Adaptor3dHSurface];
                theArrOfPeriod: array[4, cfloat]) {.cdecl,
     importcpp: "IntSurf::SetPeriod(@)", header: "IntSurf.hxx".}
+

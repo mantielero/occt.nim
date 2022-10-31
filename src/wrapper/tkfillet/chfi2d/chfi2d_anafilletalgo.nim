@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import chfi2d_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 2013-05-20
 ##  Created by: Vlad ROMASHKO
@@ -36,3 +40,4 @@ proc perform*(this: var ChFi2dAnaFilletAlgo; radius: cfloat): bool {.cdecl,
     importcpp: "Perform", header: "ChFi2d_AnaFilletAlgo.hxx".}
 proc result*(this: var ChFi2dAnaFilletAlgo; e1: var TopoDS_Edge; e2: var TopoDS_Edge): TopoDS_Edge {.
     cdecl, importcpp: "Result", header: "ChFi2d_AnaFilletAlgo.hxx".}
+

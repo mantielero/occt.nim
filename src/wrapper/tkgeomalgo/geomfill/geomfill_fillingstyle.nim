@@ -1,4 +1,5 @@
-import geomfill_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -21,6 +22,7 @@ import geomfill_types
 ## ! -   GeomFill_Coons - a rounded style of patch with
 ## ! less depth than those of Curved
 ## ! -   GeomFill_Curved - the style with the most rounded patches.
+
 
 
 

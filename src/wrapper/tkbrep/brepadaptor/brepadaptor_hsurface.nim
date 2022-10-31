@@ -1,4 +1,7 @@
 import brepadaptor_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
@@ -16,12 +19,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of BRepAdaptor_Surface"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of BRepAdaptor_HSurface"
 
 
 proc newBRepAdaptorHSurface*(): BRepAdaptorHSurface {.cdecl, constructor,
@@ -34,5 +31,6 @@ proc surface*(this: BRepAdaptorHSurface): Adaptor3dSurface {.noSideEffect, cdecl
     importcpp: "Surface", header: "BRepAdaptor_HSurface.hxx".}
 proc changeSurface*(this: var BRepAdaptorHSurface): var BRepAdaptorSurface {.cdecl,
     importcpp: "ChangeSurface", header: "BRepAdaptor_HSurface.hxx".}
+
 
 

@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-02-01
 ##  Created by: Jean Yves LEBEY
@@ -16,10 +22,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepTool_SolidClassifier"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Pnt"
 
 
 proc newTopOpeBRepToolShapeClassifier*(): TopOpeBRepToolShapeClassifier {.cdecl,
@@ -64,3 +66,4 @@ proc p2d*(this: TopOpeBRepToolShapeClassifier): Pnt2dObj {.noSideEffect, cdecl,
     importcpp: "P2D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
 proc p3d*(this: TopOpeBRepToolShapeClassifier): PntObj {.noSideEffect, cdecl,
     importcpp: "P3D", header: "TopOpeBRepTool_ShapeClassifier.hxx".}
+

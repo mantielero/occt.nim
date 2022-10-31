@@ -1,4 +1,9 @@
 import topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,29 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopOpeBRepTool_GeomTool"
-discard "forward decl of TopOpeBRepTool_AncestorsTool"
-discard "forward decl of TopOpeBRepTool_C2DF"
-discard "forward decl of TopOpeBRepTool_SolidClassifier"
-discard "forward decl of TopOpeBRepTool_CurveTool"
-discard "forward decl of TopOpeBRepTool_HBoxTool"
-discard "forward decl of TopOpeBRepTool_BoxSort"
-discard "forward decl of TopOpeBRepTool_ShapeExplorer"
-discard "forward decl of TopOpeBRepTool_ShapeTool"
-discard "forward decl of TopOpeBRepTool_ShapeClassifier"
-discard "forward decl of TopOpeBRepTool_connexity"
-discard "forward decl of TopOpeBRepTool_face"
-discard "forward decl of TopOpeBRepTool_CLASSI"
-discard "forward decl of TopOpeBRepTool_TOOL"
-discard "forward decl of TopOpeBRepTool_CORRISO"
-discard "forward decl of TopOpeBRepTool_REGUW"
-discard "forward decl of TopOpeBRepTool_REGUS"
-discard "forward decl of TopOpeBRepTool_makeTransition"
-discard "forward decl of TopOpeBRepTool_mkTondgE"
-discard "forward decl of TopOpeBRepTool_PurgeInternalEdges"
-discard "forward decl of TopOpeBRepTool_FuseEdges"
 
 
 proc purgeClosingEdges*(f: TopoDS_Face; ff: TopoDS_Face;
@@ -72,3 +54,4 @@ proc regularizeShells*(aSolid: TopoDS_Solid;
     importcpp: "TopOpeBRepTool::RegularizeShells(@)", header: "TopOpeBRepTool.hxx".}
 proc print*(oct: TopOpeBRepToolOutCurveType; s: var StandardOStream): var StandardOStream {.
     cdecl, importcpp: "TopOpeBRepTool::Print(@)", header: "TopOpeBRepTool.hxx".}
+

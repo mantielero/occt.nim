@@ -1,4 +1,7 @@
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-02-25
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_ShapeSet"
-discard "forward decl of TopOpeBRepBuild_BlockIterator"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepBuildBlockBuilder*(): TopOpeBRepBuildBlockBuilder {.cdecl,
@@ -56,3 +56,4 @@ proc setValid*(this: var TopOpeBRepBuildBlockBuilder; i: cint; isvalid: bool) {.
     importcpp: "SetValid", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
 proc currentBlockIsRegular*(this: var TopOpeBRepBuildBlockBuilder): bool {.cdecl,
     importcpp: "CurrentBlockIsRegular", header: "TopOpeBRepBuild_BlockBuilder.hxx".}
+

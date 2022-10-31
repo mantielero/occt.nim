@@ -1,5 +1,7 @@
 import geomfill_types
 
+
+
 ##  Created on: 1994-02-18
 ##  Created by: Bruno DUMORTIER
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,7 +18,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_Line"
 
 
 
@@ -30,3 +31,4 @@ proc nbPoints*(this: GeomFillLine): cint {.noSideEffect, cdecl, importcpp: "NbPo
                                        header: "GeomFill_Line.hxx".}
 proc point*(this: GeomFillLine; index: cint): cint {.noSideEffect, cdecl,
     importcpp: "Point", header: "GeomFill_Line.hxx".}
+

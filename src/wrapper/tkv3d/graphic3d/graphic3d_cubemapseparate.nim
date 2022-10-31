@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -35,4 +40,5 @@ proc isDone*(this: Graphic3dCubeMapSeparate): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "Graphic3d_CubeMapSeparate.hxx".}
 proc destroyGraphic3dCubeMapSeparate*(this: var Graphic3dCubeMapSeparate) {.cdecl,
     importcpp: "#.~Graphic3d_CubeMapSeparate()", header: "Graphic3d_CubeMapSeparate.hxx".}
+
 

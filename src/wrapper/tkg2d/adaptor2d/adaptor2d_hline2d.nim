@@ -1,5 +1,7 @@
 import adaptor2d_types
 
+
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,12 +18,6 @@ import adaptor2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor2d_Line2d"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Adaptor2d_HLine2d"
 
 
 proc newAdaptor2dHLine2d*(): Adaptor2dHLine2d {.cdecl, constructor,
@@ -34,5 +30,6 @@ proc curve2d*(this: Adaptor2dHLine2d): Adaptor2dCurve2d {.noSideEffect, cdecl,
     importcpp: "Curve2d", header: "Adaptor2d_HLine2d.hxx".}
 proc changeCurve2d*(this: var Adaptor2dHLine2d): var Adaptor2dLine2d {.cdecl,
     importcpp: "ChangeCurve2d", header: "Adaptor2d_HLine2d.hxx".}
+
 
 

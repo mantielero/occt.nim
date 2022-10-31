@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2014-12-30
 ##  Created by: Kirill Gavrilov
@@ -24,4 +25,5 @@ const
   graphic3dZLayerIdTopmost* = -3 ## !< overlay for 3D presentations with independent Depth
   graphic3dZLayerIdTopOSD* = -4 ## !< overlay for 2D presentations (On-Screen-Display)
   graphic3dZLayerIdBotOSD* = -5
+
 

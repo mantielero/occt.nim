@@ -1,4 +1,10 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
 import approx_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1997-06-25
 ##  Created by: Philippe MANGIN
@@ -16,10 +22,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Approx_SweepFunction"
 
 
 
@@ -71,3 +73,4 @@ proc maximalSection*(this: ApproxSweepFunction): cfloat {.noSideEffect, cdecl,
     importcpp: "MaximalSection", header: "Approx_SweepFunction.hxx".}
 proc getMinimalWeight*(this: ApproxSweepFunction; weigths: var TColStdArray1OfReal) {.
     noSideEffect, cdecl, importcpp: "GetMinimalWeight", header: "Approx_SweepFunction.hxx".}
+

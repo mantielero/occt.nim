@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
@@ -16,12 +21,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TCollection_AsciiString"
 
 
 proc newTopOpeBRepBuildWireEdgeSet*(f: TopoDS_Shape; `addr`: pointer = nil): TopOpeBRepBuildWireEdgeSet {.
@@ -57,3 +56,4 @@ proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopoDS_Shape;
 proc sNameori*(this: TopOpeBRepBuildWireEdgeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_WireEdgeSet.hxx".}
+

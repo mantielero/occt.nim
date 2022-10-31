@@ -1,4 +1,7 @@
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1992-09-21
 ##  Created by: Christian CAILLET
@@ -31,4 +34,5 @@ proc append*(this: var IFSelectHSeqOfSelection;
     header: "IFSelect_HSeqOfSelection.hxx".}
 proc changeSequence*(this: var IFSelectHSeqOfSelection): var IFSelectTSeqOfSelection {.
     cdecl, importcpp: "ChangeSequence", header: "IFSelect_HSeqOfSelection.hxx".}
+
 

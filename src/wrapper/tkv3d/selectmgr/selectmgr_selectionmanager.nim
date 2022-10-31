@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Created on: 1995-02-13
 ##  Created by: Mister rmi
@@ -16,7 +19,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_SelectableObject"
 
 
 proc newSelectMgrSelectionManager*(theSelector: Handle[SelectMgrViewerSelector]): SelectMgrSelectionManager {.
@@ -71,4 +73,5 @@ proc setSelectionSensitivity*(this: var SelectMgrSelectionManager;
 proc updateSelection*(this: var SelectMgrSelectionManager;
                      theObj: Handle[SelectMgrSelectableObject]) {.cdecl,
     importcpp: "UpdateSelection", header: "SelectMgr_SelectionManager.hxx".}
+
 

@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1998-10-15
 ##  Created by: Christian CAILLET
@@ -16,9 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_SelectDeduct"
-discard "forward decl of Interface_Graph"
-discard "forward decl of IFSelect_GraphCounter"
 
 
 
@@ -32,3 +33,4 @@ proc setApplied*(this: var IFSelectGraphCounter; sel: Handle[IFSelectSelectDeduc
 proc addWithGraph*(this: var IFSelectGraphCounter;
                   list: Handle[TColStdHSequenceOfTransient]; graph: InterfaceGraph) {.
     cdecl, importcpp: "AddWithGraph", header: "IFSelect_GraphCounter.hxx".}
+

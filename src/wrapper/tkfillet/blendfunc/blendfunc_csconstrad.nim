@@ -1,4 +1,14 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkfillet/blend/blend_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -16,15 +26,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Circ"
-discard "forward decl of Blend_Point"
 
 
 proc newBlendFuncCSConstRad*(s: Handle[Adaptor3dHSurface];
@@ -118,3 +119,4 @@ proc section*(this: var BlendFuncCSConstRad; p: BlendPoint;
 proc resolution*(this: BlendFuncCSConstRad; iC2d: cint; tol: cfloat; tolU: var cfloat;
                 tolV: var cfloat) {.noSideEffect, cdecl, importcpp: "Resolution",
                                  header: "BlendFunc_CSConstRad.hxx".}
+

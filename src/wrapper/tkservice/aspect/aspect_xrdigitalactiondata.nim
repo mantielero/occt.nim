@@ -1,5 +1,7 @@
 import aspect_types
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,3 +21,4 @@ import aspect_types
 
 proc newAspectXRDigitalActionData*(): AspectXRDigitalActionData {.cdecl,
     constructor, importcpp: "Aspect_XRDigitalActionData(@)", header: "Aspect_XRDigitalActionData.hxx".}
+

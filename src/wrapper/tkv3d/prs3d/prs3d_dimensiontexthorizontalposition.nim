@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -22,6 +23,7 @@ import prs3d_types
 ## ! DTHP_Center - value label located at center of dimension line.
 ## ! DTHP_Fit    - value label located automatically at left side if does not fits
 ## ! the dimension space, otherwise the value label is placed at center.
+
 
 
 

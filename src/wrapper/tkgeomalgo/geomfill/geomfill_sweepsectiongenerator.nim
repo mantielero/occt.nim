@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
 import geomfill_types
+
+
 
 ##  Created on: 1994-02-28
 ##  Created by: Bruno DUMORTIER
@@ -16,11 +24,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Trsf"
 
 
 proc newGeomFillSweepSectionGenerator*(): GeomFillSweepSectionGenerator {.cdecl,
@@ -86,3 +89,4 @@ proc transformation*(this: GeomFillSweepSectionGenerator; index: cint): TrsfObj 
     noSideEffect, cdecl, importcpp: "Transformation", header: "GeomFill_SweepSectionGenerator.hxx".}
 proc parameter*(this: GeomFillSweepSectionGenerator; p: cint): cfloat {.noSideEffect,
     cdecl, importcpp: "Parameter", header: "GeomFill_SweepSectionGenerator.hxx".}
+

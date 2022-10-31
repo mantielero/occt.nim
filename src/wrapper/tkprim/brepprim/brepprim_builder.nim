@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkbrep/brep/brep_types
 import brepprim_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1992-03-12
 ##  Created by: Philippe DAUTRY
@@ -16,18 +21,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRep_Builder"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pln"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Circ2d"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Pnt"
 
 
 proc newBRepPrimBuilder*(): BRepPrimBuilder {.cdecl, constructor,
@@ -83,3 +76,4 @@ proc completeFace*(this: BRepPrimBuilder; f: var TopoDS_Face) {.noSideEffect, cd
     importcpp: "CompleteFace", header: "BRepPrim_Builder.hxx".}
 proc completeShell*(this: BRepPrimBuilder; s: var TopoDS_Shell) {.noSideEffect, cdecl,
     importcpp: "CompleteShell", header: "BRepPrim_Builder.hxx".}
+

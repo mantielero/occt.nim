@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,15 +20,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Ax2"
-discard "forward decl of BRepPrim_Wedge"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopoDS_Face"
 
 
 proc box*(): BRepPrimAPI_MakeBox {.cdecl, constructor,
@@ -68,3 +63,4 @@ proc rightFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "RightFace", header: "BRepPrimAPI_MakeBox.hxx".}
 proc topFace*(this: var BRepPrimAPI_MakeBox): TopoDS_Face {.cdecl,
     importcpp: "TopFace", header: "BRepPrimAPI_MakeBox.hxx".}
+

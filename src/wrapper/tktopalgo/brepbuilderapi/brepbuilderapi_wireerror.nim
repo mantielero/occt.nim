@@ -1,4 +1,5 @@
-import brepbuilderapi_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -26,6 +27,7 @@ import brepbuilderapi_types
 ## ! The last edge which you attempted to add was not connected to the wire.
 ## ! -      BRepBuilderAPI_NonManifoldWire
 ## ! The wire with some singularity.
+
 
 
 

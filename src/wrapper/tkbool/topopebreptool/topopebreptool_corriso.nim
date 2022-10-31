@@ -1,4 +1,9 @@
 import topopebreptool_types
+import ../../tkg3d/geomadaptor/geomadaptor_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-11-25
 ##  Created by: Xuan PHAM PHU
@@ -16,12 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of GeomAdaptor_Surface"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopOpeBRepTool_C2DF"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc newTopOpeBRepToolCORRISO*(): TopOpeBRepToolCORRISO {.cdecl, constructor,
@@ -88,3 +87,4 @@ proc addNewConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
 proc removeOldConnexity*(this: var TopOpeBRepToolCORRISO; v: TopoDS_Vertex;
                         e: TopoDS_Edge): bool {.cdecl,
     importcpp: "RemoveOldConnexity", header: "TopOpeBRepTool_CORRISO.hxx".}
+

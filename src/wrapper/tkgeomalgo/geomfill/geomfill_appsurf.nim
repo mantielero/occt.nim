@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkgeombase/approx/approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -16,11 +23,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of GeomFill_SectionGenerator"
-discard "forward decl of GeomFill_Line"
 
 
 proc newGeomFillAppSurf*(): GeomFillAppSurf {.cdecl, constructor,
@@ -119,4 +121,5 @@ proc tolCurveOnSurf*(this: GeomFillAppSurf; index: cint): cfloat {.noSideEffect,
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+
 

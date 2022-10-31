@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
 import gce2d_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,11 +21,6 @@ import gce2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Elips2d"
-discard "forward decl of gp_Ax2d"
-discard "forward decl of gp_Ax22d"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newGCE2dMakeEllipse*(e: Elips2dObj): GCE2dMakeEllipse {.cdecl, constructor,
@@ -37,3 +37,4 @@ proc value*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.noSideEffect, cdecl
 converter `constopencascade`*(this: GCE2dMakeEllipse): Handle[Geom2dEllipse] {.
     noSideEffect, cdecl,
     importcpp: "GCE2d_MakeEllipse::operator constopencascade", header: "GCE2d_MakeEllipse.hxx".}
+

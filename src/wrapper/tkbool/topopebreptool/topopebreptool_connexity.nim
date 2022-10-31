@@ -1,4 +1,8 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-12-09
 ##  Created by: Xuan PHAM PHU
@@ -16,7 +20,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepToolConnexity*(): TopOpeBRepToolConnexity {.cdecl, constructor,
@@ -47,3 +50,4 @@ proc isFaulty*(this: TopOpeBRepToolConnexity): bool {.noSideEffect, cdecl,
     importcpp: "IsFaulty", header: "TopOpeBRepTool_connexity.hxx".}
 proc isInternal*(this: TopOpeBRepToolConnexity; item: var TopToolsListOfShape): cint {.
     noSideEffect, cdecl, importcpp: "IsInternal", header: "TopOpeBRepTool_connexity.hxx".}
+

@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,13 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Ax1"
 
 
 proc newGceMakeCirc*(a2: Ax2Obj; radius: cfloat): GceMakeCirc {.cdecl, constructor,
@@ -47,3 +43,4 @@ proc operator*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl, importcpp: "Op
                                       header: "gce_MakeCirc.hxx".}
 converter `circ`*(this: GceMakeCirc): CircObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCirc::operator gp_Circ", header: "gce_MakeCirc.hxx".}
+

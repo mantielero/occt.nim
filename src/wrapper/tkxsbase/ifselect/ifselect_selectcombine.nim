@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,9 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of IFSelect_SelectionIterator"
-discard "forward decl of IFSelect_SelectCombine"
 
 
 
@@ -37,3 +37,4 @@ proc remove*(this: var IFSelectSelectCombine; num: cint): bool {.cdecl,
     importcpp: "Remove", header: "IFSelect_SelectCombine.hxx".}
 proc fillIterator*(this: IFSelectSelectCombine; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectCombine.hxx".}
+

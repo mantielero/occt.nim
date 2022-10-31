@@ -1,4 +1,10 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,16 +22,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_DataStructure"
-discard "forward decl of TopOpeBRepDS_Surface"
-discard "forward decl of TopOpeBRepDS_CurveIterator"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of TopOpeBRepDS_PointIterator"
-discard "forward decl of TopOpeBRepDS_Point"
-discard "forward decl of TopOpeBRepDS_SurfaceIterator"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_HDataStructure"
 
 
 proc newTopOpeBRepDS_HDataStructure*(): TopOpeBRepDS_HDataStructure {.cdecl,
@@ -151,3 +147,4 @@ proc clearStoreInterferences*(this: var TopOpeBRepDS_HDataStructure;
                              li: TopOpeBRepDS_ListOfInterference; `is`: cint;
                              str: TCollectionAsciiString = newTCollectionAsciiString("")) {.cdecl,
     importcpp: "ClearStoreInterferences", header: "TopOpeBRepDS_HDataStructure.hxx".}
+

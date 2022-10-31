@@ -1,4 +1,7 @@
 import tcolgeom_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
@@ -26,3 +29,4 @@ proc newTColGeomHArray1OfCurve*(theOther: TColGeomArray1OfCurve): TColGeomHArray
     cdecl, constructor, importcpp: "TColGeom_HArray1OfCurve(@)", dynlib: tkg3d.}
 proc array1*(this: TColGeomHArray1OfCurve): TColGeomArray1OfCurve {.noSideEffect,
     cdecl, importcpp: "Array1", dynlib: tkg3d.}
+

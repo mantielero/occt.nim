@@ -1,4 +1,7 @@
+import ../tkgeombase/gce/gce_types
 import gce2d_types
+
+
 
 ##  Created on: 1992-09-29
 ##  Created by: Remi GILET
@@ -29,3 +32,4 @@ proc isDone*(this: GCE2dRoot): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                   header: "GCE2d_Root.hxx".}
 proc status*(this: GCE2dRoot): GceErrorType {.noSideEffect, cdecl,
     importcpp: "Status", header: "GCE2d_Root.hxx".}
+

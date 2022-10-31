@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,10 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_DataInfo"
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_TransientMapper"
 
 
 proc newTransferTransientMapper*(akey: Handle[StandardTransient]): TransferTransientMapper {.
@@ -32,4 +31,5 @@ proc valueType*(this: TransferTransientMapper): Handle[StandardType] {.noSideEff
     cdecl, importcpp: "ValueType", header: "Transfer_TransientMapper.hxx".}
 proc valueTypeName*(this: TransferTransientMapper): cstring {.noSideEffect, cdecl,
     importcpp: "ValueTypeName", header: "Transfer_TransientMapper.hxx".}
+
 

@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -16,18 +23,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Edge"
 
 
 proc edge*(): EdgeObj {.cdecl, constructor,
@@ -151,3 +146,4 @@ proc vertex1*(this: EdgeObj): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex1", header: "BRepBuilderAPI_MakeEdge.hxx".}
 proc vertex2*(this: EdgeObj): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex2", header: "BRepBuilderAPI_MakeEdge.hxx".}
+

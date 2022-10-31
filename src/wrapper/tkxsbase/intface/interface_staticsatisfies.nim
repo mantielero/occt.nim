@@ -1,3 +1,5 @@
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -14,3 +16,4 @@
 type
   InterfaceStaticSatisfies* = proc (val: Handle[TCollectionHAsciiString]): bool {.
       cdecl.}
+

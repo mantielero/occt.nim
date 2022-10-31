@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,11 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Ax2d"
-discard "forward decl of gp_Ax22d"
-discard "forward decl of gp_Hypr2d"
 
 
 proc newGceMakeHypr2d*(s1: Pnt2dObj; s2: Pnt2dObj; center: Pnt2dObj): GceMakeHypr2d {.cdecl,
@@ -36,3 +34,4 @@ proc operator*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeHypr2d.hxx".}
 converter `hypr2d`*(this: GceMakeHypr2d): Hypr2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeHypr2d::operator gp_Hypr2d", header: "gce_MakeHypr2d.hxx".}
+

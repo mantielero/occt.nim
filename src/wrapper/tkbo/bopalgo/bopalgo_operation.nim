@@ -1,4 +1,5 @@
-import bopalgo_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -13,6 +14,7 @@ import bopalgo_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 
 

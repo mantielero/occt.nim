@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-10-13
 ##  Created by: Laurent BOURESCHE
@@ -16,11 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_CoonsAlgPatch"
-discard "forward decl of GeomFill_TgtField"
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of GeomFill_Boundary"
-discard "forward decl of GeomFill_BoundWithSurf"
 
 
 proc newGeomFillConstrainedFilling*(maxDeg: cint; maxSeg: cint): GeomFillConstrainedFilling {.
@@ -52,3 +51,4 @@ proc checkApprox*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
     importcpp: "CheckApprox", header: "GeomFill_ConstrainedFilling.hxx".}
 proc checkResult*(this: var GeomFillConstrainedFilling; i: cint) {.cdecl,
     importcpp: "CheckResult", header: "GeomFill_ConstrainedFilling.hxx".}
+

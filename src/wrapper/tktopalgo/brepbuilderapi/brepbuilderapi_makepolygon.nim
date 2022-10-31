@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepbuilderapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-29
 ##  Created by: Remi LEQUETTE
@@ -16,11 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Wire"
 
 
 proc polygon*(): BRepBuilderAPI_MakePolygon {.cdecl,
@@ -72,3 +71,4 @@ proc wire*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
 converter `topoDS_Wire`*(this: var BRepBuilderAPI_MakePolygon): TopoDS_Wire {.cdecl,
     importcpp: "BRepBuilderAPI_MakePolygon::operator TopoDS_Wire",
     header: "BRepBuilderAPI_MakePolygon.hxx".}
+

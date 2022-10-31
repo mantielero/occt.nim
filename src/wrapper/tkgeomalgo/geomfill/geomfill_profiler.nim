@@ -1,4 +1,10 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
 import geomfill_types
+
+
 
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
@@ -16,9 +22,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Geom_Curve"
 
 
 proc newGeomFillProfiler*(): GeomFillProfiler {.cdecl, constructor,
@@ -46,3 +49,4 @@ proc knotsAndMults*(this: GeomFillProfiler; knots: var TColStdArray1OfReal;
     importcpp: "KnotsAndMults", header: "GeomFill_Profiler.hxx".}
 proc curve*(this: GeomFillProfiler; index: cint): Handle[GeomCurve] {.noSideEffect,
     cdecl, importcpp: "Curve", header: "GeomFill_Profiler.hxx".}
+

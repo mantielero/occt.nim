@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Created on: 2014-08-15
 ##  Created by: Varvara POSKONINA
@@ -47,3 +50,4 @@ proc getSensitiveById*(this: SelectMgrSensitiveEntitySet; theIndex: cint): Handl
                                header: "SelectMgr_SensitiveEntitySet.hxx".}
 proc sensitives*(this: SelectMgrSensitiveEntitySet): SelectMgrIndexedMapOfHSensitive {.
     noSideEffect, cdecl, importcpp: "Sensitives", header: "SelectMgr_SensitiveEntitySet.hxx".}
+

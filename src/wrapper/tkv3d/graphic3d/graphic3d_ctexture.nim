@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -17,3 +19,4 @@ import graphic3d_types
 
 proc newGraphic3dCTexture*(): Graphic3dCTexture {.cdecl, constructor,
     importcpp: "Graphic3d_CTexture(@)", header: "Graphic3d_CTexture.hxx".}
+

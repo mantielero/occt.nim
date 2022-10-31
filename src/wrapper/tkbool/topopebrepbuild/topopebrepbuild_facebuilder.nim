@@ -1,4 +1,8 @@
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_WireEdgeSet"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_ShapeSet"
 
 
 proc newTopOpeBRepBuildFaceBuilder*(): TopOpeBRepBuildFaceBuilder {.cdecl,
@@ -74,3 +75,4 @@ proc edgeConnexity*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape): cint {.
 proc addEdgeWire*(this: TopOpeBRepBuildFaceBuilder; e: TopoDS_Shape;
                  w: var TopoDS_Shape): cint {.noSideEffect, cdecl,
     importcpp: "AddEdgeWire", header: "TopOpeBRepBuild_FaceBuilder.hxx".}
+

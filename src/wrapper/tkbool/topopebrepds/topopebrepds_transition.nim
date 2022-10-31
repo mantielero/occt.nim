@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+
+
 
 ##  Created on: 1994-05-26
 ##  Created by: Jean Yves LEBEY
@@ -77,3 +80,4 @@ proc complement*(this: TopOpeBRepDS_Transition): TopOpeBRepDS_Transition {.
     noSideEffect, cdecl, importcpp: "Complement", header: "TopOpeBRepDS_Transition.hxx".}
 proc isUnknown*(this: TopOpeBRepDS_Transition): bool {.noSideEffect, cdecl,
     importcpp: "IsUnknown", header: "TopOpeBRepDS_Transition.hxx".}
+

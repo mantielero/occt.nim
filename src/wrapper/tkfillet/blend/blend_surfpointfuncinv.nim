@@ -1,4 +1,8 @@
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
 import blend_types
+
+
 
 ##  Created on: 1997-02-12
 ##  Created by: Laurent BOURESCHE
@@ -16,8 +20,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
 
 
 proc nbVariables*(this: BlendSurfPointFuncInv): cint {.noSideEffect, cdecl,
@@ -39,3 +41,4 @@ proc getBounds*(this: BlendSurfPointFuncInv; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "Blend_SurfPointFuncInv.hxx".}
 proc isSolution*(this: var BlendSurfPointFuncInv; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "Blend_SurfPointFuncInv.hxx".}
+

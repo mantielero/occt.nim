@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-10-29
 ##  Created by: Philippe MANGIN
@@ -16,9 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc newGeomFillPlanFunc*(p: PntObj; v: VecObj; c: Handle[Adaptor3dHCurve]): GeomFillPlanFunc {.
@@ -36,3 +38,4 @@ proc dedt*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; dv: VecObj; df: va
 proc d2e*(this: var GeomFillPlanFunc; x: cfloat; dp: VecObj; d2p: VecObj; dv: VecObj; d2v: VecObj;
          dfdt: var cfloat; d2fdt2: var cfloat; d2fdtdx: var cfloat) {.cdecl,
     importcpp: "D2E", header: "GeomFill_PlanFunc.hxx".}
+

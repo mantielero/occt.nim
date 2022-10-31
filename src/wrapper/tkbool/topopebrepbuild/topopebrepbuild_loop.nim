@@ -1,4 +1,7 @@
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-12-19
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_BlockIterator"
-discard "forward decl of TopOpeBRepBuild_Loop"
 
 
 
@@ -35,3 +35,4 @@ proc blockIterator*(this: TopOpeBRepBuildLoop): TopOpeBRepBuildBlockIterator {.
     noSideEffect, cdecl, importcpp: "BlockIterator", header: "TopOpeBRepBuild_Loop.hxx".}
 proc dump*(this: TopOpeBRepBuildLoop) {.noSideEffect, cdecl, importcpp: "Dump",
                                      header: "TopOpeBRepBuild_Loop.hxx".}
+

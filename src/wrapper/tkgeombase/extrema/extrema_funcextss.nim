@@ -1,4 +1,8 @@
+import ../../tkmath/math/math_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1996-01-09
 ##  Created by: Laurent PAINNOT
@@ -16,10 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of math_Matrix"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaFuncExtSS*(): ExtremaFuncExtSS {.cdecl, constructor,
@@ -49,3 +49,4 @@ proc pointOnS1*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect,
     importcpp: "PointOnS1", header: "Extrema_FuncExtSS.hxx".}
 proc pointOnS2*(this: ExtremaFuncExtSS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "Extrema_FuncExtSS.hxx".}
+

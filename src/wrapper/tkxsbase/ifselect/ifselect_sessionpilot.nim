@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-07-27
 ##  Created by: Christian CAILLET
@@ -16,12 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_WorkSession"
-discard "forward decl of Standard_Transient"
-discard "forward decl of IFSelect_WorkLibrary"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_SignCounter"
-discard "forward decl of IFSelect_SessionPilot"
 
 
 
@@ -83,3 +81,4 @@ proc `do`*(this: var IFSelectSessionPilot; number: cint;
     importcpp: "Do", header: "IFSelect_SessionPilot.hxx".}
 proc help*(this: IFSelectSessionPilot; number: cint): cstring {.noSideEffect, cdecl,
     importcpp: "Help", header: "IFSelect_SessionPilot.hxx".}
+

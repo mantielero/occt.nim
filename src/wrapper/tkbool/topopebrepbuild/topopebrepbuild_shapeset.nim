@@ -1,4 +1,11 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-16
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +23,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TCollection_AsciiString"
 
 
 proc newTopOpeBRepBuildShapeSet*(subShapeType: TopAbsShapeEnum;
@@ -103,3 +108,4 @@ proc sName*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
 proc sNameori*(this: TopOpeBRepBuildShapeSet; s: TopToolsListOfShape;
               sb: TCollectionAsciiString = newTCollectionAsciiString(""); sa: TCollectionAsciiString = newTCollectionAsciiString("")): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "SNameori", header: "TopOpeBRepBuild_ShapeSet.hxx".}
+

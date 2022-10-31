@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import chfids_types
+
+
 
 ##  Created on: 1993-11-26
 ##  Created by: Isabelle GRIGNON
@@ -16,10 +21,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of ChFiDS_FaceInterference"
-discard "forward decl of ChFiDS_CommonPoint"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of ChFiDS_SurfData"
 
 
 
@@ -131,3 +132,4 @@ proc twistOnS1*(this: var ChFiDS_SurfData; t: bool) {.cdecl, importcpp: "TwistOn
     header: "ChFiDS_SurfData.hxx".}
 proc twistOnS2*(this: var ChFiDS_SurfData; t: bool) {.cdecl, importcpp: "TwistOnS2",
     header: "ChFiDS_SurfData.hxx".}
+

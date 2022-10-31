@@ -1,4 +1,9 @@
 import topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1998-03-23
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of TopoDS_Face"
 
 
 proc newTopOpeBRepToolC2DF*(): TopOpeBRepToolC2DF {.cdecl, constructor,
@@ -37,3 +40,4 @@ proc isPC*(this: TopOpeBRepToolC2DF; pc: Handle[Geom2dCurve]): bool {.noSideEffe
     cdecl, importcpp: "IsPC", header: "TopOpeBRepTool_C2DF.hxx".}
 proc isFace*(this: TopOpeBRepToolC2DF; f: TopoDS_Face): bool {.noSideEffect, cdecl,
     importcpp: "IsFace", header: "TopOpeBRepTool_C2DF.hxx".}
+

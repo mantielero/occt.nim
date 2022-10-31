@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkmath/gp/gp_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepDS_Point*(): TopOpeBRepDS_Point {.cdecl, constructor,
@@ -40,3 +42,4 @@ proc keep*(this: TopOpeBRepDS_Point): bool {.noSideEffect, cdecl, importcpp: "Ke
     header: "TopOpeBRepDS_Point.hxx".}
 proc changeKeep*(this: var TopOpeBRepDS_Point; b: bool) {.cdecl,
     importcpp: "ChangeKeep", header: "TopOpeBRepDS_Point.hxx".}
+

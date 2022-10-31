@@ -1,5 +1,7 @@
 import brepbuilderapi_types
 
+
+
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -16,7 +18,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
 
 
 proc destroyBRepBuilderAPI_Command*(this: var BRepBuilderAPI_Command) {.cdecl,
@@ -25,3 +26,4 @@ proc isDone*(this: BRepBuilderAPI_Command): bool {.noSideEffect, cdecl,
     importcpp: "IsDone", header: "BRepBuilderAPI_Command.hxx".}
 proc check*(this: BRepBuilderAPI_Command) {.noSideEffect, cdecl, importcpp: "Check",
     header: "BRepBuilderAPI_Command.hxx".}
+

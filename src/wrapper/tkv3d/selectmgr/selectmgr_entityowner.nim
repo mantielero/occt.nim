@@ -1,4 +1,13 @@
+import ../../tkmath/toploc/toploc_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../tkv3d/v3d/v3d_types
 import selectmgr_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 1995-05-23
 ##  Created by: Robert COUBLANC
@@ -16,7 +25,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of V3d_Viewer"
 
 
 proc newSelectMgrEntityOwner*(aPriority: cint = 0): SelectMgrEntityOwner {.cdecl,
@@ -97,6 +105,7 @@ proc set*(this: var SelectMgrEntityOwner;
     header: "SelectMgr_EntityOwner.hxx".}
 proc set*(this: var SelectMgrEntityOwner; thePriority: cint) {.cdecl, importcpp: "Set",
     header: "SelectMgr_EntityOwner.hxx".}
+
 
 
 

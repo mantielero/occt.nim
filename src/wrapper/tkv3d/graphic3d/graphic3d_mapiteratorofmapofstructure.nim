@@ -1,3 +1,5 @@
+
+
 ##  Created on: 2014-12-18
 ##  Created by: Kirill Gavrilov
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -15,3 +17,4 @@
 
 #type
 #  Graphic3dMapIteratorOfMapOfStructure* = Iterator
+

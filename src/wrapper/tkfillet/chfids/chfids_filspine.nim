@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import chfids_types
+import ../../tkgeomalgo/law/law_types
+
+
 
 ##  Created on: 1995-04-24
 ##  Created by: Modelistation
@@ -16,13 +22,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_XY"
-discard "forward decl of Law_Function"
-discard "forward decl of Law_Composite"
-discard "forward decl of ChFiDS_HElSpine"
-discard "forward decl of ChFiDS_FilSpine"
 
 
 
@@ -65,3 +64,4 @@ proc changeLaw*(this: var ChFiDS_FilSpine; e: TopoDS_Edge): var Handle[LawFuncti
     cdecl, importcpp: "ChangeLaw", header: "ChFiDS_FilSpine.hxx".}
 proc maxRadFromSeqAndLaws*(this: ChFiDS_FilSpine): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxRadFromSeqAndLaws", header: "ChFiDS_FilSpine.hxx".}
+

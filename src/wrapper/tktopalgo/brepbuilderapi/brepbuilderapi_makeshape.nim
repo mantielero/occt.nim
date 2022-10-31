@@ -1,4 +1,8 @@
 import brepbuilderapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,8 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Shape"
 
 
 proc build*(this: var BRepBuilderAPI_MakeShape) {.cdecl, importcpp: "Build",
@@ -33,3 +35,4 @@ proc modified*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): TopToolsLis
     cdecl, importcpp: "Modified", header: "BRepBuilderAPI_MakeShape.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeShape; s: TopoDS_Shape): bool {.cdecl,
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeShape.hxx".}
+

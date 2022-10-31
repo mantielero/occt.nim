@@ -1,4 +1,18 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,8 +28,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of BOPAlgo_PaveFiller"
 
 
 proc newBOPAlgoBOP*(): BOPAlgoBOP {.cdecl, constructor, importcpp: "BOPAlgo_BOP(@)",
@@ -30,3 +42,9 @@ proc setOperation*(this: var BOPAlgoBOP; theOperation: BOPAlgoOperation) {.cdecl
 proc operation*(this: BOPAlgoBOP): BOPAlgoOperation {.noSideEffect, cdecl,
     importcpp: "Operation", header: "BOPAlgo_BOP.hxx".}
 proc perform*(this: var BOPAlgoBOP) {.cdecl, importcpp: "Perform", header: "BOPAlgo_BOP.hxx".}
+
+
+
+
+
+

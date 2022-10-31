@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+
+
 
 ##  Created on: 1994-06-07
 ##  Created by: Jean Yves LEBEY
@@ -24,3 +27,4 @@ proc current*(this: TopOpeBRepDS_SurfaceIterator): cint {.noSideEffect, cdecl,
     importcpp: "Current", header: "TopOpeBRepDS_SurfaceIterator.hxx".}
 proc orientation*(this: TopOpeBRepDS_SurfaceIterator; s: TopAbsState): TopAbsOrientation {.
     noSideEffect, cdecl, importcpp: "Orientation", header: "TopOpeBRepDS_SurfaceIterator.hxx".}
+

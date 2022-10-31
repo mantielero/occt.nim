@@ -1,4 +1,9 @@
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 2016-05-10
 ##  Created by: Alexander MALYSHEV
@@ -16,7 +21,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of math_Vector"
 
 
 proc newExtremaFuncPSDist*(theS: Adaptor3dSurface; theP: PntObj): ExtremaFuncPSDist {.
@@ -29,3 +33,4 @@ proc gradient*(this: var ExtremaFuncPSDist; x: MathVector; g: var MathVector): b
     cdecl, importcpp: "Gradient", header: "Extrema_FuncPSDist.hxx".}
 proc values*(this: var ExtremaFuncPSDist; x: MathVector; f: var cfloat; g: var MathVector): bool {.
     cdecl, importcpp: "Values", header: "Extrema_FuncPSDist.hxx".}
+

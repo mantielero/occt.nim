@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-01-08
 ##  Created by: Christian CAILLET
@@ -16,13 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of IFSelect_ContextWrite"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of Interface_CopyTool"
-discard "forward decl of Standard_Transient"
-discard "forward decl of IFSelect_WorkLibrary"
 
 
 
@@ -60,3 +56,4 @@ proc setDumpHelp*(this: var IFSelectWorkLibrary; level: cint; help: cstring) {.c
     importcpp: "SetDumpHelp", header: "IFSelect_WorkLibrary.hxx".}
 proc dumpHelp*(this: IFSelectWorkLibrary; level: cint): cstring {.noSideEffect, cdecl,
     importcpp: "DumpHelp", header: "IFSelect_WorkLibrary.hxx".}
+

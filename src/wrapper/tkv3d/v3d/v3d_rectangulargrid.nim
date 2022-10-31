@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/quantity/quantity_types
 import v3d_types
+
+
 
 ##  Created on: 1998-07-16
 ##  Created by: CAL
@@ -16,8 +20,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_Group"
 
 
 proc newV3dRectangularGrid*(aViewer: V3dViewerPointer; aColor: QuantityColor;
@@ -43,4 +45,5 @@ proc setGraphicValues*(this: var V3dRectangularGrid; xSize: cfloat; ySize: cfloa
 proc dumpJson*(this: V3dRectangularGrid; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_RectangularGrid.hxx".}
+
 

@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1994-02-14
 ##  Created by: model
@@ -16,17 +23,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Geom_BezierSurface"
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor3d_HSurface"
 
 
 
@@ -130,3 +126,4 @@ proc basisSurface*(this: Adaptor3dHSurface): Handle[Adaptor3dHSurface] {.
     noSideEffect, cdecl, importcpp: "BasisSurface", header: "Adaptor3d_HSurface.hxx".}
 proc offsetValue*(this: Adaptor3dHSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "OffsetValue", header: "Adaptor3d_HSurface.hxx".}
+

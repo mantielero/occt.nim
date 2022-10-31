@@ -1,4 +1,5 @@
-import chfids_types
+
+
 
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
@@ -27,6 +28,7 @@ import chfids_types
 ## ! - OnSame  means  that the  edge of  the  fillet  has a
 ## ! concave side different than one of the two other edges
 ## ! and identical to the third edge.
+
 
 
 

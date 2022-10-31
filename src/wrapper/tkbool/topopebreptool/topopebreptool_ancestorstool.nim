@@ -1,4 +1,8 @@
-import topopebreptool_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-08-12
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +20,9 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc makeAncestors*(s: TopoDS_Shape; ts: TopAbsShapeEnum; ta: TopAbsShapeEnum;
                    m: var TopToolsIndexedDataMapOfShapeListOfShape) {.cdecl,
     importcpp: "TopOpeBRepTool_AncestorsTool::MakeAncestors(@)", header: "TopOpeBRepTool_AncestorsTool.hxx".}
+

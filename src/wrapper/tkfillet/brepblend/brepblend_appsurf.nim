@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import brepblend_types
+import ../../tkgeombase/approx/approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkfillet/blend/blend_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-12-06
 ##  Created by: Jacques GOUSSARD
@@ -16,11 +24,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Blend_AppFunction"
-discard "forward decl of BRepBlend_Line"
 
 
 proc newBRepBlendAppSurf*(): BRepBlendAppSurf {.cdecl, constructor,
@@ -117,4 +120,5 @@ proc tolCurveOnSurf*(this: BRepBlendAppSurf; index: cint): cfloat {.noSideEffect
 ##  #undef TheLine_hxx
 ##  #undef AppBlend_AppSurf
 ##  #undef AppBlend_AppSurf_hxx
+
 

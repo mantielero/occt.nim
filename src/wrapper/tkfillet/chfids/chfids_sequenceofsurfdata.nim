@@ -1,4 +1,5 @@
-import chfids_types
+
+
 
 ##  Created on: 1993-11-17
 ##  Created by: Isabelle GRIGNON
@@ -15,5 +16,6 @@ import chfids_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

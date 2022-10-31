@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Copyright (c) 1999-2013 OPEN CASCADE SAS
 ##
@@ -69,3 +74,4 @@ proc getTextPosition*(this: PrsDimLengthDimension): PntObj {.noSideEffect, cdecl
 proc setDirection*(this: var PrsDimLengthDimension; theDirection: DirObj;
                   theUseDirection: bool = true) {.cdecl, importcpp: "SetDirection",
     header: "PrsDim_LengthDimension.hxx".}
+

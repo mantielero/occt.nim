@@ -1,4 +1,10 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Jean-Pierre COMBE/Odile Olivier
@@ -30,3 +36,4 @@ proc newPrsDimParallelRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
     cdecl, constructor, importcpp: "PrsDim_ParallelRelation(@)", header: "PrsDim_ParallelRelation.hxx".}
 proc isMovable*(this: PrsDimParallelRelation): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_ParallelRelation.hxx".}
+

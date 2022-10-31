@@ -1,4 +1,9 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkg3d/topabs/topabs_types
 import topods_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
@@ -130,4 +135,5 @@ proc dumpJson*(this: TopoDS_Shape; theOStream: var StandardOStream;
 
 proc hashCode*(theShape: TopoDS_Shape; theUpperBound: cint): cint {.cdecl.} =
   discard
+
 

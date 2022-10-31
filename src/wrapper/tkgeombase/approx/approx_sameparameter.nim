@@ -1,4 +1,11 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1995-06-02
 ##  Created by: Xavier BENVENISTE
@@ -16,12 +23,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Surface"
 
 
 proc newApproxSameParameter*(c3d: Handle[GeomCurve]; c2d: Handle[Geom2dCurve];
@@ -43,3 +44,4 @@ proc isSameParameter*(this: ApproxSameParameter): bool {.noSideEffect, cdecl,
     importcpp: "IsSameParameter", header: "Approx_SameParameter.hxx".}
 proc curve2d*(this: ApproxSameParameter): Handle[Geom2dCurve] {.noSideEffect, cdecl,
     importcpp: "Curve2d", header: "Approx_SameParameter.hxx".}
+

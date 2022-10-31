@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2014-12-18
 ##  Created by: Kirill Gavrilov
@@ -30,4 +33,5 @@ proc setVisible*(this: var Graphic3dViewAffinity; theViewId: cint; theIsVisible:
 proc dumpJson*(this: Graphic3dViewAffinity; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_ViewAffinity.hxx".}
+
 

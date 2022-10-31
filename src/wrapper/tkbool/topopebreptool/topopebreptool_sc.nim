@@ -1,3 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import topopebreptool_types
+import ../../tkbrep/topods/topods_types
+
+
 ##  Created on: 1998-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1998-1999 Matra Datavision

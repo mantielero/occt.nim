@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1994-04-21
 ##  Created by: Christian CAILLET
@@ -16,13 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Signature"
-discard "forward decl of IFSelect_SignCounter"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_SelectSignature"
 
 
 
@@ -53,3 +50,4 @@ proc isExact*(this: IFSelectSelectSignature): bool {.noSideEffect, cdecl,
     importcpp: "IsExact", header: "IFSelect_SelectSignature.hxx".}
 proc extractLabel*(this: IFSelectSelectSignature): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "ExtractLabel", header: "IFSelect_SelectSignature.hxx".}
+

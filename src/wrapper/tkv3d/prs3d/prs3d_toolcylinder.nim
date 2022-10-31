@@ -1,4 +1,9 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 2016-02-04
 ##  Created by: Anastasia BORISOVA
@@ -27,3 +32,4 @@ proc create*(theBottomRad: cfloat; theTopRad: cfloat; theHeight: cfloat;
 proc newPrs3dToolCylinder*(theBottomRad: cfloat; theTopRad: cfloat;
                           theHeight: cfloat; theNbSlices: cint; theNbStacks: cint): Prs3dToolCylinder {.
     cdecl, constructor, importcpp: "Prs3d_ToolCylinder(@)", header: "Prs3d_ToolCylinder.hxx".}
+

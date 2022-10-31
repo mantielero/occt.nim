@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2014-12-18
 ##  Created by: Kirill Gavrilov
@@ -15,5 +16,5 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
+
 

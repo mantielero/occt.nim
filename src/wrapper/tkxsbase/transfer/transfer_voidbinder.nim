@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1994-06-27
 ##  Created by: Design
@@ -16,7 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_VoidBinder"
 
 
 
@@ -27,3 +29,4 @@ proc resultType*(this: TransferVoidBinder): Handle[StandardType] {.noSideEffect,
     cdecl, importcpp: "ResultType", header: "Transfer_VoidBinder.hxx".}
 proc resultTypeName*(this: TransferVoidBinder): cstring {.noSideEffect, cdecl,
     importcpp: "ResultTypeName", header: "Transfer_VoidBinder.hxx".}
+

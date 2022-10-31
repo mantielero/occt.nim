@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Odile Olivier
@@ -32,3 +37,4 @@ proc kindOfDimension*(this: PrsDimChamf3dDimension): PrsDimKindOfDimension {.
     noSideEffect, cdecl, importcpp: "KindOfDimension", header: "PrsDim_Chamf3dDimension.hxx".}
 proc isMovable*(this: PrsDimChamf3dDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_Chamf3dDimension.hxx".}
+

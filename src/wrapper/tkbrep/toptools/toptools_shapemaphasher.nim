@@ -1,4 +1,5 @@
-import toptools_types
+
+
 
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
@@ -16,6 +17,6 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
+
 
 

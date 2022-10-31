@@ -1,5 +1,7 @@
 import appparcurves_types
 
+
+
 ##  Created on: 1993-02-24
 ##  Created by: Laurent PAINNOT
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,3 +37,4 @@ proc setIndex*(this: var AppParCurvesConstraintCouple; theIndex: cint) {.cdecl,
 proc setConstraint*(this: var AppParCurvesConstraintCouple;
                    cons: AppParCurvesConstraint) {.cdecl,
     importcpp: "SetConstraint", header: "AppParCurves_ConstraintCouple.hxx".}
+

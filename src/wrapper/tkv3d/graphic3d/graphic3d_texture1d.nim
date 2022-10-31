@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import graphic3d_types
+
+
 
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
@@ -16,9 +19,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Graphic3d_Texture1D"
 
 
 
@@ -29,3 +29,4 @@ proc numberOfTextures*(): cint {.cdecl, importcpp: "Graphic3d_Texture1D::NumberO
                               header: "Graphic3d_Texture1D.hxx".}
 proc textureName*(aRank: cint): TCollectionAsciiString {.cdecl,
     importcpp: "Graphic3d_Texture1D::TextureName(@)", header: "Graphic3d_Texture1D.hxx".}
+

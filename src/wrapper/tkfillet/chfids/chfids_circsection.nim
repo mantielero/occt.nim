@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import chfids_types
+
+
 
 ##  Created on: 1996-03-06
 ##  Created by: Laurent BOURESCHE
@@ -16,8 +19,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Lin"
 
 
 proc newChFiDS_CircSection*(): ChFiDS_CircSection {.cdecl, constructor,
@@ -30,3 +31,4 @@ proc get*(this: ChFiDS_CircSection; c: var CircObj; f: var cfloat; L: var cfloat
     noSideEffect, cdecl, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
 proc get*(this: ChFiDS_CircSection; c: var LinObj; f: var cfloat; L: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Get", header: "ChFiDS_CircSection.hxx".}
+

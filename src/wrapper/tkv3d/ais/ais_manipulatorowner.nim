@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 2015-12-23
 ##  Created by: Anastasia BORISOVA
@@ -37,3 +43,4 @@ proc mode*(this: AIS_ManipulatorOwner): AIS_ManipulatorMode {.noSideEffect, cdec
     importcpp: "Mode", header: "AIS_ManipulatorOwner.hxx".}
 proc index*(this: AIS_ManipulatorOwner): cint {.noSideEffect, cdecl,
     importcpp: "Index", header: "AIS_ManipulatorOwner.hxx".}
+

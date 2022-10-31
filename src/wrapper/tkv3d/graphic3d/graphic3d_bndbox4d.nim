@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2014-04-09
 ##  Created by: Varvara POSKONINA
@@ -14,5 +15,6 @@ import graphic3d_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

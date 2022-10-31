@@ -1,4 +1,9 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+
+
 
 ##  Created on: 1997-04-10
 ##  Created by: Prestataire Mary FABIEN
@@ -16,8 +21,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopOpeBRepDS_Check"
 
 
 
@@ -53,3 +56,4 @@ proc printShape*(this: var TopOpeBRepDS_Check; se: TopAbsShapeEnum;
     importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
 proc printShape*(this: var TopOpeBRepDS_Check; index: cint; s: var StandardOStream): var StandardOStream {.
     cdecl, importcpp: "PrintShape", header: "TopOpeBRepDS_Check.hxx".}
+

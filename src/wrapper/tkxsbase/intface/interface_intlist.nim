@@ -1,3 +1,7 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 ##  Created on: 1995-05-12
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision

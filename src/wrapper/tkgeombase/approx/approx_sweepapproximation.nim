@@ -1,4 +1,9 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1997-06-24
 ##  Created by: Philippe MANGIN
@@ -16,11 +21,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Approx_SweepFunction"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of AdvApprox_Cutting"
 
 
 proc newApproxSweepApproximation*(`func`: Handle[ApproxSweepFunction]): ApproxSweepApproximation {.
@@ -89,3 +89,4 @@ proc tolCurveOnSurf*(this: ApproxSweepApproximation; index: cint): cfloat {.
     noSideEffect, cdecl, importcpp: "TolCurveOnSurf", header: "Approx_SweepApproximation.hxx".}
 proc dump*(this: ApproxSweepApproximation; o: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "Dump", header: "Approx_SweepApproximation.hxx".}
+

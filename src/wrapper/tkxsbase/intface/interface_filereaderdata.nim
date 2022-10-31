@@ -1,3 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1992-02-10
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,13 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_ParamSet"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Interface_FileParameter"
-discard "forward decl of Interface_ParamList"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_FileReaderData"
 type
   HandleInterfaceFileReaderData* = Handle[InterfaceFileReaderData]
 

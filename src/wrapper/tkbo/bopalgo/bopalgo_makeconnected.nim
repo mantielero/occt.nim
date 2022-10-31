@@ -1,4 +1,8 @@
 import bopalgo_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 2018-03-29
 ##  Created by: Eugeny MALTCHIKOV
@@ -152,3 +156,4 @@ proc shape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect, cdecl,
 proc periodicShape*(this: BOPAlgoMakeConnected): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "PeriodicShape", header: "BOPAlgo_MakeConnected.hxx".}
 proc clear*(this: var BOPAlgoMakeConnected) {.cdecl, importcpp: "Clear", header: "BOPAlgo_MakeConnected.hxx".}
+

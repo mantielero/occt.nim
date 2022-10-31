@@ -1,5 +1,7 @@
 import topopebrepbuild_types
 
+
+
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,8 +18,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_LoopSet"
-discard "forward decl of TopOpeBRepBuild_LoopClassifier"
 
 
 proc newTopOpeBRepBuildArea3dBuilder*(): TopOpeBRepBuildArea3dBuilder {.cdecl,
@@ -32,3 +32,4 @@ proc initAreaBuilder*(this: var TopOpeBRepBuildArea3dBuilder;
                      lc: var TopOpeBRepBuildLoopClassifier;
                      forceClass: bool = false) {.cdecl, importcpp: "InitAreaBuilder",
     header: "TopOpeBRepBuild_Area3dBuilder.hxx".}
+

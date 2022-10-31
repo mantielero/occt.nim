@@ -1,4 +1,7 @@
+import ../tkgeombase/appparcurves/appparcurves_types
 import approx_types
+
+
 
 ##  Created on: 1994-02-21
 ##  Created by: Laurent PAINNOT
@@ -16,8 +19,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AppParCurves_MultiCurve"
-discard "forward decl of AppParCurves_MultiBSpCurve"
 
 
 proc newApproxMCurvesToBSpCurve*(): ApproxMCurvesToBSpCurve {.cdecl, constructor,
@@ -35,3 +36,4 @@ proc value*(this: ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     noSideEffect, cdecl, importcpp: "Value", header: "Approx_MCurvesToBSpCurve.hxx".}
 proc changeValue*(this: var ApproxMCurvesToBSpCurve): AppParCurvesMultiBSpCurve {.
     cdecl, importcpp: "ChangeValue", header: "Approx_MCurvesToBSpCurve.hxx".}
+

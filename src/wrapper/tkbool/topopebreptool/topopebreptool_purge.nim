@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1998-11-24
 ##  Created by: Prestataire Xuan PHAM PHU
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -35,3 +37,4 @@ when defined(OCCT_DEBUG):
 ##  TopOpeBRepTool_PURGE.cxx
 ##  ----------------------------------------------------------------------
 ## Standard_IMPORT void FUN_tool_ttranslate(const gp_Vec2d& tvector, const TopoDS_Face& fF, TopoDS_Edge& fyE);
+

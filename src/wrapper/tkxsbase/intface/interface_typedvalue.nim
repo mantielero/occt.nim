@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -14,10 +16,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_TypedValue"
 type
   HandleInterfaceTypedValue* = Handle[InterfaceTypedValue]
 

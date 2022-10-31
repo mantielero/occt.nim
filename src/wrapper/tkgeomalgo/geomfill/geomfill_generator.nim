@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
 import geomfill_types
+
+
 
 ##  Created on: 1994-02-17
 ##  Created by: Bruno DUMORTIER
@@ -16,9 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
 
 
 proc newGeomFillGenerator*(): GeomFillGenerator {.cdecl, constructor,
@@ -27,3 +28,4 @@ proc perform*(this: var GeomFillGenerator; pTol: cfloat) {.cdecl, importcpp: "Pe
     header: "GeomFill_Generator.hxx".}
 proc surface*(this: GeomFillGenerator): Handle[GeomSurface] {.noSideEffect, cdecl,
     importcpp: "Surface", header: "GeomFill_Generator.hxx".}
+

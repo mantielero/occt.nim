@@ -1,4 +1,5 @@
-import topods_types
+
+
 
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
@@ -16,5 +17,5 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
+
 

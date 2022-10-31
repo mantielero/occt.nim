@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepprim_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1991-09-18
 ##  Created by: Christophe MARION
@@ -16,18 +20,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of BRepPrim_Builder"
-discard "forward decl of gp_Ax2"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pln"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Lin"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of gp_Pnt"
 
 
 proc newBRepPrimGWedge*(): BRepPrimGWedge {.cdecl, constructor,
@@ -97,3 +89,4 @@ proc point*(this: var BRepPrimGWedge; d1: BRepPrimDirection; d2: BRepPrimDirecti
            d3: BRepPrimDirection): PntObj {.cdecl, importcpp: "Point", header: "BRepPrim_GWedge.hxx".}
 proc isDegeneratedShape*(this: var BRepPrimGWedge): bool {.cdecl,
     importcpp: "IsDegeneratedShape", header: "BRepPrim_GWedge.hxx".}
+

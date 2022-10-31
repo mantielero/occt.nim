@@ -1,4 +1,9 @@
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ## ! Created on: 2015-04-24
 ## ! Created by: NIKOLAI BUKHALOV
@@ -49,4 +54,5 @@ proc getResult*(this: BRepBuilderAPI_FastSewing): TopoDS_Shape {.noSideEffect, c
 proc getStatuses*(this: var BRepBuilderAPI_FastSewing;
                  theOS: ptr StandardOStream = cast[ptr StandardOStream](0)): BRepBuilderAPI_FastSewingFS_VARStatuses {.
     cdecl, importcpp: "GetStatuses", header: "BRepBuilderAPI_FastSewing.hxx".}
+
 

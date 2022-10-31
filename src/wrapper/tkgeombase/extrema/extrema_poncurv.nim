@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -16,7 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
 
 
 proc newExtremaPOnCurv*(): ExtremaPOnCurv {.cdecl, constructor,
@@ -33,4 +35,5 @@ proc parameter*(this: ExtremaPOnCurv): cfloat {.noSideEffect, cdecl,
 ##  #define Pnt_hxx <gp_Pnt.hxx>
 ##  #define Extrema_Point Extrema_POnCurv
 ##  #define Extrema_Point_hxx <Extrema_POnCurv.hxx>
+
 

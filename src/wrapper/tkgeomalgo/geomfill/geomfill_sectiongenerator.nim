@@ -1,4 +1,9 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import geomfill_types
+
+
 
 ##  Created on: 1994-02-18
 ##  Created by: Bruno DUMORTIER
@@ -44,3 +49,4 @@ proc section*(this: GeomFillSectionGenerator; p: cint; poles: var TColgpArray1Of
     noSideEffect, cdecl, importcpp: "Section", header: "GeomFill_SectionGenerator.hxx".}
 proc parameter*(this: GeomFillSectionGenerator; p: cint): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "GeomFill_SectionGenerator.hxx".}
+

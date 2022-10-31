@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,12 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_FindHasher"
-discard "forward decl of Transfer_ProcessForFinder"
-discard "forward decl of Transfer_ActorOfProcessForFinder"
-discard "forward decl of Transfer_Binder"
 
 
 proc newTransferIteratorOfProcessForFinder*(withstarts: bool): TransferIteratorOfProcessForFinder {.
@@ -39,3 +36,4 @@ proc hasStarting*(this: TransferIteratorOfProcessForFinder): bool {.noSideEffect
     cdecl, importcpp: "HasStarting", header: "Transfer_IteratorOfProcessForFinder.hxx".}
 proc starting*(this: TransferIteratorOfProcessForFinder): Handle[TransferFinder] {.
     noSideEffect, cdecl, importcpp: "Starting", header: "Transfer_IteratorOfProcessForFinder.hxx".}
+

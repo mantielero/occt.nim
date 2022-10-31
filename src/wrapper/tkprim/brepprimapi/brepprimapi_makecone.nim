@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,9 +19,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Ax2"
-discard "forward decl of BRepPrim_Cone"
 
 
 proc cone*(r1: cfloat; r2: cfloat; h: cfloat): BRepPrimAPI_MakeCone {.
@@ -33,3 +33,4 @@ proc oneAxis*(this: var BRepPrimAPI_MakeCone): pointer {.cdecl, importcpp: "OneA
     header: "BRepPrimAPI_MakeCone.hxx".}
 proc cone*(this: var BRepPrimAPI_MakeCone): var BRepPrimCone {.cdecl,
     importcpp: "Cone", header: "BRepPrimAPI_MakeCone.hxx".}
+

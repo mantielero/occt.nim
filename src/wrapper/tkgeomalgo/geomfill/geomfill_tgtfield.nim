@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../tkgeomalgo/law/law_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-12-04
 ##  Created by: Laurent BOURESCHE
@@ -16,9 +21,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_BSpline"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_TgtField"
 
 
 
@@ -33,3 +35,4 @@ proc d1*(this: GeomFillTgtField; w: cfloat): VecObj {.noSideEffect, cdecl, impor
     header: "GeomFill_TgtField.hxx".}
 proc d1*(this: GeomFillTgtField; w: cfloat; v: var VecObj; dv: var VecObj) {.noSideEffect, cdecl,
     importcpp: "D1", header: "GeomFill_TgtField.hxx".}
+

@@ -1,4 +1,5 @@
-import selectmgr_types
+
+
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import selectmgr_types
 ##  commercial license or contractual agreement.
 
 ## ! Enumeration defines picking strategy - which entities detected by picking line will be accepted, considering selection filters.
+
 
 
 

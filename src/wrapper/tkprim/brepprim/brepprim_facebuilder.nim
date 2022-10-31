@@ -1,4 +1,10 @@
+import ../../tkbrep/brep/brep_types
 import brepprim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Remi LEQUETTE
@@ -16,13 +22,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of BRep_Builder"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc newBRepPrimFaceBuilder*(): BRepPrimFaceBuilder {.cdecl, constructor,
@@ -45,3 +44,4 @@ proc edge*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Edge {.noSideEffect, cdec
     importcpp: "Edge", header: "BRepPrim_FaceBuilder.hxx".}
 proc vertex*(this: BRepPrimFaceBuilder; i: cint): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "BRepPrim_FaceBuilder.hxx".}
+

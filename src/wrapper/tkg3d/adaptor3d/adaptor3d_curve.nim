@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-03-31
 ##  Created by: Bruno DUMORTIER
@@ -16,20 +23,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Geom_OffsetCurve"
 
 
 proc firstParameter*(this: Adaptor3dCurve): cfloat {.noSideEffect, cdecl,
@@ -92,3 +85,4 @@ proc offsetCurve*(this: Adaptor3dCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     cdecl, importcpp: "OffsetCurve", header: "Adaptor3d_Curve.hxx".}
 proc destroyAdaptor3dCurve*(this: var Adaptor3dCurve) {.cdecl,
     importcpp: "#.~Adaptor3d_Curve()", header: "Adaptor3d_Curve.hxx".}
+

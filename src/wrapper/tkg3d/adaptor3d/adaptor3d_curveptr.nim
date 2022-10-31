@@ -1,4 +1,5 @@
-import adaptor3d_types
+
+
 
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
@@ -16,5 +17,5 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_Curve"
+
 

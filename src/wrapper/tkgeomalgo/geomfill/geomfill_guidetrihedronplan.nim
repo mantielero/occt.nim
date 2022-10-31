@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-06-23
 ##  Created by: Stephanie HUMEAU
@@ -16,13 +23,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of GeomFill_Frenet"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of GeomFill_TrihedronLaw"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_GuideTrihedronPlan"
 
 
 
@@ -65,3 +65,4 @@ proc isOnlyBy3dCurve*(this: GeomFillGuideTrihedronPlan): bool {.noSideEffect, cd
     importcpp: "IsOnlyBy3dCurve", header: "GeomFill_GuideTrihedronPlan.hxx".}
 proc origine*(this: var GeomFillGuideTrihedronPlan; orACR1: cfloat; orACR2: cfloat) {.
     cdecl, importcpp: "Origine", header: "GeomFill_GuideTrihedronPlan.hxx".}
+

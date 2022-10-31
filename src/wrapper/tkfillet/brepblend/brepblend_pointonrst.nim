@@ -1,4 +1,9 @@
 import brepblend_types
+import ../../tkgeomalgo/intsurf/intsurf_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -16,9 +21,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of IntSurf_Transition"
 
 
 proc newBRepBlendPointOnRst*(): BRepBlendPointOnRst {.cdecl, constructor,
@@ -37,3 +39,4 @@ proc transitionOnArc*(this: BRepBlendPointOnRst): IntSurfTransition {.noSideEffe
     cdecl, importcpp: "TransitionOnArc", header: "BRepBlend_PointOnRst.hxx".}
 proc parameterOnArc*(this: BRepBlendPointOnRst): cfloat {.noSideEffect, cdecl,
     importcpp: "ParameterOnArc", header: "BRepBlend_PointOnRst.hxx".}
+

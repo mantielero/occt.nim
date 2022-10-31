@@ -1,4 +1,11 @@
+import ../../tkg3d/topabs/topabs_types
 import topopebreptool_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 1993-07-08
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +23,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepTool_HBoxTool"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Bnd_Box"
 
 
 proc newTopOpeBRepToolBoxSort*(): TopOpeBRepToolBoxSort {.cdecl, constructor,
@@ -58,3 +62,4 @@ proc box*(this: TopOpeBRepToolBoxSort; s: TopoDS_Shape): BndBox {.noSideEffect, 
     importcpp: "Box", header: "TopOpeBRepTool_BoxSort.hxx".}
 proc destroyTopOpeBRepToolBoxSort*(this: var TopOpeBRepToolBoxSort) {.cdecl,
     importcpp: "#.~TopOpeBRepTool_BoxSort()", header: "TopOpeBRepTool_BoxSort.hxx".}
+

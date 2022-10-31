@@ -1,4 +1,5 @@
-import topabs_types
+
+
 
 ##  Created on: 1992-01-24
 ##  Created by: Remi LEQUETTE
@@ -21,6 +22,7 @@ import topabs_types
 ## ! The figure shown above illustrates the states of
 ## ! vertices found in various parts of the edge relative
 ## ! to the face which it intersects.
+
 
 
 

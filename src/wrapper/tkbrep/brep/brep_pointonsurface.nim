@@ -1,4 +1,9 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
@@ -16,9 +21,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of BRep_PointOnSurface"
 
 
 
@@ -35,3 +37,4 @@ proc parameter2*(this: BRepPointOnSurface): cfloat {.noSideEffect, cdecl,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
 proc parameter2*(this: var BRepPointOnSurface; p: cfloat) {.cdecl,
     importcpp: "Parameter2", header: "BRep_PointOnSurface.hxx".}
+

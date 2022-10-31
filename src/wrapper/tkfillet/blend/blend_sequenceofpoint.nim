@@ -1,4 +1,5 @@
-import blend_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -15,5 +16,6 @@ import blend_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

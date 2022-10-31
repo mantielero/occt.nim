@@ -1,4 +1,14 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/ncollection/ncollection_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/v3d/v3d_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 2015-12-23
 ##  Created by: Anastasia BORISOVA
@@ -171,4 +181,5 @@ proc hilightOwnerWithColor*(this: var AIS_Manipulator;
                            theOwner: Handle[SelectMgrEntityOwner]) {.cdecl,
     importcpp: "HilightOwnerWithColor", header: "AIS_Manipulator.hxx".}
 ## using statement
+
 

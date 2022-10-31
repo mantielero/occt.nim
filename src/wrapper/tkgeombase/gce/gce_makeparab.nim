@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,11 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Parab"
 
 
 proc newGceMakeParab*(a2: Ax2Obj; focal: cfloat): GceMakeParab {.cdecl, constructor,
@@ -33,3 +31,4 @@ proc operator*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
                                         importcpp: "Operator", header: "gce_MakeParab.hxx".}
 converter `parab`*(this: GceMakeParab): ParabObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeParab::operator gp_Parab", header: "gce_MakeParab.hxx".}
+

@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: JCV
@@ -16,15 +23,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Trsf2d"
-discard "forward decl of Geom2d_Geometry"
-discard "forward decl of Geom2d_BezierCurve"
 
 
 
@@ -111,3 +109,4 @@ proc copy*(this: Geom2dBezierCurve): Handle[Geom2dGeometry] {.noSideEffect, cdec
 proc dumpJson*(this: Geom2dBezierCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_BezierCurve.hxx".}
+

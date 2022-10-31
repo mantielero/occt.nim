@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -13,7 +16,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_ViewerSelector"
 
 
 proc createFiller*(thePixMap: var ImagePixMap;
@@ -29,3 +31,4 @@ proc fill*(this: var SelectMgrSelectionImageFiller; theCol: cint; theRow: cint;
           thePicked: cint) {.cdecl, importcpp: "Fill", header: "SelectMgr_SelectionImageFiller.hxx".}
 proc flush*(this: var SelectMgrSelectionImageFiller) {.cdecl, importcpp: "Flush",
     header: "SelectMgr_SelectionImageFiller.hxx".}
+

@@ -1,4 +1,5 @@
-import extrema_types
+
+
 
 ##  Created on: 2005-03-17
 ##  Created by: OPEN CASCADE Support
@@ -14,5 +15,6 @@ import extrema_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

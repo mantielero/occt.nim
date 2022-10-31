@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
 import topexp_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
@@ -16,9 +20,6 @@ import topexp_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoMoreObject"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newExplorer*(): TopExpExplorer {.cdecl, constructor,
@@ -43,3 +44,4 @@ proc clear*(this: var TopExpExplorer) {.cdecl, importcpp: "Clear", header: "TopE
 proc destroy*(this: var TopExpExplorer) {.cdecl, importcpp: "Destroy", header: "TopExp_Explorer.hxx".}
 proc destroyTopExpExplorer*(this: var TopExpExplorer) {.cdecl,
     importcpp: "#.~TopExp_Explorer()", header: "TopExp_Explorer.hxx".}
+

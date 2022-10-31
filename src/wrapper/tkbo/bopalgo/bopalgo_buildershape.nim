@@ -1,4 +1,8 @@
 import bopalgo_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -17,7 +21,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc shape*(this: BOPAlgoBuilderShape): TopoDS_Shape {.noSideEffect, cdecl,
@@ -40,3 +43,4 @@ proc setToFillHistory*(this: var BOPAlgoBuilderShape; theHistFlag: bool) {.cdecl
     importcpp: "SetToFillHistory", header: "BOPAlgo_BuilderShape.hxx".}
 proc hasHistory*(this: BOPAlgoBuilderShape): bool {.noSideEffect, cdecl,
     importcpp: "HasHistory", header: "BOPAlgo_BuilderShape.hxx".}
+

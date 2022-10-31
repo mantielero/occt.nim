@@ -1,4 +1,5 @@
-import intsurf_types
+
+
 
 ##  Created on: 1992-08-24
 ##  Created by: Jacques GOUSSARD
@@ -15,5 +16,6 @@ import intsurf_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

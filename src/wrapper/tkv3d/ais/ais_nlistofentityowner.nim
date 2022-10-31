@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 2003-05-04
 ##  Created by: Alexander Grigoriev (a-grigoriev@opencascade.com)
@@ -14,5 +15,6 @@ import ais_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

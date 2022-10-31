@@ -1,4 +1,9 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-04-15
 ##  Created by: Jean-Louis Frenkel
@@ -16,9 +21,6 @@ import prs3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
 
 
 proc drawShaded*(theAxis: Ax1Obj; theTubeRadius: cfloat; theAxisLength: cfloat;
@@ -34,3 +36,4 @@ proc draw*(theGroup: Handle[Graphic3dGroup]; theLocation: PntObj; theDirection: 
 proc draw*(thePrs: Handle[Prs3dPresentation]; theLocation: PntObj; theDirection: DirObj;
           theAngle: cfloat; theLength: cfloat) {.cdecl,
     importcpp: "Prs3d_Arrow::Draw(@)", header: "Prs3d_Arrow.hxx".}
+

@@ -1,4 +1,8 @@
-import geomadaptor_types
+import ../../tkernel/standard/standard_types
+import ../tkg3d/adaptor3d/adaptor3d_types
+import ../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
@@ -16,19 +20,10 @@ import geomadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of GeomAdaptor_Curve"
-discard "forward decl of GeomAdaptor_Surface"
-discard "forward decl of GeomAdaptor_GHSurface"
-discard "forward decl of GeomAdaptor_HSurface"
-discard "forward decl of GeomAdaptor_GHCurve"
-discard "forward decl of GeomAdaptor_HCurve"
 
 
 proc makeCurve*(c: Adaptor3dCurve): Handle[GeomCurve] {.cdecl,
     importcpp: "GeomAdaptor::MakeCurve(@)", header: "GeomAdaptor.hxx".}
 proc makeSurface*(theS: Adaptor3dSurface; theTrimFlag: bool = true): Handle[GeomSurface] {.
     cdecl, importcpp: "GeomAdaptor::MakeSurface(@)", header: "GeomAdaptor.hxx".}
+

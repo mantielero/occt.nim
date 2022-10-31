@@ -1,4 +1,12 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkg3d/geom/geom_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -16,14 +24,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Bnd_Box"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom_Plane"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc nearest*(aShape: TopoDS_Shape; aPoint: PntObj): PntObj {.cdecl,
@@ -132,3 +132,4 @@ proc computeProjVertexPresentation*(aPres: Handle[Prs3dPresentation];
                                    aWidth: cfloat = 2; aProjTOM: AspectTypeOfMarker = aspectTOM_PLUS;
                                    aCallTOL: AspectTypeOfLine = aspectTOL_DOT) {.
     cdecl, importcpp: "PrsDim::ComputeProjVertexPresentation(@)", header: "PrsDim.hxx".}
+

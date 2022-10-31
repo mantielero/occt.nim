@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import graphic3d_types
+
+
 
 ##  Created on: 2016-02-19
 ##  Created by: Kirill Gavrilov
@@ -28,4 +31,5 @@ proc name*(this: Graphic3dShaderAttribute): TCollectionAsciiString {.noSideEffec
     cdecl, importcpp: "Name", header: "Graphic3d_ShaderAttribute.hxx".}
 proc location*(this: Graphic3dShaderAttribute): cint {.noSideEffect, cdecl,
     importcpp: "Location", header: "Graphic3d_ShaderAttribute.hxx".}
+
 

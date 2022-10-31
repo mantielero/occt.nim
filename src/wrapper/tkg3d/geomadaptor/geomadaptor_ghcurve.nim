@@ -1,4 +1,7 @@
 import geomadaptor_types
+import ../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
@@ -16,12 +19,6 @@ import geomadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of GeomAdaptor_Curve"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of GeomAdaptor_GHCurve"
 
 
 proc newGeomAdaptorGHCurve*(): GeomAdaptorGHCurve {.cdecl, constructor,
@@ -36,5 +33,6 @@ proc getCurve*(this: var GeomAdaptorGHCurve): var Adaptor3dCurve {.cdecl,
     importcpp: "GetCurve", header: "GeomAdaptor_GHCurve.hxx".}
 proc changeCurve*(this: var GeomAdaptorGHCurve): var GeomAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve", header: "GeomAdaptor_GHCurve.hxx".}
+
 
 

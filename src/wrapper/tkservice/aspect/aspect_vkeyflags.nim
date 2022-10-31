@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
@@ -38,4 +39,5 @@ const
   AspectVKeyMouseRightButton* = 1 shl 15 ## !< mouse right  button
   AspectVKeyMouseMainButtons* = AspectVKeyMouseLeftButton or
       AspectVKeyMouseMiddleButton or AspectVKeyMouseRightButton
+
 

@@ -1,4 +1,7 @@
 import geomadaptor_types
+import ../tkg3d/adaptor3d/adaptor3d_types
+
+
 
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
@@ -16,12 +19,6 @@ import geomadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of GeomAdaptor_SurfaceOfLinearExtrusion"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of GeomAdaptor_HSurfaceOfLinearExtrusion"
 
 
 proc newGeomAdaptorHSurfaceOfLinearExtrusion*(): GeomAdaptorHSurfaceOfLinearExtrusion {.
@@ -38,5 +35,6 @@ proc surface*(this: GeomAdaptorHSurfaceOfLinearExtrusion): Adaptor3dSurface {.
     noSideEffect, cdecl, importcpp: "Surface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
 proc changeSurface*(this: var GeomAdaptorHSurfaceOfLinearExtrusion): var GeomAdaptorSurfaceOfLinearExtrusion {.
     cdecl, importcpp: "ChangeSurface", header: "GeomAdaptor_HSurfaceOfLinearExtrusion.hxx".}
+
 
 

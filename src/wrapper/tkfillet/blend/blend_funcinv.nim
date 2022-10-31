@@ -1,4 +1,9 @@
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import blend_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -16,8 +21,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of math_Matrix"
-discard "forward decl of Adaptor2d_HCurve2d"
 
 
 proc nbVariables*(this: BlendFuncInv): cint {.noSideEffect, cdecl,
@@ -38,3 +41,4 @@ proc getBounds*(this: BlendFuncInv; infBound: var MathVector; supBound: var Math
     noSideEffect, cdecl, importcpp: "GetBounds", header: "Blend_FuncInv.hxx".}
 proc isSolution*(this: var BlendFuncInv; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "Blend_FuncInv.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkbrep/topods/topods_types
 import chfids_types
+
+
 
 ##  Created on: 1993-11-29
 ##  Created by: Isabelle GRIGNON
@@ -16,12 +21,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc newChFiDS_CommonPoint*(): ChFiDS_CommonPoint {.cdecl, constructor,
@@ -61,3 +60,4 @@ proc hasVector*(this: ChFiDS_CommonPoint): bool {.noSideEffect, cdecl,
     importcpp: "HasVector", header: "ChFiDS_CommonPoint.hxx".}
 proc vector*(this: ChFiDS_CommonPoint): VecObj {.noSideEffect, cdecl,
     importcpp: "Vector", header: "ChFiDS_CommonPoint.hxx".}
+

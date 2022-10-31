@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import aspect_types
 ##  commercial license or contractual agreement.
 
 ## ! Camera eye index within stereoscopic pair.
+
 
 
 

@@ -1,4 +1,7 @@
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1996-01-22
 ##  Created by: Laurent PAINNOT
@@ -16,10 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaGenLocateExtSS*(): ExtremaGenLocateExtSS {.cdecl, constructor,
@@ -40,3 +39,4 @@ proc pointOnS1*(this: ExtremaGenLocateExtSS): ExtremaPOnSurf {.noSideEffect, cde
     importcpp: "PointOnS1", header: "Extrema_GenLocateExtSS.hxx".}
 proc pointOnS2*(this: ExtremaGenLocateExtSS): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "PointOnS2", header: "Extrema_GenLocateExtSS.hxx".}
+

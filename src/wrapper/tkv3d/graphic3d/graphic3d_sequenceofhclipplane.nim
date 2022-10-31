@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2013-07-15
 ##  Created by: Anton POLETAEV
@@ -73,4 +76,5 @@ proc first*(this: Graphic3dSequenceOfHClipPlane): Handle[Graphic3dClipPlane] {.
 proc dumpJson*(this: Graphic3dSequenceOfHClipPlane;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "Graphic3d_SequenceOfHClipPlane.hxx".}
+
 

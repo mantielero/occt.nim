@@ -1,4 +1,8 @@
+import ../../tkmath/math/math_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -16,13 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Extrema_CurveTool"
-discard "forward decl of Extrema_POnCurv"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of math_Matrix"
 
 
 proc newExtremaCCLocFOfLocECC*(thetol: cfloat = 1.0e-10): ExtremaCCLocFOfLocECC {.
@@ -80,4 +77,5 @@ proc searchOfTolerance*(this: var ExtremaCCLocFOfLocECC; c: pointer): cfloat {.c
 ##  #define Extrema_SeqPOnC_hxx <Extrema_SequenceOfPOnCurv.hxx>
 ##  #define Extrema_FuncExtCC Extrema_CCLocFOfLocECC
 ##  #define Extrema_FuncExtCC_hxx <Extrema_CCLocFOfLocECC.hxx>
+
 

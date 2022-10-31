@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1994-05-27
 ##  Created by: Christian CAILLET
@@ -16,13 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Standard_Transient"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_Transformer"
 
 
 
@@ -40,3 +37,4 @@ proc updated*(this: IFSelectTransformer; entfrom: Handle[StandardTransient];
     importcpp: "Updated", header: "IFSelect_Transformer.hxx".}
 proc label*(this: IFSelectTransformer): TCollectionAsciiString {.noSideEffect, cdecl,
     importcpp: "Label", header: "IFSelect_Transformer.hxx".}
+

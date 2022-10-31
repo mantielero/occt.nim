@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1993-03-31
 ##  Created by: NW,JPB,CAL
@@ -18,6 +19,7 @@ import graphic3d_types
 
 ## ! Defines the horizontal position of the text
 ## ! relative to its anchor.
+
 
 
 

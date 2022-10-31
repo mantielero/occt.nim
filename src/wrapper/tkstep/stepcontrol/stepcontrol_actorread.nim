@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkxsbase/transfer/transfer_types
+import ../../tkernel/standard/standard_types
 import stepcontrol_types
+
+
 
 ##  Created on: 1994-12-21
 ##  Created by: Dieter THIEMANN
@@ -16,26 +21,6 @@ import stepcontrol_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StepRepr_Representation"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of StepGeom_Axis2Placement3d"
-discard "forward decl of gp_Trsf"
-discard "forward decl of StepRepr_RepresentationRelationship"
-discard "forward decl of TransferBRep_ShapeBinder"
-discard "forward decl of StepBasic_ProductDefinition"
-discard "forward decl of StepRepr_NextAssemblyUsageOccurrence"
-discard "forward decl of StepShape_ShapeRepresentation"
-discard "forward decl of StepShape_ContextDependentShapeRepresentation"
-discard "forward decl of StepRepr_ShapeRepresentationRelationship"
-discard "forward decl of StepGeom_GeometricRepresentationItem"
-discard "forward decl of StepRepr_MappedItem"
-discard "forward decl of StepShape_FaceSurface"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Compound"
-discard "forward decl of StepRepr_ConstructiveGeometryRepresentationRelationship"
-discard "forward decl of STEPControl_ActorRead"
 
 
 ## ! This class performs the transfer of an Entity from
@@ -77,3 +62,4 @@ proc computeSRRWT*(this: var STEPControlActorRead;
                   srr: Handle[StepReprRepresentationRelationship];
                   tp: Handle[TransferTransientProcess]; trsf: var TrsfObj): bool {.cdecl,
     importcpp: "ComputeSRRWT", header: "STEPControl_ActorRead.hxx".}
+

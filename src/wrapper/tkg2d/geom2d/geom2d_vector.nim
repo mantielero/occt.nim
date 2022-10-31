@@ -1,4 +1,8 @@
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: JCV
@@ -16,10 +20,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_VectorWithNullMagnitude"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Geom2d_Vector"
 
 
 
@@ -43,3 +43,4 @@ proc dot*(this: Geom2dVector; other: Handle[Geom2dVector]): cfloat {.noSideEffec
     cdecl, importcpp: "Dot", header: "Geom2d_Vector.hxx".}
 proc vec2d*(this: Geom2dVector): Vec2dObj {.noSideEffect, cdecl, importcpp: "Vec2d",
                                      header: "Geom2d_Vector.hxx".}
+

@@ -1,4 +1,9 @@
 import gc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,12 +21,6 @@ import gc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Lin"
 
 
 proc conicalSurface*(a2: Ax2Obj; ang: cfloat; radius: cfloat): MakeConicalSurface {.
@@ -38,3 +37,4 @@ converter toHandleGeomTrimmedCurve*(this: MakeConicalSurface): Handle[GeomConica
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeConicalSurface.hxx".}
+

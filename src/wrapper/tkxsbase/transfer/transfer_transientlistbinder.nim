@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-10-03
 ##  Created by: Christian CAILLET
@@ -16,10 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_TransientListBinder"
 
 
 
@@ -48,3 +48,4 @@ proc nbTransients*(this: TransferTransientListBinder): cint {.noSideEffect, cdec
 proc transient*(this: TransferTransientListBinder; num: cint): Handle[
     StandardTransient] {.noSideEffect, cdecl, importcpp: "Transient",
                         header: "Transfer_TransientListBinder.hxx".}
+

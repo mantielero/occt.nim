@@ -1,5 +1,7 @@
 import bopalgo_types
 
+
+
 ##  Created by: Peter Kurnev
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
 ##  Copyright (c) 2007-2010 CEA/DEN, EDF R&D, OPEN CASCADE
@@ -35,3 +37,4 @@ proc destroyBOPAlgoCheckerSI*(this: var BOPAlgoCheckerSI) {.cdecl,
 proc perform*(this: var BOPAlgoCheckerSI) {.cdecl, importcpp: "Perform", header: "BOPAlgo_CheckerSI.hxx".}
 proc setLevelOfCheck*(this: var BOPAlgoCheckerSI; theLevel: cint) {.cdecl,
     importcpp: "SetLevelOfCheck", header: "BOPAlgo_CheckerSI.hxx".}
+

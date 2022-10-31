@@ -1,4 +1,10 @@
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+
+
 
 ##  Created on: 1996-06-06
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
@@ -16,14 +22,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Lin"
-discard "forward decl of Blend_Point"
 
 
 proc newBlendFuncChamfer*(s1: Handle[Adaptor3dHSurface];
@@ -59,3 +57,4 @@ proc set*(this: var BlendFuncChamfer; dist1: cfloat; dist2: cfloat; choix: cint)
     importcpp: "Set", header: "BlendFunc_Chamfer.hxx".}
 proc getSectionSize*(this: BlendFuncChamfer): cfloat {.noSideEffect, cdecl,
     importcpp: "GetSectionSize", header: "BlendFunc_Chamfer.hxx".}
+

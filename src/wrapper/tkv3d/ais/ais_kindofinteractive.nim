@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -30,6 +31,7 @@ import ais_types
 ## ! length, radius, diameter and angle dimensions.
 ## ! When the object is of an unknown type, the None
 ## ! type is declared.
+
 
 
 

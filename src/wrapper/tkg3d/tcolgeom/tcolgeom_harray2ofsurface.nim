@@ -1,4 +1,7 @@
 import tcolgeom_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
@@ -30,3 +33,4 @@ proc array2*(this: TColGeomHArray2OfSurface): TColGeomArray2OfSurface {.
     noSideEffect, cdecl, importcpp: "Array2", dynlib: tkg3d.}
 proc changeArray2*(this: var TColGeomHArray2OfSurface): var TColGeomArray2OfSurface {.
     cdecl, importcpp: "ChangeArray2", dynlib: tkg3d.}
+

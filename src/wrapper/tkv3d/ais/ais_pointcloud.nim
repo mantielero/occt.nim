@@ -1,4 +1,14 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkmath/bnd/bnd_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsmgr/prsmgr_types
+
+
 
 ##  Created on: 2014-08-13
 ##  Created by: Maxim GLIBIN
@@ -15,7 +25,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TColStd_HPackedMapOfInteger"
 
 
 
@@ -65,3 +74,4 @@ proc unhilight*(this: var AIS_PointCloudOwner;
 proc clear*(this: var AIS_PointCloudOwner;
            thePrsMgr: Handle[PrsMgrPresentationManager]; theMode: cint) {.cdecl,
     importcpp: "Clear", header: "AIS_PointCloud.hxx".}
+

@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -22,6 +23,7 @@ import aspect_types
 ## ! WOL_THICK           thick width of 0.7 MM
 ## ! WOL_VERYTHICK       very thick width of 1.5 MM
 ## ! WOL_USERDEFINED     defined by Users
+
 
 
 

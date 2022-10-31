@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-09-01
 ##  Created by: Remi GILET
@@ -16,11 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Ax2d"
-discard "forward decl of gp_Lin2d"
-discard "forward decl of gp_Dir2d"
-discard "forward decl of gp_Trsf2d"
 
 
 proc newGceMakeMirror2d*(point: Pnt2dObj): GceMakeMirror2d {.cdecl, constructor,
@@ -37,3 +35,4 @@ proc operator*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "Operator", header: "gce_MakeMirror2d.hxx".}
 converter `trsf2d`*(this: GceMakeMirror2d): Trsf2dObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeMirror2d::operator gp_Trsf2d", header: "gce_MakeMirror2d.hxx".}
+

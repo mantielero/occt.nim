@@ -1,4 +1,9 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 1999-01-13
 ##  Created by: Xuan PHAM PHU
@@ -16,10 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Bnd_Box2d"
-discard "forward decl of TopOpeBRepTool_face"
 
 
 proc newTopOpeBRepToolCLASSI*(): TopOpeBRepToolCLASSI {.cdecl, constructor,
@@ -42,3 +43,4 @@ proc getface*(this: TopOpeBRepToolCLASSI; s: TopoDS_Shape; fa: var TopOpeBRepToo
 proc classilist*(this: var TopOpeBRepToolCLASSI; lS: TopToolsListOfShape;
                 mapgreasma: var TopToolsDataMapOfShapeListOfShape): bool {.cdecl,
     importcpp: "Classilist", header: "TopOpeBRepTool_CLASSI.hxx".}
+

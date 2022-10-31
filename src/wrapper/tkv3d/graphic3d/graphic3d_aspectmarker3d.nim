@@ -1,4 +1,10 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -49,4 +55,5 @@ proc getMarkerImage*(this: Graphic3dAspectMarker3d): Handle[Graphic3dMarkerImage
 proc setBitMap*(this: var Graphic3dAspectMarker3d; theWidth: cint; theHeight: cint;
                theTexture: Handle[TColStdHArray1OfByte]) {.cdecl,
     importcpp: "SetBitMap", header: "Graphic3d_AspectMarker3d.hxx".}
+
 

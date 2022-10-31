@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
 import topods_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1990-12-17
 ##  Created by: Remi Lequette
@@ -16,8 +20,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of TopoDS_TSolid"
 
 
 
@@ -29,3 +31,4 @@ proc shapeType*(this: TopoDS_TSolid): TopAbsShapeEnum {.noSideEffect, cdecl,
     importcpp: "ShapeType", header: "TopoDS_TSolid.hxx".}
 proc emptyCopy*(this: TopoDS_TSolid): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "TopoDS_TSolid.hxx".}
+

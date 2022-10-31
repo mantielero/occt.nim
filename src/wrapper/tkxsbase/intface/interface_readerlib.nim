@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,12 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_NodeOfReaderLib"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_ReaderModule"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_GlobalNodeOfReaderLib"
 type
   InterfaceReaderLib* {.importcpp: "Interface_ReaderLib",
                        header: "Interface_ReaderLib.hxx", bycopy.} = object ## ! Adds a couple

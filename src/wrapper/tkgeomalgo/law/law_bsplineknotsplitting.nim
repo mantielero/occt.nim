@@ -1,4 +1,8 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1997-01-17
 ##  Created by: Philippe MANGIN
@@ -16,9 +20,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Law_BSpline"
 
 
 proc newLawBSplineKnotSplitting*(basisLaw: Handle[LawBSpline];
@@ -31,3 +32,4 @@ proc splitting*(this: LawBSplineKnotSplitting;
     importcpp: "Splitting", header: "Law_BSplineKnotSplitting.hxx".}
 proc splitValue*(this: LawBSplineKnotSplitting; index: cint): cint {.noSideEffect,
     cdecl, importcpp: "SplitValue", header: "Law_BSplineKnotSplitting.hxx".}
+

@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-08-20
 ##  Created by: Yves FRICAUD
@@ -16,11 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepDS_GapTool"
 
 
 proc newTopOpeBRepDS_GapTool*(): TopOpeBRepDS_GapTool {.cdecl, constructor,
@@ -58,3 +57,4 @@ proc setParameterOnEdge*(this: var TopOpeBRepDS_GapTool;
                         i: Handle[TopOpeBRepDS_Interference]; e: TopoDS_Shape;
                         u: cfloat) {.cdecl, importcpp: "SetParameterOnEdge",
                                    header: "TopOpeBRepDS_GapTool.hxx".}
+

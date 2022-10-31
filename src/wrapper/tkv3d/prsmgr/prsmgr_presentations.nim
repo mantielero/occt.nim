@@ -1,4 +1,5 @@
-import prsmgr_types
+
+
 
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
@@ -16,5 +17,5 @@ import prsmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PrsMgr_Presentation"
+
 

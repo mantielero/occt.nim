@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,9 +19,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Ax2"
-discard "forward decl of BRepPrim_Torus"
 
 
 proc torus*(r1: cfloat; r2: cfloat): BRepPrimAPI_MakeTorus {.cdecl,
@@ -44,3 +44,4 @@ proc oneAxis*(this: var BRepPrimAPI_MakeTorus): pointer {.cdecl, importcpp: "One
     header: "BRepPrimAPI_MakeTorus.hxx".}
 proc torus*(this: var BRepPrimAPI_MakeTorus): var BRepPrimTorus {.cdecl,
     importcpp: "Torus", header: "BRepPrimAPI_MakeTorus.hxx".}
+

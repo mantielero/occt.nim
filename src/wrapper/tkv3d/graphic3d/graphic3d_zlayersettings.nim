@@ -1,4 +1,9 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
@@ -98,3 +103,4 @@ proc setDepthOffsetNegative*(this: var Graphic3dZLayerSettings) {.cdecl,
 proc dumpJson*(this: Graphic3dZLayerSettings; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_ZLayerSettings.hxx".}
+

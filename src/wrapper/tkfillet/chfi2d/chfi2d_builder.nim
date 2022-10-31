@@ -1,4 +1,8 @@
 import chfi2d_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
@@ -16,8 +20,6 @@ import chfi2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 when defined(Status):
   discard
 ## ! This  class contains  the algorithm  used to build
@@ -74,3 +76,4 @@ proc basisEdge*(this: ChFi2dBuilder; e: TopoDS_Edge): TopoDS_Edge {.noSideEffect
     cdecl, importcpp: "BasisEdge", header: "ChFi2d_Builder.hxx".}
 proc status*(this: ChFi2dBuilder): ChFi2dConstructionError {.noSideEffect, cdecl,
     importcpp: "Status", header: "ChFi2d_Builder.hxx".}
+

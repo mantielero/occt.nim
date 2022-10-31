@@ -1,4 +1,10 @@
 import approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1998-08-20
 ##  Created by: Philippe MANGIN
@@ -16,7 +22,6 @@ import approx_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurve"
 
 
 proc newApproxCurve3d*(curve: Handle[Adaptor3dHCurve]; tol3d: cfloat;
@@ -32,3 +37,4 @@ proc maxError*(this: ApproxCurve3d): cfloat {.noSideEffect, cdecl,
     importcpp: "MaxError", header: "Approx_Curve3d.hxx".}
 proc dump*(this: ApproxCurve3d; o: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "Approx_Curve3d.hxx".}
+

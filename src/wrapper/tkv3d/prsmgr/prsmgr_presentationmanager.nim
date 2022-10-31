@@ -1,4 +1,11 @@
+import ../../tkmath/toploc/toploc_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import prsmgr_types
+import ../tkv3d/v3d/v3d_types
+import ../tkv3d/prs3d/prs3d_types
+
+
 
 ##  Created on: 1995-01-25
 ##  Created by: Jean-Louis Frenkel
@@ -16,16 +23,9 @@ import prsmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
 #type
 #  Prs3dPresentation* = Graphic3dStructure
 
-discard "forward decl of TopLoc_Datum3D"
-discard "forward decl of Prs3d_Drawer"
-discard "forward decl of PrsMgr_Presentation"
-discard "forward decl of PrsMgr_PresentableObject"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of V3d_Viewer"
 
 
 
@@ -123,3 +123,4 @@ proc updateHighlightTrsf*(this: var PrsMgrPresentationManager;
                          theMode: cint = 0;
                          theSelObj: Handle[PrsMgrPresentableObject] = cast[Handle[PrsMgrPresentableObject]](nil)) {.cdecl,
     importcpp: "UpdateHighlightTrsf", header: "PrsMgr_PresentationManager.hxx".}
+

@@ -292,9 +292,9 @@ proc populateDependencies(typ:var TypOb) =
     
     else:
       needs.incl( txt.strip )
-  if typ.name == "GeomAxis1Placement":
-    echo txt
-    echo "--> ", needs        
+  #if typ.name == "GeomAxis1Placement":
+  #  echo txt
+  #  echo "--> ", needs        
   var remove = toHashSet(["RootObj", "", "true", "false"])
   typ.needs = needs - remove
 
@@ -515,10 +515,11 @@ proc findProcDependencies(fname:string):HashSet[string] =
     # Get the types for arguments and return values
 
     for p in procs:
+      echo p
       var tmp = p.split('(', 1)[1]
       tmp = tmp.split("{.", 1)[0]
       # Split params and return type
-      var tmp2 = tmp.split(')')
+      var tmp2 = tmp.rsplit(')',1)
       if tmp2[1][0] == ':':
         tmp2[1] = tmp2[1][1..tmp2[1].high].strip
       else:
@@ -533,7 +534,8 @@ proc findProcDependencies(fname:string):HashSet[string] =
           var argType = arg.split(':')[1].strip
           if argType.startsWith("var ") or argType.startsWith("ptr ") :
             argType = argType[4..argType.high].strip
-
+          if argType.contains('='):
+            argType = argType.split('=',1)[0]
           var aTyps = genericsExtractTypes(argType)
 
           procTypes = procTypes + aTyps

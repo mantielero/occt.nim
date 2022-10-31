@@ -1,4 +1,7 @@
+import ../../tkernel/tcolstd/tcolstd_types
 import geomfill_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -30,3 +33,4 @@ proc newGeomFillHArray1OfSectionLaw*(theOther: GeomFillArray1OfSectionLaw): Geom
     header: "GeomFill_HArray1OfSectionLaw.hxx".}
 proc array1*(this: GeomFillHArray1OfSectionLaw): GeomFillArray1OfSectionLaw {.
     noSideEffect, cdecl, importcpp: "Array1", header: "GeomFill_HArray1OfSectionLaw.hxx".}
+

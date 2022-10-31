@@ -1,4 +1,11 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkbrep/topods/topods_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1995-08-09
 ##  Created by: Arnaud BOUZY
@@ -16,8 +23,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Point"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc newAIS_Point*(aComponent: Handle[GeomPoint]): AIS_Point {.cdecl, constructor,
@@ -42,4 +47,5 @@ proc hasMarker*(this: AIS_Point): bool {.noSideEffect, cdecl, importcpp: "HasMar
                                      header: "AIS_Point.hxx".}
 proc vertex*(this: AIS_Point): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "AIS_Point.hxx".}
+
 

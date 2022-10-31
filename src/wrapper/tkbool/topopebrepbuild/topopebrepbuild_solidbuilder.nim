@@ -1,4 +1,7 @@
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1995-12-21
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +19,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_ShellFaceSet"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_ShapeSet"
 
 
 proc newTopOpeBRepBuildSolidBuilder*(): TopOpeBRepBuildSolidBuilder {.cdecl,
@@ -53,3 +53,4 @@ proc nextFace*(this: var TopOpeBRepBuildSolidBuilder) {.cdecl, importcpp: "NextF
     header: "TopOpeBRepBuild_SolidBuilder.hxx".}
 proc face*(this: TopOpeBRepBuildSolidBuilder): TopoDS_Shape {.noSideEffect, cdecl,
     importcpp: "Face", header: "TopOpeBRepBuild_SolidBuilder.hxx".}
+

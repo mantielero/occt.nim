@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -19,4 +20,5 @@ import aspect_types
 
 const
   AspectXRGenericActionNB* = aspectXRGenericActionOutputHaptic.int + 1
+
 

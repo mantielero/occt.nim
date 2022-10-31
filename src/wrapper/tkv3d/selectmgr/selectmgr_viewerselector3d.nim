@@ -1,4 +1,10 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../tkv3d/v3d/v3d_types
 import selectmgr_types
+
+
 
 ##  Created on: 1995-03-15
 ##  Created by: Robert COUBLANC
@@ -16,9 +22,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_TransformPers"
-discard "forward decl of V3d_View"
 
 
 proc newSelectMgrViewerSelector3d*(): SelectMgrViewerSelector3d {.cdecl,
@@ -45,4 +48,5 @@ proc displaySensitive*(this: var SelectMgrViewerSelector3d;
 proc dumpJson*(this: SelectMgrViewerSelector3d; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_ViewerSelector3d.hxx".}
+
 

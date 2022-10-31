@@ -1,4 +1,10 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -13,7 +19,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_CView"
 
 
 proc newGraphic3dFrameStats*(): Graphic3dFrameStats {.cdecl, constructor,
@@ -70,3 +75,4 @@ proc changeTimer*(this: var Graphic3dFrameStats; theTimer: Graphic3dFrameStatsTi
     cdecl, importcpp: "ChangeTimer", header: "Graphic3d_FrameStats.hxx".}
 proc activeDataFrame*(this: var Graphic3dFrameStats): var Graphic3dFrameStatsDataTmp {.
     cdecl, importcpp: "ActiveDataFrame", header: "Graphic3d_FrameStats.hxx".}
+

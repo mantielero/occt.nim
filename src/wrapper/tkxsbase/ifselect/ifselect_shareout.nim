@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,15 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_Transient"
-discard "forward decl of IFSelect_Dispatch"
-discard "forward decl of IFSelect_GeneralModifier"
-discard "forward decl of IFSelect_Modifier"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_ShareOut"
 
 
 
@@ -99,3 +94,4 @@ proc extension*(this: IFSelectShareOut): Handle[TCollectionHAsciiString] {.
     noSideEffect, cdecl, importcpp: "Extension", header: "IFSelect_ShareOut.hxx".}
 proc fileName*(this: var IFSelectShareOut; dnum: cint; pnum: cint; nbpack: cint = 0): TCollectionAsciiString {.
     cdecl, importcpp: "FileName", header: "IFSelect_ShareOut.hxx".}
+

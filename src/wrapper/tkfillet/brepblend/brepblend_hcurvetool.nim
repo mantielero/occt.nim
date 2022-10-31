@@ -1,4 +1,11 @@
-import brepblend_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1995-07-17
 ##  Created by: Laurent BUCHARD
@@ -16,14 +23,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
 
 
 proc firstParameter*(c: Handle[Adaptor3dHCurve]): cfloat {.cdecl,
@@ -76,3 +75,4 @@ proc bSpline*(c: Handle[Adaptor3dHCurve]): Handle[GeomBSplineCurve] {.cdecl,
     importcpp: "BRepBlend_HCurveTool::BSpline(@)", header: "BRepBlend_HCurveTool.hxx".}
 proc nbSamples*(c: Handle[Adaptor3dHCurve]; u0: cfloat; u1: cfloat): cint {.cdecl,
     importcpp: "BRepBlend_HCurveTool::NbSamples(@)", header: "BRepBlend_HCurveTool.hxx".}
+

@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-12-05
 ##  Created by: Laurent BOURESCHE
@@ -16,9 +19,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_DegeneratedBound"
 
 
 
@@ -38,3 +38,4 @@ proc bounds*(this: GeomFillDegeneratedBound; first: var cfloat; last: var cfloat
     noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_DegeneratedBound.hxx".}
 proc isDegenerated*(this: GeomFillDegeneratedBound): bool {.noSideEffect, cdecl,
     importcpp: "IsDegenerated", header: "GeomFill_DegeneratedBound.hxx".}
+

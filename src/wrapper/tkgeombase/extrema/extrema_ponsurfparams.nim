@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import extrema_types
+
+
 
 ##  Created on: 2012-12-06
 ##  Created by: Sergey KHROMOV
@@ -15,7 +18,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
 
 
 proc newExtremaPOnSurfParams*(): ExtremaPOnSurfParams {.cdecl, constructor,
@@ -35,3 +37,4 @@ proc setIndices*(this: var ExtremaPOnSurfParams; theIndexU: cint; theIndexV: cin
     cdecl, importcpp: "SetIndices", header: "Extrema_POnSurfParams.hxx".}
 proc getIndices*(this: ExtremaPOnSurfParams; theIndexU: var cint; theIndexV: var cint) {.
     noSideEffect, cdecl, importcpp: "GetIndices", header: "Extrema_POnSurfParams.hxx".}
+

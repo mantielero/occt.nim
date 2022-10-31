@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1994-11-04
 ##  Created by: Christian CAILLET
@@ -16,7 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_Finder"
 
 
 
@@ -67,3 +69,4 @@ proc sameAttributes*(this: var TransferFinder; other: Handle[TransferFinder]) {.
 proc getAttributes*(this: var TransferFinder; other: Handle[TransferFinder];
                    fromname: cstring = ""; copied: bool = true) {.cdecl,
     importcpp: "GetAttributes", header: "Transfer_Finder.hxx".}
+

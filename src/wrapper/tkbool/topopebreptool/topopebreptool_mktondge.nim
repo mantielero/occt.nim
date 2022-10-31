@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-03-22
 ##  Created by: Xuan PHAM PHU
@@ -16,9 +21,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newTopOpeBRepToolMkTondgE*(): TopOpeBRepToolMkTondgE {.cdecl, constructor,
@@ -39,3 +41,4 @@ proc mkTonE*(this: var TopOpeBRepToolMkTondgE; mkT: var cint; par1: var cfloat;
 proc mkTonE*(this: var TopOpeBRepToolMkTondgE; ei: TopoDS_Edge; mkT: var cint;
             par1: var cfloat; par2: var cfloat): bool {.cdecl, importcpp: "MkTonE",
     header: "TopOpeBRepTool_mkTondgE.hxx".}
+

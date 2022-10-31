@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1996-01-26
 ##  Created by: Christian CAILLET
@@ -16,9 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_SignValidity"
 
 
 
@@ -30,3 +30,4 @@ proc cVal*(ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel
 proc value*(this: IFSelectSignValidity; ent: Handle[StandardTransient];
            model: Handle[InterfaceInterfaceModel]): cstring {.noSideEffect, cdecl,
     importcpp: "Value", header: "IFSelect_SignValidity.hxx".}
+

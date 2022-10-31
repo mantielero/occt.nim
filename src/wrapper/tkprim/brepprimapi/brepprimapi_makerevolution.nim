@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
@@ -16,10 +21,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Ax2"
-discard "forward decl of BRepPrim_Revolution"
 
 
 proc revolution*(meridian: Handle[GeomCurve]): BRepPrimAPI_MakeRevolution {.
@@ -47,3 +48,4 @@ proc oneAxis*(this: var BRepPrimAPI_MakeRevolution): pointer {.cdecl,
     importcpp: "OneAxis", header: "BRepPrimAPI_MakeRevolution.hxx".}
 proc revolution*(this: var BRepPrimAPI_MakeRevolution): var BRepPrimRevolution {.
     cdecl, importcpp: "Revolution", header: "BRepPrimAPI_MakeRevolution.hxx".}
+

@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 2013-05-29
 ##  Created by: Anton POLETAEV
@@ -17,7 +23,6 @@ import graphic3d_types
 
 ## ! Forward declaration
 
-discard "forward decl of Graphic3d_WorldViewProjState"
 
 
 
@@ -225,5 +230,6 @@ const
 #                   thePoints: var NCollectionArray1[Graphic3dVec3d];
 #                   theModelWorld: Graphic3dMat4d = graphic3dMat4d()) {.noSideEffect,
 #    cdecl, importcpp: "FrustumPoints", header: "Graphic3d_Camera.hxx".}
+
 
 

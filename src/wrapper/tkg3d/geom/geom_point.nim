@@ -4,6 +4,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -34,4 +36,5 @@ proc distance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.noSideEffect
     cdecl, importcpp: "Distance", header: "Geom_Point.hxx".}
 proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.
     noSideEffect, cdecl, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
+
 

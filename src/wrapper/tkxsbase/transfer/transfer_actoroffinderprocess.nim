@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1996-09-04
 ##  Created by: Christian CAILLET
@@ -16,12 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_ProcessForFinder"
-discard "forward decl of Transfer_FinderProcess"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Transfer_ActorOfFinderProcess"
 
 
 
@@ -43,3 +40,4 @@ proc transferTransient*(this: var TransferActorOfFinderProcess;
                        start: Handle[StandardTransient];
                        tp: Handle[TransferFinderProcess]; theProgress: MessageProgressRange = newMessageProgressRange()): Handle[
     StandardTransient] {.cdecl, importcpp: "TransferTransient", header: "Transfer_ActorOfFinderProcess.hxx".}
+

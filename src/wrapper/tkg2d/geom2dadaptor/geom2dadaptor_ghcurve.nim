@@ -1,4 +1,7 @@
+import ../tkg2d/adaptor2d/adaptor2d_types
 import geom2dadaptor_types
+
+
 
 ##  Created on: 1993-06-03
 ##  Created by: Bruno DUMORTIER
@@ -16,12 +19,6 @@ import geom2dadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Geom2dAdaptor_Curve"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Geom2dAdaptor_GHCurve"
 
 
 proc newGeom2dAdaptorGHCurve*(): Geom2dAdaptorGHCurve {.cdecl, constructor,
@@ -34,5 +31,6 @@ proc curve2d*(this: Geom2dAdaptorGHCurve): Adaptor2dCurve2d {.noSideEffect, cdec
     importcpp: "Curve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
 proc changeCurve2d*(this: var Geom2dAdaptorGHCurve): var Geom2dAdaptorCurve {.cdecl,
     importcpp: "ChangeCurve2d", header: "Geom2dAdaptor_GHCurve.hxx".}
+
 
 

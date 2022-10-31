@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg2d/geom2d/geom2d_types
 import gce2d_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,10 +20,6 @@ import gce2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Dir2d"
-discard "forward decl of gp_Lin2d"
 
 
 proc segment*(p1: Pnt2dObj; p2: Pnt2dObj): GCE2dMakeSegment {.cdecl, constructor,
@@ -37,3 +37,4 @@ proc value*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.noSideEffect,
 converter toHandleGeom2dTrimmedCurve*(this: GCE2dMakeSegment): HandleGeom2dTrimmedCurve {.
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom2d_TrimmedCurve)(#)", header: "GCE2d_MakeSegment.hxx".}
+

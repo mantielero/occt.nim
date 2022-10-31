@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Created on: 1995-12-04
 ##  Created by: Stephane MORTAUD
@@ -16,8 +19,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of SelectMgr_OrFilter"
 
 
 
@@ -26,3 +27,4 @@ proc newSelectMgrOrFilter*(): SelectMgrOrFilter {.cdecl, constructor,
     importcpp: "SelectMgr_OrFilter(@)", header: "SelectMgr_OrFilter.hxx".}
 proc isOk*(this: SelectMgrOrFilter; anobj: Handle[SelectMgrEntityOwner]): bool {.
     noSideEffect, cdecl, importcpp: "IsOk", header: "SelectMgr_OrFilter.hxx".}
+

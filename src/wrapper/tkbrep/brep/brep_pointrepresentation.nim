@@ -1,4 +1,10 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-08-10
 ##  Created by: Remi LEQUETTE
@@ -16,12 +22,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Surface"
-discard "forward decl of BRep_PointRepresentation"
 
 
 
@@ -69,3 +69,4 @@ proc surface*(this: var BRepPointRepresentation; s: Handle[GeomSurface]) {.cdecl
 proc dumpJson*(this: BRepPointRepresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_PointRepresentation.hxx".}
+

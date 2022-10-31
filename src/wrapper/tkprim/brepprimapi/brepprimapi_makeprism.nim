@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
 import brepprimapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-10-12
 ##  Created by: Remi LEQUETTE
@@ -16,10 +21,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Dir"
-discard "forward decl of BRepSweep_Prism"
 
 
 proc prism*(s: TopoDS_Shape; v: VecObj; copy: bool = false;
@@ -44,3 +45,4 @@ proc firstShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoD
     cdecl, importcpp: "FirstShape", header: "BRepPrimAPI_MakePrism.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakePrism; theShape: TopoDS_Shape): TopoDS_Shape {.
     cdecl, importcpp: "LastShape", header: "BRepPrimAPI_MakePrism.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import chfids_types
+
+
 
 ##  Created on: 1993-10-22
 ##  Created by: Laurent BOURESCHE
@@ -16,7 +21,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc newChFiDS_Map*(): ChFiDS_Map {.cdecl, constructor, importcpp: "ChFiDS_Map(@)",
@@ -33,3 +37,4 @@ proc findFromIndex*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffe
     cdecl, importcpp: "FindFromIndex", header: "ChFiDS_Map.hxx".}
 proc `()`*(this: ChFiDS_Map; i: cint): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "#(@)", header: "ChFiDS_Map.hxx".}
+

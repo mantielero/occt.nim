@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
 import toptools_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 2012-06-27
 ##  Created by: Dmitry BOBYLEV
@@ -15,8 +19,6 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Mutex"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopToolsMutexForShapeProvider*(): TopToolsMutexForShapeProvider {.cdecl,
@@ -34,3 +36,4 @@ proc getMutex*(this: TopToolsMutexForShapeProvider; theShape: TopoDS_Shape): ptr
     noSideEffect, cdecl, importcpp: "GetMutex", header: "TopTools_MutexForShapeProvider.hxx".}
 proc removeAllMutexes*(this: var TopToolsMutexForShapeProvider) {.cdecl,
     importcpp: "RemoveAllMutexes", header: "TopTools_MutexForShapeProvider.hxx".}
+

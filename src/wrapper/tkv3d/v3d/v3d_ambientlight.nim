@@ -1,5 +1,7 @@
 import v3d_types
 
+
+
 ##  Created on: 1992-01-21
 ##  Created by: GG
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,7 +18,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of V3d_Viewer"
 
 
 proc newV3dAmbientLight*(theColor: QuantityColor = newQuantityColor(quantityNOC_WHITE)): V3dAmbientLight {.
@@ -56,5 +57,6 @@ proc newV3dAmbientLight*(theColor: QuantityColor = newQuantityColor(quantityNOC_
 ## using statement
 
 ## using statement
+
 
 

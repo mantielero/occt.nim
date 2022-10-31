@@ -1,4 +1,8 @@
 import prs3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 1993-04-26
 ##  Created by: Jean-Louis Frenkel
@@ -29,4 +33,5 @@ proc setNumber*(this: var Prs3dIsoAspect; theNumber: cint) {.cdecl,
     importcpp: "SetNumber", header: "Prs3d_IsoAspect.hxx".}
 proc number*(this: Prs3dIsoAspect): cint {.noSideEffect, cdecl, importcpp: "Number",
                                        header: "Prs3d_IsoAspect.hxx".}
+
 

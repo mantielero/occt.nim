@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 1991-10-07
 ##  Created by: NW,JPB,CAL
@@ -22,6 +23,7 @@ import graphic3d_types
 ## ! TOA_YES yes
 ## ! TOA_NO  no
 ## ! TOA_COMPUTE yes but we have to compute the representation
+
 
 
 

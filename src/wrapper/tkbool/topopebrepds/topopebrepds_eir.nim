@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Copyright (c) 1998-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,7 +17,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_HDataStructure"
 
 
 proc newTopOpeBRepDS_EIR*(hds: Handle[TopOpeBRepDS_HDataStructure]): TopOpeBRepDS_EIR {.
@@ -23,3 +25,4 @@ proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR) {.cdecl,
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
 proc processEdgeInterferences*(this: var TopOpeBRepDS_EIR; i: cint) {.cdecl,
     importcpp: "ProcessEdgeInterferences", header: "TopOpeBRepDS_EIR.hxx".}
+

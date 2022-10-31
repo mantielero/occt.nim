@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Created on: 2001-01-04
 ##  Copyright (c) 2001-2014 OPEN CASCADE SAS
 ##
@@ -28,4 +30,5 @@ proc newGraphic3dArrayOfQuadrangles*(theMaxVertexs: cint; theMaxEdges: cint = 0;
                                     theHasVColors: bool = false;
                                     theHasVTexels: bool = false): Graphic3dArrayOfQuadrangles {.
     cdecl, constructor, importcpp: "Graphic3d_ArrayOfQuadrangles(@)", header: "Graphic3d_ArrayOfQuadrangles.hxx".}
+
 

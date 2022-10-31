@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-04
 ##  Created by: Christian CAILLET
@@ -16,15 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Transfer_ActorOfTransientProcess"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_EntityIterator"
 
 
 proc newTransferTransferOutput*(actor: Handle[TransferActorOfTransientProcess];
@@ -57,3 +51,4 @@ proc modelForStatus*(this: TransferTransferOutput;
                     protocol: Handle[InterfaceProtocol]; normal: bool;
                     roots: bool = true): Handle[InterfaceInterfaceModel] {.
     noSideEffect, cdecl, importcpp: "ModelForStatus", header: "Transfer_TransferOutput.hxx".}
+

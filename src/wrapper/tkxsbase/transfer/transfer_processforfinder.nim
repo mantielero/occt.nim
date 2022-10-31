@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/message/message_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -16,19 +20,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Message_Messenger"
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_ActorOfProcessForFinder"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Transfer_TransferFailure"
-discard "forward decl of Transfer_FindHasher"
-discard "forward decl of Transfer_IteratorOfProcessForFinder"
-discard "forward decl of Message_Msg"
-discard "forward decl of Interface_Check"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of Transfer_ProcessForFinder"
 
 
 proc newTransferProcessForFinder*(nb: cint = 10000): TransferProcessForFinder {.cdecl,
@@ -192,4 +183,5 @@ proc removeResult*(this: var TransferProcessForFinder;
     cdecl, importcpp: "RemoveResult", header: "Transfer_ProcessForFinder.hxx".}
 proc checkNum*(this: TransferProcessForFinder; start: Handle[TransferFinder]): cint {.
     noSideEffect, cdecl, importcpp: "CheckNum", header: "Transfer_ProcessForFinder.hxx".}
+
 

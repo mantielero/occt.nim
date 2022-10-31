@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
 import stepcontrol_types
+
+
 
 ##  Created on: 1996-07-08
 ##  Created by: Christian CAILLET
@@ -16,9 +20,6 @@ import stepcontrol_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of XSControl_WorkSession"
-discard "forward decl of StepData_StepModel"
-discard "forward decl of StepRepr_RepresentationContext"
 
 
 proc newSTEPControlReader*(): STEPControlReader {.cdecl, constructor,
@@ -37,3 +38,4 @@ proc fileUnits*(this: var STEPControlReader;
                theUnitAngleNames: var TColStdSequenceOfAsciiString;
                theUnitSolidAngleNames: var TColStdSequenceOfAsciiString) {.cdecl,
     importcpp: "FileUnits", header: "STEPControl_Reader.hxx".}
+

@@ -1,4 +1,8 @@
+import ../tkbo/bopalgo/bopalgo_types
+import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 ##  Created on: 2012-12-17
 ##  Created by: Eugeny MALTCHIKOV
@@ -57,3 +61,4 @@ proc isValid*(this: var BRepAlgoAPI_Check): bool {.cdecl, importcpp: "IsValid",
     header: "BRepAlgoAPI_Check.hxx".}
 proc result*(this: var BRepAlgoAPI_Check): BOPAlgoListOfCheckResult {.cdecl,
     importcpp: "Result", header: "BRepAlgoAPI_Check.hxx".}
+

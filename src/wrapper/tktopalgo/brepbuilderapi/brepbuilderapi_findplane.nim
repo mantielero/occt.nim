@@ -1,4 +1,9 @@
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1995-11-02
 ##  Created by: Jing Cheng MEI
@@ -16,9 +21,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
 
 
 proc findPlane*(): BRepBuilderAPI_FindPlane {.cdecl, constructor,
@@ -31,3 +33,4 @@ proc found*(this: BRepBuilderAPI_FindPlane): bool {.noSideEffect, cdecl,
     importcpp: "Found", header: "BRepBuilderAPI_FindPlane.hxx".}
 proc plane*(this: BRepBuilderAPI_FindPlane): Handle[GeomPlane] {.noSideEffect, cdecl,
     importcpp: "Plane", header: "BRepBuilderAPI_FindPlane.hxx".}
+

@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -25,4 +26,5 @@ const
   graphic3dFrameStatsCounterRENDERED_UPPER* = graphic3dFrameStatsCounterNbPointsNotCulled#.Graphic3dFrameStatsCounter
   graphic3dFrameStatsCounterIMMEDIATE_LOWER* = graphic3dFrameStatsCounterNbLayersImmediate#.Graphic3dFrameStatsCounter
   graphic3dFrameStatsCounterIMMEDIATE_UPPER* = graphic3dFrameStatsCounterNbPointsImmediate#.Graphic3dFrameStatsCounter
+
 

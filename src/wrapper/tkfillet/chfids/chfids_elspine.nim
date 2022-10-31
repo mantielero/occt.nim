@@ -1,4 +1,12 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
 import chfids_types
+
+
 
 ##  Created on: 1995-05-04
 ##  Created by: Laurent BOURESCHE
@@ -16,22 +24,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of ChFiDS_SurfData"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Ax1"
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
 
 
 proc newChFiDS_ElSpine*(): ChFiDS_ElSpine {.cdecl, constructor,
@@ -120,3 +112,4 @@ proc bezier*(this: ChFiDS_ElSpine): Handle[GeomBezierCurve] {.noSideEffect, cdec
     importcpp: "Bezier", header: "ChFiDS_ElSpine.hxx".}
 proc bSpline*(this: ChFiDS_ElSpine): Handle[GeomBSplineCurve] {.noSideEffect, cdecl,
     importcpp: "BSpline", header: "ChFiDS_ElSpine.hxx".}
+

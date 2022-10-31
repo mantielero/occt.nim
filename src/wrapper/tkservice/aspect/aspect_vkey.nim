@@ -1,5 +1,7 @@
 import aspect_types
 
+
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -34,4 +36,5 @@ const
 
 proc aspectVKey2Modifier*(theKey: AspectVKey): AspectVKeyFlags {.cdecl.} =
   discard
+
 

@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/bnd/bnd_types
 import selectmgr_types
+
+
 
 ##  Created on: 2015-12-15
 ##  Created by: Varvara POSKONINA
@@ -15,8 +21,6 @@ import selectmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Ax1"
-discard "forward decl of Graphic3d_SequenceOfHClipPlane"
 
 
 proc newSelectMgrViewClipRange*(): SelectMgrViewClipRange {.cdecl, constructor,
@@ -38,3 +42,4 @@ proc addClipSubRange*(this: var SelectMgrViewClipRange; theRange: BndRange) {.cd
 proc dumpJson*(this: SelectMgrViewClipRange; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_ViewClipRange.hxx".}
+

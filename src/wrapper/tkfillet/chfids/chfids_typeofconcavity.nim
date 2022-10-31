@@ -1,4 +1,5 @@
-import chfids_types
+
+
 
 ##  Created on: 1995-10-12
 ##  Created by: Bruno DUMORTIER
@@ -15,6 +16,7 @@ import chfids_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 
 

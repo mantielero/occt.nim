@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Oleg AGASHIN
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -29,3 +35,4 @@ proc setTools*(this: var BOPAlgoToolsProvider; theShapes: TopToolsListOfShape) {
     cdecl, importcpp: "SetTools", header: "BOPAlgo_ToolsProvider.hxx".}
 proc tools*(this: BOPAlgoToolsProvider): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Tools", header: "BOPAlgo_ToolsProvider.hxx".}
+

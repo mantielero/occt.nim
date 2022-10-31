@@ -1,4 +1,8 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkernel/tcolstd/tcolstd_types
 import geomfill_types
+
+
 
 ##  Created on: 1993-09-28
 ##  Created by: Bruno DUMORTIER
@@ -36,3 +40,4 @@ proc init*(this: var GeomFillCoons; p1: TColgpArray1OfPnt; p2: TColgpArray1OfPnt
           p3: TColgpArray1OfPnt; p4: TColgpArray1OfPnt; w1: TColStdArray1OfReal;
           w2: TColStdArray1OfReal; w3: TColStdArray1OfReal; w4: TColStdArray1OfReal) {.
     cdecl, importcpp: "Init", header: "GeomFill_Coons.hxx".}
+

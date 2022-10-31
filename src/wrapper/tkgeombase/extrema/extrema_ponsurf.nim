@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-21
 ##  Created by: Isabelle GRIGNON
@@ -16,7 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
 
 
 proc newExtremaPOnSurf*(): ExtremaPOnSurf {.cdecl, constructor,
@@ -29,3 +31,4 @@ proc setParameters*(this: var ExtremaPOnSurf; theU: cfloat; theV: cfloat; thePnt
     cdecl, importcpp: "SetParameters", header: "Extrema_POnSurf.hxx".}
 proc parameter*(this: ExtremaPOnSurf; u: var cfloat; v: var cfloat) {.noSideEffect, cdecl,
     importcpp: "Parameter", header: "Extrema_POnSurf.hxx".}
+

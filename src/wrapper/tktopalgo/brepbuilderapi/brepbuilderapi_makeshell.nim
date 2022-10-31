@@ -1,4 +1,9 @@
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1994-02-16
 ##  Created by: Remi LEQUETTE
@@ -16,9 +21,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Shell"
 
 
 proc shell*(): BRepBuilderAPI_MakeShell {.cdecl, constructor,
@@ -41,3 +43,4 @@ converter `topoDS_Shell`*(this: BRepBuilderAPI_MakeShell): TopoDS_Shell {.
     noSideEffect, cdecl,
     importcpp: "BRepBuilderAPI_MakeShell::operator TopoDS_Shell",
     header: "BRepBuilderAPI_MakeShell.hxx".}
+

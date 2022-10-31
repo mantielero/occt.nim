@@ -1,4 +1,8 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-02-22
 ##  Created by: Jacques GOUSSARD
@@ -16,9 +20,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of IntSurf_PntOn2S"
-discard "forward decl of IntSurf_LineOn2S"
 
 
 proc newIntSurfLineOn2S*(theAllocator: IntSurfAllocator = cast[IntSurfAllocator](0)): IntSurfLineOn2S {.cdecl,
@@ -48,3 +49,4 @@ proc isOutSurf2Box*(this: var IntSurfLineOn2S; theP: Pnt2dObj): bool {.cdecl,
     importcpp: "IsOutSurf2Box", header: "IntSurf_LineOn2S.hxx".}
 proc isOutBox*(this: var IntSurfLineOn2S; theP: PntObj): bool {.cdecl,
     importcpp: "IsOutBox", header: "IntSurf_LineOn2S.hxx".}
+

@@ -1,4 +1,5 @@
-import gce_types
+
+
 
 ##  Created on: 1992-04-30
 ##  Created by: Remi GILET
@@ -34,6 +35,7 @@ import gce_types
 ## ! gce_NullVector: Vector is null.
 ## ! gce_BadEquation: Coefficients are
 ## ! incorrect (applies to the equation of a geometric object).
+
 
 
 

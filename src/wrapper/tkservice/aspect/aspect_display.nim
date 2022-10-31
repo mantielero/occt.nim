@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -19,6 +20,7 @@ import aspect_types
 ## ==== Implementation:  This is a primitive type implemented with typedef
 ## ============================================================================
 ##  To manage Display
+
 
 
 

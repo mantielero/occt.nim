@@ -1,4 +1,9 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
@@ -16,10 +21,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_BSpline"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Law_Function"
-discard "forward decl of Law_BSpFunc"
 
 
 
@@ -48,3 +49,4 @@ proc curve*(this: LawBSpFunc): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Curve", header: "Law_BSpFunc.hxx".}
 proc setCurve*(this: var LawBSpFunc; c: Handle[LawBSpline]) {.cdecl,
     importcpp: "SetCurve", header: "Law_BSpFunc.hxx".}
+

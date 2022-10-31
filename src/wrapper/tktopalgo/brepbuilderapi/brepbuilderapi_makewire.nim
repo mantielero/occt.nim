@@ -1,4 +1,8 @@
 import brepbuilderapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-08
 ##  Created by: Remi LEQUETTE
@@ -16,10 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc wire*(): BRepBuilderAPI_MakeWire {.cdecl, constructor,
@@ -55,3 +55,4 @@ proc edge*(this: BRepBuilderAPI_MakeWire): TopoDS_Edge {.noSideEffect, cdecl,
     importcpp: "Edge", header: "BRepBuilderAPI_MakeWire.hxx".}
 proc vertex*(this: BRepBuilderAPI_MakeWire): TopoDS_Vertex {.noSideEffect, cdecl,
     importcpp: "Vertex", header: "BRepBuilderAPI_MakeWire.hxx".}
+

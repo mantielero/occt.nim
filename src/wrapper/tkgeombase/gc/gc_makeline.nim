@@ -1,4 +1,9 @@
 import gc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,11 +21,6 @@ import gc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
 
 
 proc line*(a1: Ax1Obj): MakeLine {.cdecl, constructor,
@@ -38,3 +38,4 @@ proc value*(this: MakeLine): Handle[GeomLine] {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeLine.hxx".}
 converter toHandleGeomTrimmedCurve*(this: MakeLine): Handle[GeomLine] {.noSideEffect,
     cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeLine.hxx".}
+

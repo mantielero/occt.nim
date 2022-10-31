@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
@@ -39,4 +43,5 @@ proc createFromSource*(theType: Graphic3dTypeOfShaderObject;
                       theSource: TCollectionAsciiString): Handle[
     Graphic3dShaderObject] {.cdecl, importcpp: "Graphic3d_ShaderObject::CreateFromSource(@)",
                             header: "Graphic3d_ShaderObject.hxx".}
+
 

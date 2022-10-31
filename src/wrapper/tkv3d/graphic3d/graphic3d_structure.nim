@@ -1,4 +1,10 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 1991-06-12
 ##  Created by: NW,JPB,CAL
@@ -16,10 +22,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_StructureManager"
-discard "forward decl of Graphic3d_DataStructureManager"
-discard "forward decl of Bnd_Box"
-discard "forward decl of gp_Pnt"
 
 
 
@@ -186,3 +188,4 @@ proc cStructure*(this: Graphic3dStructure): Handle[Graphic3dCStructure] {.
 proc dumpJson*(this: Graphic3dStructure; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Structure.hxx".}
+

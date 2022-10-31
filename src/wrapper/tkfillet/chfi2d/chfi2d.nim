@@ -1,4 +1,5 @@
-import chfi2d_types
+
+
 
 ##  Created on: 1995-06-12
 ##  Created by: Joelle CHAUVET
@@ -16,9 +17,6 @@ import chfi2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of ChFi2d_Builder"
+
 
 

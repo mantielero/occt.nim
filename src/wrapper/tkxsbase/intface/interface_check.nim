@@ -1,3 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/message/message_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,13 +20,8 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Message_Msg"
-discard "forward decl of TCollection_HAsciiString"
 when defined(Status):
   discard
-discard "forward decl of Interface_Check"
 type
   HandleInterfaceCheck* = Handle[InterfaceCheck]
 

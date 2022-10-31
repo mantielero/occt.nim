@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1994-02-16
 ##  Created by: Christian CAILLET
@@ -16,9 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of IFSelect_SelectionIterator"
-discard "forward decl of IFSelect_SelectControl"
 
 
 
@@ -35,3 +35,4 @@ proc setSecondInput*(this: var IFSelectSelectControl; sel: Handle[IFSelectSelect
     cdecl, importcpp: "SetSecondInput", header: "IFSelect_SelectControl.hxx".}
 proc fillIterator*(this: IFSelectSelectControl; iter: var IFSelectSelectionIterator) {.
     noSideEffect, cdecl, importcpp: "FillIterator", header: "IFSelect_SelectControl.hxx".}
+

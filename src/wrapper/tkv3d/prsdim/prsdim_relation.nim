@@ -1,4 +1,13 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../tkv3d/ais/ais_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-02-27
 ##  Created by: Odile Olivier
@@ -16,11 +25,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom_Plane"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc setColor*(this: var PrsDimRelation; theColor: QuantityColor) {.cdecl,
@@ -80,4 +84,5 @@ proc setAutomaticPosition*(this: var PrsDimRelation; theStatus: bool) {.cdecl,
     importcpp: "SetAutomaticPosition", header: "PrsDim_Relation.hxx".}
 proc automaticPosition*(this: PrsDimRelation): bool {.noSideEffect, cdecl,
     importcpp: "AutomaticPosition", header: "PrsDim_Relation.hxx".}
+
 

@@ -1,3 +1,23 @@
+import ../../tkbool/topopebrepds/topopebrepds_types
+import ../tkfillet/chfids/chfids_types
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/topabs/topabs_types
+import ../tkfillet/brepblend/brepblend_types
+import ../../tkgeomalgo/intsurf/intsurf_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkg3d/geomadaptor/geomadaptor_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkgeomalgo/geomfill/geomfill_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 ##  Created on: 1994-03-24
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1994-1999 Matra Datavision

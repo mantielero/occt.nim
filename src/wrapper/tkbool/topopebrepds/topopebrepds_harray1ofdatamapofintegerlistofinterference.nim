@@ -1,4 +1,7 @@
 import topopebrepds_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -35,3 +38,4 @@ proc newTopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference*(
     header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}
 proc array1*(this: TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference): TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference {.
     noSideEffect, cdecl, importcpp: "Array1", header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx".}
+

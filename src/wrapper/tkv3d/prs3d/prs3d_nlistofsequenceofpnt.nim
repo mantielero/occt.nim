@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 2006-04-20
 ##  Created by: Sergey Kochetkov	
@@ -14,5 +15,6 @@ import prs3d_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

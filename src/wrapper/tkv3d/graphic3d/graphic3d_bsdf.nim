@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2015-01-15
 ##  Created by: Danila ULYANOV
@@ -15,7 +18,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_PBRMaterial"
 
 
 
@@ -81,3 +83,4 @@ proc `==`*(this: Graphic3dBSDF; theOther: Graphic3dBSDF): bool {.noSideEffect, c
 proc dumpJson*(this: Graphic3dBSDF; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_BSDF.hxx".}
+

@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-21
 ##  Created by: Isabelle GRIGNON
@@ -16,15 +19,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Cylinder"
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Torus"
-discard "forward decl of gp_Sphere"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaExtPElS*(): ExtremaExtPElS {.cdecl, constructor,
@@ -57,3 +51,4 @@ proc squareDistance*(this: ExtremaExtPElS; n: cint): cfloat {.noSideEffect, cdec
     importcpp: "SquareDistance", header: "Extrema_ExtPElS.hxx".}
 proc point*(this: ExtremaExtPElS; n: cint): ExtremaPOnSurf {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_ExtPElS.hxx".}
+

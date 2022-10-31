@@ -1,4 +1,5 @@
-import brepbuilderapi_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -17,6 +18,7 @@ import brepbuilderapi_types
 ##  commercial license or contractual agreement.
 
 ## ! Option to manage  discontinuities in  Sweep
+
 
 
 

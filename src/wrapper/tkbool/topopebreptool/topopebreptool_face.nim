@@ -1,4 +1,7 @@
 import topopebreptool_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-01-14
 ##  Created by: Xuan PHAM PHU
@@ -16,8 +19,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Face"
 
 
 proc newTopOpeBRepToolFace*(): TopOpeBRepToolFace {.cdecl, constructor,
@@ -34,3 +35,4 @@ proc ffinite*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "Ffinite", header: "TopOpeBRepTool_face.hxx".}
 proc realF*(this: TopOpeBRepToolFace): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "RealF", header: "TopOpeBRepTool_face.hxx".}
+

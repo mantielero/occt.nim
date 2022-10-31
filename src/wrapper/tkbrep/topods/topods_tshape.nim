@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
 import topods_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1990-12-13
 ##  Created by: Remi Lequette
@@ -16,8 +20,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Iterator"
-discard "forward decl of TopoDS_Builder"
 when defined(Convex):
   discard
 ## ! A TShape  is a topological  structure describing a
@@ -89,4 +91,5 @@ proc nbChildren*(this: TopoDS_TShape): cint {.noSideEffect, cdecl,
 proc dumpJson*(this: TopoDS_TShape; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "TopoDS_TShape.hxx".}
+
 

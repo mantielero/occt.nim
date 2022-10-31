@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1993-02-02
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -14,15 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_HGraph"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_GeneralLib"
-discard "forward decl of Interface_GTool"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_EntityIterator"
 type
   InterfaceShareTool* {.importcpp: "Interface_ShareTool",
                        header: "Interface_ShareTool.hxx", bycopy.} = object ## ! Creates a ShareTool from a Model and builds all required data,

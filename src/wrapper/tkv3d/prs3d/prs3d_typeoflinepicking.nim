@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -15,6 +16,7 @@ import prs3d_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 
 

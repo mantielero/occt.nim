@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -71,4 +77,5 @@ proc verticalAlignment*(this: Graphic3dText): Graphic3dVerticalTextAlignment {.
 proc setVerticalAlignment*(this: var Graphic3dText;
                           theJustification: Graphic3dVerticalTextAlignment) {.
     cdecl, importcpp: "SetVerticalAlignment", header: "Graphic3d_Text.hxx".}
+
 

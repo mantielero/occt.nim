@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -74,3 +78,4 @@ proc specIBLMapSamplesFactor*(theProbability: StandardShortReal;
 proc dumpJson*(this: Graphic3dPBRMaterial; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_PBRMaterial.hxx".}
+

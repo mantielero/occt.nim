@@ -1,4 +1,9 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2016-08-24
 ##  Created by: Varvara POSKONINA
@@ -59,4 +64,5 @@ proc setBasicFillAreaAspect*(this: var Graphic3dPresentationAttributes;
 proc dumpJson*(this: Graphic3dPresentationAttributes;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "Graphic3d_PresentationAttributes.hxx".}
+
 

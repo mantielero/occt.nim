@@ -1,4 +1,7 @@
 import brepbuilderapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-21
 ##  Created by: Remi LEQUETTE
@@ -16,11 +19,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_CompSolid"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopoDS_Shape"
 
 
 proc solid*(): BRepBuilderAPI_MakeSolid {.cdecl, constructor,
@@ -49,3 +47,4 @@ converter `topoDS_Solid`*(this: var BRepBuilderAPI_MakeSolid): TopoDS_Solid {.cd
     header: "BRepBuilderAPI_MakeSolid.hxx".}
 proc isDeleted*(this: var BRepBuilderAPI_MakeSolid; s: TopoDS_Shape): bool {.cdecl,
     importcpp: "IsDeleted", header: "BRepBuilderAPI_MakeSolid.hxx".}
+

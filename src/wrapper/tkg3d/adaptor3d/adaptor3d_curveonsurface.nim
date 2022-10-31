@@ -1,4 +1,12 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkernel/tcolstd/tcolstd_types
 import adaptor3d_types
+import ../../tkmath/geomabs/geomabs_types
+import ../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-02-22
 ##  Created by: Modelistation
@@ -16,23 +24,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
 
 
 proc newAdaptor3dCurveOnSurface*(): Adaptor3dCurveOnSurface {.cdecl, constructor,
@@ -113,3 +104,4 @@ proc bezier*(this: Adaptor3dCurveOnSurface): Handle[GeomBezierCurve] {.noSideEff
     cdecl, importcpp: "Bezier", header: "Adaptor3d_CurveOnSurface.hxx".}
 proc bSpline*(this: Adaptor3dCurveOnSurface): Handle[GeomBSplineCurve] {.
     noSideEffect, cdecl, importcpp: "BSpline", header: "Adaptor3d_CurveOnSurface.hxx".}
+

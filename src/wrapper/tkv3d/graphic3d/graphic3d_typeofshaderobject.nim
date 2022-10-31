@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2013-09-20
 ##  Created by: Denis BOGOLEPOV
@@ -16,6 +17,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Type of the shader object.
+
 
 
 

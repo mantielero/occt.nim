@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkfillet/blend/blend_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1998-05-12
 ##  Created by: Philippe NOUAILLE
@@ -16,12 +24,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Blend_AppFunction"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Blend_Point"
-discard "forward decl of BRepBlend_AppFuncRoot"
 
 
 
@@ -79,3 +81,4 @@ proc point*(this: BRepBlendAppFuncRoot; `func`: BlendAppFunction; param: cfloat;
     importcpp: "Point", header: "BRepBlend_AppFuncRoot.hxx".}
 proc vec*(this: BRepBlendAppFuncRoot; sol: var MathVector; pnt: BlendPoint) {.
     noSideEffect, cdecl, importcpp: "Vec", header: "BRepBlend_AppFuncRoot.hxx".}
+

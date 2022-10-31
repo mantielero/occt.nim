@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import aspect_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2010-05-21
 ##  Created by: PAUL SUPRYATKIN
@@ -15,7 +19,6 @@ import aspect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Quantity_Color"
 
 
 proc newAspectGradientBackground*(): AspectGradientBackground {.cdecl, constructor,
@@ -35,3 +38,4 @@ proc bgGradientFillMethod*(this: AspectGradientBackground): AspectGradientFillMe
 proc dumpJson*(this: AspectGradientBackground; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Aspect_GradientBackground.hxx".}
+

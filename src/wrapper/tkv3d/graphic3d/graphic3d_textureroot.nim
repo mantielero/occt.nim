@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
@@ -16,9 +20,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Image_CompressedPixMap"
-discard "forward decl of Image_SupportedFormats"
-discard "forward decl of Graphic3d_TextureParams"
 
 
 proc texturesFolder*(): TCollectionAsciiString {.cdecl,
@@ -51,4 +52,5 @@ proc setColorMap*(this: var Graphic3dTextureRoot; theIsColor: bool) {.cdecl,
     importcpp: "SetColorMap", header: "Graphic3d_TextureRoot.hxx".}
 proc isTopDown*(this: Graphic3dTextureRoot): bool {.noSideEffect, cdecl,
     importcpp: "IsTopDown", header: "Graphic3d_TextureRoot.hxx".}
+
 

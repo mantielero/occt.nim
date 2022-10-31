@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/message/message_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2017 OPEN CASCADE SAS
@@ -14,7 +19,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Message_ProgressScope"
 
 
 proc newBOPAlgoOptions*(): BOPAlgoOptions {.cdecl, constructor,
@@ -66,3 +70,4 @@ proc setUseOBB*(this: var BOPAlgoOptions; theUseOBB: bool) {.cdecl,
     importcpp: "SetUseOBB", header: "BOPAlgo_Options.hxx".}
 proc useOBB*(this: BOPAlgoOptions): bool {.noSideEffect, cdecl, importcpp: "UseOBB",
                                        header: "BOPAlgo_Options.hxx".}
+

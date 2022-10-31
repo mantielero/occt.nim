@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Created on: 1997-11-21
 ##  Created by: ZOV
@@ -17,6 +18,7 @@ import v3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Base class for Positional, Spot and Directional Light classes.
+
 
 
 

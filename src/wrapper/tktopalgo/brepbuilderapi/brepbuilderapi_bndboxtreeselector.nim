@@ -1,4 +1,8 @@
 import brepbuilderapi_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/bnd/bnd_types
+
+
 
 ##  Created on: 2011-11-29
 ##  Created by: ANNA MASALSKAYA
@@ -32,3 +36,4 @@ proc setCurrent*(this: var BRepBuilderAPI_BndBoxTreeSelector; theBox: BndBox) {.
     importcpp: "SetCurrent", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
 proc resInd*(this: var BRepBuilderAPI_BndBoxTreeSelector): TColStdListOfInteger {.
     cdecl, importcpp: "ResInd", header: "BRepBuilderAPI_BndBoxTreeSelector.hxx".}
+

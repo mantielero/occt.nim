@@ -1,4 +1,7 @@
+import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2014 OPEN CASCADE SAS
@@ -14,7 +17,6 @@ import brepalgoapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape",
@@ -48,4 +50,5 @@ proc shape*(this: var BRepAlgoAPI_Algo): TopoDS_Shape {.cdecl, importcpp: "Shape
 ## using statement
 
 ## using statement
+
 

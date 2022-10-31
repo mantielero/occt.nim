@@ -3,6 +3,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 
 
 
+
+
 ##  Created on: 1993-03-09
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -35,5 +37,6 @@ proc append*(this: var GeomHSequenceOfBSplineSurface;
     importcpp: "Append", header: "Geom_HSequenceOfBSplineSurface.hxx".}
 proc changeSequence*(this: var GeomHSequenceOfBSplineSurface): var GeomSequenceOfBSplineSurface {.
     cdecl, importcpp: "ChangeSequence", header: "Geom_HSequenceOfBSplineSurface.hxx".}
+
 
 

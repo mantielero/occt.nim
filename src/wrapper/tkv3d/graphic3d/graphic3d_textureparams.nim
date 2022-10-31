@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -75,4 +78,5 @@ proc setLevelsRange*(this: var Graphic3dTextureParams; theFirstLevel: cint;
     header: "Graphic3d_TextureParams.hxx".}
 proc samplerRevision*(this: Graphic3dTextureParams): cuint {.noSideEffect, cdecl,
     importcpp: "SamplerRevision", header: "Graphic3d_TextureParams.hxx".}
+
 

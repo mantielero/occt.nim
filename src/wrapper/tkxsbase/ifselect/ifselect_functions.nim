@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-07-28
 ##  Created by: Christian CAILLET
@@ -16,9 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_Transient"
-discard "forward decl of IFSelect_WorkSession"
-discard "forward decl of IFSelect_Dispatch"
 
 
 proc giveEntity*(ws: Handle[IFSelectWorkSession]; name: cstring = ""): Handle[
@@ -33,3 +34,4 @@ proc giveDispatch*(ws: Handle[IFSelectWorkSession]; name: cstring; mode: bool = 
     IFSelectDispatch] {.cdecl, importcpp: "IFSelect_Functions::GiveDispatch(@)",
                        header: "IFSelect_Functions.hxx".}
 proc initIFSelectFunctions*() {.cdecl, importcpp: "IFSelect_Functions::Init(@)", header: "IFSelect_Functions.hxx".}
+

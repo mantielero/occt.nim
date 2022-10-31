@@ -1,4 +1,9 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
@@ -16,14 +21,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Interface_TypedValue"
-discard "forward decl of IFSelect_EditForm"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of IFSelect_ListEditor"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_Editor"
 
 
 
@@ -80,3 +77,4 @@ proc updateList*(this: IFSelectEditor; form: Handle[IFSelectEditForm]; num: cint
 proc apply*(this: IFSelectEditor; form: Handle[IFSelectEditForm];
            ent: Handle[StandardTransient]; model: Handle[InterfaceInterfaceModel]): bool {.
     noSideEffect, cdecl, importcpp: "Apply", header: "IFSelect_Editor.hxx".}
+

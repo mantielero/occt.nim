@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1993-08-26
 ##  Created by: Christian CAILLET
@@ -16,11 +19,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_ContextModif"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_CopyTool"
-discard "forward decl of IFSelect_Modifier"
 
 
 
@@ -29,3 +27,4 @@ proc perform*(this: IFSelectModifier; ctx: var IFSelectContextModif;
              target: Handle[InterfaceInterfaceModel];
              protocol: Handle[InterfaceProtocol]; tc: var InterfaceCopyTool) {.
     noSideEffect, cdecl, importcpp: "Perform", header: "IFSelect_Modifier.hxx".}
+

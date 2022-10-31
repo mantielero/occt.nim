@@ -1,3 +1,5 @@
+
+
 ##  Created on: 2015-06-18
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -454,3 +456,4 @@
 ##
 ##    return Pow (static_cast<Standard_Real> (aDeterminant), 1.0 / 3.0);
 ##  }
+

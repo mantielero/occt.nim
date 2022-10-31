@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -21,6 +22,7 @@ import prs3d_types
 ## ! DAO_External - arrows "outside", pointing inwards.
 ## ! DAO_Fit      - arrows oriented inside if value label with arrowtips fit the dimension line,
 ## ! otherwise - externally
+
 
 
 

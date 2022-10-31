@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1996-03-15
 ##  Created by: Christian CAILLET
@@ -16,12 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_ContextModif"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_CopyTool"
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of IFSelect_ModifReorder"
 
 
 
@@ -34,3 +32,4 @@ proc perform*(this: IFSelectModifReorder; ctx: var IFSelectContextModif;
     noSideEffect, cdecl, importcpp: "Perform", header: "IFSelect_ModifReorder.hxx".}
 proc label*(this: IFSelectModifReorder): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "Label", header: "IFSelect_ModifReorder.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,8 +21,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopOpeBRepBuild_Loop"
 
 
 proc newTopOpeBRepBuildPaveClassifier*(e: TopoDS_Shape): TopOpeBRepBuildPaveClassifier {.
@@ -33,3 +36,4 @@ proc closedVertices*(this: var TopOpeBRepBuildPaveClassifier; b: bool) {.cdecl,
 proc adjustCase*(p1: cfloat; o: TopAbsOrientation; first: cfloat; period: cfloat;
                 tol: cfloat; cas: var cint): cfloat {.cdecl,
     importcpp: "TopOpeBRepBuild_PaveClassifier::AdjustCase(@)", header: "TopOpeBRepBuild_PaveClassifier.hxx".}
+

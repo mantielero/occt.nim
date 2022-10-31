@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import selectmgr_types
+
+
 
 ##  Copyright (c) 2015 OPEN CASCADE SAS
 ##
@@ -16,4 +19,5 @@ import selectmgr_types
 
 proc transform*(theTrsf: TrsfObj; theVec: SelectMgrVec3): SelectMgrVec3 {.cdecl.} =
   discard
+
 

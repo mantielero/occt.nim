@@ -1,4 +1,7 @@
 import toptools_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-01-14
 ##  Created by: Remi LEQUETTE
@@ -30,3 +33,4 @@ proc newTopToolsHArray1OfListOfShape*(theOther: TopToolsArray1OfListOfShape): To
     header: "TopTools_HArray1OfListOfShape.hxx".}
 proc array1*(this: TopToolsHArray1OfListOfShape): TopToolsArray1OfListOfShape {.
     noSideEffect, cdecl, importcpp: "Array1", header: "TopTools_HArray1OfListOfShape.hxx".}
+

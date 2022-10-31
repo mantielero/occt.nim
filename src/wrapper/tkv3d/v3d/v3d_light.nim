@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Created on: 1992-01-17
 ##  Created by: GG
@@ -15,5 +16,6 @@ import v3d_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

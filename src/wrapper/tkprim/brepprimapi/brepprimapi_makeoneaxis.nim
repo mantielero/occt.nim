@@ -1,4 +1,7 @@
 import brepprimapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-22
 ##  Created by: Remi LEQUETTE
@@ -16,10 +19,6 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
 
 
 proc oneAxis*(this: var BRepPrimAPI_MakeOneAxis): pointer {.cdecl,
@@ -38,3 +37,4 @@ proc solid*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
     importcpp: "Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}
 converter `topoDS_Solid`*(this: var BRepPrimAPI_MakeOneAxis): TopoDS_Solid {.cdecl,
     importcpp: "BRepPrimAPI_MakeOneAxis::operator TopoDS_Solid", header: "BRepPrimAPI_MakeOneAxis.hxx".}
+

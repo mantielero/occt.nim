@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepprim_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1992-11-05
 ##  Created by: Remi LEQUETTE
@@ -16,10 +20,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_Face"
 
 
 proc newBRepPrimTorus*(position: Ax2Obj; major: cfloat; minor: cfloat): BRepPrimTorus {.
@@ -30,3 +30,4 @@ proc newBRepPrimTorus*(center: PntObj; major: cfloat; minor: cfloat): BRepPrimTo
     cdecl, constructor, importcpp: "BRepPrim_Torus(@)", header: "BRepPrim_Torus.hxx".}
 proc makeEmptyLateralFace*(this: BRepPrimTorus): TopoDS_Face {.noSideEffect, cdecl,
     importcpp: "MakeEmptyLateralFace", header: "BRepPrim_Torus.hxx".}
+

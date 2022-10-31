@@ -1,4 +1,7 @@
 import gce_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Remi GILET
@@ -16,12 +19,6 @@ import gce_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Ax2"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Lin"
 
 
 proc newGceMakeCone*(a2: Ax2Obj; ang: cfloat; radius: cfloat): GceMakeCone {.cdecl,
@@ -44,3 +41,4 @@ proc operator*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl, importcpp: "Op
                                       header: "gce_MakeCone.hxx".}
 converter `cone`*(this: GceMakeCone): ConeObj {.noSideEffect, cdecl,
     importcpp: "gce_MakeCone::operator gp_Cone", header: "gce_MakeCone.hxx".}
+

@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1997-03-04
 ##  Created by: Jean-Pierre COMBE
@@ -29,3 +34,4 @@ proc isMovable*(this: PrsDimOffsetDimension): bool {.noSideEffect, cdecl,
     importcpp: "IsMovable", header: "PrsDim_OffsetDimension.hxx".}
 proc setRelativePos*(this: var PrsDimOffsetDimension; aTrsf: TrsfObj) {.cdecl,
     importcpp: "SetRelativePos", header: "PrsDim_OffsetDimension.hxx".}
+

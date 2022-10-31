@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Copyright (c) 2017 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import ais_types
 ##  commercial license or contractual agreement.
 
 ## ! The mode specifying how multiple active Selection Modes should be treated during activation of new one.
+
 
 
 

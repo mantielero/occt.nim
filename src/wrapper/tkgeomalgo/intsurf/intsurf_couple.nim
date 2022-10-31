@@ -1,5 +1,7 @@
 import intsurf_types
 
+
+
 ##  Created on: 1992-03-25
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -29,3 +31,4 @@ proc first*(this: IntSurfCouple): cint {.noSideEffect, cdecl, importcpp: "First"
                                      header: "IntSurf_Couple.hxx".}
 proc second*(this: IntSurfCouple): cint {.noSideEffect, cdecl, importcpp: "Second",
                                       header: "IntSurf_Couple.hxx".}
+

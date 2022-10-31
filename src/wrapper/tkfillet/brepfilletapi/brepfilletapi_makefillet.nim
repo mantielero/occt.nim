@@ -1,4 +1,16 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkbool/topopebrepbuild/topopebrepbuild_types
+import ../tkfillet/chfids/chfids_types
+import ../tkfillet/chfi3d/chfi3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import brepfilletapi_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkgeomalgo/law/law_types
+
+
 
 ##  Created on: 1994-06-17
 ##  Created by: Modeling
@@ -16,14 +28,6 @@ import brepfilletapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of Law_Function"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopOpeBRepBuild_HBuilder"
-discard "forward decl of Geom_Surface"
 
 
 proc newFillet*(s: TopoDS_Shape;
@@ -143,3 +147,4 @@ proc badShape*(this: BRepFilletAPI_MakeFillet): TopoDS_Shape {.noSideEffect, cde
     importcpp: "BadShape", header: "BRepFilletAPI_MakeFillet.hxx".}
 proc stripeStatus*(this: BRepFilletAPI_MakeFillet; ic: cint): ChFiDS_ErrorStatus {.
     noSideEffect, cdecl, importcpp: "StripeStatus", header: "BRepFilletAPI_MakeFillet.hxx".}
+

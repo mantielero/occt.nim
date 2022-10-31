@@ -1,4 +1,12 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+import ../../tkmath/poly/poly_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-07-05
 ##  Created by: Remi LEQUETTE
@@ -16,16 +24,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of Geom_Surface"
-discard "forward decl of Poly_Triangulation"
-discard "forward decl of Geom_Curve"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Poly_Polygon3D"
-discard "forward decl of Poly_Polygon2D"
-discard "forward decl of Poly_PolygonOnTriangulation"
-discard "forward decl of BRep_CurveRepresentation"
 
 
 
@@ -119,3 +117,4 @@ proc copy*(this: BRepCurveRepresentation): Handle[BRepCurveRepresentation] {.
 proc dumpJson*(this: BRepCurveRepresentation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_CurveRepresentation.hxx".}
+

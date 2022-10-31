@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -16,18 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Extrema_Curve2dTool"
-discard "forward decl of Extrema_ExtPElC2d"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Extrema_POnCurv2d"
-discard "forward decl of Extrema_ELPCOfLocateExtPC2d"
-discard "forward decl of Extrema_EPCOfELPCOfLocateExtPC2d"
-discard "forward decl of Extrema_LocEPCOfLocateExtPC2d"
-discard "forward decl of Extrema_PCLocFOfLocEPCOfLocateExtPC2d"
 
 
 proc newExtremaLocateExtPC2d*(): ExtremaLocateExtPC2d {.cdecl, constructor,
@@ -50,3 +42,4 @@ proc isMin*(this: ExtremaLocateExtPC2d): bool {.noSideEffect, cdecl,
     importcpp: "IsMin", header: "Extrema_LocateExtPC2d.hxx".}
 proc point*(this: ExtremaLocateExtPC2d): ExtremaPOnCurv2d {.noSideEffect, cdecl,
     importcpp: "Point", header: "Extrema_LocateExtPC2d.hxx".}
+

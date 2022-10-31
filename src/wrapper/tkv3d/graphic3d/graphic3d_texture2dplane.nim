@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
@@ -16,8 +20,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
-discard "forward decl of Graphic3d_Texture2Dplane"
 
 
 
@@ -67,3 +69,4 @@ proc scaleT*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
     noSideEffect, cdecl, importcpp: "ScaleT", header: "Graphic3d_Texture2Dplane.hxx".}
 proc rotation*(this: Graphic3dTexture2Dplane; theVal: var StandardShortReal) {.
     noSideEffect, cdecl, importcpp: "Rotation", header: "Graphic3d_Texture2Dplane.hxx".}
+

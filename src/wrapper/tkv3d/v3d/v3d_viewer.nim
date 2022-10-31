@@ -1,4 +1,11 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkernel/quantity/quantity_types
 import v3d_types
+
+
 
 ##  Created on: 1992-01-17
 ##  Created by: GG
@@ -16,16 +23,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_Grid"
-discard "forward decl of Graphic3d_AspectMarker3d"
-discard "forward decl of Graphic3d_GraphicDriver"
-discard "forward decl of Graphic3d_Group"
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of V3d_BadValue"
-discard "forward decl of V3d_CircularGrid"
-discard "forward decl of V3d_RectangularGrid"
-discard "forward decl of V3d_View"
-discard "forward decl of Quantity_Color"
 
 
 proc ifMoreViews*(this: V3dViewer): bool {.noSideEffect, cdecl,
@@ -257,4 +254,5 @@ proc definedLight*(this: V3dViewer): Handle[V3dLight] {.noSideEffect, cdecl,
     importcpp: "DefinedLight", header: "V3d_Viewer.hxx".}
 proc dumpJson*(this: V3dViewer; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "V3d_Viewer.hxx".}
+
 

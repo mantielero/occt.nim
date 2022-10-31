@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
+
+
 
 ##  Created on: 1994-02-01
 ##  Created by: Laurent PAINNOT
@@ -16,14 +20,6 @@ import extrema_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Extrema_ExtPExtS"
-discard "forward decl of Extrema_ExtPRevS"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_TypeMismatch"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Adaptor3d_Surface"
-discard "forward decl of Extrema_POnSurf"
 
 
 proc newExtremaExtPS*(): ExtremaExtPS {.cdecl, constructor,
@@ -59,3 +55,4 @@ proc setFlag*(this: var ExtremaExtPS; f: ExtremaExtFlag) {.cdecl, importcpp: "Se
     header: "Extrema_ExtPS.hxx".}
 proc setAlgo*(this: var ExtremaExtPS; a: ExtremaExtAlgo) {.cdecl, importcpp: "SetAlgo",
     header: "Extrema_ExtPS.hxx".}
+

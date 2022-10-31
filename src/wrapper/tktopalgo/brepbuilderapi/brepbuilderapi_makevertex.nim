@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepbuilderapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -16,8 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc vertex*(p: PntObj): BRepBuilderAPI_MakeVertex {.cdecl,
@@ -27,3 +29,4 @@ proc vertex*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.cdecl,
 converter `topoDS_Vertex`*(this: var BRepBuilderAPI_MakeVertex): TopoDS_Vertex {.
     cdecl, importcpp: "BRepBuilderAPI_MakeVertex::operator TopoDS_Vertex",
     header: "BRepBuilderAPI_MakeVertex.hxx".}
+

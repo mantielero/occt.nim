@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2014-05-14
 ##  Created by: Denis BOGOLEPOV
@@ -39,3 +42,4 @@ proc resolutionRatio*(this: Graphic3dRenderingParams): StandardShortReal {.
 proc dumpJson*(this: Graphic3dRenderingParams; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_RenderingParams.hxx".}
+

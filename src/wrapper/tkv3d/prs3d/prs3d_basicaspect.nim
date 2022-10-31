@@ -1,4 +1,5 @@
-import prs3d_types
+
+
 
 ##  Created on: 2000-02-15
 ##  Created by: Gerard GRAS
@@ -17,6 +18,7 @@ import prs3d_types
 
 ## ! All basic Prs3d_xxxAspect must inherits from this class
 ## ! The aspect classes qualifies how to represent a given kind of object.
+
 
 
 

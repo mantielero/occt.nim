@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-12-02
 ##  Created by: Philippe MANGIN
@@ -16,14 +24,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_TrihedronLaw"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Mat"
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_CurveAndTrihedron"
 
 
 
@@ -74,3 +74,4 @@ proc isRotation*(this: GeomFillCurveAndTrihedron; error: var cfloat): bool {.
     noSideEffect, cdecl, importcpp: "IsRotation", header: "GeomFill_CurveAndTrihedron.hxx".}
 proc rotation*(this: GeomFillCurveAndTrihedron; center: var PntObj) {.noSideEffect, cdecl,
     importcpp: "Rotation", header: "GeomFill_CurveAndTrihedron.hxx".}
+

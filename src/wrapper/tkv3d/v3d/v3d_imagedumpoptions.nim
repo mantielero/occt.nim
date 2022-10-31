@@ -1,5 +1,7 @@
 import v3d_types
 
+
+
 ##  Copyright (c) 2016 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -19,3 +21,4 @@ import v3d_types
 
 proc newV3dImageDumpOptions*(): V3dImageDumpOptions {.cdecl, constructor,
     importcpp: "V3d_ImageDumpOptions(@)", header: "V3d_ImageDumpOptions.hxx".}
+

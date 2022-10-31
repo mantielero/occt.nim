@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2016-08-04
 ##  Copyright (c) 2016 OPEN CASCADE SAS
@@ -19,5 +20,6 @@ import graphic3d_types
 const
   graphic3dCappingFlagsObjectAspect = (graphic3dCappingFlagsObjectMaterial.int or
         graphic3dCappingFlagsObjectTexture.int or graphic3dCappingFlagsObjectShader.int).Graphic3dCappingFlags
+
 
 

@@ -1,4 +1,10 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import toptools_types
+import ../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1993-07-01
 ##  Created by: Remi LEQUETTE
@@ -16,9 +22,6 @@ import toptools_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopTools_LocationSet"
-discard "forward decl of TCollection_AsciiString"
 
 
 proc newTopToolsShapeSet*(): TopToolsShapeSet {.cdecl, constructor,
@@ -81,3 +84,4 @@ proc check*(this: var TopToolsShapeSet; t: TopAbsShapeEnum; s: var TopoDS_Shape)
     importcpp: "Check", header: "TopTools_ShapeSet.hxx".}
 proc nbShapes*(this: TopToolsShapeSet): cint {.noSideEffect, cdecl,
     importcpp: "NbShapes", header: "TopTools_ShapeSet.hxx".}
+

@@ -1,4 +1,9 @@
-import bopalgo_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,10 +19,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BOPDS_PaveBlock"
-discard "forward decl of BOPDS_CommonBlock"
-discard "forward decl of IntTools_Context"
-discard "forward decl of TopoDS_Shape"
 
 
 proc makeBlocks*[TheType; TheTypeHasher](theMILI: NCollectionIndexedDataMap[
@@ -70,3 +71,4 @@ proc intersectVertices*(theVertices: TopToolsIndexedDataMapOfShapeReal;
 #proc trsfToPoint*(theBox1: BndBox; theBox2: BndBox; theTrsf: var TrsfObj;
 #                 thePoint: PntObj = pnt(0.0, 0.0, 0.0); theCriteria: cfloat = 1.e+5): bool {.
 #    cdecl, importcpp: "BOPAlgo_Tools::TrsfToPoint(@)", header: "BOPAlgo_Tools.hxx".}
+

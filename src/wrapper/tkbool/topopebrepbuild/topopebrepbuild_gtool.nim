@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_GTopo"
 
 
 proc gFusUnsh*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {.
@@ -40,3 +43,4 @@ proc gComDiff*(s1: TopAbsShapeEnum; s2: TopAbsShapeEnum): TopOpeBRepBuildGTopo {
 proc dump*(os: var StandardOStream) {.cdecl,
                                   importcpp: "TopOpeBRepBuild_GTool::Dump(@)",
                                   header: "TopOpeBRepBuild_GTool.hxx".}
+

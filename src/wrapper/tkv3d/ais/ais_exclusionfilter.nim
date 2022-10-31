@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkv3d/selectmgr/selectmgr_types
+
+
 
 ##  Created on: 1997-11-28
 ##  Created by: Robert COUBLANC
@@ -16,8 +21,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of AIS_ExclusionFilter"
 
 
 
@@ -53,3 +56,4 @@ proc listOfStoredTypes*(this: AIS_ExclusionFilter;
 proc listOfSignature*(this: AIS_ExclusionFilter; aType: AIS_KindOfInteractive;
                      theStoredList: var TColStdListOfInteger) {.noSideEffect, cdecl,
     importcpp: "ListOfSignature", header: "AIS_ExclusionFilter.hxx".}
+

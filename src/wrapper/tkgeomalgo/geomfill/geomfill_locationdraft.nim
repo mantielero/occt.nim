@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-04-21
 ##  Created by: Stephanie HUMEAU
@@ -16,17 +24,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_DraftTrihedron"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Mat"
-discard "forward decl of GeomFill_LocationLaw"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of GeomFill_LocationDraft"
 
 
 proc newGeomFillLocationDraft*(direction: DirObj; angle: cfloat): GeomFillLocationDraft {.
@@ -91,3 +88,4 @@ proc isIntersec*(this: GeomFillLocationDraft): bool {.noSideEffect, cdecl,
     importcpp: "IsIntersec", header: "GeomFill_LocationDraft.hxx".}
 proc direction*(this: GeomFillLocationDraft): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "GeomFill_LocationDraft.hxx".}
+

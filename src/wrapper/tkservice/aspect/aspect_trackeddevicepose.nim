@@ -1,5 +1,7 @@
 import aspect_types
 
+
+
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -20,5 +22,6 @@ import aspect_types
 proc newAspectTrackedDevicePose*(): AspectTrackedDevicePose {.cdecl, constructor,
     importcpp: "Aspect_TrackedDevicePose(@)", header: "Aspect_TrackedDevicePose.hxx".}
 ## ! Array of tracked poses.
+
 
 

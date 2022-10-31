@@ -1,4 +1,5 @@
-import ifselect_types
+
+
 
 ##  Created on: 2000-02-29
 ##  Created by: data exchange team
@@ -14,5 +15,6 @@ import ifselect_types
 ##
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
+
 
 

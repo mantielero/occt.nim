@@ -1,4 +1,10 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import brepblend_types
+import ../../tkgeombase/approx/approx_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1996-11-25
 ##  Created by: Philippe MANGIN
@@ -16,10 +22,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Approx_SweepFunction"
 
 
 proc newBRepBlendAppSurface*(funct: Handle[ApproxSweepFunction]; first: cfloat;
@@ -82,3 +84,4 @@ proc tolCurveOnSurf*(this: BRepBlendAppSurface; index: cint): cfloat {.noSideEff
     cdecl, importcpp: "TolCurveOnSurf", header: "BRepBlend_AppSurface.hxx".}
 proc dump*(this: BRepBlendAppSurface; o: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "BRepBlend_AppSurface.hxx".}
+

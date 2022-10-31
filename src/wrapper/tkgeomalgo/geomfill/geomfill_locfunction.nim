@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import geomfill_types
+
+
 
 ##  Created on: 1998-02-02
 ##  Created by: Philippe MANGIN
@@ -16,7 +19,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of GeomFill_LocationLaw"
 
 
 proc newGeomFillLocFunction*(law: Handle[GeomFillLocationLaw]): GeomFillLocFunction {.
@@ -30,3 +32,4 @@ proc d2*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cflo
 proc dn*(this: var GeomFillLocFunction; param: cfloat; first: cfloat; last: cfloat;
         order: cint; result: var cfloat; ier: var cint) {.cdecl, importcpp: "DN",
     header: "GeomFill_LocFunction.hxx".}
+

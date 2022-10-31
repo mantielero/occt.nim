@@ -1,3 +1,5 @@
+
+
 ##  Created on: 1997-10-08
 ##  Created by: Prestataire Xuan PHAM PHU
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -23,3 +25,4 @@
 ##  #define Mgtc Geom_TrimmedCurve
 ##  #define Mg2c Geom2d_Curve
 ##  #define Mg2tc Geom_TrimmedCurve
+

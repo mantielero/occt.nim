@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import chfi2d_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 2013-05-20
 ##  Created by: Mikhail PONIKAROV
@@ -15,7 +19,6 @@ import chfi2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of FilletPoint"
 
 
 proc newChFi2dFilletAlgo*(): ChFi2dFilletAlgo {.cdecl, constructor,
@@ -78,3 +81,4 @@ proc lowerValue*(this: var FilletPoint): cfloat {.cdecl, importcpp: "LowerValue"
     header: "ChFi2d_FilletAlgo.hxx".}
 proc remove*(this: var FilletPoint; theIndex: cint) {.cdecl, importcpp: "remove",
     header: "ChFi2d_FilletAlgo.hxx".}
+

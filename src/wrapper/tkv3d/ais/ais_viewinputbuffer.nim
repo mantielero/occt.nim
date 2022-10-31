@@ -1,5 +1,7 @@
 import ais_types
 
+
+
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -79,3 +81,4 @@ proc newAIS_ViewInputBufferZrotateParams*(): AIS_ViewInputBufferZrotateParams {.
 proc newAIS_ViewInputBuffer*(): AIS_ViewInputBuffer {.cdecl, constructor,
     importcpp: "AIS_ViewInputBuffer(@)", header: "AIS_ViewInputBuffer.hxx".}
 proc reset*(this: var AIS_ViewInputBuffer) {.cdecl, importcpp: "Reset", header: "AIS_ViewInputBuffer.hxx".}
+

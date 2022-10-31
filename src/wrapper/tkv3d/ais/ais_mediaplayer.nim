@@ -1,4 +1,9 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ais_types
+
+
 
 ##  Created by: Kirill GAVRILOV
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -14,7 +19,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Media_PlayerContext"
 
 
 proc newAIS_MediaPlayer*(): AIS_MediaPlayer {.cdecl, constructor,
@@ -37,3 +41,4 @@ proc setClosePlayer*(this: var AIS_MediaPlayer) {.cdecl, importcpp: "SetClosePla
     header: "AIS_MediaPlayer.hxx".}
 proc duration*(this: AIS_MediaPlayer): cdouble {.noSideEffect, cdecl,
     importcpp: "Duration", header: "AIS_MediaPlayer.hxx".}
+

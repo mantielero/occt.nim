@@ -1,4 +1,8 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1996-02-13
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_GTopo"
 
 
 proc newTopOpeBRepBuildGIter*(): TopOpeBRepBuildGIter {.cdecl, constructor,
@@ -33,3 +36,4 @@ proc current*(this: TopOpeBRepBuildGIter; s1: var TopAbsState; s2: var TopAbsSta
     noSideEffect, cdecl, importcpp: "Current", header: "TopOpeBRepBuild_GIter.hxx".}
 proc dump*(this: TopOpeBRepBuildGIter; os: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "Dump", header: "TopOpeBRepBuild_GIter.hxx".}
+

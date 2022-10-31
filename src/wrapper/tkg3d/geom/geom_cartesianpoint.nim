@@ -4,6 +4,8 @@ import geom_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -52,4 +54,5 @@ proc transform*(this: var GeomCartesianPoint; t: TrsfObj) {.cdecl, importcpp: "T
     header: "Geom_CartesianPoint.hxx".}
 proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}
+
 

@@ -1,4 +1,9 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 2020-09-17
 ##  Created by: Marina ZERNOVA
@@ -47,3 +52,4 @@ proc newPrs3dToolTorus*(theMajorRad: cfloat; theMinorRad: cfloat; theAngle1: cfl
                        theAngle2: cfloat; theAngle: cfloat; theNbSlices: cint;
                        theNbStacks: cint): Prs3dToolTorus {.cdecl, constructor,
     importcpp: "Prs3d_ToolTorus(@)", header: "Prs3d_ToolTorus.hxx".}
+

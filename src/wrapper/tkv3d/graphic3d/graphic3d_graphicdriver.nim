@@ -1,4 +1,10 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1997-01-28
 ##  Created by: CAL
@@ -16,16 +22,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Aspect_DisplayConnection"
-discard "forward decl of Graphic3d_CView"
-discard "forward decl of Graphic3d_GraphicDriver"
-discard "forward decl of Graphic3d_Layer"
-discard "forward decl of Graphic3d_TransformError"
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_StructureManager"
-discard "forward decl of Graphic3d_ViewManager"
-discard "forward decl of Quantity_Color"
-discard "forward decl of TCollection_AsciiString"
 
 
 
@@ -95,3 +91,4 @@ proc removeIdentification*(this: var Graphic3dGraphicDriver; theId: cint) {.cdec
 proc dumpJson*(this: Graphic3dGraphicDriver; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_GraphicDriver.hxx".}
+

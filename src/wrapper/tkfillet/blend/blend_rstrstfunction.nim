@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
 import blend_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created by: Jacques  GOUSSARD Author:    Laurent    BOURESCHE --
 ##  Copyright (c) 1997-1999 Matra Datavision
@@ -15,13 +22,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Blend_Point"
 
 
 proc nbVariables*(this: BlendRstRstFunction): cint {.noSideEffect, cdecl,
@@ -112,3 +112,4 @@ proc section*(this: var BlendRstRstFunction; p: BlendPoint;
              weigths: var TColStdArray1OfReal; dWeigths: var TColStdArray1OfReal;
              d2Weigths: var TColStdArray1OfReal): bool {.cdecl, importcpp: "Section",
     header: "Blend_RstRstFunction.hxx".}
+

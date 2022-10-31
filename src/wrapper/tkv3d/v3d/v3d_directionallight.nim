@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import v3d_types
+
+
 
 ##  Created on: 1992-01-22
 ##  Created by: GG
@@ -51,5 +54,6 @@ proc setDirection*(this: var V3dDirectionalLight; theDirection: V3dTypeOfOrienta
 ## using statement
 
 ## using statement
+
 
 

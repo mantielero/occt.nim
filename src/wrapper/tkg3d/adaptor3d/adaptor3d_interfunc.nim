@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import adaptor3d_types
+
+
 
 ##  Created on: 1998-02-18
 ##  Created by: Jeanine PANCIATICI
@@ -16,8 +20,6 @@ import adaptor3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Standard_ConstructionError"
 
 
 proc newAdaptor3dInterFunc*(c: Handle[Adaptor2dHCurve2d]; fixVal: cfloat; fix: cint): Adaptor3dInterFunc {.
@@ -28,3 +30,4 @@ proc derivative*(this: var Adaptor3dInterFunc; x: cfloat; d: var cfloat): bool {
     importcpp: "Derivative", header: "Adaptor3d_InterFunc.hxx".}
 proc values*(this: var Adaptor3dInterFunc; x: cfloat; f: var cfloat; d: var cfloat): bool {.
     cdecl, importcpp: "Values", header: "Adaptor3d_InterFunc.hxx".}
+

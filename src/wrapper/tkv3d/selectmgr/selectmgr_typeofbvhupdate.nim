@@ -1,4 +1,5 @@
-import selectmgr_types
+
+
 
 ##  Created on: 1995-02-06
 ##  Created by: Mister rmi
@@ -25,6 +26,7 @@ import selectmgr_types
 ## ! must be removed from 2nd level BVH and added after recomputation.
 ## ! - Invalidate : the 2nd level BVH needs to be rebuilt;
 ## ! - None       : entities of the selection are up to date.
+
 
 
 

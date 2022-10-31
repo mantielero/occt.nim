@@ -1,4 +1,8 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1995-11-15
 ##  Created by: Laurent BOURESCHE
@@ -16,9 +20,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_BSpline"
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of Standard_ConstructionError"
 
 
 proc newLawInterpolate*(points: Handle[TColStdHArray1OfReal]; periodicFlag: bool;
@@ -41,3 +42,4 @@ proc curve*(this: LawInterpolate): Handle[LawBSpline] {.noSideEffect, cdecl,
     importcpp: "Curve", header: "Law_Interpolate.hxx".}
 proc isDone*(this: LawInterpolate): bool {.noSideEffect, cdecl, importcpp: "IsDone",
                                        header: "Law_Interpolate.hxx".}
+

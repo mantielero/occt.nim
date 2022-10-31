@@ -1,4 +1,9 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-12-24
 ##  Created by: Jacques GOUSSARD
@@ -16,8 +21,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Law_Function"
 
 
 
@@ -38,3 +41,4 @@ proc trim*(this: LawFunction; pFirst: cfloat; pLast: cfloat; tol: cfloat): Handl
     LawFunction] {.noSideEffect, cdecl, importcpp: "Trim", header: "Law_Function.hxx".}
 proc bounds*(this: var LawFunction; pFirst: var cfloat; pLast: var cfloat) {.cdecl,
     importcpp: "Bounds", header: "Law_Function.hxx".}
+

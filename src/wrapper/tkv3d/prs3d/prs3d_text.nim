@@ -1,4 +1,10 @@
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-09-14
 ##  Created by: Jean-Louis FRENKEL
@@ -16,8 +22,6 @@ import prs3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_ExtendedString"
-discard "forward decl of gp_Pnt"
 
 
 proc draw*(theGroup: Handle[Graphic3dGroup]; theAspect: Handle[Prs3dTextAspect];
@@ -37,3 +41,4 @@ proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect]
 proc draw*(thePrs: Handle[Prs3dPresentation]; theAspect: Handle[Prs3dTextAspect];
           theText: TCollectionExtendedString; theAttachmentPoint: PntObj) {.cdecl,
     importcpp: "Prs3d_Text::Draw(@)", header: "Prs3d_Text.hxx".}
+

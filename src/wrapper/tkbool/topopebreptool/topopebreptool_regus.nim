@@ -1,4 +1,8 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1999-01-04
 ##  Created by: Xuan PHAM PHU
@@ -16,9 +20,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
 
 
 proc newTopOpeBRepToolREGUS*(): TopOpeBRepToolREGUS {.cdecl, constructor,
@@ -57,3 +58,4 @@ proc nextinBlock*(this: var TopOpeBRepToolREGUS): bool {.cdecl,
 proc nearestF*(this: TopOpeBRepToolREGUS; e: TopoDS_Edge; lof: TopToolsListOfShape;
               ffound: var TopoDS_Face): bool {.noSideEffect, cdecl,
     importcpp: "NearestF", header: "TopOpeBRepTool_REGUS.hxx".}
+

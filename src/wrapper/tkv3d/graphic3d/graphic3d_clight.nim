@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
@@ -107,4 +113,5 @@ proc revision*(this: Graphic3dCLight): csize_t {.noSideEffect, cdecl,
 proc dumpJson*(this: Graphic3dCLight; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CLight.hxx".}
+
 

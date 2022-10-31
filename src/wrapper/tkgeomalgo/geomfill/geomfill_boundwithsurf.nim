@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-10-17
 ##  Created by: Laurent BOURESCHE
@@ -16,11 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_Function"
-discard "forward decl of Adaptor3d_CurveOnSurface"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_BoundWithSurf"
 
 
 
@@ -45,3 +44,4 @@ proc bounds*(this: GeomFillBoundWithSurf; first: var cfloat; last: var cfloat) {
     noSideEffect, cdecl, importcpp: "Bounds", header: "GeomFill_BoundWithSurf.hxx".}
 proc isDegenerated*(this: GeomFillBoundWithSurf): bool {.noSideEffect, cdecl,
     importcpp: "IsDegenerated", header: "GeomFill_BoundWithSurf.hxx".}
+

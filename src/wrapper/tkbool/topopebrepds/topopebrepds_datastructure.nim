@@ -1,4 +1,10 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,17 +22,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopOpeBRepDS_SurfaceExplorer"
-discard "forward decl of TopOpeBRepDS_CurveExplorer"
-discard "forward decl of TopOpeBRepDS_PointExplorer"
-discard "forward decl of TopOpeBRepDS_Surface"
-discard "forward decl of TopOpeBRepDS_Curve"
-discard "forward decl of TopOpeBRepDS_Point"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopOpeBRepDS_ShapeWithState"
 
 
 proc newTopOpeBRepDS_DataStructure*(): TopOpeBRepDS_DataStructure {.cdecl,
@@ -246,3 +241,4 @@ proc changeMapOfRejectedShapesObj*(this: var TopOpeBRepDS_DataStructure): var To
     cdecl, importcpp: "ChangeMapOfRejectedShapesObj", header: "TopOpeBRepDS_DataStructure.hxx".}
 proc changeMapOfRejectedShapesTool*(this: var TopOpeBRepDS_DataStructure): var TopToolsIndexedMapOfShape {.
     cdecl, importcpp: "ChangeMapOfRejectedShapesTool", header: "TopOpeBRepDS_DataStructure.hxx".}
+

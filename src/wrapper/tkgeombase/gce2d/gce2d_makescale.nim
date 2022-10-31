@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg2d/geom2d/geom2d_types
 import gce2d_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,8 +21,6 @@ import gce2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Transformation"
-discard "forward decl of gp_Pnt2d"
 
 
 proc newGCE2dMakeScale*(point: Pnt2dObj; scale: cfloat): GCE2dMakeScale {.cdecl,
@@ -27,3 +30,4 @@ proc value*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.noSideEffect,
 converter `constopencascade`*(this: GCE2dMakeScale): Handle[Geom2dTransformation] {.
     noSideEffect, cdecl, importcpp: "GCE2d_MakeScale::operator constopencascade",
     header: "GCE2d_MakeScale.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1997-01-21
 ##  Created by: Prestataire Christiane ARMAND
@@ -16,7 +21,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Circle"
 
 
 proc newAIS_Circle*(aCircle: Handle[GeomCircle]): AIS_Circle {.cdecl, constructor,
@@ -48,4 +52,5 @@ proc isFilledCircleSens*(this: AIS_Circle): bool {.noSideEffect, cdecl,
     importcpp: "IsFilledCircleSens", header: "AIS_Circle.hxx".}
 proc setFilledCircleSens*(this: var AIS_Circle; theIsFilledCircleSens: bool) {.cdecl,
     importcpp: "SetFilledCircleSens", header: "AIS_Circle.hxx".}
+
 

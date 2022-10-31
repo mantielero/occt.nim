@@ -1,4 +1,9 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/poly/poly_types
+
+
 
 ##  Created on: 1995-03-15
 ##  Created by: Laurent PAINNOT
@@ -16,11 +21,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Poly_PolygonOnTriangulation"
-discard "forward decl of Poly_Triangulation"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of BRep_CurveRepresentation"
-discard "forward decl of BRep_PolygonOnClosedTriangulation"
 
 
 
@@ -43,3 +43,4 @@ proc copy*(this: BRepPolygonOnClosedTriangulation): Handle[BRepCurveRepresentati
 proc dumpJson*(this: BRepPolygonOnClosedTriangulation;
               theOStream: var StandardOStream; theDepth: cint = -1) {.noSideEffect,
     cdecl, importcpp: "DumpJson", header: "BRep_PolygonOnClosedTriangulation.hxx".}
+

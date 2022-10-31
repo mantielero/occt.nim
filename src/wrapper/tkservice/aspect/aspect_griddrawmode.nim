@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,6 +18,7 @@ import aspect_types
 
 ## ! Defines the grid draw mode. The grid may be drawn
 ## ! by using lines or points.
+
 
 
 

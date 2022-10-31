@@ -1,4 +1,7 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-11-10
 ##  Created by: Jacques GOUSSARD
@@ -16,11 +19,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_UndefinedDerivative"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Dir2d"
 
 
 proc newIntSurfPathPoint*(): IntSurfPathPoint {.cdecl, constructor,
@@ -53,3 +51,4 @@ proc multiplicity*(this: IntSurfPathPoint): cint {.noSideEffect, cdecl,
     importcpp: "Multiplicity", header: "IntSurf_PathPoint.hxx".}
 proc parameters*(this: IntSurfPathPoint; index: cint; u: var cfloat; v: var cfloat) {.
     noSideEffect, cdecl, importcpp: "Parameters", header: "IntSurf_PathPoint.hxx".}
+

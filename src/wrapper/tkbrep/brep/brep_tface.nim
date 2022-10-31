@@ -1,4 +1,11 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
+import ../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/poly/poly_types
+
+
 
 ##  Created on: 1992-05-27
 ##  Created by: Remi LEQUETTE
@@ -16,11 +23,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of Poly_Triangulation"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of BRep_TFace"
 
 
 
@@ -51,3 +53,4 @@ proc emptyCopy*(this: BRepTFace): Handle[TopoDS_TShape] {.noSideEffect, cdecl,
     importcpp: "EmptyCopy", header: "BRep_TFace.hxx".}
 proc dumpJson*(this: BRepTFace; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "BRep_TFace.hxx".}
+

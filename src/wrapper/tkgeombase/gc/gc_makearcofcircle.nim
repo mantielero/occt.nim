@@ -1,5 +1,8 @@
 import gc_types
+import ../../tkmath/gp/gp_types
 import ../../tkg3d/geom/geom_types
+
+
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,9 +19,6 @@ import ../../tkg3d/geom/geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc arcCircle*(circ: CircObj; alpha1: cfloat; alpha2: cfloat; sense: bool): MakeArcOfCircle {.
@@ -36,3 +36,4 @@ proc value*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.noSideEffect, cdecl
 converter toHandleGeomTrimmedCurve*(this: MakeArcOfCircle): HandleGeomTrimmedCurve {.
     noSideEffect, cdecl,
     importcpp: "(Handle_Geom_TrimmedCurve)(#)", header: "GC_MakeArcOfCircle.hxx".}
+

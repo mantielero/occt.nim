@@ -1,4 +1,8 @@
 import topopebrepds_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-06-17
 ##  Created by: Jean Yves LEBEY
@@ -16,7 +20,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Interference"
 
 
 proc newTopOpeBRepDS_PointIterator*(L: TopOpeBRepDS_ListOfInterference): TopOpeBRepDS_PointIterator {.
@@ -40,3 +43,4 @@ proc sameOriented*(this: TopOpeBRepDS_PointIterator): bool {.noSideEffect, cdecl
     importcpp: "SameOriented", header: "TopOpeBRepDS_PointIterator.hxx".}
 proc support*(this: TopOpeBRepDS_PointIterator): cint {.noSideEffect, cdecl,
     importcpp: "Support", header: "TopOpeBRepDS_PointIterator.hxx".}
+

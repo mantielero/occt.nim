@@ -1,4 +1,10 @@
+import ../../tkmath/gp/gp_types
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-07-12
 ##  Created by: Remi LEQUETTE
@@ -16,15 +22,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Pln"
-discard "forward decl of gp_Cylinder"
-discard "forward decl of gp_Cone"
-discard "forward decl of gp_Sphere"
-discard "forward decl of gp_Torus"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopoDS_Wire"
 
 
 proc face*(): BRepBuilderAPI_MakeFace {.cdecl, constructor,
@@ -96,3 +93,4 @@ proc face*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect, cdecl,
 converter `topoDS_Face`*(this: BRepBuilderAPI_MakeFace): TopoDS_Face {.noSideEffect,
     cdecl, importcpp: "BRepBuilderAPI_MakeFace::operator TopoDS_Face",
     header: "BRepBuilderAPI_MakeFace.hxx".}
+

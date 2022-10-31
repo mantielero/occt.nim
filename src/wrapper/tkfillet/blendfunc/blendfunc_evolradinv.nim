@@ -1,4 +1,11 @@
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
 import blendfunc_types
+import ../../tkgeomalgo/law/law_types
+
+
 
 ##  Created on: 1993-12-21
 ##  Created by: Jacques GOUSSARD
@@ -16,11 +23,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Law_Function"
-discard "forward decl of math_Matrix"
 
 
 proc newBlendFuncEvolRadInv*(s1: Handle[Adaptor3dHSurface];
@@ -47,3 +49,4 @@ proc values*(this: var BlendFuncEvolRadInv; x: MathVector; f: var MathVector;
             d: var MathMatrix): bool {.cdecl, importcpp: "Values", header: "BlendFunc_EvolRadInv.hxx".}
 proc set*(this: var BlendFuncEvolRadInv; choix: cint) {.cdecl, importcpp: "Set",
     header: "BlendFunc_EvolRadInv.hxx".}
+

@@ -1,4 +1,9 @@
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/quantity/quantity_types
 import v3d_types
+
+
 
 ##  Created on: 2016-10-11
 ##  Created by: Ilya SEVRIKOV
@@ -15,7 +20,6 @@ import v3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of V3d_View"
 
 
 proc newV3dTrihedron*(): V3dTrihedron {.cdecl, constructor,
@@ -45,4 +49,5 @@ proc erase*(this: var V3dTrihedron) {.cdecl, importcpp: "Erase", header: "V3d_Tr
 proc dumpJson*(this: V3dTrihedron; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "V3d_Trihedron.hxx".}
+
 

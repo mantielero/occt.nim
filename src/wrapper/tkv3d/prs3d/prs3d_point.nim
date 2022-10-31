@@ -1,4 +1,7 @@
 import prs3d_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Copyright (c) 2013-2014 OPEN CASCADE SAS
 ##
@@ -21,3 +24,4 @@ proc add*[AnyPoint; PointTool](thePrs: Handle[Prs3dPresentation];
 proc match*[AnyPoint; PointTool](thePoint: AnyPoint; theX: cfloat; theY: cfloat;
                                theZ: cfloat; theDistance: cfloat): bool {.cdecl,
     importcpp: "Prs3d_Point::Match(@)", header: "Prs3d_Point.hxx".}
+

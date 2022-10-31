@@ -1,4 +1,8 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-11-26
 ##  Created by: Jean-Michel BOULCOURT
@@ -16,11 +20,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_NullObject"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
 
 
 proc newTopOpeBRepToolFuseEdges*(theShape: TopoDS_Shape; performNow: bool = false): TopOpeBRepToolFuseEdges {.
@@ -43,3 +42,4 @@ proc nbVertices*(this: var TopOpeBRepToolFuseEdges): cint {.cdecl,
     importcpp: "NbVertices", header: "TopOpeBRepTool_FuseEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolFuseEdges) {.cdecl, importcpp: "Perform",
     header: "TopOpeBRepTool_FuseEdges.hxx".}
+

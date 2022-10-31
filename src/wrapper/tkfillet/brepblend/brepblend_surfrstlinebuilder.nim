@@ -1,4 +1,12 @@
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../tkfillet/blend/blend_types
+
+
 
 ##  Created on: 1997-01-23
 ##  Created by: Laurent BOURESCHE
@@ -16,19 +24,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepBlend_Line"
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_TopolTool"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Blend_SurfRstFunction"
-discard "forward decl of Blend_FuncInv"
-discard "forward decl of Blend_SurfPointFuncInv"
-discard "forward decl of Blend_SurfCurvFuncInv"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Adaptor3d_HVertex"
-discard "forward decl of IntSurf_Transition"
-discard "forward decl of BRepBlend_Extremity"
-discard "forward decl of Blend_Point"
 
 
 proc newBRepBlendSurfRstLineBuilder*(surf1: Handle[Adaptor3dHSurface];
@@ -68,3 +63,4 @@ proc decrochStart*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdec
     importcpp: "DecrochStart", header: "BRepBlend_SurfRstLineBuilder.hxx".}
 proc decrochEnd*(this: BRepBlendSurfRstLineBuilder): bool {.noSideEffect, cdecl,
     importcpp: "DecrochEnd", header: "BRepBlend_SurfRstLineBuilder.hxx".}
+

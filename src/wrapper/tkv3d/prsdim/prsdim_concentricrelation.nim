@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1996-12-05
 ##  Created by: Flore Lantheaume/Odile Olivier
@@ -16,7 +21,6 @@ import prsdim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Plane"
 
 
 
@@ -24,3 +28,4 @@ discard "forward decl of Geom_Plane"
 proc newPrsDimConcentricRelation*(aFShape: TopoDS_Shape; aSShape: TopoDS_Shape;
                                  aPlane: Handle[GeomPlane]): PrsDimConcentricRelation {.
     cdecl, constructor, importcpp: "PrsDim_ConcentricRelation(@)", header: "PrsDim_ConcentricRelation.hxx".}
+

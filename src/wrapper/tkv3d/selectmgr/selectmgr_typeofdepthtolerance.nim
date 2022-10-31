@@ -1,4 +1,5 @@
-import selectmgr_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -15,6 +16,7 @@ import selectmgr_types
 
 ## ! Define the type of depth tolerance for considering picked entities to lie on the same depth (distance from eye to entity).
 ## ! @sa SelectMgr_SortCriterion, SelectMgr_ViewerSelector
+
 
 
 

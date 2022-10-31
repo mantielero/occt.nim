@@ -1,4 +1,9 @@
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: Philippe DAUTRY
@@ -16,18 +21,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Geom2d_UndefinedDerivative"
-discard "forward decl of Geom2d_UndefinedValue"
-discard "forward decl of Standard_NotImplemented"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of gp_Trsf2d"
-discard "forward decl of Geom2d_Geometry"
-discard "forward decl of Geom2d_OffsetCurve"
 
 
 
@@ -84,3 +77,4 @@ proc getBasisCurveContinuity*(this: Geom2dOffsetCurve): GeomAbsShape {.noSideEff
 proc dumpJson*(this: Geom2dOffsetCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_OffsetCurve.hxx".}
+

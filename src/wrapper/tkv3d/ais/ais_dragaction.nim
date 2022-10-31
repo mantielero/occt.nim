@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Copyright (c) 2018-2019 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import ais_types
 ##  commercial license or contractual agreement.
 
 ## ! Dragging action.
+
 
 
 

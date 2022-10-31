@@ -1,4 +1,8 @@
+import ../../tkservice/aspect/aspect_types
 import graphic3d_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 1991-11-04
 ##  Created by: NW,JPB,CAL
@@ -32,4 +36,5 @@ proc newGraphic3dAspectFillArea3d*(theInterior: AspectInteriorStyle;
     cdecl, constructor, importcpp: "Graphic3d_AspectFillArea3d(@)", header: "Graphic3d_AspectFillArea3d.hxx".}
 proc edge*(this: Graphic3dAspectFillArea3d): bool {.noSideEffect, cdecl,
     importcpp: "Edge", header: "Graphic3d_AspectFillArea3d.hxx".}
+
 

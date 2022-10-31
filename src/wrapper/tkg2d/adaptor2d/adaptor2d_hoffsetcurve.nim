@@ -1,5 +1,7 @@
 import adaptor2d_types
 
+
+
 ##  Created on: 1992-10-08
 ##  Created by: Isabelle GRIGNON
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,12 +18,6 @@ import adaptor2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Adaptor2d_OffsetCurve"
-discard "forward decl of Adaptor2d_Curve2d"
-discard "forward decl of Adaptor2d_HOffsetCurve"
 
 
 proc newAdaptor2dHOffsetCurve*(): Adaptor2dHOffsetCurve {.cdecl, constructor,
@@ -34,5 +30,6 @@ proc curve2d*(this: Adaptor2dHOffsetCurve): Adaptor2dCurve2d {.noSideEffect, cde
     importcpp: "Curve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
 proc changeCurve2d*(this: var Adaptor2dHOffsetCurve): var Adaptor2dOffsetCurve {.
     cdecl, importcpp: "ChangeCurve2d", header: "Adaptor2d_HOffsetCurve.hxx".}
+
 
 

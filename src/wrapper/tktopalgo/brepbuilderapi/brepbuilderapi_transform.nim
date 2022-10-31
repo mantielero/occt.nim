@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
 import brepbuilderapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-12-09
 ##  Created by: Jacques GOUSSARD
@@ -16,9 +21,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of gp_Trsf"
-discard "forward decl of TopoDS_Shape"
 
 
 proc transform*(t: TrsfObj): BRepBuilderAPI_Transform {.cdecl,
@@ -31,3 +33,4 @@ proc modifiedShape*(this: BRepBuilderAPI_Transform; s: TopoDS_Shape): TopoDS_Sha
     noSideEffect, cdecl, importcpp: "ModifiedShape", header: "BRepBuilderAPI_Transform.hxx".}
 proc modified*(this: var BRepBuilderAPI_Transform; s: TopoDS_Shape): TopToolsListOfShape {.
     cdecl, importcpp: "Modified", header: "BRepBuilderAPI_Transform.hxx".}
+

@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2004-10-29
 ##  Created by: Alexander BORODIN
@@ -19,5 +20,6 @@ import graphic3d_types
 
 const
   graphic3dTMF_ZoomRotatePers = (graphic3dTMF_ZoomPers.int or graphic3dTMF_RotatePers.int).Graphic3dTransModeFlags
+
 
 

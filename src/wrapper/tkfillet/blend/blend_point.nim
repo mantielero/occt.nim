@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import blend_types
+
+
 
 ##  Created on: 1993-12-02
 ##  Created by: Jacques GOUSSARD
@@ -16,10 +19,6 @@ import blend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
 
 
 proc newBlendPoint*(): BlendPoint {.cdecl, constructor, importcpp: "Blend_Point(@)",
@@ -123,3 +122,4 @@ proc tangentOnC1*(this: BlendPoint): VecObj {.noSideEffect, cdecl,
                                        importcpp: "TangentOnC1", header: "Blend_Point.hxx".}
 proc tangentOnC2*(this: BlendPoint): VecObj {.noSideEffect, cdecl,
                                        importcpp: "TangentOnC2", header: "Blend_Point.hxx".}
+

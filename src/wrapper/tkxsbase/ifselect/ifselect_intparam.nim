@@ -1,5 +1,7 @@
 import ifselect_types
 
+
+
 ##  Created on: 1992-11-30
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,7 +18,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_IntParam"
 
 
 
@@ -31,3 +32,4 @@ proc value*(this: IFSelectIntParam): cint {.noSideEffect, cdecl, importcpp: "Val
                                         header: "IFSelect_IntParam.hxx".}
 proc setValue*(this: var IFSelectIntParam; val: cint) {.cdecl, importcpp: "SetValue",
     header: "IFSelect_IntParam.hxx".}
+

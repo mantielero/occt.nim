@@ -1,4 +1,10 @@
 import topopebrepds_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkg2d/geom2d/geom2d_types
+
+
 
 ##  Created on: 1993-06-23
 ##  Created by: Jean Yves LEBEY
@@ -16,10 +22,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of TopOpeBRepDS_Interference"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Geom2d_Curve"
 
 
 proc newTopOpeBRepDS_Curve*(): TopOpeBRepDS_Curve {.cdecl, constructor,
@@ -88,3 +90,4 @@ proc dSIndex*(this: TopOpeBRepDS_Curve): cint {.noSideEffect, cdecl,
     importcpp: "DSIndex", header: "TopOpeBRepDS_Curve.hxx".}
 proc changeDSIndex*(this: var TopOpeBRepDS_Curve; i: cint) {.cdecl,
     importcpp: "ChangeDSIndex", header: "TopOpeBRepDS_Curve.hxx".}
+

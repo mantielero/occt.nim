@@ -1,4 +1,5 @@
-import transfer_types
+
+
 
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
@@ -17,6 +18,7 @@ import transfer_types
 ##  commercial license or contractual agreement.
 
 ## ! used on processing Undefined Entities (see TransferOutput)
+
 
 
 

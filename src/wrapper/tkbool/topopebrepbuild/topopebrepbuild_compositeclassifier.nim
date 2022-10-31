@@ -1,4 +1,9 @@
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 1996-01-05
 ##  Created by: Jean Yves LEBEY
@@ -16,9 +21,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepBuild_BlockBuilder"
-discard "forward decl of TopOpeBRepBuild_Loop"
-discard "forward decl of TopoDS_Shape"
 
 
 proc compare*(this: var TopOpeBRepBuildCompositeClassifier;
@@ -38,3 +40,4 @@ proc compareElement*(this: var TopOpeBRepBuildCompositeClassifier; e: TopoDS_Sha
     cdecl, importcpp: "CompareElement", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
 proc state*(this: var TopOpeBRepBuildCompositeClassifier): TopAbsState {.cdecl,
     importcpp: "State", header: "TopOpeBRepBuild_CompositeClassifier.hxx".}
+

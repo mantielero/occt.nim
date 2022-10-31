@@ -1,5 +1,7 @@
 import chfids_types
 
+
+
 ##  Created on: 1995-04-24
 ##  Created by: Modelistation
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -16,7 +18,6 @@ import chfids_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of ChFiDS_ChamfSpine"
 
 
 
@@ -41,3 +42,4 @@ proc setMode*(this: var ChFiDS_ChamfSpine; theMode: ChFiDS_ChamfMode) {.cdecl,
     importcpp: "SetMode", header: "ChFiDS_ChamfSpine.hxx".}
 proc isChamfer*(this: ChFiDS_ChamfSpine): ChFiDS_ChamfMethod {.noSideEffect, cdecl,
     importcpp: "IsChamfer", header: "ChFiDS_ChamfSpine.hxx".}
+

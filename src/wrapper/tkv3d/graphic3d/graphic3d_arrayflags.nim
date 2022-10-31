@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -26,4 +27,5 @@ const
   Graphic3dArrayFlagsAttribsMutable* = 0x20 ## !< mutable array, which can be invalidated during lifetime without re-creation
   Graphic3dArrayFlagsAttribsDeinterleaved* = 0x40 ## !< non-interleaved vertex attributes packed into single array
   Graphic3dArrayFlagsIndexesMutable* = 0x80 ## !< mutable index array, which can be invalidated during lifetime without re-creation
+
 

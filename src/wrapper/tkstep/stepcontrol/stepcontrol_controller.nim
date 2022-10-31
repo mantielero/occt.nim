@@ -1,4 +1,10 @@
+import ../../tkxsbase/transfer/transfer_types
+import ../../tkernel/standard/standard_types
+import ../../tkxsbase/ifselect/ifselect_types
+import ../../tkbrep/topods/topods_types
 import stepcontrol_types
+
+
 
 ##  Created on: 1995-02-20
 ##  Created by: Christian CAILLET
@@ -16,12 +22,6 @@ import stepcontrol_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Transfer_ActorOfTransientProcess"
-discard "forward decl of XSControl_WorkSession"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of Transfer_FinderProcess"
-discard "forward decl of STEPControl_Controller"
 
 
 
@@ -40,3 +40,4 @@ proc transferWriteShape*(this: STEPControlController; shape: TopoDS_Shape;
     noSideEffect, cdecl, importcpp: "TransferWriteShape", header: "STEPControl_Controller.hxx".}
 proc init*(): bool {.cdecl, importcpp: "STEPControl_Controller::Init(@)",
                   header: "STEPControl_Controller.hxx".}
+

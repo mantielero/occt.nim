@@ -1,3 +1,6 @@
+import ../../tkernel/tcollection/tcollection_types
+
+
 ##  Created on: 1992-02-03
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -14,7 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_AsciiString"
 type
   InterfaceFileParameter* {.importcpp: "Interface_FileParameter",
                            header: "Interface_FileParameter.hxx", bycopy.} = object

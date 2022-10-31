@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
 import brepprim_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1991-07-23
 ##  Created by: Christophe MARION
@@ -16,16 +20,6 @@ import brepprim_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of BRepPrim_Builder"
-discard "forward decl of gp_Ax2"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Vertex"
 
 
 proc setMeridianOffset*(this: var BRepPrimOneAxis; meridianOffset: cfloat = 0) {.cdecl,
@@ -129,3 +123,4 @@ proc bottomEndVertex*(this: var BRepPrimOneAxis): TopoDS_Vertex {.cdecl,
     importcpp: "BottomEndVertex", header: "BRepPrim_OneAxis.hxx".}
 proc destroyBRepPrimOneAxis*(this: var BRepPrimOneAxis) {.cdecl,
     importcpp: "#.~BRepPrim_OneAxis()", header: "BRepPrim_OneAxis.hxx".}
+

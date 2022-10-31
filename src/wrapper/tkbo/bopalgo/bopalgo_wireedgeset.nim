@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -17,8 +23,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newBOPAlgoWireEdgeSet*(): BOPAlgoWireEdgeSet {.cdecl, constructor,
@@ -40,3 +44,4 @@ proc addShape*(this: var BOPAlgoWireEdgeSet; sS: TopoDS_Shape) {.cdecl,
     importcpp: "AddShape", header: "BOPAlgo_WireEdgeSet.hxx".}
 proc shapes*(this: BOPAlgoWireEdgeSet): TopToolsListOfShape {.noSideEffect, cdecl,
     importcpp: "Shapes", header: "BOPAlgo_WireEdgeSet.hxx".}
+

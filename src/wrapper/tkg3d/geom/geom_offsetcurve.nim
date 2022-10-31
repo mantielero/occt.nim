@@ -5,6 +5,8 @@ import ../../tkmath/geomabs/geomabs_types
 
 
 
+
+
 ##  Created on: 1993-03-10
 ##  Created by: JCV
 ##  Copyright (c) 1993-1999 Matra Datavision
@@ -81,4 +83,5 @@ proc getBasisCurveContinuity*(this: GeomOffsetCurve): GeomAbsShape {.noSideEffec
 proc dumpJson*(this: GeomOffsetCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_OffsetCurve.hxx".}
+
 

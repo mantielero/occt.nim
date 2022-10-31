@@ -1,4 +1,9 @@
+import ../../tkxsbase/transfer/transfer_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
 import stepcontrol_types
+
+
 
 ##  Created on: 1995-01-31
 ##  Created by: Dieter THIEMANN
@@ -16,14 +21,6 @@ import stepcontrol_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Transfer_Finder"
-discard "forward decl of Transfer_Binder"
-discard "forward decl of Transfer_FinderProcess"
-discard "forward decl of StepShape_ShapeDefinitionRepresentation"
-discard "forward decl of StepGeom_Axis2Placement3d"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of StepShape_NonManifoldSurfaceShapeRepresentation"
-discard "forward decl of STEPControl_ActorWrite"
 
 
 
@@ -68,3 +65,4 @@ proc setTolerance*(this: var STEPControlActorWrite; tol: cfloat) {.cdecl,
     importcpp: "SetTolerance", header: "STEPControl_ActorWrite.hxx".}
 proc isAssembly*(this: STEPControlActorWrite; s: var TopoDS_Shape): bool {.
     noSideEffect, cdecl, importcpp: "IsAssembly", header: "STEPControl_ActorWrite.hxx".}
+

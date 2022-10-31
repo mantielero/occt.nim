@@ -1,4 +1,11 @@
 import brepblend_types
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg2d/adaptor2d/adaptor2d_types
+import ../../tkgeomalgo/law/law_types
+
+
 
 ##  Created on: 1997-07-29
 ##  Created by: Jerome LEMONIER
@@ -16,11 +23,6 @@ import brepblend_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of Law_Function"
-discard "forward decl of math_Matrix"
 
 
 proc newBRepBlendSurfCurvEvolRadInv*(s: Handle[Adaptor3dHSurface];
@@ -50,3 +52,4 @@ proc getBounds*(this: BRepBlendSurfCurvEvolRadInv; infBound: var MathVector;
                                         importcpp: "GetBounds", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
 proc isSolution*(this: var BRepBlendSurfCurvEvolRadInv; sol: MathVector; tol: cfloat): bool {.
     cdecl, importcpp: "IsSolution", header: "BRepBlend_SurfCurvEvolRadInv.hxx".}
+

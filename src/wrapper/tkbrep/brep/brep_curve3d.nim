@@ -1,4 +1,10 @@
 import brep_types
+import ../../tkmath/toploc/toploc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -16,11 +22,6 @@ import brep_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of gp_Pnt"
-discard "forward decl of BRep_CurveRepresentation"
-discard "forward decl of BRep_Curve3D"
 
 
 
@@ -40,3 +41,4 @@ proc copy*(this: BRepCurve3D): Handle[BRepCurveRepresentation] {.noSideEffect, c
 proc dumpJson*(this: BRepCurve3D; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "BRep_Curve3D.hxx".}
+

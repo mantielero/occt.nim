@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1991-09-06
 ##  Created by: NW,JPB,CAL
@@ -16,9 +21,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Structure"
-discard "forward decl of Graphic3d_ArrayOfPrimitives"
-discard "forward decl of Graphic3d_Text"
 
 
 proc clear*(this: var Graphic3dGroup; theUpdateStructureMgr: bool = true) {.cdecl,
@@ -112,4 +114,5 @@ proc text*(this: var Graphic3dGroup; theText: TCollectionExtendedString;
 proc dumpJson*(this: Graphic3dGroup; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_Group.hxx".}
+
 

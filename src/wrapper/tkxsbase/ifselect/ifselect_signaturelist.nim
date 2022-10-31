@@ -1,4 +1,8 @@
+import ../../tkernel/standard/standard_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-10-27
 ##  Created by: Christian CAILLET
@@ -16,9 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of IFSelect_SignatureList"
 
 
 
@@ -63,3 +64,4 @@ proc printList*(this: IFSelectSignatureList; s: var StandardOStream;
     importcpp: "PrintList", header: "IFSelect_SignatureList.hxx".}
 proc printSum*(this: IFSelectSignatureList; s: var StandardOStream) {.noSideEffect,
     cdecl, importcpp: "PrintSum", header: "IFSelect_SignatureList.hxx".}
+

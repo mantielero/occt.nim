@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
 import topopebrepbuild_types
+
+
 
 ##  Created on: 2000-01-25
 ##  Created by: Peter KURNEV
@@ -15,14 +20,6 @@ import topopebrepbuild_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of gp_Vec2d"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of Bnd_Box2d"
 
 
 proc newTopOpeBRepBuildCorrectFace2d*(): TopOpeBRepBuildCorrectFace2d {.cdecl,
@@ -50,3 +47,4 @@ proc getP2dFL*(aFace: TopoDS_Face; anEdge: TopoDS_Edge; p2dF: var Pnt2dObj; p2dL
     cdecl, importcpp: "TopOpeBRepBuild_CorrectFace2d::GetP2dFL(@)", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
 proc checkList*(aFace: TopoDS_Face; aHeadList: var TopToolsListOfShape) {.cdecl,
     importcpp: "TopOpeBRepBuild_CorrectFace2d::CheckList(@)", header: "TopOpeBRepBuild_CorrectFace2d.hxx".}
+

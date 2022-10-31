@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created on: 2017-05-26
 ##  Created by: Andrey GOLODYAEV
@@ -16,6 +17,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Enumerates tone mapping methods.
+
 
 
 

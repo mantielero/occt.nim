@@ -1,4 +1,8 @@
+import ../../tkmath/toploc/toploc_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -14,8 +18,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_GraphicDriver"
-discard "forward decl of Graphic3d_StructureManager"
 
 
 proc graphicDriver*(this: Graphic3dCStructure): Handle[Graphic3dGraphicDriver] {.
@@ -91,4 +93,5 @@ proc updateLayerTransformation*(this: var Graphic3dCStructure) {.cdecl,
 proc dumpJson*(this: Graphic3dCStructure; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Graphic3d_CStructure.hxx".}
+
 

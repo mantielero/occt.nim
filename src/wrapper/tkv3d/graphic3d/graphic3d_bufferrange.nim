@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Copyright (c) 2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -28,3 +30,4 @@ proc upper*(this: Graphic3dBufferRange): cint {.noSideEffect, cdecl,
 proc clear*(this: var Graphic3dBufferRange) {.cdecl, importcpp: "Clear", header: "Graphic3d_BufferRange.hxx".}
 proc unite*(this: var Graphic3dBufferRange; theRange: Graphic3dBufferRange) {.cdecl,
     importcpp: "Unite", header: "Graphic3d_BufferRange.hxx".}
+

@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Copyright (c) 2018 OPEN CASCADE SAS
 ##
@@ -14,6 +15,7 @@ import graphic3d_types
 ##  commercial license or contractual agreement.
 
 ## ! Defines how alpha value of base color / texture should be treated.
+
 
 
 

@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Author: Ilya Khramov
 ##  Copyright (c) 2019 OPEN CASCADE SAS
@@ -30,4 +34,5 @@ proc value*(this: var Graphic3dCubeMapPacked;
     cdecl, importcpp: "Value", header: "Graphic3d_CubeMapPacked.hxx".}
 proc destroyGraphic3dCubeMapPacked*(this: var Graphic3dCubeMapPacked) {.cdecl,
     importcpp: "#.~Graphic3d_CubeMapPacked()", header: "Graphic3d_CubeMapPacked.hxx".}
+
 

@@ -1,5 +1,7 @@
 import graphic3d_types
 
+
+
 ##  Created on: 2013-12-25
 ##  Created by: Varvara POSKONINA
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -15,7 +17,6 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_CStructure"
 
 
 
@@ -40,3 +41,4 @@ proc getStructureById*(this: var Graphic3dBvhCStructureSet; theId: cint): ptr Gr
 #proc structures*(this: Graphic3dBvhCStructureSet): NCollectionIndexedMap[
 #    ptr Graphic3dCStructure] {.noSideEffect, cdecl, importcpp: "Structures",
 #                             header: "Graphic3d_BvhCStructureSet.hxx".}
+

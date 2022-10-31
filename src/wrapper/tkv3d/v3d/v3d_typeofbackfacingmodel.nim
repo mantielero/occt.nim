@@ -1,4 +1,5 @@
-import v3d_types
+
+
 
 ##  Created on: 1992-11-13
 ##  Created by: GG
@@ -21,6 +22,7 @@ import v3d_types
 ## ! TOBM_AUTOMATIC graphic's structure setting is in use
 ## ! TOBM_ALWAYS_DISPLAYED     force display of back faces
 ## ! TOBM_NEVER_DISPLAYED      disable display of back faces
+
 
 
 

@@ -1,4 +1,5 @@
-import prsdim_types
+
+
 
 ##  Created on: 1996-12-11
 ##  Created by: Robert COUBLANC
@@ -18,6 +19,7 @@ import prsdim_types
 
 ## ! Declares the kinds of dimensions needed in the
 ## ! display of Interactive Objects.
+
 
 
 

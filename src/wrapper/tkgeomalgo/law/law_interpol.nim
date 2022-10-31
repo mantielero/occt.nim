@@ -1,4 +1,7 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import law_types
+
+
 
 ##  Created on: 1995-02-03
 ##  Created by: Laurent BOURESCHE
@@ -16,7 +19,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_Interpol"
 
 
 
@@ -34,3 +36,4 @@ proc set*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; dd: cfloat; df:
 proc setInRelative*(this: var LawInterpol; parAndRad: TColgpArray1OfPnt2d; ud: cfloat;
                    uf: cfloat; dd: cfloat; df: cfloat; periodic: bool = false) {.cdecl,
     importcpp: "SetInRelative", header: "Law_Interpol.hxx".}
+

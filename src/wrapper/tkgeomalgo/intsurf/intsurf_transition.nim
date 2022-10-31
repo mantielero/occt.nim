@@ -1,5 +1,7 @@
 import intsurf_types
 
+
+
 ##  Created on: 1992-05-06
 ##  Created by: Jacques GOUSSARD
 ##  Copyright (c) 1992-1999 Matra Datavision
@@ -16,7 +18,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_DomainError"
 
 
 proc newIntSurfTransition*(): IntSurfTransition {.cdecl, constructor,
@@ -39,3 +40,4 @@ proc situation*(this: IntSurfTransition): IntSurfSituation {.noSideEffect, cdecl
     importcpp: "Situation", header: "IntSurf_Transition.hxx".}
 proc isOpposite*(this: IntSurfTransition): bool {.noSideEffect, cdecl,
     importcpp: "IsOpposite", header: "IntSurf_Transition.hxx".}
+

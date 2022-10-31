@@ -1,4 +1,5 @@
-import ais_types
+
+
 
 ##  Copyright (c) 2019 OPEN CASCADE SAS
 ##
@@ -20,4 +21,5 @@ import ais_types
 const
   AIS_NavigationModeLOWER* = 0
   AIS_NavigationModeUPPER* = aIS_NavigationModeFirstPersonWalk
+
 

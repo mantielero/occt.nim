@@ -1,4 +1,7 @@
+import ../../tkmath/gp/gp_types
 import geomfill_types
+
+
 
 ##  Created on: 1995-10-17
 ##  Created by: Laurent BOURESCHE
@@ -16,9 +19,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of GeomFill_Boundary"
 
 
 
@@ -50,3 +50,4 @@ proc tolang*(this: GeomFillBoundary): cfloat {.noSideEffect, cdecl,
     importcpp: "Tolang", header: "GeomFill_Boundary.hxx".}
 proc tolang*(this: var GeomFillBoundary; tol: cfloat) {.cdecl, importcpp: "Tolang",
     header: "GeomFill_Boundary.hxx".}
+

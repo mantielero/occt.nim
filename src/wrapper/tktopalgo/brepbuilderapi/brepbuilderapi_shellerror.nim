@@ -1,4 +1,5 @@
-import brepbuilderapi_types
+
+
 
 ##  Created on: 1993-07-06
 ##  Created by: Remi LEQUETTE
@@ -25,6 +26,7 @@ import brepbuilderapi_types
 ## ! -   BRepBuilderAPI_DisconnectedShell not yet used
 ## ! -   BRepBuilderAPI_ShellParametersOutOfRange
 ## ! The parameters given to limit the surface are out of its bounds.
+
 
 
 

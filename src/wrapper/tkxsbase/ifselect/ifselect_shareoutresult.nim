@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import ifselect_types
+
+
 
 ##  Created on: 1992-11-17
 ##  Created by: Christian CAILLET
@@ -16,15 +20,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_ShareOut"
-discard "forward decl of IFSelect_Dispatch"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_Graph"
-discard "forward decl of IFSelect_PacketList"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of TCollection_AsciiString"
 
 
 proc newIFSelectShareOutResult*(sho: Handle[IFSelectShareOut];
@@ -70,3 +65,4 @@ proc packetContent*(this: var IFSelectShareOutResult): InterfaceEntityIterator {
     cdecl, importcpp: "PacketContent", header: "IFSelect_ShareOutResult.hxx".}
 proc fileName*(this: IFSelectShareOutResult): TCollectionAsciiString {.noSideEffect,
     cdecl, importcpp: "FileName", header: "IFSelect_ShareOutResult.hxx".}
+

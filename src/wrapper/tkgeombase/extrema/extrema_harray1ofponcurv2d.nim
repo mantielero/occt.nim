@@ -1,4 +1,7 @@
+import ../../tkernel/tcolstd/tcolstd_types
 import extrema_types
+
+
 
 ##  Created on: 1991-02-26
 ##  Created by: Isabelle GRIGNON
@@ -30,3 +33,4 @@ proc newExtremaHArray1OfPOnCurv2d*(theOther: ExtremaArray1OfPOnCurv2d): ExtremaH
     header: "Extrema_HArray1OfPOnCurv2d.hxx".}
 proc array1*(this: ExtremaHArray1OfPOnCurv2d): ExtremaArray1OfPOnCurv2d {.
     noSideEffect, cdecl, importcpp: "Array1", header: "Extrema_HArray1OfPOnCurv2d.hxx".}
+

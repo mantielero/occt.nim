@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -54,3 +57,4 @@ proc unlock*(this: var SelectMgrBVHThreadPoolSentry) {.cdecl, importcpp: "Unlock
 proc newSelectMgrBVHThreadPoolSentry*(a1: SelectMgrBVHThreadPoolSentry): SelectMgrBVHThreadPoolSentry {.
     cdecl, constructor, importcpp: "SelectMgr_BVHThreadPool::Sentry(@)",
     header: "SelectMgr_BVHThreadPool.hxx".}
+

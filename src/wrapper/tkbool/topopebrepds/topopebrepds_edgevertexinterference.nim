@@ -1,5 +1,7 @@
 import topopebrepds_types
 
+
+
 ##  Created on: 1994-10-28
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1994-1999 Matra Datavision
@@ -16,8 +18,6 @@ import topopebrepds_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopOpeBRepDS_Transition"
-discard "forward decl of TopOpeBRepDS_EdgeVertexInterference"
 
 
 
@@ -34,3 +34,4 @@ proc parameter*(this: TopOpeBRepDS_EdgeVertexInterference): cfloat {.noSideEffec
     cdecl, importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
 proc parameter*(this: var TopOpeBRepDS_EdgeVertexInterference; p: cfloat) {.cdecl,
     importcpp: "Parameter", header: "TopOpeBRepDS_EdgeVertexInterference.hxx".}
+

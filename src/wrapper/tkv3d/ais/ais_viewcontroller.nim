@@ -1,4 +1,12 @@
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkservice/aspect/aspect_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/ncollection/ncollection_types
+import ../tkv3d/v3d/v3d_types
+
+
 
 ##  Copyright (c) 2016-2019 OPEN CASCADE SAS
 ##
@@ -13,16 +21,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of AIS_AnimationCamera"
-discard "forward decl of AIS_InteractiveObject"
-discard "forward decl of AIS_InteractiveContext"
-discard "forward decl of AIS_Point"
-discard "forward decl of AIS_RubberBand"
-discard "forward decl of AIS_XRTrackedDevice"
-discard "forward decl of Graphic3d_Camera"
-discard "forward decl of SelectMgr_EntityOwner"
-discard "forward decl of V3d_View"
-discard "forward decl of WNT_HIDSpaceMouse"
 
 
 proc newAIS_ViewController*(): AIS_ViewController {.cdecl, constructor,
@@ -358,3 +356,4 @@ proc handleXRMoveTo*(this: var AIS_ViewController;
                     theCtx: Handle[AIS_InteractiveContext];
                     theView: Handle[V3dView]; thePose: TrsfObj; theToHighlight: bool): cint {.
     cdecl, importcpp: "handleXRMoveTo", header: "AIS_ViewController.hxx".}
+

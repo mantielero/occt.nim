@@ -1,4 +1,9 @@
 import law_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1994-04-07
 ##  Created by: Isabelle GRIGNON
@@ -16,20 +21,6 @@ import law_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Law_BSpFunc"
-discard "forward decl of Law_Linear"
-discard "forward decl of Law_BSpline"
-discard "forward decl of Adaptor3d_Curve"
-discard "forward decl of Law_BSpline"
-discard "forward decl of Law_Interpolate"
-discard "forward decl of Law_Function"
-discard "forward decl of Law_Constant"
-discard "forward decl of Law_Linear"
-discard "forward decl of Law_BSpFunc"
-discard "forward decl of Law_S"
-discard "forward decl of Law_Interpol"
-discard "forward decl of Law_Composite"
-discard "forward decl of Law_BSplineKnotSplitting"
 
 
 proc mixBnd*(lin: Handle[LawLinear]): Handle[LawBSpFunc] {.cdecl,
@@ -49,3 +40,4 @@ proc scale*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
 proc scaleCub*(first: cfloat; last: cfloat; hasF: bool; hasL: bool; vFirst: cfloat;
               vLast: cfloat): Handle[LawBSpline] {.cdecl,
     importcpp: "Law::ScaleCub(@)", header: "Law.hxx".}
+

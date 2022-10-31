@@ -1,4 +1,10 @@
+import ../../tkernel/standard/standard_types
 import bopalgo_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Peter KURNEV
 ##  Copyright (c) 2010-2014 OPEN CASCADE SAS
@@ -17,16 +23,6 @@ import bopalgo_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IntTools_Context"
-discard "forward decl of BOPDS_DS"
-discard "forward decl of BOPAlgo_SectionAttribute"
-discard "forward decl of BOPDS_PaveBlock"
-discard "forward decl of BOPDS_CommonBlock"
-discard "forward decl of gp_Pnt"
-discard "forward decl of BOPDS_Curve"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
 
 
 proc newBOPAlgoPaveFiller*(): BOPAlgoPaveFiller {.cdecl, constructor,
@@ -64,3 +60,4 @@ proc setAvoidBuildPCurve*(this: var BOPAlgoPaveFiller; theValue: bool) {.cdecl,
     importcpp: "SetAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
 proc isAvoidBuildPCurve*(this: BOPAlgoPaveFiller): bool {.noSideEffect, cdecl,
     importcpp: "IsAvoidBuildPCurve", header: "BOPAlgo_PaveFiller.hxx".}
+

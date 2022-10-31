@@ -1,4 +1,9 @@
 import prsdim_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Copyright (c) 1995-1999 Matra Datavision
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
@@ -50,3 +55,4 @@ proc setTextPosition*(this: var PrsDimDiameterDimension; theTextPos: PntObj) {.c
     importcpp: "SetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
 proc getTextPosition*(this: PrsDimDiameterDimension): PntObj {.noSideEffect, cdecl,
     importcpp: "GetTextPosition", header: "PrsDim_DiameterDimension.hxx".}
+

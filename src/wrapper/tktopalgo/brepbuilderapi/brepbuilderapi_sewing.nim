@@ -1,4 +1,9 @@
 import brepbuilderapi_types
+import ../../tkernel/standard/standard_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1995-03-23
 ##  Created by: Jing Cheng MEI
@@ -16,17 +21,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of BRepTools_ReShape"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of Geom_Surface"
-discard "forward decl of TopLoc_Location"
-discard "forward decl of Geom2d_Curve"
-discard "forward decl of Geom_Curve"
-discard "forward decl of BRepBuilderAPI_Sewing"
 
 
 
@@ -126,3 +120,4 @@ proc setNonManifoldMode*(this: var BRepBuilderAPI_Sewing; theNonManifoldMode: bo
     cdecl, importcpp: "SetNonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
 proc nonManifoldMode*(this: BRepBuilderAPI_Sewing): bool {.noSideEffect, cdecl,
     importcpp: "NonManifoldMode", header: "BRepBuilderAPI_Sewing.hxx".}
+

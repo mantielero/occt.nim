@@ -1,4 +1,9 @@
 import gc_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
+
 
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
@@ -16,8 +21,6 @@ import gc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Transformation"
-discard "forward decl of gp_Pnt"
 
 
 proc scale*(point: PntObj; scale: cfloat): MakeScale {.cdecl, constructor,
@@ -27,3 +30,4 @@ proc value*(this: MakeScale): Handle[GeomTransformation] {.noSideEffect, cdecl,
 converter toHandleGeomTrimmedCurve*(this: MakeScale): Handle[GeomTransformation] {.
     noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeScale.hxx".}
+

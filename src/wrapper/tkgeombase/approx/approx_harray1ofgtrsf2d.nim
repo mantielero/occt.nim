@@ -1,4 +1,7 @@
 import approx_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-01-26
 ##  Created by: Laurent PAINNOT
@@ -26,3 +29,4 @@ proc newApproxHArray1OfGTrsf2d*(theOther: ApproxArray1OfGTrsf2d): ApproxHArray1O
     cdecl, constructor, importcpp: "Approx_HArray1OfGTrsf2d(@)", header: "Approx_HArray1OfGTrsf2d.hxx".}
 proc array1*(this: ApproxHArray1OfGTrsf2d): ApproxArray1OfGTrsf2d {.noSideEffect,
     cdecl, importcpp: "Array1", header: "Approx_HArray1OfGTrsf2d.hxx".}
+

@@ -1,4 +1,5 @@
-import aspect_types
+
+
 
 ##  Created by: NW,JPB,CAL
 ##  Copyright (c) 1991-1999 Matra Datavision
@@ -17,6 +18,7 @@ import aspect_types
 
 ## ! Defines the fill methods to
 ## ! write bitmaps in a window.
+
 
 
 

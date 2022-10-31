@@ -1,3 +1,8 @@
+import ../../tkbrep/brepadaptor/brepadaptor_types
+import ../../tkbrep/topods/topods_types
+import ../../tkmath/bnd/bnd_types
+
+
 ##  Created on: 1997-04-01
 ##  Created by: Jean Yves LEBEY
 ##  Copyright (c) 1997-1999 Matra Datavision

@@ -1,4 +1,5 @@
-import graphic3d_types
+
+
 
 ##  Created by: CAL
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -15,8 +16,7 @@ import graphic3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_Camera"
-discard "forward decl of Graphic3d_DataStructureManager"
+
 
 
 

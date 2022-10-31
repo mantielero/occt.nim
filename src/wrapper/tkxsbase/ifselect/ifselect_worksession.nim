@@ -1,4 +1,10 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
 import ifselect_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1992-12-15
 ##  Created by: Christian CAILLET
@@ -16,30 +22,6 @@ import ifselect_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of IFSelect_ShareOut"
-discard "forward decl of IFSelect_WorkLibrary"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_HGraph"
-discard "forward decl of Interface_GTool"
-discard "forward decl of IFSelect_ModelCopier"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of IFSelect_Signature"
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Interface_Graph"
-discard "forward decl of Interface_CheckIterator"
-discard "forward decl of IFSelect_IntParam"
-discard "forward decl of IFSelect_Selection"
-discard "forward decl of Interface_EntityIterator"
-discard "forward decl of IFSelect_SelectionIterator"
-discard "forward decl of IFSelect_SignCounter"
-discard "forward decl of IFSelect_Dispatch"
-discard "forward decl of IFSelect_GeneralModifier"
-discard "forward decl of IFSelect_Modifier"
-discard "forward decl of IFSelect_Transformer"
-discard "forward decl of IFSelect_PacketList"
-discard "forward decl of IFSelect_SignatureList"
-discard "forward decl of IFSelect_WorkSession"
 
 
 
@@ -454,3 +436,4 @@ proc evaluateComplete*(this: IFSelectWorkSession; mode: cint = 0) {.noSideEffect
 proc listEntities*(this: IFSelectWorkSession; iter: InterfaceEntityIterator;
                   mode: cint; s: var StandardOStream) {.noSideEffect, cdecl,
     importcpp: "ListEntities", header: "IFSelect_WorkSession.hxx".}
+

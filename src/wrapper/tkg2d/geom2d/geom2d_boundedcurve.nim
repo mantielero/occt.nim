@@ -1,4 +1,8 @@
 import geom2d_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+
+
 
 ##  Created on: 1993-03-24
 ##  Created by: JCV
@@ -16,8 +20,6 @@ import geom2d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt2d"
-discard "forward decl of Geom2d_BoundedCurve"
 
 
 
@@ -29,3 +31,4 @@ proc startPoint*(this: Geom2dBoundedCurve): Pnt2dObj {.noSideEffect, cdecl,
 proc dumpJson*(this: Geom2dBoundedCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom2d_BoundedCurve.hxx".}
+

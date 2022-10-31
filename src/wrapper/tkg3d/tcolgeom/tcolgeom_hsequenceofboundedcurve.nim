@@ -1,4 +1,7 @@
 import tcolgeom_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: Philippe DAUTRY
@@ -33,4 +36,5 @@ proc append*(this: var TColGeomHSequenceOfBoundedCurve;
     importcpp: "Append", dynlib: tkg3d.}
 proc changeSequence*(this: var TColGeomHSequenceOfBoundedCurve): var TColGeomSequenceOfBoundedCurve {.
     cdecl, importcpp: "ChangeSequence", dynlib: tkg3d.}
+
 

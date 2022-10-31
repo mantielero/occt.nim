@@ -1,4 +1,8 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
 import geomfill_types
+
+
 
 ##  Created on: 1997-07-18
 ##  Created by: Philippe MANGIN
@@ -16,9 +20,6 @@ import geomfill_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of StdFail_NotDone"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
 
 
 proc newGeomFillPolynomialConvertor*(): GeomFillPolynomialConvertor {.cdecl,
@@ -41,3 +42,4 @@ proc section*(this: GeomFillPolynomialConvertor; firstPnt: PntObj; dFirstPnt: Ve
              poles: var TColgpArray1OfPnt; dPoles: var TColgpArray1OfVec;
              d2Poles: var TColgpArray1OfVec) {.noSideEffect, cdecl,
     importcpp: "Section", header: "GeomFill_PolynomialConvertor.hxx".}
+

@@ -1,4 +1,7 @@
 import brepprimapi_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1994-02-18
 ##  Created by: Remi LEQUETTE
@@ -16,10 +19,10 @@ import brepprimapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
 
 
 proc firstShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
     importcpp: "FirstShape", header: "BRepPrimAPI_MakeSweep.hxx".}
 proc lastShape*(this: var BRepPrimAPI_MakeSweep): TopoDS_Shape {.cdecl,
     importcpp: "LastShape", header: "BRepPrimAPI_MakeSweep.hxx".}
+

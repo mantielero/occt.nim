@@ -1,3 +1,7 @@
+import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 ##  Created on: 1995-12-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,10 +18,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TCollection_HAsciiString"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_Static"
 type
   HandleInterfaceStatic* = Handle[InterfaceStatic]
 

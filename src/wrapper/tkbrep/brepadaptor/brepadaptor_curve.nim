@@ -1,4 +1,14 @@
+import ../../tkmath/gp/gp_types
 import brepadaptor_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkg3d/geomadaptor/geomadaptor_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkbrep/topods/topods_types
+import ../../tkg3d/geom/geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-02-19
 ##  Created by: Remi LEQUETTE
@@ -16,27 +26,6 @@ import brepadaptor_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HCurveOnSurface"
-discard "forward decl of Standard_NullObject"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of gp_Trsf"
-discard "forward decl of GeomAdaptor_Curve"
-discard "forward decl of Adaptor3d_CurveOnSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Circ"
-discard "forward decl of gp_Elips"
-discard "forward decl of gp_Hypr"
-discard "forward decl of gp_Parab"
-discard "forward decl of Geom_BezierCurve"
-discard "forward decl of Geom_BSplineCurve"
-discard "forward decl of Geom_OffsetCurve"
 
 
 proc newBRepAdaptorCurve*(): BRepAdaptorCurve {.cdecl, constructor,
@@ -122,3 +111,4 @@ proc bSpline*(this: BRepAdaptorCurve): Handle[GeomBSplineCurve] {.noSideEffect,
     cdecl, importcpp: "BSpline", header: "BRepAdaptor_Curve.hxx".}
 proc offsetCurve*(this: BRepAdaptorCurve): Handle[GeomOffsetCurve] {.noSideEffect,
     cdecl, importcpp: "OffsetCurve", header: "BRepAdaptor_Curve.hxx".}
+

@@ -1,3 +1,6 @@
+import ../../tkernel/standard/standard_types
+
+
 ##  Created on: 1995-11-08
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -14,10 +17,6 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Standard_Transient"
-discard "forward decl of Interface_ShareTool"
-discard "forward decl of Interface_InterfaceModel"
 type
   InterfaceCategory* {.importcpp: "Interface_Category",
                       header: "Interface_Category.hxx", bycopy.} = object ## ! Creates a Category, with no protocol yet

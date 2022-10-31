@@ -1,4 +1,8 @@
 import bopalgo_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created by: Eugeny MALTCHIKOV
 ##  Copyright (c) 2018 OPEN CASCADE SAS
@@ -150,3 +154,4 @@ proc facesToRemove*(this: BOPAlgoRemoveFeatures): TopToolsListOfShape {.
 proc perform*(this: var BOPAlgoRemoveFeatures) {.cdecl, importcpp: "Perform",
     header: "BOPAlgo_RemoveFeatures.hxx".}
 proc clear*(this: var BOPAlgoRemoveFeatures) {.cdecl, importcpp: "Clear", header: "BOPAlgo_RemoveFeatures.hxx".}
+

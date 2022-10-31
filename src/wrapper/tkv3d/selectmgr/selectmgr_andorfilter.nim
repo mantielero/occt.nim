@@ -1,4 +1,8 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Copyright (c) 2020 OPEN CASCADE SAS
 ##
@@ -29,3 +33,4 @@ proc filterType*(this: SelectMgrAndOrFilter): SelectMgrFilterType {.noSideEffect
 proc setFilterType*(this: var SelectMgrAndOrFilter;
                    theFilterType: SelectMgrFilterType) {.cdecl,
     importcpp: "SetFilterType", header: "SelectMgr_AndOrFilter.hxx".}
+

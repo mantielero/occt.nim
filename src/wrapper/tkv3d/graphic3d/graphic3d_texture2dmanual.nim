@@ -1,4 +1,8 @@
+import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 1997-07-28
 ##  Created by: Pierre CHALAMET
@@ -28,4 +32,5 @@ proc newGraphic3dTexture2Dmanual*(theNOT: Graphic3dNameOfTexture2D): Graphic3dTe
     cdecl, constructor, importcpp: "Graphic3d_Texture2Dmanual(@)", header: "Graphic3d_Texture2Dmanual.hxx".}
 proc newGraphic3dTexture2Dmanual*(thePixMap: Handle[ImagePixMap]): Graphic3dTexture2Dmanual {.
     cdecl, constructor, importcpp: "Graphic3d_Texture2Dmanual(@)", header: "Graphic3d_Texture2Dmanual.hxx".}
+
 

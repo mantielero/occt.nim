@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import transfer_types
+
+
 
 ##  Created on: 1992-02-07
 ##  Created by: Christian CAILLET
@@ -16,12 +19,6 @@ import transfer_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Interface_InterfaceError"
-discard "forward decl of Interface_InterfaceModel"
-discard "forward decl of Interface_GeneralLib"
-discard "forward decl of Interface_Protocol"
-discard "forward decl of Transfer_TransientProcess"
-discard "forward decl of Standard_Transient"
 
 
 proc newTransferTransferDispatch*(amodel: Handle[InterfaceInterfaceModel];
@@ -38,3 +35,4 @@ proc transientProcess*(this: TransferTransferDispatch): Handle[
 proc copy*(this: var TransferTransferDispatch; entfrom: Handle[StandardTransient];
           entto: var Handle[StandardTransient]; mapped: bool; errstat: bool): bool {.
     cdecl, importcpp: "Copy", header: "Transfer_TransferDispatch.hxx".}
+

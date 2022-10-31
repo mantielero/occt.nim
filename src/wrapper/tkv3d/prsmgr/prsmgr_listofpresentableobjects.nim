@@ -1,4 +1,5 @@
-import prsmgr_types
+
+
 
 ##  Created on: 2014-08-11
 ##  Created by: duv
@@ -15,5 +16,5 @@ import prsmgr_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of PrsMgr_PresentableObject"
+
 

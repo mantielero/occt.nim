@@ -1,4 +1,9 @@
+import ../../tkmath/math/math_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+
+
 
 ##  Created by: Julia GERASIMOVA
 ##  Copyright (c) 2015 OPEN CASCADE SAS
@@ -14,10 +19,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Adaptor2d_HCurve2d"
-discard "forward decl of math_Matrix"
 
 
 proc newBlendFuncConstThroatInv*(s1: Handle[Adaptor3dHSurface];
@@ -34,3 +35,4 @@ proc derivatives*(this: var BlendFuncConstThroatInv; x: MathVector; d: var MathM
 
 proc set*(this: var BlendFuncConstThroatInv; theThroat: cfloat; a3: cfloat; choix: cint) {.
     cdecl, importcpp: "Set", header: "BlendFunc_ConstThroatInv.hxx".}
+

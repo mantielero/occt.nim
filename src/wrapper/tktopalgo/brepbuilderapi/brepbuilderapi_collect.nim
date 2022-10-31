@@ -1,4 +1,8 @@
 import brepbuilderapi_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1996-04-09
 ##  Created by: Yves FRICAUD
@@ -16,8 +20,6 @@ import brepbuilderapi_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of BRepBuilderAPI_MakeShape"
 
 
 proc collect*(): BRepBuilderAPI_Collect {.cdecl, constructor,
@@ -36,3 +38,4 @@ proc modification*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfSh
     noSideEffect, cdecl, importcpp: "Modification", header: "BRepBuilderAPI_Collect.hxx".}
 proc generated*(this: BRepBuilderAPI_Collect): TopToolsDataMapOfShapeListOfShape {.
     noSideEffect, cdecl, importcpp: "Generated", header: "BRepBuilderAPI_Collect.hxx".}
+

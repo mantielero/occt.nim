@@ -1,4 +1,7 @@
 import intsurf_types
+import ../../tkmath/gp/gp_types
+
+
 
 ##  Created on: 1992-09-25
 ##  Created by: Jacques GOUSSARD
@@ -16,9 +19,6 @@ import intsurf_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of StdFail_UndefinedDerivative"
-discard "forward decl of IntSurf_PathPoint"
 
 
 proc value3d*(pStart: IntSurfPathPoint): PntObj {.cdecl,
@@ -37,3 +37,4 @@ proc multiplicity*(pStart: IntSurfPathPoint): cint {.cdecl,
     importcpp: "IntSurf_PathPointTool::Multiplicity(@)", header: "IntSurf_PathPointTool.hxx".}
 proc parameters*(pStart: IntSurfPathPoint; mult: cint; u: var cfloat; v: var cfloat) {.
     cdecl, importcpp: "IntSurf_PathPointTool::Parameters(@)", header: "IntSurf_PathPointTool.hxx".}
+

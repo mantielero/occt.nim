@@ -1,4 +1,10 @@
+import ../../tkmath/math/math_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
 import blendfunc_types
+
+
 
 ##  Created on: 1996-06-04
 ##  Created by: Stagiaire Xuan Trang PHAMPHU
@@ -16,13 +22,6 @@ import blendfunc_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Adaptor3d_HSurface"
-discard "forward decl of Adaptor3d_HCurve"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of math_Matrix"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Vec2d"
 
 
 proc newBlendFuncCorde*(s: Handle[Adaptor3dHSurface];
@@ -52,3 +51,4 @@ proc derFguide*(this: var BlendFuncCorde; sol: MathVector; derF: var Vec2dObj) {
     importcpp: "DerFguide", header: "BlendFunc_Corde.hxx".}
 proc isSolution*(this: var BlendFuncCorde; sol: MathVector; tol: cfloat): bool {.cdecl,
     importcpp: "IsSolution", header: "BlendFunc_Corde.hxx".}
+

@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import selectmgr_types
+
+
 
 ##  Created on: 2014-08-15
 ##  Created by: Varvara POSKONINA
@@ -38,4 +41,5 @@ proc setActiveForSelection*(this: SelectMgrSensitiveEntity) {.noSideEffect, cdec
 proc dumpJson*(this: SelectMgrSensitiveEntity; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "SelectMgr_SensitiveEntity.hxx".}
+
 

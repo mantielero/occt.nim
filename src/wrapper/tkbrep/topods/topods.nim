@@ -1,5 +1,7 @@
 import topods_types
 
+
+
 ##  Created on: 1990-12-11
 ##  Created by: Remi Lequette
 ##  Copyright (c) 1990-1999 Matra Datavision
@@ -16,36 +18,6 @@ import topods_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopoDS_CompSolid"
-discard "forward decl of TopoDS_Compound"
-discard "forward decl of TopoDS_Shape"
-discard "forward decl of TopoDS_HShape"
-discard "forward decl of TopoDS_TShape"
-discard "forward decl of TopoDS_TVertex"
-discard "forward decl of TopoDS_Vertex"
-discard "forward decl of TopoDS_TEdge"
-discard "forward decl of TopoDS_Edge"
-discard "forward decl of TopoDS_TWire"
-discard "forward decl of TopoDS_Wire"
-discard "forward decl of TopoDS_TFace"
-discard "forward decl of TopoDS_Face"
-discard "forward decl of TopoDS_TShell"
-discard "forward decl of TopoDS_Shell"
-discard "forward decl of TopoDS_TSolid"
-discard "forward decl of TopoDS_Solid"
-discard "forward decl of TopoDS_TCompSolid"
-discard "forward decl of TopoDS_CompSolid"
-discard "forward decl of TopoDS_TCompound"
-discard "forward decl of TopoDS_Compound"
-discard "forward decl of TopoDS_Builder"
-discard "forward decl of TopoDS_Iterator"
 
 
 proc vertex*(s: TopoDS_Shape): TopoDS_Vertex {.cdecl, importcpp: "TopoDS::Vertex(@)",
@@ -80,3 +52,4 @@ proc compound*(s: TopoDS_Shape): TopoDS_Compound {.cdecl,
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
 proc compound*(a1: var TopoDS_Shape): var TopoDS_Compound {.cdecl,
     importcpp: "TopoDS::Compound(@)", header: "TopoDS.hxx".}
+

@@ -1,4 +1,9 @@
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
 import ais_types
+import ../../tkernel/quantity/quantity_types
+
+
 
 ##  Created on: 2018-12-12
 ##  Created by: Olga SURYANINOVA
@@ -15,8 +20,6 @@ import ais_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Graphic3d_ArrayOfSegments"
-discard "forward decl of Graphic3d_ArrayOfTriangles"
 
 
 
@@ -33,3 +36,4 @@ proc unsetTransparency*(this: var AIS_CameraFrustum) {.cdecl,
     importcpp: "UnsetTransparency", header: "AIS_CameraFrustum.hxx".}
 proc acceptDisplayMode*(this: AIS_CameraFrustum; theMode: cint): bool {.noSideEffect,
     cdecl, importcpp: "AcceptDisplayMode", header: "AIS_CameraFrustum.hxx".}
+

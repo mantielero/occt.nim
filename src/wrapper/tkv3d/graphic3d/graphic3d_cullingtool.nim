@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import graphic3d_types
+
+
 
 ##  Created on: 2013-12-25
 ##  Created by: Varvara POSKONINA
@@ -85,3 +88,4 @@ proc isTooSmall*(this: Graphic3dCullingTool;
                 theCtx: Graphic3dCullingToolCullingContext;
                 theMinPnt: Graphic3dVec3d; theMaxPnt: Graphic3dVec3d): bool {.
     noSideEffect, cdecl, importcpp: "IsTooSmall", header: "Graphic3d_CullingTool.hxx".}
+

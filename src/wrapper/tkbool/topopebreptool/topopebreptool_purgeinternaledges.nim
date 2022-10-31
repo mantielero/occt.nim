@@ -1,4 +1,8 @@
 import topopebreptool_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkbrep/topods/topods_types
+
+
 
 ##  Created on: 1998-11-19
 ##  Created by: Jean-Michel BOULCOURT
@@ -16,9 +20,6 @@ import topopebreptool_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_NullObject"
-discard "forward decl of TopoDS_Shape"
 
 
 proc newTopOpeBRepToolPurgeInternalEdges*(theShape: TopoDS_Shape;
@@ -35,3 +36,4 @@ proc isDone*(this: TopOpeBRepToolPurgeInternalEdges): bool {.noSideEffect, cdecl
     importcpp: "IsDone", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
 proc perform*(this: var TopOpeBRepToolPurgeInternalEdges) {.cdecl,
     importcpp: "Perform", header: "TopOpeBRepTool_PurgeInternalEdges.hxx".}
+

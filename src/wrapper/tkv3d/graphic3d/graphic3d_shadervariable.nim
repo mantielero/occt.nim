@@ -1,4 +1,7 @@
+import ../../tkernel/tcollection/tcollection_types
 import graphic3d_types
+
+
 
 ##  Created on: 2013-09-25
 ##  Created by: Denis BOGOLEPOV
@@ -68,4 +71,5 @@ proc value*(this: var Graphic3dShaderVariable): ptr Graphic3dValueInterface {.cd
     importcpp: "Value", header: "Graphic3d_ShaderVariable.hxx".}
 proc create*[T](theName: TCollectionAsciiString; theValue: T): ptr Graphic3dShaderVariable {.
     cdecl, importcpp: "Graphic3d_ShaderVariable::Create(@)", header: "Graphic3d_ShaderVariable.hxx".}
+
 

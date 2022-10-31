@@ -1,4 +1,12 @@
+import ../../tkmath/tcolgp/tcolgp_types
 import prs3d_types
+import ../../tkmath/gp/gp_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/standard/standard_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkmath/poly/poly_types
+
+
 
 ##  Created on: 1992-08-26
 ##  Created by: Jean Louis FRENKEL
@@ -16,7 +24,6 @@ import prs3d_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Poly_Triangulation"
 
 
 proc matchSegment*(x: cfloat; y: cfloat; z: cfloat; aDistance: cfloat; p1: PntObj; p2: PntObj;
@@ -39,3 +46,4 @@ proc addPrimitivesGroup*(thePrs: Handle[Prs3dPresentation];
 proc addFreeEdges*(theSegments: var TColgpSequenceOfPnt;
                   thePolyTri: Handle[PolyTriangulation]; theLocation: TrsfObj) {.cdecl,
     importcpp: "Prs3d::AddFreeEdges(@)", header: "Prs3d.hxx".}
+

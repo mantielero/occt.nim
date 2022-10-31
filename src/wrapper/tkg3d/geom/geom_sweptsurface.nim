@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,9 +21,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Dir"
-discard "forward decl of Geom_SweptSurface"
 
 
 
@@ -32,3 +34,4 @@ proc basisCurve*(this: GeomSweptSurface): Handle[GeomCurve] {.noSideEffect, cdec
 proc dumpJson*(this: GeomSweptSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_SweptSurface.hxx".}
+

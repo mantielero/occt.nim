@@ -1,4 +1,11 @@
+import ../../tkmath/tcolgp/tcolgp_types
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: JCV
@@ -16,18 +23,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_DimensionError"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of Standard_OutOfRange"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of Standard_NoSuchObject"
-discard "forward decl of Geom_UndefinedDerivative"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_BSplineCurve"
 
 
 
@@ -194,3 +189,4 @@ proc isEqual*(this: GeomBSplineCurve; theOther: Handle[GeomBSplineCurve];
 proc dumpJson*(this: GeomBSplineCurve; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_BSplineCurve.hxx".}
+

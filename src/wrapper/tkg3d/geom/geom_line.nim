@@ -1,4 +1,9 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+import ../../tkmath/geomabs/geomabs_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: Philippe DAUTRY
@@ -16,15 +21,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_RangeError"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Lin"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_Line"
 
 
 
@@ -80,3 +76,4 @@ proc copy*(this: GeomLine): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Line.hxx".}
 proc dumpJson*(this: GeomLine; theOStream: var StandardOStream; theDepth: cint = -1) {.
     noSideEffect, cdecl, importcpp: "DumpJson", header: "Geom_Line.hxx".}
+

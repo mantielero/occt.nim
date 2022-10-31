@@ -1,6 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
+
+import geom_types
 
 import geom_axis1placement
 import geom_axis2placement
@@ -45,4 +47,4 @@ import geom_undefinedvalue
 import geom_vector
 import geom_vectorwithmagnitude
 
-export geom_axis1placement, geom_axis2placement, geom_axisplacement, geom_beziercurve, geom_beziersurface, geom_boundedcurve, geom_boundedsurface, geom_bsplinecurve, geom_bsplinesurface, geom_cartesianpoint, geom_circle, geom_conic, geom_conicalsurface, geom_curve, geom_cylindricalsurface, geom_direction, geom_elementarysurface, geom_ellipse, geom_geometry, geom_hsequenceofbsplinesurface, geom_hyperbola, geom_line, geom_offsetcurve, geom_offsetsurface, geom_osculatingsurface, geom_parabola, geom_plane, geom_point, geom_rectangulartrimmedsurface, geom_sequenceofbsplinesurface, geom_sphericalsurface, geom_surface, geom_surfaceoflinearextrusion, geom_surfaceofrevolution, geom_sweptsurface, geom_toroidalsurface, geom_transformation, geom_trimmedcurve, geom_undefinedderivative, geom_undefinedvalue, geom_vector, geom_vectorwithmagnitude
+export geom_types, geom_axis1placement, geom_axis2placement, geom_axisplacement, geom_beziercurve, geom_beziersurface, geom_boundedcurve, geom_boundedsurface, geom_bsplinecurve, geom_bsplinesurface, geom_cartesianpoint, geom_circle, geom_conic, geom_conicalsurface, geom_curve, geom_cylindricalsurface, geom_direction, geom_elementarysurface, geom_ellipse, geom_geometry, geom_hsequenceofbsplinesurface, geom_hyperbola, geom_line, geom_offsetcurve, geom_offsetsurface, geom_osculatingsurface, geom_parabola, geom_plane, geom_point, geom_rectangulartrimmedsurface, geom_sequenceofbsplinesurface, geom_sphericalsurface, geom_surface, geom_surfaceoflinearextrusion, geom_surfaceofrevolution, geom_sweptsurface, geom_toroidalsurface, geom_transformation, geom_trimmedcurve, geom_undefinedderivative, geom_undefinedvalue, geom_vector, geom_vectorwithmagnitude

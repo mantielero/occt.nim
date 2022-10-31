@@ -308,30 +308,16 @@ proc removeDocumentationComments(typs:var seq[TypOb]; i:int) =
 
 
 proc reorderTypes*(typs:var seq[TypOb]) = 
-  # # First those not having any needs
-  # var remove:seq[int]  
-  # for i in 0..typs.high:
-  #   if typ.needs.len == 0:
-  #     result &= typ
-  #     remove &= i
-  # # Remove those already processed
-  # for i in remove.high..0:
-  #   typs.delete( i )
-  # remove = @[]
-
   var flag = true
   var n = 0 
   while flag:
-    n = n + 1
+    #n = n + 1
     flag = false
     block sorting:
       # Process all items
-      #echo "========================================================"
       for i in 0..<typs.high:
         var typ = typs[i]
-        #if typ.name == "GeomAxis1Placement":
-        #  echo "NEEDS-------------", typ.needs        
-        #echo typ.lines[0]
+
         # Comprobamos con todos los siguientes
         for k in (i+1)..typs.high:
           #echo i, " ", k
@@ -341,9 +327,9 @@ proc reorderTypes*(typs:var seq[TypOb]) =
             typs.insert(typ, k+1)
             typs.delete(i)
             flag = true
-            echo "Moving:   i:",i,  " to:",k+1
-            if n > 1000:
-              flag = false
+            #echo "Moving:   i:",i,  " to:",k+1
+            #if n > 1000:
+            #  flag = false
             break sorting
   
 proc getRequiredImports(typs:seq[TypOb];paths:Table[string,string]):HashSet[string] =      
@@ -361,19 +347,10 @@ proc getRequiredImports(typs:seq[TypOb];paths:Table[string,string]):HashSet[stri
             result.incl(k)
 
 
-    
-
-
-
-proc reorderContent(fname:string) =
-  echo fname
-  var folder = fname.split('/')[2]
-  var paths = likelyImports()  # Table: gp --> tkmath/gp/gp_types, and so on
-  var typs:seq[TypOb] = @[]
+proc getTyps*(fname:string):seq[TypOb] =
   var txt = fname.readFile()
   var lines = txt.splitLines()
   var pairs = getLinesPairs( lines )  # Get type definition blocks
-
 
   for (a,b) in pairs:
     var tmp:TypOb
@@ -388,7 +365,57 @@ proc reorderContent(fname:string) =
       # Get dependencies
       tmp.populateDependencies()
 
-    typs &= tmp
+    result &= tmp
+
+proc getCurrentPath(fname:string):string =
+  if fname.contains("./"):
+    result = fname.split("./")[1] 
+  else:
+    result = fname
+  result = result.split(".nim")[0]
+  result = result.rsplit('/',1)[0]
+
+proc addImport(fname:string; 
+               paths:Table[string,string]; 
+               requiredImports:HashSet[string]; 
+               discardCurrent = false):string = 
+  var imports:HashSet[string]
+  for i in toSeq(requiredImports):
+    var currentPath = fname.getCurrentPath
+    #currentPath = currentPath.split(".nim")[0]
+    if i in paths:
+      var tmp2 = paths[i].split('/')
+      #echo "----->", i, " ", paths[i]
+
+      if currentPath == paths[i].rsplit('/',1)[0]:
+        #echo ">>>>", i, " ", paths[i]
+        if discardCurrent:
+          discard
+        else:
+          var tmp = paths[i].rsplit('/',1)[1]
+          imports.incl("import " & tmp & "\n")
+        
+      else:
+        var currentFolders = currentPath.split('/')
+
+        if currentFolders[0] != tmp2[0]:
+          imports.incl( "import ../../" & paths[i] & "\n" )
+        else:
+          if currentFolders[1] != tmp2[1]:
+            imports.incl(  "import ../" & paths[i] & "\n"  )
+
+  for i in toSeq(imports):
+    result &= i
+
+proc reorderContent(fname:string) =
+  echo fname
+  var folder = fname.split('/')[2]
+  var paths = likelyImports()  # Table: gp --> tkmath/gp/gp_types, and so on
+  var txt = fname.readFile()
+  var lines = txt.splitLines()
+  var pairs = getLinesPairs( lines )  # Get type definition blocks
+
+  var typs:seq[TypOb] = getTyps(fname)
 
   for i in 0..typs.high:
     typs.removeDocumentationComments(i)
@@ -410,92 +437,10 @@ proc reorderContent(fname:string) =
   var remove:seq[int]
 
   echo fname
-  # for i in items:
-  #   #typs.getDependencies(i)    
-  #   echo "NEEDS: ", typs[i].needs
 
-  #   for need in typs[i].needs:
-  #     var tmp = need.toLower.strip
-  #     if tmp == "handle":
-  #       requiredImports.incl("standard")
-  #     else:
-  #       for k in paths.keys:
-  #         if tmp.startsWith( k ):
-  #           requiredImports.incl(k)
-  #           if not i in remove:
-  #             remove &= i
-
-  # for i in remove:
-  #   items.delete(items.find(i))
-  #   neworder &= i  
-    
-  # # 2.2 Then those with Handle
-  # remove = @[]
-
-  # 3. Reorder
-  #var nItems = typs.len
-
-  # FIXME
-  # while items.len > 0:
-  #   var remove:seq[int]
-
-  #   for i in items:
-  #     # The same as before
-  #     var flag = true
-  #     for need in typs[i].needs:
-  #       var tmp = need.toLower.strip
-  #       var f = false
-  #       if tmp == "handle":
-  #         requiredImports.incl("standard")
-  #         f = true
-  #       else:
-  #         for k in paths.keys:
-  #           if tmp.startsWith( k ):
-  #             requiredImports.incl( k )
-  #             f = true
-  #       if not f:
-  #         flag = false 
-
-  #     if flag and not i in remove:
-  #       remove &= i
-
-  #   for i in remove:
-  #     items.delete( items.find(i) )
-  #     neworder &= i
-
-  #   if items.len == nItems:
-  #     break
-
-  #   else:
-  #     nItems = items.len
-  #echo requiredImports
-
-  # Create needed imports
-  # var depends:seq[string]
-  # for i in items:
-  #   depends &= typs[i].depend
-
-  # var provides:seq[string]
-  # for i in neworder:
-  #   provides &= typs[i].name
-
-  # #-----------------------------------
-  # # Create the new file
+  # Create the new file
   var newtxt = ""
-  # newtxt &= "# PROVIDES: " 
-  # for i in provides:
-  #   newtxt &= i & " "
 
-
-  # newtxt = newtxt.strip  
-  # newtxt &= "\n# DEPENDS: " 
-  # for i in depends:
-  #   newtxt &= i & " "
-  # newtxt = newtxt.strip
-  # newtxt &= "\n\n"
-  #echo flagHandle
-  #if flagHandle:
-  #  newtxt &= "import tkernel/standard/standard_types\n"
   for i in requiredImports:
     var currentPath = fname.split("./")[1]
     currentPath = currentPath.split(".nim")[0]
@@ -510,17 +455,10 @@ proc reorderContent(fname:string) =
       else:
         if currentFolders[1] != tmp2[1]:
           newtxt &=  "import ../" & paths[i] & "\n"
-      #echo currentPath, " ", tmp2
-  #    newtxt &= "import " & paths[i] & "\n"
-  #  for name in paths:
-  #    if i == name:
-  #      echo paths[i]
   
   newtxt &= "type\n"
   var filter:HashSet[string]
-  #for i in neworder:
   for i in 0..typs.high:
-    #echo typs[i].lines[0]
     if not (typs[i].name in filter):
       for line in typs[i].lines:
         if line.strip != "":
@@ -530,19 +468,115 @@ proc reorderContent(fname:string) =
     filter.incl(typs[i].name)
   
   clear(filter)
-  #for i in items:   
-  # for i in 0..typs.high:
-  #   if not (typs[i].lines[0] in filter):
-  #     for line in typs[i].lines:
-  #       if line.strip != "":  
-  #         newtxt &= line & "\n"
-      
-  #     newtxt &= "\n"
-  #   filter.incl(typs[i].lines[0])
 
-  #for typ in typs:
-  #  echo typ.name, " ", typ.depend
   fname.writeFile(newtxt)
+
+
+#----------------------
+# PROCS parsing
+#----------------------
+
+proc genericsExtractTypes(argType:string):HashSet[string] = 
+  if argType.contains('['): # Generics
+    var tmp5 = argType.split('[')
+    result.incl( tmp5[0].strip )
+    var tmp6 = tmp5[1][0..<tmp5[1].high].split(',')
+    for k in tmp6:
+      result.incl( k.strip )
+
+  else:
+    result.incl( argType )  
+
+proc findProcDependencies(fname:string):HashSet[string] =
+  var txt = fname.readFile
+  var lines = txt.splitLines
+  
+  # Get pairs delimiting procs
+  var nLines:seq[int]
+  for i in 0..lines.high:
+    if lines[i].startsWith("proc "):
+      nLines &= i
+  var pairs:seq[tuple[a,b:int]]
+  for i in 0..<nLines.high:
+    pairs &= (nLines[i],nLines[i+1] - 1)
+
+  var procTypes:HashSet[string]  
+  if nLines.len > 0:
+    pairs &= (nLines[nLines.high], lines.high)
+    
+    # Create one liners for procs 
+    var procs:seq[string]
+    for (a,b) in pairs:
+      var txt = ""
+      for i in a..b:
+        txt &= lines[i] & " "
+      procs &= txt
+
+    # Get the types for arguments and return values
+
+    for p in procs:
+      var tmp = p.split('(', 1)[1]
+      tmp = tmp.split("{.", 1)[0]
+      # Split params and return type
+      var tmp2 = tmp.split(')')
+      if tmp2[1][0] == ':':
+        tmp2[1] = tmp2[1][1..tmp2[1].high].strip
+      else:
+        tmp2[1] = tmp2[1].strip
+      var ret = genericsExtractTypes(tmp2[1])
+      procTypes = procTypes + ret
+      
+      # Split arguments
+      var arguments = tmp2[0].split(';')
+      if arguments != @[""]:
+        for arg in arguments:
+          var argType = arg.split(':')[1].strip
+          if argType.startsWith("var ") or argType.startsWith("ptr ") :
+            argType = argType[4..argType.high].strip
+
+          var aTyps = genericsExtractTypes(argType)
+
+          procTypes = procTypes + aTyps
+      
+  return procTypes - toHashSet([""])
+    
+proc getType2Library():Table[string, string] =
+  for i in walkDirs("./tk*/*"):
+    var tmp = i.split('/')
+    var name = tmp[tmp.high]
+    var fname = i[2..i.high] & fmt"/{name}_types"
+    # get types for the file
+    var typs = getTyps(fname & ".nim")
+    for typ in typs:
+      result[typ.name] = fname
+
+proc addImports(fname:string) =
+  var typ2import = getType2Library()
+  var needs = findProcDependencies(fname)
+  #echo needs
+  var txt = addImport(fname, typ2import, needs)
+  #for i in needs:
+  #  if i in typ2import:
+  #    echo typ2import[i]
+
+  var text = fname.readFile()
+  var lines = text.splitLines
+  # Remove existing import
+  var remove:seq[int]
+  for i in 0..lines.high:
+    #var n = lines.high - i
+    if lines[i].startsWith("import ") or lines[i].startsWith("discard "):
+      remove &= i
+  for i in 0..remove.high:
+    var n = remove.high - i
+    lines.delete(remove[n])
+
+  # Add new imports
+  var newtxt = txt & "\n\n"
+  for i in 0..lines.high:
+    newtxt &= lines[i] & "\n"
+
+  fname.writeFIle( newtxt )
 
 #
 # 8. Add import statements: *_types.nim content
@@ -599,8 +633,15 @@ for typ in typs:
 #createTypesFile("./tkg3d/geom")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-reorderContent("./tkg3d/geom/geom_types.nim")
+#reorderContent("./tkg3d/geom/geom_types.nim")
 
+for fname in walkFiles("tkg3d/geom/*.nim"):
+  if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
+    echo "Functions: ", fname
+    addImports(fname)
+
+
+#echo a
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)
 

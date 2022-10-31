@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,13 +20,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Vector"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_VectorWithMagnitude"
 
 
 
@@ -84,3 +81,4 @@ proc transform*(this: var GeomVectorWithMagnitude; t: TrsfObj) {.cdecl,
     importcpp: "Transform", header: "Geom_VectorWithMagnitude.hxx".}
 proc copy*(this: GeomVectorWithMagnitude): Handle[GeomGeometry] {.noSideEffect,
     cdecl, importcpp: "Copy", header: "Geom_VectorWithMagnitude.hxx".}
+

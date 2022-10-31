@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,10 +20,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_CartesianPoint"
 
 
 
@@ -52,3 +52,4 @@ proc transform*(this: var GeomCartesianPoint; t: TrsfObj) {.cdecl, importcpp: "T
     header: "Geom_CartesianPoint.hxx".}
 proc copy*(this: GeomCartesianPoint): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_CartesianPoint.hxx".}
+

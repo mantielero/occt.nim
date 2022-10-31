@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,16 +20,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_RangeError"
-discard "forward decl of gp_Ax3"
-discard "forward decl of gp_Sphere"
-discard "forward decl of Geom_Curve"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Vec"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_SphericalSurface"
 
 
 
@@ -88,3 +82,4 @@ proc copy*(this: GeomSphericalSurface): Handle[GeomGeometry] {.noSideEffect, cde
 proc dumpJson*(this: GeomSphericalSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_SphericalSurface.hxx".}
+

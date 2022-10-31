@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,8 +20,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_Point"
 
 
 
@@ -32,3 +34,4 @@ proc distance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.noSideEffect
     cdecl, importcpp: "Distance", header: "Geom_Point.hxx".}
 proc squareDistance*(this: GeomPoint; other: Handle[GeomPoint]): cfloat {.
     noSideEffect, cdecl, importcpp: "SquareDistance", header: "Geom_Point.hxx".}
+

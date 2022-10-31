@@ -1,4 +1,7 @@
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1998-05-05
 ##  Created by: Stepan MISHIN
@@ -16,9 +19,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Geom_Surface"
-discard "forward decl of Geom_BSplineSurface"
-discard "forward decl of Geom_OsculatingSurface"
 
 
 proc newGeomOsculatingSurface*(): GeomOsculatingSurface {.cdecl, constructor,
@@ -40,3 +40,4 @@ proc vOscSurf*(this: GeomOsculatingSurface; u: cfloat; v: cfloat; t: var bool;
 proc dumpJson*(this: GeomOsculatingSurface; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_OsculatingSurface.hxx".}
+

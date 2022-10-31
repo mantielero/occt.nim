@@ -1,4 +1,22 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: JCV
@@ -16,11 +34,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Pnt"
-discard "forward decl of Geom_AxisPlacement"
 
 
 
@@ -39,3 +52,11 @@ proc direction*(this: GeomAxisPlacement): DirObj {.noSideEffect, cdecl,
     importcpp: "Direction", header: "Geom_AxisPlacement.hxx".}
 proc location*(this: GeomAxisPlacement): PntObj {.noSideEffect, cdecl,
     importcpp: "Location", header: "Geom_AxisPlacement.hxx".}
+
+
+
+
+
+
+
+

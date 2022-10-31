@@ -1,4 +1,26 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: JCV
@@ -16,12 +38,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of gp_Ax1"
-discard "forward decl of gp_Pnt"
-discard "forward decl of gp_Dir"
-discard "forward decl of gp_Trsf"
-discard "forward decl of Geom_Geometry"
-discard "forward decl of Geom_Axis1Placement"
 
 
 
@@ -42,3 +58,13 @@ proc transform*(this: var GeomAxis1Placement; t: TrsfObj) {.cdecl, importcpp: "T
     header: "Geom_Axis1Placement.hxx".}
 proc copy*(this: GeomAxis1Placement): Handle[GeomGeometry] {.noSideEffect, cdecl,
     importcpp: "Copy", header: "Geom_Axis1Placement.hxx".}
+
+
+
+
+
+
+
+
+
+

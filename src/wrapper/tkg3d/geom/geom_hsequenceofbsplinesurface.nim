@@ -1,4 +1,7 @@
 import geom_types
+import ../../tkernel/tcolstd/tcolstd_types
+
+
 
 ##  Created on: 1993-03-09
 ##  Created by: JCV
@@ -32,4 +35,5 @@ proc append*(this: var GeomHSequenceOfBSplineSurface;
     importcpp: "Append", header: "Geom_HSequenceOfBSplineSurface.hxx".}
 proc changeSequence*(this: var GeomHSequenceOfBSplineSurface): var GeomSequenceOfBSplineSurface {.
     cdecl, importcpp: "ChangeSequence", header: "Geom_HSequenceOfBSplineSurface.hxx".}
+
 

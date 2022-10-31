@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -16,11 +20,6 @@ import geom_types
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-discard "forward decl of Standard_ConstructionError"
-discard "forward decl of Standard_DomainError"
-discard "forward decl of gp_VectorWithNullMagnitude"
-discard "forward decl of gp_Vec"
-discard "forward decl of Geom_Vector"
 
 
 
@@ -55,3 +54,4 @@ proc dot*(this: GeomVector; other: Handle[GeomVector]): cfloat {.noSideEffect, c
 proc dotCross*(this: GeomVector; v1: Handle[GeomVector]; v2: Handle[GeomVector]): cfloat {.
     noSideEffect, cdecl, importcpp: "DotCross", header: "Geom_Vector.hxx".}
 proc vec*(this: GeomVector): VecObj {.noSideEffect, cdecl, importcpp: "Vec", header: "Geom_Vector.hxx".}
+

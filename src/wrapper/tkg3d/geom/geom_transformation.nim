@@ -1,4 +1,8 @@
+import ../../tkmath/gp/gp_types
+import ../../tkernel/standard/standard_types
 import geom_types
+
+
 
 ##  Created on: 1993-03-10
 ##  Created by: JCV
@@ -76,3 +80,4 @@ proc copy*(this: GeomTransformation): Handle[GeomTransformation] {.noSideEffect,
 proc dumpJson*(this: GeomTransformation; theOStream: var StandardOStream;
               theDepth: cint = -1) {.noSideEffect, cdecl, importcpp: "DumpJson",
                                  header: "Geom_Transformation.hxx".}
+

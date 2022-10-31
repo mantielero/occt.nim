@@ -5,8 +5,8 @@ proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
 
 import tkernel/tkernel
 import tkmath/tkmath
-# import tkgeombase/tkgeombase
-# import tkg3d/tkg3d
+#import tkgeombase/tkgeombase
+import tkg3d/tkg3d
 # import tkg2d/tkg2d
 # import tkbrep/tkbrep
 # import tktopalgo/tktopalgo
@@ -20,9 +20,11 @@ import tkmath/tkmath
 # import tkv3d/tkv3d
 # import tkservice/tkservice
 
-export tkernel#, 
+export tkernel
 export tkmath
-#export tkgeombase, tkg3d, tkg2d
+#export tkgeombase
+export tkg3d
+#, tkg2d
 # export tkbrep, tktopalgo, tkprim, tkfillet, tkbool
 # export tkgeomalgo, tkbo, tkxsbase, tkstep
 # export tkv3d, tkservice

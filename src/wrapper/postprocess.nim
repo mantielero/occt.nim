@@ -444,23 +444,46 @@ proc reorderContent(fname:string) =
   #if flagHandle:
   #  newtxt &= "import tkernel/standard/standard_types\n"
   for i in requiredImports:
-    newtxt &= "import " & paths[i] & "\n"
+    var currentPath = fname.split("./")[1]
+    currentPath = currentPath.split(".nim")[0]
+    var tmp2 = paths[i].split('/')
+    if currentPath == paths[i]:
+      discard
+    else:
+      var currentFolders = currentPath.split('/')
+      #var txt = ""
+      if currentFolders[0] != tmp2[0]:
+        newtxt &=  "import ../../" & paths[i] & "\n"
+      else:
+        if currentFolders[1] != tmp2[1]:
+          newtxt &=  "import ../" & paths[i] & "\n"
+      #echo currentPath, " ", tmp2
+  #    newtxt &= "import " & paths[i] & "\n"
   #  for name in paths:
   #    if i == name:
   #      echo paths[i]
   
   newtxt &= "type\n"
+  var filter:HashSet[string]
   for i in neworder:
-    for line in typs[i].lines:
-      if line != "":
-        newtxt &= line & "\n"
-    newtxt &= "\n"
+    #echo typs[i].lines[0]
+    if not (typs[i].lines[0] in filter):
+      for line in typs[i].lines:
+        if line != "":
+          newtxt &= line & "\n"
 
+      newtxt &= "\n"
+    filter.incl(typs[i].lines[0])
+  
+  clear(filter)
   for i in items:   
-    for line in typs[i].lines:  
-      newtxt &= line & "\n"       
-
-    newtxt &= "\n"
+    if not (typs[i].lines[0] in filter):
+      for line in typs[i].lines:
+        if line != "":  
+          newtxt &= line & "\n"
+      
+      newtxt &= "\n"
+    filter.incl(typs[i].lines[0])
 
   #for typ in typs:
   #  echo typ.name, " ", typ.depend
@@ -469,43 +492,6 @@ proc reorderContent(fname:string) =
 #
 # 8. Add import statements: *_types.nim content
 #
-#[ proc addImportsToTypes(pattern:string = "tkernel/standard/*_types.nim") =
-  var providedBy = initTable[string,string]()
-  var needed = initTable[string,seq[string]]()
-
-  for fname in walkFiles(pattern):
-    var txt = fname.readFile()
-    var lines = txt.splitLines()
-    
-    # Get what provides
-    var provides:seq[string]
-    if lines[0].startsWith("# PROVIDES: "):
-      provides = lines[0].split("# PROVIDES: ")[1].split()
-    for typ in provides:
-      providedBy[typ] = fname
-
-    # Get what needs
-    var needs:seq[string]
-    if lines[1].startsWith("# DEPENDS: "):
-      needs = lines[1].split("# DEPENDS: ")[1].split()
-
-    needed[fname] = needs
-    #echo needs
-
-  for fname in needed.keys:
-    echo fname
-    var reqs:seq[string]
-    echo fname
-    var imports:seq[string]
-    for f in needed[fname]:
-      if f in providedBy:
-        var tmp = providedBy[f][2 .. (providedBy[f].high - 4)]
-        imports &= tmp
-        #echo imports
-      elif f == "RootObj##":
-        discard
-      else:
-        echo "   - not found: " & f ]#
 
 
 
@@ -547,13 +533,13 @@ proc appendBeg*(fname, append:string) =
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
-#createTypesFile("./tkernel/quantity")
+createTypesFile("./tkg3d/geom")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-#reorderContent("./tkernel/quantity/quantity_types.nim")
+reorderContent("./tkg3d/geom/geom_types.nim")
 
-for fname in walkFiles("./tk*/*/*_types.nim"):
-  reorderContent(fname)
+#for fname in walkFiles("./tk*/*/*_types.nim"):
+#  reorderContent(fname)
 
 #addImportsToTypes("./tk*/*/*_types.nim")
 #correctIncludes("./tk*/*")

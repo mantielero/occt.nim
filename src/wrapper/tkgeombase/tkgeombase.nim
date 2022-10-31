@@ -1,6 +1,6 @@
 {.passL:"-lTKGeomBase".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
 #[ type
   TColStdArray1OfReal* = object

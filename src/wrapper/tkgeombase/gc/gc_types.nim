@@ -47,7 +47,7 @@ type
   MakeTrimmedCone* {.importcpp: "GC_MakeTrimmedCone",
                     header: "GC_MakeTrimmedCone.hxx", bycopy.} = object of Root 
 
-                    header: "GC_MakeTrimmedCone.hxx", bycopy.} = object of Root 
+                    #header: "GC_MakeTrimmedCone.hxx", bycopy.} = object of Root 
   MakeTrimmedCylinder* {.importcpp: "GC_MakeTrimmedCylinder",
                         header: "GC_MakeTrimmedCylinder.hxx", bycopy.} = object of Root 
 

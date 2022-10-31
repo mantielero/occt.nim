@@ -1,5 +1,5 @@
 import gc_types
-
+import ../../tkg3d/geom/geom_types
 ##  Created on: 1992-09-28
 ##  Created by: Remi GILET
 ##  Copyright (c) 1992-1999 Matra Datavision

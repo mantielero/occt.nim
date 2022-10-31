@@ -1,7 +1,3 @@
-# PROVIDES: ChFi3dFilletShape ChFi3d ChFi3dBuilder
-# DEPENDS: ChFi3dBuilder ChFi3dBuilder MathFunctionWithDerivative
-
-import tkfillet/chfi3d/chfi3d_types
 type
   ChFi3dFilletShape* {.size: sizeof(cint), importcpp: "ChFi3d_FilletShape",
                       header: "ChFi3d_FilletShape.hxx".} = enum
@@ -17,9 +13,9 @@ type
   ChFi3dFilBuilder* {.importcpp: "ChFi3d_FilBuilder",
                      header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
                      header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
+                     header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
 
                      header: "ChFi3d_FilBuilder.hxx", bycopy.} = object of ChFi3dBuilder
   ChFi3dSearchSing* {.importcpp: "ChFi3d_SearchSing",
                      header: "ChFi3d_SearchSing.hxx", bycopy.} = object of MathFunctionWithDerivative
-
 

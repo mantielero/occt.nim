@@ -1,5 +1,2 @@
-# PROVIDES:
-# DEPENDS:
-
 type
 

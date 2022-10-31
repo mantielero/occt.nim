@@ -1,10 +1,6 @@
-# PROVIDES: Prs3dDatumAttribute Prs3dDatumMode Prs3dDatumParts Prs3dDimensionArrowOrientation Prs3dDimensionTextHorizontalPosition Prs3dDimensionTextVerticalPosition Prs3dNListIteratorOfListOfSequenceOfPnt Prs3dPresentation Prs3dShapeTool Prs3dTypeOfHighlight Prs3dTypeOfHLR Prs3dTypeOfLinePicking Prs3d Prs3dArrow Prs3dDatumAxes Prs3dDimensionUnits Prs3dPoint Prs3dRoot Prs3dText Prs3dToolQuadric Prs3dVertexDrawMode
-# DEPENDS: StandardTransient  Handle[Prs3dBasicAspect]  NCollectionList[Handle[TColgpHSequenceOfPnt]]  Handle[Prs3dDrawer] Prs3dRoot Prs3dToolQuadric Prs3dToolQuadric Prs3dToolQuadric Prs3dToolQuadric Prs3dToolQuadric Prs3dBasicAspect Prs3dBasicAspect Prs3dBasicAspect Graphic3dPresentationAttributes Prs3dLineAspect Prs3dBasicAspect Prs3dBasicAspect Prs3dBasicAspect Graphic3dStructure Prs3dBasicAspect Prs3dBasicAspect
-
-import tkv3d/prs3d/prs3d_types
-import tkv3d/graphic3d/graphic3d_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   Prs3dDatumAttribute* {.size: sizeof(cint), importcpp: "Prs3d_DatumAttribute",
                         header: "Prs3d_DatumAttribute.hxx".} = enum
@@ -88,21 +84,10 @@ type
 
   Prs3dBasicAspect* {.importcpp: "Prs3d_BasicAspect",
                      header: "Prs3d_BasicAspect.hxx", bycopy.} = object of StandardTransient 
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
-                                                                                      
 
   HandlePrs3dBasicAspect* = Handle[Prs3dBasicAspect]
 
   Prs3dNListOfSequenceOfPnt* = NCollectionList[Handle[TColgpHSequenceOfPnt]]
-
-  HandlePrs3dDrawer* = Handle[Prs3dDrawer]
 
   Prs3dBndBox* {.importcpp: "Prs3d_BndBox", header: "Prs3d_BndBox.hxx", bycopy.} = object of Prs3dRoot 
 
@@ -131,11 +116,13 @@ type
 
   Prs3dDrawer* {.importcpp: "Prs3d_Drawer", header: "Prs3d_Drawer.hxx", bycopy.} = object of Graphic3dPresentationAttributes 
 
-  Prs3dIsoAspect* {.importcpp: "Prs3d_IsoAspect", header: "Prs3d_IsoAspect.hxx",
-                   bycopy.} = object of Prs3dLineAspect 
+  HandlePrs3dDrawer* = Handle[Prs3dDrawer]
 
   Prs3dLineAspect* {.importcpp: "Prs3d_LineAspect", header: "Prs3d_LineAspect.hxx",
                     bycopy.} = object of Prs3dBasicAspect 
+
+  Prs3dIsoAspect* {.importcpp: "Prs3d_IsoAspect", header: "Prs3d_IsoAspect.hxx",
+                   bycopy.} = object of Prs3dLineAspect 
 
   Prs3dPlaneAspect* {.importcpp: "Prs3d_PlaneAspect",
                      header: "Prs3d_PlaneAspect.hxx", bycopy.} = object of Prs3dBasicAspect 

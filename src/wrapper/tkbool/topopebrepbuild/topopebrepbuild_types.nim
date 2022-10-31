@@ -1,11 +1,7 @@
-# PROVIDES: TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape TopOpeBRepBuildListIteratorOfListOfListOfLoop TopOpeBRepBuildListIteratorOfListOfLoop TopOpeBRepBuildListIteratorOfListOfPave TopOpeBRepBuildListIteratorOfListOfShapeListOfShape TopOpeBRepBuildLoopEnum TopOpeBRepBuildPBuilder TopOpeBRepBuildPGTopo TopOpeBRepBuildPWireEdgeSet TopOpeBRepBuildAreaBuilder TopOpeBRepBuildBlockBuilder TopOpeBRepBuildBlockIterator TopOpeBRepBuildBuilder TopOpeBRepBuildBuilderON TopOpeBRepBuildCorrectFace2d TopOpeBRepBuildFaceBuilder TopOpeBRepBuildFuseFace TopOpeBRepBuildGIter TopOpeBRepBuildGTool TopOpeBRepBuildGTopo TopOpeBRepBuildLoopClassifier TopOpeBRepBuildLoopSet TopOpeBRepBuildShapeListOfShape TopOpeBRepBuildShapeSet TopOpeBRepBuildShellToSolid TopOpeBRepBuildSolidBuilder TopOpeBRepBuildTools TopOpeBRepBuildTools2d TopOpeBRepBuildVertexInfo TopOpeBRepBuildWireToFace
-# DEPENDS:  NCollectionDataMap[  NCollectionIndexedDataMap[  NCollectionList[TopOpeBRepBuildListOfLoop]  NCollectionList[Handle[TopOpeBRepBuildLoop]]  NCollectionList[Handle[TopOpeBRepBuildPave]]  NCollectionList[ TopOpeBRepBuildAreaBuilder TopOpeBRepBuildAreaBuilder TopOpeBRepBuildAreaBuilder TopOpeBRepBuildBuilder TopOpeBRepBuildLoopClassifier TopOpeBRepBuildLoopClassifier TopOpeBRepBuildLoopSet TopOpeBRepBuildShapeSet TopOpeBRepBuildShapeSet TopOpeBRepBuildArea1dBuilder TopOpeBRepBuildArea2dBuilder TopOpeBRepBuildCompositeClassifier TopOpeBRepBuildArea3dBuilder TopOpeBRepBuildCompositeClassifier  Handle[TopOpeBRepBuildHBuilder]  Handle[TopOpeBRepBuildLoop] StandardTransient StandardTransient  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave]  Handle[TopOpeBRepBuildPave] TopOpeBRepBuildLoop
-
-import tkbrep/topods/topods_types
-import tkbool/topopebrepbuild/topopebrepbuild_types
-import tkbrep/toptools/toptools_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TopOpeBRepBuildDataMapIteratorOfDataMapOfShapeListOfShapeListOfShape* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepBuild_ListOfShapeListOfShape,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepBuild_DataMapOfShapeListOfShapeListOfShape.hxx", bycopy.} = object
 
@@ -94,20 +90,20 @@ type
   TopOpeBRepBuildWireToFace* {.importcpp: "TopOpeBRepBuild_WireToFace",
                               header: "TopOpeBRepBuild_WireToFace.hxx", bycopy.} = object
 
-  TopOpeBRepBuildDataMapOfShapeListOfShapeListOfShape* = NCollectionDataMap[
-      TopoDS_Shape, TopOpeBRepBuildListOfShapeListOfShape, TopToolsShapeMapHasher]
-
   TopOpeBRepBuildIndexedDataMapOfShapeVertexInfo* = NCollectionIndexedDataMap[
       TopoDS_Shape, TopOpeBRepBuildVertexInfo, TopToolsShapeMapHasher]
 
-  TopOpeBRepBuildListOfListOfLoop* = NCollectionList[TopOpeBRepBuildListOfLoop]
-
   TopOpeBRepBuildListOfLoop* = NCollectionList[Handle[TopOpeBRepBuildLoop]]
+
+  TopOpeBRepBuildListOfListOfLoop* = NCollectionList[TopOpeBRepBuildListOfLoop]
 
   TopOpeBRepBuildListOfPave* = NCollectionList[Handle[TopOpeBRepBuildPave]]
 
   TopOpeBRepBuildListOfShapeListOfShape* = NCollectionList[
       TopOpeBRepBuildShapeListOfShape]
+
+  TopOpeBRepBuildDataMapOfShapeListOfShapeListOfShape* = NCollectionDataMap[
+      TopoDS_Shape, TopOpeBRepBuildListOfShapeListOfShape, TopToolsShapeMapHasher]
 
   TopOpeBRepBuildArea1dBuilder* {.importcpp: "TopOpeBRepBuild_Area1dBuilder",
                                  header: "TopOpeBRepBuild_Area1dBuilder.hxx",
@@ -155,98 +151,18 @@ type
   TopOpeBRepBuildWireEdgeClassifier* {.importcpp: "TopOpeBRepBuild_WireEdgeClassifier", header: "TopOpeBRepBuild_WireEdgeClassifier.hxx",
                                       bycopy.} = object of TopOpeBRepBuildCompositeClassifier 
 
-  HandleTopOpeBRepBuildHBuilder* = Handle[TopOpeBRepBuildHBuilder]
-
-  HandleTopOpeBRepBuildLoop* = Handle[TopOpeBRepBuildLoop]
-
   TopOpeBRepBuildHBuilder* {.importcpp: "TopOpeBRepBuild_HBuilder",
                             header: "TopOpeBRepBuild_HBuilder.hxx", bycopy.} = object of StandardTransient
+
+  HandleTopOpeBRepBuildHBuilder* = Handle[TopOpeBRepBuildHBuilder]
 
   TopOpeBRepBuildLoop* {.importcpp: "TopOpeBRepBuild_Loop",
                         header: "TopOpeBRepBuild_Loop.hxx", bycopy.} = object of StandardTransient
 
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
+  HandleTopOpeBRepBuildLoop* = Handle[TopOpeBRepBuildLoop]
 
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
-
-  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
   TopOpeBRepBuildPave* {.importcpp: "TopOpeBRepBuild_Pave",
                         header: "TopOpeBRepBuild_Pave.hxx", bycopy.} = object of TopOpeBRepBuildLoop 
 
+  HandleTopOpeBRepBuildPave* = Handle[TopOpeBRepBuildPave]
 

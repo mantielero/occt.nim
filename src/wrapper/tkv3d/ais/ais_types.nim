@@ -1,13 +1,12 @@
-# PROVIDES: Ais AIS_AngleDimension AIS_AnimationTimer AIS_Chamf2dDimension AIS_Chamf3dDimension AIS_ClearMode AIS_ConcentricRelation AIS_ConnectStatus AIS_DataMapIteratorOfDataMapofIntegerListOfinteractive AIS_DataMapIteratorOfDataMapOfIOStatus AIS_DiameterDimension AIS_Dimension AIS_DimensionOwner AIS_DisplayMode AIS_DisplayStatus AIS_DragAction AIS_EllipseRadiusDimension AIS_EqualDistanceRelation AIS_EqualRadiusRelation AIS_FixRelation AIS_IdenticRelation AIS_KindOfInteractive AIS_LengthDimension AIS_ListIteratorOfListOfInteractive AIS_ManipulatorMode AIS_MapIteratorOfMapOfInteractive AIS_MaxRadiusDimension AIS_MidPointRelation AIS_MinRadiusDimension AIS_OffsetDimension AIS_ParallelRelation AIS_PerpendicularRelation AIS_RadiusDimension AIS_Relation AIS_SelectionModesConcurrency AIS_SelectStatus AIS_StatusOfDetection AIS_StatusOfPick AIS_SymmetricRelation AIS_TangentRelation AIS_TrihedronSelectionMode AIS_TypeOfAttribute AIS_TypeOfAxis AIS_TypeOfIso AIS_TypeOfPlane AIS_AnimationProgress AIS_GraphicTool AIS_ManipulatorOptionsForAttach AIS_ManipulatorBehaviorOnTransform AIS_MouseGesture AIS_NavigationMode AIS_PointCloudSelectionMode AIS_RotationMode AIS_ViewController AIS_ViewSelectionTool AIS_ViewInputBufferType AIS_ViewInputBuffer AIS_ViewInputBufferOrientation AIS_ViewInputBufferHighlighting AIS_ViewInputBufferSelection AIS_ViewInputBufferPanningParams AIS_ViewInputBufferDraggingParams AIS_ViewInputBufferOrbitRotation AIS_ViewInputBufferViewRotation AIS_ViewInputBufferZrotateParams AIS_WalkTranslation AIS_WalkRotation AIS_WalkPart AIS_WalkDelta AIS_CameraFrustumSelectionMode AIS_PointCloudDisplayMode
-# DEPENDS:  NCollectionDataMap[cint,  NCollectionDataMap[Handle[AIS_InteractiveObject],  NCollectionDataMap[TopoDS_Shape,  NCollectionIndexedDataMap[  NCollectionList[Handle[AIS_InteractiveObject]]  NCollectionMap[Handle[AIS_InteractiveObject],  NCollectionList[Handle[SelectMgrEntityOwner]]  NCollectionSequence[Handle[AIS_InteractiveObject]]  Handle[AIS_Animation]  Handle[AIS_AttributeFilter]  Handle[AIS_BadEdgeFilter]  Handle[AIS_ColorScale]  Handle[AIS_ExclusionFilter]  Handle[AIS_GlobalStatus]  Handle[AIS_ManipulatorObjectSequence]  Handle[AIS_Manipulator]  Handle[AIS_ManipulatorOwner]  Handle[AIS_PointCloud]  Handle[AIS_RubberBand]  Handle[AIS_SignatureFilter]  Handle[AIS_Triangulation]  Handle[AIS_TypeFilter] StandardTransient AIS_Animation AIS_Animation SelectMgrFilter AIS_InteractiveObject SelectMgrFilter  Handle[AIS_C0RegularityFilter] SelectMgrFilter AIS_InteractiveObject AIS_InteractiveObject Prs3dDrawer AIS_Shape AIS_InteractiveObject AIS_InteractiveObject SelectMgrFilter StandardTransient StandardTransient SelectMgrSelectableObject AIS_InteractiveObject NCollectionSequence AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject StandardTransient AIS_InteractiveObject AIS_TypeFilter AIS_InteractiveObject AIS_Shape AIS_InteractiveObject AIS_InteractiveObject SelectMgrEntityOwner SelectMgrFilter AIS_InteractiveObject SelectMgrEntityOwner AIS_InteractiveObject
-
-import tkv3d/selectmgr/selectmgr_types
-import tkbrep/topods/topods_types
-import tkv3d/prs3d/prs3d_types
-import tkernel/tcolstd/tcolstd_types
-import tkv3d/ais/ais_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../../tkbrep/topods/topods_types
+import ../../tkservice/aspect/aspect_types
+import ../tkv3d/prs3d/prs3d_types
+import ../tkv3d/prsdim/prsdim_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   Ais* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
 
@@ -310,9 +309,6 @@ type
     DM_Points = 0,              
     DM_BndBox = 2
 
-  AIS_DataMapofIntegerListOfinteractive* = NCollectionDataMap[cint,
-      AIS_ListOfInteractive, TColStdMapIntegerHasher]
-
   AIS_DataMapOfIOStatus* = NCollectionDataMap[Handle[AIS_InteractiveObject],
       Handle[AIS_GlobalStatus], TColStdMapTransientHasher]
 
@@ -325,6 +321,9 @@ type
 
   AIS_ListOfInteractive* = NCollectionList[Handle[AIS_InteractiveObject]]
 
+  AIS_DataMapofIntegerListOfinteractive* = NCollectionDataMap[cint,
+      AIS_ListOfInteractive, TColStdMapIntegerHasher]
+
   AIS_MapOfInteractive* = NCollectionMap[Handle[AIS_InteractiveObject],
                                        TColStdMapTransientHasher]
 
@@ -332,35 +331,9 @@ type
 
   AIS_SequenceOfInteractive* = NCollectionSequence[Handle[AIS_InteractiveObject]]
 
-  HandleAIS_Animation* = Handle[AIS_Animation]
-
-  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
-
-  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
-
-  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
-
-  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
-
-  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
-
-  HandleAIS_ManipulatorObjectSequence* = Handle[AIS_ManipulatorObjectSequence]
-
-  HandleAIS_ManipulatorObjectSequenceAIS_Manipulator* = Handle[AIS_Manipulator]
-
-  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
-
-  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
-
-  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
-
-  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
-
-  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
-
-  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
-
   AIS_Animation* {.importcpp: "AIS_Animation", header: "AIS_Animation.hxx", bycopy.} = object of StandardTransient 
+
+  HandleAIS_Animation* = Handle[AIS_Animation]
 
   AIS_AnimationCamera* {.importcpp: "AIS_AnimationCamera",
                         header: "AIS_AnimationCamera.hxx", bycopy.} = object of AIS_Animation 
@@ -371,20 +344,17 @@ type
   AIS_AttributeFilter* {.importcpp: "AIS_AttributeFilter",
                         header: "AIS_AttributeFilter.hxx", bycopy.} = object of SelectMgrFilter 
 
-  AIS_Axis* {.importcpp: "AIS_Axis", header: "AIS_Axis.hxx", bycopy.} = object of AIS_InteractiveObject 
+  HandleAIS_AttributeFilter* = Handle[AIS_AttributeFilter]
 
   AIS_BadEdgeFilter* {.importcpp: "AIS_BadEdgeFilter",
                       header: "AIS_BadEdgeFilter.hxx", bycopy.} = object of SelectMgrFilter 
 
-  HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
+  HandleAIS_BadEdgeFilter* = Handle[AIS_BadEdgeFilter]
 
   AIS_C0RegularityFilter* {.importcpp: "AIS_C0RegularityFilter",
                            header: "AIS_C0RegularityFilter.hxx", bycopy.} = object of SelectMgrFilter
 
-  AIS_CameraFrustum* {.importcpp: "AIS_CameraFrustum",
-                      header: "AIS_CameraFrustum.hxx", bycopy.} = object of AIS_InteractiveObject 
-
-  AIS_Circle* {.importcpp: "AIS_Circle", header: "AIS_Circle.hxx", bycopy.} = object of AIS_InteractiveObject 
+  HandleAIS_C0RegularityFilter* = Handle[AIS_C0RegularityFilter]
 
   AIS_ColoredDrawer* {.importcpp: "AIS_ColoredDrawer",
                       header: "AIS_ColoredDrawer.hxx", bycopy.} = object of Prs3dDrawer 
@@ -394,19 +364,15 @@ type
     myHasOwnTransp* {.importc: "myHasOwnTransp".}: bool
     myHasOwnWidth* {.importc: "myHasOwnWidth".}: bool
 
-  AIS_ColoredShape* {.importcpp: "AIS_ColoredShape",
-                     header: "AIS_ColoredShape.hxx", bycopy.} = object of AIS_Shape 
-
-  AIS_ColorScale* {.importcpp: "AIS_ColorScale", header: "AIS_ColorScale.hxx", bycopy.} = object of AIS_InteractiveObject 
-
-  AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
-                             header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject 
-
   AIS_ExclusionFilter* {.importcpp: "AIS_ExclusionFilter",
                         header: "AIS_ExclusionFilter.hxx", bycopy.} = object of SelectMgrFilter 
 
+  HandleAIS_ExclusionFilter* = Handle[AIS_ExclusionFilter]
+
   AIS_GlobalStatus* {.importcpp: "AIS_GlobalStatus",
                      header: "AIS_GlobalStatus.hxx", bycopy.} = object of StandardTransient
+
+  HandleAIS_GlobalStatus* = Handle[AIS_GlobalStatus]
 
   AIS_InteractiveContext* {.importcpp: "AIS_InteractiveContext",
                            header: "AIS_InteractiveContext.hxx", bycopy.} = object of StandardTransient 
@@ -414,17 +380,37 @@ type
   AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
                           header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
 
+  AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
+                             header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject 
+
+  AIS_ColorScale* {.importcpp: "AIS_ColorScale", header: "AIS_ColorScale.hxx", bycopy.} = object of AIS_InteractiveObject 
+
+  HandleAIS_ColorScale* = Handle[AIS_ColorScale]
+
+  AIS_Circle* {.importcpp: "AIS_Circle", header: "AIS_Circle.hxx", bycopy.} = object of AIS_InteractiveObject 
+
+  AIS_CameraFrustum* {.importcpp: "AIS_CameraFrustum",
+                      header: "AIS_CameraFrustum.hxx", bycopy.} = object of AIS_InteractiveObject 
+
+  AIS_Axis* {.importcpp: "AIS_Axis", header: "AIS_Axis.hxx", bycopy.} = object of AIS_InteractiveObject 
+
   AIS_Line* {.importcpp: "AIS_Line", header: "AIS_Line.hxx", bycopy.} = object of AIS_InteractiveObject 
 
   AIS_ManipulatorObjectSequence* {.importcpp: "AIS_ManipulatorObjectSequence",
                                   header: "AIS_Manipulator.hxx", bycopy.} = object of NCollectionSequence[
       Handle[AIS_InteractiveObject]]
 
+  HandleAIS_ManipulatorObjectSequence* = Handle[AIS_ManipulatorObjectSequence]
+
   AIS_Manipulator* {.importcpp: "AIS_Manipulator", header: "AIS_Manipulator.hxx",
                     bycopy.} = object of AIS_InteractiveObject 
 
+  HandleAIS_ManipulatorObjectSequenceAIS_Manipulator* = Handle[AIS_Manipulator]
+
   AIS_ManipulatorOwner* {.importcpp: "AIS_ManipulatorOwner",
                          header: "AIS_ManipulatorOwner.hxx", bycopy.} = object of SelectMgrEntityOwner
+
+  HandleAIS_ManipulatorOwner* = Handle[AIS_ManipulatorOwner]
 
   AIS_MediaPlayer* {.importcpp: "AIS_MediaPlayer", header: "AIS_MediaPlayer.hxx",
                     bycopy.} = object of AIS_InteractiveObject 
@@ -441,17 +427,21 @@ type
 
   AIS_PointCloud* {.importcpp: "AIS_PointCloud", header: "AIS_PointCloud.hxx", bycopy.} = object of AIS_InteractiveObject 
 
+  HandleAIS_PointCloud* = Handle[AIS_PointCloud]
+
   AIS_PointCloudOwner* {.importcpp: "AIS_PointCloudOwner",
                         header: "AIS_PointCloud.hxx", bycopy.} = object of SelectMgrEntityOwner 
 
   AIS_RubberBand* {.importcpp: "AIS_RubberBand", header: "AIS_RubberBand.hxx", bycopy.} = object of AIS_InteractiveObject 
 
+  HandleAIS_RubberBand* = Handle[AIS_RubberBand]
+
   AIS_Selection* {.importcpp: "AIS_Selection", header: "AIS_Selection.hxx", bycopy.} = object of StandardTransient 
 
   AIS_Shape* {.importcpp: "AIS_Shape", header: "AIS_Shape.hxx", bycopy.} = object of AIS_InteractiveObject 
 
-  AIS_SignatureFilter* {.importcpp: "AIS_SignatureFilter",
-                        header: "AIS_SignatureFilter.hxx", bycopy.} = object of AIS_TypeFilter 
+  AIS_ColoredShape* {.importcpp: "AIS_ColoredShape",
+                     header: "AIS_ColoredShape.hxx", bycopy.} = object of AIS_Shape 
 
   AIS_TextLabel* {.importcpp: "AIS_TextLabel", header: "AIS_TextLabel.hxx", bycopy.} = object of AIS_InteractiveObject 
 
@@ -461,6 +451,8 @@ type
   AIS_Triangulation* {.importcpp: "AIS_Triangulation",
                       header: "AIS_Triangulation.hxx", bycopy.} = object of AIS_InteractiveObject 
 
+  HandleAIS_Triangulation* = Handle[AIS_Triangulation]
+
   AIS_Trihedron* {.importcpp: "AIS_Trihedron", header: "AIS_Trihedron.hxx", bycopy.} = object of AIS_InteractiveObject 
 
   AIS_TrihedronOwner* {.importcpp: "AIS_TrihedronOwner",
@@ -468,13 +460,20 @@ type
 
   AIS_TypeFilter* {.importcpp: "AIS_TypeFilter", header: "AIS_TypeFilter.hxx", bycopy.} = object of SelectMgrFilter 
 
+  AIS_SignatureFilter* {.importcpp: "AIS_SignatureFilter",
+                        header: "AIS_SignatureFilter.hxx", bycopy.} = object of AIS_TypeFilter 
+
+  HandleAIS_SignatureFilter* = Handle[AIS_SignatureFilter]
+
+  HandleAIS_TypeFilter* = Handle[AIS_TypeFilter]
+
   AIS_ViewCube* {.importcpp: "AIS_ViewCube", header: "AIS_ViewCube.hxx", bycopy.} = object of AIS_InteractiveObject 
 
   AIS_ViewCubeOwner* {.importcpp: "AIS_ViewCubeOwner", header: "AIS_ViewCube.hxx",
+                      bycopy.} = object of SelectMgrEntityOwner 
                       bycopy.} = object of SelectMgrEntityOwner 
 
                       bycopy.} = object of SelectMgrEntityOwner 
   AIS_XRTrackedDevice* {.importcpp: "AIS_XRTrackedDevice",
                         header: "AIS_XRTrackedDevice.hxx", bycopy.} = object of AIS_InteractiveObject 
-
 

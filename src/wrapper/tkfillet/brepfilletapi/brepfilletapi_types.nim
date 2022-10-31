@@ -1,9 +1,5 @@
-# PROVIDES:
-# DEPENDS: BRepBuilderAPI_MakeShape BRepFilletAPI_LocalOperation BRepFilletAPI_LocalOperation BRepBuilderAPI_MakeShape
-
-import tkbrep/brep/brep_types
-import tkfillet/brepfilletapi/brepfilletapi_types
-import tktopalgo/brepbuilderapi/brepbuilderapi_types
+import ../../tkbrep/brep/brep_types
+import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
 type
   BRepFilletAPI_LocalOperation* {.importcpp: "BRepFilletAPI_LocalOperation",
                                  header: "BRepFilletAPI_LocalOperation.hxx",
@@ -14,9 +10,9 @@ type
 
   BRepFilletAPI_MakeFillet* {.importcpp: "BRepFilletAPI_MakeFillet",
                              header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
+                             header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
 
                              header: "BRepFilletAPI_MakeFillet.hxx", bycopy.} = object of BRepFilletAPI_LocalOperation 
   BRepFilletAPI_MakeFillet2d* {.importcpp: "BRepFilletAPI_MakeFillet2d",
                                header: "BRepFilletAPI_MakeFillet2d.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
-
 

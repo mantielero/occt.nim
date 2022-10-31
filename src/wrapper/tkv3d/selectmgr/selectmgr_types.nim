@@ -1,11 +1,7 @@
-# PROVIDES: SelectMgrFilterType SelectMgrListIteratorOfListOfFilter SelectMgrPickingStrategy SelectMgrStateOfSelection SelectMgrTypeOfBVHUpdate SelectMgrTypeOfDepthTolerance SelectMgrTypeOfUpdate SelectMgr SelectMgrBVHThreadPoolSentry SelectMgrSelectableObjectSet SelectMgrSelectableObjectSetBVHSubset SelectMgrSelectableObjectSetIterator SelectMgrIndexedMapOfHSensitive SelectMgrSortCriterion SelectMgrToleranceMap SelectMgrTriangFrustumsIter SelectMgrViewClipRange SelectMgrMapOfObjectSensitives SelectMgrMapOfObjectSensitivesIterator SelectMgrFrustumCache
-# DEPENDS:  NCollectionIndexedDataMap[  NCollectionList[Handle[SelectMgrFilter]]  NCollectionSequence[Handle[SelectMgrFilter]]  NCollectionSequence[Handle[SelectMgrEntityOwner]]  NCollectionSequence[Handle[SelectMgrSelection]]  Handle[SelectMgrAndFilter]  Handle[SelectMgrAndOrFilter]  Handle[SelectMgrCompositionFilter]  Handle[SelectMgrEntityOwner]  Handle[SelectMgrFilter]  Handle[SelectMgrOrFilter]  NCollectionList[Handle[SelectMgrTriangularFrustum]]  NCollectionVec3[cfloat]  NCollectionVec4[cfloat]  NCollectionMat4[cfloat] SelectMgrCompositionFilter SelectMgrCompositionFilter StandardTransient StandardTransient OSD_Thread SelectMgrFilter StandardTransient StandardTransient SelectMgrBaseFrustum StandardTransient SelectMgrCompositionFilter SelectMgrFrustum PrsMgrPresentableObject SelectBasicsSelectingVolumeManager StandardTransient StandardTransient StandardTransient StandardTransient BVH_PrimitiveSet3d SelectMgrFrustum SelectMgrBaseFrustum StandardTransient SelectMgrViewerSelector
-
-import tkv3d/selectmgr/selectmgr_types
-import tkv3d/prsmgr/prsmgr_types
-import tkmath/bvh/bvh_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../tkv3d/prsmgr/prsmgr_types
+import ../../tkmath/bvh/bvh_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   SelectMgrFilterType* {.size: sizeof(cint), importcpp: "SelectMgr_FilterType",
                         header: "SelectMgr_FilterType.hxx".} = enum
@@ -103,18 +99,6 @@ type
 
   SelectMgrSequenceOfSelection* = NCollectionSequence[Handle[SelectMgrSelection]]
 
-  HandleSelectMgrAndFilter* = Handle[SelectMgrAndFilter]
-
-  HandleSelectMgrAndOrFilter* = Handle[SelectMgrAndOrFilter]
-
-  HandleSelectMgrCompositionFilter* = Handle[SelectMgrCompositionFilter]
-
-  HandleSelectMgrEntityOwner* = Handle[SelectMgrEntityOwner]
-
-  HandleSelectMgrFilter* = Handle[SelectMgrFilter]
-
-  HandleSelectMgrOrFilter* = Handle[SelectMgrOrFilter]
-
   SelectMgrTriangFrustums* = NCollectionList[Handle[SelectMgrTriangularFrustum]]
 
   SelectMgrVec3* = NCollectionVec3[cfloat]
@@ -122,12 +106,6 @@ type
   SelectMgrVec4* = NCollectionVec4[cfloat]
 
   SelectMgrMat4* = NCollectionMat4[cfloat]
-
-  SelectMgrAndFilter* {.importcpp: "SelectMgr_AndFilter",
-                       header: "SelectMgr_AndFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter 
-
-  SelectMgrAndOrFilter* {.importcpp: "SelectMgr_AndOrFilter",
-                         header: "SelectMgr_AndOrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter 
 
   SelectMgrBaseFrustum* {.importcpp: "SelectMgr_BaseFrustum",
                          header: "SelectMgr_BaseFrustum.hxx", bycopy.} = object of StandardTransient 
@@ -138,14 +116,30 @@ type
   SelectMgrBVHThreadPoolBVHThread* {.importcpp: "SelectMgr_BVHThreadPool::BVHThread",
                                     header: "SelectMgr_BVHThreadPool.hxx", bycopy.} = object of OSD_Thread 
 
-  SelectMgrCompositionFilter* {.importcpp: "SelectMgr_CompositionFilter",
-                               header: "SelectMgr_CompositionFilter.hxx", bycopy.} = object of SelectMgrFilter 
-
   SelectMgrEntityOwner* {.importcpp: "SelectMgr_EntityOwner",
                          header: "SelectMgr_EntityOwner.hxx", bycopy.} = object of StandardTransient 
 
+  HandleSelectMgrEntityOwner* = Handle[SelectMgrEntityOwner]
+
   SelectMgrFilter* {.importcpp: "SelectMgr_Filter", header: "SelectMgr_Filter.hxx",
                     bycopy.} = object of StandardTransient 
+
+  SelectMgrCompositionFilter* {.importcpp: "SelectMgr_CompositionFilter",
+                               header: "SelectMgr_CompositionFilter.hxx", bycopy.} = object of SelectMgrFilter 
+
+  HandleSelectMgrCompositionFilter* = Handle[SelectMgrCompositionFilter]
+
+  SelectMgrAndFilter* {.importcpp: "SelectMgr_AndFilter",
+                       header: "SelectMgr_AndFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter 
+
+  HandleSelectMgrAndFilter* = Handle[SelectMgrAndFilter]
+
+  SelectMgrAndOrFilter* {.importcpp: "SelectMgr_AndOrFilter",
+                         header: "SelectMgr_AndOrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter 
+
+  HandleSelectMgrAndOrFilter* = Handle[SelectMgrAndOrFilter]
+
+  HandleSelectMgrFilter* = Handle[SelectMgrFilter]
 
   SelectMgrFrustum*[N: static[cint]] {.importcpp: "SelectMgr_Frustum<\'0>",
                                      header: "SelectMgr_Frustum.hxx", bycopy.} = object of SelectMgrBaseFrustum 
@@ -155,6 +149,8 @@ type
 
   SelectMgrOrFilter* {.importcpp: "SelectMgr_OrFilter",
                       header: "SelectMgr_OrFilter.hxx", bycopy.} = object of SelectMgrCompositionFilter 
+
+  HandleSelectMgrOrFilter* = Handle[SelectMgrOrFilter]
 
   SelectMgrRectangularFrustum* {.importcpp: "SelectMgr_RectangularFrustum",
                                 header: "SelectMgr_RectangularFrustum.hxx", bycopy.} = object of SelectMgrFrustum[
@@ -192,9 +188,9 @@ type
 
   SelectMgrViewerSelector* {.importcpp: "SelectMgr_ViewerSelector",
                             header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
+                            header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
 
                             header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
   SelectMgrViewerSelector3d* {.importcpp: "SelectMgr_ViewerSelector3d",
                               header: "SelectMgr_ViewerSelector3d.hxx", bycopy.} = object of SelectMgrViewerSelector 
-
 

@@ -1,9 +1,5 @@
-# PROVIDES: IntSurfListOfPntOn2S IntSurfListIteratorOfListOfPntOn2S IntSurfSituation IntSurf IntSurfCouple IntSurfInteriorPoint IntSurfInteriorPointTool IntSurfPathPoint IntSurfPathPointTool IntSurfPntOn2S IntSurfQuadric IntSurfQuadricTool IntSurfTransition IntSurfTypeTrans
-# DEPENDS:  Handle[NCollectionBaseAllocator]  NCollectionSequence[IntSurfCouple]  NCollectionSequence[IntSurfInteriorPoint]  NCollectionSequence[IntSurfPathPoint]  NCollectionSequence[IntSurfPntOn2S]  Handle[IntSurfLineOn2S]  Handle[IntSurfLineOn2S]  Handle[IntSurfLineOn2S] StandardTransient
-
-import tkgeomalgo/intsurf/intsurf_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   IntSurfListOfPntOn2S* {.importcpp:"NCollection_List<IntSurf_PntOn2S>", header:"IntSurf_ListOfPntOn2S.hxx",bycopy.} = object
 
@@ -56,12 +52,8 @@ type
 
   IntSurfSequenceOfPntOn2S* = NCollectionSequence[IntSurfPntOn2S]
 
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
-
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
-
-  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
-
   IntSurfLineOn2S* {.importcpp: "IntSurf_LineOn2S", header: "IntSurf_LineOn2S.hxx",
                     bycopy.} = object of StandardTransient
+
+  HandleIntSurfLineOn2S* = Handle[IntSurfLineOn2S]
 

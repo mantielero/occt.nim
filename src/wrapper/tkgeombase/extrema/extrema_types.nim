@@ -1,11 +1,7 @@
-# PROVIDES: ExtremaElementType ExtremaExtAlgo ExtremaExtFlag ExtremaCurve2dTool ExtremaCurveTool ExtremaECC ExtremaECC2d ExtremaELPCOfLocateExtPC ExtremaELPCOfLocateExtPC2d ExtremaEPCOfELPCOfLocateExtPC ExtremaEPCOfELPCOfLocateExtPC2d ExtremaEPCOfExtPC ExtremaEPCOfExtPC2d ExtremaExtCC ExtremaExtCC2d ExtremaExtCS ExtremaExtElC ExtremaExtElC2d ExtremaExtElCS ExtremaExtElSS ExtremaExtPC ExtremaExtPC2d ExtremaExtPElC ExtremaExtPElC2d ExtremaExtPElS ExtremaExtPS ExtremaExtSS ExtremaGenExtCS ExtremaGenExtPS ExtremaGenExtSS ExtremaGenLocateExtCS ExtremaGenLocateExtPS ExtremaGenLocateExtSS ExtremaLocateExtCC ExtremaLocateExtCC2d ExtremaLocateExtPC ExtremaLocateExtPC2d ExtremaLocECC ExtremaLocECC2d ExtremaLocEPCOfLocateExtPC ExtremaLocEPCOfLocateExtPC2d ExtremaPOnCurv ExtremaPOnCurv2d ExtremaPOnSurf
-# DEPENDS:  NCollectionArray1[ExtremaPOnCurv]  NCollectionArray1[ExtremaPOnCurv2d]  NCollectionArray1[ExtremaPOnSurf]  NCollectionArray2[ExtremaPOnCurv]  NCollectionArray2[ExtremaPOnCurv2d]  NCollectionArray2[ExtremaPOnSurf]  NCollectionArray2[ExtremaPOnSurfParams]  NCollectionUBTree[cint, BndSphere]  NCollectionUBTreeFiller[cint, BndSphere]  NCollectionHandle[ExtremaUBTreeOfSphere]  NCollectionSequence[ExtremaPOnCurv]  NCollectionSequence[ExtremaPOnCurv2d]  NCollectionSequence[ExtremaPOnSurf]  Handle[ExtremaExtPExtS]  Handle[ExtremaExtPRevS] ExtremaPOnSurf MathFunctionSetWithDerivatives MathFunctionSetWithDerivatives StandardTransient StandardTransient MathFunctionSetWithDerivatives MathFunctionSetWithDerivatives MathMultipleVarFunctionWithGradient MathFunctionSetWithDerivatives MathMultipleVarFunction MathMultipleVarFunctionWithGradient MathMultipleVarFunctionWithHessian MathMultipleVarFunction MathMultipleVarFunction MathMultipleVarFunctionWithHessian ExtremaArray1OfPOnCurv ExtremaArray1OfPOnCurv2d ExtremaArray1OfPOnSurf ExtremaArray2OfPOnCurv ExtremaArray2OfPOnCurv2d ExtremaArray2OfPOnSurf ExtremaArray2OfPOnSurfParams MathFunctionWithDerivative MathFunctionWithDerivative MathFunctionWithDerivative MathFunctionWithDerivative MathFunctionWithDerivative MathFunctionWithDerivative
-
-import tkmath/math/math_types
-import tkgeombase/extrema/extrema_types
-import tkmath/bnd/bnd_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkmath/math/math_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   ExtremaElementType* {.size: sizeof(cint), importcpp: "Extrema_ElementType",
                        header: "Extrema_ElementType.hxx".} = enum
@@ -148,8 +144,6 @@ type
 
   ExtremaArray2OfPOnSurf* = NCollectionArray2[ExtremaPOnSurf]
 
-  ExtremaArray2OfPOnSurfParams* = NCollectionArray2[ExtremaPOnSurfParams]
-
   ExtremaUBTreeOfSphere* = NCollectionUBTree[cint, BndSphere]
 
   ExtremaUBTreeFillerOfSphere* = NCollectionUBTreeFiller[cint, BndSphere]
@@ -162,12 +156,10 @@ type
 
   ExtremaSequenceOfPOnSurf* = NCollectionSequence[ExtremaPOnSurf]
 
-  HandleExtremaExtPExtS* = Handle[ExtremaExtPExtS]
-
-  HandleExtremaExtPRevS* = Handle[ExtremaExtPRevS]
-
   ExtremaPOnSurfParams* {.importcpp: "Extrema_POnSurfParams",
                          header: "Extrema_POnSurfParams.hxx", bycopy.} = object of ExtremaPOnSurf 
+
+  ExtremaArray2OfPOnSurfParams* = NCollectionArray2[ExtremaPOnSurfParams]
 
   ExtremaCCLocFOfLocECC* {.importcpp: "Extrema_CCLocFOfLocECC",
                           header: "Extrema_CCLocFOfLocECC.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
@@ -178,8 +170,12 @@ type
   ExtremaExtPExtS* {.importcpp: "Extrema_ExtPExtS", header: "Extrema_ExtPExtS.hxx",
                     bycopy.} = object of StandardTransient
 
+  HandleExtremaExtPExtS* = Handle[ExtremaExtPExtS]
+
   ExtremaExtPRevS* {.importcpp: "Extrema_ExtPRevS", header: "Extrema_ExtPRevS.hxx",
                     bycopy.} = object of StandardTransient
+
+  HandleExtremaExtPRevS* = Handle[ExtremaExtPRevS]
 
   ExtremaFuncExtCS* {.importcpp: "Extrema_FuncExtCS",
                      header: "Extrema_FuncExtCS.hxx", bycopy.} = object of MathFunctionSetWithDerivatives
@@ -248,10 +244,10 @@ type
 
   ExtremaPCLocFOfLocEPCOfLocateExtPC* {.importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx",
                                        bycopy.} = object of MathFunctionWithDerivative
+                                       bycopy.} = object of MathFunctionWithDerivative
 
                                        bycopy.} = object of MathFunctionWithDerivative
   ExtremaPCLocFOfLocEPCOfLocateExtPC2d* {.
       importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d",
       header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx", bycopy.} = object of MathFunctionWithDerivative
-
 

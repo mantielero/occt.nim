@@ -1,8 +1,4 @@
-# PROVIDES: AppParCurvesConstraint AppParCurves AppParCurvesConstraintCouple AppParCurvesMultiCurve AppParCurvesMultiPoint
-# DEPENDS:  NCollectionArray1[  NCollectionArray1[AppParCurvesMultiBSpCurve]  NCollectionArray1[AppParCurvesMultiCurve]  NCollectionArray1[AppParCurvesMultiPoint]  NCollectionSequence[  NCollectionSequence[AppParCurvesMultiCurve] AppParCurvesMultiCurve AppParCurvesArray1OfConstraintCouple AppParCurvesArray1OfMultiBSpCurve AppParCurvesArray1OfMultiCurve AppParCurvesArray1OfMultiPoint
-
-import tkgeombase/appparcurves/appparcurves_types
-import tkernel/ncollection/ncollection_types
+import ../../tkernel/ncollection/ncollection_types
 type
   AppParCurvesConstraint* {.size: sizeof(cint),
                            importcpp: "AppParCurves_Constraint",
@@ -25,19 +21,19 @@ type
   AppParCurvesArray1OfConstraintCouple* = NCollectionArray1[
       AppParCurvesConstraintCouple]
 
-  AppParCurvesArray1OfMultiBSpCurve* = NCollectionArray1[AppParCurvesMultiBSpCurve]
-
   AppParCurvesArray1OfMultiCurve* = NCollectionArray1[AppParCurvesMultiCurve]
 
   AppParCurvesArray1OfMultiPoint* = NCollectionArray1[AppParCurvesMultiPoint]
-
-  AppParCurvesSequenceOfMultiBSpCurve* = NCollectionSequence[
-      AppParCurvesMultiBSpCurve]
 
   AppParCurvesSequenceOfMultiCurve* = NCollectionSequence[AppParCurvesMultiCurve]
 
   AppParCurvesMultiBSpCurve* {.importcpp: "AppParCurves_MultiBSpCurve",
                               header: "AppParCurves_MultiBSpCurve.hxx", bycopy.} = object of AppParCurvesMultiCurve 
+
+  AppParCurvesSequenceOfMultiBSpCurve* = NCollectionSequence[
+      AppParCurvesMultiBSpCurve]
+
+  AppParCurvesArray1OfMultiBSpCurve* = NCollectionArray1[AppParCurvesMultiBSpCurve]
 
   AppParCurvesHArray1OfConstraintCouple* {.
       importcpp: "AppParCurves_HArray1OfConstraintCouple",
@@ -48,9 +44,9 @@ type
 
   AppParCurvesHArray1OfMultiCurve* {.importcpp: "AppParCurves_HArray1OfMultiCurve", header: "AppParCurves_HArray1OfMultiCurve.hxx",
                                     bycopy.} = object of AppParCurvesArray1OfMultiCurve
+                                    bycopy.} = object of AppParCurvesArray1OfMultiCurve
 
                                     bycopy.} = object of AppParCurvesArray1OfMultiCurve
   AppParCurvesHArray1OfMultiPoint* {.importcpp: "AppParCurves_HArray1OfMultiPoint", header: "AppParCurves_HArray1OfMultiPoint.hxx",
                                     bycopy.} = object of AppParCurvesArray1OfMultiPoint
-
 

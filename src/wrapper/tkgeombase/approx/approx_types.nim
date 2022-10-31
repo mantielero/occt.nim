@@ -1,9 +1,5 @@
-# PROVIDES: ApproxParametrizationType ApproxStatus ApproxCurve2d ApproxCurve3d ApproxCurveOnSurface ApproxCurvilinearParameter ApproxFitAndDivide ApproxFitAndDivide2d ApproxMCurvesToBSpCurve ApproxSameParameter ApproxSweepApproximation ApproxIntKnotTools ApproxIntSvSurfaces
-# DEPENDS:  NCollectionArray1[Handle[Adaptor3dHSurface]]  NCollectionArray1[GTrsf2d]  NCollectionSequence[  Handle[ApproxCurvlinFunc]  Handle[ApproxSweepFunction] StandardTransient ApproxArray1OfAdHSurface ApproxArray1OfGTrsf2d StandardTransient
-
-import tkgeombase/approx/approx_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   ApproxParametrizationType* {.size: sizeof(cint),
                               importcpp: "Approx_ParametrizationType",
@@ -54,21 +50,21 @@ type
   ApproxSequenceOfHArray1OfReal* = NCollectionSequence[
       Handle[TColStdHArray1OfReal]]
 
-  HandleApproxCurvlinFunc* = Handle[ApproxCurvlinFunc]
-
-  HandleApproxSweepFunction* = Handle[ApproxSweepFunction]
-
   ApproxCurvlinFunc* {.importcpp: "Approx_CurvlinFunc",
                       header: "Approx_CurvlinFunc.hxx", bycopy.} = object of StandardTransient
+
+  HandleApproxCurvlinFunc* = Handle[ApproxCurvlinFunc]
 
   ApproxHArray1OfAdHSurface* {.importcpp: "Approx_HArray1OfAdHSurface",
                               header: "Approx_HArray1OfAdHSurface.hxx", bycopy.} = object of ApproxArray1OfAdHSurface
 
   ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
                            header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
 
                            header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
   ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
                         header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient 
 
+  HandleApproxSweepFunction* = Handle[ApproxSweepFunction]
 

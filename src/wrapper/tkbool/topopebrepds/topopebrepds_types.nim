@@ -1,13 +1,9 @@
-# PROVIDES: TopOpeBRepDS_CheckStatus TopOpeBRepDS_Config TopOpeBRepDS_DataMapIteratorOfDataMapOfCheckStatus TopOpeBRepDS_DataMapIteratorOfDataMapOfIntegerListOfInterference TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceListOfInterference TopOpeBRepDS_DataMapIteratorOfDataMapOfInterferenceShape TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeListOfShapeOn1State TopOpeBRepDS_DataMapIteratorOfDataMapOfShapeState TopOpeBRepDS_DoubleMapIteratorOfDoubleMapOfIntegerShape TopOpeBRepDS_Kind TopOpeBRepDS_ListIteratorOfListOfInterference TopOpeBRepDS_DataMapIteratorOfMapOfCurve TopOpeBRepDS_DataMapIteratorOfMapOfIntegerShapeData TopOpeBRepDS_DataMapIteratorOfMapOfPoint TopOpeBRepDS_DataMapIteratorOfMapOfSurface TopOpeBRepDS_PDataStructure TopOpeBRepDS_DataMapIteratorOfShapeSurface TopOpeBRepDS TopOpeBRepDS_BuildTool TopOpeBRepDS_Curve TopOpeBRepDS_CurveExplorer TopOpeBRepDS_DataStructure TopOpeBRepDS_Dumper TopOpeBRepDS_Edge3dInterferenceTool TopOpeBRepDS_EdgeInterferenceTool TopOpeBRepDS_EIR TopOpeBRepDS_Explorer TopOpeBRepDS_FaceInterferenceTool TopOpeBRepDS_Filter TopOpeBRepDS_FIR TopOpeBRepDS_GapFiller TopOpeBRepDS_GeometryData TopOpeBRepDS_InterferenceIterator TopOpeBRepDS_InterferenceTool TopOpeBRepDS_ListOfShapeOn1State TopOpeBRepDS_Point TopOpeBRepDS_PointExplorer TopOpeBRepDS_Reducer TopOpeBRepDS_ShapeData TopOpeBRepDS_ShapeWithState TopOpeBRepDS_Surface TopOpeBRepDS_SurfaceExplorer TopOpeBRepDS_TKI TopOpeBRepDS_TOOL TopOpeBRepDS_Transition
-# DEPENDS:  NCollectionArray1[  NCollectionDataMap[cint,  NCollectionDataMap[cint,  NCollectionDataMap[  NCollectionDataMap[  NCollectionDataMap[  NCollectionDataMap[TopoDS_Shape, TopAbsState,  NCollectionDoubleMap[cint, TopoDS_Shape,  NCollectionIndexedDataMap[  NCollectionIndexedDataMap[  NCollectionList[  NCollectionDataMap[cint, TopOpeBRepDS_CurveData,  NCollectionDataMap[cint,  NCollectionDataMap[cint, TopOpeBRepDS_PointData,  NCollectionIndexedDataMap[TopoDS_Shape,  NCollectionDataMap[cint, TopOpeBRepDS_SurfaceData,  NCollectionDataMap[TopoDS_Shape, TopOpeBRepDS_GeometryData TopOpeBRepDS_InterferenceIterator TopOpeBRepDS_GeometryData TopOpeBRepDS_InterferenceIterator TopOpeBRepDS_GeometryData TopOpeBRepDS_InterferenceIterator  Handle[TopOpeBRepDS_Check]  Handle[  Handle[  Handle[  Handle[TopOpeBRepDS_Interference]  Handle[  Handle[  Handle[  Handle[TopOpeBRepDS_Association] StandardTransient StandardTransient TopOpeBRepDS_Interference TopOpeBRepDS_ShapeShapeInterference TopOpeBRepDS_ShapeShapeInterference  Handle[TopOpeBRepDS_GapTool] StandardTransient TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference  Handle[TopOpeBRepDS_HDataStructure] StandardTransient StandardTransient  Handle[TopOpeBRepDS_Marker] StandardTransient TopOpeBRepDS_Interference TopOpeBRepDS_Interference TopOpeBRepDS_Interference
-
-import tkbool/topopebrepds/topopebrepds_types
-import tkbrep/topods/topods_types
-import tkg3d/topabs/topabs_types
-import tkernel/tcolstd/tcolstd_types
-import tkbrep/toptools/toptools_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkbrep/topods/topods_types
+import ../../tkg3d/topabs/topabs_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TopOpeBRepDS_CheckStatus* {.size: sizeof(cint),
                              importcpp: "TopOpeBRepDS_CheckStatus",
@@ -140,14 +136,8 @@ type
   TopOpeBRepDS_Transition* {.importcpp: "TopOpeBRepDS_Transition",
                             header: "TopOpeBRepDS_Transition.hxx", bycopy.} = object 
 
-  TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference* = NCollectionArray1[
-      TopOpeBRepDS_DataMapOfIntegerListOfInterference]
-
   TopOpeBRepDS_DataMapOfCheckStatus* = NCollectionDataMap[cint,
       TopOpeBRepDS_CheckStatus, TColStdMapIntegerHasher]
-
-  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[cint,
-      TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
 
   TopOpeBRepDS_DataMapOfInterferenceListOfInterference* = NCollectionDataMap[
       Handle[TopOpeBRepDS_Interference], TopOpeBRepDS_ListOfInterference,
@@ -174,20 +164,17 @@ type
   TopOpeBRepDS_ListOfInterference* = NCollectionList[
       Handle[TopOpeBRepDS_Interference]]
 
-  TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[cint, TopOpeBRepDS_CurveData,
-      TColStdMapIntegerHasher]
+  TopOpeBRepDS_DataMapOfIntegerListOfInterference* = NCollectionDataMap[cint,
+      TopOpeBRepDS_ListOfInterference, TColStdMapIntegerHasher]
+
+  TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference* = NCollectionArray1[
+      TopOpeBRepDS_DataMapOfIntegerListOfInterference]
 
   TopOpeBRepDS_MapOfIntegerShapeData* = NCollectionDataMap[cint,
       TopOpeBRepDS_ShapeData, TColStdMapIntegerHasher]
 
-  TopOpeBRepDS_MapOfPoint* = NCollectionDataMap[cint, TopOpeBRepDS_PointData,
-      TColStdMapIntegerHasher]
-
   TopOpeBRepDS_MapOfShapeData* = NCollectionIndexedDataMap[TopoDS_Shape,
       TopOpeBRepDS_ShapeData, TopToolsShapeMapHasher]
-
-  TopOpeBRepDS_MapOfSurface* = NCollectionDataMap[cint, TopOpeBRepDS_SurfaceData,
-      TColStdMapIntegerHasher]
 
   TopOpeBRepDS_ShapeSurface* = NCollectionDataMap[TopoDS_Shape,
       Handle[GeomSurface], TopToolsShapeMapHasher]
@@ -195,11 +182,17 @@ type
   TopOpeBRepDS_CurveData* {.importcpp: "TopOpeBRepDS_CurveData",
                            header: "TopOpeBRepDS_CurveData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
 
+  TopOpeBRepDS_MapOfCurve* = NCollectionDataMap[cint, TopOpeBRepDS_CurveData,
+      TColStdMapIntegerHasher]
+
   TopOpeBRepDS_CurveIterator* {.importcpp: "TopOpeBRepDS_CurveIterator",
                                header: "TopOpeBRepDS_CurveIterator.hxx", bycopy.} = object of TopOpeBRepDS_InterferenceIterator 
 
   TopOpeBRepDS_PointData* {.importcpp: "TopOpeBRepDS_PointData",
                            header: "TopOpeBRepDS_PointData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
+
+  TopOpeBRepDS_MapOfPoint* = NCollectionDataMap[cint, TopOpeBRepDS_PointData,
+      TColStdMapIntegerHasher]
 
   TopOpeBRepDS_PointIterator* {.importcpp: "TopOpeBRepDS_PointIterator",
                                header: "TopOpeBRepDS_PointIterator.hxx", bycopy.} = object of TopOpeBRepDS_InterferenceIterator 
@@ -207,82 +200,85 @@ type
   TopOpeBRepDS_SurfaceData* {.importcpp: "TopOpeBRepDS_SurfaceData",
                              header: "TopOpeBRepDS_SurfaceData.hxx", bycopy.} = object of TopOpeBRepDS_GeometryData
 
+  TopOpeBRepDS_MapOfSurface* = NCollectionDataMap[cint, TopOpeBRepDS_SurfaceData,
+      TColStdMapIntegerHasher]
+
   TopOpeBRepDS_SurfaceIterator* {.importcpp: "TopOpeBRepDS_SurfaceIterator",
                                  header: "TopOpeBRepDS_SurfaceIterator.hxx",
                                  bycopy.} = object of TopOpeBRepDS_InterferenceIterator 
 
-  HandleTopOpeBRepDS_Check* = Handle[TopOpeBRepDS_Check]
-
-  HandleTopOpeBRepDS_CurvePointInterference* = Handle[
-      TopOpeBRepDS_CurvePointInterference]
-
-  HandleTopOpeBRepDS_EdgeVertexInterference* = Handle[
-      TopOpeBRepDS_EdgeVertexInterference]
-
-  HandleTopOpeBRepDS_FaceEdgeInterference* = Handle[
-      TopOpeBRepDS_FaceEdgeInterference]
-
-  HandleTopOpeBRepDS_Interference* = Handle[TopOpeBRepDS_Interference]
-
-  HandleTopOpeBRepDS_ShapeShapeInterference* = Handle[
-      TopOpeBRepDS_ShapeShapeInterference]
-
-  HandleTopOpeBRepDS_SolidSurfaceInterference* = Handle[
-      TopOpeBRepDS_SolidSurfaceInterference]
-
-  HandleTopOpeBRepDS_SurfaceCurveInterference* = Handle[
-      TopOpeBRepDS_SurfaceCurveInterference]
-
-  HandleTopOpeBRepDS_Association* = Handle[TopOpeBRepDS_Association]
-
   TopOpeBRepDS_Association* {.importcpp: "TopOpeBRepDS_Association",
                              header: "TopOpeBRepDS_Association.hxx", bycopy.} = object of StandardTransient
+
+  HandleTopOpeBRepDS_Association* = Handle[TopOpeBRepDS_Association]
 
   TopOpeBRepDS_Check* {.importcpp: "TopOpeBRepDS_Check",
                        header: "TopOpeBRepDS_Check.hxx", bycopy.} = object of StandardTransient
 
-  TopOpeBRepDS_CurvePointInterference* {.importcpp: "TopOpeBRepDS_CurvePointInterference", header: "TopOpeBRepDS_CurvePointInterference.hxx",
-                                        bycopy.} = object of TopOpeBRepDS_Interference
-
-  TopOpeBRepDS_EdgeVertexInterference* {.importcpp: "TopOpeBRepDS_EdgeVertexInterference", header: "TopOpeBRepDS_EdgeVertexInterference.hxx",
-                                        bycopy.} = object of TopOpeBRepDS_ShapeShapeInterference 
-
-  TopOpeBRepDS_FaceEdgeInterference* {.importcpp: "TopOpeBRepDS_FaceEdgeInterference", header: "TopOpeBRepDS_FaceEdgeInterference.hxx",
-                                      bycopy.} = object of TopOpeBRepDS_ShapeShapeInterference 
-
-  HandleTopOpeBRepDS_GapTool* = Handle[TopOpeBRepDS_GapTool]
+  HandleTopOpeBRepDS_Check* = Handle[TopOpeBRepDS_Check]
 
   TopOpeBRepDS_GapTool* {.importcpp: "TopOpeBRepDS_GapTool",
                          header: "TopOpeBRepDS_GapTool.hxx", bycopy.} = object of StandardTransient
+
+  HandleTopOpeBRepDS_GapTool* = Handle[TopOpeBRepDS_GapTool]
 
   TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference* {.
       importcpp: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference",
       header: "TopOpeBRepDS_HArray1OfDataMapOfIntegerListOfInterference.hxx",
       bycopy.} = object of TopOpeBRepDS_Array1OfDataMapOfIntegerListOfInterference
 
-  HandleTopOpeBRepDS_HDataStructure* = Handle[TopOpeBRepDS_HDataStructure]
-
   TopOpeBRepDS_HDataStructure* {.importcpp: "TopOpeBRepDS_HDataStructure",
                                 header: "TopOpeBRepDS_HDataStructure.hxx", bycopy.} = object of StandardTransient
+
+  HandleTopOpeBRepDS_HDataStructure* = Handle[TopOpeBRepDS_HDataStructure]
 
   TopOpeBRepDS_Interference* {.importcpp: "TopOpeBRepDS_Interference",
                               header: "TopOpeBRepDS_Interference.hxx", bycopy.} = object of StandardTransient
 
-  HandleTopOpeBRepDS_Marker* = Handle[TopOpeBRepDS_Marker]
+  TopOpeBRepDS_CurvePointInterference* {.importcpp: "TopOpeBRepDS_CurvePointInterference", header: "TopOpeBRepDS_CurvePointInterference.hxx",
+                                        bycopy.} = object of TopOpeBRepDS_Interference
+
+  HandleTopOpeBRepDS_CurvePointInterference* = Handle[
+      TopOpeBRepDS_CurvePointInterference]
+
+  HandleTopOpeBRepDS_Interference* = Handle[TopOpeBRepDS_Interference]
 
   TopOpeBRepDS_Marker* {.importcpp: "TopOpeBRepDS_Marker",
                         header: "TopOpeBRepDS_Marker.hxx", bycopy.} = object of StandardTransient
 
+  HandleTopOpeBRepDS_Marker* = Handle[TopOpeBRepDS_Marker]
+
   TopOpeBRepDS_ShapeShapeInterference* {.importcpp: "TopOpeBRepDS_ShapeShapeInterference", header: "TopOpeBRepDS_ShapeShapeInterference.hxx",
                                         bycopy.} = object of TopOpeBRepDS_Interference 
+
+  TopOpeBRepDS_FaceEdgeInterference* {.importcpp: "TopOpeBRepDS_FaceEdgeInterference", header: "TopOpeBRepDS_FaceEdgeInterference.hxx",
+                                      bycopy.} = object of TopOpeBRepDS_ShapeShapeInterference 
+
+  HandleTopOpeBRepDS_FaceEdgeInterference* = Handle[
+      TopOpeBRepDS_FaceEdgeInterference]
+
+  TopOpeBRepDS_EdgeVertexInterference* {.importcpp: "TopOpeBRepDS_EdgeVertexInterference", header: "TopOpeBRepDS_EdgeVertexInterference.hxx",
+                                        bycopy.} = object of TopOpeBRepDS_ShapeShapeInterference 
+
+  HandleTopOpeBRepDS_EdgeVertexInterference* = Handle[
+      TopOpeBRepDS_EdgeVertexInterference]
+
+  HandleTopOpeBRepDS_ShapeShapeInterference* = Handle[
+      TopOpeBRepDS_ShapeShapeInterference]
 
   TopOpeBRepDS_SolidSurfaceInterference* {.
       importcpp: "TopOpeBRepDS_SolidSurfaceInterference",
       header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
+      header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
+
+  HandleTopOpeBRepDS_SolidSurfaceInterference* = Handle[
+      TopOpeBRepDS_SolidSurfaceInterference]
 
       header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
   TopOpeBRepDS_SurfaceCurveInterference* {.
       importcpp: "TopOpeBRepDS_SurfaceCurveInterference",
       header: "TopOpeBRepDS_SurfaceCurveInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
 
+  HandleTopOpeBRepDS_SurfaceCurveInterference* = Handle[
+      TopOpeBRepDS_SurfaceCurveInterference]
 

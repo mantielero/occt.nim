@@ -1,9 +1,5 @@
-# PROVIDES:
-# DEPENDS:  NCollectionArray1[Handle[GeomBezierCurve]]  NCollectionArray1[Handle[GeomBSplineCurve]]  NCollectionArray1[Handle[GeomCurve]]  NCollectionArray1[Handle[GeomSurface]]  NCollectionArray2[Handle[GeomBezierSurface]]  NCollectionArray2[Handle[GeomSurface]]  NCollectionSequence[Handle[GeomBoundedCurve]]  NCollectionSequence[Handle[GeomCurve]]  NCollectionSequence[Handle[GeomSurface]] TColGeomArray1OfBezierCurve TColGeomArray1OfBSplineCurve TColGeomArray1OfCurve TColGeomArray1OfSurface TColGeomArray2OfSurface TColGeomSequenceOfBoundedCurve TColGeomSequenceOfCurve
-
-import tkg3d/tcolgeom/tcolgeom_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TColGeomArray1OfBezierCurve* = NCollectionArray1[Handle[GeomBezierCurve]]
 
@@ -43,9 +39,9 @@ type
   TColGeomHSequenceOfBoundedCurve* {.importcpp: "TColGeom_HSequenceOfBoundedCurve", header: "TColGeom_HSequenceOfBoundedCurve.hxx",
                                     bycopy.} = object of TColGeomSequenceOfBoundedCurve
                                     bycopy.} = object of TColGeomSequenceOfBoundedCurve
+                                    bycopy.} = object of TColGeomSequenceOfBoundedCurve
 
                                     bycopy.} = object of TColGeomSequenceOfBoundedCurve
   TColGeomHSequenceOfCurve* {.importcpp: "TColGeom_HSequenceOfCurve",
                              header: "TColGeom_HSequenceOfCurve.hxx", bycopy.} = object of TColGeomSequenceOfCurve
-
 

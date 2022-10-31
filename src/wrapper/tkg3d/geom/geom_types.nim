@@ -1,10 +1,10 @@
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
 type
-  GeomUndefinedDerivative* = object # FIXME
+  GeomUndefinedDerivative* = object 
 
-  GeomUndefinedValue* = object      # FIXME
-  
+  GeomUndefinedValue* = object      
+
   HandleGeomCurve* {.importcpp:"opencascade::handle<Geom_Curve>", header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object
 
   GeomGeometry* {.importcpp: "Geom_Geometry", header: "Geom_Geometry.hxx", bycopy.} = object of StandardTransient 

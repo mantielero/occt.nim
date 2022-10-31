@@ -1,15 +1,10 @@
-# PROVIDES: Graphic3dAlphaMode Graphic3dBufferType Graphic3dCubeMapSide Graphic3dGroupAspect Graphic3dHorizontalTextAlignment Graphic3dLevelOfTextureAnisotropy Graphic3dMapOfStructure Graphic3dNameOfTexture1D Graphic3dNameOfTexture2D Graphic3dNameOfTextureEnv Graphic3dNameOfTexturePlane Graphic3dNMapOfTransient Graphic3dRenderingMode Graphic3dRenderTransparentMethod Graphic3dStereoMode Graphic3dTextPath Graphic3dToneMappingMethod Graphic3dTypeOfAnswer Graphic3dTypeOfBackfacingModel Graphic3dTypeOfComposition Graphic3dTypeOfConnection Graphic3dTypeOfLimit Graphic3dTypeOfMaterial Graphic3dTypeOfPrimitiveArray Graphic3dTypeOfShaderObject Graphic3dTypeOfStructure Graphic3dTypeOfTexture Graphic3dTypeOfTextureFilter Graphic3dTypeOfTextureMode Graphic3dTypeOfVisualization Graphic3dArrayFlags Graphic3dFresnelModel Graphic3dFresnel Graphic3dBSDF Graphic3dTypeOfAttribute Graphic3dTypeOfData Graphic3dAttribute Graphic3dBufferRange Graphic3dCameraFocusType Graphic3dCameraIODType Graphic3dCameraTile Graphic3dCappingFlags Graphic3dClipState Graphic3dCTexture Graphic3dCubeMapOrder Graphic3dValidatedCubeMapOrder Graphic3dCullingTool Graphic3dCullingToolCullingContext Graphic3dCullingToolPlane Graphic3dDiagnosticInfo Graphic3dFrameStatsCounter Graphic3dFrameStatsTimer Graphic3dAxisAspect Graphic3dGraduatedTrihedron Graphic3dGraduatedTrihedronMinMaxValuesCallback Graphic3dLightSetIterator Graphic3dMaterialAspect Graphic3dNameOfMaterial Graphic3dPBRMaterial Graphic3dPolygonOffset Graphic3dRenderingParams Graphic3dRenderingParamsAnaglyph Graphic3dRenderingParamsPerfCounters Graphic3dRenderingParamsFrustumCulling Graphic3dSequenceOfHClipPlaneIterator Graphic3dValueInterface Graphic3dUniformValueTypeID Graphic3dIndexedMapOfView Graphic3dTextureSetIterator Graphic3dTextureUnit Graphic3dTransModeFlags Graphic3dTypeOfBackground Graphic3dTypeOfLightSource Graphic3dTypeOfReflection Graphic3dTypeOfShadingModel Graphic3dVertex Graphic3dWorldViewProjState Graphic3dZLayerId Graphic3dZLayerSetting Graphic3dZLayerSettings Graphic3dCameraProjection Graphic3dClipPlaneEquation Graphic3dLightSetIterationFilter Graphic3dMediaTextureSetCallbackOnUpdateT Graphic3dFrameStatsData Graphic3dVerticalTextAlignment
-# DEPENDS:  BVH_Box[cfloat, 3]  BVH_Box[cfloat, 4]  BVH_Box[StandardShortReal, 4]  NCollectionMat4[StandardShortReal]  NCollectionMat4[cfloat]  NCollectionSequence[Handle[Graphic3dGroup]]  NCollectionSequence[Handle[Graphic3dStructure]]  cast[cuint]((1 shl 5)) #int(graphic3dTextureUnitMetallicRoughness)))  Handle[Graphic3dArrayOfPrimitives]  NCollectionArray1[Graphic3dAttribute]  Handle[Graphic3dCView]  Handle[Graphic3dDataStructureManager]  Handle[Graphic3dGraphicDriver]  NCollectionShared[StandardMutex] StandardTransient  NCollectionSequence[Handle[Graphic3dShaderObject]]  NCollectionSequence[  NCollectionSequence[  Graphic3dUniformValue[cint]  Graphic3dUniformValue[Graphic3dVec2i]  Graphic3dUniformValue[Graphic3dVec3i]  Graphic3dUniformValue[Graphic3dVec4i]  Graphic3dUniformValue[StandardShortReal]  Graphic3dUniformValue[Graphic3dVec2]  Graphic3dUniformValue[Graphic3dVec3]  Graphic3dUniformValue[Graphic3dVec4]  Handle[Graphic3dStructure]  Handle[Graphic3dTexture1D]  Handle[Graphic3dTexture1Dmanual]  Handle[Graphic3dTexture1Dsegment]  Handle[Graphic3dTexture2Dplane]  Handle[Graphic3dTextureEnv] StandardTransient  Handle[Graphic3dTransformPers] Graphic3dValueInterface Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives StandardTransient Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dArrayOfPrimitives Graphic3dAspects Graphic3dAspects Graphic3dAspects StandardTransient Graphic3dAspects Graphic3dBuffer NCollectionBuffer NCollectionBuffer BVH_PrimitiveSet3d BVH_Set StandardTransient StandardTransient StandardTransient StandardTransient Graphic3dTextureMap Graphic3dCubeMap Graphic3dCubeMap Graphic3dDataStructureManager StandardTransient Graphic3dFrameStatsData StandardTransient StandardTransient StandardTransient Graphic3dBuffer StandardTransient StandardTransient StandardTransient Graphic3dTexture2D Graphic3dTextureSet Graphic3dIndexBuffer StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient Graphic3dTextureMap Graphic3dTexture1D Graphic3dTexture1D Graphic3dTextureMap Graphic3dTexture2D Graphic3dTexture2D Graphic3dTextureRoot Graphic3dTextureRoot StandardTransient StandardTransient StandardTransient StandardTransient  NCollectionVec2[StandardShortReal]  NCollectionVec2[cfloat]  NCollectionVec2[cint]  NCollectionVec2[cuint]  NCollectionVec2[StandardByte]  NCollectionVec2[cchar]  NCollectionVec3[StandardShortReal]  NCollectionVec3[cfloat]  NCollectionVec3[cint]  NCollectionVec3[cuint]  NCollectionVec3[StandardByte]  NCollectionVec3[cchar]  NCollectionVec4[StandardShortReal]  NCollectionVec4[cfloat]  NCollectionVec4[cint]  NCollectionVec4[cuint]  NCollectionVec4[StandardByte]  NCollectionVec4[cchar]
-
-import tkmath/bvh/bvh_types
-import tkv3d/graphic3d/graphic3d_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkmath/bvh/bvh_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   Graphic3dAlphaMode* {.size: sizeof(cint), importcpp: "Graphic3d_AlphaMode",
                        header: "Graphic3d_AlphaMode.hxx".} = enum
     Graphic3dAlphaModeBlendAuto = -1, 
-                                   
     Graphic3dAlphaModeOpaque = 0, 
     Graphic3dAlphaModeMask,   
     Graphic3dAlphaModeBlend   
@@ -158,28 +153,19 @@ type
                                   importcpp: "Graphic3d_TypeOfPrimitiveArray",
                                   header: "Graphic3d_TypeOfPrimitiveArray.hxx".} = enum
     Graphic3dTOPA_UNDEFINED,  
-                            
     Graphic3dTOPA_POINTS,     
     Graphic3dTOPA_SEGMENTS,   
     Graphic3dTOPA_POLYLINES,  
     Graphic3dTOPA_TRIANGLES,  
     Graphic3dTOPA_TRIANGLESTRIPS, 
     Graphic3dTOPA_TRIANGLEFANS, 
-                               
     Graphic3dTOPA_LINES_ADJACENCY, 
-                                  
     Graphic3dTOPA_LINE_STRIP_ADJACENCY, 
-                                       
     Graphic3dTOPA_TRIANGLES_ADJACENCY, 
-                                      
     Graphic3dTOPA_TRIANGLE_STRIP_ADJACENCY, 
-                                           
     Graphic3dTOPA_QUADRANGLES, 
-                              
     Graphic3dTOPA_QUADRANGLESTRIPS, 
-                                   
     Graphic3dTOPA_POLYGONS 
-                          
 
   Graphic3dTypeOfShaderObject* {.size: sizeof(cint),
                                 importcpp: "Graphic3d_TypeOfShaderObject",
@@ -189,7 +175,6 @@ type
     Graphic3dTOS_TESS_EVALUATION = 0x04, 
     Graphic3dTOS_GEOMETRY = 0x08, 
     Graphic3dTOS_FRAGMENT = 0x10, 
-                               
     Graphic3dTOS_COMPUTE = 0x20
 
   Graphic3dTypeOfStructure* {.size: sizeof(cint),
@@ -297,11 +282,6 @@ type
     Graphic3dClipStateOut,    
     Graphic3dClipStateIn,     
     Graphic3dClipStateOn      
-
-  Graphic3dCTexture* {.importcpp: "Graphic3d_CTexture",
-                      header: "Graphic3d_CTexture.hxx", bycopy.} = object
-    textureMap* {.importc: "TextureMap".}: Handle[Graphic3dTextureMap] 
-    doTextureMap* {.importc: "doTextureMap".}: cint 
 
   Graphic3dCubeMapOrder* {.importcpp: "Graphic3d_CubeMapOrder",
                           header: "Graphic3d_CubeMapOrder.hxx", bycopy.} = object 
@@ -427,64 +407,6 @@ type
     factor* {.importc: "Factor".}: StandardShortReal
     units* {.importc: "Units".}: StandardShortReal 
 
-  Graphic3dRenderingParams* {.importcpp: "Graphic3d_RenderingParams",
-                             header: "Graphic3d_RenderingParams.hxx", bycopy.} = object 
-    `method`* {.importc: "Method".}: Graphic3dRenderingMode 
-    transparencyMethod* {.importc: "TransparencyMethod".}: Graphic3dRenderTransparentMethod 
-    lineFeather* {.importc: "LineFeather".}: StandardShortReal 
-    pbrEnvPow2Size* {.importc: "PbrEnvPow2Size".}: cint 
-    pbrEnvSpecMapNbLevels* {.importc: "PbrEnvSpecMapNbLevels".}: cint 
-    pbrEnvBakingDiffNbSamples* {.importc: "PbrEnvBakingDiffNbSamples".}: cint 
-    pbrEnvBakingSpecNbSamples* {.importc: "PbrEnvBakingSpecNbSamples".}: cint 
-    pbrEnvBakingProbability* {.importc: "PbrEnvBakingProbability".}: StandardShortReal 
-    oitDepthFactor* {.importc: "OitDepthFactor".}: StandardShortReal 
-    nbMsaaSamples* {.importc: "NbMsaaSamples".}: cint 
-    renderResolutionScale* {.importc: "RenderResolutionScale".}: StandardShortReal 
-    toEnableDepthPrepass* {.importc: "ToEnableDepthPrepass".}: bool 
-    toEnableAlphaToCoverage* {.importc: "ToEnableAlphaToCoverage".}: bool 
-    isGlobalIlluminationEnabled* {.importc: "IsGlobalIlluminationEnabled".}: bool 
-    samplesPerPixel* {.importc: "SamplesPerPixel".}: cint 
-    raytracingDepth* {.importc: "RaytracingDepth".}: cint 
-    isShadowEnabled* {.importc: "IsShadowEnabled".}: bool 
-    isReflectionEnabled* {.importc: "IsReflectionEnabled".}: bool 
-    isAntialiasingEnabled* {.importc: "IsAntialiasingEnabled".}: bool 
-    isTransparentShadowEnabled* {.importc: "IsTransparentShadowEnabled".}: bool 
-    useEnvironmentMapBackground* {.importc: "UseEnvironmentMapBackground".}: bool 
-    toIgnoreNormalMapInRayTracing* {.importc: "ToIgnoreNormalMapInRayTracing".}: bool 
-    coherentPathTracingMode* {.importc: "CoherentPathTracingMode".}: bool 
-    adaptiveScreenSampling* {.importc: "AdaptiveScreenSampling".}: bool 
-    adaptiveScreenSamplingAtomic* {.importc: "AdaptiveScreenSamplingAtomic".}: bool 
-    showSamplingTiles* {.importc: "ShowSamplingTiles".}: bool 
-    twoSidedBsdfModels* {.importc: "TwoSidedBsdfModels".}: bool 
-    radianceClampingValue* {.importc: "RadianceClampingValue".}: StandardShortReal 
-    rebuildRayTracingShaders* {.importc: "RebuildRayTracingShaders".}: bool 
-    rayTracingTileSize* {.importc: "RayTracingTileSize".}: cint 
-    nbRayTracingTiles* {.importc: "NbRayTracingTiles".}: cint 
-    cameraApertureRadius* {.importc: "CameraApertureRadius".}: StandardShortReal 
-    cameraFocalPlaneDist* {.importc: "CameraFocalPlaneDist".}: StandardShortReal 
-    frustumCullingState* {.importc: "FrustumCullingState".}: Graphic3dRenderingParamsFrustumCulling 
-    toneMappingMethod* {.importc: "ToneMappingMethod".}: Graphic3dToneMappingMethod 
-    exposure* {.importc: "Exposure".}: StandardShortReal 
-    whitePoint* {.importc: "WhitePoint".}: StandardShortReal 
-    stereoMode* {.importc: "StereoMode".}: Graphic3dStereoMode 
-    hmdFov2d* {.importc: "HmdFov2d".}: StandardShortReal 
-    anaglyphFilter* {.importc: "AnaglyphFilter".}: Graphic3dRenderingParamsAnaglyph 
-    anaglyphLeft* {.importc: "AnaglyphLeft".}: Graphic3dMat4 
-    anaglyphRight* {.importc: "AnaglyphRight".}: Graphic3dMat4 
-    toReverseStereo* {.importc: "ToReverseStereo".}: bool 
-    toMirrorComposer* {.importc: "ToMirrorComposer".}: bool 
-    statsPosition* {.importc: "StatsPosition".}: Handle[Graphic3dTransformPers] 
-    chartPosition* {.importc: "ChartPosition".}: Handle[Graphic3dTransformPers] 
-    chartSize* {.importc: "ChartSize".}: Graphic3dVec2i 
-    statsTextAspect* {.importc: "StatsTextAspect".}: Handle[Graphic3dAspectText3d] 
-    statsUpdateInterval* {.importc: "StatsUpdateInterval".}: StandardShortReal 
-    statsTextHeight* {.importc: "StatsTextHeight".}: cint 
-    statsNbFrames* {.importc: "StatsNbFrames".}: cint 
-    statsMaxChartTime* {.importc: "StatsMaxChartTime".}: StandardShortReal 
-    collectedStats* {.importc: "CollectedStats".}: Graphic3dRenderingParamsPerfCounters 
-    toShowStats* {.importc: "ToShowStats".}: bool 
-    resolution* {.importc: "Resolution".}: cuint 
-
   Graphic3dRenderingParamsAnaglyph* {.size: sizeof(cint), importcpp: "Graphic3d_RenderingParams::Anaglyph",
                                      header: "Graphic3d_RenderingParams.hxx".} = enum
     AnaglyphRedCyanSimple,    
@@ -609,8 +531,6 @@ type
     ProjectionOrthographic, ProjectionPerspective, ProjectionStereo,
     ProjectionMonoLeftEye, ProjectionMonoRightEye
 
-  Graphic3dClipPlaneEquation* = Graphic3dVec4d
-
   Graphic3dLightSetIterationFilter* {.size: sizeof(cint), importcpp: "Graphic3d_LightSet::IterationFilter",
                                      header: "Graphic3d_LightSet.hxx".} = enum
     iterationFilterNone = 0x0000, 
@@ -652,15 +572,9 @@ type
     graphic3dTextureSetBitsNormal = cast[cuint]((1 shl 4))     
     graphic3dTextureSetBitsMetallicRoughness = cast[cuint]((1 shl 5)) 
 
-  HandleGraphic3dArrayOfPrimitives* = Handle[Graphic3dArrayOfPrimitives]
-
   Graphic3dArray1OfAttribute* = NCollectionArray1[Graphic3dAttribute]
 
-  HandleGraphic3dCView* = Handle[Graphic3dCView]
-
   HandleGraphic3dDataStructureManager* = Handle[Graphic3dDataStructureManager]
-
-  HandleGraphic3dGraphicDriver* = Handle[Graphic3dGraphicDriver]
 
   MediaHMutex* = NCollectionShared[StandardMutex]
 
@@ -676,54 +590,30 @@ type
   Graphic3dShaderAttributeList* = NCollectionSequence[
       Handle[Graphic3dShaderAttribute]]
 
-  Graphic3dUniformInt* = Graphic3dUniformValue[cint]
-
-  Graphic3dUniformVec2i* = Graphic3dUniformValue[Graphic3dVec2i]
-
-  Graphic3dUniformVec3i* = Graphic3dUniformValue[Graphic3dVec3i]
-
-  Graphic3dUniformVec4i* = Graphic3dUniformValue[Graphic3dVec4i]
-
-  Graphic3dUniformFloat* = Graphic3dUniformValue[StandardShortReal]
-
-  Graphic3dUniformVec2* = Graphic3dUniformValue[Graphic3dVec2]
-
-  Graphic3dUniformVec3* = Graphic3dUniformValue[Graphic3dVec3]
-
-  Graphic3dUniformVec4* = Graphic3dUniformValue[Graphic3dVec4]
-
-  HandleGraphic3dStructure* = Handle[Graphic3dStructure]
-
-  HandleGraphic3dTexture1D* = Handle[Graphic3dTexture1D]
-
-  HandleGraphic3dTexture1Dmanual* = Handle[Graphic3dTexture1Dmanual]
-
-  HandleGraphic3dTexture1Dsegment* = Handle[Graphic3dTexture1Dsegment]
-
-  HandleGraphic3dTexture2Dplane* = Handle[Graphic3dTexture2Dplane]
-
-  HandleGraphic3dTextureEnv* = Handle[Graphic3dTextureEnv]
-
   Graphic3dTextureSet* {.importcpp: "Graphic3d_TextureSet",
                         header: "Graphic3d_TextureSet.hxx", bycopy.} = object of StandardTransient 
-
-  HandleGraphic3dTransformPers* = Handle[Graphic3dTransformPers]
 
   Graphic3dUniformValue*[T] {.importcpp: "Graphic3d_UniformValue<\'0>",
                              header: "Graphic3d_ShaderVariable.hxx", bycopy.} = object of Graphic3dValueInterface 
     value* {.importc: "Value".}: T
 
-  Graphic3dArrayOfPoints* {.importcpp: "Graphic3d_ArrayOfPoints",
-                           header: "Graphic3d_ArrayOfPoints.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
+  Graphic3dUniformFloat* = Graphic3dUniformValue[StandardShortReal]
 
-  Graphic3dArrayOfPolygons* {.importcpp: "Graphic3d_ArrayOfPolygons",
-                             header: "Graphic3d_ArrayOfPolygons.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
+  Graphic3dUniformInt* = Graphic3dUniformValue[cint]
+
+  Graphic3dArrayOfPrimitives* {.importcpp: "Graphic3d_ArrayOfPrimitives",
+                               header: "Graphic3d_ArrayOfPrimitives.hxx", bycopy.} = object of StandardTransient 
 
   Graphic3dArrayOfPolylines* {.importcpp: "Graphic3d_ArrayOfPolylines",
                               header: "Graphic3d_ArrayOfPolylines.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
 
-  Graphic3dArrayOfPrimitives* {.importcpp: "Graphic3d_ArrayOfPrimitives",
-                               header: "Graphic3d_ArrayOfPrimitives.hxx", bycopy.} = object of StandardTransient 
+  Graphic3dArrayOfPolygons* {.importcpp: "Graphic3d_ArrayOfPolygons",
+                             header: "Graphic3d_ArrayOfPolygons.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
+
+  Graphic3dArrayOfPoints* {.importcpp: "Graphic3d_ArrayOfPoints",
+                           header: "Graphic3d_ArrayOfPoints.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
+
+  HandleGraphic3dArrayOfPrimitives* = Handle[Graphic3dArrayOfPrimitives]
 
   Graphic3dArrayOfQuadrangles* {.importcpp: "Graphic3d_ArrayOfQuadrangles",
                                 header: "Graphic3d_ArrayOfQuadrangles.hxx", bycopy.} = object of Graphic3dArrayOfPrimitives 
@@ -744,23 +634,20 @@ type
   Graphic3dArrayOfTriangleStrips* {.importcpp: "Graphic3d_ArrayOfTriangleStrips", header: "Graphic3d_ArrayOfTriangleStrips.hxx",
                                    bycopy.} = object of Graphic3dArrayOfPrimitives 
 
-  Graphic3dAspectFillArea3d* {.importcpp: "Graphic3d_AspectFillArea3d",
-                              header: "Graphic3d_AspectFillArea3d.hxx", bycopy.} = object of Graphic3dAspects 
-
-  Graphic3dAspectLine3d* {.importcpp: "Graphic3d_AspectLine3d",
-                          header: "Graphic3d_AspectLine3d.hxx", bycopy.} = object of Graphic3dAspects 
+  Graphic3dAspects* {.importcpp: "Graphic3d_Aspects",
+                     header: "Graphic3d_Aspects.hxx", bycopy.} = object of StandardTransient 
 
   Graphic3dAspectMarker3d* {.importcpp: "Graphic3d_AspectMarker3d",
                             header: "Graphic3d_AspectMarker3d.hxx", bycopy.} = object of Graphic3dAspects 
 
-  Graphic3dAspects* {.importcpp: "Graphic3d_Aspects",
-                     header: "Graphic3d_Aspects.hxx", bycopy.} = object of StandardTransient 
+  Graphic3dAspectLine3d* {.importcpp: "Graphic3d_AspectLine3d",
+                          header: "Graphic3d_AspectLine3d.hxx", bycopy.} = object of Graphic3dAspects 
+
+  Graphic3dAspectFillArea3d* {.importcpp: "Graphic3d_AspectFillArea3d",
+                              header: "Graphic3d_AspectFillArea3d.hxx", bycopy.} = object of Graphic3dAspects 
 
   Graphic3dAspectText3d* {.importcpp: "Graphic3d_AspectText3d",
                           header: "Graphic3d_AspectText3d.hxx", bycopy.} = object of Graphic3dAspects 
-
-  Graphic3dAttribBuffer* {.importcpp: "Graphic3d_AttribBuffer",
-                          header: "Graphic3d_AttribBuffer.hxx", bycopy.} = object of Graphic3dBuffer 
 
   Graphic3dBoundBuffer* {.importcpp: "Graphic3d_BoundBuffer",
                          header: "Graphic3d_BoundBuffer.hxx", bycopy.} = object of NCollectionBuffer 
@@ -774,6 +661,9 @@ type
     stride* {.importc: "Stride".}: cint 
     nbElements* {.importc: "NbElements".}: cint 
     nbAttributes* {.importc: "NbAttributes".}: cint 
+
+  Graphic3dAttribBuffer* {.importcpp: "Graphic3d_AttribBuffer",
+                          header: "Graphic3d_AttribBuffer.hxx", bycopy.} = object of Graphic3dBuffer 
 
   Graphic3dBvhCStructureSet* {.importcpp: "Graphic3d_BvhCStructureSet",
                               header: "Graphic3d_BvhCStructureSet.hxx", bycopy.} = object of BVH_PrimitiveSet3d 
@@ -807,17 +697,10 @@ type
     isMutable* {.importc: "IsMutable", bitsize: 1.}: cuint
     is2dText* {.importc: "Is2dText", bitsize: 1.}: cuint
 
-  Graphic3dCubeMap* {.importcpp: "Graphic3d_CubeMap",
-                     header: "Graphic3d_CubeMap.hxx", bycopy.} = object of Graphic3dTextureMap 
-
-  Graphic3dCubeMapPacked* {.importcpp: "Graphic3d_CubeMapPacked",
-                           header: "Graphic3d_CubeMapPacked.hxx", bycopy.} = object of Graphic3dCubeMap 
-
-  Graphic3dCubeMapSeparate* {.importcpp: "Graphic3d_CubeMapSeparate",
-                             header: "Graphic3d_CubeMapSeparate.hxx", bycopy.} = object of Graphic3dCubeMap 
-
   Graphic3dCView* {.importcpp: "Graphic3d_CView", header: "Graphic3d_CView.hxx",
                    bycopy.} = object of Graphic3dDataStructureManager 
+
+  HandleGraphic3dCView* = Handle[Graphic3dCView]
 
   Graphic3dFrameStats* {.importcpp: "Graphic3d_FrameStats",
                         header: "Graphic3d_FrameStats.hxx", bycopy.} = object of StandardTransient 
@@ -827,6 +710,8 @@ type
 
   Graphic3dGraphicDriver* {.importcpp: "Graphic3d_GraphicDriver",
                            header: "Graphic3d_GraphicDriver.hxx", bycopy.} = object of StandardTransient 
+
+  HandleGraphic3dGraphicDriver* = Handle[Graphic3dGraphicDriver]
 
   Graphic3dGroup* {.importcpp: "Graphic3d_Group", header: "Graphic3d_Group.hxx",
                    bycopy.} = object of StandardTransient 
@@ -845,9 +730,6 @@ type
 
   Graphic3dMarkerImage* {.importcpp: "Graphic3d_MarkerImage",
                          header: "Graphic3d_MarkerImage.hxx", bycopy.} = object of StandardTransient 
-
-  Graphic3dMediaTexture* {.importcpp: "Graphic3d_MediaTexture",
-                          header: "Graphic3d_MediaTexture.hxx", bycopy.} = object of Graphic3dTexture2D 
 
   Graphic3dMediaTextureSet* {.importcpp: "Graphic3d_MediaTextureSet",
                              header: "Graphic3d_MediaTextureSet.hxx", bycopy.} = object of Graphic3dTextureSet 
@@ -873,34 +755,12 @@ type
   Graphic3dStructure* {.importcpp: "Graphic3d_Structure",
                        header: "Graphic3d_Structure.hxx", bycopy.} = object of StandardTransient 
 
+  HandleGraphic3dStructure* = Handle[Graphic3dStructure]
+
   Graphic3dStructureManager* {.importcpp: "Graphic3d_StructureManager",
                               header: "Graphic3d_StructureManager.hxx", bycopy.} = object of StandardTransient 
 
   Graphic3dText* {.importcpp: "Graphic3d_Text", header: "Graphic3d_Text.hxx", bycopy.} = object of StandardTransient 
-
-  Graphic3dTexture1D* {.importcpp: "Graphic3d_Texture1D",
-                       header: "Graphic3d_Texture1D.hxx", bycopy.} = object of Graphic3dTextureMap 
-
-  Graphic3dTexture1Dmanual* {.importcpp: "Graphic3d_Texture1Dmanual",
-                             header: "Graphic3d_Texture1Dmanual.hxx", bycopy.} = object of Graphic3dTexture1D 
-
-  Graphic3dTexture1Dsegment* {.importcpp: "Graphic3d_Texture1Dsegment",
-                              header: "Graphic3d_Texture1Dsegment.hxx", bycopy.} = object of Graphic3dTexture1D 
-
-  Graphic3dTexture2D* {.importcpp: "Graphic3d_Texture2D",
-                       header: "Graphic3d_Texture2D.hxx", bycopy.} = object of Graphic3dTextureMap 
-
-  Graphic3dTexture2Dmanual* {.importcpp: "Graphic3d_Texture2Dmanual",
-                             header: "Graphic3d_Texture2Dmanual.hxx", bycopy.} = object of Graphic3dTexture2D 
-
-  Graphic3dTexture2Dplane* {.importcpp: "Graphic3d_Texture2Dplane",
-                            header: "Graphic3d_Texture2Dplane.hxx", bycopy.} = object of Graphic3dTexture2D 
-
-  Graphic3dTextureEnv* {.importcpp: "Graphic3d_TextureEnv",
-                        header: "Graphic3d_TextureEnv.hxx", bycopy.} = object of Graphic3dTextureRoot 
-
-  Graphic3dTextureMap* {.importcpp: "Graphic3d_TextureMap",
-                        header: "Graphic3d_TextureMap.hxx", bycopy.} = object of Graphic3dTextureRoot 
 
   Graphic3dTextureParams* {.importcpp: "Graphic3d_TextureParams",
                            header: "Graphic3d_TextureParams.hxx", bycopy.} = object of StandardTransient 
@@ -908,17 +768,132 @@ type
   Graphic3dTextureRoot* {.importcpp: "Graphic3d_TextureRoot",
                          header: "Graphic3d_TextureRoot.hxx", bycopy.} = object of StandardTransient 
 
+  Graphic3dTextureMap* {.importcpp: "Graphic3d_TextureMap",
+                        header: "Graphic3d_TextureMap.hxx", bycopy.} = object of Graphic3dTextureRoot 
+
+  Graphic3dCTexture* {.importcpp: "Graphic3d_CTexture",
+                      header: "Graphic3d_CTexture.hxx", bycopy.} = object
+    textureMap* {.importc: "TextureMap".}: Handle[Graphic3dTextureMap] 
+    doTextureMap* {.importc: "doTextureMap".}: cint 
+
+  Graphic3dCubeMap* {.importcpp: "Graphic3d_CubeMap",
+                     header: "Graphic3d_CubeMap.hxx", bycopy.} = object of Graphic3dTextureMap 
+
+  Graphic3dCubeMapPacked* {.importcpp: "Graphic3d_CubeMapPacked",
+                           header: "Graphic3d_CubeMapPacked.hxx", bycopy.} = object of Graphic3dCubeMap 
+
+  Graphic3dCubeMapSeparate* {.importcpp: "Graphic3d_CubeMapSeparate",
+                             header: "Graphic3d_CubeMapSeparate.hxx", bycopy.} = object of Graphic3dCubeMap 
+
+  Graphic3dTexture1D* {.importcpp: "Graphic3d_Texture1D",
+                       header: "Graphic3d_Texture1D.hxx", bycopy.} = object of Graphic3dTextureMap 
+
+  HandleGraphic3dTexture1D* = Handle[Graphic3dTexture1D]
+
+  Graphic3dTexture1Dmanual* {.importcpp: "Graphic3d_Texture1Dmanual",
+                             header: "Graphic3d_Texture1Dmanual.hxx", bycopy.} = object of Graphic3dTexture1D 
+
+  HandleGraphic3dTexture1Dmanual* = Handle[Graphic3dTexture1Dmanual]
+
+  Graphic3dTexture1Dsegment* {.importcpp: "Graphic3d_Texture1Dsegment",
+                              header: "Graphic3d_Texture1Dsegment.hxx", bycopy.} = object of Graphic3dTexture1D 
+
+  HandleGraphic3dTexture1Dsegment* = Handle[Graphic3dTexture1Dsegment]
+
+  Graphic3dTexture2D* {.importcpp: "Graphic3d_Texture2D",
+                       header: "Graphic3d_Texture2D.hxx", bycopy.} = object of Graphic3dTextureMap 
+
+  Graphic3dMediaTexture* {.importcpp: "Graphic3d_MediaTexture",
+                          header: "Graphic3d_MediaTexture.hxx", bycopy.} = object of Graphic3dTexture2D 
+
+  Graphic3dTexture2Dmanual* {.importcpp: "Graphic3d_Texture2Dmanual",
+                             header: "Graphic3d_Texture2Dmanual.hxx", bycopy.} = object of Graphic3dTexture2D 
+
+  Graphic3dTexture2Dplane* {.importcpp: "Graphic3d_Texture2Dplane",
+                            header: "Graphic3d_Texture2Dplane.hxx", bycopy.} = object of Graphic3dTexture2D 
+
+  HandleGraphic3dTexture2Dplane* = Handle[Graphic3dTexture2Dplane]
+
+  Graphic3dTextureEnv* {.importcpp: "Graphic3d_TextureEnv",
+                        header: "Graphic3d_TextureEnv.hxx", bycopy.} = object of Graphic3dTextureRoot 
+
+  HandleGraphic3dTextureEnv* = Handle[Graphic3dTextureEnv]
+
   Graphic3dTransformPers* {.importcpp: "Graphic3d_TransformPers",
                            header: "Graphic3d_TransformPers.hxx", bycopy.} = object of StandardTransient 
+
+  HandleGraphic3dTransformPers* = Handle[Graphic3dTransformPers]
+
+  Graphic3dRenderingParams* {.importcpp: "Graphic3d_RenderingParams",
+                             header: "Graphic3d_RenderingParams.hxx", bycopy.} = object 
+    `method`* {.importc: "Method".}: Graphic3dRenderingMode 
+    transparencyMethod* {.importc: "TransparencyMethod".}: Graphic3dRenderTransparentMethod 
+    lineFeather* {.importc: "LineFeather".}: StandardShortReal 
+    pbrEnvPow2Size* {.importc: "PbrEnvPow2Size".}: cint 
+    pbrEnvSpecMapNbLevels* {.importc: "PbrEnvSpecMapNbLevels".}: cint 
+    pbrEnvBakingDiffNbSamples* {.importc: "PbrEnvBakingDiffNbSamples".}: cint 
+    pbrEnvBakingSpecNbSamples* {.importc: "PbrEnvBakingSpecNbSamples".}: cint 
+    pbrEnvBakingProbability* {.importc: "PbrEnvBakingProbability".}: StandardShortReal 
+    oitDepthFactor* {.importc: "OitDepthFactor".}: StandardShortReal 
+    nbMsaaSamples* {.importc: "NbMsaaSamples".}: cint 
+    renderResolutionScale* {.importc: "RenderResolutionScale".}: StandardShortReal 
+    toEnableDepthPrepass* {.importc: "ToEnableDepthPrepass".}: bool 
+    toEnableAlphaToCoverage* {.importc: "ToEnableAlphaToCoverage".}: bool 
+    isGlobalIlluminationEnabled* {.importc: "IsGlobalIlluminationEnabled".}: bool 
+    samplesPerPixel* {.importc: "SamplesPerPixel".}: cint 
+    raytracingDepth* {.importc: "RaytracingDepth".}: cint 
+    isShadowEnabled* {.importc: "IsShadowEnabled".}: bool 
+    isReflectionEnabled* {.importc: "IsReflectionEnabled".}: bool 
+    isAntialiasingEnabled* {.importc: "IsAntialiasingEnabled".}: bool 
+    isTransparentShadowEnabled* {.importc: "IsTransparentShadowEnabled".}: bool 
+    useEnvironmentMapBackground* {.importc: "UseEnvironmentMapBackground".}: bool 
+    toIgnoreNormalMapInRayTracing* {.importc: "ToIgnoreNormalMapInRayTracing".}: bool 
+    coherentPathTracingMode* {.importc: "CoherentPathTracingMode".}: bool 
+    adaptiveScreenSampling* {.importc: "AdaptiveScreenSampling".}: bool 
+    adaptiveScreenSamplingAtomic* {.importc: "AdaptiveScreenSamplingAtomic".}: bool 
+    showSamplingTiles* {.importc: "ShowSamplingTiles".}: bool 
+    twoSidedBsdfModels* {.importc: "TwoSidedBsdfModels".}: bool 
+    radianceClampingValue* {.importc: "RadianceClampingValue".}: StandardShortReal 
+    rebuildRayTracingShaders* {.importc: "RebuildRayTracingShaders".}: bool 
+    rayTracingTileSize* {.importc: "RayTracingTileSize".}: cint 
+    nbRayTracingTiles* {.importc: "NbRayTracingTiles".}: cint 
+    cameraApertureRadius* {.importc: "CameraApertureRadius".}: StandardShortReal 
+    cameraFocalPlaneDist* {.importc: "CameraFocalPlaneDist".}: StandardShortReal 
+    frustumCullingState* {.importc: "FrustumCullingState".}: Graphic3dRenderingParamsFrustumCulling 
+    toneMappingMethod* {.importc: "ToneMappingMethod".}: Graphic3dToneMappingMethod 
+    exposure* {.importc: "Exposure".}: StandardShortReal 
+    whitePoint* {.importc: "WhitePoint".}: StandardShortReal 
+    stereoMode* {.importc: "StereoMode".}: Graphic3dStereoMode 
+    hmdFov2d* {.importc: "HmdFov2d".}: StandardShortReal 
+    anaglyphFilter* {.importc: "AnaglyphFilter".}: Graphic3dRenderingParamsAnaglyph 
+    anaglyphLeft* {.importc: "AnaglyphLeft".}: Graphic3dMat4 
+    anaglyphRight* {.importc: "AnaglyphRight".}: Graphic3dMat4 
+    toReverseStereo* {.importc: "ToReverseStereo".}: bool 
+    toMirrorComposer* {.importc: "ToMirrorComposer".}: bool 
+    statsPosition* {.importc: "StatsPosition".}: Handle[Graphic3dTransformPers] 
+    chartPosition* {.importc: "ChartPosition".}: Handle[Graphic3dTransformPers] 
+    chartSize* {.importc: "ChartSize".}: Graphic3dVec2i 
+    statsTextAspect* {.importc: "StatsTextAspect".}: Handle[Graphic3dAspectText3d] 
+    statsUpdateInterval* {.importc: "StatsUpdateInterval".}: StandardShortReal 
+    statsTextHeight* {.importc: "StatsTextHeight".}: cint 
+    statsNbFrames* {.importc: "StatsNbFrames".}: cint 
+    statsMaxChartTime* {.importc: "StatsMaxChartTime".}: StandardShortReal 
+    collectedStats* {.importc: "CollectedStats".}: Graphic3dRenderingParamsPerfCounters 
+    toShowStats* {.importc: "ToShowStats".}: bool 
+    resolution* {.importc: "Resolution".}: cuint 
 
   Graphic3dViewAffinity* {.importcpp: "Graphic3d_ViewAffinity",
                           header: "Graphic3d_ViewAffinity.hxx", bycopy.} = object of StandardTransient 
 
   Graphic3dVec2* = NCollectionVec2[StandardShortReal]
 
+  Graphic3dUniformVec2* = Graphic3dUniformValue[Graphic3dVec2]
+
   Graphic3dVec2d* = NCollectionVec2[cfloat]
 
   Graphic3dVec2i* = NCollectionVec2[cint]
+
+  Graphic3dUniformVec2i* = Graphic3dUniformValue[Graphic3dVec2i]
 
   Graphic3dVec2u* = NCollectionVec2[cuint]
 
@@ -928,9 +903,13 @@ type
 
   Graphic3dVec3* = NCollectionVec3[StandardShortReal]
 
+  Graphic3dUniformVec3* = Graphic3dUniformValue[Graphic3dVec3]
+
   Graphic3dVec3d* = NCollectionVec3[cfloat]
 
   Graphic3dVec3i* = NCollectionVec3[cint]
+
+  Graphic3dUniformVec3i* = Graphic3dUniformValue[Graphic3dVec3i]
 
   Graphic3dVec3u* = NCollectionVec3[cuint]
 
@@ -940,9 +919,15 @@ type
 
   Graphic3dVec4* = NCollectionVec4[StandardShortReal]
 
+  Graphic3dUniformVec4* = Graphic3dUniformValue[Graphic3dVec4]
+
   Graphic3dVec4d* = NCollectionVec4[cfloat]
 
+  Graphic3dClipPlaneEquation* = Graphic3dVec4d
+
   Graphic3dVec4i* = NCollectionVec4[cint]
+
+  Graphic3dUniformVec4i* = Graphic3dUniformValue[Graphic3dVec4i]
 
   Graphic3dVec4u* = NCollectionVec4[cuint]
 

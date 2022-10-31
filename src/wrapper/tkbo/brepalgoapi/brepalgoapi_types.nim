@@ -1,20 +1,16 @@
-# PROVIDES:
-# DEPENDS: BRepBuilderAPI_MakeShape BRepAlgoAPI_BuilderAlgo BRepAlgoAPI_Algo BOPAlgoOptions BRepAlgoAPI_BooleanOperation BRepAlgoAPI_BooleanOperation BRepAlgoAPI_Algo BRepAlgoAPI_BooleanOperation BRepAlgoAPI_BooleanOperation BRepAlgoAPI_BuilderAlgo
-
-import tkbo/bopalgo/bopalgo_types
-import tkbrep/brep/brep_types
-import tktopalgo/brepbuilderapi/brepbuilderapi_types
-import tkbo/brepalgoapi/brepalgoapi_types
+import ../tkbo/bopalgo/bopalgo_types
+import ../../tkbrep/brep/brep_types
+import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
 type
   BRepAlgoAPI_Algo* {.importcpp: "BRepAlgoAPI_Algo",
                      header: "BRepAlgoAPI_Algo.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
 
+  BRepAlgoAPI_BuilderAlgo* {.importcpp: "BRepAlgoAPI_BuilderAlgo",
+                            header: "BRepAlgoAPI_BuilderAlgo.hxx", bycopy.} = object of BRepAlgoAPI_Algo 
+
   BRepAlgoAPI_BooleanOperation* {.importcpp: "BRepAlgoAPI_BooleanOperation",
                                  header: "BRepAlgoAPI_BooleanOperation.hxx",
                                  bycopy.} = object of BRepAlgoAPI_BuilderAlgo 
-
-  BRepAlgoAPI_BuilderAlgo* {.importcpp: "BRepAlgoAPI_BuilderAlgo",
-                            header: "BRepAlgoAPI_BuilderAlgo.hxx", bycopy.} = object of BRepAlgoAPI_Algo 
 
   BRepAlgoAPI_Check* {.importcpp: "BRepAlgoAPI_Check",
                       header: "BRepAlgoAPI_Check.hxx", bycopy.} = object of BOPAlgoOptions 
@@ -33,9 +29,10 @@ type
 
   BRepAlgoAPI_Section* {.importcpp: "BRepAlgoAPI_Section",
                         header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation 
+                        #header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation 
+                        #header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation 
 
-                        header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation 
+                        #header: "BRepAlgoAPI_Section.hxx", bycopy.} = object of BRepAlgoAPI_BooleanOperation 
   BRepAlgoAPI_Splitter* {.importcpp: "BRepAlgoAPI_Splitter",
                          header: "BRepAlgoAPI_Splitter.hxx", bycopy.} = object of BRepAlgoAPI_BuilderAlgo 
-
 

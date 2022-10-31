@@ -1,11 +1,7 @@
-# PROVIDES: BRepBuilderAPI_EdgeError BRepBuilderAPI_FaceError BRepBuilderAPI_PipeError BRepBuilderAPI_ShapeModification BRepBuilderAPI_ShellError BRepBuilderAPI_TransitionMode BRepBuilderAPI BRepBuilderAPI_Collect BRepBuilderAPI_Command BRepBuilderAPI_FindPlane BRepBuilderAPI_FastSewingFS_VARStatuses BRepBuilderAPI_FastSewingFS_Statuses BRepBuilderAPI_VertexInspectorTarget BRepBuilderAPI_WireError
-# DEPENDS:  NCollectionCellFilter[  NCollectionUBTree[cint, BndBox]  Handle[BRepBuilderAPI_Sewing]  NCollectionVector[XyzObj] BRepBuilderAPI_Command BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_MakeShape BRepBuilderAPI_ModifyShape BRepBuilderAPI_ModifyShape BRepBuilderAPI_ModifyShape BRepBuilderAPI_ModifyShape Selector StandardTransient StandardTransient NCollectionCellFilterInspectorXYZ
-
-import tkbrep/brep/brep_types
-import tktopalgo/brepbuilderapi/brepbuilderapi_types
-import tkmath/bnd/bnd_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkbrep/brep/brep_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   BRepBuilderAPI_EdgeError* {.size: sizeof(cint),
                              importcpp: "BRepBuilderAPI_EdgeError",
@@ -74,12 +70,7 @@ type
     BRepBuilderAPI_WireDone, BRepBuilderAPI_EmptyWire,
     BRepBuilderAPI_DisconnectedWire, BRepBuilderAPI_NonManifoldWire
 
-  BRepBuilderAPI_CellFilter* = NCollectionCellFilter[
-      BRepBuilderAPI_VertexInspector]
-
   BRepBuilderAPI_BndBoxTree* = NCollectionUBTree[cint, BndBox]
-
-  HandleBRepBuilderAPI_Sewing* = Handle[BRepBuilderAPI_Sewing]
 
   VectorOfPoint* = NCollectionVector[XyzObj]
 
@@ -134,8 +125,13 @@ type
   BRepBuilderAPI_Sewing* {.importcpp: "BRepBuilderAPI_Sewing",
                           header: "BRepBuilderAPI_Sewing.hxx", bycopy.} = object of StandardTransient 
 
+  HandleBRepBuilderAPI_Sewing* = Handle[BRepBuilderAPI_Sewing]
+
   BRepBuilderAPI_VertexInspector* {.importcpp: "BRepBuilderAPI_VertexInspector", header: "BRepBuilderAPI_VertexInspector.hxx",
                                    bycopy.} = object of NCollectionCellFilterInspectorXYZ
                                    bycopy.} = object of NCollectionCellFilterInspectorXYZ
                                    bycopy.} = object of NCollectionCellFilterInspectorXYZ
+
+  BRepBuilderAPI_CellFilter* = NCollectionCellFilter[
+      BRepBuilderAPI_VertexInspector]
 

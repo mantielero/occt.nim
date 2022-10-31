@@ -635,15 +635,17 @@ for typ in typs:
 #reorderContent("./tkernel/standard/standard_types.nim")
 #reorderContent("./tkg3d/geom/geom_types.nim")
 
-for fname in walkFiles("tkg3d/geom/*.nim"):
-  if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
-    echo "Functions: ", fname
-    addImports(fname)
+for fname in walkFiles("tk*/*/*.nim"):
+  if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
+    if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
+      echo "Functions: ", fname
+      addImports(fname)
 
 
-#echo a
+
 #for fname in walkFiles("./tk*/*/*_types.nim"):
-#  reorderContent(fname)
+#  if not fname.startsWith("./tkernel/") and not fname.startsWith("./tkmath/"):
+#    reorderContent(fname)
 
 #addImportsToTypes("./tk*/*/*_types.nim")
 #correctIncludes("./tk*/*")

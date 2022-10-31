@@ -1,10 +1,6 @@
-# PROVIDES: TopoDS_ListIteratorOfListOfShape TopoDS TopoDS_Builder TopoDS_Iterator TopoDS_Shape
-# DEPENDS:  NCollectionList[TopoDS_Shape] TopoDS_Shape TopoDS_Shape TopoDS_Shape TopoDS_Shape TopoDS_Shape TopoDS_Shape TopoDS_Shape TopoDS_Shape  Handle[TopoDS_FrozenShape]  Handle[TopoDS_HShape]  Handle[TopoDS_LockedShape]  Handle[TopoDS_TCompound]  Handle[TopoDS_TCompSolid]  Handle[TopoDS_TEdge]  Handle[TopoDS_TFace]  Handle[TopoDS_TShell]  Handle[TopoDS_TSolid]  Handle[TopoDS_TVertex]  Handle[TopoDS_TWire]  Handle[TopoDS_UnCompatibleShapes] MessageAttributeStream MessageAlert StandardTransient TopoDS_TShape TopoDS_TShape TopoDS_TShape TopoDS_TShape StandardTransient TopoDS_TShape TopoDS_TShape TopoDS_TShape TopoDS_TShape
-
-import tkbrep/topods/topods_types
-import tkernel/message/message_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/message/message_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object
 
@@ -39,25 +35,7 @@ type
 
   HandleTopoDS_FrozenShape* = Handle[TopoDS_FrozenShape]
 
-  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
-
   HandleTopoDS_LockedShape* = Handle[TopoDS_LockedShape]
-
-  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
-
-  HandleTopoDS_TCompSolid* = Handle[TopoDS_TCompSolid]
-
-  HandleTopoDS_TEdge* = Handle[TopoDS_TEdge]
-
-  HandleTopoDS_TFace* = Handle[TopoDS_TFace]
-
-  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
-
-  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
-
-  HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
-
-  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
 
   HandleTopoDS_UnCompatibleShapes* = Handle[TopoDS_UnCompatibleShapes]
 
@@ -69,25 +47,42 @@ type
 
   TopoDS_HShape* {.importcpp: "TopoDS_HShape", header: "TopoDS_HShape.hxx", bycopy.} = object of StandardTransient 
 
-  TopoDS_TCompound* {.importcpp: "TopoDS_TCompound",
-                     header: "TopoDS_TCompound.hxx", bycopy.} = object of TopoDS_TShape 
+  HandleTopoDS_HShape* = Handle[TopoDS_HShape]
+
+  TopoDS_TShape* {.importcpp: "TopoDS_TShape", header: "TopoDS_TShape.hxx", bycopy.} = object of StandardTransient 
+
+  TopoDS_TFace* {.importcpp: "TopoDS_TFace", header: "TopoDS_TFace.hxx", bycopy.} = object of TopoDS_TShape 
+
+  HandleTopoDS_TFace* = Handle[TopoDS_TFace]
+
+  TopoDS_TEdge* {.importcpp: "TopoDS_TEdge", header: "TopoDS_TEdge.hxx", bycopy.} = object of TopoDS_TShape 
+
+  HandleTopoDS_TEdge* = Handle[TopoDS_TEdge]
 
   TopoDS_TCompSolid* {.importcpp: "TopoDS_TCompSolid",
                       header: "TopoDS_TCompSolid.hxx", bycopy.} = object of TopoDS_TShape 
 
-  TopoDS_TEdge* {.importcpp: "TopoDS_TEdge", header: "TopoDS_TEdge.hxx", bycopy.} = object of TopoDS_TShape 
+  HandleTopoDS_TCompSolid* = Handle[TopoDS_TCompSolid]
 
-  TopoDS_TFace* {.importcpp: "TopoDS_TFace", header: "TopoDS_TFace.hxx", bycopy.} = object of TopoDS_TShape 
+  TopoDS_TCompound* {.importcpp: "TopoDS_TCompound",
+                     header: "TopoDS_TCompound.hxx", bycopy.} = object of TopoDS_TShape 
 
-  TopoDS_TShape* {.importcpp: "TopoDS_TShape", header: "TopoDS_TShape.hxx", bycopy.} = object of StandardTransient 
+  HandleTopoDS_TCompound* = Handle[TopoDS_TCompound]
 
   TopoDS_TShell* {.importcpp: "TopoDS_TShell", header: "TopoDS_TShell.hxx", bycopy.} = object of TopoDS_TShape 
 
+  HandleTopoDS_TShell* = Handle[TopoDS_TShell]
+
   TopoDS_TSolid* {.importcpp: "TopoDS_TSolid", header: "TopoDS_TSolid.hxx", bycopy.} = object of TopoDS_TShape 
 
+  HandleTopoDS_TSolid* = Handle[TopoDS_TSolid]
+
   TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape 
+
+  HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
 
   TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape 
   TopoDS_TWire* {.importcpp: "TopoDS_TWire", header: "TopoDS_TWire.hxx", bycopy.} = object of TopoDS_TShape 
 
+  HandleTopoDS_TWire* = Handle[TopoDS_TWire]
 

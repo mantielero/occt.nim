@@ -1,11 +1,7 @@
-# PROVIDES: V3dCoordinate V3dLight HandleV3dLight V3dListOfLightIterator V3dListOfViewIterator V3dParameter V3dStereoDumpOptions V3dTypeOfAxe V3dTypeOfBackfacingModel V3dTypeOfLight V3dTypeOfPickCamera V3dTypeOfPickLight V3dTypeOfRepresentation V3dTypeOfShadingModel V3dTypeOfView V3dTypeOfVisualization V3d V3dImageDumpOptions V3dTypeOfOrientation V3dViewerPointer V3dViewPointer
-# DEPENDS:  NCollectionList[Handle[Graphic3dCLight]]  NCollectionList[Handle[V3dView]]  Handle[V3dPlane]  Handle[V3dView] Graphic3dCLight AspectCircularGrid V3dPositionLight StandardTransient V3dPositionLight Graphic3dCLight AspectRectangularGrid V3dPositionLight StandardTransient StandardTransient StandardTransient
-
-import tkservice/aspect/aspect_types
-import tkv3d/v3d/v3d_types
-import tkv3d/graphic3d/graphic3d_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkservice/aspect/aspect_types
+import ../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   V3dCoordinate* = cfloat
 
@@ -95,26 +91,24 @@ type
 
   V3dListOfView* = NCollectionList[Handle[V3dView]]
 
-  HandleV3dPlane* = Handle[V3dPlane]
-
-  HandleV3dView* = Handle[V3dView]
-
   V3dAmbientLight* {.importcpp: "V3d_AmbientLight", header: "V3d_AmbientLight.hxx",
                     bycopy.} = object of Graphic3dCLight 
 
   V3dCircularGrid* {.importcpp: "V3d_CircularGrid", header: "V3d_CircularGrid.hxx",
                     bycopy.} = object of AspectCircularGrid 
 
-  V3dDirectionalLight* {.importcpp: "V3d_DirectionalLight",
-                        header: "V3d_DirectionalLight.hxx", bycopy.} = object of V3dPositionLight 
-
   V3dPlane* {.importcpp: "V3d_Plane", header: "V3d_Plane.hxx", bycopy.} = object of StandardTransient 
+
+  HandleV3dPlane* = Handle[V3dPlane]
+
+  V3dPositionLight* {.importcpp: "V3d_PositionLight",
+                     header: "V3d_PositionLight.hxx", bycopy.} = object of Graphic3dCLight 
 
   V3dPositionalLight* {.importcpp: "V3d_PositionalLight",
                        header: "V3d_PositionalLight.hxx", bycopy.} = object of V3dPositionLight 
 
-  V3dPositionLight* {.importcpp: "V3d_PositionLight",
-                     header: "V3d_PositionLight.hxx", bycopy.} = object of Graphic3dCLight 
+  V3dDirectionalLight* {.importcpp: "V3d_DirectionalLight",
+                        header: "V3d_DirectionalLight.hxx", bycopy.} = object of V3dPositionLight 
 
   V3dRectangularGrid* {.importcpp: "V3d_RectangularGrid",
                        header: "V3d_RectangularGrid.hxx", bycopy.} = object of AspectRectangularGrid 
@@ -124,6 +118,8 @@ type
   V3dTrihedron* {.importcpp: "V3d_Trihedron", header: "V3d_Trihedron.hxx", bycopy.} = object of StandardTransient 
 
   V3dView* {.importcpp: "V3d_View", header: "V3d_View.hxx", bycopy.} = object of StandardTransient 
+
+  HandleV3dView* = Handle[V3dView]
 
   V3dViewer* {.importcpp: "V3d_Viewer", header: "V3d_Viewer.hxx", byref, pure,inheritable.} = object of StandardTransient 
 

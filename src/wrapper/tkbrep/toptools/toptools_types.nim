@@ -1,11 +1,7 @@
-# PROVIDES: TopToolsDataMapIteratorOfDataMapOfIntegerListOfShape TopToolsDataMapIteratorOfDataMapOfIntegerShape TopToolsDataMapIteratorOfDataMapOfOrientedShapeInteger TopToolsDataMapIteratorOfDataMapOfOrientedShapeShape TopToolsDataMapIteratorOfDataMapOfShapeBox TopToolsDataMapIteratorOfDataMapOfShapeInteger TopToolsDataMapIteratorOfDataMapOfShapeListOfInteger TopToolsDataMapIteratorOfDataMapOfShapeListOfShape TopToolsDataMapIteratorOfDataMapOfShapeReal TopToolsDataMapIteratorOfDataMapOfShapeSequenceOfShape TopToolsDataMapIteratorOfDataMapOfShapeShape TopToolsListIteratorOfListOfListOfShape TopToolsListIteratorOfListOfShape TopToolsLocationSetPtr TopToolsMapIteratorOfMapOfOrientedShape TopToolsMapIteratorOfMapOfShape TopToolsShapeMapHasher TopTools TopToolsLocationSet TopToolsMutexForShapeProvider TopToolsShapeSet TopToolsOrientedShapeMapHasher
-# DEPENDS:  NCollectionArray1[TopToolsListOfShape]  NCollectionArray1[TopoDS_Shape]  NCollectionArray2[TopoDS_Shape]  NCollectionDataMap[cint,  NCollectionDataMap[cint, TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape, cint,  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape, BndBox,  NCollectionDataMap[TopoDS_Shape, cint,  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape, cfloat,  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape, TopoDS_Shape,  NCollectionIndexedDataMap[TopoDS_Shape,  NCollectionIndexedDataMap[  NCollectionIndexedDataMap[TopoDS_Shape,  NCollectionIndexedDataMap[TopoDS_Shape,  NCollectionIndexedMap[TopoDS_Shape,  NCollectionIndexedMap[TopoDS_Shape,  NCollectionList[TopToolsListOfShape]  NCollectionList[TopoDS_Shape]  NCollectionMap[TopoDS_Shape,  NCollectionMap[TopoDS_Shape, TopToolsShapeMapHasher]  NCollectionSequence[TopoDS_Shape] TopToolsArray1OfListOfShape TopToolsArray1OfShape TopToolsArray2OfShape TopToolsSequenceOfShape
-
-import tkbrep/topods/topods_types
-import tkernel/tcolstd/tcolstd_types
-import tkmath/bnd/bnd_types
-import tkbrep/toptools/toptools_types
-import tkernel/ncollection/ncollection_types
+import ../tkbrep/topods/topods_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkernel/ncollection/ncollection_types
 type
   TopToolsDataMapIteratorOfDataMapOfIntegerListOfShape* {.importcpp:"NCollection_DataMap<Standard_Integer,TopTools_ListOfShape,TColStd_MapIntegerHasher>::Iterator", header:"TopTools_DataMapOfIntegerListOfShape.hxx",bycopy.} = object
 
@@ -41,55 +37,6 @@ type
 
   TopToolsShapeMapHasher* {.importcpp: "TopTools_ShapeMapHasher",
                            header: "TopTools_ShapeMapHasher.hxx", bycopy.} = object 
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
-                                                                               
 
   TopTools* {.importcpp: "TopTools", header: "TopTools.hxx", bycopy.} = object 
 
@@ -106,14 +53,9 @@ type
   TopToolsOrientedShapeMapHasher* {.importcpp: "TopTools_OrientedShapeMapHasher", header: "TopTools_OrientedShapeMapHasher.hxx",
                                    bycopy.} = object 
 
-  TopToolsArray1OfListOfShape* = NCollectionArray1[TopToolsListOfShape]
-
   TopToolsArray1OfShape* = NCollectionArray1[TopoDS_Shape]
 
   TopToolsArray2OfShape* = NCollectionArray2[TopoDS_Shape]
-
-  TopToolsDataMapOfIntegerListOfShape* = NCollectionDataMap[cint,
-      TopToolsListOfShape, TColStdMapIntegerHasher]
 
   TopToolsDataMapOfIntegerShape* = NCollectionDataMap[cint, TopoDS_Shape,
       TColStdMapIntegerHasher]
@@ -133,23 +75,14 @@ type
   TopToolsDataMapOfShapeListOfInteger* = NCollectionDataMap[TopoDS_Shape,
       TColStdListOfInteger, TopToolsShapeMapHasher]
 
-  TopToolsDataMapOfShapeListOfShape* = NCollectionDataMap[TopoDS_Shape,
-      TopToolsListOfShape, TopToolsShapeMapHasher]
-
   TopToolsDataMapOfShapeReal* = NCollectionDataMap[TopoDS_Shape, cfloat,
       TopToolsShapeMapHasher]
-
-  TopToolsDataMapOfShapeSequenceOfShape* = NCollectionDataMap[TopoDS_Shape,
-      TopToolsSequenceOfShape, TopToolsShapeMapHasher]
 
   TopToolsDataMapOfShapeShape* = NCollectionDataMap[TopoDS_Shape, TopoDS_Shape,
       TopToolsShapeMapHasher]
 
   TopToolsIndexedDataMapOfShapeAddress* = NCollectionIndexedDataMap[TopoDS_Shape,
       pointer, TopToolsShapeMapHasher]
-
-  TopToolsIndexedDataMapOfShapeListOfShape* = NCollectionIndexedDataMap[
-      TopoDS_Shape, TopToolsListOfShape, TopToolsShapeMapHasher]
 
   TopToolsIndexedDataMapOfShapeReal* = NCollectionIndexedDataMap[TopoDS_Shape,
       cfloat, TopToolsShapeMapHasher]
@@ -163,9 +96,20 @@ type
   TopToolsIndexedMapOfShape* = NCollectionIndexedMap[TopoDS_Shape,
       TopToolsShapeMapHasher]
 
+  TopToolsListOfShape* = NCollectionList[TopoDS_Shape]
+
   TopToolsListOfListOfShape* = NCollectionList[TopToolsListOfShape]
 
-  TopToolsListOfShape* = NCollectionList[TopoDS_Shape]
+  TopToolsIndexedDataMapOfShapeListOfShape* = NCollectionIndexedDataMap[
+      TopoDS_Shape, TopToolsListOfShape, TopToolsShapeMapHasher]
+
+  TopToolsDataMapOfShapeListOfShape* = NCollectionDataMap[TopoDS_Shape,
+      TopToolsListOfShape, TopToolsShapeMapHasher]
+
+  TopToolsDataMapOfIntegerListOfShape* = NCollectionDataMap[cint,
+      TopToolsListOfShape, TColStdMapIntegerHasher]
+
+  TopToolsArray1OfListOfShape* = NCollectionArray1[TopToolsListOfShape]
 
   TopToolsMapOfOrientedShape* = NCollectionMap[TopoDS_Shape,
       TopToolsOrientedShapeMapHasher]
@@ -173,6 +117,9 @@ type
   TopToolsMapOfShape* = NCollectionMap[TopoDS_Shape, TopToolsShapeMapHasher]
 
   TopToolsSequenceOfShape* = NCollectionSequence[TopoDS_Shape]
+
+  TopToolsDataMapOfShapeSequenceOfShape* = NCollectionDataMap[TopoDS_Shape,
+      TopToolsSequenceOfShape, TopToolsShapeMapHasher]
 
   TopToolsHArray1OfListOfShape* {.importcpp: "TopTools_HArray1OfListOfShape",
                                  header: "TopTools_HArray1OfListOfShape.hxx",
@@ -183,9 +130,9 @@ type
 
   TopToolsHArray2OfShape* {.importcpp: "TopTools_HArray2OfShape",
                            header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
+                           header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
 
                            header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
   TopToolsHSequenceOfShape* {.importcpp: "TopTools_HSequenceOfShape",
                              header: "TopTools_HSequenceOfShape.hxx", bycopy.} = object of TopToolsSequenceOfShape
-
 

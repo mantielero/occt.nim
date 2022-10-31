@@ -1,6 +1,3 @@
-# PROVIDES: TopExpStack TopExp TopExpExplorer
-# DEPENDS:
-
 type
   TopExpStack* = ptr TopoDS_Iterator
 

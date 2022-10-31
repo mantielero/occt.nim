@@ -1,6 +1,3 @@
-# PROVIDES: ChFi2d ChFi2dConstructionError ChFi2dAnaFilletAlgo ChFi2dBuilder ChFi2dChamferAPI ChFi2dFilletAlgo FilletPoint ChFi2dFilletAPI
-# DEPENDS:
-
 type
   ChFi2d* {.importcpp: "ChFi2d", header: "ChFi2d.hxx", bycopy.} = object
 

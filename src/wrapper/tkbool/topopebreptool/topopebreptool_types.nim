@@ -1,13 +1,9 @@
-# PROVIDES: TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface TopOpeBRepToolDataMapIteratorOfDataMapOfShapeListOfC2DF TopOpeBRepToolListIteratorOfListOfC2DF TopOpeBRepToolOutCurveType TopOpeBRepToolPlos TopOpeBRepToolPShapeClassifier TopOpeBRepToolPSoClassif TopOpeBRepTool TopOpeBRepToolAncestorsTool TopOpeBRepToolBoxSort TopOpeBRepToolC2DF TopOpeBRepToolCLASSI TopOpeBRepToolConnexity TopOpeBRepToolCORRISO TopOpeBRepToolCurveTool TopOpeBRepToolFace TopOpeBRepToolFuseEdges TopOpeBRepToolGeomTool TopOpeBRepToolMakeTransition TopOpeBRepToolMkTondgE TopOpeBRepToolPurgeInternalEdges TopOpeBRepToolREGUS TopOpeBRepToolREGUW TopOpeBRepToolShapeClassifier TopOpeBRepToolShapeTool TopOpeBRepToolSolidClassifier TopOpeBRepToolTOOL
-# DEPENDS:  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape,  NCollectionDataMap[TopoDS_Shape,  NCollectionIndexedDataMap[  NCollectionIndexedDataMap[  NCollectionIndexedDataMap[  NCollectionIndexedDataMap[  NCollectionList[TopOpeBRepToolC2DF]  Handle[TopOpeBRepToolHBoxTool] StandardTransient TopExpExplorer
-
-import tkbrep/topods/topods_types
-import tkbrep/brep/brep_types
-import tkmath/bnd/bnd_types
-import tkbrep/toptools/toptools_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
-import tkbool/topopebreptool/topopebreptool_types
+import ../../tkbrep/topods/topods_types
+import ../../tkbrep/brep/brep_types
+import ../../tkmath/bnd/bnd_types
+import ../../tkbrep/toptools/toptools_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_C2DF,TopTools_OrientedShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfOrientedShapeC2DF.hxx", bycopy.} = object
 
@@ -97,9 +93,6 @@ type
   TopOpeBRepToolDataMapOfShapeface* = NCollectionDataMap[TopoDS_Shape,
       TopOpeBRepToolFace, TopToolsShapeMapHasher]
 
-  TopOpeBRepToolDataMapOfShapeListOfC2DF* = NCollectionDataMap[TopoDS_Shape,
-      TopOpeBRepToolListOfC2DF, TopToolsShapeMapHasher]
-
   TopOpeBRepToolIndexedDataMapOfShapeBox* = NCollectionIndexedDataMap[
       TopoDS_Shape, BndBox, TopToolsOrientedShapeMapHasher]
 
@@ -114,13 +107,16 @@ type
 
   TopOpeBRepToolListOfC2DF* = NCollectionList[TopOpeBRepToolC2DF]
 
-  HandleTopOpeBRepToolHBoxTool* = Handle[TopOpeBRepToolHBoxTool]
+  TopOpeBRepToolDataMapOfShapeListOfC2DF* = NCollectionDataMap[TopoDS_Shape,
+      TopOpeBRepToolListOfC2DF, TopToolsShapeMapHasher]
 
   TopOpeBRepToolHBoxTool* {.importcpp: "TopOpeBRepTool_HBoxTool",
                            header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+                           header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+
+  HandleTopOpeBRepToolHBoxTool* = Handle[TopOpeBRepToolHBoxTool]
 
                            header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
   TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
                                 header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer 
-
 

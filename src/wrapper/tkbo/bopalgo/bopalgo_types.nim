@@ -1,8 +1,4 @@
-# PROVIDES: BOPAlgoCheckStatus BOPAlgoGlueEnum BOPAlgoListIteratorOfListOfCheckResult BOPAlgoOperation BOPAlgoPArgumentAnalyzer BOPAlgoPBOP BOPAlgoPBuilder BOPAlgoPPaveFiller BOPAlgoPSection BOPAlgoPWireEdgeSet BOPAlgoCheckResult BOPAlgoMakePeriodicPeriodicityParams BOPAlgoOptions BOPAlgoSectionAttribute BOPAlgoTools BOPAlgoWireEdgeSet
-# DEPENDS:  NCollectionList[BOPAlgoCheckResult] BOPAlgoOptions BOPAlgoOptions BOPAlgoOptions BOPAlgoAlgo BOPAlgoAlgo BOPAlgoAlgo BOPAlgoAlgo BOPAlgoAlgo BOPAlgoAlgo BOPAlgoBuilderShape BOPAlgoBuilderArea BOPAlgoBuilderArea BOPAlgoPaveFiller BOPAlgoBuilderShape BOPAlgoBuilder BOPAlgoBuilder BOPAlgoBuilder BOPAlgoBuilder BOPAlgoToolsProvider BOPAlgoToolsProvider
-
-import tkbo/bopalgo/bopalgo_types
-import tkernel/ncollection/ncollection_types
+import ../../tkernel/ncollection/ncollection_types
 type
   BOPAlgoCheckStatus* {.size: sizeof(cint), importcpp: "BOPAlgo_CheckStatus",
                        header: "BOPAlgo_CheckStatus.hxx".} = enum
@@ -118,5 +114,4 @@ type
   BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider 
   BOPAlgoSplitter* {.importcpp: "BOPAlgo_Splitter", header: "BOPAlgo_Splitter.hxx",
                     bycopy.} = object of BOPAlgoToolsProvider 
-
 

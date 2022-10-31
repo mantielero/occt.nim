@@ -1,9 +1,5 @@
-# PROVIDES: IFSelectEditValue IFSelectPrintCount IFSelectPrintFail IFSelectRemainMode IFSelectReturnStatus IFSelect IFSelectContextModif IFSelectContextWrite IFSelectFunctions IFSelectSelectionIterator IFSelectSessionFile IFSelectShareOutResult
-# DEPENDS:  proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.  NCollectionSequence[  NCollectionSequence[  NCollectionSequence[  NCollectionSequence[Handle[IFSelectDispatch]]  NCollectionSequence[Handle[IFSelectSelection]]  Handle[IFSelectAct]  Handle[IFSelectActivator]  Handle[IFSelectAppliedModifiers]  Handle[IFSelectBasicDumper]  Handle[IFSelectCheckCounter]  Handle[IFSelectDispatch]  Handle[IFSelectDispGlobal]  Handle[IFSelectDispPerCount]  Handle[IFSelectDispPerFiles]  Handle[IFSelectDispPerOne]  Handle[IFSelectDispPerSignature]  Handle[IFSelectEditForm]  Handle[IFSelectEditor]  Handle[IFSelectGeneralModifier]  Handle[IFSelectGraphCounter]  Handle[IFSelectIntParam]  Handle[IFSelectListEditor]  Handle[IFSelectModelCopier]  Handle[IFSelectModifEditForm]  Handle[IFSelectModifier]  Handle[IFSelectModifReorder]  Handle[IFSelectPacketList]  Handle[IFSelectParamEditor]  Handle[IFSelectSelectAnyList]  Handle[IFSelectSelectAnyType]  Handle[IFSelectSelectBase]  Handle[IFSelectSelectCombine]  Handle[IFSelectSelectControl]  Handle[IFSelectSelectDeduct]  Handle[IFSelectSelectDiff]  Handle[IFSelectSelectEntityNumber]  Handle[IFSelectSelectErrorEntities]  Handle[IFSelectSelectExplore]  Handle[IFSelectSelectExtract]  Handle[IFSelectSelectFlag]  Handle[IFSelectSelectIncorrectEntities]  Handle[IFSelectSelectInList]  Handle[IFSelectSelectIntersection]  Handle[IFSelectSelection]  Handle[IFSelectSelectModelEntities]  Handle[IFSelectSelectModelRoots]  Handle[IFSelectSelectPointed]  Handle[IFSelectSelectRange]  Handle[IFSelectSelectRootComps]  Handle[IFSelectSelectRoots]  Handle[IFSelectSelectSent]  Handle[IFSelectSelectShared]  Handle[IFSelectSelectSharing]  Handle[IFSelectSelectSignature]  Handle[IFSelectSelectSignedShared]  Handle[IFSelectSelectSignedSharing]  Handle[IFSelectSelectSuite]  Handle[IFSelectSelectType]  Handle[IFSelectSelectUnion]  Handle[IFSelectSelectUnknownEntities]  Handle[IFSelectSessionDumper]  Handle[IFSelectSessionPilot]  Handle[IFSelectShareOut]  Handle[IFSelectSignature]  Handle[IFSelectSignatureList]  Handle[IFSelectSignCategory]  Handle[IFSelectSignCounter]  Handle[IFSelectSignMultiple]  Handle[IFSelectSignType]  Handle[IFSelectSignValidity]  Handle[IFSelectTransformer]  Handle[IFSelectTransformStandard]  Handle[IFSelectWorkLibrary]  Handle[IFSelectWorkSession] IFSelectActivator StandardTransient StandardTransient IFSelectSessionDumper IFSelectSignatureList StandardTransient IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch IFSelectDispatch StandardTransient StandardTransient StandardTransient IFSelectSignCounter IFSelectTSeqOfSelection StandardTransient StandardTransient StandardTransient IFSelectModifier IFSelectGeneralModifier IFSelectModifier StandardTransient IFSelectEditor IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelection IFSelectSelectControl IFSelectSelectBase IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectFlag IFSelectSelectAnyList IFSelectSelectCombine StandardTransient IFSelectSelectBase IFSelectSelectBase IFSelectSelectBase IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectExtract IFSelectSelectDeduct IFSelectSelectDeduct IFSelectSelectExtract IFSelectSelectExplore IFSelectSelectExplore IFSelectSelectDeduct IFSelectSelectAnyType IFSelectSelectCombine IFSelectSelectExtract StandardTransient IFSelectActivator StandardTransient  Handle[IFSelectSignAncestor] IFSelectSignType InterfaceSignType StandardTransient IFSelectSignature IFSelectSignatureList IFSelectSignature IFSelectSignature IFSelectSignature StandardTransient IFSelectTransformer StandardTransient StandardTransient
-
-import tkxsbase/ifselect/ifselect_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   IFSelectEditValue* {.size: sizeof(cint), importcpp: "IFSelect_EditValue",
                       header: "IFSelect_EditValue.hxx".} = enum
@@ -50,9 +46,6 @@ type
   IFSelectShareOutResult* {.importcpp: "IFSelect_ShareOutResult",
                            header: "IFSelect_ShareOutResult.hxx", bycopy.} = object 
 
-  IFSelectActFunc* = proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
-      cdecl.}
-
   IFSelectSequenceOfAppliedModifiers* = NCollectionSequence[
       Handle[IFSelectAppliedModifiers]]
 
@@ -66,187 +59,64 @@ type
 
   IFSelectTSeqOfSelection* = NCollectionSequence[Handle[IFSelectSelection]]
 
+  IFSelectActivator* {.importcpp: "IFSelect_Activator",
+                      header: "IFSelect_Activator.hxx", bycopy.} = object of StandardTransient 
+
+  IFSelectAct* {.importcpp: "IFSelect_Act", header: "IFSelect_Act.hxx", bycopy.} = object of IFSelectActivator 
+
   HandleIFSelectAct* = Handle[IFSelectAct]
 
   HandleIFSelectActivator* = Handle[IFSelectActivator]
 
-  HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
-
-  HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
-
-  HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
-
-  HandleIFSelectDispatch* = Handle[IFSelectDispatch]
-
-  HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
-
-  HandleIFSelectDispPerCount* = Handle[IFSelectDispPerCount]
-
-  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
-
-  HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
-
-  HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
-
-  HandleIFSelectEditForm* = Handle[IFSelectEditForm]
-
-  HandleIFSelectEditor* = Handle[IFSelectEditor]
-
-  HandleIFSelectGeneralModifier* = Handle[IFSelectGeneralModifier]
-
-  HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
-
-  HandleIFSelectIntParam* = Handle[IFSelectIntParam]
-
-  HandleIFSelectListEditor* = Handle[IFSelectListEditor]
-
-  HandleIFSelectModelCopier* = Handle[IFSelectModelCopier]
-
-  HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
-
-  HandleIFSelectModifier* = Handle[IFSelectModifier]
-
-  HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
-
-  HandleIFSelectPacketList* = Handle[IFSelectPacketList]
-
-  HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
-
-  HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
-
-  HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
-
-  HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
-
-  HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
-
-  HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
-
-  HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
-
-  HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
-
-  HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
-
-  HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
-
-  HandleIFSelectSelectExplore* = Handle[IFSelectSelectExplore]
-
-  HandleIFSelectSelectExtract* = Handle[IFSelectSelectExtract]
-
-  HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
-
-  HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
-
-  HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
-
-  HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
-
-  HandleIFSelectSelection* = Handle[IFSelectSelection]
-
-  HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
-
-  HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
-
-  HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
-
-  HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
-
-  HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
-
-  HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
-
-  HandleIFSelectSelectSent* = Handle[IFSelectSelectSent]
-
-  HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
-
-  HandleIFSelectSelectSharing* = Handle[IFSelectSelectSharing]
-
-  HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
-
-  HandleIFSelectSelectSignedShared* = Handle[IFSelectSelectSignedShared]
-
-  HandleIFSelectSelectSignedSharing* = Handle[IFSelectSelectSignedSharing]
-
-  HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
-
-  HandleIFSelectSelectType* = Handle[IFSelectSelectType]
-
-  HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
-
-  HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
-
-  HandleIFSelectSessionDumper* = Handle[IFSelectSessionDumper]
-
-  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
-
-  HandleIFSelectShareOut* = Handle[IFSelectShareOut]
-
-  HandleIFSelectSignature* = Handle[IFSelectSignature]
-
-  HandleIFSelectSignatureList* = Handle[IFSelectSignatureList]
-
-  HandleIFSelectSignCategory* = Handle[IFSelectSignCategory]
-
-  HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
-
-  HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
-
-  HandleIFSelectSignType* = Handle[IFSelectSignType]
-
-  HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
-
-  HandleIFSelectTransformer* = Handle[IFSelectTransformer]
-
-  HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
-
-  HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
-
-  HandleIFSelectWorkSession* = Handle[IFSelectWorkSession]
-
-  IFSelectAct* {.importcpp: "IFSelect_Act", header: "IFSelect_Act.hxx", bycopy.} = object of IFSelectActivator 
-
-  IFSelectActivator* {.importcpp: "IFSelect_Activator",
-                      header: "IFSelect_Activator.hxx", bycopy.} = object of StandardTransient 
-
   IFSelectAppliedModifiers* {.importcpp: "IFSelect_AppliedModifiers",
                              header: "IFSelect_AppliedModifiers.hxx", bycopy.} = object of StandardTransient 
 
-  IFSelectBasicDumper* {.importcpp: "IFSelect_BasicDumper",
-                        header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelectSessionDumper 
-
-  IFSelectCheckCounter* {.importcpp: "IFSelect_CheckCounter",
-                         header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelectSignatureList 
+  HandleIFSelectAppliedModifiers* = Handle[IFSelectAppliedModifiers]
 
   IFSelectDispatch* {.importcpp: "IFSelect_Dispatch",
                      header: "IFSelect_Dispatch.hxx", bycopy.} = object of StandardTransient 
 
+  HandleIFSelectDispatch* = Handle[IFSelectDispatch]
+
   IFSelectDispGlobal* {.importcpp: "IFSelect_DispGlobal",
                        header: "IFSelect_DispGlobal.hxx", bycopy.} = object of IFSelectDispatch 
+
+  HandleIFSelectDispGlobal* = Handle[IFSelectDispGlobal]
 
   IFSelectDispPerCount* {.importcpp: "IFSelect_DispPerCount",
                          header: "IFSelect_DispPerCount.hxx", bycopy.} = object of IFSelectDispatch 
 
+  HandleIFSelectDispPerCount* = Handle[IFSelectDispPerCount]
+
   IFSelectDispPerFiles* {.importcpp: "IFSelect_DispPerFiles",
                          header: "IFSelect_DispPerFiles.hxx", bycopy.} = object of IFSelectDispatch 
+
+  HandleIFSelectDispPerFiles* = Handle[IFSelectDispPerFiles]
 
   IFSelectDispPerOne* {.importcpp: "IFSelect_DispPerOne",
                        header: "IFSelect_DispPerOne.hxx", bycopy.} = object of IFSelectDispatch 
 
+  HandleIFSelectDispPerOne* = Handle[IFSelectDispPerOne]
+
   IFSelectDispPerSignature* {.importcpp: "IFSelect_DispPerSignature",
                              header: "IFSelect_DispPerSignature.hxx", bycopy.} = object of IFSelectDispatch 
+
+  HandleIFSelectDispPerSignature* = Handle[IFSelectDispPerSignature]
 
   IFSelectEditForm* {.importcpp: "IFSelect_EditForm",
                      header: "IFSelect_EditForm.hxx", bycopy.} = object of StandardTransient 
 
+  HandleIFSelectEditForm* = Handle[IFSelectEditForm]
+
   IFSelectEditor* {.importcpp: "IFSelect_Editor", header: "IFSelect_Editor.hxx",
                    bycopy.} = object of StandardTransient 
+
+  HandleIFSelectEditor* = Handle[IFSelectEditor]
 
   IFSelectGeneralModifier* {.importcpp: "IFSelect_GeneralModifier",
                             header: "IFSelect_GeneralModifier.hxx", bycopy.} = object of StandardTransient 
 
-  IFSelectGraphCounter* {.importcpp: "IFSelect_GraphCounter",
-                         header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelectSignCounter 
+  HandleIFSelectGeneralModifier* = Handle[IFSelectGeneralModifier]
 
   IFSelectHSeqOfSelection* {.importcpp: "IFSelect_HSeqOfSelection",
                             header: "IFSelect_HSeqOfSelection.hxx", bycopy.} = object of IFSelectTSeqOfSelection
@@ -254,56 +124,48 @@ type
   IFSelectIntParam* {.importcpp: "IFSelect_IntParam",
                      header: "IFSelect_IntParam.hxx", bycopy.} = object of StandardTransient 
 
+  HandleIFSelectIntParam* = Handle[IFSelectIntParam]
+
   IFSelectListEditor* {.importcpp: "IFSelect_ListEditor",
                        header: "IFSelect_ListEditor.hxx", bycopy.} = object of StandardTransient 
+
+  HandleIFSelectListEditor* = Handle[IFSelectListEditor]
 
   IFSelectModelCopier* {.importcpp: "IFSelect_ModelCopier",
                         header: "IFSelect_ModelCopier.hxx", bycopy.} = object of StandardTransient 
 
-  IFSelectModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
-                          header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelectModifier 
+  HandleIFSelectModelCopier* = Handle[IFSelectModelCopier]
 
   IFSelectModifier* {.importcpp: "IFSelect_Modifier",
                      header: "IFSelect_Modifier.hxx", bycopy.} = object of IFSelectGeneralModifier 
 
+  IFSelectModifEditForm* {.importcpp: "IFSelect_ModifEditForm",
+                          header: "IFSelect_ModifEditForm.hxx", bycopy.} = object of IFSelectModifier 
+
+  HandleIFSelectModifEditForm* = Handle[IFSelectModifEditForm]
+
+  HandleIFSelectModifier* = Handle[IFSelectModifier]
+
   IFSelectModifReorder* {.importcpp: "IFSelect_ModifReorder",
                          header: "IFSelect_ModifReorder.hxx", bycopy.} = object of IFSelectModifier 
+
+  HandleIFSelectModifReorder* = Handle[IFSelectModifReorder]
 
   IFSelectPacketList* {.importcpp: "IFSelect_PacketList",
                        header: "IFSelect_PacketList.hxx", bycopy.} = object of StandardTransient 
 
+  HandleIFSelectPacketList* = Handle[IFSelectPacketList]
+
   IFSelectParamEditor* {.importcpp: "IFSelect_ParamEditor",
                         header: "IFSelect_ParamEditor.hxx", bycopy.} = object of IFSelectEditor 
 
-  IFSelectSelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
-                          header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelectSelectDeduct 
+  HandleIFSelectParamEditor* = Handle[IFSelectParamEditor]
 
-  IFSelectSelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
-                          header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelectSelectExtract 
-
-  IFSelectSelectBase* {.importcpp: "IFSelect_SelectBase",
-                       header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelectSelection 
-
-  IFSelectSelectCombine* {.importcpp: "IFSelect_SelectCombine",
-                          header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelectSelection 
-
-  IFSelectSelectControl* {.importcpp: "IFSelect_SelectControl",
-                          header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelectSelection 
+  IFSelectSelection* {.importcpp: "IFSelect_Selection",
+                      header: "IFSelect_Selection.hxx", bycopy.} = object of StandardTransient 
 
   IFSelectSelectDeduct* {.importcpp: "IFSelect_SelectDeduct",
                          header: "IFSelect_SelectDeduct.hxx", bycopy.} = object of IFSelectSelection 
-
-  IFSelectSelectDiff* {.importcpp: "IFSelect_SelectDiff",
-                       header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelectSelectControl 
-
-  IFSelectSelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
-                               header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelectSelectBase 
-
-  IFSelectSelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
-                                header: "IFSelect_SelectErrorEntities.hxx", bycopy.} = object of IFSelectSelectExtract 
-
-  IFSelectSelectExplore* {.importcpp: "IFSelect_SelectExplore",
-                          header: "IFSelect_SelectExplore.hxx", bycopy.} = object of IFSelectSelectDeduct 
 
   IFSelectSelectExtract* {.importcpp: "IFSelect_SelectExtract",
                           header: "IFSelect_SelectExtract.hxx", bycopy.} = object of IFSelectSelectDeduct 
@@ -314,110 +176,244 @@ type
   IFSelectSelectIncorrectEntities* {.importcpp: "IFSelect_SelectIncorrectEntities", header: "IFSelect_SelectIncorrectEntities.hxx",
                                     bycopy.} = object of IFSelectSelectFlag 
 
+  HandleIFSelectSelectIncorrectEntities* = Handle[IFSelectSelectIncorrectEntities]
+
+  HandleIFSelectSelectFlag* = Handle[IFSelectSelectFlag]
+
+  HandleIFSelectSelectExtract* = Handle[IFSelectSelectExtract]
+
+  IFSelectSelectAnyType* {.importcpp: "IFSelect_SelectAnyType",
+                          header: "IFSelect_SelectAnyType.hxx", bycopy.} = object of IFSelectSelectExtract 
+
+  HandleIFSelectSelectAnyType* = Handle[IFSelectSelectAnyType]
+
+  IFSelectSelectErrorEntities* {.importcpp: "IFSelect_SelectErrorEntities",
+                                header: "IFSelect_SelectErrorEntities.hxx", bycopy.} = object of IFSelectSelectExtract 
+
+  HandleIFSelectSelectErrorEntities* = Handle[IFSelectSelectErrorEntities]
+
+  IFSelectSelectExplore* {.importcpp: "IFSelect_SelectExplore",
+                          header: "IFSelect_SelectExplore.hxx", bycopy.} = object of IFSelectSelectDeduct 
+
+  HandleIFSelectSelectExplore* = Handle[IFSelectSelectExplore]
+
+  HandleIFSelectSelectDeduct* = Handle[IFSelectSelectDeduct]
+
+  IFSelectSelectAnyList* {.importcpp: "IFSelect_SelectAnyList",
+                          header: "IFSelect_SelectAnyList.hxx", bycopy.} = object of IFSelectSelectDeduct 
+
   IFSelectSelectInList* {.importcpp: "IFSelect_SelectInList",
                          header: "IFSelect_SelectInList.hxx", bycopy.} = object of IFSelectSelectAnyList 
+
+  HandleIFSelectSelectInList* = Handle[IFSelectSelectInList]
+
+  HandleIFSelectSelectAnyList* = Handle[IFSelectSelectAnyList]
+
+  IFSelectSelectControl* {.importcpp: "IFSelect_SelectControl",
+                          header: "IFSelect_SelectControl.hxx", bycopy.} = object of IFSelectSelection 
+
+  IFSelectSelectDiff* {.importcpp: "IFSelect_SelectDiff",
+                       header: "IFSelect_SelectDiff.hxx", bycopy.} = object of IFSelectSelectControl 
+
+  HandleIFSelectSelectDiff* = Handle[IFSelectSelectDiff]
+
+  HandleIFSelectSelectControl* = Handle[IFSelectSelectControl]
+
+  IFSelectSelectCombine* {.importcpp: "IFSelect_SelectCombine",
+                          header: "IFSelect_SelectCombine.hxx", bycopy.} = object of IFSelectSelection 
 
   IFSelectSelectIntersection* {.importcpp: "IFSelect_SelectIntersection",
                                header: "IFSelect_SelectIntersection.hxx", bycopy.} = object of IFSelectSelectCombine 
 
-  IFSelectSelection* {.importcpp: "IFSelect_Selection",
-                      header: "IFSelect_Selection.hxx", bycopy.} = object of StandardTransient 
+  HandleIFSelectSelectIntersection* = Handle[IFSelectSelectIntersection]
+
+  HandleIFSelectSelectCombine* = Handle[IFSelectSelectCombine]
+
+  IFSelectSelectBase* {.importcpp: "IFSelect_SelectBase",
+                       header: "IFSelect_SelectBase.hxx", bycopy.} = object of IFSelectSelection 
+
+  IFSelectSelectEntityNumber* {.importcpp: "IFSelect_SelectEntityNumber",
+                               header: "IFSelect_SelectEntityNumber.hxx", bycopy.} = object of IFSelectSelectBase 
+
+  HandleIFSelectSelectEntityNumber* = Handle[IFSelectSelectEntityNumber]
+
+  HandleIFSelectSelectBase* = Handle[IFSelectSelectBase]
+
+  HandleIFSelectSelection* = Handle[IFSelectSelection]
 
   IFSelectSelectModelEntities* {.importcpp: "IFSelect_SelectModelEntities",
                                 header: "IFSelect_SelectModelEntities.hxx", bycopy.} = object of IFSelectSelectBase 
 
+  HandleIFSelectSelectModelEntities* = Handle[IFSelectSelectModelEntities]
+
   IFSelectSelectModelRoots* {.importcpp: "IFSelect_SelectModelRoots",
                              header: "IFSelect_SelectModelRoots.hxx", bycopy.} = object of IFSelectSelectBase 
+
+  HandleIFSelectSelectModelRoots* = Handle[IFSelectSelectModelRoots]
 
   IFSelectSelectPointed* {.importcpp: "IFSelect_SelectPointed",
                           header: "IFSelect_SelectPointed.hxx", bycopy.} = object of IFSelectSelectBase 
 
+  HandleIFSelectSelectPointed* = Handle[IFSelectSelectPointed]
+
   IFSelectSelectRange* {.importcpp: "IFSelect_SelectRange",
                         header: "IFSelect_SelectRange.hxx", bycopy.} = object of IFSelectSelectExtract 
+
+  HandleIFSelectSelectRange* = Handle[IFSelectSelectRange]
 
   IFSelectSelectRootComps* {.importcpp: "IFSelect_SelectRootComps",
                             header: "IFSelect_SelectRootComps.hxx", bycopy.} = object of IFSelectSelectExtract 
 
+  HandleIFSelectSelectRootComps* = Handle[IFSelectSelectRootComps]
+
   IFSelectSelectRoots* {.importcpp: "IFSelect_SelectRoots",
                         header: "IFSelect_SelectRoots.hxx", bycopy.} = object of IFSelectSelectExtract 
+
+  HandleIFSelectSelectRoots* = Handle[IFSelectSelectRoots]
 
   IFSelectSelectSent* {.importcpp: "IFSelect_SelectSent",
                        header: "IFSelect_SelectSent.hxx", bycopy.} = object of IFSelectSelectExtract 
 
+  HandleIFSelectSelectSent* = Handle[IFSelectSelectSent]
+
   IFSelectSelectShared* {.importcpp: "IFSelect_SelectShared",
                          header: "IFSelect_SelectShared.hxx", bycopy.} = object of IFSelectSelectDeduct 
+
+  HandleIFSelectSelectShared* = Handle[IFSelectSelectShared]
 
   IFSelectSelectSharing* {.importcpp: "IFSelect_SelectSharing",
                           header: "IFSelect_SelectSharing.hxx", bycopy.} = object of IFSelectSelectDeduct 
 
+  HandleIFSelectSelectSharing* = Handle[IFSelectSelectSharing]
+
   IFSelectSelectSignature* {.importcpp: "IFSelect_SelectSignature",
                             header: "IFSelect_SelectSignature.hxx", bycopy.} = object of IFSelectSelectExtract 
+
+  HandleIFSelectSelectSignature* = Handle[IFSelectSelectSignature]
 
   IFSelectSelectSignedShared* {.importcpp: "IFSelect_SelectSignedShared",
                                header: "IFSelect_SelectSignedShared.hxx", bycopy.} = object of IFSelectSelectExplore 
 
+  HandleIFSelectSelectSignedShared* = Handle[IFSelectSelectSignedShared]
+
   IFSelectSelectSignedSharing* {.importcpp: "IFSelect_SelectSignedSharing",
                                 header: "IFSelect_SelectSignedSharing.hxx", bycopy.} = object of IFSelectSelectExplore 
+
+  HandleIFSelectSelectSignedSharing* = Handle[IFSelectSelectSignedSharing]
 
   IFSelectSelectSuite* {.importcpp: "IFSelect_SelectSuite",
                         header: "IFSelect_SelectSuite.hxx", bycopy.} = object of IFSelectSelectDeduct 
 
+  HandleIFSelectSelectSuite* = Handle[IFSelectSelectSuite]
+
   IFSelectSelectType* {.importcpp: "IFSelect_SelectType",
                        header: "IFSelect_SelectType.hxx", bycopy.} = object of IFSelectSelectAnyType 
 
+  HandleIFSelectSelectType* = Handle[IFSelectSelectType]
+
   IFSelectSelectUnion* {.importcpp: "IFSelect_SelectUnion",
                         header: "IFSelect_SelectUnion.hxx", bycopy.} = object of IFSelectSelectCombine 
+
+  HandleIFSelectSelectUnion* = Handle[IFSelectSelectUnion]
 
   IFSelectSelectUnknownEntities* {.importcpp: "IFSelect_SelectUnknownEntities",
                                   header: "IFSelect_SelectUnknownEntities.hxx",
                                   bycopy.} = object of IFSelectSelectExtract 
 
+  HandleIFSelectSelectUnknownEntities* = Handle[IFSelectSelectUnknownEntities]
+
   IFSelectSessionDumper* {.importcpp: "IFSelect_SessionDumper",
                           header: "IFSelect_SessionDumper.hxx", bycopy.} = object of StandardTransient 
+
+  IFSelectBasicDumper* {.importcpp: "IFSelect_BasicDumper",
+                        header: "IFSelect_BasicDumper.hxx", bycopy.} = object of IFSelectSessionDumper 
+
+  HandleIFSelectBasicDumper* = Handle[IFSelectBasicDumper]
+
+  HandleIFSelectSessionDumper* = Handle[IFSelectSessionDumper]
 
   IFSelectSessionPilot* {.importcpp: "IFSelect_SessionPilot",
                          header: "IFSelect_SessionPilot.hxx", bycopy.} = object of IFSelectActivator 
 
+  HandleIFSelectSessionPilot* = Handle[IFSelectSessionPilot]
+
+  IFSelectActFunc* = proc (a1: Handle[IFSelectSessionPilot]): IFSelectReturnStatus {.
+      cdecl.}
+
   IFSelectShareOut* {.importcpp: "IFSelect_ShareOut",
                      header: "IFSelect_ShareOut.hxx", bycopy.} = object of StandardTransient 
 
-  HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
-
-  IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
-                         header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
+  HandleIFSelectShareOut* = Handle[IFSelectShareOut]
 
   IFSelectSignature* {.importcpp: "IFSelect_Signature",
                       header: "IFSelect_Signature.hxx", bycopy.} = object of InterfaceSignType 
 
+  HandleIFSelectSignature* = Handle[IFSelectSignature]
+
   IFSelectSignatureList* {.importcpp: "IFSelect_SignatureList",
                           header: "IFSelect_SignatureList.hxx", bycopy.} = object of StandardTransient 
+
+  IFSelectCheckCounter* {.importcpp: "IFSelect_CheckCounter",
+                         header: "IFSelect_CheckCounter.hxx", bycopy.} = object of IFSelectSignatureList 
+
+  HandleIFSelectCheckCounter* = Handle[IFSelectCheckCounter]
+
+  HandleIFSelectSignatureList* = Handle[IFSelectSignatureList]
 
   IFSelectSignCategory* {.importcpp: "IFSelect_SignCategory",
                          header: "IFSelect_SignCategory.hxx", bycopy.} = object of IFSelectSignature 
 
+  HandleIFSelectSignCategory* = Handle[IFSelectSignCategory]
+
   IFSelectSignCounter* {.importcpp: "IFSelect_SignCounter",
                         header: "IFSelect_SignCounter.hxx", bycopy.} = object of IFSelectSignatureList 
+
+  IFSelectGraphCounter* {.importcpp: "IFSelect_GraphCounter",
+                         header: "IFSelect_GraphCounter.hxx", bycopy.} = object of IFSelectSignCounter 
+
+  HandleIFSelectGraphCounter* = Handle[IFSelectGraphCounter]
+
+  HandleIFSelectSignCounter* = Handle[IFSelectSignCounter]
 
   IFSelectSignMultiple* {.importcpp: "IFSelect_SignMultiple",
                          header: "IFSelect_SignMultiple.hxx", bycopy.} = object of IFSelectSignature 
 
+  HandleIFSelectSignMultiple* = Handle[IFSelectSignMultiple]
+
   IFSelectSignType* {.importcpp: "IFSelect_SignType",
                      header: "IFSelect_SignType.hxx", bycopy.} = object of IFSelectSignature 
+
+  IFSelectSignAncestor* {.importcpp: "IFSelect_SignAncestor",
+                         header: "IFSelect_SignAncestor.hxx", bycopy.} = object of IFSelectSignType
+
+  HandleIFSelectSignAncestor* = Handle[IFSelectSignAncestor]
+
+  HandleIFSelectSignType* = Handle[IFSelectSignType]
 
   IFSelectSignValidity* {.importcpp: "IFSelect_SignValidity",
                          header: "IFSelect_SignValidity.hxx", bycopy.} = object of IFSelectSignature 
 
+  HandleIFSelectSignValidity* = Handle[IFSelectSignValidity]
+
   IFSelectTransformer* {.importcpp: "IFSelect_Transformer",
                         header: "IFSelect_Transformer.hxx", bycopy.} = object of StandardTransient 
+
+  HandleIFSelectTransformer* = Handle[IFSelectTransformer]
 
   IFSelectTransformStandard* {.importcpp: "IFSelect_TransformStandard",
                               header: "IFSelect_TransformStandard.hxx", bycopy.} = object of IFSelectTransformer 
 
+  HandleIFSelectTransformStandard* = Handle[IFSelectTransformStandard]
+
   IFSelectWorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
                         header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
+                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
+
+  HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
 
                         header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
   IFSelectWorkSession* {.importcpp: "IFSelect_WorkSession",
                         header: "IFSelect_WorkSession.hxx", bycopy.} = object of StandardTransient 
 
+  HandleIFSelectWorkSession* = Handle[IFSelectWorkSession]
 

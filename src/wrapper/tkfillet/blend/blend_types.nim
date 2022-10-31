@@ -1,9 +1,5 @@
-# PROVIDES: BlendDecrochStatus BlendStatus BlendPoint
-# DEPENDS:  NCollectionSequence[BlendPoint] MathFunctionSetWithDerivatives BlendAppFunction MathFunctionSetWithDerivatives MathFunctionSetWithDerivatives BlendAppFunction BlendAppFunction MathFunctionSetWithDerivatives MathFunctionSetWithDerivatives BlendAppFunction
-
-import tkfillet/blend/blend_types
-import tkmath/math/math_types
-import tkernel/ncollection/ncollection_types
+import ../../tkmath/math/math_types
+import ../../tkernel/ncollection/ncollection_types
 type
   BlendDecrochStatus* {.size: sizeof(cint), importcpp: "Blend_DecrochStatus",
                        header: "Blend_DecrochStatus.hxx".} = enum
@@ -39,9 +35,9 @@ type
 
   BlendSurfPointFuncInv* {.importcpp: "Blend_SurfPointFuncInv",
                           header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
+                          header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
 
                           header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
   BlendSurfRstFunction* {.importcpp: "Blend_SurfRstFunction",
                          header: "Blend_SurfRstFunction.hxx", bycopy.} = object of BlendAppFunction 
-
 

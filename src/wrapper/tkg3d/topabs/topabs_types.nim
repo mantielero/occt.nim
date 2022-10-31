@@ -1,6 +1,3 @@
-# PROVIDES: TopAbsOrientation TopAbsShapeEnum TopAbsState TopAbs
-# DEPENDS:
-
 type
   TopAbsOrientation* {.size: sizeof(cint), importcpp: "TopAbs_Orientation",
                       header: "TopAbs_Orientation.hxx".} = enum

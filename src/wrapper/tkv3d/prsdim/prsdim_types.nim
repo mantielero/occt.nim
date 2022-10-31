@@ -1,10 +1,6 @@
-# PROVIDES: PrsDimDimensionSelectionMode PrsDimDisplaySpecialSymbol PrsDimKindOfDimension PrsDimKindOfRelation PrsDimKindOfSurface PrsDimTypeOfAngle PrsDimTypeOfAngleArrowVisibility PrsDimTypeOfDist PrsDim PrsDimDimensionComputeMode
-# DEPENDS:  Handle[PrsDimAngleDimension]  Handle[PrsDimChamf2dDimension]  Handle[PrsDimChamf3dDimension]  Handle[PrsDimConcentricRelation]  Handle[PrsDimDiameterDimension]  Handle[PrsDimDimension]  Handle[PrsDimDimensionOwner]  Handle[PrsDimEllipseRadiusDimension]  Handle[PrsDimEqualDistanceRelation]  Handle[PrsDimFixRelation]  Handle[PrsDimIdenticRelation]  Handle[PrsDimLengthDimension]  Handle[PrsDimMaxRadiusDimension]  Handle[PrsDimMidPointRelation]  Handle[PrsDimMinRadiusDimension]  Handle[PrsDimOffsetDimension]  Handle[PrsDimParallelRelation]  Handle[PrsDimPerpendicularRelation]  Handle[PrsDimRadiusDimension]  Handle[PrsDimSymmetricRelation]  Handle[PrsDimTangentRelation] PrsDimDimension PrsDimRelation PrsDimRelation PrsDimRelation PrsDimDimension AIS_InteractiveObject SelectMgrEntityOwner PrsDimRelation PrsDimRelation  Handle[PrsDimEqualRadiusRelation] PrsDimRelation PrsDimRelation PrsDimRelation PrsDimDimension PrsDimEllipseRadiusDimension PrsDimRelation PrsDimEllipseRadiusDimension PrsDimRelation PrsDimRelation PrsDimRelation PrsDimDimension AIS_InteractiveObject PrsDimRelation PrsDimRelation
-
-import tkv3d/selectmgr/selectmgr_types
-import tkv3d/prsdim/prsdim_types
-import tkv3d/ais/ais_types
-import tkernel/standard/standard_types
+import ../tkv3d/selectmgr/selectmgr_types
+import ../tkv3d/ais/ais_types
+import ../../tkernel/standard/standard_types
 type
   PrsDimDimensionSelectionMode* {.size: sizeof(cint),
                                  importcpp: "PrsDim_DimensionSelectionMode",
@@ -62,119 +58,119 @@ type
     ComputeModeLine = 1,        
     ComputeModeText = 2
 
-  HandlePrsDimAngleDimension* = Handle[PrsDimAngleDimension]
-
-  HandlePrsDimChamf2dDimension* = Handle[PrsDimChamf2dDimension]
-
-  HandlePrsDimChamf3dDimension* = Handle[PrsDimChamf3dDimension]
-
-  HandlePrsDimConcentricRelation* = Handle[PrsDimConcentricRelation]
-
-  HandlePrsDimDiameterDimension* = Handle[PrsDimDiameterDimension]
-
-  HandlePrsDimDimension* = Handle[PrsDimDimension]
-
-  HandlePrsDimDimensionOwner* = Handle[PrsDimDimensionOwner]
-
-  HandlePrsDimEllipseRadiusDimension* = Handle[PrsDimEllipseRadiusDimension]
-
-  HandlePrsDimEqualDistanceRelation* = Handle[PrsDimEqualDistanceRelation]
-
-  HandlePrsDimFixRelation* = Handle[PrsDimFixRelation]
-
-  HandlePrsDimIdenticRelation* = Handle[PrsDimIdenticRelation]
-
-  HandlePrsDimLengthDimension* = Handle[PrsDimLengthDimension]
-
-  HandlePrsDimMaxRadiusDimension* = Handle[PrsDimMaxRadiusDimension]
-
-  HandlePrsDimMidPointRelation* = Handle[PrsDimMidPointRelation]
-
-  HandlePrsDimMinRadiusDimension* = Handle[PrsDimMinRadiusDimension]
-
-  HandlePrsDimOffsetDimension* = Handle[PrsDimOffsetDimension]
-
-  HandlePrsDimParallelRelation* = Handle[PrsDimParallelRelation]
-
-  HandlePrsDimPerpendicularRelation* = Handle[PrsDimPerpendicularRelation]
-
-  HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
-
-  HandlePrsDimSymmetricRelation* = Handle[PrsDimSymmetricRelation]
-
-  HandlePrsDimTangentRelation* = Handle[PrsDimTangentRelation]
-
-  PrsDimAngleDimension* {.importcpp: "PrsDim_AngleDimension",
-                         header: "PrsDim_AngleDimension.hxx", bycopy.} = object of PrsDimDimension 
-
-  PrsDimChamf2dDimension* {.importcpp: "PrsDim_Chamf2dDimension",
-                           header: "PrsDim_Chamf2dDimension.hxx", bycopy.} = object of PrsDimRelation 
-
-  PrsDimChamf3dDimension* {.importcpp: "PrsDim_Chamf3dDimension",
-                           header: "PrsDim_Chamf3dDimension.hxx", bycopy.} = object of PrsDimRelation 
-
-  PrsDimConcentricRelation* {.importcpp: "PrsDim_ConcentricRelation",
-                             header: "PrsDim_ConcentricRelation.hxx", bycopy.} = object of PrsDimRelation 
+  PrsDimDimension* {.importcpp: "PrsDim_Dimension", header: "PrsDim_Dimension.hxx",
+                    bycopy.} = object of AIS_InteractiveObject 
 
   PrsDimDiameterDimension* {.importcpp: "PrsDim_DiameterDimension",
                             header: "PrsDim_DiameterDimension.hxx", bycopy.} = object of PrsDimDimension 
 
-  PrsDimDimension* {.importcpp: "PrsDim_Dimension", header: "PrsDim_Dimension.hxx",
-                    bycopy.} = object of AIS_InteractiveObject 
+  HandlePrsDimDiameterDimension* = Handle[PrsDimDiameterDimension]
+
+  PrsDimAngleDimension* {.importcpp: "PrsDim_AngleDimension",
+                         header: "PrsDim_AngleDimension.hxx", bycopy.} = object of PrsDimDimension 
+
+  HandlePrsDimAngleDimension* = Handle[PrsDimAngleDimension]
+
+  HandlePrsDimDimension* = Handle[PrsDimDimension]
 
   PrsDimDimensionOwner* {.importcpp: "PrsDim_DimensionOwner",
                          header: "PrsDim_DimensionOwner.hxx", bycopy.} = object of SelectMgrEntityOwner 
+
+  HandlePrsDimDimensionOwner* = Handle[PrsDimDimensionOwner]
+
+  PrsDimLengthDimension* {.importcpp: "PrsDim_LengthDimension",
+                          header: "PrsDim_LengthDimension.hxx", bycopy.} = object of PrsDimDimension 
+
+  HandlePrsDimLengthDimension* = Handle[PrsDimLengthDimension]
+
+  PrsDimRadiusDimension* {.importcpp: "PrsDim_RadiusDimension",
+                          header: "PrsDim_RadiusDimension.hxx", bycopy.} = object of PrsDimDimension 
+
+  HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
+
+  PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
+                   bycopy.} = object of AIS_InteractiveObject 
+
+  PrsDimPerpendicularRelation* {.importcpp: "PrsDim_PerpendicularRelation",
+                                header: "PrsDim_PerpendicularRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimPerpendicularRelation* = Handle[PrsDimPerpendicularRelation]
+
+  PrsDimParallelRelation* {.importcpp: "PrsDim_ParallelRelation",
+                           header: "PrsDim_ParallelRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimParallelRelation* = Handle[PrsDimParallelRelation]
+
+  PrsDimOffsetDimension* {.importcpp: "PrsDim_OffsetDimension",
+                          header: "PrsDim_OffsetDimension.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimOffsetDimension* = Handle[PrsDimOffsetDimension]
+
+  PrsDimMidPointRelation* {.importcpp: "PrsDim_MidPointRelation",
+                           header: "PrsDim_MidPointRelation.hxx", bycopy.} = object of PrsDimRelation
+
+  HandlePrsDimMidPointRelation* = Handle[PrsDimMidPointRelation]
+
+  PrsDimIdenticRelation* {.importcpp: "PrsDim_IdenticRelation",
+                          header: "PrsDim_IdenticRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimIdenticRelation* = Handle[PrsDimIdenticRelation]
+
+  PrsDimFixRelation* {.importcpp: "PrsDim_FixRelation",
+                      header: "PrsDim_FixRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimFixRelation* = Handle[PrsDimFixRelation]
+
+  PrsDimEqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
+                              header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimEqualRadiusRelation* = Handle[PrsDimEqualRadiusRelation]
+
+  PrsDimEqualDistanceRelation* {.importcpp: "PrsDim_EqualDistanceRelation",
+                                header: "PrsDim_EqualDistanceRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimEqualDistanceRelation* = Handle[PrsDimEqualDistanceRelation]
 
   PrsDimEllipseRadiusDimension* {.importcpp: "PrsDim_EllipseRadiusDimension",
                                  header: "PrsDim_EllipseRadiusDimension.hxx",
                                  bycopy.} = object of PrsDimRelation
 
-  PrsDimEqualDistanceRelation* {.importcpp: "PrsDim_EqualDistanceRelation",
-                                header: "PrsDim_EqualDistanceRelation.hxx", bycopy.} = object of PrsDimRelation 
+  PrsDimMinRadiusDimension* {.importcpp: "PrsDim_MinRadiusDimension",
+                             header: "PrsDim_MinRadiusDimension.hxx", bycopy.} = object of PrsDimEllipseRadiusDimension 
 
-  HandlePrsDimEqualRadiusRelation* = Handle[PrsDimEqualRadiusRelation]
-
-  PrsDimEqualRadiusRelation* {.importcpp: "PrsDim_EqualRadiusRelation",
-                              header: "PrsDim_EqualRadiusRelation.hxx", bycopy.} = object of PrsDimRelation 
-
-  PrsDimFixRelation* {.importcpp: "PrsDim_FixRelation",
-                      header: "PrsDim_FixRelation.hxx", bycopy.} = object of PrsDimRelation 
-
-  PrsDimIdenticRelation* {.importcpp: "PrsDim_IdenticRelation",
-                          header: "PrsDim_IdenticRelation.hxx", bycopy.} = object of PrsDimRelation 
-
-  PrsDimLengthDimension* {.importcpp: "PrsDim_LengthDimension",
-                          header: "PrsDim_LengthDimension.hxx", bycopy.} = object of PrsDimDimension 
+  HandlePrsDimMinRadiusDimension* = Handle[PrsDimMinRadiusDimension]
 
   PrsDimMaxRadiusDimension* {.importcpp: "PrsDim_MaxRadiusDimension",
                              header: "PrsDim_MaxRadiusDimension.hxx", bycopy.} = object of PrsDimEllipseRadiusDimension 
 
-  PrsDimMidPointRelation* {.importcpp: "PrsDim_MidPointRelation",
-                           header: "PrsDim_MidPointRelation.hxx", bycopy.} = object of PrsDimRelation
+  HandlePrsDimMaxRadiusDimension* = Handle[PrsDimMaxRadiusDimension]
 
-  PrsDimMinRadiusDimension* {.importcpp: "PrsDim_MinRadiusDimension",
-                             header: "PrsDim_MinRadiusDimension.hxx", bycopy.} = object of PrsDimEllipseRadiusDimension 
+  HandlePrsDimEllipseRadiusDimension* = Handle[PrsDimEllipseRadiusDimension]
 
-  PrsDimOffsetDimension* {.importcpp: "PrsDim_OffsetDimension",
-                          header: "PrsDim_OffsetDimension.hxx", bycopy.} = object of PrsDimRelation 
+  PrsDimConcentricRelation* {.importcpp: "PrsDim_ConcentricRelation",
+                             header: "PrsDim_ConcentricRelation.hxx", bycopy.} = object of PrsDimRelation 
 
-  PrsDimParallelRelation* {.importcpp: "PrsDim_ParallelRelation",
-                           header: "PrsDim_ParallelRelation.hxx", bycopy.} = object of PrsDimRelation 
+  HandlePrsDimConcentricRelation* = Handle[PrsDimConcentricRelation]
 
-  PrsDimPerpendicularRelation* {.importcpp: "PrsDim_PerpendicularRelation",
-                                header: "PrsDim_PerpendicularRelation.hxx", bycopy.} = object of PrsDimRelation 
+  PrsDimChamf3dDimension* {.importcpp: "PrsDim_Chamf3dDimension",
+                           header: "PrsDim_Chamf3dDimension.hxx", bycopy.} = object of PrsDimRelation 
 
-  PrsDimRadiusDimension* {.importcpp: "PrsDim_RadiusDimension",
-                          header: "PrsDim_RadiusDimension.hxx", bycopy.} = object of PrsDimDimension 
+  HandlePrsDimChamf3dDimension* = Handle[PrsDimChamf3dDimension]
 
-  PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
-                   bycopy.} = object of AIS_InteractiveObject 
+  PrsDimChamf2dDimension* {.importcpp: "PrsDim_Chamf2dDimension",
+                           header: "PrsDim_Chamf2dDimension.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimChamf2dDimension* = Handle[PrsDimChamf2dDimension]
 
   PrsDimSymmetricRelation* {.importcpp: "PrsDim_SymmetricRelation",
                             header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
+                            header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
+
+  HandlePrsDimSymmetricRelation* = Handle[PrsDimSymmetricRelation]
 
                             header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
   PrsDimTangentRelation* {.importcpp: "PrsDim_TangentRelation",
                           header: "PrsDim_TangentRelation.hxx", bycopy.} = object of PrsDimRelation 
 
+  HandlePrsDimTangentRelation* = Handle[PrsDimTangentRelation]
 

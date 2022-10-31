@@ -1,13 +1,10 @@
-# PROVIDES: BRepBlendChamfer BRepBlendChamfInv BRepBlendChAsym BRepBlendChAsymInv BRepBlendConstRad BRepBlendConstRadInv BRepBlendConstThroat BRepBlendConstThroatInv BRepBlendConstThroatWithPenetration BRepBlendConstThroatWithPenetrationInv BRepBlendCSCircular BRepBlendCSConstRad BRepBlendEvolRad BRepBlendEvolRadInv BRepBlendRuled BRepBlendRuledInv BRepBlendBlendTool BRepBlendCSWalking BRepBlendExtremity BRepBlendHCurve2dTool BRepBlendHCurveTool BRepBlendPointOnRst BRepBlendRstRstLineBuilder BRepBlendSurfRstLineBuilder BRepBlendWalking
-# DEPENDS:  NCollectionSequence[Handle[BRepBlendLine]]  NCollectionSequence[BRepBlendPointOnRst]  Handle[BRepBlendAppFunc]  Handle[BRepBlendAppFuncRoot]  Handle[BRepBlendAppFuncRst]  Handle[BRepBlendAppFuncRstRst] BRepBlendAppFuncRoot ApproxSweepFunction BRepBlendAppFuncRoot BRepBlendAppFuncRoot AppBlendApprox AppBlendApprox BlendCurvPointFuncInv  Handle[BRepBlendLine] StandardTransient BlendRstRstFunction BlendRstRstFunction BlendSurfCurvFuncInv BlendSurfCurvFuncInv BlendSurfPointFuncInv BlendSurfPointFuncInv BlendSurfRstFunction BlendSurfRstFunction
-
-import tkgeomalgo/appblend/appblend_types
-import tkfillet/brepblend/brepblend_types
-import tkfillet/blend/blend_types
-import tkgeombase/approx/approx_types
-import tkbrep/brep/brep_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkgeomalgo/appblend/appblend_types
+import ../tkfillet/blend/blend_types
+import ../../tkgeombase/approx/approx_types
+import ../../tkbrep/brep/brep_types
+import ../tkfillet/blendfunc/blendfunc_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   BRepBlendChamfer* = BlendFuncChamfer
 
@@ -73,25 +70,25 @@ type
 
   BRepBlendSequenceOfPointOnRst* = NCollectionSequence[BRepBlendPointOnRst]
 
-  HandleBRepBlendAppFunc* = Handle[BRepBlendAppFunc]
-
-  HandleBRepBlendAppFuncRoot* = Handle[BRepBlendAppFuncRoot]
-
-  HandleBRepBlendAppFuncRst* = Handle[BRepBlendAppFuncRst]
-
-  HandleBRepBlendAppFuncRstRst* = Handle[BRepBlendAppFuncRstRst]
+  BRepBlendAppFuncRoot* {.importcpp: "BRepBlend_AppFuncRoot",
+                         header: "BRepBlend_AppFuncRoot.hxx", bycopy.} = object of ApproxSweepFunction 
 
   BRepBlendAppFunc* {.importcpp: "BRepBlend_AppFunc",
                      header: "BRepBlend_AppFunc.hxx", bycopy.} = object of BRepBlendAppFuncRoot
 
-  BRepBlendAppFuncRoot* {.importcpp: "BRepBlend_AppFuncRoot",
-                         header: "BRepBlend_AppFuncRoot.hxx", bycopy.} = object of ApproxSweepFunction 
+  HandleBRepBlendAppFunc* = Handle[BRepBlendAppFunc]
+
+  HandleBRepBlendAppFuncRoot* = Handle[BRepBlendAppFuncRoot]
 
   BRepBlendAppFuncRst* {.importcpp: "BRepBlend_AppFuncRst",
                         header: "BRepBlend_AppFuncRst.hxx", bycopy.} = object of BRepBlendAppFuncRoot
 
+  HandleBRepBlendAppFuncRst* = Handle[BRepBlendAppFuncRst]
+
   BRepBlendAppFuncRstRst* {.importcpp: "BRepBlend_AppFuncRstRst",
                            header: "BRepBlend_AppFuncRstRst.hxx", bycopy.} = object of BRepBlendAppFuncRoot
+
+  HandleBRepBlendAppFuncRstRst* = Handle[BRepBlendAppFuncRstRst]
 
   BRepBlendAppSurf* {.importcpp: "BRepBlend_AppSurf",
                      header: "BRepBlend_AppSurf.hxx", bycopy.} = object of AppBlendApprox
@@ -102,9 +99,9 @@ type
   BRepBlendCurvPointRadInv* {.importcpp: "BRepBlend_CurvPointRadInv",
                              header: "BRepBlend_CurvPointRadInv.hxx", bycopy.} = object of BlendCurvPointFuncInv
 
-  HandleBRepBlendLine* = Handle[BRepBlendLine]
-
   BRepBlendLine* {.importcpp: "BRepBlend_Line", header: "BRepBlend_Line.hxx", bycopy.} = object of StandardTransient
+
+  HandleBRepBlendLine* = Handle[BRepBlendLine]
 
   BRepBlendRstRstConstRad* {.importcpp: "BRepBlend_RstRstConstRad",
                             header: "BRepBlend_RstRstConstRad.hxx", bycopy.} = object of BlendRstRstFunction
@@ -129,9 +126,9 @@ type
 
   BRepBlendSurfRstConstRad* {.importcpp: "BRepBlend_SurfRstConstRad",
                              header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
+                             header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
 
                              header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
   BRepBlendSurfRstEvolRad* {.importcpp: "BRepBlend_SurfRstEvolRad",
                             header: "BRepBlend_SurfRstEvolRad.hxx", bycopy.} = object of BlendSurfRstFunction
-
 

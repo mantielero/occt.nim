@@ -1,10 +1,6 @@
-# PROVIDES: AspectColorSpace AspectDisplay AspectEye AspectFillMethod AspectGradientFillMethod AspectGraphicsLibrary AspectGridDrawMode AspectGridType AspectHatchStyle AspectRenderingContext AspectTouchMap AspectTypeOfColorScaleData AspectTypeOfColorScaleOrientation AspectTypeOfColorScalePosition AspectTypeOfDeflection AspectTypeOfDisplayText AspectTypeOfFacingModel AspectTypeOfHighlightMethod AspectTypeOfLine AspectTypeOfMarker AspectTypeOfResize AspectTypeOfStyleText AspectBackground AspectFrustumLRBT AspectGenId AspectInteriorStyle AspectPolygonOffsetMode AspectScrollDelta AspectTouch AspectTrackedDevicePose AspectTypeOfTriedronPosition AspectVKey AspectVKeyBasic AspectVKeyFlags AspectVKeyMouse AspectXRAnalogActionData AspectXRDigitalActionData AspectXRGenericAction AspectXRHapticActionData AspectXRPoseActionData AspectXRSessionInfoString AspectXRTrackedDeviceRole AspectXRSessionTrackingUniverseOrigin AspectWidthOfLine AspectXAtom AspectXRActionType
-# DEPENDS:  NCollectionSequence[QuantityColor]  Handle[AspectWindow] AspectBackground AspectGrid StandardTransient StandardTransient AspectWindow AspectXRSession AspectGrid StandardTransient StandardTransient StandardTransient StandardTransient StandardTransient
-
-import tkservice/aspect/aspect_types
-import tkernel/quantity/quantity_types
-import tkernel/ncollection/ncollection_types
-import tkernel/standard/standard_types
+import ../../tkernel/quantity/quantity_types
+import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/standard/standard_types
 type
   AspectColorSpace* {.size: sizeof(cint), importcpp: "Aspect_ColorSpace",
                      header: "Aspect_ColorSpace.hxx".} = enum
@@ -347,24 +343,16 @@ type
 
   AspectSequenceOfColor* = NCollectionSequence[QuantityColor]
 
-  HandleAspectWindow* = Handle[AspectWindow]
-
   AspectGradientBackground* {.importcpp: "Aspect_GradientBackground",
                              header: "Aspect_GradientBackground.hxx", bycopy.} = object of AspectBackground 
-
-  AspectCircularGrid* {.importcpp: "Aspect_CircularGrid",
-                       header: "Aspect_CircularGrid.hxx", bycopy.} = object of AspectGrid 
 
   AspectDisplayConnection* {.importcpp: "Aspect_DisplayConnection",
                             header: "Aspect_DisplayConnection.hxx", bycopy.} = object of StandardTransient 
 
   AspectGrid* {.importcpp: "Aspect_Grid", header: "Aspect_Grid.hxx", bycopy.} = object of StandardTransient 
 
-  AspectNeutralWindow* {.importcpp: "Aspect_NeutralWindow",
-                        header: "Aspect_NeutralWindow.hxx", bycopy.} = object of AspectWindow 
-
-  AspectOpenVRSession* {.importcpp: "Aspect_OpenVRSession",
-                        header: "Aspect_OpenVRSession.hxx", bycopy.} = object of AspectXRSession 
+  AspectCircularGrid* {.importcpp: "Aspect_CircularGrid",
+                       header: "Aspect_CircularGrid.hxx", bycopy.} = object of AspectGrid 
 
   AspectRectangularGrid* {.importcpp: "Aspect_RectangularGrid",
                           header: "Aspect_RectangularGrid.hxx", bycopy.} = object of AspectGrid 
@@ -372,6 +360,11 @@ type
   AspectVKeySet* {.importcpp: "Aspect_VKeySet", header: "Aspect_VKeySet.hxx", bycopy.} = object of StandardTransient 
 
   AspectWindow* {.importcpp: "Aspect_Window", header: "Aspect_Window.hxx", bycopy.} = object of StandardTransient 
+
+  AspectNeutralWindow* {.importcpp: "Aspect_NeutralWindow",
+                        header: "Aspect_NeutralWindow.hxx", bycopy.} = object of AspectWindow 
+
+  HandleAspectWindow* = Handle[AspectWindow]
 
   AspectXRAction* {.importcpp: "Aspect_XRAction", header: "Aspect_XRAction.hxx",
                    bycopy.} = object of StandardTransient 
@@ -381,4 +374,7 @@ type
 
   AspectXRSession* {.importcpp: "Aspect_XRSession", header: "Aspect_XRSession.hxx",
                     bycopy.} = object of StandardTransient 
+
+  AspectOpenVRSession* {.importcpp: "Aspect_OpenVRSession",
+                        header: "Aspect_OpenVRSession.hxx", bycopy.} = object of AspectXRSession 
 

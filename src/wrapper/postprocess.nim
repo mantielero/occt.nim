@@ -75,6 +75,7 @@ proc getTypeBlock*(fname:string):tuple[typs:seq[TypObj], txt:string] =
   return (typs, newFile)
 
 proc createTypesFile*(pattern:string) =
+  # Get subfolders
   var dirs = toSeq( walkDirs(pattern) )
   for d in dirs:
     var txt = ""
@@ -82,6 +83,7 @@ proc createTypesFile*(pattern:string) =
     var prefix = tmp[tmp.high]
   #for fname in walkFiles("./tk*/*/*.nim"): 
 
+    # Get the files within the subfolder
     for fname in walkFiles(fmt"{d}/{prefix}*.nim"):
       #if fname != fmt"./{prefix}types.nim":
         var (typs, newFile) = getTypeBlock(fname)     
@@ -530,13 +532,21 @@ proc appendBeg*(fname, append:string) =
 #===================================================
 
 # 1. Create types with files
+#[ var (typs, newFile) = getTypeBlock("./tkg3d/geom/geom_axis1placement.nim")
+#for i in borrame:
+#  echo i
+for typ in typs:
+  echo "#-----"
+  for i in typ.txt:
+    echo "  " & i ]#
+
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
 createTypesFile("./tkg3d/geom")
 
 #reorderContent("./tkernel/standard/standard_types.nim")
-reorderContent("./tkg3d/geom/geom_types.nim")
+#reorderContent("./tkg3d/geom/geom_types.nim")
 
 #for fname in walkFiles("./tk*/*/*_types.nim"):
 #  reorderContent(fname)

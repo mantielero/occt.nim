@@ -1,6 +1,15 @@
 # PROVIDES: StandardStaticAssert StandardHandlerStatus StandardJmpBuf StandardPCharacter StandardThreadId Standard StandardTransient StandardCLocaleSentry StandardCondition StandardJsonKey StandardDumpValue StandardDump StandardErrorHandler StandardErrorHandlerCallback StandardGUID Handle HandleelementType StandardMMgrOptTPCallBackFunc StandardMMgrRoot StandardMutex StandardMutexSentry StandardReadBuffer StandardReadLineBuffer StandardTransientbaseType TypeInstance StandardReal StandardShortReal StandardByte StandardTime StandardUtf8Char StandardUtf8UChar Streambuf Streamsize StandardOStream StandardSStream StandardIStream StandardAbortiveTransaction StandardConstructionError StandardDimensionError StandardDimensionMismatch StandardDivideByZero StandardDomainError StandardImmutableObject StandardLicenseError StandardLicenseNotFound StandardMultiplyDefined StandardNegativeValue StandardNoSuchObject StandardNotImplemented StandardNullObject StandardNullValue #StandardOutOfMemory StandardOverflow StandardTooManyUsers StandardTypeMismatch StandardUnderflow StandardNoMoreObject StandardJmpBuf StandardExtCharacter StandardExtString StandardUUID #StandardPExtCharacter #StandardByte StandardPByte StandardPExtCharacter StandardPErrorHandler HandleStandardTransient Ostream Guid StandardUUID
 # DEPENDS:  Handle[StandardOutOfRange]  Handle[StandardRangeError] RootObj# StandardProgramError  Handle[StandardAbortiveTransaction]  Handle[StandardConstructionError]  Handle[StandardDimensionError]  Handle[StandardDimensionMismatch]  Handle[StandardDivideByZero]  Handle[StandardDomainError]  Handle[StandardImmutableObject]  Handle[StandardLicenseError]  Handle[StandardLicenseNotFound]  Handle[StandardMultiplyDefined]  Handle[StandardNegativeValue]  Handle[StandardNoMoreObject]  Handle[StandardNoSuchObject]  Handle[StandardNotImplemented]  Handle[StandardNullObject]  Handle[StandardNullValue]  Handle[StandardNumericError]  Handle[StandardOutOfMemory]  Handle[StandardOverflow]  Handle[StandardProgramError]  Handle[StandardTooManyUsers]  Handle[StandardTypeMismatch]  Handle[StandardUnderflow] StandardTransient StandardMMgrRoot StandardMMgrRoot StandardMMgrRoot StandardTransient StandardTransient Streambuf
+#[
+NOTE: don't mix of RootObj with inheritable, pure pragmas. You can
+use the inheritable pragma to introduce new object roots apart from system.RootObj
 
+Note that the quite common .inheritable, pure is unsafe 
+and only for C/C++ interop. With pure there is no type 
+tag so of cannot work and dynamic type conversions are 
+unchecked. I know of no useful application of .inheritable without 
+the .pure, better inherit from RootObj then.
+]#
 import tkernel/standard/standard_types
 type
   StandardStaticAssert*[Condition: static[bool]] {.

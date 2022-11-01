@@ -25,13 +25,11 @@ import geom_types
 ##  commercial license or contractual agreement.
 
 
-
-
-
 proc newGeomCartesianPoint*(p: PntObj): GeomCartesianPoint {.cdecl, constructor,
     importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
 proc newGeomCartesianPoint*(x: cfloat; y: cfloat; z: cfloat): GeomCartesianPoint {.
     cdecl, constructor, importcpp: "Geom_CartesianPoint(@)", header: "Geom_CartesianPoint.hxx".}
+
 proc setCoord*(this: var GeomCartesianPoint; x: cfloat; y: cfloat; z: cfloat) {.cdecl,
     importcpp: "SetCoord", header: "Geom_CartesianPoint.hxx".}
 proc setPnt*(this: var GeomCartesianPoint; p: PntObj) {.cdecl, importcpp: "SetPnt",

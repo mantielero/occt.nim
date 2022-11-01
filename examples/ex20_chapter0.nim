@@ -3,7 +3,8 @@
 import occt
 
 proc main =
-  echo """------- OpenCASCADE Tutorial by Laszlo Kudela -------
+  echo """
+------- OpenCASCADE Tutorial by Laszlo Kudela -------
 ------- Chapter 0: Demonstrative example      -------
 """
  

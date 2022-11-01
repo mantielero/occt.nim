@@ -5,9 +5,9 @@ import strformat  # For fmt"Hello {name}" like formatting
 
 proc main() =
   # Create a simple box with a size 100x100x50, centered around the origin
-  let lowerLeftCornerOfBox = Pnt(-50, -50, 0)
-  let boxMaker = MakeBox( lowerLeftCornerOfBox, 100, 100, 50)
-  let box = boxMaker.shape
+  let lowerLeftCornerOfBox = pnt(-50, -50, 0)
+  let boxMaker = box( lowerLeftCornerOfBox, 100, 100, 50)
+  let box = boxMaker.shape()
 
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 
   cylinderMaker = MakeCylinder(25.0,50.0)
@@ -25,20 +25,20 @@ proc main() =
 
 
   # Create a circle like before
-  let centerPoint = Pnt(2.5, 2.5, 0)
-  let normalDirection = Dir(0,0,1)
-  let xDirection = DIr(1,0,0)
-  let axis = Ax2(centerPoint, normalDirection, xDirection)
+  let centerPoint = pnt(2.5, 2.5, 0)
+  let normalDirection = dir(0,0,1)
+  let xDirection = dir(1,0,0)
+  let axis = ax2(centerPoint, normalDirection, xDirection)
 
   # Creating the circle
-  let circle = Circ(axis, 2.5)
+  let circle = circ(axis, 2.5)
 
   # Some convenience functions provided by the circle class
   echo "Circle area is: ", circle.area
   echo "Circle circumference is: ", circle.length
 
   # Create a scaled copy of the circle
-  let circle2 = circle.scaled( Pnt(2.5,2.5,0.0), 2.0)
+  let circle2 = circle.scaled( pnt(2.5,2.5,0.0), 2.0)
   echo "Scaled circle area is: ", circle2.area
   echo "Scaled circle circumference is: ", circle2.length
   #[
@@ -58,7 +58,7 @@ proc main() =
   #//Distribute the points and write them out to a file
   #PointOnCurveDistribution::distributePointsOnCurve(circle,pointsOnCircle,0.0,2.0*PI,resolution);
   #WriteCoordinatesToFile::writeCoordinatesToFile("chapter3points.txt",pointsOnCircle);  
-  var pointsOnCircle:array[resolution, gp_Pnt]  # A seq would be an option too
+  var pointsOnCircle:array[resolution, PntObj]  # A seq would be an option too
 
   # Template function, small wrapper around the evaluator functions 
   # of ElCLib that we were talking about in the previous tutorial:
@@ -98,8 +98,8 @@ proc main() =
   echo fmt"Reference area: {circle.area}"
   echo fmt"Error: {abs( (totalArea-circle.area)/circle.area )}"
 
-when isMainModule:
-  main()
+
+main()
 
 
 #[

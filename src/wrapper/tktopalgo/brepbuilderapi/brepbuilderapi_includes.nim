@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import brepbuilderapi_types
 import brepbuilderapi
 import brepbuilderapi_bndboxtreeselector
 import brepbuilderapi_cellfilter
@@ -33,4 +34,4 @@ import brepbuilderapi_transitionmode
 import brepbuilderapi_vertexinspector
 import brepbuilderapi_wireerror
 
-export brepbuilderapi, brepbuilderapi_bndboxtreeselector, brepbuilderapi_cellfilter, brepbuilderapi_collect, brepbuilderapi_command, brepbuilderapi_copy, brepbuilderapi_edgeerror, brepbuilderapi_faceerror, brepbuilderapi_fastsewing, brepbuilderapi_findplane, brepbuilderapi_gtransform, brepbuilderapi_makeedge, brepbuilderapi_makeedge2d, brepbuilderapi_makeface, brepbuilderapi_makepolygon, brepbuilderapi_makeshape, brepbuilderapi_makeshell, brepbuilderapi_makesolid, brepbuilderapi_makevertex, brepbuilderapi_makewire, brepbuilderapi_modifyshape, brepbuilderapi_nurbsconvert, brepbuilderapi_pipeerror, brepbuilderapi_sewing, brepbuilderapi_shapemodification, brepbuilderapi_shellerror, brepbuilderapi_transform, brepbuilderapi_transitionmode, brepbuilderapi_vertexinspector, brepbuilderapi_wireerror
+export brepbuilderapi_types, brepbuilderapi, brepbuilderapi_bndboxtreeselector, brepbuilderapi_cellfilter, brepbuilderapi_collect, brepbuilderapi_command, brepbuilderapi_copy, brepbuilderapi_edgeerror, brepbuilderapi_faceerror, brepbuilderapi_fastsewing, brepbuilderapi_findplane, brepbuilderapi_gtransform, brepbuilderapi_makeedge, brepbuilderapi_makeedge2d, brepbuilderapi_makeface, brepbuilderapi_makepolygon, brepbuilderapi_makeshape, brepbuilderapi_makeshell, brepbuilderapi_makesolid, brepbuilderapi_makevertex, brepbuilderapi_makewire, brepbuilderapi_modifyshape, brepbuilderapi_nurbsconvert, brepbuilderapi_pipeerror, brepbuilderapi_sewing, brepbuilderapi_shapemodification, brepbuilderapi_shellerror, brepbuilderapi_transform, brepbuilderapi_transitionmode, brepbuilderapi_vertexinspector, brepbuilderapi_wireerror

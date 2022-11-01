@@ -7,8 +7,10 @@ export occt_wrapper
 import lib/[point]
 export point
 
-#import lib/exporter/[toStep]
-#export toStep
+
+
+import lib/exporter/[toStep]
+export toStep
 
 #proc `$`*(pnt:PntObj):string =
 #  &"Pnt(x:{pnt.x}, y:{pnt.y}, z:{pnt.z})"

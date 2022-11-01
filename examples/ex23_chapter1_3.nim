@@ -11,14 +11,14 @@ proc main() =
   let axis = ax2(centerPoint, normalDirection, xDirection)
 
   # Creating the circle
-  let circle = newCirc(axis, 2.5)
+  let circle = circ(axis, 2.5)
 
   # Some convenience functions provided by the circle class
   echo "Circle area is: ", circle.area
   echo "Circle circumference is: ", circle.length
 
   # Create a scaled copy of the circle
-  let circle2 = circle.scaled( newPnt(2.5,2.5,0.0), 2.0)
+  let circle2 = circle.scaled( pnt(2.5,2.5,0.0), 2.0)
   echo "Scaled circle area is: ", circle2.area
   echo "Scaled circle circumference is: ", circle2.length
   #[
@@ -38,20 +38,20 @@ proc main() =
   #//Distribute the points and write them out to a file
   #PointOnCurveDistribution::distributePointsOnCurve(circle,pointsOnCircle,0.0,2.0*PI,resolution);
   #WriteCoordinatesToFile::writeCoordinatesToFile("chapter3points.txt",pointsOnCircle);  
-  var pointsOnCircle:array[resolution, Pnt]  # A seq would be an option too
+  var pointsOnCircle:array[resolution, PntObj]  # A seq would be an option too
 
   # Template function, small wrapper around the evaluator functions 
   # of ElCLib that we were talking about in the previous tutorial:
   # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/inc/PointOnCurveDistributor.hpp
 
   let deltaU = 2.0*Pi/(resolution - 1).float
-
+#[ FIXME: tkmath/ElCLib
   var lib:ElCLib
   for i in 0..<resolution:
     let delta = (i.float * deltaU).cdouble
     let pointOnCircle = lib.value(delta, circle)
     pointsOnCircle[i] = pointOnCircle
-
+]#
   #[
   Sum the area of the small triangles, to get an approximate area
   The for loop builds triangles with two corners on the circumference
@@ -60,7 +60,7 @@ proc main() =
   var totalArea = 0.0
   for i in 0..<resolution:
     let firstPntOfTriangle = pointsOnCircle[i]
-    var secondPntOfTriangle:Pnt
+    var secondPntOfTriangle:PntObj
     if (i+1) != resolution:
       secondPntOfTriangle = pointsOnCircle[i+1]
     else:
@@ -69,8 +69,8 @@ proc main() =
     let thirdPntOfTriangle = centerPoint
 
     # https://github.com/lvk88/OccTutorial/blob/master/Chapter1_Basics/src/AreaCalculations.cpp
-    let vec1 = newVec(thirdPntOfTriangle, secondPntOfTriangle)
-    let vec2 = newVec(thirdPntOfTriangle, firstPntOfTriangle)
+    let vec1 = vec(thirdPntOfTriangle, secondPntOfTriangle)
+    let vec2 = vec(thirdPntOfTriangle, firstPntOfTriangle)
     let area = vec1.crossed(vec2).magnitude / 2.0
     totalArea += area
          

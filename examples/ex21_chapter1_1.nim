@@ -12,7 +12,7 @@ proc main() =
   echo "Distance between pnt1 and pnt2: ", pnt1.distance(pnt2)
 
   # Rotate pnt1 around the point2, by 90 degrees 
-  var rotation = newTrsf()
+  var rotation = trsf()
   var rotationAxis = ax1( pnt(1,1,0), dir(0, 0, 1) )
   rotation.setRotation( rotationAxis, 3.1415926/2.0)
   pnt1.transform(rotation)

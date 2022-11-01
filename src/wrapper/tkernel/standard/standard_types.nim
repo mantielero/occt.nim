@@ -20,7 +20,8 @@ type
   Standard* {.importcpp: "Standard", header: "Standard.hxx", bycopy.} = object 
 
   StandardTransient* {.importcpp: "Standard_Transient",  
-                      header: "Standard_Transient.hxx".} = object of RootObj  
+                      header: "Standard_Transient.hxx", pure, inheritable.} = object
+                      #header: "Standard_Transient.hxx".} = object of RootObj 
 
   StandardCLocaleSentry* {.importcpp: "Standard_CLocaleSentry",
                           header: "Standard_CLocaleSentry.hxx", bycopy.} = object 
@@ -55,7 +56,8 @@ type
   StandardGUID* {.importcpp: "Standard_GUID", header: "Standard_GUID.hxx", bycopy.} = object
 
   Handle*[T] {.importcpp: "opencascade::handle<\'0>",
-              header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object 
+              header: "Standard_Handle.hxx", bycopy, pure, inheritable.} = object
+              #header: "Standard_Handle.hxx", bycopy.} = object of RootObj
 
   HandleelementType*[T] = T
 

@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import topods_types
 import topods
 import topods_alertattribute
 import topods_alertwithshape
@@ -32,4 +33,4 @@ import topods_uncompatibleshapes
 import topods_vertex
 import topods_wire
 
-export topods, topods_alertattribute, topods_alertwithshape, topods_builder, topods_compound, topods_compsolid, topods_edge, topods_face, topods_frozenshape, topods_hshape, topods_iterator, topods_listiteratoroflistofshape, topods_listofshape, topods_lockedshape, topods_shape, topods_shell, topods_solid, topods_tcompound, topods_tcompsolid, topods_tedge, topods_tface, topods_tshape, topods_tshell, topods_tsolid, topods_tvertex, topods_twire, topods_uncompatibleshapes, topods_vertex, topods_wire
+export topods_types, topods, topods_alertattribute, topods_alertwithshape, topods_builder, topods_compound, topods_compsolid, topods_edge, topods_face, topods_frozenshape, topods_hshape, topods_iterator, topods_listiteratoroflistofshape, topods_listofshape, topods_lockedshape, topods_shape, topods_shell, topods_solid, topods_tcompound, topods_tcompsolid, topods_tedge, topods_tface, topods_tshape, topods_tshell, topods_tsolid, topods_tvertex, topods_twire, topods_uncompatibleshapes, topods_vertex, topods_wire

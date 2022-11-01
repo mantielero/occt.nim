@@ -1,9 +1,8 @@
 {.passL:"-lTKXSBase".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
-type
-  IFGraphSubPartsIterator* = object
+
 #  GeomUndefinedValue* = object
 #[ type
   TColStdArray1OfReal* = object
@@ -17,6 +16,6 @@ else:
   const tkxsbase* = "libTKXSBase.so" 
 
 import transfer/transfer_includes
-import intface/interface_includes
+import "interface/interface_includes"
 import ifselect/ifselect_includes
 export transfer_includes, interface_includes, ifselect_includes

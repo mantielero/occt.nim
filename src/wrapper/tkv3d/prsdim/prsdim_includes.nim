@@ -1,7 +1,9 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import prsdim_ais_types
+import prsdim_types
 import prsdim
 import prsdim_angledimension
 import prsdim_chamf2ddimension
@@ -35,4 +37,6 @@ import prsdim_typeofangle
 import prsdim_typeofanglearrowvisibility
 import prsdim_typeofdist
 
+export prsdim_ais_types
+export prsdim_types
 export prsdim, prsdim_angledimension, prsdim_chamf2ddimension, prsdim_chamf3ddimension, prsdim_concentricrelation, prsdim_diameterdimension, prsdim_dimension, prsdim_dimensionowner, prsdim_dimensionselectionmode, prsdim_displayspecialsymbol, prsdim_ellipseradiusdimension, prsdim_equaldistancerelation, prsdim_equalradiusrelation, prsdim_fixrelation, prsdim_identicrelation, prsdim_kindofdimension, prsdim_kindofrelation, prsdim_kindofsurface, prsdim_lengthdimension, prsdim_maxradiusdimension, prsdim_midpointrelation, prsdim_minradiusdimension, prsdim_offsetdimension, prsdim_parallelrelation, prsdim_perpendicularrelation, prsdim_radiusdimension, prsdim_relation, prsdim_symmetricrelation, prsdim_tangentrelation, prsdim_typeofangle, prsdim_typeofanglearrowvisibility, prsdim_typeofdist

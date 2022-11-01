@@ -1,6 +1,6 @@
 import ../../tkernel/standard/standard_types
 import selectmgr_types
-
+import ../../tkernel/ncollection/ncollection_types
 
 
 

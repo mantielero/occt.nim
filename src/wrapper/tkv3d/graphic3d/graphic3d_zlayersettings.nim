@@ -2,7 +2,7 @@ import ../../tkmath/toploc/toploc_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import graphic3d_types
-
+import ../../tkmath/gp/gp_types
 
 
 

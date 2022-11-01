@@ -13,7 +13,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkbrep/topods/topods_types
 import ../../tkernel/quantity/quantity_types
 import ../../tkmath/bnd/bnd_types
-
+import ../../tkmath/gp/gp_pnt
+import ../../tkservice/aspect/aspect_types
 
 
 

@@ -1,7 +1,7 @@
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
-import graphic3d_types
-
+import graphic3d_types, graphic3d_cubemaporder
+import ../selectmgr/selectmgr_types
 
 
 
@@ -23,9 +23,10 @@ import graphic3d_types
 ## ! Class is intended to process cubemap packed into single image plane.
 
 
-
-proc newGraphic3dCubeMapPacked*(theFileName: TCollectionAsciiString; theOrder: Graphic3dValidatedCubeMapOrder = default()): Graphic3dCubeMapPacked {.
+proc newGraphic3dCubeMapPacked*(theFileName: TCollectionAsciiString; 
+    theOrder: Graphic3dValidatedCubeMapOrder = default()): Graphic3dCubeMapPacked {.
     cdecl, constructor, importcpp: "Graphic3d_CubeMapPacked(@)", header: "Graphic3d_CubeMapPacked.hxx".}
+
 proc newGraphic3dCubeMapPacked*(theImage: Handle[ImagePixMap]; theOrder: Graphic3dValidatedCubeMapOrder = default()): Graphic3dCubeMapPacked {.
     cdecl, constructor, importcpp: "Graphic3d_CubeMapPacked(@)", header: "Graphic3d_CubeMapPacked.hxx".}
 proc compressedValue*(this: var Graphic3dCubeMapPacked;

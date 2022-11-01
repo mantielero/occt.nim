@@ -5,7 +5,7 @@ import ais_types
 import ../../tkernel/ncollection/ncollection_types
 import ../v3d/v3d_types
 import ../graphic3d/graphic3d_types
-
+import ../selectmgr/selectmgr_types
 
 
 

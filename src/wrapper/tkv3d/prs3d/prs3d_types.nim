@@ -1,7 +1,9 @@
-import ../tkv3d/graphic3d/graphic3d_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkmath/tcolgp/tcolgp_types
 type
+  StdPrsShapeTool* = object # FIXME
   Prs3dDatumAttribute* {.size: sizeof(cint), importcpp: "Prs3d_DatumAttribute",
                         header: "Prs3d_DatumAttribute.hxx".} = enum
     prs3dDA_XAxisLength = 0, prs3dDA_YAxisLength, prs3dDA_ZAxisLength,

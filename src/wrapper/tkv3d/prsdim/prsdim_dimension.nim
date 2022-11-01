@@ -1,4 +1,4 @@
-import prsdim_types
+import prsdim_types, prsdim_ais_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
 import ../ais/ais_types

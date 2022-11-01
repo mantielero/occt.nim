@@ -2,7 +2,7 @@ import prsdim_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkbrep/topods/topods_types
-
+import ../selectmgr/selectmgr_types
 
 
 

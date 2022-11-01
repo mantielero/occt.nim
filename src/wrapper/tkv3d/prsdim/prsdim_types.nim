@@ -1,6 +1,7 @@
-import ../tkv3d/selectmgr/selectmgr_types
-import ../tkv3d/ais/ais_types
+import ../selectmgr/selectmgr_types
 import ../../tkernel/standard/standard_types
+import prsdim_ais_types
+
 type
   PrsDimDimensionSelectionMode* {.size: sizeof(cint),
                                  importcpp: "PrsDim_DimensionSelectionMode",
@@ -58,8 +59,8 @@ type
     ComputeModeLine = 1,        
     ComputeModeText = 2
 
-  PrsDimDimension* {.importcpp: "PrsDim_Dimension", header: "PrsDim_Dimension.hxx",
-                    bycopy.} = object of AIS_InteractiveObject 
+  # PrsDimDimension* {.importcpp: "PrsDim_Dimension", header: "PrsDim_Dimension.hxx",
+  #                   bycopy.} = object of AIS_InteractiveObject 
 
   PrsDimDiameterDimension* {.importcpp: "PrsDim_DiameterDimension",
                             header: "PrsDim_DiameterDimension.hxx", bycopy.} = object of PrsDimDimension 
@@ -88,8 +89,8 @@ type
 
   HandlePrsDimRadiusDimension* = Handle[PrsDimRadiusDimension]
 
-  PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
-                   bycopy.} = object of AIS_InteractiveObject 
+  # PrsDimRelation* {.importcpp: "PrsDim_Relation", header: "PrsDim_Relation.hxx",
+  #                  bycopy.} = object of AIS_InteractiveObject 
 
   PrsDimPerpendicularRelation* {.importcpp: "PrsDim_PerpendicularRelation",
                                 header: "PrsDim_PerpendicularRelation.hxx", bycopy.} = object of PrsDimRelation 
@@ -164,11 +165,11 @@ type
 
   PrsDimSymmetricRelation* {.importcpp: "PrsDim_SymmetricRelation",
                             header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
-                            header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
+                            #header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
 
   HandlePrsDimSymmetricRelation* = Handle[PrsDimSymmetricRelation]
 
-                            header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
+                            #header: "PrsDim_SymmetricRelation.hxx", bycopy.} = object of PrsDimRelation 
   PrsDimTangentRelation* {.importcpp: "PrsDim_TangentRelation",
                           header: "PrsDim_TangentRelation.hxx", bycopy.} = object of PrsDimRelation 
 

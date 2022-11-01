@@ -3,7 +3,7 @@ import ../../tkmath/gp/gp_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
 import ../../tkg3d/geom/geom_types
-
+import ../selectmgr/selectmgr_types
 
 
 

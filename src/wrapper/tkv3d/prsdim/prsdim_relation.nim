@@ -1,4 +1,4 @@
-import prsdim_types
+import prsdim_types, prsdim_ais_types
 import ../../tkmath/gp/gp_types
 import ../../tkernel/tcollection/tcollection_types
 import ../ais/ais_types
@@ -6,7 +6,7 @@ import ../../tkernel/standard/standard_types
 import ../../tkbrep/topods/topods_types
 import ../../tkernel/quantity/quantity_types
 import ../../tkg3d/geom/geom_types
-
+import ../selectmgr/selectmgr_types
 
 
 

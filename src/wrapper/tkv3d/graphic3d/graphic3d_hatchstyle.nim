@@ -1,7 +1,7 @@
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import graphic3d_types
-
+import ../selectmgr/selectmgr_types
 
 
 

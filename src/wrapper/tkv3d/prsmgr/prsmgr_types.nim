@@ -1,6 +1,8 @@
-import ../tkv3d/graphic3d/graphic3d_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../prs3d/prs3d_types
+
 type
   PrsMgrListOfPresentableObjectsIter*[HandlePrsMgrPresentableObject] {.importcpp:"NCollection_List<'0>::Iterator", header:"PrsMgr_ListOfPresentableObjects.hxx", bycopy.} = object
 
@@ -21,7 +23,7 @@ type
 
   PrsMgrPresentation* {.importcpp: "PrsMgr_Presentation",
                        header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure 
-                       header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure 
+                       #header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure 
 
   HandlePrsMgrPresentation* = Handle[PrsMgrPresentation]
 
@@ -29,7 +31,7 @@ type
 
   PrsMgrPresentation3d* = PrsMgrPresentation
 
-                       header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure 
+                       #header: "PrsMgr_Presentation.hxx", bycopy.} = object of Graphic3dStructure 
   PrsMgrPresentationManager* {.importcpp: "PrsMgr_PresentationManager",
                               header: "PrsMgr_PresentationManager.hxx", bycopy.} = object of StandardTransient 
 

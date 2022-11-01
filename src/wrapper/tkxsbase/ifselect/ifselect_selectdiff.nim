@@ -1,6 +1,6 @@
 import ../../tkernel/tcollection/tcollection_types
 import ifselect_types
-
+import "../interface/interface_types"
 
 
 

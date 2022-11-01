@@ -1,8 +1,46 @@
-import ../tkv3d/prsmgr/prsmgr_types
+import ../prsmgr/prsmgr_types
 import ../../tkmath/bvh/bvh_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkmath/gp/gp_types
+import ../../tkv3d/graphic3d/graphic3d_types
+import ../../tkernel/tcolstd/tcolstd_types
+
 type
+  Select3D_SensitiveEntity* = object # FIXME
+
+  OSD_Thread* = object of RootObj  # FIXME  
+
+
+  MediaTimer* = object  # FIXME
+  SelectMgrIndexedMapOfOwner* = object  # FIXME
+  StdSelectViewerSelector3d* = object  # FIXME
+  CallbackOnUpdateT* = object  # FIXME
+  MediaPlayerContext* = object  # FIXME
+  Select3D_TypeOfSensitivity* = object  # FIXME
+  FontFontAspect* = object  # FIXME
+  FontTextFormatter* = object  # FIXME
+  ImagePixMap* = object  # FIXME
+  WNT_HIDSpaceMouse* = object  # FIXME
+  ImageTexture* = object  # FIXME
+  SelectBasicsPickResult* = object  # FIXME
+
+  SelectionType* = object  # FIXME
+  StdSelectTypeOfSelectionImage* = object  # FIXME
+  Select3D_BVHBuilder3d* = object  # FIXME
+  Select3D_BndBox3d* = object  # FIXME
+  DsgPrsArrowSide* = object  # FIXME
+
+  ImageSupportedFormats* = object  # FIXME
+  ImageCompressedPixMap* = object  # FIXME
+  PerfCounters* = object  # FIXME
+  OSD_Timer* = object  # FIXME
+  Graphic3dArrayOfIndexedMapOfStructure* = object  # FIXME
+  MediaFrame* = object  # FIXME
+  OSD_Path* = object  # FIXME
+
+  SelectBasicsSelectingVolumeManager* = object of RootObj # FIXME
+
   SelectMgrFilterType* {.size: sizeof(cint), importcpp: "SelectMgr_FilterType",
                         header: "SelectMgr_FilterType.hxx".} = enum
     SelectMgrFilterTypeAND,   
@@ -188,9 +226,9 @@ type
 
   SelectMgrViewerSelector* {.importcpp: "SelectMgr_ViewerSelector",
                             header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
-                            header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
+                            #header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
 
-                            header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
+                            #header: "SelectMgr_ViewerSelector.hxx", bycopy.} = object of StandardTransient 
   SelectMgrViewerSelector3d* {.importcpp: "SelectMgr_ViewerSelector3d",
                               header: "SelectMgr_ViewerSelector3d.hxx", bycopy.} = object of SelectMgrViewerSelector 
 

@@ -1,6 +1,7 @@
 import ../../tkernel/standard/standard_types
 import transfer_types
-
+import "../interface/interface_types"
+import ../../tkernel/message/[message_types, message_progressrange]
 
 
 

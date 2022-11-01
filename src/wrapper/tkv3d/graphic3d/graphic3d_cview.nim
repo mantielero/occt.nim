@@ -3,10 +3,10 @@ import ../../tkernel/tcollection/tcollection_types
 import ../../tkservice/aspect/aspect_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/ncollection/ncollection_types
-import graphic3d_types
+import graphic3d_types, graphic3d_zlayerid
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkmath/bnd/bnd_types
-
+import ../selectmgr/selectmgr_types
 
 
 

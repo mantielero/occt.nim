@@ -3,7 +3,7 @@ import ../../tkernel/standard/standard_types
 import ../prs3d/prs3d_types
 import prsmgr_types
 import ../v3d/v3d_types
-import ../graphic3d/graphic3d_types
+import ../graphic3d/[graphic3d_types, graphic3d_zlayerid]
 
 
 

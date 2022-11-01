@@ -9,16 +9,7 @@
   TColStdArray1OfReal* = object
   VectorWithNullMagnitude* = object ]#
 
-type
-  StepReprRepresentation* = object
-  StepGeomAxis2Placement3d* = object
-  StepReprRepresentationRelationship* = object
-  StepShapeShapeDefinitionRepresentation* = object
-  XSControlController* = object of RootObj
-  XSControlWorkSession* = object
-  #IFSelectReturnStatus* = object #<<---------- ELIMINAR
-  XSControlReader* = object of RootObj
-  StepDataStepModel* = object
+
 
 
 when defined(windows):

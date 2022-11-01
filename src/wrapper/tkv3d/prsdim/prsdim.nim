@@ -5,8 +5,8 @@ import ../prs3d/prs3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkg3d/geom/geom_types
-
-
+import ../../tkernel/quantity/quantity_types
+import ../../tkservice/aspect/aspect_types
 
 
 

@@ -1,13 +1,20 @@
-import ../tkv3d/selectmgr/selectmgr_types
+import ../selectmgr/selectmgr_types
 import ../../tkbrep/topods/topods_types
 import ../../tkservice/aspect/aspect_types
-import ../tkv3d/prs3d/prs3d_types
-import ../tkv3d/prsdim/prsdim_types
+import ../prs3d/prs3d_types
+import ../prsdim/[prsdim_types, prsdim_ais_types]
 import ../../tkernel/tcolstd/tcolstd_types
-import ../tkv3d/graphic3d/graphic3d_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../v3d/v3d_types
+import ../../tkbrep/toptools/toptools_types
+
 type
+  AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
+                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
+
+
   Ais* {.importcpp: "AIS", header: "AIS.hxx", bycopy.} = object
 
   AIS_AngleDimension* = PrsDimAngleDimension
@@ -183,6 +190,13 @@ type
     aIS_MouseGesturePan,      
     aIS_MouseGestureRotateOrbit, 
     aIS_MouseGestureRotateView 
+
+
+
+      ## ! Map defining mouse gestures.
+
+#type
+  AIS_MouseGestureMap*[cuint, AIS_MouseGesture] {.importcpp:"NCollection_DataMap<'0, '1>", header:"AIS_MouseGesture.hxx", bycopy.} = object
 
   AIS_NavigationMode* {.size: sizeof(cint), importcpp: "AIS_NavigationMode",
                        header: "AIS_NavigationMode.hxx".} = enum
@@ -377,8 +391,6 @@ type
   AIS_InteractiveContext* {.importcpp: "AIS_InteractiveContext",
                            header: "AIS_InteractiveContext.hxx", bycopy.} = object of StandardTransient 
 
-  AIS_InteractiveObject* {.importcpp: "AIS_InteractiveObject",
-                          header: "AIS_InteractiveObject.hxx", bycopy.} = object of SelectMgrSelectableObject 
 
   AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
                              header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject 
@@ -471,9 +483,13 @@ type
 
   AIS_ViewCubeOwner* {.importcpp: "AIS_ViewCubeOwner", header: "AIS_ViewCube.hxx",
                       bycopy.} = object of SelectMgrEntityOwner 
-                      bycopy.} = object of SelectMgrEntityOwner 
+                      #bycopy.} = object of SelectMgrEntityOwner 
 
-                      bycopy.} = object of SelectMgrEntityOwner 
+                      #bycopy.} = object of SelectMgrEntityOwner 
   AIS_XRTrackedDevice* {.importcpp: "AIS_XRTrackedDevice",
                         header: "AIS_XRTrackedDevice.hxx", bycopy.} = object of AIS_InteractiveObject 
 
+
+  #HandleAIS_InteractiveObject* = Handle[AIS_InteractiveObject]
+  HandleAIS_InteractiveObject* {.importcpp:"opencascade::handle<AIS_InteractiveObject>", 
+    header:"AIS_InteractiveObject.hxx", byref, pure, inheritable.} = object

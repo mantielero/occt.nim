@@ -4,7 +4,7 @@ import ais_types
 import ../graphic3d/graphic3d_types
 import ../../tkbrep/topods/topods_types
 import ../../tkernel/quantity/quantity_types
-
+import ../selectmgr/selectmgr_types
 
 
 

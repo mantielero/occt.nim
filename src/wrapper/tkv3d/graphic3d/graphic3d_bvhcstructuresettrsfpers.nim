@@ -1,6 +1,7 @@
 import ../../tkernel/standard/standard_types
 import graphic3d_types
-
+import ../selectmgr/selectmgr_types
+import ../../tkmath/bvh/bvh_types
 
 
 

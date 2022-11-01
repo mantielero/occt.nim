@@ -1,6 +1,8 @@
 import ../../tkernel/quantity/quantity_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkmath/gp/gp_types
+
 type
   AspectColorSpace* {.size: sizeof(cint), importcpp: "Aspect_ColorSpace",
                      header: "Aspect_ColorSpace.hxx".} = enum
@@ -308,7 +310,7 @@ type
                               importcpp: "Aspect_XRSession::InfoString",
                               header: "Aspect_XRSession.hxx".} = enum
     InfoStringVendor, InfoStringDevice, InfoStringTracker, InfoStringSerialNumber
-    InfoStringVendor, InfoStringDevice, InfoStringTracker, InfoStringSerialNumber
+    #InfoStringVendor, InfoStringDevice, InfoStringTracker, InfoStringSerialNumber
 
   AspectXRTrackedDeviceRole* {.size: sizeof(cint),
                               importcpp: "Aspect_XRTrackedDeviceRole",

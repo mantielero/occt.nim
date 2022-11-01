@@ -8,7 +8,7 @@ import ../graphic3d/graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
 import ../../tkmath/bnd/bnd_types
-
+import ../../tkmath/gp/gp_pnt
 
 
 

@@ -1,5 +1,17 @@
 import ../../tkxsbase/transfer/transfer_types
 import ../../tkernel/standard/standard_types
+
+type
+  StepReprRepresentation* = object  # FIXME
+  StepGeomAxis2Placement3d* = object  # FIXME
+  StepReprRepresentationRelationship* = object  # FIXME
+  StepShapeShapeDefinitionRepresentation* = object  # FIXME
+  XSControlController* = object of RootObj  # FIXME
+  XSControlWorkSession* = object  # FIXME
+  #IFSelectReturnStatus* = object #<<---------- ELIMINAR
+  XSControlReader* = object of RootObj  # FIXME
+  StepDataStepModel* = object  # FIXME
+
 type
   STEPControlStepModelType* {.size: sizeof(cint),
                              importcpp: "STEPControl_StepModelType",
@@ -24,11 +36,11 @@ type
 
   STEPControlController* {.importcpp: "STEPControl_Controller",
                           header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController 
-                          header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController 
+                          #header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController 
 
   HandleSTEPControlController* = Handle[STEPControlController]
 
-                          header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController 
+                          #header: "STEPControl_Controller.hxx", bycopy.} = object of XSControlController 
   STEPControlReader* {.importcpp: "STEPControl_Reader",
                       header: "STEPControl_Reader.hxx", bycopy.} = object of XSControlReader 
 

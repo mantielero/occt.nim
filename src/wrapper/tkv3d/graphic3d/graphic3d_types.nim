@@ -1,6 +1,8 @@
 import ../../tkmath/bvh/bvh_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkservice/aspect/aspect_types
+
 type
   Graphic3dAlphaMode* {.size: sizeof(cint), importcpp: "Graphic3d_AlphaMode",
                        header: "Graphic3d_AlphaMode.hxx".} = enum
@@ -573,6 +575,12 @@ type
     graphic3dTextureSetBitsMetallicRoughness = cast[cuint]((1 shl 5)) 
 
   Graphic3dArray1OfAttribute* = NCollectionArray1[Graphic3dAttribute]
+
+
+  Graphic3dDataStructureManager* {.importcpp: "Graphic3d_DataStructureManager",
+                                  header: "Graphic3d_DataStructureManager.hxx",
+                                  bycopy.} = object of StandardTransient ## ! Initializes the manager <me>.
+
 
   HandleGraphic3dDataStructureManager* = Handle[Graphic3dDataStructureManager]
 

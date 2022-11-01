@@ -3,7 +3,7 @@ import ../../tkernel/standard/standard_types
 import graphic3d_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkernel/quantity/quantity_types
-
+import ../selectmgr/selectmgr_types
 
 
 

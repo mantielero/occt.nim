@@ -1,6 +1,10 @@
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import "../interface/interface_types"
+
 type
+  IFGraphSubPartsIterator* = object   # FIXME
+
   IFSelectEditValue* {.size: sizeof(cint), importcpp: "IFSelect_EditValue",
                       header: "IFSelect_EditValue.hxx".} = enum
     iFSelectOptional, iFSelectEditable, iFSelectEditProtected,
@@ -407,11 +411,11 @@ type
 
   IFSelectWorkLibrary* {.importcpp: "IFSelect_WorkLibrary",
                         header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
-                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
+                        #header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
 
   HandleIFSelectWorkLibrary* = Handle[IFSelectWorkLibrary]
 
-                        header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
+                        #header: "IFSelect_WorkLibrary.hxx", bycopy.} = object of StandardTransient 
   IFSelectWorkSession* {.importcpp: "IFSelect_WorkSession",
                         header: "IFSelect_WorkSession.hxx", bycopy.} = object of StandardTransient 
 

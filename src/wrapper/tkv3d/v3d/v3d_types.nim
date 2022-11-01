@@ -1,9 +1,35 @@
 import ../../tkservice/aspect/aspect_types
-import ../tkv3d/graphic3d/graphic3d_types
+import ../graphic3d/graphic3d_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+
+
 type
   V3dCoordinate* = cfloat
+
+  Graphic3dCLight* {.importcpp: "Graphic3d_CLight", header: "Graphic3d_CLight.hxx",
+                    bycopy.} = object of StandardTransient ## ! Empty constructor, which should be followed by light source properties configuration.
+                                                      ## ! Returns location of positional/spot light; (0, 0, 0) by default.
+                                                      ## ! Returns direction of directional/spot light.
+                                                      ## ! Returns an angle in radians of the cone created by the spot; 30 degrees by default.
+                                                      ## ! Returns the intensity of light source; 1.0 by default.
+                                                      ## ! @return light resource identifier string
+                                                      ## ! Access positional/spot light constant attenuation coefficient from packed vector.
+                                                      ## ! Generate unique object id.
+    ## !< resource id
+    ## !< user given name
+    ## !< light position
+    ## !< light color
+    ## !< direction of directional/spot light
+    ## !< packed light parameters
+    ## !< radius for point light or cone angle for directional light
+    ## !< intensity multiplier for light
+    ## !< Graphic3d_TypeOfLightSource enumeration
+    ## !< modification counter
+    ## !< flag to mark head light
+    ## !< enabled state
+
+  HandleGraphic3dCLight* = Handle[Graphic3dCLight]
 
   V3dLight* = Graphic3dCLight
 

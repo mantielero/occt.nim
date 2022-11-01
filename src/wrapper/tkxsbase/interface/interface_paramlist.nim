@@ -1,3 +1,5 @@
+{.experimental: "callOperator".}
+
 import interface_types
 
 

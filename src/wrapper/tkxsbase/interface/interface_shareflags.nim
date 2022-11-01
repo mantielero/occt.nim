@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -46,5 +48,6 @@ proc nbRoots*(this: InterfaceShareFlags): cint {.noSideEffect, cdecl,
     importcpp: "NbRoots", header: "Interface_ShareFlags.hxx".}
 proc root*(this: InterfaceShareFlags; num: cint = 1): Handle[StandardTransient] {.
     noSideEffect, cdecl, importcpp: "Root", header: "Interface_ShareFlags.hxx".}
+
 
 

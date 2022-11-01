@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -33,5 +35,6 @@ proc `bind`*(this: var InterfaceCopyControl; ent: Handle[StandardTransient];
 proc search*(this: InterfaceCopyControl; ent: Handle[StandardTransient];
             res: var Handle[StandardTransient]): bool {.noSideEffect, cdecl,
     importcpp: "Search", header: "Interface_CopyControl.hxx".}
+
 
 

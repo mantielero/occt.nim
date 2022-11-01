@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -79,5 +81,6 @@ proc categoryNumber*(this: InterfaceGeneralModule; cn: cint;
 proc name*(this: InterfaceGeneralModule; cn: cint; ent: Handle[StandardTransient];
           shares: InterfaceShareTool): Handle[TCollectionHAsciiString] {.
     noSideEffect, cdecl, importcpp: "Name", header: "Interface_GeneralModule.hxx".}
+
 
 

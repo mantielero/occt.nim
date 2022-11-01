@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -35,5 +37,6 @@ proc newInterfaceHArray1OfHAsciiString*(theOther: InterfaceArray1OfHAsciiString)
     header: "Interface_HArray1OfHAsciiString.hxx".}
 proc array1*(this: InterfaceHArray1OfHAsciiString): InterfaceArray1OfHAsciiString {.
     noSideEffect, cdecl, importcpp: "Array1", header: "Interface_HArray1OfHAsciiString.hxx".}
+
 
 

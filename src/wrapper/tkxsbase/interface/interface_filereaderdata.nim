@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -84,5 +86,6 @@ proc destroyInterfaceFileReaderData*(this: var InterfaceFileReaderData) {.cdecl,
     importcpp: "#.~Interface_FileReaderData()", header: "Interface_FileReaderData.hxx".}
 proc fastof*(str: cstring): cfloat {.cdecl, importcpp: "Interface_FileReaderData::Fastof(@)",
                                  header: "Interface_FileReaderData.hxx".}
+
 
 

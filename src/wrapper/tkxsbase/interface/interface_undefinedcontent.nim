@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -71,5 +73,6 @@ proc getFromAnother*(this: var InterfaceUndefinedContent;
                     other: Handle[InterfaceUndefinedContent];
                     tc: var InterfaceCopyTool) {.cdecl, importcpp: "GetFromAnother",
     header: "Interface_UndefinedContent.hxx".}
+
 
 

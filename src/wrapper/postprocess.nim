@@ -634,11 +634,12 @@ for typ in typs:
 #createTypesFile("./tk*/*")
 #createTypesFile("./tkxsbase/interface")
 
-#reorderContent("./tkernel/standard/standard_types.nim")
+reorderContent("./tkxsbase/interface/interface_types.nim")
 #reorderContent("./tkg3d/geom/geom_types.nim")
 
 # for fname in walkFiles("tk*/*/*.nim"):
-#   if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
+#   if fname.startsWith("tkxsbase/interface"):
+#   #if not fname.startsWith("tkernel") and not fname.startsWith("tkmath"):
 #     if not fname.endsWith("_types.nim") and not fname.endsWith("_includes.nim"): 
 #       echo "Functions: ", fname
 #       addImports(fname)

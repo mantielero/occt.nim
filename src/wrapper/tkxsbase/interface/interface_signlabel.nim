@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -33,5 +35,6 @@ proc name*(this: InterfaceSignLabel): cstring {.noSideEffect, cdecl,
 proc text*(this: InterfaceSignLabel; ent: Handle[StandardTransient];
           context: Handle[StandardTransient]): TCollectionAsciiString {.
     noSideEffect, cdecl, importcpp: "Text", header: "Interface_SignLabel.hxx".}
+
 
 

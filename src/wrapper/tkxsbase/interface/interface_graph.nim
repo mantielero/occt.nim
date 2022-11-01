@@ -1,8 +1,10 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -134,5 +136,6 @@ proc sharingTable*(this: InterfaceGraph): Handle[TColStdHArray1OfListOfInteger] 
     noSideEffect, cdecl, importcpp: "SharingTable", header: "Interface_Graph.hxx".}
 proc modeStat*(this: InterfaceGraph): bool {.noSideEffect, cdecl,
     importcpp: "ModeStat", header: "Interface_Graph.hxx".}
+
 
 

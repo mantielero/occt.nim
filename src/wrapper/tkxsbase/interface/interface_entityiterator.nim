@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -58,5 +60,6 @@ proc destroy*(this: var InterfaceEntityIterator) {.cdecl, importcpp: "Destroy",
     header: "Interface_EntityIterator.hxx".}
 proc destroyInterfaceEntityIterator*(this: var InterfaceEntityIterator) {.cdecl,
     importcpp: "#.~Interface_EntityIterator()", header: "Interface_EntityIterator.hxx".}
+
 
 

@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
+
+
+
 
 
 
@@ -43,5 +45,6 @@ proc destroy*(this: var InterfaceFileParameter) {.cdecl, importcpp: "Destroy",
     header: "Interface_FileParameter.hxx".}
 proc destroyInterfaceFileParameter*(this: var InterfaceFileParameter) {.cdecl,
     importcpp: "#.~Interface_FileParameter()", header: "Interface_FileParameter.hxx".}
+
 
 

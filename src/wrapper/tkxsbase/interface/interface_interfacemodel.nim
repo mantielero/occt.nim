@@ -1,8 +1,10 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -172,5 +174,6 @@ proc setTemplate*(name: cstring; model: Handle[InterfaceInterfaceModel]): bool {
     cdecl, importcpp: "Interface_InterfaceModel::SetTemplate(@)", header: "Interface_InterfaceModel.hxx".}
 proc listTemplates*(): Handle[TColStdHSequenceOfHAsciiString] {.cdecl,
     importcpp: "Interface_InterfaceModel::ListTemplates(@)", header: "Interface_InterfaceModel.hxx".}
+
 
 

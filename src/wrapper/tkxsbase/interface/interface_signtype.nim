@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -34,5 +36,6 @@ proc value*(this: InterfaceSignType; ent: Handle[StandardTransient];
     importcpp: "Value", header: "Interface_SignType.hxx".}
 #proc className*(typnam: cstring): cstring {.cdecl, importcpp: "Interface_SignType::ClassName(@)",
 #                                        header: "Interface_SignType.hxx".}
+
 
 

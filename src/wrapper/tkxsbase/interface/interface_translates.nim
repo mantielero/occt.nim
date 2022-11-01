@@ -2,6 +2,8 @@
 
 
 
+
+
 ##  Copyright (c) 1999-2014 OPEN CASCADE SAS
 ##
 ##  This file is part of Open CASCADE Technology software library.
@@ -76,5 +78,6 @@
 ##      for (nument = numlow; nument <= numup; nument ++)\
 ##        seq->Append(arr->Value(nument));\
 ##    }
+
 
 

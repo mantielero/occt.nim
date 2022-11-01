@@ -4,6 +4,8 @@ import interface_types
 
 
 
+
+
 ##  Created on: 2008-01-21
 ##  Created by: Galina KULIKOVA
 ##  Copyright (c) 2008-2014 OPEN CASCADE SAS
@@ -41,5 +43,6 @@ proc changeValue*(this: var InterfaceParamList; index: cint): var InterfaceFileP
 proc `()`*(this: var InterfaceParamList; index: cint): var InterfaceFileParameter {.
     cdecl, importcpp: "#(@)", header: "Interface_ParamList.hxx".}
 proc clear*(this: var InterfaceParamList) {.cdecl, importcpp: "Clear", header: "Interface_ParamList.hxx".}
+
 
 

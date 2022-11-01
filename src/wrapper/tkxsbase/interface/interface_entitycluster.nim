@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -51,5 +53,6 @@ proc fillIterator*(this: InterfaceEntityCluster; iter: var InterfaceEntityIterat
     noSideEffect, cdecl, importcpp: "FillIterator", header: "Interface_EntityCluster.hxx".}
 proc destroyInterfaceEntityCluster*(this: var InterfaceEntityCluster) {.cdecl,
     importcpp: "#.~Interface_EntityCluster()", header: "Interface_EntityCluster.hxx".}
+
 
 

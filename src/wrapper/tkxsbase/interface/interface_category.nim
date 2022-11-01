@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -54,5 +56,6 @@ proc number*(theName: cstring): cint {.cdecl,
                                    importcpp: "Interface_Category::Number(@)",
                                    header: "Interface_Category.hxx".}
 proc init*() {.cdecl, importcpp: "Interface_Category::Init(@)", header: "Interface_Category.hxx".}
+
 
 

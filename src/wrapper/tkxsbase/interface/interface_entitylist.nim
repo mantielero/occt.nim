@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -51,5 +53,6 @@ proc nbTypedEntities*(this: InterfaceEntityList; atype: Handle[StandardType]): c
 proc typedEntity*(this: InterfaceEntityList; atype: Handle[StandardType];
                  num: cint = 0): Handle[StandardTransient] {.noSideEffect, cdecl,
     importcpp: "TypedEntity", header: "Interface_EntityList.hxx".}
+
 
 

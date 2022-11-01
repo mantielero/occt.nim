@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -62,5 +64,6 @@ proc all*(this: InterfaceShareTool; ent: Handle[StandardTransient];
 proc print*(this: InterfaceShareTool; iter: InterfaceEntityIterator;
            s: var StandardOStream) {.noSideEffect, cdecl, importcpp: "Print",
                                   header: "Interface_ShareTool.hxx".}
+
 
 

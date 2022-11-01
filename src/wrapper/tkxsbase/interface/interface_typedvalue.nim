@@ -4,6 +4,8 @@ import interface_types
 
 
 
+
+
 ##  Created on: 1998-02-23
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1998-1999 Matra Datavision
@@ -34,5 +36,6 @@ proc `type`*(this: InterfaceTypedValue): InterfaceParamType {.noSideEffect, cdec
 #    importcpp: "Interface_TypedValue::ParamTypeToValueType(@)", header: "Interface_TypedValue.hxx".}
 #proc valueTypeToParamType*(typ: MoniToolValueType): InterfaceParamType {.cdecl,
 #    importcpp: "Interface_TypedValue::ValueTypeToParamType(@)", header: "Interface_TypedValue.hxx".}
+
 
 

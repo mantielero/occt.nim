@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -62,5 +64,6 @@ proc add*(this: var InterfaceLineBuffer; text: TCollectionAsciiString) {.cdecl,
     importcpp: "Add", header: "Interface_LineBuffer.hxx".}
 proc add*(this: var InterfaceLineBuffer; text: cchar) {.cdecl, importcpp: "Add",
     header: "Interface_LineBuffer.hxx".}
+
 
 

@@ -4,6 +4,8 @@ import interface_types
 
 
 
+
+
 ##  Created on: 1995-09-01
 ##  Created by: Christian CAILLET
 ##  Copyright (c) 1995-1999 Matra Datavision
@@ -81,5 +83,6 @@ proc cFalse*(this: InterfaceBitMap; item: cint; flag: cint = 0): bool {.noSideEf
 proc init*(this: InterfaceBitMap; val: bool; flag: cint = 0) {.noSideEffect, cdecl,
     importcpp: "Init", header: "Interface_BitMap.hxx".}
 proc clear*(this: var InterfaceBitMap) {.cdecl, importcpp: "Clear", header: "Interface_BitMap.hxx".}
+
 
 

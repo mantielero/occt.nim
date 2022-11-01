@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -34,6 +36,7 @@ proc protocol*(this: InterfaceNodeOfGeneralLib): Handle[InterfaceProtocol] {.
     noSideEffect, cdecl, importcpp: "Protocol", header: "Interface_NodeOfGeneralLib.hxx".}
 proc next*(this: InterfaceNodeOfGeneralLib): Handle[InterfaceNodeOfGeneralLib] {.
     noSideEffect, cdecl, importcpp: "Next", header: "Interface_NodeOfGeneralLib.hxx".}
+
 
 
 

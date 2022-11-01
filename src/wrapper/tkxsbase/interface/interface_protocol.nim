@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -57,5 +59,6 @@ proc unknownEntity*(this: InterfaceProtocol): Handle[StandardTransient] {.
     noSideEffect, cdecl, importcpp: "UnknownEntity", header: "Interface_Protocol.hxx".}
 proc isUnknownEntity*(this: InterfaceProtocol; ent: Handle[StandardTransient]): bool {.
     noSideEffect, cdecl, importcpp: "IsUnknownEntity", header: "Interface_Protocol.hxx".}
+
 
 

@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -46,5 +48,6 @@ proc destroy*(this: var InterfaceParamSet) {.cdecl, importcpp: "Destroy",
     header: "Interface_ParamSet.hxx".}
 proc destroyInterfaceParamSet*(this: var InterfaceParamSet) {.cdecl,
     importcpp: "#.~Interface_ParamSet()", header: "Interface_ParamSet.hxx".}
+
 
 

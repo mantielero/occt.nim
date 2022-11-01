@@ -1,7 +1,9 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -91,5 +93,6 @@ proc destroy*(this: var InterfaceCheckIterator) {.cdecl, importcpp: "Destroy",
     header: "Interface_CheckIterator.hxx".}
 proc destroyInterfaceCheckIterator*(this: var InterfaceCheckIterator) {.cdecl,
     importcpp: "#.~Interface_CheckIterator()", header: "Interface_CheckIterator.hxx".}
+
 
 

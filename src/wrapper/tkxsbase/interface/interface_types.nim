@@ -1,3 +1,5 @@
+import ../../tkernel/ncollection/ncollection_types
+
 type
   InterfaceArray1OfFileParameter* = NCollectionArray1[InterfaceFileParameter]
 type

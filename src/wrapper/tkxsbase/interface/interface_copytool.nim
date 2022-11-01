@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -67,5 +69,6 @@ proc rootResult*(this: InterfaceCopyTool; withreports: bool = false): InterfaceE
     noSideEffect, cdecl, importcpp: "RootResult", header: "Interface_CopyTool.hxx".}
 proc destroyInterfaceCopyTool*(this: var InterfaceCopyTool) {.cdecl,
     importcpp: "#.~Interface_CopyTool()", header: "Interface_CopyTool.hxx".}
+
 
 

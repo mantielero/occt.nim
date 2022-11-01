@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -42,5 +44,6 @@ proc begin*(this: var InterfaceGraphContent) {.cdecl, importcpp: "Begin",
     header: "Interface_GraphContent.hxx".}
 proc evaluate*(this: var InterfaceGraphContent) {.cdecl, importcpp: "Evaluate",
     header: "Interface_GraphContent.hxx".}
+
 
 

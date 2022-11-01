@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -36,6 +38,7 @@ proc append*(this: var InterfaceHSequenceOfCheck;
     header: "Interface_HSequenceOfCheck.hxx".}
 proc changeSequence*(this: var InterfaceHSequenceOfCheck): var InterfaceSequenceOfCheck {.
     cdecl, importcpp: "ChangeSequence", header: "Interface_HSequenceOfCheck.hxx".}
+
 
 
 

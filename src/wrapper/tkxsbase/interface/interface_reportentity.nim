@@ -1,6 +1,8 @@
 import interface_types
-
 import ../../tkernel/standard/standard_types
+
+
+
 
 
 
@@ -48,5 +50,6 @@ proc isError*(this: InterfaceReportEntity): bool {.noSideEffect, cdecl,
     importcpp: "IsError", header: "Interface_ReportEntity.hxx".}
 proc isUnknown*(this: InterfaceReportEntity): bool {.noSideEffect, cdecl,
     importcpp: "IsUnknown", header: "Interface_ReportEntity.hxx".}
+
 
 

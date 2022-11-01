@@ -1,6 +1,7 @@
-import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
+
+
+
 
 
 
@@ -24,5 +25,6 @@ import ../../tkernel/tcollection/tcollection_types
 
 proc isEqual*(k1: TCollectionAsciiString; k2: TCollectionAsciiString): bool {.cdecl,
     importcpp: "Interface_MapAsciiStringHasher::IsEqual(@)", header: "Interface_MapAsciiStringHasher.hxx".}
+
 
 

@@ -1,9 +1,11 @@
 import interface_types
-
 import ../../tkernel/tcollection/tcollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/message/message_types
 import ../../tkernel/tcolstd/tcolstd_types
+
+
+
 
 
 
@@ -128,5 +130,6 @@ proc print*(this: InterfaceCheck; s: var StandardOStream; level: cint; final: ci
     noSideEffect, cdecl, importcpp: "Print", header: "Interface_Check.hxx".}
 proc trace*(this: InterfaceCheck; level: cint = -1; final: cint = 1) {.noSideEffect, cdecl,
     importcpp: "Trace", header: "Interface_Check.hxx".}
+
 
 

@@ -3,7 +3,7 @@ import brepblend_types
 import ../../tkgeombase/approx/approx_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-
+import ../../tkmath/geomabs/geomabs_types
 
 
 

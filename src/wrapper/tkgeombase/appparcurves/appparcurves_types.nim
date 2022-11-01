@@ -44,9 +44,9 @@ type
 
   AppParCurvesHArray1OfMultiCurve* {.importcpp: "AppParCurves_HArray1OfMultiCurve", header: "AppParCurves_HArray1OfMultiCurve.hxx",
                                     bycopy.} = object of AppParCurvesArray1OfMultiCurve
-                                    bycopy.} = object of AppParCurvesArray1OfMultiCurve
+                                    #bycopy.} = object of AppParCurvesArray1OfMultiCurve
 
-                                    bycopy.} = object of AppParCurvesArray1OfMultiCurve
+                                    #bycopy.} = object of AppParCurvesArray1OfMultiCurve
   AppParCurvesHArray1OfMultiPoint* {.importcpp: "AppParCurves_HArray1OfMultiPoint", header: "AppParCurves_HArray1OfMultiPoint.hxx",
                                     bycopy.} = object of AppParCurvesArray1OfMultiPoint
 

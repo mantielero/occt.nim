@@ -4,7 +4,11 @@ import ../../tkmath/bnd/bnd_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkbrep/topexp/topexp_types
+
 type
+  BRepClass3dSolidClassifier* = object # FIXME
+
   TopOpeBRepToolDataMapIteratorOfDataMapOfOrientedShapeC2DF* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_C2DF,TopTools_OrientedShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfOrientedShapeC2DF.hxx", bycopy.} = object
 
   TopOpeBRepToolDataMapIteratorOfDataMapOfShapeface* {.importcpp:"NCollection_DataMap<TopoDS_Shape,TopOpeBRepTool_face,TopTools_ShapeMapHasher>::Iterator", header:"TopOpeBRepTool_DataMapOfShapeface.hxx", bycopy.} = object
@@ -82,7 +86,7 @@ type
   TopOpeBRepToolSolidClassifier* {.importcpp: "TopOpeBRepTool_SolidClassifier",
                                   header: "TopOpeBRepTool_SolidClassifier.hxx",
                                   bycopy.} = object
-                                  bycopy.} = object
+                                  #bycopy.} = object
 
   TopOpeBRepToolTOOL* {.importcpp: "TopOpeBRepTool_TOOL",
                        header: "TopOpeBRepTool_TOOL.hxx", bycopy.} = object
@@ -112,11 +116,11 @@ type
 
   TopOpeBRepToolHBoxTool* {.importcpp: "TopOpeBRepTool_HBoxTool",
                            header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
-                           header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+                           #header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
 
   HandleTopOpeBRepToolHBoxTool* = Handle[TopOpeBRepToolHBoxTool]
 
-                           header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
+                           #header: "TopOpeBRepTool_HBoxTool.hxx", bycopy.} = object of StandardTransient
   TopOpeBRepToolShapeExplorer* {.importcpp: "TopOpeBRepTool_ShapeExplorer",
                                 header: "TopOpeBRepTool_ShapeExplorer.hxx", bycopy.} = object of TopExpExplorer 
 

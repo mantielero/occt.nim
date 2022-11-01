@@ -1,5 +1,5 @@
 import topopebrepds_types
-import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types

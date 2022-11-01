@@ -1,6 +1,6 @@
 {.passL:"-lTKPrim".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
 
 when defined(windows):
@@ -11,9 +11,7 @@ else:
   const tkprim* = "libTKPrim.so"
 
 
-type
-  BRepSweepPrism* = object
-  BRepSweepRevol* = object
+
 
 import brepprim/brepprim_includes
 import brepprimapi/brepprimapi_includes

@@ -2,7 +2,7 @@ import ../../tkmath/gp/gp_types
 import brepprimapi_types
 import ../../tkernel/standard/standard_types
 import ../../tkg3d/geom/geom_types
-
+import ../brepprim/brepprim_types
 
 
 

@@ -2,6 +2,7 @@ import ../../tkmath/math/math_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+#import ../../tkernel/tcolstd/tcolstd_types
 type
   ExtremaElementType* {.size: sizeof(cint), importcpp: "Extrema_ElementType",
                        header: "Extrema_ElementType.hxx".} = enum
@@ -130,7 +131,7 @@ type
 
   ExtremaPOnSurf* {.importcpp: "Extrema_POnSurf", header: "Extrema_POnSurf.hxx",
                    bycopy.} = object of RootObj 
-                   bycopy.} = object of RootObj 
+                   #bycopy.} = object of RootObj 
 
   ExtremaArray1OfPOnCurv* = NCollectionArray1[ExtremaPOnCurv]
 
@@ -244,9 +245,9 @@ type
 
   ExtremaPCLocFOfLocEPCOfLocateExtPC* {.importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC", header: "Extrema_PCLocFOfLocEPCOfLocateExtPC.hxx",
                                        bycopy.} = object of MathFunctionWithDerivative
-                                       bycopy.} = object of MathFunctionWithDerivative
+                                       #bycopy.} = object of MathFunctionWithDerivative
 
-                                       bycopy.} = object of MathFunctionWithDerivative
+                                       #bycopy.} = object of MathFunctionWithDerivative
   ExtremaPCLocFOfLocEPCOfLocateExtPC2d* {.
       importcpp: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d",
       header: "Extrema_PCLocFOfLocEPCOfLocateExtPC2d.hxx", bycopy.} = object of MathFunctionWithDerivative

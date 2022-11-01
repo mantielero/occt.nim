@@ -2,7 +2,7 @@ import ../../tkmath/tcolgp/tcolgp_types
 import approx_types
 import ../../tkernel/standard/standard_types
 import ../../tkernel/tcolstd/tcolstd_types
-
+import ../../tkmath/geomabs/geomabs_types
 
 
 

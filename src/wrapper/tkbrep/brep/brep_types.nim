@@ -1,4 +1,4 @@
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
 type
@@ -100,7 +100,7 @@ type
 
   HandleBRepTFace* = Handle[BRepTFace]
 
-  BRepTFace* {.importcpp: "BRep_TFace", header: "BRep_TFace.hxx", bycopy.} = object of TopoDS_TFace 
+  #BRepTFace* {.importcpp: "BRep_TFace", header: "BRep_TFace.hxx", bycopy.} = object of TopoDS_TFace 
   BRepTVertex* {.importcpp: "BRep_TVertex", header: "BRep_TVertex.hxx", bycopy.} = object of TopoDS_TVertex
 
   HandleBRepTVertex* = Handle[BRepTVertex]

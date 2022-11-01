@@ -1,7 +1,15 @@
 import ../../tkernel/message/message_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+
+
 type
+  TopoDS_FrozenShape* = object        # FIXME
+  
+  TopoDS_LockedShape* = object        # FIXME
+  
+  TopoDS_UnCompatibleShapes* = object # FIXME
+
   TopoDS_ListIteratorOfListOfShape* {.importcpp:"NCollection_List<TopoDS_Shape>::Iterator", header: "TopoDS_ListOfShape.hxx", bycopy.} = object
 
   TopoDS* {.importcpp: "TopoDS", header: "TopoDS.hxx", bycopy.} = object 
@@ -81,7 +89,7 @@ type
 
   HandleTopoDS_TVertex* = Handle[TopoDS_TVertex]
 
-  TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape 
+  #TopoDS_TVertex* {.importcpp: "TopoDS_TVertex", header: "TopoDS_TVertex.hxx", bycopy.} = object of TopoDS_TShape 
   TopoDS_TWire* {.importcpp: "TopoDS_TWire", header: "TopoDS_TWire.hxx", bycopy.} = object of TopoDS_TShape 
 
   HandleTopoDS_TWire* = Handle[TopoDS_TWire]

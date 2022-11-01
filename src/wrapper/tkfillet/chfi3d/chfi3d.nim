@@ -2,7 +2,7 @@ import ../../tkg3d/topabs/topabs_types
 import ../../tkbrep/brepadaptor/brepadaptor_types
 import ../../tkbrep/topods/topods_types
 import ../chfids/chfids_types
-
+import ../../tkmath/geomabs/geomabs_types
 
 
 

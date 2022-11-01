@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import brepprimapi_types
 import brepprimapi_makebox
 import brepprimapi_makecone
 import brepprimapi_makecylinder
@@ -15,4 +16,4 @@ import brepprimapi_makesweep
 import brepprimapi_maketorus
 import brepprimapi_makewedge
 
-export brepprimapi_makebox, brepprimapi_makecone, brepprimapi_makecylinder, brepprimapi_makehalfspace, brepprimapi_makeoneaxis, brepprimapi_makeprism, brepprimapi_makerevol, brepprimapi_makerevolution, brepprimapi_makesphere, brepprimapi_makesweep, brepprimapi_maketorus, brepprimapi_makewedge
+export brepprimapi_types, brepprimapi_makebox, brepprimapi_makecone, brepprimapi_makecylinder, brepprimapi_makehalfspace, brepprimapi_makeoneaxis, brepprimapi_makeprism, brepprimapi_makerevol, brepprimapi_makerevolution, brepprimapi_makesphere, brepprimapi_makesweep, brepprimapi_maketorus, brepprimapi_makewedge

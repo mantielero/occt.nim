@@ -11,10 +11,7 @@ else:
   const tkbrep* = "libTKBRep.so"
 
 
-type
-  TopoDS_FrozenShape* = object
-  TopoDS_LockedShape* = object
-  TopoDS_UnCompatibleShapes* = object
+
 
 
 import topods/topods_includes

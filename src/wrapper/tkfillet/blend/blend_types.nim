@@ -35,9 +35,9 @@ type
 
   BlendSurfPointFuncInv* {.importcpp: "Blend_SurfPointFuncInv",
                           header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
-                          header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
+                          #header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
 
-                          header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
+                          #header: "Blend_SurfPointFuncInv.hxx", bycopy.} = object of MathFunctionSetWithDerivatives 
   BlendSurfRstFunction* {.importcpp: "Blend_SurfRstFunction",
                          header: "Blend_SurfRstFunction.hxx", bycopy.} = object of BlendAppFunction 
 

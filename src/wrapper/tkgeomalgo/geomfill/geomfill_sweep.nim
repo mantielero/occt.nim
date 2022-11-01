@@ -2,7 +2,7 @@ import ../../tkernel/standard/standard_types
 import ../../tkg3d/geom/geom_types
 import ../../tkg2d/geom2d/geom2d_types
 import geomfill_types
-
+import ../../tkmath/geomabs/geomabs_types
 
 
 

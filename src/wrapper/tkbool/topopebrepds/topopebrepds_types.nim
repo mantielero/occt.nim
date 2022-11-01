@@ -4,6 +4,8 @@ import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkg3d/geom/geom_types
+
 type
   TopOpeBRepDS_CheckStatus* {.size: sizeof(cint),
                              importcpp: "TopOpeBRepDS_CheckStatus",
@@ -131,7 +133,7 @@ type
 
   TopOpeBRepDS_TOOL* {.importcpp: "TopOpeBRepDS_TOOL",
                       header: "TopOpeBRepDS_TOOL.hxx", bycopy.} = object
-                      header: "TopOpeBRepDS_TOOL.hxx", bycopy.} = object
+                      #header: "TopOpeBRepDS_TOOL.hxx", bycopy.} = object
 
   TopOpeBRepDS_Transition* {.importcpp: "TopOpeBRepDS_Transition",
                             header: "TopOpeBRepDS_Transition.hxx", bycopy.} = object 
@@ -269,12 +271,12 @@ type
   TopOpeBRepDS_SolidSurfaceInterference* {.
       importcpp: "TopOpeBRepDS_SolidSurfaceInterference",
       header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
-      header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
+      #header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
 
   HandleTopOpeBRepDS_SolidSurfaceInterference* = Handle[
       TopOpeBRepDS_SolidSurfaceInterference]
 
-      header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
+      #header: "TopOpeBRepDS_SolidSurfaceInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference
   TopOpeBRepDS_SurfaceCurveInterference* {.
       importcpp: "TopOpeBRepDS_SurfaceCurveInterference",
       header: "TopOpeBRepDS_SurfaceCurveInterference.hxx", bycopy.} = object of TopOpeBRepDS_Interference

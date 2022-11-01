@@ -1,7 +1,7 @@
 import ../../tkmath/gp/gp_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
-
+import ../../tkmath/precision/precision
 
 
 

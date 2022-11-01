@@ -9,7 +9,7 @@ proc main =
  
   # Create a simple box with a size 100x100x50, centered around the origin
   let lowerLeftCornerOfBox = pnt(-50.0,-50.0,0.0)
-  var boxMaker = box(lowerLeftCornerOfBox,100,100,50)
+  var boxMaker = box(lowerLeftCornerOfBox,100,100,50)  # tkprim/brepprimapi/brepprimapi_makebox | tkmath/bvh/bvh_box 
   var myBox:TopoDS_Shape = boxMaker.shape()
      
   # Create a cylinder with a radius 25.0 and height 50.0, centered at the origin 

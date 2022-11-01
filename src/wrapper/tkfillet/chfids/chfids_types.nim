@@ -98,7 +98,7 @@ type
 
   HandleChFiDS_Stripe* = Handle[ChFiDS_Stripe]
 
-  ChFiDS_Stripe* {.importcpp: "ChFiDS_Stripe", header: "ChFiDS_Stripe.hxx", bycopy.} = object of StandardTransient
+  #ChFiDS_Stripe* {.importcpp: "ChFiDS_Stripe", header: "ChFiDS_Stripe.hxx", bycopy.} = object of StandardTransient
   ChFiDS_SurfData* {.importcpp: "ChFiDS_SurfData", header: "ChFiDS_SurfData.hxx",
                     bycopy.} = object of StandardTransient
 

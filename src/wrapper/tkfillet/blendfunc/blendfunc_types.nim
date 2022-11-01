@@ -1,4 +1,4 @@
-import ../tkfillet/blend/blend_types
+import ../blend/blend_types
 type
   BlendFuncSectionShape* {.size: sizeof(cint), importcpp: "BlendFunc_SectionShape",
                           header: "BlendFunc_SectionShape.hxx".} = enum
@@ -63,10 +63,10 @@ type
 
   BlendFuncRuled* {.importcpp: "BlendFunc_Ruled", header: "BlendFunc_Ruled.hxx",
                    bycopy.} = object of BlendFunction
-                   bycopy.} = object of BlendFunction
+                   #bycopy.} = object of BlendFunction
 
-                   bycopy.} = object of BlendFunction
+                   #bycopy.} = object of BlendFunction
   BlendFuncRuledInv* {.importcpp: "BlendFunc_RuledInv",
                       header: "BlendFunc_RuledInv.hxx", bycopy.} = object of BlendFuncInv
-                      header: "BlendFunc_RuledInv.hxx", bycopy.} = object of BlendFuncInv
+                      #header: "BlendFunc_RuledInv.hxx", bycopy.} = object of BlendFuncInv
 

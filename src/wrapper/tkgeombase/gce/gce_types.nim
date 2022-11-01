@@ -1,4 +1,4 @@
-import ../tkgeombase/gc/gc_types
+import ../gc/gc_types
 type
   GceErrorType* {.size: sizeof(cint), importcpp: "gce_ErrorType",
                  header: "gce_ErrorType.hxx".} = enum
@@ -60,8 +60,8 @@ type
 
   GceMakeParab2d* {.importcpp: "gce_MakeParab2d", header: "gce_MakeParab2d.hxx",
                    bycopy.} = object of GceRoot 
-                   bycopy.} = object of GceRoot 
+                   #bycopy.} = object of GceRoot 
 
-                   bycopy.} = object of GceRoot 
+                   #bycopy.} = object of GceRoot 
   GceMakePln* {.importcpp: "gce_MakePln", header: "gce_MakePln.hxx", bycopy.} = object of GceRoot 
 

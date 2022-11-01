@@ -2,7 +2,7 @@ import ../bopalgo/bopalgo_types
 import ../../tkbrep/toptools/toptools_types
 import ../../tkbrep/topods/topods_types
 import brepalgoapi_types
-
+import ../../tkmath/precision/precision
 
 
 

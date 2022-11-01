@@ -1,6 +1,6 @@
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import extrema_types
-
+import ../../tkgeombase/extrema/extrema_genlocateextps
 
 
 

@@ -1,6 +1,7 @@
-import ../tkbo/bopalgo/bopalgo_types
+import ../bopalgo/bopalgo_types
 import ../../tkbrep/brep/brep_types
 import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
+
 type
   BRepAlgoAPI_Algo* {.importcpp: "BRepAlgoAPI_Algo",
                      header: "BRepAlgoAPI_Algo.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 

@@ -1,7 +1,12 @@
-import ../tkprim/brepprim/brepprim_types
+import ../brepprim/brepprim_types
 import ../../tkbrep/brep/brep_types
 import ../../tktopalgo/brepbuilderapi/brepbuilderapi_types
+#export ../brepprim/brepprim_types
 type
+  # I think they should be included in brepprim_types
+
+
+
   BRepPrimAPI_MakeBox* {.importcpp: "BRepPrimAPI_MakeBox",
                         header: "BRepPrimAPI_MakeBox.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
 
@@ -34,9 +39,9 @@ type
 
   BRepPrimAPI_MakeTorus* {.importcpp: "BRepPrimAPI_MakeTorus",
                           header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis 
-                          header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis 
+                          #header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis 
 
-                          header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis 
+                          #header: "BRepPrimAPI_MakeTorus.hxx", bycopy.} = object of BRepPrimAPI_MakeOneAxis 
   BRepPrimAPI_MakeWedge* {.importcpp: "BRepPrimAPI_MakeWedge",
                           header: "BRepPrimAPI_MakeWedge.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape 
 

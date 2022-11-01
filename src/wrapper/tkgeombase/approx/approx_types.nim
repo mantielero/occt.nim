@@ -1,5 +1,9 @@
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+import ../../tkernel/tcolstd/tcolstd_types
+import ../../tkg3d/adaptor3d/adaptor3d_types
+import ../../tkmath/gp/gp_types
+
 type
   ApproxParametrizationType* {.size: sizeof(cint),
                               importcpp: "Approx_ParametrizationType",
@@ -60,9 +64,9 @@ type
 
   ApproxHArray1OfGTrsf2d* {.importcpp: "Approx_HArray1OfGTrsf2d",
                            header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
-                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+                           #header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
 
-                           header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
+                           #header: "Approx_HArray1OfGTrsf2d.hxx", bycopy.} = object of ApproxArray1OfGTrsf2d
   ApproxSweepFunction* {.importcpp: "Approx_SweepFunction",
                         header: "Approx_SweepFunction.hxx", bycopy.} = object of StandardTransient 
 

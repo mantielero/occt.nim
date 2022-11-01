@@ -33,7 +33,7 @@ type
 
   IntSurfQuadricTool* {.importcpp: "IntSurf_QuadricTool",
                        header: "IntSurf_QuadricTool.hxx", bycopy.} = object 
-                       header: "IntSurf_QuadricTool.hxx", bycopy.} = object 
+                       #header: "IntSurf_QuadricTool.hxx", bycopy.} = object 
 
   IntSurfTransition* {.importcpp: "IntSurf_Transition",
                       header: "IntSurf_Transition.hxx", bycopy.} = object 

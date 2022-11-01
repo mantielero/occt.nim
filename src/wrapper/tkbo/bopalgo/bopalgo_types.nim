@@ -77,7 +77,7 @@ type
 
   BOPAlgoShellSplitter* {.importcpp: "BOPAlgo_ShellSplitter",
                          header: "BOPAlgo_ShellSplitter.hxx", bycopy.} = object of BOPAlgoAlgo 
-                       header: "BOPAlgo_WireEdgeSet.hxx", bycopy.} = object
+                       #header: "BOPAlgo_WireEdgeSet.hxx", bycopy.} = object
 
   BOPAlgoWireSplitter* {.importcpp: "BOPAlgo_WireSplitter",
                         header: "BOPAlgo_WireSplitter.hxx", bycopy.} = object of BOPAlgoAlgo
@@ -111,7 +111,7 @@ type
 
   BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider 
 
-  BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider 
+  #BOPAlgoBOP* {.importcpp: "BOPAlgo_BOP", header: "BOPAlgo_BOP.hxx", bycopy.} = object of BOPAlgoToolsProvider 
   BOPAlgoSplitter* {.importcpp: "BOPAlgo_Splitter", header: "BOPAlgo_Splitter.hxx",
                     bycopy.} = object of BOPAlgoToolsProvider 
 

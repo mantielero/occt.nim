@@ -1,5 +1,6 @@
-import ../tkgeombase/gce/gce_types
-import ../tkgeombase/gc/gc_types
+import ../gce/gce_types
+import ../gc/gc_types
+
 type
   GCE2dMakeMirror* {.importcpp: "GCE2d_MakeMirror", header: "GCE2d_MakeMirror.hxx",
                     bycopy.} = object
@@ -40,9 +41,9 @@ type
 
   GCE2dMakeParabola* {.importcpp: "GCE2d_MakeParabola",
                       header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot 
-                      header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot 
+                      #header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot 
 
-                      header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot 
+                      #header: "GCE2d_MakeParabola.hxx", bycopy.} = object of GCE2dRoot 
   GCE2dMakeSegment* {.importcpp: "GCE2d_MakeSegment",
                      header: "GCE2d_MakeSegment.hxx", bycopy.} = object of GCE2dRoot 
 

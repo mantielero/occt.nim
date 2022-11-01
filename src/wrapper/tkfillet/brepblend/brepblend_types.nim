@@ -1,10 +1,12 @@
 import ../../tkgeomalgo/appblend/appblend_types
-import ../tkfillet/blend/blend_types
+import ../blend/blend_types
 import ../../tkgeombase/approx/approx_types
 import ../../tkbrep/brep/brep_types
-import ../tkfillet/blendfunc/blendfunc_types
+import ../blendfunc/blendfunc_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
+
+
 type
   BRepBlendChamfer* = BlendFuncChamfer
 
@@ -61,7 +63,7 @@ type
 
   BRepBlendSurfRstLineBuilder* {.importcpp: "BRepBlend_SurfRstLineBuilder",
                                 header: "BRepBlend_SurfRstLineBuilder.hxx", bycopy.} = object
-                                header: "BRepBlend_SurfRstLineBuilder.hxx", bycopy.} = object
+                                #header: "BRepBlend_SurfRstLineBuilder.hxx", bycopy.} = object
 
   BRepBlendWalking* {.importcpp: "BRepBlend_Walking",
                      header: "BRepBlend_Walking.hxx", bycopy.} = object
@@ -126,9 +128,9 @@ type
 
   BRepBlendSurfRstConstRad* {.importcpp: "BRepBlend_SurfRstConstRad",
                              header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
-                             header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
+                             #header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
 
-                             header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
+                             #header: "BRepBlend_SurfRstConstRad.hxx", bycopy.} = object of BlendSurfRstFunction
   BRepBlendSurfRstEvolRad* {.importcpp: "BRepBlend_SurfRstEvolRad",
                             header: "BRepBlend_SurfRstEvolRad.hxx", bycopy.} = object of BlendSurfRstFunction
 

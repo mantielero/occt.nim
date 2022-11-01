@@ -10,10 +10,7 @@ elif defined(macosx):
 else:
   const tktopalgo* = "libTKTopAlgo.so"
 
-type
-  #BndBox* = object
-  Selector* = object of RootObj
-  BRepToolsReShape* = object
+
 
 import brepbuilderapi/brepbuilderapi_includes
 

@@ -1,7 +1,9 @@
-import ../tkbrep/topods/topods_types
+import ../topods/topods_types
 import ../../tkernel/tcolstd/tcolstd_types
 import ../../tkmath/bnd/bnd_types
 import ../../tkernel/ncollection/ncollection_types
+import ../../tkernel/message/message_types
+
 type
   TopToolsDataMapIteratorOfDataMapOfIntegerListOfShape* {.importcpp:"NCollection_DataMap<Standard_Integer,TopTools_ListOfShape,TColStd_MapIntegerHasher>::Iterator", header:"TopTools_DataMapOfIntegerListOfShape.hxx",bycopy.} = object
 
@@ -130,9 +132,9 @@ type
 
   TopToolsHArray2OfShape* {.importcpp: "TopTools_HArray2OfShape",
                            header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
-                           header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
+                           #header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
 
-                           header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
+                           #header: "TopTools_HArray2OfShape.hxx", bycopy.} = object of TopToolsArray2OfShape
   TopToolsHSequenceOfShape* {.importcpp: "TopTools_HSequenceOfShape",
                              header: "TopTools_HSequenceOfShape.hxx", bycopy.} = object of TopToolsSequenceOfShape
 

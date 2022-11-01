@@ -40,7 +40,7 @@ type
 
   HandleLawLinear* = Handle[LawLinear]
 
-  LawLinear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of LawFunction 
+  #LawLinear* {.importcpp: "Law_Linear", header: "Law_Linear.hxx", bycopy.} = object of LawFunction 
   LawS* {.importcpp: "Law_S", header: "Law_S.hxx", bycopy.} = object of LawBSpFunc 
 
   HandleLawS* = Handle[LawS]

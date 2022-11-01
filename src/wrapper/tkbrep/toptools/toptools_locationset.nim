@@ -1,7 +1,7 @@
 import ../../tkmath/toploc/toploc_types
 import ../../tkernel/standard/standard_types
 import toptools_types
-
+import ../../tkernel/message/[message_types,message_progressrange]
 
 
 

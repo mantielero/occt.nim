@@ -1,7 +1,7 @@
 import ../../tkg2d/adaptor2d/adaptor2d_types
 import ../../tkg2d/geom2dadaptor/geom2dadaptor_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
-import ../tkbrep/brep/brep_types
+import ../brep/brep_types
 import ../../tkg2d/geom2d/geom2d_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkg3d/geom/geom_types
@@ -38,11 +38,11 @@ type
 
   BRepAdaptorHSurface* {.importcpp: "BRepAdaptor_HSurface",
                         header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface 
-                        header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface 
+                        #header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface 
 
   HandleBRepAdaptorHSurface* = Handle[BRepAdaptorHSurface]
 
-                        header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface 
+                        #header: "BRepAdaptor_HSurface.hxx", bycopy.} = object of Adaptor3dHSurface 
   BRepAdaptorSurface* {.importcpp: "BRepAdaptor_Surface",
                        header: "BRepAdaptor_Surface.hxx", bycopy.} = object of Adaptor3dSurface 
 

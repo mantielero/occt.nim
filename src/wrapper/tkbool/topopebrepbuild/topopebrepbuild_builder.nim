@@ -1,6 +1,6 @@
 import ../../tkmath/gp/gp_types
 import ../../tkg3d/topabs/topabs_types
-import ../../tkernel/tcollection/tcollection_types
+import ../../tkernel/tcollection/[tcollection_types, tcollection_asciistring]
 import ../topopebreptool/topopebreptool_types
 import ../../tkernel/standard/standard_types
 import ../../tkbrep/toptools/toptools_types

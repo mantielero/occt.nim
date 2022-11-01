@@ -1,5 +1,9 @@
 import ../../tkbrep/brep/brep_types
 type
+  BRepSweepPrism* = object # FIXME
+   
+  BRepSweepRevol* = object # FIXME
+    
   BRepPrimDirection* {.size: sizeof(cint), importcpp: "BRepPrim_Direction",
                       header: "BRepPrim_Direction.hxx".} = enum
     BRepPrimXMin, BRepPrimXMax, BRepPrimYMin, BRepPrimYMax, BRepPrimZMin,
@@ -29,8 +33,8 @@ type
 
   BRepPrimSphere* {.importcpp: "BRepPrim_Sphere", header: "BRepPrim_Sphere.hxx",
                    bycopy.} = object of BRepPrimRevolution 
-                   bycopy.} = object of BRepPrimRevolution 
+                   #bycopy.} = object of BRepPrimRevolution 
 
-                   bycopy.} = object of BRepPrimRevolution 
+                   #bycopy.} = object of BRepPrimRevolution 
   BRepPrimTorus* {.importcpp: "BRepPrim_Torus", header: "BRepPrim_Torus.hxx", bycopy.} = object of BRepPrimRevolution 
 

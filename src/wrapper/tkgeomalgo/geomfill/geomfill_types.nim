@@ -1,10 +1,12 @@
-import ../tkgeomalgo/appblend/appblend_types
+import ../appblend/appblend_types
 import ../../tkgeombase/approx/approx_types
 import ../../tkg3d/adaptor3d/adaptor3d_types
 import ../../tkmath/math/math_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkg3d/geom/geom_types
 import ../../tkernel/standard/standard_types
+import ../../tkmath/gp/gp_types
+
 type
   GeomFillApproxStyle* {.size: sizeof(cint), importcpp: "GeomFill_ApproxStyle",
                         header: "GeomFill_ApproxStyle.hxx".} = enum
@@ -245,7 +247,7 @@ type
 
   GeomFillTrihedronWithGuide* {.importcpp: "GeomFill_TrihedronWithGuide",
                                header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
-                               header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
+                               #header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
 
   GeomFillGuideTrihedronPlan* {.importcpp: "GeomFill_GuideTrihedronPlan",
                                header: "GeomFill_GuideTrihedronPlan.hxx", bycopy.} = object of GeomFillTrihedronWithGuide
@@ -259,7 +261,7 @@ type
 
   HandleGeomFillTrihedronWithGuide* = Handle[GeomFillTrihedronWithGuide]
 
-                               header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
+                               #header: "GeomFill_TrihedronWithGuide.hxx", bycopy.} = object of GeomFillTrihedronLaw
   GeomFillUniformSection* {.importcpp: "GeomFill_UniformSection",
                            header: "GeomFill_UniformSection.hxx", bycopy.} = object of GeomFillSectionLaw 
 

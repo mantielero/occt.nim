@@ -1,7 +1,7 @@
 import brepbuilderapi_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/tcolstd/tcolstd_types
-
+import ../../tkmath/gp/gp_types
 
 
 

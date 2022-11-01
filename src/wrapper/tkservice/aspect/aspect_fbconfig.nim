@@ -1,4 +1,4 @@
-
+#import aspect_types
 
 
 
@@ -15,14 +15,5 @@
 ##  Alternatively, this file may be used under the terms of Open CASCADE
 ##  commercial license or contractual agreement.
 
-when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
-    not defined(android) and not defined(qnx) and not defined(emscripten):
-  type
-    GLXFBConfig* = ptr gLXFBConfigRec
-    AspectFBConfig* = GLXFBConfig
-  ##  GLXFBConfig* under UNIX
-else:
-  type
-    AspectFBConfig* = pointer
-  ##  unused on other systems
+
 

@@ -1,4 +1,4 @@
-import aspect_types
+import aspect_types, aspect_vkeyflags
 import ../../tkernel/ncollection/ncollection_types
 
 

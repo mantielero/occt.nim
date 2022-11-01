@@ -4,7 +4,7 @@ import ../../tkernel/standard/standard_types
 import aspect_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkv3d/graphic3d/graphic3d_types
-
+import ../../tkv3d/selectmgr/selectmgr_types
 
 
 

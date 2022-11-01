@@ -2,8 +2,27 @@ import ../../tkernel/quantity/quantity_types
 import ../../tkernel/ncollection/ncollection_types
 import ../../tkernel/standard/standard_types
 import ../../tkmath/gp/gp_types
+import ../../tkernel/tcollection/tcollection_types
 
+when not defined(win32) and (not defined(apple) or defined(macosx_Use_Glx)) and
+    not defined(android) and not defined(qnx) and not defined(emscripten):
+  type
+    gLXFBConfigRec* = object  # FIXME    
+    GLXFBConfig* = ptr gLXFBConfigRec
+    AspectFBConfig* = GLXFBConfig
+  ##  GLXFBConfig* under UNIX
+else:
+  type
+    AspectFBConfig* = pointer
+  ##  unused on other systems
+  
 type
+  Display* = object  # FIXME
+  Atom* = object  # FIXME
+  AspectDrawable* = culong  # FIXME
+  InfoString* = object  # FIXME
+  TrackingUniverseOrigin* = object  # FIXME
+
   AspectColorSpace* {.size: sizeof(cint), importcpp: "Aspect_ColorSpace",
                      header: "Aspect_ColorSpace.hxx".} = enum
     AspectColorSpaceSRGB = 0,   
@@ -380,3 +399,8 @@ type
   AspectOpenVRSession* {.importcpp: "Aspect_OpenVRSession",
                         header: "Aspect_OpenVRSession.hxx", bycopy.} = object of AspectXRSession 
 
+
+  AspectXRActionMap* = NCollectionIndexedDataMap[TCollectionAsciiString,
+      Handle[AspectXRAction], TCollectionAsciiString]
+
+  AspectTrackedDevicePoseArray* = NCollectionArray1[AspectTrackedDevicePose]      

@@ -1,14 +1,8 @@
 {.passL:"-lTKService".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
-type
-  Display* = object
-  Atom* = object
-  gLXFBConfigRec* = object
-  AspectDrawable* = culong
-  InfoString* = object
-  TrackingUniverseOrigin* = object
+
 
 
 when defined(windows):

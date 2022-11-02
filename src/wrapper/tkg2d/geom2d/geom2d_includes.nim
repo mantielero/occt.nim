@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import geom2d_types
 import geom2d_axisplacement
 import geom2d_beziercurve
 import geom2d_boundedcurve
@@ -25,4 +26,4 @@ import geom2d_undefinedvalue
 import geom2d_vector
 import geom2d_vectorwithmagnitude
 
-export geom2d_axisplacement, geom2d_beziercurve, geom2d_boundedcurve, geom2d_bsplinecurve, geom2d_cartesianpoint, geom2d_circle, geom2d_conic, geom2d_curve, geom2d_direction, geom2d_ellipse, geom2d_geometry, geom2d_hyperbola, geom2d_line, geom2d_offsetcurve, geom2d_parabola, geom2d_point, geom2d_transformation, geom2d_trimmedcurve, geom2d_undefinedderivative, geom2d_undefinedvalue, geom2d_vector, geom2d_vectorwithmagnitude
+export geom2d_types, geom2d_axisplacement, geom2d_beziercurve, geom2d_boundedcurve, geom2d_bsplinecurve, geom2d_cartesianpoint, geom2d_circle, geom2d_conic, geom2d_curve, geom2d_direction, geom2d_ellipse, geom2d_geometry, geom2d_hyperbola, geom2d_line, geom2d_offsetcurve, geom2d_parabola, geom2d_point, geom2d_transformation, geom2d_trimmedcurve, geom2d_undefinedderivative, geom2d_undefinedvalue, geom2d_vector, geom2d_vectorwithmagnitude

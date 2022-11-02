@@ -26,14 +26,19 @@ import ../../tkg3d/geom/geom_types
 
 proc segment*(p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+
 proc segment*(line: LinObj; u1: cfloat; u2: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+
 proc segment*(line: LinObj; point: PntObj; ulast: cfloat): MakeSegment {.cdecl,
     constructor, importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+
 proc segment*(line: LinObj; p1: PntObj; p2: PntObj): MakeSegment {.cdecl, constructor,
     importcpp: "GC_MakeSegment(@)", header: "GC_MakeSegment.hxx".}
+
 proc value*(this: MakeSegment): HandleGeomTrimmedCurve {.noSideEffect, cdecl,
     importcpp: "Value", header: "GC_MakeSegment.hxx".}
+
 converter toHandleGeomTrimmedCurve*(this: MakeSegment): HandleGeomTrimmedCurve {.
     noSideEffect, cdecl, importcpp: "(Handle_Geom_TrimmedCurve)(#)",
     header: "GC_MakeSegment.hxx".}

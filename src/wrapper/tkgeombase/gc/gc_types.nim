@@ -8,6 +8,7 @@ type
   MakeTranslation* {.importcpp: "GC_MakeTranslation",
                     header: "GC_MakeTranslation.hxx", bycopy.} = object 
 
+  #Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy,pure,inheritable.} = object
   Root* {.importcpp: "GC_Root", header: "GC_Root.hxx", bycopy.} = object of RootObj 
 
   MakeArcOfCircle* {.importcpp: "GC_MakeArcOfCircle",

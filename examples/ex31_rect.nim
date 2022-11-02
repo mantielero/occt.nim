@@ -12,8 +12,6 @@ proc newSegment(p1,p2:PntObj):EdgeObj = # BRepBuilderAPI_MakeEdge -> EdgeObj
 In the file `tkg3d/geom/geom_types.nim` we see that `HandleGeomTrimmedCurve` is
 an object of `HandleGeomCurve`.
 
-
-
 ]#
 
 proc rect(p1,p2,p3,p4:PntObj):BRepBuilderAPI_MakeWire =
@@ -22,10 +20,6 @@ proc rect(p1,p2,p3,p4:PntObj):BRepBuilderAPI_MakeWire =
   var l2 = newSegment(p2, p3)
   var l3 = newSegment(p3, p4)
   var l4 = newSegment(p4, p1)
-  # var l1 = edge(p1, p2)
-  # var l2 = edge(p2, p3)
-  # var l3 = edge(p3, p4)
-  # var l4 = edge(p4, p1)
   var w = wire()
   w.add(l1)
   w.add(l2)
@@ -34,13 +28,10 @@ proc rect(p1,p2,p3,p4:PntObj):BRepBuilderAPI_MakeWire =
   return w
 
 #-----
-# var p1 = pnt(0,0,0)
-# var p2 = pnt(0,20,0)
-# var p3 = pnt(30,20,0)
-# var p4 = pnt(30,0,0)
-# var w = rect(p1,p2,p3,p4)
-# "step2.step".toSTEP(w)
-
 var p1 = pnt(0,0,0)
 var p2 = pnt(0,20,0)
-var l1 = newSegment(p1, p2)
+var p3 = pnt(30,20,0)
+var p4 = pnt(30,0,0)
+var w = rect(p1,p2,p3,p4)
+"step2.step".toSTEP(w)
+

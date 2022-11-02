@@ -84,7 +84,7 @@ type
   BRepBuilderAPI_MakeShape* {.importcpp: "BRepBuilderAPI_MakeShape",
                              header: "BRepBuilderAPI_MakeShape.hxx", bycopy.} = object of BRepBuilderAPI_Command 
 
-  EdgeObj* {.importcpp: "EdgeObj",
+  EdgeObj* {.importcpp: "BRepBuilderAPI_MakeEdge",
                             header: "BRepBuilderAPI_MakeEdge.hxx", bycopy.} = object of BRepBuilderAPI_MakeShape
 
   Edge2dObj* {.importcpp: "BRepBuilderAPI_MakeEdge2d",

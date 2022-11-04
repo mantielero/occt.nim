@@ -10,7 +10,7 @@ tag so of cannot work and dynamic type conversions are
 unchecked. I know of no useful application of .inheritable without 
 the .pure, better inherit from RootObj then.
 ]#
-import tkernel/standard/standard_types
+#import tkernel/standard/standard_types
 type
   StandardStaticAssert*[Condition: static[bool]] {.
       importcpp: "Standard_Static_Assert<\'0>", header: "Standard_Assert.hxx",

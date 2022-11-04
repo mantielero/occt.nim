@@ -1,7 +1,7 @@
 #{.experimental: "codeReordering".}
 {.experimental: "callOperator".}
 
-proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
+import cnew
 
 import tkernel/tkernel
 import tkmath/tkmath
@@ -19,7 +19,9 @@ import tkxsbase/tkxsbase
 import tkstep/tkstep
 import tkv3d/tkv3d
 import tkservice/tkservice
+import tkopengl/tkopengl
 
+export cnew
 export tkernel
 export tkmath
 export tkgeombase
@@ -30,5 +32,10 @@ export tktopalgo
 export tkprim
 export tkfillet
 export tkbool
-export tkgeomalgo, tkbo, tkxsbase, tkstep
-export tkv3d, tkservice
+export tkgeomalgo
+export tkbo
+export tkxsbase
+export tkstep
+export tkv3d
+export tkservice
+export tkopengl

@@ -404,3 +404,5 @@ type
       Handle[AspectXRAction], TCollectionAsciiString]
 
   AspectTrackedDevicePoseArray* = NCollectionArray1[AspectTrackedDevicePose]      
+
+  HandleAspectDisplayConnection* = Handle[AspectDisplayConnection]

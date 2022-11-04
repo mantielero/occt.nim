@@ -632,9 +632,9 @@ for typ in typs:
 
 #"./tkmath/gp"
 #createTypesFile("./tk*/*")
-#createTypesFile("./tkxsbase/interface")
+#createTypesFile("./tkopengl/opengl")
 
-reorderContent("./tkxsbase/interface/interface_types.nim")
+reorderContent("./tkopengl/opengl/opengl_types.nim")
 #reorderContent("./tkg3d/geom/geom_types.nim")
 
 # for fname in walkFiles("tk*/*/*.nim"):

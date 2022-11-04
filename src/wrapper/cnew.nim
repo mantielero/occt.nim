@@ -1,0 +1,1 @@
+proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}

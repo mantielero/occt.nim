@@ -83,8 +83,9 @@ proc dir*[A,B,C:SomeNumber](x:A,y:B,z:C):DirObj =
 # ------------------
 import ../wrapper/tkernel/standard/[standard_types, standard_handle]
 import ../wrapper/tkg3d/geom/[geom_types,geom_cartesianpoint]
+import ../wrapper/cnew
 
-proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
+#proc cnew*[T](x: T): ptr T {.importcpp: "(new '*0#@)", nodecl.}
 
 type
   HandleCartesianPointObj* = Handle[GeomCartesianPoint]

@@ -1,3 +1,5 @@
+# https://unlimited3d.wordpress.com/2021/03/27/occt-minimal-viewer-setup/
+# https://dev.opencascade.org/doc/overview/html/occt_user_guides__visualization.html
 import occt
 
 proc main =
@@ -10,7 +12,7 @@ proc main =
 
   # Convert: TopoDS_Solid -> Handle[AIS_Shape]
   # https://dev.opencascade.org/content/understanding-basic-example
-  var aShapePrs:Handle[AIS_Shape] = newHandle( cnew newAIS_Shape(solid) )  # Handle(AIS_Shape) 
+  var aShapePrs:Handle[AIS_Shape] = newHandle( cnew newAIS_Shape( solid) )  # Handle(AIS_Shape) 
 
   # Viewer  https://github.com/nim-lang/Nim/issues/4108  https://forum.nim-lang.org/t/8660#56349
   

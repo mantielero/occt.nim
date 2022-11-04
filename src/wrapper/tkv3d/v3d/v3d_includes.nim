@@ -1,7 +1,8 @@
 {.passL:"-lTKMath".}
 {.passC:"-I/usr/include/opencascade/" .}
-{.experimental: "codeReordering".}
+#{.experimental: "codeReordering".}
 
+import v3d_types
 import v3d
 import v3d_ambientlight
 import v3d_badvalue
@@ -36,4 +37,4 @@ import v3d_viewer
 import v3d_viewerpointer
 import v3d_viewpointer
 
-export v3d, v3d_ambientlight, v3d_badvalue, v3d_circulargrid, v3d_coordinate, v3d_directionallight, v3d_imagedumpoptions, v3d_light, v3d_listoflight, v3d_listofview, v3d_parameter, v3d_plane, v3d_positionallight, v3d_positionlight, v3d_rectangulargrid, v3d_spotlight, v3d_stereodumpoptions, v3d_trihedron, v3d_typeofaxe, v3d_typeofbackfacingmodel, v3d_typeoflight, v3d_typeoforientation, v3d_typeofpickcamera, v3d_typeofpicklight, v3d_typeofrepresentation, v3d_typeofshadingmodel, v3d_typeofview, v3d_typeofvisualization, v3d_unmapped, v3d_view, v3d_viewer, v3d_viewerpointer, v3d_viewpointer
+export v3d_types, v3d, v3d_ambientlight, v3d_badvalue, v3d_circulargrid, v3d_coordinate, v3d_directionallight, v3d_imagedumpoptions, v3d_light, v3d_listoflight, v3d_listofview, v3d_parameter, v3d_plane, v3d_positionallight, v3d_positionlight, v3d_rectangulargrid, v3d_spotlight, v3d_stereodumpoptions, v3d_trihedron, v3d_typeofaxe, v3d_typeofbackfacingmodel, v3d_typeoflight, v3d_typeoforientation, v3d_typeofpickcamera, v3d_typeofpicklight, v3d_typeofrepresentation, v3d_typeofshadingmodel, v3d_typeofview, v3d_typeofvisualization, v3d_unmapped, v3d_view, v3d_viewer, v3d_viewerpointer, v3d_viewpointer

@@ -392,6 +392,8 @@ type
                            header: "AIS_InteractiveContext.hxx", bycopy.} = object of StandardTransient 
 
 
+  HandleAIS_InteractiveContext* = Handle[AIS_InteractiveContext]
+
   AIS_ConnectedInteractive* {.importcpp: "AIS_ConnectedInteractive",
                              header: "AIS_ConnectedInteractive.hxx", bycopy.} = object of AIS_InteractiveObject 
 
